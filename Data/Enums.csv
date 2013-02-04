@@ -1,0 +1,386 @@
+﻿nm_enum_data,id_enum_data,enumtype
+metratech.com/accountcreation/AccountType/CSR,581,AccountType
+metratech.com/accountcreation/AccountType/IND,582,AccountType
+metratech.com/accountcreation/AccountType/MCM,583,AccountType
+metratech.com/accountcreation/AccountType/MOM,584,AccountType
+metratech.com/accountcreation/AccountType/SUB,585,AccountType
+metratech.com/accountcreation/AccountType/SYS,586,AccountType
+metratech.com/accountcreation/ActionType/Account,588,ActionType
+metratech.com/accountcreation/ActionType/Both,589,ActionType
+metratech.com/accountcreation/ActionType/Contact,590,ActionType
+metratech.com/GSMReference/AIUR/14kbs,2995,AIUR
+metratech.com/GSMReference/AIUR/19kbs,2996,AIUR
+metratech.com/GSMReference/AIUR/28kbs,2997,AIUR
+metratech.com/GSMReference/AIUR/38kbs,2998,AIUR
+metratech.com/GSMReference/AIUR/38kbs1,3001,AIUR
+metratech.com/GSMReference/AIUR/38kbs2,3002,AIUR
+metratech.com/GSMReference/AIUR/38kbs3,3003,AIUR
+metratech.com/GSMReference/AIUR/38kbs4,3004,AIUR
+metratech.com/GSMReference/AIUR/43kbs,2999,AIUR
+metratech.com/GSMReference/AIUR/57kbs,3000,AIUR
+metratech.com/GSMReference/AIUR/9kbs,2994,AIUR
+metratech.com/GSMReference/BearerServiceCode/AllAltSpeechAsync,3033,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AllAltSpeechSync,3040,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AllAsyncCompound,3059,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AllBearerServices,3005,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AllCircuitAsyncCompound,3057,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AllCircuitSyncCompound,3058,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AllDataCircuitAsyncServices,3006,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AllDataCircuitSyncServices,3014,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AllPacketAccessService,3028,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AllPADAccessService,3020,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AllSpeechThenAsync,3045,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AllSpeechThenSync,3052,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AllSyncCompound,3060,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AltSpeechAsync1200,3035,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AltSpeechAsync120075,3036,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AltSpeechAsync2400,3037,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AltSpeechAsync300,3034,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AltSpeechAsync4800,3038,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AltSpeechAsync9600,3039,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AltSpeechSync1200,3041,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AltSpeechSync2400,3042,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AltSpeechSync4800,3043,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/AltSpeechSync9600,3044,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/DuplexAsynch1200,3008,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/DuplexAsynch120075,3009,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/DuplexAsynch2400,3010,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/DuplexAsynch300,3007,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/DuplexAsynch4800,3011,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/DuplexAsynch9600,3012,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/DuplexAsyncPAD1200,3022,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/DuplexAsyncPAD120075,3023,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/DuplexAsyncPAD2400,3024,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/DuplexAsyncPAD300,3021,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/DuplexAsyncPAD4800,3025,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/DuplexAsyncPAD9600,3026,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/DuplexSynch1200,3015,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/DuplexSynch2400,3016,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/DuplexSynch4800,3017,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/DuplexSynch9600,3018,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/DuplexSyncPAD2400,3029,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/DuplexSyncPAD4800,3030,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/DuplexSyncPAD9600,3031,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/GeneralDataAsynch,3013,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/GeneralDataSynch,3019,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/GeneralPADAccessService1,3027,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/GeneralPADAccessService2,3032,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/SpeechThenAsync1200,3047,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/SpeechThenAsync120075,3048,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/SpeechThenAsync2400,3049,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/SpeechThenAsync300,3046,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/SpeechThenAsync4800,3050,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/SpeechThenAsync9600,3051,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/SpeechThenSync1200,3053,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/SpeechThenSync2400,3054,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/SpeechThenSync4800,3055,BearerServiceCode
+metratech.com/GSMReference/BearerServiceCode/SpeechThenSync9600,3056,BearerServiceCode
+metratech.com/calendar/CalendarCode/Holiday,1042,CalendarCode
+metratech.com/calendar/CalendarCode/Off-Peak,1043,CalendarCode
+metratech.com/calendar/CalendarCode/Peak,1044,CalendarCode
+metratech.com/calendar/CalendarCode/Weekend,1045,CalendarCode
+metratech.com/addCharge/ChargeType/Other,735,ChargeType
+metratech.com/GSMReference/ChargeType/AirtimeCharge,3074,ChargeType
+metratech.com/GSMReference/ChargeType/AirtimeChargeRatePeriod,3082,ChargeType
+metratech.com/GSMReference/ChargeType/DirectoryAssistance,3076,ChargeType
+metratech.com/GSMReference/ChargeType/DirectoryAssistanceCallCompletion,3077,ChargeType
+metratech.com/GSMReference/ChargeType/TollCharge,3075,ChargeType
+metratech.com/GSMReference/ChargeType/TollChargeRatePeriod,3083,ChargeType
+metratech.com/accountcreation/AccountStatus/Active,572,AccountStatus
+metratech.com/accountcreation/AccountStatus/Archived,573,AccountStatus
+metratech.com/accountcreation/AccountStatus/Closed,574,AccountStatus
+metratech.com/accountcreation/AccountStatus/PendingActiveApproval,575,AccountStatus
+metratech.com/accountcreation/AccountStatus/PendingFinalBill,576,AccountStatus
+metratech.com/accountcreation/AccountStatus/Suspended,577,AccountStatus
+metratech.com/NonStandardCharge/AdditionalCode/Other,1297,AdditionalCode
+metratech.com/GSM/CallType/CallForward,2932,CALLTYPE
+metratech.com/GSM/CallType/CallReturn,2933,CALLTYPE
+metratech.com/GSM/CallType/Mobile,2930,CALLTYPE
+metratech.com/GSM/CallType/NationalRoaming,2931,CALLTYPE
+metratech.com/GSMReference/CallType/MobileOriginated,3071,CALLTYPE
+metratech.com/GSMReference/CallType/MobileTerminated,3072,CALLTYPE
+metratech.com/TEOBilling/CallType/International,4257,CALLTYPE
+metratech.com/TEOBilling/CallType/Local,4259,CALLTYPE
+metratech.com/TEOBilling/CallType/National,4256,CALLTYPE
+metratech.com/TEOBilling/CallType/ToMobile,4258,CALLTYPE
+metratech.com/accountcreation/InvoiceMethod/Detailed,621,InvoiceMethod
+metratech.com/accountcreation/InvoiceMethod/None,622,InvoiceMethod
+metratech.com/accountcreation/InvoiceMethod/Paper Invoice,623,InvoiceMethod
+metratech.com/accountcreation/InvoiceMethod/Standard,624,InvoiceMethod
+metratech.com/GSM/RoamingDirection/15,3345,RoamingDirection
+metratech.com/GSM/RoamingDirection/16,3346,RoamingDirection
+metratech.com/accountcreation/StatusReason/AccountDeactivated,660,StatusReason
+metratech.com/accountcreation/StatusReason/AccountTerminated,661,StatusReason
+metratech.com/accountcreation/StatusReason/None,662,StatusReason
+metratech.com/accountcreation/StatusReason/Other,663,StatusReason
+metratech.com/accountcreation/StatusReason/PendingApproval,664,StatusReason
+metratech.com/accountcreation/StatusReason/PendingPaymentSetUp,665,StatusReason
+metratech.com/GSM/TeliaMobileCallType/OtherMobile,3442,TeliaMobileCallType
+metratech.com/GSM/TeliaMobileCallType/TeliaMobile,3443,TeliaMobileCallType
+metratech.com/GSM/TeliaMobileCallType/ToFax,2955,TeliaMobileCallType
+metratech.com/GSM/TeliaMobileCallType/ToFixedLine,2954,TeliaMobileCallType
+metratech.com/GSM/TeliaMobileCallType/ToMobile,2953,TeliaMobileCallType
+metratech.com/GSM/TeliaMobileCallType/ToVoicemail,2956,TeliaMobileCallType
+metratech.com/GSM/TeliaMobileCallType/VideoCall,2957,TeliaMobileCallType
+Global/TimeZoneID/(GMT 03:00) Baghdad,486,TimeZoneID
+Global/TimeZoneID/(GMT) Greenwich Mean Time; Dublin, Edinburgh, London, Lisbon,487,TimeZoneID
+Global/TimeZoneID/(GMT) Monrovia, Casablanca,488,TimeZoneID
+Global/TimeZoneID/(GMT+01:00) Berlin, Stockholm, Rome, Bern, Brussels Vienna,489,TimeZoneID
+Global/TimeZoneID/(GMT+01:00) Paris, Madrid, Amsterdam,490,TimeZoneID
+Global/TimeZoneID/(GMT+01:00) Prague, Warsaw, Budapest,491,TimeZoneID
+Global/TimeZoneID/(GMT+02:00) Athens, Helsinki, Istanbul,492,TimeZoneID
+Global/TimeZoneID/(GMT+02:00) Cairo,493,TimeZoneID
+Global/TimeZoneID/(GMT+02:00) Harare, Pretoria,494,TimeZoneID
+Global/TimeZoneID/(GMT+02:00) Israel,495,TimeZoneID
+Global/TimeZoneID/(GMT+03:00) Baghdad,496,TimeZoneID
+Global/TimeZoneID/(GMT+03:00) Kuwait, Nairobi, Riyadh,497,TimeZoneID
+Global/TimeZoneID/(GMT+03:00) Kuwait, Riyadh, Nairobi,498,TimeZoneID
+Global/TimeZoneID/(GMT+03:00) Moscow, St. Petersburg, Kazan, Volgograd,499,TimeZoneID
+Global/TimeZoneID/(GMT+03:30) Tehran,500,TimeZoneID
+Global/TimeZoneID/(GMT+04:00) Abu Dhabi, Muscat, Tbilisi,501,TimeZoneID
+Global/TimeZoneID/(GMT+04:30) Kabul,502,TimeZoneID
+Global/TimeZoneID/(GMT+05:00) Islamabad, Karachi, Ekaterinburg, Tashkent,503,TimeZoneID
+Global/TimeZoneID/(GMT+05:30) Bombay, Calcutta, Madras, New Delhi, Colombo,504,TimeZoneID
+Global/TimeZoneID/(GMT+06:00) Almaty, Dhaka,505,TimeZoneID
+Global/TimeZoneID/(GMT+07:00) Bangkok, Jakarta, Hanoi,506,TimeZoneID
+Global/TimeZoneID/(GMT+08:00) Beijing, Chongqing, Urumqi,507,TimeZoneID
+Global/TimeZoneID/(GMT+08:00) Hong Kong, Perth, Singapore, Taipei,508,TimeZoneID
+Global/TimeZoneID/(GMT+09:00) Tokyo, Osaka, Sapporo, Seoul, Yakutsk,509,TimeZoneID
+Global/TimeZoneID/(GMT+09:30) Adelaide,510,TimeZoneID
+Global/TimeZoneID/(GMT+09:30) Darwin,511,TimeZoneID
+Global/TimeZoneID/(GMT+10:00) Brisbane,512,TimeZoneID
+Global/TimeZoneID/(GMT+10:00) Guam, Port Moresby, Vladivostok,513,TimeZoneID
+Global/TimeZoneID/(GMT+10:00) Hobart,514,TimeZoneID
+Global/TimeZoneID/(GMT+10:00) Sydney, Melbourne,515,TimeZoneID
+Global/TimeZoneID/(GMT+11:00) Magadan, Solomon Is., New Caledonia,516,TimeZoneID
+Global/TimeZoneID/(GMT+12:00) Fiji, Kamchatka, Marshall Is.,517,TimeZoneID
+Global/TimeZoneID/(GMT+12:00) Wellington, Auckland,518,TimeZoneID
+Global/TimeZoneID/(GMT-01:00) Azores, Cape Verde Is.,519,TimeZoneID
+Global/TimeZoneID/(GMT-03:00) Buenos Aires, Georgetown,520,TimeZoneID
+Global/TimeZoneID/(GMT-03:30) Newfoundland,521,TimeZoneID
+Global/TimeZoneID/(GMT-04:00) Atlantic Time (Canada),522,TimeZoneID
+Global/TimeZoneID/(GMT-04:00) Caracas, La Paz,523,TimeZoneID
+Global/TimeZoneID/(GMT-05:00) Bogota, Lima,524,TimeZoneID
+Global/TimeZoneID/(GMT-05:00) Eastern Time (US & Canada),525,TimeZoneID
+Global/TimeZoneID/(GMT-05:00) Indiana (East),526,TimeZoneID
+Global/TimeZoneID/(GMT-06:00) Central Time (US & Canada),527,TimeZoneID
+Global/TimeZoneID/(GMT-06:00) Mexico City, Tegucigalpa,528,TimeZoneID
+Global/TimeZoneID/(GMT-06:00) Saskatchewan,529,TimeZoneID
+Global/TimeZoneID/(GMT-07:00) Arizona,530,TimeZoneID
+Global/TimeZoneID/(GMT-07:00) Mountain Time (US & Canada),531,TimeZoneID
+Global/TimeZoneID/(GMT-08:00) Pacific Time (US & Canada), Tijuana,532,TimeZoneID
+Global/TimeZoneID/(GMT-09:00) Alaska,533,TimeZoneID
+Global/TimeZoneID/(GMT-10:00) Hawaii,534,TimeZoneID
+Global/TimeZoneID/(GMT-11:00) Midway Island, Samoa,535,TimeZoneID
+Global/TimeZoneID/(GMT-12:00) Eniwetok, Kwajalein,536,TimeZoneID
+metratech.com/billingcycle/UsageCycleType/Annually,1019,UsageCycleType
+metratech.com/billingcycle/UsageCycleType/Bi-weekly,1020,UsageCycleType
+metratech.com/billingcycle/UsageCycleType/Daily,1021,UsageCycleType
+metratech.com/billingcycle/UsageCycleType/Monthly,1022,UsageCycleType
+metratech.com/billingcycle/UsageCycleType/On-demand,1023,UsageCycleType
+metratech.com/billingcycle/UsageCycleType/Quarterly,1024,UsageCycleType
+metratech.com/billingcycle/UsageCycleType/SemiAnnually,1027,UsageCycleType
+metratech.com/billingcycle/UsageCycleType/Semi-Annually,1025,UsageCycleType
+metratech.com/billingcycle/UsageCycleType/Semi-monthly,1026,UsageCycleType
+metratech.com/billingcycle/UsageCycleType/Weekly,1028,UsageCycleType
+metratech.com/GSM/UsageType/10001,2848,UsageType
+metratech.com/GSM/UsageType/10002,2849,UsageType
+metratech.com/GSM/UsageType/10003,2850,UsageType
+metratech.com/GSM/UsageType/10004,2851,UsageType
+metratech.com/GSM/UsageType/10005,2852,UsageType
+metratech.com/GSM/UsageType/10006,2853,UsageType
+metratech.com/GSM/UsageType/10007,2854,UsageType
+metratech.com/GSM/UsageType/11001,2855,UsageType
+metratech.com/GSM/UsageType/11002,2856,UsageType
+metratech.com/GSM/UsageType/11003,2857,UsageType
+metratech.com/GSM/UsageType/11004,2858,UsageType
+metratech.com/GSM/UsageType/11005,2859,UsageType
+metratech.com/GSM/UsageType/11006,2860,UsageType
+metratech.com/GSM/UsageType/11007,2861,UsageType
+metratech.com/GSM/UsageType/12001,2862,UsageType
+metratech.com/GSM/UsageType/12002,2863,UsageType
+metratech.com/GSM/UsageType/12003,2864,UsageType
+metratech.com/GSM/UsageType/12004,2865,UsageType
+metratech.com/GSM/UsageType/12005,2866,UsageType
+metratech.com/GSM/UsageType/12006,2867,UsageType
+metratech.com/GSM/UsageType/12007,2868,UsageType
+metratech.com/GSM/UsageType/13001,2869,UsageType
+metratech.com/GSM/UsageType/14001,2870,UsageType
+metratech.com/GSM/UsageType/14002,2871,UsageType
+metratech.com/GSM/UsageType/14003,2872,UsageType
+metratech.com/GSM/UsageType/14004,2873,UsageType
+metratech.com/GSM/UsageType/15001,2874,UsageType
+metratech.com/GSM/UsageType/16001,2875,UsageType
+metratech.com/GSM/UsageType/16002,2876,UsageType
+metratech.com/GSM/UsageType/17001,2877,UsageType
+metratech.com/GSM/UsageType/17002,2878,UsageType
+metratech.com/GSM/UsageType/17003,2879,UsageType
+metratech.com/GSM/UsageType/17004,2880,UsageType
+metratech.com/GSM/UsageType/20001,2881,UsageType
+metratech.com/GSM/UsageType/20002,2882,UsageType
+metratech.com/GSM/UsageType/20003,2883,UsageType
+metratech.com/GSM/UsageType/20004,2884,UsageType
+metratech.com/GSM/UsageType/20006,2885,UsageType
+metratech.com/GSM/UsageType/21001,2886,UsageType
+metratech.com/GSM/UsageType/21002,2887,UsageType
+metratech.com/GSM/UsageType/21003,2888,UsageType
+metratech.com/GSM/UsageType/21004,2889,UsageType
+metratech.com/GSM/UsageType/21006,2890,UsageType
+metratech.com/GSM/UsageType/22001,2891,UsageType
+metratech.com/GSM/UsageType/23001,2892,UsageType
+metratech.com/GSM/UsageType/23002,2893,UsageType
+metratech.com/GSM/UsageType/23003,2894,UsageType
+metratech.com/GSM/UsageType/24001,2895,UsageType
+metratech.com/GSM/UsageType/24002,2896,UsageType
+metratech.com/GSM/UsageType/30001,2897,UsageType
+metratech.com/GSM/UsageType/30002,2898,UsageType
+metratech.com/GSM/UsageType/30003,2899,UsageType
+metratech.com/GSM/UsageType/30004,2900,UsageType
+metratech.com/GSM/UsageType/30006,2901,UsageType
+metratech.com/GSM/UsageType/31001,2902,UsageType
+metratech.com/GSM/UsageType/31002,2903,UsageType
+metratech.com/GSM/UsageType/31003,2904,UsageType
+metratech.com/GSM/UsageType/31004,2905,UsageType
+metratech.com/GSM/UsageType/31006,2906,UsageType
+metratech.com/GSM/UsageType/32001,2907,UsageType
+metratech.com/GSM/UsageType/33001,2908,UsageType
+metratech.com/GSM/UsageType/33002,2909,UsageType
+metratech.com/GSM/UsageType/33003,2910,UsageType
+metratech.com/GSM/UsageType/34001,2911,UsageType
+metratech.com/GSM/UsageType/34002,2912,UsageType
+metratech.com/GSM/UsageType/40001,2913,UsageType
+metratech.com/GSM/UsageType/40002,2914,UsageType
+metratech.com/GSM/UsageType/40003,2915,UsageType
+metratech.com/GSMReference/ChargeType/TotalCharge,3073,ChargeType
+metratech.com/GSMReference/ChargeType/TotalChargeRatePeriod,3081,ChargeType
+metratech.com/GSMReference/ChargeType/VoiceMailDeposit,3078,ChargeType
+metratech.com/GSMReference/ChargeType/VoiceMailRetrieve,3079,ChargeType
+metratech.com/GSMReference/ChargeType/VPMNSurcharge,3080,ChargeType
+metratech.com/accountcreation/ContactType/Bill-To,605,ContactType
+metratech.com/accountcreation/ContactType/None,606,ContactType
+metratech.com/accountcreation/ContactType/Ship-To,607,ContactType
+metratech.com/mam/DayOfWeek/Friday,1283,DayOfWeek
+metratech.com/mam/DayOfWeek/Monday,1284,DayOfWeek
+metratech.com/mam/DayOfWeek/Saturday,1285,DayOfWeek
+metratech.com/mam/DayOfWeek/Sunday,1286,DayOfWeek
+metratech.com/mam/DayOfWeek/Thursday,1287,DayOfWeek
+metratech.com/mam/DayOfWeek/Tuesday,1288,DayOfWeek
+metratech.com/mam/DayOfWeek/Wednesday,1289,DayOfWeek
+metratech.com/GSMReference/FNUR/14kbs,3137,FNUR
+metratech.com/GSMReference/FNUR/19kbs,3138,FNUR
+metratech.com/GSMReference/FNUR/28kbs,3139,FNUR
+metratech.com/GSMReference/FNUR/38kbs,3140,FNUR
+metratech.com/GSMReference/FNUR/48kbs,3141,FNUR
+metratech.com/GSMReference/FNUR/56kbs,3142,FNUR
+metratech.com/GSMReference/FNUR/64kbs,3143,FNUR
+metratech.com/GSMReference/FNUR/9kbs,3136,FNUR
+metratech.com/accountcreation/LoginApplication/CSR,627,LoginApplication
+metratech.com/accountcreation/LoginApplication/MCM,628,LoginApplication
+metratech.com/accountcreation/LoginApplication/MOM,629,LoginApplication
+metratech.com/accountcreation/operation/Add,633,Operation
+metratech.com/accountcreation/operation/delete,634,Operation
+metratech.com/accountcreation/operation/Update,635,Operation
+metratech.com/Operation/Add,1306,Operation
+metratech.com/Operation/Delete,1307,Operation
+metratech.com/Operation/Update,1308,Operation
+metratech.com/ServiceEndpoint/Operation/AddIDMapping,1818,Operation
+metratech.com/ServiceEndpoint/Operation/Connect,1819,Operation
+metratech.com/ServiceEndpoint/Operation/Create,1820,Operation
+metratech.com/ServiceEndpoint/Operation/CreateAndConnect,1821,Operation
+metratech.com/ServiceEndpoint/Operation/Disconnect,1822,Operation
+metratech.com/ServiceEndpoint/Operation/DisconnectAndEnd,1823,Operation
+metratech.com/ServiceEndpoint/Operation/Move,1824,Operation
+metratech.com/ServiceEndpoint/Operation/RemoveIDMapping,1825,Operation
+metratech.com/ServiceEndpoint/Operation/UpdateEffectiveDate,1826,Operation
+metratech.com/ServiceEndpoint/Operation/UpdateExtendedProperties,1827,Operation
+metratech.com/ServiceEndpoint/Operation/UpdateIDMapping,1828,Operation
+metratech.com/accountcreation/PaymentMethod/CashOrCheck,643,PaymentMethod
+metratech.com/accountcreation/PaymentMethod/CreditOrACH,644,PaymentMethod
+metratech.com/balanceadjustments/PaymentMethod/ACH,998,PaymentMethod
+metratech.com/balanceadjustments/PaymentMethod/Cash,999,PaymentMethod
+metratech.com/balanceadjustments/PaymentMethod/Check,1000,PaymentMethod
+metratech.com/balanceadjustments/PaymentMethod/CreditCard,1001,PaymentMethod
+metratech.com/paymentserver/PaymentMethod/ACH,1350,PaymentMethod
+metratech.com/paymentserver/PaymentMethod/Credit Card,1351,PaymentMethod
+metratech.com/paymentserver/PaymentMethod/Purchase Card,1352,PaymentMethod
+metratech.com/accountcreation/SecurityQuestion/FirstSchool,650,SecurityQuestion
+metratech.com/accountcreation/SecurityQuestion/MothersMaidenName,651,SecurityQuestion
+metratech.com/accountcreation/SecurityQuestion/None,652,SecurityQuestion
+metratech.com/accountcreation/SecurityQuestion/PIN,653,SecurityQuestion
+metratech.com/accountcreation/SecurityQuestion/SSN,654,SecurityQuestion
+BusinessEntity/Core.BillMessages.BillMessageAccount/StartDate/Label,2028,StartDate
+metratech.com/tariffs/TariffID/ConferenceExpress,1901,TariffID
+metratech.com/tariffs/TariffID/Default,1902,TariffID
+metratech.com/GSMReference/TeleServiceCode/AdvancedMHSAccess,3246,TeleServiceCode
+metratech.com/GSMReference/TeleServiceCode/AllDataTeleServices,3256,TeleServiceCode
+metratech.com/GSMReference/TeleServiceCode/AllFaxServices,3252,TeleServiceCode
+metratech.com/GSMReference/TeleServiceCode/AllSMSServices,3243,TeleServiceCode
+metratech.com/GSMReference/TeleServiceCode/AllTeleServices,3239,TeleServiceCode
+metratech.com/GSMReference/TeleServiceCode/AllTeleservicesExceptSMS,3257,TeleServiceCode
+metratech.com/GSMReference/TeleServiceCode/AutomaticFaxGroup3,3254,TeleServiceCode
+metratech.com/GSMReference/TeleServiceCode/AutomaticFaxGroup4,3255,TeleServiceCode
+metratech.com/GSMReference/TeleServiceCode/EmergencyCalls,3242,TeleServiceCode
+metratech.com/GSMReference/TeleServiceCode/FaxGroup3,3253,TeleServiceCode
+metratech.com/GSMReference/TeleServiceCode/ShortMessageMO,3245,TeleServiceCode
+metratech.com/GSMReference/TeleServiceCode/ShortMessageMT,3244,TeleServiceCode
+metratech.com/GSMReference/TeleServiceCode/Speech,3240,TeleServiceCode
+metratech.com/GSMReference/TeleServiceCode/Telephony,3241,TeleServiceCode
+metratech.com/GSMReference/TeleServiceCode/TeletexCircuitSwitch,3250,TeleServiceCode
+metratech.com/GSMReference/TeleServiceCode/TeletexPacketSwitch,3251,TeleServiceCode
+metratech.com/GSMReference/TeleServiceCode/VideotexAccessProfile,3247,TeleServiceCode
+metratech.com/GSMReference/TeleServiceCode/VideotexAccessProfile2,3248,TeleServiceCode
+metratech.com/GSMReference/TeleServiceCode/VideotexAccessProfile3,3249,TeleServiceCode
+metratech.com/GSM/UsageClass/10,2825,UsageClass
+metratech.com/GSM/UsageClass/11,2826,UsageClass
+metratech.com/GSM/UsageClass/12,2827,UsageClass
+metratech.com/GSM/UsageClass/13,2828,UsageClass
+metratech.com/GSM/UsageClass/14,2829,UsageClass
+metratech.com/GSM/UsageClass/15,2830,UsageClass
+metratech.com/GSM/UsageClass/16,2831,UsageClass
+metratech.com/GSM/UsageClass/17,2832,UsageClass
+metratech.com/GSM/UsageClass/20,2833,UsageClass
+metratech.com/GSM/UsageClass/21,2834,UsageClass
+metratech.com/GSM/UsageClass/22,2835,UsageClass
+metratech.com/GSM/UsageClass/23,2836,UsageClass
+metratech.com/GSM/UsageClass/24,2837,UsageClass
+metratech.com/GSM/UsageClass/30,2838,UsageClass
+metratech.com/GSM/UsageClass/31,2839,UsageClass
+metratech.com/GSM/UsageClass/32,2840,UsageClass
+metratech.com/GSM/UsageClass/33,2841,UsageClass
+metratech.com/GSM/UsageClass/34,2842,UsageClass
+metratech.com/GSM/UsageClass/40,2843,UsageClass
+metratech.com/GSM/UsageClass/41,2844,UsageClass
+metratech.com/GSM/UsageClass/42,2845,UsageClass
+metratech.com/GSM/UsageClass/43,2846,UsageClass
+metratech.com/GSM/UsageClass/50,2847,UsageClass
+metratech.com/TEOBilling/UsageClass/Event,3308,UsageClass
+metratech.com/TEOBilling/UsageClass/KiloBypes,3774,UsageClass
+metratech.com/TEOBilling/UsageClass/KiloBytes,3307,UsageClass
+metratech.com/TEOBilling/UsageClass/Seconds,3306,UsageClass
+VideoOnDemand/VATCategory/Service,3279,VATCategory
+VideoOnDemand/VATCategory/Standard,3278,VATCategory
+metratech.com/GSM/RecordType/Data,2808,RecordType
+metratech.com/GSM/RecordType/FAX,3436,RecordType
+metratech.com/GSM/RecordType/MMS,2807,RecordType
+metratech.com/GSM/RecordType/SMS,2806,RecordType
+metratech.com/GSM/RecordType/VAS,2809,RecordType
+metratech.com/GSM/RecordType/Voice,2805,RecordType
+metratech.com/GSM/UsageType/41001,2916,UsageType
+metratech.com/GSM/UsageType/42001,2917,UsageType
+metratech.com/GSM/UsageType/42002,2918,UsageType
+metratech.com/GSM/UsageType/43001,2919,UsageType
+metratech.com/GSM/UsageType/43002,2920,UsageType
+metratech.com/GSM/UsageType/50001,2921,UsageType
+metratech.com/GSM/UsageType/60001,2922,UsageType
+metratech.com/GSM/UsageType/60002,2923,UsageType
+metratech.com/GSMReference/MobileStationClassmark/ClassMark2,3166,MobileStationClassmark
+metratech.com/GSMReference/MobileStationClassmark/ClassMark3,3167,MobileStationClassmark
+metratech.com/GSMReference/MobileStationClassmark/ClassMark4,3168,MobileStationClassmark
+metratech.com/GSMReference/MobileStationClassmark/ClassMark5,3169,MobileStationClassmark
+metratech.com/balanceadjustments/ReasonCode/1,1002,ReasonCode
+metratech.com/balanceadjustments/ReasonCode/2,1003,ReasonCode
+metratech.com/balanceadjustments/ReasonCode/3,1004,ReasonCode
+metratech.com/GSM/ReasonCode/CompatibilityIssue,2951,ReasonCode
+metratech.com/GSM/ReasonCode/Damaged,2949,ReasonCode
+metratech.com/GSM/ReasonCode/SIMfraud,2952,ReasonCode
+metratech.com/GSM/ReasonCode/Upgrade,2950,ReasonCode

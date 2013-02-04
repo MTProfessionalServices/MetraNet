@@ -1,0 +1,24 @@
+I would like all of these queries in a SqlCore\Queries\ExpessionEngine Directory
+
+GetEnums
+*EnumSpace
+*EnumType
+*Value
+*Id
+
+GetXqgExpressions
+*Type  (AQG or UQG)
+*Name
+*Description
+*Expression
+
+GetEntities()
+*EntityType  (ProductView, AccountType, BME)
+*EntityName
+*EntityDescription
+*PropertyName
+*PropertyDescription
+*PropertyType (integer32...)
+*EnumSpace
+*EnumType
+*PropertyDescription

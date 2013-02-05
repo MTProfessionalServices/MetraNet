@@ -30,6 +30,8 @@ namespace PropertyGui
             Context = context;
             ctlExpressionExplorer.Init(Context);
             ctlExpression.Init(Context);
+
+            Text = string.Format("Expression Engine ({0})", Context.Expression.Type.ToString());
         }
 
         #endregion
@@ -61,11 +63,6 @@ namespace PropertyGui
             dialog.ShowDialog();
         }
         #endregion
-
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
     }
 }

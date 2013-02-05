@@ -7,15 +7,15 @@ using System.Data;
 
 namespace MetraTech.ExpressionEngine
 {
+    //this is a total mess that loads data into the GlobalContext.... needs to replaced with clean data loading
     public static class _DemoLoader
     {
         public static string DirPath = @"C:\ExpressionEngine";
         public static Context GlobalContext;
 
-        #region Constructor
-        static _DemoLoader()
+        public static void LoadGlobalContext()
         {
-
+            GlobalContext = new Context();
             GlobalContext.AddFunction("Min", "Math", "Returns the minumum value");
             GlobalContext.AddFunction("Max", "Math", "Returns the maximum value");
             var func = GlobalContext.AddFunction("DateAdd", "DateTime", "Adds the spcified unit of time");
@@ -36,9 +36,8 @@ namespace MetraTech.ExpressionEngine
 
             LoadEnums();
 
-            //LoadXqgs("");
+            LoadXqgs(GlobalContext);
         }
-        #endregion
 
         public static void LoadEnums()
         {

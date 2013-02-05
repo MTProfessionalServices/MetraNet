@@ -168,7 +168,6 @@
             this.treExplorer.ShowNodeToolTips = true;
             this.treExplorer.Size = new System.Drawing.Size(301, 283);
             this.treExplorer.TabIndex = 5;
-            this.treExplorer.ViewMode = PropertyGui.ctlExpressionTree.ViewModeType.Properties;
             this.treExplorer.DoubleClick += new System.EventHandler(this.treExplorer_DoubleClick);
             // 
             // mnuEnumValue

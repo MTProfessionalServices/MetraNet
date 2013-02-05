@@ -41,20 +41,20 @@ namespace PropertyGui
             //Init the Mode combo
             cboMode.BeginUpdate();
             cboMode.Items.Clear();
-            foreach (var item in Enum.GetValues(typeof(ctlExpressionTree.ViewModeType)))
+            foreach (var viewMode in MvcAbstraction.GetRelevantViewModes(Context.Expression))
             {
-                cboMode.Items.Add(item);
+                cboMode.Items.Add(viewMode);
             }
             cboMode.Sorted = true;
             cboMode.EndUpdate();
-            cboMode.SelectedItem = ctlExpressionTree.ViewModeType.Entities;
+            cboMode.SelectedItem = MvcAbstraction.ViewModeType.Entities;
 
             //Init the Entity Type Filter
             cboEntityTypeFilter.BeginUpdate();
             cboEntityTypeFilter.Items.Clear();
             cboEntityTypeFilter.DropDownStyle = ComboBoxStyle.DropDownList;
             //cboEntityTypeFilter.DisplayMember = "FilterString";
-            foreach (var type in Enum.GetValues(typeof(Entity.EntityTypeEnum)))
+            foreach (var type in MvcAbstraction.GetRelevantEntityTypes(Context.Expression))// Enum.GetValues(typeof(Entity.EntityTypeEnum)))
             {
                 cboEntityTypeFilter.Items.Add(type);
             }
@@ -68,9 +68,10 @@ namespace PropertyGui
             cboPropertyTypeFilter.Items.Clear();
             cboPropertyTypeFilter.DropDownStyle = ComboBoxStyle.DropDownList;
             cboPropertyTypeFilter.DisplayMember = "FilterString";
-            foreach (var type in BaseTypeInfo.LeafTypeFilters)
+            foreach (var type in DataTypeInfo.AllTypes)
             {
-                cboPropertyTypeFilter.Items.Add(new DataTypeInfo(type));
+                if (!type.IsEntity && type.BaseType != BaseType.Unknown)
+                    cboPropertyTypeFilter.Items.Add(type.Copy());
             }
             cboPropertyTypeFilter.Sorted = true;
             cboPropertyTypeFilter.EndUpdate();
@@ -104,7 +105,7 @@ namespace PropertyGui
             if (IgnoreChanges)
                 return;
 
-            treExplorer.ViewMode = (ctlExpressionTree.ViewModeType)cboMode.SelectedItem;
+            treExplorer.ViewMode = (MvcAbstraction.ViewModeType)cboMode.SelectedItem;
             treExplorer.EntityTypeFilter = (Entity.EntityTypeEnum)cboEntityTypeFilter.SelectedItem;
             treExplorer.PropertyTypeFilter = (DataTypeInfo)cboPropertyTypeFilter.SelectedItem;
             treExplorer.FunctionFilter = cboCategory.Text;
@@ -116,11 +117,11 @@ namespace PropertyGui
             Control control;
             switch (treExplorer.ViewMode)
             {
-                case ctlExpressionTree.ViewModeType.Entities:
-                case ctlExpressionTree.ViewModeType.Properties:
+                case MvcAbstraction.ViewModeType.Entities:
+                case MvcAbstraction.ViewModeType.Properties:
                     control = panGeneral;
                     break;
-                case ctlExpressionTree.ViewModeType.Functions:
+                case MvcAbstraction.ViewModeType.Functions:
                     control = panFunction;
                     break;   
                 default:

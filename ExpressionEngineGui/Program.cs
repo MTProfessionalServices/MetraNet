@@ -15,7 +15,7 @@ namespace PropertyGui
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmExpressionEngine());
+            Application.Run(new frmMain());
         }
     }
 }

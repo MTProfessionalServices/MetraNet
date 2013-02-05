@@ -54,6 +54,8 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public string Name { get; set; }
 
+        public string NameLocalized;
+
         /// <summary>
         /// Rich data type class
         /// </summary>

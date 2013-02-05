@@ -42,16 +42,19 @@
   <ItemGroup>
     <Compile Include="AQG.cs" />
     <Compile Include="BaseType.cs" />
-    <Compile Include="BaseTypeInfo.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Currency.cs" />
     <Compile Include="Entity.cs" />
-    <Compile Include="EntityTypeInfo.cs" />
+    <Compile Include="EntityInfo.cs" />
+    <Compile Include="EntityTypeInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="EnumHelper.cs" />
     <Compile Include="EnumSpace.cs" />
     <Compile Include="EnumType.cs" />
     <Compile Include="EnumValue.cs" />
     <Compile Include="Expression.cs" />
+    <Compile Include="ExpressionInfo.cs" />
     <Compile Include="Function.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="IExpressionEngineTreeNode.cs" />

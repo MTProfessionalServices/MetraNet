@@ -16,7 +16,6 @@ namespace PropertyGui
         #region Constructor
         public ctlExpression()
         {
-            Init(Context);
         }
         #endregion
 
@@ -29,6 +28,7 @@ namespace PropertyGui
             Multiline = true;
             WordWrap = false;
             ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            Text = Context.Expression.Content;
         }
 
         public void HandleTreeEvent(IExpressionEngineTreeNode item)

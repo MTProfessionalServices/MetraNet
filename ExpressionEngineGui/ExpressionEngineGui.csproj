@@ -67,6 +67,12 @@
     <Compile Include="ctlValueBinder.Designer.cs">
       <DependentUpon>ctlValueBinder.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExplorer.Designer.cs">
+      <DependentUpon>frmExplorer.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmExpressionEngine.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,7 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="MvcAbstraction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ctlExpressionExplorer.resx">
@@ -98,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ctlValueBinder.resx">
       <DependentUpon>ctlValueBinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExplorer.resx">
+      <DependentUpon>frmExplorer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmExpressionEngine.resx">
       <DependentUpon>frmExpressionEngine.cs</DependentUpon>

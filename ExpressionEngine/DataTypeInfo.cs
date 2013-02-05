@@ -26,6 +26,8 @@ namespace MetraTech.ExpressionEngine
 
         #region Static properties
 
+        public static readonly DataTypeInfo[] AllTypes;
+
         /// <summary>
         /// BaseTypes supported by MSIX entities (e.g., Service Definitoins, ProductViews, etc.).
         /// Do not make changes to the objects in this array. Use CopyFrom to make a copy and make changes to the copy.
@@ -110,8 +112,18 @@ namespace MetraTech.ExpressionEngine
         #region Static Constructor
         static DataTypeInfo()
         {
+            var baseTypes = Enum.GetValues(typeof(BaseType));
+            AllTypes = new DataTypeInfo[baseTypes.Length];
+            //for (int index=0; index < baseTypes.Length; index++)
+
+            int index = 0;
+            foreach (var value in baseTypes)
+            {
+                AllTypes[index++] = new DataTypeInfo((BaseType)value);
+            }
+
             MsixBaseTypes = new BaseType[] 
-          {
+            {
               BaseType.Boolean, 
               BaseType.Decimal,
               BaseType.Double,
@@ -249,7 +261,7 @@ namespace MetraTech.ExpressionEngine
             return new DataTypeInfo(GetDataTypeEnum(theType));
         }
 
-        
+
         #endregion
 
         #region To Methods
@@ -324,6 +336,8 @@ namespace MetraTech.ExpressionEngine
                     return "Charge";
                 case BaseType.Numeric:
                     return "Numeric";
+                case BaseType.Entity:
+                    return "Entity";
                 default:
                     throw new ApplicationException("Unhandled data type: " + BaseType.ToString());
             }
@@ -408,7 +422,7 @@ namespace MetraTech.ExpressionEngine
             throw new ApplicationException("Not implemented yet");
         }
 
-        
+
         public string ToCSharpString()
         {
             //Tried using ToCSharpType and using it's Name or ToString() but that didn't work.
@@ -470,6 +484,9 @@ namespace MetraTech.ExpressionEngine
             }
         }
 
+        /// <summary>
+        /// Used to force special data types to the top of combo boxes etc.
+        /// </summary>
         public string FilterString { get { return ToFilterString(); } }
         public string ToFilterString()
         {
@@ -755,6 +772,8 @@ namespace MetraTech.ExpressionEngine
             }
         }
 
+        public bool IsEntity { get { return BaseType == ExpressionEngine.BaseType.Entity; } }
+
         /// <summary>
         /// Determines if the type is numeric
         /// </summary>
@@ -787,7 +806,8 @@ namespace MetraTech.ExpressionEngine
         /// The level to which two DataTypeInfos match. Note that order is important
         /// because the higher number indicates a better match
         /// </summary>
-        public enum MatchType { 
+        public enum MatchType
+        {
             None = 0,                 //For example, String and Integer32
             BaseTypeWithDiff = 1,     //The BaseTypes match but there is some difference (i.e., two enums with differnt enumtypes)
             Convertable = 2,          //The base types are compatiable, but a UoM or Curency conversion must be performed. Only applies to numerics. 
@@ -841,9 +861,9 @@ namespace MetraTech.ExpressionEngine
 
                 return MatchType.Convertable;
             }
-            
+
             if (BaseType == type2.BaseType)
-                return  MatchType.Exact;
+                return MatchType.Exact;
             return MatchType.None;
 
             //Not dealing with UoM or Currencies
@@ -860,7 +880,7 @@ namespace MetraTech.ExpressionEngine
                     return IsNumeric;
                 default:
                     return type.BaseType == BaseType;
-            }           
+            }
         }
 
         public bool CanBeImplicitlyCastTo(DataTypeInfo target)

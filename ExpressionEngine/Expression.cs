@@ -22,6 +22,8 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public readonly ExpressionTypeEnum Type;
 
+        public ExpressionInfo Info { get { return ExpressionInfo.Items[Type]; } }
+
         /// <summary>
         /// The actual expression
         /// </summary>
@@ -30,103 +32,13 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// The data type that the Expression returns. You must invoke parse to update this.
         /// </summary>
-        public DataTypeInfo ReturnType { get; private set; }
+        public Property ReturnType { get; private set; }
 
         /// <summary>
         /// The parameters that the Expression interacts with. Note that the Direction
         /// can be Input, Output, or InOut. You must invoke Parse() to update this.
         /// </summary>
         public PropertyCollection Parameters { get; private set; }
-        #endregion
-
-        #region Supports Properties
-        //There are many ways of doing the following, these are quick and dirty
-
-        public bool SupportsAqgs
-        {
-            get
-            {
-                switch (Type)
-                {
-                    case ExpressionTypeEnum.AQG:
-                        return true;
-                    case ExpressionTypeEnum.UQG:
-                    case ExpressionTypeEnum.Message:
-                        return false;
-                    default:
-                        throw new NotFiniteNumberException();
-                }
-            }
-        }
-
-        public bool SupportsUqgs
-        {
-            get
-            {
-                switch (Type)
-                {
-                    case ExpressionTypeEnum.UQG:
-                        return true;
-                    case ExpressionTypeEnum.AQG:
-                    case ExpressionTypeEnum.Message:
-                        return false;
-                    default:
-                        throw new NotFiniteNumberException();
-                }
-            }
-        }
-
-        public bool SupportsBmes
-        {
-            get
-            {
-                switch (Type)
-                {
-                    case ExpressionTypeEnum.UQG:
-                    case ExpressionTypeEnum.AQG:
-                    case ExpressionTypeEnum.Message:
-                        return false;
-                    default:
-                        throw new NotFiniteNumberException();
-                }
-            }
-        }
-
-        public bool SupportsProductViews
-        {
-            get
-            {
-                switch (Type)
-                {
-                    case ExpressionTypeEnum.UQG:
-                        return true;
-                    case ExpressionTypeEnum.AQG:
-                    case ExpressionTypeEnum.Message:
-                        return false;
-                    default:
-                        throw new NotFiniteNumberException();
-                }
-            }
-        }
-
-
-        public bool SupportsAccountTypes
-        {
-            get
-            {
-                switch (Type)
-                {
-                    case ExpressionTypeEnum.AQG:
-                        return true;
-                    case ExpressionTypeEnum.UQG:
-                    case ExpressionTypeEnum.Message:
-                        return false;
-                    default:
-                        throw new NotFiniteNumberException();
-                }
-            }
-        }
-
         #endregion
 
         #region Constructor

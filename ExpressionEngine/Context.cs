@@ -9,9 +9,9 @@ using System.IO;
 namespace MetraTech.ExpressionEngine
 {
     /// <summary>
-    /// Provides a "context" to the editor so that it knows what's available to the user. The concept is that there would be a global one that uses delta capture
-    /// to remain upto date (metadata doesn't change all that often exepct during implemetnation phase). Then "sub copies" would be made for each user as they
-    /// entered a more restricted context. Since the sub copies only have refences (and keys), a lot of space isn't consumed.
+    /// Provides a "context" to the editor so that it knows what's available to the user. A global context is stored in _DemoLoader.GlobalContext.
+    /// "sub copies" are created for eachinteractive context.entered a more restricted context. Since the sub copies only have refences (and keys), 
+    /// a lot of space isn't consumed.
     /// 
     /// This class has been thrown together to prototype ideas and to support the fat GUI prototype. That said, I believe the general concept has merit.
     /// 
@@ -34,10 +34,30 @@ namespace MetraTech.ExpressionEngine
         public List<EnumType> RelevantEnums = new List<EnumType>();
         #endregion
 
-        #region Constructor
+        #region Constructors
+
+        public Context()
+        {
+        }
+
         public Context(Expression expression)
         {
             Expression = expression;
+
+            foreach (var entity in _DemoLoader.GlobalContext.Entities.Values)
+            {
+                if (Expression.Info.SupportedEntityTypes.Contains(entity.Type))
+                    Entities.Add(entity.Name, entity);
+            }
+
+            if (expression.Info.SupportsAqgs)
+                AQGs = _DemoLoader.GlobalContext.AQGs;
+
+            if (expression.Info.SupportsUqgs)
+                UQGs = _DemoLoader.GlobalContext.UQGs;
+
+            EnumSpaces = _DemoLoader.GlobalContext.EnumSpaces;
+            Functions = _DemoLoader.GlobalContext.Functions;
 
             UpdateContext();
         }
@@ -135,15 +155,6 @@ namespace MetraTech.ExpressionEngine
         }
         #endregion
 
-        #region Functions
-        public Function TryGetFunction(string name)
-        {
-            Function func;
-            Functions.TryGetValue(name, out func);
-            return func;
-        }
-        #endregion
-
         #region Interactions
         public void AddInteraction(string name, string description, Property.DirectionType direction)
         {
@@ -183,6 +194,12 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Functions
+        public Function TryGetFunction(string name)
+        {
+            Function func;
+            Functions.TryGetValue(name, out func);
+            return func;
+        }
         public Function AddFunction(string name, string category, string description)
         {
             var function = new Function(name, category, description);
@@ -232,7 +249,6 @@ namespace MetraTech.ExpressionEngine
             return true;
         }
         #endregion
-
 
     }
 }

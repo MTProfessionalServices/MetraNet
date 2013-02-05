@@ -11,15 +11,11 @@ namespace PropertyGui
 {
     public class ctlExpressionTree : TreeView
     {
-        #region Enums
-        public enum ViewModeType { Properties, Entities, Functions, Enums, AQGs, UQGs }
-        #endregion
-
         #region Properties
         private Context Context;
         public static ImageList Images = new ImageList();
 
-        public ViewModeType ViewMode { get; set; }
+        public MvcAbstraction.ViewModeType ViewMode { get; set; }
         public Entity.EntityTypeEnum EntityTypeFilter { get; set; }
         public DataTypeInfo PropertyTypeFilter { get; set; }
         public string FunctionFilter { get; set; }
@@ -62,25 +58,25 @@ namespace PropertyGui
             Nodes.Clear();
             switch (ViewMode)
             {
-                case ViewModeType.Entities:
+                case MvcAbstraction.ViewModeType.Entities:
                     LoadTreeEntityMode();
                     break;
-                case ViewModeType.Functions:
+                case MvcAbstraction.ViewModeType.Functions:
                     LoadTreeFunctionsMode();
                     break;
-                case ViewModeType.Properties:
+                case MvcAbstraction.ViewModeType.Properties:
                     LoadTreeProperties();
                     break;
-                case ViewModeType.Enums:
+                case MvcAbstraction.ViewModeType.Enums:
                     LoadTreeEnums(false);
                     break;
-                case ViewModeType.AQGs:
+                case MvcAbstraction.ViewModeType.AQGs:
                     foreach (var aqg in Context.AQGs.Values)
                     {
                         CreateNode(aqg);
                     }
                     break;
-                case ViewModeType.UQGs:
+                case MvcAbstraction.ViewModeType.UQGs:
                     foreach (var uqg in Context.UQGs.Values)
                     {
                         CreateNode(uqg);

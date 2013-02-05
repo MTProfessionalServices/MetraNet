@@ -14,6 +14,7 @@ namespace MetraTech.ExpressionEngine
 
         #region Properties
         public string Name { get; set; }
+        public string NameLocalized;
         public EntityTypeEnum Type { get; set; }
         public PropertyCollection Properties;
         public string Description { get; set; }

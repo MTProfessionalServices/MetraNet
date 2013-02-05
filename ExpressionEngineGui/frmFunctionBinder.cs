@@ -28,14 +28,12 @@ namespace PropertyGui
         #endregion
 
         #region Methods
-        public void Init(Context context, string name)
+        public void Init(Context context, Function function)
         {
             Context = context;
-            txtName.Text = name;
+            Function = function;
 
-            Function = Context.TryGetFunction(name);
-            if (Function == null)
-                return;
+            txtName.Text = Function.Name;
 
             table.RowCount = Function.FixedParameters.Count;
 
@@ -69,6 +67,14 @@ namespace PropertyGui
         {
             var sb = new StringBuilder();
             sb.Append(string.Format("{0}(", Function.Name));
+
+            for (int index=0; index < ValueBinders.Count; index++)
+            {
+                if (index > 0)
+                    sb.Append(", ");
+                sb.Append(ValueBinders[index].Text);
+            }
+            sb.Append(")");
             return sb.ToString();
         }
         #endregion
@@ -101,7 +107,6 @@ namespace PropertyGui
         }
 
         #endregion
-
 
     }
 }

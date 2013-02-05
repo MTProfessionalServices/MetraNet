@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.button3 = new System.Windows.Forms.Button();
+            this.ctlExpressionExplorer = new PropertyGui.ctlExpressionExplorer();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnFunction = new System.Windows.Forms.Button();
-            this.ctlExpressionExplorer = new PropertyGui.ctlExpressionExplorer();
             this.ctlExpression = new PropertyGui.ctlExpression();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -54,7 +53,6 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.button3);
             this.splitContainer1.Panel2.Controls.Add(this.button2);
             this.splitContainer1.Panel2.Controls.Add(this.button1);
             this.splitContainer1.Panel2.Controls.Add(this.btnFunction);
@@ -63,16 +61,13 @@
             this.splitContainer1.SplitterDistance = 195;
             this.splitContainer1.TabIndex = 0;
             // 
-            // button3
+            // ctlExpressionExplorer
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button3.Location = new System.Drawing.Point(213, 299);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "FB";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.ctlExpressionExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctlExpressionExplorer.Location = new System.Drawing.Point(0, 0);
+            this.ctlExpressionExplorer.Name = "ctlExpressionExplorer";
+            this.ctlExpressionExplorer.Size = new System.Drawing.Size(191, 334);
+            this.ctlExpressionExplorer.TabIndex = 0;
             // 
             // button2
             // 
@@ -104,14 +99,6 @@
             this.btnFunction.Text = "Function";
             this.btnFunction.UseVisualStyleBackColor = true;
             this.btnFunction.Click += new System.EventHandler(this.btnFunction_Click);
-            // 
-            // ctlExpressionExplorer
-            // 
-            this.ctlExpressionExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctlExpressionExplorer.Location = new System.Drawing.Point(0, 0);
-            this.ctlExpressionExplorer.Name = "ctlExpressionExplorer";
-            this.ctlExpressionExplorer.Size = new System.Drawing.Size(191, 334);
-            this.ctlExpressionExplorer.TabIndex = 0;
             // 
             // ctlExpression
             // 
@@ -151,7 +138,6 @@
         private System.Windows.Forms.Button btnFunction;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
     }
 }
 

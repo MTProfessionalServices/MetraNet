@@ -124,6 +124,5 @@ namespace PropertyGui
             MoveItems(lstSelected, lstAvailable);
         }
         #endregion
-
     }
 }

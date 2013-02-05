@@ -46,21 +46,32 @@ namespace PropertyGui
 
         private void btnFunction_Click(object sender, EventArgs e)
         {
-            if (ctlExpression.SelectedText == "In")
+            var funcName = ctlExpression.SelectedText;
+            if (funcName == "In")
             {
                 var func = new frmFuncIn();
-                func.Init(Context, "USAGE.c_DataCenterCountry", new List<string>() { "Germany" });
-                if (DialogResult == func.ShowDialog())
+                func.Init(Context, null, null);// "USAGE.c_DataCenterCountry", new List<string>() { "Germany" });
+                if (DialogResult.OK == func.ShowDialog())
                     ctlExpression.Paste(func.GetValue());
-
+                return;
             }
+
+            var function = Context.TryGetFunction(funcName);
+            if (function == null)
+            {
+                MessageBox.Show(string.Format("Unable to find function '{0}'", funcName));
+                return;
+            }
+
+            var dialog = new frmFunctionBinder();
+            dialog.Init(Context, function);
+            if (DialogResult.OK == dialog.ShowDialog())
+                ctlExpression.Paste(dialog.GetExpression());
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var dialog = new frmFunctionBinder();
-            dialog.Init(Context, "DateAdd");
-            dialog.ShowDialog();
+
         }
         #endregion
 

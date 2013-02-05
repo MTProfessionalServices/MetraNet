@@ -68,7 +68,6 @@ namespace PropertyGui
             if (DialogResult.OK == dialog.ShowDialog())
                 ctlExpression.Paste(dialog.GetExpression());
         }
-        #endregion
 
         private void mnuContext_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -80,6 +79,6 @@ namespace PropertyGui
         {
             ctlExpression.EditFunction();
         }
-
+        #endregion
     }
 }

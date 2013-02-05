@@ -140,7 +140,6 @@ namespace PropertyGui
         {
             UpdateGui();
         }
-        #endregion
 
         private void treExplorer_DoubleClick(object sender, EventArgs e)
         {
@@ -149,5 +148,7 @@ namespace PropertyGui
 
             OnS2DoubleClick(treExplorer.SelectedNode.Tag);
         }
+
+        #endregion
     }
 }

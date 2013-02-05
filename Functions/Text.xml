@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Text</Name>
+  <Category>Text</Category>
+  <ReturnType>string</ReturnType>
+  <Description>Converts a numeric value to a string.</Description>
+  <IsMtsqlInlineable>True</IsMtsqlInlineable>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>Number</Name>
+      <DataType>Decimal</DataType>
+      <Description>The number that you want to convert to text.</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate>CAST({0} AS VARCHAR)</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0.5</FirstSupported>
+    <CodeGenTemplate>{0}.ToString()</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Trim</Name>
+  <Category>Text</Category>
+  <ReturnType>String</ReturnType>
+  <Description>Removes all occurrences of white space characters from the specified string.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>String</Name>
+      <DataType>String</DataType>
+      <Description>The string that you want to trim.</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported></FirstSupported>
+    <CodeGenTemplate></CodeGenTemplate>
+    <CodeGenMode>NotSupported</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0.5</FirstSupported>
+    <CodeGenTemplate>{0}.Trim()</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

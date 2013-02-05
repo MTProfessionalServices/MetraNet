@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Concatenate</Name>
+  <Category>Text</Category>
+  <ReturnType>String</ReturnType>
+  <Description>Joins several text strings into one text string.</Description>
+  <ArgumentListType>Variable</ArgumentListType>
+  <VariableArgumentTemplate>
+    <Name>String</Name>
+    <DataType>String</DataType>
+    <Description>String that you want to concatinate.</Description>
+  </VariableArgumentTemplate>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate> + </CodeGenTemplate>
+    <CodeGenMode>Glue</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0.5</FirstSupported>
+    <CodeGenTemplate> + </CodeGenTemplate>
+    <CodeGenMode>Glue</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

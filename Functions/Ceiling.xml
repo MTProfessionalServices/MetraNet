@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Ceiling</Name>
+  <Category>Math</Category>
+  <ReturnType>Decimal</ReturnType>
+  <Description>Returns the largest integer less than or equal to the specified number.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>  
+    <Argument>
+      <Name>Number</Name>
+      <DataType>decimal</DataType>
+      <Description>The number that you want to find the feiling for.</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate>ceiling({0})</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0.5</FirstSupported>
+    <CodeGenTemplate>Math.Ceiling({0})</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

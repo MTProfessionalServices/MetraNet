@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>IsNullOrEmpty</Name>
+  <Category>Text</Category>
+  <ReturnType>Boolean</ReturnType>
+  <Description>Determines if the string is null or an empty string.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>String</Name>
+      <DataType>String</DataType>
+      <Description>The string that you want to check.</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate>{0} = '' || {0} IS NULL</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0</FirstSupported>
+    <CodeGenTemplate>string.IsNullOrEmpty({0})</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Today</Name>
+  <Category>DateTime</Category>
+  <ReturnType>Timestamp</ReturnType>
+  <Description>Returns the current date (i.e., without the time).</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <Mtsql>
+    <FirstSupported></FirstSupported>
+    <CodeGenTemplate></CodeGenTemplate>
+    <CodeGenMode>NotSupported</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0</FirstSupported>
+    <CodeGenTemplate>DateTime.Today</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Compare</Name>
+  <Category>Text</Category>
+  <ReturnType>Boolean</ReturnType>
+  <Description>Compares the two strings in a case sensitive or insensitive manner.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>StringOne</Name>
+      <DataType>String</DataType>
+      <Description>One of the strings to be compared.</Description>
+    </Argument>
+    <Argument>
+      <Name>StringTwo</Name>
+      <DataType>String</DataType>
+      <Description>One of the strings to be compare.</Description>
+    </Argument>
+	<Argument>
+      <Name>ComparisonType</Name>
+      <DataType EnumSpace="Functions" EnumType="StringComparisonType">Enum</DataType>
+	  <DefaultExpressionType>ExplicitValue</DefaultExpressionType> 
+      <DefaultValue>CaseInsensitive</DefaultValue> 
+      <Description>Indicates if the Comparison should be case sensitive or insensitive.</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate></CodeGenTemplate>
+    <CodeGenMode>Custom</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate></CodeGenTemplate>
+    <CodeGenMode>Custom</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

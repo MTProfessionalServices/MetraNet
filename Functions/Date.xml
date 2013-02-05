@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Date</Name>
+  <Category>DateTime</Category>
+  <ReturnType>Timestamp</ReturnType>
+  <Description>Returns date (i.e., not including time) for the specified date.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>Date</Name>
+      <DataType>Timestamp</DataType>
+      <Description>The date time whose date you are looking for.</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported></FirstSupported>
+    <CodeGenTemplate></CodeGenTemplate>
+    <CodeGenMode>NotSupported</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0</FirstSupported>
+    <CodeGenTemplate>{0}.Date</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

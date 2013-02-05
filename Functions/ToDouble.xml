@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>ToDouble</Name>
+  <Category>Math</Category>
+  <ReturnType>Double</ReturnType>
+  <Description>Converts the value to a double.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>Value</Name>
+      <DataType>any</DataType>
+      <Description>The value that you want to convert to a double.</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate>CAST({0} AS DOUBLE)</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate>({0}).ToDouble()</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

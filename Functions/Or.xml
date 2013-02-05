@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Or</Name>
+  <Category>Logic</Category>
+  <ReturnType>Boolean</ReturnType>
+  <Description>Checks wheather any of the arguments are True. Only returns False if all arguments are False.</Description>
+  <ArgumentListType>Variable</ArgumentListType>
+  <VariableArgumentTemplate>
+    <Name>Logical</Name>
+    <DataType>Boolean</DataType>
+    <Description>One of the values that you want to determine if it's true</Description>
+  </VariableArgumentTemplate>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate> OR </CodeGenTemplate>
+    <CodeGenMode>Glue</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0</FirstSupported>
+    <CodeGenTemplate> || </CodeGenTemplate>
+    <CodeGenMode>Glue</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

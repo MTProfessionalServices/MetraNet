@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Not</Name>
+  <Category>Logic</Category>
+  <ReturnType>Boolean</ReturnType>
+  <Description>Changes True to False and False to True.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>Logical</Name>
+      <DataType>Boolean</DataType>
+      <Description>Value or expression that can be evaluated to True or False.</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate>NOT {0}</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0</FirstSupported>
+    <CodeGenTemplate>!{0}</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

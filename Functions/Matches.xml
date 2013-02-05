@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Matches</Name>
+  <Category>Text</Category>
+  <ReturnType>bool</ReturnType>
+  <Description>Determines whether or not the specified string matches a specified wildcard pattern. The wildcard character, %, can be used one or more times in the pattern.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>String</Name>
+      <DataType>string</DataType>
+      <Description>The string that you want to match.</Description>
+    </Argument>
+    <Argument>
+      <Name>Pattern</Name>
+      <DataType>string</DataType>
+      <Description>The pattern that you want to match.</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate>({0} LIKE {1})</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0.5</FirstSupported>
+    <CodeGenTemplate>{0}.Contains({1})</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

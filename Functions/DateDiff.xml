@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>DateDiff</Name>
+  <Category>DateTime</Category>
+  <ReturnType>int32</ReturnType>
+  <Description>Returns the number of the specified DatePart boundaries crossed between the specified StartDate and EndDate</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>DatePart</Name>
+      <DataType EnumSpace="Functions" EnumType="DatePart">Enum</DataType>
+      <DefaultExpressionType>ExplicitValue</DefaultExpressionType>
+      <DefaultValue>Minutes</DefaultValue>
+      <Description>The part of StartDate and EndDate that specifies the type of boundary crossed.</Description>
+    </Argument>
+    <Argument>
+      <Name>StartDate</Name>
+      <DataType>Timestamp</DataType>
+      <Description>The date that will be subtracted from the EndDate.</Description>
+    </Argument>
+    <Argument>
+      <Name>EndDate</Name>
+      <DataType>Timestamp</DataType>
+      <Description>The date...</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate></CodeGenTemplate>
+    <CodeGenMode>Custom</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0.5</FirstSupported>
+    <CodeGenTemplate>DateDiff({0}, {1}, {2})</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

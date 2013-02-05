@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>AbsoluteValue</Name>
+  <Category>Math</Category>
+  <ReturnType>decimal</ReturnType>
+  <Description>Returns a number without its sign.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>Number</Name>
+      <DataType>decimal</DataType>
+      <Description>The number for which you want the absolute value.</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported></FirstSupported>
+    <CodeGenTemplate></CodeGenTemplate>
+    <CodeGenMode>NotSupported</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0</FirstSupported>
+    <CodeGenTemplate>Math.Abs({0})</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

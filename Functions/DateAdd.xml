@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>DateAdd</Name>
+  <Category>DateTime</Category>
+  <ReturnType>int32</ReturnType>
+  <Description>Adds the number of the specified DatePart boundaries to the Date</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>DatePart</Name>
+      <DataType EnumSpace="Functions" EnumType="DatePart">Enum</DataType>
+      <DefaultExpressionType>ExplicitValue</DefaultExpressionType>
+      <DefaultValue>Minutes</DefaultValue>
+      <Description>The type of date part.</Description>
+    </Argument>
+    <Argument>
+      <Name>NumDateParts</Name>
+      <DataType>int32</DataType>
+      <DefaultExpressionType>ExplicitValue</DefaultExpressionType>
+      <Description>The number of date parts to be added to the date.</Description>
+    </Argument>
+    <Argument>
+      <Name>Date</Name>
+      <DataType>Timestamp</DataType>
+      <Description>The date that the date parts will be added to.</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate></CodeGenTemplate>
+    <CodeGenMode>Custom</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0</FirstSupported>
+    <CodeGenTemplate>DateAdd({0}, {1}, {2})</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

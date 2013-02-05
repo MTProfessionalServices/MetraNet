@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Round</Name>
+  <Category>Math</Category>
+  <ReturnType>Decimal</ReturnType>
+  <Description>Rounds a number to a specified number of digits.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>Number</Name>
+      <DataType>Decimal</DataType>
+      <Description>The number that you want to round.</Description>
+    </Argument>
+    <Argument>
+      <Name>NumDigits</Name>
+      <DataType>int32</DataType>
+      <Description>Number of digits to which you want to round.</Description>
+    </Argument>
+    <Argument>
+      <Name>RoundType</Name>
+      <DataType EnumSpace="Functions" EnumType="RoundType">Enum</DataType>
+      <DefaultExpressionType>ExplicitValue</DefaultExpressionType>
+      <DefaultValue>HalfAwayFromZero</DefaultValue>
+      <Description>The type of rounding that you want to apply.</Description>
+    </Argument>  
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate></CodeGenTemplate>
+    <CodeGenMode>Custom</CodeGenMode>
+    <Inlineable>False</Inlineable>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate>Round({0}, {1}, {2})</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

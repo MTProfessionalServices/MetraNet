@@ -69,6 +69,7 @@
     <Compile Include="Settings.cs" />
     <Compile Include="UoM.cs" />
     <Compile Include="UQG.cs" />
+    <Compile Include="XmlHelpers.cs" />
     <Compile Include="_DemoLoader.cs" />
     <Compile Include="DataTypeInfo.cs" />
     <Compile Include="ValidationMessage.cs" />

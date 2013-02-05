@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Insert</Name>
+  <Category>Text</Category>
+  <ReturnType>string</ReturnType>
+  <Description>Inserts the specifed a text at the specified location.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>String</Name>
+      <DataType>string</DataType>
+      <Description>The text in which you want to insert some characters.</Description>
+    </Argument>
+    <Argument>
+      <Name>Index</Name>
+      <DataType>int32</DataType>
+      <Description>The zero-based index that you would like to insert the characters.</Description>
+    </Argument>
+    <Argument>
+      <Name>Text</Name>
+      <DataType>string</DataType>
+      <Description>The text to be inserted.</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported></FirstSupported>
+    <CodeGenTemplate></CodeGenTemplate>
+    <CodeGenMode>NotSupported</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0.5</FirstSupported>
+    <CodeGenTemplate>{0}.Insert({1}, {2})</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

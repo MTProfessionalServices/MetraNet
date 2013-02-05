@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Power</Name>
+  <Category>Math</Category>
+  <ReturnType>decimal</ReturnType>
+  <Description>Returns the specified number raised to the specified power.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>Base</Name>
+      <DataType>decimal</DataType>
+      <Description>The base number.</Description>
+    </Argument>
+    <Argument>
+      <Name>Exponent</Name>
+      <DataType>decimal</DataType>
+      <Description>The exponent to which the base number is raised.</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported></FirstSupported>
+    <CodeGenTemplate></CodeGenTemplate>
+    <CodeGenMode>NotSupported</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0.5</FirstSupported>
+    <CodeGenTemplate>Math.Pow({0},{1})</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

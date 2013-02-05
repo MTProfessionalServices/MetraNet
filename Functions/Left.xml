@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Left</Name>
+  <Category>Text</Category>
+  <ReturnType>string</ReturnType>
+  <Description>Returns the specified number of characters from the start of the text string.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>Text</Name>
+      <DataType>string</DataType>
+      <Description>The text string containg the characters that you want to extract.</Description>
+    </Argument>
+    <Argument>
+      <Name>NumChars</Name>
+      <DataType>int32</DataType>
+      <Description>The number of characters that you want to extract.</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate>substr({0}, 1, {1})</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0.5</FirstSupported>
+    <CodeGenTemplate>{0}.Substring(0, {1})</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

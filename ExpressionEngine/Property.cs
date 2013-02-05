@@ -239,9 +239,18 @@ namespace MetraTech.ExpressionEngine
             throw new NotImplementedException();
         }
 
+        public static Property CreateFromXmlParentNode(XmlNode parentNode, string childNodeName = "Property")
+        {
+            return CreateFromXmlNode(parentNode.GetChildNode(childNodeName));
+        }
+
         public static Property CreateFromXmlNode(XmlNode node)
         {
-            throw new NotImplementedException();
+            var name = node.GetChildTag("Name");
+            var description = node.GetChildTag("Description");
+            var dt = DataTypeInfo.CreateFromXmlParentNode(node);
+            var property = new Property(name, dt, description);
+            return property;
         }
         #endregion
 

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>MeterTickInterval</Name>
+  <Category>Math</Category>
+  <ReturnType>int32</ReturnType>
+  <Description>Returns the meter tick.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>Meter</Name>
+      <DataType>int32</DataType>
+      <Description>The quantity of the meter.</Description>
+    </Argument>
+    <Argument>
+      <Name>Interval</Name>
+      <DataType>int32</DataType>
+      <Description>The size of interval.</Description>
+    </Argument>
+    <Argument>
+      <Name>RoundType</Name>
+      <DataType EnumSpace="Functions" EnumType="RoundType">Enum</DataType>
+      <DefaultExpressionType>ExplicitValue</DefaultExpressionType>
+      <DefaultValue>HalfAwayFromZero</DefaultValue>
+      <Description>The type of rounding that you want to apply.</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate></CodeGenTemplate>
+    <CodeGenMode>Custom</CodeGenMode>
+    <Inlineable>False</Inlineable>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0.5</FirstSupported>
+    <CodeGenTemplate>MeterTickInterval({0}, {1}, {2})</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

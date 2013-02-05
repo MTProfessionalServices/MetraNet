@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>SubString</Name>
+  <Category>Text</Category>
+  <ReturnType>String</ReturnType>
+  <Description>Returns a specific number of characters from a text string, starting at the position you specify, based on the number of characters you specify.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>String</Name>
+      <DataType>string</DataType>
+      <Description>The string that you want to extract the charachters from.</Description>
+    </Argument>
+    <Argument>
+      <Name>StartNum</Name>
+      <DataType>int32</DataType>
+      <Description>
+        The position of the first character you want to extract in String. The first character has a StartNum of 1.
+      </Description>
+    </Argument>
+    <Argument>
+      <Name>NumChars</Name>
+      <DataType>int32</DataType>
+      <Description>
+        The number of characters that you want to return.
+      </Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate>substr({0}, {1}, {2})</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0.5</FirstSupported>
+    <CodeGenTemplate>{0}.Substring({1}, {2})</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

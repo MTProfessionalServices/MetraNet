@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Sum</Name>
+  <Category>Math</Category>
+  <ReturnType>Decimal</ReturnType>
+  <Description>Adds all of the numbers.</Description>
+  <ArgumentListType>Variable</ArgumentListType>
+  <VariableArgumentTemplate>
+    <Name>Number</Name>
+    <DataType>Decimal</DataType>
+    <Description>Numeric value you want to add.</Description>
+  </VariableArgumentTemplate>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate> + </CodeGenTemplate>
+    <CodeGenMode>Glue</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0.5</FirstSupported>
+    <CodeGenTemplate> + </CodeGenTemplate>
+    <CodeGenMode>Glue</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

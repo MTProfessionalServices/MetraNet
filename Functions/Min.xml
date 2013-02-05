@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Min</Name>
+  <Category>Math</Category>
+  <ReturnType>Decimal</ReturnType>
+  <Description>Returns the smallest value.</Description>
+  <ArgumentListType>Variable</ArgumentListType>
+  <VariableArgumentTemplate>
+    <Name>Number</Name>
+    <DataType>Decimal</DataType>
+    <Description>One of the numbers for which you want to find a minimum.</Description>
+  </VariableArgumentTemplate>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate></CodeGenTemplate>
+    <CodeGenMode>Custom</CodeGenMode>
+    <Inlineable>False</Inlineable>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0.5</FirstSupported>
+    <CodeGenTemplate>Math.Min({0}, {1})</CodeGenTemplate>
+    <CodeGenMode>RecursiveTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

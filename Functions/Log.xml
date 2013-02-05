@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Log</Name>
+  <Category>Math</Category>
+  <ReturnType>decimal</ReturnType>
+  <Description>Returns the logarithm of a number to the base you specify.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>Number</Name>
+      <DataType>decimal</DataType>
+      <Description>Positive real number for which you want the logarithm.</Description>
+    </Argument>
+    <Argument>
+      <Name>Base</Name>
+      <DataType>decimal</DataType>
+      <Description>The base of the logarithm.</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported></FirstSupported>
+    <CodeGenTemplate></CodeGenTemplate>
+    <CodeGenMode>NotSupported</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0</FirstSupported>
+    <CodeGenTemplate>Math.Log({0})</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

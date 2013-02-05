@@ -10,20 +10,14 @@ namespace MetraTech.ExpressionEngine
     //this is a total mess that loads data into the GlobalContext.... needs to replaced with clean data loading
     public static class _DemoLoader
     {
+        #region Properties
         public static string DirPath = @"C:\ExpressionEngine";
         public static Context GlobalContext;
+        #endregion
 
         public static void LoadGlobalContext()
         {
             GlobalContext = new Context();
-            GlobalContext.AddFunction("Min", "Math", "Returns the minumum value");
-            GlobalContext.AddFunction("Max", "Math", "Returns the maximum value");
-            var func = GlobalContext.AddFunction("DateAdd", "DateTime", "Adds the spcified unit of time");
-            func.FixedParameters.AddDateTime("Timestamp", "When it happened", true);
-            func.FixedParameters.AddInt32("Quantity", "How much", true);
-            func.FixedParameters.AddEnum("Country", "Where it happened", true, "Global", "Country");
-            GlobalContext.AddFunction("DateDiff", "DateTime", "Subtracts the specified unit of time");
-            GlobalContext.AddFunction("In", "Logic", "Determines if an enum value is within a specified list");
 
             GlobalContext.AddEntity(_DemoLoader.GetCloudComputeProductView());
             GlobalContext.AddEntity(_DemoLoader.GetCorporateAccountType());
@@ -35,7 +29,7 @@ namespace MetraTech.ExpressionEngine
             GlobalContext.AddInteraction("ComputeHourCharge", "The charge associated with computing", Property.DirectionType.Output);
 
             LoadEnums();
-
+            LoadFunctions();
             LoadXqgs(GlobalContext);
         }
 
@@ -176,5 +170,17 @@ namespace MetraTech.ExpressionEngine
                 }
             }
         }
+
+        public static void LoadFunctions()
+        {
+            _DemoLoader.GlobalContext.Functions.Clear();
+            var dirInfo = new DirectoryInfo(Path.Combine(DirPath, "Functions"));
+            foreach (var file in dirInfo.GetFiles("*.xml"))
+            {
+                var func = Function.CreateFunctionFromFile(file.FullName);
+                GlobalContext.Functions.Add(func.Name, func);
+            }
+        }
+
     }
 }

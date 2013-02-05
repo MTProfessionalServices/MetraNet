@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>ToInteger</Name>
+  <Category>Math</Category>
+  <ReturnType>Integer32</ReturnType>
+  <Description>Converts the value to an Integer32.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>Value</Name>
+      <DataType>any</DataType>
+      <Description>The value that you want to convert to an integer.</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate>CAST({0} AS INTEGER)</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate>({0}).ToInt32()</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

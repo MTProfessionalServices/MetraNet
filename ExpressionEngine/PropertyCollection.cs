@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -134,6 +135,23 @@ namespace MetraTech.ExpressionEngine
             property.DefaultValue = defaultValue;
             Add(property);
             return property;
+        }
+        #endregion
+
+        #region XmlMethods
+        public void LoadFromXmlParentNode(XmlNode parentNode, string propertyCollectionNodeName = "Properties")
+        {
+            LoadFromXmlNode(parentNode.GetChildNode(propertyCollectionNodeName));
+        }
+        public void LoadFromXmlNode(XmlNode node, string propertyNodeName = "Property")
+        {
+            Properties.Clear();
+            var nodes = node.SelectNodes(propertyNodeName);
+            foreach (var propertyNode in nodes)
+            {
+                var property = Property.CreateFromXmlNode((XmlNode)propertyNode);
+                Add(property);
+            }
         }
         #endregion
 

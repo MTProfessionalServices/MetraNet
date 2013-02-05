@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Average</Name>
+  <Category>Math</Category>
+  <ReturnType>decimal</ReturnType>
+  <Description>Returns the average (arithmetic mean) of its arguments.</Description>
+  <ArgumentListType>Variable</ArgumentListType>
+  <VariableArgumentTemplate>
+    <Name>Number</Name>
+    <DataType>Decimal</DataType>
+    <Description>One of the numbers for which you want the average.</Description>
+  </VariableArgumentTemplate>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate />
+    <CodeGenMode>Custom</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0.5</FirstSupported>
+    <CodeGenTemplate />
+    <CodeGenMode>Custom</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

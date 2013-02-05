@@ -261,6 +261,22 @@ namespace MetraTech.ExpressionEngine
             return new DataTypeInfo(GetDataTypeEnum(theType));
         }
 
+        public static DataTypeInfo CreateFromXmlParentNode(XmlNode parentNode, string childNodeName="DataType")
+        {
+            return CreateFromXmlNode(parentNode.GetChildNode(childNodeName));
+        }
+        public static DataTypeInfo CreateFromXmlNode(XmlNode node)
+        {
+            var dt = CreateFromDataTypeString(node.InnerText);
+            switch (dt.BaseType)
+            {
+                case BaseType._Enum:
+                    dt.EnumSpace = node.GetAttribute("EnumSpace");
+                    dt.EnumType = node.GetAttribute("EnumType");
+                    break;
+            }
+            return dt;
+        }
 
         #endregion
 

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>EndsWith</Name>
+  <Category>Text</Category>
+  <ReturnType>String</ReturnType>
+  <Description>Determines if the specified string ends with the pattern.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>String</Name>
+      <DataType>string</DataType>
+      <Description>The string that you want to search.</Description>
+    </Argument>
+    <Argument>
+      <Name>Pattern</Name>
+      <DataType>string</DataType>
+      <Description>The pattern that you want to match.</Description>
+    </Argument>
+    <Argument>
+      <Name>IgnoreCase</Name>
+      <DataType>Boolean</DataType>
+      <Description></Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported></FirstSupported>
+    <CodeGenTemplate></CodeGenTemplate>
+    <CodeGenMode>NotSupported</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0.5</FirstSupported>
+    <CodeGenTemplate>{0}.EndsWith({1}, {2}, null)</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

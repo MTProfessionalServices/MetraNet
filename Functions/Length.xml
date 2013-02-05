@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Length</Name>
+  <Category>Text</Category>
+  <ReturnType>int32</ReturnType>
+  <Description>Returns the number of characters in the specified string.</Description>
+  <IsMtsqlInlineable>True</IsMtsqlInlineable>
+  <MtsqlCodeGenTemplate></MtsqlCodeGenTemplate>
+  <CSharpCodeGenTemplate></CSharpCodeGenTemplate>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>String</Name>
+      <DataType>string</DataType>
+      <Description>The string that you want to determine the length of.</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate>len({0})</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0.5</FirstSupported>
+    <CodeGenTemplate>{0}.Length</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

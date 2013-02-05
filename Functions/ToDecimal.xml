@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>ToDecimal</Name>
+  <Category>Math</Category>
+  <ReturnType>Decimal</ReturnType>
+  <Description>Converts the value to an Decimal.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>Value</Name>
+      <DataType>any</DataType>
+      <Description>The value that you want to convert to a Decimal.</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate>CAST({0} AS DECIMAL)</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate>({0}).ToDecimal()</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Multiply</Name>
+  <Category>Math</Category>
+  <ReturnType>Decimal</ReturnType>
+  <Description>Multiplys all of the numbers.</Description>
+  <ArgumentListType>Variable</ArgumentListType>
+  <VariableArgumentTemplate>
+    <Name>Number</Name>
+    <DataType>Decimal</DataType>
+    <Description>Numeric value you want to multiply.</Description>
+  </VariableArgumentTemplate>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate> * </CodeGenTemplate>
+    <CodeGenMode>Glue</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate> * </CodeGenTemplate>
+    <CodeGenMode>Glue</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

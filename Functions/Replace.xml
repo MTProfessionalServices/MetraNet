@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>Replace</Name>
+  <Category>Text</Category>
+  <ReturnType>string</ReturnType>
+  <Description>Replaces part of the specifed a text string with a different text string.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <FixedArguments>
+    <Argument>
+      <Name>OldText</Name>
+      <DataType>string</DataType>
+      <Description>The text in which you want to replace some characters.</Description>
+    </Argument>
+    <Argument>
+      <Name>OldValue</Name>
+      <DataType>string</DataType>
+      <Description>The text that you want replaced.</Description>
+    </Argument>
+    <Argument>
+      <Name>NewValue</Name>
+      <DataType>string</DataType>
+      <Description>The text replacing the old text.</Description>
+    </Argument>
+  </FixedArguments>
+  <Mtsql>
+    <FirstSupported></FirstSupported>
+    <CodeGenTemplate></CodeGenTemplate>
+    <CodeGenMode>NotSupported</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0.5</FirstSupported>
+    <CodeGenTemplate>{0}.Replace({1}, {2})</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

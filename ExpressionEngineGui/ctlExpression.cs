@@ -21,10 +21,11 @@ namespace PropertyGui
 
         #region Methods
 
-        public void Init(Context context)
+        public void Init(Context context, ContextMenuStrip mnuContext)
         {
             Context = context;
 
+            ContextMenuStrip = mnuContext;
             Multiline = true;
             WordWrap = false;
             ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -34,27 +35,43 @@ namespace PropertyGui
         public void HandleTreeEvent(IExpressionEngineTreeNode item)
         {
             if (item is Function)
-                HandleFunction(item.Name);
+                EditFunction((Function)item);
             else
                 Paste(item.ToExpression);
         }
 
-        public void HandleFunction(string name, string[] parameters= null)
+        public void EditFunction()
         {
-            string str;
-            switch (name.ToLower())
+            var name = SelectedText;
+            var func = Context.TryGetFunction(name);
+            if (func == null)
+            {
+                MessageBox.Show(string.Format("Unable to find Function '{0}'", name));
+                return;
+            }
+            EditFunction(func);
+        }
+
+        public void EditFunction(Function func)
+        {
+            string str = null;
+            switch (func.Name)
             {   
-                case "in":
-                    var dialog = new frmFuncIn();
-                    dialog.Init(Context, null, null);
-                    if (DialogResult.OK == dialog.ShowDialog())
-                        Paste(dialog.GetValue());
+                case "In":
+                    var frmIn = new frmFuncIn();
+                    frmIn.Init(Context, null, null);
+                    if (DialogResult.OK == frmIn.ShowDialog())
+                        str = frmIn.GetValue();
                     break;
                 default:
-                    str = string.Format("{0}()", name);
-                    Paste(str);
+                    var frmFunc = new frmFunctionBinder();
+                    frmFunc.Init(Context, func);
+                    if (DialogResult.OK == frmFunc.ShowDialog())
+                        str = frmFunc.GetExpression();
                     break;
             }
+            if (str != null)
+                Paste(str);
         }
         #endregion
     }

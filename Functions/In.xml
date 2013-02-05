@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TreeLogicFunction>
+  <Name>In</Name>
+  <Category>Logic</Category>
+  <ReturnType>bool</ReturnType>
+  <Description>Determines if the value of the parameter is one of the subsequent enum values.</Description>
+  <ArgumentListType>Fixed</ArgumentListType>
+  <Mtsql>
+    <FirstSupported>5.0</FirstSupported>
+    <CodeGenTemplate>upper({0})</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </Mtsql>
+  <CSharp>
+    <FirstSupported>6.0.5</FirstSupported>
+    <CodeGenTemplate>{0}.ToUpper()</CodeGenTemplate>
+    <CodeGenMode>BasicTemplate</CodeGenMode>
+  </CSharp>
+</TreeLogicFunction>

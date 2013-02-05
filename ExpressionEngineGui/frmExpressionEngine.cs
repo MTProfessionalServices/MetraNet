@@ -29,7 +29,7 @@ namespace PropertyGui
         {
             Context = context;
             ctlExpressionExplorer.Init(Context);
-            ctlExpression.Init(Context);
+            ctlExpression.Init(Context, mnuContext);
 
             Text = string.Format("Expression Engine ({0})", Context.Expression.Type.ToString());
         }
@@ -68,12 +68,18 @@ namespace PropertyGui
             if (DialogResult.OK == dialog.ShowDialog())
                 ctlExpression.Paste(dialog.GetExpression());
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
         #endregion
+
+        private void mnuContext_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if (e.ClickedItem.Equals(mnuEditFunction))
+                ctlExpression.EditFunction();
+        }
+
+        private void ctlExpression_DoubleClick(object sender, EventArgs e)
+        {
+            ctlExpression.EditFunction();
+        }
 
     }
 }

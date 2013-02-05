@@ -45,17 +45,18 @@
             this.btnOK.Location = new System.Drawing.Point(317, 271);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 0;
+            this.btnOK.TabIndex = 5;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(398, 271);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -77,7 +78,7 @@
             this.lstAvailable.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lstAvailable.Size = new System.Drawing.Size(186, 173);
             this.lstAvailable.Sorted = true;
-            this.lstAvailable.TabIndex = 4;
+            this.lstAvailable.TabIndex = 1;
             // 
             // lstSelected
             // 
@@ -87,14 +88,14 @@
             this.lstSelected.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lstSelected.Size = new System.Drawing.Size(186, 173);
             this.lstSelected.Sorted = true;
-            this.lstSelected.TabIndex = 5;
+            this.lstSelected.TabIndex = 4;
             // 
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(213, 128);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(53, 27);
-            this.btnAdd.TabIndex = 6;
+            this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = ">";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -104,7 +105,7 @@
             this.btnRemove.Location = new System.Drawing.Point(213, 170);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(53, 27);
-            this.btnRemove.TabIndex = 7;
+            this.btnRemove.TabIndex = 3;
             this.btnRemove.Text = "<";
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
@@ -137,12 +138,14 @@
             this.ctlProp.MinimumMatchType = MetraTech.ExpressionEngine.DataTypeInfo.MatchType.Convertable;
             this.ctlProp.Name = "ctlProp";
             this.ctlProp.Size = new System.Drawing.Size(269, 20);
-            this.ctlProp.TabIndex = 10;
+            this.ctlProp.TabIndex = 0;
             // 
             // frmFuncIn
             // 
+            this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(481, 306);
             this.Controls.Add(this.ctlProp);
             this.Controls.Add(this.label3);

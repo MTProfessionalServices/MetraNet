@@ -74,10 +74,14 @@ namespace MetraTech.ExpressionEngine
         #endregion
     
         #region Methods
-        public string ToExpression{get
+
+        public string ToExpression
         {
-            return string.Format("{0}()", Name);
-        }}
+            get
+            {
+                return string.Format("{0}()", Name);
+            }
+        }
 
 
         public static Function CreateFunctionFromFile(string filePath)

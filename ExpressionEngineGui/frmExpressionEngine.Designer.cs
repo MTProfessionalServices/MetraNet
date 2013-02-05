@@ -28,16 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.ctlExpressionExplorer = new PropertyGui.ctlExpressionExplorer();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnFunction = new System.Windows.Forms.Button();
+            this.mnuContext = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuEditFunction = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctlExpressionExplorer = new PropertyGui.ctlExpressionExplorer();
             this.ctlExpression = new PropertyGui.ctlExpression();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.mnuContext.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -60,14 +64,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(499, 338);
             this.splitContainer1.SplitterDistance = 195;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // ctlExpressionExplorer
-            // 
-            this.ctlExpressionExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctlExpressionExplorer.Location = new System.Drawing.Point(0, 0);
-            this.ctlExpressionExplorer.Name = "ctlExpressionExplorer";
-            this.ctlExpressionExplorer.Size = new System.Drawing.Size(191, 334);
-            this.ctlExpressionExplorer.TabIndex = 0;
             // 
             // button2
             // 
@@ -100,6 +96,28 @@
             this.btnFunction.UseVisualStyleBackColor = true;
             this.btnFunction.Click += new System.EventHandler(this.btnFunction_Click);
             // 
+            // mnuContext
+            // 
+            this.mnuContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuEditFunction});
+            this.mnuContext.Name = "mnuContext";
+            this.mnuContext.Size = new System.Drawing.Size(145, 26);
+            this.mnuContext.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuContext_ItemClicked);
+            // 
+            // mnuEditFunction
+            // 
+            this.mnuEditFunction.Name = "mnuEditFunction";
+            this.mnuEditFunction.Size = new System.Drawing.Size(144, 22);
+            this.mnuEditFunction.Text = "Edit Function";
+            // 
+            // ctlExpressionExplorer
+            // 
+            this.ctlExpressionExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctlExpressionExplorer.Location = new System.Drawing.Point(0, 0);
+            this.ctlExpressionExplorer.Name = "ctlExpressionExplorer";
+            this.ctlExpressionExplorer.Size = new System.Drawing.Size(191, 334);
+            this.ctlExpressionExplorer.TabIndex = 0;
+            // 
             // ctlExpression
             // 
             this.ctlExpression.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -112,6 +130,7 @@
             this.ctlExpression.Size = new System.Drawing.Size(271, 240);
             this.ctlExpression.TabIndex = 0;
             this.ctlExpression.WordWrap = false;
+            this.ctlExpression.DoubleClick += new System.EventHandler(this.ctlExpression_DoubleClick);
             // 
             // frmExpressionEngine
             // 
@@ -126,6 +145,7 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.mnuContext.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -138,6 +158,8 @@
         private System.Windows.Forms.Button btnFunction;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ContextMenuStrip mnuContext;
+        private System.Windows.Forms.ToolStripMenuItem mnuEditFunction;
     }
 }
 

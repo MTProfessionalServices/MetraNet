@@ -39,10 +39,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cboCategory = new System.Windows.Forms.ComboBox();
             this.panGeneral = new System.Windows.Forms.Panel();
-            this.treExplorer = new PropertyGui.ctlExpressionTree();
             this.mnuEnumValue = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuInsertValue = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuInsertPropertyAndValue = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuInsertEqualitySnippet = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuInsertInequalitySnippet = new System.Windows.Forms.ToolStripMenuItem();
+            this.treExplorer = new PropertyGui.ctlExpressionTree();
             this.panFunction.SuspendLayout();
             this.panGeneral.SuspendLayout();
             this.mnuEnumValue.SuspendLayout();
@@ -153,12 +154,45 @@
             this.panGeneral.Size = new System.Drawing.Size(307, 53);
             this.panGeneral.TabIndex = 13;
             // 
+            // mnuEnumValue
+            // 
+            this.mnuEnumValue.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuInsertValue,
+            this.mnuInsertEqualitySnippet,
+            this.mnuInsertInequalitySnippet});
+            this.mnuEnumValue.Name = "mnuEnumValue";
+            this.mnuEnumValue.Size = new System.Drawing.Size(202, 92);
+            this.mnuEnumValue.Click += new System.EventHandler(this.mnuEnumValue_Click);
+            // 
+            // mnuInsertValue
+            // 
+            this.mnuInsertValue.Name = "mnuInsertValue";
+            this.mnuInsertValue.Size = new System.Drawing.Size(201, 22);
+            this.mnuInsertValue.Text = "Insert Value";
+            this.mnuInsertValue.Click += new System.EventHandler(this.mnuEnumValue_Click);
+            // 
+            // mnuInsertEqualitySnippet
+            // 
+            this.mnuInsertEqualitySnippet.Name = "mnuInsertEqualitySnippet";
+            this.mnuInsertEqualitySnippet.Size = new System.Drawing.Size(201, 22);
+            this.mnuInsertEqualitySnippet.Text = "Insert Equality Snippet";
+            this.mnuInsertEqualitySnippet.Click += new System.EventHandler(this.mnuEnumValue_Click);
+            // 
+            // mnuInsertInequalitySnippet
+            // 
+            this.mnuInsertInequalitySnippet.Name = "mnuInsertInequalitySnippet";
+            this.mnuInsertInequalitySnippet.Size = new System.Drawing.Size(201, 22);
+            this.mnuInsertInequalitySnippet.Text = "Insert Inequality Snippet";
+            this.mnuInsertInequalitySnippet.Click += new System.EventHandler(this.mnuEnumValue_Click);
+            // 
             // treExplorer
             // 
             this.treExplorer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.treExplorer.ContextMenuStrip = this.mnuEnumValue;
             this.treExplorer.EntityTypeFilter = MetraTech.ExpressionEngine.Entity.EntityTypeEnum.ServiceDefinition;
+            this.treExplorer.EnumValueContextMenu = null;
             this.treExplorer.FunctionFilter = null;
             this.treExplorer.ImageIndex = 0;
             this.treExplorer.Location = new System.Drawing.Point(6, 86);
@@ -168,27 +202,8 @@
             this.treExplorer.ShowNodeToolTips = true;
             this.treExplorer.Size = new System.Drawing.Size(301, 283);
             this.treExplorer.TabIndex = 5;
+            this.treExplorer.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
             this.treExplorer.DoubleClick += new System.EventHandler(this.treExplorer_DoubleClick);
-            // 
-            // mnuEnumValue
-            // 
-            this.mnuEnumValue.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuInsertValue,
-            this.mnuInsertPropertyAndValue});
-            this.mnuEnumValue.Name = "mnuEnumValue";
-            this.mnuEnumValue.Size = new System.Drawing.Size(207, 48);
-            // 
-            // mnuInsertValue
-            // 
-            this.mnuInsertValue.Name = "mnuInsertValue";
-            this.mnuInsertValue.Size = new System.Drawing.Size(206, 22);
-            this.mnuInsertValue.Text = "Insert Value";
-            // 
-            // mnuInsertPropertyAndValue
-            // 
-            this.mnuInsertPropertyAndValue.Name = "mnuInsertPropertyAndValue";
-            this.mnuInsertPropertyAndValue.Size = new System.Drawing.Size(206, 22);
-            this.mnuInsertPropertyAndValue.Text = "Insert Property and Value";
             // 
             // ctlExpressionExplorer
             // 
@@ -226,6 +241,7 @@
         private System.Windows.Forms.Panel panGeneral;
         private System.Windows.Forms.ContextMenuStrip mnuEnumValue;
         private System.Windows.Forms.ToolStripMenuItem mnuInsertValue;
-        private System.Windows.Forms.ToolStripMenuItem mnuInsertPropertyAndValue;
+        private System.Windows.Forms.ToolStripMenuItem mnuInsertEqualitySnippet;
+        private System.Windows.Forms.ToolStripMenuItem mnuInsertInequalitySnippet;
     }
 }

@@ -30,18 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.ctlExpressionExplorer = new PropertyGui.ctlExpressionExplorer();
+            this.pctEmailEditor = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btnCheckSyntax = new System.Windows.Forms.Button();
             this.btnFunction = new System.Windows.Forms.Button();
-            this.mnuContext = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnuEditFunction = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctlExpressionExplorer = new PropertyGui.ctlExpressionExplorer();
             this.ctlExpression = new PropertyGui.ctlExpression();
+            this.mnuExpressionContext = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuEditFunction = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.mnuContext.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctEmailEditor)).BeginInit();
+            this.mnuExpressionContext.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -57,13 +59,31 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.pctEmailEditor);
             this.splitContainer1.Panel2.Controls.Add(this.button2);
             this.splitContainer1.Panel2.Controls.Add(this.btnCheckSyntax);
             this.splitContainer1.Panel2.Controls.Add(this.btnFunction);
             this.splitContainer1.Panel2.Controls.Add(this.ctlExpression);
-            this.splitContainer1.Size = new System.Drawing.Size(499, 338);
-            this.splitContainer1.SplitterDistance = 195;
+            this.splitContainer1.Size = new System.Drawing.Size(1046, 338);
+            this.splitContainer1.SplitterDistance = 407;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // ctlExpressionExplorer
+            // 
+            this.ctlExpressionExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctlExpressionExplorer.Location = new System.Drawing.Point(0, 0);
+            this.ctlExpressionExplorer.Name = "ctlExpressionExplorer";
+            this.ctlExpressionExplorer.Size = new System.Drawing.Size(403, 334);
+            this.ctlExpressionExplorer.TabIndex = 0;
+            // 
+            // pctEmailEditor
+            // 
+            this.pctEmailEditor.Image = global::PropertyGui.Properties.Resources.EmailEditor;
+            this.pctEmailEditor.Location = new System.Drawing.Point(13, 44);
+            this.pctEmailEditor.Name = "pctEmailEditor";
+            this.pctEmailEditor.Size = new System.Drawing.Size(542, 33);
+            this.pctEmailEditor.TabIndex = 4;
+            this.pctEmailEditor.TabStop = false;
             // 
             // button2
             // 
@@ -96,13 +116,27 @@
             this.btnFunction.UseVisualStyleBackColor = true;
             this.btnFunction.Click += new System.EventHandler(this.btnFunction_Click);
             // 
-            // mnuContext
+            // ctlExpression
             // 
-            this.mnuContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ctlExpression.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctlExpression.Location = new System.Drawing.Point(13, 74);
+            this.ctlExpression.Multiline = true;
+            this.ctlExpression.Name = "ctlExpression";
+            this.ctlExpression.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.ctlExpression.Size = new System.Drawing.Size(606, 219);
+            this.ctlExpression.TabIndex = 0;
+            this.ctlExpression.WordWrap = false;
+            this.ctlExpression.DoubleClick += new System.EventHandler(this.ctlExpression_DoubleClick);
+            // 
+            // mnuExpressionContext
+            // 
+            this.mnuExpressionContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuEditFunction});
-            this.mnuContext.Name = "mnuContext";
-            this.mnuContext.Size = new System.Drawing.Size(145, 26);
-            this.mnuContext.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuContext_ItemClicked);
+            this.mnuExpressionContext.Name = "mnuContext";
+            this.mnuExpressionContext.Size = new System.Drawing.Size(145, 26);
+            this.mnuExpressionContext.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuContext_ItemClicked);
             // 
             // mnuEditFunction
             // 
@@ -110,33 +144,11 @@
             this.mnuEditFunction.Size = new System.Drawing.Size(144, 22);
             this.mnuEditFunction.Text = "Edit Function";
             // 
-            // ctlExpressionExplorer
-            // 
-            this.ctlExpressionExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctlExpressionExplorer.Location = new System.Drawing.Point(0, 0);
-            this.ctlExpressionExplorer.Name = "ctlExpressionExplorer";
-            this.ctlExpressionExplorer.Size = new System.Drawing.Size(191, 334);
-            this.ctlExpressionExplorer.TabIndex = 0;
-            // 
-            // ctlExpression
-            // 
-            this.ctlExpression.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctlExpression.Location = new System.Drawing.Point(13, 53);
-            this.ctlExpression.Multiline = true;
-            this.ctlExpression.Name = "ctlExpression";
-            this.ctlExpression.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.ctlExpression.Size = new System.Drawing.Size(271, 240);
-            this.ctlExpression.TabIndex = 0;
-            this.ctlExpression.WordWrap = false;
-            this.ctlExpression.DoubleClick += new System.EventHandler(this.ctlExpression_DoubleClick);
-            // 
             // frmExpressionEngine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 338);
+            this.ClientSize = new System.Drawing.Size(1046, 338);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmExpressionEngine";
             this.Text = "Expression Engine";
@@ -145,7 +157,8 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.mnuContext.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pctEmailEditor)).EndInit();
+            this.mnuExpressionContext.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -158,8 +171,9 @@
         private System.Windows.Forms.Button btnFunction;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnCheckSyntax;
-        private System.Windows.Forms.ContextMenuStrip mnuContext;
+        private System.Windows.Forms.ContextMenuStrip mnuExpressionContext;
         private System.Windows.Forms.ToolStripMenuItem mnuEditFunction;
+        private System.Windows.Forms.PictureBox pctEmailEditor;
     }
 }
 

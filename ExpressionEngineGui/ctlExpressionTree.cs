@@ -19,6 +19,7 @@ namespace PropertyGui
         public Entity.EntityTypeEnum EntityTypeFilter { get; set; }
         public DataTypeInfo PropertyTypeFilter { get; set; }
         public string FunctionFilter { get; set; }
+        public ContextMenuStrip EnumValueContextMenu { get; set; }
         #endregion
 
         #region Static Constructor
@@ -45,9 +46,10 @@ namespace PropertyGui
         #endregion
 
         #region Methods
-        public void Init(Context context)
+        public void Init(Context context, ContextMenuStrip enumValueMenu)
         {
             Context = context;
+            EnumValueContextMenu = enumValueMenu;
         }
 
         public void LoadTree()
@@ -116,7 +118,8 @@ namespace PropertyGui
         {
             foreach (var value in enumType.Values)
             {
-                CreateNode(value, parentNode);
+                var node = CreateNode(value, parentNode);
+                node.ContextMenuStrip = EnumValueContextMenu;
             }
         }
 
@@ -190,6 +193,8 @@ namespace PropertyGui
                 Nodes.Add(node);
             else
                 parentNode.Nodes.Add(node);
+
+           
      
             if (item is Property)
             {

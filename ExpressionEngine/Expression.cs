@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -11,11 +12,16 @@ namespace MetraTech.ExpressionEngine
         public enum ExpressionTypeEnum { 
             AQG,
             UQG,
+            Logic,
+            Email,
             Message ///Merging of localized text (e.g., email templates, sms messages, etc.)
         }
         #endregion
 
         #region Properties
+
+        public string Name { get; set; }
+        public string Description{get;set;}
 
         /// <summary>
         /// The type of expression
@@ -42,10 +48,11 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Constructor
-        public Expression(ExpressionTypeEnum type, string contents)
+        public Expression(ExpressionTypeEnum type, string contents, string name=null)
         {
             Type = type;
             Content = contents;
+            Name = name;
             Parameters = new PropertyCollection(this);
             _DemoLoader.LoadInputsOutputs(this);
         }
@@ -59,6 +66,19 @@ namespace MetraTech.ExpressionEngine
         public bool Parse(out string errorMsg, out int lineNumber, out int columnNumber)
         {
             throw new NotImplementedException();
+        }
+
+        public static Expression CreateFromFile(string filePath)
+        {
+            var doc = new XmlDocument();
+            var rootNode = doc.LoadAndGetRootNode(filePath, "Expression");
+            var name = rootNode.GetChildTag("Name");
+            var content = rootNode.GetChildTag("Content");
+            var description = rootNode.GetChildTag("Description");
+            var type = rootNode.GetChildEnum<ExpressionTypeEnum>("Type");
+            var exp = new Expression(type, content, name);
+            exp.Description = description;
+            return exp;
         }
         #endregion
 

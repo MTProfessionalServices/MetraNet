@@ -36,7 +36,7 @@ namespace PropertyGui
 
             IgnoreChanges = true;
 
-            treExplorer.Init(Context);
+            treExplorer.Init(Context, null);//mnuEnumValue);
 
             //Init the Mode combo
             cboMode.BeginUpdate();
@@ -136,6 +136,7 @@ namespace PropertyGui
         #endregion
 
         #region Events
+
         private void cbo_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateGui();
@@ -150,5 +151,34 @@ namespace PropertyGui
         }
 
         #endregion
+
+        private void mnuEnumValue_Click(object sender, EventArgs e)
+        {
+            if (treExplorer.SelectedNode == null)
+                return;
+            if (!(treExplorer.SelectedNode.Tag is EnumValue))
+                return;
+
+            var enumValue = (EnumValue)treExplorer.SelectedNode.Tag;
+
+            string text;
+            if (sender.Equals(mnuInsertValue))
+                text = enumValue.ToExpression;
+            else
+            {
+                //Get the parent property
+                var parentTag = treExplorer.SelectedNode.Parent.Tag;
+                if (!(parentTag is Property))
+                    return;
+
+                var property = (Property)parentTag;
+
+                if (sender.Equals(mnuInsertEqualitySnippet))
+                    text = string.Format("{0} eq {1}", property.ToExpression, enumValue.ToExpression);
+                else if (sender.Equals(mnuInsertInequalitySnippet))
+                    text = string.Format("{0} nq {1}", property.ToExpression, enumValue.ToExpression);
+            }
+        }
+
     }
 }

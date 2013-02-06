@@ -27,7 +27,12 @@ namespace PropertyGui
 
             ContextMenuStrip = mnuContext;
             Multiline = true;
-            WordWrap = false;
+
+            if (Context.Expression.Type == Expression.ExpressionTypeEnum.Message)
+                WordWrap = true;
+            else
+                WordWrap = false;
+
             ScrollBars = System.Windows.Forms.ScrollBars.Both;
             Text = Context.Expression.Content;
         }

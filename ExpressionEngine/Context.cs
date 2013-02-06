@@ -25,6 +25,7 @@ namespace MetraTech.ExpressionEngine
         public Dictionary<string, AQG> AQGs = new Dictionary<string, AQG>();
         public Dictionary<string, UQG> UQGs = new Dictionary<string, UQG>();
         public Dictionary<string, EnumSpace> EnumSpaces = new Dictionary<string, EnumSpace>();
+        public Dictionary<string, Expression> Expressions = new Dictionary<string, Expression>();
 
         //These are updated by UpdateContext()
         public List<EnumType> EnumTypes = new List<EnumType>();

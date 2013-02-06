@@ -29,7 +29,9 @@ namespace PropertyGui
         {
             Context = context;
             ctlExpressionExplorer.Init(Context);
-            ctlExpression.Init(Context, mnuContext);
+            ctlExpression.Init(Context, mnuExpressionContext);
+
+            pctEmailEditor.Visible = (context.Expression.Type == Expression.ExpressionTypeEnum.Email);
 
             Text = string.Format("Expression Engine ({0})", Context.Expression.Type.ToString());
         }
@@ -86,5 +88,6 @@ namespace PropertyGui
             MessageBox.Show("According to Jonah, you're a wimp if you clicked on this button... 'Cowboy up and get it right the first time'");
         }
         #endregion
+
     }
 }

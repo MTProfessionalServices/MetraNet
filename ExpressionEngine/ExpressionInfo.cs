@@ -30,6 +30,11 @@ namespace MetraTech.ExpressionEngine
 
             //Message
             info = AddInfo(Expression.ExpressionTypeEnum.Message, Entity.EntityTypeEnum.AccountView);
+
+            //Expression
+            info = AddInfo(Expression.ExpressionTypeEnum.Logic, Entity.EntityTypeEnum.AccountView);
+
+            info = AddInfo(Expression.ExpressionTypeEnum.Email, Entity.EntityTypeEnum.AccountView);
         }
 
 

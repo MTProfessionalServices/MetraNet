@@ -31,6 +31,19 @@ namespace MetraTech.ExpressionEngine
             LoadFunctions();
             LoadXqg(GlobalContext, Expression.ExpressionTypeEnum.AQG, Path.Combine(DataPath, "AqgExpressions.csv"));
             LoadXqg(GlobalContext, Expression.ExpressionTypeEnum.UQG, Path.Combine(DataPath, "UqgExpressions.csv"));
+            LoadExpressions();
+        }
+        #endregion
+
+        #region Expressions
+        public static void LoadExpressions()
+        {
+            var dirInfo = new DirectoryInfo(Path.Combine(DataPath, "Expressions"));
+            foreach (var fileInfo in dirInfo.GetFiles("*.xml"))
+            {
+                var exp = Expression.CreateFromFile(fileInfo.FullName);
+                GlobalContext.Expressions.Add(exp.Name, exp);
+            }
         }
         #endregion
 
@@ -112,8 +125,7 @@ namespace MetraTech.ExpressionEngine
 
             //var entity = Entity.CreateProductView("ParameterTable.CloudRates");
             //prop.Direction = Property.DirectionType.Input;
-            //exp.Parameters.Add(
-           
+            //exp.Parameters.Add(          
         }
         #endregion
 

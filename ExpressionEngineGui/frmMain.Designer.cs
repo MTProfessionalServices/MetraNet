@@ -33,11 +33,13 @@
             this.btnEmail = new System.Windows.Forms.Button();
             this.chkNewSyntax = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cboUqgs = new System.Windows.Forms.ComboBox();
+            this.cboAqgs = new System.Windows.Forms.ComboBox();
             this.btnExplorer = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cboAqgs = new System.Windows.Forms.ComboBox();
-            this.cboUqgs = new System.Windows.Forms.ComboBox();
+            this.btnExpression = new System.Windows.Forms.Button();
+            this.cboExpressions = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +67,7 @@
             // btnEmail
             // 
             this.btnEmail.Enabled = false;
-            this.btnEmail.Location = new System.Drawing.Point(21, 77);
+            this.btnEmail.Location = new System.Drawing.Point(21, 120);
             this.btnEmail.Name = "btnEmail";
             this.btnEmail.Size = new System.Drawing.Size(75, 23);
             this.btnEmail.TabIndex = 2;
@@ -84,6 +86,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cboExpressions);
+            this.groupBox1.Controls.Add(this.btnExpression);
             this.groupBox1.Controls.Add(this.cboUqgs);
             this.groupBox1.Controls.Add(this.cboAqgs);
             this.groupBox1.Controls.Add(this.btnUQG);
@@ -95,6 +99,22 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sample Expressions";
+            // 
+            // cboUqgs
+            // 
+            this.cboUqgs.FormattingEnabled = true;
+            this.cboUqgs.Location = new System.Drawing.Point(103, 50);
+            this.cboUqgs.Name = "cboUqgs";
+            this.cboUqgs.Size = new System.Drawing.Size(156, 21);
+            this.cboUqgs.TabIndex = 4;
+            // 
+            // cboAqgs
+            // 
+            this.cboAqgs.FormattingEnabled = true;
+            this.cboAqgs.Location = new System.Drawing.Point(103, 20);
+            this.cboAqgs.Name = "cboAqgs";
+            this.cboAqgs.Size = new System.Drawing.Size(156, 21);
+            this.cboAqgs.TabIndex = 3;
             // 
             // btnExplorer
             // 
@@ -124,21 +144,23 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Settings";
             // 
-            // cboAqgs
+            // btnExpression
             // 
-            this.cboAqgs.FormattingEnabled = true;
-            this.cboAqgs.Location = new System.Drawing.Point(103, 20);
-            this.cboAqgs.Name = "cboAqgs";
-            this.cboAqgs.Size = new System.Drawing.Size(156, 21);
-            this.cboAqgs.TabIndex = 3;
+            this.btnExpression.Location = new System.Drawing.Point(21, 77);
+            this.btnExpression.Name = "btnExpression";
+            this.btnExpression.Size = new System.Drawing.Size(75, 23);
+            this.btnExpression.TabIndex = 5;
+            this.btnExpression.Text = "Expression";
+            this.btnExpression.UseVisualStyleBackColor = true;
+            this.btnExpression.Click += new System.EventHandler(this.btnExpression_Click);
             // 
-            // cboUqgs
+            // cboExpressions
             // 
-            this.cboUqgs.FormattingEnabled = true;
-            this.cboUqgs.Location = new System.Drawing.Point(103, 50);
-            this.cboUqgs.Name = "cboUqgs";
-            this.cboUqgs.Size = new System.Drawing.Size(156, 21);
-            this.cboUqgs.TabIndex = 4;
+            this.cboExpressions.FormattingEnabled = true;
+            this.cboExpressions.Location = new System.Drawing.Point(103, 79);
+            this.cboExpressions.Name = "cboExpressions";
+            this.cboExpressions.Size = new System.Drawing.Size(156, 21);
+            this.cboExpressions.TabIndex = 6;
             // 
             // frmMain
             // 
@@ -171,5 +193,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cboAqgs;
         private System.Windows.Forms.ComboBox cboUqgs;
+        private System.Windows.Forms.ComboBox cboExpressions;
+        private System.Windows.Forms.Button btnExpression;
     }
 }

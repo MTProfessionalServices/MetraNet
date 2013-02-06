@@ -30,6 +30,11 @@ namespace PropertyGui
             cboUqgs.Items.AddRange(_DemoLoader.GlobalContext.UQGs.Values.ToArray<UQG>());
             if (cboUqgs.Items.Count > 0)
                 cboUqgs.SelectedIndex = 0;
+
+            cboExpressions.DisplayMember = "Name";
+            cboExpressions.Items.AddRange(_DemoLoader.GlobalContext.Expressions.Values.ToArray<Expression>());
+            if (cboExpressions.Items.Count > 0)
+                cboExpressions.SelectedIndex = 0;
         }
         #endregion
 
@@ -74,6 +79,12 @@ namespace PropertyGui
             dialog.ShowDialog();
         }
         #endregion
+
+        private void btnExpression_Click(object sender, EventArgs e)
+        {
+            var exp = (Expression)cboExpressions.SelectedItem;
+            ShowExpression(exp);
+        }
 
     }
 }

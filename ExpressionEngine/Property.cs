@@ -299,7 +299,7 @@ namespace MetraTech.ExpressionEngine
                     case BaseType.Decimal:
                         return "Decimal.png";
                     case BaseType._Enum:
-                        return "Enum.png";
+                        return "EnumType.png";
                     case BaseType.DateTime:
                         return "DateTime.png";
                     case BaseType.String:

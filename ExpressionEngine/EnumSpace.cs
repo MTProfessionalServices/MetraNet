@@ -38,7 +38,6 @@ namespace MetraTech.ExpressionEngine
                 throw new NotImplementedException();
             }
         }
-        #endregion
 
         public bool TryGetEnumType(string name, out EnumType type)
         {
@@ -73,5 +72,6 @@ namespace MetraTech.ExpressionEngine
 
             type.AddValue(enumValue, enumId);
         }
+        #endregion
     }
 }

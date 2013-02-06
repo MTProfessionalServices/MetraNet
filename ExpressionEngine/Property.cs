@@ -288,6 +288,8 @@ namespace MetraTech.ExpressionEngine
             {
                 switch (DataTypeInfo.BaseType)
                 {
+                    case BaseType.Boolean:
+                        return "Boolean.png";
                     case BaseType.Charge:
                         return "Charge.png";
                     case BaseType.Decimal:

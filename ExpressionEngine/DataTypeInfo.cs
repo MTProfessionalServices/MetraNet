@@ -52,6 +52,11 @@ namespace MetraTech.ExpressionEngine
             type.DefaultStringFormat = other.DefaultStringFormat;
             return type;
         }
+
+        /// <summary>
+        /// Maps the integer data type IDs in metranet to a BaseType
+        /// </summary>
+        public static Dictionary<int, BaseType> PropertyTypeId_BaseTypeMapping = new Dictionary<int, BaseType>();
         #endregion
 
         #region Properties
@@ -146,6 +151,15 @@ namespace MetraTech.ExpressionEngine
               BaseType.String,
               BaseType.DateTime
             };
+
+            PropertyTypeId_BaseTypeMapping.Add(0, BaseType.String);
+            PropertyTypeId_BaseTypeMapping.Add(2, BaseType.Integer32);
+            PropertyTypeId_BaseTypeMapping.Add(3, BaseType.DateTime);
+            PropertyTypeId_BaseTypeMapping.Add(5, BaseType.Decimal); ///this is showing up a numeric(18,6)
+            PropertyTypeId_BaseTypeMapping.Add(7, BaseType.Decimal);
+            PropertyTypeId_BaseTypeMapping.Add(8, BaseType._Enum);
+            PropertyTypeId_BaseTypeMapping.Add(9, BaseType.Boolean);
+            PropertyTypeId_BaseTypeMapping.Add(11, BaseType.Integer64);
         }
         #endregion
 

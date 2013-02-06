@@ -21,7 +21,7 @@ namespace MetraTech.ExpressionEngine
         #region Properties
         public readonly Expression Expression;
         public Dictionary<string, Function> Functions = new Dictionary<string, Function>();
-        public Dictionary<string, Entity> Entities = new Dictionary<string, Entity>();
+        public Dictionary<string, Entity> Entities = new Dictionary<string, Entity>();            //Entities may not have unique names across types... need to deal with that, perhaps a composite key
         public Dictionary<string, AQG> AQGs = new Dictionary<string, AQG>();
         public Dictionary<string, UQG> UQGs = new Dictionary<string, UQG>();
         public Dictionary<string, Property> Interactions = new Dictionary<string, Property>();

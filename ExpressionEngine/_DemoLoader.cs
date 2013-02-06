@@ -25,6 +25,7 @@ namespace MetraTech.ExpressionEngine
             GlobalContext.AddEntity(_DemoLoader.GetCorporateAccountType());
             GlobalContext.AddEntity(_DemoLoader.GetAircraftLandingProductView());
 
+            LoadProductViews(GlobalContext, Path.Combine(DataPath, "ProductViews.csv"));
             LoadEnumFile(GlobalContext, Path.Combine(DataPath, "Enums.csv"));
             LoadFunctions();
             LoadXqg(GlobalContext, Expression.ExpressionTypeEnum.AQG, Path.Combine(DataPath, "AqgExpressions.csv"));
@@ -32,7 +33,7 @@ namespace MetraTech.ExpressionEngine
         }
         #endregion
 
-        #region Entities
+        #region Manual Entities
         public static Entity GetCloudComputeProductView()
         {
             var entity = new Entity("CloudCompute", Entity.EntityTypeEnum.ProductView, "Models an cloud compute usage even");
@@ -86,6 +87,47 @@ namespace MetraTech.ExpressionEngine
             pv.AddEnum("Country", "The Operating System (OS)", true, "Global", "Country");
 
             return entity;
+        }
+        #endregion
+
+        #region File-Based Entities
+        public static void LoadProductViews(Context context, string filePath)
+        {
+            var lines = File.ReadAllLines(filePath);
+            for (int index = 1; index < lines.Length; index++)
+            {
+                try
+                {
+                    var parts = lines[index].Split(',');
+                    var pvName = parts[0].Split('/')[1];
+                    var propName = parts[1];
+                    var required = Helper.GetBool(parts[2]);
+                    var type = Int32.Parse(parts[3]);
+                    var enumSpace = parts[4];
+                    var enumType = parts[5];
+
+                    Entity entity;
+                    if (!context.Entities.TryGetValue(pvName, out entity))
+                    {
+                        entity = new Entity(pvName, Entity.EntityTypeEnum.ProductView, null);
+                        context.Entities.Add(entity.Name, entity);
+                    }
+
+                    var dataType = DataTypeInfo.PropertyTypeId_BaseTypeMapping[type];
+                    var dt =  new DataTypeInfo(dataType);
+                    var property = new Property(propName, dt, null);
+                    if (dt.IsEnum)
+                    {
+                        dt.EnumSpace = enumSpace;
+                        dt.EnumType = enumType;
+                    }
+                    entity.Properties.Add(property);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(string.Format("Error loading PV, line {0} [{1}]", index, ex.Message));
+                }
+            }
         }
         #endregion
 

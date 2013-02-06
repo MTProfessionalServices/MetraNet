@@ -82,6 +82,14 @@ namespace PropertyGui
                         CreateNode(uqg);
                     }
                     break;
+                case MvcAbstraction.ViewModeType.InputsOutputs:
+                    foreach (var property in Context.Expression.Parameters)
+                    {
+                        var node = CreateNode(property);
+                        node.SelectedImageKey = property.ImageDirection;
+                        node.ImageKey = property.ImageDirection;
+                    }
+                    break;
                 default:
                     throw new NotImplementedException();
             }

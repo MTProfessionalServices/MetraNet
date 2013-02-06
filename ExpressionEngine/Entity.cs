@@ -6,6 +6,9 @@ using System.Text.RegularExpressions;
 
 namespace MetraTech.ExpressionEngine
 {
+    /// <summary>
+    /// Should this be a sunbclass of Property
+    /// </summary>
     public class Entity :IExpressionEngineTreeNode
     {
         #region Enums
@@ -18,6 +21,7 @@ namespace MetraTech.ExpressionEngine
         public EntityTypeEnum Type { get; set; }
         public PropertyCollection Properties;
         public string Description { get; set; }
+        public Property.DirectionType Directon { get; set; }
 
         public string ToolTip
         {
@@ -74,11 +78,18 @@ namespace MetraTech.ExpressionEngine
             {
                 case EntityTypeEnum.ProductView:
                     return Settings.NewSyntax? "EVENT": "USAGE";
-                case EntityTypeEnum.AccountType:
+                case EntityTypeEnum.AccountView:
                     return "ACCOUNT";
                 default:
                     throw new NotImplementedException();
             }
+        }
+        #endregion
+
+        #region Create Methods
+        public static Entity CreateProductView(string name, string description=null)
+        {
+            return new Entity(name, EntityTypeEnum.ProductView, description);
         }
         #endregion
     }

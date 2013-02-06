@@ -24,7 +24,6 @@ namespace MetraTech.ExpressionEngine
         public Dictionary<string, Entity> Entities = new Dictionary<string, Entity>();            //Entities may not have unique names across types... need to deal with that, perhaps a composite key
         public Dictionary<string, AQG> AQGs = new Dictionary<string, AQG>();
         public Dictionary<string, UQG> UQGs = new Dictionary<string, UQG>();
-        public Dictionary<string, Property> Interactions = new Dictionary<string, Property>();
         public Dictionary<string, EnumSpace> EnumSpaces = new Dictionary<string, EnumSpace>();
 
         //These are updated by UpdateContext()
@@ -152,15 +151,6 @@ namespace MetraTech.ExpressionEngine
             {
                 EnumTypes.AddRange(enumSpace.EnumTypes);
             }
-        }
-        #endregion
-
-        #region Interactions
-        public void AddInteraction(string name, string description, Property.DirectionType direction)
-        {
-            var prop = new Property(name, new DataTypeInfo(BaseType.Decimal), description);
-            prop.Direction = direction;
-            Interactions.Add(prop.Name, prop);
         }
         #endregion
 

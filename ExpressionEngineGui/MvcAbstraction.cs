@@ -13,7 +13,7 @@ namespace PropertyGui
     public static class MvcAbstraction
     {
         #region Enums
-        public enum ViewModeType { Properties, Entities, Functions, Enums, AQGs, UQGs }
+        public enum ViewModeType { Properties, Entities, Functions, Enums, AQGs, UQGs, InputsOutputs }
         #endregion
 
         #region Methods
@@ -26,11 +26,14 @@ namespace PropertyGui
         {
             var viewModes = new List<ViewModeType>();
 
-            //If no expression, then show everything (i.e., no filter)
+            //If no expression, then show almost everything (i.e., no filter)
             if (expression == null)
             {
                 foreach (var item in Enum.GetValues(typeof(ViewModeType)))
                 {
+                    if ((ViewModeType)item == ViewModeType.InputsOutputs)
+                        continue;
+
                     viewModes.Add((ViewModeType)item);
                 }
                 return viewModes;
@@ -46,6 +49,7 @@ namespace PropertyGui
             viewModes.Add(ViewModeType.Properties);
             viewModes.Add(ViewModeType.Enums);
             viewModes.Add(ViewModeType.Functions);
+            viewModes.Add(ViewModeType.InputsOutputs);
 
             return viewModes;
         }

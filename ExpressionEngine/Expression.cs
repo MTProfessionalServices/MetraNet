@@ -46,6 +46,8 @@ namespace MetraTech.ExpressionEngine
         {
             Type = type;
             Content = contents;
+            Parameters = new PropertyCollection(this);
+            _DemoLoader.LoadInputsOutputs(this);
         }
         #endregion
 

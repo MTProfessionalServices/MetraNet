@@ -42,7 +42,7 @@ namespace MetraTech.ExpressionEngine
             var pv = entity.Properties;
             pv.AddInt32("NumSnapshots", "The number of snapshots taken", true);
             pv.AddString("DataCenter", "The data center in which the server ran", true, null, 30);
-            pv.AddEnum("DataCenterCountry", "The country that the data center is located", true, "Global", "Country");
+            pv.AddEnum("DataCenterCountry", "The country that the data center is located", true, "global", "countryname");
             pv.AddEnum("ChargeModel", "The charinging model used to calculate the compute charge", true, "Cloud", "ChargeModel");
             pv.AddDecimal("InstanceSize", "The size of the instance", true);
             pv.AddEnum("OS", "The Operating System (OS)", true, "Cloud", "OperatingSystem");
@@ -88,6 +88,32 @@ namespace MetraTech.ExpressionEngine
             pv.AddEnum("Country", "The Operating System (OS)", true, "Global", "Country");
 
             return entity;
+        }
+        #endregion
+
+        #region InputsOutputs
+        public static void LoadInputsOutputs(Expression exp)
+        {
+            var prop = Property.CreateInteger32("USAGE.Hours");
+            prop.Direction = Property.DirectionType.InOut;
+            exp.Parameters.Add(prop);
+
+            prop = Property.CreateInteger32("USAGE.CpuCount");
+            prop.Direction = Property.DirectionType.Input;
+            exp.Parameters.Add(prop);
+
+            prop = Property.CreateInteger32("USAGE.Snapshots");
+            prop.Direction = Property.DirectionType.Input;
+            exp.Parameters.Add(prop);
+
+            prop = Property.CreateInteger32("USAGE.Amount");
+            prop.Direction = Property.DirectionType.Input;
+            exp.Parameters.Add(prop);
+
+            //var entity = Entity.CreateProductView("ParameterTable.CloudRates");
+            //prop.Direction = Property.DirectionType.Input;
+            //exp.Parameters.Add(
+           
         }
         #endregion
 

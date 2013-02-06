@@ -142,6 +142,10 @@ namespace MetraTech.ExpressionEngine
 
         #region Static Create Methods
 
+        public static Property CreateInteger32(string name, string description=null)
+        {
+            return new Property(name, new DataTypeInfo(BaseType.Integer32), description);
+        }
         public static Property CreateString(string name, string description, int length = 0)
         {
             var property = new Property(name, DataTypeInfo.CreateString(length), description);
@@ -272,11 +276,11 @@ namespace MetraTech.ExpressionEngine
                 switch (Direction)
                 {
                     case DirectionType.InOut:
-                        return "InOut.png";
+                        return "PropertyInOut.png";
                     case DirectionType.Input:
-                        return "Input.png";
+                        return "PropertyInput.png";
                     case DirectionType.Output:
-                        return "Output.png";
+                        return "PropertyOutput.png";
                 }
                 throw new NotImplementedException();
             }

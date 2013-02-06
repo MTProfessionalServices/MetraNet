@@ -21,7 +21,7 @@ namespace MetraTech.ExpressionEngine
         static ExpressionInfo()
         {
             //AQG
-            var info = AddInfo(Expression.ExpressionTypeEnum.AQG, Entity.EntityTypeEnum.AccountType);
+            var info = AddInfo(Expression.ExpressionTypeEnum.AQG, Entity.EntityTypeEnum.AccountView);
             info.SupportsAqgs = true;
             
             //UQG

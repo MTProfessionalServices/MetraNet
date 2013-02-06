@@ -25,7 +25,8 @@ namespace MetraTech.ExpressionEngine
             GlobalContext.AddEntity(_DemoLoader.GetCorporateAccountType());
             GlobalContext.AddEntity(_DemoLoader.GetAircraftLandingProductView());
 
-            LoadProductViews(GlobalContext, Path.Combine(DataPath, "ProductViews.csv"));
+            LoadEntities(GlobalContext, Entity.EntityTypeEnum.ProductView, Path.Combine(DataPath, "ProductViews.csv"));
+            LoadEntities(GlobalContext, Entity.EntityTypeEnum.AccountView, Path.Combine(DataPath, "AccountViews.csv"));
             LoadEnumFile(GlobalContext, Path.Combine(DataPath, "Enums.csv"));
             LoadFunctions();
             LoadXqg(GlobalContext, Expression.ExpressionTypeEnum.AQG, Path.Combine(DataPath, "AqgExpressions.csv"));
@@ -91,7 +92,7 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region File-Based Entities
-        public static void LoadProductViews(Context context, string filePath)
+        public static void LoadEntities(Context context, Entity.EntityTypeEnum entityType, string filePath)
         {
             var lines = File.ReadAllLines(filePath);
             for (int index = 1; index < lines.Length; index++)
@@ -109,13 +110,14 @@ namespace MetraTech.ExpressionEngine
                     Entity entity;
                     if (!context.Entities.TryGetValue(pvName, out entity))
                     {
-                        entity = new Entity(pvName, Entity.EntityTypeEnum.ProductView, null);
+                        entity = new Entity(pvName, entityType, null);
                         context.Entities.Add(entity.Name, entity);
                     }
 
                     var dataType = DataTypeInfo.PropertyTypeId_BaseTypeMapping[type];
                     var dt =  new DataTypeInfo(dataType);
                     var property = new Property(propName, dt, null);
+                    property.Required = required;
                     if (dt.IsEnum)
                     {
                         dt.EnumSpace = enumSpace;

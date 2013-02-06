@@ -142,7 +142,9 @@ namespace PropertyGui
         }
         private void LoadTreeEntityMode()
         {
-            var entities = Context.GetEntities(null, null, null, PropertyTypeFilter);
+            var filter = new List<Entity.EntityTypeEnum>();
+            filter.Add(EntityTypeFilter);
+            var entities = Context.GetEntities(null, filter, null, PropertyTypeFilter);
             foreach (var entity in entities)
             {
                 //Create the entity node

@@ -1,0 +1,4 @@
+ACCOUNT_QUALIFICATION_GROUP,FILTER
+owner,"OBJECT.c_area == ""OWNER"""
+account,"OBJECT.c_area == ""ACCOUNT"""
+account_owners,"OBJECT.c_area == ""ACCOUNT"""

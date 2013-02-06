@@ -26,9 +26,9 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Methods
-        public EnumValue AddValue(string value)
+        public EnumValue AddValue(string value, int id)
         {
-            var enumValue = new EnumValue(this, value);
+            var enumValue = new EnumValue(this, value, id);
             Values.Add(enumValue);
             return enumValue;
         }

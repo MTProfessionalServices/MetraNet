@@ -40,41 +40,6 @@ namespace MetraTech.ExpressionEngine
         }
         #endregion
 
-        public static void LoadEnumFile(Context context, string filePath, bool hasHeader)
-        {
-            var lines = File.ReadAllLines(filePath);
-            LoadEnums(context, lines, hasHeader);
-        }
-
-        public static void LoadEnums(Context context, string[] lines, bool hasHeader)
-        {
-            var lineStart = hasHeader ? 1 : 0;
-            for (int lineIndex = lineStart; lineIndex < lines.Length; lineIndex++)
-            {
-                try
-                {
-                    var line = lines[lineIndex];
-                    var fields = line.Split(',');
-                    //if (fields.Length != 2)
-                    //    throw new Exception(string.Format("Expected 2 fields, found {0}", fields.Length));
-
-                    var enumStr = fields[0];
-                    var enumInt = fields[1];
-
-                    var enumParts = enumStr.Split('/');
-                    var enumValue = enumParts[enumParts.Length - 1];
-                    var enumType = enumParts[enumParts.Length - 2];
-                    var enumNamespace = enumStr.Substring(0, enumStr.Length - enumType.Length - enumValue.Length - 2);
-
-                    AddEnum(context, enumNamespace, enumType, enumValue, "-1");
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception(string.Format("Error parsing line #{0}   [{1}]", lineIndex, ex.Message));
-                }
-            }
-        }
-
         public bool TryGetEnumType(string name, out EnumType type)
         {
             foreach (var _type in EnumTypes)
@@ -90,7 +55,7 @@ namespace MetraTech.ExpressionEngine
         }
 
 
-        public static void AddEnum(Context context, string enumSpace, string enumType, string enumValue, string enumInt)
+        public static void AddEnum(Context context, string enumSpace, string enumType, string enumValue, int enumId)
         {
             EnumSpace space;
             if (!context.EnumSpaces.TryGetValue(enumSpace, out space))
@@ -106,7 +71,7 @@ namespace MetraTech.ExpressionEngine
                 space.EnumTypes.Add(type);
             }
 
-            type.AddValue(enumValue);
+            type.AddValue(enumValue, enumId);
         }
     }
 }

@@ -12,9 +12,11 @@ namespace MetraTech.ExpressionEngine
     {
         #region Properties
         public static string DirPath = @"C:\ExpressionEngine";
+        public static string DataPath = Path.Combine(DirPath, "Data");
         public static Context GlobalContext;
         #endregion
 
+        #region Constructor
         public static void LoadGlobalContext()
         {
             GlobalContext = new Context();
@@ -23,66 +25,14 @@ namespace MetraTech.ExpressionEngine
             GlobalContext.AddEntity(_DemoLoader.GetCorporateAccountType());
             GlobalContext.AddEntity(_DemoLoader.GetAircraftLandingProductView());
 
-            GlobalContext.AddInteraction("ComputeHours", "Number of compute hours", Property.DirectionType.InOut);
-            GlobalContext.AddInteraction("UnitRate", "The unit rate", Property.DirectionType.Input);
-            GlobalContext.AddInteraction("CpuCycles", "The number of CPU cylces", Property.DirectionType.Input);
-            GlobalContext.AddInteraction("ComputeHourCharge", "The charge associated with computing", Property.DirectionType.Output);
-
-            LoadEnums();
+            LoadEnumFile(GlobalContext, Path.Combine(DataPath, "Enums.csv"));
             LoadFunctions();
-            LoadXqgs(GlobalContext);
-        }
-
-        public static void LoadEnums()
-        {
-            var global = new EnumSpace("Global", null);
-            var country = global.AddType("Country", null);
-            country.AddValue("US");
-            country.AddValue("Germany");
-            GlobalContext.AddEnum(global);
-        }
-
-        #region XQGs
-        public static void LoadXqgs(string filePath)
-        {
-            var dataSet = new DataSet();
-            var table = dataSet.Tables.Add();
-            table.Columns.Add("Type", typeof(string));
-            table.Columns.Add("Name", typeof(string));
-            table.Columns.Add("Description", typeof(string));
-            table.Columns.Add("Expression", typeof(string));
-
-            var rows = File.ReadAllLines(filePath);
-            for (int index = 1; index < rows.Length; index++)
-            {
-                var columns = rows[index].Split(',');
-                var type = columns[0];
-                var name = columns[1];
-                var description = columns[2];
-                var expression = columns[3];
-                table.Rows.Add(type, name, description, expression);
-            }
-        }
-
-        public static void LoadXqgs(DataTable table)
-        {
-            foreach (DataRow row in table.Rows)
-            {
-                if (row.Field<string>("Type") == "AQG")
-                {
-                    var aqg = AQG.CreateFromDataRow(row);
-                    GlobalContext.AQGs.Add(aqg.Name, aqg);
-                }
-                else
-                {
-                    var uqg = UQG.CreateFromDataRow(row);
-                    GlobalContext.UQGs.Add(uqg.Name, uqg);
-                }
-            }
+            LoadXqg(GlobalContext, Expression.ExpressionTypeEnum.AQG, Path.Combine(DataPath, "AqgExpressions.csv"));
+            LoadXqg(GlobalContext, Expression.ExpressionTypeEnum.UQG, Path.Combine(DataPath, "UqgExpressions.csv"));
         }
         #endregion
 
-
+        #region Entities
         public static Entity GetCloudComputeProductView()
         {
             var entity = new Entity("CloudCompute", Entity.EntityTypeEnum.ProductView, "Models an cloud compute usage even");
@@ -137,40 +87,92 @@ namespace MetraTech.ExpressionEngine
 
             return entity;
         }
+        #endregion
 
-        public static void LoadEnums(Context context)
+        #region Enums
+        public static void LoadEnumFile(Context context, string filePath)
         {
-            EnumSpace.LoadEnumFile(context, Path.Combine(DirPath, @"Data\Enums.csv"), true);
-        }
-
-        public static void LoadXqgs(Context context)
-        {
-            var path = Path.Combine(DirPath, @"Data\XQGs.csv");
-            var lines = File.ReadAllLines(path);
-            foreach (var line in lines)
+            var lines = File.ReadAllLines(filePath);
+            int skipped = 0;
+            for (int lineIndex = 1; lineIndex < lines.Length; lineIndex++)
             {
-                var parts = line.Split(',');
-                var type = parts[0];
-                var name = parts[1];
-                var description = parts[2];
-                var expression = parts[3];
-
-                switch (type.ToLower())
+                try
                 {
-                    case "aqg":
+                    var line = lines[lineIndex];
+                    var fields = line.Split(',');
+
+                    if (fields.Length > 3)
+                    {
+                        skipped++;
+                        continue;
+                    }
+
+                    var enumValue = fields[0];
+                    var spaceAndType = fields[1];
+                    var id = Int32.Parse(fields[2]);
+
+                    if (string.IsNullOrWhiteSpace(spaceAndType))
+                    {
+                        skipped++;
+                        continue;
+                    }
+
+                    var enumParts = spaceAndType.Split('/');
+
+                    //Namespace?
+                    if (enumParts.Length == 1)
+                        continue;
+
+                    var enumType = enumParts[enumParts.Length - 1];
+                    var enumNamespace = spaceAndType.Substring(0, spaceAndType.Length - enumType.Length - 1); //account for one slash
+
+                    EnumSpace.AddEnum(context, enumNamespace, enumType, enumValue, id);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(string.Format("Error parsing line #{0}   [{1}]", lineIndex, ex.Message));
+                }
+            }
+        }
+        //public static void LoadEnums()
+        //{
+        //    var global = new EnumSpace("Global", null);
+        //    var country = global.AddType("Country", null);
+        //    country.AddValue("US");
+        //    country.AddValue("Germany");
+        //    GlobalContext.AddEnum(global);
+        //}
+        #endregion
+
+        #region XQGs
+
+        public static void LoadXqg(Context context, Expression.ExpressionTypeEnum type, string filePath)
+        {
+            var lines = File.ReadAllLines(filePath);
+            for (int index = 1; index < lines.Length; index++)
+            {
+                    var cols = lines[index].Split(',');
+                var name = cols[0];
+                var expression = cols[1];
+                var description = string.Empty;
+                switch (type)
+                {
+                    case Expression.ExpressionTypeEnum.AQG:
                         var aqg = new AQG(name, description, expression);
                         context.AQGs.Add(aqg.Name, aqg);
                         break;
-                    case "uqg":
+                    case Expression.ExpressionTypeEnum.UQG:
                         var uqg = new UQG(name, description, expression);
                         context.UQGs.Add(uqg.Name, uqg);
                         break;
                     default:
-                        throw new Exception(string.Format("Bad XQG [{0}]", line));
+                        throw new NotImplementedException();
                 }
             }
         }
+        #endregion
 
+        #region Functions
         public static void LoadFunctions()
         {
             _DemoLoader.GlobalContext.Functions.Clear();
@@ -181,6 +183,6 @@ namespace MetraTech.ExpressionEngine
                 GlobalContext.Functions.Add(func.Name, func);
             }
         }
-
+        #endregion
     }
 }

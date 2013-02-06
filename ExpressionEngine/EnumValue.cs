@@ -10,16 +10,18 @@ namespace MetraTech.ExpressionEngine
         #region Properties
         public readonly EnumType Parent;
         public string Name { get; set; }
+        public int Id { get; set; }
         public string Description { get; set; }
         public string ToolTip { get { return Description; } }
         public string Image { get { return "EnumValue.png"; } }
         #endregion
 
         #region Constructor
-        public EnumValue(EnumType parent, string value)
+        public EnumValue(EnumType parent, string value, int id)
         {
             Parent = parent;
             Name = value;
+            Id = id;
         }
         #endregion
 

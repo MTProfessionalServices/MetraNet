@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCheckSyntax = new System.Windows.Forms.Button();
             this.btnFunction = new System.Windows.Forms.Button();
             this.mnuContext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuEditFunction = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,7 +58,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.button2);
-            this.splitContainer1.Panel2.Controls.Add(this.button1);
+            this.splitContainer1.Panel2.Controls.Add(this.btnCheckSyntax);
             this.splitContainer1.Panel2.Controls.Add(this.btnFunction);
             this.splitContainer1.Panel2.Controls.Add(this.ctlExpression);
             this.splitContainer1.Size = new System.Drawing.Size(499, 338);
@@ -75,15 +75,15 @@
             this.button2.Text = "Test";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnCheckSyntax
             // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(13, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Check Syntax";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCheckSyntax.Location = new System.Drawing.Point(13, 13);
+            this.btnCheckSyntax.Name = "btnCheckSyntax";
+            this.btnCheckSyntax.Size = new System.Drawing.Size(89, 23);
+            this.btnCheckSyntax.TabIndex = 2;
+            this.btnCheckSyntax.Text = "Check Syntax";
+            this.btnCheckSyntax.UseVisualStyleBackColor = true;
+            this.btnCheckSyntax.Click += new System.EventHandler(this.btnCheckSyntax_Click);
             // 
             // btnFunction
             // 
@@ -157,7 +157,7 @@
         private ctlExpression ctlExpression;
         private System.Windows.Forms.Button btnFunction;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCheckSyntax;
         private System.Windows.Forms.ContextMenuStrip mnuContext;
         private System.Windows.Forms.ToolStripMenuItem mnuEditFunction;
     }

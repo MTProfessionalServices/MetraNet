@@ -79,6 +79,12 @@ namespace PropertyGui
         {
             ctlExpression.EditFunction();
         }
+
+
+        private void btnCheckSyntax_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("According to Jonah, you're a wimp if you clicked on this button... 'Cowboy up and get it right the first time'");
+        }
         #endregion
     }
 }

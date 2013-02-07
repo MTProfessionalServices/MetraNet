@@ -35,8 +35,8 @@ namespace MetraTech.ExpressionEngine
 
         //These are updated by UpdateContext()
         public List<EnumType> EnumTypes = new List<EnumType>();
-        public List<Property> AllProperties = new List<Property>();
-        public Dictionary<string, Property> UniqueProperties = new Dictionary<string, Property>();
+        public List<IProperty> AllProperties = new List<IProperty>();
+        public Dictionary<string, IProperty> UniqueProperties = new Dictionary<string, IProperty>();
         public List<EnumType> RelevantEnums = new List<EnumType>();
         #endregion
 
@@ -72,12 +72,12 @@ namespace MetraTech.ExpressionEngine
 
         #region Property Methods
 
-        public List<Property> GetProperties(DataTypeInfo typeFilter, IEnumerable<Entity> entities=null)
+        public List<IProperty> GetProperties(DataTypeInfo typeFilter, IEnumerable<Entity> entities=null)
         {
             if (entities == null)
                 entities = Entities.Values;
 
-            var results = new List<Property>();
+            var results = new List<IProperty>();
             foreach (var entity in entities)
             {
                 foreach (var property in entity.Properties)
@@ -89,10 +89,10 @@ namespace MetraTech.ExpressionEngine
             return results;
         }
 
-        public List<Property> GetProperties(DataTypeInfo dtInfo, DataTypeInfo.MatchType minimumMatchLevel, bool uniqueProperties)
+        public List<IProperty> GetProperties(DataTypeInfo dtInfo, DataTypeInfo.MatchType minimumMatchLevel, bool uniqueProperties)
         {
-            var properties = new List<Property>();
-            IEnumerable<Property> list;
+            var properties = new List<IProperty>();
+            IEnumerable<IProperty> list;
 
             if (uniqueProperties)
                 list = UniqueProperties.Values;
@@ -106,8 +106,8 @@ namespace MetraTech.ExpressionEngine
             }
             return properties;
         }
-
-        public bool TryGetPropertyFromAllProperties(string name, out Property result)
+        
+        public bool TryGetPropertyFromAllProperties(string name, out IProperty result)
         {
             foreach (var property in AllProperties)
             {
@@ -136,7 +136,7 @@ namespace MetraTech.ExpressionEngine
                 {
                     AllProperties.Add(property);
 
-                    Property uniqueProperty;
+                    IProperty uniqueProperty;
                     var key = property.GetCompatableKey();
                     if (!UniqueProperties.TryGetValue(key, out uniqueProperty))
                         UniqueProperties.Add(key, property);

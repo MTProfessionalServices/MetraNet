@@ -20,6 +20,16 @@ namespace MetraTech.ExpressionEngine
         public string NameLocalized;
         public DataTypeInfo DataTypeInfo { get; set; }
         public PropertyCollection Properties;
+
+        public Entity ParentEntity {get;set;}
+        //{
+        //    get
+        //    {
+        //        if (PropertyCollection == null || PropertyCollection.Entity == null)
+        //            return null;
+        //        return PropertyCollection.Entity;
+        //    }
+        //}
         public string Description { get; set; }
         public Property.DirectionType Direction { get; set; }
         public string GetCompatableKey() { return string.Format("{0}|{2}", Name, DataTypeInfo.GetCompatableKey()); }
@@ -52,6 +62,26 @@ namespace MetraTech.ExpressionEngine
                 }
                 throw new NotImplementedException();
             }
+        }
+
+        public ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages = null)
+        {
+            if (messages == null)
+                messages = new ValidationMessageCollection();
+
+            var prefix = string.Format(Localization.PropertyMessagePrefix, Name);
+
+            //if (NameRegex.IsMatch(Name))
+            //    messages.Error(prefix + Localization.InvalidName);
+
+            DataTypeInfo.Validate(prefix, messages);
+
+            foreach (var property in Properties)
+            {
+                property.Validate(prefixMsg, messages);
+            }
+
+            return messages;
         }
         #endregion
 

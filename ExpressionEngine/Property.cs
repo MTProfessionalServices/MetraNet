@@ -31,21 +31,17 @@ namespace MetraTech.ExpressionEngine
         #region Properties
 
         /// <summary>
-        /// The collection to which the property belongs
+        /// The collection to which the property belongs (may be null)
         /// </summary>
-        public PropertyCollection Parent { get; set; }
+        public PropertyCollection PropertyCollection { get; set; }
 
         public Entity ParentEntity
         {
             get
             {
-                if (Parent == null)
+                if (PropertyCollection == null || PropertyCollection.Entity == null)
                     return null;
-                if (Parent.Parent == null)
-                    return null;
-                //if !(Parent.Parent is Entity)
-                //    return null;
-                return (Entity)Parent.Parent;
+                return PropertyCollection.Entity;
             }
         }
 

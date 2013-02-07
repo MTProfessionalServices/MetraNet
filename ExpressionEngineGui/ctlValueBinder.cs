@@ -37,7 +37,7 @@ namespace PropertyGui
         }
 
         private Context Context;
-        private Property Property;
+        private IProperty Property;
         private BindingTypeEnum BindingType = BindingTypeEnum.Property;
         private Control Control;
         #endregion
@@ -70,7 +70,7 @@ namespace PropertyGui
         #endregion
 
         #region Delegates
-        public delegate void GotMyFocus(Property property);
+        public delegate void GotMyFocus(IProperty property);
         public GotMyFocus OnGotMyFocus;
         public delegate void MyChange();
         public MyChange OnMyChange;
@@ -78,7 +78,7 @@ namespace PropertyGui
 
         #region Methods
 
-        public void Init(Context context, Property property)
+        public void Init(Context context, IProperty property)
         {
             Context = context;
             Property = property;

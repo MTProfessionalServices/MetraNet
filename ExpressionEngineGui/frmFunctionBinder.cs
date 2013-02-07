@@ -80,7 +80,7 @@ namespace PropertyGui
         #endregion
 
         #region Events
-        private void _valueBinderGotFocus(Property property)
+        private void _valueBinderGotFocus(IProperty property)
         {
             lblHelp.Text = property.Name;
             txtParameterDescription.Text = property.Description;

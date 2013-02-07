@@ -10,13 +10,15 @@ namespace MetraTech.ExpressionEngine
     /// TO DO:
     /// *Should property names be case sensitive???
     /// </summary>
-    public class PropertyCollection : IEnumerable<Property>
+    public class PropertyCollection : IEnumerable<IProperty>
     {
         #region Properties
-        /// <summary>
-        /// The parent, typically an Entity but might also be Function
-        /// </summary>
+
         public readonly object Parent;
+        /// <summary>
+        /// The Entity to which the collection belongs (may be null)
+        /// </summary>
+        public Entity Entity { get { return Parent == null || !(Parent is Entity) ? null : (Entity)Parent; } }
 
         /// <summary>
         /// The number of properties
@@ -26,7 +28,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// Internal list. Kept private to reduce what a developer has access to
         /// </summary>
-        private List<Property> Properties = new List<Property>();
+        private List<IProperty> Properties = new List<IProperty>();
         #endregion
 
         #region Constructors
@@ -41,7 +43,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// Searches for a property with the specified name. If not found, null is returned. Order N search. 
         /// </summary>
-        public Property Get(string name)
+        public IProperty Get(string name)
         {
             foreach (var property in Properties)
             {
@@ -84,7 +86,7 @@ namespace MetraTech.ExpressionEngine
 
         public void Add(Property property)
         {
-            property.Parent = this;
+            property.PropertyCollection = this;
             Properties.Add(property);
         }
        
@@ -156,7 +158,7 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region IEnumerable Methods
-        IEnumerator<Property> IEnumerable<Property>.GetEnumerator()
+        IEnumerator<IProperty> IEnumerable<IProperty>.GetEnumerator()
         {
             return Properties.GetEnumerator();
         }

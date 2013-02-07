@@ -102,7 +102,7 @@ namespace PropertyGui
 
         public void OnMyChange()
         {
-            Property property;
+            IProperty property;
             if (!Context.TryGetPropertyFromAllProperties(ctlProp.Text, out property))
             {
                 LoadValues(null);

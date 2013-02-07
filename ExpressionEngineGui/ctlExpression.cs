@@ -78,6 +78,24 @@ namespace PropertyGui
             if (str != null)
                 Paste(str);
         }
+
+        public void InsertSnippet(string snippet)
+        {
+            switch(Context.Expression.Type)
+            {
+                case Expression.ExpressionTypeEnum.Email:
+                case Expression.ExpressionTypeEnum.Message:
+                    snippet = string.Format("{{0}}", snippet);
+                    break;
+            }
+
+            int start = SelectionStart;
+            Paste(snippet);
+            SelectionStart = start;
+            SelectionLength = snippet.Length;
+            Focus();
+        }
+
         #endregion
     }
 }

@@ -43,13 +43,11 @@ namespace PropertyGui
         public void _OnS2DoubleClick(object item)
         {
             ctlExpression.HandleTreeEvent((IExpressionEngineTreeNode)item);
-            //var str = ((IExpressionEngineTreeNode)item).ToExpression;
-            //ctlExpression.Paste(str);
         }
 
         public void _OnInsertSnippet(string snippet)
         {
-            ctlExpression.Paste(snippet);
+            ctlExpression.InsertSnippet(snippet);
         }
         
         private void btnFunction_Click(object sender, EventArgs e)
@@ -58,7 +56,7 @@ namespace PropertyGui
             if (funcName == "In")
             {
                 var func = new frmFuncIn();
-                func.Init(Context, null, null);// "USAGE.c_DataCenterCountry", new List<string>() { "Germany" });
+                func.Init(Context, null, null);
                 if (DialogResult.OK == func.ShowDialog())
                     ctlExpression.Paste(func.GetValue());
                 return;

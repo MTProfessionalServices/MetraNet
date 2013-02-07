@@ -12,7 +12,7 @@ namespace PropertyGui
 {
     public partial class frmExplorer : Form
     {
-        #region
+        #region Constructor
         public frmExplorer()
         {
             InitializeComponent();

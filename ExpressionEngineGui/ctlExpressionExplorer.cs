@@ -153,8 +153,6 @@ namespace PropertyGui
             OnS2DoubleClick(treExplorer.SelectedNode.Tag);
         }
 
-        #endregion
-
         private void mnuEnumValue_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             if (treExplorer.SelectedNode == null)
@@ -177,14 +175,14 @@ namespace PropertyGui
                 var property = (Property)parentTag;
 
                 if (e.ClickedItem.Equals(mnuInsertEqualitySnippet))
-                    text = string.Format("{0} eq {1}", property.ToExpression, enumValue.ToExpression);
+                    text = string.Format("{0} == {1}", property.ToExpression, enumValue.ToExpression);
                 else if (e.ClickedItem.Equals(mnuInsertInequalitySnippet))
-                    text = string.Format("{0} nq {1}", property.ToExpression, enumValue.ToExpression);
+                    text = string.Format("{0} != {1}", property.ToExpression, enumValue.ToExpression);
             }
 
             if (OnInsertSnippet != null)
                 OnInsertSnippet(text);
         }
-
+        #endregion
     }
 }

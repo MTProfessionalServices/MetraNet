@@ -12,7 +12,7 @@ namespace MetraTech.ExpressionEngine
         public string Name { get; set; }
         public int Id { get; set; }
         public string Description { get; set; }
-        public string ToolTip { get { return Description; } }
+        public string ToolTip { get { return string.Format("{0}[DatabaseID={1}]", Description, Id); } }
         public string Image { get { return "EnumValue.png"; } }
         #endregion
 

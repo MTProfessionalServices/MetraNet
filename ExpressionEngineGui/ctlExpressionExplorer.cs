@@ -27,6 +27,9 @@ namespace PropertyGui
         #region Delegates
         public delegate void NodeDoubleClick(object obj);
         public NodeDoubleClick OnS2DoubleClick;
+
+        public delegate void InsertSnippet(string snippet);
+        public InsertSnippet OnInsertSnippet;
         #endregion
 
         #region Methods
@@ -152,7 +155,7 @@ namespace PropertyGui
 
         #endregion
 
-        private void mnuEnumValue_Click(object sender, EventArgs e)
+        private void mnuEnumValue_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             if (treExplorer.SelectedNode == null)
                 return;
@@ -161,8 +164,8 @@ namespace PropertyGui
 
             var enumValue = (EnumValue)treExplorer.SelectedNode.Tag;
 
-            string text;
-            if (sender.Equals(mnuInsertValue))
+            string text = null;
+            if (e.ClickedItem.Equals(mnuInsertValue))
                 text = enumValue.ToExpression;
             else
             {
@@ -173,11 +176,14 @@ namespace PropertyGui
 
                 var property = (Property)parentTag;
 
-                if (sender.Equals(mnuInsertEqualitySnippet))
+                if (e.ClickedItem.Equals(mnuInsertEqualitySnippet))
                     text = string.Format("{0} eq {1}", property.ToExpression, enumValue.ToExpression);
-                else if (sender.Equals(mnuInsertInequalitySnippet))
+                else if (e.ClickedItem.Equals(mnuInsertInequalitySnippet))
                     text = string.Format("{0} nq {1}", property.ToExpression, enumValue.ToExpression);
             }
+
+            if (OnInsertSnippet != null)
+                OnInsertSnippet(text);
         }
 
     }

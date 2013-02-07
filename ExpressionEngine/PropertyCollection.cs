@@ -84,9 +84,10 @@ namespace MetraTech.ExpressionEngine
             return messages;
         }
 
-        public void Add(Property property)
+        public void Add(IProperty property)
         {
-            property.PropertyCollection = this;
+            if (property is Property)
+                ((Property)property).PropertyCollection = this;
             Properties.Add(property);
         }
        

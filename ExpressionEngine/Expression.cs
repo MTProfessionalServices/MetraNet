@@ -21,6 +21,7 @@ namespace MetraTech.ExpressionEngine
         #region Properties
 
         public string Name { get; set; }
+
         public string Description{get;set;}
 
         /// <summary>
@@ -37,6 +38,7 @@ namespace MetraTech.ExpressionEngine
 
         /// <summary>
         /// The data type that the Expression returns. You must invoke parse to update this.
+        /// Need to decide how this interact with an output parameter (need to think it through)
         /// </summary>
         public Property ReturnType { get; private set; }
 

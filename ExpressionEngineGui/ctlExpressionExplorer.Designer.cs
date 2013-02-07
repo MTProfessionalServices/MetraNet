@@ -162,28 +162,25 @@
             this.mnuInsertInequalitySnippet});
             this.mnuEnumValue.Name = "mnuEnumValue";
             this.mnuEnumValue.Size = new System.Drawing.Size(202, 92);
-            this.mnuEnumValue.Click += new System.EventHandler(this.mnuEnumValue_Click);
+            this.mnuEnumValue.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuEnumValue_ItemClicked);
             // 
             // mnuInsertValue
             // 
             this.mnuInsertValue.Name = "mnuInsertValue";
             this.mnuInsertValue.Size = new System.Drawing.Size(201, 22);
             this.mnuInsertValue.Text = "Insert Value";
-            this.mnuInsertValue.Click += new System.EventHandler(this.mnuEnumValue_Click);
             // 
             // mnuInsertEqualitySnippet
             // 
             this.mnuInsertEqualitySnippet.Name = "mnuInsertEqualitySnippet";
             this.mnuInsertEqualitySnippet.Size = new System.Drawing.Size(201, 22);
             this.mnuInsertEqualitySnippet.Text = "Insert Equality Snippet";
-            this.mnuInsertEqualitySnippet.Click += new System.EventHandler(this.mnuEnumValue_Click);
             // 
             // mnuInsertInequalitySnippet
             // 
             this.mnuInsertInequalitySnippet.Name = "mnuInsertInequalitySnippet";
             this.mnuInsertInequalitySnippet.Size = new System.Drawing.Size(201, 22);
             this.mnuInsertInequalitySnippet.Text = "Insert Inequality Snippet";
-            this.mnuInsertInequalitySnippet.Click += new System.EventHandler(this.mnuEnumValue_Click);
             // 
             // treExplorer
             // 

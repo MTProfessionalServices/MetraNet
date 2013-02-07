@@ -21,18 +21,26 @@ namespace MetraTech.ExpressionEngine
         public DataTypeInfo DataTypeInfo { get; set; }
         public PropertyCollection Properties;
 
-        public Entity ParentEntity {get;set;}
-        //{
-        //    get
-        //    {
-        //        if (PropertyCollection == null || PropertyCollection.Entity == null)
-        //            return null;
-        //        return PropertyCollection.Entity;
-        //    }
-        //}
+        public Entity ParentEntity { get; set; }
         public string Description { get; set; }
         public Property.DirectionType Direction { get; set; }
         public string GetCompatableKey() { return string.Format("{0}|{2}", Name, DataTypeInfo.GetCompatableKey()); }
+
+        public string DbTableName
+        {
+            get
+            {
+                switch (DataTypeInfo.EntityType)
+                {
+                    case EntityTypeEnum.AccountView:
+                        return "t_av_" + Name;
+                    case EntityTypeEnum.ParameterTable:
+                        return "t_av_" + Name;
+                    default:
+                        return Name;
+                }
+            }
+        }
 
         public string ToolTip
         {

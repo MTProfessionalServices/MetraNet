@@ -88,6 +88,11 @@ namespace MetraTech.ExpressionEngine
         public Entity.EntityTypeEnum EntityType { get; set; }
 
         /// <summary>
+        /// The subtype of the Entity type. For example, a BME ma
+        /// </summary>
+        public string EntitySubType { get; set; }
+
+        /// <summary>
         /// Indicates is the property is a list/array
         /// </summary>
         public bool IsList { get; set; }
@@ -244,6 +249,7 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Static Create Methods
+
         public static DataTypeInfo CreateString(int length = 0)
         {
             var type = new DataTypeInfo(BaseType.String);
@@ -258,10 +264,15 @@ namespace MetraTech.ExpressionEngine
             return type;
         }
 
-        public static DataTypeInfo CreateEntity(Entity.EntityTypeEnum entityType)
+        public static DataTypeInfo CreateBoolean()
+        {
+            return new DataTypeInfo(BaseType.Boolean);
+        }
+        public static DataTypeInfo CreateEntity(Entity.EntityTypeEnum entityType, string subType=null)
         {
             var dataType = new DataTypeInfo(BaseType.Entity);
             dataType.EntityType = entityType;
+            dataType.EntitySubType = subType;
             return dataType;
         }
 

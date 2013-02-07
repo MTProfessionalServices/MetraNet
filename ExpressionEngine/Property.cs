@@ -148,6 +148,12 @@ namespace MetraTech.ExpressionEngine
             return property;
         }
 
+        public static Property CreateBoolean(string name, string description=null)
+        {
+            var property = new Property(name, DataTypeInfo.CreateBoolean(), description);
+            return property;
+        }
+
         public static Property CreateEnum(string name, string description, string enumSpace, string EnumType)
         {
             var property = new Property(name, DataTypeInfo.CreateEnum(enumSpace, EnumType), description);

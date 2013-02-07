@@ -37,6 +37,8 @@ namespace MetraTech.ExpressionEngine
             LoadEnumFile(GlobalContext, Path.Combine(DataPath, "Enums.csv"));
             LoadFunctions();
             LoadExpressions();
+
+            //Load the internal fields
         }
         #endregion
 
@@ -114,7 +116,7 @@ namespace MetraTech.ExpressionEngine
 
         #region InputsOutputs
         /// <summary>
-        /// Just hardcode some things!
+        /// Just hardcode some things for demo purposes!
         /// </summary>
         /// <param name="exp"></param>
         public static void LoadInputsOutputs(Expression exp)
@@ -135,9 +137,13 @@ namespace MetraTech.ExpressionEngine
             prop.Direction = Property.DirectionType.Input;
             exp.Parameters.Add(prop);
 
-            //var entity = Entity.CreateProductView("ParameterTable.CloudRates");
-            //prop.Direction = Property.DirectionType.Input;
-            //exp.Parameters.Add(          
+            var entity = Entity.CreateProductView("ParameterTable.CloudRates");
+            prop.Direction = Property.DirectionType.Input;
+            exp.Parameters.Add(entity);
+
+            prop = Property.CreateBoolean("<Result>", "The result of the boolean expression");
+            prop.Direction = Property.DirectionType.Output;
+            exp.Parameters.Add(prop);
         }
         #endregion
 
@@ -150,7 +156,7 @@ namespace MetraTech.ExpressionEngine
                 try
                 {
                     var parts = lines[index].Split(',');
-                    var pvName = parts[0].Split('/')[1];
+                    var entityName = parts[0].Split('/')[1];
                     var propName = parts[1];
                     var required = Helper.GetBool(parts[2]);
                     var type = Int32.Parse(parts[3]);
@@ -158,9 +164,9 @@ namespace MetraTech.ExpressionEngine
                     var enumType = parts[5];
 
                     Entity entity;
-                    if (!context.Entities.TryGetValue(pvName, out entity))
+                    if (!context.Entities.TryGetValue(entityName, out entity))
                     {
-                        entity = new Entity(pvName, entityType, null);
+                        entity = new Entity(entityName, entityType, null);
                         context.Entities.Add(entity.Name, entity);
                     }
 

@@ -21,6 +21,7 @@ namespace PropertyGui
         {
             InitializeComponent();
             ctlExpressionExplorer.OnS2DoubleClick = _OnS2DoubleClick;
+            ctlExpressionExplorer.OnInsertSnippet = _OnInsertSnippet;
         }
         #endregion
 
@@ -46,6 +47,11 @@ namespace PropertyGui
             //ctlExpression.Paste(str);
         }
 
+        public void _OnInsertSnippet(string snippet)
+        {
+            ctlExpression.Paste(snippet);
+        }
+        
         private void btnFunction_Click(object sender, EventArgs e)
         {
             var funcName = ctlExpression.SelectedText;

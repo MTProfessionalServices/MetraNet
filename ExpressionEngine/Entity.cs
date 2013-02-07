@@ -21,7 +21,8 @@ namespace MetraTech.ExpressionEngine
         public DataTypeInfo DataTypeInfo { get; set; }
         public PropertyCollection Properties;
         public string Description { get; set; }
-        public Property.DirectionType Directon { get; set; }
+        public Property.DirectionType Direction { get; set; }
+        public string GetCompatableKey() { return string.Format("{0}|{2}", Name, DataTypeInfo.GetCompatableKey()); }
 
         public string ToolTip
         {
@@ -35,6 +36,23 @@ namespace MetraTech.ExpressionEngine
         }
 
         public string Image { get { return DataTypeInfo.EntityType.ToString() + ".png"; } }
+
+        public string ImageDirection
+        {
+            get
+            {
+                switch (Direction)
+                {
+                    case Property.DirectionType.InOut:
+                        return "EntityInOut.png";
+                    case Property.DirectionType.Input:
+                        return "EntityInput.png";
+                    case Property.DirectionType.Output:
+                        return "EntityOutput.png";
+                }
+                throw new NotImplementedException();
+            }
+        }
         #endregion
 
         #region Constructor

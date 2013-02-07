@@ -193,8 +193,6 @@ namespace PropertyGui
                 Nodes.Add(node);
             else
                 parentNode.Nodes.Add(node);
-
-           
      
             if (item is Property)
             {
@@ -206,14 +204,6 @@ namespace PropertyGui
                     AddEnumValues(enumType, node);          
                 }
             }
-            ////switch (typeof(item))
-            ////{
-            ////    case typeof(EnumValue):
-            ////        break;
-            ////    case typeof(Property):
-
-            ////        break;
-            ////}
 
             return node;
         }

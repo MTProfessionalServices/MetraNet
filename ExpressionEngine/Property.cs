@@ -272,7 +272,6 @@ namespace MetraTech.ExpressionEngine
         {
             get
             {
-                //Need to deal with entities types!
                 switch (Direction)
                 {
                     case DirectionType.InOut:

@@ -640,6 +640,20 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Misc Methods
+
+        public string GetCompatableKey()
+        {
+            switch (BaseType)
+            {
+                case BaseType._Enum:
+                    return string.Format("{0}|{1}|{2}", BaseType, EnumSpace, EnumType);
+                case BaseType.Entity:
+                    return string.Format("{0}|{1}", BaseType, EntityType);
+                default:
+                    return BaseType.ToString();
+            }
+        }
+
         /// <summary>
         /// Converts a string into a DataType Enum
         /// </summary>

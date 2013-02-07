@@ -18,7 +18,13 @@ namespace MetraTech.ExpressionEngine
     /// </summary>
     public class Context
     {
+        #region Enums
+        public enum ProductTypeEnum { MetraNet, Metanga }
+        #endregion
+
         #region Properties
+        public static ProductTypeEnum ProductType;
+
         public readonly Expression Expression;
         public Dictionary<string, Function> Functions = new Dictionary<string, Function>();
         public Dictionary<string, Entity> Entities = new Dictionary<string, Entity>();            //Entities may not have unique names across types... need to deal with that, perhaps a composite key
@@ -36,8 +42,9 @@ namespace MetraTech.ExpressionEngine
 
         #region Constructors
 
-        public Context()
+        public Context(ProductTypeEnum product)
         {
+            ProductType = product;
         }
 
         public Context(Expression expression)

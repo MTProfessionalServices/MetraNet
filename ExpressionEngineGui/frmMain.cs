@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
+using System.IO;
 
 namespace PropertyGui
 {
@@ -19,26 +20,48 @@ namespace PropertyGui
         public frmMain()
         {
             InitializeComponent();
-            _DemoLoader.LoadGlobalContext();
 
-            cboAqgs.DisplayMember = "Name";
-            cboAqgs.Items.AddRange(_DemoLoader.GlobalContext.AQGs.Values.ToArray<AQG>());
-            if (cboAqgs.Items.Count > 0)
-                cboAqgs.SelectedIndex = 0;
+            cboContext.BeginUpdate();
+            cboContext.DropDownStyle = ComboBoxStyle.DropDownList;
+            var dirInfo = new DirectoryInfo(Path.Combine(_DemoLoader.TopLevelDataDir));
+            foreach (var dir in dirInfo.GetDirectories())
+            {
+                cboContext.Items.Add(dir.Name);
 
-            cboUqgs.DisplayMember = "Name";
-            cboUqgs.Items.AddRange(_DemoLoader.GlobalContext.UQGs.Values.ToArray<UQG>());
-            if (cboUqgs.Items.Count > 0)
-                cboUqgs.SelectedIndex = 0;
+            }
+            cboContext.SelectedIndex = 0;
+            cboContext.EndUpdate();
+        }
 
-            cboExpressions.DisplayMember = "Name";
-            cboExpressions.Items.AddRange(_DemoLoader.GlobalContext.Expressions.Values.ToArray<Expression>());
-            if (cboExpressions.Items.Count > 0)
-                cboExpressions.SelectedIndex = 0;
+        private void LoadContext()
+        {
+            Context.ProductTypeEnum product;
+            if (cboContext.Text == "Metanga")
+                product = Context.ProductTypeEnum.Metanga;
+            else
+                product = Context.ProductTypeEnum.MetraNet;
+
+            _DemoLoader.LoadGlobalContext(product, cboContext.Text);
+
+            SetItems(cboAqgs, btnAQG, _DemoLoader.GlobalContext.AQGs.Values.ToArray<AQG>());
+            SetItems(cboUqgs, btnUQG, _DemoLoader.GlobalContext.UQGs.Values.ToArray<UQG>());
+            SetItems(cboExpressions, btnExpression, _DemoLoader.GlobalContext.Expressions.Values.ToArray<Expression>());
         }
         #endregion
 
         #region Methods
+
+        private void SetItems(ComboBox cbo, Button btn, object[] list)
+        {
+            cbo.Items.Clear();
+            cbo.Text = String.Empty;
+            cbo.DisplayMember = "Name";
+            cbo.Items.AddRange(list);
+            if (cbo.Items.Count > 0)
+                cbo.SelectedIndex = 0;
+            btn.Enabled = cbo.Items.Count > 0;
+        }
+
         private void SyncToObject()
         {
             Settings.NewSyntax = chkNewSyntax.Checked;
@@ -85,6 +108,12 @@ namespace PropertyGui
             var exp = (Expression)cboExpressions.SelectedItem;
             ShowExpression(exp);
         }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            LoadContext();
+        }
+
 
     }
 }

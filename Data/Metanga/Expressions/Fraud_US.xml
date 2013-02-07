@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Expression>
+  <Name>Fraud Enabled US</Name>
+  <Type>Logic</Type>
+  <Description>
+    <![CDATA[Fraud-enabled provider for US transactions (e.g. Litle) where the account is in the US, the amount is US$ and the payment is more than $100]]>
+  </Description>
+    <Content>
+    <![CDATA[
+Payment.Currency == USD 
+&& payment.Payer.Country == US 
+&& payment.PaymentInstrument.CreditCardType != “Discover””
+  ]]>
+  </Content>
+</Expression>
+

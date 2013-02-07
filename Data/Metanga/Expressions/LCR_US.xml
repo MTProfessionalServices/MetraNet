@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Expression>
+  <Name>Payment LCR US</Name>
+  <Type>Logic</Type>
+  <Description>
+    <![CDATA[Low cost routing to US provider (e.g. Authorize.Net) for credit cards for accounts in the US, where the payment is in US$ and the amount is < $100
+    ]]>
+  </Description>
+    <Content>
+    <![CDATA[
+  payment.Amount < 100 && payment.Currency == USD 
+  && payment.Payer.Country == US 
+  && payment.PaymentInstrument.CreditCardType != “Discover”
+  ]]>
+  </Content>
+</Expression>
+

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Expression>
+  <Name>Metanga Dunning 1</Name>
+  <Type>Email</Type>
+  <Description>
+    <![CDATA[Simple dunning email template]]>
+  </Description>
+    <Content>
+    <![CDATA[
+Hello {Account.DisplayName},
+
+We noticed that we haven't recieved payment yet for invoice {Invoice.Number} that was due on {Invoice.DueDate}. Could you please contact support to make a prompt payment?
+
+Thank you,
+Support
+  ]]>
+  </Content>
+</Expression>
+

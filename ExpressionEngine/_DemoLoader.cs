@@ -12,25 +12,30 @@ namespace MetraTech.ExpressionEngine
     {
         #region Properties
         public static string DirPath = @"C:\ExpressionEngine";
-        public static string DataPath = Path.Combine(DirPath, "Data");
+        public static string TopLevelDataDir = Path.Combine(DirPath, "Data");
+        private static string DataPath;
         public static Context GlobalContext;
         #endregion
 
-        #region Constructor
-        public static void LoadGlobalContext()
+        #region General
+        public static void LoadGlobalContext(Context.ProductTypeEnum product, string subDir)
         {
-            GlobalContext = new Context();
+            GlobalContext = new Context(product);
+            DataPath = Path.Combine(TopLevelDataDir, subDir);
 
-            GlobalContext.AddEntity(_DemoLoader.GetCloudComputeProductView());
-            GlobalContext.AddEntity(_DemoLoader.GetCorporateAccountType());
-            GlobalContext.AddEntity(_DemoLoader.GetAircraftLandingProductView());
+            if (Context.ProductType == Context.ProductTypeEnum.MetraNet)
+            {
+                GlobalContext.AddEntity(_DemoLoader.GetCloudComputeProductView());
+                GlobalContext.AddEntity(_DemoLoader.GetCorporateAccountType());
+                GlobalContext.AddEntity(_DemoLoader.GetAircraftLandingProductView());
+                LoadEntities(GlobalContext, Entity.EntityTypeEnum.ProductView, Path.Combine(DataPath, "ProductViews.csv"));
+                LoadEntities(GlobalContext, Entity.EntityTypeEnum.AccountView, Path.Combine(DataPath, "AccountViews.csv"));
+                LoadXqg(GlobalContext, Expression.ExpressionTypeEnum.AQG, Path.Combine(DataPath, "AqgExpressions.csv"));
+                LoadXqg(GlobalContext, Expression.ExpressionTypeEnum.UQG, Path.Combine(DataPath, "UqgExpressions.csv"));
+            }
 
-            LoadEntities(GlobalContext, Entity.EntityTypeEnum.ProductView, Path.Combine(DataPath, "ProductViews.csv"));
-            LoadEntities(GlobalContext, Entity.EntityTypeEnum.AccountView, Path.Combine(DataPath, "AccountViews.csv"));
             LoadEnumFile(GlobalContext, Path.Combine(DataPath, "Enums.csv"));
             LoadFunctions();
-            LoadXqg(GlobalContext, Expression.ExpressionTypeEnum.AQG, Path.Combine(DataPath, "AqgExpressions.csv"));
-            LoadXqg(GlobalContext, Expression.ExpressionTypeEnum.UQG, Path.Combine(DataPath, "UqgExpressions.csv"));
             LoadExpressions();
         }
         #endregion
@@ -39,6 +44,9 @@ namespace MetraTech.ExpressionEngine
         public static void LoadExpressions()
         {
             var dirInfo = new DirectoryInfo(Path.Combine(DataPath, "Expressions"));
+            if (!dirInfo.Exists)
+                return;
+
             foreach (var fileInfo in dirInfo.GetFiles("*.xml"))
             {
                 var exp = Expression.CreateFromFile(fileInfo.FullName);
@@ -105,6 +113,10 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region InputsOutputs
+        /// <summary>
+        /// Just hardcode some things!
+        /// </summary>
+        /// <param name="exp"></param>
         public static void LoadInputsOutputs(Expression exp)
         {
             var prop = Property.CreateInteger32("USAGE.Hours");
@@ -174,6 +186,9 @@ namespace MetraTech.ExpressionEngine
         #region Enums
         public static void LoadEnumFile(Context context, string filePath)
         {
+            if (!File.Exists(filePath))
+                return;
+
             var lines = File.ReadAllLines(filePath);
             int skipped = 0;
             for (int lineIndex = 1; lineIndex < lines.Length; lineIndex++)

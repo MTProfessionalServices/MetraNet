@@ -9,7 +9,7 @@ namespace MetraTech.ExpressionEngine
     /// <summary>
     /// Should this be a sunbclass of Property
     /// </summary>
-    public class Entity :IExpressionEngineTreeNode
+    public class Entity : IProperty, IExpressionEngineTreeNode
     {
         #region Enums
         public enum EntityTypeEnum {ServiceDefinition, ProductView, ParameterTable, AccountType, AccountView, BME, Any, Metanga}
@@ -18,7 +18,7 @@ namespace MetraTech.ExpressionEngine
         #region Properties
         public string Name { get; set; }
         public string NameLocalized;
-        public EntityTypeEnum Type { get; set; }
+        public DataTypeInfo DataTypeInfo { get; set; }
         public PropertyCollection Properties;
         public string Description { get; set; }
         public Property.DirectionType Directon { get; set; }
@@ -27,21 +27,21 @@ namespace MetraTech.ExpressionEngine
         {
             get
             {
-                var tip = Type.ToString();
+                var tip = DataTypeInfo.EntityType.ToString();
                 if (!string.IsNullOrEmpty(Description))
                     tip += "\r\n" + Description;
                 return tip;
             }
         }
 
-        public string Image { get { return Type.ToString() + ".png"; } }
+        public string Image { get { return DataTypeInfo.EntityType.ToString() + ".png"; } }
         #endregion
 
         #region Constructor
         public Entity(string name, EntityTypeEnum type, string description, PropertyCollection properties=null)
         {
             Name = name;
-            Type = type;
+            DataTypeInfo = DataTypeInfo.CreateEntity(type);
             Description = description;
             if (properties != null)
                 Properties = properties;
@@ -74,7 +74,7 @@ namespace MetraTech.ExpressionEngine
 
         public string GetPrefix()
         {
-            switch(Type)
+            switch (DataTypeInfo.EntityType)
             {
                 case EntityTypeEnum.ProductView:
                     return Settings.NewSyntax? "EVENT": "USAGE";

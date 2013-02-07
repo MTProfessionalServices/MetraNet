@@ -45,10 +45,11 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public static DataTypeInfo CopyFrom(DataTypeInfo other)
         {
-            var type = new DataTypeInfo(other.BaseType, other.EntityType);
+            var type = new DataTypeInfo(other.BaseType);
             type.EnumSpace = other.EnumSpace;
             type.EnumType = other.EnumType;
             type.Length = other.Length;
+            type.EntityType = other.EntityType;
             type.DefaultStringFormat = other.DefaultStringFormat;
             return type;
         }
@@ -84,7 +85,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// The type of Entity. Only valid when BaseType=Entity
         /// </summary>
-        public string EntityType { get; set; }
+        public Entity.EntityTypeEnum EntityType { get; set; }
 
         /// <summary>
         /// Indicates is the property is a list/array
@@ -204,13 +205,6 @@ namespace MetraTech.ExpressionEngine
             Length = length;
         }
 
-        public DataTypeInfo(BaseType type, string name)
-            : this()
-        {
-            BaseType = type;
-            EntityType = name;
-        }
-
         //public DataTypeInfo(BMEProperty prop)
         //    : this()
         //{
@@ -262,6 +256,13 @@ namespace MetraTech.ExpressionEngine
             type.EnumSpace = enumSpace;
             type.EnumType = enumType;
             return type;
+        }
+
+        public static DataTypeInfo CreateEntity(Entity.EntityTypeEnum entityType)
+        {
+            var dataType = new DataTypeInfo(BaseType.Entity);
+            dataType.EntityType = entityType;
+            return dataType;
         }
 
         /// <summary>

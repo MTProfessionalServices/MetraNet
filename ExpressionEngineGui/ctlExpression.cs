@@ -28,7 +28,7 @@ namespace PropertyGui
             ContextMenuStrip = mnuContext;
             Multiline = true;
 
-            if (Context.Expression.Type == Expression.ExpressionTypeEnum.Message)
+            if (Context.Expression.Type == Expression.ExpressionTypeEnum.Email)
                 WordWrap = true;
             else
                 WordWrap = false;

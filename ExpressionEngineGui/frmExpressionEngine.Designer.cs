@@ -31,19 +31,19 @@
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.ctlExpressionExplorer = new PropertyGui.ctlExpressionExplorer();
-            this.pctEmailEditor = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btnCheckSyntax = new System.Windows.Forms.Button();
             this.btnFunction = new System.Windows.Forms.Button();
             this.ctlExpression = new PropertyGui.ctlExpression();
             this.mnuExpressionContext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuEditFunction = new System.Windows.Forms.ToolStripMenuItem();
+            this.pctEmailEditor = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctEmailEditor)).BeginInit();
             this.mnuExpressionContext.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctEmailEditor)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -64,8 +64,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnCheckSyntax);
             this.splitContainer1.Panel2.Controls.Add(this.btnFunction);
             this.splitContainer1.Panel2.Controls.Add(this.ctlExpression);
-            this.splitContainer1.Size = new System.Drawing.Size(1046, 338);
-            this.splitContainer1.SplitterDistance = 407;
+            this.splitContainer1.Size = new System.Drawing.Size(1120, 338);
+            this.splitContainer1.SplitterDistance = 240;
             this.splitContainer1.TabIndex = 0;
             // 
             // ctlExpressionExplorer
@@ -73,17 +73,8 @@
             this.ctlExpressionExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ctlExpressionExplorer.Location = new System.Drawing.Point(0, 0);
             this.ctlExpressionExplorer.Name = "ctlExpressionExplorer";
-            this.ctlExpressionExplorer.Size = new System.Drawing.Size(403, 334);
+            this.ctlExpressionExplorer.Size = new System.Drawing.Size(236, 334);
             this.ctlExpressionExplorer.TabIndex = 0;
-            // 
-            // pctEmailEditor
-            // 
-            this.pctEmailEditor.Image = global::PropertyGui.Properties.Resources.EmailEditor;
-            this.pctEmailEditor.Location = new System.Drawing.Point(13, 44);
-            this.pctEmailEditor.Name = "pctEmailEditor";
-            this.pctEmailEditor.Size = new System.Drawing.Size(542, 33);
-            this.pctEmailEditor.TabIndex = 4;
-            this.pctEmailEditor.TabStop = false;
             // 
             // button2
             // 
@@ -125,7 +116,7 @@
             this.ctlExpression.Multiline = true;
             this.ctlExpression.Name = "ctlExpression";
             this.ctlExpression.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.ctlExpression.Size = new System.Drawing.Size(606, 219);
+            this.ctlExpression.Size = new System.Drawing.Size(847, 219);
             this.ctlExpression.TabIndex = 0;
             this.ctlExpression.WordWrap = false;
             this.ctlExpression.DoubleClick += new System.EventHandler(this.ctlExpression_DoubleClick);
@@ -144,11 +135,20 @@
             this.mnuEditFunction.Size = new System.Drawing.Size(144, 22);
             this.mnuEditFunction.Text = "Edit Function";
             // 
+            // pctEmailEditor
+            // 
+            this.pctEmailEditor.Image = global::PropertyGui.Properties.Resources.MarioBar;
+            this.pctEmailEditor.Location = new System.Drawing.Point(13, 44);
+            this.pctEmailEditor.Name = "pctEmailEditor";
+            this.pctEmailEditor.Size = new System.Drawing.Size(861, 33);
+            this.pctEmailEditor.TabIndex = 4;
+            this.pctEmailEditor.TabStop = false;
+            // 
             // frmExpressionEngine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1046, 338);
+            this.ClientSize = new System.Drawing.Size(1120, 338);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmExpressionEngine";
             this.Text = "Expression Engine";
@@ -157,8 +157,8 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pctEmailEditor)).EndInit();
             this.mnuExpressionContext.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pctEmailEditor)).EndInit();
             this.ResumeLayout(false);
 
         }

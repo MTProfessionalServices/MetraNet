@@ -15,7 +15,7 @@ namespace MetraTech.ExpressionEngine
     /// *XML serialization and deserialization
     /// *Unit tests
     /// </summary>
-    public class Property : IExpressionEngineTreeNode
+    public class Property : IProperty, IExpressionEngineTreeNode
     {
         #region Enums
         public enum DirectionType { Input, Output, InOut }
@@ -59,12 +59,12 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// Rich data type class
         /// </summary>
-        public DataTypeInfo DataTypeInfo;
+        public DataTypeInfo DataTypeInfo { get; set; }
 
         /// <summary>
         /// A description that's used in tooltips, auto doc, etc.
         /// </summary>
-        public string Description;
+        public string Description { get; set; }
 
         /// <summary>
         /// Indicates if a value is required

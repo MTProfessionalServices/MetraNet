@@ -53,7 +53,7 @@ namespace MetraTech.ExpressionEngine
 
             foreach (var entity in _DemoLoader.GlobalContext.Entities.Values)
             {
-                if (Expression.Info.SupportedEntityTypes.Contains(entity.Type))
+                if (Expression.Info.SupportedEntityTypes.Contains(entity.DataTypeInfo.EntityType))
                     Entities.Add(entity.Name, entity);
             }
 
@@ -179,7 +179,7 @@ namespace MetraTech.ExpressionEngine
             {
                 if (entityRegex != null && !entityRegex.IsMatch(entity.Name))
                     continue;
-                if (entityTypeFilter != null && !entityTypeFilter.Contains(entity.Type))
+                if (entityTypeFilter != null && !entityTypeFilter.Contains(entity.DataTypeInfo.EntityType))
                     continue;
 
                 if (!entity.HasPropertyMatch(propertyRegex, propertyTypeFilter))

@@ -1,73 +1,219 @@
-ENUM_VALUE,NAMESPACE,ID_ENUM_DATA
-Expiration,metanga/EndReasonType,
-Renewal,metanga/EndReasonType,
-Conversion,metanga/EndReasonType,
-Unsubscription,metanga/EndReasonType,
-Termination,metanga/EndReasonType,
-Unknown,metanga/CreditCardType,
-AmericanExpress,metanga/CreditCardType,
-DinersClub,metanga/CreditCardType,
-Discover,metanga/CreditCardType,
-JapanCreditBureau,metanga/CreditCardType,
-Maestro,metanga/CreditCardType,
-MasterCard,metanga/CreditCardType,
-Visa,metanga/CreditCardType,
-NotDefined,metanga/PaymentInfoStatus,
-NotRequired,metanga/PaymentInfoStatus,
-Required,metanga/PaymentInfoStatus,
-Open,metanga/InvoiceState,
-Closed,metanga/InvoiceState,
-Create,metanga/EventType,
-Update,metanga/EventType,
-Delete,metanga/EventType,
-Failed,metanga/FailedPaymentStatus,
-Succeeded,metanga/FailedPaymentStatus,
-Dismissed,metanga/FailedPaymentStatus,
-Credit,metanga/ElectronicPaymentOperation,
-Reverse,metanga/ElectronicPaymentOperation,
-Submit,metanga/ElectronicPaymentOperation,
-Unknown,metanga/TransactionStatus,
-Submitted,metanga/TransactionStatus,
-Pending,metanga/TransactionStatus,
-Settled,metanga/TransactionStatus,
-Declined,metanga/TransactionStatus,
-Rejected,metanga/TransactionStatus,
-Scheduled,metanga/TransactionStatus,
-ChargedBack,metanga/TransactionStatus,
-Expired,metanga/TransactionStatus,
-Reversed,metanga/TransactionStatus,
-Credited,metanga/TransactionStatus,
-Verified,metanga/TransactionStatus,
-Undefined,metanga/TransactionStatus,
-Flat,metanga/CouponAmountType,
-Percent,metanga/CouponAmountType,
-ChangePassword,metanga/NotificationEmailType,
-NotificationEmailForNewUser,metanga/NotificationEmailType,
-ChangePasswordSubscriber,metanga/NotificationEmailType,
-NotificationEmailForNewUserSubscriber,metanga/NotificationEmailType,
-PaymentMethodExpiration,metanga/NotificationEmailType,
-Dunning,metanga/NotificationEmailType,
-FailedPayment,metanga/NotificationEmailType,
-FailedPaymentRetry,metanga/NotificationEmailType,
-None,metanga/EventModel,
-Recurring,metanga/EventModel,
-ActivationFlat,metanga/EventModel,
-TerminationFeeRemainder,metanga/EventModel,
-TerminationTimeServed,metanga/EventModel,
-TerminationFeeFlat,metanga/EventModel,
-Subscription,metanga/EventModel,
-UserOrRole,metanga/DataType,
-Image,metanga/DataType,
-Hyperlink,metanga/DataType,
-Boolean,metanga/DataType,
-Entity,metanga/DataType,
-DateTime,metanga/DataType,
-Money,metanga/DataType,
-Number,metanga/DataType,
-Enum,metanga/DataType,
-Text,metanga/DataType,
-String,metanga/DataType,
-Integer,metanga/DataType,
-Decimal,metanga/DataType,
-Invoice,metanga/StatementTransactionType,
-Payment,metanga/StatementTransactionType,
+ENUM_VALUE,NAMESPACE,ID_ENUM_DATA,EnumDescription,ValueDescription
+Expiration,metanga/EndReasonType,,"
+             Represents a reason of why a subscription is ended.
+            ","
+             If end reason of a subscription is set to Expiration, it means that the subscription has expired.
+            "
+Renewal,metanga/EndReasonType,,"
+             Represents a reason of why a subscription is ended.
+            ","
+             If end reason of a subscription is set to Renewal, it means that the subscription has been renewed.
+             Renewal implies unsubscribing from the current subscription and creating new one subscription for the same package.Note: This option is not supported by Metanga in current release and will be supported going forward."
+Conversion,metanga/EndReasonType,,"
+             Represents a reason of why a subscription is ended.
+            ","
+             If end reason of a subscription is set to Conversion, it means that the subscription has been converted.
+             Conversion implies unsubscribing from the current subscription and creating new one subscription for a different package.Note: This option is not supported by Metanga in current release and will be supported going forward."
+Unsubscription,metanga/EndReasonType,,"
+             Represents a reason of why a subscription is ended.
+            ","
+             If end reason of a subscription is set to Unsubscription, it means that the subscription has been unsubscribed.
+            "
+Termination,metanga/EndReasonType,,"
+             Represents a reason of why a subscription is ended.
+            ","
+             If end reason of a subscription is set to Termination, it means that the subscription has been terminated.
+             When susbscription is terminated, Metanga generates appropriate termination fee charges.
+             Terminated subscription cannot be edited  further.
+            "
+Unknown,metanga/CreditCardType,,,
+AmericanExpress,metanga/CreditCardType,,,
+DinersClub,metanga/CreditCardType,,,
+Discover,metanga/CreditCardType,,,
+JapanCreditBureau,metanga/CreditCardType,,,
+Maestro,metanga/CreditCardType,,,
+MasterCard,metanga/CreditCardType,,,
+Visa,metanga/CreditCardType,,,
+NotDefined,metanga/PaymentInfoStatus,,,
+NotRequired,metanga/PaymentInfoStatus,,,
+Required,metanga/PaymentInfoStatus,,,
+Open,metanga/InvoiceState,,"
+            Invoice State
+            ","
+            open state
+            "
+Closed,metanga/InvoiceState,,"
+            Invoice State
+            ","
+            Close state
+            "
+Create,metanga/EventType,,"
+            Represents types of events, which can occur with entities in Metanga.
+            ","
+            Create event, occurs when an entity is created.
+            "
+Update,metanga/EventType,,"
+            Represents types of events, which can occur with entities in Metanga.
+            ","
+            Update event, occurs when an entity is updated.
+            "
+Delete,metanga/EventType,,"
+            Represents types of events, which can occur with entities in Metanga.
+            ","
+            Delete event, occurs when an entity is deleted.
+            "
+Failed,metanga/FailedPaymentStatus,,,
+Succeeded,metanga/FailedPaymentStatus,,,
+Dismissed,metanga/FailedPaymentStatus,,,
+Credit,metanga/ElectronicPaymentOperation,,"
+            Payment operations for REST methods
+            ","
+            Partially reverse a payment amount.
+            "
+Reverse,metanga/ElectronicPaymentOperation,,"
+            Payment operations for REST methods
+            ","
+            Reverse a payment.
+            "
+Submit,metanga/ElectronicPaymentOperation,,"
+            Payment operations for REST methods
+            ","
+            Submit a payment.
+            "
+Unknown,metanga/TransactionStatus,,,
+Submitted,metanga/TransactionStatus,,,
+Pending,metanga/TransactionStatus,,,
+Settled,metanga/TransactionStatus,,,
+Declined,metanga/TransactionStatus,,,
+Rejected,metanga/TransactionStatus,,,
+Scheduled,metanga/TransactionStatus,,,
+ChargedBack,metanga/TransactionStatus,,,
+Expired,metanga/TransactionStatus,,,
+Reversed,metanga/TransactionStatus,,,
+Credited,metanga/TransactionStatus,,,
+Verified,metanga/TransactionStatus,,,
+Undefined,metanga/TransactionStatus,,,
+Flat,metanga/CouponAmountType,,"
+             Coupon Amount Type
+            ","
+             Flat
+            "
+Percent,metanga/CouponAmountType,,"
+             Coupon Amount Type
+            ","
+             Percent
+            "
+ChangePassword,metanga/NotificationEmailType,,,
+NotificationEmailForNewUser,metanga/NotificationEmailType,,,
+ChangePasswordSubscriber,metanga/NotificationEmailType,,,
+NotificationEmailForNewUserSubscriber,metanga/NotificationEmailType,,,
+PaymentMethodExpiration,metanga/NotificationEmailType,,,
+Dunning,metanga/NotificationEmailType,,,
+FailedPayment,metanga/NotificationEmailType,,,
+FailedPaymentRetry,metanga/NotificationEmailType,,,
+None,metanga/EventModel,,"
+             EventModel enum which represents the values which can be configured for a product added to a package
+            ","
+            Metanga will not produce billable events for this product
+            "
+Recurring,metanga/EventModel,,"
+             EventModel enum which represents the values which can be configured for a product added to a package
+            ","
+            Metanga will produce billable events on a recurring basis, based on subscription configuration
+            "
+ActivationFlat,metanga/EventModel,,"
+             EventModel enum which represents the values which can be configured for a product added to a package
+            ","
+            During a subscription start, if the package contains an ""Activation - Flat"" model, the one time charge gets applied to the invoice
+            "
+TerminationFeeRemainder,metanga/EventModel,,"
+             EventModel enum which represents the values which can be configured for a product added to a package
+            ","
+            Upon Termination the fee should be calculated based on the time span from Termination Date to the Original Fixed-Term End Date for the Subscription.
+            "
+TerminationTimeServed,metanga/EventModel,,"
+             EventModel enum which represents the values which can be configured for a product added to a package
+            ","
+            Upon Termination, Products with a time based component assigned this type of Termination Event Model should be priced using a quantity based on the timespan from the Subscription Start to the Termination.
+            "
+TerminationFeeFlat,metanga/EventModel,,"
+             EventModel enum which represents the values which can be configured for a product added to a package
+            ","
+            Termination product charge will be applied to the invoice, whenever a user or CSR terminates a from a Fixed Term subscription outside of the grace period.
+            "
+Subscription,metanga/EventModel,,"
+             EventModel enum which represents the values which can be configured for a product added to a package
+            ","
+            Subscription
+            "
+UserOrRole,metanga/DataType,,"
+            List of data types that can be chosen for extended entity columns
+            ","
+            A user or a role in the system
+            "
+Image,metanga/DataType,,"
+            List of data types that can be chosen for extended entity columns
+            ","
+            An image
+            "
+Hyperlink,metanga/DataType,,"
+            List of data types that can be chosen for extended entity columns
+            ","
+            Link to a website
+            "
+Boolean,metanga/DataType,,"
+            List of data types that can be chosen for extended entity columns
+            ","
+            Boolean value
+            "
+Entity,metanga/DataType,,"
+            List of data types that can be chosen for extended entity columns
+            ","
+            A reference to an entity
+            "
+DateTime,metanga/DataType,,"
+            List of data types that can be chosen for extended entity columns
+            ","
+            A date-time value
+            "
+Money,metanga/DataType,,"
+            List of data types that can be chosen for extended entity columns
+            ","
+            A monetary number
+            "
+Number,metanga/DataType,,"
+            List of data types that can be chosen for extended entity columns
+            ","
+            A numerice value
+            "
+Enum,metanga/DataType,,"
+            List of data types that can be chosen for extended entity columns
+            ","
+            A list of pre-defined values
+            "
+Text,metanga/DataType,,"
+            List of data types that can be chosen for extended entity columns
+            ","
+            A long text value (e.g. a contract, document, terms and conditions, etc.)
+            "
+String,metanga/DataType,,"
+            List of data types that can be chosen for extended entity columns
+            ","
+            A string of up to 4000 characters
+            "
+Integer,metanga/DataType,,"
+            List of data types that can be chosen for extended entity columns
+            ",
+Decimal,metanga/DataType,,"
+            List of data types that can be chosen for extended entity columns
+            ",
+Invoice,metanga/StatementTransactionType,,"
+            Desribes the type of the current transaction in BalanceStatement class
+            ","
+            The type of the current trnsaction is Invoice
+            "
+Payment,metanga/StatementTransactionType,,"
+            Desribes the type of the current transaction in BalanceStatement class
+            ","
+            The type of the current transaction is Payment
+            "

@@ -720,6 +720,8 @@ namespace MetraTech.ExpressionEngine
                     return BaseType.UniqueIdentifier;
                 case "guid":
                     return BaseType.Guid;
+                case "entity":
+                    return BaseType.Entity;
                 default:
                     throw new Exception("Invalid internal data type string [" + theType + "]");
             }

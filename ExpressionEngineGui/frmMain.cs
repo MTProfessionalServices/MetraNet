@@ -101,7 +101,6 @@ namespace PropertyGui
             var dialog = new frmExplorer();
             dialog.ShowDialog();
         }
-        #endregion
 
         private void btnExpression_Click(object sender, EventArgs e)
         {
@@ -113,7 +112,7 @@ namespace PropertyGui
         {
             LoadContext();
         }
-
+        #endregion
 
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Data;
+using System.Text.RegularExpressions;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -33,6 +34,16 @@ namespace MetraTech.ExpressionEngine
                 LoadXqg(GlobalContext, Expression.ExpressionTypeEnum.AQG, Path.Combine(DataPath, "AqgExpressions.csv"));
                 LoadXqg(GlobalContext, Expression.ExpressionTypeEnum.UQG, Path.Combine(DataPath, "UqgExpressions.csv"));
             }
+            else
+            {
+                LoadEntities(GlobalContext, Entity.EntityTypeEnum.Metanga, Path.Combine(DataPath, "Entities.csv"));
+
+                //Load all of the children
+                foreach (var entity in GlobalContext.Entities.Values)
+                {
+                    //_LoadSubEntities(GlobalContext, null, entity);
+                }
+            }
 
             LoadEnumFile(GlobalContext, Path.Combine(DataPath, "Enums.csv"));
             LoadFunctions();
@@ -40,6 +51,18 @@ namespace MetraTech.ExpressionEngine
 
             //Load the internal fields
         }
+
+        private static void _LoadSubEntities(Context context, Entity parentEntity, Entity childEntity)
+        {
+            foreach (IProperty property in childEntity.Properties)
+            {
+                if (property.DataTypeInfo.IsEntity)
+                    _LoadSubEntities(context, childEntity, (Entity)property);
+                else if (parentEntity != null)
+                    parentEntity.Properties.Add(property);
+            }
+        }
+
         #endregion
 
         #region Expressions
@@ -159,7 +182,7 @@ namespace MetraTech.ExpressionEngine
                     var entityName = parts[0].Split('/')[1];
                     var propName = parts[1];
                     var required = Helper.GetBool(parts[2]);
-                    var type = Int32.Parse(parts[3]);
+                    var typeStr = parts[3];
                     var enumSpace = parts[4];
                     var enumType = parts[5];
 
@@ -170,20 +193,31 @@ namespace MetraTech.ExpressionEngine
                         context.Entities.Add(entity.Name, entity);
                     }
 
-                    var dataType = DataTypeInfo.PropertyTypeId_BaseTypeMapping[type];
-                    var dt =  new DataTypeInfo(dataType);
-                    var property = new Property(propName, dt, null);
-                    property.Required = required;
-                    if (dt.IsEnum)
+                    //SKIP FOR NOW
+                    if (Regex.IsMatch(typeStr, "IEnumerable|Dictionary"))
+                        continue;
+
+                    DataTypeInfo dtInfo;
+                    if (Context.ProductType == Context.ProductTypeEnum.MetraNet)
                     {
-                        dt.EnumSpace = enumSpace;
-                        dt.EnumType = enumType;
+                        var baseType = DataTypeInfo.PropertyTypeId_BaseTypeMapping[Int32.Parse(typeStr)];
+                        dtInfo = new DataTypeInfo(baseType);
+                    }
+                    else
+                        dtInfo = DataTypeInfo.CreateFromDataTypeString(typeStr);
+                        
+                    var property = new Property(propName, dtInfo, null);
+                    property.Required = required;
+                    if (dtInfo.IsEnum)
+                    {
+                        dtInfo.EnumSpace = enumSpace;
+                        dtInfo.EnumType = enumType;
                     }
                     entity.Properties.Add(property);
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception(string.Format("Error loading PV, line {0} [{1}]", index, ex.Message));
+                    throw new Exception(string.Format("Error loading Entity, line {0} [{1}]", index, ex.Message));
                 }
             }
         }
@@ -212,7 +246,12 @@ namespace MetraTech.ExpressionEngine
 
                     var enumValue = fields[0];
                     var spaceAndType = fields[1];
-                    var id = Int32.Parse(fields[2]);
+                    var idStr = fields[2];
+                    int id;
+                    if (string.IsNullOrEmpty(idStr))
+                        id = 0;
+                    else
+                        id = Int32.Parse(idStr);
 
                     if (string.IsNullOrWhiteSpace(spaceAndType))
                     {

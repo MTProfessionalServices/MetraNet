@@ -140,6 +140,14 @@ namespace MetraTech.ExpressionEngine
                     throw new NotImplementedException();
             }
         }
+
+        public object Clone()
+        {
+            var newEntity = new Entity(Name, DataTypeInfo.EntityType, Description);
+            newEntity.Properties = Properties.Clone();
+            return newEntity;
+        }
+
         #endregion
 
         #region Create Methods

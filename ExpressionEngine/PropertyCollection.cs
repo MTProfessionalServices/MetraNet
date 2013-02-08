@@ -139,6 +139,17 @@ namespace MetraTech.ExpressionEngine
             Add(property);
             return property;
         }
+
+        public PropertyCollection Clone()
+        {
+            var newCollection = new PropertyCollection(null);
+            foreach (IProperty property in Properties)
+            {
+                var newProperty = property.Clone();
+                newCollection.Add((IProperty)newProperty);
+            }
+            return newCollection;
+        }
         #endregion
 
         #region XmlMethods

@@ -309,6 +309,10 @@ namespace MetraTech.ExpressionEngine
                         return "Int32.png";
                     case BaseType.Integer64:
                         return "Int64.png";
+                    case BaseType.Guid:
+                        return "Guid.png";
+                    case BaseType.Entity:
+                        return "Entity.png";
                 }
                 throw new NotImplementedException();
             }

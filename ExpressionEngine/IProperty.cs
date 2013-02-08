@@ -16,6 +16,7 @@ namespace MetraTech.ExpressionEngine
         string ImageDirection { get; }
         string GetCompatableKey();
         string ToExpression { get; }
+        object Clone();
         ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages = null);
     }
 }

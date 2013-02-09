@@ -54,7 +54,7 @@ namespace MetraTech.ExpressionEngine
         }
 
 
-        public static void AddEnum(Context context, string enumSpace, string enumType, string enumValue, int enumId)
+        public static EnumValue AddEnum(Context context, string enumSpace, string enumType, string enumValue, int enumId)
         {
             EnumSpace space;
             if (!context.EnumSpaces.TryGetValue(enumSpace, out space))
@@ -70,7 +70,8 @@ namespace MetraTech.ExpressionEngine
                 space.EnumTypes.Add(type);
             }
 
-            type.AddValue(enumValue, enumId);
+            var enumValueObj = type.AddValue(enumValue, enumId);
+            return enumValueObj;
         }
         #endregion
     }

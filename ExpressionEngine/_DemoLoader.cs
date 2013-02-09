@@ -186,14 +186,13 @@ namespace MetraTech.ExpressionEngine
             var enumSpace = entityRecord.Namespace;
             var enumType = entityRecord.EnumType;
 
-            //TODO: Scott to use the entity and property descriptions
-            var entityDescription = entityRecord.EntityDescription;
-            var propertyDescription = entityRecord.PropertyDescription;
+            var entityDescription = CleanUpWhiteSpace(entityRecord.EntityDescription);
+            var propertyDescription = CleanUpWhiteSpace(entityRecord.PropertyDescription);
 
             Entity entity;
             if (!context.Entities.TryGetValue(entityName, out entity))
             {
-              entity = new Entity(entityName, entityType, null);
+              entity = new Entity(entityName, entityType, entityDescription);
               context.Entities.Add(entity.Name, entity);
             }
 
@@ -210,7 +209,7 @@ namespace MetraTech.ExpressionEngine
             else
               dtInfo = DataTypeInfo.CreateFromDataTypeString(typeStr);
 
-            var property = new Property(propName, dtInfo, null);
+            var property = new Property(propName, dtInfo, propertyDescription);
             property.Required = required;
             if (dtInfo.IsEnum)
             {
@@ -245,6 +244,12 @@ namespace MetraTech.ExpressionEngine
 
       #endregion
 
+      public static string CleanUpWhiteSpace(string strValue)
+      {
+          strValue = strValue.Trim();
+          Regex.Replace(strValue, "[\t\r\n]", "");
+          return strValue;
+      }
         #region Enums
         public static void LoadEnumFile(Context context, string filePath)
         {
@@ -256,9 +261,8 @@ namespace MetraTech.ExpressionEngine
             var spaceAndType = enumRecord.Namespace;
             var idStr = enumRecord.EnumDataId;
 
-            //TODO: Scott to use the entity and property descriptions
-            var entityDescription = enumRecord.EnumDescription;
-            var propertyDescription = enumRecord.ValueDescription;
+            var entityDescription = CleanUpWhiteSpace(enumRecord.EnumDescription);
+            var propertyDescription = CleanUpWhiteSpace(enumRecord.ValueDescription);
 
             int id;
             if (string.IsNullOrEmpty(idStr))
@@ -289,17 +293,12 @@ namespace MetraTech.ExpressionEngine
             var enumType = enumParts[enumParts.Length - 1];
             var enumNamespace = spaceAndType.Substring(0, spaceAndType.Length - enumType.Length - 1); //account for one slash
 
-            EnumSpace.AddEnum(context, enumNamespace, enumType, enumValue, id);
+            var enumValueObj = EnumSpace.AddEnum(context, enumNamespace, enumType, enumValue, id);
+            enumValueObj.Description = propertyDescription;
+            enumValueObj.Parent.Description = entityDescription;
           }
         }
-        //public static void LoadEnums()
-        //{
-        //    var global = new EnumSpace("Global", null);
-        //    var country = global.AddType("Country", null);
-        //    country.AddValue("US");
-        //    country.AddValue("Germany");
-        //    GlobalContext.AddEnum(global);
-        //}
+
         #endregion
 
         #region XQGs

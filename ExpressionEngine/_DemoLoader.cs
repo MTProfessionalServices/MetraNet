@@ -5,6 +5,9 @@ using System.Text;
 using System.IO;
 using System.Data;
 using System.Text.RegularExpressions;
+using CsvHelper;
+using CsvHelper.Configuration;
+using Metanga.Miscellaneous.MetadataExport;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -173,108 +176,121 @@ namespace MetraTech.ExpressionEngine
         #region File-Based Entities
         public static void LoadEntities(Context context, Entity.EntityTypeEnum entityType, string filePath)
         {
-            var lines = File.ReadAllLines(filePath);
-            for (int index = 1; index < lines.Length; index++)
+          var entityList = ReadRecordsFromCsv<EntityRecord>(filePath);
+          foreach (var entityRecord in entityList)
+          {
+            var entityName = entityRecord.EntityName.Split('/')[1];
+            var propName = entityRecord.PropertyName;
+            var required = Helper.GetBool(entityRecord.IsRequired);
+            var typeStr = entityRecord.PropertyType;
+            var enumSpace = entityRecord.Namespace;
+            var enumType = entityRecord.EnumType;
+
+            //TODO: Scott to use the entity and property descriptions
+            var entityDescription = entityRecord.EntityDescription;
+            var propertyDescription = entityRecord.PropertyDescription;
+
+            Entity entity;
+            if (!context.Entities.TryGetValue(entityName, out entity))
             {
-                try
-                {
-                    var parts = lines[index].Split(',');
-                    var entityName = parts[0].Split('/')[1];
-                    var propName = parts[1];
-                    var required = Helper.GetBool(parts[2]);
-                    var typeStr = parts[3];
-                    var enumSpace = parts[4];
-                    var enumType = parts[5];
-
-                    Entity entity;
-                    if (!context.Entities.TryGetValue(entityName, out entity))
-                    {
-                        entity = new Entity(entityName, entityType, null);
-                        context.Entities.Add(entity.Name, entity);
-                    }
-
-                    //SKIP FOR NOW
-                    if (Regex.IsMatch(typeStr, "IEnumerable|Dictionary"))
-                        continue;
-
-                    DataTypeInfo dtInfo;
-                    if (Context.ProductType == Context.ProductTypeEnum.MetraNet)
-                    {
-                        var baseType = DataTypeInfo.PropertyTypeId_BaseTypeMapping[Int32.Parse(typeStr)];
-                        dtInfo = new DataTypeInfo(baseType);
-                    }
-                    else
-                        dtInfo = DataTypeInfo.CreateFromDataTypeString(typeStr);
-                        
-                    var property = new Property(propName, dtInfo, null);
-                    property.Required = required;
-                    if (dtInfo.IsEnum)
-                    {
-                        dtInfo.EnumSpace = enumSpace;
-                        dtInfo.EnumType = enumType;
-                    }
-                    entity.Properties.Add(property);
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception(string.Format("Error loading Entity, line {0} [{1}]", index, ex.Message));
-                }
+              entity = new Entity(entityName, entityType, null);
+              context.Entities.Add(entity.Name, entity);
             }
+
+            //SKIP FOR NOW
+            if (Regex.IsMatch(typeStr, "IEnumerable|Dictionary"))
+              continue;
+
+            DataTypeInfo dtInfo;
+            if (Context.ProductType == Context.ProductTypeEnum.MetraNet)
+            {
+              var baseType = DataTypeInfo.PropertyTypeId_BaseTypeMapping[Int32.Parse(typeStr)];
+              dtInfo = new DataTypeInfo(baseType);
+            }
+            else
+              dtInfo = DataTypeInfo.CreateFromDataTypeString(typeStr);
+
+            var property = new Property(propName, dtInfo, null);
+            property.Required = required;
+            if (dtInfo.IsEnum)
+            {
+              dtInfo.EnumSpace = enumSpace;
+              dtInfo.EnumType = enumType;
+            }
+            entity.Properties.Add(property);
+          }
         }
-        #endregion
+
+      private static IEnumerable<T> ReadRecordsFromCsv<T>(string filePath) where T : class
+      {
+        var configuration = new CsvConfiguration
+                                {
+                                  IsStrictMode = false,
+                                  HasHeaderRecord = true
+                                };
+        using (var streamReader = new StreamReader(filePath))
+        {
+          var csv = new CsvReader(streamReader, configuration);
+          try
+          {
+            var entityList = csv.GetRecords<T>().ToList();
+            return entityList;
+          }
+          catch (CsvReaderException e)
+          {
+            throw new Exception(string.Format("Error loading {0} line {1} [{2}]", filePath, e.Row, e.Message), e);
+          }
+        }
+      }
+
+      #endregion
 
         #region Enums
         public static void LoadEnumFile(Context context, string filePath)
         {
-            if (!File.Exists(filePath))
-                return;
+          var enumList = ReadRecordsFromCsv<EnumRecord>(filePath);
 
-            var lines = File.ReadAllLines(filePath);
-            int skipped = 0;
-            for (int lineIndex = 1; lineIndex < lines.Length; lineIndex++)
+          foreach (var enumRecord in enumList)
+          {
+            var enumValue = enumRecord.EnumValue;
+            var spaceAndType = enumRecord.Namespace;
+            var idStr = enumRecord.EnumDataId;
+
+            //TODO: Scott to use the entity and property descriptions
+            var entityDescription = enumRecord.EnumDescription;
+            var propertyDescription = enumRecord.ValueDescription;
+
+            int id;
+            if (string.IsNullOrEmpty(idStr))
+              id = 0;
+            else
             {
-                try
-                {
-                    var line = lines[lineIndex];
-                    var fields = line.Split(',');
-
-                    if (fields.Length > 3)
-                    {
-                        skipped++;
-                        continue;
-                    }
-
-                    var enumValue = fields[0];
-                    var spaceAndType = fields[1];
-                    var idStr = fields[2];
-                    int id;
-                    if (string.IsNullOrEmpty(idStr))
-                        id = 0;
-                    else
-                        id = Int32.Parse(idStr);
-
-                    if (string.IsNullOrWhiteSpace(spaceAndType))
-                    {
-                        skipped++;
-                        continue;
-                    }
-
-                    var enumParts = spaceAndType.Split('/');
-
-                    //Namespace?
-                    if (enumParts.Length == 1)
-                        continue;
-
-                    var enumType = enumParts[enumParts.Length - 1];
-                    var enumNamespace = spaceAndType.Substring(0, spaceAndType.Length - enumType.Length - 1); //account for one slash
-
-                    EnumSpace.AddEnum(context, enumNamespace, enumType, enumValue, id);
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception(string.Format("Error parsing line #{0}   [{1}]", lineIndex, ex.Message));
-                }
+              try
+              {
+                id = Int32.Parse(idStr);
+              }
+              catch (FormatException)
+              {
+                id = 0;
+              }
             }
+
+            if (string.IsNullOrWhiteSpace(spaceAndType))
+            {
+              continue;
+            }
+
+            var enumParts = spaceAndType.Split('/');
+
+            //Namespace?
+            if (enumParts.Length == 1)
+              continue;
+
+            var enumType = enumParts[enumParts.Length - 1];
+            var enumNamespace = spaceAndType.Substring(0, spaceAndType.Length - enumType.Length - 1); //account for one slash
+
+            EnumSpace.AddEnum(context, enumNamespace, enumType, enumValue, id);
+          }
         }
         //public static void LoadEnums()
         //{

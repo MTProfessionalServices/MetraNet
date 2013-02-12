@@ -1,31 +1,4 @@
 ENUM_VALUE,NAMESPACE,ID_ENUM_DATA,EnumDescription,ValueDescription
-Expiration,metanga/EndReasonType,,"
-             Represents a reason of why a subscription is ended.
-            ","
-             If end reason of a subscription is set to Expiration, it means that the subscription has expired.
-            "
-Renewal,metanga/EndReasonType,,"
-             Represents a reason of why a subscription is ended.
-            ","
-             If end reason of a subscription is set to Renewal, it means that the subscription has been renewed.
-             Renewal implies unsubscribing from the current subscription and creating new one subscription for the same package.Note: This option is not supported by Metanga in current release and will be supported going forward."
-Conversion,metanga/EndReasonType,,"
-             Represents a reason of why a subscription is ended.
-            ","
-             If end reason of a subscription is set to Conversion, it means that the subscription has been converted.
-             Conversion implies unsubscribing from the current subscription and creating new one subscription for a different package.Note: This option is not supported by Metanga in current release and will be supported going forward."
-Unsubscription,metanga/EndReasonType,,"
-             Represents a reason of why a subscription is ended.
-            ","
-             If end reason of a subscription is set to Unsubscription, it means that the subscription has been unsubscribed.
-            "
-Termination,metanga/EndReasonType,,"
-             Represents a reason of why a subscription is ended.
-            ","
-             If end reason of a subscription is set to Termination, it means that the subscription has been terminated.
-             When susbscription is terminated, Metanga generates appropriate termination fee charges.
-             Terminated subscription cannot be edited  further.
-            "
 Unknown,metanga/CreditCardType,,,
 AmericanExpress,metanga/CreditCardType,,,
 DinersClub,metanga/CreditCardType,,,
@@ -34,34 +7,6 @@ JapanCreditBureau,metanga/CreditCardType,,,
 Maestro,metanga/CreditCardType,,,
 MasterCard,metanga/CreditCardType,,,
 Visa,metanga/CreditCardType,,,
-NotDefined,metanga/PaymentInfoStatus,,,
-NotRequired,metanga/PaymentInfoStatus,,,
-Required,metanga/PaymentInfoStatus,,,
-Open,metanga/InvoiceState,,"
-            Invoice State
-            ","
-            open state
-            "
-Closed,metanga/InvoiceState,,"
-            Invoice State
-            ","
-            Close state
-            "
-Create,metanga/EventType,,"
-            Represents types of events, which can occur with entities in Metanga.
-            ","
-            Create event, occurs when an entity is created.
-            "
-Update,metanga/EventType,,"
-            Represents types of events, which can occur with entities in Metanga.
-            ","
-            Update event, occurs when an entity is updated.
-            "
-Delete,metanga/EventType,,"
-            Represents types of events, which can occur with entities in Metanga.
-            ","
-            Delete event, occurs when an entity is deleted.
-            "
 Failed,metanga/FailedPaymentStatus,,,
 Succeeded,metanga/FailedPaymentStatus,,,
 Dismissed,metanga/FailedPaymentStatus,,,
@@ -93,6 +38,42 @@ Reversed,metanga/TransactionStatus,,,
 Credited,metanga/TransactionStatus,,,
 Verified,metanga/TransactionStatus,,,
 Undefined,metanga/TransactionStatus,,,
+Open,metanga/InvoiceState,,"
+            Invoice State
+            ","
+            open state
+            "
+Closed,metanga/InvoiceState,,"
+            Invoice State
+            ","
+            Close state
+            "
+Create,metanga/EventType,,"
+            Represents types of events, which can occur with entities in Metanga.
+            ","
+            Create event, occurs when an entity is created.
+            "
+Update,metanga/EventType,,"
+            Represents types of events, which can occur with entities in Metanga.
+            ","
+            Update event, occurs when an entity is updated.
+            "
+Delete,metanga/EventType,,"
+            Represents types of events, which can occur with entities in Metanga.
+            ","
+            Delete event, occurs when an entity is deleted.
+            "
+ChangePassword,metanga/NotificationEmailType,,,
+NotificationEmailForNewUser,metanga/NotificationEmailType,,,
+ChangePasswordSubscriber,metanga/NotificationEmailType,,,
+NotificationEmailForNewUserSubscriber,metanga/NotificationEmailType,,,
+PaymentMethodExpiration,metanga/NotificationEmailType,,,
+Dunning,metanga/NotificationEmailType,,,
+FailedPayment,metanga/NotificationEmailType,,,
+FailedPaymentRetry,metanga/NotificationEmailType,,,
+NotDefined,metanga/PaymentInfoStatus,,,
+NotRequired,metanga/PaymentInfoStatus,,,
+Required,metanga/PaymentInfoStatus,,,
 Flat,metanga/CouponAmountType,,"
              Coupon Amount Type
             ","
@@ -103,54 +84,36 @@ Percent,metanga/CouponAmountType,,"
             ","
              Percent
             "
-ChangePassword,metanga/NotificationEmailType,,,
-NotificationEmailForNewUser,metanga/NotificationEmailType,,,
-ChangePasswordSubscriber,metanga/NotificationEmailType,,,
-NotificationEmailForNewUserSubscriber,metanga/NotificationEmailType,,,
-PaymentMethodExpiration,metanga/NotificationEmailType,,,
-Dunning,metanga/NotificationEmailType,,,
-FailedPayment,metanga/NotificationEmailType,,,
-FailedPaymentRetry,metanga/NotificationEmailType,,,
-None,metanga/EventModel,,"
-             EventModel enum which represents the values which can be configured for a product added to a package
+Expiration,metanga/EndReasonType,,"
+             Represents a reason of why a subscription is ended.
             ","
-            Metanga will not produce billable events for this product
+             If end reason of a subscription is set to Expiration, it means that the subscription has expired.
             "
-Recurring,metanga/EventModel,,"
-             EventModel enum which represents the values which can be configured for a product added to a package
+Renewal,metanga/EndReasonType,,"
+             Represents a reason of why a subscription is ended.
             ","
-            Metanga will produce billable events on a recurring basis, based on subscription configuration
+             If end reason of a subscription is set to Renewal, it means that the subscription has been renewed.
+             Renewal implies unsubscribing from the current subscription and creating new one subscription for the same package.Note: This option is not supported by Metanga in current release and will be supported going forward."
+Conversion,metanga/EndReasonType,,"
+             Represents a reason of why a subscription is ended.
+            ","
+             If end reason of a subscription is set to Conversion, it means that the subscription has been converted.
+             Conversion implies unsubscribing from the current subscription and creating new one subscription for a different package.Note: This option is not supported by Metanga in current release and will be supported going forward."
+Unsubscription,metanga/EndReasonType,,"
+             Represents a reason of why a subscription is ended.
+            ","
+             If end reason of a subscription is set to Unsubscription, it means that the subscription has been unsubscribed.
             "
-ActivationFlat,metanga/EventModel,,"
-             EventModel enum which represents the values which can be configured for a product added to a package
+Termination,metanga/EndReasonType,,"
+             Represents a reason of why a subscription is ended.
             ","
-            During a subscription start, if the package contains an ""Activation - Flat"" model, the one time charge gets applied to the invoice
-            "
-TerminationFeeRemainder,metanga/EventModel,,"
-             EventModel enum which represents the values which can be configured for a product added to a package
-            ","
-            Upon Termination the fee should be calculated based on the time span from Termination Date to the Original Fixed-Term End Date for the Subscription.
-            "
-TerminationTimeServed,metanga/EventModel,,"
-             EventModel enum which represents the values which can be configured for a product added to a package
-            ","
-            Upon Termination, Products with a time based component assigned this type of Termination Event Model should be priced using a quantity based on the timespan from the Subscription Start to the Termination.
-            "
-TerminationFeeFlat,metanga/EventModel,,"
-             EventModel enum which represents the values which can be configured for a product added to a package
-            ","
-            Termination product charge will be applied to the invoice, whenever a user or CSR terminates a from a Fixed Term subscription outside of the grace period.
-            "
-Subscription,metanga/EventModel,,"
-             EventModel enum which represents the values which can be configured for a product added to a package
-            ","
-            Subscription
+             If end reason of a subscription is set to Termination, it means that the subscription has been terminated.
+             When susbscription is terminated, Metanga generates appropriate termination fee charges.
+             Terminated subscription cannot be edited  further.
             "
 Checking,metanga/BankAccountType,,,
 BusinessChecking,metanga/BankAccountType,,,
 Savings,metanga/BankAccountType,,,
-Json,metanga/ContentFormat,,,
-Xml,metanga/ContentFormat,,,
 UserOrRole,metanga/DataType,,"
             List of data types that can be chosen for extended entity columns
             ","
@@ -212,13 +175,43 @@ Integer,metanga/DataType,,"
 Decimal,metanga/DataType,,"
             List of data types that can be chosen for extended entity columns
             ",
-Sunday,metanga/Collection`1<DayOfWeek>,,,
-Monday,metanga/Collection`1<DayOfWeek>,,,
-Tuesday,metanga/Collection`1<DayOfWeek>,,,
-Wednesday,metanga/Collection`1<DayOfWeek>,,,
-Thursday,metanga/Collection`1<DayOfWeek>,,,
-Friday,metanga/Collection`1<DayOfWeek>,,,
-Saturday,metanga/Collection`1<DayOfWeek>,,,
+Json,metanga/ContentFormat,,,
+Xml,metanga/ContentFormat,,,
+None,metanga/EventModel,,"
+             EventModel enum which represents the values which can be configured for a product added to a package
+            ","
+            Metanga will not produce billable events for this product
+            "
+Recurring,metanga/EventModel,,"
+             EventModel enum which represents the values which can be configured for a product added to a package
+            ","
+            Metanga will produce billable events on a recurring basis, based on subscription configuration
+            "
+ActivationFlat,metanga/EventModel,,"
+             EventModel enum which represents the values which can be configured for a product added to a package
+            ","
+            During a subscription start, if the package contains an ""Activation - Flat"" model, the one time charge gets applied to the invoice
+            "
+TerminationFeeRemainder,metanga/EventModel,,"
+             EventModel enum which represents the values which can be configured for a product added to a package
+            ","
+            Upon Termination the fee should be calculated based on the time span from Termination Date to the Original Fixed-Term End Date for the Subscription.
+            "
+TerminationTimeServed,metanga/EventModel,,"
+             EventModel enum which represents the values which can be configured for a product added to a package
+            ","
+            Upon Termination, Products with a time based component assigned this type of Termination Event Model should be priced using a quantity based on the timespan from the Subscription Start to the Termination.
+            "
+TerminationFeeFlat,metanga/EventModel,,"
+             EventModel enum which represents the values which can be configured for a product added to a package
+            ","
+            Termination product charge will be applied to the invoice, whenever a user or CSR terminates a from a Fixed Term subscription outside of the grace period.
+            "
+Subscription,metanga/EventModel,,"
+             EventModel enum which represents the values which can be configured for a product added to a package
+            ","
+            Subscription
+            "
 Invoice,metanga/StatementTransactionType,,"
             Desribes the type of the current transaction in BalanceStatement class
             ","
@@ -229,3 +222,10 @@ Payment,metanga/StatementTransactionType,,"
             ","
             The type of the current transaction is Payment
             "
+Sunday,metanga/DayOfWeek,,,
+Monday,metanga/DayOfWeek,,,
+Tuesday,metanga/DayOfWeek,,,
+Wednesday,metanga/DayOfWeek,,,
+Thursday,metanga/DayOfWeek,,,
+Friday,metanga/DayOfWeek,,,
+Saturday,metanga/DayOfWeek,,,

@@ -8,7 +8,7 @@
   </Description>
     <Destinations>
         <To>Invoice.Payer.Email</To>
-        <Cc>Invoice.Payer.AccountManager.Email</cc>
+        <Cc>Invoice.Payer.AccountManager.Email</Cc>
     </Destinations>
     <Subject>Late payment for invoice {Invoice.InvoiceNumber}</Subject>
     <Content>

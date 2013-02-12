@@ -196,7 +196,7 @@ namespace MetraTech.ExpressionEngine
                     context.Entities.Add(entity.Name, entity);
                 }
 
-                //SKIP FOR NOW
+                //TODO SCOTT: THESE ARE SKIPPED FOR NOW
                 if (Regex.IsMatch(typeStr, "IEnumerable|Dictionary"))
                     continue;
 
@@ -215,6 +215,10 @@ namespace MetraTech.ExpressionEngine
                 {
                     dtInfo.EnumSpace = enumSpace;
                     dtInfo.EnumType = enumType;
+                }
+                else if (dtInfo.IsEntity)
+                {
+                    dtInfo.EntitySubType = enumType; //we overrode the column
                 }
                 entity.Properties.Add(property);
             }

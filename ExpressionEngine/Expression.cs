@@ -6,6 +6,9 @@ using System.Xml;
 
 namespace MetraTech.ExpressionEngine
 {
+    /// <summary>
+    /// This is a place holder. Need to think through. We probably will want expression templates.
+    /// </summary>
     public class Expression
     {
         #region Enums
@@ -28,6 +31,11 @@ namespace MetraTech.ExpressionEngine
         /// The type of expression
         /// </summary>
         public readonly ExpressionTypeEnum Type;
+
+        /// <summary>
+        /// This probably belongs in a expression template as opposed to an instance
+        /// </summary>
+        public string RootEntityName;
 
         public ExpressionInfo Info { get { return ExpressionInfo.Items[Type]; } }
 
@@ -75,10 +83,12 @@ namespace MetraTech.ExpressionEngine
             var doc = new XmlDocument();
             var rootNode = doc.LoadAndGetRootNode(filePath, "Expression");
             var name = rootNode.GetChildTag("Name");
+            var rootEntity = rootNode.GetChildTag("RootEntity");
             var content = rootNode.GetChildTag("Content");
             var description = rootNode.GetChildTag("Description");
             var type = rootNode.GetChildEnum<ExpressionTypeEnum>("Type");
             var exp = new Expression(type, content, name);
+            exp.RootEntityName = rootEntity;
             exp.Description = description;
             return exp;
         }

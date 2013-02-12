@@ -2,6 +2,7 @@
 <Expression>
   <Name>Payment LCR US</Name>
   <Type>Logic</Type>
+  <RootEntity>ElectronicPayment</RootEntity>
   <Description>
     <![CDATA[Low cost routing to US provider (e.g. Authorize.Net) for credit cards for accounts in the US, where the payment is in US$ and the amount is < $100
     ]]>

@@ -2,11 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace MetraTech.ExpressionEngine
 {
     public static class Helper
     {
+        public static string CleanUpWhiteSpace(string strValue)
+        {
+            if (string.IsNullOrEmpty(strValue))
+                return strValue;
+
+            strValue = strValue.Trim();
+            Regex.Replace(strValue, "[\t\r\n]", "");
+            return strValue;
+        }
+
         //
         //Deterimines if the parameter is even
         //

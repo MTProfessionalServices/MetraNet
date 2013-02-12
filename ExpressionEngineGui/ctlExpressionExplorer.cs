@@ -57,7 +57,7 @@ namespace PropertyGui
             cboEntityTypeFilter.Items.Clear();
             cboEntityTypeFilter.DropDownStyle = ComboBoxStyle.DropDownList;
             //cboEntityTypeFilter.DisplayMember = "FilterString";
-            foreach (var type in MvcAbstraction.GetRelevantEntityTypes(Context.Expression))// Enum.GetValues(typeof(Entity.EntityTypeEnum)))
+            foreach (var type in MvcAbstraction.GetRelevantEntityTypes(Context.ProductType, Context.Expression))// Enum.GetValues(typeof(Entity.EntityTypeEnum)))
             {
                 cboEntityTypeFilter.Items.Add(type);
             }

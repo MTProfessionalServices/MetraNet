@@ -54,9 +54,15 @@ namespace PropertyGui
             return viewModes;
         }
 
-        public static List<Entity.EntityTypeEnum> GetRelevantEntityTypes(Expression expression = null)
+        public static List<Entity.EntityTypeEnum> GetRelevantEntityTypes(Context.ProductTypeEnum product, Expression expression = null)
         {
             var types = new List<Entity.EntityTypeEnum>();
+
+            if (product == Context.ProductTypeEnum.Metanga)
+            {
+                types.Add(Entity.EntityTypeEnum.Metanga);
+                return types;
+            }
 
             foreach (var value in Enum.GetValues(typeof(Entity.EntityTypeEnum)))
             {

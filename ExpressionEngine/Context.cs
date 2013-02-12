@@ -57,6 +57,13 @@ namespace MetraTech.ExpressionEngine
                     Entities.Add(entity.Name, entity);
             }
 
+            if (!string.IsNullOrEmpty(Expression.RootEntityName))
+            {
+                Entity rootEntity;
+                if (_DemoLoader.GlobalContext.Entities.TryGetValue(Expression.RootEntityName, out rootEntity))
+                    Entities.Add(rootEntity.Name, rootEntity);
+            }
+
             if (expression.Info.SupportsAqgs)
                 AQGs = _DemoLoader.GlobalContext.AQGs;
 

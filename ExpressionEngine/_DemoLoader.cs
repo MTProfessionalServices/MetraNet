@@ -176,127 +176,121 @@ namespace MetraTech.ExpressionEngine
         #region File-Based Entities
         public static void LoadEntities(Context context, Entity.EntityTypeEnum entityType, string filePath)
         {
-          var entityList = ReadRecordsFromCsv<EntityRecord>(filePath);
-          foreach (var entityRecord in entityList)
-          {
-            var entityName = entityRecord.EntityName.Split('/')[1];
-            var propName = entityRecord.PropertyName;
-            var required = Helper.GetBool(entityRecord.IsRequired);
-            var typeStr = entityRecord.PropertyType;
-            var enumSpace = entityRecord.Namespace;
-            var enumType = entityRecord.EnumType;
-
-            var entityDescription = CleanUpWhiteSpace(entityRecord.EntityDescription);
-            var propertyDescription = CleanUpWhiteSpace(entityRecord.PropertyDescription);
-
-            Entity entity;
-            if (!context.Entities.TryGetValue(entityName, out entity))
+            var entityList = ReadRecordsFromCsv<EntityRecord>(filePath);
+            foreach (var entityRecord in entityList)
             {
-              entity = new Entity(entityName, entityType, entityDescription);
-              context.Entities.Add(entity.Name, entity);
-            }
+                var entityName = entityRecord.EntityName.Split('/')[1];
+                var propName = entityRecord.PropertyName;
+                var required = Helper.GetBool(entityRecord.IsRequired);
+                var typeStr = entityRecord.PropertyType;
+                var enumSpace = entityRecord.Namespace;
+                var enumType = entityRecord.EnumType;
 
-            //SKIP FOR NOW
-            if (Regex.IsMatch(typeStr, "IEnumerable|Dictionary"))
-              continue;
+                var entityDescription = Helper.CleanUpWhiteSpace(entityRecord.EntityDescription);
+                var propertyDescription = Helper.CleanUpWhiteSpace(entityRecord.PropertyDescription);
 
-            DataTypeInfo dtInfo;
-            if (Context.ProductType == Context.ProductTypeEnum.MetraNet)
-            {
-              var baseType = DataTypeInfo.PropertyTypeId_BaseTypeMapping[Int32.Parse(typeStr)];
-              dtInfo = new DataTypeInfo(baseType);
-            }
-            else
-              dtInfo = DataTypeInfo.CreateFromDataTypeString(typeStr);
+                Entity entity;
+                if (!context.Entities.TryGetValue(entityName, out entity))
+                {
+                    entity = new Entity(entityName, entityType, entityDescription);
+                    context.Entities.Add(entity.Name, entity);
+                }
 
-            var property = new Property(propName, dtInfo, propertyDescription);
-            property.Required = required;
-            if (dtInfo.IsEnum)
-            {
-              dtInfo.EnumSpace = enumSpace;
-              dtInfo.EnumType = enumType;
+                //SKIP FOR NOW
+                if (Regex.IsMatch(typeStr, "IEnumerable|Dictionary"))
+                    continue;
+
+                DataTypeInfo dtInfo;
+                if (Context.ProductType == Context.ProductTypeEnum.MetraNet)
+                {
+                    var baseType = DataTypeInfo.PropertyTypeId_BaseTypeMapping[Int32.Parse(typeStr)];
+                    dtInfo = new DataTypeInfo(baseType);
+                }
+                else
+                    dtInfo = DataTypeInfo.CreateFromDataTypeString(typeStr);
+
+                var property = new Property(propName, dtInfo, propertyDescription);
+                property.Required = required;
+                if (dtInfo.IsEnum)
+                {
+                    dtInfo.EnumSpace = enumSpace;
+                    dtInfo.EnumType = enumType;
+                }
+                entity.Properties.Add(property);
             }
-            entity.Properties.Add(property);
-          }
         }
 
-      private static IEnumerable<T> ReadRecordsFromCsv<T>(string filePath) where T : class
-      {
-        var configuration = new CsvConfiguration
-                                {
-                                  IsStrictMode = false,
-                                  HasHeaderRecord = true
-                                };
-        using (var streamReader = new StreamReader(filePath))
+        private static IEnumerable<T> ReadRecordsFromCsv<T>(string filePath) where T : class
         {
-          var csv = new CsvReader(streamReader, configuration);
-          try
-          {
-            var entityList = csv.GetRecords<T>().ToList();
-            return entityList;
-          }
-          catch (CsvReaderException e)
-          {
-            throw new Exception(string.Format("Error loading {0} line {1} [{2}]", filePath, e.Row, e.Message), e);
-          }
+            var configuration = new CsvConfiguration
+                                    {
+                                        IsStrictMode = false,
+                                        HasHeaderRecord = true
+                                    };
+            using (var streamReader = new StreamReader(filePath))
+            {
+                var csv = new CsvReader(streamReader, configuration);
+                try
+                {
+                    var entityList = csv.GetRecords<T>().ToList();
+                    return entityList;
+                }
+                catch (CsvReaderException e)
+                {
+                    throw new Exception(string.Format("Error loading {0} line {1} [{2}]", filePath, e.Row, e.Message), e);
+                }
+            }
         }
-      }
 
-      #endregion
+        #endregion
 
-      public static string CleanUpWhiteSpace(string strValue)
-      {
-          strValue = strValue.Trim();
-          Regex.Replace(strValue, "[\t\r\n]", "");
-          return strValue;
-      }
         #region Enums
         public static void LoadEnumFile(Context context, string filePath)
         {
-          var enumList = ReadRecordsFromCsv<EnumRecord>(filePath);
+            var enumList = ReadRecordsFromCsv<EnumRecord>(filePath);
 
-          foreach (var enumRecord in enumList)
-          {
-            var enumValue = enumRecord.EnumValue;
-            var spaceAndType = enumRecord.Namespace;
-            var idStr = enumRecord.EnumDataId;
-
-            var entityDescription = CleanUpWhiteSpace(enumRecord.EnumDescription);
-            var propertyDescription = CleanUpWhiteSpace(enumRecord.ValueDescription);
-
-            int id;
-            if (string.IsNullOrEmpty(idStr))
-              id = 0;
-            else
+            foreach (var enumRecord in enumList)
             {
-              try
-              {
-                id = Int32.Parse(idStr);
-              }
-              catch (FormatException)
-              {
-                id = 0;
-              }
+                var enumValue = enumRecord.EnumValue;
+                var spaceAndType = enumRecord.Namespace;
+                var idStr = enumRecord.EnumDataId;
+
+                var entityDescription = Helper.CleanUpWhiteSpace(enumRecord.EnumDescription);
+                var propertyDescription = Helper.CleanUpWhiteSpace(enumRecord.ValueDescription);
+
+                int id;
+                if (string.IsNullOrEmpty(idStr))
+                    id = 0;
+                else
+                {
+                    try
+                    {
+                        id = Int32.Parse(idStr);
+                    }
+                    catch (FormatException)
+                    {
+                        id = 0;
+                    }
+                }
+
+                if (string.IsNullOrWhiteSpace(spaceAndType))
+                {
+                    continue;
+                }
+
+                var enumParts = spaceAndType.Split('/');
+
+                //Namespace?
+                if (enumParts.Length == 1)
+                    continue;
+
+                var enumType = enumParts[enumParts.Length - 1];
+                var enumNamespace = spaceAndType.Substring(0, spaceAndType.Length - enumType.Length - 1); //account for one slash
+
+                var enumValueObj = EnumSpace.AddEnum(context, enumNamespace, enumType, enumValue, id);
+                enumValueObj.Description = propertyDescription;
+                enumValueObj.Parent.Description = entityDescription;
             }
-
-            if (string.IsNullOrWhiteSpace(spaceAndType))
-            {
-              continue;
-            }
-
-            var enumParts = spaceAndType.Split('/');
-
-            //Namespace?
-            if (enumParts.Length == 1)
-              continue;
-
-            var enumType = enumParts[enumParts.Length - 1];
-            var enumNamespace = spaceAndType.Substring(0, spaceAndType.Length - enumType.Length - 1); //account for one slash
-
-            var enumValueObj = EnumSpace.AddEnum(context, enumNamespace, enumType, enumValue, id);
-            enumValueObj.Description = propertyDescription;
-            enumValueObj.Parent.Description = entityDescription;
-          }
         }
 
         #endregion
@@ -308,7 +302,7 @@ namespace MetraTech.ExpressionEngine
             var lines = File.ReadAllLines(filePath);
             for (int index = 1; index < lines.Length; index++)
             {
-                    var cols = lines[index].Split(',');
+                var cols = lines[index].Split(',');
                 var name = cols[0];
                 var expression = cols[1];
                 var description = string.Empty;

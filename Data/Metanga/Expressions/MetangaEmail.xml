@@ -6,11 +6,18 @@
   <Description>
     <![CDATA[Simple dunning email template]]>
   </Description>
+    <Destinations>
+        <To>Invoice.Payer.Email</To>
+        <Cc>Invoice.Payer.AccountManager.Email</cc>
+    </Destinations>
+    <Subject>Late payment for invoice {Invoice.InvoiceNumber}</Subject>
     <Content>
     <![CDATA[
-Hello {Account.DisplayName},
+Hello {Invoice.Payer.Name},
 
-We noticed that we haven't recieved payment yet for invoice {Invoice.Number} that was due on {Invoice.DueDate}. Could you please contact support to make a prompt payment?
+We noticed that we haven't recieved payment yet for invoice {Invoice.InvoiceNumber} that was due on {Invoice.InvoiceDueDate}.
+This invoice has a balance of {Invoice.InvoiceCurrency.Symbol}{Invoice.Statement.EndingBalance}.
+Could you please contact support to make a prompt payment?
 
 Thank you,
 Support

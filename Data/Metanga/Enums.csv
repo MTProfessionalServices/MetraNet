@@ -146,6 +146,11 @@ Subscription,metanga/EventModel,,"
             ","
             Subscription
             "
+Checking,metanga/BankAccountType,,,
+BusinessChecking,metanga/BankAccountType,,,
+Savings,metanga/BankAccountType,,,
+Json,metanga/ContentFormat,,,
+Xml,metanga/ContentFormat,,,
 UserOrRole,metanga/DataType,,"
             List of data types that can be chosen for extended entity columns
             ","
@@ -207,6 +212,13 @@ Integer,metanga/DataType,,"
 Decimal,metanga/DataType,,"
             List of data types that can be chosen for extended entity columns
             ",
+Sunday,metanga/Collection`1<DayOfWeek>,,,
+Monday,metanga/Collection`1<DayOfWeek>,,,
+Tuesday,metanga/Collection`1<DayOfWeek>,,,
+Wednesday,metanga/Collection`1<DayOfWeek>,,,
+Thursday,metanga/Collection`1<DayOfWeek>,,,
+Friday,metanga/Collection`1<DayOfWeek>,,,
+Saturday,metanga/Collection`1<DayOfWeek>,,,
 Invoice,metanga/StatementTransactionType,,"
             Desribes the type of the current transaction in BalanceStatement class
             ","

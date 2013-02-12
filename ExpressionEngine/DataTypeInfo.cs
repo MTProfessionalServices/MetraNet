@@ -313,24 +313,7 @@ namespace MetraTech.ExpressionEngine
         /// <returns></returns>
         public override string ToString()
         {
-            switch (DefaultStringFormat)
-            {
-
-                case DataTypeInfoFormat.System:
-                    return this.ToCSharpType().Name;
-                case DataTypeInfoFormat.Oracle:
-                    return this.ToOracleString();
-                case DataTypeInfoFormat.SqlServer:
-                    return this.ToSqlServerString();
-                case DataTypeInfoFormat.MTSQL:
-                    return this.ToMtsqlString();
-                case DataTypeInfoFormat.BME:
-                    return this.ToBMEString();
-                case DataTypeInfoFormat.User:
-                    return this.ToUserString(false);
-                default:
-                    return string.Empty;
-            }
+            return ToUserString(true);
         }
 
 
@@ -379,7 +362,9 @@ namespace MetraTech.ExpressionEngine
                 case BaseType.Numeric:
                     return "Numeric";
                 case BaseType.Entity:
-                    return "Entity";
+                    var str = string.Format("Entity({0}", EntityType);
+                    str += string.IsNullOrEmpty(EntitySubType)? ")" : string.Format(", {0})", EntitySubType);
+                    return str;
                 default:
                     throw new ApplicationException("Unhandled data type: " + BaseType.ToString());
             }

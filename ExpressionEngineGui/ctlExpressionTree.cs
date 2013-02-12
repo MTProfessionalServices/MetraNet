@@ -11,6 +11,7 @@ namespace PropertyGui
 {
     public class ctlExpressionTree : TreeView
     {
+        private const string PropertyListPlaceHolder = "PropertyListPlaceHoder";
         #region Properties
         private Context Context;
         public static ImageList Images = new ImageList();
@@ -20,6 +21,8 @@ namespace PropertyGui
         public DataTypeInfo PropertyTypeFilter { get; set; }
         public string FunctionFilter { get; set; }
         public ContextMenuStrip EnumValueContextMenu { get; set; }
+
+        private TreeNode PropertyListPlaceHolderNode;
         #endregion
 
         #region Static Constructor
@@ -42,8 +45,11 @@ namespace PropertyGui
         {
             ImageList = Images;
             ShowNodeToolTips = true;
+
+            PropertyListPlaceHolderNode = new TreeNode("ProperyListPlaceHolderNode");
         }
         #endregion
+
 
         #region Methods
         public void Init(Context context, ContextMenuStrip enumValueMenu)
@@ -171,12 +177,19 @@ namespace PropertyGui
         }
 
 
-        public void AddProperties(TreeNode parentNode, PropertyCollection properties, DataTypeInfo filter)
+        public void AddProperties(TreeNode parentNode, PropertyCollection properties, DataTypeInfo filter=null)
         {
             foreach (var property in properties)
             {
-                if (property.DataTypeInfo.IsBaseTypeFilterMatch(filter))
-                    CreateNode(property, parentNode);
+                if (filter == null || property.DataTypeInfo.IsBaseTypeFilterMatch(filter))
+                {
+                    var node = CreateNode(property, parentNode);
+
+                    if (property.DataTypeInfo.IsEntity)// && node.Level > 1)
+                    {
+                        node.Nodes.Add(new TreeNode(PropertyListPlaceHolder));
+                    }
+                }
             }
         }
 
@@ -197,15 +210,36 @@ namespace PropertyGui
             if (item is Property)
             {
                 var property = (Property)item;
+                
                 if (property.DataTypeInfo.IsEnum)
                 {
-                EnumType enumType;
-                if (Context.TryGetEnumType(property.DataTypeInfo, out enumType))
-                    AddEnumValues(enumType, node);          
+                    EnumType enumType;
+                    if (Context.TryGetEnumType(property.DataTypeInfo, out enumType))
+                        AddEnumValues(enumType, node);          
                 }
             }
-
+        
             return node;
+        }
+
+
+        protected override void OnBeforeExpand(TreeViewCancelEventArgs e)
+        {
+            base.OnBeforeExpand(e);
+
+            if (e.Action != TreeViewAction.Expand)
+                return;
+
+            var node = e.Node;
+            if (node.Nodes.Count == 1 && node.Nodes[0].Text == PropertyListPlaceHolder)
+            {
+                node.Nodes.Clear();
+                var entitySubType = ((Property)node.Tag).DataTypeInfo.EntitySubType;
+                Entity entity;
+                if (!_DemoLoader.GlobalContext.Entities.TryGetValue(entitySubType, out entity))
+                    return;
+                AddProperties(node, entity.Properties);
+            }
         }
         #endregion
     }

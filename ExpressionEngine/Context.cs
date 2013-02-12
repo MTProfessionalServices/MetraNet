@@ -13,7 +13,7 @@ namespace MetraTech.ExpressionEngine
     /// "sub copies" are created for eachinteractive context.entered a more restricted context. Since the sub copies only have refences (and keys), 
     /// a lot of space isn't consumed.
     /// 
-    /// This class has been thrown together to prototype ideas and to support the fat GUI prototype. That said, I believe the general concept has merit.
+    /// This class has been thrown together to prototype ideas and to support the GUI prototype. That said, I believe the general concept has merit.
     /// 
     /// </summary>
     public class Context

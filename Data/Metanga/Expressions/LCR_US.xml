@@ -9,9 +9,9 @@
   </Description>
     <Content>
     <![CDATA[
-  payment.Amount < 100 && payment.Currency == USD 
-  && payment.Payer.Country == US 
-  && payment.PaymentInstrument.CreditCardType != “Discover”
+  ElectronicPayment.Amount < 100 && ElectronicPayment.Currency == USD 
+  && ElectronicPayment.Payer.Country == US 
+  && ElectronicPayment.PaymentInstrument.CreditCardType != “Discover”
   ]]>
   </Content>
 </Expression>

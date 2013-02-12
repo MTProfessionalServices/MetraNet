@@ -1569,6 +1569,122 @@ metanga.com/PaymentInstrumentMasked,InstrumentId,Y,Guid,,,"
             ","
             Gets or sets the Id of the masked payment instrument.
             "
+metanga.com/CreditCardMasked,FirstName,Y,String,,,"
+            Represents credit card information which is used to populate Account's Entity collection of payment instruments.
+            ","
+            Gets or sets the first name of the owner of the credit card. This property is required.
+            "
+metanga.com/CreditCardMasked,MiddleName,Y,String,,,"
+            Represents credit card information which is used to populate Account's Entity collection of payment instruments.
+            ","
+            Gets or sets the middle name of the owner of the credit card.
+            "
+metanga.com/CreditCardMasked,LastName,Y,String,,,"
+            Represents credit card information which is used to populate Account's Entity collection of payment instruments.
+            ","
+            Gets or sets the last name of the owner of the credit card. This property is required.
+            "
+metanga.com/CreditCardMasked,Address1,Y,String,,,"
+            Represents credit card information which is used to populate Account's Entity collection of payment instruments.
+            ","
+            Gets or sets the first address line of the owner of the credit card. This property is required.
+            "
+metanga.com/CreditCardMasked,Address2,Y,String,,,"
+            Represents credit card information which is used to populate Account's Entity collection of payment instruments.
+            ","
+            Gets or sets the second address line of the owner of the credit card.
+            "
+metanga.com/CreditCardMasked,Address3,Y,String,,,"
+            Represents credit card information which is used to populate Account's Entity collection of payment instruments.
+            ","
+            Gets or sets the third address line of the owner of the credit card.
+            "
+metanga.com/CreditCardMasked,City,Y,String,,,"
+            Represents credit card information which is used to populate Account's Entity collection of payment instruments.
+            ","
+            Gets or sets the city of the owner of the credit card. This property is required.
+            "
+metanga.com/CreditCardMasked,CountryCode,Y,String,,,"
+            Represents credit card information which is used to populate Account's Entity collection of payment instruments.
+            ","
+            Gets or sets the country code of the owner of the credit card. The code must correspond to ISO 3166-1 alpha-2 standart of Country abbreviation.
+            "
+metanga.com/CreditCardMasked,State,Y,String,,,"
+            Represents credit card information which is used to populate Account's Entity collection of payment instruments.
+            ","
+             Gets or sets the state of the owner of the credit card. For US this property is required and must consist of 2 characters. It should be a valid US state abbreviation.
+            "
+metanga.com/CreditCardMasked,Postal,Y,String,,,"
+            Represents credit card information which is used to populate Account's Entity collection of payment instruments.
+            ","
+            Gets or sets the postal code of the owner of the credit card. This property is required.
+            "
+metanga.com/CreditCardMasked,PhoneNumber,Y,String,,,"
+            Represents credit card information which is used to populate Account's Entity collection of payment instruments.
+            ","
+            Gets or sets the phone number of the owner of the credit card.
+            "
+metanga.com/CreditCardMasked,Email,Y,String,,,"
+            Represents credit card information which is used to populate Account's Entity collection of payment instruments.
+            ","
+            Gets or sets the e-mail address of the owner of the credit card.
+            "
+metanga.com/CreditCardMasked,CreditCardType,Y,Enum,metanga,CreditCardType,"
+            Represents credit card information which is used to populate Account's Entity collection of payment instruments.
+            ","
+            Gets or sets the type of the credit card. This property is required.
+            "
+metanga.com/CreditCardMasked,ExpirationDate,Y,String,,,"
+            Represents credit card information which is used to populate Account's Entity collection of payment instruments.
+            ","
+             Gets or sets the expiration date of the credit card. The format of this property is ""mm/yyyy"". This property is required.
+             "
+metanga.com/CreditCardMasked,CreditCardNumberLast4Digits,Y,String,,,"
+            Represents credit card information which is used to populate Account's Entity collection of payment instruments.
+            ","
+            Last four digits of bank account number
+            "
+metanga.com/CreditCardMasked,CardSecurityCode,Y,String,,,"
+            Represents credit card information which is used to populate Account's Entity collection of payment instruments.
+            ","
+            Card Verification Number for validating before create new or update existing credit card
+            "
+metanga.com/CreditCardMasked,IsVerificationSkipped,Y,Boolean,,,"
+            Represents credit card information which is used to populate Account's Entity collection of payment instruments.
+            ","
+             If true skips verification of the Credit Card when creating or updating.
+            "
+metanga.com/CreditCardMasked,InstrumentId,Y,Guid,,,"
+            Represents credit card information which is used to populate Account's Entity collection of payment instruments.
+            ",
+metanga.com/BankAccountMasked,BankName,Y,String,,,"
+            Represents a class for Bank Account payment instrument which is used to populate Account's Entity collection of payment instruments.
+            ","
+            Bank Name
+            "
+metanga.com/BankAccountMasked,AccountHoldersName,Y,String,,,"
+            Represents a class for Bank Account payment instrument which is used to populate Account's Entity collection of payment instruments.
+            ","
+            Account Holder's Name
+            "
+metanga.com/BankAccountMasked,RoutingNumber,Y,String,,,"
+            Represents a class for Bank Account payment instrument which is used to populate Account's Entity collection of payment instruments.
+            ","
+            The Routing Number for the bank
+            "
+metanga.com/BankAccountMasked,BankAccountType,Y,Enum,metanga,BankAccountType,"
+            Represents a class for Bank Account payment instrument which is used to populate Account's Entity collection of payment instruments.
+            ","
+            The type of account
+            "
+metanga.com/BankAccountMasked,BankAccountNumberLast4Digits,Y,String,,,"
+            Represents a class for Bank Account payment instrument which is used to populate Account's Entity collection of payment instruments.
+            ","
+            Last four digits of bank account number
+            "
+metanga.com/BankAccountMasked,InstrumentId,Y,Guid,,,"
+            Represents a class for Bank Account payment instrument which is used to populate Account's Entity collection of payment instruments.
+            ",
 metanga.com/PriceSchedule,Intervals,Y,Entity,Metanga,IEnumerable`1<PriceScheduleInterval>,"
              Contains a list of prices that should be applied for a given
              effective date.
@@ -1582,10 +1698,36 @@ metanga.com/PriceSchedule,Intervals,Y,Entity,Metanga,IEnumerable`1<PriceSchedule
             Should be interpreted as: ""Events between January 1st 2012 and May 31st 2012
             should be charged at $50. After June 1st 2012 the price to be applied is $45.""
             "
-metanga.com/PaymentInstrumentMasked,InstrumentId,Y,Guid,,,"
-            Represents the abstract base class for Masked Payment Instruments which are used to populate Account's Entity collection of payment instruments.
+metanga.com/TierModel,Tiers,Y,Entity,Metanga,IEnumerable`1<Tier>,"
+             Tier Product Model
             ","
-            Gets or sets the Id of the masked payment instrument.
+            Ordered list of tiers to be tested
+            "
+metanga.com/TierModel,DefaultProduct,Y,Entity,Metanga,Product,"
+             Tier Product Model
+            ","
+            Default product to use if all the tiers have been filled
+            "
+metanga.com/NightsAndWeekends,WeekSegments,Y,Entity,Metanga,Collection`1<WeekSegment>,"
+            This product model can determine a product based on the time of the pre-charge.
+            For example, a pre-charge happening after 6pm can be determined to belong to a ""Night Minutes"" product
+            ","
+            Week Segments in this Model
+            A week segment is arbitrarily defined by the customer as a collection of days.
+            A full model should have segments covering all 7 days of the week.
+            Typical segments are ""Weekdays"" (Mon, Tue, Wed, Thu, Fri) and ""Weekends"" (Sat, Sun)
+            "
+metanga.com/BucketGroupModel,Buckets,Y,Entity,Metanga,IEnumerable`1<Bucket>,"
+            This product model will determine a product id based on accumulative consumption at the
+            invoice level
+            ","
+            Ordered list of buckets to be tested
+            "
+metanga.com/BucketGroupModel,DefaultProduct,Y,Entity,Metanga,Product,"
+            This product model will determine a product id based on accumulative consumption at the
+            invoice level
+            ","
+            Default product to use if all the buckets have been filled
             "
 metanga.com/Charge,BillableEvent,Y,Entity,Metanga,BillableEvent,"
             Represents a charge calculated by the Metanga Rating Engine
@@ -1654,6 +1796,58 @@ metanga.com/Charge,InvoiceId,N,Guid,,,"
             TODO: Should this property be removed from the charge?? Because it's part
             of the invoice aggregate and the InvoiceId belongs to the aggregate entity
             "
+metanga.com/TaxCharge,BillableEvent,Y,Entity,Metanga,BillableEvent,"
+             A PreCharge object has all the properties needed to calculate one
+             or more tax charges based on existing Product Models
+            ",
+metanga.com/TaxCharge,StartTime,Y,DateTime,,,"
+             A PreCharge object has all the properties needed to calculate one
+             or more tax charges based on existing Product Models
+            ",
+metanga.com/TaxCharge,EndTime,Y,DateTime,,,"
+             A PreCharge object has all the properties needed to calculate one
+             or more tax charges based on existing Product Models
+            ",
+metanga.com/TaxCharge,UnitName,Y,"Dictionary`2<String, String>",,,"
+             A PreCharge object has all the properties needed to calculate one
+             or more tax charges based on existing Product Models
+            ",
+metanga.com/TaxCharge,Quantity,Y,Decimal,,,"
+             A PreCharge object has all the properties needed to calculate one
+             or more tax charges based on existing Product Models
+            ",
+metanga.com/TaxCharge,Product,Y,Entity,Metanga,Product,"
+             A PreCharge object has all the properties needed to calculate one
+             or more tax charges based on existing Product Models
+            ",
+metanga.com/TaxCharge,SubscriptionPackageProductId,N,Guid,,,"
+             A PreCharge object has all the properties needed to calculate one
+             or more tax charges based on existing Product Models
+            ",
+metanga.com/TaxCharge,Price,Y,Decimal,,,"
+             A PreCharge object has all the properties needed to calculate one
+             or more tax charges based on existing Product Models
+            ",
+metanga.com/TaxCharge,PriceCurrency,Y,String,,,"
+             A PreCharge object has all the properties needed to calculate one
+             or more tax charges based on existing Product Models
+            ",
+metanga.com/TaxCharge,PriceAmount,Y,Decimal,,,"
+             A PreCharge object has all the properties needed to calculate one
+             or more tax charges based on existing Product Models
+            ",
+metanga.com/TaxCharge,ChargeCurrency,Y,String,,,"
+             A PreCharge object has all the properties needed to calculate one
+             or more tax charges based on existing Product Models
+            ",
+metanga.com/TaxCharge,ChargeAmount,Y,Decimal,,,"
+             A PreCharge object has all the properties needed to calculate one
+             or more tax charges based on existing Product Models
+            ",
+metanga.com/TaxCharge,InvoiceId,N,Guid,,,"
+             A PreCharge object has all the properties needed to calculate one
+             or more tax charges based on existing Product Models
+            ",
 metanga.com/Statement,PreviousBalance,Y,Decimal,,,"
             Balance Statement is a stand-alone value object that responsible for providing information
             about account’s balance at the certain date and information about account's payments and invoices that were made during the certain time range.
@@ -1689,11 +1883,48 @@ metanga.com/NotificationEndpointConfiguration,EndpointAddress,Y,String,,,"
             ","
             Represents an URL address of your service that is listening for the notification messages.
             "
-metanga.com/PaymentInstrumentMasked,InstrumentId,Y,Guid,,,"
-            Represents the abstract base class for Masked Payment Instruments which are used to populate Account's Entity collection of payment instruments.
+metanga.com/SoapNotificationConfiguration,ServiceVersion,Y,String,,,"
+            Represents a class for configuring notifications that are sent using SOAP.
             ","
-            Gets or sets the Id of the masked payment instrument.
+            Represents a version of the SOAP standard that is used by your service.
+            Metanga supports v1.1 and v1.2.
             "
+metanga.com/SoapNotificationConfiguration,CustomHeaders,Y,"Dictionary`2<String, String>",,,"
+            Represents a class for configuring notifications that are sent using SOAP.
+            ","
+            Custom headers which users can add
+            "
+metanga.com/SoapNotificationConfiguration,EndpointAddress,Y,String,,,"
+            Represents a class for configuring notifications that are sent using SOAP.
+            ",
+metanga.com/Settings,DefaultDashboardCurrency,Y,String,,,"
+             Settings class using in Account entity
+            ","
+             DefaultDashboardCurrency
+            "
+metanga.com/Settings,GuidRichSiteSummary,Y,String,,,"
+             Settings class using in Account entity
+            ","
+             Guid RSS property
+            "
+metanga.com/Settings,GridSettings,Y,Entity,Metanga,IEnumerable`1<GridSetting>,"
+             Settings class using in Account entity
+            ","
+             Default metanga grid length
+            "
+metanga.com/Settings,WidgetSettings,Y,Entity,Metanga,IEnumerable`1<WidgetSetting>,"
+             Settings class using in Account entity
+            ","
+             Dashboard widgets order
+            "
+metanga.com/Settings,LastActivePage,Y,Entity,Metanga,LastActivePage,"
+             Settings class using in Account entity
+            ","
+             Last visited page
+            "
+metanga.com/Settings,EndpointAddress,Y,String,,,"
+             Settings class using in Account entity
+            ",
 metanga.com/EmailNotificationConfiguration,DeliveryLanguage,Y,String,,,,"
              DeliveryLanguage
             "
@@ -1704,6 +1935,80 @@ metanga.com/EmailNotificationConfiguration,FromAddress,Y,String,,,,"
              FromAddresses
             "
 metanga.com/EmailNotificationConfiguration,EndpointAddress,Y,String,,,,
+metanga.com/RestfulNotificationConfiguration,ContentFormat,Y,Enum,metanga,ContentFormat,"
+            Represents a class for configuring notifications that are sent using REST.
+            ","
+            Represents a format of data that is used by your REST service.
+            Metanga supports XML and JSON data formats.
+            "
+metanga.com/RestfulNotificationConfiguration,CustomHeaders,Y,"Dictionary`2<String, String>",,,"
+            Represents a class for configuring notifications that are sent using REST.
+            ","
+            Custom headers which users can add
+            "
+metanga.com/RestfulNotificationConfiguration,EndpointAddress,Y,String,,,"
+            Represents a class for configuring notifications that are sent using REST.
+            ",
+metanga.com/OAuthWebServerConsumerConfiguration,AccessAuthorizationUri,Y,String,,,"
+            Represents a class for configuring notifications that use OAuth standard for authentication at the notification endpoint.
+            ","
+            Represents an authorization URI of the end-user at the Authorization Server.
+            "
+metanga.com/OAuthWebServerConsumerConfiguration,ResponseType,Y,String,,,"
+            Represents a class for configuring notifications that use OAuth standard for authentication at the notification endpoint.
+            ","
+            The value must be set to ""code"" for the Web server authentication flow.
+            "
+metanga.com/OAuthWebServerConsumerConfiguration,ClientId,Y,String,,,"
+            Represents a class for configuring notifications that use OAuth standard for authentication at the notification endpoint.
+            ","
+            Consumer key from the remote access application definition.
+            "
+metanga.com/OAuthWebServerConsumerConfiguration,Scope,Y,String,,,"
+            Represents a class for configuring notifications that use OAuth standard for authentication at the notification endpoint.
+            ","
+            The scope parameter enables you to fine-tune what the client application can access at the authorization server.
+            The value of the scope parameter is expressed as a list of space-delimited, case sensitive strings. The strings are defined by the authorization server.
+            "
+metanga.com/OAuthWebServerConsumerConfiguration,AccessTokenUri,Y,String,,,"
+            Represents a class for configuring notifications that use OAuth standard for authentication at the notification endpoint.
+            ","
+            A consumer can use the refresh token to get a new session as needed.
+            This parameter represents an URI of the token endpoint.  
+            "
+metanga.com/OAuthWebServerConsumerConfiguration,ClientSecret,Y,String,,,"
+            Represents a class for configuring notifications that use OAuth standard for authentication at the notification endpoint.
+            ","
+            Consumer secret from the remote access application definition. This parameter is optional.
+            "
+metanga.com/OAuthWebServerConsumerConfiguration,RefreshToken,Y,String,,,"
+            Represents a class for configuring notifications that use OAuth standard for authentication at the notification endpoint.
+            ","
+            Refresh tokens are credentials used to obtain access tokens.
+            Refresh tokens are issued to the client by the authorization server and are used to obtain a new access token when the current access token becomes invalid or expires,
+            or to obtain additional access tokens with identical or narrower scope.
+            A refresh token is a string representing the authorization granted to the client by the resource owner.
+            "
+metanga.com/OAuthWebServerConsumerConfiguration,LastAuthorizationErrorDate,Y,DateTime,,,"
+            Represents a class for configuring notifications that use OAuth standard for authentication at the notification endpoint.
+            ","
+            A date of the error returned from the authorization server.
+            "
+metanga.com/OAuthWebServerConsumerConfiguration,LastAuthorizationErrorCode,Y,String,,,"
+            Represents a class for configuring notifications that use OAuth standard for authentication at the notification endpoint.
+            ","
+            Represents an error code returned from the authorization server.
+            "
+metanga.com/OAuthWebServerConsumerConfiguration,LastAuthorizationErrorDescription,Y,String,,,"
+            Represents a class for configuring notifications that use OAuth standard for authentication at the notification endpoint.
+            ","
+            Represents description of the error with additional information returned from the authorization server.
+            "
+metanga.com/OAuthWebServerConsumerConfiguration,AccessTokenType,Y,String,,,"
+            Represents a class for configuring notifications that use OAuth standard for authentication at the notification endpoint.
+            ","
+            This property is to define how Metanga is actually going to use the access token in the notifications. 
+            You can use ""Oauth"" value to populate this property."
 metanga.com/EntityTypeColumn,Name,Y,"IDictionary`2<String, String>",,,"
             Defines a column of a custom entity
             The class was an inheritor of Entity class. Inheritation was removed. EntityId, Name and Description propertes were copied from Entity class
@@ -1757,6 +2062,41 @@ metanga.com/PriceScheduleInterval,UnitPrices,Y,Entity,Metanga,IEnumerable`1<Unit
             ","
             A collection of prices that can be applied for different units of measure.
             "
+metanga.com/Tier,Product,Y,Entity,Metanga,Product,"
+            Defines a product id and its capacity within a given invoice
+            ","
+            The product resolved by this tier
+            "
+metanga.com/Tier,Capacity,Y,Decimal,,,"
+            Defines a product id and its capacity within a given invoice
+            ","
+            The maximum capacity for this tier
+            "
+metanga.com/WeekSegment,DaysOfTheWeek,Y,Enum,metanga,Collection`1<DayOfWeek>,"
+            Represents a Week Segment in the calendar
+            ","
+            Days of the Week covered by this segment
+            "
+metanga.com/WeekSegment,DaySegments,Y,Entity,Metanga,Collection`1<DaySegment>,"
+            Represents a Week Segment in the calendar
+            ","
+            Day segments for this week segment. The collection has to cover a full day (all 24 hours).
+            Day segments cannot overlapped and have to be ordered.
+            For example:
+                Day Segment 1: 12am - 9am
+                Day Segment 2: 9am - 6pm
+                Day Segment 3: 6pm - 12am
+            "
+metanga.com/Bucket,Product,Y,Entity,Metanga,Product,"
+            Defines a product id and its capacity within a given invoice
+            ","
+            The product resolved by this bucket
+            "
+metanga.com/Bucket,Capacity,Y,Decimal,,,"
+            Defines a product id and its capacity within a given invoice
+            ","
+            The maximum capacity for this bucket
+            "
 metanga.com/StatementTransaction,Date,Y,DateTime,,,"
             Collection of transactions, which contains invoices and payments issued during the specific time range
             ","
@@ -1797,6 +2137,36 @@ metanga.com/StatementTransaction,DueDate,N,DateTime,,,"
             ","
             Empty for Now
             "
+metanga.com/GridSetting,GridLength,Y,Int32,,,"
+            Grid data length
+            ","
+            Metanga grid lenght
+            "
+metanga.com/GridSetting,GridName,Y,String,,,"
+            Grid data length
+            ","
+            Metanga grid Id
+            "
+metanga.com/WidgetSetting,WidgetOrder,Y,Int32,,,"
+            Dashboard widgets settings
+            ","
+            Widget order
+            "
+metanga.com/WidgetSetting,WidgetId,Y,String,,,"
+            Dashboard widgets settings
+            ","
+            Widget Id
+            "
+metanga.com/LastActivePage,LastVisitedTime,Y,DateTime,,,"
+            Represents last visited page.
+            ","
+            Metanga grid lenght
+            "
+metanga.com/LastActivePage,LastActivePageAddress,Y,String,,,"
+            Represents last visited page.
+            ","
+            Metanga grid Id
+            "
 metanga.com/UnitPrice,TimeUnitId,Y,String,,,"
              The price to be applied for a specific unit of measure. For example, a product measured
              by weight may have one price per pound, and a different price per kilogram.
@@ -1831,4 +2201,14 @@ metanga.com/UnitPrice,Price,Y,"Dictionary`2<String, Decimal>",,,"
              - USD 4.95
              - EUR 3.95
              - JPY 495
+            "
+metanga.com/DaySegment,DaytimeSpan,Y,Entity,Metanga,TimeSpan,"
+            Represents a Day Segment in the calendar. For example: 12am - 9am.
+            ","
+            Represents the timespan for this segment. For example: 9am to 5pm.
+            "
+metanga.com/DaySegment,ProductId,Y,Guid,,,"
+            Represents a Day Segment in the calendar. For example: 12am - 9am.
+            ","
+            The product resolved by this segment.
             "

@@ -179,7 +179,9 @@ namespace MetraTech.ExpressionEngine
             var entityList = ReadRecordsFromCsv<EntityRecord>(filePath);
             foreach (var entityRecord in entityList)
             {
-                var entityName = entityRecord.EntityName.Split('/')[1];
+                var entityParts = entityRecord.EntityName.Split('/');
+                var entityNamespace = entityParts[0];
+                var entityName = entityParts[1];
                 var propName = entityRecord.PropertyName;
                 var required = Helper.GetBool(entityRecord.IsRequired);
                 var typeStr = entityRecord.PropertyType;
@@ -198,7 +200,18 @@ namespace MetraTech.ExpressionEngine
 
                 //TODO SCOTT: THESE ARE SKIPPED FOR NOW
                 if (Regex.IsMatch(typeStr, "IEnumerable|Dictionary"))
+                {
                     continue;
+                }
+                var vectorType = DataTypeInfo.VectorTypeEnum.None;
+                if (typeStr.Contains("IEnumerable"))
+                {
+                    vectorType = DataTypeInfo.VectorTypeEnum.List;
+                }
+                else if (typeStr.Contains("Dictionary"))
+                {
+                    vectorType = DataTypeInfo.VectorTypeEnum.KeyList;
+                }
 
                 DataTypeInfo dtInfo;
                 if (Context.ProductType == Context.ProductTypeEnum.MetraNet)
@@ -209,17 +222,22 @@ namespace MetraTech.ExpressionEngine
                 else
                     dtInfo = DataTypeInfo.CreateFromDataTypeString(typeStr);
 
+                switch (dtInfo.BaseType)
+                {
+                    case BaseType._Enum:
+                        dtInfo.EnumSpace = enumSpace;
+                        dtInfo.EnumType = enumType;
+                        break;
+                    case BaseType.Entity:
+                        dtInfo.EntityType = entityType;
+                        dtInfo.EntitySubType = enumType; //we overrode the column
+                        break;
+                }
+
+                dtInfo.VectorType = vectorType;
+
                 var property = new Property(propName, dtInfo, propertyDescription);
                 property.Required = required;
-                if (dtInfo.IsEnum)
-                {
-                    dtInfo.EnumSpace = enumSpace;
-                    dtInfo.EnumType = enumType;
-                }
-                else if (dtInfo.IsEntity)
-                {
-                    dtInfo.EntitySubType = enumType; //we overrode the column
-                }
                 entity.Properties.Add(property);
             }
         }

@@ -17,11 +17,31 @@ namespace MetraTech.ExpressionEngine
     {
         #region Enums
         /// <summary>
-        /// Idea is that a property's UoM can be fixed (i.e., Hours) or driven by another property in the 
-        /// properties parent collection or ?
+        /// Indicates how the UoM is determined. Only valid for numeric data types.
         /// </summary>
-        public enum UomModeType { Fixed, PropertyCollection }
+        public enum UomModeType
+        {
+            None,     // Either not a numeric or it's unknown
+            Context,  // Implied by the context which is up to the developer.
+            Fixed,    // Always the same (i.e., hours or inches). Specified in the UomQualifier field
+            Category, // Always within a UomCategory (i.e., time or length). Specified in the UomQualifier field
+            Property  // Determined via a property within the same property collection. Property name specified in the UomQualifier property.
+        }
+
+        /// <summary>
+        /// Depending on the UomMode, specifies a fixed UoM, a UoM category or the name of the property that determines the UOM.
+        /// </summary>
+        public string UomQualifier { get; set; }
+
+        public enum VectorTypeEnum { 
+            None,   //Scalar
+            List,   //Enumerable
+            KeyList //Dictionary
+        }
+
         public enum DataTypeInfoFormat { MSIX, System, Oracle, SqlServer, MTSQL, BME, User };
+
+
         #endregion
 
         #region Static properties
@@ -62,6 +82,8 @@ namespace MetraTech.ExpressionEngine
 
         #region Properties
 
+        public VectorTypeEnum VectorType { get; set; }
+
         /// <summary>
         /// The underlying type (e.g, string, int32, int64, etc.)
         /// </summary>
@@ -91,11 +113,6 @@ namespace MetraTech.ExpressionEngine
         /// The subtype of the Entity type. For example, a BME ma
         /// </summary>
         public string EntitySubType { get; set; }
-
-        /// <summary>
-        /// Indicates is the property is a list/array
-        /// </summary>
-        public bool IsList { get; set; }
 
         /// <summary>
         /// Indicates the unit of measure mode (fixed or driven by other property). Only valid for when IsNumeric is true. 
@@ -172,7 +189,6 @@ namespace MetraTech.ExpressionEngine
         #region Constructors
         private DataTypeInfo()
         {
-            IsList = false;
             DefaultStringFormat = DataTypeInfoFormat.MSIX;
         }
 
@@ -250,11 +266,9 @@ namespace MetraTech.ExpressionEngine
 
         #region Static Create Methods
 
-        public static DataTypeInfo CreateString(int length = 0)
+        public static DataTypeInfo CreateBoolean()
         {
-            var type = new DataTypeInfo(BaseType.String);
-            type.Length = length;
-            return type;
+            return new DataTypeInfo(BaseType.Boolean);
         }
         public static DataTypeInfo CreateEnum(string enumSpace, string enumType)
         {
@@ -264,17 +278,22 @@ namespace MetraTech.ExpressionEngine
             return type;
         }
 
-        public static DataTypeInfo CreateBoolean()
-        {
-            return new DataTypeInfo(BaseType.Boolean);
-        }
-        public static DataTypeInfo CreateEntity(Entity.EntityTypeEnum entityType, string subType=null)
+        public static DataTypeInfo CreateEntity(Entity.EntityTypeEnum entityType, string subType = null)
         {
             var dataType = new DataTypeInfo(BaseType.Entity);
             dataType.EntityType = entityType;
             dataType.EntitySubType = subType;
             return dataType;
         }
+        public static DataTypeInfo CreateString(int length = 0)
+        {
+            var type = new DataTypeInfo(BaseType.String);
+            type.Length = length;
+            return type;
+        }
+
+
+
 
         /// <summary>
         /// Returns a DataTypeInfo based on a DataType string. For example, "int32" or "string". Note that
@@ -319,54 +338,89 @@ namespace MetraTech.ExpressionEngine
 
         public string ToUserString(bool robustMode)
         {
+            string baseStr = null;
             switch (BaseType)
             {
+                case BaseType.Any:
+                    return "Any";
                 case BaseType.Boolean:
                     return "Boolean";
+                case BaseType.Binary:
+                    if (robustMode)
+                        return string.Format("Binary({0})", EntityType);
+                    return "Binary";
+                case BaseType.Charge:
+                    baseStr = "Charge";
+                    break;
+                case BaseType.DateTime:
+                    return "DateTime"; ;
                 case BaseType.Decimal:
-                    return "Decimal";
+                    baseStr = "Decimal";
+                    break;
                 case BaseType.Double:
-                    return "Double";
+                    baseStr = "Double";
+                    break;
                 case BaseType._Enum:
                     if (robustMode)
                         return string.Format("Enum ({0}, {1})", EnumSpace, EnumType);
                     return "Enum";
                 case BaseType.Integer:
-                    return "Integer";
+                    baseStr = "Integer";
+                    break;
                 case BaseType.Integer32:
-                    return "Integer32";
+                    baseStr = "Integer32";
+                    break;
                 case BaseType.Integer64:
-                    return "Integer64";
+                    baseStr = "Integer64";
+                    break;
                 case BaseType.String:
                     if (robustMode && Length > 0)
                         return string.Format("String({0})", Length.ToString());
                     return "String";
-                case BaseType.DateTime:
-                    return "DateTime";
-                case BaseType.Binary:
-                    if (robustMode)
-                        return string.Format("Binary({0})", EntityType);
-                    return "Binary";
                 case BaseType.Guid:
                     return "Guid";
                 case BaseType.UniqueIdentifier:
                     return "UniqueIdentifier";
                 case BaseType.Unknown:
-                    return "UNKNOWN";
+                    return "Unknown";
                 case BaseType.Float:
-                    return "Float";
-                case BaseType.Any:
-                    return "Any";
-                case BaseType.Charge:
-                    return "Charge";
+                    baseStr = "Float";
+                    break;
                 case BaseType.Numeric:
-                    return "Numeric";
+                    baseStr = "Numeric";
+                    break;
                 case BaseType.Entity:
-                    var str = string.Format("Entity({0}", EntityType);
-                    str += string.IsNullOrEmpty(EntitySubType)? ")" : string.Format(", {0})", EntitySubType);
-                    return str;
+                    if (EntityType == Entity.EntityTypeEnum.Metanga)
+                        return EntitySubType;
+                    return string.Format("{0}: {1}", EntityType, EntitySubType);
                 default:
                     throw new ApplicationException("Unhandled data type: " + BaseType.ToString());
+            }
+
+            if (!robustMode)
+                return baseStr;
+
+            return string.Format("{0}({1})", baseStr, GetUomDecoration());
+        }
+
+        public string GetUomDecoration()
+        {
+            switch (UomMode)
+            {
+                case UomModeType.None:
+                    return "None";
+                case UomModeType.Fixed:
+                    //TODO: Localize
+                    return UomQualifier;
+                case UomModeType.Category:
+                    //TODO: Localize
+                    return UomQualifier;
+                case UomModeType.Context:
+                    return "Context";
+                case UomModeType.Property:
+                    return string.Format("Property: {0}", UomQualifier);
+                default:
+                    throw new NotImplementedException();
             }
         }
 

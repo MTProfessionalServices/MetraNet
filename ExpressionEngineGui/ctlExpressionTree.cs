@@ -11,7 +11,10 @@ namespace PropertyGui
 {
     public class ctlExpressionTree : TreeView
     {
+        #region Constants
         private const string PropertyListPlaceHolder = "PropertyListPlaceHoder";
+        #endregion
+
         #region Properties
         private Context Context;
         public static ImageList Images = new ImageList();
@@ -49,7 +52,6 @@ namespace PropertyGui
             PropertyListPlaceHolderNode = new TreeNode("ProperyListPlaceHolderNode");
         }
         #endregion
-
 
         #region Methods
         public void Init(Context context, ContextMenuStrip enumValueMenu)

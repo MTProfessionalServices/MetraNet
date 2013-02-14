@@ -24,6 +24,8 @@ namespace MetraTech.ExpressionEngine
 
         #region Properties
         public static ProductTypeEnum ProductType;
+        public static bool IsMetraNet { get { return ProductType == ProductTypeEnum.MetraNet; } }
+        public static bool IsMetanga { get { return ProductType == ProductTypeEnum.Metanga; } }
 
         public readonly Expression Expression;
         public Dictionary<string, Function> Functions = new Dictionary<string, Function>();

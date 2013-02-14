@@ -34,18 +34,13 @@ namespace MetraTech.ExpressionEngine
                 GlobalContext.AddEntity(_DemoLoader.GetAircraftLandingProductView());
                 LoadEntities(GlobalContext, Entity.EntityTypeEnum.ProductView, Path.Combine(DataPath, "ProductViews.csv"));
                 LoadEntities(GlobalContext, Entity.EntityTypeEnum.AccountView, Path.Combine(DataPath, "AccountViews.csv"));
+                LoadEntities(GlobalContext, Entity.EntityTypeEnum.ServiceDefinition, Path.Combine(DataPath, "ServiceDefinitions.csv"));
                 LoadXqg(GlobalContext, Expression.ExpressionTypeEnum.AQG, Path.Combine(DataPath, "AqgExpressions.csv"));
                 LoadXqg(GlobalContext, Expression.ExpressionTypeEnum.UQG, Path.Combine(DataPath, "UqgExpressions.csv"));
             }
             else
             {
                 LoadEntities(GlobalContext, Entity.EntityTypeEnum.Metanga, Path.Combine(DataPath, "Entities.csv"));
-
-                //Load all of the children
-                foreach (var entity in GlobalContext.Entities.Values)
-                {
-                    //_LoadSubEntities(GlobalContext, null, entity);
-                }
             }
 
             LoadEnumFile(GlobalContext, Path.Combine(DataPath, "Enums.csv"));
@@ -116,11 +111,17 @@ namespace MetraTech.ExpressionEngine
 
             return entity;
         }
+        public static void AppendCommonZvProperties(PropertyCollection props)
+        {
+            props.AddInt32("AccountId", "The account associated with the event", true);
+        }
         public static void AppendCommonPvProperties(PropertyCollection props)
         {
             props.AddDateTime("Timestamp", "The time the event is deemed to have occurred", true);
             props.AddInt32("AccountId", "The account associated with the event", true);
-            props.AddCharge("EventCharge", "The charge assoicated with the event which may summarize other charges within the event", true);
+
+            var name = Settings.NewSyntax ? "EventCharge" : "Amount";
+            props.AddCharge(name, "The charge assoicated with the event which may summarize other charges within the event", true);
         }
 
         public static Entity GetCorporateAccountType()
@@ -239,6 +240,17 @@ namespace MetraTech.ExpressionEngine
                 var property = new Property(propName, dtInfo, propertyDescription);
                 property.Required = required;
                 entity.Properties.Add(property);
+
+                //Add common properties
+                switch (entityType)
+                {
+                    case Entity.EntityTypeEnum.ProductView:
+                        AppendCommonPvProperties(entity.Properties);
+                        break;
+                    case Entity.EntityTypeEnum.AccountView:
+                        AppendCommonZvProperties(entity.Properties);
+                        break;
+                }
             }
         }
 

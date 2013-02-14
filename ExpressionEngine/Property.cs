@@ -240,9 +240,13 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region XML Methods
-        public void WriteXmlNode(XmlNode parentNode, string nodeName="Property")
+        public void WriteXmlNode(XmlNode parentNode, string propertyNodeName="Property")
         {
-            throw new NotImplementedException();
+            var propertyNode = parentNode.AddChildNode(propertyNodeName);
+            propertyNode.AddChildNode("Name", Name);
+            DataTypeInfo.WriteXmlNode(propertyNode);
+            propertyNode.AddChildNode("Required", Required);
+            propertyNode.AddChildNode("Description", Description);
         }
 
         public static Property CreateFromXmlParentNode(XmlNode parentNode, string childNodeName = "Property")

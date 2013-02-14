@@ -14,6 +14,7 @@ namespace PropertyGui
     public partial class frmMain : Form
     {
         #region Properties
+        private Context Context;
         #endregion
 
         #region Constructor
@@ -113,6 +114,12 @@ namespace PropertyGui
             LoadContext();
         }
         #endregion
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            _DemoLoader.GlobalContext.Save();
+        }
+
 
     }
 }

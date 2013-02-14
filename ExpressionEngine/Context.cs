@@ -169,6 +169,17 @@ namespace MetraTech.ExpressionEngine
                 EnumTypes.AddRange(enumSpace.EnumTypes);
             }
         }
+
+        public void Save()
+        {
+            var dirPath = Path.Combine(_DemoLoader.DirPath, "Xml");
+            foreach (var entity in Entities.Values)
+            {
+
+                var file = string.Format(@"{0}\{1}.{2}.xml", dirPath, entity.Name, entity.DataTypeInfo.EntityType);
+                entity.Save(file);
+            }
+        }
         #endregion
 
         #region Entities

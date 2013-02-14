@@ -319,8 +319,35 @@ namespace MetraTech.ExpressionEngine
                     dt.EnumSpace = node.GetAttribute("EnumSpace");
                     dt.EnumType = node.GetAttribute("EnumType");
                     break;
+                case BaseType.Entity:
+                    dt.EntityType = node.GetChildEnum<Entity.EntityTypeEnum>("Type");
+                    dt.EntitySubType = node.GetChildTag("SubType");
+                    break;
             }
             return dt;
+        }
+
+        //ToDO: Need to finish!
+        public void WriteXmlNode(XmlNode parentNode)
+        {
+            var dataTypeNode = parentNode.AddChildNode("DataType", BaseType.ToString());
+            switch (BaseType)
+            {
+                case ExpressionEngine.BaseType._Enum:
+                    dataTypeNode.AddAttribute("EnumSpace", EnumSpace);
+                    dataTypeNode.AddAttribute("EnumType", EnumType);
+                    return;
+                case ExpressionEngine.BaseType.Entity:
+                    dataTypeNode.AddAttribute("Type", EntityType.ToString());
+                    dataTypeNode.AddAttribute("SubType", EntitySubType);
+                    return;
+            }
+
+            if (IsNumeric)
+            {
+                dataTypeNode.AddAttribute("UomMode", UomMode.ToString());
+                dataTypeNode.AddAttribute("UomQualifier", UomQualifier);
+            }
         }
 
         #endregion

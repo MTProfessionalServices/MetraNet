@@ -90,9 +90,17 @@ namespace MetraTech.ExpressionEngine
             pv.AddEnum("ChargeModel", "The charinging model used to calculate the compute charge", true, "Cloud", "ChargeModel");
             pv.AddDecimal("InstanceSize", "The size of the instance", true);
             pv.AddEnum("OS", "The Operating System (OS)", true, "Cloud", "OperatingSystem");
-            pv.AddInt32("Memory", "The amont of memoery", true);
+            
+            var property = pv.AddInt32("Memory", "The amount of memory", true);
+            property.DataTypeInfo.UomMode = DataTypeInfo.UomModeType.Fixed;
+            property.DataTypeInfo.UomQualifier = "Memory";
+
             pv.AddDecimal("CpuCount", "The number of million CPU cycles", true);
-            pv.AddDecimal("Hours", "The number of hours the instance ran", true);
+
+            property = pv.AddDecimal("Hours", "The number of hours the instance ran", true);
+            property.DataTypeInfo.UomMode = DataTypeInfo.UomModeType.Fixed;
+            property.DataTypeInfo.UomQualifier = "Hour";
+
             AppendCommonPvProperties(pv);
             return entity;
         }

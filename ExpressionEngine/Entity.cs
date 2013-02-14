@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Xml;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -18,6 +19,7 @@ namespace MetraTech.ExpressionEngine
         #region Properties
         public string Name { get; set; }
         public string NameLocalized;
+        public bool Required { get; set; }
         public DataTypeInfo DataTypeInfo { get; set; }
         public PropertyCollection Properties;
 
@@ -146,6 +148,26 @@ namespace MetraTech.ExpressionEngine
             var newEntity = new Entity(Name, DataTypeInfo.EntityType, Description);
             newEntity.Properties = Properties.Clone();
             return newEntity;
+        }
+
+        public void Save(string filePath)
+        {
+            var doc = new XmlDocument();
+            var entityNode = doc.AddChildNode("Entity");
+            entityNode.AddChildNode("Name", Name);
+            entityNode.AddChildNode("Type", DataTypeInfo.EntityType.ToString());
+            entityNode.AddChildNode("Description", Description);
+            Properties.WriteXmlNode(entityNode);
+            doc.SaveFormatted(filePath);
+        }
+
+        public void WriteXmlNode(XmlNode parentNode, string propertyNodeName="Property")
+        {
+            var propertyNode = parentNode.AddChildNode(propertyNodeName);
+            propertyNode.AddChildNode("Name", Name);
+            DataTypeInfo.WriteXmlNode(propertyNode);
+            propertyNode.AddChildNode("Required", Required);
+            propertyNode.AddChildNode("Description", Description);
         }
 
         #endregion

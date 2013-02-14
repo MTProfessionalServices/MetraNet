@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -18,5 +19,6 @@ namespace MetraTech.ExpressionEngine
         string ToExpression { get; }
         object Clone();
         ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages = null);
+        //void WriteXmlNode(XmlNode parentNode, string propertyNodeName);
     }
 }

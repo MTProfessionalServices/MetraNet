@@ -28,11 +28,6 @@ namespace MetraTech.ExpressionEngine
             Property  // Determined via a property within the same property collection. Property name specified in the UomQualifier property.
         }
 
-        /// <summary>
-        /// Depending on the UomMode, specifies a fixed UoM, a UoM category or the name of the property that determines the UOM.
-        /// </summary>
-        public string UomQualifier { get; set; }
-
         public enum VectorTypeEnum { 
             None,   //Scalar
             List,   //Enumerable
@@ -141,7 +136,15 @@ namespace MetraTech.ExpressionEngine
         /// is to use the for Currency when BaseType is Charge. 
         /// </summary>
         public string UoM { get; set; }
+
+        /// <summary>
+        /// Depending on the UomMode, specifies a fixed UoM, a UoM category or the name of the property that determines the UOM.
+        /// </summary>
+        public string UomQualifier { get; set; }
+
         #endregion
+
+        public string UnitsProperty { get; set; }
 
         #endregion
 
@@ -396,7 +399,7 @@ namespace MetraTech.ExpressionEngine
                     break;
                 case BaseType._Enum:
                     if (robustMode)
-                        return string.Format("Enum ({0}, {1})", EnumSpace, EnumType);
+                        return string.Format("Enum.{0}.{1}", EnumSpace, EnumType);
                     return "Enum";
                 case BaseType.Integer:
                     baseStr = "Integer";
@@ -441,17 +444,17 @@ namespace MetraTech.ExpressionEngine
             switch (UomMode)
             {
                 case UomModeType.None:
+                    if (BaseType == ExpressionEngine.BaseType.Charge)
+                        return "No Currency";
                     return "No UoM";
                 case UomModeType.Fixed:
-                    //TODO: Localize
                     return UomQualifier;
                 case UomModeType.Category:
-                    //TODO: Localize
                     return UomQualifier;
                 case UomModeType.Context:
                     return "Context";
                 case UomModeType.Property:
-                    return string.Format("Property: {0}", UomQualifier);
+                    return string.Format("UoM Property: {0}", UomQualifier);
                 default:
                     throw new NotImplementedException();
             }

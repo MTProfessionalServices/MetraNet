@@ -112,6 +112,16 @@ namespace MetraTech.ExpressionEngine
             property.DataTypeInfo.UomMode = DataTypeInfo.UomModeType.Fixed;
             property.DataTypeInfo.UomQualifier = "Hour";
 
+            property = pv.AddDecimal("Duration", "The elapsed time", true);
+            property.DataTypeInfo.UomMode = DataTypeInfo.UomModeType.Category;
+            property.DataTypeInfo.UomQualifier = "Time";
+
+            property = pv.AddDecimal("ScalingMetric", "The key scaling metric", true);
+            property.DataTypeInfo.UomMode = DataTypeInfo.UomModeType.Property;
+            property.DataTypeInfo.UomQualifier = "ScalingMetricUom";
+
+            property = pv.AddString("ScalingMetricUom", "The UoM for the the ScalingMetric", true);
+
             AppendCommonPvProperties(pv);
             return entity;
         }

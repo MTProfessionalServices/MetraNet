@@ -69,6 +69,12 @@
     <Compile Include="ctlValueBinder.Designer.cs">
       <DependentUpon>ctlValueBinder.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCharge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCharge.Designer.cs">
+      <DependentUpon>frmCharge.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmExplorer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ctlValueBinder.resx">
       <DependentUpon>ctlValueBinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCharge.resx">
+      <DependentUpon>frmCharge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmExplorer.resx">
       <DependentUpon>frmExplorer.cs</DependentUpon>

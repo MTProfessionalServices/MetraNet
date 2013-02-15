@@ -7,7 +7,7 @@ namespace MetraTech.ExpressionEngine
     public class EntityTypeInfo : IExpressionEngineTreeNode
     {
         #region Properties
-        public readonly Entity.EntityTypeEnum Type;
+        public readonly ComplexType.ComplexTypeEnum Type;
         public string Name { get { return string.Format("{0}s", Type); } set { throw new Exception("Readonly!"); } }
         public string ToolTip { get { return "TBD"; } }
         public string Image { get { return string.Format("{0}.png", Type); } }
@@ -15,7 +15,7 @@ namespace MetraTech.ExpressionEngine
         #endregion 
 
         #region Constructor
-        public EntityTypeInfo(Entity.EntityTypeEnum type)
+        public EntityTypeInfo(ComplexType.ComplexTypeEnum type)
         {
             Type = type;
         }

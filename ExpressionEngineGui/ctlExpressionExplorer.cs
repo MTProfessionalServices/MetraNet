@@ -25,7 +25,7 @@ namespace PropertyGui
         #endregion
 
         #region Delegates
-        public delegate void NodeDoubleClick(object obj);
+        public delegate void NodeDoubleClick(object obj, string value);
         public NodeDoubleClick OnS2DoubleClick;
 
         public delegate void InsertSnippet(string snippet);
@@ -56,7 +56,6 @@ namespace PropertyGui
             cboEntityTypeFilter.BeginUpdate();
             cboEntityTypeFilter.Items.Clear();
             cboEntityTypeFilter.DropDownStyle = ComboBoxStyle.DropDownList;
-            //cboEntityTypeFilter.DisplayMember = "FilterString";
             foreach (var type in MvcAbstraction.GetRelevantEntityTypes(Context.ProductType, Context.Expression))
             {
                 cboEntityTypeFilter.Items.Add(type);
@@ -73,7 +72,7 @@ namespace PropertyGui
             cboPropertyTypeFilter.DisplayMember = "FilterString";
             foreach (var type in DataTypeInfo.AllTypes)
             {
-                if (!type.IsEntity && type.BaseType != BaseType.Unknown)
+                if (!type.IsComplexType && type.BaseType != BaseType.Unknown)
                     cboPropertyTypeFilter.Items.Add(type.Copy());
             }
             cboPropertyTypeFilter.Sorted = true;
@@ -109,7 +108,7 @@ namespace PropertyGui
                 return;
 
             treExplorer.ViewMode = (MvcAbstraction.ViewModeType)cboMode.SelectedItem;
-            treExplorer.EntityTypeFilter = (Entity.EntityTypeEnum)cboEntityTypeFilter.SelectedItem;
+            treExplorer.EntityTypeFilter = (ComplexType.ComplexTypeEnum)cboEntityTypeFilter.SelectedItem;
             treExplorer.PropertyTypeFilter = (DataTypeInfo)cboPropertyTypeFilter.SelectedItem;
             treExplorer.FunctionFilter = cboCategory.Text;
             treExplorer.LoadTree();
@@ -150,7 +149,28 @@ namespace PropertyGui
             if (OnS2DoubleClick == null || treExplorer.SelectedNode == null)
                 return;
 
-            OnS2DoubleClick(treExplorer.SelectedNode.Tag);
+            string value = GetExpressionPath(treExplorer.SelectedNode);
+
+            OnS2DoubleClick(treExplorer.SelectedNode.Tag, value);
+        }
+
+        private string GetExpressionPath(TreeNode node)
+        {
+            if (!(node.Tag is IProperty))
+                return string.Empty;
+
+            var property = (IProperty)node.Tag;
+            var columnPrefix = Settings.NewSyntax? string.Empty : "c_";
+
+            switch (Context.Expression.Type)
+            {
+                case Expression.ExpressionTypeEnum.AQG:
+                    return string.Format("ACCOUNT.{0}{1}", columnPrefix, property.Name);
+                case Expression.ExpressionTypeEnum.UQG:
+                    return string.Format("USAGE.{0}{1}", columnPrefix, property.Name);
+                default:
+                    return node.FullPath;
+            }    
         }
 
         private void mnuEnumValue_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -173,11 +193,12 @@ namespace PropertyGui
                     return;
 
                 var property = (Property)parentTag;
+                var path = GetExpressionPath(treExplorer.SelectedNode.Parent);
 
                 if (e.ClickedItem.Equals(mnuInsertEqualitySnippet))
-                    text = string.Format("{0} == {1}", property.ToExpression, enumValue.ToExpression);
+                    text = string.Format("{0} == {1}", path, enumValue.ToExpression);
                 else if (e.ClickedItem.Equals(mnuInsertInequalitySnippet))
-                    text = string.Format("{0} != {1}", property.ToExpression, enumValue.ToExpression);
+                    text = string.Format("{0} != {1}", path, enumValue.ToExpression);
             }
 
             if (OnInsertSnippet != null)

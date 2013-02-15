@@ -8,7 +8,7 @@ namespace MetraTech.ExpressionEngine
     public class EntityInfo
     {
         #region Properties 
-        public static readonly Dictionary<Entity.EntityTypeEnum, EntityInfo> Items = new Dictionary<Entity.EntityTypeEnum, EntityInfo>();
+        public static readonly Dictionary<ComplexType.ComplexTypeEnum, EntityInfo> Items = new Dictionary<ComplexType.ComplexTypeEnum, EntityInfo>();
         #endregion
     }
 }

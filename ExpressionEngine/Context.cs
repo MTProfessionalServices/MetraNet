@@ -29,11 +29,12 @@ namespace MetraTech.ExpressionEngine
 
         public readonly Expression Expression;
         public Dictionary<string, Function> Functions = new Dictionary<string, Function>();
-        public Dictionary<string, Entity> Entities = new Dictionary<string, Entity>();            //Entities may not have unique names across types... need to deal with that, perhaps a composite key
+        public Dictionary<string, ComplexType> Entities = new Dictionary<string, ComplexType>();            //Entities may not have unique names across types... need to deal with that, perhaps a composite key
         public Dictionary<string, AQG> AQGs = new Dictionary<string, AQG>();
         public Dictionary<string, UQG> UQGs = new Dictionary<string, UQG>();
         public Dictionary<string, EnumSpace> EnumSpaces = new Dictionary<string, EnumSpace>();
         public Dictionary<string, Expression> Expressions = new Dictionary<string, Expression>();
+        public Dictionary<string, UoMCategory> UoMs = new Dictionary<string, UoMCategory>();
 
         //These are updated by UpdateContext()
         public List<EnumType> EnumTypes = new List<EnumType>();
@@ -55,13 +56,13 @@ namespace MetraTech.ExpressionEngine
 
             foreach (var entity in _DemoLoader.GlobalContext.Entities.Values)
             {
-                if (Expression.Info.SupportedEntityTypes.Contains(entity.DataTypeInfo.EntityType))
+                if (Expression.Info.SupportedEntityTypes.Contains(entity.DataTypeInfo.ComplexType))
                     Entities.Add(entity.Name, entity);
             }
 
             if (!string.IsNullOrEmpty(Expression.RootEntityName))
             {
-                Entity rootEntity;
+                ComplexType rootEntity;
                 if (_DemoLoader.GlobalContext.Entities.TryGetValue(Expression.RootEntityName, out rootEntity))
                     Entities.Add(rootEntity.Name, rootEntity);
             }
@@ -74,6 +75,7 @@ namespace MetraTech.ExpressionEngine
 
             EnumSpaces = _DemoLoader.GlobalContext.EnumSpaces;
             Functions = _DemoLoader.GlobalContext.Functions;
+            UoMs = _DemoLoader.GlobalContext.UoMs;
 
             UpdateContext();
         }
@@ -81,7 +83,7 @@ namespace MetraTech.ExpressionEngine
 
         #region Property Methods
 
-        public List<IProperty> GetProperties(DataTypeInfo typeFilter, IEnumerable<Entity> entities=null)
+        public List<IProperty> GetProperties(DataTypeInfo typeFilter, IEnumerable<ComplexType> entities=null)
         {
             if (entities == null)
                 entities = Entities.Values;
@@ -170,27 +172,39 @@ namespace MetraTech.ExpressionEngine
             }
         }
 
+        /// <summary>
+        /// This is useful for the prototpe... in future may be useful for dumping the vlaues from the DB
+        /// </summary>
         public void Save()
         {
             var dirPath = Path.Combine(_DemoLoader.DirPath, "Xml");
             foreach (var entity in Entities.Values)
             {
+                entity.Save(string.Format(@"{0}\Entities\{1}.{2}.xml", dirPath, entity.Name, entity.DataTypeInfo.ComplexType));
+            }
 
-                var file = string.Format(@"{0}\{1}.{2}.xml", dirPath, entity.Name, entity.DataTypeInfo.EntityType);
-                entity.Save(file);
+            var enumDirPath = Path.Combine(dirPath, "Enums");
+            foreach (var enumSpace in EnumSpaces.Values)
+            {
+                enumSpace.Save(enumDirPath);
+
+                foreach (var enumType in enumSpace.EnumTypes)
+                {
+                    enumType.Save(enumDirPath);
+                }
             }
         }
         #endregion
 
         #region Entities
-        public void AddEntity(Entity entity)
+        public void AddEntity(ComplexType entity)
         {
             Entities.Add(entity.Name, entity);
         }
 
-        public List<Entity> GetEntities(string entityNameFilter, List<Entity.EntityTypeEnum> entityTypeFilter, string propertyNameFilter, DataTypeInfo propertyTypeFilter)
+        public List<ComplexType> GetEntities(string entityNameFilter, List<ComplexType.ComplexTypeEnum> entityTypeFilter, string propertyNameFilter, DataTypeInfo propertyTypeFilter)
         {
-            var results = new List<Entity>();
+            var results = new List<ComplexType>();
 
             Regex entityRegex = string.IsNullOrEmpty(entityNameFilter) ? null : new Regex(entityNameFilter, RegexOptions.IgnoreCase);
             Regex propertyRegex = string.IsNullOrEmpty(propertyNameFilter) ? null : new Regex(propertyNameFilter, RegexOptions.IgnoreCase);
@@ -199,7 +213,7 @@ namespace MetraTech.ExpressionEngine
             {
                 if (entityRegex != null && !entityRegex.IsMatch(entity.Name))
                     continue;
-                if (entityTypeFilter != null && !entityTypeFilter.Contains(entity.DataTypeInfo.EntityType))
+                if (entityTypeFilter != null && !entityTypeFilter.Contains(entity.DataTypeInfo.ComplexType))
                     continue;
 
                 if (!entity.HasPropertyMatch(propertyRegex, propertyTypeFilter))

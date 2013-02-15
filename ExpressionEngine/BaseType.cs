@@ -11,7 +11,7 @@
         Integer32,
         Integer64,
         DateTime,
-        Entity,             //Spans evertying from BMEs to ProductViews
+        ComplexType,             //Spans evertying from BMEs to ProductViews
         _Enum,
         Decimal,
         Float,

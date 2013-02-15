@@ -37,12 +37,12 @@ namespace PropertyGui
             Text = Context.Expression.Content;
         }
 
-        public void HandleTreeEvent(IExpressionEngineTreeNode item)
+        public void HandleTreeEvent(IExpressionEngineTreeNode item, string value)
         {
             if (item is Function)
                 EditFunction((Function)item);
             else
-                Paste(item.ToExpression);
+                Paste(value);
         }
 
         public void EditFunction()

@@ -20,7 +20,7 @@ namespace PropertyGui
         public static ImageList Images = new ImageList();
 
         public MvcAbstraction.ViewModeType ViewMode { get; set; }
-        public Entity.EntityTypeEnum EntityTypeFilter { get; set; }
+        public ComplexType.ComplexTypeEnum EntityTypeFilter { get; set; }
         public DataTypeInfo PropertyTypeFilter { get; set; }
         public string FunctionFilter { get; set; }
         public ContextMenuStrip EnumValueContextMenu { get; set; }
@@ -48,6 +48,7 @@ namespace PropertyGui
         {
             ImageList = Images;
             ShowNodeToolTips = true;
+            PathSeparator = ".";
 
             PropertyListPlaceHolderNode = new TreeNode("ProperyListPlaceHolderNode");
         }
@@ -98,6 +99,16 @@ namespace PropertyGui
                         var node = CreateNode(property);
                         node.SelectedImageKey = property.ImageDirection;
                         node.ImageKey = property.ImageDirection;
+                    }
+                    break;
+                case MvcAbstraction.ViewModeType.UoMs:
+                    foreach (var uomCategory in Context.UoMs.Values)
+                    {
+                        var uomCategoryNode = CreateNode(uomCategory);
+                        foreach (var uom in uomCategory.Items)
+                        {
+                            CreateNode(uom, uomCategoryNode);
+                        }
                     }
                     break;
                 default:
@@ -161,7 +172,7 @@ namespace PropertyGui
         }
         private void LoadTreeEntityMode()
         {
-            var filter = new List<Entity.EntityTypeEnum>();
+            var filter = new List<ComplexType.ComplexTypeEnum>();
             filter.Add(EntityTypeFilter);
             var entities = Context.GetEntities(null, filter, null, PropertyTypeFilter);
             foreach (var entity in entities)
@@ -187,7 +198,7 @@ namespace PropertyGui
                 {
                     var node = CreateNode(property, parentNode);
 
-                    if (property.DataTypeInfo.IsEntity)// && node.Level > 1)
+                    if (property.DataTypeInfo.IsComplexType)// && node.Level > 1)
                     {
                         node.Nodes.Add(new TreeNode(PropertyListPlaceHolder));
                     }
@@ -236,8 +247,8 @@ namespace PropertyGui
             if (node.Nodes.Count == 1 && node.Nodes[0].Text == PropertyListPlaceHolder)
             {
                 node.Nodes.Clear();
-                var entitySubType = ((Property)node.Tag).DataTypeInfo.EntitySubType;
-                Entity entity;
+                var entitySubType = ((Property)node.Tag).DataTypeInfo.ComplexSubType;
+                ComplexType entity;
                 if (!_DemoLoader.GlobalContext.Entities.TryGetValue(entitySubType, out entity))
                     return;
                 AddProperties(node, entity.Properties);

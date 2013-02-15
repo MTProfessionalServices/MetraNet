@@ -32,30 +32,41 @@ namespace MetraTech.ExpressionEngine
                 GlobalContext.AddEntity(_DemoLoader.GetCloudComputeProductView());
                 GlobalContext.AddEntity(_DemoLoader.GetCorporateAccountType());
                 GlobalContext.AddEntity(_DemoLoader.GetAircraftLandingProductView());
-                LoadEntities(GlobalContext, Entity.EntityTypeEnum.ProductView, Path.Combine(DataPath, "ProductViews.csv"));
-                LoadEntities(GlobalContext, Entity.EntityTypeEnum.AccountView, Path.Combine(DataPath, "AccountViews.csv"));
-                LoadEntities(GlobalContext, Entity.EntityTypeEnum.ServiceDefinition, Path.Combine(DataPath, "ServiceDefinitions.csv"));
+                LoadEntities(GlobalContext, ComplexType.ComplexTypeEnum.ProductView, Path.Combine(DataPath, "ProductViews.csv"));
+                LoadEntities(GlobalContext, ComplexType.ComplexTypeEnum.AccountView, Path.Combine(DataPath, "AccountViews.csv"));
+                LoadEntities(GlobalContext, ComplexType.ComplexTypeEnum.ServiceDefinition, Path.Combine(DataPath, "ServiceDefinitions.csv"));
                 LoadXqg(GlobalContext, Expression.ExpressionTypeEnum.AQG, Path.Combine(DataPath, "AqgExpressions.csv"));
                 LoadXqg(GlobalContext, Expression.ExpressionTypeEnum.UQG, Path.Combine(DataPath, "UqgExpressions.csv"));
             }
             else
             {
-                LoadEntities(GlobalContext, Entity.EntityTypeEnum.Metanga, Path.Combine(DataPath, "Entities.csv"));
+                LoadEntities(GlobalContext, ComplexType.ComplexTypeEnum.Metanga, Path.Combine(DataPath, "Entities.csv"));
             }
 
             LoadEnumFile(GlobalContext, Path.Combine(DataPath, "Enums.csv"));
             LoadFunctions();
             LoadExpressions();
 
-            //Load the internal fields
+            var uomCategory = new UoMCategory("DigitalInformation");
+            uomCategory.AddUom("Gb");
+            uomCategory.AddUom("Mb");
+            uomCategory.AddUom("kb");
+            GlobalContext.UoMs.Add(uomCategory.Name, uomCategory);
+
+            uomCategory = new UoMCategory("Time");
+            uomCategory.AddUom("Millisecond");
+            uomCategory.AddUom("Second");
+            uomCategory.AddUom("Minute");
+            uomCategory.AddUom("Hour");
+            GlobalContext.UoMs.Add(uomCategory.Name, uomCategory);
         }
 
-        private static void _LoadSubEntities(Context context, Entity parentEntity, Entity childEntity)
+        private static void _LoadSubEntities(Context context, ComplexType parentEntity, ComplexType childEntity)
         {
             foreach (IProperty property in childEntity.Properties)
             {
                 if (property.DataTypeInfo.IsEntity)
-                    _LoadSubEntities(context, childEntity, (Entity)property);
+                    _LoadSubEntities(context, childEntity, (ComplexType)property);
                 else if (parentEntity != null)
                     parentEntity.Properties.Add(property);
             }
@@ -79,9 +90,9 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Manual Entities
-        public static Entity GetCloudComputeProductView()
+        public static ComplexType GetCloudComputeProductView()
         {
-            var entity = new Entity("CloudCompute", Entity.EntityTypeEnum.ProductView, "Models an cloud compute usage even");
+            var entity = new ComplexType("CloudCompute", ComplexType.ComplexTypeEnum.ProductView, "Models an cloud compute usage even");
 
             var pv = entity.Properties;
             pv.AddInt32("NumSnapshots", "The number of snapshots taken", true);
@@ -93,7 +104,7 @@ namespace MetraTech.ExpressionEngine
             
             var property = pv.AddInt32("Memory", "The amount of memory", true);
             property.DataTypeInfo.UomMode = DataTypeInfo.UomModeType.Fixed;
-            property.DataTypeInfo.UomQualifier = "Memory";
+            property.DataTypeInfo.UomQualifier = "DigitalInformation";
 
             pv.AddDecimal("CpuCount", "The number of million CPU cycles", true);
 
@@ -105,9 +116,9 @@ namespace MetraTech.ExpressionEngine
             return entity;
         }
 
-        public static Entity GetAircraftLandingProductView()
+        public static ComplexType GetAircraftLandingProductView()
         {
-            var entity = new Entity("AircraftLanding", Entity.EntityTypeEnum.ProductView, "Models an cloud compute usage even");
+            var entity = new ComplexType("AircraftLanding", ComplexType.ComplexTypeEnum.ProductView, "Models an cloud compute usage even");
 
             var pv = entity.Properties;
             pv.AddInt32("MTOW", "Maximum TakeOff Weight", true);
@@ -132,9 +143,9 @@ namespace MetraTech.ExpressionEngine
             props.AddCharge(name, "The charge assoicated with the event which may summarize other charges within the event", true);
         }
 
-        public static Entity GetCorporateAccountType()
+        public static ComplexType GetCorporateAccountType()
         {
-            var entity = new Entity("CorporateAccount", Entity.EntityTypeEnum.AccountType, "Models an corporate account");
+            var entity = new ComplexType("CorporateAccount", ComplexType.ComplexTypeEnum.AccountType, "Models an corporate account");
 
             var pv = entity.Properties;
             pv.AddString("FirstName", "The data center in which the server ran", true, null, 30);
@@ -172,7 +183,7 @@ namespace MetraTech.ExpressionEngine
             prop.Direction = Property.DirectionType.Input;
             exp.Parameters.Add(prop);
 
-            var entity = Entity.CreateProductView("ParameterTable.CloudRates");
+            var entity = ComplexType.CreateProductView("ParameterTable.CloudRates");
             prop.Direction = Property.DirectionType.Input;
             exp.Parameters.Add(entity);
 
@@ -183,7 +194,7 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region File-Based Entities
-        public static void LoadEntities(Context context, Entity.EntityTypeEnum entityType, string filePath)
+        public static void LoadEntities(Context context, ComplexType.ComplexTypeEnum entityType, string filePath)
         {
             var entityList = ReadRecordsFromCsv<EntityRecord>(filePath);
             foreach (var entityRecord in entityList)
@@ -200,11 +211,22 @@ namespace MetraTech.ExpressionEngine
                 var entityDescription = Helper.CleanUpWhiteSpace(entityRecord.EntityDescription);
                 var propertyDescription = Helper.CleanUpWhiteSpace(entityRecord.PropertyDescription);
 
-                Entity entity;
+                ComplexType entity;
                 if (!context.Entities.TryGetValue(entityName, out entity))
                 {
-                    entity = new Entity(entityName, entityType, entityDescription);
+                    entity = new ComplexType(entityName, entityType, entityDescription);
                     context.Entities.Add(entity.Name, entity);
+
+                    //Add common properties, if any
+                    switch (entityType)
+                    {
+                        case ComplexType.ComplexTypeEnum.ProductView:
+                            AppendCommonPvProperties(entity.Properties);
+                            break;
+                        case ComplexType.ComplexTypeEnum.AccountView:
+                            AppendCommonZvProperties(entity.Properties);
+                            break;
+                    }
                 }
 
                 //TODO SCOTT: THESE ARE SKIPPED FOR NOW
@@ -237,9 +259,9 @@ namespace MetraTech.ExpressionEngine
                         dtInfo.EnumSpace = enumSpace;
                         dtInfo.EnumType = enumType;
                         break;
-                    case BaseType.Entity:
-                        dtInfo.EntityType = entityType;
-                        dtInfo.EntitySubType = enumType; //we overrode the column
+                    case BaseType.ComplexType:
+                        dtInfo.ComplexType = entityType;
+                        dtInfo.ComplexSubType = enumType; //we overrode the column
                         break;
                 }
 
@@ -248,17 +270,6 @@ namespace MetraTech.ExpressionEngine
                 var property = new Property(propName, dtInfo, propertyDescription);
                 property.Required = required;
                 entity.Properties.Add(property);
-
-                //Add common properties
-                switch (entityType)
-                {
-                    case Entity.EntityTypeEnum.ProductView:
-                        AppendCommonPvProperties(entity.Properties);
-                        break;
-                    case Entity.EntityTypeEnum.AccountView:
-                        AppendCommonZvProperties(entity.Properties);
-                        break;
-                }
             }
         }
 

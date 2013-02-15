@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Xml;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -25,6 +26,7 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Methods
+
         public EnumType AddType(string name, string description)
         {
             var type = new EnumType(this, name, description);
@@ -37,6 +39,19 @@ namespace MetraTech.ExpressionEngine
             {
                 throw new NotImplementedException();
             }
+        }
+
+        public void Save(string dirPath)
+        {
+            var doc = new XmlDocument();
+            var rootNode = doc.AddChildNode("EnumSpace");
+
+            var name = Name.Replace('\\', '_');
+            rootNode.AddChildNode("Name", name);
+            if (name.Contains(@"\"))
+                throw new Exception("found backslash");
+            rootNode.AddChildNode("Description", Description);
+            doc.SaveFormatted(string.Format(@"{0}\{1}.EnumSpace.xml", dirPath, name));
         }
 
         public bool TryGetEnumType(string name, out EnumType type)

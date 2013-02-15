@@ -13,7 +13,7 @@ namespace PropertyGui
     public static class MvcAbstraction
     {
         #region Enums
-        public enum ViewModeType { Properties, Entities, Functions, Enums, AQGs, UQGs, InputsOutputs }
+        public enum ViewModeType { Properties, Entities, Functions, Enums, AQGs, UQGs, InputsOutputs, UoMs }
         #endregion
 
         #region Methods
@@ -50,29 +50,30 @@ namespace PropertyGui
             viewModes.Add(ViewModeType.Enums);
             viewModes.Add(ViewModeType.Functions);
             viewModes.Add(ViewModeType.InputsOutputs);
+            viewModes.Add(ViewModeType.UoMs);
 
             return viewModes;
         }
 
-        public static List<Entity.EntityTypeEnum> GetRelevantEntityTypes(Context.ProductTypeEnum product, Expression expression = null)
+        public static List<ComplexType.ComplexTypeEnum> GetRelevantEntityTypes(Context.ProductTypeEnum product, Expression expression = null)
         {
-            var types = new List<Entity.EntityTypeEnum>();
+            var types = new List<ComplexType.ComplexTypeEnum>();
 
             if (product == Context.ProductTypeEnum.Metanga)
             {
-                types.Add(Entity.EntityTypeEnum.Metanga);
+                types.Add(ComplexType.ComplexTypeEnum.Metanga);
                 return types;
             }
 
-            foreach (var value in Enum.GetValues(typeof(Entity.EntityTypeEnum)))
+            foreach (var value in Enum.GetValues(typeof(ComplexType.ComplexTypeEnum)))
             {
-                var type = (Entity.EntityTypeEnum)value;
+                var type = (ComplexType.ComplexTypeEnum)value;
                 if (expression == null || expression.Info.SupportedEntityTypes.Contains(type))
-                    types.Add((Entity.EntityTypeEnum)type);
+                    types.Add((ComplexType.ComplexTypeEnum)type);
             }
 
-            if (types.Count > 1 && !types.Contains(Entity.EntityTypeEnum.Any))
-                types.Add(Entity.EntityTypeEnum.Any);
+            if (types.Count > 1 && !types.Contains(ComplexType.ComplexTypeEnum.Any))
+                types.Add(ComplexType.ComplexTypeEnum.Any);
 
             return types;
         }

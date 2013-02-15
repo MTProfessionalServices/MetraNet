@@ -40,9 +40,9 @@ namespace PropertyGui
         #endregion
 
         #region Events
-        public void _OnS2DoubleClick(object item)
+        public void _OnS2DoubleClick(object item, string value)
         {
-            ctlExpression.HandleTreeEvent((IExpressionEngineTreeNode)item);
+            ctlExpression.HandleTreeEvent((IExpressionEngineTreeNode)item, value);
         }
 
         public void _OnInsertSnippet(string snippet)

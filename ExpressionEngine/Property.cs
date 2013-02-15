@@ -35,7 +35,7 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public PropertyCollection PropertyCollection { get; set; }
 
-        public Entity ParentEntity
+        public ComplexType ParentEntity
         {
             get
             {
@@ -315,7 +315,7 @@ namespace MetraTech.ExpressionEngine
                         return "Int64.png";
                     case BaseType.Guid:
                         return "Guid.png";
-                    case BaseType.Entity:
+                    case BaseType.ComplexType:
                         return "Entity.png";
                 }
                 throw new NotImplementedException();

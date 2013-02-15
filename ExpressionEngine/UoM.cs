@@ -5,12 +5,26 @@ using System.Text;
 
 namespace MetraTech.ExpressionEngine
 {
-    /// <summary>
-    /// We need to model UoMs. It would see that we'd want:
-    /// * UomCategory: e.g., Time, Memory (or whatever we call bytes), Volumne, Length, etc.
-    /// * UomValue: these are within a UoM category (e.g., Minutes and Seconds would be within Time)
-    /// </summary>
-    public class UoM
+    public class Uom : IExpressionEngineTreeNode
     {
+        #region Properties
+        public readonly UoMCategory Category;
+        public string Name { get; set; }
+        public readonly string PrintSymbol;
+        public readonly bool IsMetric;
+        public string Image { get { return "Uom.png"; } }
+        public string ToolTip { get { return null; } }
+        public string ToExpression { get { return string.Format("{0}.{1}", Category.ToExpression, Name); } }
+        #endregion
+
+        #region Constructor
+        public Uom(UoMCategory category, string name, bool isMetric=false)
+        {
+            Category = category;
+            Name = name;
+            IsMetric = isMetric;
+        }
+        #endregion
+
     }
 }

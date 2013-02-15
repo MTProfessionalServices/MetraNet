@@ -10,7 +10,7 @@ namespace MetraTech.ExpressionEngine
     {
         string Name { get; set; }
         DataTypeInfo DataTypeInfo { get; set; }
-        Entity ParentEntity { get; }
+        ComplexType ParentEntity { get; }
         string Description { get; set; }
         Property.DirectionType Direction { get; set; }
         string Image { get; }

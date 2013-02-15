@@ -51,7 +51,7 @@
     <Compile Include="BaseType.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Currency.cs" />
-    <Compile Include="Entity.cs" />
+    <Compile Include="ComplexType.cs" />
     <Compile Include="EntityInfo.cs" />
     <Compile Include="EntityRecord.cs" />
     <Compile Include="EntityTypeInfo.cs">
@@ -77,7 +77,8 @@
     <Compile Include="Property.cs" />
     <Compile Include="PropertyCollection.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="UoM.cs" />
+    <Compile Include="Uom.cs" />
+    <Compile Include="UoMCategory.cs" />
     <Compile Include="UQG.cs" />
     <Compile Include="XmlHelpers.cs" />
     <Compile Include="_DemoLoader.cs" />

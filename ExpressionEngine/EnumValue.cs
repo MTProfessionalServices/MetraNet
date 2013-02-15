@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -42,6 +43,12 @@ namespace MetraTech.ExpressionEngine
                 else
                     return ToMtsql();
             }
+        }
+
+        public void WriteXmlNode(XmlNode parentNode)
+        {
+            //TODO: We need to write out more stuff
+            var valueNode = parentNode.AddChildNode("Value", Name);
         }
 
         #endregion

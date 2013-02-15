@@ -188,7 +188,7 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.treExplorer.ContextMenuStrip = this.mnuEnumValue;
-            this.treExplorer.EntityTypeFilter = MetraTech.ExpressionEngine.Entity.EntityTypeEnum.ServiceDefinition;
+            this.treExplorer.EntityTypeFilter = MetraTech.ExpressionEngine.ComplexType.ComplexTypeEnum.ServiceDefinition;
             this.treExplorer.EnumValueContextMenu = null;
             this.treExplorer.FunctionFilter = null;
             this.treExplorer.ImageIndex = 0;

@@ -18,7 +18,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// The Entity to which the collection belongs (may be null)
         /// </summary>
-        public Entity Entity { get { return Parent == null || !(Parent is Entity) ? null : (Entity)Parent; } }
+        public ComplexType Entity { get { return Parent == null || !(Parent is ComplexType) ? null : (ComplexType)Parent; } }
 
         /// <summary>
         /// The number of properties
@@ -176,7 +176,7 @@ namespace MetraTech.ExpressionEngine
                 if (property is Property)
                     ((Property)property).WriteXmlNode(collectionNode, "Property");
                 else
-                    ((Entity)property).WriteXmlNode(collectionNode, "Property");
+                    ((ComplexType)property).WriteXmlNode(collectionNode, "Property");
             }
         }
         #endregion

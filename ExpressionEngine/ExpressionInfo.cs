@@ -11,7 +11,7 @@ namespace MetraTech.ExpressionEngine
         public static readonly Dictionary<Expression.ExpressionTypeEnum, ExpressionInfo> Items = new Dictionary<Expression.ExpressionTypeEnum, ExpressionInfo>();
 
         public readonly Expression.ExpressionTypeEnum Type;
-        public List<Entity.EntityTypeEnum> SupportedEntityTypes = new List<Entity.EntityTypeEnum>();
+        public List<ComplexType.ComplexTypeEnum> SupportedEntityTypes = new List<ComplexType.ComplexTypeEnum>();
         public bool SupportsAqgs { get; set; }
         public bool SupportsUqgs { get; set; }
 
@@ -21,24 +21,24 @@ namespace MetraTech.ExpressionEngine
         static ExpressionInfo()
         {
             //AQG
-            var info = AddInfo(Expression.ExpressionTypeEnum.AQG, Entity.EntityTypeEnum.AccountView);
+            var info = AddInfo(Expression.ExpressionTypeEnum.AQG, ComplexType.ComplexTypeEnum.AccountView);
             info.SupportsAqgs = true;
             
             //UQG
-            info = AddInfo(Expression.ExpressionTypeEnum.UQG, Entity.EntityTypeEnum.ProductView);
+            info = AddInfo(Expression.ExpressionTypeEnum.UQG, ComplexType.ComplexTypeEnum.ProductView);
             info.SupportsUqgs = true;
 
             //Message
-            info = AddInfo(Expression.ExpressionTypeEnum.Message, Entity.EntityTypeEnum.AccountView);
+            info = AddInfo(Expression.ExpressionTypeEnum.Message, ComplexType.ComplexTypeEnum.AccountView);
 
             //Expression
-            info = AddInfo(Expression.ExpressionTypeEnum.Logic, Entity.EntityTypeEnum.AccountView);
+            info = AddInfo(Expression.ExpressionTypeEnum.Logic, ComplexType.ComplexTypeEnum.AccountView);
 
-            info = AddInfo(Expression.ExpressionTypeEnum.Email, Entity.EntityTypeEnum.AccountView);
+            info = AddInfo(Expression.ExpressionTypeEnum.Email, ComplexType.ComplexTypeEnum.AccountView);
         }
 
 
-        private static ExpressionInfo AddInfo(Expression.ExpressionTypeEnum type, params Entity.EntityTypeEnum[] entityTypes)
+        private static ExpressionInfo AddInfo(Expression.ExpressionTypeEnum type, params ComplexType.ComplexTypeEnum[] entityTypes)
         {
             var info = new ExpressionInfo(type);
             info.SupportedEntityTypes.AddRange(entityTypes);

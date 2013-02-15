@@ -69,8 +69,7 @@ namespace MetraTech.ExpressionEngine
             type.EnumSpace = other.EnumSpace;
             type.EnumType = other.EnumType;
             type.Length = other.Length;
-            type.EntityType = other.EntityType;
-            type.DefaultStringFormat = other.DefaultStringFormat;
+            type.ComplexType = other.ComplexType;
             return type;
         }
 
@@ -90,6 +89,12 @@ namespace MetraTech.ExpressionEngine
         public BaseType BaseType { get; set; }
 
         /// <summary>
+        /// Indicates if compatible with MSIX entities (e.g., Service Definitions, Product Views, etc.)
+        /// </summary>
+        public bool IsMsixCompatible { get { return MsixBaseTypes.Contains(BaseType); } }
+
+        #region EnumProperties
+        /// <summary>
         /// EnumSpace is only valid for enums
         /// </summary>
         public string EnumSpace { get; set; }
@@ -98,22 +103,34 @@ namespace MetraTech.ExpressionEngine
         /// EnumType is only valid for enums
         /// </summary>
         public string EnumType { get; set; }
+        #endregion
 
+        #region String Properties
         /// <summary>
         /// Only valid when BaseType is String
         /// </summary>
         public int Length { get; set; }
+        #endregion
 
+        #region ComplexType Properties
         /// <summary>
         /// The type of Entity. Only valid when BaseType=Entity
         /// </summary>
-        public Entity.EntityTypeEnum EntityType { get; set; }
+        public ComplexType.ComplexTypeEnum ComplexType { get; set; }
 
         /// <summary>
         /// The subtype of the Entity type. For example, a BME ma
         /// </summary>
-        public string EntitySubType { get; set; }
+        public string ComplexSubType { get; set; }
 
+        /// <summary>
+        /// Indicates if the ComplexType is deemed an Entity
+        /// </summary>
+        public bool IsEntity { get; set; }
+
+        #endregion
+
+        #region Numeric Properties
         /// <summary>
         /// Indicates the unit of measure mode (fixed or driven by other property). Only valid for when IsNumeric is true. 
         /// </summary>
@@ -124,16 +141,7 @@ namespace MetraTech.ExpressionEngine
         /// is to use the for Currency when BaseType is Charge. 
         /// </summary>
         public string UoM { get; set; }
-
-        /// <summary>
-        /// Indicates if compatible with MSIX entities (e.g., Service Definitions, Product Views, etc.)
-        /// </summary>
-        public bool IsMsixCompatible { get { return MsixBaseTypes.Contains(BaseType); } }
-
-        /// <summary>
-        /// Not sure that we need this....
-        /// </summary>
-        public DataTypeInfoFormat DefaultStringFormat { get; set; }
+        #endregion
 
         #endregion
 
@@ -189,7 +197,6 @@ namespace MetraTech.ExpressionEngine
         #region Constructors
         private DataTypeInfo()
         {
-            DefaultStringFormat = DataTypeInfoFormat.MSIX;
         }
 
         /// <summary>
@@ -278,11 +285,11 @@ namespace MetraTech.ExpressionEngine
             return type;
         }
 
-        public static DataTypeInfo CreateEntity(Entity.EntityTypeEnum entityType, string subType = null)
+        public static DataTypeInfo CreateEntity(ComplexType.ComplexTypeEnum entityType, string subType = null)
         {
-            var dataType = new DataTypeInfo(BaseType.Entity);
-            dataType.EntityType = entityType;
-            dataType.EntitySubType = subType;
+            var dataType = new DataTypeInfo(BaseType.ComplexType);
+            dataType.ComplexType = entityType;
+            dataType.ComplexSubType = subType;
             return dataType;
         }
         public static DataTypeInfo CreateString(int length = 0)
@@ -319,9 +326,9 @@ namespace MetraTech.ExpressionEngine
                     dt.EnumSpace = node.GetAttribute("EnumSpace");
                     dt.EnumType = node.GetAttribute("EnumType");
                     break;
-                case BaseType.Entity:
-                    dt.EntityType = node.GetChildEnum<Entity.EntityTypeEnum>("Type");
-                    dt.EntitySubType = node.GetChildTag("SubType");
+                case BaseType.ComplexType:
+                    dt.ComplexType = node.GetChildEnum<ComplexType.ComplexTypeEnum>("Type");
+                    dt.ComplexSubType = node.GetChildTag("SubType");
                     break;
             }
             return dt;
@@ -337,9 +344,9 @@ namespace MetraTech.ExpressionEngine
                     dataTypeNode.AddAttribute("EnumSpace", EnumSpace);
                     dataTypeNode.AddAttribute("EnumType", EnumType);
                     return;
-                case ExpressionEngine.BaseType.Entity:
-                    dataTypeNode.AddAttribute("Type", EntityType.ToString());
-                    dataTypeNode.AddAttribute("SubType", EntitySubType);
+                case ExpressionEngine.BaseType.ComplexType:
+                    dataTypeNode.AddAttribute("Type", ComplexType.ToString());
+                    dataTypeNode.AddAttribute("SubType", ComplexSubType);
                     return;
             }
 
@@ -374,7 +381,7 @@ namespace MetraTech.ExpressionEngine
                     return "Boolean";
                 case BaseType.Binary:
                     if (robustMode)
-                        return string.Format("Binary({0})", EntityType);
+                        return string.Format("Binary({0})", ComplexType);
                     return "Binary";
                 case BaseType.Charge:
                     baseStr = "Charge";
@@ -416,10 +423,9 @@ namespace MetraTech.ExpressionEngine
                 case BaseType.Numeric:
                     baseStr = "Numeric";
                     break;
-                case BaseType.Entity:
-                    if (EntityType == Entity.EntityTypeEnum.Metanga)
-                        return EntitySubType;
-                    return string.Format("{0}: {1}", EntityType, EntitySubType);
+                case BaseType.ComplexType:
+                    //return string.Format("ComplexSubType");
+                    return string.Format("{0}: {1}", ComplexType, ComplexSubType);
                 default:
                     throw new ApplicationException("Unhandled data type: " + BaseType.ToString());
             }
@@ -427,7 +433,7 @@ namespace MetraTech.ExpressionEngine
             if (!robustMode)
                 return baseStr;
 
-            return string.Format("{0}({1})", baseStr, GetUomDecoration());
+            return string.Format("{0} ({1})", baseStr, GetUomDecoration());
         }
 
         public string GetUomDecoration()
@@ -435,7 +441,7 @@ namespace MetraTech.ExpressionEngine
             switch (UomMode)
             {
                 case UomModeType.None:
-                    return "None";
+                    return "No UoM";
                 case UomModeType.Fixed:
                     //TODO: Localize
                     return UomQualifier;
@@ -620,7 +626,7 @@ namespace MetraTech.ExpressionEngine
                 case ExpressionEngine.BaseType._Enum:
                     errorMsg = CheckEnum();
                     break;
-                case ExpressionEngine.BaseType.Entity:
+                case ExpressionEngine.BaseType.ComplexType:
                     throw new NotImplementedException();
                 case ExpressionEngine.BaseType.String:
                     throw new NotImplementedException();
@@ -724,8 +730,8 @@ namespace MetraTech.ExpressionEngine
             {
                 case BaseType._Enum:
                     return string.Format("{0}|{1}|{2}", BaseType, EnumSpace, EnumType);
-                case BaseType.Entity:
-                    return string.Format("{0}|{1}", BaseType, EntityType);
+                case BaseType.ComplexType:
+                    return string.Format("{0}|{1}", BaseType, ComplexType);
                 default:
                     return BaseType.ToString();
             }
@@ -787,7 +793,7 @@ namespace MetraTech.ExpressionEngine
                 case "guid":
                     return BaseType.Guid;
                 case "entity":
-                    return BaseType.Entity;
+                    return BaseType.ComplexType;
                 default:
                     throw new Exception("Invalid internal data type string [" + theType + "]");
             }
@@ -896,7 +902,7 @@ namespace MetraTech.ExpressionEngine
             }
         }
 
-        public bool IsEntity { get { return BaseType == ExpressionEngine.BaseType.Entity; } }
+        public bool IsComplexType { get { return BaseType == ExpressionEngine.BaseType.ComplexType; } }
 
         /// <summary>
         /// Determines if the type is numeric

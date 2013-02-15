@@ -1699,6 +1699,10 @@ metanga.com/Promotion,Rank,Y,Int32,,,None,"
             ","
              Promo Name
             "
+metanga.com/ProviderResponse,MetraTechResponseCode,Y,Enum,metanga,PaymentBrokerResponseCode,None,,
+metanga.com/ProviderResponse,MetraTechResponseDescription,Y,String,,,None,,
+metanga.com/ProviderResponse,ProviderResponseCode,Y,String,,,None,,
+metanga.com/ProviderResponse,ProviderResponseDescription,Y,String,,,None,,
 metanga.com/RestfulNotificationConfiguration,ContentFormat,Y,Enum,metanga,ContentFormat,None,"
             Represents a class for configuring notifications that are sent using REST.
             ","

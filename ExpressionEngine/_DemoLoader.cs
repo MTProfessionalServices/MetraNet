@@ -95,14 +95,21 @@ namespace MetraTech.ExpressionEngine
             var entity = new ComplexType("CloudCompute", ComplexType.ComplexTypeEnum.ProductView, "Models an cloud compute usage even");
 
             var pv = entity.Properties;
+
+            Property property;
+
+            //Snapshot stuff
             pv.AddInt32("NumSnapshots", "The number of snapshots taken", true);
+            property = pv.AddCharge("SnapshotCharge", "The charge assoicated with snapshots", true);
+            property.DataTypeInfo.UnitsProperty = "NumSnapshots";
+            
             pv.AddString("DataCenter", "The data center in which the server ran", true, null, 30);
             pv.AddEnum("DataCenterCountry", "The country that the data center is located", true, "global", "countryname");
             pv.AddEnum("ChargeModel", "The charinging model used to calculate the compute charge", true, "Cloud", "ChargeModel");
             pv.AddDecimal("InstanceSize", "The size of the instance", true);
             pv.AddEnum("OS", "The Operating System (OS)", true, "Cloud", "OperatingSystem");
             
-            var property = pv.AddInt32("Memory", "The amount of memory", true);
+            property = pv.AddInt32("Memory", "The amount of memory", true);
             property.DataTypeInfo.UomMode = DataTypeInfo.UomModeType.Fixed;
             property.DataTypeInfo.UomQualifier = "DigitalInformation";
 

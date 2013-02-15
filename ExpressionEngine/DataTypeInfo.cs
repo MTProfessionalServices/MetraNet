@@ -144,7 +144,9 @@ namespace MetraTech.ExpressionEngine
 
         #endregion
 
+        #region Charge Properties
         public string UnitsProperty { get; set; }
+        #endregion
 
         #endregion
 
@@ -895,15 +897,19 @@ namespace MetraTech.ExpressionEngine
         #region Is data type properties
 
         /// <summary>
+        /// Determines if the data type is a Charge
+        /// </summary>
+        public bool IsCharge { get { return BaseType == ExpressionEngine.BaseType.Charge; } }
+
+        /// <summary>
+        /// Determines if the data type is a DateTime
+        /// </summary>
+        public bool IsDateTime { get { return BaseType == ExpressionEngine.BaseType.DateTime; } }
+
+        /// <summary>
         /// Determines if the data type is Enum
         /// </summary>
-        public bool IsEnum
-        {
-            get
-            {
-                return (BaseType == BaseType._Enum);
-            }
-        }
+        public bool IsEnum { get { return (BaseType == BaseType._Enum); } }
 
         public bool IsComplexType { get { return BaseType == ExpressionEngine.BaseType.ComplexType; } }
 

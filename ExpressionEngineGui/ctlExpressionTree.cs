@@ -230,6 +230,28 @@ namespace PropertyGui
                     if (Context.TryGetEnumType(property.DataTypeInfo, out enumType))
                         AddEnumValues(enumType, node);          
                 }
+
+                //Append Units link, if any
+                var unitsProperty = property.GetUnitsProperty();
+                if (unitsProperty != null)
+                {
+                    var linkNode = new TreeNode(string.Format("Units Property Link: {0}", unitsProperty.Name));
+                    linkNode.ToolTipText = "";
+                    linkNode.SelectedImageKey = "Link.png";
+                    linkNode.ImageKey = "Link.png";
+                    node.Nodes.Add(linkNode);
+                }
+
+                //Append UoM link, if any
+                var uomProperty = property.GetUomProperty();
+                if (uomProperty != null)
+                {
+                    var linkNode = new TreeNode(string.Format("UoM Property Link: {0}", uomProperty.Name));
+                    linkNode.ToolTipText = "";
+                    linkNode.SelectedImageKey = "Link.png";
+                    linkNode.ImageKey = "Link.png";
+                    node.Nodes.Add(linkNode);
+                }
             }
         
             return node;

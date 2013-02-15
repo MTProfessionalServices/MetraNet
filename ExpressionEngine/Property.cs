@@ -163,13 +163,34 @@ namespace MetraTech.ExpressionEngine
 
         #region Methods
 
+        /// <summary>
+        /// Returns the Units property associated with this property. Only valid for Charges.
+        /// </summary>
+        public IProperty GetUnitsProperty()
+        {
+            if (!DataTypeInfo.IsCharge || PropertyCollection == null)
+                return null;
+            return PropertyCollection.Get(DataTypeInfo.UnitsProperty);
+        }
+
+        /// <summary>
+        /// Returns the UOM property associated with this property. Only valid for Numerics.
+        /// </summary>
+        public IProperty GetUomProperty()
+        {
+            if (!DataTypeInfo.IsNumeric || DataTypeInfo.UomMode != ExpressionEngine.DataTypeInfo.UomModeType.Property || PropertyCollection == null)
+                return null;
+            return PropertyCollection.Get(DataTypeInfo.UomQualifier);
+        }
+
         public object Clone()
         {
+            throw new NotImplementedException();
             //May want to be more judicious when creating a copy of the property
             //but using MemberwiseClone works for the moment
-            var property = this.MemberwiseClone() as Property;
-            property.DataTypeInfo = this.DataTypeInfo.Copy();
-            return property;
+            //var property = this.MemberwiseClone() as Property;
+            //property.DataTypeInfo = this.DataTypeInfo.Copy();
+            //return property;
         }
 
         public ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages=null)

@@ -45,6 +45,9 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public IProperty Get(string name)
         {
+            if (string.IsNullOrEmpty(name))
+                return null;
+
             foreach (var property in Properties)
             {
                 if (name == property.Name)

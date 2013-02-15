@@ -167,12 +167,13 @@ namespace PropertyGui
                 case Expression.ExpressionTypeEnum.AQG:
                     return string.Format("ACCOUNT.{0}{1}", columnPrefix, property.Name);
                 case Expression.ExpressionTypeEnum.UQG:
-                    return string.Format("USAGE.{0}{1}", columnPrefix, property.Name);
+                    var binder = Settings.NewSyntax ? "EVENT" : "USAGE";
+                    return string.Format("{0}.{1}{2}", binder, columnPrefix, property.Name);
                 default:
                     return node.FullPath;
             }    
         }
-
+        
         private void mnuEnumValue_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             if (treExplorer.SelectedNode == null)

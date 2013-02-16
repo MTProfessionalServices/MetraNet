@@ -1,4 +1,6 @@
-*Load entity hiearchies
-*Load Metanga stuff
+*Vector support
+*ComplextType vs Entity support
+*FormLayout
+*What aren't enums working in In function
 *Add common ProductView properties
 *Add common AccountView properties

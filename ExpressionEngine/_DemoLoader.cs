@@ -232,6 +232,7 @@ namespace MetraTech.ExpressionEngine
                 if (!context.Entities.TryGetValue(entityName, out entity))
                 {
                     entity = new ComplexType(entityName, entityType, entityDescription);
+                    //entity.DataTypeInfo.IsEntity = entityRecord..
                     context.Entities.Add(entity.Name, entity);
 
                     //Add common properties, if any

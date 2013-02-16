@@ -43,6 +43,7 @@
             this.cboContext = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnPageLayout = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -197,11 +198,22 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // btnPageLayout
+            // 
+            this.btnPageLayout.Enabled = false;
+            this.btnPageLayout.Location = new System.Drawing.Point(33, 264);
+            this.btnPageLayout.Name = "btnPageLayout";
+            this.btnPageLayout.Size = new System.Drawing.Size(75, 23);
+            this.btnPageLayout.TabIndex = 7;
+            this.btnPageLayout.Text = "Page Layout";
+            this.btnPageLayout.UseVisualStyleBackColor = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 280);
+            this.ClientSize = new System.Drawing.Size(531, 346);
+            this.Controls.Add(this.btnPageLayout);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label2);
@@ -234,5 +246,6 @@
         private System.Windows.Forms.ComboBox cboContext;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnPageLayout;
     }
 }

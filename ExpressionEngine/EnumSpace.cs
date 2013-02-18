@@ -11,6 +11,7 @@ namespace MetraTech.ExpressionEngine
     {
         #region Properties
         public string Name { get; set; }
+        public string TreeNodeLabel { get { return Name; } }
         public string Description { get; set; }
         public string ToolTip { get { return Description; } }
         public string Image { get { return "EnumSpace.png"; } }

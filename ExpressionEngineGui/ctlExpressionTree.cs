@@ -212,7 +212,7 @@ namespace PropertyGui
 
         public TreeNode CreateNode(IExpressionEngineTreeNode item, TreeNode parentNode=null)
         {
-            var node = new TreeNode(item.Name);
+            var node = new TreeNode(item.TreeNodeLabel);
             node.ToolTipText = item.ToolTip;
             node.SelectedImageKey = item.Image;
             node.ImageKey = item.Image;

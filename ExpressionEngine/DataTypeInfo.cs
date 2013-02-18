@@ -84,6 +84,21 @@ namespace MetraTech.ExpressionEngine
         public BaseType BaseType { get; set; }
 
         /// <summary>
+        /// Returns the suffix assoicated with the ListType
+        /// </summary>
+        public string ListSuffix
+        {
+            get
+            {
+                if (ListType == ExpressionEngine.DataTypeInfo.ListTypeEnum.List)
+                    return "[]";
+                else if (ListType == ExpressionEngine.DataTypeInfo.ListTypeEnum.KeyList)
+                    return "<>";
+                return null;
+            }
+        }
+
+        /// <summary>
         /// Indicates if compatible with MSIX entities (e.g., Service Definitions, Product Views, etc.)
         /// </summary>
         public bool IsMsixCompatible { get { return MsixBaseTypes.Contains(BaseType); } }

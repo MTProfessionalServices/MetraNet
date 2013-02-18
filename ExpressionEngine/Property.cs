@@ -50,6 +50,8 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public string Name { get; set; }
 
+        public string TreeNodeLabel { get { return Name + DataTypeInfo.ListSuffix; } }
+
         public string NameLocalized;
 
         /// <summary>
@@ -230,12 +232,7 @@ namespace MetraTech.ExpressionEngine
                 else
                     snippet = string.Format("{0}.c_{1}", entity.GetPrefix(), Name);
 
-                if (DataTypeInfo.ListType == ExpressionEngine.DataTypeInfo.ListTypeEnum.List)
-                    snippet += "[]";
-                else if (DataTypeInfo.ListType == ExpressionEngine.DataTypeInfo.ListTypeEnum.KeyList)
-                    snippet += "<>";
-
-                return snippet;
+                return snippet + DataTypeInfo.ListSuffix;
             }
         }
 

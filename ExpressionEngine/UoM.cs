@@ -10,6 +10,7 @@ namespace MetraTech.ExpressionEngine
         #region Properties
         public readonly UoMCategory Category;
         public string Name { get; set; }
+        public string TreeNodeLabel { get { return Name; } }
         public readonly string PrintSymbol;
         public readonly bool IsMetric;
         public string Image { get { return "Uom.png"; } }

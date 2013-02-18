@@ -10,6 +10,7 @@ namespace MetraTech.ExpressionEngine
     {
         #region Properties
         public string Name { get; set; }
+        public string TreeNodeLabel { get { return Name; } }
         public string Image { get { return "UomCategory.png"; } }
         public string ToolTip { get { return null; } }
         public string ToExpressionSnippet { get { return string.Format("UoM.{0}", Name); } }

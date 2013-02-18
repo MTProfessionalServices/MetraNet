@@ -9,6 +9,7 @@ namespace MetraTech.ExpressionEngine
         #region Properties
         public readonly ComplexType.ComplexTypeEnum Type;
         public string Name { get { return string.Format("{0}s", Type); } set { throw new Exception("Readonly!"); } }
+        public string TreeNodeLabel { get { return Name; } }
         public string ToolTip { get { return "TBD"; } }
         public string Image { get { return string.Format("{0}.png", Type); } }
         public string NamePlural { get { return string.Format("{0}s", Type); } }

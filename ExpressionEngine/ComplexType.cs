@@ -18,6 +18,7 @@ namespace MetraTech.ExpressionEngine
 
         #region Properties
         public string Name { get; set; }
+        public string TreeNodeLabel { get { return Name + DataTypeInfo.ListSuffix; } }
         public string NameLocalized;
         public bool Required { get; set; }
         public DataTypeInfo DataTypeInfo { get; set; }

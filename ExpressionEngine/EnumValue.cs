@@ -20,6 +20,8 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public string Name { get; set; }
 
+        public string TreeNodeLabel { get { return Name; } }
+
         /// <summary>
         /// MetraNet enums are repreesnted by an ID that will vary by installation
         /// </summary>

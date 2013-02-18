@@ -14,6 +14,8 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public string Name { get; set; }
 
+        public string TreeNodeLabel { get { return Name; } }
+
         /// <summary>
         /// The category. Used for filtering. Ensure that proper case is used.
         /// This should be localized in future.

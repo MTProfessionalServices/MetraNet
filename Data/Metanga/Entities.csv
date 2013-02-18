@@ -360,6 +360,9 @@ metanga.com/Cash,Name,Y,String,,,KeyList,True,"
 metanga.com/Cash,Payer,Y,Entity,Metanga,Account,None,True,"
              Represents a cash payment class
             ",
+metanga.com/Cash,PaymentOperation,Y,Enum,metanga,ManualPaymentOperation,None,True,"
+             Represents a cash payment class
+            ",
 metanga.com/Cash,ReferenceNumber,Y,String,,,None,True,"
              Represents a cash payment class
             ","
@@ -459,6 +462,9 @@ metanga.com/Check,Name,Y,String,,,KeyList,True,"
              Represents a class for a check payment.
             ",
 metanga.com/Check,Payer,Y,Entity,Metanga,Account,None,True,"
+             Represents a class for a check payment.
+            ",
+metanga.com/Check,PaymentOperation,Y,Enum,metanga,ManualPaymentOperation,None,True,"
              Represents a class for a check payment.
             ",
 metanga.com/CreditCardMasked,Address1,Y,String,,,None,False,"
@@ -841,6 +847,9 @@ metanga.com/ExternalBankAccount,Name,Y,String,,,KeyList,True,"
 metanga.com/ExternalBankAccount,Payer,Y,Entity,Metanga,Account,None,True,"
              Represents a external bank account payment class
             ",
+metanga.com/ExternalBankAccount,PaymentOperation,Y,Enum,metanga,ManualPaymentOperation,None,True,"
+             Represents a external bank account payment class
+            ",
 metanga.com/ExternalBankAccount,ReferenceNumber,Y,String,,,None,True,"
              Represents a external bank account payment class
             ","
@@ -863,6 +872,7 @@ metanga.com/ExternalCreditCard,Last4Digits,Y,String,,,None,True,,"
              "
 metanga.com/ExternalCreditCard,Name,Y,String,,,KeyList,True,,
 metanga.com/ExternalCreditCard,Payer,Y,Entity,Metanga,Account,None,True,,
+metanga.com/ExternalCreditCard,PaymentOperation,Y,Enum,metanga,ManualPaymentOperation,None,True,,
 metanga.com/ExternalCreditCard,ReferenceNumber,Y,String,,,None,True,,"
             ReferenceNumber - required property
             "
@@ -1065,6 +1075,11 @@ metanga.com/ManualPayment,Name,Y,String,,,KeyList,True,"
 metanga.com/ManualPayment,Payer,Y,Entity,Metanga,Account,None,True,"
              Represents a manual payment abstract class
             ",
+metanga.com/ManualPayment,PaymentOperation,Y,Enum,metanga,ManualPaymentOperation,None,True,"
+             Represents a manual payment abstract class
+            ","
+            Gets or sets the type of payment operation
+            "
 metanga.com/NightsAndWeekends,WeekSegments,Y,Entity,Metanga,WeekSegment,List,False,"
             This product model can determine a product based on the time of the pre-charge.
             For example, a pre-charge happening after 6pm can be determined to belong to a ""Night Minutes"" product
@@ -1465,6 +1480,11 @@ metanga.com/PackageProduct,EventModel,Y,Enum,metanga,EventModel,None,False,"
             ","
             The event model is used to indicate whether any billable events for this product should be generated
             by Metanga for any customers that are subscribed for this product.
+            "
+metanga.com/PackageProduct,Optional,Y,Boolean,,,None,False,"
+            Package Product Class - Links between package and products in it
+            ","
+            Defines whether product inside the package required in proccess of subscription or Optional
             "
 metanga.com/PackageProduct,PriceSchedule,Y,Entity,Metanga,PriceSchedule,None,False,"
             Package Product Class - Links between package and products in it
@@ -2209,6 +2229,9 @@ metanga.com/Wire,Name,Y,String,,,KeyList,True,"
              Represents a class for a wire payment.
             ",
 metanga.com/Wire,Payer,Y,Entity,Metanga,Account,None,True,"
+             Represents a class for a wire payment.
+            ",
+metanga.com/Wire,PaymentOperation,Y,Enum,metanga,ManualPaymentOperation,None,True,"
              Represents a class for a wire payment.
             ",
 metanga.com/Wire,ReferenceNumber,Y,String,,,None,True,"

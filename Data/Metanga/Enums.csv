@@ -91,17 +91,17 @@ Thursday,metanga/DayOfWeek,,,
 Tuesday,metanga/DayOfWeek,,,
 Wednesday,metanga/DayOfWeek,,,
 Credit,metanga/ElectronicPaymentOperation,,"
-            Payment operations for REST methods
+            Payment operations type for Electronic payments
             ","
             Partially reverse a payment amount.
             "
 Reverse,metanga/ElectronicPaymentOperation,,"
-            Payment operations for REST methods
+            Payment operations type for Electronic payments
             ","
             Reverse a payment.
             "
 Submit,metanga/ElectronicPaymentOperation,,"
-            Payment operations for REST methods
+            Payment operations type for Electronic payments
             ","
             Submit a payment.
             "
@@ -194,6 +194,16 @@ Open,metanga/InvoiceState,,"
             Invoice State
             ","
             open state
+            "
+Credit,metanga/ManualPaymentOperation,,"
+            Payment operations type for Manual payments
+            ","
+            Credit payment amount.
+            "
+Submit,metanga/ManualPaymentOperation,,"
+            Payment operations type for Manual payments
+            ","
+            Submit payment operation.
             "
 ChangePassword,metanga/NotificationEmailType,,,
 ChangePasswordSubscriber,metanga/NotificationEmailType,,,

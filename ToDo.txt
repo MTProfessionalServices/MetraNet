@@ -1,4 +1,6 @@
-
+*Complex types not differntited
+*List and KeyList not working
+*EnumValue ID not working
 
 *Only CountryCode Enum for MetraNet has items in entity view (ok in explorer view and works for metanga!)
 

@@ -28,7 +28,7 @@ namespace MetraTech.ExpressionEngine
             Property  // Determined via a property within the same property collection. Property name specified in the UomQualifier property.
         }
 
-        public enum VectorTypeEnum { 
+        public enum ListTypeEnum { 
             None,   //Scalar
             List,   //Enumerable
             KeyList //Dictionary
@@ -76,7 +76,7 @@ namespace MetraTech.ExpressionEngine
 
         #region Properties
 
-        public VectorTypeEnum VectorType { get; set; }
+        public ListTypeEnum ListType { get; set; }
 
         /// <summary>
         /// The underlying type (e.g, string, int32, int64, etc.)
@@ -202,6 +202,7 @@ namespace MetraTech.ExpressionEngine
         #region Constructors
         private DataTypeInfo()
         {
+            ListType = ListTypeEnum.None; 
         }
 
         /// <summary>

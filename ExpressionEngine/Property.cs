@@ -216,17 +216,28 @@ namespace MetraTech.ExpressionEngine
             return string.Format("{0} ({1})", Name, DataTypeInfo.ToUserString(true));
         }
 
-        public string ToExpressionSnippet{get
+        public string ToExpressionSnippet
         {
-            var entity = ParentEntity;
-            if (entity == null)
-                return null;
+            get
+            {
+                var entity = ParentEntity;
+                if (entity == null)
+                    return null;
 
-            if (Settings.NewSyntax)
-                return string.Format("{0}.{1}", entity.GetPrefix(), Name);
-            else            
-                return string.Format("{0}.c_{1}", entity.GetPrefix(), Name);
-        }}
+                string snippet;
+                if (Settings.NewSyntax)
+                    snippet = string.Format("{0}.{1}", entity.GetPrefix(), Name);
+                else
+                    snippet = string.Format("{0}.c_{1}", entity.GetPrefix(), Name);
+
+                if (DataTypeInfo.ListType == ExpressionEngine.DataTypeInfo.ListTypeEnum.List)
+                    snippet += "[]";
+                else if (DataTypeInfo.ListType == ExpressionEngine.DataTypeInfo.ListTypeEnum.KeyList)
+                    snippet += "<>";
+
+                return snippet;
+            }
+        }
 
         /// <summary>
         /// Used when searching for properties across entities. The underlying datatype might not be the same. Perhaps

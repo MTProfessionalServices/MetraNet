@@ -233,7 +233,7 @@ namespace MetraTech.ExpressionEngine
                 if (!context.Entities.TryGetValue(entityName, out entity))
                 {
                     entity = new ComplexType(entityName, entityType, entityDescription);
-                    //entity.DataTypeInfo.IsEntity = entityRecord..
+                    entity.DataTypeInfo.IsEntity = entityRecord.IsEntity;
                     context.Entities.Add(entity.Name, entity);
 
                     //Add common properties, if any
@@ -246,21 +246,6 @@ namespace MetraTech.ExpressionEngine
                             AppendCommonZvProperties(entity.Properties);
                             break;
                     }
-                }
-
-                //TODO SCOTT: THESE ARE SKIPPED FOR NOW
-                if (Regex.IsMatch(typeStr, "IEnumerable|Dictionary"))
-                {
-                    continue;
-                }
-                var vectorType = DataTypeInfo.VectorTypeEnum.None;
-                if (typeStr.Contains("IEnumerable"))
-                {
-                    vectorType = DataTypeInfo.VectorTypeEnum.List;
-                }
-                else if (typeStr.Contains("Dictionary"))
-                {
-                    vectorType = DataTypeInfo.VectorTypeEnum.KeyList;
                 }
 
                 DataTypeInfo dtInfo;
@@ -284,7 +269,7 @@ namespace MetraTech.ExpressionEngine
                         break;
                 }
 
-                dtInfo.VectorType = vectorType;
+                dtInfo.ListType = (DataTypeInfo.ListTypeEnum)Enum.Parse(typeof(DataTypeInfo.ListTypeEnum), entityRecord.ListType, true);
 
                 var property = new Property(propName, dtInfo, propertyDescription);
                 property.Required = required;

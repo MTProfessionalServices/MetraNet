@@ -44,7 +44,6 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// Some functions suport multiple arguments. For example, Min(a, b, c...). At this point, we require that they all be of the same 
         /// datatype which is set by this property. 
-        /// DynamicParameterMin property
         /// </summary>
         public Property DynamicParameterPrototype { get; set; }
 
@@ -104,6 +103,7 @@ namespace MetraTech.ExpressionEngine
                 throw new Exception(string.Format("Unable to load Function file {0} [{1}]", filePath, ex.Message));
             }
         }
+
         #endregion
     }
 }

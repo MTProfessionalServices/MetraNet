@@ -361,7 +361,7 @@ namespace MetraTech.ExpressionEngine
 
                 var enumValueObj = EnumSpace.AddEnum(context, enumNamespace, enumType, enumValue, id);
                 enumValueObj.Description = propertyDescription;
-                enumValueObj.Parent.Description = entityDescription;
+                enumValueObj.EnumType.Description = entityDescription;
             }
         }
 

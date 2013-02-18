@@ -52,7 +52,7 @@ namespace MetraTech.ExpressionEngine
             var valuesNode = rootNode.AddChildNode("Values");
             foreach (var value in Values)
             {
-                value.WriteXmlNode(valuesNode);
+                value.WriteXmlChildNode(valuesNode);
             }
             var enumSpace = Parent.Name.Replace('\\', '_');
             var name = Name.Replace('\\', '_');

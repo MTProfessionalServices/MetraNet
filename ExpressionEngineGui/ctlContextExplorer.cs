@@ -10,7 +10,7 @@ using MetraTech.ExpressionEngine;
 
 namespace PropertyGui
 {
-    public partial class ctlExpressionExplorer : UserControl
+    public partial class ctlContextExplorer : UserControl
     {
         #region Properties
         public Context Context;
@@ -18,7 +18,7 @@ namespace PropertyGui
         #endregion
 
         #region Constructor
-        public ctlExpressionExplorer()
+        public ctlContextExplorer()
         {
             InitializeComponent();
         }
@@ -135,32 +135,16 @@ namespace PropertyGui
             treExplorer.Top = control.Bottom + 5;
         }
 
-        #endregion
-
-        #region Events
-
-        private void cbo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            UpdateGui();
-        }
-
-        private void treExplorer_DoubleClick(object sender, EventArgs e)
-        {
-            if (OnS2DoubleClick == null || treExplorer.SelectedNode == null)
-                return;
-
-            string value = GetExpressionPath(treExplorer.SelectedNode);
-
-            OnS2DoubleClick(treExplorer.SelectedNode.Tag, value);
-        }
-
         private string GetExpressionPath(TreeNode node)
         {
+            if (node.Tag is AQG || node.Tag is UQG || node.Tag is EnumValue)
+                return ((IExpressionEngineTreeNode)node.Tag).ToExpressionSnippet;
+
             if (!(node.Tag is IProperty))
                 return string.Empty;
 
             var property = (IProperty)node.Tag;
-            var columnPrefix = Settings.NewSyntax? string.Empty : "c_";
+            var columnPrefix = Settings.NewSyntax ? string.Empty : "c_";
 
             switch (Context.Expression.Type)
             {
@@ -171,9 +155,35 @@ namespace PropertyGui
                     return string.Format("{0}.{1}{2}", binder, columnPrefix, property.Name);
                 default:
                     return node.FullPath;
-            }    
+            }
         }
-        
+        #endregion
+
+        #region ComboBox Events
+
+        private void cbo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateGui();
+        }
+
+
+        #endregion
+
+        #region Tree Events
+        private void treExplorer_DoubleClick(object sender, EventArgs e)
+        {
+            if (OnS2DoubleClick == null || treExplorer.SelectedNode == null)
+                return;
+
+            string value = GetExpressionPath(treExplorer.SelectedNode);
+
+            OnS2DoubleClick(treExplorer.SelectedNode.Tag, value);
+        }
+
+        #endregion
+
+        #region Context Menu Events
+
         private void mnuEnumValue_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             if (treExplorer.SelectedNode == null)
@@ -185,7 +195,7 @@ namespace PropertyGui
 
             string text = null;
             if (e.ClickedItem.Equals(mnuInsertValue))
-                text = enumValue.ToExpression;
+                text = enumValue.ToExpressionSnippet;
             else
             {
                 //Get the parent property
@@ -197,9 +207,9 @@ namespace PropertyGui
                 var path = GetExpressionPath(treExplorer.SelectedNode.Parent);
 
                 if (e.ClickedItem.Equals(mnuInsertEqualitySnippet))
-                    text = string.Format("{0} == {1}", path, enumValue.ToExpression);
+                    text = string.Format("{0} {1} {2}", path, Settings.DefaultEqualityOperator, enumValue.ToExpressionSnippet);
                 else if (e.ClickedItem.Equals(mnuInsertInequalitySnippet))
-                    text = string.Format("{0} != {1}", path, enumValue.ToExpression);
+                    text = string.Format("{0} {1} {2}", path, Settings.DefaultInequalityOperator, enumValue.ToExpressionSnippet);
             }
 
             if (OnInsertSnippet != null)

@@ -20,6 +20,7 @@ namespace MetraTech.ExpressionEngine
     {
         #region Enums
         public enum ProductTypeEnum { MetraNet, Metanga }
+        public enum ConfigurationTypeEnum { Expression, Email, Sms, PageLayout, GridLayout }
         #endregion
 
         #region Properties
@@ -35,6 +36,7 @@ namespace MetraTech.ExpressionEngine
         public Dictionary<string, EnumSpace> EnumSpaces = new Dictionary<string, EnumSpace>();
         public Dictionary<string, Expression> Expressions = new Dictionary<string, Expression>();
         public Dictionary<string, UoMCategory> UoMs = new Dictionary<string, UoMCategory>();
+        public Dictionary<string, EmailTemplate> EmailTemplates = new Dictionary<string, EmailTemplate>();
 
         //These are updated by UpdateContext()
         public List<EnumType> EnumTypes = new List<EnumType>();
@@ -60,10 +62,10 @@ namespace MetraTech.ExpressionEngine
                     Entities.Add(entity.Name, entity);
             }
 
-            if (!string.IsNullOrEmpty(Expression.RootEntityName))
+            foreach (var entityParameterName in Expression.EntityParameters)
             {
                 ComplexType rootEntity;
-                if (_DemoLoader.GlobalContext.Entities.TryGetValue(Expression.RootEntityName, out rootEntity))
+                if (_DemoLoader.GlobalContext.Entities.TryGetValue(entityParameterName, out rootEntity))
                     Entities.Add(rootEntity.Name, rootEntity);
             }
 
@@ -122,7 +124,7 @@ namespace MetraTech.ExpressionEngine
         {
             foreach (var property in AllProperties)
             {
-                if (property.ToExpression == name)
+                if (property.ToExpressionSnippet == name)
                 {
                     result = property;
                     return true;

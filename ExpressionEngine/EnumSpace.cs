@@ -33,7 +33,7 @@ namespace MetraTech.ExpressionEngine
             EnumTypes.Add(type);
             return type;
         }
-        public string ToExpression
+        public string ToExpressionSnippet
         {
             get
             {
@@ -58,7 +58,7 @@ namespace MetraTech.ExpressionEngine
         {
             foreach (var _type in EnumTypes)
             {
-                if (_type.Name == name)
+                if (_type.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase))
                 {
                     type = _type;
                     return true;

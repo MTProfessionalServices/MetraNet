@@ -21,6 +21,11 @@ namespace MetraTech.ExpressionEngine
         }
         #endregion
 
+        #region Static Properties
+        public static readonly string[] EqualityOperators = new string[] { "==", "eq" };
+        public static readonly string[] InequalityOperators = new string[] { "!=", "nq" };
+        #endregion
+
         #region Properties
 
         public string Name { get; set; }
@@ -35,7 +40,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// This probably belongs in a expression template as opposed to an instance
         /// </summary>
-        public string RootEntityName;
+        public List<string> EntityParameters = new List<string>();
 
         public ExpressionInfo Info { get { return ExpressionInfo.Items[Type]; } }
 
@@ -83,12 +88,14 @@ namespace MetraTech.ExpressionEngine
             var doc = new XmlDocument();
             var rootNode = doc.LoadAndGetRootNode(filePath, "Expression");
             var name = rootNode.GetChildTag("Name");
-            var rootEntity = rootNode.GetChildTag("RootEntity");
             var content = rootNode.GetChildTag("Content");
             var description = rootNode.GetChildTag("Description");
             var type = rootNode.GetChildEnum<ExpressionTypeEnum>("Type");
             var exp = new Expression(type, content, name);
-            exp.RootEntityName = rootEntity;
+            foreach (var entity in rootNode.SelectNodes("EntityParameters/Entity"))
+            {
+                exp.EntityParameters.Add(((XmlNode)entity).InnerText);
+            }
             exp.Description = description;
             return exp;
         }

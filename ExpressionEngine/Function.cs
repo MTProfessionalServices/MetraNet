@@ -75,7 +75,7 @@ namespace MetraTech.ExpressionEngine
     
         #region Methods
 
-        public string ToExpression
+        public string ToExpressionSnippet
         {
             get
             {

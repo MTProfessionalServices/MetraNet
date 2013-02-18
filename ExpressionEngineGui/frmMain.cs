@@ -32,6 +32,14 @@ namespace PropertyGui
             }
             cboContext.SelectedIndex = 0;
             cboContext.EndUpdate();
+
+
+            cboEqualityOperator.Items.AddRange(Expression.EqualityOperators);
+            cboEqualityOperator.Text = Settings.DefaultEqualityOperator;
+            cboInequalityOperator.Items.AddRange(Expression.InequalityOperators);
+            cboInequalityOperator.Text = Settings.DefaultInequalityOperator;
+            chkShowAcutalMappings.Checked = Settings.ShowActualMappings;
+            chkAutoSelectInsertedSnippets.Checked = Settings.AutoSelectInsertedSnippets;
         }
 
         private void LoadContext()
@@ -47,6 +55,7 @@ namespace PropertyGui
             SetItems(cboAqgs, btnAQG, _DemoLoader.GlobalContext.AQGs.Values.ToArray<AQG>());
             SetItems(cboUqgs, btnUQG, _DemoLoader.GlobalContext.UQGs.Values.ToArray<UQG>());
             SetItems(cboExpressions, btnExpression, _DemoLoader.GlobalContext.Expressions.Values.ToArray<Expression>());
+            SetItems(cboEmailTemplates, btnEmailTemplates, _DemoLoader.GlobalContext.EmailTemplates.Values.ToArray<EmailTemplate>());
         }
         #endregion
 
@@ -65,6 +74,10 @@ namespace PropertyGui
 
         private void SyncToObject()
         {
+            Settings.DefaultEqualityOperator = cboEqualityOperator.Text;
+            Settings.DefaultInequalityOperator = cboInequalityOperator.Text;
+            Settings.ShowActualMappings = chkShowAcutalMappings.Checked;
+            Settings.AutoSelectInsertedSnippets = chkAutoSelectInsertedSnippets.Checked;
             Settings.NewSyntax = chkNewSyntax.Checked;
         }
 
@@ -73,12 +86,12 @@ namespace PropertyGui
             chkNewSyntax.Checked = Settings.NewSyntax;
         }
 
-        private void ShowExpression(Expression expression)
+        private void ShowExpression(Expression expression, bool isPageLayout=false)
         {
             SyncToObject();
             var dialog = new frmExpressionEngine();
             var context = new Context(expression);
-            dialog.Init(context);
+            dialog.Init(context, isPageLayout);
             dialog.ShowDialog();
         }
         #endregion
@@ -99,7 +112,7 @@ namespace PropertyGui
 
         private void btnExplorer_Click(object sender, EventArgs e)
         {
-            var dialog = new frmExplorer();
+            var dialog = new frmGlobalExplorer();
             dialog.ShowDialog();
         }
 
@@ -113,13 +126,29 @@ namespace PropertyGui
         {
             LoadContext();
         }
-        #endregion
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             _DemoLoader.GlobalContext.Save();
         }
 
+        private void btnPageLayout_Click(object sender, EventArgs e)
+        {
+            ShowExpression(new Expression(Expression.ExpressionTypeEnum.Email, ""), true);
+        }
+
+        private void btnEmailTemplates_Click(object sender, EventArgs e)
+        {
+            var emailTemplate = (EmailTemplate)cboEmailTemplates.SelectedItem;
+            var dialog = new frmExpressionEngine();
+            var exp = new Expression(Expression.ExpressionTypeEnum.Email, null);
+            exp.EntityParameters.AddRange(emailTemplate.EntityParameters.ToArray());
+            var context = new Context(exp);
+            dialog.Init(context, emailTemplate);
+            dialog.ShowDialog();
+        }
+
+        #endregion
 
     }
 }

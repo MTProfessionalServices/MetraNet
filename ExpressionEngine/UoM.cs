@@ -14,7 +14,7 @@ namespace MetraTech.ExpressionEngine
         public readonly bool IsMetric;
         public string Image { get { return "Uom.png"; } }
         public string ToolTip { get { return null; } }
-        public string ToExpression { get { return string.Format("{0}.{1}", Category.ToExpression, Name); } }
+        public string ToExpressionSnippet { get { return string.Format("{0}.{1}", Category.ToExpressionSnippet, Name); } }
         #endregion
 
         #region Constructor

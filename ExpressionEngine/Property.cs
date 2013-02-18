@@ -216,7 +216,7 @@ namespace MetraTech.ExpressionEngine
             return string.Format("{0} ({1})", Name, DataTypeInfo.ToUserString(true));
         }
 
-        public string ToExpression{get
+        public string ToExpressionSnippet{get
         {
             var entity = ParentEntity;
             if (entity == null)

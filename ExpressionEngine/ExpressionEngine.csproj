@@ -52,6 +52,7 @@
     <Compile Include="Context.cs" />
     <Compile Include="Currency.cs" />
     <Compile Include="ComplexType.cs" />
+    <Compile Include="EmailTemplate.cs" />
     <Compile Include="EntityInfo.cs" />
     <Compile Include="EntityRecord.cs" />
     <Compile Include="EntityTypeInfo.cs">

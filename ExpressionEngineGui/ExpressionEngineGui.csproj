@@ -51,14 +51,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ctlContextBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctlContextBase.Designer.cs">
+      <DependentUpon>ctlContextBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctlContextEmail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctlContextEmail.Designer.cs">
+      <DependentUpon>ctlContextEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctlContextExpression.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctlContextExpression.Designer.cs">
+      <DependentUpon>ctlContextExpression.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctlContextPageLayout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctlContextPageLayout.Designer.cs">
+      <DependentUpon>ctlContextPageLayout.cs</DependentUpon>
+    </Compile>
     <Compile Include="ctlExpression.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ctlExpressionExplorer.cs">
+    <Compile Include="ctlContextExplorer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctlExpressionExplorer.Designer.cs">
-      <DependentUpon>ctlExpressionExplorer.cs</DependentUpon>
+    <Compile Include="ctlContextExplorer.Designer.cs">
+      <DependentUpon>ctlContextExplorer.cs</DependentUpon>
     </Compile>
     <Compile Include="ctlExpressionTree.cs">
       <SubType>Component</SubType>
@@ -75,11 +99,11 @@
     <Compile Include="frmCharge.Designer.cs">
       <DependentUpon>frmCharge.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmExplorer.cs">
+    <Compile Include="frmGlobalExplorer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmExplorer.Designer.cs">
-      <DependentUpon>frmExplorer.cs</DependentUpon>
+    <Compile Include="frmGlobalExplorer.Designer.cs">
+      <DependentUpon>frmGlobalExplorer.cs</DependentUpon>
     </Compile>
     <Compile Include="frmExpressionEngine.cs">
       <SubType>Form</SubType>
@@ -108,8 +132,17 @@
     <Compile Include="MvcAbstraction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ctlExpressionExplorer.resx">
-      <DependentUpon>ctlExpressionExplorer.cs</DependentUpon>
+    <EmbeddedResource Include="ctlContextEmail.resx">
+      <DependentUpon>ctlContextEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctlContextExpression.resx">
+      <DependentUpon>ctlContextExpression.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctlContextPageLayout.resx">
+      <DependentUpon>ctlContextPageLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctlContextExplorer.resx">
+      <DependentUpon>ctlContextExplorer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ctlValueBinder.resx">
       <DependentUpon>ctlValueBinder.cs</DependentUpon>
@@ -117,8 +150,8 @@
     <EmbeddedResource Include="frmCharge.resx">
       <DependentUpon>frmCharge.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmExplorer.resx">
-      <DependentUpon>frmExplorer.cs</DependentUpon>
+    <EmbeddedResource Include="frmGlobalExplorer.resx">
+      <DependentUpon>frmGlobalExplorer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmExpressionEngine.resx">
       <DependentUpon>frmExpressionEngine.cs</DependentUpon>
@@ -163,6 +196,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MarioBar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PageLayout.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

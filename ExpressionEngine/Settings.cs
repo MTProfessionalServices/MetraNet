@@ -13,5 +13,10 @@ namespace MetraTech.ExpressionEngine
         /// this will be driven off of the MetraNet version number.
         /// </summary>
         public static bool NewSyntax = false;
+
+        public static string DefaultEqualityOperator = Expression.EqualityOperators[0];
+        public static string DefaultInequalityOperator = Expression.InequalityOperators[0];
+        public static bool AutoSelectInsertedSnippets = true;
+        public static bool ShowActualMappings = false; 
     }
 }

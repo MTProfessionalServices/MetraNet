@@ -13,7 +13,12 @@ namespace MetraTech.ExpressionEngine
         public string Name { get; set; }
         public int Id { get; set; }
         public string Description { get; set; }
-        public string ToolTip { get { return string.Format("{0}[DatabaseID={1}]", Description, Id); } }
+        public string ToolTip { get {
+            var toolTip = Description;
+            if (Settings.ShowActualMappings)
+                toolTip += string.Format("[DatabaseId={0}]", Description, Id);
+            return toolTip;
+        } }
         public string Image { get { return "EnumValue.png"; } }
         #endregion
 
@@ -31,7 +36,7 @@ namespace MetraTech.ExpressionEngine
         {
             return string.Format("#{0}/{1}/{2}#", Parent.Parent.Name, Parent.Name, Name);
         }
-        public string ToExpression
+        public string ToExpressionSnippet
         {
             get
             {

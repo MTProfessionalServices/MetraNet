@@ -1,6 +1,27 @@
+
+
+*Only CountryCode Enum for MetraNet has items in entity view (ok in explorer view and works for metanga!)
+
+*Metanga Descriptions not showing up.
+*Configureable show actual
 *Vector support
 *ComplextType vs Entity support
-*FormLayout
+*FormLayout: better image
 *What aren't enums working in In function
 *Add common ProductView properties
 *Add common AccountView properties
+*Double clicking an Entity creates USAGE.c_Entitry
+
+
+
+DONE:
+==================
+
+*Email doesnt have any entities
+*Double clicking a UQG doesn't work
+*Doubleclick countryname doesn't insert
+*Change RootEntity to EntityParameters
+*Configuratble operators
+*Email inserts arent in brackets
+*Configurable selection
+*Delete old exmail expression

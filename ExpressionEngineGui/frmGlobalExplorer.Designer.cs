@@ -1,6 +1,6 @@
 ﻿namespace PropertyGui
 {
-    partial class frmExplorer
+    partial class frmGlobalExplorer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctlExpressionExplorer = new PropertyGui.ctlExpressionExplorer();
+            this.ctlExpressionExplorer = new PropertyGui.ctlContextExplorer();
             this.SuspendLayout();
             // 
             // ctlExpressionExplorer
@@ -39,7 +39,7 @@
             this.ctlExpressionExplorer.Size = new System.Drawing.Size(286, 378);
             this.ctlExpressionExplorer.TabIndex = 0;
             // 
-            // frmExplorer
+            // frmGlobalExplorer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -47,14 +47,14 @@
             this.Controls.Add(this.ctlExpressionExplorer);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmExplorer";
-            this.Text = "Explorer";
+            this.Name = "frmGlobalExplorer";
+            this.Text = "Global Explorer";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private ctlExpressionExplorer ctlExpressionExplorer;
+        private ctlContextExplorer ctlExpressionExplorer;
     }
 }

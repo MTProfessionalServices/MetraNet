@@ -115,6 +115,10 @@ namespace PropertyGui
                     throw new NotImplementedException();
             }
             Sort();
+
+            if (Nodes.Count == 1)
+                Nodes[0].Expand();
+
             EndUpdate();
         }
 

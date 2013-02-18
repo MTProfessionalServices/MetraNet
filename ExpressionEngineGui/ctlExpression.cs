@@ -42,7 +42,7 @@ namespace PropertyGui
             if (item is Function)
                 EditFunction((Function)item);
             else
-                Paste(value);
+                InsertSnippet(value);
         }
 
         public void EditFunction()
@@ -85,14 +85,17 @@ namespace PropertyGui
             {
                 case Expression.ExpressionTypeEnum.Email:
                 case Expression.ExpressionTypeEnum.Message:
-                    snippet = string.Format("{{0}}", snippet);
+                    snippet = "{" + snippet + "}";
                     break;
             }
 
             int start = SelectionStart;
             Paste(snippet);
-            SelectionStart = start;
-            SelectionLength = snippet.Length;
+            if (Settings.AutoSelectInsertedSnippets)
+            {
+                SelectionStart = start;
+                SelectionLength = snippet.Length;
+            }
             Focus();
         }
 

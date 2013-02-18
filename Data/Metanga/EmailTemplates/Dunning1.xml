@@ -1,19 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Expression>
-  <Name>Metanga Dunning 1</Name>
-  <Type>Email</Type>
-  <RootEntity>Invoice</RootEntity>
+<EmailTemplate>
+  <Name>Dunning 1</Name>
+  <EntityParameters>
+    <Entity>Invoice</Entity> 
+  </EntityParameters>
   <Description>
     <![CDATA[Simple dunning email template]]>
   </Description>
-    <Destinations>
-        <To>Invoice.Payer.Email</To>
-        <Cc>Invoice.Payer.AccountManager.Email</Cc>
-    </Destinations>
-    <Subject>Late payment for invoice {Invoice.InvoiceNumber}</Subject>
-    <Content>
-    <![CDATA[
-Hello {Invoice.Payer.Name},
+  <To>Invoice.Payer.Email</To>
+  <Cc>Invoice.Payer.AccountManager.Email</Cc>
+  <Subject>Late payment for invoice {Invoice.InvoiceNumber}</Subject>
+  <Body>
+    <![CDATA[Hello {Invoice.Payer.Name},
 
 We noticed that we haven't recieved payment yet for invoice {Invoice.InvoiceNumber} that was due on {Invoice.InvoiceDueDate}.
 This invoice has a balance of {Invoice.InvoiceCurrency.Symbol}{Invoice.Statement.EndingBalance}.
@@ -22,6 +20,6 @@ Could you please contact support to make a prompt payment?
 Thank you,
 Support
   ]]>
-  </Content>
-</Expression>
+  </Body>
+</EmailTemplate>
 

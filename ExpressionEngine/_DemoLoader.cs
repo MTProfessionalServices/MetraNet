@@ -46,6 +46,7 @@ namespace MetraTech.ExpressionEngine
             LoadEnumFile(GlobalContext, Path.Combine(DataPath, "Enums.csv"));
             LoadFunctions();
             LoadExpressions();
+            LoadEmailTemplates(GlobalContext, Path.Combine(DataPath, "EmailTemplates"));
 
             var uomCategory = new UoMCategory("DigitalInformation");
             uomCategory.AddUom("Gb");
@@ -391,6 +392,21 @@ namespace MetraTech.ExpressionEngine
                         throw new NotImplementedException();
                 }
             }
+        }
+        #endregion
+
+        #region Emails
+        public static void LoadEmailTemplates(Context context, string dirPath)
+        {
+            var dirInfo = new DirectoryInfo(dirPath);
+            if (!dirInfo.Exists)
+                return;
+            foreach (var file in dirInfo.GetFiles("*.xml"))
+            {
+                var emailTemplate = EmailTemplate.CreateFromFile(file.FullName);
+                context.EmailTemplates.Add(emailTemplate.Name, emailTemplate);
+            }
+
         }
         #endregion
 

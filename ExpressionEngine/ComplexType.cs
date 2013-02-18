@@ -37,9 +37,11 @@ namespace MetraTech.ExpressionEngine
                     case ComplexTypeEnum.AccountView:
                         return "t_av_" + Name;
                     case ComplexTypeEnum.ParameterTable:
-                        return "t_av_" + Name;
+                        return "t_pt_" + Name;
+                    case ComplexTypeEnum.ProductView:
+                        return "t_pv_" + Name;
                     default:
-                        return Name;
+                        return null;
                 }
             }
         }
@@ -51,6 +53,8 @@ namespace MetraTech.ExpressionEngine
                 var tip = DataTypeInfo.ComplexType.ToString();
                 if (!string.IsNullOrEmpty(Description))
                     tip += "\r\n" + Description;
+                if (Settings.ShowActualMappings)
+                    tip += string.Format("\r\n[TableName={0}]", DbTableName);
                 return tip;
             }
         }
@@ -138,7 +142,7 @@ namespace MetraTech.ExpressionEngine
             return false;
         }
 
-        public string ToExpression
+        public string ToExpressionSnippet
         {
             get
             {

@@ -10,10 +10,10 @@ using MetraTech.ExpressionEngine;
 
 namespace PropertyGui
 {
-    public partial class frmExplorer : Form
+    public partial class frmGlobalExplorer : Form
     {
         #region Constructor
-        public frmExplorer()
+        public frmGlobalExplorer()
         {
             InitializeComponent();
             ctlExpressionExplorer.Init(_DemoLoader.GlobalContext);

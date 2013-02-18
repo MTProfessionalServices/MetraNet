@@ -13,7 +13,7 @@ namespace MetraTech.ExpressionEngine
         public string Description { get; set; }
         public string ToolTip { get { return Description; } }
         public string Image { get { return "UQG.png"; } }
-        public string ToExpression { get { return string.Format("GROUP.{0}", Name); } }
+        public string ToExpressionSnippet { get { return string.Format("GROUP.{0}", Name); } }
         public Expression Expression { get; set; }
         #endregion
 

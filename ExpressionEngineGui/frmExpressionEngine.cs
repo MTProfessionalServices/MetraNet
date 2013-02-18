@@ -14,6 +14,7 @@ namespace PropertyGui
     {
         #region Properties
         private Context Context;
+        private ctlContextBase ctlContextBase;
         #endregion
 
         #region Constructor
@@ -27,78 +28,69 @@ namespace PropertyGui
         #endregion
 
         #region Methods
-        public void Init(Context context)
+
+        public void Init(Context context, EmailTemplate emailTemplate)
+        {
+            var ctlEmail = new ctlContextEmail();
+            ctlEmail.Init(context, emailTemplate);
+            ctlContextBase = ctlEmail;
+            internalInit(context, "Email Template");
+        }
+
+        public void Init(Context context, bool isPageLayout)
         {
             Context = context;
             ctlExpressionExplorer.Init(Context);
-            ctlExpression.Init(Context, mnuExpressionContext);
 
-            if (context.Expression.Type == Expression.ExpressionTypeEnum.Email)
+            string title;
+            if (isPageLayout)
             {
-                panEmail.Visible = true;
-                ctlExpression.Top = panEmail.Bottom;
-                txtTo.Text = "Invoice.Payer.Email";
-                txtCc.Text = "Invoice.Payer.AccountManager.Email";
-                txtSubject.Text = "Late payment for invoice {Invoice.InvoiceNumber}";
+                ctlContextBase = new ctlContextPageLayout();
+                title = "Page Layout";
             }
             else
             {
-                panEmail.Visible = false;
-                ctlExpression.Top = btnCheckSyntax.Bottom + 5;
+                ctlContextBase = new ctlContextExpression();
+                title = Context.Expression.Type.ToString();
             }
-
-            Text = string.Format("Expression Engine ({0})", Context.Expression.Type.ToString());
+            ctlContextBase.Init(Context);
+            internalInit(context, title);
         }
 
+
+        private void internalInit(Context context, string title)
+        {
+            Context = context;
+            ctlExpressionExplorer.Init(Context);
+            ctlContextBase.Parent = panEdit;
+            ctlContextBase.Dock = DockStyle.Fill;
+
+
+            Text = string.Format("Expression Engine ({0})", title);
+        }
         #endregion
 
         #region Events
         public void _OnS2DoubleClick(object item, string value)
         {
-            ctlExpression.HandleTreeEvent((IExpressionEngineTreeNode)item, value);
+            ctlContextBase.HandleTreeEvent((IExpressionEngineTreeNode)item, value);
         }
 
         public void _OnInsertSnippet(string snippet)
         {
-            ctlExpression.InsertSnippet(snippet);
-        }
-        
-        private void btnFunction_Click(object sender, EventArgs e)
-        {
-            //var funcName = ctlExpression.SelectedText;
-            //if (funcName == "In")
-            //{
-            //    var func = new frmFuncIn();
-            //    func.Init(Context, null, null);
-            //    if (DialogResult.OK == func.ShowDialog())
-            //        ctlExpression.Paste(func.GetValue());
-            //    return;
-            //}
-
-            //var function = Context.TryGetFunction(funcName);
-            //if (function == null)
-            //{
-            //    MessageBox.Show(string.Format("Unable to find function '{0}'", funcName));
-            //    return;
-            //}
-
-            //var dialog = new frmFunctionBinder();
-            //dialog.Init(Context, function);
-            //if (DialogResult.OK == dialog.ShowDialog())
-            //    ctlExpression.Paste(dialog.GetExpression());
+            ctlContextBase.InsertSnippet(snippet);
         }
 
         private void mnuContext_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             if (e.ClickedItem.Equals(mnuEditFunction))
-                ctlExpression.EditFunction();
+                ctlContextBase.EditFunction();
         }
 
         private void ctlExpression_DoubleClick(object sender, EventArgs e)
         {
-            ctlExpression.EditFunction();
+            ctlContextBase.EditFunction();
         }
-
 
         private void btnCheckSyntax_Click(object sender, EventArgs e)
         {

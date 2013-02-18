@@ -20,7 +20,7 @@ namespace MetraTech.ExpressionEngine
             Type = type;
         }
 
-        public string ToExpression
+        public string ToExpressionSnippet
         {
             get
             {

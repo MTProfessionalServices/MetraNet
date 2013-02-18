@@ -13,7 +13,7 @@ namespace PropertyGui
     public static class MvcAbstraction
     {
         #region Enums
-        public enum ViewModeType { Properties, Entities, Functions, Enums, AQGs, UQGs, InputsOutputs, UoMs }
+        public enum ViewModeType { Properties, Entities, Functions, Enums, AQGs, UQGs, InputsOutputs, UoMs, Emails }
         #endregion
 
         #region Methods
@@ -77,6 +77,7 @@ namespace PropertyGui
 
             return types;
         }
+
         #endregion
     }
 }

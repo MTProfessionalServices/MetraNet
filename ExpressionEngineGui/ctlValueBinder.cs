@@ -135,7 +135,7 @@ namespace PropertyGui
             var cbo = new ComboBox();
             cbo.BeginUpdate();
             cbo.Items.Clear();
-            cbo.DisplayMember = "ToExpression";
+            cbo.DisplayMember = "ToExpressionSnippet";
             var properties = Context.GetProperties(Property.DataTypeInfo, MinimumMatchType, true);
             foreach (var property in properties)
             {

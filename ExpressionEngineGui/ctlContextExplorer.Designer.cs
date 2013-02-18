@@ -1,6 +1,6 @@
 ﻿namespace PropertyGui
 {
-    partial class ctlExpressionExplorer
+    partial class ctlContextExplorer
     {
         /// <summary> 
         /// Required designer variable.

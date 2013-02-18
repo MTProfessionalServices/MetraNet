@@ -34,7 +34,7 @@ namespace MetraTech.ExpressionEngine
             return enumValue;
         }
 
-        public string ToExpression
+        public string ToExpressionSnippet
         {
             get
             {

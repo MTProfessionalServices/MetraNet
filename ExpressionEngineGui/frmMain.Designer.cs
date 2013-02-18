@@ -44,8 +44,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnPageLayout = new System.Windows.Forms.Button();
+            this.btnEmailTemplates = new System.Windows.Forms.Button();
+            this.cboEmailTemplates = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cboEqualityOperator = new System.Windows.Forms.ComboBox();
+            this.cboInequalityOperator = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.chkAutoSelectInsertedSnippets = new System.Windows.Forms.CheckBox();
+            this.chkShowAcutalMappings = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAQG
@@ -73,7 +83,7 @@
             // chkNewSyntax
             // 
             this.chkNewSyntax.AutoSize = true;
-            this.chkNewSyntax.Location = new System.Drawing.Point(13, 44);
+            this.chkNewSyntax.Location = new System.Drawing.Point(18, 158);
             this.chkNewSyntax.Name = "chkNewSyntax";
             this.chkNewSyntax.Size = new System.Drawing.Size(83, 17);
             this.chkNewSyntax.TabIndex = 6;
@@ -90,7 +100,7 @@
             this.groupBox1.Controls.Add(this.btnAQG);
             this.groupBox1.Location = new System.Drawing.Point(12, 127);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(301, 122);
+            this.groupBox1.Size = new System.Drawing.Size(301, 114);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Expressions";
@@ -132,7 +142,7 @@
             // 
             // btnExplorer
             // 
-            this.btnExplorer.Location = new System.Drawing.Point(319, 136);
+            this.btnExplorer.Location = new System.Drawing.Point(33, 328);
             this.btnExplorer.Name = "btnExplorer";
             this.btnExplorer.Size = new System.Drawing.Size(142, 23);
             this.btnExplorer.TabIndex = 9;
@@ -153,17 +163,17 @@
             this.groupBox2.Controls.Add(this.btnLoad);
             this.groupBox2.Controls.Add(this.cboContext);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.chkNewSyntax);
+            this.groupBox2.Controls.Add(this.btnSave);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(301, 100);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Settings";
+            this.groupBox2.Text = "Data";
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(220, 71);
+            this.btnLoad.Location = new System.Drawing.Point(128, 71);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(75, 23);
             this.btnLoad.TabIndex = 9;
@@ -190,7 +200,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(334, 82);
+            this.btnSave.Location = new System.Drawing.Point(219, 70);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 13;
@@ -200,21 +210,114 @@
             // 
             // btnPageLayout
             // 
-            this.btnPageLayout.Enabled = false;
-            this.btnPageLayout.Location = new System.Drawing.Point(33, 264);
+            this.btnPageLayout.Location = new System.Drawing.Point(33, 299);
             this.btnPageLayout.Name = "btnPageLayout";
             this.btnPageLayout.Size = new System.Drawing.Size(75, 23);
             this.btnPageLayout.TabIndex = 7;
             this.btnPageLayout.Text = "Page Layout";
             this.btnPageLayout.UseVisualStyleBackColor = true;
+            this.btnPageLayout.Click += new System.EventHandler(this.btnPageLayout_Click);
+            // 
+            // btnEmailTemplates
+            // 
+            this.btnEmailTemplates.Enabled = false;
+            this.btnEmailTemplates.Location = new System.Drawing.Point(33, 247);
+            this.btnEmailTemplates.Name = "btnEmailTemplates";
+            this.btnEmailTemplates.Size = new System.Drawing.Size(75, 23);
+            this.btnEmailTemplates.TabIndex = 14;
+            this.btnEmailTemplates.Text = "Email";
+            this.btnEmailTemplates.UseVisualStyleBackColor = true;
+            this.btnEmailTemplates.Click += new System.EventHandler(this.btnEmailTemplates_Click);
+            // 
+            // cboEmailTemplates
+            // 
+            this.cboEmailTemplates.FormattingEnabled = true;
+            this.cboEmailTemplates.Location = new System.Drawing.Point(114, 249);
+            this.cboEmailTemplates.Name = "cboEmailTemplates";
+            this.cboEmailTemplates.Size = new System.Drawing.Size(192, 21);
+            this.cboEmailTemplates.TabIndex = 7;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.chkShowAcutalMappings);
+            this.groupBox3.Controls.Add(this.chkAutoSelectInsertedSnippets);
+            this.groupBox3.Controls.Add(this.cboInequalityOperator);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.cboEqualityOperator);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.chkNewSyntax);
+            this.groupBox3.Location = new System.Drawing.Point(484, 19);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(252, 193);
+            this.groupBox3.TabIndex = 15;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "User Settings";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(128, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Default Equality Operator:";
+            // 
+            // cboEqualityOperator
+            // 
+            this.cboEqualityOperator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEqualityOperator.FormattingEnabled = true;
+            this.cboEqualityOperator.Location = new System.Drawing.Point(162, 30);
+            this.cboEqualityOperator.Name = "cboEqualityOperator";
+            this.cboEqualityOperator.Size = new System.Drawing.Size(70, 21);
+            this.cboEqualityOperator.TabIndex = 8;
+            // 
+            // cboInequalityOperator
+            // 
+            this.cboInequalityOperator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboInequalityOperator.FormattingEnabled = true;
+            this.cboInequalityOperator.Location = new System.Drawing.Point(162, 57);
+            this.cboInequalityOperator.Name = "cboInequalityOperator";
+            this.cboInequalityOperator.Size = new System.Drawing.Size(70, 21);
+            this.cboInequalityOperator.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 60);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(136, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Default Inequality Operator:";
+            // 
+            // chkAutoSelectInsertedSnippets
+            // 
+            this.chkAutoSelectInsertedSnippets.AutoSize = true;
+            this.chkAutoSelectInsertedSnippets.Location = new System.Drawing.Point(18, 98);
+            this.chkAutoSelectInsertedSnippets.Name = "chkAutoSelectInsertedSnippets";
+            this.chkAutoSelectInsertedSnippets.Size = new System.Drawing.Size(161, 17);
+            this.chkAutoSelectInsertedSnippets.TabIndex = 11;
+            this.chkAutoSelectInsertedSnippets.Text = "Auto select inserted snippets";
+            this.chkAutoSelectInsertedSnippets.UseVisualStyleBackColor = true;
+            // 
+            // chkShowAcutalMappings
+            // 
+            this.chkShowAcutalMappings.AutoSize = true;
+            this.chkShowAcutalMappings.Location = new System.Drawing.Point(18, 127);
+            this.chkShowAcutalMappings.Name = "chkShowAcutalMappings";
+            this.chkShowAcutalMappings.Size = new System.Drawing.Size(133, 17);
+            this.chkShowAcutalMappings.TabIndex = 12;
+            this.chkShowAcutalMappings.Text = "Show actual mappings";
+            this.chkShowAcutalMappings.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 346);
+            this.ClientSize = new System.Drawing.Size(774, 346);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.cboEmailTemplates);
+            this.Controls.Add(this.btnEmailTemplates);
             this.Controls.Add(this.btnPageLayout);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnExplorer);
@@ -224,6 +327,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,5 +352,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnPageLayout;
+        private System.Windows.Forms.Button btnEmailTemplates;
+        private System.Windows.Forms.ComboBox cboEmailTemplates;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ComboBox cboInequalityOperator;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cboEqualityOperator;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox chkShowAcutalMappings;
+        private System.Windows.Forms.CheckBox chkAutoSelectInsertedSnippets;
     }
 }

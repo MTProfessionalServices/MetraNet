@@ -12,7 +12,7 @@ namespace MetraTech.ExpressionEngine
         public string Name { get; set; }
         public string Image { get { return "UomCategory.png"; } }
         public string ToolTip { get { return null; } }
-        public string ToExpression { get { return string.Format("UoM.{0}", Name); } }
+        public string ToExpressionSnippet { get { return string.Format("UoM.{0}", Name); } }
         public List<Uom> Items = new List<Uom>();
         #endregion
 

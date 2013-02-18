@@ -11,6 +11,6 @@ namespace MetraTech.ExpressionEngine
         string Name { get; set; }
         string ToolTip { get; }
         string Image { get; }
-        string ToExpression { get; }
+        string ToExpressionSnippet { get; }
     }
 }

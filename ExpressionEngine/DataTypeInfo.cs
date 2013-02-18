@@ -971,19 +971,6 @@ namespace MetraTech.ExpressionEngine
             Exact = 5           // Integer32 and Integer32 or two enums with the same enumspace and enumtype 
         }
 
-        //public bool IsExactOrImplicitCast(DataTypeInfo type2)
-        //{       
-        //    var result = CompareType(type2);
-        //    switch (result)
-        //    {
-        //        case MatchType.Exact:
-        //        case MatchType.ImplicitCast:
-        //            return true;
-        //        default:
-        //            return false;
-        //    }
-        //}
-
         public bool IsMatch(DataTypeInfo type2, MatchType minimumMatchType)
         {
             var result = CompareType(type2);

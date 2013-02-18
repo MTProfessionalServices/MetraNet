@@ -19,6 +19,5 @@ namespace MetraTech.ExpressionEngine
         string ToExpressionSnippet { get; }
         object Clone();
         ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages = null);
-        //void WriteXmlNode(XmlNode parentNode, string propertyNodeName);
     }
 }

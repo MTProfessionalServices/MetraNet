@@ -14,7 +14,8 @@ namespace MetraTech.ExpressionEngine
                 return strValue;
 
             strValue = strValue.Trim();
-            Regex.Replace(strValue, "[\t\r\n]", "");
+            strValue = Regex.Replace(strValue, "[\t\r\n]", "");
+            strValue = Regex.Replace(strValue, "[ ]+", " ");
             return strValue;
         }
 

@@ -7,8 +7,8 @@
   <Description>
     <![CDATA[Simple dunning email template]]>
   </Description>
-  <To>Invoice.Payer.Email</To>
-  <Cc>Invoice.Payer.AccountManager.Email</Cc>
+  <To>{Invoice.Payer.Email}</To>
+  <Cc>{Invoice.Payer.AccountManager.Email}</Cc>
   <Subject>Late payment for invoice {Invoice.InvoiceNumber}</Subject>
   <Body>
     <![CDATA[Hello {Invoice.Payer.Name},

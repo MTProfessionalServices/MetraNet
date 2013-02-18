@@ -64,13 +64,12 @@ namespace MetraTech.ExpressionEngine
         {
             get
             {
-
                 if (DataTypeInfo.ComplexType == ComplexTypeEnum.Metanga)
                 {
                     if (DataTypeInfo.IsEntity)
                         return "Entity.png";
                     else
-                        return "ComplextType.png";
+                        return "ComplexType.png";
                 }
 
                 return DataTypeInfo.ComplexType.ToString() + ".png";

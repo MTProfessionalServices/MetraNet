@@ -269,7 +269,14 @@ namespace MetraTech.ExpressionEngine
                         break;
                 }
 
-                dtInfo.ListType = (DataTypeInfo.ListTypeEnum)Enum.Parse(typeof(DataTypeInfo.ListTypeEnum), entityRecord.ListType, true);
+                if (entityRecord.ListType == null)
+                {
+                  dtInfo.ListType = DataTypeInfo.ListTypeEnum.None;
+                }
+                else
+                {
+                  dtInfo.ListType = (DataTypeInfo.ListTypeEnum)Enum.Parse(typeof(DataTypeInfo.ListTypeEnum), entityRecord.ListType, true);
+                }
 
                 var property = new Property(propName, dtInfo, propertyDescription);
                 property.Required = required;

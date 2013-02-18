@@ -41,22 +41,18 @@ namespace Metanga.Miscellaneous.MetadataExport
     /// <summary>
     /// Data Type for the property
     /// </summary>
-    [CsvField(Index = 6)]
     public string ListType { get; set; }
     /// <summary>
     /// Indicates whether this type is an entity
     /// </summary>
-    [CsvField(Index = 7)]
     public bool IsEntity { get; set; }
     /// <summary>
     /// The description of the class being exported
     /// </summary>
-    [CsvField(Index = 8)]
     public string EntityDescription { get; set; }
     /// <summary>
     /// The description of the property being exported
     /// </summary>
-    [CsvField(Index = 9)]
     public string PropertyDescription { get; set; }
   }
 }

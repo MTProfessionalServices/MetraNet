@@ -13,7 +13,7 @@ namespace MetraTech.ExpressionEngine
     /// Implements a ComplexType, esentially something that PropertyCollection which may include properties and
     /// other complex types. Note that DataTypeInfo.IsEntity determines if it's deemed an Entity (an important destinction for Metanga)
     /// </summary>
-    [DataContract]
+    [DataContract (Namespace = "MetraTech")]
     public class ComplexType : IProperty, IExpressionEngineTreeNode
     {
         #region Enums

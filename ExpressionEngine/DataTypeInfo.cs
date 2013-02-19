@@ -17,7 +17,7 @@ namespace MetraTech.ExpressionEngine
     /// *Finish the IsMatch() method
     /// *Unit tests
     /// </summary>
-    [DataContract]
+    [DataContract (Namespace = "MetraTech")]
     public class DataTypeInfo
     {
         #region Enums

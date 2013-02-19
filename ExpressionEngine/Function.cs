@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 
 namespace MetraTech.ExpressionEngine
 {
-    [DataContract]
+    [DataContract(Namespace = "MetraTech")]
     public class Function : IExpressionEngineTreeNode
     {
         #region Properties

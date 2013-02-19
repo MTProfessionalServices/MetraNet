@@ -11,7 +11,9 @@ namespace MetraTech.ExpressionEngine
     /// TO DO:
     /// *Should property names be case sensitive???
     /// </summary>
-    [DataContract]
+    [DataContract (Namespace = "MetraTech")]
+    [KnownType(typeof(Property))]
+    [KnownType(typeof(ComplexType))]
     public class PropertyCollection : IEnumerable<IProperty>
     {
         #region Properties

@@ -17,7 +17,7 @@ namespace MetraTech.ExpressionEngine
     /// *XML serialization and deserialization
     /// *Unit tests
     /// </summary>
-    [DataContract]
+    [DataContract (Namespace = "MetraTech")]
     public class Property : IProperty, IExpressionEngineTreeNode
     {
         #region Enums

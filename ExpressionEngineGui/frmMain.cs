@@ -157,7 +157,7 @@ namespace PropertyGui
             {
                 var filePath = string.Format(@"{0}\{1}.xml", dirInfo.FullName, func.Name);
                 var writer = new FileStream(filePath, FileMode.Create);
-                var ser = new DataContractSerializer(typeof(Function));
+                var ser = new DataContractSerializer(typeof (Function), new List<Type>(), Int32.MaxValue, false, true, null); // preserve object references due to cycles
                 ser.WriteObject(writer, func);
                 writer.Close();
             }

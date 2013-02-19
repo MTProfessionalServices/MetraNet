@@ -4,53 +4,57 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Globalization;
+using System.Runtime.Serialization;
 
 namespace MetraTech.ExpressionEngine
 {
+    [DataContract]
     public class Function : IExpressionEngineTreeNode
     {
         #region Properties
         /// <summary>
         /// The function's name
         /// </summary>
+        [DataMember]
         public string Name { get; set; }
 
         /// <summary>
         /// The category. Used for filtering. Ensure that proper case is used.
         /// TODO Localize
         /// </summary>
+        [DataMember]
         public string Category { get; set; }
 
         /// <summary>
         /// The data type that the function returns
         /// </summary>
+        [DataMember]
         public DataTypeInfo ReturnType { get; set; }
 
         /// <summary>
         /// The description. Used in tool tips, online help, etc.
         /// This should be localized in future.
         /// </summary>
+        [DataMember]
         public string Description { get; set; }
-
-        /// <summary>
-        /// Indicates what version of MetraNet the function is first supported
-        /// </summary>
-        public string FirstSupported { get; set; }
 
         /// <summary>
         /// The parameters that are fixed.
         /// </summary>
+        [DataMember]
         public PropertyCollection FixedParameters { get; set; }
 
         /// <summary>
         /// Some functions suport multiple arguments. For example, Min(a, b, c...). At this point, we require that they all be of the same 
         /// datatype which is set by this property. 
         /// </summary>
+        [DataMember]
         public Property DynamicParameterPrototype { get; set; }
 
         /// <summary>
         /// The minimum number of dynamic parameters. Min, Max, Average would all be 2.
         /// </summary>
+        [DataMember]
         public int DynamicParameterMin { get; set; }
 
         #endregion

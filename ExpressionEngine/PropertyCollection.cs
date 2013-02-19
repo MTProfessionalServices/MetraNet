@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using System.Runtime.Serialization;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -10,6 +11,7 @@ namespace MetraTech.ExpressionEngine
     /// TO DO:
     /// *Should property names be case sensitive???
     /// </summary>
+    [DataContract]
     public class PropertyCollection : IEnumerable<IProperty>
     {
         #region Properties
@@ -29,6 +31,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// Internal list. Kept private to reduce what a developer has access to
         /// </summary>
+        [DataMember]
         private List<IProperty> Properties = new List<IProperty>();
         #endregion
 

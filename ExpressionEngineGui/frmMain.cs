@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using System.IO;
+using System.Runtime.Serialization;
 
 namespace PropertyGui
 {
@@ -146,6 +147,21 @@ namespace PropertyGui
         }
 
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var dirInfo = new DirectoryInfo(@"C:\Temp\Functions");
+            if (!dirInfo.Exists)
+                dirInfo.Create();
+            foreach (var func in _DemoLoader.GlobalContext.Functions.Values)
+            {
+                var filePath = string.Format(@"{0}\{1}.xml", dirInfo.FullName, func.Name);
+                var writer = new FileStream(filePath, FileMode.Create);
+                var ser = new DataContractSerializer(typeof(Function));
+                ser.WriteObject(writer, func);
+                writer.Close();
+            }
+        }
 
     }
 }

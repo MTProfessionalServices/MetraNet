@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Data;
 using System.Globalization;
+using System.Runtime.Serialization;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -16,6 +17,7 @@ namespace MetraTech.ExpressionEngine
     /// *XML serialization and deserialization
     /// *Unit tests
     /// </summary>
+    [DataContract]
     public class Property : IProperty, IExpressionEngineTreeNode
     {
         #region Enums
@@ -34,6 +36,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// The collection to which the property belongs (may be null)
         /// </summary>
+        [DataMember]
         public PropertyCollection PropertyCollection { get; set; }
 
         public ComplexType ParentEntity
@@ -49,26 +52,31 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// The name of the property
         /// </summary>
+        [DataMember]
         public string Name { get; set; }
 
         /// <summary>
         /// Rich data type class
         /// </summary>
+        [DataMember]
         public DataTypeInfo DataTypeInfo { get; set; }
 
         /// <summary>
         /// A description that's used in tooltips, auto doc, etc.
         /// </summary>
+        [DataMember]
         public string Description { get; set; }
 
         /// <summary>
         /// Indicates if a value is required
         /// </summary>
+        [DataMember]
         public bool Required { get; set; }
 
         /// <summary>
         /// The defult value for the property
         /// </summary>
+        [DataMember]
         public string DefaultValue { get; set; }
 
         /// <summary>
@@ -76,11 +84,13 @@ namespace MetraTech.ExpressionEngine
         /// For example, all usage events have a Timestamp property, therefore it's considered common. These by
         /// definition aren't editable.
         /// </summary>
+        [DataMember]
         public bool IsCommon { get; set; }
 
         /// <summary>
         /// Indicates the how the Property is interacted with (e.g., Input, Output or InOut)
         /// </summary>
+        [DataMember]
         public DirectionType Direction { get; set; }
 
         //

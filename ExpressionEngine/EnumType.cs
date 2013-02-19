@@ -10,7 +10,7 @@ namespace MetraTech.ExpressionEngine
     public class EnumType : IExpressionEngineTreeNode
     {
         #region Properties
-        public readonly EnumSpace Parent;
+        public EnumSpace Parent { get; private set; }
         public string Name { get; set; }
         public int Id { get; set; }
         public string Description { get; set; }
@@ -65,17 +65,6 @@ namespace MetraTech.ExpressionEngine
             }
         }
 
-        public void Save(string dirPath)
-        {
-            throw new NotImplementedException();
-            ////var doc = new XmlDocument();
-         
-            ////var enumSpace = Parent.Name.Replace('\\', '_');
-            ////var name = Name.Replace('\\', '_');
-            ////if (enumSpace.Contains(@"\") || name.Contains(@"\"))
-            ////    throw new Exception("found backslash");
-            ////doc.SaveFormatted(string.Format(@"{0}\{1}.{2}.EnumType.xml", dirPath, enumSpace, name));
-        }
         #endregion
     }
 }

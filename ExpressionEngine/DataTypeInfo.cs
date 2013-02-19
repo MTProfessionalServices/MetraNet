@@ -5,6 +5,7 @@ using System.Xml;
 using System.Globalization;
 using System.Collections.ObjectModel;
 using System.Diagnostics.Contracts;
+using System.Runtime.Serialization;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -16,6 +17,7 @@ namespace MetraTech.ExpressionEngine
     /// *Finish the IsMatch() method
     /// *Unit tests
     /// </summary>
+    [DataContract]
     public class DataTypeInfo
     {
         #region Enums
@@ -80,11 +82,16 @@ namespace MetraTech.ExpressionEngine
 
         #region Properties
 
+        /// <summary>
+        /// The type of list 
+        /// </summary>
+        [DataMember]
         public ListTypeEnum ListType { get; set; }
 
         /// <summary>
         /// The underlying type (e.g, string, int32, int64, etc.)
         /// </summary>
+        [DataMember]
         public BaseType BaseType { get; set; }
 
         /// <summary>
@@ -111,11 +118,13 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// EnumSpace is only valid for enums
         /// </summary>
+        [DataMember]
         public string EnumSpace { get; set; }
 
         /// <summary>
         /// EnumType is only valid for enums
         /// </summary>
+        [DataMember]
         public string EnumType { get; set; }
         #endregion
 
@@ -123,6 +132,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// Only valid when BaseType is String
         /// </summary>
+        [DataMember]
         public int Length { get; set; }
         #endregion
 
@@ -130,16 +140,19 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// The type of Entity. Only valid when BaseType=Entity
         /// </summary>
+        [DataMember]
         public ComplexType.ComplexTypeEnum ComplexType { get; set; }
 
         /// <summary>
         /// The subtype of the Entity type. For example, a BME ma
         /// </summary>
+        [DataMember]
         public string ComplexSubtype { get; set; }
 
         /// <summary>
         /// Indicates if the ComplexType is deemed an Entity
         /// </summary>
+        [DataMember]
         public bool IsEntity { get; set; }
 
         #endregion
@@ -148,16 +161,19 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// Indicates the unit of measure mode (fixed or driven by other property). Only valid for when IsNumeric is true. 
         /// </summary>
+        [DataMember]
         public UnitOfMeasureModeType UnitOfMeasureMode { get; set; }
 
         /// <summary>
         /// Depending on the UomMode, specifies a fixed UoM, a UoM category or the name of the property that determines the UOM.
         /// </summary>
+        [DataMember]
         public string UnitOfMeasureQualifier { get; set; }
 
         #endregion
 
         #region Charge Properties
+        [DataMember]
         public string UnitsProperty { get; set; }
         #endregion
 

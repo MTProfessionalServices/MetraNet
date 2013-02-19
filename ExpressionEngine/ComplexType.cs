@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
 using System.Globalization;
+using System.Runtime.Serialization;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -12,6 +13,7 @@ namespace MetraTech.ExpressionEngine
     /// Implements a ComplexType, esentially something that PropertyCollection which may include properties and
     /// other complex types. Note that DataTypeInfo.IsEntity determines if it's deemed an Entity (an important destinction for Metanga)
     /// </summary>
+    [DataContract]
     public class ComplexType : IProperty, IExpressionEngineTreeNode
     {
         #region Enums
@@ -19,13 +21,24 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Properties
+        [DataMember]
         public string Name { get; set; }
+
+        [DataMember]
         public bool Required { get; set; }
+
+        [DataMember]
         public DataTypeInfo DataTypeInfo { get; set; }
+
+        [DataMember]
         public PropertyCollection Properties { get; private set; }
 
         public ComplexType ParentEntity { get; set; }
+
+        [DataMember]
         public string Description { get; set; }
+
+        [DataMember]
         public Property.DirectionType Direction { get; set; }
         public string GetCompatibleKey() { return string.Format(CultureInfo.InvariantCulture, "{0}|{1}", Name, DataTypeInfo.GetCompatibleKey()); }
 

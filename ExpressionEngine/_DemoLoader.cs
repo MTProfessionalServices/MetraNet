@@ -49,16 +49,16 @@ namespace MetraTech.ExpressionEngine
             LoadEmailTemplates(GlobalContext, Path.Combine(DataPath, "EmailTemplates"));
 
             var uomCategory = new UnitOfMeasureCategory("DigitalInformation");
-            uomCategory.AddUom("Gb");
-            uomCategory.AddUom("Mb");
-            uomCategory.AddUom("kb");
+            uomCategory.AddUom("Gb", false);
+            uomCategory.AddUom("Mb", false);
+            uomCategory.AddUom("kb", false);
             GlobalContext.UoMs.Add(uomCategory.Name, uomCategory);
 
             uomCategory = new UnitOfMeasureCategory("Time");
-            uomCategory.AddUom("Millisecond");
-            uomCategory.AddUom("Second");
-            uomCategory.AddUom("Minute");
-            uomCategory.AddUom("Hour");
+            uomCategory.AddUom("Millisecond", false);
+            uomCategory.AddUom("Second", false);
+            uomCategory.AddUom("Minute", false);
+            uomCategory.AddUom("Hour", false);
             GlobalContext.UoMs.Add(uomCategory.Name, uomCategory);
         }
 
@@ -111,22 +111,22 @@ namespace MetraTech.ExpressionEngine
             pv.AddEnum("OS", "The Operating System (OS)", true, "Cloud", "OperatingSystem");
             
             property = pv.AddInt32("Memory", "The amount of memory", true);
-            property.DataTypeInfo.UomMode = DataTypeInfo.UomModeType.Fixed;
-            property.DataTypeInfo.UomQualifier = "DigitalInformation";
+            property.DataTypeInfo.UnitOfMeasureMode = DataTypeInfo.UnitOfMeasureModeType.Fixed;
+            property.DataTypeInfo.UnitOfMeasureQualifier = "DigitalInformation";
 
             pv.AddDecimal("CpuCount", "The number of million CPU cycles", true);
 
             property = pv.AddDecimal("Hours", "The number of hours the instance ran", true);
-            property.DataTypeInfo.UomMode = DataTypeInfo.UomModeType.Fixed;
-            property.DataTypeInfo.UomQualifier = "Hour";
+            property.DataTypeInfo.UnitOfMeasureMode = DataTypeInfo.UnitOfMeasureModeType.Fixed;
+            property.DataTypeInfo.UnitOfMeasureQualifier = "Hour";
 
             property = pv.AddDecimal("Duration", "The elapsed time", true);
-            property.DataTypeInfo.UomMode = DataTypeInfo.UomModeType.Category;
-            property.DataTypeInfo.UomQualifier = "Time";
+            property.DataTypeInfo.UnitOfMeasureMode = DataTypeInfo.UnitOfMeasureModeType.Category;
+            property.DataTypeInfo.UnitOfMeasureQualifier = "Time";
 
             property = pv.AddDecimal("ScalingMetric", "The key scaling metric", true);
-            property.DataTypeInfo.UomMode = DataTypeInfo.UomModeType.Property;
-            property.DataTypeInfo.UomQualifier = "ScalingMetricUom";
+            property.DataTypeInfo.UnitOfMeasureMode = DataTypeInfo.UnitOfMeasureModeType.Property;
+            property.DataTypeInfo.UnitOfMeasureQualifier = "ScalingMetricUom";
 
             property = pv.AddString("ScalingMetricUom", "The UoM for the the ScalingMetric", true);
 
@@ -157,7 +157,7 @@ namespace MetraTech.ExpressionEngine
             props.AddDateTime("Timestamp", "The time the event is deemed to have occurred", true);
             props.AddInt32("AccountId", "The account associated with the event", true);
 
-            var name = Settings.NewSyntax ? "EventCharge" : "Amount";
+            var name = UserSettings.NewSyntax ? "EventCharge" : "Amount";
             props.AddCharge(name, "The charge assoicated with the event which may summarize other charges within the event", true);
         }
 
@@ -185,19 +185,19 @@ namespace MetraTech.ExpressionEngine
         /// <param name="exp"></param>
         public static void LoadInputsOutputs(Expression exp)
         {
-            var prop = Property.CreateInteger32("USAGE.Hours");
+            var prop = Property.CreateInteger32("USAGE.Hours", null);
             prop.Direction = Property.DirectionType.InOut;
             exp.Parameters.Add(prop);
 
-            prop = Property.CreateInteger32("USAGE.CpuCount");
+            prop = Property.CreateInteger32("USAGE.CpuCount", null);
             prop.Direction = Property.DirectionType.Input;
             exp.Parameters.Add(prop);
 
-            prop = Property.CreateInteger32("USAGE.Snapshots");
+            prop = Property.CreateInteger32("USAGE.Snapshots", null);
             prop.Direction = Property.DirectionType.Input;
             exp.Parameters.Add(prop);
 
-            prop = Property.CreateInteger32("USAGE.Amount");
+            prop = Property.CreateInteger32("USAGE.Amount", null);
             prop.Direction = Property.DirectionType.Input;
             exp.Parameters.Add(prop);
 

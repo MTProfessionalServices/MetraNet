@@ -32,7 +32,7 @@ namespace MetraTech.ExpressionEngine
                 var toolTip = "EnumType";
                 if (!string.IsNullOrEmpty(Description))
                     toolTip += "\r\n" + Description;
-                if (Settings.ShowActualMappings)
+                if (UserSettings.ShowActualMappings)
                     toolTip += string.Format("\r\n[DatabaseId={0}]", Id);
                 return toolTip;
             }

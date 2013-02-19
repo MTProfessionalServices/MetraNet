@@ -15,6 +15,7 @@ namespace MetraTech.ExpressionEngine
         #region Properties
 
         public readonly object Parent;
+
         /// <summary>
         /// The Entity to which the collection belongs (may be null)
         /// </summary>
@@ -64,7 +65,11 @@ namespace MetraTech.ExpressionEngine
             Properties.Clear();
         }
 
-        public ValidationMessageCollection Validate(ValidationMessageCollection messages=null)
+        public ValidationMessageCollection Validate()
+        {
+            return Validate(null);
+        }
+        public ValidationMessageCollection Validate(ValidationMessageCollection messages)
         {
             if (messages == null)
                 messages = new ValidationMessageCollection();
@@ -97,6 +102,7 @@ namespace MetraTech.ExpressionEngine
         public Property AddString(string name, string description, bool isRequired, string defaultValue=null, int length=0)
         {
             var property = new Property(name, DataTypeInfo.CreateString(length), description);
+            property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);
             return property;
@@ -105,6 +111,7 @@ namespace MetraTech.ExpressionEngine
         public Property AddEnum(string name, string description, bool isRequired, string enumSpace, string enumType, string defaultValue = null)
         {
             var property = new Property(name, DataTypeInfo.CreateEnum(enumSpace, enumType), description);
+            property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);
             return property;
@@ -113,6 +120,7 @@ namespace MetraTech.ExpressionEngine
         public Property AddInt32(string name, string description, bool isRequired, string defaultValue = null)
         {
             var property = new Property(name, new DataTypeInfo(BaseType.Integer32), description);
+            property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);
             return property;
@@ -121,6 +129,7 @@ namespace MetraTech.ExpressionEngine
         public Property AddDateTime(string name, string description, bool isRequired, string defaultValue = null)
         {
             var property = new Property(name, new DataTypeInfo(BaseType.DateTime), description);
+            property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);
             return property;
@@ -129,6 +138,7 @@ namespace MetraTech.ExpressionEngine
         public Property AddDecimal(string name, string description, bool isRequired, string defaultValue = null)
         {
             var property = new Property(name, new DataTypeInfo(BaseType.Decimal), description);
+            property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);
             return property;
@@ -138,6 +148,7 @@ namespace MetraTech.ExpressionEngine
         public Property AddCharge(string name, string description, bool isRequired, string defaultValue = null)
         {
             var property = new Property(name, new DataTypeInfo(BaseType.Charge), description);
+            property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);
             return property;

@@ -35,11 +35,11 @@ namespace PropertyGui
 
 
             cboEqualityOperator.Items.AddRange(Expression.EqualityOperators);
-            cboEqualityOperator.Text = Settings.DefaultEqualityOperator;
+            cboEqualityOperator.Text = UserSettings.DefaultEqualityOperator;
             cboInequalityOperator.Items.AddRange(Expression.InequalityOperators);
-            cboInequalityOperator.Text = Settings.DefaultInequalityOperator;
-            chkShowAcutalMappings.Checked = Settings.ShowActualMappings;
-            chkAutoSelectInsertedSnippets.Checked = Settings.AutoSelectInsertedSnippets;
+            cboInequalityOperator.Text = UserSettings.DefaultInequalityOperator;
+            chkShowAcutalMappings.Checked = UserSettings.ShowActualMappings;
+            chkAutoSelectInsertedSnippets.Checked = UserSettings.AutoSelectInsertedSnippets;
         }
 
         private void LoadContext()
@@ -74,16 +74,16 @@ namespace PropertyGui
 
         private void SyncToObject()
         {
-            Settings.DefaultEqualityOperator = cboEqualityOperator.Text;
-            Settings.DefaultInequalityOperator = cboInequalityOperator.Text;
-            Settings.ShowActualMappings = chkShowAcutalMappings.Checked;
-            Settings.AutoSelectInsertedSnippets = chkAutoSelectInsertedSnippets.Checked;
-            Settings.NewSyntax = chkNewSyntax.Checked;
+            UserSettings.DefaultEqualityOperator = cboEqualityOperator.Text;
+            UserSettings.DefaultInequalityOperator = cboInequalityOperator.Text;
+            UserSettings.ShowActualMappings = chkShowAcutalMappings.Checked;
+            UserSettings.AutoSelectInsertedSnippets = chkAutoSelectInsertedSnippets.Checked;
+            UserSettings.NewSyntax = chkNewSyntax.Checked;
         }
 
         private void SyncToForm()
         {
-            chkNewSyntax.Checked = Settings.NewSyntax;
+            chkNewSyntax.Checked = UserSettings.NewSyntax;
         }
 
         private void ShowExpression(Expression expression, bool isPageLayout=false)

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Xml;
+using System.Collections.ObjectModel;
+using System.Globalization;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -13,7 +15,7 @@ namespace MetraTech.ExpressionEngine
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public List<EnumType> EnumTypes = new List<EnumType>();
+        public Collection<EnumType> EnumTypes { get; private set; }
         #endregion
 
         #region GUI Helper Properties (move in future)
@@ -27,6 +29,7 @@ namespace MetraTech.ExpressionEngine
         {
             Name = name;
             Description = description;
+            EnumTypes =  new Collection<EnumType>();
         }
         #endregion
 
@@ -42,7 +45,7 @@ namespace MetraTech.ExpressionEngine
         {
             get
             {
-                throw new NotImplementedException();
+                throw new NotImplementedException("not ready yet");
             }
         }
 
@@ -53,10 +56,8 @@ namespace MetraTech.ExpressionEngine
 
             var name = Name.Replace('\\', '_');
             rootNode.AddChildNode("Name", name);
-            if (name.Contains(@"\"))
-                throw new Exception("found backslash");
             rootNode.AddChildNode("Description", Description);
-            doc.SaveFormatted(string.Format(@"{0}\{1}.EnumSpace.xml", dirPath, name));
+            doc.SaveFormatted(string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.EnumSpace.xml", dirPath, name));
         }
 
         public bool TryGetEnumType(string name, out EnumType type)
@@ -76,6 +77,9 @@ namespace MetraTech.ExpressionEngine
 
         public static EnumValue AddEnum(Context context, string enumSpace, string enumType, int enumTypeId,  string enumValue, int enumValueId)
         {
+            if (context == null)
+                throw new ArgumentNullException("context");
+
             EnumSpace space;
             if (!context.EnumSpaces.TryGetValue(enumSpace, out space))
             {

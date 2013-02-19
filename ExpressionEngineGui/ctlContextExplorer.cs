@@ -144,14 +144,14 @@ namespace PropertyGui
                 return string.Empty;
 
             var property = (IProperty)node.Tag;
-            var columnPrefix = Settings.NewSyntax ? string.Empty : "c_";
+            var columnPrefix = UserSettings.NewSyntax ? string.Empty : "c_";
 
             switch (Context.Expression.Type)
             {
                 case Expression.ExpressionTypeEnum.AQG:
                     return string.Format("ACCOUNT.{0}{1}", columnPrefix, property.Name);
                 case Expression.ExpressionTypeEnum.UQG:
-                    var binder = Settings.NewSyntax ? "EVENT" : "USAGE";
+                    var binder = UserSettings.NewSyntax ? "EVENT" : "USAGE";
                     return string.Format("{0}.{1}{2}", binder, columnPrefix, property.Name);
                 default:
                     return node.FullPath;
@@ -207,9 +207,9 @@ namespace PropertyGui
                 var path = GetExpressionPath(treExplorer.SelectedNode.Parent);
 
                 if (e.ClickedItem.Equals(mnuInsertEqualitySnippet))
-                    text = string.Format("{0} {1} {2}", path, Settings.DefaultEqualityOperator, enumValue.ToExpressionSnippet);
+                    text = string.Format("{0} {1} {2}", path, UserSettings.DefaultEqualityOperator, enumValue.ToExpressionSnippet);
                 else if (e.ClickedItem.Equals(mnuInsertInequalitySnippet))
-                    text = string.Format("{0} {1} {2}", path, Settings.DefaultInequalityOperator, enumValue.ToExpressionSnippet);
+                    text = string.Format("{0} {1} {2}", path, UserSettings.DefaultInequalityOperator, enumValue.ToExpressionSnippet);
             }
 
             if (OnInsertSnippet != null)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using System.Globalization;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -13,7 +14,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// The EnumType to which the value belongs
         /// </summary>
-        public readonly EnumType EnumType;
+        public EnumType EnumType { get; private set; }
 
         /// <summary>
         /// The name of the enum value
@@ -41,9 +42,9 @@ namespace MetraTech.ExpressionEngine
             {
                 var toolTip = "EnumValue";
                 if (!string.IsNullOrEmpty(Description))
-                    toolTip += "\r\n" + Description;
-                if (Settings.ShowActualMappings)
-                    toolTip += string.Format("\r\n[DatabaseId={0}]", Id);
+                    toolTip += Environment.NewLine + Description;
+                if (UserSettings.ShowActualMappings)
+                    toolTip += string.Format(CultureInfo.InvariantCulture, "\r\n[DatabaseId={0}]", Id);
                 return toolTip;
             }
         }
@@ -72,7 +73,7 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public string ToMtsql()
         {
-            return string.Format("#{0}/{1}/{2}#", EnumType.Parent.Name, EnumType.Name, Name);
+            return string.Format(CultureInfo.InvariantCulture, "#{0}/{1}/{2}#", EnumType.Parent.Name, EnumType.Name, Name);
         }
 
         /// <summary>
@@ -82,10 +83,10 @@ namespace MetraTech.ExpressionEngine
         {
             get
             {
-                if (Settings.NewSyntax)
+                if (UserSettings.NewSyntax)
                 {
                     var enumSpace = EnumType.Parent.Name.Replace('.', '_');
-                    return string.Format("ENUM.{0}.{1}.{2}", enumSpace, EnumType.Name, Name);
+                    return string.Format(CultureInfo.InvariantCulture, "ENUM.{0}.{1}.{2}", enumSpace, EnumType.Name, Name);
                 }
                 else
                     return ToMtsql();

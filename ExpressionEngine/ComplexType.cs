@@ -27,7 +27,7 @@ namespace MetraTech.ExpressionEngine
         public ComplexType ParentEntity { get; set; }
         public string Description { get; set; }
         public Property.DirectionType Direction { get; set; }
-        public string GetCompatableKey() { return string.Format(CultureInfo.InvariantCulture, "{0}|{1}", Name, DataTypeInfo.GetCompatableKey()); }
+        public string GetCompatibleKey() { return string.Format(CultureInfo.InvariantCulture, "{0}|{1}", Name, DataTypeInfo.GetCompatibleKey()); }
 
         /// <summary>
         /// The actual database table name. Used in MetraNet which has a prefix on all table names.
@@ -60,7 +60,7 @@ namespace MetraTech.ExpressionEngine
                 var tip = DataTypeInfo.ComplexType.ToString();
                 if (!string.IsNullOrEmpty(Description))
                     tip += Environment.NewLine + Description;
-                if (Settings.ShowActualMappings)
+                if (UserSettings.ShowActualMappings)
                     tip += string.Format(CultureInfo.InvariantCulture, "\r\n[TableName={0}]", DBTableName);
                 return tip;
             }
@@ -147,7 +147,7 @@ namespace MetraTech.ExpressionEngine
             switch (DataTypeInfo.ComplexType)
             {
                 case ComplexTypeEnum.ProductView:
-                    return Settings.NewSyntax? "EVENT": "USAGE";
+                    return UserSettings.NewSyntax? "EVENT": "USAGE";
                 case ComplexTypeEnum.AccountView:
                     return "ACCOUNT";
                 default:

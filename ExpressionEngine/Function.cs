@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using System.Globalization;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -14,11 +15,9 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public string Name { get; set; }
 
-        public string TreeNodeLabel { get { return Name; } }
-
         /// <summary>
         /// The category. Used for filtering. Ensure that proper case is used.
-        /// This should be localized in future.
+        /// TODO Localize
         /// </summary>
         public string Category { get; set; }
 
@@ -54,6 +53,10 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public int DynamicParameterMin { get; set; }
 
+        #endregion
+
+        #region GUI Helper Properties (move in future)
+        public string TreeNodeLabel { get { return Name; } }
         public string ToolTip { get { return Description; } }
         public string Image { get { return "Function.png"; } }
         #endregion
@@ -80,7 +83,7 @@ namespace MetraTech.ExpressionEngine
         {
             get
             {
-                return string.Format("{0}()", Name);
+                return string.Format(CultureInfo.InvariantCulture, "{0}()", Name);
             }
         }
 
@@ -102,7 +105,7 @@ namespace MetraTech.ExpressionEngine
             }
             catch (Exception ex)
             {
-                throw new Exception(string.Format("Unable to load Function file {0} [{1}]", filePath, ex.Message));
+                throw new Exception(string.Format(CultureInfo.InvariantCulture, "Unable to load Function file {0} [{1}]", filePath, ex.Message));
             }
         }
 

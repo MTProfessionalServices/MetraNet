@@ -22,7 +22,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// Indicates how the UoM is determined. Only valid for numeric data types.
         /// </summary>
-        public enum UomModeType
+        public enum UnitOfMeasureModeType
         {
             None,     // Either not a numeric or it's unknown
             Context,  // Implied by the context which is up to the developer.
@@ -36,9 +36,6 @@ namespace MetraTech.ExpressionEngine
             List,   //Enumerable
             KeyList //Dictionary
         }
-
-        public enum DataTypeInfoFormat { MSIX, System, Oracle, SqlServer, MTSQL, BME, User };
-
 
         #endregion
 
@@ -151,12 +148,12 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// Indicates the unit of measure mode (fixed or driven by other property). Only valid for when IsNumeric is true. 
         /// </summary>
-        public UomModeType UomMode { get; set; }
+        public UnitOfMeasureModeType UnitOfMeasureMode { get; set; }
 
         /// <summary>
         /// Depending on the UomMode, specifies a fixed UoM, a UoM category or the name of the property that determines the UOM.
         /// </summary>
-        public string UomQualifier { get; set; }
+        public string UnitOfMeasureQualifier { get; set; }
 
         #endregion
 
@@ -313,7 +310,12 @@ namespace MetraTech.ExpressionEngine
             dataType.ComplexSubtype = subtype;
             return dataType;
         }
-        public static DataTypeInfo CreateString(int length = 0)
+
+        public static DataTypeInfo CreatesString()
+        {
+            return CreateString(0);
+        }
+        public static DataTypeInfo CreateString(int length)
         {
             var type = new DataTypeInfo(BaseType.String);
             type.Length = length;
@@ -373,8 +375,8 @@ namespace MetraTech.ExpressionEngine
 
             if (IsNumeric)
             {
-                dataTypeNode.AddAttribute("UomMode", UomMode.ToString());
-                dataTypeNode.AddAttribute("UomQualifier", UomQualifier);
+                dataTypeNode.AddAttribute("UomMode", UnitOfMeasureMode.ToString());
+                dataTypeNode.AddAttribute("UomQualifier", UnitOfMeasureQualifier);
             }
         }
 
@@ -454,25 +456,25 @@ namespace MetraTech.ExpressionEngine
             if (!robustMode)
                 return baseStr;
 
-            return string.Format(CultureInfo.InvariantCulture, "{0} ({1})", baseStr, GetUomDecoration());
+            return string.Format(CultureInfo.InvariantCulture, "{0} ({1})", baseStr, GetUnitOfMeasureDecoration());
         }
 
-        public string GetUomDecoration()
+        public string GetUnitOfMeasureDecoration()
         {
-            switch (UomMode)
+            switch (UnitOfMeasureMode)
             {
-                case UomModeType.None:
+                case UnitOfMeasureModeType.None:
                     if (BaseType == ExpressionEngine.BaseType.Charge)
                         return "No Currency";
                     return "No UoM";
-                case UomModeType.Fixed:
-                    return UomQualifier;
-                case UomModeType.Category:
-                    return UomQualifier;
-                case UomModeType.Context:
+                case UnitOfMeasureModeType.Fixed:
+                    return UnitOfMeasureQualifier;
+                case UnitOfMeasureModeType.Category:
+                    return UnitOfMeasureQualifier;
+                case UnitOfMeasureModeType.Context:
                     return "Context";
-                case UomModeType.Property:
-                    return string.Format("UoM Property: {0}", UomQualifier);
+                case UnitOfMeasureModeType.Property:
+                    return string.Format("UoM Property: {0}", UnitOfMeasureQualifier);
                 default:
                     throw new NotImplementedException();
             }
@@ -534,7 +536,7 @@ namespace MetraTech.ExpressionEngine
                     throw new ApplicationException("Unhandled data type: " + BaseType.ToString());
             }
         }
-        public static string ToCSharpStr(BaseType type)
+        public static string ToCSharpString(BaseType type)
         {
             return DataTypeInfo.ToCSharpType(type).ToString();
         }
@@ -597,7 +599,7 @@ namespace MetraTech.ExpressionEngine
                 case BaseType.DateTime:
                     return typeof(DateTime);
                 default:
-                    throw new Exception("Unhandled DataType: " + type.ToString());
+                    throw new Exception("Unhandled Data Type: " + type.ToString());
             }
         }
 
@@ -623,6 +625,9 @@ namespace MetraTech.ExpressionEngine
 
         public void Validate(string prefix, ValidationMessageCollection messages)
         {
+            if (messages == null)
+                throw new ArgumentNullException("messages");
+
             string errorMsg = null;
             switch (BaseType)
             {
@@ -727,14 +732,14 @@ namespace MetraTech.ExpressionEngine
 
         #region Misc Methods
 
-        public string GetCompatableKey()
+        public string GetCompatibleKey()
         {
             switch (BaseType)
             {
                 case BaseType.Enumeration:
-                    return string.Format("{0}|{1}|{2}", BaseType, EnumSpace, EnumType);
+                    return string.Format(CultureInfo.InvariantCulture, "{0}|{1}|{2}", BaseType, EnumSpace, EnumType);
                 case BaseType.ComplexType:
-                    return string.Format("{0}|{1}", BaseType, ComplexType);
+                    return string.Format(CultureInfo.InvariantCulture, "{0}|{1}", BaseType, ComplexType);
                 default:
                     return BaseType.ToString();
             }
@@ -1000,6 +1005,9 @@ namespace MetraTech.ExpressionEngine
 
         public bool IsBaseTypeFilterMatch(DataTypeInfo type)
         {
+            if (type == null)
+                throw new ArgumentNullException("type");
+
             switch (type.BaseType)
             {
                 case ExpressionEngine.BaseType.Any:
@@ -1018,13 +1026,13 @@ namespace MetraTech.ExpressionEngine
 
         public static bool IsImplicitCast(DataTypeInfo start, DataTypeInfo end)
         {
+            if (start == null || end == null)
+                throw new ArgumentNullException("Arguments can't be null");
             if (!start.IsNumeric || !end.IsNumeric)
-                throw new Exception("Datatypes must be numeric");
+                throw new ArgumentException("Arguments must be numeric");
 
             if (start.BaseType == end.BaseType)
                 return true;
-
-
             return false;
         }
         #endregion

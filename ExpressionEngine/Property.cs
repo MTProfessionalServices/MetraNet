@@ -3,6 +3,7 @@ using System.Xml;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Data;
+using System.Globalization;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -25,7 +26,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// Used to validate the Name property
         /// </summary>
-        public Regex NameRegex = new Regex(".*");//[a-zA-Z][a-ZA-Z0-9_]*");
+        private Regex NameRegex = new Regex(".*");//[a-zA-Z][a-ZA-Z0-9_]*");
         #endregion
 
         #region Properties
@@ -50,8 +51,6 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public string Name { get; set; }
 
-        public string NameLocalized;
-
         /// <summary>
         /// Rich data type class
         /// </summary>
@@ -70,7 +69,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// The defult value for the property
         /// </summary>
-        public string DefaultValue;
+        public string DefaultValue { get; set; }
 
         /// <summary>
         /// Indicates if the property is something that is common within the context of the Parent property.
@@ -103,7 +102,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// Used for testing etc. type purposes. We may want to put this into a subclass
         /// </summary>
-        public string Value;
+        public string Value { get; set; }
 
         #endregion Properties
 
@@ -119,9 +118,9 @@ namespace MetraTech.ExpressionEngine
                 {
                     var tooltipStr = DataTypeInfo.ToUserString(true);
                     if (!string.IsNullOrEmpty(Description))
-                        tooltipStr += "\r\n" + Description;
-                    if (Settings.ShowActualMappings)
-                        tooltipStr += string.Format("\r\n[ColumnName={0}]", "");
+                        tooltipStr += Environment.NewLine + Description;
+                    if (UserSettings.ShowActualMappings)
+                        tooltipStr += string.Format(CultureInfo.InvariantCulture, "\r\n[ColumnName={0}]", "");
                     return tooltipStr;
                 }
             }
@@ -139,8 +138,9 @@ namespace MetraTech.ExpressionEngine
                         return "PropertyInput.png";
                     case DirectionType.Output:
                         return "PropertyOutput.png";
+                    default:
+                        return null;
                 }
-                throw new NotImplementedException();
             }
         }
 
@@ -191,17 +191,17 @@ namespace MetraTech.ExpressionEngine
 
         #region Static Create Methods
 
-        public static Property CreateInteger32(string name, string description=null)
+        public static Property CreateInteger32(string name, string description)
         {
             return new Property(name, new DataTypeInfo(BaseType.Integer32), description);
         }
-        public static Property CreateString(string name, string description, int length = 0)
+        public static Property CreateString(string name, string description, int length)
         {
             var property = new Property(name, DataTypeInfo.CreateString(length), description);
             return property;
         }
 
-        public static Property CreateBoolean(string name, string description=null)
+        public static Property CreateBoolean(string name, string description)
         {
             var property = new Property(name, DataTypeInfo.CreateBoolean(), description);
             return property;
@@ -231,9 +231,9 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public IProperty GetUomProperty()
         {
-            if (!DataTypeInfo.IsNumeric || DataTypeInfo.UomMode != ExpressionEngine.DataTypeInfo.UomModeType.Property || PropertyCollection == null)
+            if (!DataTypeInfo.IsNumeric || DataTypeInfo.UnitOfMeasureMode != ExpressionEngine.DataTypeInfo.UnitOfMeasureModeType.Property || PropertyCollection == null)
                 return null;
-            return PropertyCollection.Get(DataTypeInfo.UomQualifier);
+            return PropertyCollection.Get(DataTypeInfo.UnitOfMeasureQualifier);
         }
 
         public object Clone()
@@ -246,12 +246,16 @@ namespace MetraTech.ExpressionEngine
             //return property;
         }
 
-        public ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages=null)
+        public ValidationMessageCollection Validate(bool prefixMsg)
+        {
+            return Validate(prefixMsg, null);
+        }
+        public ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages)
         {
             if (messages == null)
                 messages = new ValidationMessageCollection();
 
-            var prefix = string.Format(Localization.PropertyMessagePrefix, Name);
+            var prefix = string.Format(CultureInfo.CurrentUICulture, Localization.PropertyMessagePrefix, Name);
 
             if (NameRegex.IsMatch(Name))
                 messages.Error(prefix + Localization.InvalidName);
@@ -266,7 +270,7 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public override string ToString()
         {
-            return string.Format("{0} ({1})", Name, DataTypeInfo.ToUserString(true));
+            return string.Format(CultureInfo.InvariantCulture, "{0} ({1})", Name, DataTypeInfo.ToUserString(true));
         }
 
         public string ToExpressionSnippet
@@ -278,10 +282,10 @@ namespace MetraTech.ExpressionEngine
                     return null;
 
                 string snippet;
-                if (Settings.NewSyntax)
-                    snippet = string.Format("{0}.{1}", entity.GetPrefix(), Name);
+                if (UserSettings.NewSyntax)
+                    snippet = string.Format(CultureInfo.InvariantCulture, "{0}.{1}", entity.GetPrefix(), Name);
                 else
-                    snippet = string.Format("{0}.c_{1}", entity.GetPrefix(), Name);
+                    snippet = string.Format(CultureInfo.InvariantCulture, "{0}.c_{1}", entity.GetPrefix(), Name);
 
                 return snippet + DataTypeInfo.ListSuffix;
             }
@@ -292,27 +296,27 @@ namespace MetraTech.ExpressionEngine
         /// the DataType level formatting should be moved to DataTypeInfo class
         /// NOTE THAT WE'RE NOT DEALING WITH UOMs
         /// </summary>
-        public string GetCompatableKey()
+        public string GetCompatibleKey()
         {
-            var key = string.Format("{0}|{1}", Name, DataTypeInfo.BaseType);
+            var key = string.Format(CultureInfo.InvariantCulture, "{0}|{1}", Name, DataTypeInfo.BaseType);
             switch (DataTypeInfo.BaseType)
             {
                 case BaseType.Enumeration:
-                    key += string.Format("|{0}|{1}", DataTypeInfo.EnumSpace, DataTypeInfo.EnumType);
+                    key += string.Format(CultureInfo.InvariantCulture, "|{0}|{1}", DataTypeInfo.EnumSpace, DataTypeInfo.EnumType);
                     break;
             }
             return key;
         }
 
-        public string GetFullyQualifedName(bool prefix)
+        public string GetFullyQualifiedName(bool prefix)
         {
             var entity = ParentEntity;
             if (ParentEntity == null)
                 return Name;
 
-            var name = string.Format("{0}.{1}", entity.Name, Name);
+            var name = string.Format(CultureInfo.InvariantCulture, "{0}.{1}", entity.Name, Name);
             if (prefix)
-                return string.Format("{0}.{1}", entity.GetPrefix(), name);
+                return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", entity.GetPrefix(), name);
             else
                 return name;
         }
@@ -320,14 +324,6 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region XML Methods (mario to wack)
-        public void WriteXmlNode(XmlNode parentNode, string propertyNodeName="Property")
-        {
-            var propertyNode = parentNode.AddChildNode(propertyNodeName);
-            propertyNode.AddChildNode("Name", Name);
-            DataTypeInfo.WriteXmlNode(propertyNode);
-            propertyNode.AddChildNode("Required", Required);
-            propertyNode.AddChildNode("Description", Description);
-        }
 
         public static Property CreateFromXmlParentNode(XmlNode parentNode, string childNodeName = "Property")
         {

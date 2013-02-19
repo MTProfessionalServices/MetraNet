@@ -150,7 +150,7 @@ namespace MetraTech.ExpressionEngine
                     AllProperties.Add(property);
 
                     IProperty uniqueProperty;
-                    var key = property.GetCompatableKey();
+                    var key = property.GetCompatibleKey();
                     if (!UniqueProperties.TryGetValue(key, out uniqueProperty))
                         UniqueProperties.Add(key, property);
 

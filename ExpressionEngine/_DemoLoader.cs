@@ -48,13 +48,13 @@ namespace MetraTech.ExpressionEngine
             LoadExpressions();
             LoadEmailTemplates(GlobalContext, Path.Combine(DataPath, "EmailTemplates"));
 
-            var uomCategory = new UoMCategory("DigitalInformation");
+            var uomCategory = new UnitOfMeasureCategory("DigitalInformation");
             uomCategory.AddUom("Gb");
             uomCategory.AddUom("Mb");
             uomCategory.AddUom("kb");
             GlobalContext.UoMs.Add(uomCategory.Name, uomCategory);
 
-            uomCategory = new UoMCategory("Time");
+            uomCategory = new UnitOfMeasureCategory("Time");
             uomCategory.AddUom("Millisecond");
             uomCategory.AddUom("Second");
             uomCategory.AddUom("Minute");
@@ -201,7 +201,7 @@ namespace MetraTech.ExpressionEngine
             prop.Direction = Property.DirectionType.Input;
             exp.Parameters.Add(prop);
 
-            var entity = ComplexType.CreateProductView("ParameterTable.CloudRates");
+            var entity = ComplexType.CreateProductView("ParameterTable.CloudRates", null);
             prop.Direction = Property.DirectionType.Input;
             exp.Parameters.Add(entity);
 
@@ -259,13 +259,13 @@ namespace MetraTech.ExpressionEngine
 
                 switch (dtInfo.BaseType)
                 {
-                    case BaseType._Enum:
+                    case BaseType.Enumeration:
                         dtInfo.EnumSpace = enumSpace;
                         dtInfo.EnumType = enumType;
                         break;
                     case BaseType.ComplexType:
                         dtInfo.ComplexType = entityType;
-                        dtInfo.ComplexSubType = enumType; //we overrode the column
+                        dtInfo.ComplexSubtype = enumType; //we overrode the column
                         break;
                 }
 
@@ -351,7 +351,7 @@ namespace MetraTech.ExpressionEngine
                 var enumType = enumParts[enumParts.Length - 1];
                 var enumNamespace = spaceAndType.Substring(0, spaceAndType.Length - enumType.Length - 1); //account for one slash
 
-                var enumValueObj = EnumSpace.AddEnum(context, enumNamespace, enumType, enumValue, id);
+                var enumValueObj = EnumSpace.AddEnum(context, enumNamespace, enumType, -1, enumValue, id);
                 enumValueObj.Description = propertyDescription;
                 enumValueObj.EnumType.Description = entityDescription;
             }

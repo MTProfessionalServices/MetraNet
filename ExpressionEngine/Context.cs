@@ -35,7 +35,7 @@ namespace MetraTech.ExpressionEngine
         public Dictionary<string, UQG> UQGs = new Dictionary<string, UQG>();
         public Dictionary<string, EnumSpace> EnumSpaces = new Dictionary<string, EnumSpace>();
         public Dictionary<string, Expression> Expressions = new Dictionary<string, Expression>();
-        public Dictionary<string, UoMCategory> UoMs = new Dictionary<string, UoMCategory>();
+        public Dictionary<string, UnitOfMeasureCategory> UoMs = new Dictionary<string, UnitOfMeasureCategory>();
         public Dictionary<string, EmailTemplate> EmailTemplates = new Dictionary<string, EmailTemplate>();
 
         //These are updated by UpdateContext()
@@ -174,28 +174,6 @@ namespace MetraTech.ExpressionEngine
             }
         }
 
-        /// <summary>
-        /// This is useful for the prototpe... in future may be useful for dumping the vlaues from the DB
-        /// </summary>
-        public void Save()
-        {
-            var dirPath = Path.Combine(_DemoLoader.DirPath, "Xml");
-            foreach (var entity in Entities.Values)
-            {
-                entity.Save(string.Format(@"{0}\Entities\{1}.{2}.xml", dirPath, entity.Name, entity.DataTypeInfo.ComplexType));
-            }
-
-            var enumDirPath = Path.Combine(dirPath, "Enums");
-            foreach (var enumSpace in EnumSpaces.Values)
-            {
-                enumSpace.Save(enumDirPath);
-
-                foreach (var enumType in enumSpace.EnumTypes)
-                {
-                    enumType.Save(enumDirPath);
-                }
-            }
-        }
         #endregion
 
         #region Entities

@@ -273,7 +273,7 @@ namespace PropertyGui
             if (node.Nodes.Count == 1 && node.Nodes[0].Text == PropertyListPlaceHolder)
             {
                 node.Nodes.Clear();
-                var entitySubType = ((Property)node.Tag).DataTypeInfo.ComplexSubType;
+                var entitySubType = ((Property)node.Tag).DataTypeInfo.ComplexSubtype;
                 ComplexType entity;
                 if (!_DemoLoader.GlobalContext.Entities.TryGetValue(entitySubType, out entity))
                     return;

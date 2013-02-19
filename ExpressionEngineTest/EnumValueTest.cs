@@ -37,7 +37,7 @@ namespace ExpressionEngineTest
         [TestMethod()]
         public void EnumValueConstructorTest()
         {
-            var parent = new EnumType(null, "Length", null);
+            var parent = new EnumType(null, "Length", 1, null);
             string name = "Inch";
             int id = 500; 
             var target = new EnumValue(parent, name, id);
@@ -50,7 +50,7 @@ namespace ExpressionEngineTest
         private EnumValue GetEnumValue(string enumSpace, string enumType, string enumValue, int id)
         {
             var space = new EnumSpace(enumSpace, null);
-            var type = space.AddType(enumType, null);
+            var type = space.AddType(enumType, 1, null);
             var value = type.AddValue(enumValue, id);
             return value;
         }

@@ -13,10 +13,12 @@
 *Double clicking an Entity creates USAGE.c_Entitry
 
 
+5:47   464 warnings
+
+
 
 DONE:
 ==================
-
 *Email doesnt have any entities
 *Double clicking a UQG doesn't work
 *Doubleclick countryname doesn't insert
@@ -26,3 +28,23 @@ DONE:
 *Configurable selection
 *Delete old exmail expression
 *Complex Type icon
+
+
+SOLID:
+----------
+BaseType (rename _Enum to Enum?)
+DataTypeInfo (rename? split into subclasses?)
+Property
+ComplexType
+PropertyCollection
+IProperty
+-------------------
+
+Enum Value/Type/Space
+UoMCategory
+UoM
+
+
+
+
+Context!

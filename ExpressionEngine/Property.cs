@@ -50,8 +50,6 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public string Name { get; set; }
 
-        public string TreeNodeLabel { get { return Name + DataTypeInfo.ListSuffix; } }
-
         public string NameLocalized;
 
         /// <summary>
@@ -73,22 +71,6 @@ namespace MetraTech.ExpressionEngine
         /// The defult value for the property
         /// </summary>
         public string DefaultValue;
-
-        /// <summary>
-        /// Combines the data type and description
-        /// </summary>
-        public string ToolTip
-        {
-            get
-            {
-                {
-                    var tooltipStr = DataTypeInfo.ToUserString(true);
-                    if (!string.IsNullOrEmpty(Description))
-                        tooltipStr += "\r\n" + Description;
-                    return tooltipStr;
-                }
-            }
-        }
 
         /// <summary>
         /// Indicates if the property is something that is common within the context of the Parent property.
@@ -124,6 +106,75 @@ namespace MetraTech.ExpressionEngine
         public string Value;
 
         #endregion Properties
+
+        #region GUI Helper Properties (should be moved)
+        public string TreeNodeLabel { get { return Name + DataTypeInfo.ListSuffix; } }
+        /// <summary>
+        /// Combines the data type and description
+        /// </summary>
+        public string ToolTip
+        {
+            get
+            {
+                {
+                    var tooltipStr = DataTypeInfo.ToUserString(true);
+                    if (!string.IsNullOrEmpty(Description))
+                        tooltipStr += "\r\n" + Description;
+                    if (Settings.ShowActualMappings)
+                        tooltipStr += string.Format("\r\n[ColumnName={0}]", "");
+                    return tooltipStr;
+                }
+            }
+        }
+
+        public string ImageDirection
+        {
+            get
+            {
+                switch (Direction)
+                {
+                    case DirectionType.InOut:
+                        return "PropertyInOut.png";
+                    case DirectionType.Input:
+                        return "PropertyInput.png";
+                    case DirectionType.Output:
+                        return "PropertyOutput.png";
+                }
+                throw new NotImplementedException();
+            }
+        }
+
+        public string Image
+        {
+            get
+            {
+                switch (DataTypeInfo.BaseType)
+                {
+                    case BaseType.Boolean:
+                        return "Boolean.png";
+                    case BaseType.Charge:
+                        return "Charge.png";
+                    case BaseType.Decimal:
+                        return "Decimal.png";
+                    case BaseType.Enumeration:
+                        return "EnumType.png";
+                    case BaseType.DateTime:
+                        return "DateTime.png";
+                    case BaseType.String:
+                        return "String.png";
+                    case BaseType.Integer32:
+                        return "Int32.png";
+                    case BaseType.Integer64:
+                        return "Int64.png";
+                    case BaseType.Guid:
+                        return "Guid.png";
+                    case BaseType.ComplexType:
+                        return "Entity.png";
+                }
+                throw new NotImplementedException();
+            }
+        }
+        #endregion
 
         #region Constructors
 
@@ -246,7 +297,7 @@ namespace MetraTech.ExpressionEngine
             var key = string.Format("{0}|{1}", Name, DataTypeInfo.BaseType);
             switch (DataTypeInfo.BaseType)
             {
-                case BaseType._Enum:
+                case BaseType.Enumeration:
                     key += string.Format("|{0}|{1}", DataTypeInfo.EnumSpace, DataTypeInfo.EnumType);
                     break;
             }
@@ -268,7 +319,7 @@ namespace MetraTech.ExpressionEngine
 
         #endregion
 
-        #region XML Methods
+        #region XML Methods (mario to wack)
         public void WriteXmlNode(XmlNode parentNode, string propertyNodeName="Property")
         {
             var propertyNode = parentNode.AddChildNode(propertyNodeName);
@@ -290,65 +341,6 @@ namespace MetraTech.ExpressionEngine
             var dt = DataTypeInfo.CreateFromXmlParentNode(node);
             var property = new Property(name, dt, description);
             return property;
-        }
-        #endregion
-
-        #region Database Methods
-        public Property CreateFromDataRow(DataRow row)
-        {
-            throw new NotImplementedException();
-        }
-        #endregion
-
-        #region GuiSupport Methods
-        //These should be moved to MVC or similar class, but put here because I didn't want to embed into the fat GUI layer
-
-        public string ImageDirection
-        {
-            get
-            {
-                switch (Direction)
-                {
-                    case DirectionType.InOut:
-                        return "PropertyInOut.png";
-                    case DirectionType.Input:
-                        return "PropertyInput.png";
-                    case DirectionType.Output:
-                        return "PropertyOutput.png";
-                }
-                throw new NotImplementedException();
-            }
-        }
-
-        public string Image
-        {
-            get
-            {
-                switch (DataTypeInfo.BaseType)
-                {
-                    case BaseType.Boolean:
-                        return "Boolean.png";
-                    case BaseType.Charge:
-                        return "Charge.png";
-                    case BaseType.Decimal:
-                        return "Decimal.png";
-                    case BaseType._Enum:
-                        return "EnumType.png";
-                    case BaseType.DateTime:
-                        return "DateTime.png";
-                    case BaseType.String:
-                        return "String.png";
-                    case BaseType.Integer32:
-                        return "Int32.png";
-                    case BaseType.Integer64:
-                        return "Int64.png";
-                    case BaseType.Guid:
-                        return "Guid.png";
-                    case BaseType.ComplexType:
-                        return "Entity.png";
-                }
-                throw new NotImplementedException();
-            }
         }
         #endregion
 

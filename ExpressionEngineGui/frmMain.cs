@@ -127,10 +127,7 @@ namespace PropertyGui
             LoadContext();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            _DemoLoader.GlobalContext.Save();
-        }
+
 
         private void btnPageLayout_Click(object sender, EventArgs e)
         {

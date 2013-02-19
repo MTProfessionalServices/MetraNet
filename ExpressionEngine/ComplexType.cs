@@ -4,32 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
+using System.Globalization;
 
 namespace MetraTech.ExpressionEngine
 {
     /// <summary>
-    /// Should this be a sunbclass of Property
+    /// Implements a ComplexType, esentially something that PropertyCollection which may include properties and
+    /// other complex types. Note that DataTypeInfo.IsEntity determines if it's deemed an Entity (an important destinction for Metanga)
     /// </summary>
     public class ComplexType : IProperty, IExpressionEngineTreeNode
     {
         #region Enums
-        public enum ComplexTypeEnum {ServiceDefinition, ProductView, ParameterTable, AccountType, AccountView, BME, Any, Metanga}
+        public enum ComplexTypeEnum {ServiceDefinition, ProductView, ParameterTable, AccountType, AccountView, BusinessModelingEntity, Any, Metanga}
         #endregion
 
         #region Properties
         public string Name { get; set; }
-        public string TreeNodeLabel { get { return Name + DataTypeInfo.ListSuffix; } }
-        public string NameLocalized;
         public bool Required { get; set; }
         public DataTypeInfo DataTypeInfo { get; set; }
-        public PropertyCollection Properties;
+        public PropertyCollection Properties { get; private set; }
 
         public ComplexType ParentEntity { get; set; }
         public string Description { get; set; }
         public Property.DirectionType Direction { get; set; }
-        public string GetCompatableKey() { return string.Format("{0}|{2}", Name, DataTypeInfo.GetCompatableKey()); }
+        public string GetCompatableKey() { return string.Format(CultureInfo.InvariantCulture, "{0}|{1}", Name, DataTypeInfo.GetCompatableKey()); }
 
-        public string DbTableName
+        /// <summary>
+        /// The actual database table name. Used in MetraNet which has a prefix on all table names.
+        /// Not sure what to do for Metanga here.
+        /// </summary>
+        public string DBTableName
         {
             get
             {
@@ -47,15 +51,17 @@ namespace MetraTech.ExpressionEngine
             }
         }
 
+        #region GUI Helper Properties (move in future)
+        public string TreeNodeLabel { get { return Name + DataTypeInfo.ListSuffix; } }
         public string ToolTip
         {
             get
             {
                 var tip = DataTypeInfo.ComplexType.ToString();
                 if (!string.IsNullOrEmpty(Description))
-                    tip += "\r\n" + Description;
+                    tip += Environment.NewLine + Description;
                 if (Settings.ShowActualMappings)
-                    tip += string.Format("\r\n[TableName={0}]", DbTableName);
+                    tip += string.Format(CultureInfo.InvariantCulture, "\r\n[TableName={0}]", DBTableName);
                 return tip;
             }
         }
@@ -89,46 +95,32 @@ namespace MetraTech.ExpressionEngine
                         return "EntityInput.png";
                     case Property.DirectionType.Output:
                         return "EntityOutput.png";
+                    default:
+                        return null;
                 }
-                throw new NotImplementedException();
             }
-        }
-
-        public ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages = null)
-        {
-            if (messages == null)
-                messages = new ValidationMessageCollection();
-
-            var prefix = string.Format(Localization.PropertyMessagePrefix, Name);
-
-            //if (NameRegex.IsMatch(Name))
-            //    messages.Error(prefix + Localization.InvalidName);
-
-            DataTypeInfo.Validate(prefix, messages);
-
-            foreach (var property in Properties)
-            {
-                property.Validate(prefixMsg, messages);
-            }
-
-            return messages;
         }
         #endregion
 
+        #endregion
+
         #region Constructor
-        public ComplexType(string name, ComplexTypeEnum type, string description, PropertyCollection properties=null)
+        public ComplexType(string name, ComplexTypeEnum type, string description)
         {
             Name = name;
             DataTypeInfo = DataTypeInfo.CreateEntity(type);
             Description = description;
-            if (properties != null)
-                Properties = properties;
-            else
-                Properties = new PropertyCollection(this);
+            Properties = new PropertyCollection(this);
         }
         #endregion
 
         #region Methods
+
+        /// <summary>
+        /// Determines if the Properties collection exactly matches the nameFilter or the typeFilter. Useful
+        /// for filtering in the GUI.
+        /// TODO: Add recursive option to look sub entities
+        /// </summary>
         public bool HasPropertyMatch(Regex nameFilter, DataTypeInfo typeFilter)
         {
             foreach (var property in Properties)
@@ -146,7 +138,7 @@ namespace MetraTech.ExpressionEngine
         {
             get
             {
-                return string.Format("{0}.{1}", GetPrefix(), Name);
+                return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", GetPrefix(), Name);
             }
         }
 
@@ -171,30 +163,36 @@ namespace MetraTech.ExpressionEngine
             return newEntity;
         }
 
-        public void Save(string filePath)
+        public ValidationMessageCollection Validate(bool prefixMsg)
         {
-            var doc = new XmlDocument();
-            var entityNode = doc.AddChildNode("Entity");
-            entityNode.AddChildNode("Name", Name);
-            entityNode.AddChildNode("Type", DataTypeInfo.ComplexType.ToString());
-            entityNode.AddChildNode("Description", Description);
-            Properties.WriteXmlNode(entityNode);
-            doc.SaveFormatted(filePath);
+            return Validate(prefixMsg, null);
         }
 
-        public void WriteXmlNode(XmlNode parentNode, string propertyNodeName="Property")
+        public ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages)
         {
-            var propertyNode = parentNode.AddChildNode(propertyNodeName);
-            propertyNode.AddChildNode("Name", Name);
-            DataTypeInfo.WriteXmlNode(propertyNode);
-            propertyNode.AddChildNode("Required", Required);
-            propertyNode.AddChildNode("Description", Description);
+            if (messages == null)
+                messages = new ValidationMessageCollection();
+
+            var prefix = string.Format(CultureInfo.InvariantCulture, Localization.PropertyMessagePrefix, Name);
+
+            //if (NameRegex.IsMatch(Name))
+            //    messages.Error(prefix + Localization.InvalidName);
+
+            DataTypeInfo.Validate(prefix, messages);
+
+            foreach (var property in Properties)
+            {
+                property.Validate(prefixMsg, messages);
+            }
+
+            return messages;
         }
 
         #endregion
 
+
         #region Create Methods
-        public static ComplexType CreateProductView(string name, string description=null)
+        public static ComplexType CreateProductView(string name, string description)
         {
             return new ComplexType(name, ComplexTypeEnum.ProductView, description);
         }

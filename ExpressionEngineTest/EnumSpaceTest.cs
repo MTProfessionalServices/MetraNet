@@ -25,24 +25,6 @@ namespace ExpressionEngineTest
         }
 
         /// <summary>
-        ///A test for AddEnum
-        ///</summary>
-        [TestMethod()]
-        public void AddEnumTest()
-        {
-            Context context = null; // TODO: Initialize to an appropriate value
-            string enumSpace = string.Empty; // TODO: Initialize to an appropriate value
-            string enumType = string.Empty; // TODO: Initialize to an appropriate value
-            string enumValue = string.Empty; // TODO: Initialize to an appropriate value
-            int enumId = 0; // TODO: Initialize to an appropriate value
-            EnumValue expected = null; // TODO: Initialize to an appropriate value
-            EnumValue actual;
-            actual = EnumSpace.AddEnum(context, enumSpace, enumType, enumValue, enumId);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
         ///A test for AddType
         ///</summary>
         [TestMethod()]
@@ -53,7 +35,7 @@ namespace ExpressionEngineTest
             //Add it
             string name = "Global";
             string description = "Primary enum type";
-            var enumType = enumSpace.AddType(name, description);
+            var enumType = enumSpace.AddType(name, 1, description);
 
             //Look it up
             EnumType enumTypeLookup;
@@ -79,7 +61,7 @@ namespace ExpressionEngineTest
             Assert.IsFalse(enumSpace.TryGetEnumType(name, out enumType), "Empty list");
 
             //Add it
-            var actualEnumType = enumSpace.AddType("Global", null);
+            var actualEnumType = enumSpace.AddType("Global", 1, null);
 
             //Look it up
             Assert.IsTrue(enumSpace.TryGetEnumType(name, out enumType), "Expect to find");

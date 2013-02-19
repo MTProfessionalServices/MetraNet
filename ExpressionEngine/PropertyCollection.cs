@@ -171,17 +171,6 @@ namespace MetraTech.ExpressionEngine
             }
         }
 
-        public void WriteXmlNode(XmlNode parentNode, string collectionNodeName = "Properties")
-        {
-            var collectionNode = parentNode.AddChildNode(collectionNodeName);
-            foreach (var property in Properties)
-            {
-                if (property is Property)
-                    ((Property)property).WriteXmlNode(collectionNode, "Property");
-                else
-                    ((ComplexType)property).WriteXmlNode(collectionNode, "Property");
-            }
-        }
         #endregion
 
         #region IEnumerable Methods

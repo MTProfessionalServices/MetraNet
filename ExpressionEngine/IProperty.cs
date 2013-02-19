@@ -13,11 +13,13 @@ namespace MetraTech.ExpressionEngine
         ComplexType ParentEntity { get; }
         string Description { get; set; }
         Property.DirectionType Direction { get; set; }
-        string Image { get; }
-        string ImageDirection { get; }
         string GetCompatableKey();
-        string ToExpressionSnippet { get; }
+        string ToExpressionSnippet { get; }   //This should be a Method (I had some Issue that I don't recall...
         object Clone();
         ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages = null);
+
+        //Gui Properties that shold be moved
+        string Image { get; }
+        string ImageDirection { get; }
     }
 }

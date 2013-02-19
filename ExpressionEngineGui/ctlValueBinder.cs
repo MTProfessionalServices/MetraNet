@@ -107,7 +107,7 @@ namespace PropertyGui
                     case BaseType.Boolean:
                         Control = CreateBooleanComboBox();
                         break;
-                    case BaseType._Enum:
+                    case BaseType.Enumeration:
                         Control = CreateEnumComboBox(Property.DataTypeInfo);
                         break;
                     default:

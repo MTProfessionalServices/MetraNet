@@ -1,18 +1,16 @@
 ﻿namespace MetraTech.ExpressionEngine
 {
     //The underlying data type. DataTypeInfo
-    //Not sure why I'm getting an error message when I try to change to "Enum"... If that can't be addressed, switch to Enumeration
-    //Should Charge be reanmed amont? Or do we want Charge and Amount?
     public enum BaseType
     {
-        Unknown,            // Used so that we don't need to do nullable type casting (i.e., BaseType?) 
+        Unknown,            // Used so that we don't need to do nullable type casting (i.e., BaseType?) What FIRST so that this is the default!
         String,
         Integer,
         Integer32,
         Integer64,
         DateTime,
-        ComplexType,             //Spans evertying from BMEs to ProductViews
-        _Enum,
+        ComplexType,             //Spans everying from BMEs to ProductViews
+        Enumeration,            
         Decimal,
         Float,
         Double,

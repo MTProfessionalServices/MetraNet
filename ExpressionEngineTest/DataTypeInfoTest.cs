@@ -67,7 +67,7 @@ namespace ExpressionEngineTest
             GetDataTypeEnum(BaseType.Integer64, "integer64");
             GetDataTypeEnum(BaseType.DateTime, "timestamp");
             GetDataTypeEnum(BaseType.DateTime, "datetime");
-            GetDataTypeEnum(BaseType._Enum, "enum");
+            GetDataTypeEnum(BaseType.Enumeration, "enum");
             GetDataTypeEnum(BaseType.Decimal, "decimal");
             GetDataTypeEnum(BaseType.Double, "double");
             GetDataTypeEnum(BaseType.Boolean, "boolean");

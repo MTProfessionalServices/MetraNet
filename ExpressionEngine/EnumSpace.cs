@@ -11,11 +11,15 @@ namespace MetraTech.ExpressionEngine
     {
         #region Properties
         public string Name { get; set; }
-        public string TreeNodeLabel { get { return Name; } }
         public string Description { get; set; }
+
+        public List<EnumType> EnumTypes = new List<EnumType>();
+        #endregion
+
+        #region GUI Helper Properties (move in future)
+        public string TreeNodeLabel { get { return Name; } }
         public string ToolTip { get { return Description; } }
         public string Image { get { return "EnumSpace.png"; } }
-        public List<EnumType> EnumTypes = new List<EnumType>();
         #endregion
 
         #region Constructor
@@ -28,9 +32,9 @@ namespace MetraTech.ExpressionEngine
 
         #region Methods
 
-        public EnumType AddType(string name, string description)
+        public EnumType AddType(string name, int id, string description)
         {
-            var type = new EnumType(this, name, description);
+            var type = new EnumType(this, name, id, description);
             EnumTypes.Add(type);
             return type;
         }
@@ -70,7 +74,7 @@ namespace MetraTech.ExpressionEngine
         }
 
 
-        public static EnumValue AddEnum(Context context, string enumSpace, string enumType, string enumValue, int enumId)
+        public static EnumValue AddEnum(Context context, string enumSpace, string enumType, int enumTypeId,  string enumValue, int enumValueId)
         {
             EnumSpace space;
             if (!context.EnumSpaces.TryGetValue(enumSpace, out space))
@@ -82,11 +86,11 @@ namespace MetraTech.ExpressionEngine
             EnumType type;
             if (!space.TryGetEnumType(enumType, out type))
             {
-                type = new EnumType(space, enumType, null);
+                type = new EnumType(space, enumType, enumTypeId, null);
                 space.EnumTypes.Add(type);
             }
 
-            var enumValueObj = type.AddValue(enumValue, enumId);
+            var enumValueObj = type.AddValue(enumValue, enumValueId);
             return enumValueObj;
         }
         #endregion

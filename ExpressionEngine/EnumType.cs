@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using System.Collections.ObjectModel;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -11,18 +12,39 @@ namespace MetraTech.ExpressionEngine
         #region Properties
         public readonly EnumSpace Parent;
         public string Name { get; set; }
-        public string TreeNodeLabel { get { return Name; } }
+        public int Id { get; set; }
         public string Description { get; set; }
-        public string ToolTip { get { return Description; } }
+        public Collection<EnumValue> Values = new Collection<EnumValue>();
+        #endregion
+
+        #region GUI Support Properties (should be moved in future)
+
+        public string TreeNodeLabel { get { return Name; } }
         public string Image { get { return "EnumType.png"; } }
-        public List<EnumValue> Values = new List<EnumValue>();
+
+        /// <summary>
+        /// TOGO Localize
+        /// </summary>
+        public string ToolTip
+        {
+            get
+            {
+                var toolTip = "EnumType";
+                if (!string.IsNullOrEmpty(Description))
+                    toolTip += "\r\n" + Description;
+                if (Settings.ShowActualMappings)
+                    toolTip += string.Format("\r\n[DatabaseId={0}]", Id);
+                return toolTip;
+            }
+        }
         #endregion
 
         #region Constructor
-        public EnumType(EnumSpace parent, string name, string description)
+        public EnumType(EnumSpace parent, string name, int id, string description)
         {
             Parent = parent;
             Name = name;
+            Id = id;
             Description = description;
         }
         #endregion
@@ -45,21 +67,14 @@ namespace MetraTech.ExpressionEngine
 
         public void Save(string dirPath)
         {
-            var doc = new XmlDocument();
-            var rootNode = doc.AddChildNode("EnumType");
-            rootNode.AddChildNode("Name", Name);
-            rootNode.AddChildNode("EnumSpace", Parent.Name);
-            rootNode.AddChildNode("Description", Description);
-            var valuesNode = rootNode.AddChildNode("Values");
-            foreach (var value in Values)
-            {
-                value.WriteXmlChildNode(valuesNode);
-            }
-            var enumSpace = Parent.Name.Replace('\\', '_');
-            var name = Name.Replace('\\', '_');
-            if (enumSpace.Contains(@"\") || name.Contains(@"\"))
-                throw new Exception("found backslash");
-            doc.SaveFormatted(string.Format(@"{0}\{1}.{2}.EnumType.xml", dirPath, enumSpace, name));
+            throw new NotImplementedException();
+            ////var doc = new XmlDocument();
+         
+            ////var enumSpace = Parent.Name.Replace('\\', '_');
+            ////var name = Name.Replace('\\', '_');
+            ////if (enumSpace.Contains(@"\") || name.Contains(@"\"))
+            ////    throw new Exception("found backslash");
+            ////doc.SaveFormatted(string.Format(@"{0}\{1}.{2}.EnumType.xml", dirPath, enumSpace, name));
         }
         #endregion
     }

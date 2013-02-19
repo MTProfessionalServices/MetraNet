@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
+using System.Globalization;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -131,7 +132,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// The subtype of the Entity type. For example, a BME ma
         /// </summary>
-        public string ComplexSubType { get; set; }
+        public string ComplexSubtype { get; set; }
 
         /// <summary>
         /// Indicates if the ComplexType is deemed an Entity
@@ -170,7 +171,6 @@ namespace MetraTech.ExpressionEngine
         {
             var baseTypes = Enum.GetValues(typeof(BaseType));
             AllTypes = new DataTypeInfo[baseTypes.Length];
-            //for (int index=0; index < baseTypes.Length; index++)
 
             int index = 0;
             foreach (var value in baseTypes)
@@ -183,7 +183,7 @@ namespace MetraTech.ExpressionEngine
               BaseType.Boolean, 
               BaseType.Decimal,
               BaseType.Double,
-              BaseType._Enum, 
+              BaseType.Enumeration, 
               BaseType.Guid, 
               BaseType.Integer32, 
               BaseType.Integer64, 
@@ -208,7 +208,7 @@ namespace MetraTech.ExpressionEngine
             PropertyTypeId_BaseTypeMapping.Add(3, BaseType.DateTime);
             PropertyTypeId_BaseTypeMapping.Add(5, BaseType.Decimal); ///this is showing up a numeric(18,6)
             PropertyTypeId_BaseTypeMapping.Add(7, BaseType.Decimal);
-            PropertyTypeId_BaseTypeMapping.Add(8, BaseType._Enum);
+            PropertyTypeId_BaseTypeMapping.Add(8, BaseType.Enumeration);
             PropertyTypeId_BaseTypeMapping.Add(9, BaseType.Boolean);
             PropertyTypeId_BaseTypeMapping.Add(11, BaseType.Integer64);
         }
@@ -238,7 +238,7 @@ namespace MetraTech.ExpressionEngine
         public DataTypeInfo(string enumSpace, string enumType)
             : this()
         {
-            BaseType = BaseType._Enum;
+            BaseType = BaseType.Enumeration;
             this.EnumSpace = enumSpace;
             this.EnumType = enumType;
         }
@@ -300,7 +300,7 @@ namespace MetraTech.ExpressionEngine
         }
         public static DataTypeInfo CreateEnum(string enumSpace, string enumType)
         {
-            var type = new DataTypeInfo(BaseType._Enum);
+            var type = new DataTypeInfo(BaseType.Enumeration);
             type.EnumSpace = enumSpace;
             type.EnumType = enumType;
             return type;
@@ -310,7 +310,7 @@ namespace MetraTech.ExpressionEngine
         {
             var dataType = new DataTypeInfo(BaseType.ComplexType);
             dataType.ComplexType = entityType;
-            dataType.ComplexSubType = subType;
+            dataType.ComplexSubtype = subType;
             return dataType;
         }
         public static DataTypeInfo CreateString(int length = 0)
@@ -343,13 +343,13 @@ namespace MetraTech.ExpressionEngine
             var dt = CreateFromDataTypeString(node.InnerText);
             switch (dt.BaseType)
             {
-                case BaseType._Enum:
+                case BaseType.Enumeration:
                     dt.EnumSpace = node.GetAttribute("EnumSpace");
                     dt.EnumType = node.GetAttribute("EnumType");
                     break;
                 case BaseType.ComplexType:
                     dt.ComplexType = node.GetChildEnum<ComplexType.ComplexTypeEnum>("Type");
-                    dt.ComplexSubType = node.GetChildTag("SubType");
+                    dt.ComplexSubtype = node.GetChildTag("SubType");
                     break;
             }
             return dt;
@@ -361,13 +361,13 @@ namespace MetraTech.ExpressionEngine
             var dataTypeNode = parentNode.AddChildNode("DataType", BaseType.ToString());
             switch (BaseType)
             {
-                case ExpressionEngine.BaseType._Enum:
+                case ExpressionEngine.BaseType.Enumeration:
                     dataTypeNode.AddAttribute("EnumSpace", EnumSpace);
                     dataTypeNode.AddAttribute("EnumType", EnumType);
                     return;
                 case ExpressionEngine.BaseType.ComplexType:
                     dataTypeNode.AddAttribute("Type", ComplexType.ToString());
-                    dataTypeNode.AddAttribute("SubType", ComplexSubType);
+                    dataTypeNode.AddAttribute("SubType", ComplexSubtype);
                     return;
             }
 
@@ -415,7 +415,7 @@ namespace MetraTech.ExpressionEngine
                 case BaseType.Double:
                     baseStr = "Double";
                     break;
-                case BaseType._Enum:
+                case BaseType.Enumeration:
                     if (robustMode)
                         return string.Format("Enum.{0}.{1}", EnumSpace, EnumType);
                     return "Enum";
@@ -446,7 +446,7 @@ namespace MetraTech.ExpressionEngine
                     break;
                 case BaseType.ComplexType:
                     //return string.Format("ComplexSubType");
-                    return string.Format("{0}: {1}", ComplexType, ComplexSubType);
+                    return string.Format("{0}: {1}", ComplexType, ComplexSubtype);
                 default:
                     throw new ApplicationException("Unhandled data type: " + BaseType.ToString());
             }
@@ -492,7 +492,7 @@ namespace MetraTech.ExpressionEngine
                     return "DECIMAL";
                 case BaseType.Double:
                     return "DOUBLE";
-                case BaseType._Enum:
+                case BaseType.Enumeration:
                     return "ENUM";
                 case BaseType.Integer32:
                     return "INTEGER";
@@ -521,7 +521,7 @@ namespace MetraTech.ExpressionEngine
                     return "Int64";
                 case BaseType.DateTime:
                     return "DateTime";
-                case BaseType._Enum:
+                case BaseType.Enumeration:
                     return "Enum"; //I'm totally unsure about this here.
                 case BaseType.Decimal:
                     return "Decimal";
@@ -569,7 +569,7 @@ namespace MetraTech.ExpressionEngine
                     return "decimal";
                 case BaseType.Double:
                     return "double";
-                case BaseType._Enum:
+                case BaseType.Enumeration:
                     throw new NotImplementedException();
                 //return MetraTech.DomainModel.Enums.EnumHelper.GetGeneratedEnumType(EnumSpace, EnumType, EnvironmentConfiguration.Instance.MetraNetBinariesDirectory).ToString();
                 case BaseType.Integer32:
@@ -604,7 +604,7 @@ namespace MetraTech.ExpressionEngine
                     return typeof(decimal);
                 case BaseType.Double:
                     return typeof(double);
-                case BaseType._Enum: //Not sure about this one!
+                case BaseType.Enumeration: //Not sure about this one!
                     return typeof(EnumHelper); //typeof(Int32)
                 case BaseType.Integer32:
                     return typeof(int);
@@ -644,7 +644,7 @@ namespace MetraTech.ExpressionEngine
             string errorMsg = null;
             switch (BaseType)
             {
-                case ExpressionEngine.BaseType._Enum:
+                case ExpressionEngine.BaseType.Enumeration:
                     errorMsg = CheckEnum();
                     break;
                 case ExpressionEngine.BaseType.ComplexType:
@@ -688,7 +688,7 @@ namespace MetraTech.ExpressionEngine
                 case BaseType.DateTime:
                     DateTime theDT;
                     return System.DateTime.TryParse(value, out theDT);
-                case BaseType._Enum:
+                case BaseType.Enumeration:
                     throw new NotImplementedException();
                 //return Config.Instance.EnumerationConfig.ValueExists(EnumSpace, EnumType, value);
                 case BaseType.Decimal:
@@ -714,7 +714,7 @@ namespace MetraTech.ExpressionEngine
         /// <returns></returns>
         private string CheckEnum()
         {
-            ThrowExcpetionIfWrongType(BaseType._Enum);
+            ThrowExcpetionIfWrongType(BaseType.Enumeration);
 
             //Check if the EnumSpace was specified
             if (string.IsNullOrEmpty(EnumSpace))
@@ -722,7 +722,7 @@ namespace MetraTech.ExpressionEngine
 
             //Check if the NameSpace exists
             if (!EnumHelper.NameSpaceExists(EnumSpace))
-                return string.Format(Localization.UnableToFindEnumNamespace, EnumSpace);
+                return string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumNamespace, EnumSpace);
 
             //Check if the EnumType was specified
             if (string.IsNullOrEmpty(this.EnumType))
@@ -730,7 +730,7 @@ namespace MetraTech.ExpressionEngine
 
             //Check if the EnumType exists
             if (!EnumHelper.TypeExists(EnumSpace, EnumType))
-                return string.Format(Localization.UnableToFindEnumType, EnumSpace + "." + EnumType);
+                return string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumType, EnumSpace + "." + EnumType);
 
             return null;
         }
@@ -738,7 +738,7 @@ namespace MetraTech.ExpressionEngine
         private void ThrowExcpetionIfWrongType(BaseType expected)
         {
             if (expected != BaseType)
-                throw new Exception(string.Format(Localization.BaseTypeIncorrect, expected, BaseType));
+                throw new Exception(string.Format(CultureInfo.InvariantCulture, Localization.BaseTypeIncorrect, expected, BaseType));
         }
 
         #endregion
@@ -749,7 +749,7 @@ namespace MetraTech.ExpressionEngine
         {
             switch (BaseType)
             {
-                case BaseType._Enum:
+                case BaseType.Enumeration:
                     return string.Format("{0}|{1}|{2}", BaseType, EnumSpace, EnumType);
                 case BaseType.ComplexType:
                     return string.Format("{0}|{1}", BaseType, ComplexType);
@@ -783,7 +783,7 @@ namespace MetraTech.ExpressionEngine
                 case "datetime":
                     return BaseType.DateTime;
                 case "enum":
-                    return BaseType._Enum;
+                    return BaseType.Enumeration;
                 case "decimal":
                     return BaseType.Decimal;
                 case "float":
@@ -850,7 +850,7 @@ namespace MetraTech.ExpressionEngine
                 case BaseType.Float:
                     return System.Decimal.Round((Decimal)randomNumber.Next(1, 99) + (Decimal)randomNumber.NextDouble(), 2).ToString();
 
-                case BaseType._Enum:
+                case BaseType.Enumeration:
                     var values = EnumHelper.GetValues(EnumSpace, EnumType);
                     return values[randomNumber.Next() % values.Count];
 
@@ -891,7 +891,7 @@ namespace MetraTech.ExpressionEngine
                     return "8.88";
                 case BaseType.Float:
                     return "7.77";
-                case BaseType._Enum:
+                case BaseType.Enumeration:
                     return "555";
                 case BaseType.Integer32:
                     return "111";
@@ -925,7 +925,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// Determines if the data type is Enum
         /// </summary>
-        public bool IsEnum { get { return (BaseType == BaseType._Enum); } }
+        public bool IsEnum { get { return (BaseType == BaseType.Enumeration); } }
 
         public bool IsComplexType { get { return BaseType == ExpressionEngine.BaseType.ComplexType; } }
 
@@ -984,9 +984,9 @@ namespace MetraTech.ExpressionEngine
                 return MatchType.Any;
 
             //Enum
-            if (BaseType == ExpressionEngine.BaseType._Enum)
+            if (BaseType == ExpressionEngine.BaseType.Enumeration)
             {
-                if (type2.BaseType != ExpressionEngine.BaseType._Enum)
+                if (type2.BaseType != ExpressionEngine.BaseType.Enumeration)
                     return MatchType.None;
                 if (EnumSpace == type2.EnumSpace && EnumType == type2.EnumType)
                     return MatchType.Exact;
@@ -1054,7 +1054,7 @@ namespace MetraTech.ExpressionEngine
         public static string ConvertValueToMtsqlConstant(DataTypeInfo dtInfo, string value)
         {
             if (dtInfo == null)
-                throw new ApplicationException("DataTypeInfo is null.");
+                throw new Exception("DataTypeInfo is null.");
 
             switch (dtInfo.BaseType)
             {
@@ -1073,8 +1073,8 @@ namespace MetraTech.ExpressionEngine
                 case BaseType.DateTime:
                     return "'" + value + "'";
 
-                case BaseType._Enum:
-                    return string.Format("#{0}/{1}/{2}#", dtInfo.EnumSpace, dtInfo.EnumType, value);
+                case BaseType.Enumeration:
+                    return string.Format(CultureInfo.InvariantCulture, "#{0}/{1}/{2}#", dtInfo.EnumSpace, dtInfo.EnumType, value);
 
                 //Don't do anything special
                 default:
@@ -1095,7 +1095,7 @@ namespace MetraTech.ExpressionEngine
                     return '"' + value + '"';
                 case BaseType.Decimal:
                     return value + "M";
-                case BaseType._Enum:
+                case BaseType.Enumeration:
                     throw new NotImplementedException();
                 //Type enumType = EnumHelper.GetGeneratedEnumType(dtInfo.EnumSpace, dtInfo.EnumType, EnvironmentConfiguration.Instance.MetraNetBinariesDirectory);
                 //object enumValue = EnumHelper.GetGeneratedEnumByEntry(enumType, value);
@@ -1123,7 +1123,7 @@ namespace MetraTech.ExpressionEngine
                     return decimal.Parse(value);
                 case BaseType.Double:
                     return double.Parse(value);
-                case BaseType._Enum:
+                case BaseType.Enumeration:
                     return EnumHelper.GetMetraNetIntValue(type, value);
                 case BaseType.Float:
                     return float.Parse(value);

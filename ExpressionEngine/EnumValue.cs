@@ -20,8 +20,6 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public string Name { get; set; }
 
-        public string TreeNodeLabel { get { return Name; } }
-
         /// <summary>
         /// MetraNet enums are repreesnted by an ID that will vary by installation
         /// </summary>
@@ -33,7 +31,7 @@ namespace MetraTech.ExpressionEngine
         public string Description { get; set; }
         #endregion
 
-        #region GUI Properties
+        #region GUI Support Properties (should be moved)
         /// <summary>
         /// TOGO Localize
         /// </summary>
@@ -41,19 +39,23 @@ namespace MetraTech.ExpressionEngine
         {
             get
             {
-                var toolTip = Description;
+                var toolTip = "EnumValue";
+                if (!string.IsNullOrEmpty(Description))
+                    toolTip += "\r\n" + Description;
                 if (Settings.ShowActualMappings)
-                    toolTip += string.Format("[DatabaseId={0}]", Description, Id);
+                    toolTip += string.Format("\r\n[DatabaseId={0}]", Id);
                 return toolTip;
             }
         }
+
+        public string TreeNodeLabel { get { return Name; } }
 
         /// <summary>
         /// The 16x16 image associated with the value
         /// </summary>
         public string Image { get { return "EnumValue.png"; } }
 
-        #endregion
+        #endregion 
 
         #region Constructor
         public EnumValue(EnumType parent, string value, int id)
@@ -88,12 +90,6 @@ namespace MetraTech.ExpressionEngine
                 else
                     return ToMtsql();
             }
-        }
-
-        public void WriteXmlChildNode(XmlNode parentNode)
-        {
-            //TODO: We need to write out more stuff
-            var valueNode = parentNode.AddChildNode("Value", Name);
         }
 
         #endregion

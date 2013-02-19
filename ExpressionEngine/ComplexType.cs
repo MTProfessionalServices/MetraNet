@@ -108,7 +108,7 @@ namespace MetraTech.ExpressionEngine
         public ComplexType(string name, ComplexTypeEnum type, string description)
         {
             Name = name;
-            DataTypeInfo = DataTypeInfo.CreateEntity(type);
+            DataTypeInfo = DataTypeInfo.CreateEntity(type, null);
             Description = description;
             Properties = new PropertyCollection(this);
         }

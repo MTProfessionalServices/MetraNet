@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
 using System.Globalization;
+using System.Collections.ObjectModel;
+using System.Diagnostics.Contracts;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -42,7 +44,8 @@ namespace MetraTech.ExpressionEngine
 
         #region Static properties
 
-        public static readonly DataTypeInfo[] AllTypes;
+        //public static DataTypeInfo[] AllTypes;
+        public static DataTypeInfo[] AllTypes;
 
         /// <summary>
         /// BaseTypes supported by MSIX entities (e.g., Service Definitoins, ProductViews, etc.).
@@ -61,6 +64,9 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public static DataTypeInfo CopyFrom(DataTypeInfo other)
         {
+            if (other == null)
+                throw new ArgumentNullException("other");
+
             var type = new DataTypeInfo(other.BaseType);
             type.EnumSpace = other.EnumSpace;
             type.EnumType = other.EnumType;
@@ -146,12 +152,6 @@ namespace MetraTech.ExpressionEngine
         /// Indicates the unit of measure mode (fixed or driven by other property). Only valid for when IsNumeric is true. 
         /// </summary>
         public UomModeType UomMode { get; set; }
-
-        /// <summary>
-        /// The Unit of Measure (UoM) when the UomMode is Fixed. Only valid when IsNumeric is true. Current intent
-        /// is to use the for Currency when BaseType is Charge. 
-        /// </summary>
-        public string UoM { get; set; }
 
         /// <summary>
         /// Depending on the UomMode, specifies a fixed UoM, a UoM category or the name of the property that determines the UOM.
@@ -306,11 +306,11 @@ namespace MetraTech.ExpressionEngine
             return type;
         }
 
-        public static DataTypeInfo CreateEntity(ComplexType.ComplexTypeEnum entityType, string subType = null)
+        public static DataTypeInfo CreateEntity(ComplexType.ComplexTypeEnum entityType, string subtype)
         {
             var dataType = new DataTypeInfo(BaseType.ComplexType);
             dataType.ComplexType = entityType;
-            dataType.ComplexSubtype = subType;
+            dataType.ComplexSubtype = subtype;
             return dataType;
         }
         public static DataTypeInfo CreateString(int length = 0)
@@ -402,7 +402,7 @@ namespace MetraTech.ExpressionEngine
                     return "Boolean";
                 case BaseType.Binary:
                     if (robustMode)
-                        return string.Format("Binary({0})", ComplexType);
+                        return string.Format(CultureInfo.InvariantCulture, "Binary({0})", ComplexType);
                     return "Binary";
                 case BaseType.Charge:
                     baseStr = "Charge";
@@ -417,7 +417,7 @@ namespace MetraTech.ExpressionEngine
                     break;
                 case BaseType.Enumeration:
                     if (robustMode)
-                        return string.Format("Enum.{0}.{1}", EnumSpace, EnumType);
+                        return string.Format(CultureInfo.InvariantCulture, "Enum.{0}.{1}", EnumSpace, EnumType);
                     return "Enum";
                 case BaseType.Integer:
                     baseStr = "Integer";
@@ -430,7 +430,7 @@ namespace MetraTech.ExpressionEngine
                     break;
                 case BaseType.String:
                     if (robustMode && Length > 0)
-                        return string.Format("String({0})", Length.ToString());
+                        return string.Format(CultureInfo.InvariantCulture, "String({0})", Length.ToString());
                     return "String";
                 case BaseType.Guid:
                     return "Guid";
@@ -446,7 +446,7 @@ namespace MetraTech.ExpressionEngine
                     break;
                 case BaseType.ComplexType:
                     //return string.Format("ComplexSubType");
-                    return string.Format("{0}: {1}", ComplexType, ComplexSubtype);
+                    return string.Format(CultureInfo.InvariantCulture, "{0}: {1}", ComplexType, ComplexSubtype);
                 default:
                     throw new ApplicationException("Unhandled data type: " + BaseType.ToString());
             }
@@ -454,7 +454,7 @@ namespace MetraTech.ExpressionEngine
             if (!robustMode)
                 return baseStr;
 
-            return string.Format("{0} ({1})", baseStr, GetUomDecoration());
+            return string.Format(CultureInfo.InvariantCulture, "{0} ({1})", baseStr, GetUomDecoration());
         }
 
         public string GetUomDecoration()
@@ -537,24 +537,6 @@ namespace MetraTech.ExpressionEngine
         public static string ToCSharpStr(BaseType type)
         {
             return DataTypeInfo.ToCSharpType(type).ToString();
-        }
-
-        /// <summary>
-        /// Returns an SQL Server version of the type
-        /// </summary>
-        /// <returns></returns>
-        public string ToSqlServerString()
-        {
-            throw new ApplicationException("Not implemented yet");
-        }
-
-        /// <summary>
-        /// Returns an Oracle version of the type
-        /// </summary>
-        /// <returns></returns>
-        public string ToOracleString()
-        {
-            throw new ApplicationException("Not implemented yet");
         }
 
 
@@ -979,6 +961,10 @@ namespace MetraTech.ExpressionEngine
 
         public MatchType CompareType(DataTypeInfo type2)
         {
+            if (type2 == null)
+                throw new ArgumentNullException("type2");
+
+
             //Any match only works one way
             if (BaseType == ExpressionEngine.BaseType.Any)
                 return MatchType.Any;
@@ -1054,7 +1040,9 @@ namespace MetraTech.ExpressionEngine
         public static string ConvertValueToMtsqlConstant(DataTypeInfo dtInfo, string value)
         {
             if (dtInfo == null)
-                throw new Exception("DataTypeInfo is null.");
+                throw new ArgumentNullException("dtInfo");
+            if (value == null)
+                throw new ArgumentNullException("value");
 
             switch (dtInfo.BaseType)
             {
@@ -1084,8 +1072,8 @@ namespace MetraTech.ExpressionEngine
 
         public static string ConvertValueStringToCSharpConstant(DataTypeInfo dtInfo, string value)
         {
-            if (dtInfo == null)
-                throw new ApplicationException("DataTypeInfo is null.");
+            if (dtInfo != null)
+                throw new ArgumentNullException("dtInfo");
 
             switch (dtInfo.BaseType)
             {
@@ -1136,7 +1124,7 @@ namespace MetraTech.ExpressionEngine
                 //case DataType._timestamp:
                 //    return new DateTime.Parse(value);
                 default:
-                    throw new Exception("Unhandled DataType " + type.BaseType.ToString());
+                    throw new ArgumentException("Unhandled DataType " + type.BaseType.ToString());
             }
         }
         #endregion

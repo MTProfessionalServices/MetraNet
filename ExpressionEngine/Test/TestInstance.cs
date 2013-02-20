@@ -10,7 +10,7 @@ namespace MetraTech.ExpressionEngine.Test
     /// This is test for an expression which is configured and run by the end-user.
     /// </summary>
     [DataContract]
-    public class Test
+    public class TestInstance
     {
         #region Properties
         public string Name { get; set; }
@@ -20,7 +20,7 @@ namespace MetraTech.ExpressionEngine.Test
         #endregion
 
         #region Constructor 
-        public Test()
+        public TestInstance()
         {
             Properties = new PropertyCollection(this);
         }

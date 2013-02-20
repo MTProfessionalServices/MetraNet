@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MetraTech.ExpressionEngine;
+using System.Windows.Forms;
 
 namespace PropertyGui
 {
@@ -76,6 +77,19 @@ namespace PropertyGui
                 types.Add(ComplexType.ComplexTypeEnum.Any);
 
             return types;
+        }
+
+        public static MessageBoxIcon GetMessageBoxIcon(ValidationMessage.SeverityType severity)
+        {
+            switch (severity)
+            {
+                case ValidationMessage.SeverityType.Error:
+                    return MessageBoxIcon.Stop;
+                case ValidationMessage.SeverityType.Warn:
+                    return MessageBoxIcon.Warning;
+                default:
+                    return MessageBoxIcon.Information;
+            }
         }
 
         #endregion

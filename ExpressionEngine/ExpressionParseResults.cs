@@ -9,9 +9,7 @@ namespace MetraTech.ExpressionEngine
     {
         #region Properties
         public bool IsValid { get; set; }
-        public string Message { get; set; }
-        public int LineNumber { get; set; }
-        public int ColumnNumber { get; set; }
+        public ValidationMessageCollection  Messages {get; private set;}
         public object ParseTree { get; set; }
         public DataTypeInfo DataTypeInfo { get; set; }
         public PropertyCollection Parameters { get; private set; }
@@ -20,18 +18,18 @@ namespace MetraTech.ExpressionEngine
         #region Constructor
         public ExpressionParseResults()
         {
+            Messages = new ValidationMessageCollection();
             Parameters = new PropertyCollection(this);
             IsValid = false;
         }
         #endregion
 
         #region Methods
-        public bool BindResultsToContext(Context context)
+        public void BindResultsToContext(Context context)
         {
             if (context == null)
                 new ArgumentNullException("context");
 
-            bool allInputsBound = true;
             foreach (var parameter in Parameters)
             {
                 var property = context.GetRecursive(parameter.Name);
@@ -44,11 +42,11 @@ namespace MetraTech.ExpressionEngine
                 {
                     parameter.Description = null;
                     parameter.DataTypeInfo.BaseType = BaseType.Unknown;
-                    allInputsBound = false;
+
+                    //Would be really nice to provide line/column number here. Need parse tree to do that
+                    Messages.Error(string.Format(Localization.UnableToFindProperty, parameter.Name));
                 }
             }
-
-            return allInputsBound;
         }
         #endregion
     }

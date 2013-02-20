@@ -106,6 +106,15 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The expression is valid..
+        /// </summary>
+        internal static string ExpressionIsValid {
+            get {
+                return ResourceManager.GetString("ExpressionIsValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid Name.
         /// </summary>
         internal static string InvalidName {
@@ -138,6 +147,15 @@ namespace MetraTech.ExpressionEngine {
         internal static string UnableToFindEnumType {
             get {
                 return ResourceManager.GetString("UnableToFindEnumType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to find &apos;{0}&apos; property in the current context.
+        /// </summary>
+        internal static string UnableToFindProperty {
+            get {
+                return ResourceManager.GetString("UnableToFindProperty", resourceCulture);
             }
         }
     }

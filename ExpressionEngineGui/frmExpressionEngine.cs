@@ -94,11 +94,19 @@ namespace PropertyGui
 
         private void btnValidate_Click(object sender, EventArgs e)
         {
+            ValidateExpression(true);
+        }
+
+        private bool ValidateExpression(bool showSucessMessage)
+        {
             ExpressionParseResults results;
             if (Context.EmailInstance != null)
                 results = Context.EmailInstance.ParseAndBindResults(Context);
             else
                 results = Context.Expression.ParseAndBindResults(Context);
+
+            if (results.Messages.NumErrors == 0 && !showSucessMessage)
+                return true;
 
             var icon = MvcAbstraction.GetMessageBoxIcon(results.Messages.HighestSeverity);
 
@@ -108,11 +116,14 @@ namespace PropertyGui
             else
                 message = results.Messages.GetSummary();
 
-            MessageBox.Show(message, "Validation Results", MessageBoxButtons.OK, icon);  
+            MessageBox.Show(message, "Validation Results", MessageBoxButtons.OK, icon);
+            return results.Messages.NumErrors == 0;
         }
-
         private void btnTest_Click(object sender, EventArgs e)
         {
+            if (!ValidateExpression(false))
+                return;
+
             var dialog = new frmTest();
             dialog.Init(Context);
             dialog.ShowDialog();

@@ -5,16 +5,41 @@ using System.Text;
 using System.Xml;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Runtime.Serialization;
 
 namespace MetraTech.ExpressionEngine
 {
+    [DataContract]
     public class EnumType : IExpressionEngineTreeNode
     {
         #region Properties
+        /// <summary>
+        /// The enum space to which the type belongs
+        /// </summary>
         public EnumSpace EnumSpace { get; private set; }
+
+        /// <summary>
+        /// The name that the user assigns the type. Must be unique within a space
+        /// </summary>
+        [DataMember]
         public string Name { get; set; }
+
+        /// <summary>
+        /// The unique ID that is assigned by the database. It is only applicable to MetraNet
+        /// and the acutal value will vary from machine to machine
+        /// </summary>
         public int Id { get; set; }
+
+        /// <summary>
+        /// The description that the user provides
+        /// </summary>
+        [DataMember]
         public string Description { get; set; }
+
+        /// <summary>
+        /// The actual enumerated values
+        /// </summary>
+        [DataMember]
         public Collection<EnumValue> Values = new Collection<EnumValue>();
         #endregion
 

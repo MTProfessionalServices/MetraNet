@@ -5,6 +5,9 @@ using System.Text;
 
 namespace MetraTech.ExpressionEngine.Test
 {
+    /// <summary>
+    /// This is just a place holder for demo purposes
+    /// </summary>
     public static class EmailEngine // : IProcessingEngine
     {
         public static void EvalutateExpressions(EmailInstance email, PropertyCollection propertyCollection)
@@ -41,6 +44,11 @@ namespace MetraTech.ExpressionEngine.Test
                 content = content.Replace(pattern, ((Property)property).Value);
             }
             return content;
+        }
+
+        public static void Send(EmailInstance email)
+        {
+            throw new NotImplementedException();
         }
     }
 }

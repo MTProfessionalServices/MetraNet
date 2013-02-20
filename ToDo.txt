@@ -1,8 +1,5 @@
 *LayoutPanel resizing
-*Metanga meter
-*Run abstraction
-*Email merge
-*Display outputs
+
 *Save
 *Send email!
 
@@ -37,6 +34,10 @@ DONE:
 *Enumvalue tooltip not working (fix to show value)
 *Extract Value binder Control
 *Add binders to test
+*Metanga meter
+*Run abstraction
+*Email merge
+*Display outputs
 
 
 SOLID:
@@ -55,5 +56,3 @@ UoM
 
 
 
-
-Context!

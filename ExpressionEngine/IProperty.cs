@@ -6,6 +6,9 @@ using System.Xml;
 
 namespace MetraTech.ExpressionEngine
 {
+    /// <summary>
+    /// I'm wondering is we should use a base class instead???
+    /// </summary>
     public interface IProperty : IExpressionEngineTreeNode
     {
         string Name { get; set; }

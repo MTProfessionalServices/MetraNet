@@ -34,15 +34,18 @@ namespace PropertyGui
             cboEvent.DisplayMember = "Name";
             cboEvent.Items.AddRange(context.GetEntities(ComplexType.ComplexTypeEnum.ServiceDefinition).ToArray());
             cboEvent.EndUpdate();
+
+            if (Context.IsMetanga)
+                SetProperties(Context.Entities["BillableEvent"]);
         }
 
-        private void SetProperties()
+        private void SetProperties(ComplexType eventEntity)
         {
-            //ctlProperties.Clear();
-            Event = (ComplexType)cboEvent.SelectedItem;
+            Event = eventEntity;
             ctlProperties.DefaultBindingType = ctlValueBinder.BindingTypeEnum.Constant;
             ctlProperties.ShowBinderIcon = false;
             ctlProperties.Init(Context, Event.Properties);
+            ctlProperties.SetDefaultValues();
         }
 
         #endregion
@@ -50,7 +53,7 @@ namespace PropertyGui
         #region Events
         private void cboEvent_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SetProperties();
+            SetProperties((ComplexType)cboEvent.SelectedItem);
         }
         #endregion
     }

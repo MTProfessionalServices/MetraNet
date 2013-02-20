@@ -6,15 +6,30 @@ using System.IO;
 using System.Xml;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Runtime.Serialization;
 
 namespace MetraTech.ExpressionEngine
 {
+    [DataContract]
     public class EnumSpace : IExpressionEngineTreeNode
     {
         #region Properties
+        /// <summary>
+        /// The name of the Enumeration namespace. Used to prevent naming collisions
+        /// </summary>
+        [DataMember]
         public string Name { get; set; }
+
+        /// <summary>
+        /// The description the user enters
+        /// </summary>
+        [DataMember]
         public string Description { get; set; }
 
+        /// <summary>
+        /// The data enumerated typs
+        /// </summary>
+        [DataMember]
         public Collection<EnumType> EnumTypes { get; private set; }
         #endregion
 

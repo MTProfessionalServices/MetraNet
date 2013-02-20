@@ -63,6 +63,7 @@
             this.btnEmail.TabIndex = 3;
             this.btnEmail.Text = "Email";
             this.btnEmail.UseVisualStyleBackColor = true;
+            this.btnEmail.Click += new System.EventHandler(this.btnEmail_Click);
             // 
             // btnLookup
             // 

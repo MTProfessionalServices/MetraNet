@@ -22,6 +22,7 @@ namespace MetraTech.ExpressionEngine
 
         /// <summary>
         /// The category. Used for filtering. Ensure that proper case is used.
+        /// DO WE WANT TO SUPPORT MULTIPLE CATEGOREIS?
         /// TODO Localize
         /// </summary>
         [DataMember]

@@ -34,6 +34,9 @@ namespace MetraTech.ExpressionEngine
         #region Properties
 
         [DataMember]
+        public int ExpressionId { get; private set; }
+
+        [DataMember]
         public string Name { get; set; }
 
         [DataMember]

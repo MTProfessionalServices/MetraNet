@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Globalization;
+using System.Runtime.Serialization;
 
 namespace MetraTech.ExpressionEngine
 {
+    [DataContract]
     public class EnumValue : IExpressionEngineTreeNode
     {
         #region Properties
@@ -17,8 +19,9 @@ namespace MetraTech.ExpressionEngine
         public EnumType EnumType { get; private set; }
 
         /// <summary>
-        /// The name of the enum value
+        /// The name of the enum value. Must be unique within the enum type
         /// </summary>
+        [DataMember]
         public string Name { get; set; }
 
         /// <summary>
@@ -29,6 +32,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// The description of the value. TODO: Localize
         /// </summary>
+        [DataMember]
         public string Description { get; set; }
         #endregion
 

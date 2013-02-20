@@ -8,10 +8,25 @@ namespace MetraTech.ExpressionEngine
     public class ExpressionParseResults
     {
         #region Properties
+        /// <summary>
+        /// TODO: FIRGURE OUT BEST WAY TO DETERMINE THIS>>> THINKING MESSAGES.NUMERRORS.COUNT
+        /// </summary>
         public bool IsValid { get; set; }
         public ValidationMessageCollection  Messages {get; private set;}
+
+        /// <summary>
+        /// The MVM parse tree. Not currently supported.
+        /// </summary>
         public object ParseTree { get; set; }
-        public DataTypeInfo DataTypeInfo { get; set; }
+
+        /// <summary>
+        /// The return type as determined by parsing. Not currently supported.
+        /// </summary>
+        public DataTypeInfo ReturnType { get; set; }
+
+        /// <summary>
+        /// The parameters
+        /// </summary>
         public PropertyCollection Parameters { get; private set; }
         #endregion
 
@@ -25,6 +40,11 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Methods
+
+        /// <summary>
+        /// Binds the parameters to what's available in the context. If the property isn't found, a validation message is added.
+        /// TODO: need to detect type mismatches
+        /// </summary>
         public void BindResultsToContext(Context context)
         {
             if (context == null)

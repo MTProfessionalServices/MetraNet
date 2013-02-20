@@ -84,6 +84,14 @@ namespace PropertyGui
             TableLayout.Controls.Clear();
         }
 
+        public void SetDefaultValues()
+        {
+            foreach (var binder in ValueBinders)
+            {
+                binder.SetDefaultValue();
+            }
+        }
+
         public void SyncToForm()
         {
             foreach (var binder in ValueBinders)

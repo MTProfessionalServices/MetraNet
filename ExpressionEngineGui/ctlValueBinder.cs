@@ -137,9 +137,31 @@ namespace PropertyGui
             if (Control is ComboBox)
                 ((ComboBox)Control).SelectedValueChanged += new EventHandler(Control_TextChanged);
 
+            if (Property.Direction == MetraTech.ExpressionEngine.Property.DirectionType.Output)
+                Control.BackColor = Color.LightGreen;
+
             SetBindingTypeImage();
         }
 
+        private void SetBindingTypeImage()
+        {
+            string imageName;
+            switch (BindingType)
+            {
+                case BindingTypeEnum.Constant:
+                    imageName = "ConstantBinding.png";
+                    break;
+                case BindingTypeEnum.Expression:
+                    imageName = "ExpressionBinding.png";
+                    break;
+                case BindingTypeEnum.Property:
+                    imageName = "PropertyBinding.png";
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+            pctBindingType.Image = ctlExpressionTree.Images.Images[imageName];
+        }
 
         private ComboBox CreatePropertyComboBox()
         {
@@ -223,6 +245,12 @@ namespace PropertyGui
             if (Property is Property)
                 ((Property)Property).Value = Text;
         }
+
+        public void SetDefaultValue()
+        {
+            if (Property is Property)
+                ((Property)Property).Value = ((Property)Property).DefaultValue;
+        }
         #endregion
 
         #region Value Events
@@ -247,32 +275,10 @@ namespace PropertyGui
             mnuBindingType.Show(pctBindingType, 0, pctBindingType.Height);
         }
 
-        #endregion
-
         private void mnuPropertyBinding_Click(object sender, EventArgs e)
         {
             BindingType = (BindingTypeEnum)((ToolStripMenuItem)sender).Tag;
             SetBinder();
-        }
-
-        private void SetBindingTypeImage()
-        {
-            string imageName;
-            switch (BindingType)
-            {
-                case BindingTypeEnum.Constant:
-                    imageName = "ConstantBinding.png";
-                    break;
-                case BindingTypeEnum.Expression:
-                    imageName = "ExpressionBinding.png";
-                    break;
-                case BindingTypeEnum.Property:
-                    imageName = "PropertyBinding.png";
-                    break;
-                default:
-                    throw new NotImplementedException();
-            }
-            pctBindingType.Image = ctlExpressionTree.Images.Images[imageName];
         }
 
         private void mnuBindingType_Opening(object sender, CancelEventArgs e)
@@ -281,5 +287,6 @@ namespace PropertyGui
             mnuConstant.Enabled = (BindingType != BindingTypeEnum.Constant) && AllowConstant;
             mnuExpression.Enabled = (BindingType != BindingTypeEnum.Expression) && AllowExpression;
         }
+        #endregion
     }
 }

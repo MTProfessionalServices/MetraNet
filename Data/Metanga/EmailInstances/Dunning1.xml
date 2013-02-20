@@ -6,7 +6,7 @@
 <![CDATA[Hello {Invoice.Payer.FirstName},
 
 We noticed that we haven't recieved payment yet for invoice {Invoice.InvoiceNumber} that was due on {Invoice.InvoiceDueDate}.
-This invoice has a balance of {Invoice.InvoiceCurrency.Symbol}{Invoice.Statement.EndingBalance}.
+This invoice has a balance of {DisplayMonetaryAmount(Invoice.InvoiceCurrency, Invoice.Statement.EndingBalance)}.
 Could you please contact support to make a prompt payment?
 
 Thank you,

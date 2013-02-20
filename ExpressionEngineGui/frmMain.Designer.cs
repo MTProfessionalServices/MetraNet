@@ -54,7 +54,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.btnInputsOutputs = new System.Windows.Forms.Button();
+            this.btnSendEvent = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -320,22 +320,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // btnInputsOutputs
+            // btnSendEvent
             // 
-            this.btnInputsOutputs.Location = new System.Drawing.Point(556, 373);
-            this.btnInputsOutputs.Name = "btnInputsOutputs";
-            this.btnInputsOutputs.Size = new System.Drawing.Size(107, 23);
-            this.btnInputsOutputs.TabIndex = 18;
-            this.btnInputsOutputs.Text = "Inputs && Outputs";
-            this.btnInputsOutputs.UseVisualStyleBackColor = true;
-            this.btnInputsOutputs.Click += new System.EventHandler(this.btnInputsOutputs_Click);
+            this.btnSendEvent.Location = new System.Drawing.Point(556, 373);
+            this.btnSendEvent.Name = "btnSendEvent";
+            this.btnSendEvent.Size = new System.Drawing.Size(107, 23);
+            this.btnSendEvent.TabIndex = 18;
+            this.btnSendEvent.Text = "Send Event";
+            this.btnSendEvent.UseVisualStyleBackColor = true;
+            this.btnSendEvent.Click += new System.EventHandler(this.btnSendEvent_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(774, 408);
-            this.Controls.Add(this.btnInputsOutputs);
+            this.Controls.Add(this.btnSendEvent);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
@@ -386,6 +386,6 @@
         private System.Windows.Forms.CheckBox chkAutoSelectInsertedSnippets;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnInputsOutputs;
+        private System.Windows.Forms.Button btnSendEvent;
     }
 }

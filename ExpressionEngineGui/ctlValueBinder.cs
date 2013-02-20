@@ -20,6 +20,7 @@ namespace PropertyGui
         public bool AllowProperty { get; set; }
         public bool AllowConstant { get; set; }
         public bool AllowExpression { get; set; }
+        public bool ShowBinderIcon { get; set; }
         public BindingTypeEnum DefaultBindingType { get; set; }
         public DataTypeInfo.MatchType MinimumMatchType { get; set; }
         public override string Text { get { return GetText(); } set { SetText(value); } }
@@ -38,7 +39,7 @@ namespace PropertyGui
 
         private Context Context;
         private IProperty Property;
-        private BindingTypeEnum BindingType = BindingTypeEnum.Property;
+        private BindingTypeEnum BindingType;
         private Control Control;
         #endregion
 
@@ -52,6 +53,7 @@ namespace PropertyGui
             AllowProperty = true;
             AllowConstant = true;
             AllowExpression = true;
+            ShowBinderIcon = true;
             DefaultBindingType = BindingTypeEnum.Property;
             MinimumMatchType = DataTypeInfo.MatchType.Convertible;
 
@@ -118,8 +120,17 @@ namespace PropertyGui
 
             Control.Parent = this;
             Control.Top = 0;
-            Control.Left = pctArrow.Right + 3;
-            Control.Width = Width - Control.Left;
+            if (ShowBinderIcon)
+            {
+                Control.Left = pctArrow.Right + 3;
+                Control.Width = Width - Control.Left;
+            }
+            else
+            {
+                Control.Left = 0;
+                Control.Width = Width;
+                Control.BringToFront();
+            }
             Control.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
             Control.GotFocus += new EventHandler(Control_GotFocus);
             Control.TextChanged += new EventHandler(Control_TextChanged);
@@ -199,6 +210,18 @@ namespace PropertyGui
         public void SetFocus()
         {
             Control.Focus();
+        }
+
+        public void SyncToForm()
+        {
+            if (Property is Property)
+                Text = ((Property)Property).Value;
+        }
+
+        public void SyncToObject()
+        {
+            if (Property is Property)
+                ((Property)Property).Value = Text;
         }
         #endregion
 

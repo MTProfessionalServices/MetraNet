@@ -88,6 +88,12 @@
     <Compile Include="ctlExpressionTree.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ctlPropertyCollectionBinder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctlPropertyCollectionBinder.Designer.cs">
+      <DependentUpon>ctlPropertyCollectionBinder.cs</DependentUpon>
+    </Compile>
     <Compile Include="ctlValueBinder.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -130,6 +136,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSendEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSendEvent.Designer.cs">
+      <DependentUpon>frmSendEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +163,9 @@
     <EmbeddedResource Include="ctlContextExplorer.resx">
       <DependentUpon>ctlContextExplorer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ctlPropertyCollectionBinder.resx">
+      <DependentUpon>ctlPropertyCollectionBinder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ctlValueBinder.resx">
       <DependentUpon>ctlValueBinder.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSendEvent.resx">
+      <DependentUpon>frmSendEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>

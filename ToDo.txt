@@ -1,6 +1,11 @@
-*EnumValue ID not working
-*NotificationEndpoint.EnpointConfiguration showing entity icon, should be ct (have it right at top leve)
-*Enumvalue tooltip not working (fix to show value)
+*LayoutPanel resizing
+*Metanga meter
+*Run abstraction
+*Email merge
+*Display outputs
+*Save
+*Send email!
+
 
 *Only CountryCode Enum for MetraNet has items in entity view (ok in explorer view and works for metanga!)
 
@@ -28,6 +33,10 @@ DONE:
 *Configurable selection
 *Delete old exmail expression
 *Complex Type icon
+*EnumValue ID not working
+*Enumvalue tooltip not working (fix to show value)
+*Extract Value binder Control
+*Add binders to test
 
 
 SOLID:

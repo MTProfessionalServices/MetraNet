@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtParameterDescription = new System.Windows.Forms.TextBox();
-            this.table = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
-            this.lblHelp = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.ctlParameters = new PropertyGui.ctlPropertyCollectionBinder();
             this.SuspendLayout();
             // 
             // label1
@@ -46,34 +44,10 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Name:";
             // 
-            // txtParameterDescription
-            // 
-            this.txtParameterDescription.Location = new System.Drawing.Point(15, 253);
-            this.txtParameterDescription.Multiline = true;
-            this.txtParameterDescription.Name = "txtParameterDescription";
-            this.txtParameterDescription.ReadOnly = true;
-            this.txtParameterDescription.Size = new System.Drawing.Size(368, 79);
-            this.txtParameterDescription.TabIndex = 3;
-            this.txtParameterDescription.TabStop = false;
-            // 
-            // table
-            // 
-            this.table.ColumnCount = 2;
-            this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.44628F));
-            this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.55372F));
-            this.table.Location = new System.Drawing.Point(15, 57);
-            this.table.Name = "table";
-            this.table.RowCount = 3;
-            this.table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.table.Size = new System.Drawing.Size(368, 116);
-            this.table.TabIndex = 4;
-            // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(309, 338);
+            this.btnCancel.Location = new System.Drawing.Point(443, 338);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 3;
@@ -83,23 +57,13 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(228, 338);
+            this.btnOK.Location = new System.Drawing.Point(362, 338);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 2;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // lblHelp
-            // 
-            this.lblHelp.AutoSize = true;
-            this.lblHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHelp.Location = new System.Drawing.Point(15, 234);
-            this.lblHelp.Name = "lblHelp";
-            this.lblHelp.Size = new System.Drawing.Size(46, 13);
-            this.lblHelp.TabIndex = 5;
-            this.lblHelp.Text = "lblHelp";
             // 
             // txtName
             // 
@@ -109,7 +73,18 @@
             this.txtName.Size = new System.Drawing.Size(322, 20);
             this.txtName.TabIndex = 6;
             this.txtName.TabStop = false;
-            this.txtName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtName_MouseClick);
+            // 
+            // ctlParameters
+            // 
+            this.ctlParameters.AllowConstant = true;
+            this.ctlParameters.AllowExpression = true;
+            this.ctlParameters.AllowProperty = true;
+            this.ctlParameters.DefaultBindingType = PropertyGui.ctlValueBinder.BindingTypeEnum.Property;
+            this.ctlParameters.Location = new System.Drawing.Point(15, 51);
+            this.ctlParameters.Name = "ctlParameters";
+            this.ctlParameters.ShowBinderIcon = true;
+            this.ctlParameters.Size = new System.Drawing.Size(503, 281);
+            this.ctlParameters.TabIndex = 7;
             // 
             // frmFunctionBinder
             // 
@@ -117,13 +92,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(390, 373);
+            this.ClientSize = new System.Drawing.Size(532, 373);
+            this.Controls.Add(this.ctlParameters);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.lblHelp);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.table);
             this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.txtParameterDescription);
             this.Controls.Add(this.label1);
             this.Name = "frmFunctionBinder";
             this.Text = "Function Binder";
@@ -135,11 +108,9 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtParameterDescription;
-        private System.Windows.Forms.TableLayoutPanel table;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.Label lblHelp;
         private System.Windows.Forms.TextBox txtName;
+        private ctlPropertyCollectionBinder ctlParameters;
     }
 }

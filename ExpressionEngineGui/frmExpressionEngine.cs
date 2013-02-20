@@ -94,25 +94,22 @@ namespace PropertyGui
 
         private void btnValidate_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("According to Jonah, you're a wimp if you clicked on this button... 'Cowboy up and get it right the first time'");
+            ExpressionParseResults results;
             if (Context.EmailInstance != null)
-            {
-                var results = Context.EmailInstance.ParseAndBindResults(Context);
-                var icon = MvcAbstraction.GetMessageBoxIcon(results.Messages.HighestSeverity);
+                results = Context.EmailInstance.ParseAndBindResults(Context);
+            else
+                results = Context.Expression.ParseAndBindResults(Context);
 
-                string message;
-                if (results.Messages.NumErrors == 0)
-                    message = "Expression is valid."; //Localization.
-                else
-                    message = results.Messages.GetSummary();
+            var icon = MvcAbstraction.GetMessageBoxIcon(results.Messages.HighestSeverity);
 
-                MessageBox.Show(message, "Validation Results", MessageBoxButtons.OK, icon);             
-            }     
+            string message;
+            if (results.Messages.NumErrors == 0)
+                message = "Expression is valid."; //Localization.
+            else
+                message = results.Messages.GetSummary();
+
+            MessageBox.Show(message, "Validation Results", MessageBoxButtons.OK, icon);  
         }
-
-       
-
-      
 
         private void btnTest_Click(object sender, EventArgs e)
         {

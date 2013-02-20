@@ -11,8 +11,6 @@ using System.Globalization;
 namespace MetraTech.ExpressionEngine
 {
     /// <summary>
-    /// This is a template and an instance mashed up. Need to seperate going forward.
-    /// 
     /// The _isInitialized is used because of the way that serialization works and the desire to not
     /// write out all of the Expression properties for each of the 4 expressions in an Email. I'm not
     /// happy with the way it works and we probably need to rethink. If you have questions, ask Scott
@@ -20,6 +18,13 @@ namespace MetraTech.ExpressionEngine
     [DataContract]
     public class EmailInstance
     {
+        #region Constants
+        public const string ToPropertyName = "To";
+        public const string CcPropertyName = "Cc";
+        public const string SubjectPropertyName = "Subject";
+        public const string BodyPropertyName = "Body";
+        #endregion
+
         #region Properties
         /// <summary>
         // See main description
@@ -139,10 +144,10 @@ namespace MetraTech.ExpressionEngine
             }
             
             //Hardcode the outputs
-            AddOutput(summaryResult.Parameters, "To");
-            AddOutput(summaryResult.Parameters, "Cc");
-            AddOutput(summaryResult.Parameters, "Subject");
-            AddOutput(summaryResult.Parameters, "Body");
+            AddOutput(summaryResult.Parameters, ToPropertyName);
+            AddOutput(summaryResult.Parameters, CcPropertyName);
+            AddOutput(summaryResult.Parameters, SubjectPropertyName);
+            AddOutput(summaryResult.Parameters, BodyPropertyName);
 
             return summaryResult;
         }

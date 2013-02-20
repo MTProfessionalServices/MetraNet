@@ -67,6 +67,7 @@ namespace MetraTech.ExpressionEngine
                 }
             }
         }
+        #endregion
 
         #region GUI Helper Properties (move in future)
         public string TreeNodeLabel { get { return Name + DataTypeInfo.ListSuffix; } }
@@ -119,8 +120,6 @@ namespace MetraTech.ExpressionEngine
         }
         #endregion
 
-        #endregion
-
         #region Constructor
         public ComplexType(string name, ComplexTypeEnum type, string description)
         {
@@ -144,7 +143,7 @@ namespace MetraTech.ExpressionEngine
             {
                 if (nameFilter != null && !nameFilter.IsMatch(property.Name))
                     continue;
-                if (!property.DataTypeInfo.IsBaseTypeFilterMatch(typeFilter))
+                if (typeFilter != null && !property.DataTypeInfo.IsBaseTypeFilterMatch(typeFilter))
                     continue;
                 return true;
             }
@@ -205,7 +204,6 @@ namespace MetraTech.ExpressionEngine
         }
 
         #endregion
-
 
         #region Create Methods
         public static ComplexType CreateProductView(string name, string description)

@@ -35,32 +35,7 @@ namespace PropertyGui
 
             txtName.Text = Function.Name;
 
-            table.RowCount = Function.FixedParameters.Count;
-
-            int index = 0;
-            foreach (var parameter in Function.FixedParameters)
-            {
-                //table.RowStyles.Add(new RowStyle(SizeType.Absolute, 24), ;
-
-                //Create the parameter's label
-                var label = new Label();
-                label.Text = parameter.Name + ":";
-                table.Controls.Add(label, 0, index);
-                label.TextAlign = ContentAlignment.MiddleRight;
-
-                //Create the parameter's value binder
-                var valueBinder = new ctlValueBinder();
-                valueBinder.Init(Context, parameter);
-                valueBinder.OnGotMyFocus = _valueBinderGotFocus;
-                table.Controls.Add(valueBinder, 1, index);
-                ValueBinders.Add(valueBinder);
-                index++;
-            }
-
-            txtName_MouseClick(null, null);
-
-            //if (Function.Parameters.Count > 0)
-            //    firstBinder.SetFocus();
+            ctlParameters.Init(Context, Function.FixedParameters);
         }
 
         public string GetExpression()
@@ -80,11 +55,7 @@ namespace PropertyGui
         #endregion
 
         #region Events
-        private void _valueBinderGotFocus(IProperty property)
-        {
-            lblHelp.Text = property.Name;
-            txtParameterDescription.Text = property.Description;
-        }
+
         private void btnOK_Click(object sender, EventArgs e)
         {
             DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -98,15 +69,7 @@ namespace PropertyGui
             Close();
         }
 
-  
-
-        private void txtName_MouseClick(object sender, MouseEventArgs e)
-        {
-            lblHelp.Text = Function.Name;
-            txtParameterDescription.Text = Function.Description;
-        }
-
-        #endregion
+       #endregion
 
     }
 }

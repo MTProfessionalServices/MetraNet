@@ -188,9 +188,13 @@ namespace PropertyGui
             }
         }
 
-        private void btnInputsOutputs_Click(object sender, EventArgs e)
+        private void btnSendEvent_Click(object sender, EventArgs e)
         {
+            var dialog = new frmSendEvent();
+            dialog.Init(DemoLoader.GlobalContext);
+            dialog.ShowDialog();
         }
+
 
     }
 }

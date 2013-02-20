@@ -136,6 +136,12 @@ namespace MetraTech.ExpressionEngine
             return results;
         }
 
+        public ExpressionParseResults ParseAndBindResults(Context context)
+        {
+            var results = Parse();
+            results.BindResultsToContext(context);
+            return results;
+        }
         public static Expression CreateFromFile(string file)
         {
             var fs = new FileStream(file, FileMode.Open);

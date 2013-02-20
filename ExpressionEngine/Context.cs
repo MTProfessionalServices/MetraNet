@@ -262,6 +262,12 @@ namespace MetraTech.ExpressionEngine
             Entities.Add(entity.Name, entity);
         }
 
+        public List<ComplexType> GetEntities(ComplexType.ComplexTypeEnum type)
+        {
+            var types = new List<ComplexType.ComplexTypeEnum>();
+            types.Add(type);
+            return GetEntities(null, types, null, null);
+        }
         public List<ComplexType> GetEntities(string entityNameFilter, List<ComplexType.ComplexTypeEnum> entityTypeFilter, string propertyNameFilter, DataTypeInfo propertyTypeFilter)
         {
             var results = new List<ComplexType>();

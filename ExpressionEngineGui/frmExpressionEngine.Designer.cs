@@ -99,7 +99,7 @@
             this.btnCheckSyntax.TabIndex = 2;
             this.btnCheckSyntax.Text = "Validate";
             this.btnCheckSyntax.UseVisualStyleBackColor = true;
-            this.btnCheckSyntax.Click += new System.EventHandler(this.btnCheckSyntax_Click);
+            this.btnCheckSyntax.Click += new System.EventHandler(this.btnValidate_Click);
             // 
             // mnuExpressionContext
             // 

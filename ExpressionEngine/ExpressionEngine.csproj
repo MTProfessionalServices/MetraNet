@@ -82,7 +82,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Property.cs" />
     <Compile Include="PropertyCollection.cs" />
-    <Compile Include="Test\Test.cs" />
+    <Compile Include="Test\TestInstance.cs" />
     <Compile Include="UserSettings.cs" />
     <Compile Include="UnitOfMeasure.cs" />
     <Compile Include="UnitOfMeasureCategory.cs" />

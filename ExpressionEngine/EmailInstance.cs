@@ -137,9 +137,7 @@ namespace MetraTech.ExpressionEngine
                         summaryResult.Parameters.Add(parameter);
                 }
             }
-
-
-
+            
             //Hardcode the outputs
             AddOutput(summaryResult.Parameters, "To");
             AddOutput(summaryResult.Parameters, "Cc");
@@ -147,6 +145,13 @@ namespace MetraTech.ExpressionEngine
             AddOutput(summaryResult.Parameters, "Body");
 
             return summaryResult;
+        }
+
+        public ExpressionParseResults ParseAndBindResults(Context context)
+        {
+            var results = Parse();
+            results.BindResultsToContext(context);
+            return results;
         }
 
         private void AddOutput(PropertyCollection properties, string name)

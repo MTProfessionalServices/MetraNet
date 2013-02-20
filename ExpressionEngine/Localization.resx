@@ -132,6 +132,9 @@
   <data name="EnumTypeNotSpecified" xml:space="preserve">
     <value>EnumType not specified</value>
   </data>
+  <data name="ExpressionIsValid" xml:space="preserve">
+    <value>The expression is valid.</value>
+  </data>
   <data name="InvalidName" xml:space="preserve">
     <value>Invalid Name</value>
   </data>
@@ -143,5 +146,8 @@
   </data>
   <data name="UnableToFindEnumType" xml:space="preserve">
     <value>Unable to find the '{0}' EnumType</value>
+  </data>
+  <data name="UnableToFindProperty" xml:space="preserve">
+    <value>Unable to find '{0}' property in the current context</value>
   </data>
 </root>

@@ -73,7 +73,7 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public string ToMtsql()
         {
-            return string.Format(CultureInfo.InvariantCulture, "#{0}/{1}/{2}#", EnumType.Parent.Name, EnumType.Name, Name);
+            return string.Format(CultureInfo.InvariantCulture, "#{0}/{1}/{2}#", EnumType.EnumSpace.Name, EnumType.Name, Name);
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace MetraTech.ExpressionEngine
             {
                 if (UserSettings.NewSyntax)
                 {
-                    var enumSpace = EnumType.Parent.Name.Replace('.', '_');
+                    var enumSpace = EnumType.EnumSpace.Name.Replace('.', '_');
                     return string.Format(CultureInfo.InvariantCulture, "ENUM.{0}.{1}.{2}", enumSpace, EnumType.Name, Name);
                 }
                 else

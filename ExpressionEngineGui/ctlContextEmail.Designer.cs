@@ -36,13 +36,15 @@
             this.ctlCc = new System.Windows.Forms.TextBox();
             this.ctlSubject = new System.Windows.Forms.TextBox();
             this.ctlTo = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtTemplate = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pctEmailEditor)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 97);
+            this.label3.Location = new System.Drawing.Point(0, 139);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 7;
@@ -51,7 +53,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 71);
+            this.label2.Location = new System.Drawing.Point(0, 113);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(23, 13);
             this.label2.TabIndex = 6;
@@ -60,7 +62,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 45);
+            this.label1.Location = new System.Drawing.Point(0, 87);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(23, 13);
             this.label1.TabIndex = 5;
@@ -71,11 +73,11 @@
             this.ctlBody.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctlBody.Location = new System.Drawing.Point(3, 120);
+            this.ctlBody.Location = new System.Drawing.Point(3, 164);
             this.ctlBody.Multiline = true;
             this.ctlBody.Name = "ctlBody";
             this.ctlBody.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.ctlBody.Size = new System.Drawing.Size(828, 298);
+            this.ctlBody.Size = new System.Drawing.Size(828, 330);
             this.ctlBody.TabIndex = 6;
             this.ctlBody.WordWrap = false;
             // 
@@ -92,7 +94,7 @@
             // 
             this.ctlCc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctlCc.Location = new System.Drawing.Point(55, 68);
+            this.ctlCc.Location = new System.Drawing.Point(52, 110);
             this.ctlCc.Name = "ctlCc";
             this.ctlCc.Size = new System.Drawing.Size(779, 20);
             this.ctlCc.TabIndex = 11;
@@ -101,7 +103,7 @@
             // 
             this.ctlSubject.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctlSubject.Location = new System.Drawing.Point(55, 94);
+            this.ctlSubject.Location = new System.Drawing.Point(52, 136);
             this.ctlSubject.Name = "ctlSubject";
             this.ctlSubject.Size = new System.Drawing.Size(779, 20);
             this.ctlSubject.TabIndex = 12;
@@ -110,15 +112,36 @@
             // 
             this.ctlTo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctlTo.Location = new System.Drawing.Point(55, 42);
+            this.ctlTo.Location = new System.Drawing.Point(52, 84);
             this.ctlTo.Name = "ctlTo";
             this.ctlTo.Size = new System.Drawing.Size(779, 20);
             this.ctlTo.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(-3, 58);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Template:";
+            // 
+            // txtTemplate
+            // 
+            this.txtTemplate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTemplate.Location = new System.Drawing.Point(52, 55);
+            this.txtTemplate.Name = "txtTemplate";
+            this.txtTemplate.ReadOnly = true;
+            this.txtTemplate.Size = new System.Drawing.Size(779, 20);
+            this.txtTemplate.TabIndex = 15;
             // 
             // ctlContextEmail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtTemplate);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.ctlTo);
             this.Controls.Add(this.ctlSubject);
             this.Controls.Add(this.ctlCc);
@@ -145,5 +168,7 @@
         private System.Windows.Forms.TextBox ctlCc;
         private System.Windows.Forms.TextBox ctlSubject;
         private System.Windows.Forms.TextBox ctlTo;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtTemplate;
     }
 }

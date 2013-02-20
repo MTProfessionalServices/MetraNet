@@ -19,17 +19,17 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// The symbol (i.e., $) I assume these aren't localized
         /// </summary>
-        public readonly string Symbol;
+        public string Symbol { get; set; }
 
         /// <summary>
         /// Some standards based label (i.e., USD). I assume that these aren't localized
         /// </summary>
-        public readonly string Label;
+        public string Label { get; set; }
 
         /// <summary>
         /// Indicates if the currency is virtual
         /// </summary>
-        public readonly bool IsVirtual;
+        public bool IsVirtual { get; set; }
 
         #endregion
     }

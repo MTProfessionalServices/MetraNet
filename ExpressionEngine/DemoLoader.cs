@@ -12,7 +12,7 @@ using Metanga.Miscellaneous.MetadataExport;
 namespace MetraTech.ExpressionEngine
 {
     //this is a total mess that loads data into the GlobalContext.... needs to replaced with clean data loading
-    public static class _DemoLoader
+    public static class DemoLoader
     {
         #region Properties
         public static string DirPath = @"C:\ExpressionEngine";
@@ -29,9 +29,9 @@ namespace MetraTech.ExpressionEngine
 
             if (Context.ProductType == Context.ProductTypeEnum.MetraNet)
             {
-                GlobalContext.AddEntity(_DemoLoader.GetCloudComputeProductView());
-                GlobalContext.AddEntity(_DemoLoader.GetCorporateAccountType());
-                GlobalContext.AddEntity(_DemoLoader.GetAircraftLandingProductView());
+                GlobalContext.AddEntity(DemoLoader.GetCloudComputeProductView());
+                GlobalContext.AddEntity(DemoLoader.GetCorporateAccountType());
+                GlobalContext.AddEntity(DemoLoader.GetAircraftLandingProductView());
                 LoadEntities(GlobalContext, ComplexType.ComplexTypeEnum.ProductView, Path.Combine(DataPath, "ProductViews.csv"));
                 LoadEntities(GlobalContext, ComplexType.ComplexTypeEnum.AccountView, Path.Combine(DataPath, "AccountViews.csv"));
                 LoadEntities(GlobalContext, ComplexType.ComplexTypeEnum.ServiceDefinition, Path.Combine(DataPath, "ServiceDefinitions.csv"));
@@ -47,30 +47,20 @@ namespace MetraTech.ExpressionEngine
             LoadFunctions();
             LoadExpressions();
             LoadEmailTemplates(GlobalContext, Path.Combine(DataPath, "EmailTemplates"));
+            LoadEmailInstances(GlobalContext, Path.Combine(DataPath, "EmailInstances"));
 
             var uomCategory = new UnitOfMeasureCategory("DigitalInformation");
-            uomCategory.AddUom("Gb", false);
-            uomCategory.AddUom("Mb", false);
-            uomCategory.AddUom("kb", false);
+            uomCategory.AddUnitOfMeasure("Gb", false);
+            uomCategory.AddUnitOfMeasure("Mb", false);
+            uomCategory.AddUnitOfMeasure("kb", false);
             GlobalContext.UoMs.Add(uomCategory.Name, uomCategory);
 
             uomCategory = new UnitOfMeasureCategory("Time");
-            uomCategory.AddUom("Millisecond", false);
-            uomCategory.AddUom("Second", false);
-            uomCategory.AddUom("Minute", false);
-            uomCategory.AddUom("Hour", false);
+            uomCategory.AddUnitOfMeasure("Millisecond", false);
+            uomCategory.AddUnitOfMeasure("Second", false);
+            uomCategory.AddUnitOfMeasure("Minute", false);
+            uomCategory.AddUnitOfMeasure("Hour", false);
             GlobalContext.UoMs.Add(uomCategory.Name, uomCategory);
-        }
-
-        private static void _LoadSubEntities(Context context, ComplexType parentEntity, ComplexType childEntity)
-        {
-            foreach (IProperty property in childEntity.Properties)
-            {
-                if (property.DataTypeInfo.IsEntity)
-                    _LoadSubEntities(context, childEntity, (ComplexType)property);
-                else if (parentEntity != null)
-                    parentEntity.Properties.Add(property);
-            }
         }
 
         #endregion
@@ -178,39 +168,6 @@ namespace MetraTech.ExpressionEngine
         }
         #endregion
 
-        #region InputsOutputs
-        /// <summary>
-        /// Just hardcode some things for demo purposes!
-        /// </summary>
-        /// <param name="exp"></param>
-        public static void LoadInputsOutputs(Expression exp)
-        {
-            var prop = Property.CreateInteger32("USAGE.Hours", null);
-            prop.Direction = Property.DirectionType.InOut;
-            exp.Parameters.Add(prop);
-
-            prop = Property.CreateInteger32("USAGE.CpuCount", null);
-            prop.Direction = Property.DirectionType.Input;
-            exp.Parameters.Add(prop);
-
-            prop = Property.CreateInteger32("USAGE.Snapshots", null);
-            prop.Direction = Property.DirectionType.Input;
-            exp.Parameters.Add(prop);
-
-            prop = Property.CreateInteger32("USAGE.Amount", null);
-            prop.Direction = Property.DirectionType.Input;
-            exp.Parameters.Add(prop);
-
-            var entity = ComplexType.CreateProductView("ParameterTable.CloudRates", null);
-            prop.Direction = Property.DirectionType.Input;
-            exp.Parameters.Add(entity);
-
-            prop = Property.CreateBoolean("<Result>", "The result of the boolean expression");
-            prop.Direction = Property.DirectionType.Output;
-            exp.Parameters.Add(prop);
-        }
-        #endregion
-
         #region File-Based Entities
         public static void LoadEntities(Context context, ComplexType.ComplexTypeEnum entityType, string filePath)
         {
@@ -221,7 +178,7 @@ namespace MetraTech.ExpressionEngine
                 var entityNamespace = entityParts[0];
                 var entityName = entityParts[1];
                 var propName = entityRecord.PropertyName;
-                var required = Helper.GetBool(entityRecord.IsRequired);
+                var required = Helper.GetBoolean(entityRecord.IsRequired);
                 var typeStr = entityRecord.PropertyType;
                 var enumSpace = entityRecord.Namespace;
                 var enumType = entityRecord.EnumType;
@@ -327,14 +284,8 @@ namespace MetraTech.ExpressionEngine
                     id = 0;
                 else
                 {
-                    try
-                    {
-                        id = Int32.Parse(idStr);
-                    }
-                    catch (FormatException)
-                    {
+                    if (!Int32.TryParse(idStr, out id))
                         id = 0;
-                    }
                 }
 
                 if (string.IsNullOrWhiteSpace(spaceAndType))
@@ -388,6 +339,17 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Emails
+        public static void LoadEmailInstances(Context context, string dirPath)
+        {
+            var dirInfo = new DirectoryInfo(dirPath);
+            if (!dirInfo.Exists)
+                return;
+            foreach (var file in dirInfo.GetFiles("*.xml"))
+            {
+                var emailInstance = EmailInstance.CreateFromFile(file.FullName);
+                context.EmailInstances.Add(emailInstance.Name, emailInstance);
+            }
+        }
         public static void LoadEmailTemplates(Context context, string dirPath)
         {
             var dirInfo = new DirectoryInfo(dirPath);
@@ -398,18 +360,17 @@ namespace MetraTech.ExpressionEngine
                 var emailTemplate = EmailTemplate.CreateFromFile(file.FullName);
                 context.EmailTemplates.Add(emailTemplate.Name, emailTemplate);
             }
-
         }
         #endregion
 
         #region Functions
         public static void LoadFunctions()
         {
-            _DemoLoader.GlobalContext.Functions.Clear();
+            DemoLoader.GlobalContext.Functions.Clear();
             var dirInfo = new DirectoryInfo(Path.Combine(DirPath, "Functions"));
             foreach (var file in dirInfo.GetFiles("*.xml"))
             {
-                var func = Function.CreateFunctionFromFile(file.FullName);
+                var func = Function.CreateFromFile(file.FullName);
                 GlobalContext.Functions.Add(func.Name, func);
             }
         }

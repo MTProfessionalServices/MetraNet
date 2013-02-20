@@ -16,7 +16,7 @@ namespace PropertyGui
         public frmGlobalExplorer()
         {
             InitializeComponent();
-            ctlExpressionExplorer.Init(_DemoLoader.GlobalContext);
+            ctlExpressionExplorer.Init(DemoLoader.GlobalContext);
         }
         #endregion
     }

@@ -29,7 +29,7 @@ namespace PropertyGui
 
         #region Methods
 
-        public void Init(Context context, EmailTemplate emailTemplate)
+        public void Init(Context context, EmailInstance emailTemplate)
         {
             var ctlEmail = new ctlContextEmail();
             ctlEmail.Init(context, emailTemplate);

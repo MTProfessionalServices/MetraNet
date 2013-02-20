@@ -31,7 +31,7 @@ namespace PropertyGui
         #region Static Constructor
         static ctlExpressionTree()
         {
-            var path = Path.Combine(_DemoLoader.DirPath, "Images");
+            var path = Path.Combine(DemoLoader.DirPath, "Images");
             var dirInfo = new DirectoryInfo(path);
             if (!dirInfo.Exists)
                 throw new Exception("Can't find " + path);
@@ -94,7 +94,7 @@ namespace PropertyGui
                     }
                     break;
                 case MvcAbstraction.ViewModeType.InputsOutputs:
-                    foreach (var property in Context.Expression.Parameters)
+                    foreach (var property in Context.Expression.Parse().Parameters)
                     {
                         var node = CreateNode(property);
                         node.SelectedImageKey = property.ImageDirection;
@@ -247,7 +247,7 @@ namespace PropertyGui
                 }
 
                 //Append UoM link, if any
-                var uomProperty = property.GetUomProperty();
+                var uomProperty = property.GetUnitOfMeasureProperty();
                 if (uomProperty != null)
                 {
                     var linkNode = new TreeNode(string.Format("UoM Property Link: {0}", uomProperty.Name));
@@ -275,7 +275,7 @@ namespace PropertyGui
                 node.Nodes.Clear();
                 var entitySubType = ((Property)node.Tag).DataTypeInfo.ComplexSubtype;
                 ComplexType entity;
-                if (!_DemoLoader.GlobalContext.Entities.TryGetValue(entitySubType, out entity))
+                if (!DemoLoader.GlobalContext.Entities.TryGetValue(entitySubType, out entity))
                     return;
                 AddProperties(node, entity.Properties);
             }

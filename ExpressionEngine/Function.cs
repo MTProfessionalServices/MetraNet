@@ -5,6 +5,8 @@ using System.Text;
 using System.Xml;
 using System.Globalization;
 using System.Runtime.Serialization;
+using System.IO;
+using System.Xml.Linq;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -90,27 +92,51 @@ namespace MetraTech.ExpressionEngine
                 return string.Format(CultureInfo.InvariantCulture, "{0}()", Name);
             }
         }
+        #endregion
 
+        #region XML Methods
 
-        public static Function CreateFunctionFromFile(string filePath)
+        //public string GetXmlContent()
+        //{
+        //    var writer = new FileStream(filePath, FileMode.Create);
+        //    var ser = new DataContractSerializer(typeof(Function));
+        //    ser
+        //    ser.WriteObject(writer, this);
+        //}
+        public void Save(string dirPath)
         {
-            try
-            {
-                var func = new Function(null, null, null);
-                var doc = new XmlDocument();
-                var rootNode = doc.LoadAndGetRootNode(filePath, "TreeLogicFunction");
-                func.Name = rootNode.GetChildTag("Name");
-                func.Category = rootNode.GetChildTag("Category");
-                func.ReturnType = DataTypeInfo.CreateFromXmlNode(rootNode.GetChildNode("ReturnType"));
-                var fixedArgsNode = rootNode.SelectSingleNode("FixedArguments");
-                if (fixedArgsNode != null)
-                    func.FixedParameters.LoadFromXmlNode(fixedArgsNode, "Argument");
-                return func;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(string.Format(CultureInfo.InvariantCulture, "Unable to load Function file {0} [{1}]", filePath, ex.Message));
-            }
+            var filePath = string.Format(@"{0}\{1}.xml", dirPath, Name);
+            var writer = new FileStream(filePath, FileMode.Create);
+            var ser = new DataContractSerializer(typeof(Function));
+            ser.WriteObject(writer, this);
+            writer.Close();
+        }
+
+        //public static Function CreateFromFile(string file)
+        //{
+        //    var fs = new FileStream(file, FileMode.Open);
+        //    var reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas());
+        //    var ser = new DataContractSerializer(typeof(Function));
+        //    var function = (Function)ser.ReadObject(reader, true);
+        //    fs.Close();
+        //    reader.Close();
+        //    return function;
+        //}
+
+        public static Function CreateFromFile(string file)
+        {
+            var xmlContent = File.ReadAllText(file);
+            return CreateFromString(xmlContent);
+        }
+
+        public static Function CreateFromString(string xmlContent)
+        {
+            var xElement = XElement.Parse(xmlContent);
+            var xmlReader = xElement.CreateReader();
+            var ser = new DataContractSerializer(typeof(Function));
+            var function = (Function)ser.ReadObject(xmlReader);
+            xmlReader.Close();
+            return function;
         }
 
         #endregion

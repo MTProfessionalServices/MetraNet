@@ -23,7 +23,7 @@ namespace MetraTech.ExpressionEngine
         {
             Name = name;
             Description = description;
-            Expression = new Expression(Expression.ExpressionTypeEnum.AQG, expression);
+            Expression = new Expression(Expression.ExpressionTypeEnum.AQG, expression, null);
         }
         #endregion
 

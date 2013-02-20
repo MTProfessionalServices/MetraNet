@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using System.IO;
 
 namespace MetraTech.ExpressionEngine
 {
     /// <summary>
     /// This is a place holder. Need to think through. We probably will want expression templates.
     /// </summary>
+    [DataContract]
     public class Expression
     {
         #region Enums
@@ -28,48 +32,48 @@ namespace MetraTech.ExpressionEngine
 
         #region Properties
 
+        [DataMember]
         public string Name { get; set; }
 
+        [DataMember]
         public string Description{get;set;}
 
         /// <summary>
         /// The type of expression
         /// </summary>
-        public readonly ExpressionTypeEnum Type;
+        [DataMember]
+        public ExpressionTypeEnum Type { get; private set; }
 
         /// <summary>
         /// This probably belongs in a expression template as opposed to an instance
         /// </summary>
-        public List<string> EntityParameters = new List<string>();
+        [DataMember]
+        public List<string> EntityParameters { get; private set; }
 
         public ExpressionInfo Info { get { return ExpressionInfo.Items[Type]; } }
 
         /// <summary>
         /// The actual expression
         /// </summary>
+        [DataMember]
         public string Content { get; set; }
 
         /// <summary>
-        /// The data type that the Expression returns. You must invoke parse to update this.
-        /// Need to decide how this interact with an output parameter (need to think it through)
+        /// The declared data type (which may be different that what's returned by the the Parse() method.
         /// </summary>
-        public Property ReturnType { get; private set; }
+        [DataMember]
+        public Property DeclaredReturnType { get; set; }
 
-        /// <summary>
-        /// The parameters that the Expression interacts with. Note that the Direction
-        /// can be Input, Output, or InOut. You must invoke Parse() to update this.
-        /// </summary>
-        public PropertyCollection Parameters { get; private set; }
         #endregion
 
         #region Constructor
-        public Expression(ExpressionTypeEnum type, string contents, string name=null)
+        public Expression(ExpressionTypeEnum type, string contents, string name)
         {
             Type = type;
             Content = contents;
             Name = name;
-            Parameters = new PropertyCollection(this);
-            _DemoLoader.LoadInputsOutputs(this);
+            EntityParameters = new List<string>();
+            DeclaredReturnType = Property.CreateBoolean("ReturnValue", "The value the expression returns.");
         }
         #endregion
 
@@ -78,26 +82,61 @@ namespace MetraTech.ExpressionEngine
         /// Parses the contents and updates the ReturnType and Parameters properties. If successful, true is
         /// returned. Otherwise false is returned and the errorMsg, lineNumer and columnNumber are set.
         /// </summary>
-        public bool Parse(out string errorMsg, out int lineNumber, out int columnNumber)
+        public ExpressionParseResults Parse()
         {
-            throw new NotImplementedException();
+
+            //HACK -- since we aren't integrated with MVM parse engine, simulate some stuff!
+            var results = new ExpressionParseResults();
+            var prop = Property.CreateInteger32("USAGE.Hours", null);
+            prop.Direction = Property.DirectionType.InOut;
+            results.Parameters.Add(prop);
+
+            prop = Property.CreateInteger32("USAGE.CpuCount", null);
+            prop.Direction = Property.DirectionType.Input;
+            results.Parameters.Add(prop);
+
+            prop = Property.CreateInteger32("USAGE.Snapshots", null);
+            prop.Direction = Property.DirectionType.Input;
+            results.Parameters.Add(prop);
+
+            prop = Property.CreateInteger32("USAGE.Amount", null);
+            prop.Direction = Property.DirectionType.Input;
+            results.Parameters.Add(prop);
+
+            var entity = ComplexType.CreateProductView("ParameterTable.CloudRates", null);
+            prop.Direction = Property.DirectionType.Input;
+            results.Parameters.Add(entity);
+
+            prop = Property.CreateBoolean("<Result>", "The result of the boolean expression");
+            prop.Direction = Property.DirectionType.Output;
+            results.Parameters.Add(prop);
+            return results;
         }
 
-        public static Expression CreateFromFile(string filePath)
+        public static Expression CreateFromFile(string file)
         {
-            var doc = new XmlDocument();
-            var rootNode = doc.LoadAndGetRootNode(filePath, "Expression");
-            var name = rootNode.GetChildTag("Name");
-            var content = rootNode.GetChildTag("Content");
-            var description = rootNode.GetChildTag("Description");
-            var type = rootNode.GetChildEnum<ExpressionTypeEnum>("Type");
-            var exp = new Expression(type, content, name);
-            foreach (var entity in rootNode.SelectNodes("EntityParameters/Entity"))
-            {
-                exp.EntityParameters.Add(((XmlNode)entity).InnerText);
-            }
-            exp.Description = description;
-            return exp;
+            var fs = new FileStream(file, FileMode.Open);
+            var reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas());
+            var ser = new DataContractSerializer(typeof(Expression));
+            var expression = (Expression)ser.ReadObject(reader, true);
+            fs.Close();
+            reader.Close();
+
+            return expression;
+        }
+
+        public void Save(string dirPath)
+        {
+            var filePath = string.Format(@"{0}\{1}.xml", dirPath, Name);
+            var writer = new FileStream(filePath, FileMode.Create);
+            var ser = new DataContractSerializer(typeof(Expression));
+            ser.WriteObject(writer, this);
+            writer.Close();
+        }
+
+        public static Expression CreateFromString(string xmlContent)
+        {
+            return null;
         }
         #endregion
 

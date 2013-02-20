@@ -21,16 +21,17 @@ namespace PropertyGui
 
         #region Methods
 
-        public void Init(MetraTech.ExpressionEngine.Context context, EmailTemplate emailTemplate)
+        public void Init(MetraTech.ExpressionEngine.Context context, EmailInstance emailInstance)
         {
             base.Init(context);
+            txtTemplate.Text = emailInstance.EmailTemplate;
 
             ctlBody.Init(Context, null);
 
-            ctlTo.Text = emailTemplate.ToExpression.Content;
-            ctlCc.Text = emailTemplate.CcExpresson.Content;
-            ctlSubject.Text = emailTemplate.SubjectExpression.Content;
-            ctlBody.Text = emailTemplate.BodyExpression.Content;
+            ctlTo.Text = emailInstance.ToExpression.Content;
+            ctlCc.Text = emailInstance.CcExpression.Content;
+            ctlSubject.Text = emailInstance.SubjectExpression.Content;
+            ctlBody.Text = emailInstance.BodyExpression.Content;
         }
 
         public override void InsertSnippet(string snippet)
@@ -45,6 +46,7 @@ namespace PropertyGui
         }
 
         #endregion
+
 
     }
 }

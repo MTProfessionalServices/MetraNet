@@ -37,6 +37,7 @@ namespace MetraTech.ExpressionEngine
         public Dictionary<string, Expression> Expressions = new Dictionary<string, Expression>();
         public Dictionary<string, UnitOfMeasureCategory> UoMs = new Dictionary<string, UnitOfMeasureCategory>();
         public Dictionary<string, EmailTemplate> EmailTemplates = new Dictionary<string, EmailTemplate>();
+        public Dictionary<string, EmailInstance> EmailInstances = new Dictionary<string, EmailInstance>();
 
         //These are updated by UpdateContext()
         public List<EnumType> EnumTypes = new List<EnumType>();
@@ -56,7 +57,7 @@ namespace MetraTech.ExpressionEngine
         {
             Expression = expression;
 
-            foreach (var entity in _DemoLoader.GlobalContext.Entities.Values)
+            foreach (var entity in DemoLoader.GlobalContext.Entities.Values)
             {
                 if (Expression.Info.SupportedEntityTypes.Contains(entity.DataTypeInfo.ComplexType))
                     Entities.Add(entity.Name, entity);
@@ -65,19 +66,19 @@ namespace MetraTech.ExpressionEngine
             foreach (var entityParameterName in Expression.EntityParameters)
             {
                 ComplexType rootEntity;
-                if (_DemoLoader.GlobalContext.Entities.TryGetValue(entityParameterName, out rootEntity))
+                if (DemoLoader.GlobalContext.Entities.TryGetValue(entityParameterName, out rootEntity))
                     Entities.Add(rootEntity.Name, rootEntity);
             }
 
             if (expression.Info.SupportsAqgs)
-                AQGs = _DemoLoader.GlobalContext.AQGs;
+                AQGs = DemoLoader.GlobalContext.AQGs;
 
             if (expression.Info.SupportsUqgs)
-                UQGs = _DemoLoader.GlobalContext.UQGs;
+                UQGs = DemoLoader.GlobalContext.UQGs;
 
-            EnumSpaces = _DemoLoader.GlobalContext.EnumSpaces;
-            Functions = _DemoLoader.GlobalContext.Functions;
-            UoMs = _DemoLoader.GlobalContext.UoMs;
+            EnumSpaces = DemoLoader.GlobalContext.EnumSpaces;
+            Functions = DemoLoader.GlobalContext.Functions;
+            UoMs = DemoLoader.GlobalContext.UoMs;
 
             UpdateContext();
         }
@@ -150,7 +151,7 @@ namespace MetraTech.ExpressionEngine
                     AllProperties.Add(property);
 
                     IProperty uniqueProperty;
-                    var key = property.GetCompatibleKey();
+                    var key = property.CompatibleKey;
                     if (!UniqueProperties.TryGetValue(key, out uniqueProperty))
                         UniqueProperties.Add(key, property);
 

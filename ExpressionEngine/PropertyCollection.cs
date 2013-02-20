@@ -99,6 +99,9 @@ namespace MetraTech.ExpressionEngine
 
         public void Add(IProperty property)
         {
+            if (property == null)
+                throw new ArgumentNullException("property");
+
             if (property is Property)
                 ((Property)property).PropertyCollection = this;
             Properties.Add(property);
@@ -169,24 +172,6 @@ namespace MetraTech.ExpressionEngine
             }
             return newCollection;
         }
-        #endregion
-
-        #region XmlMethods
-        public void LoadFromXmlParentNode(XmlNode parentNode, string propertyCollectionNodeName = "Properties")
-        {
-            LoadFromXmlNode(parentNode.GetChildNode(propertyCollectionNodeName));
-        }
-        public void LoadFromXmlNode(XmlNode node, string propertyNodeName = "Property")
-        {
-            Properties.Clear();
-            var nodes = node.SelectNodes(propertyNodeName);
-            foreach (var propertyNode in nodes)
-            {
-                var property = Property.CreateFromXmlNode((XmlNode)propertyNode);
-                Add(property);
-            }
-        }
-
         #endregion
 
         #region IEnumerable Methods

@@ -55,6 +55,7 @@
     <Compile Include="Context.cs" />
     <Compile Include="Currency.cs" />
     <Compile Include="ComplexType.cs" />
+    <Compile Include="EmailInstance.cs" />
     <Compile Include="EmailTemplate.cs" />
     <Compile Include="EntityInfo.cs" />
     <Compile Include="EntityRecord.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="EnumValue.cs" />
     <Compile Include="Expression.cs" />
     <Compile Include="ExpressionInfo.cs" />
+    <Compile Include="ExpressionParseResults.cs" />
     <Compile Include="Function.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="IExpressionEngineTreeNode.cs" />
@@ -84,8 +86,7 @@
     <Compile Include="UnitOfMeasure.cs" />
     <Compile Include="UnitOfMeasureCategory.cs" />
     <Compile Include="UQG.cs" />
-    <Compile Include="XmlHelpers.cs" />
-    <Compile Include="_DemoLoader.cs" />
+    <Compile Include="DemoLoader.cs" />
     <Compile Include="DataTypeInfo.cs" />
     <Compile Include="ValidationMessage.cs" />
     <Compile Include="ValidationMessageCollection.cs" />

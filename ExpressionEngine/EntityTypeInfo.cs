@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Globalization;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -12,7 +13,7 @@ namespace MetraTech.ExpressionEngine
         public string TreeNodeLabel { get { return Name; } }
         public string ToolTip { get { return "TBD"; } }
         public string Image { get { return string.Format("{0}.png", Type); } }
-        public string NamePlural { get { return string.Format("{0}s", Type); } }
+        public string NamePlural { get { return string.Format(CultureInfo.InvariantCulture, "{0}s", Type); } }
         #endregion 
 
         #region Constructor

@@ -53,7 +53,7 @@ namespace PropertyGui
             AllowConstant = true;
             AllowExpression = true;
             DefaultBindingType = BindingTypeEnum.Property;
-            MinimumMatchType = DataTypeInfo.MatchType.Convertable;
+            MinimumMatchType = DataTypeInfo.MatchType.Convertible;
 
             mnuBindingType.ImageList = ctlExpressionTree.Images;
             InitMenu(mnuPropertyBinding, "PropertyBinding.png", BindingTypeEnum.Property);

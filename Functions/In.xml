@@ -1,18 +1,1 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TreeLogicFunction>
-  <Name>In</Name>
-  <Category>Logic</Category>
-  <ReturnType>bool</ReturnType>
-  <Description>Determines if the value of the parameter is one of the subsequent enum values.</Description>
-  <ArgumentListType>Fixed</ArgumentListType>
-  <Mtsql>
-    <FirstSupported>5.0</FirstSupported>
-    <CodeGenTemplate>upper({0})</CodeGenTemplate>
-    <CodeGenMode>BasicTemplate</CodeGenMode>
-  </Mtsql>
-  <CSharp>
-    <FirstSupported>6.0.5</FirstSupported>
-    <CodeGenTemplate>{0}.ToUpper()</CodeGenTemplate>
-    <CodeGenMode>BasicTemplate</CodeGenMode>
-  </CSharp>
-</TreeLogicFunction>
+<Function xmlns="MetraTech" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Category>Logic</Category><Description i:nil="true"/><DynamicParameterMin>0</DynamicParameterMin><DynamicParameterPrototype i:nil="true"/><FixedParameters><Properties xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/></FixedParameters><Name>In</Name><ReturnType><BaseType>Boolean</BaseType><ComplexSubtype i:nil="true"/><ComplexType>ServiceDefinition</ComplexType><EnumSpace i:nil="true"/><EnumType i:nil="true"/><IsEntity>false</IsEntity><Length>0</Length><ListType>None</ListType><UnitOfMeasureMode>None</UnitOfMeasureMode><UnitOfMeasureQualifier i:nil="true"/><UnitsProperty i:nil="true"/></ReturnType></Function>

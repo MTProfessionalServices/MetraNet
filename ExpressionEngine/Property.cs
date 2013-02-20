@@ -36,7 +36,6 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// The collection to which the property belongs (may be null)
         /// </summary>
-        [DataMember]
         public PropertyCollection PropertyCollection { get; set; }
 
         public ComplexType ParentEntity
@@ -85,7 +84,7 @@ namespace MetraTech.ExpressionEngine
         /// definition aren't editable.
         /// </summary>
         [DataMember]
-        public bool IsCommon { get; set; }
+        public bool IsCore { get; set; }
 
         /// <summary>
         /// Indicates the how the Property is interacted with (e.g., Input, Output or InOut)
@@ -181,7 +180,7 @@ namespace MetraTech.ExpressionEngine
                     case BaseType.ComplexType:
                         return "Entity.png";
                 }
-                throw new NotImplementedException();
+                return null;
             }
         }
         #endregion
@@ -194,7 +193,7 @@ namespace MetraTech.ExpressionEngine
             DataTypeInfo = dtInfo;
             Description = description;
 
-            IsCommon = false;
+            IsCore = false;
         }
 
         #endregion Constructors
@@ -239,7 +238,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// Returns the UOM property associated with this property. Only valid for Numerics.
         /// </summary>
-        public IProperty GetUomProperty()
+        public IProperty GetUnitOfMeasureProperty()
         {
             if (!DataTypeInfo.IsNumeric || DataTypeInfo.UnitOfMeasureMode != ExpressionEngine.DataTypeInfo.UnitOfMeasureModeType.Property || PropertyCollection == null)
                 return null;
@@ -306,16 +305,19 @@ namespace MetraTech.ExpressionEngine
         /// the DataType level formatting should be moved to DataTypeInfo class
         /// NOTE THAT WE'RE NOT DEALING WITH UOMs
         /// </summary>
-        public string GetCompatibleKey()
+        public string CompatibleKey
         {
-            var key = string.Format(CultureInfo.InvariantCulture, "{0}|{1}", Name, DataTypeInfo.BaseType);
-            switch (DataTypeInfo.BaseType)
+            get
             {
-                case BaseType.Enumeration:
-                    key += string.Format(CultureInfo.InvariantCulture, "|{0}|{1}", DataTypeInfo.EnumSpace, DataTypeInfo.EnumType);
-                    break;
+                var key = string.Format(CultureInfo.InvariantCulture, "{0}|{1}", Name, DataTypeInfo.BaseType);
+                switch (DataTypeInfo.BaseType)
+                {
+                    case BaseType.Enumeration:
+                        key += string.Format(CultureInfo.InvariantCulture, "|{0}|{1}", DataTypeInfo.EnumSpace, DataTypeInfo.EnumType);
+                        break;
+                }
+                return key;
             }
-            return key;
         }
 
         public string GetFullyQualifiedName(bool prefix)
@@ -331,23 +333,6 @@ namespace MetraTech.ExpressionEngine
                 return name;
         }
 
-        #endregion
-
-        #region XML Methods (mario to wack)
-
-        public static Property CreateFromXmlParentNode(XmlNode parentNode, string childNodeName = "Property")
-        {
-            return CreateFromXmlNode(parentNode.GetChildNode(childNodeName));
-        }
-
-        public static Property CreateFromXmlNode(XmlNode node)
-        {
-            var name = node.GetChildTag("Name");
-            var description = node.GetChildTag("Description");
-            var dt = DataTypeInfo.CreateFromXmlParentNode(node);
-            var property = new Property(name, dt, description);
-            return property;
-        }
         #endregion
 
     }

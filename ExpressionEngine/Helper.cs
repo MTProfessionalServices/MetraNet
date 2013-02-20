@@ -3,28 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace MetraTech.ExpressionEngine
 {
     public static class Helper
     {
-        public static string CleanUpWhiteSpace(string strValue)
+        public static string CleanUpWhiteSpace(string value)
         {
-            if (string.IsNullOrEmpty(strValue))
-                return strValue;
+            if (string.IsNullOrEmpty(value))
+                return value;
 
-            strValue = strValue.Trim();
-            strValue = Regex.Replace(strValue, "[\t\r\n]", "");
-            strValue = Regex.Replace(strValue, "[ ]+", " ");
-            return strValue;
+            value = value.Trim();
+            value = Regex.Replace(value, "[\t\r\n]", "");
+            value = Regex.Replace(value, "[ ]+", " ");
+            return value;
         }
 
         //
         //Deterimines if the parameter is even
         //
-        public static bool IsEven(int num)
+        public static bool IsEven(int number)
         {
-            return (num % 2 == 0);
+            return (number % 2 == 0);
         }
 
         public static bool? ParseBool(string value)
@@ -32,7 +33,7 @@ namespace MetraTech.ExpressionEngine
             if (string.IsNullOrEmpty(value))
                 return null;
 
-            value = value.ToLower();
+            value = value.ToLower(CultureInfo.InvariantCulture);
 
             if (value.Equals("f") || value.Equals("false") || value.Equals("0") || value.Equals("no") || value.Equals("n"))
                 return false;
@@ -46,28 +47,31 @@ namespace MetraTech.ExpressionEngine
         //
         //Convert the MANY variants of boolean strings in the metadata to bool
         //
-        public static bool GetBool(string theString)
+        public static bool GetBoolean(string value)
         {
-            if (theString == null)
-                throw new Exception("Null value passed to GetBool");
+            if (value == null)
+                throw new ArgumentNullException("value");
 
-            theString = theString.ToUpper();
+            value = value.ToUpper(CultureInfo.InvariantCulture);
 
-            if (theString == "Y" || theString == "YES" || theString == "T" || theString == "TRUE" || theString == "1")
+            if (value == "Y" || value == "YES" || value == "T" || value == "TRUE" || value == "1")
                 return true;
-            else if (theString == "N" || theString == "NO" || theString == "F" || theString == "FALSE" || theString == "0")
+            else if (value == "N" || value == "NO" || value == "F" || value == "FALSE" || value == "0")
                 return false;
-            else if (string.IsNullOrEmpty(theString))
+            else if (string.IsNullOrEmpty(value))
                 throw new ArgumentException("A boolean value must be specified");
             else
-                throw new ArgumentException("Invalid boolean string [" + theString + "]");
+                throw new ArgumentException("Invalid boolean string [" + value + "]");
         }
 
         //
         //Returns a random string of the specified length
         //
-        public static string GetRandomString(Random random, int min, int max, bool lowerCase)
+        public static string GetRandomString(Random random, int min, int max, bool lowercase)
         {
+            if (random == null)
+                throw new ArgumentNullException("random");
+
             var size = random.Next(min, max);
 
             var builder = new StringBuilder();
@@ -78,8 +82,8 @@ namespace MetraTech.ExpressionEngine
                 builder.Append(ch);
             }
 
-            if (lowerCase)
-                return builder.ToString().ToLower();
+            if (lowercase)
+                return builder.ToString().ToLower(CultureInfo.InvariantCulture);
             return builder.ToString();
         }
 

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using System.IO;
 using System.Runtime.Serialization;
+using System.Xml;
 
 namespace PropertyGui
 {
@@ -25,7 +26,7 @@ namespace PropertyGui
 
             cboContext.BeginUpdate();
             cboContext.DropDownStyle = ComboBoxStyle.DropDownList;
-            var dirInfo = new DirectoryInfo(Path.Combine(_DemoLoader.TopLevelDataDir));
+            var dirInfo = new DirectoryInfo(Path.Combine(DemoLoader.TopLevelDataDir));
             foreach (var dir in dirInfo.GetDirectories())
             {
                 cboContext.Items.Add(dir.Name);
@@ -51,12 +52,12 @@ namespace PropertyGui
             else
                 product = Context.ProductTypeEnum.MetraNet;
 
-            _DemoLoader.LoadGlobalContext(product, cboContext.Text);
+            DemoLoader.LoadGlobalContext(product, cboContext.Text);
 
-            SetItems(cboAqgs, btnAQG, _DemoLoader.GlobalContext.AQGs.Values.ToArray<AQG>());
-            SetItems(cboUqgs, btnUQG, _DemoLoader.GlobalContext.UQGs.Values.ToArray<UQG>());
-            SetItems(cboExpressions, btnExpression, _DemoLoader.GlobalContext.Expressions.Values.ToArray<Expression>());
-            SetItems(cboEmailTemplates, btnEmailTemplates, _DemoLoader.GlobalContext.EmailTemplates.Values.ToArray<EmailTemplate>());
+            SetItems(cboAqgs, btnAQG, DemoLoader.GlobalContext.AQGs.Values.ToArray<AQG>());
+            SetItems(cboUqgs, btnUQG, DemoLoader.GlobalContext.UQGs.Values.ToArray<UQG>());
+            SetItems(cboExpressions, btnExpression, DemoLoader.GlobalContext.Expressions.Values.ToArray<Expression>());
+            SetItems(cboEmailTemplates, btnEmailTemplates, DemoLoader.GlobalContext.EmailInstances.Values.ToArray<EmailInstance>());
         }
         #endregion
 
@@ -128,21 +129,18 @@ namespace PropertyGui
             LoadContext();
         }
 
-
-
         private void btnPageLayout_Click(object sender, EventArgs e)
         {
-            ShowExpression(new Expression(Expression.ExpressionTypeEnum.Email, ""), true);
+            ShowExpression(new Expression(Expression.ExpressionTypeEnum.Email, "", null), true);
         }
 
         private void btnEmailTemplates_Click(object sender, EventArgs e)
         {
-            var emailTemplate = (EmailTemplate)cboEmailTemplates.SelectedItem;
+            var emailInstance = (EmailInstance)cboEmailTemplates.SelectedItem;
+            emailInstance.UpdateEntityParameters();
             var dialog = new frmExpressionEngine();
-            var exp = new Expression(Expression.ExpressionTypeEnum.Email, null);
-            exp.EntityParameters.AddRange(emailTemplate.EntityParameters.ToArray());
-            var context = new Context(exp);
-            dialog.Init(context, emailTemplate);
+            var context = new Context(emailInstance.BodyExpression);
+            dialog.Init(context, emailInstance);
             dialog.ShowDialog();
         }
 
@@ -150,17 +148,48 @@ namespace PropertyGui
 
         private void button1_Click(object sender, EventArgs e)
         {
+            var template = new EmailTemplate();
+            template.Name = "Invoice Notice";
+            template.Description = "Sent to customer when an invoice is generated.";
+            template.EntityParameters.Add("Invoice");
+            template.Save(@"C:\Temp");
+
+            var exp = new Expression(Expression.ExpressionTypeEnum.UQG, "really cool logic", "_specialpromotion");
+            //exp.DeclaredReturnType.DataTypeInfo.BaseType = BaseType.Boolean;
+            exp.Save(@"C:\Temp");
+
+            var email = new EmailInstance();
+            email.Name = "Blank_email";
+            email.Save(@"C:\Temp");
+
+            //var dirInfo = new DirectoryInfo(@"C:\Temp\Functions");
+            //if (!dirInfo.Exists)
+            //    dirInfo.Create();
+            //foreach (var func in DemoLoader.GlobalContext.Functions.Values)
+            //{
+            //    func.Save(dirInfo.FullName);
+            //}
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var functions = new List<Function>();
             var dirInfo = new DirectoryInfo(@"C:\Temp\Functions");
-            if (!dirInfo.Exists)
-                dirInfo.Create();
-            foreach (var func in _DemoLoader.GlobalContext.Functions.Values)
+            foreach (var fileInfo in dirInfo.GetFiles("*.xml"))
             {
-                var filePath = string.Format(@"{0}\{1}.xml", dirInfo.FullName, func.Name);
-                var writer = new FileStream(filePath, FileMode.Create);
-                var ser = new DataContractSerializer(typeof (Function), new List<Type>(), Int32.MaxValue, false, true, null); // preserve object references due to cycles
-                ser.WriteObject(writer, func);
-                writer.Close();
+                var fs = new FileStream(fileInfo.FullName,FileMode.Open);
+                var reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas());
+                var ser = new DataContractSerializer(typeof(Function));
+                var function = (Function)ser.ReadObject(reader, true);
+                fs.Close();
+                reader.Close();
+
+                functions.Add(function);
             }
+        }
+
+        private void btnInputsOutputs_Click(object sender, EventArgs e)
+        {
         }
 
     }

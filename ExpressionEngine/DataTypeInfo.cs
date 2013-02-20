@@ -44,19 +44,19 @@ namespace MetraTech.ExpressionEngine
         #region Static properties
 
         //public static DataTypeInfo[] AllTypes;
-        public static DataTypeInfo[] AllTypes;
+        public static readonly DataTypeInfo[] AllTypes;
 
         /// <summary>
         /// BaseTypes supported by MSIX entities (e.g., Service Definitoins, ProductViews, etc.).
         /// Do not make changes to the objects in this array. Use CopyFrom to make a copy and make changes to the copy.
         /// </summary>
-        public static readonly BaseType[] MsixBaseTypes;
+        public static readonly IEnumerable<BaseType> MsixBaseTypes;
 
         /// <summary>
         /// BaseTypes that exist as native database types (e.g., string, int, etc.). In other words, there is a 1:1 mapping.
         /// Do not make changes to the objects in this array. Use CopyFrom to make a copy and make changes to the copy.
         /// </summary>
-        public static readonly BaseType[] DatabaseBaseTypes;
+        public static readonly IEnumerable<BaseType> DatabaseBaseTypes;
 
         /// <summary>
         /// Create a not read only copy of the existing DataTypeInfo object
@@ -113,6 +113,27 @@ namespace MetraTech.ExpressionEngine
         /// Indicates if compatible with MSIX entities (e.g., Service Definitions, Product Views, etc.)
         /// </summary>
         public bool IsMsixCompatible { get { return MsixBaseTypes.Contains(BaseType); } }
+
+        /// <summary>
+        /// Returns a string that can be used to determine if two types are directly compatible (which is differnt than castable)
+        /// </summary>
+        /// <returns></returns>
+        public string CompatibleKey
+        {
+            get
+            {
+                switch (BaseType)
+                {
+                    case BaseType.Enumeration:
+                        return string.Format(CultureInfo.InvariantCulture, "{0}|{1}|{2}", BaseType, EnumSpace, EnumType);
+                    case BaseType.ComplexType:
+                        return string.Format(CultureInfo.InvariantCulture, "{0}|{1}", BaseType, ComplexType);
+                    default:
+                        return BaseType.ToString();
+                }
+            }
+        }
+
 
         #region EnumProperties
         /// <summary>
@@ -352,50 +373,6 @@ namespace MetraTech.ExpressionEngine
             return new DataTypeInfo(GetDataTypeEnum(theType));
         }
 
-        public static DataTypeInfo CreateFromXmlParentNode(XmlNode parentNode, string childNodeName="DataType")
-        {
-            return CreateFromXmlNode(parentNode.GetChildNode(childNodeName));
-        }
-        public static DataTypeInfo CreateFromXmlNode(XmlNode node)
-        {
-            var dt = CreateFromDataTypeString(node.InnerText);
-            switch (dt.BaseType)
-            {
-                case BaseType.Enumeration:
-                    dt.EnumSpace = node.GetAttribute("EnumSpace");
-                    dt.EnumType = node.GetAttribute("EnumType");
-                    break;
-                case BaseType.ComplexType:
-                    dt.ComplexType = node.GetChildEnum<ComplexType.ComplexTypeEnum>("Type");
-                    dt.ComplexSubtype = node.GetChildTag("SubType");
-                    break;
-            }
-            return dt;
-        }
-
-        //ToDO: Need to finish!
-        public void WriteXmlNode(XmlNode parentNode)
-        {
-            var dataTypeNode = parentNode.AddChildNode("DataType", BaseType.ToString());
-            switch (BaseType)
-            {
-                case ExpressionEngine.BaseType.Enumeration:
-                    dataTypeNode.AddAttribute("EnumSpace", EnumSpace);
-                    dataTypeNode.AddAttribute("EnumType", EnumType);
-                    return;
-                case ExpressionEngine.BaseType.ComplexType:
-                    dataTypeNode.AddAttribute("Type", ComplexType.ToString());
-                    dataTypeNode.AddAttribute("SubType", ComplexSubtype);
-                    return;
-            }
-
-            if (IsNumeric)
-            {
-                dataTypeNode.AddAttribute("UomMode", UnitOfMeasureMode.ToString());
-                dataTypeNode.AddAttribute("UomQualifier", UnitOfMeasureQualifier);
-            }
-        }
-
         #endregion
 
         #region To Methods
@@ -448,7 +425,7 @@ namespace MetraTech.ExpressionEngine
                     break;
                 case BaseType.String:
                     if (robustMode && Length > 0)
-                        return string.Format(CultureInfo.InvariantCulture, "String({0})", Length.ToString());
+                        return string.Format(CultureInfo.InvariantCulture, "String({0})", Length.ToString(CultureInfo.InvariantCulture));
                     return "String";
                 case BaseType.Guid:
                     return "Guid";
@@ -492,7 +469,7 @@ namespace MetraTech.ExpressionEngine
                 case UnitOfMeasureModeType.Property:
                     return string.Format("UoM Property: {0}", UnitOfMeasureQualifier);
                 default:
-                    throw new NotImplementedException();
+                    return null;
             }
         }
 
@@ -527,7 +504,7 @@ namespace MetraTech.ExpressionEngine
             }
         }
 
-        public string ToBMEString()
+        public string ToBmeString()
         {
             switch (BaseType)
             {
@@ -630,7 +607,7 @@ namespace MetraTech.ExpressionEngine
             {
                 case BaseType.Any:
                 case BaseType.Numeric:
-                    return string.Format("<{0}>", value);
+                    return string.Format(CultureInfo.InvariantCulture, "<{0}>", value);
                 default:
                     return value;
             }
@@ -741,25 +718,12 @@ namespace MetraTech.ExpressionEngine
         private void ThrowExcpetionIfWrongType(BaseType expected)
         {
             if (expected != BaseType)
-                throw new Exception(string.Format(CultureInfo.InvariantCulture, Localization.BaseTypeIncorrect, expected, BaseType));
+                throw new ApplicationException(string.Format(CultureInfo.InvariantCulture, Localization.BaseTypeIncorrect, expected, BaseType));
         }
 
         #endregion
 
         #region Misc Methods
-
-        public string GetCompatibleKey()
-        {
-            switch (BaseType)
-            {
-                case BaseType.Enumeration:
-                    return string.Format(CultureInfo.InvariantCulture, "{0}|{1}|{2}", BaseType, EnumSpace, EnumType);
-                case BaseType.ComplexType:
-                    return string.Format(CultureInfo.InvariantCulture, "{0}|{1}", BaseType, ComplexType);
-                default:
-                    return BaseType.ToString();
-            }
-        }
 
         /// <summary>
         /// Converts a string into a DataType Enum
@@ -768,7 +732,10 @@ namespace MetraTech.ExpressionEngine
         /// <returns></returns>
         public static BaseType GetDataTypeEnum(string theType)
         {
-            switch (theType.ToLower())
+            if (theType == null)
+                throw new ArgumentNullException("theType");
+
+            switch (theType.ToLower(CultureInfo.InvariantCulture))
             {
                 case "string":
                     return BaseType.String;
@@ -819,7 +786,7 @@ namespace MetraTech.ExpressionEngine
                 case "entity":
                     return BaseType.ComplexType;
                 default:
-                    throw new Exception("Invalid internal data type string [" + theType + "]");
+                    throw new ArgumentException("Invalid internal data type string [" + theType + "]");
             }
         }
 
@@ -840,6 +807,9 @@ namespace MetraTech.ExpressionEngine
         /// <returns></returns>
         public string GetRandomValue(Random randomNumber)
         {
+            if (randomNumber == null)
+                throw new ArgumentNullException("randomNumber");
+
             switch (BaseType)
             {
                 case BaseType.Boolean:
@@ -851,7 +821,7 @@ namespace MetraTech.ExpressionEngine
                 case BaseType.Decimal:
                 case BaseType.Double:
                 case BaseType.Float:
-                    return System.Decimal.Round((Decimal)randomNumber.Next(1, 99) + (Decimal)randomNumber.NextDouble(), 2).ToString();
+                    return System.Decimal.Round((Decimal)randomNumber.Next(1, 99) + (Decimal)randomNumber.NextDouble(), 2).ToString(CultureInfo.InvariantCulture);
 
                 case BaseType.Enumeration:
                     var values = EnumHelper.GetValues(EnumSpace, EnumType);
@@ -859,7 +829,7 @@ namespace MetraTech.ExpressionEngine
 
                 case BaseType.Integer32:
                 case BaseType.Integer64:
-                    return randomNumber.Next(0, 10000).ToString();
+                    return randomNumber.Next(0, 10000).ToString(CultureInfo.InvariantCulture);
 
                 case BaseType.String:
                     return Helper.GetRandomString(randomNumber, Math.Min(4, Length), Math.Min(15, Length), true);
@@ -871,7 +841,7 @@ namespace MetraTech.ExpressionEngine
                         offsetMinutes *= -1;
 
                     dt = dt.AddMinutes(offsetMinutes);
-                    return dt.ToString("MM-dd-yyyy hh:mm");
+                    return dt.ToString("MM-dd-yyyy hh:mm", CultureInfo.InvariantCulture);
 
                 default:
                     return BaseType.ToString();
@@ -908,7 +878,7 @@ namespace MetraTech.ExpressionEngine
                 case BaseType.Guid:
                     return "0xAbcd";
                 default:
-                    throw new ApplicationException("Unhandled data type: " + type.ToString());
+                    throw new ArgumentException("Unhandled data type: " + type.ToString());
             }
         }
         #endregion
@@ -968,7 +938,7 @@ namespace MetraTech.ExpressionEngine
         {
             None = 0,                 //For example, String and Integer32
             BaseTypeWithDiff = 1,     //The BaseTypes match but there is some difference (i.e., two enums with differnt enumtypes)
-            Convertable = 2,          //The base types are compatiable, but a UoM or Curency conversion must be performed. Only applies to numerics. 
+            Convertible = 2,          //The base types are compatiable, but a UoM or Curency conversion must be performed. Only applies to numerics. 
             ImplicitCast = 3,         //The start type can be implicitly cast to the end type. Only applies to numerics (i.e., Integer32 can be implicitly cast to Integer64 but the coversion isn't true)
             Any = 4,            //Note that Any only works one way
             Exact = 5           // Integer32 and Integer32 or two enums with the same enumspace and enumtype 
@@ -1008,7 +978,7 @@ namespace MetraTech.ExpressionEngine
                 if (IsImplicitCast(this, type2))
                     return MatchType.ImplicitCast;
 
-                return MatchType.Convertable;
+                return MatchType.Convertible;
             }
 
             if (BaseType == type2.BaseType)
@@ -1043,7 +1013,7 @@ namespace MetraTech.ExpressionEngine
         public static bool IsImplicitCast(DataTypeInfo start, DataTypeInfo end)
         {
             if (start == null || end == null)
-                throw new ArgumentNullException("Arguments can't be null");
+                throw new ArgumentNullException("start and end arguments can't be null");
             if (!start.IsNumeric || !end.IsNumeric)
                 throw new ArgumentException("Arguments must be numeric");
 
@@ -1096,8 +1066,10 @@ namespace MetraTech.ExpressionEngine
 
         public static string ConvertValueStringToCSharpConstant(DataTypeInfo dtInfo, string value)
         {
-            if (dtInfo != null)
+            if (dtInfo == null)
                 throw new ArgumentNullException("dtInfo");
+            if (value == null)
+                throw new ArgumentNullException("value");
 
             switch (dtInfo.BaseType)
             {
@@ -1120,29 +1092,34 @@ namespace MetraTech.ExpressionEngine
 
         public object ConvertValueToNativeValue(string value)
         {
-            return DataTypeInfo.ConvertValueToNativeValue(this, value);
+            return DataTypeInfo.ConvertValueToNativeValue(this, value, true);
         }
-        public static object ConvertValueToNativeValue(DataTypeInfo type, string value)
+
+        public static object ConvertValueToNativeValue(DataTypeInfo type, string value, bool useInvariantCulture)
         {
+            if (type == null)
+                throw new ArgumentNullException("type");
             if (value == null)
                 return null;
+
+            var cultureInfo = useInvariantCulture ? CultureInfo.InvariantCulture : CultureInfo.CurrentUICulture;
 
             switch (type.BaseType)
             {
                 case BaseType.Boolean:
-                    return Helper.GetBool(value);
+                    return Helper.GetBoolean(value);
                 case BaseType.Decimal:
-                    return decimal.Parse(value);
+                    return decimal.Parse(value, cultureInfo);
                 case BaseType.Double:
-                    return double.Parse(value);
+                    return double.Parse(value, cultureInfo);
                 case BaseType.Enumeration:
                     return EnumHelper.GetMetraNetIntValue(type, value);
                 case BaseType.Float:
-                    return float.Parse(value);
+                    return float.Parse(value, cultureInfo);
                 case BaseType.Integer32:
-                    return int.Parse(value);
+                    return int.Parse(value, cultureInfo);
                 case BaseType.Integer64:
-                    return long.Parse(value);
+                    return long.Parse(value, cultureInfo);
                 case BaseType.String:
                     return value;
                 //case DataType._timestamp:

@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Collections.ObjectModel;
+using System.Globalization;
 
 namespace MetraTech.ExpressionEngine
 {
     public class EnumType : IExpressionEngineTreeNode
     {
         #region Properties
-        public EnumSpace Parent { get; private set; }
+        public EnumSpace EnumSpace { get; private set; }
         public string Name { get; set; }
         public int Id { get; set; }
         public string Description { get; set; }
@@ -42,7 +43,7 @@ namespace MetraTech.ExpressionEngine
         #region Constructor
         public EnumType(EnumSpace parent, string name, int id, string description)
         {
-            Parent = parent;
+            EnumSpace = parent;
             Name = name;
             Id = id;
             Description = description;
@@ -61,7 +62,7 @@ namespace MetraTech.ExpressionEngine
         {
             get
             {
-                throw new NotImplementedException();
+                return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", EnumSpace.ToExpressionSnippet, Name);
             }
         }
 

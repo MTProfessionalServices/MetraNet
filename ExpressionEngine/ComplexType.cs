@@ -17,7 +17,7 @@ namespace MetraTech.ExpressionEngine
     public class ComplexType : IProperty, IExpressionEngineTreeNode
     {
         #region Enums
-        public enum ComplexTypeEnum {ServiceDefinition, ProductView, ParameterTable, AccountType, AccountView, BusinessModelingEntity, Any, Metanga}
+        public enum ComplexTypeEnum {None, ServiceDefinition, ProductView, ParameterTable, AccountType, AccountView, BusinessModelingEntity, Any, Metanga}
         #endregion
 
         #region Properties
@@ -26,6 +26,9 @@ namespace MetraTech.ExpressionEngine
 
         [DataMember]
         public bool Required { get; set; }
+
+        [DataMember]
+        public bool IsCore { get; set; }
 
         [DataMember]
         public DataTypeInfo DataTypeInfo { get; set; }
@@ -40,7 +43,8 @@ namespace MetraTech.ExpressionEngine
 
         [DataMember]
         public Property.DirectionType Direction { get; set; }
-        public string GetCompatibleKey() { return string.Format(CultureInfo.InvariantCulture, "{0}|{1}", Name, DataTypeInfo.GetCompatibleKey()); }
+
+        public string CompatibleKey { get { return string.Format(CultureInfo.InvariantCulture, "{0}|{1}", Name, DataTypeInfo.CompatibleKey); } }
 
         /// <summary>
         /// The actual database table name. Used in MetraNet which has a prefix on all table names.
@@ -165,7 +169,6 @@ namespace MetraTech.ExpressionEngine
                     return "ACCOUNT";
                 default:
                     return String.Empty;
-                    //throw new NotImplementedException();
             }
         }
 

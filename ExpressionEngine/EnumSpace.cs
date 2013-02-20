@@ -45,19 +45,13 @@ namespace MetraTech.ExpressionEngine
         {
             get
             {
-                throw new NotImplementedException("not ready yet");
+                return string.Format(CultureInfo.InvariantCulture, "Enum.{0}", Name);
             }
         }
 
         public void Save(string dirPath)
         {
-            var doc = new XmlDocument();
-            var rootNode = doc.AddChildNode("EnumSpace");
-
-            var name = Name.Replace('\\', '_');
-            rootNode.AddChildNode("Name", name);
-            rootNode.AddChildNode("Description", Description);
-            doc.SaveFormatted(string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.EnumSpace.xml", dirPath, name));
+            new NotImplementedException();
         }
 
         public bool TryGetEnumType(string name, out EnumType type)

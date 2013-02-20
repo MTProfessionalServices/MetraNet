@@ -53,6 +53,8 @@
             this.cboEqualityOperator = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnInputsOutputs = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -201,7 +203,7 @@
             // 
             this.btnPageLayout.Location = new System.Drawing.Point(33, 299);
             this.btnPageLayout.Name = "btnPageLayout";
-            this.btnPageLayout.Size = new System.Drawing.Size(75, 23);
+            this.btnPageLayout.Size = new System.Drawing.Size(142, 23);
             this.btnPageLayout.TabIndex = 7;
             this.btnPageLayout.Text = "Page Layout";
             this.btnPageLayout.UseVisualStyleBackColor = true;
@@ -300,19 +302,41 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(671, 299);
+            this.button1.Location = new System.Drawing.Point(687, 341);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 16;
-            this.button1.Text = "button1";
+            this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(687, 373);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "Load";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnInputsOutputs
+            // 
+            this.btnInputsOutputs.Location = new System.Drawing.Point(556, 373);
+            this.btnInputsOutputs.Name = "btnInputsOutputs";
+            this.btnInputsOutputs.Size = new System.Drawing.Size(107, 23);
+            this.btnInputsOutputs.TabIndex = 18;
+            this.btnInputsOutputs.Text = "Inputs && Outputs";
+            this.btnInputsOutputs.UseVisualStyleBackColor = true;
+            this.btnInputsOutputs.Click += new System.EventHandler(this.btnInputsOutputs_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 346);
+            this.ClientSize = new System.Drawing.Size(774, 408);
+            this.Controls.Add(this.btnInputsOutputs);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.cboEmailTemplates);
@@ -361,5 +385,7 @@
         private System.Windows.Forms.CheckBox chkShowAcutalMappings;
         private System.Windows.Forms.CheckBox chkAutoSelectInsertedSnippets;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnInputsOutputs;
     }
 }

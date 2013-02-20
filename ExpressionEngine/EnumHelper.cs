@@ -8,25 +8,25 @@ namespace MetraTech.ExpressionEngine
     public static class EnumHelper
     {
         #region Methods
-        public static bool NameSpaceExists(string _namespace)
+        public static bool NameSpaceExists(string enumSpace)
         {
             throw new NotImplementedException();
         }
 
-        public static bool TypeExists(string _namespace, string type)
+        public static bool TypeExists(string enumSpace, string type)
         {
             throw new NotImplementedException();
         }
-        public static bool ValueExists(string _namespace, string type, string value)
+        public static bool ValueExists(string enumSpace, string type, string value)
         {
             throw new NotImplementedException();
         }
-        public static List<string> GetValues(string _namespace, string type)
+        public static List<string> GetValues(string enumSpace, string type)
         {
             throw new NotImplementedException();
         }
 
-        public static bool IsValidValue(string _namespace, string type, string value)
+        public static bool IsValidValue(string enumSpace, string type, string value)
         {
             throw new NotImplementedException();
         }
@@ -43,7 +43,7 @@ namespace MetraTech.ExpressionEngine
 
         public static int GetMetraNetIntValue(DataTypeInfo dtInfo, string value)
         {
-            throw new NotImplementedException(); ;
+            throw new NotImplementedException(); 
         }
         #endregion
     }

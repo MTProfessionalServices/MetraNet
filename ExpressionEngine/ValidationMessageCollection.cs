@@ -17,6 +17,8 @@ namespace MetraTech.ExpressionEngine
         #region Methods
         public void Add(ValidationMessage valMsg)
         {
+            if (valMsg == null)
+                throw new ArgumentNullException("valMsg");
             switch (valMsg.Severity)
             {
                 case ValidationMessage.SeverityType.Error:

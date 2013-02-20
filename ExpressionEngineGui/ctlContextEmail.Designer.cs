@@ -33,11 +33,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ctlBody = new PropertyGui.ctlExpression();
             this.pctEmailEditor = new System.Windows.Forms.PictureBox();
-            this.ctlCc = new System.Windows.Forms.TextBox();
-            this.ctlSubject = new System.Windows.Forms.TextBox();
-            this.ctlTo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTemplate = new System.Windows.Forms.TextBox();
+            this.ctlTo = new PropertyGui.ctlExpression();
+            this.ctlCc = new PropertyGui.ctlExpression();
+            this.ctlSubject = new PropertyGui.ctlExpression();
             ((System.ComponentModel.ISupportInitialize)(this.pctEmailEditor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,33 +91,6 @@
             this.pctEmailEditor.TabIndex = 9;
             this.pctEmailEditor.TabStop = false;
             // 
-            // ctlCc
-            // 
-            this.ctlCc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctlCc.Location = new System.Drawing.Point(52, 110);
-            this.ctlCc.Name = "ctlCc";
-            this.ctlCc.Size = new System.Drawing.Size(779, 20);
-            this.ctlCc.TabIndex = 11;
-            // 
-            // ctlSubject
-            // 
-            this.ctlSubject.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctlSubject.Location = new System.Drawing.Point(52, 136);
-            this.ctlSubject.Name = "ctlSubject";
-            this.ctlSubject.Size = new System.Drawing.Size(779, 20);
-            this.ctlSubject.TabIndex = 12;
-            // 
-            // ctlTo
-            // 
-            this.ctlTo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctlTo.Location = new System.Drawing.Point(52, 84);
-            this.ctlTo.Name = "ctlTo";
-            this.ctlTo.Size = new System.Drawing.Size(779, 20);
-            this.ctlTo.TabIndex = 13;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -137,15 +110,39 @@
             this.txtTemplate.Size = new System.Drawing.Size(779, 20);
             this.txtTemplate.TabIndex = 15;
             // 
+            // ctlTo
+            // 
+            this.ctlTo.Location = new System.Drawing.Point(52, 84);
+            this.ctlTo.Name = "ctlTo";
+            this.ctlTo.Size = new System.Drawing.Size(779, 20);
+            this.ctlTo.TabIndex = 16;
+            this.ctlTo.TextChanged += new System.EventHandler(this.ctlBody_TextChanged);
+            // 
+            // ctlCc
+            // 
+            this.ctlCc.Location = new System.Drawing.Point(52, 110);
+            this.ctlCc.Name = "ctlCc";
+            this.ctlCc.Size = new System.Drawing.Size(779, 20);
+            this.ctlCc.TabIndex = 17;
+            this.ctlCc.TextChanged += new System.EventHandler(this.ctlBody_TextChanged);
+            // 
+            // ctlSubject
+            // 
+            this.ctlSubject.Location = new System.Drawing.Point(52, 136);
+            this.ctlSubject.Name = "ctlSubject";
+            this.ctlSubject.Size = new System.Drawing.Size(779, 20);
+            this.ctlSubject.TabIndex = 18;
+            this.ctlSubject.TextChanged += new System.EventHandler(this.ctlBody_TextChanged);
+            // 
             // ctlContextEmail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.txtTemplate);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.ctlTo);
             this.Controls.Add(this.ctlSubject);
             this.Controls.Add(this.ctlCc);
+            this.Controls.Add(this.ctlTo);
+            this.Controls.Add(this.txtTemplate);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.pctEmailEditor);
             this.Controls.Add(this.ctlBody);
             this.Controls.Add(this.label1);
@@ -166,10 +163,10 @@
         private System.Windows.Forms.Label label1;
         private ctlExpression ctlBody;
         private System.Windows.Forms.PictureBox pctEmailEditor;
-        private System.Windows.Forms.TextBox ctlCc;
-        private System.Windows.Forms.TextBox ctlSubject;
-        private System.Windows.Forms.TextBox ctlTo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtTemplate;
+        private ctlExpression ctlTo;
+        private ctlExpression ctlCc;
+        private ctlExpression ctlSubject;
     }
 }

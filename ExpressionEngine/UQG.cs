@@ -27,15 +27,5 @@ namespace MetraTech.ExpressionEngine
         }
         #endregion
 
-        #region Methods
-        public static UQG CreateFromDataRow(DataRow row)
-        {
-            var name = row.Field<string>("Name");
-            var description = row.Field<string>("Description");
-            var expression = row.Field<string>("Expression");
-            var uqg = new UQG(name, description, expression);
-            return uqg;
-        }
-        #endregion
     }
 }

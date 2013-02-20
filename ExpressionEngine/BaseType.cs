@@ -11,13 +11,14 @@
         Binary,
         Boolean,
         ComplexType,        //Spans everying from BMEs to ProductViews
-        Charge,             //Decimal with Currency
+        Charge,             //Decimal with Currency that is a, or part of a, charge or a settlement  ((PropertyAttribute))
         DateTime,
         Decimal,
         Double,
         Enumeration,
         Float,
         Guid,
+        Money,              //Decimal with currency that is NOT a charge or a, or part of a, settlement
         Integer,
         Integer32,
         Integer64,
@@ -25,4 +26,14 @@
         String,
         UniqueIdentifier    //This is different than a Guid
     }
+
+
+    // AbstractType
+    //     IntegerType
+    //     
+
+    //TypeFactory.CreateBoolean()
+   
+    //
+
 }

@@ -46,8 +46,10 @@ namespace MetraTech.ExpressionEngine.Test
             return content;
         }
 
-        public static void Send(EmailInstance email)
+        public static void Send(PropertyCollection properties)
         {
+            var toProperty = properties.Get(EmailInstance.ToPropertyName);
+            var toValue = ((Property)toProperty).Value;
             throw new NotImplementedException();
         }
     }

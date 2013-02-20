@@ -13,17 +13,17 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Properties
-        public int NumErrors { get; private set; }
-        public int NumWarnings { get; private set; }
-        public int NumInfos { get; private set; }
+        public int ErrorCount { get; private set; }
+        public int WarningCount { get; private set; }
+        public int InfoCount { get; private set; }
         public int Count { get { return Messages.Count; } }
         public ValidationMessage.SeverityType HighestSeverity
         {
             get
             {
-                if (NumErrors > 0)
+                if (ErrorCount > 0)
                     return ValidationMessage.SeverityType.Error;
-                if (NumWarnings > 0)
+                if (WarningCount > 0)
                     return ValidationMessage.SeverityType.Warn;
                 return ValidationMessage.SeverityType.Info;
             }
@@ -40,13 +40,13 @@ namespace MetraTech.ExpressionEngine
             switch (valMsg.Severity)
             {
                 case ValidationMessage.SeverityType.Error:
-                    NumErrors++;
+                    ErrorCount++;
                     break;
                 case ValidationMessage.SeverityType.Info:
-                    NumInfos++;
+                    InfoCount++;
                     break;
                 case ValidationMessage.SeverityType.Warn:
-                    NumWarnings++;
+                    WarningCount++;
                     break;
             }
             Messages.Add(valMsg);

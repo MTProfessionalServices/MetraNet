@@ -26,16 +26,5 @@ namespace MetraTech.ExpressionEngine
             Expression = new Expression(Expression.ExpressionTypeEnum.AQG, expression, null);
         }
         #endregion
-
-        #region Methods
-        public static AQG CreateFromDataRow(DataRow row)
-        {
-            var name = row.Field<string>("Name");
-            var description = row.Field<string>("Description");
-            var expression = row.Field<string>("Expression");
-            var aqg = new AQG(name, description, expression);
-            return aqg;
-        }
-        #endregion
     }
 }

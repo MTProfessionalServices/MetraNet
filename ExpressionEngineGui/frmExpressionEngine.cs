@@ -105,19 +105,19 @@ namespace PropertyGui
             else
                 results = Context.Expression.ParseAndBindResults(Context);
 
-            if (results.Messages.NumErrors == 0 && !showSucessMessage)
+            if (results.Messages.ErrorCount == 0 && !showSucessMessage)
                 return true;
 
             var icon = MvcAbstraction.GetMessageBoxIcon(results.Messages.HighestSeverity);
 
             string message;
-            if (results.Messages.NumErrors == 0)
+            if (results.Messages.ErrorCount == 0)
                 message = "Expression is valid."; //Localization.
             else
                 message = results.Messages.GetSummary();
 
             MessageBox.Show(message, "Validation Results", MessageBoxButtons.OK, icon);
-            return results.Messages.NumErrors == 0;
+            return results.Messages.ErrorCount == 0;
         }
         private void btnTest_Click(object sender, EventArgs e)
         {

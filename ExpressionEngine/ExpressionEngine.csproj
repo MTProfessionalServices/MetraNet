@@ -85,6 +85,15 @@
     <Compile Include="Test\EmailEngine.cs" />
     <Compile Include="Test\IProcessingEngine.cs" />
     <Compile Include="Test\TestInstance.cs" />
+    <Compile Include="TypeSystem\StringType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TypeSystem\Type.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TypeSystem\TypeFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="UserSettings.cs" />
     <Compile Include="UnitOfMeasure.cs" />
     <Compile Include="UnitOfMeasureCategory.cs" />

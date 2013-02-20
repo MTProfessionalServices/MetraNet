@@ -20,6 +20,7 @@ namespace MetraTech.ExpressionEngine
 
         /// <summary>
         /// The message to be presented to the user. It is assumed that it is already localized by the time that it reaches this point
+        /// TODO this should be replaced with an ID
         /// </summary>
         public string Message { get; set; }
 

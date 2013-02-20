@@ -1,0 +1,45 @@
+<Function xmlns="MetraTech" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <Category>Text</Category>
+  <Description i:nil="true"/>
+  <DynamicParameterMin>0</DynamicParameterMin>
+  <DynamicParameterPrototype i:nil="true"/>
+  <FixedParameters>
+    <Properties xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <a:anyType i:type="Property">
+        <DataTypeInfo>
+          <BaseType>String</BaseType>
+          <ComplexSubtype i:nil="true"/>
+          <ComplexType>None</ComplexType>
+          <EnumSpace i:nil="true"/>
+          <EnumType i:nil="true"/>
+          <IsEntity>false</IsEntity>
+          <Length>0</Length>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true"/>
+          <UnitsProperty i:nil="true"/>
+        </DataTypeInfo>
+        <DefaultValue i:nil="true"/>
+        <Description>The code of the currency to be retrieved</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Currency</Name>
+        <Required>true</Required>
+      </a:anyType>
+    </Properties>
+  </FixedParameters>
+  <Name>GetCurrency</Name>
+  <ReturnType>
+    <BaseType>ComplexType</BaseType>
+    <ComplexSubtype>Currency</ComplexSubtype>
+    <ComplexType>Metanga</ComplexType>
+    <EnumSpace i:nil="true"/>
+    <EnumType i:nil="true"/>
+    <IsEntity>false</IsEntity>
+    <Length>0</Length>
+    <ListType>None</ListType>
+    <UnitOfMeasureMode>None</UnitOfMeasureMode>
+    <UnitOfMeasureQualifier i:nil="true"/>
+    <UnitsProperty i:nil="true"/>
+  </ReturnType>
+</Function>

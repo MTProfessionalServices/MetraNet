@@ -59,6 +59,7 @@
     <Compile Include="EnumTypeTest.cs" />
     <Compile Include="EnumValueTest.cs" />
     <Compile Include="ExpressionTest.cs" />
+    <Compile Include="FunctionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

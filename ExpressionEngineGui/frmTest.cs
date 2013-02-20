@@ -31,7 +31,9 @@ namespace PropertyGui
             foreach (var parameter in results.Parameters)
             {
                 lstInputs.Items.Add(parameter.Name);
-            }    
+            }
+
+            btnEmail.Enabled = Context.EmailInstance != null;
         }
         #endregion
     }

@@ -94,12 +94,7 @@ namespace PropertyGui
                     }
                     break;
                 case MvcAbstraction.ViewModeType.InputsOutputs:
-                    foreach (var property in Context.Expression.Parse().Parameters)
-                    {
-                        var node = CreateNode(property);
-                        node.SelectedImageKey = property.ImageDirection;
-                        node.ImageKey = property.ImageDirection;
-                    }
+                    LoadInputsOutputs();
                     break;
                 case MvcAbstraction.ViewModeType.UoMs:
                     foreach (var uomCategory in Context.UoMs.Values)
@@ -120,6 +115,17 @@ namespace PropertyGui
                 Nodes[0].Expand();
 
             EndUpdate();
+        }
+
+        private void LoadInputsOutputs()
+        {
+            var results = Context.GetExpressionParseResults();
+            foreach (var property in results.Parameters)
+            {
+                var node = CreateNode(property);
+                node.SelectedImageKey = property.ImageDirection;
+                node.ImageKey = property.ImageDirection;
+            }
         }
 
         private void LoadTreeEnums(bool showNamespace)

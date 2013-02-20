@@ -32,7 +32,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.ctlExpressionExplorer = new PropertyGui.ctlContextExplorer();
             this.panEdit = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnTest = new System.Windows.Forms.Button();
             this.btnCheckSyntax = new System.Windows.Forms.Button();
             this.mnuExpressionContext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuEditFunction = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +57,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panEdit);
-            this.splitContainer1.Panel2.Controls.Add(this.button2);
+            this.splitContainer1.Panel2.Controls.Add(this.btnTest);
             this.splitContainer1.Panel2.Controls.Add(this.btnCheckSyntax);
             this.splitContainer1.Size = new System.Drawing.Size(1120, 425);
             this.splitContainer1.SplitterDistance = 239;
@@ -81,15 +81,15 @@
             this.panEdit.Size = new System.Drawing.Size(872, 379);
             this.panEdit.TabIndex = 4;
             // 
-            // button2
+            // btnTest
             // 
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(108, 13);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Test";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnTest.Location = new System.Drawing.Point(108, 13);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(75, 23);
+            this.btnTest.TabIndex = 3;
+            this.btnTest.Text = "Test";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // btnCheckSyntax
             // 
@@ -136,7 +136,7 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private ctlContextExplorer ctlExpressionExplorer;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.Button btnCheckSyntax;
         private System.Windows.Forms.ContextMenuStrip mnuExpressionContext;
         private System.Windows.Forms.ToolStripMenuItem mnuEditFunction;

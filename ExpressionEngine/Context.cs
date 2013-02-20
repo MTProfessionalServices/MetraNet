@@ -29,6 +29,8 @@ namespace MetraTech.ExpressionEngine
         public static bool IsMetanga { get { return ProductType == ProductTypeEnum.Metanga; } }
 
         public readonly Expression Expression;
+        public readonly EmailInstance EmailInstance;
+
         public Dictionary<string, Function> Functions = new Dictionary<string, Function>();
         public Dictionary<string, ComplexType> Entities = new Dictionary<string, ComplexType>();            //Entities may not have unique names across types... need to deal with that, perhaps a composite key
         public Dictionary<string, AQG> AQGs = new Dictionary<string, AQG>();
@@ -53,9 +55,13 @@ namespace MetraTech.ExpressionEngine
             ProductType = product;
         }
 
-        public Context(Expression expression)
+        public Context(Expression expression):this(expression, null)
+        {
+        }
+        public Context(Expression expression, EmailInstance emailInstance)
         {
             Expression = expression;
+            EmailInstance = emailInstance;
 
             foreach (var entity in DemoLoader.GlobalContext.Entities.Values)
             {
@@ -83,6 +89,18 @@ namespace MetraTech.ExpressionEngine
             UpdateContext();
         }
         #endregion
+
+        public ExpressionParseResults GetExpressionParseResults()
+        {
+            ExpressionParseResults results;
+            if (Expression.Type == Expression.ExpressionTypeEnum.Email)
+                results = EmailInstance.Parse();
+            else
+                results = Expression.Parse();
+
+            results.BindResultsToContext(this);
+            return results;
+        }
 
         #region Property Methods
 

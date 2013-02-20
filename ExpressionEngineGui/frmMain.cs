@@ -139,7 +139,7 @@ namespace PropertyGui
             var emailInstance = (EmailInstance)cboEmailTemplates.SelectedItem;
             emailInstance.UpdateEntityParameters();
             var dialog = new frmExpressionEngine();
-            var context = new Context(emailInstance.BodyExpression);
+            var context = new Context(emailInstance.BodyExpression, emailInstance);
             dialog.Init(context, emailInstance);
             dialog.ShowDialog();
         }

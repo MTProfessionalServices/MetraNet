@@ -6,6 +6,7 @@ using System.Xml;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -84,9 +85,31 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public ExpressionParseResults Parse()
         {
+            var results = new ExpressionParseResults();
+
+            //Emails are easy to handle (don't need MVM parse tree)
+            if (Type == ExpressionTypeEnum.Email)
+            {
+
+                //Parse the inputs
+                MatchCollection matches = Regex.Matches(Content, "{[a-zA-Z][a-zA-Z0-9_.]*}");
+                foreach (Match match in matches)
+                {
+                    foreach (Match capture in match.Captures)
+                    {
+                        var paramName = capture.Value.Substring(1, capture.Value.Length-2);
+                        if (results.Parameters.Get(paramName) == null)
+                        {
+                            var property = Property.CreateUnknown(paramName, null);
+                            results.Parameters.Add(property);
+                        }
+                    }
+                }
+                results.IsValid = true;
+                return results;
+            }
 
             //HACK -- since we aren't integrated with MVM parse engine, simulate some stuff!
-            var results = new ExpressionParseResults();
             var prop = Property.CreateInteger32("USAGE.Hours", null);
             prop.Direction = Property.DirectionType.InOut;
             results.Parameters.Add(prop);

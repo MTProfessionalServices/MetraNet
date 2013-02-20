@@ -96,6 +96,13 @@ namespace PropertyGui
         {
             MessageBox.Show("According to Jonah, you're a wimp if you clicked on this button... 'Cowboy up and get it right the first time'");
         }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            var dialog = new frmTest();
+            dialog.Init(Context);
+            dialog.ShowDialog();
+        }
         #endregion
 
     }

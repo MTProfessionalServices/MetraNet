@@ -6,6 +6,7 @@ using System.Xml;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Runtime.Serialization;
+using System.Globalization;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -121,6 +122,8 @@ namespace MetraTech.ExpressionEngine
         public ExpressionParseResults Parse()
         {
             var summaryResult = new ExpressionParseResults();
+
+            //Parse all of the inputs
             foreach (var expression in GetExpressions())
             {
                 var result = expression.Parse();
@@ -134,8 +137,26 @@ namespace MetraTech.ExpressionEngine
                         summaryResult.Parameters.Add(parameter);
                 }
             }
+
+
+
+            //Hardcode the outputs
+            AddOutput(summaryResult.Parameters, "To");
+            AddOutput(summaryResult.Parameters, "Cc");
+            AddOutput(summaryResult.Parameters, "Subject");
+            AddOutput(summaryResult.Parameters, "Body");
+
             return summaryResult;
         }
+
+        private void AddOutput(PropertyCollection properties, string name)
+        {
+            var description = string.Format(CultureInfo.InvariantCulture, "The email's {0} field.", name);
+            var property = Property.CreateString(name, description, 0);
+            property.Direction = Property.DirectionType.Output;
+            properties.Add(property);
+        }
+
         public static EmailInstance CreateFromFile(string file)
         {
             var fs = new FileStream(file, FileMode.Open);

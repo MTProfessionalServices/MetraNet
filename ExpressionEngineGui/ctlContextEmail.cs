@@ -12,6 +12,10 @@ namespace PropertyGui
 {
     public partial class ctlContextEmail : ctlContextBase
     {
+        #region Properties
+        private EmailInstance EmailInstance;
+        #endregion
+
         #region Constructor
         public ctlContextEmail()
         {
@@ -24,6 +28,9 @@ namespace PropertyGui
         public void Init(MetraTech.ExpressionEngine.Context context, EmailInstance emailInstance)
         {
             base.Init(context);
+            EmailInstance = emailInstance;
+
+            IgnoreChanges = true;
             txtTemplate.Text = emailInstance.EmailTemplate;
 
             ctlBody.Init(Context, null);
@@ -32,8 +39,17 @@ namespace PropertyGui
             ctlCc.Text = emailInstance.CcExpression.Content;
             ctlSubject.Text = emailInstance.SubjectExpression.Content;
             ctlBody.Text = emailInstance.BodyExpression.Content;
+
+            IgnoreChanges = false;
         }
 
+        public void SyncToObject()
+        {
+            EmailInstance.ToExpression.Content = ctlTo.Text;
+            EmailInstance.CcExpression.Content = ctlCc.Text;
+            EmailInstance.SubjectExpression.Content = ctlSubject.Text;
+            EmailInstance.BodyExpression.Content = ctlBody.Text;
+        }
         public override void InsertSnippet(string snippet)
         {
             ctlBody.InsertSnippet(snippet);
@@ -46,6 +62,14 @@ namespace PropertyGui
         }
 
         #endregion
+
+        private void ctlBody_TextChanged(object sender, EventArgs e)
+        {
+            if (IgnoreChanges)
+                return;
+
+            SyncToObject();
+        }
 
 
     }

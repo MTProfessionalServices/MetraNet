@@ -102,6 +102,67 @@ namespace MetraTech.ExpressionEngine
             return results;
         }
 
+        /// <summary>
+        /// Searches for a property with the specified name. If not found, null is returned. Order N search. 
+        /// </summary>
+        public IProperty GetRecursive(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+                return null;
+
+            return _getRecursive(name, (IEnumerable<IProperty>)Entities.Values);
+        }
+
+        private IProperty _getRecursive(string name, IEnumerable<IProperty> properties)
+        {
+            if (name == null || properties == null)
+                throw new ArgumentNullException("Arguments can't be null");
+
+            var parts = name.Split('.');
+            var firstName = parts[0];
+
+            foreach (var property in properties)
+            {
+                if (firstName == property.Name)
+                {
+                    //If the length is one, then we're at the leaf!
+                    if (parts.Length == 1)
+                    {
+                        return property;
+                    }
+                    else  //We're not there yet, it should be ComplexType
+                    {
+                        if (property.DataTypeInfo.BaseType != BaseType.ComplexType)
+                            return null;
+
+                        //Get the complex property
+                        var secondProperty = ((ComplexType)property).Properties.Get(parts[1]);
+                        if (secondProperty == null)
+                            return null;
+
+                        if (secondProperty.DataTypeInfo.BaseType != BaseType.ComplexType && parts.Length == 2)
+                            return secondProperty;
+
+                        //var secondName = parts[1];
+                        var complexTypeName = secondProperty.DataTypeInfo.ComplexSubtype;
+                        if (complexTypeName == null)
+                            return null;
+
+                        ComplexType complexType;
+                        if (!DemoLoader.GlobalContext.Entities.TryGetValue(complexTypeName, out complexType))
+                           return null;
+
+                        if (parts.Length == 2)
+                            return complexType;
+
+                        var remainder = name.Substring(firstName.Length + parts[1].Length + 2);
+                        return _getRecursive(remainder, complexType.Properties);
+                    }
+                }
+            }
+            return null;
+        }
+
         #region Property Methods
 
         public List<IProperty> GetProperties(DataTypeInfo typeFilter, IEnumerable<ComplexType> entities=null)

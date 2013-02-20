@@ -77,9 +77,10 @@
             this.ctlBody.Multiline = true;
             this.ctlBody.Name = "ctlBody";
             this.ctlBody.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.ctlBody.Size = new System.Drawing.Size(828, 330);
+            this.ctlBody.Size = new System.Drawing.Size(828, 254);
             this.ctlBody.TabIndex = 6;
             this.ctlBody.WordWrap = false;
+            this.ctlBody.TextChanged += new System.EventHandler(this.ctlBody_TextChanged);
             // 
             // pctEmailEditor
             // 

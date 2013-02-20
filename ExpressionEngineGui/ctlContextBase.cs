@@ -14,6 +14,7 @@ namespace PropertyGui
     {
         #region Properties
         protected Context Context;
+        protected bool IgnoreChanges = false;
         #endregion
 
         #region Constructor

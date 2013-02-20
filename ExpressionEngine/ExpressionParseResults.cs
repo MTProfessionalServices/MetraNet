@@ -34,15 +34,18 @@ namespace MetraTech.ExpressionEngine
             bool allInputsBound = true;
             foreach (var parameter in Parameters)
             {
-                IProperty property;
-                if (context.TryGetPropertyFromAllProperties(parameter.Name, out property))
+                var property = context.GetRecursive(parameter.Name);
+                if (property != null)
                 {
                     parameter.Description = property.Description;
                     parameter.DataTypeInfo = property.DataTypeInfo.Copy();
                 }
-                // We shouldn't need the cast here... need to add IsInputOrInOut to IProperty
-                else if (((Property)parameter).IsInputOrInOut)
+                else if (parameter.Direction == Property.DirectionType.Input || parameter.Direction == Property.DirectionType.InOut)
+                {
+                    parameter.Description = null;
+                    parameter.DataTypeInfo.BaseType = BaseType.Unknown;
                     allInputsBound = false;
+                }
             }
 
             return allInputsBound;

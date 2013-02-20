@@ -45,10 +45,8 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Methods
-        
-        /// <summary>
-        /// Searches for a property with the specified name. If not found, null is returned. Order N search. 
-        /// </summary>
+
+        //TODO: Combine with override once I get it all working!
         public IProperty Get(string name)
         {
             if (string.IsNullOrEmpty(name))
@@ -61,6 +59,7 @@ namespace MetraTech.ExpressionEngine
             }
             return null;
         }
+
 
         /// <summary>
         /// Clears all of the properties

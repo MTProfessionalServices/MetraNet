@@ -10,7 +10,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     /// <summary>
     /// The root class for all types
     /// </summary>
-    public class Type
+    public class MtType
     {
         #region Enums
         /// <summary>
@@ -30,6 +30,20 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             None,   //Scalar
             List,   //Enumerable
             KeyList //Dictionary
+        }
+
+        /// <summary>
+        /// The level to which two DataTypeInfos match. Note that order is important
+        /// because the higher number indicates a better match
+        /// </summary>
+        public enum MatchType
+        {
+            None = 0,                 //For example, String and Integer32
+            BaseTypeWithDiff = 1,     //The BaseTypes match but there is some difference (i.e., two enums with differnt enumtypes)
+            Convertible = 2,          //The base types are compatiable, but a UoM or Curency conversion must be performed. Only applies to numerics. 
+            ImplicitCast = 3,         //The start type can be implicitly cast to the end type. Only applies to numerics (i.e., Integer32 can be implicitly cast to Integer64 but the coversion isn't true)
+            Any = 4,            //Note that Any only works one way
+            Exact = 5           // Integer32 and Integer32 or two enums with the same enumspace and enumtype 
         }
         #endregion
 
@@ -74,7 +88,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         #region Constructor
 
-        public Type(BaseType baseType)
+        public MtType(BaseType baseType)
         {
             BaseType = baseType;
         }
@@ -117,6 +131,107 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public bool IsString { get { return BaseType == ExpressionEngine.BaseType.String; } }
         public bool IsUniqueIdentifier { get { return BaseType == ExpressionEngine.BaseType.UniqueIdentifier; } }
         public bool IsUnknown { get { return BaseType == ExpressionEngine.BaseType.Unknown; } }
+        #endregion
+
+        #region Type comparision and filtering
+
+        public bool IsMatch(MtType type2, MatchType minimumMatchType)
+        {
+            var result = CompareType(type2);
+            return (result >= minimumMatchType);
+        }
+
+        public MatchType CompareType(MtType type2)
+        {
+            if (type2 == null)
+                throw new ArgumentNullException("type2");
+
+
+            //Any match only works one way
+            if (BaseType == ExpressionEngine.BaseType.Any)
+                return MatchType.Any;
+
+            //Enum MOVE THIS TO SUB CLASS
+            if (BaseType == ExpressionEngine.BaseType.Enumeration)
+            {
+                if (type2.BaseType != ExpressionEngine.BaseType.Enumeration)
+                    return MatchType.None;
+                var enumType = (EnumerationType)this;
+                var enumType2 = (EnumerationType)type2;
+                if (enumType.Namespace == enumType2.Namespace && enumType.Category == enumType2.Category)
+                    return MatchType.Exact;
+                return MatchType.BaseTypeWithDiff;
+            }
+
+            if (IsNumeric)
+            {
+                if (!type2.IsNumeric)
+                    return MatchType.None;
+
+                if (IsImplicitCast(this, type2))
+                    return MatchType.ImplicitCast;
+
+                return MatchType.Convertible;
+            }
+
+            if (BaseType == type2.BaseType)
+                return MatchType.Exact;
+            return MatchType.None;
+
+            //Not dealing with UoM or Currencies
+        }
+
+
+        public bool IsBaseTypeFilterMatch(MtType type)
+        {
+            if (type == null)
+                throw new ArgumentNullException("type");
+
+            switch (type.BaseType)
+            {
+                case ExpressionEngine.BaseType.Any:
+                    return true;
+                case ExpressionEngine.BaseType.Numeric:
+                    return IsNumeric;
+                default:
+                    return type.BaseType == BaseType;
+            }
+        }
+
+        public bool CanBeImplicitlyCastTo(MtType target)
+        {
+            throw new NotImplementedException();
+           // return Type.IsImplicitCast(this, target);
+        }
+
+        public static bool IsImplicitCast(MtType start, MtType end)
+        {
+            if (start == null || end == null)
+                throw new ArgumentNullException("start and end arguments can't be null");
+            if (!start.IsNumeric || !end.IsNumeric)
+                throw new ArgumentException("Arguments must be numeric");
+
+            if (start.BaseType == end.BaseType)
+                return true;
+            return false;
+        }
+
+        public MtType Copy()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+
+        #region Methods
+        public void Validate(string prefix, ValidationMessageCollection messages)
+        {
+            if (messages == null)
+                throw new ArgumentNullException("messages");
+
+        }
+
         #endregion
     }
 }

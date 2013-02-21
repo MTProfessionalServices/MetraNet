@@ -54,7 +54,6 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataTypeInfoTest.cs" />
     <Compile Include="EnumerationTypeTest.cs" />
     <Compile Include="EnumSpaceTest.cs" />
     <Compile Include="EnumValueTest.cs" />

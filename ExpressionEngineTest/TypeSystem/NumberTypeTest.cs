@@ -9,17 +9,24 @@ namespace ExpressionEngineTest
     [TestClass()]
     public class NumberTypeTest
     {
+        /// <summary>
+        /// Very simple constructor tests.
+        /// </summary>
         [TestMethod()]
         public void CreateNumbersTest()
         {
-            var uomMode = MetraTech.ExpressionEngine.TypeSystem.Type.UnitOfMeasureModeType.Fixed;
+            var uomMode = MetraTech.ExpressionEngine.TypeSystem.MtType.UnitOfMeasureModeType.Fixed;
             var uomQualifier = "hello";
 
             var intType = TypeFactory.CreateInteger(uomMode, uomQualifier);
             AssertBasics(BaseType.Integer, intType);
+
+            Assert.AreEqual(uomMode, ((NumberType)intType).UnitOfMeasureMode);
+            //Assert.AreEqual(uomMode, 
+
             Assert.IsTrue(intType.IsInteger);
 
-            var int32 = TypeFactory.CreateIntege32(uomMode, uomQualifier);
+            var int32 = TypeFactory.CreateInteger32(uomMode, uomQualifier);
             AssertBasics(BaseType.Integer32, int32);
             Assert.IsTrue(int32.IsInteger32);
 
@@ -44,11 +51,13 @@ namespace ExpressionEngineTest
             Assert.IsTrue(numeric.IsNumeric);
         }
 
-        public void AssertBasics(BaseType baseType, MetraTech.ExpressionEngine.TypeSystem.Type type)
+        public void AssertBasics(BaseType baseType, MetraTech.ExpressionEngine.TypeSystem.MtType type)
         {
             Assert.AreEqual(baseType, type.BaseType);
             Assert.IsTrue(type.IsNumeric);
         }
+
+
 
     }
 }

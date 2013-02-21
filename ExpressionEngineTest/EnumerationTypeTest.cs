@@ -118,8 +118,8 @@ namespace ExpressionEngineTest
             EnumerationType target = new EnumerationType(enumSpace, enumType); // TODO: Initialize to an appropriate value
             string expected = string.Empty; // TODO: Initialize to an appropriate value
             string actual;
-            target.EnumSpace = expected;
-            actual = target.EnumSpace;
+            target.Namespace = expected;
+            actual = target.Namespace;
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("Verify the correctness of this test method.");
         }
@@ -135,8 +135,8 @@ namespace ExpressionEngineTest
             EnumerationType target = new EnumerationType(enumSpace, enumType); // TODO: Initialize to an appropriate value
             string expected = string.Empty; // TODO: Initialize to an appropriate value
             string actual;
-            target.EnumType = expected;
-            actual = target.EnumType;
+            target.Category = expected;
+            actual = target.Category;
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("Verify the correctness of this test method.");
         }

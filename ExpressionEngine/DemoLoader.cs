@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using CsvHelper;
 using CsvHelper.Configuration;
 using Metanga.Miscellaneous.MetadataExport;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -32,15 +33,15 @@ namespace MetraTech.ExpressionEngine
                 GlobalContext.AddEntity(DemoLoader.GetCloudComputeProductView());
                 GlobalContext.AddEntity(DemoLoader.GetCorporateAccountType());
                 GlobalContext.AddEntity(DemoLoader.GetAircraftLandingProductView());
-                LoadEntities(GlobalContext, ComplexType.ComplexTypeEnum.ProductView, Path.Combine(DataPath, "ProductViews.csv"));
-                LoadEntities(GlobalContext, ComplexType.ComplexTypeEnum.AccountView, Path.Combine(DataPath, "AccountViews.csv"));
-                LoadEntities(GlobalContext, ComplexType.ComplexTypeEnum.ServiceDefinition, Path.Combine(DataPath, "ServiceDefinitions.csv"));
+                LoadEntities(GlobalContext, VectorType.ComplexTypeEnum.ProductView, Path.Combine(DataPath, "ProductViews.csv"));
+                LoadEntities(GlobalContext, VectorType.ComplexTypeEnum.AccountView, Path.Combine(DataPath, "AccountViews.csv"));
+                LoadEntities(GlobalContext, VectorType.ComplexTypeEnum.ServiceDefinition, Path.Combine(DataPath, "ServiceDefinitions.csv"));
                 LoadXqg(GlobalContext, Expression.ExpressionTypeEnum.AQG, Path.Combine(DataPath, "AqgExpressions.csv"));
                 LoadXqg(GlobalContext, Expression.ExpressionTypeEnum.UQG, Path.Combine(DataPath, "UqgExpressions.csv"));
             }
             else
             {
-                LoadEntities(GlobalContext, ComplexType.ComplexTypeEnum.Metanga, Path.Combine(DataPath, "Entities.csv"));
+                LoadEntities(GlobalContext, VectorType.ComplexTypeEnum.Metanga, Path.Combine(DataPath, "Entities.csv"));
             }
 
             LoadEnumFile(GlobalContext, Path.Combine(DataPath, "Enums.csv"));
@@ -81,79 +82,80 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Manual Entities
-        public static ComplexType GetCloudComputeProductView()
+        public static Entity GetCloudComputeProductView()
         {
-            var entity = new ComplexType("CloudCompute", ComplexType.ComplexTypeEnum.ProductView, "Models an cloud compute usage even");
+            //var entity = new Entity("CloudCompute", VectorType.ComplexTypeEnum.ProductView, null, true, "Models an cloud compute usage even");
 
-            var pv = entity.Properties;
+            //var pv = entity.Properties;
 
-            Property property;
+            //Property property;
 
-            //Snapshot stuff
-            pv.AddInt32("NumSnapshots", "The number of snapshots taken", true);
-            property = pv.AddCharge("SnapshotCharge", "The charge assoicated with snapshots", true);
-            property.DataTypeInfo.UnitsProperty = "NumSnapshots";
+            ////Snapshot stuff
+            //pv.AddInteger32("NumSnapshots", "The number of snapshots taken", true);
+            //var charge = pv.AddCharge("SnapshotCharge", "The charge assoicated with snapshots", true);
+            //charge.Type.UnitsProperty = "NumSnapshots";
             
-            pv.AddString("DataCenter", "The data center in which the server ran", true, null, 30);
-            pv.AddEnum("DataCenterCountry", "The country that the data center is located", true, "global", "countryname");
-            pv.AddEnum("ChargeModel", "The charinging model used to calculate the compute charge", true, "Cloud", "ChargeModel");
-            pv.AddDecimal("InstanceSize", "The size of the instance", true);
-            pv.AddEnum("OS", "The Operating System (OS)", true, "Cloud", "OperatingSystem");
+            //pv.AddString("DataCenter", "The data center in which the server ran", true, null, 30);
+            //pv.AddEnum("DataCenterCountry", "The country that the data center is located", true, "global", "countryname");
+            //pv.AddEnum("ChargeModel", "The charinging model used to calculate the compute charge", true, "Cloud", "ChargeModel");
+            //pv.AddDecimal("InstanceSize", "The size of the instance", true);
+            //pv.AddEnum("OS", "The Operating System (OS)", true, "Cloud", "OperatingSystem");
             
-            property = pv.AddInt32("Memory", "The amount of memory", true);
-            property.DataTypeInfo.UnitOfMeasureMode = DataTypeInfo.UnitOfMeasureModeType.Fixed;
-            property.DataTypeInfo.UnitOfMeasureQualifier = "DigitalInformation";
+            //var memory = pv.AddInteger32("Memory", "The amount of memory", true);
+            //memory.Type.UnitOfMeasureMode = DataTypeInfo.UnitOfMeasureModeType.Fixed;
+            //memory.DataTypeInfo.UnitOfMeasureQualifier = "DigitalInformation";
 
-            pv.AddDecimal("CpuCount", "The number of million CPU cycles", true);
+            //pv.AddDecimal("CpuCount", "The number of million CPU cycles", true);
 
-            property = pv.AddDecimal("Hours", "The number of hours the instance ran", true);
-            property.DataTypeInfo.UnitOfMeasureMode = DataTypeInfo.UnitOfMeasureModeType.Fixed;
-            property.DataTypeInfo.UnitOfMeasureQualifier = "Hour";
+            //property = pv.AddDecimal("Hours", "The number of hours the instance ran", true);
+            //property.DataTypeInfo.UnitOfMeasureMode = DataTypeInfo.UnitOfMeasureModeType.Fixed;
+            //property.DataTypeInfo.UnitOfMeasureQualifier = "Hour";
 
-            property = pv.AddDecimal("Duration", "The elapsed time", true);
-            property.DataTypeInfo.UnitOfMeasureMode = DataTypeInfo.UnitOfMeasureModeType.Category;
-            property.DataTypeInfo.UnitOfMeasureQualifier = "Time";
+            //property = pv.AddDecimal("Duration", "The elapsed time", true);
+            //property.DataTypeInfo.UnitOfMeasureMode = DataTypeInfo.UnitOfMeasureModeType.Category;
+            //property.DataTypeInfo.UnitOfMeasureQualifier = "Time";
 
-            property = pv.AddDecimal("ScalingMetric", "The key scaling metric", true);
-            property.DataTypeInfo.UnitOfMeasureMode = DataTypeInfo.UnitOfMeasureModeType.Property;
-            property.DataTypeInfo.UnitOfMeasureQualifier = "ScalingMetricUom";
+            //property = pv.AddDecimal("ScalingMetric", "The key scaling metric", true);
+            //property.DataTypeInfo.UnitOfMeasureMode = DataTypeInfo.UnitOfMeasureModeType.Property;
+            //property.DataTypeInfo.UnitOfMeasureQualifier = "ScalingMetricUom";
 
-            property = pv.AddString("ScalingMetricUom", "The UoM for the the ScalingMetric", true);
+            //property = pv.AddString("ScalingMetricUom", "The UoM for the the ScalingMetric", true);
 
-            AppendCommonPvProperties(pv);
-            return entity;
+            //AppendCommonPvProperties(pv);
+            //return entity;
+            return null;
         }
 
-        public static ComplexType GetAircraftLandingProductView()
+        public static Entity GetAircraftLandingProductView()
         {
-            var entity = new ComplexType("AircraftLanding", ComplexType.ComplexTypeEnum.ProductView, "Models an cloud compute usage even");
+            var entity = new Entity("AircraftLanding", VectorType.ComplexTypeEnum.ProductView, null, true, "Models an cloud compute usage even");
 
             var pv = entity.Properties;
-            pv.AddInt32("MTOW", "Maximum TakeOff Weight", true);
-            pv.AddInt32("AircraftWeight", "The Weight of the aircraft in tons", true);
-            pv.AddInt32("NumPassengers", "The Weight of the aircraft in tons", true);
-            pv.AddInt32("NumTransferPassengers", "The Weight of the aircraft in tons", true);
-            pv.AddInt32("NumCrew", "The Weight of the aircraft in tons", true);
+            pv.AddInteger32("MTOW", "Maximum TakeOff Weight", true);
+            pv.AddInteger32("AircraftWeight", "The Weight of the aircraft in tons", true);
+            pv.AddInteger32("NumPassengers", "The Weight of the aircraft in tons", true);
+            pv.AddInteger32("NumTransferPassengers", "The Weight of the aircraft in tons", true);
+            pv.AddInteger32("NumCrew", "The Weight of the aircraft in tons", true);
             AppendCommonPvProperties(pv);
 
             return entity;
         }
         public static void AppendCommonZvProperties(PropertyCollection props)
         {
-            props.AddInt32("AccountId", "The account associated with the event", true);
+            props.AddInteger32("AccountId", "The account associated with the event", true);
         }
         public static void AppendCommonPvProperties(PropertyCollection props)
         {
             props.AddDateTime("Timestamp", "The time the event is deemed to have occurred", true);
-            props.AddInt32("AccountId", "The account associated with the event", true);
+            props.AddInteger32("AccountId", "The account associated with the event", true);
 
             var name = UserSettings.NewSyntax ? "EventCharge" : "Amount";
             props.AddCharge(name, "The charge assoicated with the event which may summarize other charges within the event", true);
         }
 
-        public static ComplexType GetCorporateAccountType()
+        public static Entity GetCorporateAccountType()
         {
-            var entity = new ComplexType("CorporateAccount", ComplexType.ComplexTypeEnum.AccountType, "Models an corporate account");
+            var entity = new Entity("CorporateAccount", VectorType.ComplexTypeEnum.AccountType, null, true, "Models an corporate account");
 
             var pv = entity.Properties;
             pv.AddString("FirstName", "The data center in which the server ran", true, null, 30);
@@ -169,7 +171,7 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region File-Based Entities
-        public static void LoadEntities(Context context, ComplexType.ComplexTypeEnum entityType, string filePath)
+        public static void LoadEntities(Context context, VectorType.ComplexTypeEnum entityType, string filePath)
         {
             var entityList = ReadRecordsFromCsv<EntityRecord>(filePath);
             foreach (var entityRecord in entityList)
@@ -186,53 +188,55 @@ namespace MetraTech.ExpressionEngine
                 var entityDescription = Helper.CleanUpWhiteSpace(entityRecord.EntityDescription);
                 var propertyDescription = Helper.CleanUpWhiteSpace(entityRecord.PropertyDescription);
 
-                ComplexType entity;
+                Entity entity;
                 if (!context.Entities.TryGetValue(entityName, out entity))
                 {
-                    entity = new ComplexType(entityName, entityType, entityDescription);
-                    entity.DataTypeInfo.IsEntity = entityRecord.IsEntity;
+                    entity = new Entity(entityName, entityType, null, entityRecord.IsEntity, entityDescription);
                     context.Entities.Add(entity.Name, entity);
 
                     //Add common properties, if any
                     switch (entityType)
                     {
-                        case ComplexType.ComplexTypeEnum.ProductView:
+                        case VectorType.ComplexTypeEnum.ProductView:
                             AppendCommonPvProperties(entity.Properties);
                             break;
-                        case ComplexType.ComplexTypeEnum.AccountView:
+                        case VectorType.ComplexTypeEnum.AccountView:
                             AppendCommonZvProperties(entity.Properties);
                             break;
                     }
                 }
 
-                DataTypeInfo dtInfo;
+                MtType dtInfo;
                 if (Context.ProductType == Context.ProductTypeEnum.MetraNet)
                 {
-                    var baseType = DataTypeInfo.PropertyTypeId_BaseTypeMapping[Int32.Parse(typeStr)];
-                    dtInfo = new DataTypeInfo(baseType);
+                    //var baseType = TypeHelper.PropertyTypeId_BaseTypeMapping[Int32.Parse(typeStr)];
+                    //dtInfo = TypeFactory.Create(baseType);
+                    dtInfo = TypeFactory.Create(typeStr);
                 }
                 else
-                    dtInfo = DataTypeInfo.CreateFromDataTypeString(typeStr);
+                    dtInfo = TypeFactory.Create(typeStr);
 
                 switch (dtInfo.BaseType)
                 {
                     case BaseType.Enumeration:
-                        dtInfo.EnumSpace = enumSpace;
-                        dtInfo.EnumType = enumType;
+                        var _enumType = (EnumerationType)dtInfo;
+                        _enumType.Namespace = enumSpace;
+                        _enumType.Category = enumType;
                         break;
                     case BaseType.ComplexType:
-                        dtInfo.ComplexType = entityType;
-                        dtInfo.ComplexSubtype = enumType; //we overrode the column
+                        var vectorType = (VectorType)dtInfo;
+                        vectorType.ComplexType = entityType;
+                        vectorType.ComplexSubtype = enumType; //we overrode the column
                         break;
                 }
 
                 if (entityRecord.ListType == null)
                 {
-                  dtInfo.ListType = DataTypeInfo.ListTypeEnum.None;
+                    dtInfo.ListType = MtType.ListTypeEnum.None;
                 }
                 else
                 {
-                  dtInfo.ListType = (DataTypeInfo.ListTypeEnum)Enum.Parse(typeof(DataTypeInfo.ListTypeEnum), entityRecord.ListType, true);
+                    dtInfo.ListType = (MtType.ListTypeEnum)Enum.Parse(typeof(MtType.ListTypeEnum), entityRecord.ListType, true);
                 }
 
                 var property = new Property(propName, dtInfo, propertyDescription);

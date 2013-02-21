@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using System.Data;
 using System.Globalization;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -38,7 +39,7 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public PropertyCollection PropertyCollection { get; set; }
 
-        public ComplexType ParentEntity
+        public Entity ParentEntity
         {
             get
             {
@@ -58,11 +59,7 @@ namespace MetraTech.ExpressionEngine
         /// Rich data type class
         /// </summary>
         [DataMember]
-        public DataTypeInfo DataTypeInfo { get; set; }
-        
-        //PREPARING TO MAKE BIG CONVERSION (ABOVE WILL BE REMOVED)
-        public Type Type { get; set; }
-
+        public MtType Type { get; set; }
 
         /// <summary>
         /// A description that's used in tooltips, auto doc, etc.
@@ -112,6 +109,8 @@ namespace MetraTech.ExpressionEngine
             get { return Direction == DirectionType.Output || Direction == DirectionType.InOut; }
         }
 
+        public string CompatibleKey { get { throw new NotImplementedException(); } }
+
         /// <summary>
         /// Used for testing etc. type purposes. We may want to put this into a subclass
         /// </summary>
@@ -120,7 +119,7 @@ namespace MetraTech.ExpressionEngine
         #endregion Properties
 
         #region GUI Helper Properties (should be moved)
-        public string TreeNodeLabel { get { return Name + DataTypeInfo.ListSuffix; } }
+        public string TreeNodeLabel { get { return Name + Type.ListSuffix; } }
         /// <summary>
         /// Combines the data type and description
         /// </summary>
@@ -129,7 +128,7 @@ namespace MetraTech.ExpressionEngine
             get
             {
                 {
-                    var tooltipStr = DataTypeInfo.ToUserString(true);
+                    var tooltipStr = Type.ToString(true);
                     if (!string.IsNullOrEmpty(Description))
                         tooltipStr += Environment.NewLine + Description;
                     if (UserSettings.ShowActualMappings)
@@ -161,7 +160,7 @@ namespace MetraTech.ExpressionEngine
         {
             get
             {
-                switch (DataTypeInfo.BaseType)
+                switch (Type.BaseType)
                 {
                     case BaseType.Boolean:
                         return "Boolean.png";
@@ -191,16 +190,7 @@ namespace MetraTech.ExpressionEngine
 
         #region Constructors
 
-        public Property(string name, DataTypeInfo dtInfo, string description = null)
-        {
-            Name = name;
-            DataTypeInfo = dtInfo;
-            Description = description;
-
-            IsCore = false;
-        }
-
-        public Property(string name, Type type, string description = null)
+        public Property(string name, MtType type, string description = null)
         {
             Name = name;
             Type = type;
@@ -214,27 +204,27 @@ namespace MetraTech.ExpressionEngine
         #region Static Create Methods
         public static Property CreateUnknown(string name, string description)
         {
-            return new Property(name, new DataTypeInfo(BaseType.Unknown), description);
+            return new Property(name, TypeFactory.CreateUnkownn(), description);
         }
         public static Property CreateInteger32(string name, string description)
         {
-            return new Property(name, new DataTypeInfo(BaseType.Integer32), description);
+            return new Property(name, TypeFactory.CreateInteger32(MtType.UnitOfMeasureModeType.None, null), description);
         }
         public static Property CreateString(string name, string description, int length)
         {
-            var property = new Property(name, DataTypeInfo.CreateString(length), description);
+            var property = new Property(name, TypeFactory.CreateString(length), description);
             return property;
         }
 
         public static Property CreateBoolean(string name, string description)
         {
-            var property = new Property(name, DataTypeInfo.CreateBoolean(), description);
+            var property = new Property(name, TypeFactory.CreateBoolean(), description);
             return property;
         }
 
         public static Property CreateEnum(string name, string description, string enumSpace, string EnumType)
         {
-            var property = new Property(name, DataTypeInfo.CreateEnum(enumSpace, EnumType), description);
+            var property = new Property(name, TypeFactory.CreateEnumumeration(enumSpace, EnumType), description);
             return property;
         }
         #endregion
@@ -246,9 +236,9 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public IProperty GetUnitsProperty()
         {
-            if (!DataTypeInfo.IsCharge || PropertyCollection == null)
+            if (!Type.IsMoney || PropertyCollection == null)
                 return null;
-            return PropertyCollection.Get(DataTypeInfo.UnitsProperty);
+            return PropertyCollection.Get(((MoneyType)Type).UnitsProperty);
         }
 
         /// <summary>
@@ -256,9 +246,13 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public IProperty GetUnitOfMeasureProperty()
         {
-            if (!DataTypeInfo.IsNumeric || DataTypeInfo.UnitOfMeasureMode != ExpressionEngine.DataTypeInfo.UnitOfMeasureModeType.Property || PropertyCollection == null)
+            if (!Type.IsNumeric)
                 return null;
-            return PropertyCollection.Get(DataTypeInfo.UnitOfMeasureQualifier);
+
+            var type = (NumberType)Type;
+            if (!Type.IsNumeric || type.UnitOfMeasureMode != ExpressionEngine.TypeSystem.MtType.UnitOfMeasureModeType.Property || PropertyCollection == null)
+                return null;
+            return PropertyCollection.Get(type.UnitOfMeasureQualifier);
         }
 
         public object Clone()
@@ -285,7 +279,7 @@ namespace MetraTech.ExpressionEngine
             if (NameRegex.IsMatch(Name))
                 messages.Error(prefix + Localization.InvalidName);
 
-            DataTypeInfo.Validate(prefix, messages);
+            Type.Validate(prefix, messages);
 
             return messages;
         }
@@ -295,7 +289,7 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public override string ToString()
         {
-            return string.Format(CultureInfo.InvariantCulture, "{0} ({1})", Name, DataTypeInfo.ToUserString(true));
+            return string.Format(CultureInfo.InvariantCulture, "{0} ({1})", Name, Type.ToString(true));
         }
 
         public string ToExpressionSnippet
@@ -312,7 +306,7 @@ namespace MetraTech.ExpressionEngine
                 else
                     snippet = string.Format(CultureInfo.InvariantCulture, "{0}.c_{1}", entity.GetPrefix(), Name);
 
-                return snippet + DataTypeInfo.ListSuffix;
+                return snippet + Type.ListSuffix;
             }
         }
 
@@ -321,20 +315,10 @@ namespace MetraTech.ExpressionEngine
         /// the DataType level formatting should be moved to DataTypeInfo class
         /// NOTE THAT WE'RE NOT DEALING WITH UOMs
         /// </summary>
-        public string CompatibleKey
-        {
-            get
-            {
-                var key = string.Format(CultureInfo.InvariantCulture, "{0}|{1}", Name, DataTypeInfo.BaseType);
-                switch (DataTypeInfo.BaseType)
-                {
-                    case BaseType.Enumeration:
-                        key += string.Format(CultureInfo.InvariantCulture, "|{0}|{1}", DataTypeInfo.EnumSpace, DataTypeInfo.EnumType);
-                        break;
-                }
-                return key;
-            }
-        }
+        //public string CompatibleKey
+        //{
+        //{get{return null;}}
+        //    //string.Format(CultureInfo.InvariantCulture, "{0}|{1}", Name, Type.CompatibleKey);}}
 
         public string GetFullyQualifiedName(bool prefix)
         {

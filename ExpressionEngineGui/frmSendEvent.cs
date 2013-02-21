@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace PropertyGui
 {
@@ -14,7 +15,7 @@ namespace PropertyGui
     {
         #region Properties
         private Context Context;
-        private ComplexType Event;
+        private Entity Event;
         #endregion
 
         #region Constructor
@@ -32,14 +33,14 @@ namespace PropertyGui
             cboEvent.BeginUpdate();
             cboEvent.Sorted = true;
             cboEvent.DisplayMember = "Name";
-            cboEvent.Items.AddRange(context.GetEntities(ComplexType.ComplexTypeEnum.ServiceDefinition).ToArray());
+            cboEvent.Items.AddRange(context.GetEntities(VectorType.ComplexTypeEnum.ServiceDefinition).ToArray());
             cboEvent.EndUpdate();
 
             if (Context.IsMetanga)
                 SetProperties(Context.Entities["BillableEvent"]);
         }
 
-        private void SetProperties(ComplexType eventEntity)
+        private void SetProperties(Entity eventEntity)
         {
             Event = eventEntity;
             ctlProperties.DefaultBindingType = ctlValueBinder.BindingTypeEnum.Constant;
@@ -53,7 +54,7 @@ namespace PropertyGui
         #region Events
         private void cboEvent_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SetProperties((ComplexType)cboEvent.SelectedItem);
+            SetProperties((Entity)cboEvent.SelectedItem);
         }
         #endregion
     }

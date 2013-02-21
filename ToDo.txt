@@ -1,5 +1,7 @@
-*LayoutPanel resizing
+*Refactor DataTypeInfo!!!!!!!!!!!
 
+*LayoutPanel resizing
+*Remove all 
 *Save
 *Send email!
 

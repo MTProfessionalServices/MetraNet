@@ -11,7 +11,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #region Properties
 
         //public static DataTypeInfo[] AllTypes;
-        public static readonly DataTypeInfo[] AllTypes;
+        public static readonly MtType[] AllTypes;
 
         /// <summary>
         /// BaseTypes supported by MSIX entities (e.g., Service Definitoins, ProductViews, etc.).
@@ -40,6 +40,63 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         {
             return MsixBaseTypes.Contains(baseType);
         }
+
+        public static BaseType GetBaseType(string typeString)
+        {
+            if (string.IsNullOrWhiteSpace(typeString))
+                return BaseType.Unknown;
+
+            switch (typeString.ToLower(CultureInfo.InvariantCulture))
+            {
+                case "str":
+                case "string":
+                case "varchar":
+                case "nvarchar":
+                case "characters":
+                    return BaseType.String;
+                case "id":
+                case "int32":
+                case "integer32":
+                case "integer":
+                    return BaseType.Integer32;
+                case "bigint":
+                case "long":
+                case "int64":
+                case "integer64":
+                    return BaseType.Integer64;
+                case "timestamp":
+                case "datetime":
+                    return BaseType.DateTime;
+                case "enum":
+                case "enumeration":
+                    return BaseType.Enumeration;
+                case "decimal":
+                    return BaseType.Decimal;
+                case "float":
+                    return BaseType.Float;
+                case "double":
+                    return BaseType.Double;
+                case "boolean":
+                case "bool":
+                    return BaseType.Boolean;
+                case "any":
+                    return BaseType.Any;
+                case "binary":
+                    return BaseType.Binary;
+                case "numeric":
+                    return BaseType.Numeric;
+                case "uniqueidentifier":
+                case "uniqueid":
+                    return BaseType.UniqueIdentifier;
+                case "guid":
+                    return BaseType.Guid;
+                case "entity":
+                    return BaseType.ComplexType;
+                default:
+                    throw new ArgumentException("Invalid internal data type string [" + typeString + "]");
+            }
+        }
+
 
 
         /// <summary>
@@ -219,11 +276,13 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         #endregion
 
+
+
         #region Convert to constant
         /// <summary>
         /// Converts an explicit value its MTSQL representation (i.e., strings are quoted, enums are fully qualified, etc.)
         /// </summary>
-        public static string ConvertValueToMtsqlConstant(Type type, string value)
+        public static string ConvertValueToMtsqlConstant(MtType type, string value)
         {
             if (type == null)
                 throw new ArgumentNullException("dtInfo");
@@ -249,7 +308,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
                 case BaseType.Enumeration:
                     var enumType = (EnumerationType)type;
-                    return string.Format(CultureInfo.InvariantCulture, "#{0}/{1}/{2}#", enumType.EnumSpace, enumType.EnumType, value);
+                    return string.Format(CultureInfo.InvariantCulture, "#{0}/{1}/{2}#", enumType.Namespace, enumType.Category, value);
 
                 //Don't do anything special
                 default:
@@ -257,7 +316,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             }
         }
 
-        public static string ConvertValueStringToCSharpConstant(Type type, string value)
+        public static string ConvertValueStringToCSharpConstant(MtType type, string value)
         {
             if (type == null)
                 throw new ArgumentNullException("type");
@@ -283,7 +342,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             }
         }
 
-        public static object ConvertValueToNativeValue(Type type, string value, bool useInvariantCulture)
+        public static object ConvertValueToNativeValue(MtType type, string value, bool useInvariantCulture)
         {
             if (type == null)
                 throw new ArgumentNullException("type");

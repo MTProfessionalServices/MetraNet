@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace PropertyGui
 {
@@ -22,7 +23,7 @@ namespace PropertyGui
         public bool AllowExpression { get; set; }
         public bool ShowBinderIcon { get; set; }
         public BindingTypeEnum DefaultBindingType { get; set; }
-        public DataTypeInfo.MatchType MinimumMatchType { get; set; }
+        public MtType.MatchType MinimumMatchType { get; set; }
         public override string Text { get { return GetText(); } set { SetText(value); } }
         
         /// <summary>
@@ -55,7 +56,7 @@ namespace PropertyGui
             AllowExpression = true;
             ShowBinderIcon = true;
             DefaultBindingType = BindingTypeEnum.Property;
-            MinimumMatchType = DataTypeInfo.MatchType.Convertible;
+            MinimumMatchType = MtType.MatchType.Convertible;
 
             mnuBindingType.ImageList = ctlExpressionTree.Images;
             InitMenu(mnuPropertyBinding, "PropertyBinding.png", BindingTypeEnum.Property);
@@ -101,7 +102,7 @@ namespace PropertyGui
                 Control = CreatePropertyComboBox();
             else
             {
-                switch (Property.DataTypeInfo.BaseType)
+                switch (Property.Type.BaseType)
                 {
                     case BaseType.DateTime:
                         Control = new DateTimePicker();
@@ -110,7 +111,7 @@ namespace PropertyGui
                         Control = CreateBooleanComboBox();
                         break;
                     case BaseType.Enumeration:
-                        Control = CreateEnumComboBox(Property.DataTypeInfo);
+                        Control = CreateEnumComboBox((EnumerationType)Property.Type);
                         break;
                     default:
                         Control = new TextBox();
@@ -169,7 +170,7 @@ namespace PropertyGui
             cbo.BeginUpdate();
             cbo.Items.Clear();
             cbo.DisplayMember = "ToExpressionSnippet";
-            var properties = Context.GetProperties(Property.DataTypeInfo, MinimumMatchType, true);
+            var properties = Context.GetProperties(Property.Type, MinimumMatchType, true);
             foreach (var property in properties)
             {
                 cbo.Items.Add(property);
@@ -178,14 +179,14 @@ namespace PropertyGui
             return cbo;
         }
 
-        private ComboBox CreateEnumComboBox(DataTypeInfo dtInfo)
+        private ComboBox CreateEnumComboBox(EnumerationType type)
         {
             var cbo = new ComboBox();
             cbo.BeginUpdate();
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbo.DisplayMember = "Name";
             EnumType enumType;
-            if (Context.TryGetEnumType(dtInfo, out enumType))
+            if (Context.TryGetEnumType(type, out enumType))
             {
                 cbo.Items.AddRange(enumType.Values.ToArray());
             }

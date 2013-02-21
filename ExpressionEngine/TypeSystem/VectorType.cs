@@ -8,7 +8,7 @@ using System.Globalization;
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
     [DataContract]
-    public class ComplexTypeType : Type
+    public class VectorType : MtType
     {
         #region Enums
         public enum ComplexTypeEnum { None, ServiceDefinition, ProductView, ParameterTable, AccountType, AccountView, BusinessModelingEntity, Any, Metanga }
@@ -19,7 +19,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// The type of complex type
         /// </summary>
         [DataMember]
-        public ComplexTypeType.ComplexTypeEnum ComplexType { get; set; }
+        public VectorType.ComplexTypeEnum ComplexType { get; set; }
 
         /// <summary>
         /// The subtype of the Entity type. For example, a BME ma
@@ -48,7 +48,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #endregion
 
         #region Constructor
-        public ComplexTypeType(ComplexTypeEnum type, string subType, bool isEntity):base(BaseType.ComplexType)
+        public VectorType(ComplexTypeEnum type, string subType, bool isEntity):base(BaseType.ComplexType)
         {
             ComplexType = type;
             ComplexSubtype = subType;

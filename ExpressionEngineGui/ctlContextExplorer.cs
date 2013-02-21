@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace PropertyGui
 {
@@ -70,7 +71,7 @@ namespace PropertyGui
             cboPropertyTypeFilter.Items.Clear();
             cboPropertyTypeFilter.DropDownStyle = ComboBoxStyle.DropDownList;
             cboPropertyTypeFilter.DisplayMember = "FilterString";
-            foreach (var type in DataTypeInfo.AllTypes)
+            foreach (var type in TypeHelper.AllTypes)
             {
                 if (!type.IsComplexType && type.BaseType != BaseType.Unknown)
                     cboPropertyTypeFilter.Items.Add(type.Copy());
@@ -108,8 +109,8 @@ namespace PropertyGui
                 return;
 
             treExplorer.ViewMode = (MvcAbstraction.ViewModeType)cboMode.SelectedItem;
-            treExplorer.EntityTypeFilter = (ComplexType.ComplexTypeEnum)cboEntityTypeFilter.SelectedItem;
-            treExplorer.PropertyTypeFilter = (DataTypeInfo)cboPropertyTypeFilter.SelectedItem;
+            treExplorer.EntityTypeFilter = (VectorType.ComplexTypeEnum)cboEntityTypeFilter.SelectedItem;
+            treExplorer.PropertyTypeFilter = (MtType)cboPropertyTypeFilter.SelectedItem;
             treExplorer.FunctionFilter = cboCategory.Text;
             treExplorer.LoadTree();
 

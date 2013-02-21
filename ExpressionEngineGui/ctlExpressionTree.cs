@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using System.IO;
 using System.Drawing;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace PropertyGui
 {
@@ -20,8 +21,8 @@ namespace PropertyGui
         public static ImageList Images = new ImageList();
 
         public MvcAbstraction.ViewModeType ViewMode { get; set; }
-        public ComplexType.ComplexTypeEnum EntityTypeFilter { get; set; }
-        public DataTypeInfo PropertyTypeFilter { get; set; }
+        public VectorType.ComplexTypeEnum EntityTypeFilter { get; set; }
+        public MtType PropertyTypeFilter { get; set; }
         public string FunctionFilter { get; set; }
         public ContextMenuStrip EnumValueContextMenu { get; set; }
 
@@ -182,7 +183,7 @@ namespace PropertyGui
         }
         private void LoadTreeEntityMode()
         {
-            var filter = new List<ComplexType.ComplexTypeEnum>();
+            var filter = new List<VectorType.ComplexTypeEnum>();
             filter.Add(EntityTypeFilter);
             var entities = Context.GetEntities(null, filter, null, PropertyTypeFilter);
             foreach (var entity in entities)
@@ -200,15 +201,15 @@ namespace PropertyGui
         }
 
 
-        public void AddProperties(TreeNode parentNode, PropertyCollection properties, DataTypeInfo filter=null)
+        public void AddProperties(TreeNode parentNode, PropertyCollection properties, MtType filter=null)
         {
             foreach (var property in properties)
             {
-                if (filter == null || property.DataTypeInfo.IsBaseTypeFilterMatch(filter))
+                if (filter == null || property.Type.IsBaseTypeFilterMatch(filter))
                 {
                     var node = CreateNode(property, parentNode);
 
-                    if (property.DataTypeInfo.IsComplexType)// && node.Level > 1)
+                    if (property.Type.IsComplexType)// && node.Level > 1)
                     {
                         node.Nodes.Add(new TreeNode(PropertyListPlaceHolder));
                     }
@@ -234,10 +235,10 @@ namespace PropertyGui
             {
                 var property = (Property)item;
                 
-                if (property.DataTypeInfo.IsEnum)
+                if (property.Type.IsEnum)
                 {
                     EnumType enumType;
-                    if (Context.TryGetEnumType(property.DataTypeInfo, out enumType))
+                    if (Context.TryGetEnumType((EnumerationType)property.Type, out enumType))
                         AddEnumValues(enumType, node);          
                 }
 
@@ -279,8 +280,8 @@ namespace PropertyGui
             if (node.Nodes.Count == 1 && node.Nodes[0].Text == PropertyListPlaceHolder)
             {
                 node.Nodes.Clear();
-                var entitySubType = ((Property)node.Tag).DataTypeInfo.ComplexSubtype;
-                ComplexType entity;
+                var entitySubType = ((Entity)node.Tag).VectorType.ComplexSubtype;
+                Entity entity;
                 if (!DemoLoader.GlobalContext.Entities.TryGetValue(entitySubType, out entity))
                     return;
                 AddProperties(node, entity.Properties);

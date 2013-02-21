@@ -23,7 +23,7 @@ namespace MetraTech.ExpressionEngine.Test
             var property = propertyCollection.Get(outputPropertyName);
             if (property == null)
                 throw new ArgumentException("Unable to find output property " + outputPropertyName);
-            if (property is ComplexType)
+            if (property is Entity)
                 throw new ArgumentException("Property is a complex type");
 
             ((Property)property).Value = MergeValues(content, propertyCollection);            
@@ -37,7 +37,7 @@ namespace MetraTech.ExpressionEngine.Test
             //THis isn't designed to be efficient! We're just doing string substituions
             foreach (var property in propertyCollection)
             {
-                if (property is ComplexType)
+                if (property is Entity)
                     throw new ArgumentException("Property is a complex type");
 
                 var pattern = "{" + property.Name + "}";

@@ -54,7 +54,7 @@
     <Compile Include="BaseType.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Currency.cs" />
-    <Compile Include="ComplexType.cs" />
+    <Compile Include="Entity.cs" />
     <Compile Include="EmailInstance.cs" />
     <Compile Include="EmailTemplate.cs" />
     <Compile Include="EntityInfo.cs" />
@@ -85,13 +85,14 @@
     <Compile Include="Test\EmailEngine.cs" />
     <Compile Include="Test\IProcessingEngine.cs" />
     <Compile Include="Test\TestInstance.cs" />
-    <Compile Include="TypeSystem\ComplexTypeType.cs" />
+    <Compile Include="TypeSystem\VectorType.cs" />
     <Compile Include="TypeSystem\EnumerationType.cs" />
+    <Compile Include="TypeSystem\MoneyType.cs" />
     <Compile Include="TypeSystem\NumberType.cs" />
     <Compile Include="TypeSystem\StringType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TypeSystem\Type.cs">
+    <Compile Include="TypeSystem\MtType.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TypeSystem\TypeFactory.cs">
@@ -103,7 +104,6 @@
     <Compile Include="UnitOfMeasureCategory.cs" />
     <Compile Include="UQG.cs" />
     <Compile Include="DemoLoader.cs" />
-    <Compile Include="DataTypeInfo.cs" />
     <Compile Include="ValidationMessage.cs" />
     <Compile Include="ValidationMessageCollection.cs" />
   </ItemGroup>

@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Data;
 using System.IO;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -32,7 +33,7 @@ namespace MetraTech.ExpressionEngine
         public readonly EmailInstance EmailInstance;
 
         public Dictionary<string, Function> Functions = new Dictionary<string, Function>();
-        public Dictionary<string, ComplexType> Entities = new Dictionary<string, ComplexType>();            //Entities may not have unique names across types... need to deal with that, perhaps a composite key
+        public Dictionary<string, Entity> Entities = new Dictionary<string, Entity>();            //Entities may not have unique names across types... need to deal with that, perhaps a composite key
         public Dictionary<string, AQG> AQGs = new Dictionary<string, AQG>();
         public Dictionary<string, UQG> UQGs = new Dictionary<string, UQG>();
         public Dictionary<string, EnumSpace> EnumSpaces = new Dictionary<string, EnumSpace>();
@@ -65,13 +66,14 @@ namespace MetraTech.ExpressionEngine
 
             foreach (var entity in DemoLoader.GlobalContext.Entities.Values)
             {
-                if (Expression.Info.SupportedEntityTypes.Contains(entity.DataTypeInfo.ComplexType))
-                    Entities.Add(entity.Name, entity);
+                //if (Expression.Info.SupportedEntityTypes.Contains(entity.DataTypeInfo.ComplexType))
+                if (Expression.Info.SupportedEntityTypes.Contains(entity.VectorType.ComplexType))
+                        Entities.Add(entity.Name, entity);
             }
 
             foreach (var entityParameterName in Expression.EntityParameters)
             {
-                ComplexType rootEntity;
+                Entity rootEntity;
                 if (DemoLoader.GlobalContext.Entities.TryGetValue(entityParameterName, out rootEntity))
                     Entities.Add(rootEntity.Name, rootEntity);
             }
@@ -132,23 +134,23 @@ namespace MetraTech.ExpressionEngine
                     }
                     else  //We're not there yet, it should be ComplexType
                     {
-                        if (property.DataTypeInfo.BaseType != BaseType.ComplexType)
+                        if (property.Type.BaseType != BaseType.ComplexType)
                             return null;
 
                         //Get the complex property
-                        var secondProperty = ((ComplexType)property).Properties.Get(parts[1]);
+                        var secondProperty = ((Entity)property).Properties.Get(parts[1]);
                         if (secondProperty == null)
                             return null;
 
-                        if (secondProperty.DataTypeInfo.BaseType != BaseType.ComplexType && parts.Length == 2)
+                        if (secondProperty.Type.BaseType != BaseType.ComplexType && parts.Length == 2)
                             return secondProperty;
 
                         //var secondName = parts[1];
-                        var complexTypeName = secondProperty.DataTypeInfo.ComplexSubtype;
+                        var complexTypeName = ((VectorType)secondProperty.Type).ComplexSubtype;
                         if (complexTypeName == null)
                             return null;
 
-                        ComplexType complexType;
+                        Entity complexType;
                         if (!DemoLoader.GlobalContext.Entities.TryGetValue(complexTypeName, out complexType))
                            return null;
 
@@ -165,7 +167,7 @@ namespace MetraTech.ExpressionEngine
 
         #region Property Methods
 
-        public List<IProperty> GetProperties(DataTypeInfo typeFilter, IEnumerable<ComplexType> entities=null)
+        public List<IProperty> GetProperties(MtType typeFilter, IEnumerable<Entity> entities = null)
         {
             if (entities == null)
                 entities = Entities.Values;
@@ -175,14 +177,14 @@ namespace MetraTech.ExpressionEngine
             {
                 foreach (var property in entity.Properties)
                 {
-                    if (property.DataTypeInfo.IsBaseTypeFilterMatch(typeFilter))
+                    if (property.Type.IsBaseTypeFilterMatch(typeFilter))
                         results.Add(property);
                 }
             }
             return results;
         }
 
-        public List<IProperty> GetProperties(DataTypeInfo dtInfo, DataTypeInfo.MatchType minimumMatchLevel, bool uniqueProperties)
+        public List<IProperty> GetProperties(MtType dtInfo, MtType.MatchType minimumMatchLevel, bool uniqueProperties)
         {
             var properties = new List<IProperty>();
             IEnumerable<IProperty> list;
@@ -194,7 +196,7 @@ namespace MetraTech.ExpressionEngine
 
             foreach (var property in list)
             {
-                if (property.DataTypeInfo.IsMatch(dtInfo, minimumMatchLevel))
+                if (property.Type.IsMatch(dtInfo, minimumMatchLevel))
                     properties.Add(property);
             }
             return properties;
@@ -234,10 +236,10 @@ namespace MetraTech.ExpressionEngine
                     if (!UniqueProperties.TryGetValue(key, out uniqueProperty))
                         UniqueProperties.Add(key, property);
 
-                    if (property.DataTypeInfo.IsEnum)
+                    if (property.Type.IsEnum)
                     {
                         EnumType enumType;
-                        if (TryGetEnumType(property.DataTypeInfo, out enumType))
+                        if (TryGetEnumType((EnumerationType)property.Type, out enumType))
                         {
                             if (!RelevantEnums.Contains(enumType))
                                 RelevantEnums.Add(enumType);
@@ -257,20 +259,20 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Entities
-        public void AddEntity(ComplexType entity)
+        public void AddEntity(Entity entity)
         {
             Entities.Add(entity.Name, entity);
         }
 
-        public List<ComplexType> GetEntities(ComplexType.ComplexTypeEnum type)
+        public List<Entity> GetEntities(VectorType.ComplexTypeEnum type)
         {
-            var types = new List<ComplexType.ComplexTypeEnum>();
+            var types = new List<VectorType.ComplexTypeEnum>();
             types.Add(type);
             return GetEntities(null, types, null, null);
         }
-        public List<ComplexType> GetEntities(string entityNameFilter, List<ComplexType.ComplexTypeEnum> entityTypeFilter, string propertyNameFilter, DataTypeInfo propertyTypeFilter)
+        public List<Entity> GetEntities(string entityNameFilter, List<VectorType.ComplexTypeEnum> entityTypeFilter, string propertyNameFilter, MtType propertyTypeFilter)
         {
-            var results = new List<ComplexType>();
+            var results = new List<Entity>();
 
             Regex entityRegex = string.IsNullOrEmpty(entityNameFilter) ? null : new Regex(entityNameFilter, RegexOptions.IgnoreCase);
             Regex propertyRegex = string.IsNullOrEmpty(propertyNameFilter) ? null : new Regex(propertyNameFilter, RegexOptions.IgnoreCase);
@@ -279,7 +281,7 @@ namespace MetraTech.ExpressionEngine
             {
                 if (entityRegex != null && !entityRegex.IsMatch(entity.Name))
                     continue;
-                if (entityTypeFilter != null && !entityTypeFilter.Contains(entity.DataTypeInfo.ComplexType))
+                if (entityTypeFilter != null && !entityTypeFilter.Contains(entity.VectorType.ComplexType))
                     continue;
 
                 if (!entity.HasPropertyMatch(propertyRegex, propertyTypeFilter))
@@ -329,16 +331,16 @@ namespace MetraTech.ExpressionEngine
             EnumSpaces.Add(enumSpace.Name, enumSpace);
         }
 
-        public bool TryGetEnumType(DataTypeInfo dataType, out EnumType enumType)
+        public bool TryGetEnumType(EnumerationType dataType, out EnumType enumType)
         {
             EnumSpace space;
-            if (!EnumSpaces.TryGetValue(dataType.EnumSpace, out space))
+            if (!EnumSpaces.TryGetValue(dataType.Namespace, out space))
             {
                 enumType = null;
                 return false;
             }
 
-            if (!space.TryGetEnumType(dataType.EnumType, out enumType))
+            if (!space.TryGetEnumType(dataType.Category, out enumType))
             {
                 enumType = null;
                 return false;

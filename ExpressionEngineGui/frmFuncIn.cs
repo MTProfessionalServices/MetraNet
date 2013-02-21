@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace PropertyGui
 {
@@ -47,7 +48,7 @@ namespace PropertyGui
 
             ctlProp.AllowConstant = false;
             ctlProp.AllowExpression = false;
-            ctlProp.MinimumMatchType = DataTypeInfo.MatchType.BaseTypeWithDiff;
+            ctlProp.MinimumMatchType = MtType.MatchType.BaseTypeWithDiff;
             ctlProp.Init(Context, Property.CreateEnum(null, null, null, null));
             ctlProp.OnMyChange = OnMyChange;
 
@@ -110,7 +111,7 @@ namespace PropertyGui
             }
 
             EnumType enumType;
-            Context.TryGetEnumType(property.DataTypeInfo, out enumType);
+            Context.TryGetEnumType((EnumerationType)property.Type, out enumType);
             LoadValues(enumType);
         }
 

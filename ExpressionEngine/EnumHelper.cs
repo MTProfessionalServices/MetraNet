@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -41,7 +42,7 @@ namespace MetraTech.ExpressionEngine
             throw new NotImplementedException();
         }
 
-        public static int GetMetraNetIntValue(DataTypeInfo dtInfo, string value)
+        public static int GetMetraNetIntValue(MtType dtInfo, string value)
         {
             throw new NotImplementedException(); 
         }

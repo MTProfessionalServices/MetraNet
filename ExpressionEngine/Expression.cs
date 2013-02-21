@@ -129,7 +129,7 @@ namespace MetraTech.ExpressionEngine
             prop.Direction = Property.DirectionType.Input;
             results.Parameters.Add(prop);
 
-            var entity = ComplexType.CreateProductView("ParameterTable.CloudRates", null);
+            var entity = Entity.CreateProductView("ParameterTable.CloudRates", null);
             prop.Direction = Property.DirectionType.Input;
             results.Parameters.Add(entity);
 

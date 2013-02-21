@@ -8,7 +8,7 @@ using System.Globalization;
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
     [DataContract]
-    public class StringType : Type
+    public class StringType : MtType
     {
         #region Properties
         /// <summary>

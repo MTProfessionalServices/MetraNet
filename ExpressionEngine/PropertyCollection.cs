@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -13,7 +14,7 @@ namespace MetraTech.ExpressionEngine
     /// </summary>
     [DataContract (Namespace = "MetraTech")]
     [KnownType(typeof(Property))]
-    [KnownType(typeof(ComplexType))]
+    [KnownType(typeof(Entity))]
     public class PropertyCollection : IEnumerable<IProperty>
     {
         #region Properties
@@ -23,7 +24,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// The Entity to which the collection belongs (may be null)
         /// </summary>
-        public ComplexType Entity { get { return Parent == null || !(Parent is ComplexType) ? null : (ComplexType)Parent; } }
+        public Entity Entity { get { return Parent == null || !(Parent is Entity) ? null : (Entity)Parent; } }
 
         /// <summary>
         /// The number of properties
@@ -108,7 +109,7 @@ namespace MetraTech.ExpressionEngine
        
         public Property AddString(string name, string description, bool isRequired, string defaultValue=null, int length=0)
         {
-            var property = new Property(name, DataTypeInfo.CreateString(length), description);
+            var property = new Property(name, TypeFactory.CreateString(length), description);
             property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);
@@ -117,16 +118,16 @@ namespace MetraTech.ExpressionEngine
 
         public Property AddEnum(string name, string description, bool isRequired, string enumSpace, string enumType, string defaultValue = null)
         {
-            var property = new Property(name, DataTypeInfo.CreateEnum(enumSpace, enumType), description);
+            var property = new Property(name, TypeFactory.CreateEnumumeration(enumSpace, enumType), description);
             property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);
             return property;
         }
 
-        public Property AddInt32(string name, string description, bool isRequired, string defaultValue = null)
+        public Property AddInteger32(string name, string description, bool isRequired, string defaultValue = null)
         {
-            var property = new Property(name, new DataTypeInfo(BaseType.Integer32), description);
+            var property = new Property(name, TypeFactory.CreateInteger32(), description);
             property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);
@@ -135,7 +136,7 @@ namespace MetraTech.ExpressionEngine
 
         public Property AddDateTime(string name, string description, bool isRequired, string defaultValue = null)
         {
-            var property = new Property(name, new DataTypeInfo(BaseType.DateTime), description);
+            var property = new Property(name, TypeFactory.CreateDateTime(), description);
             property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);
@@ -144,7 +145,7 @@ namespace MetraTech.ExpressionEngine
 
         public Property AddDecimal(string name, string description, bool isRequired, string defaultValue = null)
         {
-            var property = new Property(name, new DataTypeInfo(BaseType.Decimal), description);
+            var property = new Property(name, TypeFactory.CreateDecimal(), description);
             property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);
@@ -154,7 +155,7 @@ namespace MetraTech.ExpressionEngine
 
         public Property AddCharge(string name, string description, bool isRequired, string defaultValue = null)
         {
-            var property = new Property(name, new DataTypeInfo(BaseType.Charge), description);
+            var property = new Property(name, TypeFactory.CreateMoney(), description);
             property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);

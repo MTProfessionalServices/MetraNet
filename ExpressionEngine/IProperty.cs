@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -13,8 +14,8 @@ namespace MetraTech.ExpressionEngine
     {
         string Name { get; set; }
         bool IsCore { get; set; }
-        DataTypeInfo DataTypeInfo { get; set; }
-        ComplexType ParentEntity { get; }
+        MtType Type { get; set; }
+        Entity ParentEntity { get; }
         string Description { get; set; }
         Property.DirectionType Direction { get; set; }
         string CompatibleKey { get; }

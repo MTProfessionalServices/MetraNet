@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -22,7 +23,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// The return type as determined by parsing. Not currently supported.
         /// </summary>
-        public DataTypeInfo ReturnType { get; set; }
+        public MtType ReturnType { get; set; }
 
         /// <summary>
         /// The parameters
@@ -56,12 +57,12 @@ namespace MetraTech.ExpressionEngine
                 if (property != null)
                 {
                     parameter.Description = property.Description;
-                    parameter.DataTypeInfo = property.DataTypeInfo.Copy();
+                    parameter.Type = property.Type.Copy();
                 }
                 else if (parameter.Direction == Property.DirectionType.Input || parameter.Direction == Property.DirectionType.InOut)
                 {
+                    parameter.Type = TypeFactory.CreateUnkownn();
                     parameter.Description = null;
-                    parameter.DataTypeInfo.BaseType = BaseType.Unknown;
 
                     //Would be really nice to provide line/column number here. Need parse tree to do that
                     Messages.Error(string.Format(Localization.UnableToFindProperty, parameter.Name));

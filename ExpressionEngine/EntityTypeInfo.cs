@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Globalization;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace MetraTech.ExpressionEngine
 {
     public class EntityTypeInfo : IExpressionEngineTreeNode
     {
         #region Properties
-        public readonly ComplexType.ComplexTypeEnum Type;
+        public readonly VectorType.ComplexTypeEnum Type;
         public string Name { get { return string.Format("{0}s", Type); } set { throw new Exception("Readonly!"); } }
         public string TreeNodeLabel { get { return Name; } }
         public string ToolTip { get { return "TBD"; } }
@@ -17,7 +18,7 @@ namespace MetraTech.ExpressionEngine
         #endregion 
 
         #region Constructor
-        public EntityTypeInfo(ComplexType.ComplexTypeEnum type)
+        public EntityTypeInfo(VectorType.ComplexTypeEnum type)
         {
             Type = type;
         }

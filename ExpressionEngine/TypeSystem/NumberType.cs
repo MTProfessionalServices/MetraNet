@@ -6,13 +6,18 @@ using System.Runtime.Serialization;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
+    /// <summary>
+    /// General class for numbers. NOTE that the name is intentionlly not "NumericType" because
+    /// "Numeric" is a BaseType which implies every typeof NumberType. This is a very important 
+    /// distinction.
+    /// </summary>
     [DataContract]
-    public class NumberType : Type
+    public class NumberType : MtType
     {
         #region Properties
 
         /// <summary>
-        /// Indicates the unit of measure mode (fixed or driven by other property). Only valid for when IsNumeric is true. 
+        /// Indicates the unit of measure mode (fixed or driven by other property)
         /// </summary>
         [DataMember]
         public UnitOfMeasureModeType UnitOfMeasureMode { get; set; }

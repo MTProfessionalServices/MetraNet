@@ -7,6 +7,7 @@ using System.Globalization;
 using System.Runtime.Serialization;
 using System.IO;
 using System.Xml.Linq;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -32,7 +33,7 @@ namespace MetraTech.ExpressionEngine
         /// The data type that the function returns
         /// </summary>
         [DataMember]
-        public DataTypeInfo ReturnType { get; set; }
+        public MtType ReturnType { get; set; }
 
         /// <summary>
         /// The description. Used in tool tips, online help, etc.

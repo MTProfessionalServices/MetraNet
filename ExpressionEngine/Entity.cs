@@ -7,6 +7,7 @@ using System.Xml;
 using System.Globalization;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.TypeSystem;
+//using Type = MetraTech.ExpressionEngine.TypeSystem;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -15,11 +16,11 @@ namespace MetraTech.ExpressionEngine
     /// other complex types. Note that DataTypeInfo.IsEntity determines if it's deemed an Entity (an important destinction for Metanga)
     /// </summary>
     [DataContract (Namespace = "MetraTech")]
-    public class ComplexType : IProperty, IExpressionEngineTreeNode
+    public class Entity : IProperty, IExpressionEngineTreeNode
     {
-        #region Enums
-        public enum ComplexTypeEnum {None, ServiceDefinition, ProductView, ParameterTable, AccountType, AccountView, BusinessModelingEntity, Any, Metanga}
-        #endregion
+        //#region Enums
+        //public enum ComplexTypeEnum {None, ServiceDefinition, ProductView, ParameterTable, AccountType, AccountView, BusinessModelingEntity, Any, Metanga}
+        //#endregion
 
         #region Properties
         [DataMember]
@@ -32,14 +33,14 @@ namespace MetraTech.ExpressionEngine
         public bool IsCore { get; set; }
 
         [DataMember]
-        public DataTypeInfo DataTypeInfo { get; set; }
-        //PREPARING TO MAKE BIG CONVERSION (ABOVE WILL BE REMOVED)
-        public MetraTech.ExpressionEngine.TypeSystem.Type Type { get; set; }
+        public MtType Type { get; set; }
+
+        public VectorType VectorType { get { return (VectorType)Type; } }
 
         [DataMember]
         public PropertyCollection Properties { get; private set; }
 
-        public ComplexType ParentEntity { get; set; }
+        public Entity ParentEntity { get; set; }
 
         [DataMember]
         public string Description { get; set; }
@@ -47,7 +48,7 @@ namespace MetraTech.ExpressionEngine
         [DataMember]
         public Property.DirectionType Direction { get; set; }
 
-        public string CompatibleKey { get { return string.Format(CultureInfo.InvariantCulture, "{0}|{1}", Name, DataTypeInfo.CompatibleKey); } }
+        public string CompatibleKey { get { return string.Format(CultureInfo.InvariantCulture, "{0}|{1}", Name, Type.CompatibleKey); } }
 
         /// <summary>
         /// The actual database table name. Used in MetraNet which has a prefix on all table names.
@@ -57,14 +58,14 @@ namespace MetraTech.ExpressionEngine
         {
             get
             {
-                switch (DataTypeInfo.ComplexType)
+                switch (VectorType.ComplexType)
                 {
-                    case ComplexTypeEnum.AccountView:
-                        return "t_av_" + Name;
-                    case ComplexTypeEnum.ParameterTable:
-                        return "t_pt_" + Name;
-                    case ComplexTypeEnum.ProductView:
-                        return "t_pv_" + Name;
+                    //case ComplexTypeEnum.AccountView:
+                    //    return "t_av_" + Name;
+                    //case ComplexTypeEnum.ParameterTable:
+                    //    return "t_pt_" + Name;
+                    //case ComplexTypeEnum.ProductView:
+                    //    return "t_pv_" + Name;
                     default:
                         return null;
                 }
@@ -73,12 +74,12 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region GUI Helper Properties (move in future)
-        public string TreeNodeLabel { get { return Name + DataTypeInfo.ListSuffix; } }
+        public string TreeNodeLabel { get { return Name + Type.ListSuffix; } }
         public string ToolTip
         {
             get
             {
-                var tip = DataTypeInfo.ComplexType.ToString();
+                var tip = VectorType.ComplexType.ToString();
                 if (!string.IsNullOrEmpty(Description))
                     tip += Environment.NewLine + Description;
                 if (UserSettings.ShowActualMappings)
@@ -91,15 +92,15 @@ namespace MetraTech.ExpressionEngine
         {
             get
             {
-                if (DataTypeInfo.ComplexType == ComplexTypeEnum.Metanga)
+                if (VectorType.ComplexType == VectorType.ComplexTypeEnum.Metanga)
                 {
-                    if (DataTypeInfo.IsEntity)
+                    if (VectorType.IsEntity)
                         return "Entity.png";
                     else
                         return "ComplexType.png";
                 }
 
-                return DataTypeInfo.ComplexType.ToString() + ".png";
+                return VectorType.ToString() + ".png";
             }
         }
 
@@ -124,15 +125,8 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Constructor
-        public ComplexType(string name, ComplexTypeEnum type, string description)
-        {
-            Name = name;
-            DataTypeInfo = DataTypeInfo.CreateEntity(type, null);
-            Description = description;
-            Properties = new PropertyCollection(this);
-        }
 
-        public ComplexType(string name, ComplexTypeType.ComplexTypeEnum type, string subType, bool isEntity, string description)
+        public Entity(string name, VectorType.ComplexTypeEnum type, string subType, bool isEntity, string description)
         {
             Name = name;
             Type = TypeFactory.CreateComplexType(type, subType, isEntity);
@@ -148,13 +142,13 @@ namespace MetraTech.ExpressionEngine
         /// for filtering in the GUI.
         /// TODO: Add recursive option to look sub entities
         /// </summary>
-        public bool HasPropertyMatch(Regex nameFilter, DataTypeInfo typeFilter)
+        public bool HasPropertyMatch(Regex nameFilter, MtType typeFilter)
         {
             foreach (var property in Properties)
             {
                 if (nameFilter != null && !nameFilter.IsMatch(property.Name))
                     continue;
-                if (typeFilter != null && !property.DataTypeInfo.IsBaseTypeFilterMatch(typeFilter))
+                if (typeFilter != null && !property.Type.IsBaseTypeFilterMatch(typeFilter))
                     continue;
                 return true;
             }
@@ -171,11 +165,11 @@ namespace MetraTech.ExpressionEngine
 
         public string GetPrefix()
         {
-            switch (DataTypeInfo.ComplexType)
+            switch (VectorType.ComplexType)
             {
-                case ComplexTypeEnum.ProductView:
+                case VectorType.ComplexTypeEnum.ProductView:
                     return UserSettings.NewSyntax? "EVENT": "USAGE";
-                case ComplexTypeEnum.AccountView:
+                case VectorType.ComplexTypeEnum.AccountView:
                     return "ACCOUNT";
                 default:
                     return String.Empty;
@@ -184,9 +178,10 @@ namespace MetraTech.ExpressionEngine
 
         public object Clone()
         {
-            var newEntity = new ComplexType(Name, DataTypeInfo.ComplexType, Description);
-            newEntity.Properties = Properties.Clone();
-            return newEntity;
+            throw new NotImplementedException();
+            //var newEntity = new ComplexType(Name, Type.ComplexType, Description);
+            //newEntity.Properties = Properties.Clone();
+            //return newEntity;
         }
 
         public ValidationMessageCollection Validate(bool prefixMsg)
@@ -204,7 +199,7 @@ namespace MetraTech.ExpressionEngine
             //if (NameRegex.IsMatch(Name))
             //    messages.Error(prefix + Localization.InvalidName);
 
-            DataTypeInfo.Validate(prefix, messages);
+            Type.Validate(prefix, messages);
 
             foreach (var property in Properties)
             {
@@ -217,9 +212,9 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Create Methods
-        public static ComplexType CreateProductView(string name, string description)
+        public static Entity CreateProductView(string name, string description)
         {
-            return new ComplexType(name, ComplexTypeEnum.ProductView, description);
+            return new Entity(name, VectorType.ComplexTypeEnum.ProductView, null, true, description);
         }
         #endregion
     }

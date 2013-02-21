@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using MetraTech.ExpressionEngine;
 using System.Windows.Forms;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace PropertyGui
 {
@@ -56,25 +57,25 @@ namespace PropertyGui
             return viewModes;
         }
 
-        public static List<ComplexType.ComplexTypeEnum> GetRelevantEntityTypes(Context.ProductTypeEnum product, Expression expression = null)
+        public static List<VectorType.ComplexTypeEnum> GetRelevantEntityTypes(Context.ProductTypeEnum product, Expression expression = null)
         {
-            var types = new List<ComplexType.ComplexTypeEnum>();
+            var types = new List<VectorType.ComplexTypeEnum>();
 
             if (product == Context.ProductTypeEnum.Metanga)
             {
-                types.Add(ComplexType.ComplexTypeEnum.Metanga);
+                types.Add(VectorType.ComplexTypeEnum.Metanga);
                 return types;
             }
 
-            foreach (var value in Enum.GetValues(typeof(ComplexType.ComplexTypeEnum)))
+            foreach (var value in Enum.GetValues(typeof(VectorType.ComplexTypeEnum)))
             {
-                var type = (ComplexType.ComplexTypeEnum)value;
+                var type = (VectorType.ComplexTypeEnum)value;
                 if (expression == null || expression.Info.SupportedEntityTypes.Contains(type))
-                    types.Add((ComplexType.ComplexTypeEnum)type);
+                    types.Add((VectorType.ComplexTypeEnum)type);
             }
 
-            if (types.Count > 1 && !types.Contains(ComplexType.ComplexTypeEnum.Any))
-                types.Add(ComplexType.ComplexTypeEnum.Any);
+            if (types.Count > 1 && !types.Contains(VectorType.ComplexTypeEnum.Any))
+                types.Add(VectorType.ComplexTypeEnum.Any);
 
             return types;
         }

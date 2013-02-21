@@ -59,6 +59,10 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         [DataMember]
         public DataTypeInfo DataTypeInfo { get; set; }
+        
+        //PREPARING TO MAKE BIG CONVERSION (ABOVE WILL BE REMOVED)
+        public Type Type { get; set; }
+
 
         /// <summary>
         /// A description that's used in tooltips, auto doc, etc.
@@ -191,6 +195,15 @@ namespace MetraTech.ExpressionEngine
         {
             Name = name;
             DataTypeInfo = dtInfo;
+            Description = description;
+
+            IsCore = false;
+        }
+
+        public Property(string name, Type type, string description = null)
+        {
+            Name = name;
+            Type = type;
             Description = description;
 
             IsCore = false;

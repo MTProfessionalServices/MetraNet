@@ -18,10 +18,10 @@
         Enumeration,
         Float,
         Guid,
-        Money,              //Decimal with currency that is NOT a charge or a, or part of a, settlement
         Integer,
         Integer32,
         Integer64,
+        Money,              //Decimal with currency that is NOT a charge or a, or part of a, settlement
         Numeric,            // See DataTypeInfo.IsNumeric
         String,
         UniqueIdentifier    //This is different than a Guid

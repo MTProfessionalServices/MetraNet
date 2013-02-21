@@ -885,9 +885,9 @@ namespace MetraTech.ExpressionEngine
 
         #region Is data type properties
 
-        /// <summary>
-        /// Determines if the data type is a Charge
-        /// </summary>
+        public bool IsAny { get { return BaseType == ExpressionEngine.BaseType.Any; } }
+        public bool IsBinary { get { return BaseType == ExpressionEngine.BaseType.Binary; } }
+        public bool IsBoolean { get { return BaseType == ExpressionEngine.BaseType.Boolean; } }
         public bool IsCharge { get { return BaseType == ExpressionEngine.BaseType.Charge; } }
 
         /// <summary>

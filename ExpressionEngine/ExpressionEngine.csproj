@@ -85,6 +85,9 @@
     <Compile Include="Test\EmailEngine.cs" />
     <Compile Include="Test\IProcessingEngine.cs" />
     <Compile Include="Test\TestInstance.cs" />
+    <Compile Include="TypeSystem\ComplexTypeType.cs" />
+    <Compile Include="TypeSystem\EnumerationType.cs" />
+    <Compile Include="TypeSystem\NumberType.cs" />
     <Compile Include="TypeSystem\StringType.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -94,6 +97,7 @@
     <Compile Include="TypeSystem\TypeFactory.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TypeSystem\TypeHelper.cs" />
     <Compile Include="UserSettings.cs" />
     <Compile Include="UnitOfMeasure.cs" />
     <Compile Include="UnitOfMeasureCategory.cs" />

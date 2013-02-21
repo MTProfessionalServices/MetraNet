@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Xml;
 using System.Globalization;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -32,6 +33,8 @@ namespace MetraTech.ExpressionEngine
 
         [DataMember]
         public DataTypeInfo DataTypeInfo { get; set; }
+        //PREPARING TO MAKE BIG CONVERSION (ABOVE WILL BE REMOVED)
+        public MetraTech.ExpressionEngine.TypeSystem.Type Type { get; set; }
 
         [DataMember]
         public PropertyCollection Properties { get; private set; }
@@ -125,6 +128,14 @@ namespace MetraTech.ExpressionEngine
         {
             Name = name;
             DataTypeInfo = DataTypeInfo.CreateEntity(type, null);
+            Description = description;
+            Properties = new PropertyCollection(this);
+        }
+
+        public ComplexType(string name, ComplexTypeType.ComplexTypeEnum type, string subType, bool isEntity, string description)
+        {
+            Name = name;
+            Type = TypeFactory.CreateComplexType(type, subType, isEntity);
             Description = description;
             Properties = new PropertyCollection(this);
         }

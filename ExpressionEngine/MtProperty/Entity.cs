@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.MtProperty.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 

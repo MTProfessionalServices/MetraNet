@@ -3,6 +3,7 @@ using System.Xml;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Globalization;
+using MetraTech.ExpressionEngine.MtProperty.Enumerations;
 
 namespace MetraTech.ExpressionEngine
 {

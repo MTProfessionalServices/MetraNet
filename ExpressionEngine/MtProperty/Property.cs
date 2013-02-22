@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Xml;
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using System.Data;
 using System.Globalization;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.MtProperty.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
@@ -26,7 +24,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// Used to validate the Name property
         /// </summary>
-        private Regex NameRegex = new Regex(".*");//[a-zA-Z][a-ZA-Z0-9_]*");
+        private readonly Regex NameRegex = new Regex(".*");//[a-zA-Z][a-ZA-Z0-9_]*");
         #endregion
 
         #region Properties
@@ -326,12 +324,9 @@ namespace MetraTech.ExpressionEngine
             var name = string.Format(CultureInfo.InvariantCulture, "{0}.{1}", entity.Name, Name);
             if (prefix)
                 return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", entity.GetPrefix(), name);
-            else
-                return name;
+            return name;
         }
 
         #endregion
     }
-
-    public enum DirectionType { Input, Output, InOut }
 }

@@ -9,6 +9,7 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using Metanga.Miscellaneous.MetadataExport;
 using MetraTech.ExpressionEngine.MetraNet;
+using MetraTech.ExpressionEngine.MetraNet.MtProperty;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
@@ -84,9 +85,9 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Manual Entities
-        public static Entity GetCloudComputeProductView()
+        public static ProductViewEntity GetCloudComputeProductView()
         {
-            var entity = new Entity("CloudCompute", ComplexType.ProductView, null, true, "Models an cloud compute usage even");
+            var entity = EntityFactory.CreateProductViewEntity("CloudCompute", "Models an cloud compute usage even");
 
             var pv = entity.Properties;
 
@@ -123,13 +124,12 @@ namespace MetraTech.ExpressionEngine
 
             property = pv.AddString("ScalingMetricUom", "The UoM for the the ScalingMetric", true);
 
-            MetraNetLoader.AppendCommonProductViewProperties(pv);
             return entity;
         }
 
-        public static Entity GetAircraftLandingProductView()
+        public static ProductViewEntity GetAircraftLandingProductView()
         {
-            var entity = new Entity("AircraftLanding", ComplexType.ProductView, null, true, "Models an cloud compute usage even");
+            var entity = EntityFactory.CreateProductViewEntity("AircraftLanding", "Models an cloud compute usage even");
 
             var pv = entity.Properties;
             pv.AddInteger32("MTOW", "Maximum TakeOff Weight", true);
@@ -137,15 +137,14 @@ namespace MetraTech.ExpressionEngine
             pv.AddInteger32("NumPassengers", "The Weight of the aircraft in tons", true);
             pv.AddInteger32("NumTransferPassengers", "The Weight of the aircraft in tons", true);
             pv.AddInteger32("NumCrew", "The Weight of the aircraft in tons", true);
-            MetraNetLoader.AppendCommonProductViewProperties(pv);
 
             return entity;
         }
 
 
-        public static Entity GetCorporateAccountType()
+        public static AccountViewEntity GetCorporateAccountType()
         {
-            var entity = new Entity("CorporateAccount", ComplexType.AccountType, null, true, "Models an corporate account");
+            var entity = EntityFactory.CreateAccountViewEntity("CorporateAccount", "Models an corporate account");
 
             var pv = entity.Properties;
             pv.AddString("FirstName", "The data center in which the server ran", true, null, 30);
@@ -181,19 +180,11 @@ namespace MetraTech.ExpressionEngine
                 Entity entity;
                 if (!context.Entities.TryGetValue(entityName, out entity))
                 {
-                    entity = new Entity(entityName, entityType, null, entityRecord.IsEntity, entityDescription);
+                    if (Context.ProductType == ProductType.MetraNet)
+                        entity = EntityFactory.Create(entityType, entityName, entityDescription);
+                    else
+                        entity = new Entity(entityName, entityType, null, entityRecord.IsEntity, entityDescription);
                     context.Entities.Add(entity.Name, entity);
-
-                    //Add common properties, if any
-                    switch (entityType)
-                    {
-                        case ComplexType.ProductView:
-                            MetraNetLoader.AppendCommonProductViewProperties(entity.Properties);
-                            break;
-                        case ComplexType.AccountView:
-                            MetraNetLoader.AppendCommonAccountViewProperties(entity.Properties);
-                            break;
-                    }
                 }
 
                 MtType dtInfo;

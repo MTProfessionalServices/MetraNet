@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.Serialization;
 using System.Collections.ObjectModel;
+using MetraTech.ExpressionEngine.MtProperty.Enumerations;
 
 namespace MetraTech.ExpressionEngine.Test
 {

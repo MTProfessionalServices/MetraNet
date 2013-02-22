@@ -50,39 +50,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\UniqueKey.cs" />
+    <Compile Include="MetraNet\Enumerations\IndexType.cs" />
     <Compile Include="MetraNet\MetraNetLoader.cs" />
+    <Compile Include="MetraNet\MtProperty\AccountViewEntity.cs" />
+    <Compile Include="MetraNet\MtProperty\AccountViewProperty.cs" />
+    <Compile Include="MetraNet\MtProperty\EntityFactory.cs" />
+    <Compile Include="MetraNet\MtProperty\ProductViewEntity.cs" />
+    <Compile Include="MetraNet\MtProperty\ProductViewProperty.cs" />
+    <Compile Include="MetraNet\MtProperty\ServiceDefinitionEntity.cs" />
+    <Compile Include="MetraNet\MtProperty\ServiceDefinitionProperty.cs" />
+    <Compile Include="MtProperty\Enumerations\DirectionType.cs" />
     <Compile Include="Placeholders\Aqg.cs" />
     <Compile Include="TypeSystem\Enumerations\BaseType.cs" />
     <Compile Include="Context.cs" />
-    <Compile Include="Currency.cs" />
-    <Compile Include="Entity.cs" />
+    <Compile Include="Components\Currency.cs" />
+    <Compile Include="MtProperty\Entity.cs" />
     <Compile Include="EmailInstance.cs" />
     <Compile Include="EmailTemplate.cs" />
-    <Compile Include="EntityInfo.cs" />
-    <Compile Include="Loading\EntityRecord.cs" />
-    <Compile Include="EntityTypeInfo.cs">
+    <Compile Include="MtProperty\EntityInfo.cs" />
+    <Compile Include="DemoLoading\EntityRecord.cs" />
+    <Compile Include="MtProperty\EntityTypeInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="EnumHelper.cs" />
-    <Compile Include="Loading\EnumRecord.cs" />
-    <Compile Include="EnumSpace.cs" />
-    <Compile Include="EnumCategory.cs" />
-    <Compile Include="EnumValue.cs" />
+    <Compile Include="Components\EnumHelper.cs" />
+    <Compile Include="DemoLoading\EnumRecord.cs" />
+    <Compile Include="Components\EnumSpace.cs" />
+    <Compile Include="Components\EnumCategory.cs" />
+    <Compile Include="Components\EnumValue.cs" />
     <Compile Include="Expression.cs" />
     <Compile Include="ExpressionInfo.cs" />
     <Compile Include="ExpressionParseResults.cs" />
-    <Compile Include="Function.cs" />
+    <Compile Include="Components\Function.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="IExpressionEngineTreeNode.cs" />
-    <Compile Include="IProperty.cs" />
+    <Compile Include="MtProperty\IProperty.cs" />
     <Compile Include="Localization.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Localization.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Property.cs" />
-    <Compile Include="PropertyCollection.cs" />
+    <Compile Include="MtProperty\Property.cs" />
+    <Compile Include="MtProperty\PropertyCollection.cs" />
     <Compile Include="Test\EmailEngine.cs" />
     <Compile Include="Test\IProcessingEngine.cs" />
     <Compile Include="Test\TestInstance.cs" />
@@ -106,10 +116,10 @@
     </Compile>
     <Compile Include="TypeSystem\TypeHelper.cs" />
     <Compile Include="UserSettings.cs" />
-    <Compile Include="UnitOfMeasure.cs" />
-    <Compile Include="UnitOfMeasureCategory.cs" />
+    <Compile Include="Components\UnitOfMeasure.cs" />
+    <Compile Include="Components\UnitOfMeasureCategory.cs" />
     <Compile Include="Placeholders\UQG.cs" />
-    <Compile Include="Loading\DemoLoader.cs" />
+    <Compile Include="DemoLoading\DemoLoader.cs" />
     <Compile Include="ValidationMessage.cs" />
     <Compile Include="ValidationMessageCollection.cs" />
   </ItemGroup>

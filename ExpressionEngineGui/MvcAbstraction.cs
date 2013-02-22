@@ -5,6 +5,7 @@ using System.Text;
 using MetraTech.ExpressionEngine;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace PropertyGui
 {
@@ -57,36 +58,36 @@ namespace PropertyGui
             return viewModes;
         }
 
-        public static List<VectorType.ComplexTypeEnum> GetRelevantEntityTypes(Context.ProductTypeEnum product, Expression expression = null)
+        public static List<ComplexType> GetRelevantEntityTypes(ProductType product, Expression expression = null)
         {
-            var types = new List<VectorType.ComplexTypeEnum>();
+            var types = new List<ComplexType>();
 
-            if (product == Context.ProductTypeEnum.Metanga)
+            if (product == ProductType.Metanga)
             {
-                types.Add(VectorType.ComplexTypeEnum.Metanga);
+                types.Add(ComplexType.Metanga);
                 return types;
             }
 
-            foreach (var value in Enum.GetValues(typeof(VectorType.ComplexTypeEnum)))
+            foreach (var value in Enum.GetValues(typeof(ComplexType)))
             {
-                var type = (VectorType.ComplexTypeEnum)value;
+                var type = (ComplexType)value;
                 if (expression == null || expression.Info.SupportedEntityTypes.Contains(type))
-                    types.Add((VectorType.ComplexTypeEnum)type);
+                    types.Add((ComplexType)type);
             }
 
-            if (types.Count > 1 && !types.Contains(VectorType.ComplexTypeEnum.Any))
-                types.Add(VectorType.ComplexTypeEnum.Any);
+            if (types.Count > 1 && !types.Contains(ComplexType.Any))
+                types.Add(ComplexType.Any);
 
             return types;
         }
 
-        public static MessageBoxIcon GetMessageBoxIcon(ValidationMessage.SeverityType severity)
+        public static MessageBoxIcon GetMessageBoxIcon(SeverityType severity)
         {
             switch (severity)
             {
-                case ValidationMessage.SeverityType.Error:
+                case SeverityType.Error:
                     return MessageBoxIcon.Stop;
-                case ValidationMessage.SeverityType.Warn:
+                case SeverityType.Warn:
                     return MessageBoxIcon.Warning;
                 default:
                     return MessageBoxIcon.Information;

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Xml;
-using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -16,19 +12,9 @@ namespace MetraTech.ExpressionEngine
     [DataContract]
     public class Expression
     {
-        #region Enums
-        public enum ExpressionTypeEnum { 
-            AQG,
-            UQG,
-            Logic,
-            Email,
-            Message ///Merging of localized text (e.g., email templates, sms messages, etc.)
-        }
-        #endregion
-
         #region Static Properties
-        public static readonly string[] EqualityOperators = new string[] { "==", "eq" };
-        public static readonly string[] InequalityOperators = new string[] { "!=", "nq" };
+        public static readonly string[] EqualityOperators = new [] { "==", "eq" };
+        public static readonly string[] InequalityOperators = new [] { "!=", "nq" };
         #endregion
 
         #region Properties
@@ -114,27 +100,27 @@ namespace MetraTech.ExpressionEngine
 
             //HACK -- since we aren't integrated with MVM parse engine, simulate some stuff!
             var prop = Property.CreateInteger32("USAGE.Hours", null);
-            prop.Direction = Property.DirectionType.InOut;
+            prop.Direction = DirectionType.InOut;
             results.Parameters.Add(prop);
 
             prop = Property.CreateInteger32("USAGE.CpuCount", null);
-            prop.Direction = Property.DirectionType.Input;
+            prop.Direction = DirectionType.Input;
             results.Parameters.Add(prop);
 
             prop = Property.CreateInteger32("USAGE.Snapshots", null);
-            prop.Direction = Property.DirectionType.Input;
+            prop.Direction = DirectionType.Input;
             results.Parameters.Add(prop);
 
             prop = Property.CreateInteger32("USAGE.Amount", null);
-            prop.Direction = Property.DirectionType.Input;
+            prop.Direction = DirectionType.Input;
             results.Parameters.Add(prop);
 
             var entity = Entity.CreateProductView("ParameterTable.CloudRates", null);
-            prop.Direction = Property.DirectionType.Input;
+            prop.Direction = DirectionType.Input;
             results.Parameters.Add(entity);
 
             prop = Property.CreateBoolean("<Result>", "The result of the boolean expression");
-            prop.Direction = Property.DirectionType.Output;
+            prop.Direction = DirectionType.Output;
             results.Parameters.Add(prop);
             return results;
         }
@@ -171,6 +157,13 @@ namespace MetraTech.ExpressionEngine
             return null;
         }
         #endregion
+    }
 
+    public enum ExpressionTypeEnum { 
+        AQG,
+        UQG,
+        Logic,
+        Email,
+        Message ///Merging of localized text (e.g., email templates, sms messages, etc.)
     }
 }

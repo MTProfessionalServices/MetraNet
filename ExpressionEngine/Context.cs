@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Data;
-using System.IO;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -19,22 +16,17 @@ namespace MetraTech.ExpressionEngine
     /// </summary>
     public class Context
     {
-        #region Enums
-        public enum ProductTypeEnum { MetraNet, Metanga }
-        public enum ConfigurationTypeEnum { Expression, Email, Sms, PageLayout, GridLayout }
-        #endregion
-
         #region Properties
-        public static ProductTypeEnum ProductType;
-        public static bool IsMetraNet { get { return ProductType == ProductTypeEnum.MetraNet; } }
-        public static bool IsMetanga { get { return ProductType == ProductTypeEnum.Metanga; } }
+        public static ProductType ProductType;
+        public static bool IsMetraNet { get { return ProductType == ProductType.MetraNet; } }
+        public static bool IsMetanga { get { return ProductType == ProductType.Metanga; } }
 
         public readonly Expression Expression;
         public readonly EmailInstance EmailInstance;
 
         public Dictionary<string, Function> Functions = new Dictionary<string, Function>();
         public Dictionary<string, Entity> Entities = new Dictionary<string, Entity>();            //Entities may not have unique names across types... need to deal with that, perhaps a composite key
-        public Dictionary<string, AQG> AQGs = new Dictionary<string, AQG>();
+        public Dictionary<string, Aqg> AQGs = new Dictionary<string, Aqg>();
         public Dictionary<string, UQG> UQGs = new Dictionary<string, UQG>();
         public Dictionary<string, EnumSpace> EnumSpaces = new Dictionary<string, EnumSpace>();
         public Dictionary<string, Expression> Expressions = new Dictionary<string, Expression>();
@@ -51,16 +43,20 @@ namespace MetraTech.ExpressionEngine
 
         #region Constructors
 
-        public Context(ProductTypeEnum product)
+        public Context(ProductType product)
         {
             ProductType = product;
         }
 
-        public Context(Expression expression):this(expression, null)
+        public Context(Expression expression)
+            : this(expression, null)
         {
         }
         public Context(Expression expression, EmailInstance emailInstance)
         {
+            if (expression == null)
+                throw new ArgumentNullException("expression");
+
             Expression = expression;
             EmailInstance = emailInstance;
 
@@ -68,7 +64,7 @@ namespace MetraTech.ExpressionEngine
             {
                 //if (Expression.Info.SupportedEntityTypes.Contains(entity.DataTypeInfo.ComplexType))
                 if (Expression.Info.SupportedEntityTypes.Contains(entity.VectorType.ComplexType))
-                        Entities.Add(entity.Name, entity);
+                    Entities.Add(entity.Name, entity);
             }
 
             foreach (var entityParameterName in Expression.EntityParameters)
@@ -95,7 +91,7 @@ namespace MetraTech.ExpressionEngine
         public ExpressionParseResults GetExpressionParseResults()
         {
             ExpressionParseResults results;
-            if (Expression.Type == Expression.ExpressionTypeEnum.Email)
+            if (Expression.Type == ExpressionTypeEnum.Email)
                 results = EmailInstance.Parse();
             else
                 results = Expression.Parse();
@@ -129,37 +125,35 @@ namespace MetraTech.ExpressionEngine
                 {
                     //If the length is one, then we're at the leaf!
                     if (parts.Length == 1)
-                    {
                         return property;
-                    }
-                    else  //We're not there yet, it should be ComplexType
-                    {
-                        if (property.Type.BaseType != BaseType.Entity)
-                            return null;
 
-                        //Get the complex property
-                        var secondProperty = ((Entity)property).Properties.Get(parts[1]);
-                        if (secondProperty == null)
-                            return null;
+                    //We're not there yet, it should be ComplexType
 
-                        if (secondProperty.Type.BaseType != BaseType.Entity && parts.Length == 2)
-                            return secondProperty;
+                    if (property.Type.BaseType != BaseType.Entity)
+                        return null;
 
-                        //var secondName = parts[1];
-                        var complexTypeName = ((VectorType)secondProperty.Type).ComplexSubtype;
-                        if (complexTypeName == null)
-                            return null;
+                    //Get the complex property
+                    var secondProperty = ((Entity)property).Properties.Get(parts[1]);
+                    if (secondProperty == null)
+                        return null;
 
-                        Entity complexType;
-                        if (!DemoLoader.GlobalContext.Entities.TryGetValue(complexTypeName, out complexType))
-                           return null;
+                    if (secondProperty.Type.BaseType != BaseType.Entity && parts.Length == 2)
+                        return secondProperty;
 
-                        if (parts.Length == 2)
-                            return complexType;
+                    //var secondName = parts[1];
+                    var complexTypeName = ((VectorType)secondProperty.Type).ComplexSubtype;
+                    if (complexTypeName == null)
+                        return null;
 
-                        var remainder = name.Substring(firstName.Length + parts[1].Length + 2);
-                        return _getRecursive(remainder, complexType.Properties);
-                    }
+                    Entity complexType;
+                    if (!DemoLoader.GlobalContext.Entities.TryGetValue(complexTypeName, out complexType))
+                        return null;
+
+                    if (parts.Length == 2)
+                        return complexType;
+
+                    var remainder = name.Substring(firstName.Length + parts[1].Length + 2);
+                    return _getRecursive(remainder, complexType.Properties);
                 }
             }
             return null;
@@ -184,7 +178,7 @@ namespace MetraTech.ExpressionEngine
             return results;
         }
 
-        public List<IProperty> GetProperties(MtType dtInfo, MtType.MatchType minimumMatchLevel, bool uniqueProperties)
+        public List<IProperty> GetProperties(MtType dtInfo, MatchType minimumMatchLevel, bool uniqueProperties)
         {
             var properties = new List<IProperty>();
             IEnumerable<IProperty> list;
@@ -201,7 +195,7 @@ namespace MetraTech.ExpressionEngine
             }
             return properties;
         }
-        
+
         public bool TryGetPropertyFromAllProperties(string name, out IProperty result)
         {
             foreach (var property in AllProperties)
@@ -267,13 +261,13 @@ namespace MetraTech.ExpressionEngine
             Entities.Add(entity.Name, entity);
         }
 
-        public List<Entity> GetEntities(VectorType.ComplexTypeEnum type)
+        public List<Entity> GetEntities(ComplexType type)
         {
-            var types = new List<VectorType.ComplexTypeEnum>();
+            var types = new List<ComplexType>();
             types.Add(type);
             return GetEntities(null, types, null, null);
         }
-        public List<Entity> GetEntities(string entityNameFilter, List<VectorType.ComplexTypeEnum> entityTypeFilter, string propertyNameFilter, MtType propertyTypeFilter)
+        public List<Entity> GetEntities(string entityNameFilter, List<ComplexType> entityTypeFilter, string propertyNameFilter, MtType propertyTypeFilter)
         {
             var results = new List<Entity>();
 
@@ -331,6 +325,9 @@ namespace MetraTech.ExpressionEngine
 
         public void AddEnum(EnumSpace enumSpace)
         {
+            if (enumSpace == null)
+                throw new ArgumentNullException("enumSpace");
+
             EnumSpaces.Add(enumSpace.Name, enumSpace);
         }
 
@@ -354,4 +351,8 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
     }
+
+    public enum ConfigurationType { Expression, Email, Sms, PageLayout, GridLayout }
+
+    public enum ProductType { MetraNet, Metanga }
 }

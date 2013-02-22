@@ -1,4 +1,7 @@
-﻿namespace PropertyGui
+﻿using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+
+namespace PropertyGui
 {
     partial class frmFuncIn
     {
@@ -135,7 +138,7 @@
             this.ctlProp.AllowProperty = true;
             this.ctlProp.DefaultBindingType = PropertyGui.ctlValueBinder.BindingTypeEnum.Property;
             this.ctlProp.Location = new System.Drawing.Point(67, 15);
-            this.ctlProp.MinimumMatchType = MetraTech.ExpressionEngine.TypeSystem.MtType.MatchType.Convertible;
+            this.ctlProp.MinimumMatchType = MatchType.Convertible;
             this.ctlProp.Name = "ctlProp";
             this.ctlProp.Size = new System.Drawing.Size(269, 20);
             this.ctlProp.TabIndex = 0;

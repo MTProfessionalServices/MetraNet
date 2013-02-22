@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using System.Globalization;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
@@ -49,8 +45,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         {
             if (robust)
                 return string.Format(CultureInfo.InvariantCulture, "{0}.{1}.{2}", BaseType, Namespace, Category);
-            else
-                return BaseType.ToString();
+            return BaseType.ToString();
         }
 
         private string Check()
@@ -64,7 +59,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 return string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumNamespace, Namespace);
 
             //Check if the EnumType was specified
-            if (string.IsNullOrEmpty(this.Category))
+            if (string.IsNullOrEmpty(Category))
                 return Localization.EnumTypeNotSpecified;
 
             //Check if the EnumType exists
@@ -74,7 +69,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return null;
         }
 
-        public EnumerationType Copy()
+        public new EnumerationType Copy()
         {
             var type = (EnumerationType)base.Copy();
             InternalCopy(type);

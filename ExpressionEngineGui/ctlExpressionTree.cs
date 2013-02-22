@@ -7,6 +7,7 @@ using MetraTech.ExpressionEngine;
 using System.IO;
 using System.Drawing;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace PropertyGui
 {
@@ -21,7 +22,7 @@ namespace PropertyGui
         public static ImageList Images = new ImageList();
 
         public MvcAbstraction.ViewModeType ViewMode { get; set; }
-        public VectorType.ComplexTypeEnum EntityTypeFilter { get; set; }
+        public ComplexType EntityTypeFilter { get; set; }
         public MtType PropertyTypeFilter { get; set; }
         public string FunctionFilter { get; set; }
         public ContextMenuStrip EnumValueContextMenu { get; set; }
@@ -184,7 +185,7 @@ namespace PropertyGui
 
         private void LoadTreeEntityMode()
         {
-            var filter = new List<VectorType.ComplexTypeEnum>();
+            var filter = new List<ComplexType>();
             filter.Add(EntityTypeFilter);
             var entities = Context.GetEntities(null, filter, null, PropertyTypeFilter);
             foreach (var entity in entities)

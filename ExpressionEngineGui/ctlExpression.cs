@@ -28,7 +28,7 @@ namespace PropertyGui
             ContextMenuStrip = mnuContext;
             Multiline = true;
 
-            if (Context.Expression.Type == Expression.ExpressionTypeEnum.Email)
+            if (Context.Expression.Type == ExpressionTypeEnum.Email)
                 WordWrap = true;
             else
                 WordWrap = false;
@@ -83,8 +83,8 @@ namespace PropertyGui
         {
             switch(Context.Expression.Type)
             {
-                case Expression.ExpressionTypeEnum.Email:
-                case Expression.ExpressionTypeEnum.Message:
+                case ExpressionTypeEnum.Email:
+                case ExpressionTypeEnum.Message:
                     snippet = "{" + snippet + "}";
                     break;
             }

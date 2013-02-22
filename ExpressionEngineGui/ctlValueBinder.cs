@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace PropertyGui
 {
@@ -23,7 +24,7 @@ namespace PropertyGui
         public bool AllowExpression { get; set; }
         public bool ShowBinderIcon { get; set; }
         public BindingTypeEnum DefaultBindingType { get; set; }
-        public MtType.MatchType MinimumMatchType { get; set; }
+        public MatchType MinimumMatchType { get; set; }
         public override string Text { get { return GetText(); } set { SetText(value); } }
         
         /// <summary>
@@ -56,7 +57,7 @@ namespace PropertyGui
             AllowExpression = true;
             ShowBinderIcon = true;
             DefaultBindingType = BindingTypeEnum.Property;
-            MinimumMatchType = MtType.MatchType.Convertible;
+            MinimumMatchType = MatchType.Convertible;
 
             mnuBindingType.ImageList = ctlExpressionTree.Images;
             InitMenu(mnuPropertyBinding, "PropertyBinding.png", BindingTypeEnum.Property);
@@ -138,7 +139,7 @@ namespace PropertyGui
             if (Control is ComboBox)
                 ((ComboBox)Control).SelectedValueChanged += new EventHandler(Control_TextChanged);
 
-            if (Property.Direction == MetraTech.ExpressionEngine.Property.DirectionType.Output)
+            if (Property.Direction == DirectionType.Output)
                 Control.BackColor = Color.LightGreen;
 
             SetBindingTypeImage();

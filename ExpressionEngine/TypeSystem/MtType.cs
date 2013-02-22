@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Runtime.Serialization;
-using System.Globalization;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
@@ -12,41 +9,6 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     /// </summary>
     public class MtType
     {
-        #region Enums
-        /// <summary>
-        /// Indicates how the UoM is determined. Only valid for numeric data types.
-        /// </summary>
-        public enum UnitOfMeasureModeType
-        {
-            None,     // Either not a numeric or it's unknown
-            Context,  // Implied by the context which is up to the developer.
-            Fixed,    // Always the same (i.e., hours or inches). Specified in the UomQualifier field
-            Category, // Always within a UomCategory (i.e., time or length). Specified in the UomQualifier field
-            Property  // Determined via a property within the same property collection. Property name specified in the UomQualifier property.
-        }
-
-        public enum ListTypeEnum
-        {
-            None,   //Scalar
-            List,   //Enumerable
-            KeyList //Dictionary
-        }
-
-        /// <summary>
-        /// The level to which two DataTypeInfos match. Note that order is important
-        /// because the higher number indicates a better match
-        /// </summary>
-        public enum MatchType
-        {
-            None = 0,                 //For example, String and Integer32
-            BaseTypeWithDiff = 1,     //The BaseTypes match but there is some difference (i.e., two enums with differnt enumtypes)
-            Convertible = 2,          //The base types are compatiable, but a UoM or Curency conversion must be performed. Only applies to numerics. 
-            ImplicitCast = 3,         //The start type can be implicitly cast to the end type. Only applies to numerics (i.e., Integer32 can be implicitly cast to Integer64 but the coversion isn't true)
-            Any = 4,            //Note that Any only works one way
-            Exact = 5           // Integer32 and Integer32 or two enums with the same enumspace and enumtype 
-        }
-        #endregion
-
         #region Properties
 
         /// <summary>
@@ -70,7 +32,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             {
                 if (ListType == ListTypeEnum.List)
                     return "[]";
-                else if (ListType == ListTypeEnum.KeyList)
+                if (ListType == ListTypeEnum.KeyList)
                     return "<>";
                 return null;
             }
@@ -112,25 +74,25 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #endregion
 
         #region IsType methods
-        public bool IsAny { get { return BaseType == ExpressionEngine.BaseType.Any; } }
-        public bool IsBinary { get { return BaseType == ExpressionEngine.BaseType.Binary; } }
-        public bool IsBoolean { get { return BaseType == ExpressionEngine.BaseType.Boolean; } }
-        public bool IsCharge { get { return BaseType == ExpressionEngine.BaseType.Charge; } }
-        public bool IsDateTime { get { return BaseType == ExpressionEngine.BaseType.DateTime; } }
-        public bool IsDecimal { get { return BaseType == ExpressionEngine.BaseType.Decimal; } }
-        public bool IsDouble { get { return BaseType == ExpressionEngine.BaseType.Double; } }
-        public bool IsComplexType { get { return BaseType == ExpressionEngine.BaseType.Entity; } }
+        public bool IsAny { get { return BaseType == BaseType.Any; } }
+        public bool IsBinary { get { return BaseType == BaseType.Binary; } }
+        public bool IsBoolean { get { return BaseType == BaseType.Boolean; } }
+        public bool IsCharge { get { return BaseType == BaseType.Charge; } }
+        public bool IsDateTime { get { return BaseType == BaseType.DateTime; } }
+        public bool IsDecimal { get { return BaseType == BaseType.Decimal; } }
+        public bool IsDouble { get { return BaseType == BaseType.Double; } }
+        public bool IsComplexType { get { return BaseType == BaseType.Entity; } }
         public bool IsEnum { get { return (BaseType == BaseType.Enumeration); } }
-        public bool IsFloat { get { return BaseType == ExpressionEngine.BaseType.Float; } }
-        public bool IsGuid { get { return BaseType == ExpressionEngine.BaseType.Guid; } }
-        public bool IsInteger { get { return BaseType == ExpressionEngine.BaseType.Integer; } }
-        public bool IsInteger32 { get { return BaseType == ExpressionEngine.BaseType.Integer32; } }
-        public bool IsInteger64 { get { return BaseType == ExpressionEngine.BaseType.Integer64; } }
-        public bool IsMoney { get { return BaseType == ExpressionEngine.BaseType.Money; } }
+        public bool IsFloat { get { return BaseType == BaseType.Float; } }
+        public bool IsGuid { get { return BaseType == BaseType.Guid; } }
+        public bool IsInteger { get { return BaseType == BaseType.Integer; } }
+        public bool IsInteger32 { get { return BaseType == BaseType.Integer32; } }
+        public bool IsInteger64 { get { return BaseType == BaseType.Integer64; } }
+        public bool IsMoney { get { return BaseType == BaseType.Money; } }
         public bool IsNumeric { get { return TypeHelper.IsNumeric(BaseType); } }
-        public bool IsString { get { return BaseType == ExpressionEngine.BaseType.String; } }
-        public bool IsUniqueIdentifier { get { return BaseType == ExpressionEngine.BaseType.UniqueIdentifier; } }
-        public bool IsUnknown { get { return BaseType == ExpressionEngine.BaseType.Unknown; } }
+        public bool IsString { get { return BaseType == BaseType.String; } }
+        public bool IsUniqueIdentifier { get { return BaseType == BaseType.UniqueIdentifier; } }
+        public bool IsUnknown { get { return BaseType == BaseType.Unknown; } }
         #endregion
 
         #region Type comparision and filtering
@@ -148,13 +110,13 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
 
             //Any match only works one way
-            if (BaseType == ExpressionEngine.BaseType.Any)
+            if (BaseType == BaseType.Any)
                 return MatchType.Any;
 
             //Enum MOVE THIS TO SUB CLASS
-            if (BaseType == ExpressionEngine.BaseType.Enumeration)
+            if (BaseType == BaseType.Enumeration)
             {
-                if (type2.BaseType != ExpressionEngine.BaseType.Enumeration)
+                if (type2.BaseType != BaseType.Enumeration)
                     return MatchType.None;
                 var enumType = (EnumerationType)this;
                 var enumType2 = (EnumerationType)type2;
@@ -189,9 +151,9 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
             switch (type.BaseType)
             {
-                case ExpressionEngine.BaseType.Any:
+                case BaseType.Any:
                     return true;
-                case ExpressionEngine.BaseType.Numeric:
+                case BaseType.Numeric:
                     return IsNumeric;
                 default:
                     return type.BaseType == BaseType;

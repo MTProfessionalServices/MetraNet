@@ -67,10 +67,10 @@ namespace MetraTech.ExpressionEngine.Test
                 var prop = (Property)property;
                 switch (prop.Direction)
                 {
-                    case Property.DirectionType.Input:
+                    case DirectionType.Input:
                         Inputs.Add(new KeyValuePair<string, string>(prop.Name, prop.Value));
                         break;
-                    case Property.DirectionType.Output:
+                    case DirectionType.Output:
                         Outputs.Add(new KeyValuePair<string, string>(prop.Name, prop.Value));
                         break;
                     default:

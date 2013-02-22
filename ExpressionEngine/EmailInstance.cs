@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Xml;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Globalization;
@@ -86,10 +82,10 @@ namespace MetraTech.ExpressionEngine
 
         private void Initalize()
         {
-            _toExpression = new Expression(Expression.ExpressionTypeEnum.Email, null, null);
-            _ccExpression = new Expression(Expression.ExpressionTypeEnum.Email, null, null);
-            _subjectExpression = new Expression(Expression.ExpressionTypeEnum.Email, null, null);
-            _bodyExpression = new Expression(Expression.ExpressionTypeEnum.Email, null, null);
+            _toExpression = new Expression(ExpressionTypeEnum.Email, null, null);
+            _ccExpression = new Expression(ExpressionTypeEnum.Email, null, null);
+            _subjectExpression = new Expression(ExpressionTypeEnum.Email, null, null);
+            _bodyExpression = new Expression(ExpressionTypeEnum.Email, null, null);
             _isInitalized = true;
         }
 
@@ -163,7 +159,7 @@ namespace MetraTech.ExpressionEngine
         {
             var description = string.Format(CultureInfo.InvariantCulture, "The email's {0} field.", name);
             var property = Property.CreateString(name, description, 0);
-            property.Direction = Property.DirectionType.Output;
+            property.Direction = DirectionType.Output;
             properties.Add(property);
         }
 

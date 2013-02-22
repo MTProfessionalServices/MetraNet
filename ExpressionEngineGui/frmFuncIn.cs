@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace PropertyGui
 {
@@ -48,7 +49,7 @@ namespace PropertyGui
 
             ctlProp.AllowConstant = false;
             ctlProp.AllowExpression = false;
-            ctlProp.MinimumMatchType = MtType.MatchType.BaseTypeWithDiff;
+            ctlProp.MinimumMatchType = MatchType.BaseTypeWithDiff;
             ctlProp.Init(Context, Property.CreateEnum(null, null, null, null));
             ctlProp.OnMyChange = OnMyChange;
 

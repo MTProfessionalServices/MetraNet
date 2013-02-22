@@ -67,7 +67,7 @@
             this.btnAQG.Name = "btnAQG";
             this.btnAQG.Size = new System.Drawing.Size(75, 23);
             this.btnAQG.TabIndex = 0;
-            this.btnAQG.Text = "AQG";
+            this.btnAQG.Text = "Aqg";
             this.btnAQG.UseVisualStyleBackColor = true;
             this.btnAQG.Click += new System.EventHandler(this.btnAQG_Click);
             // 

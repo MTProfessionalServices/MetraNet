@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
@@ -22,7 +18,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         #region Methods
 
-        public MoneyType Copy()
+        public new MoneyType Copy()
         {
             var type = (MoneyType)base.Copy();
             InternalCopy(type);

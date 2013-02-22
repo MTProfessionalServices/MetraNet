@@ -6,6 +6,7 @@ using System.Data;
 using System.Globalization;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -21,10 +22,6 @@ namespace MetraTech.ExpressionEngine
     [DataContract (Namespace = "MetraTech")]
     public class Property : IProperty, IExpressionEngineTreeNode
     {
-        #region Enums
-        public enum DirectionType { Input, Output, InOut }
-        #endregion
-
         #region Static Properties
         /// <summary>
         /// Used to validate the Name property
@@ -208,7 +205,7 @@ namespace MetraTech.ExpressionEngine
         }
         public static Property CreateInteger32(string name, string description)
         {
-            return new Property(name, TypeFactory.CreateInteger32(MtType.UnitOfMeasureModeType.None, null), description);
+            return new Property(name, TypeFactory.CreateInteger32(UnitOfMeasureModeType.None, null), description);
         }
         public static Property CreateString(string name, string description, int length)
         {
@@ -250,7 +247,7 @@ namespace MetraTech.ExpressionEngine
                 return null;
 
             var type = (NumberType)Type;
-            if (!Type.IsNumeric || type.UnitOfMeasureMode != ExpressionEngine.TypeSystem.MtType.UnitOfMeasureModeType.Property || PropertyCollection == null)
+            if (!Type.IsNumeric || type.UnitOfMeasureMode != UnitOfMeasureModeType.Property || PropertyCollection == null)
                 return null;
             return PropertyCollection.Get(type.UnitOfMeasureQualifier);
         }
@@ -334,6 +331,7 @@ namespace MetraTech.ExpressionEngine
         }
 
         #endregion
-
     }
+
+    public enum DirectionType { Input, Output, InOut }
 }

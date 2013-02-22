@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
@@ -43,7 +41,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #endregion
 
         #region Methods
-        public NumberType Copy()
+        public new NumberType Copy()
         {
             var type = (NumberType)base.Copy();
             InternalCopy(type);

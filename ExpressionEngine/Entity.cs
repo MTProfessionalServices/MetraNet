@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Xml;
 using System.Globalization;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.TypeSystem;
-//using Type = MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -18,10 +14,6 @@ namespace MetraTech.ExpressionEngine
     [DataContract (Namespace = "MetraTech")]
     public class Entity : IProperty, IExpressionEngineTreeNode
     {
-        //#region Enums
-        //public enum ComplexTypeEnum {None, ServiceDefinition, ProductView, ParameterTable, AccountType, AccountView, BusinessModelingEntity, Any, Metanga}
-        //#endregion
-
         #region Properties
         [DataMember]
         public string Name { get; set; }
@@ -46,7 +38,7 @@ namespace MetraTech.ExpressionEngine
         public string Description { get; set; }
 
         [DataMember]
-        public Property.DirectionType Direction { get; set; }
+        public DirectionType Direction { get; set; }
 
         public string CompatibleKey { get { return string.Format(CultureInfo.InvariantCulture, "{0}|{1}", Name, Type.CompatibleKey); } }
 
@@ -60,11 +52,11 @@ namespace MetraTech.ExpressionEngine
             {
                 switch (VectorType.ComplexType)
                 {
-                    //case ComplexTypeEnum.AccountView:
+                    //case ComplexType.AccountView:
                     //    return "t_av_" + Name;
-                    //case ComplexTypeEnum.ParameterTable:
+                    //case ComplexType.ParameterTable:
                     //    return "t_pt_" + Name;
-                    //case ComplexTypeEnum.ProductView:
+                    //case ComplexType.ProductView:
                     //    return "t_pv_" + Name;
                     default:
                         return null;
@@ -92,15 +84,14 @@ namespace MetraTech.ExpressionEngine
         {
             get
             {
-                if (VectorType.ComplexType == VectorType.ComplexTypeEnum.Metanga)
+                if (VectorType.ComplexType == ComplexType.Metanga)
                 {
                     if (VectorType.IsEntity)
                         return "Entity.png";
-                    else
-                        return "ComplexType.png";
+                    return "ComplexType.png";
                 }
 
-                return VectorType.ToString() + ".png";
+                return VectorType + ".png";
             }
         }
 
@@ -111,11 +102,11 @@ namespace MetraTech.ExpressionEngine
             {
                 switch (Direction)
                 {
-                    case Property.DirectionType.InOut:
+                    case DirectionType.InOut:
                         return "EntityInOut.png";
-                    case Property.DirectionType.Input:
+                    case DirectionType.Input:
                         return "EntityInput.png";
-                    case Property.DirectionType.Output:
+                    case DirectionType.Output:
                         return "EntityOutput.png";
                     default:
                         return null;
@@ -126,7 +117,7 @@ namespace MetraTech.ExpressionEngine
 
         #region Constructor
 
-        public Entity(string name, VectorType.ComplexTypeEnum type, string subtype, bool isEntity, string description)
+        public Entity(string name, ComplexType type, string subtype, bool isEntity, string description)
         {
             Name = name;
             Type = TypeFactory.CreateComplexType(type, subtype, isEntity);
@@ -167,9 +158,9 @@ namespace MetraTech.ExpressionEngine
         {
             switch (VectorType.ComplexType)
             {
-                case VectorType.ComplexTypeEnum.ProductView:
+                case ComplexType.ProductView:
                     return UserSettings.NewSyntax? "EVENT": "USAGE";
-                case VectorType.ComplexTypeEnum.AccountView:
+                case ComplexType.AccountView:
                     return "ACCOUNT";
                 default:
                     return String.Empty;
@@ -214,7 +205,7 @@ namespace MetraTech.ExpressionEngine
         #region Create Methods
         public static Entity CreateProductView(string name, string description)
         {
-            return new Entity(name, VectorType.ComplexTypeEnum.ProductView, null, true, description);
+            return new Entity(name, ComplexType.ProductView, null, true, description);
         }
         #endregion
     }

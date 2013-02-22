@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Globalization;
 
@@ -17,15 +16,15 @@ namespace MetraTech.ExpressionEngine
         public int WarningCount { get; private set; }
         public int InfoCount { get; private set; }
         public int Count { get { return Messages.Count; } }
-        public ValidationMessage.SeverityType HighestSeverity
+        public SeverityType HighestSeverity
         {
             get
             {
                 if (ErrorCount > 0)
-                    return ValidationMessage.SeverityType.Error;
+                    return SeverityType.Error;
                 if (WarningCount > 0)
-                    return ValidationMessage.SeverityType.Warn;
-                return ValidationMessage.SeverityType.Info;
+                    return SeverityType.Warn;
+                return SeverityType.Info;
             }
         }
         private List<ValidationMessage> Messages = new List<ValidationMessage>();
@@ -39,24 +38,24 @@ namespace MetraTech.ExpressionEngine
                 throw new ArgumentNullException("valMsg");
             switch (valMsg.Severity)
             {
-                case ValidationMessage.SeverityType.Error:
+                case SeverityType.Error:
                     ErrorCount++;
                     break;
-                case ValidationMessage.SeverityType.Info:
+                case SeverityType.Info:
                     InfoCount++;
                     break;
-                case ValidationMessage.SeverityType.Warn:
+                case SeverityType.Warn:
                     WarningCount++;
                     break;
             }
             Messages.Add(valMsg);
         }
 
-        public void Add(ValidationMessage.SeverityType severity, string message)
+        public void Add(SeverityType severity, string message)
         {
             Add(severity, message, NoPosition, NoPosition);
         }
-        public void Add(ValidationMessage.SeverityType severity, string message, int lineNumber, int columnNumber)
+        public void Add(SeverityType severity, string message, int lineNumber, int columnNumber)
         {
             var valMsg = new ValidationMessage(severity, message, lineNumber, columnNumber);
             Add(valMsg);
@@ -64,21 +63,21 @@ namespace MetraTech.ExpressionEngine
 
         public void Error(string message)
         {
-            Add(ValidationMessage.SeverityType.Error, message, NoPosition, NoPosition);
+            Add(SeverityType.Error, message, NoPosition, NoPosition);
         }
         public void Error(string message, int lineNumber, int columnNumber)
         {
-            Add(ValidationMessage.SeverityType.Error, message, lineNumber, columnNumber);
+            Add(SeverityType.Error, message, lineNumber, columnNumber);
         }
 
         public void Warn(string message)
         {
-            Add(ValidationMessage.SeverityType.Warn, message);
+            Add(SeverityType.Warn, message);
         }
 
         public void Info(string message)
         {
-            Add(ValidationMessage.SeverityType.Info, message);
+            Add(SeverityType.Info, message);
         }
             
         /// <summary>

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -27,6 +23,5 @@ namespace MetraTech.ExpressionEngine
             IsMetric = isMetric;
         }
         #endregion
-
     }
 }

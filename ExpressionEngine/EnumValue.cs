@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml;
 using System.Globalization;
 using System.Runtime.Serialization;
 
@@ -92,8 +88,7 @@ namespace MetraTech.ExpressionEngine
                     var enumSpace = EnumType.EnumSpace.Name.Replace('.', '_');
                     return string.Format(CultureInfo.InvariantCulture, "ENUM.{0}.{1}.{2}", enumSpace, EnumType.Name, Name);
                 }
-                else
-                    return ToMtsql();
+                return ToMtsql();
             }
         }
 

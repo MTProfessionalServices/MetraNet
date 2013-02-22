@@ -46,15 +46,15 @@ namespace PropertyGui
 
         private void LoadContext()
         {
-            Context.ProductTypeEnum product;
+            ProductType product;
             if (cboContext.Text == "Metanga")
-                product = Context.ProductTypeEnum.Metanga;
+                product = ProductType.Metanga;
             else
-                product = Context.ProductTypeEnum.MetraNet;
+                product = ProductType.MetraNet;
 
             DemoLoader.LoadGlobalContext(product, cboContext.Text);
 
-            SetItems(cboAqgs, btnAQG, DemoLoader.GlobalContext.AQGs.Values.ToArray<AQG>());
+            SetItems(cboAqgs, btnAQG, DemoLoader.GlobalContext.AQGs.Values.ToArray<Aqg>());
             SetItems(cboUqgs, btnUQG, DemoLoader.GlobalContext.UQGs.Values.ToArray<UQG>());
             SetItems(cboExpressions, btnExpression, DemoLoader.GlobalContext.Expressions.Values.ToArray<Expression>());
             SetItems(cboEmailTemplates, btnEmailTemplates, DemoLoader.GlobalContext.EmailInstances.Values.ToArray<EmailInstance>());
@@ -101,7 +101,7 @@ namespace PropertyGui
         #region Events
         private void btnAQG_Click(object sender, EventArgs e)
         {
-            var aqg = (AQG)cboAqgs.SelectedItem;
+            var aqg = (Aqg)cboAqgs.SelectedItem;
             ShowExpression(aqg.Expression);
         }
 
@@ -131,7 +131,7 @@ namespace PropertyGui
 
         private void btnPageLayout_Click(object sender, EventArgs e)
         {
-            ShowExpression(new Expression(Expression.ExpressionTypeEnum.Email, "", null), true);
+            ShowExpression(new Expression(ExpressionTypeEnum.Email, "", null), true);
         }
 
         private void btnEmailTemplates_Click(object sender, EventArgs e)
@@ -154,7 +154,7 @@ namespace PropertyGui
             template.EntityParameters.Add("Invoice");
             template.Save(@"C:\Temp");
 
-            var exp = new Expression(Expression.ExpressionTypeEnum.UQG, "really cool logic", "_specialpromotion");
+            var exp = new Expression(ExpressionTypeEnum.UQG, "really cool logic", "_specialpromotion");
             //exp.DeclaredReturnType.DataTypeInfo.BaseType = BaseType.Boolean;
             exp.Save(@"C:\Temp");
 

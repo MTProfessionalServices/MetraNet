@@ -50,20 +50,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AQG.cs" />
-    <Compile Include="BaseType.cs" />
+    <Compile Include="Placeholders\Aqg.cs" />
+    <Compile Include="TypeSystem\Enumerations\BaseType.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Currency.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="EmailInstance.cs" />
     <Compile Include="EmailTemplate.cs" />
     <Compile Include="EntityInfo.cs" />
-    <Compile Include="EntityRecord.cs" />
+    <Compile Include="Loading\EntityRecord.cs" />
     <Compile Include="EntityTypeInfo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="EnumHelper.cs" />
-    <Compile Include="EnumRecord.cs" />
+    <Compile Include="Loading\EnumRecord.cs" />
     <Compile Include="EnumSpace.cs" />
     <Compile Include="EnumCategory.cs" />
     <Compile Include="EnumValue.cs" />
@@ -85,6 +85,11 @@
     <Compile Include="Test\EmailEngine.cs" />
     <Compile Include="Test\IProcessingEngine.cs" />
     <Compile Include="Test\TestInstance.cs" />
+    <Compile Include="TypeSystem\Enumerations\ComplexType.cs" />
+    <Compile Include="TypeSystem\Enumerations\ExpressionType.cs" />
+    <Compile Include="TypeSystem\Enumerations\ListType.cs" />
+    <Compile Include="TypeSystem\Enumerations\MatchType.cs" />
+    <Compile Include="TypeSystem\Enumerations\UnitOfMeasureModeType.cs" />
     <Compile Include="TypeSystem\VectorType.cs" />
     <Compile Include="TypeSystem\EnumerationType.cs" />
     <Compile Include="TypeSystem\MoneyType.cs" />
@@ -102,8 +107,8 @@
     <Compile Include="UserSettings.cs" />
     <Compile Include="UnitOfMeasure.cs" />
     <Compile Include="UnitOfMeasureCategory.cs" />
-    <Compile Include="UQG.cs" />
-    <Compile Include="DemoLoader.cs" />
+    <Compile Include="Placeholders\UQG.cs" />
+    <Compile Include="Loading\DemoLoader.cs" />
     <Compile Include="ValidationMessage.cs" />
     <Compile Include="ValidationMessageCollection.cs" />
   </ItemGroup>
@@ -119,9 +124,7 @@
   <ItemGroup>
     <CodeAnalysisDictionary Include="CustomDictionary.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TypeSystem\Enumerations\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

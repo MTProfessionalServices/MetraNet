@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace PropertyGui
 {
@@ -33,7 +34,7 @@ namespace PropertyGui
             cboEvent.BeginUpdate();
             cboEvent.Sorted = true;
             cboEvent.DisplayMember = "Name";
-            cboEvent.Items.AddRange(context.GetEntities(VectorType.ComplexTypeEnum.ServiceDefinition).ToArray());
+            cboEvent.Items.AddRange(context.GetEntities(ComplexType.ServiceDefinition).ToArray());
             cboEvent.EndUpdate();
 
             if (Context.IsMetanga)

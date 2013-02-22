@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace MetraTech.ExpressionEngine
@@ -49,7 +46,7 @@ namespace MetraTech.ExpressionEngine
         public void BindResultsToContext(Context context)
         {
             if (context == null)
-                new ArgumentNullException("context");
+                throw new ArgumentNullException("context");
 
             foreach (var parameter in Parameters)
             {
@@ -59,7 +56,7 @@ namespace MetraTech.ExpressionEngine
                     parameter.Description = property.Description;
                     parameter.Type = property.Type.Copy();
                 }
-                else if (parameter.Direction == Property.DirectionType.Input || parameter.Direction == Property.DirectionType.InOut)
+                else if (parameter.Direction == DirectionType.Input || parameter.Direction == DirectionType.InOut)
                 {
                     parameter.Type = TypeFactory.CreateUnkownn();
                     parameter.Description = null;

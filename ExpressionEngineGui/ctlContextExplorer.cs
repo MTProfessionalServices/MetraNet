@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace PropertyGui
 {
@@ -109,7 +110,7 @@ namespace PropertyGui
                 return;
 
             treExplorer.ViewMode = (MvcAbstraction.ViewModeType)cboMode.SelectedItem;
-            treExplorer.EntityTypeFilter = (VectorType.ComplexTypeEnum)cboEntityTypeFilter.SelectedItem;
+            treExplorer.EntityTypeFilter = (ComplexType)cboEntityTypeFilter.SelectedItem;
             treExplorer.PropertyTypeFilter = (MtType)cboPropertyTypeFilter.SelectedItem;
             treExplorer.FunctionFilter = cboCategory.Text;
             treExplorer.LoadTree();
@@ -138,7 +139,7 @@ namespace PropertyGui
 
         private string GetExpressionPath(TreeNode node)
         {
-            if (node.Tag is AQG || node.Tag is UQG || node.Tag is EnumValue)
+            if (node.Tag is Aqg || node.Tag is UQG || node.Tag is EnumValue)
                 return ((IExpressionEngineTreeNode)node.Tag).ToExpressionSnippet;
 
             if (!(node.Tag is IProperty))
@@ -149,9 +150,9 @@ namespace PropertyGui
 
             switch (Context.Expression.Type)
             {
-                case Expression.ExpressionTypeEnum.AQG:
+                case ExpressionTypeEnum.AQG:
                     return string.Format("ACCOUNT.{0}{1}", columnPrefix, property.Name);
-                case Expression.ExpressionTypeEnum.UQG:
+                case ExpressionTypeEnum.UQG:
                     var binder = UserSettings.NewSyntax ? "EVENT" : "USAGE";
                     return string.Format("{0}.{1}{2}", binder, columnPrefix, property.Name);
                 default:

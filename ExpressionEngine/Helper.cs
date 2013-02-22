@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Globalization;
@@ -37,7 +35,7 @@ namespace MetraTech.ExpressionEngine
 
             if (value.Equals("f") || value.Equals("false") || value.Equals("0") || value.Equals("no") || value.Equals("n"))
                 return false;
-            else if (value.Equals("t") || value.Equals("true") || value.Equals("1") || value.Equals("yes") || value.Equals("y"))
+            if (value.Equals("t") || value.Equals("true") || value.Equals("1") || value.Equals("yes") || value.Equals("y"))
                 return true;
 
             return null;
@@ -56,12 +54,11 @@ namespace MetraTech.ExpressionEngine
 
             if (value == "Y" || value == "YES" || value == "T" || value == "TRUE" || value == "1")
                 return true;
-            else if (value == "N" || value == "NO" || value == "F" || value == "FALSE" || value == "0")
+            if (value == "N" || value == "NO" || value == "F" || value == "FALSE" || value == "0")
                 return false;
-            else if (string.IsNullOrEmpty(value))
+            if (string.IsNullOrEmpty(value))
                 throw new ArgumentException("A boolean value must be specified");
-            else
-                throw new ArgumentException("Invalid boolean string [" + value + "]");
+            throw new ArgumentException("Invalid boolean string [" + value + "]");
         }
 
         //
@@ -75,10 +72,9 @@ namespace MetraTech.ExpressionEngine
             var size = random.Next(min, max);
 
             var builder = new StringBuilder();
-            char ch;
             for (int i = 0; i < size; i++)
             {
-                ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
+                var ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
                 builder.Append(ch);
             }
 

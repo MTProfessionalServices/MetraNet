@@ -1,25 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using System.Globalization;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
     [DataContract]
     public class VectorType : MtType
     {
-        #region Enums
-        public enum ComplexTypeEnum { None, ServiceDefinition, ProductView, ParameterTable, AccountType, AccountView, BusinessModelingEntity, Any, Metanga }
-        #endregion
-
         #region Properties
         /// <summary>
         /// The type of complex type
         /// </summary>
         [DataMember]
-        public VectorType.ComplexTypeEnum ComplexType { get; set; }
+        public ComplexType ComplexType { get; set; }
 
         /// <summary>
         /// The subtype of the Entity type. For example, a BME ma
@@ -37,7 +30,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// Returns a string that can be used to determine if two types are directly compatible (which is differnt than castable)
         /// </summary>
         /// <returns></returns>
-        public virtual string CompatibleKey
+        public override string CompatibleKey
         {
             get
             {
@@ -48,7 +41,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #endregion
 
         #region Constructor
-        public VectorType(ComplexTypeEnum type, string subtype, bool isEntity):base(BaseType.Entity)
+        public VectorType(ComplexType type, string subtype, bool isEntity):base(BaseType.Entity)
         {
             ComplexType = type;
             ComplexSubtype = subtype;
@@ -66,7 +59,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return type;
         }
 
-        public VectorType Copy()
+        public new VectorType Copy()
         {
             var type = (VectorType)TypeFactory.Create(BaseType);
             InternalCopy(type);

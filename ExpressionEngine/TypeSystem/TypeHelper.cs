@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Globalization;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
@@ -28,7 +27,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// <summary>
         /// Maps the integer data type IDs in metranet to a BaseType
         /// </summary>
-        public static Dictionary<int, BaseType> PropertyTypeId_BaseTypeMapping = new Dictionary<int, BaseType>();
+        public static Dictionary<int, BaseType> PropertyTypeIdToBaseTypeMapping = new Dictionary<int, BaseType>();
 
         #endregion
 
@@ -69,14 +68,14 @@ namespace MetraTech.ExpressionEngine.TypeSystem
               BaseType.DateTime
             };
 
-            PropertyTypeId_BaseTypeMapping.Add(0, BaseType.String);
-            PropertyTypeId_BaseTypeMapping.Add(2, BaseType.Integer32);
-            PropertyTypeId_BaseTypeMapping.Add(3, BaseType.DateTime);
-            PropertyTypeId_BaseTypeMapping.Add(5, BaseType.Decimal); ///this is showing up a numeric(18,6)
-            PropertyTypeId_BaseTypeMapping.Add(7, BaseType.Decimal);
-            PropertyTypeId_BaseTypeMapping.Add(8, BaseType.Enumeration);
-            PropertyTypeId_BaseTypeMapping.Add(9, BaseType.Boolean);
-            PropertyTypeId_BaseTypeMapping.Add(11, BaseType.Integer64);
+            PropertyTypeIdToBaseTypeMapping.Add(0, BaseType.String);
+            PropertyTypeIdToBaseTypeMapping.Add(2, BaseType.Integer32);
+            PropertyTypeIdToBaseTypeMapping.Add(3, BaseType.DateTime);
+            PropertyTypeIdToBaseTypeMapping.Add(5, BaseType.Decimal); //this is showing up a numeric(18,6)
+            PropertyTypeIdToBaseTypeMapping.Add(7, BaseType.Decimal);
+            PropertyTypeIdToBaseTypeMapping.Add(8, BaseType.Enumeration);
+            PropertyTypeIdToBaseTypeMapping.Add(9, BaseType.Boolean);
+            PropertyTypeIdToBaseTypeMapping.Add(11, BaseType.Integer64);
         }
         #endregion
 
@@ -279,19 +278,19 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     return true;
                 case BaseType.Integer32:
                     Int32 the32;
-                    return System.Int32.TryParse(value, out the32);
+                    return Int32.TryParse(value, out the32);
                 case BaseType.Integer64:
                     Int64 the64;
-                    return System.Int64.TryParse(value, out the64);
+                    return Int64.TryParse(value, out the64);
                 case BaseType.DateTime:
-                    DateTime theDT;
-                    return System.DateTime.TryParse(value, out theDT);
+                    DateTime theDt;
+                    return DateTime.TryParse(value, out theDt);
                 case BaseType.Enumeration:
                     throw new NotImplementedException();
                 //return Config.Instance.EnumerationConfig.ValueExists(EnumSpace, EnumType, value);
                 case BaseType.Decimal:
                     Decimal theDecimal;
-                    return System.Decimal.TryParse(value, out theDecimal);
+                    return Decimal.TryParse(value, out theDecimal);
                 case BaseType.Float:
                     float theFloat;
                     return float.TryParse(value, out theFloat);
@@ -331,7 +330,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public static string ConvertValueToMtsqlConstant(MtType type, string value)
         {
             if (type == null)
-                throw new ArgumentNullException("dtInfo");
+                throw new ArgumentNullException("type");
             if (value == null)
                 throw new ArgumentNullException("value");
 
@@ -341,10 +340,9 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 case BaseType.Decimal:
                     if (value.StartsWith("."))
                         return "0" + value;
-                    else if (!value.Contains('.'))
+                    if (!value.Contains('.'))
                         return value + ".0";
-                    else
-                        return value;
+                    return value;
 
                 case BaseType.String:
                     return "N'" + value + "'";

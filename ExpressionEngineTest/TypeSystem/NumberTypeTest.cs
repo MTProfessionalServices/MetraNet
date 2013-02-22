@@ -1,4 +1,5 @@
 ﻿using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using MetraTech.ExpressionEngine;
@@ -15,7 +16,7 @@ namespace ExpressionEngineTest
         [TestMethod()]
         public void CreateNumbersTest()
         {
-            var uomMode = MetraTech.ExpressionEngine.TypeSystem.MtType.UnitOfMeasureModeType.Fixed;
+            var uomMode = UnitOfMeasureModeType.Fixed;
             var uomQualifier = "hello";
 
             var intType = TypeFactory.CreateInteger(uomMode, uomQualifier);

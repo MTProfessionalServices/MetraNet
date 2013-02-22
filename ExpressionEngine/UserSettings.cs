@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace MetraTech.ExpressionEngine
+﻿namespace MetraTech.ExpressionEngine
 {
     /// <summary>
     /// This shouldn't be static as it will be assoicated with each user... Until we have a user context, this will do

@@ -9,6 +9,7 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using Metanga.Miscellaneous.MetadataExport;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -23,25 +24,25 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region General
-        public static void LoadGlobalContext(Context.ProductTypeEnum product, string subDir)
+        public static void LoadGlobalContext(ProductType product, string subDir)
         {
             GlobalContext = new Context(product);
             DataPath = Path.Combine(TopLevelDataDir, subDir);
 
-            if (Context.ProductType == Context.ProductTypeEnum.MetraNet)
+            if (Context.ProductType == ProductType.MetraNet)
             {
                 GlobalContext.AddEntity(DemoLoader.GetCloudComputeProductView());
                 GlobalContext.AddEntity(DemoLoader.GetCorporateAccountType());
                 GlobalContext.AddEntity(DemoLoader.GetAircraftLandingProductView());
-                LoadEntities(GlobalContext, VectorType.ComplexTypeEnum.ProductView, Path.Combine(DataPath, "ProductViews.csv"));
-                LoadEntities(GlobalContext, VectorType.ComplexTypeEnum.AccountView, Path.Combine(DataPath, "AccountViews.csv"));
-                LoadEntities(GlobalContext, VectorType.ComplexTypeEnum.ServiceDefinition, Path.Combine(DataPath, "ServiceDefinitions.csv"));
-                LoadXqg(GlobalContext, Expression.ExpressionTypeEnum.AQG, Path.Combine(DataPath, "AqgExpressions.csv"));
-                LoadXqg(GlobalContext, Expression.ExpressionTypeEnum.UQG, Path.Combine(DataPath, "UqgExpressions.csv"));
+                LoadEntities(GlobalContext, ComplexType.ProductView, Path.Combine(DataPath, "ProductViews.csv"));
+                LoadEntities(GlobalContext, ComplexType.AccountView, Path.Combine(DataPath, "AccountViews.csv"));
+                LoadEntities(GlobalContext, ComplexType.ServiceDefinition, Path.Combine(DataPath, "ServiceDefinitions.csv"));
+                LoadXqg(GlobalContext, ExpressionTypeEnum.AQG, Path.Combine(DataPath, "AqgExpressions.csv"));
+                LoadXqg(GlobalContext, ExpressionTypeEnum.UQG, Path.Combine(DataPath, "UqgExpressions.csv"));
             }
             else
             {
-                LoadEntities(GlobalContext, VectorType.ComplexTypeEnum.Metanga, Path.Combine(DataPath, "Entities.csv"));
+                LoadEntities(GlobalContext, ComplexType.Metanga, Path.Combine(DataPath, "Entities.csv"));
             }
 
             LoadEnumFile(GlobalContext, Path.Combine(DataPath, "Enums.csv"));
@@ -84,7 +85,7 @@ namespace MetraTech.ExpressionEngine
         #region Manual Entities
         public static Entity GetCloudComputeProductView()
         {
-            var entity = new Entity("CloudCompute", VectorType.ComplexTypeEnum.ProductView, null, true, "Models an cloud compute usage even");
+            var entity = new Entity("CloudCompute", ComplexType.ProductView, null, true, "Models an cloud compute usage even");
 
             var pv = entity.Properties;
 
@@ -102,21 +103,21 @@ namespace MetraTech.ExpressionEngine
             pv.AddEnum("OS", "The Operating System (OS)", true, "Cloud", "OperatingSystem");
 
             var memory = pv.AddInteger32("Memory", "The amount of memory", true);
-            ((NumberType)memory.Type).UnitOfMeasureMode =  MtType.UnitOfMeasureModeType.Fixed;
+            ((NumberType)memory.Type).UnitOfMeasureMode =  UnitOfMeasureModeType.Fixed;
             ((NumberType)memory.Type).UnitOfMeasureQualifier = "DigitalInformation";
 
             pv.AddDecimal("CpuCount", "The number of million CPU cycles", true);
 
             property = pv.AddDecimal("Hours", "The number of hours the instance ran", true);
-            ((NumberType)property.Type).UnitOfMeasureMode = MtType.UnitOfMeasureModeType.Fixed;
+            ((NumberType)property.Type).UnitOfMeasureMode = UnitOfMeasureModeType.Fixed;
             ((NumberType)property.Type).UnitOfMeasureQualifier = "Hour";
 
             property = pv.AddDecimal("Duration", "The elapsed time", true);
-            ((NumberType)property.Type).UnitOfMeasureMode = MtType.UnitOfMeasureModeType.Category;
+            ((NumberType)property.Type).UnitOfMeasureMode = UnitOfMeasureModeType.Category;
             ((NumberType)property.Type).UnitOfMeasureQualifier = "Time";
 
             property = pv.AddDecimal("ScalingMetric", "The key scaling metric", true);
-            ((NumberType)property.Type).UnitOfMeasureMode = MtType.UnitOfMeasureModeType.Property;
+            ((NumberType)property.Type).UnitOfMeasureMode = UnitOfMeasureModeType.Property;
             ((NumberType)property.Type).UnitOfMeasureQualifier = "ScalingMetricUom";
 
             property = pv.AddString("ScalingMetricUom", "The UoM for the the ScalingMetric", true);
@@ -127,7 +128,7 @@ namespace MetraTech.ExpressionEngine
 
         public static Entity GetAircraftLandingProductView()
         {
-            var entity = new Entity("AircraftLanding", VectorType.ComplexTypeEnum.ProductView, null, true, "Models an cloud compute usage even");
+            var entity = new Entity("AircraftLanding", ComplexType.ProductView, null, true, "Models an cloud compute usage even");
 
             var pv = entity.Properties;
             pv.AddInteger32("MTOW", "Maximum TakeOff Weight", true);
@@ -154,7 +155,7 @@ namespace MetraTech.ExpressionEngine
 
         public static Entity GetCorporateAccountType()
         {
-            var entity = new Entity("CorporateAccount", VectorType.ComplexTypeEnum.AccountType, null, true, "Models an corporate account");
+            var entity = new Entity("CorporateAccount", ComplexType.AccountType, null, true, "Models an corporate account");
 
             var pv = entity.Properties;
             pv.AddString("FirstName", "The data center in which the server ran", true, null, 30);
@@ -170,7 +171,7 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region File-Based Entities
-        public static void LoadEntities(Context context, VectorType.ComplexTypeEnum entityType, string filePath)
+        public static void LoadEntities(Context context, ComplexType entityType, string filePath)
         {
             var entityList = ReadRecordsFromCsv<EntityRecord>(filePath);
             foreach (var entityRecord in entityList)
@@ -196,19 +197,19 @@ namespace MetraTech.ExpressionEngine
                     //Add common properties, if any
                     switch (entityType)
                     {
-                        case VectorType.ComplexTypeEnum.ProductView:
+                        case ComplexType.ProductView:
                             AppendCommonPvProperties(entity.Properties);
                             break;
-                        case VectorType.ComplexTypeEnum.AccountView:
+                        case ComplexType.AccountView:
                             AppendCommonZvProperties(entity.Properties);
                             break;
                     }
                 }
 
                 MtType dtInfo;
-                if (Context.ProductType == Context.ProductTypeEnum.MetraNet)
+                if (Context.ProductType == ProductType.MetraNet)
                 {
-                    //var baseType = TypeHelper.PropertyTypeId_BaseTypeMapping[Int32.Parse(typeStr)];
+                    //var baseType = TypeHelper.PropertyTypeIdToBaseTypeMapping[Int32.Parse(typeStr)];
                     //dtInfo = TypeFactory.Create(baseType);
                     dtInfo = TypeFactory.Create(Int32.Parse(typeStr));
                 }
@@ -231,11 +232,11 @@ namespace MetraTech.ExpressionEngine
 
                 if (entityRecord.ListType == null)
                 {
-                    dtInfo.ListType = MtType.ListTypeEnum.None;
+                    dtInfo.ListType = ListTypeEnum.None;
                 }
                 else
                 {
-                    dtInfo.ListType = (MtType.ListTypeEnum)Enum.Parse(typeof(MtType.ListTypeEnum), entityRecord.ListType, true);
+                    dtInfo.ListType = (ListTypeEnum)Enum.Parse(typeof(ListTypeEnum), entityRecord.ListType, true);
                 }
 
                 var property = new Property(propName, dtInfo, propertyDescription);
@@ -315,7 +316,7 @@ namespace MetraTech.ExpressionEngine
 
         #region XQGs
 
-        public static void LoadXqg(Context context, Expression.ExpressionTypeEnum type, string filePath)
+        public static void LoadXqg(Context context, ExpressionTypeEnum type, string filePath)
         {
             var lines = File.ReadAllLines(filePath);
             for (int index = 1; index < lines.Length; index++)
@@ -326,11 +327,11 @@ namespace MetraTech.ExpressionEngine
                 var description = string.Empty;
                 switch (type)
                 {
-                    case Expression.ExpressionTypeEnum.AQG:
-                        var aqg = new AQG(name, description, expression);
+                    case ExpressionTypeEnum.AQG:
+                        var aqg = new Aqg(name, description, expression);
                         context.AQGs.Add(aqg.Name, aqg);
                         break;
-                    case Expression.ExpressionTypeEnum.UQG:
+                    case ExpressionTypeEnum.UQG:
                         var uqg = new UQG(name, description, expression);
                         context.UQGs.Add(uqg.Name, uqg);
                         break;

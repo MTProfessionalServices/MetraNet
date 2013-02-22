@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace MetraTech.ExpressionEngine
+﻿namespace MetraTech.ExpressionEngine
 {
     /// <summary>
     /// A currency is basically a UoM that constantly changes... need to think through object model as it relates to UoMs...

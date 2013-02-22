@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace MetraTech.ExpressionEngine
+﻿namespace MetraTech.ExpressionEngine
 {
     public class ValidationMessage
     {
-        #region Enums
-        public enum SeverityType { Error, Warn, Info };
-        #endregion
-
         #region Properties
 
         /// <summary>
@@ -43,4 +34,6 @@ namespace MetraTech.ExpressionEngine
         }
         #endregion
     }
+
+    public enum SeverityType { Error, Warn, Info };
 }

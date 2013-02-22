@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using System.Globalization;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
@@ -35,7 +31,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return BaseType.ToString();
         }
 
-        public StringType Copy()
+        public new StringType Copy()
         {
             var type = (StringType)base.Copy();
             type.Length = Length;

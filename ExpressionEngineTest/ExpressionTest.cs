@@ -19,7 +19,7 @@ namespace ExpressionEngineTest
         [TestMethod()]
         public void ParseTest()
         {
-            var expression = new Expression(ExpressionTypeEnum.Email, "hello {Invoice.Payer} world", null);
+            var expression = new Expression(ExpressionType.Email, "hello {Invoice.Payer} world", null);
             var results = expression.Parse();
             Assert.AreEqual(1, results.Parameters.Count);
             var parameter = results.Parameters.Get("Invoice.Payer");

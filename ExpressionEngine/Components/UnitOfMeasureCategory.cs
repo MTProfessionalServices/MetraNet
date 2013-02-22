@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 
 namespace MetraTech.ExpressionEngine
@@ -10,7 +11,7 @@ namespace MetraTech.ExpressionEngine
         #region Properties
         public string Name { get; set; }
         public string ToExpressionSnippet { get { return string.Format(CultureInfo.InvariantCulture, "UoM.{0}", Name); } }
-        public List<UnitOfMeasure> Items { get; private set; }
+        public Collection<UnitOfMeasure> Items { get; private set; }
         #endregion
 
         #region GUI Helper Properties (Remove in future)
@@ -23,7 +24,7 @@ namespace MetraTech.ExpressionEngine
         public UnitOfMeasureCategory(string name)
         {
             Name = name;
-            Items = new List<UnitOfMeasure>();
+            Items = new Collection<UnitOfMeasure>();
         }
         #endregion
 

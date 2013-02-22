@@ -47,23 +47,11 @@ namespace MetraTech.ExpressionEngine
         /// The actual database table name. Used in MetraNet which has a prefix on all table names.
         /// Not sure what to do for Metanga here.
         /// </summary>
-        public string DBTableName
+        public virtual string DBTableName
         {
-            get
-            {
-                switch (VectorType.ComplexType)
-                {
-                    //case ComplexType.AccountView:
-                    //    return "t_av_" + Name;
-                    //case ComplexType.ParameterTable:
-                    //    return "t_pt_" + Name;
-                    //case ComplexType.ProductView:
-                    //    return "t_pv_" + Name;
-                    default:
-                        return null;
-                }
-            }
+            get { return Name; }
         }
+
         #endregion
 
         #region GUI Helper Properties (move in future)

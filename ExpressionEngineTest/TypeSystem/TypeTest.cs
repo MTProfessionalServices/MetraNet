@@ -38,7 +38,7 @@ namespace ExpressionEngineTest
             Assert.AreEqual(BaseType.UniqueIdentifier, uniqueId.BaseType);
             Assert.IsTrue(uniqueId.IsUniqueIdentifier);
 
-            var unknown = TypeFactory.CreateUnkown();
+            var unknown = TypeFactory.CreateUnknown();
             Assert.AreEqual(BaseType.Unknown, unknown.BaseType);
             Assert.IsTrue(unknown.IsUnknown);
         }

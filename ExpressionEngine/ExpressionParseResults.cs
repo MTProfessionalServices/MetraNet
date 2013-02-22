@@ -59,7 +59,7 @@ namespace MetraTech.ExpressionEngine
                 }
                 else if (parameter.Direction == DirectionType.Input || parameter.Direction == DirectionType.InOut)
                 {
-                    parameter.Type = TypeFactory.CreateUnkown();
+                    parameter.Type = TypeFactory.CreateUnknown();
                     parameter.Description = null;
 
                     //Would be really nice to provide line/column number here. Need parse tree to do that

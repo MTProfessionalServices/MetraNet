@@ -18,7 +18,7 @@ namespace MetraTech.ExpressionEngine.MetraNet.MtProperty
         public string ForeignKeyDbTable { get; set; }
 
         [DataMember]
-        public string ForeignKeyTableColumn;
+        public string ForeignKeyTableColumn { get; set; }
 
         public bool HasSingleIndex { get; set; }
 

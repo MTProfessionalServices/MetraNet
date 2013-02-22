@@ -1,6 +1,6 @@
 ﻿namespace MetraTech.ExpressionEngine.TypeSystem.Enumerations
 {
-    public enum ListTypeEnum
+    public enum ListType
     {
         None,   //Scalar
         List,   //Enumerable

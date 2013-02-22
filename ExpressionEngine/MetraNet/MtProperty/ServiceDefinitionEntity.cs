@@ -12,6 +12,8 @@ namespace MetraTech.ExpressionEngine.MetraNet.MtProperty
 
         [DataMember]
         public bool AutoDelete { get; set; }
+
+        public override string DBTableName { get { return "t_sd_" + Name; } }
         #endregion
 
         #region Constructor

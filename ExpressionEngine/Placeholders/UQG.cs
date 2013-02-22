@@ -17,7 +17,7 @@
         {
             Name = name;
             Description = description;
-            Expression = new Expression(ExpressionTypeEnum.UQG, expression, null);
+            Expression = new Expression(ExpressionType.UQG, expression, null);
         }
         #endregion
 

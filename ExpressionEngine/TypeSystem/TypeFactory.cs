@@ -143,7 +143,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return new MtType(BaseType.UniqueIdentifier);
         }
 
-        public static MtType CreateUnkown()
+        public static MtType CreateUnknown()
         {
             return new MtType(BaseType.Unknown);
         }
@@ -224,7 +224,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 case BaseType.UniqueIdentifier:
                     return CreateUniqueId();
                 case BaseType.Unknown:
-                    return CreateUnkown();
+                    return CreateUnknown();
                 default:
                     throw new ArgumentException("Invalid baseType" + baseType);
             }

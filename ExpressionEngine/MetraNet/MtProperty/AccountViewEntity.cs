@@ -6,6 +6,10 @@ namespace MetraTech.ExpressionEngine.MetraNet.MtProperty
     [DataContract]
     public class AccountViewEntity : Entity
     {
+        #region Properties
+        public override string DBTableName { get { return "t_av_" + Name; } }
+        #endregion
+
         #region Constructor
         public AccountViewEntity(string name, string description) : base(name, ComplexType.ProductView, null, true, description)
         {

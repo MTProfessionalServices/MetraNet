@@ -34,7 +34,7 @@ namespace MetraTech.ExpressionEngine
         /// The type of expression
         /// </summary>
         [DataMember]
-        public ExpressionTypeEnum Type { get; private set; }
+        public ExpressionType Type { get; private set; }
 
         /// <summary>
         /// This probably belongs in a expression template as opposed to an instance
@@ -59,7 +59,7 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Constructor
-        public Expression(ExpressionTypeEnum type, string contents, string name)
+        public Expression(ExpressionType type, string contents, string name)
         {
             Type = type;
             Content = contents;
@@ -79,7 +79,7 @@ namespace MetraTech.ExpressionEngine
             var results = new ExpressionParseResults();
 
             //Emails are easy to handle (don't need MVM parse tree)
-            if (Type == ExpressionTypeEnum.Email)
+            if (Type == ExpressionType.Email)
             {
 
                 //Parse the inputs
@@ -163,7 +163,7 @@ namespace MetraTech.ExpressionEngine
         #endregion
     }
 
-    public enum ExpressionTypeEnum { 
+    public enum ExpressionType { 
         AQG,
         UQG,
         Logic,

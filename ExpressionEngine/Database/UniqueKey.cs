@@ -8,7 +8,8 @@ namespace MetraTech.ExpressionEngine.Database
     {
         #region Properties
 
-        [DataMember] public string Name;
+        [DataMember]
+        public string Name { get; set; }
 
         [DataMember]
         public Collection<string> Columns { get; private set; }

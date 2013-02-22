@@ -6,8 +6,10 @@ namespace MetraTech.ExpressionEngine
 {
     public class EntityTypeInfo : IExpressionEngineTreeNode
     {
-        #region Properties
-        public readonly ComplexType Type;
+        #region
+
+        private readonly ComplexType _type;
+        public ComplexType Type { get { return _type; } }
         public string Name { get { return Type + "s"; } set { throw new Exception("Readonly!"); } }  //We will fix this in future!
         public string TreeNodeLabel { get { return Name; } }
         public string ToolTip { get { return "TBD"; } }
@@ -18,7 +20,7 @@ namespace MetraTech.ExpressionEngine
         #region Constructor
         public EntityTypeInfo(ComplexType type)
         {
-            Type = type;
+            _type = type;
         }
 
         public string ToExpressionSnippet

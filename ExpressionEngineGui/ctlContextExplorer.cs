@@ -150,9 +150,9 @@ namespace PropertyGui
 
             switch (Context.Expression.Type)
             {
-                case ExpressionTypeEnum.AQG:
+                case ExpressionType.AQG:
                     return string.Format("ACCOUNT.{0}{1}", columnPrefix, property.Name);
-                case ExpressionTypeEnum.UQG:
+                case ExpressionType.UQG:
                     var binder = UserSettings.NewSyntax ? "EVENT" : "USAGE";
                     return string.Format("{0}.{1}{2}", binder, columnPrefix, property.Name);
                 default:

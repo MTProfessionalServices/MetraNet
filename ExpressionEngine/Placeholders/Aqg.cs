@@ -1,4 +1,6 @@
-﻿namespace MetraTech.ExpressionEngine
+﻿using System.Globalization;
+
+namespace MetraTech.ExpressionEngine
 {
     public class Aqg : IExpressionEngineTreeNode
     {
@@ -8,7 +10,7 @@
         public string Description { get; set; }
         public string ToolTip { get { return Description; } }
         public string Image { get { return "Aqg.png"; } }
-        public string ToExpressionSnippet { get { return string.Format("GROUP.{0}", Name); } }
+        public string ToExpressionSnippet { get { return string.Format(CultureInfo.InvariantCulture, "GROUP.{0}", Name); } }
         public Expression Expression { get; set; }
         #endregion
      
@@ -17,7 +19,7 @@
         {
             Name = name;
             Description = description;
-            Expression = new Expression(ExpressionTypeEnum.AQG, expression, null);
+            Expression = new Expression(ExpressionType.AQG, expression, null);
         }
         #endregion
     }

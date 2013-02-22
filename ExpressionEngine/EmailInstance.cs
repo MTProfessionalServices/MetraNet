@@ -83,10 +83,10 @@ namespace MetraTech.ExpressionEngine
 
         private void Initalize()
         {
-            _toExpression = new Expression(ExpressionTypeEnum.Email, null, null);
-            _ccExpression = new Expression(ExpressionTypeEnum.Email, null, null);
-            _subjectExpression = new Expression(ExpressionTypeEnum.Email, null, null);
-            _bodyExpression = new Expression(ExpressionTypeEnum.Email, null, null);
+            _toExpression = new Expression(ExpressionType.Email, null, null);
+            _ccExpression = new Expression(ExpressionType.Email, null, null);
+            _subjectExpression = new Expression(ExpressionType.Email, null, null);
+            _bodyExpression = new Expression(ExpressionType.Email, null, null);
             _isInitalized = true;
         }
 

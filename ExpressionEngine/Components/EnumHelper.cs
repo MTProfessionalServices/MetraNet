@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace MetraTech.ExpressionEngine
@@ -7,7 +8,7 @@ namespace MetraTech.ExpressionEngine
     public static class EnumHelper
     {
         #region Methods
-        public static bool NameSpaceExists(string enumSpace)
+        public static bool NamespaceExists(string enumSpace)
         {
             throw new NotImplementedException();
         }
@@ -20,7 +21,7 @@ namespace MetraTech.ExpressionEngine
         {
             throw new NotImplementedException();
         }
-        public static List<string> GetValues(string enumSpace, string type)
+        public static Collection<string> GetValues(string enumSpace, string type)
         {
             throw new NotImplementedException();
         }
@@ -40,7 +41,7 @@ namespace MetraTech.ExpressionEngine
             throw new NotImplementedException();
         }
 
-        public static int GetMetraNetIntValue(MtType type, string value)
+        public static int GetMetraNetId(MtType type, string value)
         {
             throw new NotImplementedException(); 
         }

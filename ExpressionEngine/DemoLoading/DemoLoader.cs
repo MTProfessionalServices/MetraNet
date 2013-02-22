@@ -39,8 +39,8 @@ namespace MetraTech.ExpressionEngine
                 LoadEntities(GlobalContext, ComplexType.ProductView, Path.Combine(DataPath, "ProductViews.csv"));
                 LoadEntities(GlobalContext, ComplexType.AccountView, Path.Combine(DataPath, "AccountViews.csv"));
                 LoadEntities(GlobalContext, ComplexType.ServiceDefinition, Path.Combine(DataPath, "ServiceDefinitions.csv"));
-                LoadXqg(GlobalContext, ExpressionTypeEnum.AQG, Path.Combine(DataPath, "AqgExpressions.csv"));
-                LoadXqg(GlobalContext, ExpressionTypeEnum.UQG, Path.Combine(DataPath, "UqgExpressions.csv"));
+                LoadXqg(GlobalContext, ExpressionType.AQG, Path.Combine(DataPath, "AqgExpressions.csv"));
+                LoadXqg(GlobalContext, ExpressionType.UQG, Path.Combine(DataPath, "UqgExpressions.csv"));
             }
             else
             {
@@ -162,11 +162,14 @@ namespace MetraTech.ExpressionEngine
         #region File-Based Entities
         public static void LoadEntities(Context context, ComplexType entityType, string filePath)
         {
+            if (context == null)
+                throw new NullReferenceException("context");
+
             var entityList = ReadRecordsFromCsv<EntityRecord>(filePath);
             foreach (var entityRecord in entityList)
             {
                 var entityParts = entityRecord.EntityName.Split('/');
-                var entityNamespace = entityParts[0];
+                //var entityNamespace = entityParts[0];
                 var entityName = entityParts[1];
                 var propName = entityRecord.PropertyName;
                 var required = Helper.GetBoolean(entityRecord.IsRequired);
@@ -213,11 +216,11 @@ namespace MetraTech.ExpressionEngine
 
                 if (entityRecord.ListType == null)
                 {
-                    dtInfo.ListType = ListTypeEnum.None;
+                    dtInfo.ListType = ListType.None;
                 }
                 else
                 {
-                    dtInfo.ListType = (ListTypeEnum)Enum.Parse(typeof(ListTypeEnum), entityRecord.ListType, true);
+                    dtInfo.ListType = (ListType)Enum.Parse(typeof(ListType), entityRecord.ListType, true);
                 }
 
                 var property = new Property(propName, dtInfo, propertyDescription);
@@ -297,8 +300,11 @@ namespace MetraTech.ExpressionEngine
 
         #region XQGs
 
-        public static void LoadXqg(Context context, ExpressionTypeEnum type, string filePath)
+        public static void LoadXqg(Context context, ExpressionType type, string filePath)
         {
+            if (context == null)
+                throw new NullReferenceException("context");
+
             var lines = File.ReadAllLines(filePath);
             for (int index = 1; index < lines.Length; index++)
             {
@@ -308,11 +314,11 @@ namespace MetraTech.ExpressionEngine
                 var description = string.Empty;
                 switch (type)
                 {
-                    case ExpressionTypeEnum.AQG:
+                    case ExpressionType.AQG:
                         var aqg = new Aqg(name, description, expression);
                         context.AQGs.Add(aqg.Name, aqg);
                         break;
-                    case ExpressionTypeEnum.UQG:
+                    case ExpressionType.UQG:
                         var uqg = new UQG(name, description, expression);
                         context.UQGs.Add(uqg.Name, uqg);
                         break;
@@ -326,6 +332,9 @@ namespace MetraTech.ExpressionEngine
         #region Emails
         public static void LoadEmailInstances(Context context, string dirPath)
         {
+            if (context == null)
+                throw new NullReferenceException("context");
+
             var dirInfo = new DirectoryInfo(dirPath);
             if (!dirInfo.Exists)
                 return;

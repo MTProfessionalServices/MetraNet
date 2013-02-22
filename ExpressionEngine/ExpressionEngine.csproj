@@ -52,7 +52,6 @@
   <ItemGroup>
     <Compile Include="Database\UniqueKey.cs" />
     <Compile Include="MetraNet\Enumerations\IndexType.cs" />
-    <Compile Include="MetraNet\MetraNetLoader.cs" />
     <Compile Include="MetraNet\MtProperty\AccountViewEntity.cs" />
     <Compile Include="MetraNet\MtProperty\AccountViewProperty.cs" />
     <Compile Include="MetraNet\MtProperty\EntityFactory.cs" />

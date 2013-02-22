@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 using System.Globalization;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
@@ -48,25 +49,38 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return BaseType.ToString();
         }
 
-        private string Check()
+
+        public override void Validate(string prefix, ValidationMessageCollection messages)
         {
+            if (messages == null)
+                throw new ArgumentNullException("messages");
+
             //Check if the EnumSpace was specified
             if (string.IsNullOrEmpty(Namespace))
-                return Localization.EnumNamespaceNotSpecified;
+            {
+                messages.Error(Localization.EnumNamespaceNotSpecified);
+                return;
+            }
 
             //Check if the NameSpace exists
-            if (!EnumHelper.NameSpaceExists(Namespace))
-                return string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumNamespace, Namespace);
+            if (!EnumHelper.NamespaceExists(Namespace))
+            {
+                messages.Error(string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumNamespace, Namespace));
+                return;
+            }
 
-            //Check if the EnumType was specified
+            //Check if the Category was specified
             if (string.IsNullOrEmpty(Category))
-                return Localization.EnumTypeNotSpecified;
+            {
+                messages.Error(string.Format(Localization.EnumTypeNotSpecified));
+                return;
+            }
 
-            //Check if the EnumType exists
+            //Check if the Cateegory exists
             if (!EnumHelper.TypeExists(Namespace, Category))
-                return string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumType, Namespace + "." + Category);
-
-            return null;
+            {
+                messages.Error(string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumType, Namespace + "." + Category));
+            };
         }
 
         public new EnumerationType Copy()

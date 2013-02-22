@@ -91,7 +91,7 @@ namespace MetraTech.ExpressionEngine
         public ExpressionParseResults GetExpressionParseResults()
         {
             ExpressionParseResults results;
-            if (Expression.Type == ExpressionTypeEnum.Email)
+            if (Expression.Type == ExpressionType.Email)
                 results = EmailInstance.Parse();
             else
                 results = Expression.Parse();
@@ -333,6 +333,9 @@ namespace MetraTech.ExpressionEngine
 
         public bool TryGetEnumType(EnumerationType dataType, out EnumCategory enumType)
         {
+            if (dataType == null)
+                throw new ArgumentNullException("dataType");
+
             EnumSpace space;
             if (!EnumSpaces.TryGetValue(dataType.Namespace, out space))
             {

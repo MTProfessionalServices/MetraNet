@@ -199,7 +199,7 @@ namespace MetraTech.ExpressionEngine
         #region Static Create Methods
         public static Property CreateUnknown(string name, string description)
         {
-            return new Property(name, TypeFactory.CreateUnkown(), description);
+            return new Property(name, TypeFactory.CreateUnknown(), description);
         }
         public static Property CreateInteger32(string name, string description)
         {

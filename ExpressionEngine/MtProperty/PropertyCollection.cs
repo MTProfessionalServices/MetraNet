@@ -16,7 +16,8 @@ namespace MetraTech.ExpressionEngine
     {
         #region Properties
 
-        public readonly object Parent;
+        public object Parent { get { return _parent; } }
+        private readonly object _parent;
 
         /// <summary>
         /// The Entity to which the collection belongs (may be null)
@@ -38,7 +39,7 @@ namespace MetraTech.ExpressionEngine
         #region Constructors
         public PropertyCollection(object parent)
         {
-            Parent = parent;
+            _parent = parent;
         }
         #endregion
 

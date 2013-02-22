@@ -1,13 +1,19 @@
 ﻿using System.Collections.ObjectModel;
 using MetraTech.ExpressionEngine.Database;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using System.Runtime.Serialization;
 
 namespace MetraTech.ExpressionEngine.MetraNet.MtProperty
 {
+    [DataContract]
     public class ProductViewEntity : Entity
     {
         #region Properties
-        public Collection<UniqueKey> UniqueKey;
+        [DataMember]
+        public Collection<UniqueKey> UniqueKey { get; private set; }
+
+        public override string DBTableName { get { return "t_pv_" + Name; } }
+
         #endregion
 
         #region Constructor
@@ -24,6 +30,7 @@ namespace MetraTech.ExpressionEngine.MetraNet.MtProperty
 
           var eventChargeName = UserSettings.NewSyntax ? "EventCharge" : "Amount";
           var eventCharge = Properties.AddCharge(eventChargeName, "The charge assoicated with the event which may summarize other charges within the event", true);
+            eventCharge.IsCore = true;
         }
         #endregion
     }

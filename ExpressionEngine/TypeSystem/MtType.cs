@@ -22,7 +22,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// The type of list 
         /// </summary>
         [DataMember]
-        public ListTypeEnum ListType { get; set; }
+        public ListType ListType { get; set; }
 
         /// <summary>
         /// Returns the suffix assoicated with the ListType
@@ -31,9 +31,9 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         {
             get
             {
-                if (ListType == ListTypeEnum.List)
+                if (ListType == ListType.List)
                     return "[]";
-                if (ListType == ListTypeEnum.KeyList)
+                if (ListType == ListType.KeyList)
                     return "<>";
                 return null;
             }
@@ -194,7 +194,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             type.ListType = ListType;
         }
 
-        public void Validate(string prefix, ValidationMessageCollection messages)
+        public virtual void Validate(string prefix, ValidationMessageCollection messages)
         {
             if (messages == null)
                 throw new ArgumentNullException("messages");

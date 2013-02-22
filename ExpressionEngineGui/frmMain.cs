@@ -131,7 +131,7 @@ namespace PropertyGui
 
         private void btnPageLayout_Click(object sender, EventArgs e)
         {
-            ShowExpression(new Expression(ExpressionTypeEnum.Email, "", null), true);
+            ShowExpression(new Expression(ExpressionType.Email, "", null), true);
         }
 
         private void btnEmailTemplates_Click(object sender, EventArgs e)
@@ -154,7 +154,7 @@ namespace PropertyGui
             template.EntityParameters.Add("Invoice");
             template.Save(@"C:\Temp");
 
-            var exp = new Expression(ExpressionTypeEnum.UQG, "really cool logic", "_specialpromotion");
+            var exp = new Expression(ExpressionType.UQG, "really cool logic", "_specialpromotion");
             //exp.DeclaredReturnType.DataTypeInfo.BaseType = BaseType.Boolean;
             exp.Save(@"C:\Temp");
 

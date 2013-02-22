@@ -88,12 +88,12 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return MsixBaseTypes.Contains(baseType);
         }
 
-        public static BaseType GetBaseType(string typeString)
+        public static BaseType GetBaseType(string value)
         {
-            if (string.IsNullOrWhiteSpace(typeString))
+            if (string.IsNullOrWhiteSpace(value))
                 return BaseType.Unknown;
 
-            switch (typeString.ToLower(CultureInfo.InvariantCulture))
+            switch (value.ToLower(CultureInfo.InvariantCulture))
             {
                 case "str":
                 case "string":
@@ -140,7 +140,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 case "entity":
                     return BaseType.Entity;
                 default:
-                    throw new ArgumentException("Invalid internal data type string [" + typeString + "]");
+                    throw new ArgumentException("Invalid internal data type string [" + value + "]");
             }
         }
 
@@ -404,7 +404,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 case BaseType.Double:
                     return double.Parse(value, cultureInfo);
                 //case BaseType.Enumeration:
-                //    return EnumHelper.GetMetraNetIntValue(type, value);
+                //    return EnumHelper.GetMetraNetId(type, value);
                 case BaseType.Float:
                     return float.Parse(value, cultureInfo);
                 case BaseType.Integer32:

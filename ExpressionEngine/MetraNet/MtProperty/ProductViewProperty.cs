@@ -11,7 +11,7 @@ namespace MetraTech.ExpressionEngine.MetraNet.MtProperty
     {
         #region Properties
         [DataMember]
-        public bool IserVisible { get; set; }
+        public bool UserVisible { get; set; }
         [DataMember]
         public bool IsExportable { get; set; }
         [DataMember]

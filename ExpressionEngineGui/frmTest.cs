@@ -39,6 +39,11 @@ namespace PropertyGui
             ctlProperties.Init(context, Results.Parameters);
         }
 
+        private void SyncToForm()
+        {
+            ctlProperties.SyncToForm();
+        }
+
         private void Run(bool compare)
         {
             ctlProperties.SyncToObject();     
@@ -55,7 +60,17 @@ namespace PropertyGui
 
         private void btnEmail_Click(object sender, EventArgs e)
         {
-            EmailEngine.Send(Results.Parameters);
+            SyncToForm();
+            try
+            {
+                EmailEngine.Send(Results.Parameters);
+                MessageBox.Show("Email sent", null, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, null, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
         #endregion
     }

@@ -83,6 +83,12 @@ namespace MetraTech.ExpressionEngine
         public bool IsCore { get; set; }
 
         /// <summary>
+        /// The name of the column in the database. MetraNet typically prefixes columns with a "c_". In 
+        /// other cases we have aliases to make things easier for the customer
+        /// </summary>
+        public virtual string DBColumnName { get { return Name; } }
+
+        /// <summary>
         /// Indicates the how the Property is interacted with (e.g., Input, Output or InOut)
         /// </summary>
         [DataMember]
@@ -107,7 +113,7 @@ namespace MetraTech.ExpressionEngine
         public string CompatibleKey { get { return Type.CompatibleKey; } }
 
         /// <summary>
-        /// Used for testing etc. type purposes. We may want to put this into a subclass
+        /// Used for end-user-drive testing etc. 
         /// </summary>
         public string Value { get; set; }
 

@@ -41,6 +41,11 @@ namespace MetraTech.ExpressionEngine
         [DataMember]
         public DirectionType Direction { get; set; }
 
+        /// <summary>
+        /// Used for end-user-drive testing etc. 
+        /// </summary>
+        public string Value { get; set; }
+
         public string CompatibleKey { get { return string.Format(CultureInfo.InvariantCulture, "{0}|{1}", Name, Type.CompatibleKey); } }
 
         /// <summary>
@@ -80,7 +85,7 @@ namespace MetraTech.ExpressionEngine
                     return "ComplexType.png";
                 }
 
-                return VectorType + ".png";
+                return VectorType.ComplexType + ".png";
             }
         }
 

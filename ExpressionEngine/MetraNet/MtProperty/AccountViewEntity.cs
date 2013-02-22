@@ -11,7 +11,7 @@ namespace MetraTech.ExpressionEngine.MetraNet.MtProperty
         #endregion
 
         #region Constructor
-        public AccountViewEntity(string name, string description) : base(name, ComplexType.ProductView, null, true, description)
+        public AccountViewEntity(string name, string description) : base(name, ComplexType.AccountView, null, true, description)
         {
           //Add the core properties
           var accountId = Properties.AddInteger32("AccountId", "The internal MetraNet account identifiert", true);

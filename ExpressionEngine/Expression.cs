@@ -117,10 +117,6 @@ namespace MetraTech.ExpressionEngine
             prop.Direction = DirectionType.Input;
             results.Parameters.Add(prop);
 
-            var entity = Entity.CreateProductView("ParameterTable.CloudRates", null);
-            prop.Direction = DirectionType.Input;
-            results.Parameters.Add(entity);
-
             prop = Property.CreateBoolean("<Result>", "The result of the boolean expression");
             prop.Direction = DirectionType.Output;
             results.Parameters.Add(prop);

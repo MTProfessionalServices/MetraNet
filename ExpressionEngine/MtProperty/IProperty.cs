@@ -15,6 +15,7 @@ namespace MetraTech.ExpressionEngine
         string Description { get; set; }
         DirectionType Direction { get; set; }
         string CompatibleKey { get; }
+        string Value { get; set; }
         string ToExpressionSnippet { get; }   //This should be a Method (I had some Issue that I don't recall...
         object Clone();
         ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages);

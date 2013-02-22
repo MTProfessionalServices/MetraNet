@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Mail;
 
 namespace MetraTech.ExpressionEngine.Test
 {
@@ -51,9 +52,28 @@ namespace MetraTech.ExpressionEngine.Test
             if (properties == null)
                 throw new ArgumentNullException("properties");
 
-            var toProperty = properties.Get(EmailInstance.ToPropertyName);
-            var toValue = ((Property)toProperty).Value;
-            throw new NotImplementedException();
+            var toValue = properties.GetValue(EmailInstance.ToPropertyName);
+            var ccValue = properties.GetValue(EmailInstance.CcPropertyName);
+            var subjectValue = properties.GetValue(EmailInstance.SubjectPropertyName);
+            var bodyValue = properties.GetValue(EmailInstance.BodyPropertyName);
+
+            var mail = new MailMessage();
+            var smtpServer = new SmtpClient("smtp.socketlabs.com");
+
+            mail.From = new MailAddress("your_email_address@gmail.com");
+            mail.To.Add(toValue);
+            if (!string.IsNullOrWhiteSpace(ccValue))
+                mail.CC.Add(ccValue);
+            mail.Subject = subjectValue;
+
+            mail.IsBodyHtml = false;
+            mail.Body = bodyValue;
+
+            smtpServer.Port = 587;
+            smtpServer.Credentials = new System.Net.NetworkCredential("server3994", "9uY2zevySXPPaoXU2Lbv");
+            smtpServer.EnableSsl = false;
+
+            smtpServer.Send(mail);
         }
     }
 }

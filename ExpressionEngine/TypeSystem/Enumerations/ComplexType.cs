@@ -2,14 +2,16 @@
 {
     public enum ComplexType
     {
-        None, 
-        ServiceDefinition, 
-        ProductView, 
-        ParameterTable, 
-        AccountType, 
-        AccountView, 
-        BusinessModelingEntity, 
+        None,
         Any, 
+
+        //AccountType, 
+        AccountView, 
+        BusinessModelingEntity,
+        ParameterTable,
+        ProductView,
+        ServiceDefinition, 
+
         Metanga
     }
 }

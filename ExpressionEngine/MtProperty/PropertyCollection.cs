@@ -59,6 +59,22 @@ namespace MetraTech.ExpressionEngine
             return null;
         }
 
+        public bool Exists(string name)
+        {
+            return (GetValue(name) != null);
+        }
+
+        /// <summary>
+        /// Returns the value for the specified property name. If the property isn't found, null is returned
+        /// </summary>
+        public string GetValue(string name)
+        {
+            var property = Get(name);
+            if (property == null)
+                return null;
+            return property.Value;
+        }
+
 
         /// <summary>
         /// Clears all of the properties

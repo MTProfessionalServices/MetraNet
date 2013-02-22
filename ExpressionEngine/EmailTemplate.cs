@@ -34,22 +34,25 @@ namespace MetraTech.ExpressionEngine
         #region Methods
         public static EmailTemplate CreateFromFile(string file)
         {
-            var fs = new FileStream(file, FileMode.Open);
-            var reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas());
-            var ser = new DataContractSerializer(typeof(EmailTemplate));
-            var template = (EmailTemplate)ser.ReadObject(reader, true);
-            fs.Close();
-            reader.Close();
-            return template;
+            using (var fs = new FileStream(file, FileMode.Open))
+            {
+                using (var reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas()))
+                {
+                    var ser = new DataContractSerializer(typeof (EmailTemplate));
+                    var template = (EmailTemplate) ser.ReadObject(reader, true);
+                    return template;
+                }
+            }
         }
 
         public void Save(string dirPath)
         {
             var filePath = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.xml", dirPath, Name);
-            var writer = new FileStream(filePath, FileMode.Create);
-            var ser = new DataContractSerializer(typeof(EmailTemplate));
-            ser.WriteObject(writer, this);
-            writer.Close();
+            using (var writer = new FileStream(filePath, FileMode.Create))
+            {
+                var ser = new DataContractSerializer(typeof (EmailTemplate));
+                ser.WriteObject(writer, this);
+            }
         }
         #endregion
     }

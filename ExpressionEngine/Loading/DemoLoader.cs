@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using CsvHelper;
 using CsvHelper.Configuration;
 using Metanga.Miscellaneous.MetadataExport;
+using MetraTech.ExpressionEngine.MetraNet;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
@@ -122,7 +123,7 @@ namespace MetraTech.ExpressionEngine
 
             property = pv.AddString("ScalingMetricUom", "The UoM for the the ScalingMetric", true);
 
-            AppendCommonPvProperties(pv);
+            MetraNetLoader.AppendCommonProductViewProperties(pv);
             return entity;
         }
 
@@ -136,22 +137,11 @@ namespace MetraTech.ExpressionEngine
             pv.AddInteger32("NumPassengers", "The Weight of the aircraft in tons", true);
             pv.AddInteger32("NumTransferPassengers", "The Weight of the aircraft in tons", true);
             pv.AddInteger32("NumCrew", "The Weight of the aircraft in tons", true);
-            AppendCommonPvProperties(pv);
+            MetraNetLoader.AppendCommonProductViewProperties(pv);
 
             return entity;
         }
-        public static void AppendCommonZvProperties(PropertyCollection props)
-        {
-            props.AddInteger32("AccountId", "The account associated with the event", true);
-        }
-        public static void AppendCommonPvProperties(PropertyCollection props)
-        {
-            props.AddDateTime("Timestamp", "The time the event is deemed to have occurred", true);
-            props.AddInteger32("AccountId", "The account associated with the event", true);
 
-            var name = UserSettings.NewSyntax ? "EventCharge" : "Amount";
-            props.AddCharge(name, "The charge assoicated with the event which may summarize other charges within the event", true);
-        }
 
         public static Entity GetCorporateAccountType()
         {
@@ -198,10 +188,10 @@ namespace MetraTech.ExpressionEngine
                     switch (entityType)
                     {
                         case ComplexType.ProductView:
-                            AppendCommonPvProperties(entity.Properties);
+                            MetraNetLoader.AppendCommonProductViewProperties(entity.Properties);
                             break;
                         case ComplexType.AccountView:
-                            AppendCommonZvProperties(entity.Properties);
+                            MetraNetLoader.AppendCommonAccountViewProperties(entity.Properties);
                             break;
                     }
                 }

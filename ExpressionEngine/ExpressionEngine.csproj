@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MetraNet\MetraNetLoader.cs" />
     <Compile Include="Placeholders\Aqg.cs" />
     <Compile Include="TypeSystem\Enumerations\BaseType.cs" />
     <Compile Include="Context.cs" />

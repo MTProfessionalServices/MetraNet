@@ -143,7 +143,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return new MtType(BaseType.UniqueIdentifier);
         }
 
-        public static MtType CreateUnkownn()
+        public static MtType CreateUnkown()
         {
             return new MtType(BaseType.Unknown);
         }
@@ -171,9 +171,9 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         //    return (MtType)result;
         //}
 
-        public static MtType Create(string typeString)
+        public static MtType Create(string value)
         {
-            var baseType = TypeHelper.GetBaseType(typeString);
+            var baseType = TypeHelper.GetBaseType(value);
             return Create(baseType);
         }
 
@@ -224,9 +224,9 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 case BaseType.UniqueIdentifier:
                     return CreateUniqueId();
                 case BaseType.Unknown:
-                    return CreateUnkownn();
+                    return CreateUnkown();
                 default:
-                    throw new ArgumentException("baseType");
+                    throw new ArgumentException("Invalid baseType" + baseType);
             }
         }
 

@@ -55,7 +55,7 @@ namespace MetraTech.ExpressionEngine
         public Expression SubjectExpression { get { if (!_isInitalized) Initalize(); return _subjectExpression; } }
         private Expression _subjectExpression;
         [DataMember]
-        private string _subjectExpressionContent{ get { return SubjectExpression.Content; } set { SubjectExpression.Content = value; } }
+        private string _subjectExpressionContent { get { return SubjectExpression.Content; } set { SubjectExpression.Content = value; } }
 
         /// <summary>
         /// The email's body
@@ -138,7 +138,7 @@ namespace MetraTech.ExpressionEngine
                         summaryResult.Parameters.Add(parameter);
                 }
             }
-            
+
             //Hardcode the outputs
             AddOutput(summaryResult.Parameters, ToPropertyName);
             AddOutput(summaryResult.Parameters, CcPropertyName);
@@ -165,22 +165,25 @@ namespace MetraTech.ExpressionEngine
 
         public static EmailInstance CreateFromFile(string file)
         {
-            var fs = new FileStream(file, FileMode.Open);
-            var reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas());
-            var ser = new DataContractSerializer(typeof(EmailInstance));
-            var instance = (EmailInstance)ser.ReadObject(reader, true);
-            fs.Close();
-            reader.Close();
-            return instance;
+            using (var fs = new FileStream(file, FileMode.Open))
+            {
+                using (var reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas()))
+                {
+                    var ser = new DataContractSerializer(typeof(EmailInstance));
+                    var instance = (EmailInstance)ser.ReadObject(reader, true);
+                    return instance;
+                }
+            }
         }
 
         public void Save(string dirPath)
         {
-            var filePath = string.Format(@"{0}\{1}.xml", dirPath, Name);
-            var writer = new FileStream(filePath, FileMode.Create);
-            var ser = new DataContractSerializer(typeof(EmailInstance));
-            ser.WriteObject(writer, this);
-            writer.Close();
+            var filePath = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.xml", dirPath, Name);
+            using (var writer = new FileStream(filePath, FileMode.Create))
+            {
+                var ser = new DataContractSerializer(typeof (EmailInstance));
+                ser.WriteObject(writer, this);
+            }
         }
         #endregion
     }

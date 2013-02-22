@@ -35,12 +35,12 @@ namespace MetraTech.ExpressionEngine
             throw new NotImplementedException();
         }
 
-        public static string GetMetraNetEnumString(Int32 enumInt)
+        public static string GetMetraNetEnumString(Int32 enumId)
         {
             throw new NotImplementedException();
         }
 
-        public static int GetMetraNetIntValue(MtType dtInfo, string value)
+        public static int GetMetraNetIntValue(MtType type, string value)
         {
             throw new NotImplementedException(); 
         }

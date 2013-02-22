@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data;
-
-namespace MetraTech.ExpressionEngine
+﻿namespace MetraTech.ExpressionEngine
 {
     public class UQG : IExpressionEngineTreeNode
     {

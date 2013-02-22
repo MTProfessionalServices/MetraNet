@@ -15,7 +15,8 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// The underlying type (e.g, string, int32, int64, etc.)
         /// </summary>
         [DataMember]
-        public readonly BaseType BaseType;
+        public BaseType BaseType {get { return _baseType; }}
+        private readonly BaseType _baseType;
 
         /// <summary>
         /// The type of list 
@@ -52,7 +53,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         public MtType(BaseType baseType)
         {
-            BaseType = baseType;
+            _baseType = baseType;
         }
 
         #endregion
@@ -168,8 +169,10 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         public static bool IsImplicitCast(MtType start, MtType end)
         {
-            if (start == null || end == null)
-                throw new ArgumentNullException("start and end arguments can't be null");
+            if (start == null)
+                throw new ArgumentNullException("start");
+            if (end == null)
+                throw new ArgumentNullException("end");
             if (!start.IsNumeric || !end.IsNumeric)
                 throw new ArgumentException("Arguments must be numeric");
 
@@ -186,6 +189,8 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         }
         protected void InternalCopy(MtType type)
         {
+            if (type == null)
+                throw new ArgumentNullException("type");
             type.ListType = ListType;
         }
 

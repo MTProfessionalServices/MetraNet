@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace MetraTech.ExpressionEngine.Test
 {
@@ -10,8 +7,11 @@ namespace MetraTech.ExpressionEngine.Test
     /// </summary>
     public static class EmailEngine // : IProcessingEngine
     {
-        public static void EvalutateExpressions(EmailInstance email, PropertyCollection propertyCollection)
+        public static void EvaluateExpressions(EmailInstance email, PropertyCollection propertyCollection)
         {
+            if (email == null)
+                throw new ArgumentNullException("email");
+
             SetOutput(EmailInstance.ToPropertyName, email.ToExpression.Content, propertyCollection);
             SetOutput(EmailInstance.CcPropertyName, email.CcExpression.Content, propertyCollection);
             SetOutput(EmailInstance.SubjectPropertyName, email.SubjectExpression.Content, propertyCollection);
@@ -48,6 +48,9 @@ namespace MetraTech.ExpressionEngine.Test
 
         public static void Send(PropertyCollection properties)
         {
+            if (properties == null)
+                throw new ArgumentNullException("properties");
+
             var toProperty = properties.Get(EmailInstance.ToPropertyName);
             var toValue = ((Property)toProperty).Value;
             throw new NotImplementedException();

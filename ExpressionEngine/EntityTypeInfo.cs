@@ -8,10 +8,10 @@ namespace MetraTech.ExpressionEngine
     {
         #region Properties
         public readonly ComplexType Type;
-        public string Name { get { return string.Format("{0}s", Type); } set { throw new Exception("Readonly!"); } }  //We will fix this in future!
+        public string Name { get { return Type + "s"; } set { throw new Exception("Readonly!"); } }  //We will fix this in future!
         public string TreeNodeLabel { get { return Name; } }
         public string ToolTip { get { return "TBD"; } }
-        public string Image { get { return string.Format("{0}.png", Type); } }
+        public string Image { get { return Type + ".png"; } }
         public string NamePlural { get { return string.Format(CultureInfo.InvariantCulture, "{0}s", Type); } }
         #endregion 
 

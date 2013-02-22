@@ -1,9 +1,7 @@
 ﻿using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using MetraTech.ExpressionEngine;
-using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace ExpressionEngineTest
 {

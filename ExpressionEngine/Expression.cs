@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Xml;
 using System.Runtime.Serialization;
 using System.IO;
@@ -133,29 +134,31 @@ namespace MetraTech.ExpressionEngine
         }
         public static Expression CreateFromFile(string file)
         {
-            var fs = new FileStream(file, FileMode.Open);
-            var reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas());
-            var ser = new DataContractSerializer(typeof(Expression));
-            var expression = (Expression)ser.ReadObject(reader, true);
-            fs.Close();
-            reader.Close();
-
-            return expression;
+            using (var fs = new FileStream(file, FileMode.Open))
+            {
+                using (var reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas()))
+                {
+                    var ser = new DataContractSerializer(typeof (Expression));
+                    var expression = (Expression) ser.ReadObject(reader, true);
+                    return expression;
+                }
+            }
         }
 
         public void Save(string dirPath)
         {
             var filePath = string.Format(@"{0}\{1}.xml", dirPath, Name);
-            var writer = new FileStream(filePath, FileMode.Create);
-            var ser = new DataContractSerializer(typeof(Expression));
-            ser.WriteObject(writer, this);
-            writer.Close();
+            using (var writer = new FileStream(filePath, FileMode.Create))
+            {
+                var ser = new DataContractSerializer(typeof (Expression));
+                ser.WriteObject(writer, this);
+            }
         }
 
-        public static Expression CreateFromString(string xmlContent)
-        {
-            return null;
-        }
+        //public static Expression CreateFromString(string xmlContent)
+        //{
+        //    return null;
+        //}
         #endregion
     }
 

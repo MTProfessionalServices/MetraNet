@@ -32,11 +32,11 @@ namespace MetraTech.ExpressionEngine
 
         #region Methods
 
-        public void Add(ValidationMessage valMsg)
+        public void Add(ValidationMessage message)
         {
-            if (valMsg == null)
-                throw new ArgumentNullException("valMsg");
-            switch (valMsg.Severity)
+            if (message == null)
+                throw new ArgumentNullException("message");
+            switch (message.Severity)
             {
                 case SeverityType.Error:
                     ErrorCount++;
@@ -48,7 +48,7 @@ namespace MetraTech.ExpressionEngine
                     WarningCount++;
                     break;
             }
-            Messages.Add(valMsg);
+            Messages.Add(message);
         }
 
         public void Add(SeverityType severity, string message)

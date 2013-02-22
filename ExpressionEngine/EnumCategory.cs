@@ -35,7 +35,7 @@ namespace MetraTech.ExpressionEngine
         /// The actual enumerated values
         /// </summary>
         [DataMember]
-        public Collection<EnumValue> Values = new Collection<EnumValue>();
+        public Collection<EnumValue> Values { get; private set; }
         #endregion
 
         #region GUI Support Properties (should be moved in future)
@@ -54,7 +54,7 @@ namespace MetraTech.ExpressionEngine
                 if (!string.IsNullOrEmpty(Description))
                     toolTip += "\r\n" + Description;
                 if (UserSettings.ShowActualMappings)
-                    toolTip += string.Format("\r\n[DatabaseId={0}]", Id);
+                    toolTip += string.Format(CultureInfo.InvariantCulture, "\r\n[DatabaseId={0}]", Id);
                 return toolTip;
             }
         }
@@ -67,6 +67,8 @@ namespace MetraTech.ExpressionEngine
             Name = name;
             Id = id;
             Description = description;
+
+            Values =  new Collection<EnumValue>();
         }
         #endregion
 

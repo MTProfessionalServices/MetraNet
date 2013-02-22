@@ -42,7 +42,7 @@ namespace PropertyGui
         private void Run(bool compare)
         {
             ctlProperties.SyncToObject();     
-            EmailEngine.EvalutateExpressions(Context.EmailInstance, Results.Parameters);
+            EmailEngine.EvaluateExpressions(Context.EmailInstance, Results.Parameters);
             ctlProperties.SyncToForm();
         }
         #endregion

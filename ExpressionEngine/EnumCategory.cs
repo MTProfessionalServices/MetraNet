@@ -10,7 +10,7 @@ using System.Runtime.Serialization;
 namespace MetraTech.ExpressionEngine
 {
     [DataContract]
-    public class EnumType : IExpressionEngineTreeNode
+    public class EnumCategory : IExpressionEngineTreeNode
     {
         #region Properties
         /// <summary>
@@ -66,7 +66,7 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Constructor
-        public EnumType(EnumSpace parent, string name, int id, string description)
+        public EnumCategory(EnumSpace parent, string name, int id, string description)
         {
             EnumSpace = parent;
             Name = name;

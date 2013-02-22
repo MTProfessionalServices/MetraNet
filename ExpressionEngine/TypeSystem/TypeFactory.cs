@@ -29,6 +29,10 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return new MtType(BaseType.Charge);
         }
 
+        public static VectorType CreateComplexType()
+        {
+            return CreateComplexType(VectorType.ComplexTypeEnum.None);
+        }
         public static VectorType CreateComplexType(VectorType.ComplexTypeEnum entityType)
         {
             return CreateComplexType(entityType, null, true);
@@ -62,12 +66,12 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return new NumberType(BaseType.Double, unitOfMeasureMode, unitOfMeasureQualifier);
         }
 
-        public static EnumerationType CreateEnumumeration()
+        public static EnumerationType CreateEnumeration()
         {
-            return CreateEnumumeration(null, null);
+            return CreateEnumeration(null, null);
         }
 
-        public static EnumerationType CreateEnumumeration(string enumSpace, string enumType)
+        public static EnumerationType CreateEnumeration(string enumSpace, string enumType)
         {
             return new EnumerationType(enumSpace, enumType);
         }
@@ -149,26 +153,86 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #endregion
 
         #region General Create
-        public static MtType Create<T>() where T : MtType, new()
+        //public static MtType Create<T>() where T : MtType, new()
+        //{
+        //    return new T();
+        //}
+
+        //private static Type RetrieveType(BaseType baseType)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public static MtType Create(string type)
+        //{
+        //    var baseType = TypeHelper.GetBaseType(type);
+        //    var actualType = RetrieveType(baseType);
+        //    var createMethod = typeof(TypeFactory).GetMethod("Create");
+        //    var createOfTypeMethod = createMethod.MakeGenericMethod(new[] { actualType });
+        //    var result = createOfTypeMethod.Invoke(null, new object[] { });
+        //    return (MtType)result;
+        //}
+
+        public static MtType Create(string typeString)
         {
-            return new T();
+            var baseType = TypeHelper.GetBaseType(typeString);
+            return Create(baseType);
         }
 
-        
-        public static MtType Create(string type)
+        public static MtType Create(int internalMetraNetId)
         {
-            var baseType = TypeHelper.GetBaseType(type);
-            var actualType = RetrieveType(baseType);
-            var createMethod = typeof(TypeFactory).GetMethod("Create");
-            var createOfTypeMethod = createMethod.MakeGenericMethod(new[] { actualType });
-            var result = createOfTypeMethod.Invoke(null, new object[] { });
-            return (MtType)result;
+            var baseType = TypeHelper.PropertyTypeId_BaseTypeMapping[internalMetraNetId];
+            return Create(baseType);
         }
 
-        private static Type RetrieveType(BaseType baseType)
+        public static MtType Create(BaseType baseType)
         {
-            throw new NotImplementedException();
+            switch (baseType)
+            {
+                case BaseType.Any:
+                    return CreateAny();
+                case BaseType.Binary:
+                    return CreateBinary();
+                case BaseType.Boolean:
+                    return CreateBoolean();
+                case BaseType.Charge:
+                    return CreateCharge();
+                case BaseType.Entity:
+                    return CreateComplexType();
+                case BaseType.DateTime:
+                    return CreateDateTime();
+                case BaseType.Decimal:
+                    return CreateDecimal();
+                case BaseType.Double:
+                    return CreateDouble();
+                case BaseType.Enumeration:
+                    return CreateEnumeration();
+                case BaseType.Float:
+                    return CreateFloat();
+                case BaseType.Guid:
+                    return CreateGuid();
+                case BaseType.Integer:
+                    return CreateInteger();
+                case BaseType.Integer32:
+                    return CreateInteger32();
+                case BaseType.Integer64:
+                    return CreateInteger64();
+                case BaseType.Money:
+                    return CreateMoney();
+                case BaseType.Numeric:
+                    return CreateNumeric();
+                case BaseType.String:
+                    return CreateString();
+                case BaseType.UniqueIdentifier:
+                    return CreateUniqueId();
+                case BaseType.Unknown:
+                    return CreateUnkownn();
+                default:
+                    throw new ArgumentException("baseType");
+            }
         }
+
+
         #endregion
     }
 }

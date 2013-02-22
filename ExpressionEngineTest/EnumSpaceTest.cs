@@ -38,7 +38,7 @@ namespace ExpressionEngineTest
             var enumType = enumSpace.AddType(name, 1, description);
 
             //Look it up
-            EnumType enumTypeLookup;
+            EnumCategory enumTypeLookup;
             var result = enumSpace.TryGetEnumType(name, out enumTypeLookup);
             Assert.IsTrue(result, "Unable to find added enum type.");
             Assert.AreSame(enumType, enumTypeLookup);
@@ -55,7 +55,7 @@ namespace ExpressionEngineTest
         {
             var enumSpace = new EnumSpace("Test", null);
             var name = "Global";
-            EnumType enumType;
+            EnumCategory enumType;
 
             //Ensure that nothing breaks when there is nothing
             Assert.IsFalse(enumSpace.TryGetEnumType(name, out enumType), "Empty list");

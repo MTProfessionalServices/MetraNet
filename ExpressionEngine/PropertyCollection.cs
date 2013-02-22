@@ -118,7 +118,7 @@ namespace MetraTech.ExpressionEngine
 
         public Property AddEnum(string name, string description, bool isRequired, string enumSpace, string enumType, string defaultValue = null)
         {
-            var property = new Property(name, TypeFactory.CreateEnumumeration(enumSpace, enumType), description);
+            var property = new Property(name, TypeFactory.CreateEnumeration(enumSpace, enumType), description);
             property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);

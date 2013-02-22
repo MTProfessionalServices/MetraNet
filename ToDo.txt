@@ -1,4 +1,9 @@
-*Refactor DataTypeInfo!!!!!!!!!!!
+*Inputs/Outputs crash (PTCloudRates - unknown)
+*Metanga expand node crash
+*Metanga expresson shows no entites (but email does)
+
+*Install ReSharper
+*Move all enums!
 
 *LayoutPanel resizing
 *Remove all 

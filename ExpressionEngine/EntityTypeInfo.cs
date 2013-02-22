@@ -10,7 +10,7 @@ namespace MetraTech.ExpressionEngine
     {
         #region Properties
         public readonly VectorType.ComplexTypeEnum Type;
-        public string Name { get { return string.Format("{0}s", Type); } set { throw new Exception("Readonly!"); } }
+        public string Name { get { return string.Format("{0}s", Type); } set { throw new Exception("Readonly!"); } }  //We will fix this in future!
         public string TreeNodeLabel { get { return Name; } }
         public string ToolTip { get { return "TBD"; } }
         public string Image { get { return string.Format("{0}.png", Type); } }
@@ -27,7 +27,7 @@ namespace MetraTech.ExpressionEngine
         {
             get
             {
-                throw new NotImplementedException();
+                return Name;
             }
         }
         #endregion

@@ -73,6 +73,15 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
             return null;
         }
+
+        public EnumerationType Copy()
+        {
+            var type = (EnumerationType)base.Copy();
+            InternalCopy(type);
+            type.Namespace = Namespace;
+            type.Category = Category;
+            return type;
+        }
         #endregion
 
     }

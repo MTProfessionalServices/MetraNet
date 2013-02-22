@@ -30,7 +30,7 @@ namespace MetraTech.ExpressionEngine
         /// The data enumerated typs
         /// </summary>
         [DataMember]
-        public Collection<EnumType> EnumTypes { get; private set; }
+        public Collection<EnumCategory> EnumTypes { get; private set; }
         #endregion
 
         #region GUI Helper Properties (move in future)
@@ -44,15 +44,15 @@ namespace MetraTech.ExpressionEngine
         {
             Name = name;
             Description = description;
-            EnumTypes =  new Collection<EnumType>();
+            EnumTypes =  new Collection<EnumCategory>();
         }
         #endregion
 
         #region Methods
 
-        public EnumType AddType(string name, int id, string description)
+        public EnumCategory AddType(string name, int id, string description)
         {
-            var type = new EnumType(this, name, id, description);
+            var type = new EnumCategory(this, name, id, description);
             EnumTypes.Add(type);
             return type;
         }
@@ -64,16 +64,12 @@ namespace MetraTech.ExpressionEngine
             }
         }
 
-        public void Save(string dirPath)
-        {
-            new NotImplementedException();
-        }
 
-        public bool TryGetEnumType(string name, out EnumType type)
+        public bool TryGetEnumType(string name, out EnumCategory type)
         {
             foreach (var _type in EnumTypes)
             {
-                if (_type.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase))
+                if (_type.Name.Equals(name, StringComparison.Ordinal))
                 {
                     type = _type;
                     return true;
@@ -96,10 +92,10 @@ namespace MetraTech.ExpressionEngine
                 context.AddEnum(space);
             }
 
-            EnumType type;
+            EnumCategory type;
             if (!space.TryGetEnumType(enumType, out type))
             {
-                type = new EnumType(space, enumType, enumTypeId, null);
+                type = new EnumCategory(space, enumType, enumTypeId, null);
                 space.EnumTypes.Add(type);
             }
 

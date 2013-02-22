@@ -16,7 +16,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// The EnumType to which the value belongs
         /// </summary>
-        public EnumType EnumType { get; private set; }
+        public EnumCategory EnumType { get; private set; }
 
         /// <summary>
         /// The name of the enum value. Must be unique within the enum type
@@ -63,7 +63,7 @@ namespace MetraTech.ExpressionEngine
         #endregion 
 
         #region Constructor
-        public EnumValue(EnumType parent, string value, int id)
+        public EnumValue(EnumCategory parent, string value, int id)
         {
             EnumType = parent;
             Name = value;

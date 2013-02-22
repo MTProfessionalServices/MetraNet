@@ -37,7 +37,7 @@ namespace ExpressionEngineTest
         [TestMethod()]
         public void EnumValueConstructorTest()
         {
-            var parent = new EnumType(null, "Length", 1, null);
+            var parent = new EnumCategory(null, "Length", 1, null);
             string name = "Inch";
             int id = 500; 
             var target = new EnumValue(parent, name, id);

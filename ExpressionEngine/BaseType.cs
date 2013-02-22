@@ -10,7 +10,7 @@
         Any,                // Used to mactch any of the data types
         Binary,
         Boolean,
-        ComplexType,        //Spans everying from BMEs to ProductViews
+        Entity,             //Spans everying from BMEs to ProductViews
         Charge,             //Decimal with Currency that is a, or part of a, charge or a settlement  ((PropertyAttribute))
         DateTime,
         Decimal,

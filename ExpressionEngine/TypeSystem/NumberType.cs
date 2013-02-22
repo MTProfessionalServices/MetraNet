@@ -34,12 +34,24 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public NumberType(BaseType type, UnitOfMeasureModeType unitOfMeasureMode, string unitOfMeasureQualifier)
             : base(type)
         {
-            if (TypeHelper.IsNumeric(type))
+            if (!TypeHelper.IsNumeric(type))
                 throw new ArgumentException("Invalid type: " + type.ToString());
 
             UnitOfMeasureMode = unitOfMeasureMode;
             UnitOfMeasureQualifier = unitOfMeasureQualifier;
         }
         #endregion
+
+        #region Methods
+        public NumberType Copy()
+        {
+            var type = (NumberType)base.Copy();
+            InternalCopy(type);
+            type.UnitOfMeasureMode = UnitOfMeasureMode;
+            type.UnitOfMeasureQualifier = UnitOfMeasureQualifier;
+            return type;
+        }
+        #endregion
+
     }
 }

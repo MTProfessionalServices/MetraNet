@@ -20,5 +20,15 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         }
         #endregion
 
+        #region Methods
+
+        public MoneyType Copy()
+        {
+            var type = (MoneyType)base.Copy();
+            InternalCopy(type);
+            type.UnitsProperty = UnitsProperty;
+            return type;
+        }
+        #endregion
     }
 }

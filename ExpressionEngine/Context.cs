@@ -43,10 +43,10 @@ namespace MetraTech.ExpressionEngine
         public Dictionary<string, EmailInstance> EmailInstances = new Dictionary<string, EmailInstance>();
 
         //These are updated by UpdateContext()
-        public List<EnumType> EnumTypes = new List<EnumType>();
+        public List<EnumCategory> EnumTypes = new List<EnumCategory>();
         public List<IProperty> AllProperties = new List<IProperty>();
         public Dictionary<string, IProperty> UniqueProperties = new Dictionary<string, IProperty>();
-        public List<EnumType> RelevantEnums = new List<EnumType>();
+        public List<EnumCategory> RelevantEnums = new List<EnumCategory>();
         #endregion
 
         #region Constructors
@@ -134,7 +134,7 @@ namespace MetraTech.ExpressionEngine
                     }
                     else  //We're not there yet, it should be ComplexType
                     {
-                        if (property.Type.BaseType != BaseType.ComplexType)
+                        if (property.Type.BaseType != BaseType.Entity)
                             return null;
 
                         //Get the complex property
@@ -142,7 +142,7 @@ namespace MetraTech.ExpressionEngine
                         if (secondProperty == null)
                             return null;
 
-                        if (secondProperty.Type.BaseType != BaseType.ComplexType && parts.Length == 2)
+                        if (secondProperty.Type.BaseType != BaseType.Entity && parts.Length == 2)
                             return secondProperty;
 
                         //var secondName = parts[1];
@@ -238,7 +238,7 @@ namespace MetraTech.ExpressionEngine
 
                     if (property.Type.IsEnum)
                     {
-                        EnumType enumType;
+                        EnumCategory enumType;
                         if (TryGetEnumType((EnumerationType)property.Type, out enumType))
                         {
                             if (!RelevantEnums.Contains(enumType))
@@ -261,6 +261,9 @@ namespace MetraTech.ExpressionEngine
         #region Entities
         public void AddEntity(Entity entity)
         {
+            if (entity == null)
+                throw new ArgumentNullException("entity");
+
             Entities.Add(entity.Name, entity);
         }
 
@@ -331,7 +334,7 @@ namespace MetraTech.ExpressionEngine
             EnumSpaces.Add(enumSpace.Name, enumSpace);
         }
 
-        public bool TryGetEnumType(EnumerationType dataType, out EnumType enumType)
+        public bool TryGetEnumType(EnumerationType dataType, out EnumCategory enumType)
         {
             EnumSpace space;
             if (!EnumSpaces.TryGetValue(dataType.Namespace, out space))

@@ -31,9 +31,17 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public override string ToString(bool robust)
         {
             if (robust && Length > 0)
-                return string.Format(CultureInfo.InvariantCulture, "{0}({0})", BaseType.ToString(), Length.ToString(CultureInfo.InvariantCulture));
+                return string.Format(CultureInfo.InvariantCulture, "{0}({1})", BaseType.ToString(), Length.ToString(CultureInfo.InvariantCulture));
             return BaseType.ToString();
         }
+
+        public StringType Copy()
+        {
+            var type = (StringType)base.Copy();
+            type.Length = Length;
+            return type;
+        }
         #endregion
+
     }
 }

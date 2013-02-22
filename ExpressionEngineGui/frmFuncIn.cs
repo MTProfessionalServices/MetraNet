@@ -56,7 +56,7 @@ namespace PropertyGui
                 ctlProp.Text = propertyName;
         }
 
-        public void LoadValues(EnumType enumType)
+        public void LoadValues(EnumCategory enumType)
         {
             lstAvailable.Items.Clear();
             lstSelected.Items.Clear();
@@ -110,7 +110,7 @@ namespace PropertyGui
                 return;
             }
 
-            EnumType enumType;
+            EnumCategory enumType;
             Context.TryGetEnumType((EnumerationType)property.Type, out enumType);
             LoadValues(enumType);
         }

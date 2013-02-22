@@ -48,11 +48,11 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #endregion
 
         #region Constructor
-        public VectorType(ComplexTypeEnum type, string subType, bool isEntity):base(BaseType.ComplexType)
+        public VectorType(ComplexTypeEnum type, string subtype, bool isEntity):base(BaseType.Entity)
         {
             ComplexType = type;
-            ComplexSubtype = subType;
-            IsEntity = IsEntity;
+            ComplexSubtype = subtype;
+            IsEntity = isEntity;
         }
         #endregion
 
@@ -66,6 +66,17 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return type;
         }
 
+        public VectorType Copy()
+        {
+            var type = (VectorType)TypeFactory.Create(BaseType);
+            InternalCopy(type);
+            type.ComplexType = ComplexType;
+            type.ComplexSubtype = ComplexSubtype;
+            type.IsEntity = IsEntity;
+            return type;
+        }
+
         #endregion
+
     }
 }

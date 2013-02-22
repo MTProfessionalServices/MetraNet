@@ -45,7 +45,7 @@ namespace MetraTech.ExpressionEngine
             }
 
             LoadEnumFile(GlobalContext, Path.Combine(DataPath, "Enums.csv"));
-            LoadFunctions();
+            //LoadFunctions();
             LoadExpressions();
             LoadEmailTemplates(GlobalContext, Path.Combine(DataPath, "EmailTemplates"));
             LoadEmailInstances(GlobalContext, Path.Combine(DataPath, "EmailInstances"));
@@ -84,46 +84,45 @@ namespace MetraTech.ExpressionEngine
         #region Manual Entities
         public static Entity GetCloudComputeProductView()
         {
-            //var entity = new Entity("CloudCompute", VectorType.ComplexTypeEnum.ProductView, null, true, "Models an cloud compute usage even");
+            var entity = new Entity("CloudCompute", VectorType.ComplexTypeEnum.ProductView, null, true, "Models an cloud compute usage even");
 
-            //var pv = entity.Properties;
+            var pv = entity.Properties;
 
-            //Property property;
+            Property property;
 
-            ////Snapshot stuff
-            //pv.AddInteger32("NumSnapshots", "The number of snapshots taken", true);
-            //var charge = pv.AddCharge("SnapshotCharge", "The charge assoicated with snapshots", true);
-            //charge.Type.UnitsProperty = "NumSnapshots";
-            
-            //pv.AddString("DataCenter", "The data center in which the server ran", true, null, 30);
-            //pv.AddEnum("DataCenterCountry", "The country that the data center is located", true, "global", "countryname");
-            //pv.AddEnum("ChargeModel", "The charinging model used to calculate the compute charge", true, "Cloud", "ChargeModel");
-            //pv.AddDecimal("InstanceSize", "The size of the instance", true);
-            //pv.AddEnum("OS", "The Operating System (OS)", true, "Cloud", "OperatingSystem");
-            
-            //var memory = pv.AddInteger32("Memory", "The amount of memory", true);
-            //memory.Type.UnitOfMeasureMode = DataTypeInfo.UnitOfMeasureModeType.Fixed;
-            //memory.DataTypeInfo.UnitOfMeasureQualifier = "DigitalInformation";
+            //Snapshot stuff
+            pv.AddInteger32("NumSnapshots", "The number of snapshots taken", true);
+            var charge = pv.AddCharge("SnapshotCharge", "The charge assoicated with snapshots", true);
+            ((MoneyType)charge.Type).UnitsProperty = "NumSnapshots";
 
-            //pv.AddDecimal("CpuCount", "The number of million CPU cycles", true);
+            pv.AddString("DataCenter", "The data center in which the server ran", true, null, 30);
+            pv.AddEnum("DataCenterCountry", "The country that the data center is located", true, "global", "countryname");
+            pv.AddEnum("ChargeModel", "The charinging model used to calculate the compute charge", true, "Cloud", "ChargeModel");
+            pv.AddDecimal("InstanceSize", "The size of the instance", true);
+            pv.AddEnum("OS", "The Operating System (OS)", true, "Cloud", "OperatingSystem");
 
-            //property = pv.AddDecimal("Hours", "The number of hours the instance ran", true);
-            //property.DataTypeInfo.UnitOfMeasureMode = DataTypeInfo.UnitOfMeasureModeType.Fixed;
-            //property.DataTypeInfo.UnitOfMeasureQualifier = "Hour";
+            var memory = pv.AddInteger32("Memory", "The amount of memory", true);
+            ((NumberType)memory.Type).UnitOfMeasureMode =  MtType.UnitOfMeasureModeType.Fixed;
+            ((NumberType)memory.Type).UnitOfMeasureQualifier = "DigitalInformation";
 
-            //property = pv.AddDecimal("Duration", "The elapsed time", true);
-            //property.DataTypeInfo.UnitOfMeasureMode = DataTypeInfo.UnitOfMeasureModeType.Category;
-            //property.DataTypeInfo.UnitOfMeasureQualifier = "Time";
+            pv.AddDecimal("CpuCount", "The number of million CPU cycles", true);
 
-            //property = pv.AddDecimal("ScalingMetric", "The key scaling metric", true);
-            //property.DataTypeInfo.UnitOfMeasureMode = DataTypeInfo.UnitOfMeasureModeType.Property;
-            //property.DataTypeInfo.UnitOfMeasureQualifier = "ScalingMetricUom";
+            property = pv.AddDecimal("Hours", "The number of hours the instance ran", true);
+            ((NumberType)property.Type).UnitOfMeasureMode = MtType.UnitOfMeasureModeType.Fixed;
+            ((NumberType)property.Type).UnitOfMeasureQualifier = "Hour";
 
-            //property = pv.AddString("ScalingMetricUom", "The UoM for the the ScalingMetric", true);
+            property = pv.AddDecimal("Duration", "The elapsed time", true);
+            ((NumberType)property.Type).UnitOfMeasureMode = MtType.UnitOfMeasureModeType.Category;
+            ((NumberType)property.Type).UnitOfMeasureQualifier = "Time";
 
-            //AppendCommonPvProperties(pv);
-            //return entity;
-            return null;
+            property = pv.AddDecimal("ScalingMetric", "The key scaling metric", true);
+            ((NumberType)property.Type).UnitOfMeasureMode = MtType.UnitOfMeasureModeType.Property;
+            ((NumberType)property.Type).UnitOfMeasureQualifier = "ScalingMetricUom";
+
+            property = pv.AddString("ScalingMetricUom", "The UoM for the the ScalingMetric", true);
+
+            AppendCommonPvProperties(pv);
+            return entity;
         }
 
         public static Entity GetAircraftLandingProductView()
@@ -211,7 +210,7 @@ namespace MetraTech.ExpressionEngine
                 {
                     //var baseType = TypeHelper.PropertyTypeId_BaseTypeMapping[Int32.Parse(typeStr)];
                     //dtInfo = TypeFactory.Create(baseType);
-                    dtInfo = TypeFactory.Create(typeStr);
+                    dtInfo = TypeFactory.Create(Int32.Parse(typeStr));
                 }
                 else
                     dtInfo = TypeFactory.Create(typeStr);
@@ -223,7 +222,7 @@ namespace MetraTech.ExpressionEngine
                         _enumType.Namespace = enumSpace;
                         _enumType.Category = enumType;
                         break;
-                    case BaseType.ComplexType:
+                    case BaseType.Entity:
                         var vectorType = (VectorType)dtInfo;
                         vectorType.ComplexType = entityType;
                         vectorType.ComplexSubtype = enumType; //we overrode the column

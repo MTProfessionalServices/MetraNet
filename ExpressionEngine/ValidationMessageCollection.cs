@@ -9,7 +9,7 @@ namespace MetraTech.ExpressionEngine
     public class ValidationMessageCollection : IEnumerable<ValidationMessage>
     {
         #region Constants
-        public const int NoPostion = -1;
+        public const int NoPosition = -1;
         #endregion
 
         #region Properties
@@ -54,7 +54,7 @@ namespace MetraTech.ExpressionEngine
 
         public void Add(ValidationMessage.SeverityType severity, string message)
         {
-            Add(severity, message, NoPostion, NoPostion);
+            Add(severity, message, NoPosition, NoPosition);
         }
         public void Add(ValidationMessage.SeverityType severity, string message, int lineNumber, int columnNumber)
         {
@@ -64,7 +64,7 @@ namespace MetraTech.ExpressionEngine
 
         public void Error(string message)
         {
-            Add(ValidationMessage.SeverityType.Error, message, NoPostion, NoPostion);
+            Add(ValidationMessage.SeverityType.Error, message, NoPosition, NoPosition);
         }
         public void Error(string message, int lineNumber, int columnNumber)
         {
@@ -91,7 +91,7 @@ namespace MetraTech.ExpressionEngine
             foreach (var message in Messages)
             {
                 sb.Append(string.Format(CultureInfo.CurrentUICulture, "[{0}] {1}", message.Severity, message.Message));
-                if (message.LineNumber != NoPostion)
+                if (message.LineNumber != NoPosition)
                     sb.AppendLine(string.Format(CultureInfo.CurrentUICulture, "Line {0} Column {1}", message.LineNumber, message.ColumnNumber));
                 else
                     sb.AppendLine();

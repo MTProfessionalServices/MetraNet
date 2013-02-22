@@ -144,7 +144,7 @@ namespace PropertyGui
             }
         }
 
-        private void AddEnumValues(EnumType enumType, TreeNode parentNode)
+        private void AddEnumValues(EnumCategory enumType, TreeNode parentNode)
         {
             foreach (var value in enumType.Values)
             {
@@ -181,6 +181,7 @@ namespace PropertyGui
                 CreateNode(func, null);
             }
         }
+
         private void LoadTreeEntityMode()
         {
             var filter = new List<VectorType.ComplexTypeEnum>();
@@ -235,9 +236,10 @@ namespace PropertyGui
             {
                 var property = (Property)item;
                 
+                //If it's an enum, append all of the values
                 if (property.Type.IsEnum)
                 {
-                    EnumType enumType;
+                    EnumCategory enumType;
                     if (Context.TryGetEnumType((EnumerationType)property.Type, out enumType))
                         AddEnumValues(enumType, node);          
                 }
@@ -280,13 +282,15 @@ namespace PropertyGui
             if (node.Nodes.Count == 1 && node.Nodes[0].Text == PropertyListPlaceHolder)
             {
                 node.Nodes.Clear();
-                var entitySubType = ((Entity)node.Tag).VectorType.ComplexSubtype;
+                var entity1 = (Entity)node.Tag;
+                var entitySubType = entity1.VectorType.ComplexSubtype;
                 Entity entity;
                 if (!DemoLoader.GlobalContext.Entities.TryGetValue(entitySubType, out entity))
                     return;
                 AddProperties(node, entity.Properties);
             }
         }
+
         #endregion
     }
 }

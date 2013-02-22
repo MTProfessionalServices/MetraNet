@@ -126,10 +126,10 @@ namespace MetraTech.ExpressionEngine
 
         #region Constructor
 
-        public Entity(string name, VectorType.ComplexTypeEnum type, string subType, bool isEntity, string description)
+        public Entity(string name, VectorType.ComplexTypeEnum type, string subtype, bool isEntity, string description)
         {
             Name = name;
-            Type = TypeFactory.CreateComplexType(type, subType, isEntity);
+            Type = TypeFactory.CreateComplexType(type, subtype, isEntity);
             Description = description;
             Properties = new PropertyCollection(this);
         }

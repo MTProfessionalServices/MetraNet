@@ -32,6 +32,54 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         #endregion
 
+        #region Static Constructor
+        static TypeHelper()
+        {
+            var baseTypes = Enum.GetValues(typeof(BaseType));
+            AllTypes = new MtType[baseTypes.Length];
+
+            int index = 0;
+            foreach (var value in baseTypes)
+            {
+                AllTypes[index++] = new MtType((BaseType)value);
+            }
+
+            MsixBaseTypes = new BaseType[] 
+            {
+              BaseType.Boolean, 
+              BaseType.Decimal,
+              BaseType.Double,
+              BaseType.Enumeration, 
+              BaseType.Guid, 
+              BaseType.Integer32, 
+              BaseType.Integer64, 
+              BaseType.String,
+              BaseType.DateTime
+            };
+
+            DatabaseBaseTypes = new BaseType[] 
+          {
+              BaseType.Boolean, 
+              BaseType.Decimal,
+              BaseType.Double,
+              BaseType.Guid, 
+              BaseType.Integer32, 
+              BaseType.Integer64, 
+              BaseType.String,
+              BaseType.DateTime
+            };
+
+            PropertyTypeId_BaseTypeMapping.Add(0, BaseType.String);
+            PropertyTypeId_BaseTypeMapping.Add(2, BaseType.Integer32);
+            PropertyTypeId_BaseTypeMapping.Add(3, BaseType.DateTime);
+            PropertyTypeId_BaseTypeMapping.Add(5, BaseType.Decimal); ///this is showing up a numeric(18,6)
+            PropertyTypeId_BaseTypeMapping.Add(7, BaseType.Decimal);
+            PropertyTypeId_BaseTypeMapping.Add(8, BaseType.Enumeration);
+            PropertyTypeId_BaseTypeMapping.Add(9, BaseType.Boolean);
+            PropertyTypeId_BaseTypeMapping.Add(11, BaseType.Integer64);
+        }
+        #endregion
+
         #region Methods
         /// <summary>
         /// Indicates if compatible with MSIX entities (e.g., Service Definitions, Product Views, etc.)
@@ -91,7 +139,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 case "guid":
                     return BaseType.Guid;
                 case "entity":
-                    return BaseType.ComplexType;
+                    return BaseType.Entity;
                 default:
                     throw new ArgumentException("Invalid internal data type string [" + typeString + "]");
             }
@@ -205,7 +253,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 case BaseType.DateTime:
                     return typeof(DateTime);
                 default:
-                    throw new Exception("Unhandled Data Type: " + type.ToString());
+                    throw new ArgumentException("Unhandled Data Type: " + type.ToString());
             }
         }
 
@@ -275,8 +323,6 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         }
 
         #endregion
-
-
 
         #region Convert to constant
         /// <summary>

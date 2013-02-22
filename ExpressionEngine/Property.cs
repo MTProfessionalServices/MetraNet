@@ -109,7 +109,7 @@ namespace MetraTech.ExpressionEngine
             get { return Direction == DirectionType.Output || Direction == DirectionType.InOut; }
         }
 
-        public string CompatibleKey { get { throw new NotImplementedException(); } }
+        public string CompatibleKey { get { return Type.CompatibleKey; } }
 
         /// <summary>
         /// Used for testing etc. type purposes. We may want to put this into a subclass
@@ -180,7 +180,7 @@ namespace MetraTech.ExpressionEngine
                         return "Int64.png";
                     case BaseType.Guid:
                         return "Guid.png";
-                    case BaseType.ComplexType:
+                    case BaseType.Entity:
                         return "Entity.png";
                 }
                 return null;
@@ -222,9 +222,9 @@ namespace MetraTech.ExpressionEngine
             return property;
         }
 
-        public static Property CreateEnum(string name, string description, string enumSpace, string EnumType)
+        public static Property CreateEnum(string name, string description, string enumSpace, string enumType)
         {
-            var property = new Property(name, TypeFactory.CreateEnumumeration(enumSpace, EnumType), description);
+            var property = new Property(name, TypeFactory.CreateEnumeration(enumSpace, enumType), description);
             return property;
         }
         #endregion

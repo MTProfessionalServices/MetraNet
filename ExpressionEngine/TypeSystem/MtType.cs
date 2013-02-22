@@ -119,7 +119,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public bool IsDateTime { get { return BaseType == ExpressionEngine.BaseType.DateTime; } }
         public bool IsDecimal { get { return BaseType == ExpressionEngine.BaseType.Decimal; } }
         public bool IsDouble { get { return BaseType == ExpressionEngine.BaseType.Double; } }
-        public bool IsComplexType { get { return BaseType == ExpressionEngine.BaseType.ComplexType; } }
+        public bool IsComplexType { get { return BaseType == ExpressionEngine.BaseType.Entity; } }
         public bool IsEnum { get { return (BaseType == BaseType.Enumeration); } }
         public bool IsFloat { get { return BaseType == ExpressionEngine.BaseType.Float; } }
         public bool IsGuid { get { return BaseType == ExpressionEngine.BaseType.Guid; } }
@@ -218,13 +218,15 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         public MtType Copy()
         {
-            throw new NotImplementedException();
+            var type = TypeFactory.Create(BaseType);
+            InternalCopy(type);
+            return type;
+        }
+        protected void InternalCopy(MtType type)
+        {
+            type.ListType = ListType;
         }
 
-        #endregion
-
-
-        #region Methods
         public void Validate(string prefix, ValidationMessageCollection messages)
         {
             if (messages == null)

@@ -76,7 +76,7 @@ namespace ExpressionEngineTest
             AssertCreateFromBaseType(BaseType.Numeric, "numeric");
             AssertCreateFromBaseType(BaseType.UniqueIdentifier, "uniqueidentifier");
             AssertCreateFromBaseType(BaseType.Guid, "guid");
-            AssertCreateFromBaseType(BaseType.ComplexType, "entity");
+            AssertCreateFromBaseType(BaseType.Entity, "entity");
         }
 
         private void AssertCreateFromBaseType(BaseType expectedType, string dataTypeStr)

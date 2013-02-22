@@ -185,7 +185,7 @@ namespace PropertyGui
             cbo.BeginUpdate();
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbo.DisplayMember = "Name";
-            EnumType enumType;
+            EnumCategory enumType;
             if (Context.TryGetEnumType(type, out enumType))
             {
                 cbo.Items.AddRange(enumType.Values.ToArray());

@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace MetraTech.ExpressionEngine.MetraNet.MtProperty
 {
     [DataContract]
-    public class ProductViewEntity : Entity
+    public class ProductViewEntity : MetraNetEntityBase
     {
         #region Properties
         [DataMember]
@@ -17,7 +17,7 @@ namespace MetraTech.ExpressionEngine.MetraNet.MtProperty
         #endregion
 
         #region Constructor
-        public ProductViewEntity(string name, string description):base(name, ComplexType.ProductView, null, true, description)
+        public ProductViewEntity(string name, string description):base(name, ComplexType.ProductView, description)
         {
           UniqueKey = new Collection<UniqueKey>();
 

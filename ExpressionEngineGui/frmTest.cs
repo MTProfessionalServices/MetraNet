@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Test;
@@ -71,6 +70,15 @@ namespace PropertyGui
                 MessageBox.Show("Error: " + ex.Message, null, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void btnLookup_Click(object sender, EventArgs e)
+        {
+            var data = new List<KeyValuePair<string, string>>();
+            data.Add(new KeyValuePair<string, string>("Invoice.InvoiceNumber", "12812"));
+            data.Add(new KeyValuePair<string, string>("Payer.FirstName", "12812"));
+            data.Add(new KeyValuePair<string, string>("Invoice.Statement.EndingBalance", "235.34"));
+            SyncToForm();
         }
         #endregion
     }

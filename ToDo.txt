@@ -1,9 +1,14 @@
-*Inputs/Outputs crash (PTCloudRates - unknown)
 *Metanga expand node crash
 *Metanga expresson shows no entites (but email does)
 
-*Install ReSharper
-*Move all enums!
+*BaseType
+*DataTypeInfo
+*Property
+*PropertyCollection
+*Function
+*ProductView
+*AccountView
+*ServiceDefinition
 
 *LayoutPanel resizing
 *Remove all 
@@ -45,21 +50,11 @@ DONE:
 *Run abstraction
 *Email merge
 *Display outputs
+*Install ReSharper
+*Move all enums!
 
 
-SOLID:
-----------
-BaseType (rename _Enum to Enum?)
-DataTypeInfo (rename? split into subclasses?)
-Property
-ComplexType
-PropertyCollection
-IProperty
--------------------
 
-Enum Value/Type/Space
-UoMCategory
-UoM
 
 
 

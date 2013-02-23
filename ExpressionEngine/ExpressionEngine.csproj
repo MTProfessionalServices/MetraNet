@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MetraTech.ExpressionEngine</RootNamespace>
-    <AssemblyName>MetraTech.Properties</AssemblyName>
+    <AssemblyName>MetraTech.ExpressionEngine</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -51,25 +51,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\UniqueKey.cs" />
-    <Compile Include="MetraNet\Enumerations\IndexType.cs" />
-    <Compile Include="MetraNet\MtProperty\AccountViewEntity.cs" />
-    <Compile Include="MetraNet\MtProperty\AccountViewProperty.cs" />
-    <Compile Include="MetraNet\MtProperty\EntityFactory.cs" />
-    <Compile Include="MetraNet\MtProperty\ProductViewEntity.cs" />
-    <Compile Include="MetraNet\MtProperty\ProductViewProperty.cs" />
-    <Compile Include="MetraNet\MtProperty\ServiceDefinitionEntity.cs" />
-    <Compile Include="MetraNet\MtProperty\ServiceDefinitionProperty.cs" />
+    <Compile Include="MtProperty\Enumerations\IndexType.cs" />
+    <Compile Include="MetraNet\IceConversion.cs" />
+    <Compile Include="MetraNet\Loader.cs" />
+    <Compile Include="Entity\AccountViewEntity.cs" />
+    <Compile Include="MtProperty\AccountViewProperty.cs" />
+    <Compile Include="Entity\EntityFactory.cs" />
+    <Compile Include="Entity\MetraNetEntityBase.cs" />
+    <Compile Include="MtProperty\MtPropertyFactory.cs" />
+    <Compile Include="Entity\ProductViewEntity.cs" />
+    <Compile Include="MtProperty\ProductViewProperty.cs" />
+    <Compile Include="Entity\ServiceDefinitionEntity.cs" />
+    <Compile Include="MtProperty\ServiceDefinitionProperty.cs" />
     <Compile Include="MtProperty\Enumerations\DirectionType.cs" />
     <Compile Include="Placeholders\Aqg.cs" />
     <Compile Include="TypeSystem\Enumerations\BaseType.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Components\Currency.cs" />
-    <Compile Include="MtProperty\Entity.cs" />
+    <Compile Include="Entity\Entity.cs" />
     <Compile Include="EmailInstance.cs" />
     <Compile Include="EmailTemplate.cs" />
-    <Compile Include="MtProperty\EntityInfo.cs" />
+    <Compile Include="Entity\EntityInfo.cs" />
     <Compile Include="DemoLoading\EntityRecord.cs" />
-    <Compile Include="MtProperty\EntityTypeInfo.cs">
+    <Compile Include="Entity\EntityTypeInfo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Components\EnumHelper.cs" />

@@ -45,7 +45,6 @@ namespace MetraTech.ExpressionEngine
 
         #region Methods
 
-        //TODO: Combine with override once I get it all working!
         public IProperty Get(string name)
         {
             if (string.IsNullOrEmpty(name))
@@ -59,6 +58,9 @@ namespace MetraTech.ExpressionEngine
             return null;
         }
 
+        /// <summary>
+        /// Indicates if the property exists
+        /// </summary>
         public bool Exists(string name)
         {
             return (GetValue(name) != null);
@@ -75,7 +77,22 @@ namespace MetraTech.ExpressionEngine
             return property.Value;
         }
 
+        /// <summary>
+        /// Binds the KVP values to the properties.
+        /// </summary>
+        /// <param name="data"></param>
+        public void BindValues(IEnumerable<KeyValuePair<string, string>> data)
+        {
+            foreach (var kvp in data)
+            {
+                var name = kvp.Key;
+                var value = kvp.Value;
 
+                var property = Get(name);
+                if (property != null)
+                    property.Value = value;
+            }
+        }
         /// <summary>
         /// Clears all of the properties
         /// </summary>
@@ -111,6 +128,19 @@ namespace MetraTech.ExpressionEngine
             return messages;
         }
 
+        public PropertyCollection Clone()
+        {
+            var newCollection = new PropertyCollection(null);
+            foreach (IProperty property in Properties)
+            {
+                var newProperty = property.Clone();
+                newCollection.Add((IProperty)newProperty);
+            }
+            return newCollection;
+        }
+        #endregion
+
+        #region Add Methods
         public void Add(IProperty property)
         {
             if (property == null)
@@ -174,17 +204,6 @@ namespace MetraTech.ExpressionEngine
             property.DefaultValue = defaultValue;
             Add(property);
             return property;
-        }
-
-        public PropertyCollection Clone()
-        {
-            var newCollection = new PropertyCollection(null);
-            foreach (IProperty property in Properties)
-            {
-                var newProperty = property.Clone();
-                newCollection.Add((IProperty)newProperty);
-            }
-            return newCollection;
         }
         #endregion
 

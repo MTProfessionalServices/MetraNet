@@ -48,6 +48,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.Enabled = false;
             this.btnSave.Location = new System.Drawing.Point(281, 22);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
@@ -73,9 +74,11 @@
             this.btnLookup.TabIndex = 4;
             this.btnLookup.Text = "Lookup";
             this.btnLookup.UseVisualStyleBackColor = true;
+            this.btnLookup.Click += new System.EventHandler(this.btnLookup_Click);
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(94, 22);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 23);

@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace MetraTech.ExpressionEngine.MetraNet.MtProperty
 {
     [DataContract]
-    public class AccountViewProperty
+    public class AccountViewProperty : Property
     {
         #region Properties
 
@@ -25,5 +23,11 @@ namespace MetraTech.ExpressionEngine.MetraNet.MtProperty
         public bool HasCompositeIndex { get; set; }
 
         #endregion
+
+        #region Constructor
+        public AccountViewProperty(string name, MtType type, string description): base(name, type, description)
+        {    
         }
+        #endregion
+    }
 }

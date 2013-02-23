@@ -15,4 +15,7 @@ Support]]>
   <_ccExpressionContent>{Invoice.Payer.AccountManager.Email}</_ccExpressionContent>
   <_subjectExpressionContent>Late payment for invoice {Invoice.InvoiceNumber}</_subjectExpressionContent>
   <_toExpressionContent>{Invoice.Payer.Email}</_toExpressionContent>
+  <_fromExpressionContent>{Invoice.Payer.Organization.EmailFrom}</_fromExpressionContent>
+  <_fromDisplayExpressionContent>{Invoice.Payer.Organization.EmailFromDisplay}</_fromDisplayExpressionContent>
+  <_fromReplyExpressionContent>{Invoice.Payer.Organization.EmailFromReply}</_fromReplyExpressionContent>
 </EmailInstance>

@@ -1,4 +1,4 @@
-NM_NAME,NM_NAME_1,B_REQUIRED,N_PROP_TYPE,NM_SPACE,NM_ENUM,ListType,IsEntity,EntityDescription,PropertyDescription
+﻿NM_NAME,NM_NAME_1,B_REQUIRED,N_PROP_TYPE,NM_SPACE,NM_ENUM,ListType,IsEntity,EntityDescription,PropertyDescription
 metanga.com/Account,Address1,Y,String,,,None,True,"
             The Account objects represents a generic Metanga account that can receive charges,
             but cannot receive invoices or have balances associated with it.
@@ -1324,6 +1324,9 @@ metanga.com/Organization,ZipCode,Y,String,,,None,True,"
             ","
             Country's zip code. Is not required field.
             "
+metanga.com/Organization,EmailFrom,Y,String,,,None,True,,
+metanga.com/Organization,EmailFromDisplay,Y,String,,,None,True,,
+metanga.com/Organization,EmailFromReply,Y,String,,,None,True,,
 metanga.com/Package,AdvanceRecurringEvents,N,Boolean,,,None,True,"
             Packages are created to bundle together a group of products that are sold to customers.
             A package can include any number of products of many types. It is very common to

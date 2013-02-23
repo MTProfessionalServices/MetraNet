@@ -5,8 +5,9 @@ using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.MtProperty.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using MetraTech.ExpressionEngine.Entities;
 
-namespace MetraTech.ExpressionEngine
+namespace MetraTech.ExpressionEngine.MtProperty
 {
     /// <summary>
     /// General abstraction for properties spanning MetraNet(ProductViews, BMEs, etc.) and Metanga. There will be subclasses to

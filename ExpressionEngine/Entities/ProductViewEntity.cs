@@ -3,7 +3,7 @@ using MetraTech.ExpressionEngine.Database;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using System.Runtime.Serialization;
 
-namespace MetraTech.ExpressionEngine.MetraNet.MtProperty
+namespace MetraTech.ExpressionEngine.Entities
 {
     [DataContract]
     public class ProductViewEntity : MetraNetEntityBase

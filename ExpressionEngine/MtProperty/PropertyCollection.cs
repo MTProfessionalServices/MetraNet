@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.Entities;
 
-namespace MetraTech.ExpressionEngine
+namespace MetraTech.ExpressionEngine.MtProperty
 {
     /// <summary>
     /// TO DO:

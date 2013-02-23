@@ -1,4 +1,4 @@
-﻿namespace MetraTech.ExpressionEngine.MetraNet.Enumerations
+﻿namespace MetraTech.ExpressionEngine.MtProperty.Enumerations
 {
     public enum IndexType
     {

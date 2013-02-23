@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
-namespace MetraTech.ExpressionEngine
+namespace MetraTech.ExpressionEngine.Entities
 {
     public class EntityInfo
     {

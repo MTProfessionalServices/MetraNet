@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Collections.ObjectModel;
 using MetraTech.ExpressionEngine.MtProperty.Enumerations;
+using MetraTech.ExpressionEngine.MtProperty;
 
-namespace MetraTech.ExpressionEngine.Test
+namespace MetraTech.ExpressionEngine.UserTest
 {
     /// <summary>
     /// This is test for an expression which is configured and run by the end-user.

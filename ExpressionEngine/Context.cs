@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using MetraTech.ExpressionEngine.Entities;
+using MetraTech.ExpressionEngine.MtProperty;
 
 namespace MetraTech.ExpressionEngine
 {

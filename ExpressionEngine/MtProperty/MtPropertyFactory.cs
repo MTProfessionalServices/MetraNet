@@ -1,8 +1,7 @@
-﻿using System;
-using MetraTech.ExpressionEngine.TypeSystem;
+﻿using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
-namespace MetraTech.ExpressionEngine.MetraNet.MtProperty
+namespace MetraTech.ExpressionEngine.MtProperty
 {
     public static class MtPropertyFactory
     {

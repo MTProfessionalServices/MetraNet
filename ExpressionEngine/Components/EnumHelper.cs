@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using MetraTech.ExpressionEngine.TypeSystem;
 
-namespace MetraTech.ExpressionEngine
+namespace MetraTech.ExpressionEngine.Components
 {
     public static class EnumHelper
     {

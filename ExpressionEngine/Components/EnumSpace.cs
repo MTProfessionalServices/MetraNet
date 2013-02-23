@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Runtime.Serialization;
 
-namespace MetraTech.ExpressionEngine
+namespace MetraTech.ExpressionEngine.Components
 {
     [DataContract]
     public class EnumSpace : IExpressionEngineTreeNode

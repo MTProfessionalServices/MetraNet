@@ -3,8 +3,9 @@ using System.Runtime.Serialization;
 using System.IO;
 using System.Xml.Linq;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.MtProperty;
 
-namespace MetraTech.ExpressionEngine
+namespace MetraTech.ExpressionEngine.Components
 {
     [DataContract(Namespace = "MetraTech")]
     public class Function : IExpressionEngineTreeNode

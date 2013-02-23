@@ -4,6 +4,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Globalization;
 using MetraTech.ExpressionEngine.MtProperty.Enumerations;
+using MetraTech.ExpressionEngine.MtProperty;
 
 namespace MetraTech.ExpressionEngine
 {

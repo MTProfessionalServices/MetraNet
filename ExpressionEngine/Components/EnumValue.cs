@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.Components;
 
 namespace MetraTech.ExpressionEngine
 {

@@ -2,7 +2,7 @@
 using System.Globalization;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
-namespace MetraTech.ExpressionEngine
+namespace MetraTech.ExpressionEngine.Entities
 {
     public class EntityTypeInfo : IExpressionEngineTreeNode
     {

@@ -1,4 +1,4 @@
-﻿namespace MetraTech.ExpressionEngine
+﻿namespace MetraTech.ExpressionEngine.Components
 {
     /// <summary>
     /// A currency is basically a UoM that constantly changes... need to think through object model as it relates to UoMs...

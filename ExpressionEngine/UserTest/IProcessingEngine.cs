@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace MetraTech.ExpressionEngine.Test
+﻿namespace MetraTech.ExpressionEngine.UserTest
 {
     /// <summary>
     /// I have no idea what this shold look like yet, we just need it.

@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
-namespace MetraTech.ExpressionEngine.MetraNet.MtProperty
+namespace MetraTech.ExpressionEngine.Entities
 {
     [DataContract]
     public class AccountViewEntity : MetraNetEntityBase

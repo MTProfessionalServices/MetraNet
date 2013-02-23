@@ -2,12 +2,14 @@
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.MtProperty;
 using MetraTech.ExpressionEngine.MtProperty.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using System.IO;
 
-namespace MetraTech.ExpressionEngine
+namespace MetraTech.ExpressionEngine.Entities
 {
     /// <summary>
     /// Implements a ComplexType, esentially something that PropertyCollection which may include properties and
@@ -207,7 +209,7 @@ namespace MetraTech.ExpressionEngine
 
             using (var writer = new FileStream(file, FileMode.Create))
             {
-                var ser = new DataContractSerializer(typeof (Function));
+                var ser = new DataContractSerializer(typeof (Entity));
                 ser.WriteObject(writer, this);
             }
         }

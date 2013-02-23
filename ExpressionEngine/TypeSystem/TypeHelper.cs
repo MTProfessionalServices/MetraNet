@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Globalization;
+using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
 {

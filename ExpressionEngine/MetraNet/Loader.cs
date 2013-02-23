@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
-using MetraTech.ExpressionEngine.MetraNet.MtProperty;
+using MetraTech.ExpressionEngine.Entities;
+
 
 namespace MetraTech.ExpressionEngine.MetraNet
 {

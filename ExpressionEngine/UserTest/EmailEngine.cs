@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Net.Mail;
+using MetraTech.ExpressionEngine.MtProperty;
+using MetraTech.ExpressionEngine.Entities;
 
-namespace MetraTech.ExpressionEngine.Test
+namespace MetraTech.ExpressionEngine.UserTest
 {
     /// <summary>
     /// This is just a place holder for demo purposes

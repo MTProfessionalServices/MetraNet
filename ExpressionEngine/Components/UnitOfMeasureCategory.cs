@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Globalization;
 
-namespace MetraTech.ExpressionEngine
+namespace MetraTech.ExpressionEngine.Components
 {
     /// <summary>
     /// </summary>

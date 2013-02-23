@@ -1,6 +1,7 @@
 ﻿using System;
 using MetraTech.ExpressionEngine.MtProperty.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.MtProperty;
 
 namespace MetraTech.ExpressionEngine
 {

@@ -1,4 +1,4 @@
-﻿namespace MetraTech.ExpressionEngine
+﻿namespace MetraTech.ExpressionEngine.TypeSystem.Enumerations
 {
     //The underlying data type. DataTypeInfo
     public enum BaseType

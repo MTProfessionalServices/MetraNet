@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace MetraTech.ExpressionEngine
+namespace MetraTech.ExpressionEngine.Components
 {
     public class UnitOfMeasure : IExpressionEngineTreeNode
     {

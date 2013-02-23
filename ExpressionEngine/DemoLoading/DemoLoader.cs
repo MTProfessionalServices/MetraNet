@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
-using System.Data;
-using System.Text.RegularExpressions;
 using CsvHelper;
 using CsvHelper.Configuration;
 using Metanga.Miscellaneous.MetadataExport;
-using MetraTech.ExpressionEngine.MetraNet;
-using MetraTech.ExpressionEngine.MetraNet.MtProperty;
+using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using MetraTech.ExpressionEngine.Entities;
+using MetraTech.ExpressionEngine.MtProperty;
+
 
 namespace MetraTech.ExpressionEngine
 {

@@ -196,10 +196,16 @@ namespace MetraTech.ExpressionEngine
         }
 
 
-        public void Save(string dirPath)
+        public void Save(string file)
         {
-            var filePath = string.Format(@"{0}\{1}.xml", dirPath, Name);
-            using (var writer = new FileStream(filePath, FileMode.Create))
+            if (string.IsNullOrEmpty(file))
+                throw new ArgumentException("file not specified");
+
+            var dirInfo = new DirectoryInfo(Path.GetDirectoryName(file));
+            if (!dirInfo.Exists)
+                dirInfo.Create();
+
+            using (var writer = new FileStream(file, FileMode.Create))
             {
                 var ser = new DataContractSerializer(typeof (Function));
                 ser.WriteObject(writer, this);

@@ -1,8 +1,11 @@
 ﻿using System.Globalization;
+using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using System.Runtime.Serialization;
 
 namespace MetraTech.ExpressionEngine.MetraNet.MtProperty
 {
+    [DataContract]
     public abstract class MetraNetEntityBase : Entity
     {
         #region Properties
@@ -11,6 +14,7 @@ namespace MetraTech.ExpressionEngine.MetraNet.MtProperty
         /// The extension that the Entity is associated with
         /// </summary>
         public string Extension { get; set; }
+
         #endregion
 
         #region Constructor
@@ -20,10 +24,15 @@ namespace MetraTech.ExpressionEngine.MetraNet.MtProperty
         #endregion
 
         #region Methods
+        public string GetFileNameGivenExtensionsDirectory(string extensionsDir)
+        {
+            return string.Format(CultureInfo.InvariantCulture, @"{0}\{1}\Config\{2}s\{3}.xml", extensionsDir, Extension, ((VectorType)Type).ComplexType, Name);
+        }
+
         public void SaveInExtensionsDirectory(string extensionsDir)
         {
-            var dirPath = string.Format(CultureInfo.InvariantCulture, @"{0}\Config\{1}s", extensionsDir, VectorType);
-            Save(dirPath);
+            var file = GetFileNameGivenExtensionsDirectory(extensionsDir);
+            Save(file);
         }
         #endregion
     }

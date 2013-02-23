@@ -10,6 +10,7 @@ using MetraTech.ExpressionEngine;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Xml;
+using MetraTech.ExpressionEngine.MetraNet.MtProperty;
 
 namespace PropertyGui
 {
@@ -148,6 +149,13 @@ namespace PropertyGui
 
         private void button1_Click(object sender, EventArgs e)
         {
+            var entity = EntityFactory.CreateProductViewEntity("Foo", null);
+            entity.Extension = "Core";
+            var file = entity.GetFileNameGivenExtensionsDirectory(@"C:\Temp\Extensions");
+
+            entity.Save(file);
+            return;
+
             var template = new EmailTemplate();
             template.Name = "Invoice Notice";
             template.Description = "Sent to customer when an invoice is generated.";

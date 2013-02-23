@@ -59,6 +59,7 @@
     <Compile Include="EnumValueTest.cs" />
     <Compile Include="ExpressionTest.cs" />
     <Compile Include="FunctionTest.cs" />
+    <Compile Include="Entity\MetraNetEntityBaseTest.cs" />
     <Compile Include="TypeSystem\NumberTypeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeSystem\StringTypeTest.cs" />

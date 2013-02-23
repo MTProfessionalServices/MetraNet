@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Globalization;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.MetraNet.MtProperty
@@ -23,10 +20,10 @@ namespace MetraTech.ExpressionEngine.MetraNet.MtProperty
         #endregion
 
         #region Methods
-        public void SaveToExtensionPath(string extensionPath)
+        public void SaveInExtensionsDirectory(string extensionsDir)
         {
-          
-
+            var dirPath = string.Format(CultureInfo.InvariantCulture, @"{0}\Config\{1}s", extensionsDir, VectorType);
+            Save(dirPath);
         }
         #endregion
     }

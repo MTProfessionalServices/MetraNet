@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.MtProperty.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using System.IO;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -194,12 +195,15 @@ namespace MetraTech.ExpressionEngine
             return messages;
         }
 
-        #endregion
 
-        #region Create Methods
-        public static Entity CreateProductView(string name, string description)
+        public void Save(string dirPath)
         {
-            return new Entity(name, ComplexType.ProductView, null, true, description);
+            var filePath = string.Format(@"{0}\{1}.xml", dirPath, Name);
+            using (var writer = new FileStream(filePath, FileMode.Create))
+            {
+                var ser = new DataContractSerializer(typeof (Function));
+                ser.WriteObject(writer, this);
+            }
         }
         #endregion
     }

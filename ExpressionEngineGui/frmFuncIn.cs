@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
+using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using MetraTech.ExpressionEngine.MtProperty;
 
 namespace PropertyGui
 {

@@ -32,6 +32,7 @@
             this.cboEvent = new System.Windows.Forms.ComboBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.ctlProperties = new PropertyGui.ctlPropertyCollectionBinder();
+            this.btnTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -80,11 +81,22 @@
             this.ctlProperties.Size = new System.Drawing.Size(671, 271);
             this.ctlProperties.TabIndex = 3;
             // 
+            // btnTest
+            // 
+            this.btnTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTest.Location = new System.Drawing.Point(531, 352);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(75, 23);
+            this.btnTest.TabIndex = 4;
+            this.btnTest.Text = "Test";
+            this.btnTest.UseVisualStyleBackColor = true;
+            // 
             // frmSendEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(710, 387);
+            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.ctlProperties);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.cboEvent);
@@ -102,5 +114,6 @@
         private System.Windows.Forms.ComboBox cboEvent;
         private System.Windows.Forms.Button btnSend;
         private ctlPropertyCollectionBinder ctlProperties;
+        private System.Windows.Forms.Button btnTest;
     }
 }

@@ -4,6 +4,9 @@ using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using System.IO;
 using System.Drawing;
+using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.Entities;
+using MetraTech.ExpressionEngine.MtProperty;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 

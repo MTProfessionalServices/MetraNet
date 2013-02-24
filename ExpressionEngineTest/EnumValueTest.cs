@@ -1,4 +1,5 @@
 ﻿using MetraTech.ExpressionEngine;
+using MetraTech.ExpressionEngine.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 

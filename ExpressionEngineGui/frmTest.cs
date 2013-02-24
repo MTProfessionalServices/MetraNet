@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
-using MetraTech.ExpressionEngine.Test;
+using MetraTech.ExpressionEngine.UserTest;
 
 namespace PropertyGui
 {

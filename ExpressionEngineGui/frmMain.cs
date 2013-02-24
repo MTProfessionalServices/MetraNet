@@ -10,7 +10,8 @@ using MetraTech.ExpressionEngine;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Xml;
-using MetraTech.ExpressionEngine.MetraNet.MtProperty;
+using MetraTech.ExpressionEngine.Entities;
+using MetraTech.ExpressionEngine.Components;
 
 namespace PropertyGui
 {

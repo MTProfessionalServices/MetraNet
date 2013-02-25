@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Components;
@@ -22,15 +23,22 @@ namespace MetraTech.ExpressionEngine
         public string Name { get; set; }
 
         /// <summary>
-        /// MetraNet enums are repreesnted by an ID that will vary by installation
+        /// Aliased values when integrating with an external system. Used by MetraNet for metering usage data
         /// </summary>
-        public int Id { get; set; }
+        [DataMember]
+        public Collection<string> Aliases { get; private set; }
 
         /// <summary>
         /// The description of the value. TODO: Localize
         /// </summary>
         [DataMember]
         public string Description { get; set; }
+
+        /// <summary>
+        /// MetraNet enums are repreesnted by an ID that will vary by installation
+        /// </summary>
+        public int Id { get; set; }
+
         #endregion
 
         #region GUI Support Properties (should be moved)
@@ -65,6 +73,8 @@ namespace MetraTech.ExpressionEngine
             EnumType = parent;
             Name = value;
             Id = id;
+
+            Aliases = new Collection<string>();
         }
         #endregion
 
@@ -74,7 +84,7 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public string ToMtsql()
         {
-            return string.Format(CultureInfo.InvariantCulture, "#{0}/{1}/{2}#", EnumType.EnumSpace.Name, EnumType.Name, Name);
+            return string.Format(CultureInfo.InvariantCulture, "#{0}/{1}/{2}#", EnumType.EnumNamespace.Name, EnumType.Name, Name);
         }
 
         /// <summary>
@@ -86,7 +96,7 @@ namespace MetraTech.ExpressionEngine
             {
                 if (UserSettings.NewSyntax)
                 {
-                    var enumSpace = EnumType.EnumSpace.Name.Replace('.', '_');
+                    var enumSpace = EnumType.EnumNamespace.Name.Replace('.', '_');
                     return string.Format(CultureInfo.InvariantCulture, "ENUM.{0}.{1}.{2}", enumSpace, EnumType.Name, Name);
                 }
                 return ToMtsql();

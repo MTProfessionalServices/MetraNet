@@ -7,6 +7,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     /// <summary>
     /// The root class for all types
     /// </summary>
+    [DataContract]
     public class MtType
     {
         #region Properties
@@ -163,8 +164,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         public bool CanBeImplicitlyCastTo(MtType target)
         {
-            throw new NotImplementedException();
-           // return Type.IsImplicitCast(this, target);
+            return IsImplicitCast(this, target);
         }
 
         public static bool IsImplicitCast(MtType start, MtType end)

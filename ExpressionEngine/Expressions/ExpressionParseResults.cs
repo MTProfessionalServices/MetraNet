@@ -1,9 +1,9 @@
 ﻿using System;
-using MetraTech.ExpressionEngine.MtProperty.Enumerations;
+using MetraTech.ExpressionEngine.MTProperty.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
-using MetraTech.ExpressionEngine.MtProperty;
+using MetraTech.ExpressionEngine.MTProperty;
 
-namespace MetraTech.ExpressionEngine
+namespace MetraTech.ExpressionEngine.Expressions
 {
     public class ExpressionParseResults
     {

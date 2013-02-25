@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Xml;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Globalization;
-using MetraTech.ExpressionEngine.MtProperty.Enumerations;
-using MetraTech.ExpressionEngine.MtProperty;
+using MetraTech.ExpressionEngine.Expressions;
+using MetraTech.ExpressionEngine.MTProperty.Enumerations;
+using MetraTech.ExpressionEngine.MTProperty;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -18,7 +20,7 @@ namespace MetraTech.ExpressionEngine
     {
         #region Constants
         public const string ToPropertyName = "To";
-        public const string CcPropertyName = "Cc";
+        public const string CCPropertyName = "Cc";
         public const string SubjectPropertyName = "Subject";
         public const string BodyPropertyName = "Body";
         #endregion
@@ -46,10 +48,10 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// Who, if anyone, will recieve a carbon copy
         /// </summary>
-        public Expression CcExpression { get { if (!_isInitalized) Initalize(); return _ccExpression; } }
+        public Expression CCExpression { get { if (!_isInitalized) Initalize(); return _ccExpression; } }
         private Expression _ccExpression;
         [DataMember]
-        private string _ccExpressionContent { get { return CcExpression.Content; } set { CcExpression.Content = value; } }
+        private string _ccExpressionContent { get { return CCExpression.Content; } set { CCExpression.Content = value; } }
 
         /// <summary>
         /// The email's subject
@@ -112,11 +114,11 @@ namespace MetraTech.ExpressionEngine
             }
         }
 
-        public List<Expression> GetExpressions()
+        public Collection<Expression> GetExpressions()
         {
-            var expressions = new List<Expression>();
+            var expressions = new Collection<Expression>();
             expressions.Add(ToExpression);
-            expressions.Add(CcExpression);
+            expressions.Add(CCExpression);
             expressions.Add(SubjectExpression);
             expressions.Add(BodyExpression);
             return expressions;
@@ -143,7 +145,7 @@ namespace MetraTech.ExpressionEngine
 
             //Hardcode the outputs
             AddOutput(summaryResult.Parameters, ToPropertyName);
-            AddOutput(summaryResult.Parameters, CcPropertyName);
+            AddOutput(summaryResult.Parameters, CCPropertyName);
             AddOutput(summaryResult.Parameters, SubjectPropertyName);
             AddOutput(summaryResult.Parameters, BodyPropertyName);
 
@@ -160,7 +162,7 @@ namespace MetraTech.ExpressionEngine
         private void AddOutput(PropertyCollection properties, string name)
         {
             var description = string.Format(CultureInfo.InvariantCulture, "The email's {0} field.", name);
-            var property = Property.CreateString(name, description, 0);
+            var property = Property.CreateString(name, true, description, 0);
             property.Direction = DirectionType.Output;
             properties.Add(property);
         }
@@ -168,13 +170,11 @@ namespace MetraTech.ExpressionEngine
         public static EmailInstance CreateFromFile(string file)
         {
             using (var fs = new FileStream(file, FileMode.Open))
+            using (var reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas()))
             {
-                using (var reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas()))
-                {
-                    var ser = new DataContractSerializer(typeof(EmailInstance));
-                    var instance = (EmailInstance)ser.ReadObject(reader, true);
-                    return instance;
-                }
+                var ser = new DataContractSerializer(typeof(EmailInstance));
+                var instance = (EmailInstance)ser.ReadObject(reader, true);
+                return instance;
             }
         }
 

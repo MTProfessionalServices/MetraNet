@@ -1,8 +1,8 @@
-﻿using MetraTech.ExpressionEngine.MtProperty.Enumerations;
+﻿using MetraTech.ExpressionEngine.MTProperty.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.Entities;
 
-namespace MetraTech.ExpressionEngine.MtProperty
+namespace MetraTech.ExpressionEngine.MTProperty
 {
     /// <summary>
     /// I'm wondering is we should use a base class instead???

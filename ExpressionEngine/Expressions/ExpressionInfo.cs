@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
-namespace MetraTech.ExpressionEngine
+namespace MetraTech.ExpressionEngine.Expressions
 {
     public class ExpressionInfo
     {
@@ -20,11 +20,11 @@ namespace MetraTech.ExpressionEngine
         static ExpressionInfo()
         {
             //Aqg
-            var info = AddInfo(ExpressionType.AQG, ComplexType.AccountView);
+            var info = AddInfo(ExpressionType.Aqg, ComplexType.AccountView);
             info.SupportsAqgs = true;
             
-            //UQG
-            info = AddInfo(ExpressionType.UQG, ComplexType.ProductView);
+            //Uqg
+            info = AddInfo(ExpressionType.Uqg, ComplexType.ProductView);
             info.SupportsUqgs = true;
 
             //Message

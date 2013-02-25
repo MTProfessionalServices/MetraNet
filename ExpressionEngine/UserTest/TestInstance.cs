@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Collections.ObjectModel;
-using MetraTech.ExpressionEngine.MtProperty.Enumerations;
-using MetraTech.ExpressionEngine.MtProperty;
+using MetraTech.ExpressionEngine.MTProperty.Enumerations;
+using MetraTech.ExpressionEngine.MTProperty;
 
 namespace MetraTech.ExpressionEngine.UserTest
 {
@@ -74,7 +74,7 @@ namespace MetraTech.ExpressionEngine.UserTest
                         Outputs.Add(new KeyValuePair<string, string>(prop.Name, prop.Value));
                         break;
                     default:
-                        throw new NotImplementedException("InOut is not supported yet");
+                        throw new NotImplementedException("InputOutput is not supported yet");
                 }
             }
         }

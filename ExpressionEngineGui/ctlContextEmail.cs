@@ -36,7 +36,7 @@ namespace PropertyGui
             ctlBody.Init(Context, null);
 
             ctlTo.Text = emailInstance.ToExpression.Content;
-            ctlCc.Text = emailInstance.CcExpression.Content;
+            ctlCc.Text = emailInstance.CCExpression.Content;
             ctlSubject.Text = emailInstance.SubjectExpression.Content;
             ctlBody.Text = emailInstance.BodyExpression.Content;
 
@@ -46,7 +46,7 @@ namespace PropertyGui
         public void SyncToObject()
         {
             EmailInstance.ToExpression.Content = ctlTo.Text;
-            EmailInstance.CcExpression.Content = ctlCc.Text;
+            EmailInstance.CCExpression.Content = ctlCc.Text;
             EmailInstance.SubjectExpression.Content = ctlSubject.Text;
             EmailInstance.BodyExpression.Content = ctlBody.Text;
         }

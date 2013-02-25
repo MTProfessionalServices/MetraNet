@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.IO;
 using System.Runtime.Serialization;
 
 namespace MetraTech.ExpressionEngine.Components
-{
-    [DataContract]
-    public class EnumSpace : IExpressionEngineTreeNode
+{ 
+    [DataContract]//  (Namespace = "MetraTech")]
+    public class EnumNamespace : IExpressionEngineTreeNode
     {
         #region Properties
         /// <summary>
@@ -25,21 +26,27 @@ namespace MetraTech.ExpressionEngine.Components
         /// The data enumerated typs
         /// </summary>
         [DataMember]
-        public Collection<EnumCategory> EnumTypes { get; private set; }
+        public Collection<EnumCategory> Categories { get; private set; }
+
+        /// <summary>
+        /// The Extension that defined the EnumNamespace
+        /// </summary>
+        public string Extension { get; set; }
+
         #endregion
 
         #region GUI Helper Properties (move in future)
         public string TreeNodeLabel { get { return Name; } }
         public string ToolTip { get { return Description; } }
-        public string Image { get { return "EnumSpace.png"; } }
+        public string Image { get { return "EnumNamespace.png"; } }
         #endregion
 
         #region Constructor
-        public EnumSpace(string name, string description)
+        public EnumNamespace(string name, string description)
         {
             Name = name;
             Description = description;
-            EnumTypes =  new Collection<EnumCategory>();
+            Categories =  new Collection<EnumCategory>();
         }
         #endregion
 
@@ -48,7 +55,7 @@ namespace MetraTech.ExpressionEngine.Components
         public EnumCategory AddType(string name, int id, string description)
         {
             var type = new EnumCategory(this, name, id, description);
-            EnumTypes.Add(type);
+            Categories.Add(type);
             return type;
         }
         public string ToExpressionSnippet
@@ -62,7 +69,7 @@ namespace MetraTech.ExpressionEngine.Components
 
         public bool TryGetEnumType(string name, out EnumCategory type)
         {
-            foreach (var _type in EnumTypes)
+            foreach (var _type in Categories)
             {
                 if (_type.Name.Equals(name, StringComparison.Ordinal))
                 {
@@ -80,10 +87,10 @@ namespace MetraTech.ExpressionEngine.Components
             if (context == null)
                 throw new ArgumentNullException("context");
 
-            EnumSpace space;
-            if (!context.EnumSpaces.TryGetValue(enumSpace, out space))
+            EnumNamespace space;
+            if (!context.EnumNamespaces.TryGetValue(enumSpace, out space))
             {
-                space = new EnumSpace(enumSpace, null);
+                space = new EnumNamespace(enumSpace, null);
                 context.AddEnum(space);
             }
 
@@ -91,12 +98,34 @@ namespace MetraTech.ExpressionEngine.Components
             if (!space.TryGetEnumType(enumType, out type))
             {
                 type = new EnumCategory(space, enumType, enumTypeId, null);
-                space.EnumTypes.Add(type);
+                space.Categories.Add(type);
             }
 
             var enumValueObj = type.AddValue(enumValue, enumValueId);
             return enumValueObj;
         }
+
+        public void SaveInExtension(string extensionsDir)
+        {
+            var dirPath = Helper.GetMetraNetConfigPath(extensionsDir, Extension, "Enumerations");
+            Save(dirPath);
+        }
+        public void Save(string dirPath)
+        {
+            Helper.EnsureDirectoryExits(dirPath);
+            var file = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.xml", dirPath, Name);
+            using (var writer = new FileStream(file, FileMode.Create))
+            {
+                var ser = new DataContractSerializer(typeof(Function));
+                ser.WriteObject(writer, this);
+            }
+
+            foreach (var category in Categories)
+            {
+                category.Save(dirPath);
+            }
+        }
+
         #endregion
     }
 }

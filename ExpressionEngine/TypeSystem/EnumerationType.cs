@@ -57,19 +57,19 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             if (messages == null)
                 throw new ArgumentNullException("messages");
 
-            //Check if the EnumSpace was specified
+            //Check if the EnumNamespace was specified
             if (string.IsNullOrEmpty(Namespace))
             {
                 messages.Error(Localization.EnumNamespaceNotSpecified);
                 return;
             }
 
-            //Check if the NameSpace exists
-            if (!EnumHelper.NamespaceExists(Namespace))
-            {
-                messages.Error(string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumNamespace, Namespace));
-                return;
-            }
+            ////Check if the NameSpace exists
+            //if (!Context.NamespaceExists(EnumNamespace))
+            //{
+            //    messages.Error(string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumNamespace, EnumNamespace));
+            //    return;
+            //}
 
             //Check if the Category was specified
             if (string.IsNullOrEmpty(Category))
@@ -79,10 +79,10 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             }
 
             //Check if the Cateegory exists
-            if (!EnumHelper.TypeExists(Namespace, Category))
-            {
-                messages.Error(string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumType, Namespace + "." + Category));
-            };
+            //if (!Context.TypeExists(EnumNamespace, Category))
+            //{
+            //    messages.Error(string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumType, EnumNamespace + "." + Category));
+            //}
         }
 
         public new EnumerationType Copy()

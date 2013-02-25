@@ -2,6 +2,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using System.IO;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -26,40 +27,6 @@ namespace MetraTech.ExpressionEngine
             return (number % 2 == 0);
         }
 
-        public static bool? ParseBool(string value)
-        {
-            if (string.IsNullOrEmpty(value))
-                return null;
-
-            value = value.ToLower(CultureInfo.InvariantCulture);
-
-            if (value.Equals("f") || value.Equals("false") || value.Equals("0") || value.Equals("no") || value.Equals("n"))
-                return false;
-            if (value.Equals("t") || value.Equals("true") || value.Equals("1") || value.Equals("yes") || value.Equals("y"))
-                return true;
-
-            return null;
-        }
-
-
-        //
-        //Convert the MANY variants of boolean strings in the metadata to bool
-        //
-        public static bool GetBoolean(string value)
-        {
-            if (value == null)
-                throw new ArgumentNullException("value");
-
-            value = value.ToUpper(CultureInfo.InvariantCulture);
-
-            if (value == "Y" || value == "YES" || value == "T" || value == "TRUE" || value == "1")
-                return true;
-            if (value == "N" || value == "NO" || value == "F" || value == "FALSE" || value == "0")
-                return false;
-            if (string.IsNullOrEmpty(value))
-                throw new ArgumentException("A boolean value must be specified");
-            throw new ArgumentException("Invalid boolean string [" + value + "]");
-        }
 
         //
         //Returns a random string of the specified length
@@ -81,6 +48,24 @@ namespace MetraTech.ExpressionEngine
             if (lowercase)
                 return builder.ToString().ToLower(CultureInfo.InvariantCulture);
             return builder.ToString();
+        }
+
+        public static string GetMetraNetConfigPath(string extensionsDir, string extension, string elementDirName)
+        {
+            return string.Format(CultureInfo.InvariantCulture, @"{0}\{1}\Config\{2}", extensionsDir, extension, elementDirName);
+        }
+        public static DirectoryInfo GetMetraNetConfigPathAndEnsureExists(string extensionsDir, string extension, string elementDirName)
+        {
+            var dirPath = GetMetraNetConfigPath(extensionsDir, extension, elementDirName);
+            return EnsureDirectoryExits(dirPath);
+        }
+
+        public static DirectoryInfo EnsureDirectoryExits(string dirPath)
+        {
+            var dirInfo = new DirectoryInfo(dirPath);
+            if (!dirInfo.Exists)
+                dirInfo.Create();
+            return dirInfo;
         }
 
     }

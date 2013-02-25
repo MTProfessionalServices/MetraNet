@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using CsvHelper;
 using CsvHelper.Configuration;
 using Metanga.Miscellaneous.MetadataExport;
 using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.Expressions;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Entities;
-using MetraTech.ExpressionEngine.MtProperty;
+using MetraTech.ExpressionEngine.MTProperty;
 
 
 namespace MetraTech.ExpressionEngine
@@ -18,7 +20,7 @@ namespace MetraTech.ExpressionEngine
     public static class DemoLoader
     {
         #region Properties
-        public static string DirPath = @"C:\ExpressionEngine";
+        public const string DirPath = @"C:\ExpressionEngine";
         public static string TopLevelDataDir = Path.Combine(DirPath, "Data");
         private static string DataPath;
         public static Context GlobalContext;
@@ -32,14 +34,14 @@ namespace MetraTech.ExpressionEngine
 
             if (Context.ProductType == ProductType.MetraNet)
             {
-                GlobalContext.AddEntity(DemoLoader.GetCloudComputeProductView());
+                AddCloudComputeProductView();
                 GlobalContext.AddEntity(DemoLoader.GetCorporateAccountType());
-                GlobalContext.AddEntity(DemoLoader.GetAircraftLandingProductView());
+                AddAircraftLandingProductView();
                 LoadEntities(GlobalContext, ComplexType.ProductView, Path.Combine(DataPath, "ProductViews.csv"));
                 LoadEntities(GlobalContext, ComplexType.AccountView, Path.Combine(DataPath, "AccountViews.csv"));
                 LoadEntities(GlobalContext, ComplexType.ServiceDefinition, Path.Combine(DataPath, "ServiceDefinitions.csv"));
-                LoadXqg(GlobalContext, ExpressionType.AQG, Path.Combine(DataPath, "AqgExpressions.csv"));
-                LoadXqg(GlobalContext, ExpressionType.UQG, Path.Combine(DataPath, "UqgExpressions.csv"));
+                LoadXqg(GlobalContext, ExpressionType.Aqg, Path.Combine(DataPath, "AqgExpressions.csv"));
+                LoadXqg(GlobalContext, ExpressionType.Uqg, Path.Combine(DataPath, "UqgExpressions.csv"));
             }
             else
             {
@@ -56,14 +58,14 @@ namespace MetraTech.ExpressionEngine
             uomCategory.AddUnitOfMeasure("Gb", false);
             uomCategory.AddUnitOfMeasure("Mb", false);
             uomCategory.AddUnitOfMeasure("kb", false);
-            GlobalContext.UoMs.Add(uomCategory.Name, uomCategory);
+            GlobalContext.UnitOfMeasures.Add(uomCategory.Name, uomCategory);
 
             uomCategory = new UnitOfMeasureCategory("Time");
             uomCategory.AddUnitOfMeasure("Millisecond", false);
             uomCategory.AddUnitOfMeasure("Second", false);
             uomCategory.AddUnitOfMeasure("Minute", false);
             uomCategory.AddUnitOfMeasure("Hour", false);
-            GlobalContext.UoMs.Add(uomCategory.Name, uomCategory);
+            GlobalContext.UnitOfMeasures.Add(uomCategory.Name, uomCategory);
         }
 
         #endregion
@@ -84,7 +86,7 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Manual Entities
-        public static ProductViewEntity GetCloudComputeProductView()
+        public static void AddCloudComputeProductView()
         {
             var entity = EntityFactory.CreateProductViewEntity("CloudCompute", "Models an cloud compute usage even");
 
@@ -123,10 +125,10 @@ namespace MetraTech.ExpressionEngine
 
             property = pv.AddString("ScalingMetricUom", "The UoM for the the ScalingMetric", true);
 
-            return entity;
+            GlobalContext.AddEntity(entity);
         }
 
-        public static ProductViewEntity GetAircraftLandingProductView()
+        public static void AddAircraftLandingProductView()
         {
             var entity = EntityFactory.CreateProductViewEntity("AircraftLanding", "Models an cloud compute usage even");
 
@@ -137,7 +139,7 @@ namespace MetraTech.ExpressionEngine
             pv.AddInteger32("NumTransferPassengers", "The Weight of the aircraft in tons", true);
             pv.AddInteger32("NumCrew", "The Weight of the aircraft in tons", true);
 
-            return entity;
+            GlobalContext.AddEntity(entity);
         }
 
 
@@ -162,7 +164,7 @@ namespace MetraTech.ExpressionEngine
         public static void LoadEntities(Context context, ComplexType entityType, string filePath)
         {
             if (context == null)
-                throw new NullReferenceException("context");
+                throw new ArgumentException("context");
 
             var entityList = ReadRecordsFromCsv<EntityRecord>(filePath);
             foreach (var entityRecord in entityList)
@@ -171,7 +173,7 @@ namespace MetraTech.ExpressionEngine
                 //var entityNamespace = entityParts[0];
                 var entityName = entityParts[1];
                 var propName = entityRecord.PropertyName;
-                var required = Helper.GetBoolean(entityRecord.IsRequired);
+                var required = TypeHelper.GetBoolean(entityRecord.IsRequired);
                 var typeStr = entityRecord.PropertyType;
                 var enumSpace = entityRecord.Namespace;
                 var enumType = entityRecord.EnumType;
@@ -222,7 +224,7 @@ namespace MetraTech.ExpressionEngine
                     dtInfo.ListType = (ListType)Enum.Parse(typeof(ListType), entityRecord.ListType, true);
                 }
 
-                var property = new Property(propName, dtInfo, propertyDescription);
+                var property = new Property(propName, dtInfo, true, propertyDescription);
                 property.Required = required;
                 entity.Properties.Add(property);
             }
@@ -245,7 +247,7 @@ namespace MetraTech.ExpressionEngine
                 }
                 catch (CsvReaderException e)
                 {
-                    throw new Exception(string.Format("Error loading {0} line {1} [{2}]", filePath, e.Row, e.Message), e);
+                    throw new Exception(string.Format(CultureInfo.CurrentCulture, "Error loading {0} line {1} [{2}]", filePath, e.Row, e.Message), e);
                 }
             }
         }
@@ -282,14 +284,14 @@ namespace MetraTech.ExpressionEngine
 
                 var enumParts = spaceAndType.Split('/');
 
-                //Namespace?
+                //EnumNamespace?
                 if (enumParts.Length == 1)
                     continue;
 
                 var enumType = enumParts[enumParts.Length - 1];
                 var enumNamespace = spaceAndType.Substring(0, spaceAndType.Length - enumType.Length - 1); //account for one slash
 
-                var enumValueObj = EnumSpace.AddEnum(context, enumNamespace, enumType, -1, enumValue, id);
+                var enumValueObj = EnumNamespace.AddEnum(context, enumNamespace, enumType, -1, enumValue, id);
                 enumValueObj.Description = propertyDescription;
                 enumValueObj.EnumType.Description = entityDescription;
             }
@@ -313,13 +315,13 @@ namespace MetraTech.ExpressionEngine
                 var description = string.Empty;
                 switch (type)
                 {
-                    case ExpressionType.AQG:
+                    case ExpressionType.Aqg:
                         var aqg = new Aqg(name, description, expression);
-                        context.AQGs.Add(aqg.Name, aqg);
+                        context.Aqgs.Add(aqg.Name, aqg);
                         break;
-                    case ExpressionType.UQG:
-                        var uqg = new UQG(name, description, expression);
-                        context.UQGs.Add(uqg.Name, uqg);
+                    case ExpressionType.Uqg:
+                        var uqg = new Uqg(name, description, expression);
+                        context.Uqgs.Add(uqg.Name, uqg);
                         break;
                     default:
                         throw new NotImplementedException();
@@ -345,6 +347,9 @@ namespace MetraTech.ExpressionEngine
         }
         public static void LoadEmailTemplates(Context context, string dirPath)
         {
+            if (context == null)
+                throw new ArgumentNullException("context");
+
             var dirInfo = new DirectoryInfo(dirPath);
             if (!dirInfo.Exists)
                 return;

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System.IO;
 using System.Xml.Linq;
 using MetraTech.ExpressionEngine.TypeSystem;
-using MetraTech.ExpressionEngine.MtProperty;
+using MetraTech.ExpressionEngine.MTProperty;
 
 namespace MetraTech.ExpressionEngine.Components
 {
@@ -103,11 +103,16 @@ namespace MetraTech.ExpressionEngine.Components
         //}
         public void Save(string dirPath)
         {
-            var filePath = string.Format(@"{0}\{1}.xml", dirPath, Name);
-            var writer = new FileStream(filePath, FileMode.Create);
-            var ser = new DataContractSerializer(typeof(Function));
-            ser.WriteObject(writer, this);
-            writer.Close();
+            var dirInfo = new DirectoryInfo(dirPath);
+            if (!dirInfo.Exists)
+                dirInfo.Create();
+
+            var filePath = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.xml", dirPath, Name);
+            using (var writer = new FileStream(filePath, FileMode.Create))
+            {
+                var ser = new DataContractSerializer(typeof (Function));
+                ser.WriteObject(writer, this);
+            }
         }
 
         //public static Function CreateFromFile(string file)

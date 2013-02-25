@@ -18,7 +18,7 @@ namespace MetraTech.ExpressionEngine.Entities
         #endregion
 
         #region Constructor
-        public MetraNetEntityBase(string name, ComplexType complexType, string description) : base(name, complexType, null, true, description)
+        protected MetraNetEntityBase(string name, ComplexType complexType, string description) : base(name, complexType, null, true, description)
         {
         }
         #endregion
@@ -26,8 +26,8 @@ namespace MetraTech.ExpressionEngine.Entities
         #region Methods
         public string GetFileNameGivenExtensionsDirectory(string extensionsDir)
         {
-            return string.Format(CultureInfo.InvariantCulture, @"{0}\{1}\Config\{2}s\{3}.xml", extensionsDir, Extension, ((VectorType)Type).ComplexType, Name);
-        }
+            return Helper.GetMetraNetConfigPath(extensionsDir, Extension, ((VectorType) Type).ComplexType + "s");
+         }
 
         public void SaveInExtensionsDirectory(string extensionsDir)
         {

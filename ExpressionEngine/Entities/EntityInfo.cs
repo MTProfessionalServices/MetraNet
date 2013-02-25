@@ -10,7 +10,7 @@ namespace MetraTech.ExpressionEngine.Entities
         #endregion
 
         #region Constructor
-        public EntityInfo()
+        private EntityInfo()
         {
         }
         #endregion

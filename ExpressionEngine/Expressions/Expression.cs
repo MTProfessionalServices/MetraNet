@@ -1,12 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Xml;
 using System.Runtime.Serialization;
 using System.IO;
 using System.Text.RegularExpressions;
-using MetraTech.ExpressionEngine.MtProperty.Enumerations;
-using MetraTech.ExpressionEngine.MtProperty;
+using MetraTech.ExpressionEngine.MTProperty.Enumerations;
+using MetraTech.ExpressionEngine.MTProperty;
 
-namespace MetraTech.ExpressionEngine
+[assembly: CLSCompliant(true)]
+namespace MetraTech.ExpressionEngine.Expressions
 {
     /// <summary>
     /// This is a place holder. Need to think through. We probably will want expression templates.
@@ -14,11 +18,6 @@ namespace MetraTech.ExpressionEngine
     [DataContract]
     public class Expression
     {
-        #region Static Properties
-        public static readonly string[] EqualityOperators = new [] { "==", "eq" };
-        public static readonly string[] InequalityOperators = new [] { "!=", "nq" };
-        #endregion
-
         #region Properties
 
         [DataMember]
@@ -65,7 +64,7 @@ namespace MetraTech.ExpressionEngine
             Content = contents;
             Name = name;
             EntityParameters = new List<string>();
-            DeclaredReturnType = Property.CreateBoolean("ReturnValue", "The value the expression returns.");
+            DeclaredReturnType = Property.CreateBoolean("ReturnValue", true, "The value the expression returns.");
         }
         #endregion
 
@@ -91,7 +90,7 @@ namespace MetraTech.ExpressionEngine
                         var paramName = capture.Value.Substring(1, capture.Value.Length-2);
                         if (results.Parameters.Get(paramName) == null)
                         {
-                            var property = Property.CreateUnknown(paramName, null);
+                            var property = Property.CreateUnknown(paramName, false, null);
                             results.Parameters.Add(property);
                         }
                     }
@@ -101,23 +100,23 @@ namespace MetraTech.ExpressionEngine
             }
 
             //HACK -- since we aren't integrated with MVM parse engine, simulate some stuff!
-            var prop = Property.CreateInteger32("USAGE.Hours", null);
+            var prop = Property.CreateInteger32("USAGE.Hours", true, null);
             prop.Direction = DirectionType.InOut;
             results.Parameters.Add(prop);
 
-            prop = Property.CreateInteger32("USAGE.CpuCount", null);
+            prop = Property.CreateInteger32("USAGE.CpuCount", true, null);
             prop.Direction = DirectionType.Input;
             results.Parameters.Add(prop);
 
-            prop = Property.CreateInteger32("USAGE.Snapshots", null);
+            prop = Property.CreateInteger32("USAGE.Snapshots", true, null);
             prop.Direction = DirectionType.Input;
             results.Parameters.Add(prop);
 
-            prop = Property.CreateInteger32("USAGE.Amount", null);
+            prop = Property.CreateInteger32("USAGE.Amount", true, null);
             prop.Direction = DirectionType.Input;
             results.Parameters.Add(prop);
 
-            prop = Property.CreateBoolean("<Result>", "The result of the boolean expression");
+            prop = Property.CreateBoolean("<Result>", true, "The result of the boolean expression");
             prop.Direction = DirectionType.Output;
             results.Parameters.Add(prop);
             return results;
@@ -144,7 +143,7 @@ namespace MetraTech.ExpressionEngine
 
         public void Save(string dirPath)
         {
-            var filePath = string.Format(@"{0}\{1}.xml", dirPath, Name);
+            var filePath = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.xml", dirPath, Name);
             using (var writer = new FileStream(filePath, FileMode.Create))
             {
                 var ser = new DataContractSerializer(typeof (Expression));
@@ -160,8 +159,8 @@ namespace MetraTech.ExpressionEngine
     }
 
     public enum ExpressionType { 
-        AQG,
-        UQG,
+        Aqg,
+        Uqg,
         Logic,
         Email,
         Message ///Merging of localized text (e.g., email templates, sms messages, etc.)

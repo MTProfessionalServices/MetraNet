@@ -10,7 +10,7 @@ using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
-using MetraTech.ExpressionEngine.MtProperty;
+using MetraTech.ExpressionEngine.MTProperty;
 
 namespace PropertyGui
 {
@@ -52,7 +52,7 @@ namespace PropertyGui
             ctlProp.AllowConstant = false;
             ctlProp.AllowExpression = false;
             ctlProp.MinimumMatchType = MatchType.BaseTypeWithDiff;
-            ctlProp.Init(Context, Property.CreateEnum(null, null, null, null));
+            ctlProp.Init(Context, Property.CreateEnum(null, true, null, null, null));
             ctlProp.OnMyChange = OnMyChange;
 
             if (!string.IsNullOrWhiteSpace(propertyName))

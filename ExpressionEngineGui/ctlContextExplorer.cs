@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
-using MetraTech.ExpressionEngine.MtProperty;
+using MetraTech.ExpressionEngine.Expressions;
+using MetraTech.ExpressionEngine.MTProperty;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
@@ -140,7 +141,7 @@ namespace PropertyGui
 
         private string GetExpressionPath(TreeNode node)
         {
-            if (node.Tag is Aqg || node.Tag is UQG || node.Tag is EnumValue)
+            if (node.Tag is Aqg || node.Tag is Uqg || node.Tag is EnumValue)
                 return ((IExpressionEngineTreeNode)node.Tag).ToExpressionSnippet;
 
             if (!(node.Tag is IProperty))
@@ -151,9 +152,9 @@ namespace PropertyGui
 
             switch (Context.Expression.Type)
             {
-                case ExpressionType.AQG:
+                case ExpressionType.Aqg:
                     return string.Format("ACCOUNT.{0}{1}", columnPrefix, property.Name);
-                case ExpressionType.UQG:
+                case ExpressionType.Uqg:
                     var binder = UserSettings.NewSyntax ? "EVENT" : "USAGE";
                     return string.Format("{0}.{1}{2}", binder, columnPrefix, property.Name);
                 default:

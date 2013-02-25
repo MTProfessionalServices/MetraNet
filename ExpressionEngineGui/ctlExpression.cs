@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.Expressions;
 
 namespace PropertyGui
 {

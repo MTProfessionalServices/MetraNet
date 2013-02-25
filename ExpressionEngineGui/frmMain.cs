@@ -12,15 +12,12 @@ using System.Runtime.Serialization;
 using System.Xml;
 using MetraTech.ExpressionEngine.Entities;
 using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.Expressions;
 
 namespace PropertyGui
 {
     public partial class frmMain : Form
     {
-        #region Properties
-        private Context Context;
-        #endregion
-
         #region Constructor
         public frmMain()
         {
@@ -38,9 +35,9 @@ namespace PropertyGui
             cboContext.EndUpdate();
 
 
-            cboEqualityOperator.Items.AddRange(Expression.EqualityOperators);
+            cboEqualityOperator.Items.AddRange(ExpressionHelper.EqualityOperators);
             cboEqualityOperator.Text = UserSettings.DefaultEqualityOperator;
-            cboInequalityOperator.Items.AddRange(Expression.InequalityOperators);
+            cboInequalityOperator.Items.AddRange(ExpressionHelper.InequalityOperators);
             cboInequalityOperator.Text = UserSettings.DefaultInequalityOperator;
             chkShowAcutalMappings.Checked = UserSettings.ShowActualMappings;
             chkAutoSelectInsertedSnippets.Checked = UserSettings.AutoSelectInsertedSnippets;
@@ -56,8 +53,8 @@ namespace PropertyGui
 
             DemoLoader.LoadGlobalContext(product, cboContext.Text);
 
-            SetItems(cboAqgs, btnAQG, DemoLoader.GlobalContext.AQGs.Values.ToArray<Aqg>());
-            SetItems(cboUqgs, btnUQG, DemoLoader.GlobalContext.UQGs.Values.ToArray<UQG>());
+            SetItems(cboAqgs, btnAQG, DemoLoader.GlobalContext.Aqgs.Values.ToArray<Aqg>());
+            SetItems(cboUqgs, btnUQG, DemoLoader.GlobalContext.Uqgs.Values.ToArray<Uqg>());
             SetItems(cboExpressions, btnExpression, DemoLoader.GlobalContext.Expressions.Values.ToArray<Expression>());
             SetItems(cboEmailTemplates, btnEmailTemplates, DemoLoader.GlobalContext.EmailInstances.Values.ToArray<EmailInstance>());
         }
@@ -110,7 +107,7 @@ namespace PropertyGui
 
         private void btnUQG_Click(object sender, EventArgs e)
         {
-            var uqg = (UQG)cboUqgs.SelectedItem;
+            var uqg = (Uqg)cboUqgs.SelectedItem;
             ShowExpression(uqg.Expression);
         }
 
@@ -150,26 +147,32 @@ namespace PropertyGui
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var entity = EntityFactory.CreateProductViewEntity("Foo", null);
-            entity.Extension = "Core";
-            var file = entity.GetFileNameGivenExtensionsDirectory(@"C:\Temp\Extensions");
+            foreach (var enumNamespace in DemoLoader.GlobalContext.EnumNamespaces.Values)
+            {
+                enumNamespace.SaveInExtension(@"C:\Temp\Extensions");
+            }
 
-            entity.Save(file);
-            return;
 
-            var template = new EmailTemplate();
-            template.Name = "Invoice Notice";
-            template.Description = "Sent to customer when an invoice is generated.";
-            template.EntityParameters.Add("Invoice");
-            template.Save(@"C:\Temp");
+            //var entity = EntityFactory.CreateProductViewEntity("Foo", null);
+            //entity.Extension = "Core";
+            //var file = entity.GetFileNameGivenExtensionsDirectory(@"C:\Temp\Extensions");
 
-            var exp = new Expression(ExpressionType.UQG, "really cool logic", "_specialpromotion");
-            //exp.DeclaredReturnType.DataTypeInfo.BaseType = BaseType.Boolean;
-            exp.Save(@"C:\Temp");
+            //entity.Save(file);
+   
 
-            var email = new EmailInstance();
-            email.Name = "Blank_email";
-            email.Save(@"C:\Temp");
+            //var template = new EmailTemplate();
+            //template.Name = "Invoice Notice";
+            //template.Description = "Sent to customer when an invoice is generated.";
+            //template.EntityParameters.Add("Invoice");
+            //template.Save(@"C:\Temp");
+
+            //var exp = new Expression(ExpressionType.Uqg, "really cool logic", "_specialpromotion");
+            ////exp.DeclaredReturnType.DataTypeInfo.BaseType = BaseType.Boolean;
+            //exp.Save(@"C:\Temp");
+
+            //var email = new EmailInstance();
+            //email.Name = "Blank_email";
+            //email.Save(@"C:\Temp");
 
             //var dirInfo = new DirectoryInfo(@"C:\Temp\Functions");
             //if (!dirInfo.Exists)

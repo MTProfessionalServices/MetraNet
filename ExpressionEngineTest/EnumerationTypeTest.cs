@@ -108,7 +108,7 @@ namespace ExpressionEngineTest
         }
 
         /// <summary>
-        ///A test for EnumSpace
+        ///A test for EnumNamespace
         ///</summary>
         [TestMethod()]
         public void EnumSpaceTest()

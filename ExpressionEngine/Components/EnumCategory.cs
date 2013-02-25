@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Runtime.Serialization;
+using System.IO;
 
 namespace MetraTech.ExpressionEngine.Components
 {
@@ -11,19 +12,13 @@ namespace MetraTech.ExpressionEngine.Components
         /// <summary>
         /// The enum space to which the type belongs
         /// </summary>
-        public EnumSpace EnumSpace { get; private set; }
+        public EnumNamespace EnumNamespace { get; private set; }
 
         /// <summary>
         /// The name that the user assigns the type. Must be unique within a space
         /// </summary>
         [DataMember]
         public string Name { get; set; }
-
-        /// <summary>
-        /// The unique ID that is assigned by the database. It is only applicable to MetraNet
-        /// and the acutal value will vary from machine to machine
-        /// </summary>
-        public int Id { get; set; }
 
         /// <summary>
         /// The description that the user provides
@@ -36,6 +31,13 @@ namespace MetraTech.ExpressionEngine.Components
         /// </summary>
         [DataMember]
         public Collection<EnumValue> Values { get; private set; }
+
+        /// <summary>
+        /// The unique ID that is assigned by the database. It is only applicable to MetraNet
+        /// and the acutal value will vary from machine to machine
+        /// </summary>
+        public int Id { get; set; }
+
         #endregion
 
         #region GUI Support Properties (should be moved in future)
@@ -61,9 +63,9 @@ namespace MetraTech.ExpressionEngine.Components
         #endregion
 
         #region Constructor
-        public EnumCategory(EnumSpace parent, string name, int id, string description)
+        public EnumCategory(EnumNamespace parent, string name, int id, string description)
         {
-            EnumSpace = parent;
+            EnumNamespace = parent;
             Name = name;
             Id = id;
             Description = description;
@@ -84,7 +86,24 @@ namespace MetraTech.ExpressionEngine.Components
         {
             get
             {
-                return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", EnumSpace.ToExpressionSnippet, Name);
+                return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", EnumNamespace.ToExpressionSnippet, Name);
+            }
+        }
+
+        public void SaveInExtension(string extensionsDir)
+        {
+            var dirPath = Helper.GetMetraNetConfigPath(extensionsDir, EnumNamespace.Extension, "Enumerations");
+            Save(dirPath);
+        }
+        public void Save(string dirPath)
+        {
+            Helper.EnsureDirectoryExits(dirPath);
+
+            var filePath = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.{2}.xml", dirPath, EnumNamespace.Name, Name);
+            using (var writer = new FileStream(filePath, FileMode.Create))
+            {
+                var ser = new DataContractSerializer(typeof(Function));
+                ser.WriteObject(writer, this);
             }
         }
 

@@ -1,4 +1,4 @@
-﻿namespace MetraTech.ExpressionEngine.MtProperty.Enumerations
+﻿namespace MetraTech.ExpressionEngine.MTProperty.Enumerations
 {
     public enum DirectionType
     {

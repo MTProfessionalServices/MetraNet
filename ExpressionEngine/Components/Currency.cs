@@ -1,7 +1,7 @@
 ﻿namespace MetraTech.ExpressionEngine.Components
 {
     /// <summary>
-    /// A currency is basically a UoM that constantly changes... need to think through object model as it relates to UoMs...
+    /// A currency is basically a UoM that constantly changes... need to think through object model as it relates to UnitOfMeasures...
     /// We will have to support imaginary currencies (i.e., "tokens");
     /// Conversions will be point-to-point and effective dated (default is daily)
     /// Currencies should be an enum and not a string (although we'll need to have string conversions to support legacy metranet)

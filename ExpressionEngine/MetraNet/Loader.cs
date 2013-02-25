@@ -13,19 +13,18 @@ namespace MetraTech.ExpressionEngine.MetraNet
             if (dirInfo.Exists)
                 throw new ArgumentException("Directory doesn't exist " + dirPath);
 
-            foreach (var fileInfo in dirInfo.GetFiles("*.xml"))
-            {
-                //switch (dirInfo.Name.ToLower())
-                //{
-                //    //case "accountviews":
-                //    //    AccountViewEntity.CreateProductView()
-                //    case "productviews":
-                //        var pv = EntityFactory.CreateProductViewEntity()
-                //    //case "servicedefinitions":
-                //    //case "enumerations":
-                //}
-                
-            }
+            //foreach (var fileInfo in dirInfo.GetFiles("*.xml"))
+            //{
+            //    switch (dirInfo.Name.ToLower())
+            //    {
+            //        case "accountviews":
+            //            AccountViewEntity.()
+            //        case "productviews":
+            //            var pv = EntityFactory.CreateProductViewEntity()
+            //        case "servicedefinitions":
+            //        case "enumerations":
+            //    }        
+            //}
 
             //Recurse on the sub directories
             foreach (var subDirInfo in dirInfo.GetDirectories())

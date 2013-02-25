@@ -13,14 +13,14 @@ namespace ExpressionEngineTest
     public class EnumSpaceTest
     {
         /// <summary>
-        ///A test for EnumSpace Constructor
+        ///A test for EnumNamespace Constructor
         ///</summary>
         [TestMethod()]
         public void EnumSpaceConstructorTest()
         {
             string name = "MetraTech.com";
             string description = "Located in Waltham, MA";
-            EnumSpace target = new EnumSpace(name, description);
+            EnumNamespace target = new EnumNamespace(name, description);
             Assert.AreEqual(name, target.Name);
             Assert.AreEqual(description, target.Description);
         }
@@ -31,7 +31,7 @@ namespace ExpressionEngineTest
         [TestMethod()]
         public void AddTypeTest()
         {
-            var enumSpace = new EnumSpace("Test", null);
+            var enumSpace = new EnumNamespace("Test", null);
 
             //Add it
             string name = "Global";
@@ -54,7 +54,7 @@ namespace ExpressionEngineTest
         [TestMethod()]
         public void TryGetEnumTypeTest()
         {
-            var enumSpace = new EnumSpace("Test", null);
+            var enumSpace = new EnumNamespace("Test", null);
             var name = "Global";
             EnumCategory enumType;
 

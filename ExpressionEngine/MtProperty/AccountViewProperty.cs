@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.TypeSystem;
 
-namespace MetraTech.ExpressionEngine.MtProperty
+namespace MetraTech.ExpressionEngine.MTProperty
 {
     [DataContract]
     public class AccountViewProperty : Property
@@ -12,7 +12,7 @@ namespace MetraTech.ExpressionEngine.MtProperty
         public bool PartOfPrimaryKey { get; set; }
 
         [DataMember]
-        public string ForeignKeyDbTable { get; set; }
+        public string ForeignKeyDBTable { get; set; }
 
         [DataMember]
         public string ForeignKeyTableColumn { get; set; }
@@ -24,7 +24,7 @@ namespace MetraTech.ExpressionEngine.MtProperty
         #endregion
 
         #region Constructor
-        public AccountViewProperty(string name, MtType type, string description): base(name, type, description)
+        public AccountViewProperty(string name, MtType type, bool isRequired, string description): base(name, type, isRequired, description)
         {    
         }
         #endregion

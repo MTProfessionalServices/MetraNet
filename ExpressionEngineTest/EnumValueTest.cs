@@ -50,7 +50,7 @@ namespace ExpressionEngineTest
         #region Helper Methods
         private EnumValue GetEnumValue(string enumSpace, string enumType, string enumValue, int id)
         {
-            var space = new EnumSpace(enumSpace, null);
+            var space = new EnumNamespace(enumSpace, null);
             var type = space.AddType(enumType, 1, null);
             var value = type.AddValue(enumValue, id);
             return value;

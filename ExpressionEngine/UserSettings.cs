@@ -1,4 +1,6 @@
-﻿namespace MetraTech.ExpressionEngine
+﻿using MetraTech.ExpressionEngine.Expressions;
+
+namespace MetraTech.ExpressionEngine
 {
     /// <summary>
     /// This shouldn't be static as it will be assoicated with each user... Until we have a user context, this will do
@@ -12,8 +14,8 @@
         /// </summary>
         public static bool NewSyntax = false;
 
-        public static string DefaultEqualityOperator = Expression.EqualityOperators[0];
-        public static string DefaultInequalityOperator = Expression.InequalityOperators[0];
+        public static string DefaultEqualityOperator = ExpressionHelper.EqualityOperators[0];
+        public static string DefaultInequalityOperator = ExpressionHelper.InequalityOperators[0];
         public static bool AutoSelectInsertedSnippets = true;
         public static bool ShowActualMappings = false; 
     }

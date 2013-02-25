@@ -6,7 +6,7 @@ using System.IO;
 using System.Drawing;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Entities;
-using MetraTech.ExpressionEngine.MtProperty;
+using MetraTech.ExpressionEngine.MTProperty;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
@@ -85,13 +85,13 @@ namespace PropertyGui
                     LoadTreeEnums(false);
                     break;
                 case MvcAbstraction.ViewModeType.AQGs:
-                    foreach (var aqg in Context.AQGs.Values)
+                    foreach (var aqg in Context.Aqgs.Values)
                     {
                         CreateNode(aqg);
                     }
                     break;
                 case MvcAbstraction.ViewModeType.UQGs:
-                    foreach (var uqg in Context.UQGs.Values)
+                    foreach (var uqg in Context.Uqgs.Values)
                     {
                         CreateNode(uqg);
                     }
@@ -100,7 +100,7 @@ namespace PropertyGui
                     LoadInputsOutputs();
                     break;
                 case MvcAbstraction.ViewModeType.UoMs:
-                    foreach (var uomCategory in Context.UoMs.Values)
+                    foreach (var uomCategory in Context.UnitOfMeasures.Values)
                     {
                         var uomCategoryNode = CreateNode(uomCategory);
                         foreach (var uom in uomCategory.Items)
@@ -133,12 +133,12 @@ namespace PropertyGui
 
         private void LoadTreeEnums(bool showNamespace)
         {
-            foreach (var enumSpace in Context.EnumSpaces.Values)
+            foreach (var enumSpace in Context.EnumNamespaces.Values)
             {
                 TreeNode parent = null;
                 if (showNamespace)
                     parent = CreateNode(enumSpace);
-                foreach (var enumType in enumSpace.EnumTypes)
+                foreach (var enumType in enumSpace.Categories)
                 {
                     var typeNode = CreateNode(enumType, parent);
                     AddEnumValues(enumType, typeNode);

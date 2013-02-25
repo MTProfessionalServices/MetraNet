@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using MetraTech.ExpressionEngine;
 using System.Windows.Forms;
+using MetraTech.ExpressionEngine.Expressions;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 

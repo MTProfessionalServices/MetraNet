@@ -78,7 +78,7 @@
             this.btnUQG.Name = "btnUQG";
             this.btnUQG.Size = new System.Drawing.Size(75, 23);
             this.btnUQG.TabIndex = 1;
-            this.btnUQG.Text = "UQG";
+            this.btnUQG.Text = "Uqg";
             this.btnUQG.UseVisualStyleBackColor = true;
             this.btnUQG.Click += new System.EventHandler(this.btnUQG_Click);
             // 

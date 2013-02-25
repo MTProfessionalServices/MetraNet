@@ -2,12 +2,12 @@
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Runtime.Serialization;
-using MetraTech.ExpressionEngine.MtProperty.Enumerations;
+using MetraTech.ExpressionEngine.MTProperty.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Entities;
 
-namespace MetraTech.ExpressionEngine.MtProperty
+namespace MetraTech.ExpressionEngine.MTProperty
 {
     /// <summary>
     /// General abstraction for properties spanning MetraNet(ProductViews, BMEs, etc.) and Metanga. There will be subclasses to
@@ -192,10 +192,11 @@ namespace MetraTech.ExpressionEngine.MtProperty
 
         #region Constructors
 
-        public Property(string name, MtType type, string description = null)
+        public Property(string name, MtType type, bool isRequired, string description = null)
         {
             Name = name;
             Type = type;
+            Required = isRequired;
             Description = description;
 
             IsCore = false;
@@ -204,29 +205,29 @@ namespace MetraTech.ExpressionEngine.MtProperty
         #endregion Constructors
 
         #region Static Create Methods
-        public static Property CreateUnknown(string name, string description)
+        public static Property CreateUnknown(string name, bool isRequired, string description)
         {
-            return new Property(name, TypeFactory.CreateUnknown(), description);
+            return new Property(name, TypeFactory.CreateUnknown(), isRequired, description);
         }
-        public static Property CreateInteger32(string name, string description)
+        public static Property CreateInteger32(string name, bool isRequired, string description)
         {
-            return new Property(name, TypeFactory.CreateInteger32(UnitOfMeasureModeType.None, null), description);
+            return new Property(name, TypeFactory.CreateInteger32(UnitOfMeasureModeType.None, null), isRequired, description);
         }
-        public static Property CreateString(string name, string description, int length)
+        public static Property CreateString(string name, bool isRequired, string description, int length)
         {
-            var property = new Property(name, TypeFactory.CreateString(length), description);
+            var property = new Property(name, TypeFactory.CreateString(length), isRequired, description);
             return property;
         }
 
-        public static Property CreateBoolean(string name, string description)
+        public static Property CreateBoolean(string name, bool isRequired, string description)
         {
-            var property = new Property(name, TypeFactory.CreateBoolean(), description);
+            var property = new Property(name, TypeFactory.CreateBoolean(), isRequired, description);
             return property;
         }
 
-        public static Property CreateEnum(string name, string description, string enumSpace, string enumType)
+        public static Property CreateEnum(string name, bool isRequired, string description, string enumSpace, string enumType)
         {
-            var property = new Property(name, TypeFactory.CreateEnumeration(enumSpace, enumType), description);
+            var property = new Property(name, TypeFactory.CreateEnumeration(enumSpace, enumType), isRequired, description);
             return property;
         }
         #endregion

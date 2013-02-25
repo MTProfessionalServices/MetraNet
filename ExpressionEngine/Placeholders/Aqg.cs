@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using MetraTech.ExpressionEngine.Expressions;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -19,7 +20,7 @@ namespace MetraTech.ExpressionEngine
         {
             Name = name;
             Description = description;
-            Expression = new Expression(ExpressionType.AQG, expression, null);
+            Expression = new Expression(ExpressionType.Aqg, expression, null);
         }
         #endregion
     }

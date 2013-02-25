@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.Entities;
 
-namespace MetraTech.ExpressionEngine.MtProperty
+namespace MetraTech.ExpressionEngine.MTProperty
 {
     /// <summary>
     /// TO DO:
@@ -84,6 +84,9 @@ namespace MetraTech.ExpressionEngine.MtProperty
         /// <param name="data"></param>
         public void BindValues(IEnumerable<KeyValuePair<string, string>> data)
         {
+            if (data == null)
+                throw new ArgumentException("data==null");
+
             foreach (var kvp in data)
             {
                 var name = kvp.Key;
@@ -154,8 +157,7 @@ namespace MetraTech.ExpressionEngine.MtProperty
        
         public Property AddString(string name, string description, bool isRequired, string defaultValue=null, int length=0)
         {
-            var property = new Property(name, TypeFactory.CreateString(length), description);
-            property.Required = isRequired;
+            var property = new Property(name, TypeFactory.CreateString(length), isRequired, description);
             property.DefaultValue = defaultValue;
             Add(property);
             return property;
@@ -163,8 +165,7 @@ namespace MetraTech.ExpressionEngine.MtProperty
 
         public Property AddEnum(string name, string description, bool isRequired, string enumSpace, string enumType, string defaultValue = null)
         {
-            var property = new Property(name, TypeFactory.CreateEnumeration(enumSpace, enumType), description);
-            property.Required = isRequired;
+            var property = new Property(name, TypeFactory.CreateEnumeration(enumSpace, enumType), isRequired, description);
             property.DefaultValue = defaultValue;
             Add(property);
             return property;
@@ -172,7 +173,7 @@ namespace MetraTech.ExpressionEngine.MtProperty
 
         public Property AddInteger32(string name, string description, bool isRequired, string defaultValue = null)
         {
-            var property = new Property(name, TypeFactory.CreateInteger32(), description);
+            var property = new Property(name, TypeFactory.CreateInteger32(), isRequired, description);
             property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);
@@ -181,7 +182,7 @@ namespace MetraTech.ExpressionEngine.MtProperty
 
         public Property AddDateTime(string name, string description, bool isRequired, string defaultValue = null)
         {
-            var property = new Property(name, TypeFactory.CreateDateTime(), description);
+            var property = new Property(name, TypeFactory.CreateDateTime(), isRequired, description);
             property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);
@@ -190,7 +191,7 @@ namespace MetraTech.ExpressionEngine.MtProperty
 
         public Property AddDecimal(string name, string description, bool isRequired, string defaultValue = null)
         {
-            var property = new Property(name, TypeFactory.CreateDecimal(), description);
+            var property = new Property(name, TypeFactory.CreateDecimal(), isRequired, description);
             property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);
@@ -200,7 +201,7 @@ namespace MetraTech.ExpressionEngine.MtProperty
 
         public Property AddCharge(string name, string description, bool isRequired, string defaultValue = null)
         {
-            var property = new Property(name, TypeFactory.CreateMoney(), description);
+            var property = new Property(name, TypeFactory.CreateMoney(), isRequired, description);
             property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);

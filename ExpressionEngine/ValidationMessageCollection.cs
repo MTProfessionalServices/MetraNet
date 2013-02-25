@@ -103,7 +103,7 @@ namespace MetraTech.ExpressionEngine
         #region IEnumerable Methods
         IEnumerator<ValidationMessage> IEnumerable<ValidationMessage>.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return Messages.GetEnumerator();
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()

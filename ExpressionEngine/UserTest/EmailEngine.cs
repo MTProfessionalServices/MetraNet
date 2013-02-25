@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Net.Mail;
-using MetraTech.ExpressionEngine.MtProperty;
+using MetraTech.ExpressionEngine.MTProperty;
 using MetraTech.ExpressionEngine.Entities;
 
 namespace MetraTech.ExpressionEngine.UserTest
@@ -16,7 +16,7 @@ namespace MetraTech.ExpressionEngine.UserTest
                 throw new ArgumentNullException("email");
 
             SetOutput(EmailInstance.ToPropertyName, email.ToExpression.Content, propertyCollection);
-            SetOutput(EmailInstance.CcPropertyName, email.CcExpression.Content, propertyCollection);
+            SetOutput(EmailInstance.CCPropertyName, email.CCExpression.Content, propertyCollection);
             SetOutput(EmailInstance.SubjectPropertyName, email.SubjectExpression.Content, propertyCollection);
             SetOutput(EmailInstance.BodyPropertyName, email.BodyExpression.Content, propertyCollection);
         }
@@ -55,27 +55,32 @@ namespace MetraTech.ExpressionEngine.UserTest
                 throw new ArgumentNullException("properties");
 
             var toValue = properties.GetValue(EmailInstance.ToPropertyName);
-            var ccValue = properties.GetValue(EmailInstance.CcPropertyName);
+            var ccValue = properties.GetValue(EmailInstance.CCPropertyName);
             var subjectValue = properties.GetValue(EmailInstance.SubjectPropertyName);
             var bodyValue = properties.GetValue(EmailInstance.BodyPropertyName);
 
-            var mail = new MailMessage();
-            var smtpServer = new SmtpClient("smtp.socketlabs.com");
+            using (var mail = new MailMessage())
+            {
 
-            mail.From = new MailAddress("your_email_address@gmail.com");
-            mail.To.Add(toValue);
-            if (!string.IsNullOrWhiteSpace(ccValue))
-                mail.CC.Add(ccValue);
-            mail.Subject = subjectValue;
+                using (var smtpServer = new SmtpClient("smtp.socketlabs.com"))
+                {
 
-            mail.IsBodyHtml = false;
-            mail.Body = bodyValue;
+                    mail.From = new MailAddress("your_email_address@gmail.com");
+                    mail.To.Add(toValue);
+                    if (!string.IsNullOrWhiteSpace(ccValue))
+                        mail.CC.Add(ccValue);
+                    mail.Subject = subjectValue;
 
-            smtpServer.Port = 587;
-            smtpServer.Credentials = new System.Net.NetworkCredential("server3994", "9uY2zevySXPPaoXU2Lbv");
-            smtpServer.EnableSsl = false;
+                    mail.IsBodyHtml = false;
+                    mail.Body = bodyValue;
 
-            smtpServer.Send(mail);
+                    smtpServer.Port = 587;
+                    smtpServer.Credentials = new System.Net.NetworkCredential("server3994", "9uY2zevySXPPaoXU2Lbv");
+                    smtpServer.EnableSsl = false;
+
+                    smtpServer.Send(mail);
+                }
+            }
         }
     }
 }

@@ -218,7 +218,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     return "double";
                 case BaseType.Enumeration:
                     throw new NotImplementedException();
-                //return MetraTech.DomainModel.Enums.EnumHelper.GetGeneratedEnumType(EnumSpace, EnumType, EnvironmentConfiguration.Instance.MetraNetBinariesDirectory).ToString();
+                //return MetraTech.DomainModel.Enums.EnumHelper.GetGeneratedEnumType(EnumNamespace, EnumType, EnvironmentConfiguration.Instance.MetraNetBinariesDirectory).ToString();
                 case BaseType.Integer32:
                     return "int";
                 case BaseType.Integer64:
@@ -228,7 +228,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 case BaseType.DateTime:
                     return "DateTime";
                 default:
-                    throw new Exception("Unhandled DataType: " + baseType.ToString());
+                    throw new Exception("Unhandled baseType: " + baseType.ToString());
             }
         }
 
@@ -244,7 +244,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 case BaseType.Double:
                     return typeof(double);
                 case BaseType.Enumeration: //Not sure about this one!
-                    return typeof(EnumHelper); //typeof(Int32)
+                    //return typeof (Int32);
                 case BaseType.Integer32:
                     return typeof(int);
                 case BaseType.Integer64:
@@ -289,7 +289,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     return DateTime.TryParse(value, out theDt);
                 case BaseType.Enumeration:
                     throw new NotImplementedException();
-                //return Config.Instance.EnumerationConfig.ValueExists(EnumSpace, EnumType, value);
+                //return Config.Instance.EnumerationConfig.ValueExists(EnumNamespace, EnumType, value);
                 case BaseType.Decimal:
                     Decimal theDecimal;
                     return Decimal.TryParse(value, out theDecimal);
@@ -297,13 +297,49 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     float theFloat;
                     return float.TryParse(value, out theFloat);
                 case BaseType.Boolean:
-                    return (Helper.ParseBool(value) != null);
+                    return (ParseBool(value) != null);
                 case BaseType.Double:
                     Double theDouble;
                     return double.TryParse(value, out theDouble);
                 default:
                     throw new ApplicationException(" Unknown data type '" + baseType.ToString());
             }
+        }
+
+
+        public static bool? ParseBool(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return null;
+
+            value = value.ToLower(CultureInfo.InvariantCulture);
+
+            if (value.Equals("f") || value.Equals("false") || value.Equals("0") || value.Equals("no") || value.Equals("n"))
+                return false;
+            if (value.Equals("t") || value.Equals("true") || value.Equals("1") || value.Equals("yes") || value.Equals("y"))
+                return true;
+
+            return null;
+        }
+
+
+        //
+        //Convert the MANY variants of boolean strings in the metadata to bool
+        //
+        public static bool GetBoolean(string value)
+        {
+            if (value == null)
+                throw new ArgumentNullException("value");
+
+            value = value.ToUpper(CultureInfo.InvariantCulture);
+
+            if (value == "Y" || value == "YES" || value == "T" || value == "TRUE" || value == "1")
+                return true;
+            if (value == "N" || value == "NO" || value == "F" || value == "FALSE" || value == "0")
+                return false;
+            if (string.IsNullOrEmpty(value))
+                throw new ArgumentException("A boolean value must be specified");
+            throw new ArgumentException("Invalid boolean string [" + value + "]");
         }
 
         public static bool IsNumeric(BaseType baseType)
@@ -379,7 +415,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     return value + "M";
                 case BaseType.Enumeration:
                     throw new NotImplementedException();
-                //Type enumType = EnumHelper.GetGeneratedEnumType(dtInfo.EnumSpace, dtInfo.EnumType, EnvironmentConfiguration.Instance.MetraNetBinariesDirectory);
+                //Type enumType = EnumHelper.GetGeneratedEnumType(dtInfo.EnumNamespace, dtInfo.EnumType, EnvironmentConfiguration.Instance.MetraNetBinariesDirectory);
                 //object enumValue = EnumHelper.GetGeneratedEnumByEntry(enumType, value);
                 //string enumValueName = System.Enum.GetName(enumType, enumValue);
                 //return enumType.FullName + "." + enumValueName;
@@ -400,7 +436,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             switch (type.BaseType)
             {
                 case BaseType.Boolean:
-                    return Helper.GetBoolean(value);
+                    return GetBoolean(value);
                 case BaseType.Decimal:
                     return decimal.Parse(value, cultureInfo);
                 case BaseType.Double:

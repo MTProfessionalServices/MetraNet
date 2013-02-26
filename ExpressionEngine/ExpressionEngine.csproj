@@ -52,7 +52,7 @@
   <ItemGroup>
     <Compile Include="Charges\Charge.cs" />
     <Compile Include="Database\UniqueKey.cs" />
-    <Compile Include="IOHelpers.cs" />
+    <Compile Include="IOHelper.cs" />
     <Compile Include="TypeSystem\Enumerations\PropertyBagMode.cs" />
     <Compile Include="Expressions\Enumerations\ExpressionType.cs" />
     <Compile Include="Expressions\ExpressionHelper.cs" />

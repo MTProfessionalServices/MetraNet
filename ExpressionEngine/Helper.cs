@@ -50,23 +50,7 @@ namespace MetraTech.ExpressionEngine
             return builder.ToString();
         }
 
-        public static string GetMetraNetConfigPath(string extensionsDir, string extension, string elementDirName)
-        {
-            return string.Format(CultureInfo.InvariantCulture, @"{0}\{1}\Config\{2}", extensionsDir, extension, elementDirName);
-        }
-        public static DirectoryInfo GetMetraNetConfigPathAndEnsureExists(string extensionsDir, string extension, string elementDirName)
-        {
-            var dirPath = GetMetraNetConfigPath(extensionsDir, extension, elementDirName);
-            return EnsureDirectoryExits(dirPath);
-        }
 
-        public static DirectoryInfo EnsureDirectoryExits(this string dirPath)
-        {
-            var dirInfo = new DirectoryInfo(dirPath);
-            if (!dirInfo.Exists)
-                dirInfo.Create();
-            return dirInfo;
-        }
 
     }
 }

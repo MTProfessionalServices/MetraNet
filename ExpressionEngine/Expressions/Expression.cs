@@ -129,33 +129,19 @@ namespace MetraTech.ExpressionEngine.Expressions
             results.BindResultsToContext(context);
             return results;
         }
+        #endregion
+
+        #region IO Methods
         public static Expression CreateFromFile(string file)
         {
-            using (var fs = new FileStream(file, FileMode.Open))
-            {
-                using (var reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas()))
-                {
-                    var ser = new DataContractSerializer(typeof (Expression));
-                    var expression = (Expression) ser.ReadObject(reader, true);
-                    return expression;
-                }
-            }
+            return IOHelper.CreateFromFile<Expression>(file);
         }
 
         public void Save(string dirPath)
         {
             var filePath = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.xml", dirPath, Name);
-            using (var writer = new FileStream(filePath, FileMode.Create))
-            {
-                var ser = new DataContractSerializer(typeof (Expression));
-                ser.WriteObject(writer, this);
-            }
+            IOHelper.Save(filePath, this);
         }
-
-        //public static Expression CreateFromString(string xmlContent)
-        //{
-        //    return null;
-        //}
         #endregion
     }
 }

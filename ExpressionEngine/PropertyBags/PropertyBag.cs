@@ -180,20 +180,8 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         public void Save(string file)
         {
-            if (string.IsNullOrEmpty(file))
-                throw new ArgumentException("file not specified");
-
-            var dirInfo = new DirectoryInfo(Path.GetDirectoryName(file));
-            if (!dirInfo.Exists)
-                dirInfo.Create();
-
-            using (var writer = new FileStream(file, FileMode.Create))
-            {
-                var ser = new DataContractSerializer(typeof (PropertyBag));
-                ser.WriteObject(writer, this);
-            }
+            IOHelper.Save(file, this);
         }
-
 
         public static PropertyBag CreateFromFile(string file)
         {
@@ -203,7 +191,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         public static PropertyBag CreateFromString(string xmlContent)
         {
-            return IOHelpers.CreateFromString<PropertyBag>(xmlContent);
+            return IOHelper.CreateFromString<PropertyBag>(xmlContent);
         }
 
         #endregion

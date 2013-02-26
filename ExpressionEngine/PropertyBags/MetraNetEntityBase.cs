@@ -25,7 +25,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         #region Methods
         public string GetFileNameGivenExtensionsDirectory(string extensionsDir)
         {
-            return Helper.GetMetraNetConfigPath(extensionsDir, Extension, ((PropertyBagType) Type).ComplexType + "s");
+            return IOHelper.GetMetraNetConfigPath(extensionsDir, Extension, ((PropertyBagType) Type).ComplexType + "s");
          }
 
         public void SaveInExtensionsDirectory(string extensionsDir)

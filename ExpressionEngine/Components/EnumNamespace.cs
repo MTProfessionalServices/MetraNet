@@ -116,7 +116,7 @@ namespace MetraTech.ExpressionEngine.Components
 
         public void SaveInExtension(string extensionsDir)
         {
-            var dirPath = Helper.GetMetraNetConfigPath(extensionsDir, Extension, "Enumerations");
+            var dirPath = IOHelper.GetMetraNetConfigPath(extensionsDir, Extension, "Enumerations");
             Save(dirPath);
         }
 
@@ -126,7 +126,7 @@ namespace MetraTech.ExpressionEngine.Components
 
         public void Save(string dirPath)
         {
-            Helper.EnsureDirectoryExits(dirPath);
+            IOHelper.EnsureDirectoryExits(dirPath);
 
             var file = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.xml", dirPath, NameWithNoSlashes);
             using (var writer = new FileStream(file, FileMode.Create))
@@ -150,7 +150,7 @@ namespace MetraTech.ExpressionEngine.Components
 
         public static EnumNamespace CreateFromString(string xmlContent)
         {
-            return IOHelpers.CreateFromString<EnumNamespace>(xmlContent);
+            return IOHelper.CreateFromString<EnumNamespace>(xmlContent);
         }
     
 

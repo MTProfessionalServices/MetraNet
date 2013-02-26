@@ -78,6 +78,14 @@ namespace MetraTech.ExpressionEngine.MTProperties
             return property.Value;
         }
 
+        public void ClearValues()
+        {
+            foreach (var property in Properties)
+            {
+                property.Value = null;
+            }
+        }
+
         /// <summary>
         /// Binds the KVP values to the properties.
         /// </summary>

@@ -116,7 +116,7 @@ namespace MetraTech.ExpressionEngine.Components
 
         public static Function CreateFromString(string xmlContent)
         {
-            return IOHelpers.CreateFromString<Function>(xmlContent);
+            return IOHelper.CreateFromString<Function>(xmlContent);
         }
         #endregion
     }

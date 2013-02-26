@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
 using System.IO;
 using System.Xml.Linq;
+using System.Globalization;
 
 namespace MetraTech.ExpressionEngine
 {
-    public static class IOHelpers
+    public static class IOHelper
     {
         public static T CreateFromFile<T>(string file)
         {
@@ -40,6 +37,24 @@ namespace MetraTech.ExpressionEngine
             var ser = new DataContractSerializer(typeof(T));
             ser.WriteObject(writer, theObject);
           }
+        }
+
+        public static string GetMetraNetConfigPath(string extensionsDir, string extension, string elementDirName)
+        {
+            return string.Format(CultureInfo.InvariantCulture, @"{0}\{1}\Config\{2}", extensionsDir, extension, elementDirName);
+        }
+        public static DirectoryInfo GetMetraNetConfigPathAndEnsureExists(string extensionsDir, string extension, string elementDirName)
+        {
+            var dirPath = GetMetraNetConfigPath(extensionsDir, extension, elementDirName);
+            return EnsureDirectoryExits(dirPath);
+        }
+
+        public static DirectoryInfo EnsureDirectoryExits(this string dirPath)
+        {
+            var dirInfo = new DirectoryInfo(dirPath);
+            if (!dirInfo.Exists)
+                dirInfo.Create();
+            return dirInfo;
         }
     }
 }

@@ -53,7 +53,7 @@ namespace MetraTech.ExpressionEngine.Components
 
         public static UnitOfMeasureCategory CreateFromString(string xmlContent)
         {
-            return IOHelpers.CreateFromString<UnitOfMeasureCategory>(xmlContent);
+            return IOHelper.CreateFromString<UnitOfMeasureCategory>(xmlContent);
         }
 
         #endregion

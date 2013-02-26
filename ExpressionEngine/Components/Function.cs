@@ -92,15 +92,8 @@ namespace MetraTech.ExpressionEngine.Components
         }
         #endregion
 
-        #region XML Methods
+        #region IO Methods
 
-        //public string GetXmlContent()
-        //{
-        //    var writer = new FileStream(filePath, FileMode.Create);
-        //    var ser = new DataContractSerializer(typeof(Function));
-        //    ser
-        //    ser.WriteObject(writer, this);
-        //}
         public void Save(string dirPath)
         {
             var dirInfo = new DirectoryInfo(dirPath);
@@ -115,33 +108,16 @@ namespace MetraTech.ExpressionEngine.Components
             }
         }
 
-        //public static Function CreateFromFile(string file)
-        //{
-        //    var fs = new FileStream(file, FileMode.Open);
-        //    var reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas());
-        //    var ser = new DataContractSerializer(typeof(Function));
-        //    var function = (Function)ser.ReadObject(reader, true);
-        //    fs.Close();
-        //    reader.Close();
-        //    return function;
-        //}
-
         public static Function CreateFromFile(string file)
         {
             var xmlContent = File.ReadAllText(file);
-            return CreateFromString<Function>(xmlContent);
+            return CreateFromString(xmlContent);
         }
 
-        public static T CreateFromString<T>(string xmlContent)
+        public static Function CreateFromString(string xmlContent)
         {
-            var xElement = XElement.Parse(xmlContent);
-            var xmlReader = xElement.CreateReader();
-            var ser = new DataContractSerializer(typeof(T));
-            var function = (T)ser.ReadObject(xmlReader);
-            xmlReader.Close();
-            return function;
+            return IOHelpers.CreateFromString<Function>(xmlContent);
         }
-
         #endregion
     }
 }

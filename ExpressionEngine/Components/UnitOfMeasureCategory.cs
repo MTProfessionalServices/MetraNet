@@ -1,15 +1,22 @@
 ﻿using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Runtime.Serialization;
+using System.IO;
 
 namespace MetraTech.ExpressionEngine.Components
 {
     /// <summary>
     /// </summary>
+    [DataContract]
     public class UnitOfMeasureCategory : IExpressionEngineTreeNode
     {
         #region Properties
+        [DataMember]
         public string Name { get; set; }
-        public string ToExpressionSnippet { get { return string.Format(CultureInfo.InvariantCulture, "UoM.{0}", Name); } }
+
+        public string ToExpressionSnippet { get { return string.Format(CultureInfo.InvariantCulture, "UoM.{0}", Name); } }       
+        
+        [DataMember]
         public Collection<UnitOfMeasure> Items { get; private set; }
         #endregion
 
@@ -34,6 +41,21 @@ namespace MetraTech.ExpressionEngine.Components
             Items.Add(uom);
             return uom;
         }
+        #endregion
+
+        #region IO Methods
+
+        public static UnitOfMeasureCategory CreateFromFile(string file)
+        {
+            var xmlContent = File.ReadAllText(file);
+            return CreateFromString(xmlContent);
+        }
+
+        public static UnitOfMeasureCategory CreateFromString(string xmlContent)
+        {
+            return IOHelpers.CreateFromString<UnitOfMeasureCategory>(xmlContent);
+        }
+
         #endregion
     }
 }

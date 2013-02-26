@@ -174,7 +174,9 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
             return messages;
         }
+        #endregion
 
+        #region IO Methods
 
         public void Save(string file)
         {
@@ -191,6 +193,19 @@ namespace MetraTech.ExpressionEngine.PropertyBags
                 ser.WriteObject(writer, this);
             }
         }
+
+
+        public static PropertyBag CreateFromFile(string file)
+        {
+            var xmlContent = File.ReadAllText(file);
+            return CreateFromString(xmlContent);
+        }
+
+        public static PropertyBag CreateFromString(string xmlContent)
+        {
+            return IOHelpers.CreateFromString<PropertyBag>(xmlContent);
+        }
+
         #endregion
     }
 }

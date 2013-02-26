@@ -89,6 +89,9 @@ namespace MetraTech.ExpressionEngine.Components
                 return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", EnumNamespace.ToExpressionSnippet, Name);
             }
         }
+        #endregion
+
+        #region IO Methods
 
         public void SaveInExtension(string extensionsDir)
         {
@@ -99,12 +102,24 @@ namespace MetraTech.ExpressionEngine.Components
         {
             Helper.EnsureDirectoryExits(dirPath);
 
-            var filePath = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.{2}.xml", dirPath, EnumNamespace.Name, Name);
+            var filePath = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.{2}.xml", dirPath, EnumNamespace.NameWithNoSlashes, Name);
             using (var writer = new FileStream(filePath, FileMode.Create))
             {
-                var ser = new DataContractSerializer(typeof(Function));
+                var ser = new DataContractSerializer(typeof(EnumCategory));
                 ser.WriteObject(writer, this);
             }
+        }
+
+
+        public static EnumCategory CreateFromFile(string file)
+        {
+            var xmlContent = File.ReadAllText(file);
+            return CreateFromString(xmlContent);
+        }
+
+        public static EnumCategory CreateFromString(string xmlContent)
+        {
+            return IOHelpers.CreateFromString<EnumCategory>(xmlContent);
         }
 
         #endregion

@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 
 namespace MetraTech.ExpressionEngine.Components
 { 
-    [DataContract]//  (Namespace = "MetraTech")]
+    [DataContract (Namespace = "MetraTech")]
     public class EnumNamespace : IExpressionEngineTreeNode
     {
         #region Properties
@@ -15,6 +15,15 @@ namespace MetraTech.ExpressionEngine.Components
         /// </summary>
         [DataMember]
         public string Name { get; set; }
+
+        //I'm not sure if this is needed due to bad data or real data
+        public string NameWithNoSlashes
+        {
+            get
+            {
+                return Name.Replace('/', '_');
+            }
+        }
 
         /// <summary>
         /// The description the user enters
@@ -110,13 +119,19 @@ namespace MetraTech.ExpressionEngine.Components
             var dirPath = Helper.GetMetraNetConfigPath(extensionsDir, Extension, "Enumerations");
             Save(dirPath);
         }
+
+        #endregion
+
+        #region IO Metehods
+
         public void Save(string dirPath)
         {
             Helper.EnsureDirectoryExits(dirPath);
-            var file = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.xml", dirPath, Name);
+
+            var file = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.xml", dirPath, NameWithNoSlashes);
             using (var writer = new FileStream(file, FileMode.Create))
             {
-                var ser = new DataContractSerializer(typeof(Function));
+                var ser = new DataContractSerializer(typeof(EnumNamespace));
                 ser.WriteObject(writer, this);
             }
 
@@ -125,6 +140,19 @@ namespace MetraTech.ExpressionEngine.Components
                 category.Save(dirPath);
             }
         }
+
+
+        public static EnumNamespace CreateFromFile(string file)
+        {
+            var xmlContent = File.ReadAllText(file);
+            return CreateFromString(xmlContent);
+        }
+
+        public static EnumNamespace CreateFromString(string xmlContent)
+        {
+            return IOHelpers.CreateFromString<EnumNamespace>(xmlContent);
+        }
+    
 
         #endregion
     }

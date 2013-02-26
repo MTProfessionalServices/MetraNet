@@ -25,7 +25,7 @@ namespace PropertyGui
         public static ImageList Images = new ImageList();
 
         public MvcAbstraction.ViewModeType ViewMode { get; set; }
-        public ComplexType EntityTypeFilter { get; set; }
+        public string EntityTypeFilter { get; set; }
         public Type PropertyTypeFilter { get; set; }
         public string FunctionFilter { get; set; }
         public ContextMenuStrip EnumValueContextMenu { get; set; }
@@ -188,7 +188,7 @@ namespace PropertyGui
 
         private void LoadTreeEntityMode()
         {
-            var filter = new List<ComplexType>();
+            var filter = new List<string>();
             filter.Add(EntityTypeFilter);
             var entities = Context.GetEntities(null, filter, null, PropertyTypeFilter);
             foreach (var entity in entities)
@@ -287,7 +287,7 @@ namespace PropertyGui
             {
                 node.Nodes.Clear();
                 var entity1 = (PropertyBag)node.Tag;
-                var entitySubType = entity1.VectorType.ComplexSubtype;
+                var entitySubType = ((PropertyBagType)entity1.Type).Name;
                 PropertyBag entity;
                 if (!DemoLoader.GlobalContext.Entities.TryGetValue(entitySubType, out entity))
                     return;

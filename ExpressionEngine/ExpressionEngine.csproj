@@ -53,6 +53,7 @@
     <Compile Include="Charges\Charge.cs" />
     <Compile Include="Database\UniqueKey.cs" />
     <Compile Include="IOHelper.cs" />
+    <Compile Include="TypeSystem\Constants\PropertyBagConstants.cs" />
     <Compile Include="TypeSystem\Enumerations\PropertyBagMode.cs" />
     <Compile Include="Expressions\Enumerations\ExpressionType.cs" />
     <Compile Include="Expressions\ExpressionHelper.cs" />
@@ -98,7 +99,6 @@
     <Compile Include="UserTest\EmailEngine.cs" />
     <Compile Include="UserTest\IProcessingEngine.cs" />
     <Compile Include="UserTest\TestInstance.cs" />
-    <Compile Include="TypeSystem\Enumerations\ComplexType.cs" />
     <Compile Include="TypeSystem\Enumerations\ListType.cs" />
     <Compile Include="TypeSystem\Enumerations\MatchType.cs" />
     <Compile Include="TypeSystem\Enumerations\UnitOfMeasureMode.cs" />

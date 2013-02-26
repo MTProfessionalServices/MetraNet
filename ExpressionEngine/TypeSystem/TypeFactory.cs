@@ -27,18 +27,18 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return new Type(BaseType.Charge);
         }
 
-        public static PropertyBagType CreateComplexType()
+        public static PropertyBagType CreatePropertyBag()
         {
-            return CreateComplexType(ComplexType.None);
+            return CreatePropertyBag(null);
         }
-        public static PropertyBagType CreateComplexType(ComplexType entityType)
+        public static PropertyBagType CreatePropertyBag(string propertyBagTypeName)
         {
-            return CreateComplexType(entityType, null, true);
+            return CreatePropertyBag(propertyBagTypeName, true);
         }
-        
-        public static PropertyBagType CreateComplexType(ComplexType entityType, string subtype, bool isEntity)
+
+        public static PropertyBagType CreatePropertyBag(string propertyBagTypeName, bool isEntity)
         {
-            return new PropertyBagType(entityType, subtype, isEntity);
+            return new PropertyBagType(propertyBagTypeName, isEntity);
         }
 
         public static Type CreateDateTime()
@@ -196,7 +196,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 case BaseType.Charge:
                     return CreateCharge();
                 case BaseType.Entity:
-                    return CreateComplexType();
+                    return CreatePropertyBag();
                 case BaseType.DateTime:
                     return CreateDateTime();
                 case BaseType.Decimal:

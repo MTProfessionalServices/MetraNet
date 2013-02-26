@@ -309,9 +309,9 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
                 string snippet;
                 if (UserSettings.NewSyntax)
-                    snippet = string.Format(CultureInfo.InvariantCulture, "{0}.{1}", entity.GetPrefix(), Name);
+                    snippet = string.Format(CultureInfo.InvariantCulture, "{0}.{1}", entity.XqgPrefix, Name);
                 else
-                    snippet = string.Format(CultureInfo.InvariantCulture, "{0}.c_{1}", entity.GetPrefix(), Name);
+                    snippet = string.Format(CultureInfo.InvariantCulture, "{0}.c_{1}", entity.XqgPrefix, Name);
 
                 return snippet + Type.ListSuffix;
             }
@@ -335,7 +335,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
             var name = string.Format(CultureInfo.InvariantCulture, "{0}.{1}", entity.Name, Name);
             if (prefix)
-                return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", entity.GetPrefix(), name);
+                return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", entity.XqgPrefix, name);
             return name;
         }
 

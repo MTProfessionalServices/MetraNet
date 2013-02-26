@@ -11,6 +11,7 @@ using MetraTech.ExpressionEngine.Entities;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using MetraTech.ExpressionEngine.TypeSystem.Constants;
 
 namespace PropertyGui
 {
@@ -36,7 +37,7 @@ namespace PropertyGui
             cboEvent.BeginUpdate();
             cboEvent.Sorted = true;
             cboEvent.DisplayMember = "Name";
-            cboEvent.Items.AddRange(context.GetEntities(ComplexType.ServiceDefinition).ToArray());
+            cboEvent.Items.AddRange(context.GetEntities(PropertyBagConstants.ServiceDefinition).ToArray());
             cboEvent.EndUpdate();
 
             if (Context.IsMetanga)

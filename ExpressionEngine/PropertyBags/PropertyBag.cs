@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using System.IO;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
@@ -15,7 +16,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
     /// Implements a ComplexType, esentially something that PropertyCollection which may include properties and
     /// other complex types. Note that DataTypeInfo.IsEntity determines if it's deemed an Entity (an important destinction for Metanga)
     /// </summary>
-    [DataContract (Namespace = "MetraTech")]
+    [DataContract(Namespace = "MetraTech")]
     public class PropertyBag : Property, IExpressionEngineTreeNode
     {
         #region Properties
@@ -23,12 +24,15 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         [DataMember]
         public PropertyBagMode PropertyBagMode { get; set; }
 
-        public PropertyBagType VectorType { get { return (PropertyBagType)Type; } }
-
         [DataMember]
         public PropertyCollection Properties { get; private set; }
-        
-        public override string CompatibleKey { get { return string.Format(CultureInfo.InvariantCulture, "{0}|{1}", Name, Type.CompatibleKey); } }
+
+        public override string CompatibleKey
+        {
+            get { return string.Format(CultureInfo.InvariantCulture, "{0}|{1}", Name, Type.CompatibleKey); }
+        }
+
+        public virtual string XqgPrefix { get { return null; } }
 
         /// <summary>
         /// The actual database table name. Used in MetraNet which has a prefix on all table names.
@@ -46,7 +50,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         {
             get
             {
-                var tip = VectorType.ComplexType.ToString();
+                var tip = ((PropertyBagType)Type).Name;
                 if (!string.IsNullOrEmpty(Description))
                     tip += Environment.NewLine + Description;
                 if (UserSettings.ShowActualMappings)
@@ -55,21 +59,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             }
         }
 
-        public override string Image
-        {
-            get
-            {
-                if (VectorType.ComplexType == ComplexType.Metanga)
-                {
-                    if (VectorType.IsEntity)
-                        return "Entity.png";
-                    return "ComplexType.png";
-                }
-
-                return VectorType.ComplexType + ".png";
-            }
-        }
-
+        public override string Image {get { return PropertyBagMode.ToString() + ".png"; }}
 
         public override string ImageDirection
         {
@@ -77,7 +67,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             {
                 switch (Direction)
                 {
-                    case MTProperties.Enumerations.Direction.InOut:
+                    case Direction.InOut:
                         return "EntityInOut.png";
                     case Direction.Input:
                         return "EntityInput.png";
@@ -92,10 +82,11 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         #region Constructor
 
-        public PropertyBag(string name, ComplexType type, string subtype, bool isEntity, string description) :base(name, TypeFactory.CreateComplexType(type), true, description)
+        public PropertyBag(string name, string propertyBagTypeName, bool isEntity, string description)
+            : base(name, TypeFactory.CreatePropertyBag(propertyBagTypeName), true, description)
         {
             Name = name;
-            Type = TypeFactory.CreateComplexType(type, subtype, isEntity);
+            Type = TypeFactory.CreatePropertyBag(propertyBagTypeName, isEntity);
             Description = description;
             Properties = new PropertyCollection(this);
         }
@@ -125,20 +116,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         {
             get
             {
-                return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", GetPrefix(), Name);
-            }
-        }
-
-        public string GetPrefix()
-        {
-            switch (VectorType.ComplexType)
-            {
-                case ComplexType.ProductView:
-                    return UserSettings.NewSyntax? "EVENT": "USAGE";
-                case ComplexType.AccountView:
-                    return "ACCOUNT";
-                default:
-                    return String.Empty;
+                return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", XqgPrefix, Name);
             }
         }
 

@@ -115,7 +115,7 @@ namespace PropertyGui
                 return;
 
             treExplorer.ViewMode = (MvcAbstraction.ViewModeType)cboMode.SelectedItem;
-            treExplorer.EntityTypeFilter = (ComplexType)cboEntityTypeFilter.SelectedItem;
+            treExplorer.EntityTypeFilter = (string)cboEntityTypeFilter.SelectedItem;
             treExplorer.PropertyTypeFilter = (Type)cboPropertyTypeFilter.SelectedItem;
             treExplorer.FunctionFilter = cboCategory.Text;
             treExplorer.LoadTree();

@@ -8,6 +8,7 @@ using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.Placeholders;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Entities;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
@@ -96,16 +97,18 @@ namespace MetraTech.ExpressionEngine
 
             foreach (var entity in DemoLoader.GlobalContext.Entities.Values)
             {
-                //if (Expression.Info.SupportedEntityTypes.Contains(entity.DataTypeInfo.ComplexType))
-                if (Expression.Info.SupportedEntityTypes.Contains(entity.VectorType.ComplexType))
+                if (Expression.Info.SupportedEntityTypes.Contains(((PropertyBagType)entity.Type).Name))
                     Entities.Add(entity.Name, entity);
             }
 
             foreach (var entityParameterName in Expression.EntityParameters)
             {
-                PropertyBag rootEntity;
-                if (DemoLoader.GlobalContext.Entities.TryGetValue(entityParameterName, out rootEntity))
-                    Entities.Add(rootEntity.Name, rootEntity);
+                PropertyBag propertyBag;
+                if (DemoLoader.GlobalContext.Entities.TryGetValue(entityParameterName, out propertyBag))
+                {
+                    if (!Entities.ContainsKey(propertyBag.Name))
+                        Entities.Add(propertyBag.Name, propertyBag);
+                }
             }
 
             if (expression.Info.SupportsAqgs)
@@ -177,12 +180,12 @@ namespace MetraTech.ExpressionEngine
                         return secondProperty;
 
                     //var secondName = parts[1];
-                    var complexTypeName = ((PropertyBagType)secondProperty.Type).ComplexSubtype;
-                    if (complexTypeName == null)
+                    var propertyBagTypeName = ((PropertyBagType)secondProperty.Type).Name;
+                    if (propertyBagTypeName == null)
                         return null;
 
                     PropertyBag complexType;
-                    if (!DemoLoader.GlobalContext.Entities.TryGetValue(complexTypeName, out complexType))
+                    if (!DemoLoader.GlobalContext.Entities.TryGetValue(propertyBagTypeName, out complexType))
                         return null;
 
                     if (parts.Length == 2)
@@ -297,13 +300,13 @@ namespace MetraTech.ExpressionEngine
             Entities.Add(entity.Name, entity);
         }
 
-        public List<PropertyBag> GetEntities(ComplexType type)
+        public List<PropertyBag> GetEntities(string type)
         {
-            var types = new List<ComplexType>();
+            var types = new List<string>();
             types.Add(type);
             return GetEntities(null, types, null, null);
         }
-        public List<PropertyBag> GetEntities(string entityNameFilter, List<ComplexType> entityTypeFilter, string propertyNameFilter, Type propertyTypeFilter)
+        public List<PropertyBag> GetEntities(string entityNameFilter, List<string> entityTypeFilter, string propertyNameFilter, Type propertyTypeFilter)
         {
             var results = new List<PropertyBag>();
 
@@ -314,7 +317,7 @@ namespace MetraTech.ExpressionEngine
             {
                 if (entityRegex != null && !entityRegex.IsMatch(entity.Name))
                     continue;
-                if (entityTypeFilter != null && !entityTypeFilter.Contains(entity.VectorType.ComplexType))
+                if (entityTypeFilter != null && !entityTypeFilter.Contains(PropertyBagConstants.AnyFilter) && !entityTypeFilter.Contains( ((PropertyBagType)entity.Type).Name) )
                     continue;
 
                 if (!entity.HasPropertyMatch(propertyRegex, propertyTypeFilter))

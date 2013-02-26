@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using MetraTech.ExpressionEngine.Database;
+using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using System.Runtime.Serialization;
 
@@ -14,10 +15,12 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         public override string DBTableName { get { return "t_pv_" + Name; } }
 
+        public override string XqgPrefix { get { return UserSettings.NewSyntax? "EVENT" : "USAGE"; } }
+
         #endregion
 
         #region Constructor
-        public ProductViewEntity(string name, string description):base(name, ComplexType.ProductView, description)
+        public ProductViewEntity(string name, string description) : base(name, PropertyBagConstants.ProductView, description)
         {
           UniqueKey = new Collection<UniqueKey>();
 

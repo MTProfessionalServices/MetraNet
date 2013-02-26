@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Globalization;
 using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
@@ -11,7 +12,6 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     {
         #region Properties
 
-        //public static DataTypeInfo[] AllTypes;
         public static readonly Type[] AllTypes;
 
         /// <summary>
@@ -19,6 +19,8 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// Do not make changes to the objects in this array. Use CopyFrom to make a copy and make changes to the copy.
         /// </summary>
         public static readonly IEnumerable<BaseType> MsixBaseTypes;
+
+        public static readonly string[] MsixEntityTypes;
 
         /// <summary>
         /// BaseTypes that exist as native database types (e.g., string, int, etc.). In other words, there is a 1:1 mapping.
@@ -44,6 +46,13 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             {
                 AllTypes[index++] = new Type((BaseType)value);
             }
+
+            MsixEntityTypes = new string[]
+            {
+                PropertyBagConstants.AccountView,
+                PropertyBagConstants.ProductView,
+                PropertyBagConstants.ServiceDefinition
+            };
 
             MsixBaseTypes = new BaseType[] 
             {

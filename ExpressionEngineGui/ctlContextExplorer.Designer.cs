@@ -1,4 +1,5 @@
 ﻿using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace PropertyGui
@@ -191,7 +192,7 @@ namespace PropertyGui
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.treExplorer.ContextMenuStrip = this.mnuEnumValue;
-            this.treExplorer.EntityTypeFilter = ComplexType.ServiceDefinition;
+            this.treExplorer.EntityTypeFilter = PropertyBagConstants.ServiceDefinition;
             this.treExplorer.EnumValueContextMenu = null;
             this.treExplorer.FunctionFilter = null;
             this.treExplorer.ImageIndex = 0;

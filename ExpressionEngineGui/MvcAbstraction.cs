@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using MetraTech.ExpressionEngine.Expressions;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using MetraTech.ExpressionEngine.TypeSystem.Constants;
 
 namespace PropertyGui
 {
@@ -59,25 +60,25 @@ namespace PropertyGui
             return viewModes;
         }
 
-        public static List<ComplexType> GetRelevantEntityTypes(ProductType product, Expression expression = null)
+        public static List<string> GetRelevantEntityTypes(ProductType product, Expression expression = null)
         {
-            var types = new List<ComplexType>();
+            var types = new List<string>();
 
             if (product == ProductType.Metanga)
             {
-                types.Add(ComplexType.Metanga);
-                return types;
+                types.AddRange(DemoLoader.GlobalContext.Entities.Keys.ToArray());
             }
-
-            foreach (var value in Enum.GetValues(typeof(ComplexType)))
+            else
             {
-                var type = (ComplexType)value;
-                if (expression == null || expression.Info.SupportedEntityTypes.Contains(type))
-                    types.Add((ComplexType)type);
+                foreach (var propertyBagTypeName in TypeHelper.MsixEntityTypes)
+                {
+                    if (expression == null || expression.Info.SupportedEntityTypes.Contains(propertyBagTypeName))
+                        types.Add(propertyBagTypeName);
+                }
             }
 
-            if (types.Count > 1 && !types.Contains(ComplexType.Any))
-                types.Add(ComplexType.Any);
+            if (types.Count > 1 && !types.Contains(PropertyBagConstants.AnyFilter))
+                types.Add(PropertyBagConstants.AnyFilter);
 
             return types;
         }

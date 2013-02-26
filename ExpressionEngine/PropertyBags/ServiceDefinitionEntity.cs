@@ -1,4 +1,5 @@
 ﻿using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.PropertyBags
@@ -17,10 +18,10 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         #endregion
 
         #region Constructor
-        public ServiceDefinitionEntity(string name, string description) : base(name, ComplexType.ProductView, description)
+        public ServiceDefinitionEntity(string name, string description) : base(name, PropertyBagConstants.ProductView, description)
         {
           //Add the core properties
-          var accountId = Properties.AddInteger32("AccountId", "The internal MetraNet account identifiert", true);
+          var accountId = Properties.AddInteger32("AccountId", "The internal MetraNet account identifier", true);
           accountId.IsCore = true;
 
           var timestamp = Properties.AddDateTime("Timestamp", "The time the event is deemed to have occurred", true);

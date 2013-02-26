@@ -17,15 +17,17 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         #endregion
 
         #region Constructor
-        protected MetraNetEntityBase(string name, ComplexType complexType, string description) : base(name, complexType, null, true, description)
+        protected MetraNetEntityBase(string name, string propertyBagTypeName, string description)
+            : base(name, propertyBagTypeName, true, description)
         {
+            PropertyBagMode = PropertyBagMode.ExtensibleEntity;
         }
         #endregion
 
         #region Methods
         public string GetFileNameGivenExtensionsDirectory(string extensionsDir)
         {
-            return IOHelper.GetMetraNetConfigPath(extensionsDir, Extension, ((PropertyBagType) Type).ComplexType + "s");
+            return IOHelper.GetMetraNetConfigPath(extensionsDir, Extension, ((PropertyBagType) Type).Name + "s");
          }
 
         public void SaveInExtensionsDirectory(string extensionsDir)

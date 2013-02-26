@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
-using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using MetraTech.ExpressionEngine.TypeSystem.Constants;
 
 namespace MetraTech.ExpressionEngine.Expressions
 {
@@ -11,7 +11,7 @@ namespace MetraTech.ExpressionEngine.Expressions
 
         public ExpressionType Type { get { return _type; } }
         private readonly ExpressionType _type;
-        public List<ComplexType> SupportedEntityTypes { get; private set; }
+        public List<string> SupportedEntityTypes { get; private set; }
         public bool SupportsAqgs { get; set; }
         public bool SupportsUqgs { get; set; }
 
@@ -21,24 +21,24 @@ namespace MetraTech.ExpressionEngine.Expressions
         static ExpressionInfo()
         {
             //Aqg
-            var info = AddInfo(ExpressionType.Aqg, ComplexType.AccountView);
+            var info = AddInfo(ExpressionType.Aqg, PropertyBagConstants.AccountView);
             info.SupportsAqgs = true;
             
             //Uqg
-            info = AddInfo(ExpressionType.Uqg, ComplexType.ProductView);
+            info = AddInfo(ExpressionType.Uqg, PropertyBagConstants.ProductView);
             info.SupportsUqgs = true;
 
             //Message
-            AddInfo(ExpressionType.Message, ComplexType.AccountView);
+            AddInfo(ExpressionType.Message, PropertyBagConstants.AccountView);
 
             //Expression
-            AddInfo(ExpressionType.Logic, ComplexType.AccountView);
+            AddInfo(ExpressionType.Logic, PropertyBagConstants.AccountView);
 
-            AddInfo(ExpressionType.Email, ComplexType.AccountView);
+            AddInfo(ExpressionType.Email, PropertyBagConstants.AccountView);
         }
 
 
-        private static ExpressionInfo AddInfo(ExpressionType type, params ComplexType[] entityTypes)
+        private static ExpressionInfo AddInfo(ExpressionType type, params string[] entityTypes)
         {
             var info = new ExpressionInfo(type);
             info.SupportedEntityTypes.AddRange(entityTypes);
@@ -51,7 +51,7 @@ namespace MetraTech.ExpressionEngine.Expressions
         public ExpressionInfo(ExpressionType type)
         {
             _type = type;
-            SupportedEntityTypes = new List<ComplexType>();
+            SupportedEntityTypes = new List<string>();
         }
         #endregion
     }

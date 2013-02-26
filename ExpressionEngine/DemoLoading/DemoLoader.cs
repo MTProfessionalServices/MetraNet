@@ -13,6 +13,7 @@ using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.Placeholders;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Entities;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
@@ -41,15 +42,15 @@ namespace MetraTech.ExpressionEngine
                 AddCloudComputeProductView();
                 GlobalContext.AddEntity(DemoLoader.GetCorporateAccountType());
                 AddAircraftLandingProductView();
-                LoadEntities(GlobalContext, ComplexType.ProductView, Path.Combine(DataPath, "ProductViews.csv"));
-                LoadEntities(GlobalContext, ComplexType.AccountView, Path.Combine(DataPath, "AccountViews.csv"));
-                LoadEntities(GlobalContext, ComplexType.ServiceDefinition, Path.Combine(DataPath, "ServiceDefinitions.csv"));
+                LoadEntities(GlobalContext, PropertyBagConstants.ProductView, Path.Combine(DataPath, "ProductViews.csv"));
+                LoadEntities(GlobalContext, PropertyBagConstants.AccountView, Path.Combine(DataPath, "AccountViews.csv"));
+                LoadEntities(GlobalContext, PropertyBagConstants.ServiceDefinition, Path.Combine(DataPath, "ServiceDefinitions.csv"));
                 LoadXqg(GlobalContext, ExpressionType.Aqg, Path.Combine(DataPath, "AqgExpressions.csv"));
                 LoadXqg(GlobalContext, ExpressionType.Uqg, Path.Combine(DataPath, "UqgExpressions.csv"));
             }
             else
             {
-                LoadEntities(GlobalContext, ComplexType.Metanga, Path.Combine(DataPath, "Entities.csv"));
+                LoadEntities(GlobalContext, null, Path.Combine(DataPath, "Entities.csv"));
             }
 
             LoadEnumFile(GlobalContext, Path.Combine(DataPath, "Enums.csv"));
@@ -165,7 +166,7 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region File-Based Entities
-        public static void LoadEntities(Context context, ComplexType entityType, string filePath)
+        public static void LoadEntities(Context context, string propertyBagTypeName, string filePath)
         {
             if (context == null)
                 throw new ArgumentException("context");
@@ -189,46 +190,45 @@ namespace MetraTech.ExpressionEngine
                 if (!context.Entities.TryGetValue(entityName, out entity))
                 {
                     if (Context.ProductType == ProductType.MetraNet)
-                        entity = PropertyBagFactory.Create(entityType, entityName, entityDescription);
+                        entity = PropertyBagFactory.Create(propertyBagTypeName, entityName, entityDescription);
                     else
-                        entity = new PropertyBag(entityName, entityType, null, entityRecord.IsEntity, entityDescription);
+                        entity = new PropertyBag(entityName, propertyBagTypeName, entityRecord.IsEntity, entityDescription);
                     context.Entities.Add(entity.Name, entity);
                 }
 
-                Type dtInfo;
+                Type type;
                 if (Context.ProductType == ProductType.MetraNet)
                 {
                     //var baseType = TypeHelper.PropertyTypeIdToBaseTypeMapping[Int32.Parse(typeStr)];
                     //dtInfo = TypeFactory.Create(baseType);
-                    dtInfo = TypeFactory.Create(Int32.Parse(typeStr));
+                    type = TypeFactory.Create(Int32.Parse(typeStr));
                 }
                 else
-                    dtInfo = TypeFactory.Create(typeStr);
+                    type = TypeFactory.Create(typeStr);
 
-                switch (dtInfo.BaseType)
+                switch (type.BaseType)
                 {
                     case BaseType.Enumeration:
-                        var _enumType = (EnumerationType)dtInfo;
+                        var _enumType = (EnumerationType)type;
                         _enumType.Namespace = enumSpace;
                         _enumType.Category = enumType;
                         break;
                     case BaseType.Entity:
-                        var vectorType = (PropertyBagType)dtInfo;
-                        vectorType.ComplexType = entityType;
-                        vectorType.ComplexSubtype = enumType; //we overrode the column
+                        var propertyBagType = (PropertyBagType)type;
+                        propertyBagType.Name = enumType; //we overrode the column
                         break;
                 }
 
                 if (entityRecord.ListType == null)
                 {
-                    dtInfo.ListType = ListType.None;
+                    type.ListType = ListType.None;
                 }
                 else
                 {
-                    dtInfo.ListType = (ListType)Enum.Parse(typeof(ListType), entityRecord.ListType, true);
+                    type.ListType = (ListType)Enum.Parse(typeof(ListType), entityRecord.ListType, true);
                 }
 
-                var property = new Property(propName, dtInfo, true, propertyDescription);
+                var property = new Property(propName, type, true, propertyDescription);
                 property.Required = required;
                 entity.Properties.Add(property);
             }

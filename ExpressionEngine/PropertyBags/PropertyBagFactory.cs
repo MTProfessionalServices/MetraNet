@@ -1,5 +1,6 @@
 ﻿using System;
 using MetraTech.ExpressionEngine.Entities;
+using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.PropertyBags
@@ -20,18 +21,18 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             return new ServiceDefinitionEntity(name, description);
         }
 
-        public static PropertyBag Create(ComplexType type, string name, string description)
+        public static PropertyBag Create(string propertyBagTypeName, string name, string description)
         {
-            switch (type)
+            switch (propertyBagTypeName)
             {
-                case ComplexType.AccountView:
+                case PropertyBagConstants.AccountView:
                     return CreateAccountViewEntity(name, description);
-                case ComplexType.ProductView:
+                case PropertyBagConstants.ProductView:
                     return CreateProductViewEntity(name, description);
-                case ComplexType.ServiceDefinition:
+                case PropertyBagConstants.ServiceDefinition:
                     return CreateServiceDefinitionEntity(name, description);
                 default:
-                    throw new ArgumentException("Invalid Type: " + type);
+                    return Create(propertyBagTypeName, name, description);
             }
         }
     }

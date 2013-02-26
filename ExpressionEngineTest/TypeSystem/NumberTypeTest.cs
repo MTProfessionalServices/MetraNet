@@ -1,53 +1,70 @@
 ﻿using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MetraTech.ExpressionEngine;
 
 namespace ExpressionEngineTest
 {
     [TestClass()]
     public class NumberTypeTest
     {
-        /// <summary>
-        /// Very simple constructor tests.
-        /// </summary>
+        private const UnitOfMeasureMode uomMode = UnitOfMeasureMode.Fixed;
+        private const string uomQualifier = "hello";
+
         [TestMethod()]
-        public void CreateNumbersTest()
+        public void CreateIntTest()
         {
-            var uomMode = UnitOfMeasureMode.Fixed;
-            var uomQualifier = "hello";
+            var type = TypeFactory.CreateInteger(uomMode, uomQualifier);
+            AssertBasics(BaseType.Integer, type);
+            Assert.IsTrue(type.IsInteger);
+        }
 
-            var intType = TypeFactory.CreateInteger(uomMode, uomQualifier);
-            AssertBasics(BaseType.Integer, intType);
 
-            Assert.AreEqual(uomMode, ((NumberType)intType).UnitOfMeasureMode);
-            //Assert.AreEqual(uomMode, 
+        [TestMethod()]
+        public void CreateInteger32()
+        {
+            var type = TypeFactory.CreateInteger32(uomMode, uomQualifier);
+            AssertBasics(BaseType.Integer32, type);
+            Assert.IsTrue(type.IsInteger32);
+        }
 
-            Assert.IsTrue(intType.IsInteger);
+        [TestMethod()]
+        public void CreateInteger64()
+        {
+            var type = TypeFactory.CreateInteger64(uomMode, uomQualifier);
+            AssertBasics(BaseType.Integer64, type);
+            Assert.IsTrue(type.IsInteger64);
+        }
 
-            var int32 = TypeFactory.CreateInteger32(uomMode, uomQualifier);
-            AssertBasics(BaseType.Integer32, int32);
-            Assert.IsTrue(int32.IsInteger32);
+        [TestMethod()]
+        public void CreateDecimal()
+        {
+            var type = TypeFactory.CreateDecimal(uomMode, uomQualifier);
+            AssertBasics(BaseType.Decimal, type);
+            Assert.IsTrue(type.IsDecimal);
+        }
 
-            var int64 = TypeFactory.CreateInteger64(uomMode, uomQualifier);
-            AssertBasics(BaseType.Integer64, int64);
-            Assert.IsTrue(int64.IsInteger64);
+        [TestMethod()]
+        public void CreateDouble()
+        {
+            var type = TypeFactory.CreateDouble(uomMode, uomQualifier);
+            AssertBasics(BaseType.Double, type);
+            Assert.IsTrue(type.IsDouble);
+        }
 
-            var dec = TypeFactory.CreateDecimal(uomMode, uomQualifier);
-            AssertBasics(BaseType.Decimal, dec);
-            Assert.IsTrue(dec.IsDecimal);
+        [TestMethod()]
+        public void CreateFloat()
+        {
+            var type = TypeFactory.CreateFloat(uomMode, uomQualifier);
+            AssertBasics(BaseType.Float, type);
+            Assert.IsTrue(type.IsFloat);
+        }
 
-            var dble = TypeFactory.CreateDouble(uomMode, uomQualifier);
-            AssertBasics(BaseType.Double, dble);
-            Assert.IsTrue(dble.IsDouble);
-
-            var flt = TypeFactory.CreateFloat(uomMode, uomQualifier);
-            AssertBasics(BaseType.Float, flt);
-            Assert.IsTrue(flt.IsFloat);
-
-            var numeric = TypeFactory.CreateNumeric(uomMode, uomQualifier);
-            AssertBasics(BaseType.Numeric, numeric);
-            Assert.IsTrue(numeric.IsNumeric);
+        [TestMethod()]
+        public void CreateNumeric()
+        {
+            var type = TypeFactory.CreateNumeric(uomMode, uomQualifier);
+            AssertBasics(BaseType.Numeric, type);
+            Assert.IsTrue(type.IsNumeric);
         }
 
         public void AssertBasics(BaseType baseType, MetraTech.ExpressionEngine.TypeSystem.Type type)

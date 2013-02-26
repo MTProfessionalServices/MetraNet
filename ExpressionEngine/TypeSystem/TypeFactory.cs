@@ -125,7 +125,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         }
         public static Type CreateNumeric(UnitOfMeasureMode unitOfMeasureMode, string unitOfMeasureQualifier)
         {
-            return new NumberType(BaseType.Integer, unitOfMeasureMode, unitOfMeasureQualifier);
+            return new NumberType(BaseType.Numeric, unitOfMeasureMode, unitOfMeasureQualifier);
         }
 
         public static StringType CreateString()

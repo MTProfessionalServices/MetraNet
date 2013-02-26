@@ -92,7 +92,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         public static BaseType GetBaseType(string value)
         {
-            if (string.IsNullOrWhiteSpace(value))
+            if (value == null || string.IsNullOrWhiteSpace(value))
                 return BaseType.Unknown;
 
             switch (value.ToLower(CultureInfo.InvariantCulture))
@@ -141,6 +141,8 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     return BaseType.Guid;
                 case "entity":
                     return BaseType.Entity;
+                case "unknown":
+                    return BaseType.Unknown;
                 default:
                     throw new ArgumentException("Invalid internal data type string [" + value + "]");
             }
@@ -353,6 +355,8 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 case BaseType.Integer32:
                 case BaseType.Integer64:
                 case BaseType.Charge:
+                case BaseType.Numeric:
+                case BaseType.Money:
                     return true;
                 default:
                     return false;

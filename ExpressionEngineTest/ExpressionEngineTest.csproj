@@ -54,11 +54,13 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EnumerationTypeTest.cs" />
-    <Compile Include="EnumSpaceTest.cs" />
-    <Compile Include="EnumValueTest.cs" />
-    <Compile Include="ExpressionTest.cs" />
-    <Compile Include="FunctionTest.cs" />
+    <Compile Include="MTProperties\PropertyTest.cs" />
+    <Compile Include="MTProperties\PropertyCollectionTest.cs" />
+    <Compile Include="TypeSystem\MoneyTypeTest.cs" />
+    <Compile Include="TypeSystem\EnumerationTypeTest.cs" />
+    <Compile Include="Components\EnumNamespaceTest.cs" />
+    <Compile Include="Components\EnumValueTest.cs" />
+    <Compile Include="Expressions\ExpressionTest.cs" />
     <Compile Include="Entity\MetraNetEntityBaseTest.cs" />
     <Compile Include="TypeSystem\NumberTypeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

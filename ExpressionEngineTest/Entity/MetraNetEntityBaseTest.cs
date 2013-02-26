@@ -1,5 +1,4 @@
-﻿using MetraTech.ExpressionEngine.Entities;
-using MetraTech.ExpressionEngine.PropertyBags;
+﻿using MetraTech.ExpressionEngine.PropertyBags;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ExpressionEngineTest
@@ -13,8 +12,8 @@ namespace ExpressionEngineTest
         {
             var entity = PropertyBagFactory.CreateProductViewEntity("Foo", null);
             entity.Extension = "Core";
-            var file = entity.GetFileNameGivenExtensionsDirectory(@"C:\Temp\Extensions");
-            Assert.AreEqual(@"C:\Temp\Extensions\Core\ProductViews\Foo.xml", file);
+            var file = entity.GetFileNameGivenExtensionsDirectory(@"C:\RMP\Extensions");
+            Assert.AreEqual(@"C:\RMP\Extensions\Core\Config\ProductViews", file);
         }
     }
 }

@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
-using MetraTech.ExpressionEngine.Entities;
 
-namespace MetraTech.ExpressionEngine.MTProperty
+namespace MetraTech.ExpressionEngine.MTProperties
 {
     /// <summary>
     /// TO DO:
@@ -14,7 +13,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
     [DataContract (Namespace = "MetraTech")]
     [KnownType(typeof(Property))]
     [KnownType(typeof(PropertyBag))]
-    public class PropertyCollection : IEnumerable<IProperty>
+    public class PropertyCollection : IEnumerable<Property>
     {
         #region Properties
 
@@ -35,7 +34,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
         /// Internal list. Kept private to reduce what a developer has access to
         /// </summary>
         [DataMember]
-        private List<IProperty> Properties = new List<IProperty>();
+        private List<Property> Properties = new List<Property>();
         #endregion
 
         #region Constructors
@@ -47,7 +46,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
 
         #region Methods
 
-        public IProperty Get(string name)
+        public Property Get(string name)
         {
             if (string.IsNullOrEmpty(name))
                 return null;
@@ -136,17 +135,17 @@ namespace MetraTech.ExpressionEngine.MTProperty
         public PropertyCollection Clone()
         {
             var newCollection = new PropertyCollection(null);
-            foreach (IProperty property in Properties)
+            foreach (Property property in Properties)
             {
                 var newProperty = property.Clone();
-                newCollection.Add((IProperty)newProperty);
+                newCollection.Add((Property)newProperty);
             }
             return newCollection;
         }
         #endregion
 
         #region Add Methods
-        public void Add(IProperty property)
+        public void Add(Property property)
         {
             if (property == null)
                 throw new ArgumentNullException("property");
@@ -211,7 +210,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
         #endregion
 
         #region IEnumerable Methods
-        IEnumerator<IProperty> IEnumerable<IProperty>.GetEnumerator()
+        IEnumerator<Property> IEnumerable<Property>.GetEnumerator()
         {
             return Properties.GetEnumerator();
         }

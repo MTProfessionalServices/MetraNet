@@ -6,8 +6,8 @@ using System.Runtime.Serialization;
 using System.Globalization;
 using MetraTech.ExpressionEngine.Expressions;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
+using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
-using MetraTech.ExpressionEngine.MTProperty;
 
 namespace MetraTech.ExpressionEngine
 {

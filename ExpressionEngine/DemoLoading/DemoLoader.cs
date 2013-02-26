@@ -9,12 +9,12 @@ using Metanga.Miscellaneous.MetadataExport;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Expressions;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
+using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.Placeholders;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Entities;
-using MetraTech.ExpressionEngine.MTProperty;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 

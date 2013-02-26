@@ -8,9 +8,9 @@ using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
-using MetraTech.ExpressionEngine.MTProperty;
 
 namespace PropertyGui
 {
@@ -106,7 +106,7 @@ namespace PropertyGui
 
         public void OnMyChange()
         {
-            IProperty property;
+            Property property;
             if (!Context.TryGetPropertyFromAllProperties(ctlProp.Text, out property))
             {
                 LoadValues(null);

@@ -1,7 +1,7 @@
 ﻿using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
-namespace MetraTech.ExpressionEngine.MTProperty
+namespace MetraTech.ExpressionEngine.MTProperties
 {
     public static class PropertyFactory
     {

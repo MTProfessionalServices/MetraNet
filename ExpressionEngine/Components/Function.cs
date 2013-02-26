@@ -2,8 +2,8 @@
 using System.Runtime.Serialization;
 using System.IO;
 using System.Xml.Linq;
+using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem;
-using MetraTech.ExpressionEngine.MTProperty;
 
 namespace MetraTech.ExpressionEngine.Components
 {

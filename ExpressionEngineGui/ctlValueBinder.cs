@@ -8,8 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
-using MetraTech.ExpressionEngine.MTProperty;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
@@ -43,7 +43,7 @@ namespace PropertyGui
         }
 
         private Context Context;
-        private IProperty Property;
+        private Property Property;
         private BindingTypeEnum BindingType;
         private Control Control;
         #endregion
@@ -77,7 +77,7 @@ namespace PropertyGui
         #endregion
 
         #region Delegates
-        public delegate void GotMyFocus(IProperty property);
+        public delegate void GotMyFocus(Property property);
         public GotMyFocus OnGotMyFocus;
         public delegate void MyChange();
         public MyChange OnMyChange;
@@ -85,7 +85,7 @@ namespace PropertyGui
 
         #region Methods
 
-        public void Init(Context context, IProperty property)
+        public void Init(Context context, Property property)
         {
             Context = context;
             Property = property;

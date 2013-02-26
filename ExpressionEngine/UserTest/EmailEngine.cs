@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Net.Mail;
-using MetraTech.ExpressionEngine.MTProperty;
+using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.Entities;
 using MetraTech.ExpressionEngine.PropertyBags;
 

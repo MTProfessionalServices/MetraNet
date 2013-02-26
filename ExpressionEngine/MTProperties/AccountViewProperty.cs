@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.TypeSystem;
 
-namespace MetraTech.ExpressionEngine.MTProperty
+namespace MetraTech.ExpressionEngine.MTProperties
 {
     [DataContract]
     public class AccountViewProperty : Property

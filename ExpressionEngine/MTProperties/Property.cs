@@ -6,10 +6,9 @@ using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
-using MetraTech.ExpressionEngine.Entities;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
-namespace MetraTech.ExpressionEngine.MTProperty
+namespace MetraTech.ExpressionEngine.MTProperties
 {
     /// <summary>
     /// General abstraction for properties spanning MetraNet(ProductViews, BMEs, etc.) and Metanga. There will be subclasses to
@@ -21,7 +20,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
     /// *Unit tests
     /// </summary>
     [DataContract (Namespace = "MetraTech")]
-    public class Property : IProperty, IExpressionEngineTreeNode
+    public class Property : IExpressionEngineTreeNode
     {
         #region Static Properties
         /// <summary>
@@ -113,7 +112,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
             get { return Direction == Direction.Output || Direction == Direction.InOut; }
         }
 
-        public string CompatibleKey { get { return Type.CompatibleKey; } }
+        public virtual string CompatibleKey { get { return Type.CompatibleKey; } }
 
         /// <summary>
         /// Used for end-user-drive testing etc. 
@@ -127,7 +126,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
         /// <summary>
         /// Combines the data type and description
         /// </summary>
-        public string ToolTip
+        public  virtual string ToolTip
         {
             get
             {
@@ -142,7 +141,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
             }
         }
 
-        public string ImageDirection
+        public virtual string ImageDirection
         {
             get
             {
@@ -160,7 +159,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
             }
         }
 
-        public string Image
+        public virtual string Image
         {
             get
             {
@@ -239,7 +238,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
         /// <summary>
         /// Returns the Units property associated with this property. Only valid for Charges.
         /// </summary>
-        public IProperty GetUnitsProperty()
+        public Property GetUnitsProperty()
         {
             if (!Type.IsMoney || PropertyCollection == null)
                 return null;
@@ -252,9 +251,9 @@ namespace MetraTech.ExpressionEngine.MTProperty
         /// <summary>
         /// Returns the UOM property associated with this property. Only valid for Numerics.
         /// </summary>
-        public IProperty GetUnitOfMeasureProperty()
+        public Property GetUnitOfMeasureProperty()
         {
-            if (!Type.IsNumeric)
+            if (!Type.IsNumeric || Type.IsMoney)
                 return null;
 
             var type = (NumberType)Type;

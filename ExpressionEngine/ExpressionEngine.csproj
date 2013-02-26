@@ -86,7 +86,6 @@
     <Compile Include="Components\Function.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="IExpressionEngineTreeNode.cs" />
-    <Compile Include="MTProperties\IProperty.cs" />
     <Compile Include="Localization.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

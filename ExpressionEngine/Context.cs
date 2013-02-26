@@ -4,12 +4,12 @@ using System.Text.RegularExpressions;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Expressions;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
+using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.Placeholders;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Entities;
-using MetraTech.ExpressionEngine.MTProperty;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace MetraTech.ExpressionEngine
@@ -65,11 +65,11 @@ namespace MetraTech.ExpressionEngine
         private List<EnumCategory> _enumCategories = new List<EnumCategory>();
 
 
-        public List<IProperty> AllProperties { get { return _allProperties; } }
-        private List<IProperty> _allProperties = new List<IProperty>();
+        public List<Property> AllProperties { get { return _allProperties; } }
+        private List<Property> _allProperties = new List<Property>();
 
-        public Dictionary<string, IProperty> UniqueProperties { get { return _uniqueProperties; } }
-        private Dictionary<string, IProperty> _uniqueProperties = new Dictionary<string, IProperty>();
+        public Dictionary<string, Property> UniqueProperties { get { return _uniqueProperties; } }
+        private Dictionary<string, Property> _uniqueProperties = new Dictionary<string, Property>();
 
         public List<EnumCategory> RelevantEnums { get { return _relevantEnums; } }
         private List<EnumCategory> _relevantEnums = new List<EnumCategory>();
@@ -137,15 +137,15 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// Searches for a property with the specified name. If not found, null is returned. Order N search. 
         /// </summary>
-        public IProperty GetRecursive(string name)
+        public Property GetRecursive(string name)
         {
             if (string.IsNullOrEmpty(name))
                 return null;
 
-            return _getRecursive(name, (IEnumerable<IProperty>)Entities.Values);
+            return _getRecursive(name, (IEnumerable<Property>)Entities.Values);
         }
 
-        private IProperty _getRecursive(string name, IEnumerable<IProperty> properties)
+        private Property _getRecursive(string name, IEnumerable<Property> properties)
         {
             if (name == null)
                 throw new ArgumentException("name==null");
@@ -197,12 +197,12 @@ namespace MetraTech.ExpressionEngine
 
         #region Property Methods
 
-        public List<IProperty> GetProperties(Type typeFilter, IEnumerable<PropertyBag> entities = null)
+        public List<Property> GetProperties(Type typeFilter, IEnumerable<PropertyBag> entities = null)
         {
             if (entities == null)
                 entities = Entities.Values;
 
-            var results = new List<IProperty>();
+            var results = new List<Property>();
             foreach (var entity in entities)
             {
                 foreach (var property in entity.Properties)
@@ -214,10 +214,10 @@ namespace MetraTech.ExpressionEngine
             return results;
         }
 
-        public List<IProperty> GetProperties(Type dtInfo, MatchType minimumMatchLevel, bool uniqueProperties)
+        public List<Property> GetProperties(Type dtInfo, MatchType minimumMatchLevel, bool uniqueProperties)
         {
-            var properties = new List<IProperty>();
-            IEnumerable<IProperty> list;
+            var properties = new List<Property>();
+            IEnumerable<Property> list;
 
             if (uniqueProperties)
                 list = UniqueProperties.Values;
@@ -232,7 +232,7 @@ namespace MetraTech.ExpressionEngine
             return properties;
         }
 
-        public bool TryGetPropertyFromAllProperties(string name, out IProperty result)
+        public bool TryGetPropertyFromAllProperties(string name, out Property result)
         {
             foreach (var property in AllProperties)
             {
@@ -261,7 +261,7 @@ namespace MetraTech.ExpressionEngine
                 {
                     AllProperties.Add(property);
 
-                    IProperty uniqueProperty;
+                    Property uniqueProperty;
                     var key = property.CompatibleKey;
                     if (!UniqueProperties.TryGetValue(key, out uniqueProperty))
                         UniqueProperties.Add(key, property);

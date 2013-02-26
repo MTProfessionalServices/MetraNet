@@ -2,8 +2,8 @@
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
-using MetraTech.ExpressionEngine.MTProperty;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using System.IO;
@@ -16,43 +16,19 @@ namespace MetraTech.ExpressionEngine.PropertyBags
     /// other complex types. Note that DataTypeInfo.IsEntity determines if it's deemed an Entity (an important destinction for Metanga)
     /// </summary>
     [DataContract (Namespace = "MetraTech")]
-    public class PropertyBag : IProperty, IExpressionEngineTreeNode
+    public class PropertyBag : Property, IExpressionEngineTreeNode
     {
         #region Properties
-        [DataMember]
-        public string Name { get; set; }
-
-        [DataMember]
-        public bool Required { get; set; }
-
-        [DataMember]
-        public bool IsCore { get; set; }
 
         [DataMember]
         public PropertyBagMode PropertyBagMode { get; set; }
-
-        [DataMember]
-        public Type Type { get; set; }
 
         public PropertyBagType VectorType { get { return (PropertyBagType)Type; } }
 
         [DataMember]
         public PropertyCollection Properties { get; private set; }
-
-        public PropertyBag ParentEntity { get; set; }
-
-        [DataMember]
-        public string Description { get; set; }
-
-        [DataMember]
-        public Direction Direction { get; set; }
-
-        /// <summary>
-        /// Used for end-user-drive testing etc. 
-        /// </summary>
-        public string Value { get; set; }
-
-        public string CompatibleKey { get { return string.Format(CultureInfo.InvariantCulture, "{0}|{1}", Name, Type.CompatibleKey); } }
+        
+        public override string CompatibleKey { get { return string.Format(CultureInfo.InvariantCulture, "{0}|{1}", Name, Type.CompatibleKey); } }
 
         /// <summary>
         /// The actual database table name. Used in MetraNet which has a prefix on all table names.
@@ -66,8 +42,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         #endregion
 
         #region GUI Helper Properties (move in future)
-        public string TreeNodeLabel { get { return Name + Type.ListSuffix; } }
-        public string ToolTip
+        public override string ToolTip
         {
             get
             {
@@ -80,7 +55,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             }
         }
 
-        public string Image
+        public override string Image
         {
             get
             {
@@ -96,7 +71,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         }
 
 
-        public string ImageDirection
+        public override string ImageDirection
         {
             get
             {
@@ -117,7 +92,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         #region Constructor
 
-        public PropertyBag(string name, ComplexType type, string subtype, bool isEntity, string description)
+        public PropertyBag(string name, ComplexType type, string subtype, bool isEntity, string description) :base(name, TypeFactory.CreateComplexType(type), true, description)
         {
             Name = name;
             Type = TypeFactory.CreateComplexType(type, subtype, isEntity);

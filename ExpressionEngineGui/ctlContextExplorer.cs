@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Expressions;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
-using MetraTech.ExpressionEngine.MTProperty;
+using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.Placeholders;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
@@ -147,10 +147,10 @@ namespace PropertyGui
             if (node.Tag is Aqg || node.Tag is Uqg || node.Tag is EnumValue)
                 return ((IExpressionEngineTreeNode)node.Tag).ToExpressionSnippet;
 
-            if (!(node.Tag is IProperty))
+            if (!(node.Tag is Property))
                 return string.Empty;
 
-            var property = (IProperty)node.Tag;
+            var property = (Property)node.Tag;
             var columnPrefix = UserSettings.NewSyntax ? string.Empty : "c_";
 
             switch (Context.Expression.Type)

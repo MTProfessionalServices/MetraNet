@@ -1,7 +1,7 @@
 ﻿using System;
+using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
-using MetraTech.ExpressionEngine.MTProperty;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace MetraTech.ExpressionEngine.Expressions

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MetraTech.ExpressionEngine.MTProperty;
 using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace MetraTech.ExpressionEngine.Charges

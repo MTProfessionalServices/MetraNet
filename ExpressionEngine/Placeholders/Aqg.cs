@@ -1,7 +1,8 @@
 ﻿using System.Globalization;
 using MetraTech.ExpressionEngine.Expressions;
+using MetraTech.ExpressionEngine.Expressions.Enumerations;
 
-namespace MetraTech.ExpressionEngine
+namespace MetraTech.ExpressionEngine.Placeholders
 {
     public class Aqg : IExpressionEngineTreeNode
     {

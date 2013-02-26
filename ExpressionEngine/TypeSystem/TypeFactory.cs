@@ -7,59 +7,59 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     {
         #region Create Methods
 
-        public static MtType CreateAny()
+        public static Type CreateAny()
         {
-            return new MtType(BaseType.Any);
+            return new Type(BaseType.Any);
         }
 
-        public static MtType CreateBinary()
+        public static Type CreateBinary()
         {
-            return new MtType(BaseType.Binary);
+            return new Type(BaseType.Binary);
         }
 
-        public static MtType CreateBoolean()
+        public static Type CreateBoolean()
         {
-            return new MtType(BaseType.Boolean);
+            return new Type(BaseType.Boolean);
         }
 
-        public static MtType CreateCharge()
+        public static Type CreateCharge()
         {
-            return new MtType(BaseType.Charge);
+            return new Type(BaseType.Charge);
         }
 
-        public static VectorType CreateComplexType()
+        public static PropertyBagType CreateComplexType()
         {
             return CreateComplexType(ComplexType.None);
         }
-        public static VectorType CreateComplexType(ComplexType entityType)
+        public static PropertyBagType CreateComplexType(ComplexType entityType)
         {
             return CreateComplexType(entityType, null, true);
         }
         
-        public static VectorType CreateComplexType(ComplexType entityType, string subtype, bool isEntity)
+        public static PropertyBagType CreateComplexType(ComplexType entityType, string subtype, bool isEntity)
         {
-            return new VectorType(entityType, subtype, isEntity);
+            return new PropertyBagType(entityType, subtype, isEntity);
         }
 
-        public static MtType CreateDateTime()
+        public static Type CreateDateTime()
         {
-            return new MtType(BaseType.DateTime);
+            return new Type(BaseType.DateTime);
         }
 
         public static NumberType CreateDecimal()
         {
-            return new NumberType(BaseType.Decimal, UnitOfMeasureModeType.None, null);
+            return new NumberType(BaseType.Decimal, UnitOfMeasureMode.None, null);
         }
-        public static NumberType CreateDecimal(UnitOfMeasureModeType unitOfMeasureMode, string unitOfMeasureQualifier)
+        public static NumberType CreateDecimal(UnitOfMeasureMode unitOfMeasureMode, string unitOfMeasureQualifier)
         {
             return new NumberType(BaseType.Decimal, unitOfMeasureMode, unitOfMeasureQualifier);
         }
 
         public static NumberType CreateDouble()
         {
-            return CreateDouble(UnitOfMeasureModeType.None, null);
+            return CreateDouble(UnitOfMeasureMode.None, null);
         }
-        public static NumberType CreateDouble(UnitOfMeasureModeType unitOfMeasureMode, string unitOfMeasureQualifier)
+        public static NumberType CreateDouble(UnitOfMeasureMode unitOfMeasureMode, string unitOfMeasureQualifier)
         {
             return new NumberType(BaseType.Double, unitOfMeasureMode, unitOfMeasureQualifier);
         }
@@ -76,41 +76,41 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         public static NumberType CreateFloat()
         {
-            return CreateFloat(UnitOfMeasureModeType.None, null);
+            return CreateFloat(UnitOfMeasureMode.None, null);
         }
 
-        public static NumberType CreateFloat(UnitOfMeasureModeType unitOfMeasureMode, string unitOfMeasureQualifier)
+        public static NumberType CreateFloat(UnitOfMeasureMode unitOfMeasureMode, string unitOfMeasureQualifier)
         {
             return new NumberType(BaseType.Float, unitOfMeasureMode, unitOfMeasureQualifier);
         }
 
-        public static MtType CreateGuid()
+        public static Type CreateGuid()
         {
-            return new MtType(BaseType.Guid);
+            return new Type(BaseType.Guid);
         }
 
         public static NumberType CreateInteger()
         {
-            return CreateInteger(UnitOfMeasureModeType.None, null);
+            return CreateInteger(UnitOfMeasureMode.None, null);
         }
-        public static NumberType CreateInteger(UnitOfMeasureModeType unitOfMeasureMode, string unitOfMeasureQualifier)
+        public static NumberType CreateInteger(UnitOfMeasureMode unitOfMeasureMode, string unitOfMeasureQualifier)
         {
             return new NumberType(BaseType.Integer, unitOfMeasureMode, unitOfMeasureQualifier);
         }
 
         public static NumberType CreateInteger32()
         {
-            return new NumberType(BaseType.Integer32, UnitOfMeasureModeType.None, null);
+            return new NumberType(BaseType.Integer32, UnitOfMeasureMode.None, null);
         }
-        public static NumberType CreateInteger32(UnitOfMeasureModeType unitOfMeasureMode, string unitOfMeasureQualifier)
+        public static NumberType CreateInteger32(UnitOfMeasureMode unitOfMeasureMode, string unitOfMeasureQualifier)
         {
             return new NumberType(BaseType.Integer32, unitOfMeasureMode, unitOfMeasureQualifier);
         }
         public static NumberType CreateInteger64()
         {
-            return CreateInteger64(UnitOfMeasureModeType.None, null);
+            return CreateInteger64(UnitOfMeasureMode.None, null);
         }
-        public static NumberType CreateInteger64(UnitOfMeasureModeType unitOfMeasureMode, string unitOfMeasureQualifier)
+        public static NumberType CreateInteger64(UnitOfMeasureMode unitOfMeasureMode, string unitOfMeasureQualifier)
         {
             return new NumberType(BaseType.Integer64, unitOfMeasureMode, unitOfMeasureQualifier);
         }
@@ -119,11 +119,11 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         {
             return new MoneyType();
         }
-        public static MtType CreateNumeric()
+        public static Type CreateNumeric()
         {
-            return CreateNumeric(UnitOfMeasureModeType.None, null);
+            return CreateNumeric(UnitOfMeasureMode.None, null);
         }
-        public static MtType CreateNumeric(UnitOfMeasureModeType unitOfMeasureMode, string unitOfMeasureQualifier)
+        public static Type CreateNumeric(UnitOfMeasureMode unitOfMeasureMode, string unitOfMeasureQualifier)
         {
             return new NumberType(BaseType.Integer, unitOfMeasureMode, unitOfMeasureQualifier);
         }
@@ -138,14 +138,14 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return new StringType(length);
         }
 
-        public static MtType CreateUniqueId()
+        public static Type CreateUniqueId()
         {
-            return new MtType(BaseType.UniqueIdentifier);
+            return new Type(BaseType.UniqueIdentifier);
         }
 
-        public static MtType CreateUnknown()
+        public static Type CreateUnknown()
         {
-            return new MtType(BaseType.Unknown);
+            return new Type(BaseType.Unknown);
         }
 
         #endregion
@@ -171,19 +171,19 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         //    return (MtType)result;
         //}
 
-        public static MtType Create(string value)
+        public static Type Create(string value)
         {
             var baseType = TypeHelper.GetBaseType(value);
             return Create(baseType);
         }
 
-        public static MtType Create(int internalMetraNetId)
+        public static Type Create(int internalMetraNetId)
         {
             var baseType = TypeHelper.PropertyTypeIdToBaseTypeMapping[internalMetraNetId];
             return Create(baseType);
         }
 
-        public static MtType Create(BaseType baseType)
+        public static Type Create(BaseType baseType)
         {
             switch (baseType)
             {

@@ -13,6 +13,8 @@ using System.Xml;
 using MetraTech.ExpressionEngine.Entities;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Expressions;
+using MetraTech.ExpressionEngine.Expressions.Enumerations;
+using MetraTech.ExpressionEngine.Placeholders;
 
 namespace PropertyGui
 {

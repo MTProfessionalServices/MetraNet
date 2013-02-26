@@ -6,7 +6,8 @@ using System.Xml;
 using System.Runtime.Serialization;
 using System.IO;
 using System.Text.RegularExpressions;
-using MetraTech.ExpressionEngine.MTProperty.Enumerations;
+using MetraTech.ExpressionEngine.Expressions.Enumerations;
+using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.MTProperty;
 
 [assembly: CLSCompliant(true)]
@@ -15,7 +16,7 @@ namespace MetraTech.ExpressionEngine.Expressions
     /// <summary>
     /// This is a place holder. Need to think through. We probably will want expression templates.
     /// </summary>
-    [DataContract]
+    [DataContract (Namespace="MetraTech")]
     public class Expression
     {
         #region Properties
@@ -101,23 +102,23 @@ namespace MetraTech.ExpressionEngine.Expressions
 
             //HACK -- since we aren't integrated with MVM parse engine, simulate some stuff!
             var prop = Property.CreateInteger32("USAGE.Hours", true, null);
-            prop.Direction = DirectionType.InOut;
+            prop.Direction = Direction.InOut;
             results.Parameters.Add(prop);
 
             prop = Property.CreateInteger32("USAGE.CpuCount", true, null);
-            prop.Direction = DirectionType.Input;
+            prop.Direction = Direction.Input;
             results.Parameters.Add(prop);
 
             prop = Property.CreateInteger32("USAGE.Snapshots", true, null);
-            prop.Direction = DirectionType.Input;
+            prop.Direction = Direction.Input;
             results.Parameters.Add(prop);
 
             prop = Property.CreateInteger32("USAGE.Amount", true, null);
-            prop.Direction = DirectionType.Input;
+            prop.Direction = Direction.Input;
             results.Parameters.Add(prop);
 
             prop = Property.CreateBoolean("<Result>", true, "The result of the boolean expression");
-            prop.Direction = DirectionType.Output;
+            prop.Direction = Direction.Output;
             results.Parameters.Add(prop);
             return results;
         }
@@ -156,13 +157,5 @@ namespace MetraTech.ExpressionEngine.Expressions
         //    return null;
         //}
         #endregion
-    }
-
-    public enum ExpressionType { 
-        Aqg,
-        Uqg,
-        Logic,
-        Email,
-        Message ///Merging of localized text (e.g., email templates, sms messages, etc.)
     }
 }

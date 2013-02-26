@@ -18,7 +18,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
         #endregion
 
         #region Constructor
-        public ProductViewProperty(string name, MtType type, bool isRequired, string description): base(name, type, isRequired, description)
+        public ProductViewProperty(string name, Type type, bool isRequired, string description): base(name, type, isRequired, description)
         {    
         }
         #endregion

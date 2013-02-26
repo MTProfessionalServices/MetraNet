@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using MetraTech.ExpressionEngine.Expressions;
+using MetraTech.ExpressionEngine.Expressions.Enumerations;
 
 namespace MetraTech.ExpressionEngine
 {

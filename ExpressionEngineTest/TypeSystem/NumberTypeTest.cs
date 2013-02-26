@@ -14,7 +14,7 @@ namespace ExpressionEngineTest
         [TestMethod()]
         public void CreateNumbersTest()
         {
-            var uomMode = UnitOfMeasureModeType.Fixed;
+            var uomMode = UnitOfMeasureMode.Fixed;
             var uomQualifier = "hello";
 
             var intType = TypeFactory.CreateInteger(uomMode, uomQualifier);
@@ -50,7 +50,7 @@ namespace ExpressionEngineTest
             Assert.IsTrue(numeric.IsNumeric);
         }
 
-        public void AssertBasics(BaseType baseType, MetraTech.ExpressionEngine.TypeSystem.MtType type)
+        public void AssertBasics(BaseType baseType, MetraTech.ExpressionEngine.TypeSystem.Type type)
         {
             Assert.AreEqual(baseType, type.BaseType);
             Assert.IsTrue(type.IsNumeric);

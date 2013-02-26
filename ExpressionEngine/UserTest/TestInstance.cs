@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Collections.ObjectModel;
-using MetraTech.ExpressionEngine.MTProperty.Enumerations;
+using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.MTProperty;
 
 namespace MetraTech.ExpressionEngine.UserTest
@@ -67,10 +67,10 @@ namespace MetraTech.ExpressionEngine.UserTest
                 var prop = (Property)property;
                 switch (prop.Direction)
                 {
-                    case DirectionType.Input:
+                    case Direction.Input:
                         Inputs.Add(new KeyValuePair<string, string>(prop.Name, prop.Value));
                         break;
-                    case DirectionType.Output:
+                    case Direction.Output:
                         Outputs.Add(new KeyValuePair<string, string>(prop.Name, prop.Value));
                         break;
                     default:

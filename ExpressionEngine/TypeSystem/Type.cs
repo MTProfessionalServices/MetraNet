@@ -8,7 +8,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     /// The root class for all types
     /// </summary>
     [DataContract]
-    public class MtType
+    public class Type
     {
         #region Properties
 
@@ -52,7 +52,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         #region Constructor
 
-        public MtType(BaseType baseType)
+        public Type(BaseType baseType)
         {
             _baseType = baseType;
         }
@@ -99,13 +99,13 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         #region Type comparision and filtering
 
-        public bool IsMatch(MtType type2, MatchType minimumMatchType)
+        public bool IsMatch(Type type2, MatchType minimumMatchType)
         {
             var result = CompareType(type2);
             return (result >= minimumMatchType);
         }
 
-        public MatchType CompareType(MtType type2)
+        public MatchType CompareType(Type type2)
         {
             if (type2 == null)
                 throw new ArgumentNullException("type2");
@@ -146,7 +146,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         }
 
 
-        public bool IsBaseTypeFilterMatch(MtType type)
+        public bool IsBaseTypeFilterMatch(Type type)
         {
             if (type == null)
                 throw new ArgumentNullException("type");
@@ -162,12 +162,12 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             }
         }
 
-        public bool CanBeImplicitlyCastTo(MtType target)
+        public bool CanBeImplicitlyCastTo(Type target)
         {
             return IsImplicitCast(this, target);
         }
 
-        public static bool IsImplicitCast(MtType start, MtType end)
+        public static bool IsImplicitCast(Type start, Type end)
         {
             if (start == null)
                 throw new ArgumentNullException("start");
@@ -181,13 +181,13 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return false;
         }
 
-        public MtType Copy()
+        public Type Copy()
         {
             var type = TypeFactory.Create(BaseType);
             InternalCopy(type);
             return type;
         }
-        protected void InternalCopy(MtType type)
+        protected void InternalCopy(Type type)
         {
             if (type == null)
                 throw new ArgumentNullException("type");

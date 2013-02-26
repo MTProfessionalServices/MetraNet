@@ -60,7 +60,7 @@ namespace MetraTech.ExpressionEngine
             return EnsureDirectoryExits(dirPath);
         }
 
-        public static DirectoryInfo EnsureDirectoryExits(string dirPath)
+        public static DirectoryInfo EnsureDirectoryExits(this string dirPath)
         {
             var dirInfo = new DirectoryInfo(dirPath);
             if (!dirInfo.Exists)

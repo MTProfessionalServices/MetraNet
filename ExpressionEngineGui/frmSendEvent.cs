@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Entities;
+using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
@@ -17,7 +18,7 @@ namespace PropertyGui
     {
         #region Properties
         private Context Context;
-        private Entity Event;
+        private PropertyBag Event;
         #endregion
 
         #region Constructor
@@ -42,7 +43,7 @@ namespace PropertyGui
                 SetProperties(Context.Entities["BillableEvent"]);
         }
 
-        private void SetProperties(Entity eventEntity)
+        private void SetProperties(PropertyBag eventEntity)
         {
             Event = eventEntity;
             ctlProperties.DefaultBindingType = ctlValueBinder.BindingTypeEnum.Constant;
@@ -56,7 +57,7 @@ namespace PropertyGui
         #region Events
         private void cboEvent_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SetProperties((Entity)cboEvent.SelectedItem);
+            SetProperties((PropertyBag)cboEvent.SelectedItem);
         }
         #endregion
     }

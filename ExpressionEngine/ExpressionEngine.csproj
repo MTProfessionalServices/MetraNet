@@ -50,33 +50,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Charges\Charge.cs" />
     <Compile Include="Database\UniqueKey.cs" />
+    <Compile Include="TypeSystem\Enumerations\PropertyBagMode.cs" />
+    <Compile Include="Expressions\Enumerations\ExpressionType.cs" />
     <Compile Include="Expressions\ExpressionHelper.cs" />
-    <Compile Include="MTProperty\Enumerations\IndexType.cs" />
+    <Compile Include="MTProperties\Enumerations\IndexType.cs" />
     <Compile Include="MetraNet\IceConversion.cs" />
     <Compile Include="MetraNet\Loader.cs" />
-    <Compile Include="Entities\AccountViewEntity.cs" />
-    <Compile Include="MTProperty\AccountViewProperty.cs" />
-    <Compile Include="Entities\EntityFactory.cs" />
-    <Compile Include="Entities\MetraNetEntityBase.cs" />
-    <Compile Include="MTProperty\PropertyFactory.cs" />
-    <Compile Include="Entities\ProductViewEntity.cs" />
-    <Compile Include="MTProperty\ProductViewProperty.cs" />
-    <Compile Include="Entities\ServiceDefinitionEntity.cs" />
-    <Compile Include="MTProperty\ServiceDefinitionProperty.cs" />
-    <Compile Include="MTProperty\Enumerations\DirectionType.cs" />
+    <Compile Include="PropertyBags\AccountViewEntity.cs" />
+    <Compile Include="MTProperties\AccountViewProperty.cs" />
+    <Compile Include="PropertyBags\PropertyBagFactory.cs" />
+    <Compile Include="PropertyBags\MetraNetEntityBase.cs" />
+    <Compile Include="MTProperties\PropertyFactory.cs" />
+    <Compile Include="PropertyBags\ProductViewEntity.cs" />
+    <Compile Include="MTProperties\ProductViewProperty.cs" />
+    <Compile Include="PropertyBags\ServiceDefinitionEntity.cs" />
+    <Compile Include="MTProperties\ServiceDefinitionProperty.cs" />
+    <Compile Include="MTProperties\Enumerations\Direction.cs" />
     <Compile Include="Placeholders\Aqg.cs" />
     <Compile Include="TypeSystem\Enumerations\BaseType.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Components\Currency.cs" />
-    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="PropertyBags\PropertyBag.cs" />
     <Compile Include="EmailInstance.cs" />
     <Compile Include="EmailTemplate.cs" />
-    <Compile Include="Entities\EntityInfo.cs" />
     <Compile Include="DemoLoading\EntityRecord.cs" />
-    <Compile Include="Entities\EntityTypeInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="DemoLoading\EnumRecord.cs" />
     <Compile Include="Components\EnumNamespace.cs" />
     <Compile Include="Components\EnumCategory.cs" />
@@ -87,30 +86,30 @@
     <Compile Include="Components\Function.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="IExpressionEngineTreeNode.cs" />
-    <Compile Include="MTProperty\IProperty.cs" />
+    <Compile Include="MTProperties\IProperty.cs" />
     <Compile Include="Localization.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Localization.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MTProperty\Property.cs" />
-    <Compile Include="MTProperty\PropertyCollection.cs" />
+    <Compile Include="MTProperties\Property.cs" />
+    <Compile Include="MTProperties\PropertyCollection.cs" />
     <Compile Include="UserTest\EmailEngine.cs" />
     <Compile Include="UserTest\IProcessingEngine.cs" />
     <Compile Include="UserTest\TestInstance.cs" />
     <Compile Include="TypeSystem\Enumerations\ComplexType.cs" />
     <Compile Include="TypeSystem\Enumerations\ListType.cs" />
     <Compile Include="TypeSystem\Enumerations\MatchType.cs" />
-    <Compile Include="TypeSystem\Enumerations\UnitOfMeasureModeType.cs" />
-    <Compile Include="TypeSystem\VectorType.cs" />
+    <Compile Include="TypeSystem\Enumerations\UnitOfMeasureMode.cs" />
+    <Compile Include="TypeSystem\PropertyBagType.cs" />
     <Compile Include="TypeSystem\EnumerationType.cs" />
     <Compile Include="TypeSystem\MoneyType.cs" />
     <Compile Include="TypeSystem\NumberType.cs" />
     <Compile Include="TypeSystem\StringType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TypeSystem\MtType.cs">
+    <Compile Include="TypeSystem\Type.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TypeSystem\TypeFactory.cs">
@@ -138,6 +137,7 @@
     <CodeAnalysisDictionary Include="CustomDictionary.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="PropertyBags\Enumerations\" />
     <Folder Include="UserTest\Enumerations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

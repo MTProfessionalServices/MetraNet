@@ -2,21 +2,21 @@
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Runtime.Serialization;
-using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.MTProperty;
-using MetraTech.ExpressionEngine.MTProperty.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using System.IO;
+using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
-namespace MetraTech.ExpressionEngine.Entities
+namespace MetraTech.ExpressionEngine.PropertyBags
 {
     /// <summary>
     /// Implements a ComplexType, esentially something that PropertyCollection which may include properties and
     /// other complex types. Note that DataTypeInfo.IsEntity determines if it's deemed an Entity (an important destinction for Metanga)
     /// </summary>
     [DataContract (Namespace = "MetraTech")]
-    public class Entity : IProperty, IExpressionEngineTreeNode
+    public class PropertyBag : IProperty, IExpressionEngineTreeNode
     {
         #region Properties
         [DataMember]
@@ -29,20 +29,23 @@ namespace MetraTech.ExpressionEngine.Entities
         public bool IsCore { get; set; }
 
         [DataMember]
-        public MtType Type { get; set; }
+        public PropertyBagMode PropertyBagMode { get; set; }
 
-        public VectorType VectorType { get { return (VectorType)Type; } }
+        [DataMember]
+        public Type Type { get; set; }
+
+        public PropertyBagType VectorType { get { return (PropertyBagType)Type; } }
 
         [DataMember]
         public PropertyCollection Properties { get; private set; }
 
-        public Entity ParentEntity { get; set; }
+        public PropertyBag ParentEntity { get; set; }
 
         [DataMember]
         public string Description { get; set; }
 
         [DataMember]
-        public DirectionType Direction { get; set; }
+        public Direction Direction { get; set; }
 
         /// <summary>
         /// Used for end-user-drive testing etc. 
@@ -99,11 +102,11 @@ namespace MetraTech.ExpressionEngine.Entities
             {
                 switch (Direction)
                 {
-                    case DirectionType.InOut:
+                    case MTProperties.Enumerations.Direction.InOut:
                         return "EntityInOut.png";
-                    case DirectionType.Input:
+                    case Direction.Input:
                         return "EntityInput.png";
-                    case DirectionType.Output:
+                    case Direction.Output:
                         return "EntityOutput.png";
                     default:
                         return null;
@@ -114,7 +117,7 @@ namespace MetraTech.ExpressionEngine.Entities
 
         #region Constructor
 
-        public Entity(string name, ComplexType type, string subtype, bool isEntity, string description)
+        public PropertyBag(string name, ComplexType type, string subtype, bool isEntity, string description)
         {
             Name = name;
             Type = TypeFactory.CreateComplexType(type, subtype, isEntity);
@@ -130,7 +133,7 @@ namespace MetraTech.ExpressionEngine.Entities
         /// for filtering in the GUI.
         /// TODO: Add recursive option to look sub entities
         /// </summary>
-        public bool HasPropertyMatch(Regex nameFilter, MtType typeFilter)
+        public bool HasPropertyMatch(Regex nameFilter, Type typeFilter)
         {
             foreach (var property in Properties)
             {
@@ -209,7 +212,7 @@ namespace MetraTech.ExpressionEngine.Entities
 
             using (var writer = new FileStream(file, FileMode.Create))
             {
-                var ser = new DataContractSerializer(typeof (Entity));
+                var ser = new DataContractSerializer(typeof (PropertyBag));
                 ser.WriteObject(writer, this);
             }
         }

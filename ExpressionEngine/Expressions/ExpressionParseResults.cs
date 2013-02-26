@@ -1,7 +1,8 @@
 ﻿using System;
-using MetraTech.ExpressionEngine.MTProperty.Enumerations;
+using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.MTProperty;
+using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace MetraTech.ExpressionEngine.Expressions
 {
@@ -22,7 +23,7 @@ namespace MetraTech.ExpressionEngine.Expressions
         /// <summary>
         /// The return type as determined by parsing. Not currently supported.
         /// </summary>
-        public MtType ReturnType { get; set; }
+        public Type ReturnType { get; set; }
 
         /// <summary>
         /// The parameters
@@ -58,7 +59,7 @@ namespace MetraTech.ExpressionEngine.Expressions
                     parameter.Description = property.Description;
                     parameter.Type = property.Type.Copy();
                 }
-                else if (parameter.Direction == DirectionType.Input || parameter.Direction == DirectionType.InOut)
+                else if (parameter.Direction == Direction.Input || parameter.Direction == Direction.InOut)
                 {
                     parameter.Type = TypeFactory.CreateUnknown();
                     parameter.Description = null;

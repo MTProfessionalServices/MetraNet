@@ -5,7 +5,7 @@ using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
     [DataContract]
-    public class VectorType : MtType
+    public class PropertyBagType : Type
     {
         #region Properties
         /// <summary>
@@ -20,11 +20,14 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         [DataMember]
         public string ComplexSubtype { get; set; }
 
+        public string PropertyBagTypeName { get; set; }
+
         /// <summary>
         /// Indicates if the ComplexType is deemed an Entity
         /// </summary>
         [DataMember]
-        public bool IsEntity { get; set; }
+        public bool IsEntity { get; set; } //GOES AWAY
+        public PropertyBagMode PropertyBagMode { get; set; }
 
         /// <summary>
         /// Returns a string that can be used to determine if two types are directly compatible (which is differnt than castable)
@@ -41,7 +44,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #endregion
 
         #region Constructor
-        public VectorType(ComplexType type, string subtype, bool isEntity):base(BaseType.Entity)
+        public PropertyBagType(ComplexType type, string subtype, bool isEntity):base(BaseType.Entity)
         {
             ComplexType = type;
             ComplexSubtype = subtype;
@@ -59,9 +62,9 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return type;
         }
 
-        public new VectorType Copy()
+        public new PropertyBagType Copy()
         {
-            var type = (VectorType)TypeFactory.Create(BaseType);
+            var type = (PropertyBagType)TypeFactory.Create(BaseType);
             InternalCopy(type);
             type.ComplexType = ComplexType;
             type.ComplexSubtype = ComplexSubtype;

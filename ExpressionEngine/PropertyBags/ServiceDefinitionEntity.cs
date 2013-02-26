@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
-namespace MetraTech.ExpressionEngine.Entities
+namespace MetraTech.ExpressionEngine.PropertyBags
 {
     [DataContract]
     public class ServiceDefinitionEntity : MetraNetEntityBase

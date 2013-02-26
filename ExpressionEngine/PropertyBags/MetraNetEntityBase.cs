@@ -1,12 +1,11 @@
-﻿using System.Globalization;
-using MetraTech.ExpressionEngine.TypeSystem;
+﻿using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using System.Runtime.Serialization;
 
-namespace MetraTech.ExpressionEngine.Entities
+namespace MetraTech.ExpressionEngine.PropertyBags
 {
     [DataContract]
-    public abstract class MetraNetEntityBase : Entity
+    public abstract class MetraNetEntityBase : PropertyBag
     {
         #region Properties
 
@@ -26,7 +25,7 @@ namespace MetraTech.ExpressionEngine.Entities
         #region Methods
         public string GetFileNameGivenExtensionsDirectory(string extensionsDir)
         {
-            return Helper.GetMetraNetConfigPath(extensionsDir, Extension, ((VectorType) Type).ComplexType + "s");
+            return Helper.GetMetraNetConfigPath(extensionsDir, Extension, ((PropertyBagType) Type).ComplexType + "s");
          }
 
         public void SaveInExtensionsDirectory(string extensionsDir)

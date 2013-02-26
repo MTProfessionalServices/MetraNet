@@ -4,11 +4,19 @@ using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
     [DataContract]
-    public class MoneyType : MtType
+    public class MoneyType : Type
     {
         #region Properties
+
         [DataMember]
-        public string UnitsProperty { get; set; }
+        public string Currency { get; set; }
+        public UnitOfMeasureMode UnitOfMeasure { get; set; }
+
+        //[DataMember]
+        //public string UnitsProperty { get; set; }
+        //public UnitOfMeasureMode UnitOfMeasureMode { get; set; }
+
+
         #endregion
       
         #region Constructor
@@ -23,7 +31,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         {
             var type = (MoneyType)base.Copy();
             InternalCopy(type);
-            type.UnitsProperty = UnitsProperty;
+            //type.UnitsProperty = UnitsProperty;
             return type;
         }
         #endregion

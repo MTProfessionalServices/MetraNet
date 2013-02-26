@@ -5,7 +5,8 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Globalization;
 using MetraTech.ExpressionEngine.Expressions;
-using MetraTech.ExpressionEngine.MTProperty.Enumerations;
+using MetraTech.ExpressionEngine.Expressions.Enumerations;
+using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.MTProperty;
 
 namespace MetraTech.ExpressionEngine
@@ -163,7 +164,7 @@ namespace MetraTech.ExpressionEngine
         {
             var description = string.Format(CultureInfo.InvariantCulture, "The email's {0} field.", name);
             var property = Property.CreateString(name, true, description, 0);
-            property.Direction = DirectionType.Output;
+            property.Direction = Direction.Output;
             properties.Add(property);
         }
 

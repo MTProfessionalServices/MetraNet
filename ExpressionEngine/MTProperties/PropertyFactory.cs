@@ -5,7 +5,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
 {
     public static class PropertyFactory
     {
-        public static Property Create(ComplexType complexType, string name, MtType type, bool isRequired, string description)
+        public static Property Create(ComplexType complexType, string name, Type type, bool isRequired, string description)
         {
             switch (complexType)
             {

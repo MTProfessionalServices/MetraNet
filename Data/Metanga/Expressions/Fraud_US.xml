@@ -1,4 +1,4 @@
-﻿<Expression xmlns="http://schemas.datacontract.org/2004/07/MetraTech.ExpressionEngine" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+﻿<Expression xmlns="MetraTech" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
   <Content>
     <![CDATA[
 ElectronicPayment.Currency == USD 

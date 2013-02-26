@@ -1,19 +1,12 @@
 *Metanga expand node crash
 *Metanga expresson shows no entites (but email does)
 
-*BaseType
-*DataTypeInfo
-*Property
-*PropertyCollection
-*Function
-*ProductView
-*AccountView
-*ServiceDefinition
+MARIO MEEITNG:
+*Remove IProperty. Entity is subclass of Property
+*Rename Entity to PropertyBag (have IsEntity)
 
 *LayoutPanel resizing
-*Remove all 
-*Save
-*Send email!
+
 
 
 *Only CountryCode Enum for MetraNet has items in entity view (ok in explorer view and works for metanga!)

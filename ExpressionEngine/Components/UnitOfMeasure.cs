@@ -7,12 +7,15 @@ namespace MetraTech.ExpressionEngine.Components
         #region Properties
         public UnitOfMeasureCategory Category { get; private set; }
         public string Name { get; set; }
-        public string TreeNodeLabel { get { return Name; } }
         public string PrintSymbol { get; private set; }
         public bool IsMetric { get; private set; }
+        public string ToExpressionSnippet { get { return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", Category.ToExpressionSnippet, Name); } }
+        #endregion
+
+        #region GUI Support Properties (should be moved in future)
+        public string TreeNodeLabel { get { return Name; } }
         public string Image { get { return "Uom.png"; } }
         public string ToolTip { get { return null; } }
-        public string ToExpressionSnippet { get { return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", Category.ToExpressionSnippet, Name); } }
         #endregion
 
         #region Constructor

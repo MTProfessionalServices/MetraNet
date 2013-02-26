@@ -24,7 +24,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
         #endregion
 
         #region Constructor
-        public AccountViewProperty(string name, MtType type, bool isRequired, string description): base(name, type, isRequired, description)
+        public AccountViewProperty(string name, Type type, bool isRequired, string description): base(name, type, isRequired, description)
         {    
         }
         #endregion

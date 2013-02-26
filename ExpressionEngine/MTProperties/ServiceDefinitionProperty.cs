@@ -7,7 +7,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
     public class ServiceDefinitionProperty : Property
     {
         #region Constructor
-        public ServiceDefinitionProperty(string name, MtType type, bool isRequired, string description): base(name, type, isRequired, description)
+        public ServiceDefinitionProperty(string name, Type type, bool isRequired, string description): base(name, type, isRequired, description)
         {    
         }
         #endregion

@@ -12,7 +12,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #region Properties
 
         //public static DataTypeInfo[] AllTypes;
-        public static readonly MtType[] AllTypes;
+        public static readonly Type[] AllTypes;
 
         /// <summary>
         /// BaseTypes supported by MSIX entities (e.g., Service Definitoins, ProductViews, etc.).
@@ -37,12 +37,12 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         static TypeHelper()
         {
             var baseTypes = Enum.GetValues(typeof(BaseType));
-            AllTypes = new MtType[baseTypes.Length];
+            AllTypes = new Type[baseTypes.Length];
 
             int index = 0;
             foreach (var value in baseTypes)
             {
-                AllTypes[index++] = new MtType((BaseType)value);
+                AllTypes[index++] = new Type((BaseType)value);
             }
 
             MsixBaseTypes = new BaseType[] 
@@ -365,7 +365,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// <summary>
         /// Converts an explicit value its MTSQL representation (i.e., strings are quoted, enums are fully qualified, etc.)
         /// </summary>
-        public static string ConvertValueToMtsqlConstant(MtType type, string value)
+        public static string ConvertValueToMtsqlConstant(Type type, string value)
         {
             if (type == null)
                 throw new ArgumentNullException("type");
@@ -398,7 +398,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             }
         }
 
-        public static string ConvertValueStringToCSharpConstant(MtType type, string value)
+        public static string ConvertValueStringToCSharpConstant(Type type, string value)
         {
             if (type == null)
                 throw new ArgumentNullException("type");
@@ -424,7 +424,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             }
         }
 
-        public static object ConvertValueToNativeValue(MtType type, string value, bool useInvariantCulture)
+        public static object ConvertValueToNativeValue(Type type, string value, bool useInvariantCulture)
         {
             if (type == null)
                 throw new ArgumentNullException("type");

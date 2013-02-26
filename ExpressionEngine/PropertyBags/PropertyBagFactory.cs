@@ -1,9 +1,10 @@
 ﻿using System;
+using MetraTech.ExpressionEngine.Entities;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
-namespace MetraTech.ExpressionEngine.Entities
+namespace MetraTech.ExpressionEngine.PropertyBags
 {
-    public static class EntityFactory
+    public static class PropertyBagFactory
     {
         public static ProductViewEntity CreateProductViewEntity(string name, string description)
         {
@@ -19,7 +20,7 @@ namespace MetraTech.ExpressionEngine.Entities
             return new ServiceDefinitionEntity(name, description);
         }
 
-        public static Entity Create(ComplexType type, string name, string description)
+        public static PropertyBag Create(ComplexType type, string name, string description)
         {
             switch (type)
             {

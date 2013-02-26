@@ -2,6 +2,7 @@
 using System.Net.Mail;
 using MetraTech.ExpressionEngine.MTProperty;
 using MetraTech.ExpressionEngine.Entities;
+using MetraTech.ExpressionEngine.PropertyBags;
 
 namespace MetraTech.ExpressionEngine.UserTest
 {
@@ -26,7 +27,7 @@ namespace MetraTech.ExpressionEngine.UserTest
             var property = propertyCollection.Get(outputPropertyName);
             if (property == null)
                 throw new ArgumentException("Unable to find output property " + outputPropertyName);
-            if (property is Entity)
+            if (property is PropertyBag)
                 throw new ArgumentException("Property is a complex type");
 
             ((Property)property).Value = MergeValues(content, propertyCollection);            
@@ -40,7 +41,7 @@ namespace MetraTech.ExpressionEngine.UserTest
             //THis isn't designed to be efficient! We're just doing string substituions
             foreach (var property in propertyCollection)
             {
-                if (property is Entity)
+                if (property is PropertyBag)
                     throw new ArgumentException("Property is a complex type");
 
                 var pattern = "{" + property.Name + "}";

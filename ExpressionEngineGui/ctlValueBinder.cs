@@ -8,8 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.MTProperty;
-using MetraTech.ExpressionEngine.MTProperty.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
@@ -142,7 +142,7 @@ namespace PropertyGui
             if (Control is ComboBox)
                 ((ComboBox)Control).SelectedValueChanged += new EventHandler(Control_TextChanged);
 
-            if (Property.Direction == DirectionType.Output)
+            if (Property.Direction == Direction.Output)
                 Control.BackColor = Color.LightGreen;
 
             SetBindingTypeImage();

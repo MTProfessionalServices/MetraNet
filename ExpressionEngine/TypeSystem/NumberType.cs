@@ -10,7 +10,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     /// distinction.
     /// </summary>
     [DataContract]
-    public class NumberType : MtType
+    public class NumberType : Type
     {
         #region Properties
 
@@ -18,7 +18,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// Indicates the unit of measure mode (fixed or driven by other property)
         /// </summary>
         [DataMember]
-        public UnitOfMeasureModeType UnitOfMeasureMode { get; set; }
+        public UnitOfMeasureMode UnitOfMeasureMode { get; set; }
 
         /// <summary>
         /// Depending on the UomMode, specifies a fixed UoM, a UoM category or the name of the property that determines the UOM.
@@ -29,7 +29,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #endregion
 
         #region Constructor
-        public NumberType(BaseType type, UnitOfMeasureModeType unitOfMeasureMode, string unitOfMeasureQualifier)
+        public NumberType(BaseType type, UnitOfMeasureMode unitOfMeasureMode, string unitOfMeasureQualifier)
             : base(type)
         {
             if (!TypeHelper.IsNumeric(type))

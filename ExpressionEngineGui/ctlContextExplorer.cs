@@ -8,9 +8,12 @@ using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Expressions;
+using MetraTech.ExpressionEngine.Expressions.Enumerations;
 using MetraTech.ExpressionEngine.MTProperty;
+using MetraTech.ExpressionEngine.Placeholders;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace PropertyGui
 {
@@ -113,7 +116,7 @@ namespace PropertyGui
 
             treExplorer.ViewMode = (MvcAbstraction.ViewModeType)cboMode.SelectedItem;
             treExplorer.EntityTypeFilter = (ComplexType)cboEntityTypeFilter.SelectedItem;
-            treExplorer.PropertyTypeFilter = (MtType)cboPropertyTypeFilter.SelectedItem;
+            treExplorer.PropertyTypeFilter = (Type)cboPropertyTypeFilter.SelectedItem;
             treExplorer.FunctionFilter = cboCategory.Text;
             treExplorer.LoadTree();
 

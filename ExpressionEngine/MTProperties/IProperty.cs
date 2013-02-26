@@ -1,4 +1,5 @@
-﻿using MetraTech.ExpressionEngine.MTProperty.Enumerations;
+﻿using MetraTech.ExpressionEngine.MTProperties.Enumerations;
+using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.Entities;
 
@@ -11,10 +12,10 @@ namespace MetraTech.ExpressionEngine.MTProperty
     {
         string Name { get; set; }
         bool IsCore { get; set; }
-        MtType Type { get; set; }
-        Entity ParentEntity { get; }
+        Type Type { get; set; }
+        PropertyBag ParentEntity { get; }
         string Description { get; set; }
-        DirectionType Direction { get; set; }
+        Direction Direction { get; set; }
         string CompatibleKey { get; }
         string Value { get; set; }
         string ToExpressionSnippet { get; }   //This should be a Method (I had some Issue that I don't recall...

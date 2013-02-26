@@ -29,7 +29,7 @@ namespace MetraTech.ExpressionEngine.Components
         /// The data type that the function returns
         /// </summary>
         [DataMember]
-        public MtType ReturnType { get; set; }
+        public Type ReturnType { get; set; }
 
         /// <summary>
         /// The description. Used in tool tips, online help, etc.
@@ -129,15 +129,15 @@ namespace MetraTech.ExpressionEngine.Components
         public static Function CreateFromFile(string file)
         {
             var xmlContent = File.ReadAllText(file);
-            return CreateFromString(xmlContent);
+            return CreateFromString<Function>(xmlContent);
         }
 
-        public static Function CreateFromString(string xmlContent)
+        public static T CreateFromString<T>(string xmlContent)
         {
             var xElement = XElement.Parse(xmlContent);
             var xmlReader = xElement.CreateReader();
-            var ser = new DataContractSerializer(typeof(Function));
-            var function = (Function)ser.ReadObject(xmlReader);
+            var ser = new DataContractSerializer(typeof(T));
+            var function = (T)ser.ReadObject(xmlReader);
             xmlReader.Close();
             return function;
         }

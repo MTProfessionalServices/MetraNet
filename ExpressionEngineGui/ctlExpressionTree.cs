@@ -7,8 +7,10 @@ using System.Drawing;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Entities;
 using MetraTech.ExpressionEngine.MTProperty;
+using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace PropertyGui
 {
@@ -24,7 +26,7 @@ namespace PropertyGui
 
         public MvcAbstraction.ViewModeType ViewMode { get; set; }
         public ComplexType EntityTypeFilter { get; set; }
-        public MtType PropertyTypeFilter { get; set; }
+        public Type PropertyTypeFilter { get; set; }
         public string FunctionFilter { get; set; }
         public ContextMenuStrip EnumValueContextMenu { get; set; }
 
@@ -204,7 +206,7 @@ namespace PropertyGui
         }
 
 
-        public void AddProperties(TreeNode parentNode, PropertyCollection properties, MtType filter=null)
+        public void AddProperties(TreeNode parentNode, PropertyCollection properties, Type filter=null)
         {
             foreach (var property in properties)
             {
@@ -284,9 +286,9 @@ namespace PropertyGui
             if (node.Nodes.Count == 1 && node.Nodes[0].Text == PropertyListPlaceHolder)
             {
                 node.Nodes.Clear();
-                var entity1 = (Entity)node.Tag;
+                var entity1 = (PropertyBag)node.Tag;
                 var entitySubType = entity1.VectorType.ComplexSubtype;
-                Entity entity;
+                PropertyBag entity;
                 if (!DemoLoader.GlobalContext.Entities.TryGetValue(entitySubType, out entity))
                     return;
                 AddProperties(node, entity.Properties);

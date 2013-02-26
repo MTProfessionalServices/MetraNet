@@ -7,7 +7,7 @@ using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
     [DataContract]
-    public class EnumerationType : MtType
+    public class EnumerationType : Type
     {
         #region Properties
         /// <summary>

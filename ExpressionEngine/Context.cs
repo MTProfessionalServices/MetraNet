@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Expressions;
+using MetraTech.ExpressionEngine.Expressions.Enumerations;
+using MetraTech.ExpressionEngine.Placeholders;
+using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Entities;
 using MetraTech.ExpressionEngine.MTProperty;
+using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -32,7 +36,7 @@ namespace MetraTech.ExpressionEngine
         private readonly Dictionary<string, Function> _functions = new Dictionary<string, Function>();
 
         //Entities may not have unique names across types... need to deal with that, perhaps a composite key
-        public Dictionary<string, Entity> Entities = new Dictionary<string, Entity>();
+        public Dictionary<string, PropertyBag> Entities = new Dictionary<string, PropertyBag>();
 
         public Dictionary<string, Aqg> Aqgs { get { return _aqgs; } }
         private Dictionary<string, Aqg> _aqgs = new Dictionary<string, Aqg>();
@@ -99,7 +103,7 @@ namespace MetraTech.ExpressionEngine
 
             foreach (var entityParameterName in Expression.EntityParameters)
             {
-                Entity rootEntity;
+                PropertyBag rootEntity;
                 if (DemoLoader.GlobalContext.Entities.TryGetValue(entityParameterName, out rootEntity))
                     Entities.Add(rootEntity.Name, rootEntity);
             }
@@ -165,7 +169,7 @@ namespace MetraTech.ExpressionEngine
                         return null;
 
                     //Get the complex property
-                    var secondProperty = ((Entity)property).Properties.Get(parts[1]);
+                    var secondProperty = ((PropertyBag)property).Properties.Get(parts[1]);
                     if (secondProperty == null)
                         return null;
 
@@ -173,11 +177,11 @@ namespace MetraTech.ExpressionEngine
                         return secondProperty;
 
                     //var secondName = parts[1];
-                    var complexTypeName = ((VectorType)secondProperty.Type).ComplexSubtype;
+                    var complexTypeName = ((PropertyBagType)secondProperty.Type).ComplexSubtype;
                     if (complexTypeName == null)
                         return null;
 
-                    Entity complexType;
+                    PropertyBag complexType;
                     if (!DemoLoader.GlobalContext.Entities.TryGetValue(complexTypeName, out complexType))
                         return null;
 
@@ -193,7 +197,7 @@ namespace MetraTech.ExpressionEngine
 
         #region Property Methods
 
-        public List<IProperty> GetProperties(MtType typeFilter, IEnumerable<Entity> entities = null)
+        public List<IProperty> GetProperties(Type typeFilter, IEnumerable<PropertyBag> entities = null)
         {
             if (entities == null)
                 entities = Entities.Values;
@@ -210,7 +214,7 @@ namespace MetraTech.ExpressionEngine
             return results;
         }
 
-        public List<IProperty> GetProperties(MtType dtInfo, MatchType minimumMatchLevel, bool uniqueProperties)
+        public List<IProperty> GetProperties(Type dtInfo, MatchType minimumMatchLevel, bool uniqueProperties)
         {
             var properties = new List<IProperty>();
             IEnumerable<IProperty> list;
@@ -285,7 +289,7 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Entities
-        public void AddEntity(Entity entity)
+        public void AddEntity(PropertyBag entity)
         {
             if (entity == null)
                 throw new ArgumentNullException("entity");
@@ -293,15 +297,15 @@ namespace MetraTech.ExpressionEngine
             Entities.Add(entity.Name, entity);
         }
 
-        public List<Entity> GetEntities(ComplexType type)
+        public List<PropertyBag> GetEntities(ComplexType type)
         {
             var types = new List<ComplexType>();
             types.Add(type);
             return GetEntities(null, types, null, null);
         }
-        public List<Entity> GetEntities(string entityNameFilter, List<ComplexType> entityTypeFilter, string propertyNameFilter, MtType propertyTypeFilter)
+        public List<PropertyBag> GetEntities(string entityNameFilter, List<ComplexType> entityTypeFilter, string propertyNameFilter, Type propertyTypeFilter)
         {
-            var results = new List<Entity>();
+            var results = new List<PropertyBag>();
 
             Regex entityRegex = string.IsNullOrEmpty(entityNameFilter) ? null : new Regex(entityNameFilter, RegexOptions.IgnoreCase);
             Regex propertyRegex = string.IsNullOrEmpty(propertyNameFilter) ? null : new Regex(propertyNameFilter, RegexOptions.IgnoreCase);

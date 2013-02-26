@@ -2,10 +2,12 @@
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Runtime.Serialization;
-using MetraTech.ExpressionEngine.MTProperty.Enumerations;
+using MetraTech.ExpressionEngine.MTProperties.Enumerations;
+using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Entities;
+using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace MetraTech.ExpressionEngine.MTProperty
 {
@@ -35,7 +37,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
         /// </summary>
         public PropertyCollection PropertyCollection { get; set; }
 
-        public Entity ParentEntity
+        public PropertyBag ParentEntity
         {
             get
             {
@@ -55,7 +57,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
         /// Rich data type class
         /// </summary>
         [DataMember]
-        public MtType Type { get; set; }
+        public Type Type { get; set; }
 
         /// <summary>
         /// A description that's used in tooltips, auto doc, etc.
@@ -93,14 +95,14 @@ namespace MetraTech.ExpressionEngine.MTProperty
         /// Indicates the how the Property is interacted with (e.g., Input, Output or InOut)
         /// </summary>
         [DataMember]
-        public DirectionType Direction { get; set; }
+        public Direction Direction { get; set; }
 
         //
         //Determines if the Direction is Input or InOut
         //
         public bool IsInputOrInOut
         {
-            get { return Direction == DirectionType.Input || Direction == DirectionType.InOut; }
+            get { return Direction == Direction.Input || Direction == MTProperties.Enumerations.Direction.InOut; }
         }
 
         //
@@ -108,7 +110,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
         //
         public bool IsOutputOrInOut
         {
-            get { return Direction == DirectionType.Output || Direction == DirectionType.InOut; }
+            get { return Direction == Direction.Output || Direction == Direction.InOut; }
         }
 
         public string CompatibleKey { get { return Type.CompatibleKey; } }
@@ -146,11 +148,11 @@ namespace MetraTech.ExpressionEngine.MTProperty
             {
                 switch (Direction)
                 {
-                    case DirectionType.InOut:
+                    case Direction.InOut:
                         return "PropertyInOut.png";
-                    case DirectionType.Input:
+                    case Direction.Input:
                         return "PropertyInput.png";
-                    case DirectionType.Output:
+                    case Direction.Output:
                         return "PropertyOutput.png";
                     default:
                         return null;
@@ -192,7 +194,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
 
         #region Constructors
 
-        public Property(string name, MtType type, bool isRequired, string description = null)
+        public Property(string name, Type type, bool isRequired, string description = null)
         {
             Name = name;
             Type = type;
@@ -211,7 +213,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
         }
         public static Property CreateInteger32(string name, bool isRequired, string description)
         {
-            return new Property(name, TypeFactory.CreateInteger32(UnitOfMeasureModeType.None, null), isRequired, description);
+            return new Property(name, TypeFactory.CreateInteger32(UnitOfMeasureMode.None, null), isRequired, description);
         }
         public static Property CreateString(string name, bool isRequired, string description, int length)
         {
@@ -241,7 +243,10 @@ namespace MetraTech.ExpressionEngine.MTProperty
         {
             if (!Type.IsMoney || PropertyCollection == null)
                 return null;
-            return PropertyCollection.Get(((MoneyType)Type).UnitsProperty);
+
+            return null;
+            //throw new NotImplementedException("need to decide right model");
+            //return PropertyCollection.Get(((MoneyType)Type).UnitsProperty);
         }
 
         /// <summary>
@@ -253,7 +258,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
                 return null;
 
             var type = (NumberType)Type;
-            if (!Type.IsNumeric || type.UnitOfMeasureMode != UnitOfMeasureModeType.Property || PropertyCollection == null)
+            if (!Type.IsNumeric || type.UnitOfMeasureMode != UnitOfMeasureMode.Property || PropertyCollection == null)
                 return null;
             return PropertyCollection.Get(type.UnitOfMeasureQualifier);
         }

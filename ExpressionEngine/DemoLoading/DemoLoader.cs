@@ -8,10 +8,14 @@ using CsvHelper.Configuration;
 using Metanga.Miscellaneous.MetadataExport;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Expressions;
+using MetraTech.ExpressionEngine.Expressions.Enumerations;
+using MetraTech.ExpressionEngine.Placeholders;
+using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Entities;
 using MetraTech.ExpressionEngine.MTProperty;
+using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 
 namespace MetraTech.ExpressionEngine
@@ -88,7 +92,7 @@ namespace MetraTech.ExpressionEngine
         #region Manual Entities
         public static void AddCloudComputeProductView()
         {
-            var entity = EntityFactory.CreateProductViewEntity("CloudCompute", "Models an cloud compute usage even");
+            var entity = PropertyBagFactory.CreateProductViewEntity("CloudCompute", "Models an cloud compute usage even");
 
             var pv = entity.Properties;
 
@@ -97,7 +101,7 @@ namespace MetraTech.ExpressionEngine
             //Snapshot stuff
             pv.AddInteger32("NumSnapshots", "The number of snapshots taken", true);
             var charge = pv.AddCharge("SnapshotCharge", "The charge assoicated with snapshots", true);
-            ((MoneyType)charge.Type).UnitsProperty = "NumSnapshots";
+            //((MoneyType)charge.Type).UnitsProperty = "NumSnapshots";
 
             pv.AddString("DataCenter", "The data center in which the server ran", true, null, 30);
             pv.AddEnum("DataCenterCountry", "The country that the data center is located", true, "global", "countryname");
@@ -106,21 +110,21 @@ namespace MetraTech.ExpressionEngine
             pv.AddEnum("OS", "The Operating System (OS)", true, "Cloud", "OperatingSystem");
 
             var memory = pv.AddInteger32("Memory", "The amount of memory", true);
-            ((NumberType)memory.Type).UnitOfMeasureMode =  UnitOfMeasureModeType.Fixed;
+            ((NumberType)memory.Type).UnitOfMeasureMode =  UnitOfMeasureMode.Fixed;
             ((NumberType)memory.Type).UnitOfMeasureQualifier = "DigitalInformation";
 
             pv.AddDecimal("CpuCount", "The number of million CPU cycles", true);
 
             property = pv.AddDecimal("Hours", "The number of hours the instance ran", true);
-            ((NumberType)property.Type).UnitOfMeasureMode = UnitOfMeasureModeType.Fixed;
+            ((NumberType)property.Type).UnitOfMeasureMode = UnitOfMeasureMode.Fixed;
             ((NumberType)property.Type).UnitOfMeasureQualifier = "Hour";
 
             property = pv.AddDecimal("Duration", "The elapsed time", true);
-            ((NumberType)property.Type).UnitOfMeasureMode = UnitOfMeasureModeType.Category;
+            ((NumberType)property.Type).UnitOfMeasureMode = UnitOfMeasureMode.Category;
             ((NumberType)property.Type).UnitOfMeasureQualifier = "Time";
 
             property = pv.AddDecimal("ScalingMetric", "The key scaling metric", true);
-            ((NumberType)property.Type).UnitOfMeasureMode = UnitOfMeasureModeType.Property;
+            ((NumberType)property.Type).UnitOfMeasureMode = UnitOfMeasureMode.Property;
             ((NumberType)property.Type).UnitOfMeasureQualifier = "ScalingMetricUom";
 
             property = pv.AddString("ScalingMetricUom", "The UoM for the the ScalingMetric", true);
@@ -130,7 +134,7 @@ namespace MetraTech.ExpressionEngine
 
         public static void AddAircraftLandingProductView()
         {
-            var entity = EntityFactory.CreateProductViewEntity("AircraftLanding", "Models an cloud compute usage even");
+            var entity = PropertyBagFactory.CreateProductViewEntity("AircraftLanding", "Models an cloud compute usage even");
 
             var pv = entity.Properties;
             pv.AddInteger32("MTOW", "Maximum TakeOff Weight", true);
@@ -145,7 +149,7 @@ namespace MetraTech.ExpressionEngine
 
         public static AccountViewEntity GetCorporateAccountType()
         {
-            var entity = EntityFactory.CreateAccountViewEntity("CorporateAccount", "Models an corporate account");
+            var entity = PropertyBagFactory.CreateAccountViewEntity("CorporateAccount", "Models an corporate account");
 
             var pv = entity.Properties;
             pv.AddString("FirstName", "The data center in which the server ran", true, null, 30);
@@ -181,17 +185,17 @@ namespace MetraTech.ExpressionEngine
                 var entityDescription = Helper.CleanUpWhiteSpace(entityRecord.EntityDescription);
                 var propertyDescription = Helper.CleanUpWhiteSpace(entityRecord.PropertyDescription);
 
-                Entity entity;
+                PropertyBag entity;
                 if (!context.Entities.TryGetValue(entityName, out entity))
                 {
                     if (Context.ProductType == ProductType.MetraNet)
-                        entity = EntityFactory.Create(entityType, entityName, entityDescription);
+                        entity = PropertyBagFactory.Create(entityType, entityName, entityDescription);
                     else
-                        entity = new Entity(entityName, entityType, null, entityRecord.IsEntity, entityDescription);
+                        entity = new PropertyBag(entityName, entityType, null, entityRecord.IsEntity, entityDescription);
                     context.Entities.Add(entity.Name, entity);
                 }
 
-                MtType dtInfo;
+                Type dtInfo;
                 if (Context.ProductType == ProductType.MetraNet)
                 {
                     //var baseType = TypeHelper.PropertyTypeIdToBaseTypeMapping[Int32.Parse(typeStr)];
@@ -209,7 +213,7 @@ namespace MetraTech.ExpressionEngine
                         _enumType.Category = enumType;
                         break;
                     case BaseType.Entity:
-                        var vectorType = (VectorType)dtInfo;
+                        var vectorType = (PropertyBagType)dtInfo;
                         vectorType.ComplexType = entityType;
                         vectorType.ComplexSubtype = enumType; //we overrode the column
                         break;

@@ -1,4 +1,5 @@
 ﻿using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.Entities

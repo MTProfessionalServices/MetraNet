@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.Entities;
 
@@ -12,7 +13,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
     /// </summary>
     [DataContract (Namespace = "MetraTech")]
     [KnownType(typeof(Property))]
-    [KnownType(typeof(Entity))]
+    [KnownType(typeof(PropertyBag))]
     public class PropertyCollection : IEnumerable<IProperty>
     {
         #region Properties
@@ -23,7 +24,7 @@ namespace MetraTech.ExpressionEngine.MTProperty
         /// <summary>
         /// The Entity to which the collection belongs (may be null)
         /// </summary>
-        public Entity Entity { get { return Parent == null || !(Parent is Entity) ? null : (Entity)Parent; } }
+        public PropertyBag Entity { get { return Parent == null || !(Parent is PropertyBag) ? null : (PropertyBag)Parent; } }
 
         /// <summary>
         /// The number of properties

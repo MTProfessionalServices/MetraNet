@@ -27,19 +27,19 @@ namespace MetraTech.ExpressionEngine
             return function;
         }
 
-        //public static void Save(string file, object theObject)
-        //{
-        //    var dirPath = Path.GetDirectoryName(file);
-        //    if (string.IsNullOrEmpty(dirPath))
-        //        throw new Exception("Unable to determine directory path from file: " + file);
-           
-        //    Helper.EnsureDirectoryExits(dirPath);
+        public static void Save<T>(string file, T theObject)
+        {
+          var dirPath = Path.GetDirectoryName(file);
+          if (string.IsNullOrEmpty(dirPath))
+            throw new Exception("Unable to determine directory path from file: " + file);
 
-        //    using (var writer = new FileStream(file, FileMode.Create))
-        //    {
-        //        var ser = new DataContractSerializer(typeof(theObject));
-        //        ser.WriteObject(writer, theObject);
-        //    }
-        //}
+          dirPath.EnsureDirectoryExits();
+
+          using (var writer = new FileStream(file, FileMode.Create))
+          {
+            var ser = new DataContractSerializer(typeof(T));
+            ser.WriteObject(writer, theObject);
+          }
+        }
     }
 }

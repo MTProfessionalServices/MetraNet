@@ -37,7 +37,10 @@ namespace MetraTech.ExpressionEngine
           using (var writer = XmlWriter.Create(file, writerSettings))
           {
             var ser = new DataContractSerializer(typeof(T));
-            ser.WriteObject(writer, theObject);
+            ser.WriteStartObject(writer, theObject);
+            writer.WriteAttributeString("xmlns", "arrays", null, "http://schemas.microsoft.com/2003/10/Serialization/Arrays");
+            ser.WriteObjectContent(writer, theObject);
+            ser.WriteEndObject(writer);
           }
         }
 

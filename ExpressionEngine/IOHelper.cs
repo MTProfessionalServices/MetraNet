@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using System.IO;
+using System.Xml;
 using System.Xml.Linq;
 using System.Globalization;
 
@@ -32,7 +33,8 @@ namespace MetraTech.ExpressionEngine
 
           dirPath.EnsureDirectoryExits();
 
-          using (var writer = new FileStream(file, FileMode.Create))
+          var writerSettings = new XmlWriterSettings {Indent = true};
+          using (var writer = XmlWriter.Create(file, writerSettings))
           {
             var ser = new DataContractSerializer(typeof(T));
             ser.WriteObject(writer, theObject);

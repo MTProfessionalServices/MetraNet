@@ -11,7 +11,7 @@ namespace MetraTech.ExpressionEngine.UserTest
     /// This is test for an expression which is configured and run by the end-user.
     /// We're not dealing with inouts at this time!
     /// </summary>
-    [DataContract]
+    [DataContract (Namespace = "MetraTech")]
     public class TestInstance
     {
         #region Properties

@@ -5,7 +5,7 @@ using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.Entities
 {
-    [DataContract]
+    [DataContract (Namespace = "MetraTech")]
     public class AccountViewEntity : MetraNetEntityBase
     {
         #region Properties

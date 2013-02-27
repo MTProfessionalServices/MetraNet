@@ -5,7 +5,7 @@ using System.IO;
 
 namespace MetraTech.ExpressionEngine.Components
 {
-    [DataContract]
+    [DataContract (Namespace = "MetraTech")]
     public class EnumCategory : IExpressionEngineTreeNode
     {
         #region Properties

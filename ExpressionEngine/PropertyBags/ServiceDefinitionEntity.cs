@@ -4,7 +4,7 @@ using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.PropertyBags
 {
-    [DataContract]
+    [DataContract (Namespace = "MetraTech")]
     public class ServiceDefinitionEntity : MetraNetEntityBase
     {
         #region Properties

@@ -34,7 +34,6 @@ namespace MetraTech.ExpressionEngine.Components
         /// <summary>
         /// The data enumerated typs
         /// </summary>
-        [DataMember]
         public Collection<EnumCategory> Categories { get; private set; }
 
         /// <summary>
@@ -126,14 +125,8 @@ namespace MetraTech.ExpressionEngine.Components
 
         public void Save(string dirPath)
         {
-            IOHelper.EnsureDirectoryExits(dirPath);
-
             var file = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.xml", dirPath, NameWithNoSlashes);
-            using (var writer = new FileStream(file, FileMode.Create))
-            {
-                var ser = new DataContractSerializer(typeof(EnumNamespace));
-                ser.WriteObject(writer, this);
-            }
+            IOHelper.Save(file, this);
 
             foreach (var category in Categories)
             {

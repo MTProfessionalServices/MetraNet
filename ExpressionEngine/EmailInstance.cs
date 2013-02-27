@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Xml;
-using System.IO;
+﻿using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Globalization;
 using MetraTech.ExpressionEngine.Expressions;
@@ -170,23 +167,13 @@ namespace MetraTech.ExpressionEngine
 
         public static EmailInstance CreateFromFile(string file)
         {
-            using (var fs = new FileStream(file, FileMode.Open))
-            using (var reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas()))
-            {
-                var ser = new DataContractSerializer(typeof(EmailInstance));
-                var instance = (EmailInstance)ser.ReadObject(reader, true);
-                return instance;
-            }
+            return IOHelper.CreateFromFile<EmailInstance>(file);
         }
 
         public void Save(string dirPath)
         {
             var filePath = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.xml", dirPath, Name);
-            using (var writer = new FileStream(filePath, FileMode.Create))
-            {
-                var ser = new DataContractSerializer(typeof (EmailInstance));
-                ser.WriteObject(writer, this);
-            }
+            IOHelper.Save(filePath, this);
         }
         #endregion
     }

@@ -244,15 +244,8 @@ namespace MetraTech.ExpressionEngine
             using (var streamReader = new StreamReader(filePath))
             {
                 var csv = new CsvReader(streamReader, configuration);
-                try
-                {
-                    var entityList = csv.GetRecords<T>().ToList();
-                    return entityList;
-                }
-                catch (CsvReaderException e)
-                {
-                    throw new Exception(string.Format(CultureInfo.CurrentCulture, "Error loading {0} line {1} [{2}]", filePath, e.Row, e.Message), e);
-                }
+                var entityList = csv.GetRecords<T>().ToList();
+                return entityList;
             }
         }
 

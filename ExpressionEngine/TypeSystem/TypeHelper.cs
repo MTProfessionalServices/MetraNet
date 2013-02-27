@@ -12,7 +12,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     {
         #region Properties
 
-        public static readonly Type[] AllTypes;
+        public static readonly IEnumerable<Type> AllTypes; 
 
         /// <summary>
         /// BaseTypes supported by MSIX entities (e.g., Service Definitoins, ProductViews, etc.).
@@ -39,13 +39,14 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         static TypeHelper()
         {
             var baseTypes = Enum.GetValues(typeof(BaseType));
-            AllTypes = new Type[baseTypes.Length];
+            var allTypes = new Type[baseTypes.Length];
 
             int index = 0;
             foreach (var value in baseTypes)
             {
-                AllTypes[index++] = new Type((BaseType)value);
+                allTypes[index++] = new Type((BaseType)value);
             }
+            AllTypes = allTypes;
 
             MsixEntityTypes = new string[]
             {
@@ -239,7 +240,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 case BaseType.DateTime:
                     return "DateTime";
                 default:
-                    throw new Exception("Unhandled baseType: " + baseType.ToString());
+                    throw new Exception("Unhandled BaseType: " + baseType.ToString());
             }
         }
 

@@ -9,17 +9,6 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     public class PropertyBagType : Type
     {
         #region Properties
-        ///// <summary>
-        ///// The type of complex type
-        ///// </summary>
-        //[DataMember]
-        //public ComplexType ComplexType { get; set; }
-
-        ///// <summary>
-        ///// The subtype of the Entity type. For example, a BME ma
-        ///// </summary>
-        //[DataMember]
-        //public string ComplexSubtype { get; set; }
 
         public string Name { get; set; }
 
@@ -27,15 +16,20 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public bool IsProductView { get { return Name == PropertyBagConstants.ProductView; } }
         public bool IsServiceDefinition { get { return Name == PropertyBagConstants.ServiceDefinition; } }
 
+        public PropertyBagMode PropertyBagMode { get; set; }
+
         /// <summary>
         /// Indicates if the ComplexType is deemed an Entity
         /// </summary>
         [DataMember]
-        public bool IsEntity { get; set; } //GOES AWAY
+        public bool IsEntity { get; set; }
+        //{
+        //    get { return PropertyBagMode == PropertyBagMode.Entity || PropertyBagMode == PropertyBagMode.ExtensibleEntity; }
+        //}
 
 
 
-        public PropertyBagMode PropertyBagMode { get; set; }
+
 
         /// <summary>
         /// Returns a string that can be used to determine if two types are directly compatible (which is differnt than castable)

@@ -28,7 +28,7 @@ namespace MetraTech.ExpressionEngine
         {
           var dirPath = Path.GetDirectoryName(file);
           if (string.IsNullOrEmpty(dirPath))
-            throw new Exception("Unable to determine directory path from file: " + file);
+            throw new ArgumentException("Unable to determine directory path from file: " + file);
 
           dirPath.EnsureDirectoryExits();
 

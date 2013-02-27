@@ -5,7 +5,6 @@ using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
-using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using System.IO;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
@@ -112,7 +111,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             return false;
         }
 
-        public string ToExpressionSnippet
+        public override string ToExpressionSnippet
         {
             get
             {
@@ -120,7 +119,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             }
         }
 
-        public object Clone()
+        public override object Clone()
         {
             throw new NotImplementedException();
             //var newEntity = new ComplexType(Name, Type.ComplexType, Description);
@@ -128,12 +127,12 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             //return newEntity;
         }
 
-        public ValidationMessageCollection Validate(bool prefixMsg)
+        public override ValidationMessageCollection Validate(bool prefixMsg)
         {
             return Validate(prefixMsg, null);
         }
 
-        public ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages)
+        public override ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages)
         {
             if (messages == null)
                 messages = new ValidationMessageCollection();

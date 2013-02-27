@@ -262,7 +262,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
             return PropertyCollection.Get(type.UnitOfMeasureQualifier);
         }
 
-        public object Clone()
+        public virtual object Clone()
         {
             throw new NotImplementedException();
             //May want to be more judicious when creating a copy of the property
@@ -272,11 +272,11 @@ namespace MetraTech.ExpressionEngine.MTProperties
             //return property;
         }
 
-        public ValidationMessageCollection Validate(bool prefixMsg)
+        public virtual ValidationMessageCollection Validate(bool prefixMsg)
         {
             return Validate(prefixMsg, null);
         }
-        public ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages)
+        public virtual ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages)
         {
             if (messages == null)
                 messages = new ValidationMessageCollection();
@@ -299,7 +299,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
             return string.Format(CultureInfo.InvariantCulture, "{0} ({1})", Name, Type.ToString(true));
         }
 
-        public string ToExpressionSnippet
+        public virtual string ToExpressionSnippet
         {
             get
             {

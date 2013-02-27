@@ -27,5 +27,15 @@
         public bool IsVirtual { get; set; }
 
         #endregion
+
+        #region Constructor
+
+        public Currency(string symbol, string label, bool isVirtual)
+        {
+            Symbol = symbol;
+            Label = label;
+            IsVirtual = isVirtual;
+        }
+        #endregion
     }
 }

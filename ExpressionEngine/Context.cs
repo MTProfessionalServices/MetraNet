@@ -37,7 +37,8 @@ namespace MetraTech.ExpressionEngine
         private readonly Dictionary<string, Function> _functions = new Dictionary<string, Function>();
 
         //Entities may not have unique names across types... need to deal with that, perhaps a composite key
-        public Dictionary<string, PropertyBag> Entities = new Dictionary<string, PropertyBag>();
+        public Dictionary<string, PropertyBag> Entities { get { return _entities; } }
+        private readonly Dictionary<string, PropertyBag> _entities = new Dictionary<string, PropertyBag>();
 
         public Dictionary<string, Aqg> Aqgs { get { return _aqgs; } }
         private Dictionary<string, Aqg> _aqgs = new Dictionary<string, Aqg>();

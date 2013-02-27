@@ -74,7 +74,7 @@ namespace MetraTech.ExpressionEngine.UserTest
                         Outputs.Add(new KeyValuePair<string, string>(prop.Name, prop.Value));
                         break;
                     default:
-                        throw new NotImplementedException("InputOutput is not supported yet");
+                        throw new NotImplementedException("Input Output is not supported yet");
                 }
             }
         }

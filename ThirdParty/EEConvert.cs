@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections;
-using MetraTech.ExpressionEngine;
-using MetraTech.ExpressionEngine.MetraNet.MtProperty;
+using System.IO;
+using MetraTech.ExpressionEngine.MTProperties;
+using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using System.Globalization;
+using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace MetraTech.ICE.ExpressionEngine
 {
   public static class EEConvert
   {
-    public static MtType GetMtType(DataTypeInfo dtInfo)
+    public static Type GetMtType(DataTypeInfo dtInfo)
     {
       var baseType = TypeHelper.GetBaseType(dtInfo.ToString());
       var mtType = TypeFactory.Create(baseType);
@@ -30,33 +34,33 @@ namespace MetraTech.ICE.ExpressionEngine
       return mtType;
     }
 
-    public static void CopyProperties(ComplexType complexType, PropertyCollection oldCollection, MetraTech.ExpressionEngine.PropertyCollection newCollection)
+    public static void CopyProperties(string propertyBagTypeName, PropertyCollection oldCollection, MetraTech.ExpressionEngine.MTProperties.PropertyCollection newCollection)
     {
       foreach (var oldProperty in oldCollection)
       {
         var type = GetMtType(oldProperty.DataTypeInfo);
-        var property = MtPropertyFactory.Create(complexType, oldProperty.Name, type, oldProperty.Required, oldProperty.Description);
+        var property = PropertyFactory.Create(propertyBagTypeName, oldProperty.Name, type, oldProperty.Required, oldProperty.Description);
         newCollection.Add(property);
       }
     }
 
-    public static Entity GetEntity(ElementBase oldEntity)
+    public static PropertyBag GetEntity(ElementBase oldEntity)
     {
-      ComplexType complexType;
+      string propertyBagTypeName;
       MetraNetEntityBase entity;
       PropertyCollection propertyCollection;
       switch(oldEntity.ElementType)
       {
         case ElementType.AccountView:
-          complexType = ComplexType.AccountView;
+          propertyBagTypeName = PropertyBagConstants.AccountView;
           propertyCollection = ((AccountView) oldEntity).Properties;
-          var avEntity = EntityFactory.CreateAccountViewEntity(oldEntity.Name, oldEntity.Description);
+          var avEntity = PropertyBagFactory.CreateAccountViewEntity(oldEntity.Name, oldEntity.Description);
           entity = avEntity;
           break;
         case ElementType.ProductView:
-          complexType = ComplexType.ProductView;
+          propertyBagTypeName = PropertyBagConstants.ProductView;
           propertyCollection = ((ProductView) oldEntity).Properties;
-          var pvEntity = EntityFactory.CreateProductViewEntity(oldEntity.Name, oldEntity.Description);
+          var pvEntity = PropertyBagFactory.CreateProductViewEntity(oldEntity.Name, oldEntity.Description);
           //foreach (var key in ((ProductView)oldEntity).UKConstraints)
           //{
           //  pvEntity.UniqueKey.Add(key);
@@ -64,9 +68,9 @@ namespace MetraTech.ICE.ExpressionEngine
           entity = pvEntity;
           break;
         case ElementType.ServiceDefinition:
-          complexType = ComplexType.ServiceDefinition;
+          propertyBagTypeName = PropertyBagConstants.ServiceDefinition;
           propertyCollection = ((ServiceDefinition) oldEntity).Properties;
-          var sdEntity = EntityFactory.CreateServiceDefinitionEntity(oldEntity.Name, oldEntity.Description);
+          var sdEntity = PropertyBagFactory.CreateServiceDefinitionEntity(oldEntity.Name, oldEntity.Description);
           entity = sdEntity;
           break;
         default:
@@ -75,27 +79,67 @@ namespace MetraTech.ICE.ExpressionEngine
 
       entity.Extension = oldEntity.Extension;
 
-      CopyProperties(complexType, propertyCollection, entity.Properties);
+      CopyProperties(propertyBagTypeName, propertyCollection, entity.Properties);
 
       return entity;
     }
 
-    public static void Save(string extensionsDir)
+    //Export functions. This is useful to convert the functions that were prototyped for TreeFlow. It should not
+    //be done on a per project basis
+    public static void ExportFunctions(string dirPath)
     {
-      Save(extensionsDir, ElementType.ServiceDefinition);
-      Save(extensionsDir, ElementType.ProductView);
-      Save(extensionsDir, ElementType.ServiceDefinition); 
+      var dirInfo = new DirectoryInfo(dirPath);
+      if (!dirInfo.Exists)
+        dirInfo.Create();
+
+      foreach (var oldFunction in MetraTech.ICE.TreeFlows.Function.Functions.Values)
+      {
+        var newFunction = new MetraTech.ExpressionEngine.Components.Function(oldFunction.Name, oldFunction.Category.ToString(), oldFunction.Description);
+        //CopyProperties(ComplexType.None, oldFunction.FixedArguments, newFunction.FixedParameters);
+        newFunction.Save(string.Format(CultureInfo.InvariantCulture, @"{0}\Functions", dirPath));
+      }
     }
 
-    public static void Save(string extensionsDir, ElementType elementType)
+    public static void ExportExtensions(string extensionsDir)
     {
-      var elements = Config.Instance.GetElementList(elementType);
-      foreach (DictionaryEntry de in elements.Values)
+      //Enums
+      foreach (var oldEnumNamespace in Config.Instance.EnumerationConfig.EnumNamespaces.Values)
       {
-        var entity = (MetraNetEntityBase)GetEntity((ElementBase) de.Value);
-        entity.SaveInExtensionsDirectory(extensionsDir);
+        var newEnumNamespace = new MetraTech.ExpressionEngine.Components.EnumNamespace(oldEnumNamespace.Name, oldEnumNamespace.Description);
+        newEnumNamespace.Extension = oldEnumNamespace.Extension;
+
+        foreach (var oldEnumType in oldEnumNamespace.EnumTypes.Values)
+        {
+          var newEnumType = newEnumNamespace.AddType(oldEnumType.Name, 0, oldEnumType.Description);
+          foreach (var oldEnumValue in oldEnumType.EnumValues.Values)
+          {
+            var newEnumValue = newEnumType.AddValue(oldEnumValue.Name, 0);
+            foreach (var alias in oldEnumValue._MeteringAliases)
+            {
+              newEnumValue.Aliases.Add(alias);
+            }
+          }
+        }
+
+        newEnumNamespace.SaveInExtension(extensionsDir);
       }
 
+      //Export the MSIX definitions
+      SaveInExtension(extensionsDir, ElementType.ServiceDefinition);
+      SaveInExtension(extensionsDir, ElementType.ProductView);
+      SaveInExtension(extensionsDir, ElementType.ServiceDefinition); 
+      //TODO: eport parameter tables
+    }
+
+    public static void SaveInExtension(string extensionsDir, ElementType elementType)
+    {
+      var elements = Config.Instance.GetElementList(elementType);
+      foreach (DictionaryEntry de in elements)
+      {
+        var element = (ElementBase) de.Value;
+        var entity = (MetraNetEntityBase)GetEntity(element);
+        entity.SaveInExtensionsDirectory(extensionsDir);
+      }
     }
 
   }

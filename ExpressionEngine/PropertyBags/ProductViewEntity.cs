@@ -1,12 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using MetraTech.ExpressionEngine.Database;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
-using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using System.Runtime.Serialization;
 
 namespace MetraTech.ExpressionEngine.PropertyBags
 {
-    [DataContract]
+    [DataContract(Namespace = "MetraTech")]
     public class ProductViewEntity : MetraNetEntityBase
     {
         #region Properties

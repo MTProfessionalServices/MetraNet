@@ -156,40 +156,7 @@ namespace PropertyGui
 
         private void button1_Click(object sender, EventArgs e)
         {
-            foreach (var enumNamespace in DemoLoader.GlobalContext.EnumNamespaces.Values)
-            {
-                enumNamespace.SaveInExtension(@"C:\Temp\Extensions");
-            }
-
-
-            //var entity = EntityFactory.CreateProductViewEntity("Foo", null);
-            //entity.Extension = "Core";
-            //var file = entity.GetFileNameGivenExtensionsDirectory(@"C:\Temp\Extensions");
-
-            //entity.Save(file);
-   
-
-            //var template = new EmailTemplate();
-            //template.Name = "Invoice Notice";
-            //template.Description = "Sent to customer when an invoice is generated.";
-            //template.EntityParameters.Add("Invoice");
-            //template.Save(@"C:\Temp");
-
-            //var exp = new Expression(ExpressionType.Uqg, "really cool logic", "_specialpromotion");
-            ////exp.DeclaredReturnType.DataTypeInfo.BaseType = BaseType.Boolean;
-            //exp.Save(@"C:\Temp");
-
-            //var email = new EmailInstance();
-            //email.Name = "Blank_email";
-            //email.Save(@"C:\Temp");
-
-            //var dirInfo = new DirectoryInfo(@"C:\Temp\Functions");
-            //if (!dirInfo.Exists)
-            //    dirInfo.Create();
-            //foreach (var func in DemoLoader.GlobalContext.Functions.Values)
-            //{
-            //    func.Save(dirInfo.FullName);
-            //}
+            DemoLoader.GlobalContext.Save(@"C:\Temp\Extensions");
         }
 
         private void button2_Click(object sender, EventArgs e)

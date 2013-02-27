@@ -10,7 +10,6 @@ using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
-using MetraTech.ExpressionEngine.Entities;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace MetraTech.ExpressionEngine
@@ -390,6 +389,32 @@ namespace MetraTech.ExpressionEngine
             }
 
             return true;
+        }
+        #endregion
+
+        #region IO Methods
+
+        /// <summary>
+        /// This is used to test things and for prototype assumes MetraNet mode... not applicable in real worl
+        /// </summary>
+        /// <param name="dirPath"></param>
+        public void Save(string dirPath)
+        {
+            dirPath.EnsureDirectoryExits();
+
+            foreach (var enumNamespace in EnumNamespaces.Values)
+            {
+                enumNamespace.Extension = "Scott";
+                enumNamespace.SaveInExtension(dirPath);
+            }
+
+            foreach (var propertyBag in Entities.Values)
+            {
+                var pb = (MetraNetEntityBase) propertyBag;
+                pb.Extension = "Scott";
+                pb.SaveInExtensionsDirectory(dirPath);
+            }
+
         }
         #endregion
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
@@ -128,7 +129,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
                 //Ensure the that property names are unique
                 if (names.ContainsKey(property.Name))
                 {
-                    messages.Error(string.Format(Localization.DuplicatePropertyName, property.Name));
+                    messages.Error(string.Format(CultureInfo.CurrentCulture, Localization.DuplicatePropertyName, property.Name));
                     continue;
                 }
                 names.Add(property.Name, false);

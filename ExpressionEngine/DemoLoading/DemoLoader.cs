@@ -28,7 +28,7 @@ namespace MetraTech.ExpressionEngine
         public const string DirPath = @"C:\ExpressionEngine";
         public static string TopLevelDataDir = Path.Combine(DirPath, "Data");
         private static string DataPath;
-        public static Context GlobalContext;
+        public static Context GlobalContext { get; private set; }
         #endregion
 
         #region General
@@ -201,7 +201,7 @@ namespace MetraTech.ExpressionEngine
                 {
                     //var baseType = TypeHelper.PropertyTypeIdToBaseTypeMapping[Int32.Parse(typeStr)];
                     //dtInfo = TypeFactory.Create(baseType);
-                    type = TypeFactory.Create(Int32.Parse(typeStr));
+                    type = TypeFactory.Create(Int32.Parse(typeStr, NumberStyles.Integer));
                 }
                 else
                     type = TypeFactory.Create(typeStr);
@@ -301,7 +301,7 @@ namespace MetraTech.ExpressionEngine
         public static void LoadXqg(Context context, ExpressionType type, string filePath)
         {
             if (context == null)
-                throw new NullReferenceException("context");
+                throw new ArgumentException("context");
 
             var lines = File.ReadAllLines(filePath);
             for (int index = 1; index < lines.Length; index++)
@@ -331,7 +331,7 @@ namespace MetraTech.ExpressionEngine
         public static void LoadEmailInstances(Context context, string dirPath)
         {
             if (context == null)
-                throw new NullReferenceException("context");
+                throw new ArgumentException("context");
 
             var dirInfo = new DirectoryInfo(dirPath);
             if (!dirInfo.Exists)

@@ -1,4 +1,5 @@
 ﻿using MetraTech.ExpressionEngine.Expressions;
+using MetraTech.ExpressionEngine.Expressions.Constants;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -14,9 +15,15 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public static bool NewSyntax = false;
 
-        public static string DefaultEqualityOperator = ExpressionHelper.EqualityOperators[0];
-        public static string DefaultInequalityOperator = ExpressionHelper.InequalityOperators[0];
+        public static string DefaultEqualityOperator { get; set; }
+        public static string DefaultInequalityOperator { get; set; }
         public static bool AutoSelectInsertedSnippets = true;
         public static bool ShowActualMappings = false; 
+
+        static UserSettings()
+        {
+            DefaultEqualityOperator = ExpressionConstants.EqualityTechnical;
+            DefaultInequalityOperator = ExpressionConstants.InequalityTechnical;
+        }
     }
 }

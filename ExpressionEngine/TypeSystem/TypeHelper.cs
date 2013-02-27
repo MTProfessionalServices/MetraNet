@@ -20,7 +20,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// </summary>
         public static readonly IEnumerable<BaseType> MsixBaseTypes;
 
-        public static readonly string[] MsixEntityTypes;
+        public static readonly IEnumerable<string> MsixEntityTypes; 
 
         /// <summary>
         /// BaseTypes that exist as native database types (e.g., string, int, etc.). In other words, there is a 1:1 mapping.

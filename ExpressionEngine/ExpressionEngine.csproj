@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Charges\Charge.cs" />
     <Compile Include="Database\UniqueKey.cs" />
+    <Compile Include="Expressions\Constants\ExpressionConstants.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="IOHelper.cs" />
     <Compile Include="TypeSystem\Constants\PropertyBagConstants.cs" />

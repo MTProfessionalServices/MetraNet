@@ -74,7 +74,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             //Check if the Category was specified
             if (string.IsNullOrEmpty(Category))
             {
-                messages.Error(string.Format(Localization.EnumTypeNotSpecified));
+                messages.Error(string.Format(CultureInfo.CurrentCulture, Localization.EnumTypeNotSpecified));
                 return;
             }
 

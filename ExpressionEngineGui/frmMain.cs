@@ -36,13 +36,20 @@ namespace PropertyGui
             cboContext.SelectedIndex = 0;
             cboContext.EndUpdate();
 
-
-            cboEqualityOperator.Items.AddRange(ExpressionHelper.EqualityOperators);
+            LoadCombo(cboEqualityOperator, ExpressionHelper.EqualityOperators);
             cboEqualityOperator.Text = UserSettings.DefaultEqualityOperator;
-            cboInequalityOperator.Items.AddRange(ExpressionHelper.InequalityOperators);
+            LoadCombo(cboInequalityOperator, ExpressionHelper.InequalityOperators);
             cboInequalityOperator.Text = UserSettings.DefaultInequalityOperator;
             chkShowAcutalMappings.Checked = UserSettings.ShowActualMappings;
             chkAutoSelectInsertedSnippets.Checked = UserSettings.AutoSelectInsertedSnippets;
+        }
+
+        private void LoadCombo<T>(ComboBox cbo, IEnumerable<T> items)
+        {
+           foreach (var item in items)
+           {
+               cbo.Items.Add(item);
+           }
         }
 
         private void LoadContext()

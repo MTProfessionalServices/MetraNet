@@ -1,9 +1,21 @@
-﻿namespace MetraTech.ExpressionEngine.Expressions
+﻿using System.Collections.Generic;
+using MetraTech.ExpressionEngine.Expressions.Constants;
+
+namespace MetraTech.ExpressionEngine.Expressions
 {
     public static class ExpressionHelper
     {
-        public static readonly string[] EqualityOperators = new[] { "==", "eq" };
-        //public static readonly ReadOnlyCollection<string> EqualityOperators = new ReadOnlyCollection<string>(new string[] { "==", "eq" });
-        public static readonly string[] InequalityOperators = new[] { "!=", "nq" };
+        public static readonly IEnumerable<string> EqualityOperators = new string[]
+        {
+            ExpressionConstants.EqualityTechnical, 
+            ExpressionConstants.EqualityBusiness
+        };
+
+        public static readonly IEnumerable<string> InequalityOperators = new string[] 
+        {
+            ExpressionConstants.InequalityTechnical, 
+            ExpressionConstants.InequalityBusiness
+        };
+
     }
 }

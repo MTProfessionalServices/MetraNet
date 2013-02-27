@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
@@ -65,7 +66,7 @@ namespace MetraTech.ExpressionEngine.Expressions
                     parameter.Description = null;
 
                     //Would be really nice to provide line/column number here. Need parse tree to do that
-                    Messages.Error(string.Format(Localization.UnableToFindProperty, parameter.Name));
+                    Messages.Error(string.Format(CultureInfo.CurrentCulture, Localization.UnableToFindProperty, parameter.Name));
                 }
             }
         }

@@ -7,7 +7,12 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     /// <summary>
     /// The root class for all types
     /// </summary>
-    [DataContract]
+    [DataContract (Namespace = "MetraTech")]
+    [KnownType(typeof(EnumerationType))]
+    [KnownType(typeof(MoneyType))]
+    [KnownType(typeof(NumberType))]
+    [KnownType(typeof(PropertyBagType))]
+    [KnownType(typeof(StringType))]
     public class Type
     {
         #region Properties
@@ -16,8 +21,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// The underlying type (e.g, string, int32, int64, etc.)
         /// </summary>
         [DataMember]
-        public BaseType BaseType {get { return _baseType; }}
-        private readonly BaseType _baseType;
+        public BaseType BaseType { get; private set; }
 
         /// <summary>
         /// The type of list 
@@ -54,7 +58,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         public Type(BaseType baseType)
         {
-            _baseType = baseType;
+            BaseType = baseType;
         }
 
         #endregion

@@ -5,19 +5,19 @@ using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
-    [DataContract]
+    [DataContract(Namespace = "MetraTech")]
     public class PropertyBagType : Type
     {
         #region Properties
 
         public string Name { get; set; }
 
+        [DataMember]
         public PropertyBagMode PropertyBagMode { get; set; }
 
         /// <summary>
         /// Indicates if deemed a PropertyBag or ExtensibleEntity
         /// </summary>
-        [DataMember]
         public bool IsEntity
         {
             get { return PropertyBagMode == PropertyBagMode.Entity || PropertyBagMode == PropertyBagMode.ExtensibleEntity; }

@@ -7,7 +7,7 @@ namespace MetraTech.ExpressionEngine.Components
 {
     /// <summary>
     /// </summary>
-    [DataContract]
+    [DataContract (Namespace = "MetraTech")]
     public class UnitOfMeasureCategory : IExpressionEngineTreeNode
     {
         #region Properties

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace MetraTech.ExpressionEngine.Database
 {
-    [DataContract]
+    [DataContract (Namespace = "MetraTech")]
     public class UniqueKey
     {
         #region Properties

@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.Entities;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
@@ -16,6 +17,9 @@ namespace MetraTech.ExpressionEngine.PropertyBags
     /// other complex types. Note that DataTypeInfo.IsEntity determines if it's deemed an PropertyBag (an important destinction for Metanga)
     /// </summary>
     [DataContract(Namespace = "MetraTech")]
+    [KnownType(typeof(AccountViewEntity))]
+    [KnownType(typeof(ProductViewEntity))]
+    [KnownType(typeof(ServiceDefinitionEntity))]
     public class PropertyBag : Property, IExpressionEngineTreeNode
     {
         #region Properties

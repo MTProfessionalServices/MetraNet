@@ -6,7 +6,7 @@ using System.Globalization;
 
 namespace MetraTech.ExpressionEngine
 {
-    [DataContract]
+    [DataContract (Namespace = "MetraTech")]
     public class EmailTemplate
     {
         #region Properties

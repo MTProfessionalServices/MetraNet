@@ -3,7 +3,7 @@ using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace MetraTech.ExpressionEngine.MTProperties
 {
-    [DataContract]
+    [DataContract (Namespace = "MetraTech")]
     public class AccountViewProperty : Property
     {
         #region Properties

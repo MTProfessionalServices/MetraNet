@@ -9,7 +9,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     /// "Numeric" is a BaseType which implies every typeof NumberType. This is a very important 
     /// distinction.
     /// </summary>
-    [DataContract]
+    [DataContract (Namespace = "MetraTech")]
     public class NumberType : Type
     {
         #region Properties

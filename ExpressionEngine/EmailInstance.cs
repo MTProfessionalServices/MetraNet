@@ -13,7 +13,7 @@ namespace MetraTech.ExpressionEngine
     /// write out all of the Expression properties for each of the 4 expressions in an Email. I'm not
     /// happy with the way it works and we probably need to rethink. If you have questions, ask Scott
     /// </summary>
-    [DataContract]
+    [DataContract (Namespace = "MetraTech")]
     public class EmailInstance
     {
         #region Constants

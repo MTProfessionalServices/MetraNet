@@ -39,7 +39,7 @@ namespace MetraTech.ExpressionEngine.Components
         public Collection<EnumCategory> Categories {
             get { return _categories; }
         }
-        private readonly Collection<EnumCategory> _categories = new Collection<EnumCategory>();
+        private Collection<EnumCategory> _categories = new Collection<EnumCategory>();
 
 
         /// <summary>

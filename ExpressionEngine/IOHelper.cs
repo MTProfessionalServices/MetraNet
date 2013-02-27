@@ -20,9 +20,9 @@ namespace MetraTech.ExpressionEngine
             var xElement = XElement.Parse(xmlContent);
             var xmlReader = xElement.CreateReader();
             var ser = new DataContractSerializer(typeof(T));
-            var function = (T)ser.ReadObject(xmlReader);
+            var newObject = (T)ser.ReadObject(xmlReader);
             xmlReader.Close();
-            return function;
+            return newObject;
         }
 
         public static void Save<T>(string file, T theObject)

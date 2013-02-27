@@ -161,20 +161,10 @@ namespace PropertyGui
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var functions = new List<Function>();
-            var dirInfo = new DirectoryInfo(@"C:\Temp\Functions");
-            foreach (var fileInfo in dirInfo.GetFiles("*.xml"))
-            {
-                var fs = new FileStream(fileInfo.FullName,FileMode.Open);
-                var reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas());
-                var ser = new DataContractSerializer(typeof(Function));
-                var function = (Function)ser.ReadObject(reader, true);
-                fs.Close();
-                reader.Close();
-
-                functions.Add(function);
-            }
+            var namespaces = EnumNamespace.LoadDirectory(new DirectoryInfo(@"C:\Temp\Extensions\Scott\Config\Enumerations"), "Scott");
         }
+
+
 
         private void btnSendEvent_Click(object sender, EventArgs e)
         {

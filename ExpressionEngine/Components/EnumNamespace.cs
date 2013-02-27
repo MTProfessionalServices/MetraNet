@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 
 namespace MetraTech.ExpressionEngine.Components
@@ -34,7 +36,11 @@ namespace MetraTech.ExpressionEngine.Components
         /// <summary>
         /// The data enumerated typs
         /// </summary>
-        public Collection<EnumCategory> Categories { get; private set; }
+        public Collection<EnumCategory> Categories {
+            get { return _categories; }
+        }
+        private readonly Collection<EnumCategory> _categories = new Collection<EnumCategory>();
+
 
         /// <summary>
         /// The Extension that defined the EnumNamespace
@@ -54,17 +60,17 @@ namespace MetraTech.ExpressionEngine.Components
         {
             Name = name;
             Description = description;
-            Categories =  new Collection<EnumCategory>();
+            //Categories =  new Collection<EnumCategory>();
         }
         #endregion
 
         #region Methods
 
-        public EnumCategory AddType(string name, int id, string description)
+        public EnumCategory AddCategory(string name, int id, string description)
         {
-            var type = new EnumCategory(this, name, id, description);
-            Categories.Add(type);
-            return type;
+            var category = new EnumCategory(this, name, id, description);
+            Categories.Add(category);
+            return category;
         }
         public string ToExpressionSnippet
         {
@@ -121,11 +127,11 @@ namespace MetraTech.ExpressionEngine.Components
 
         #endregion
 
-        #region IO Metehods
+        #region IO Methods
 
         public void Save(string dirPath)
         {
-            //A underscore is used so that in alpha sort (i.e., file system) the namespace occurs before the categories
+            //A underscore is used so that when alpha sorted (i.e., file system) the namespace occurs before the categories
             var file = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}._.xml", dirPath, NameWithNoSlashes);
             IOHelper.Save(file, this);
 
@@ -135,6 +141,36 @@ namespace MetraTech.ExpressionEngine.Components
             }
         }
 
+        /// <summary>
+        /// Assumes proper naming!!!! Could do better checking!!!!
+        /// </summary>
+        public static List<EnumNamespace> LoadDirectory(DirectoryInfo dirInfo, string extension)
+        {
+            if (dirInfo == null)
+                throw new ArgumentException("dirInfo");
+
+            var namespaces = new List<EnumNamespace>();
+            EnumNamespace ns = null;
+            var fileInfos = dirInfo.GetFiles("*.xml");
+            var sortedFileInfos = fileInfos.OrderBy(f => f.Name);
+
+            foreach (var fileInfo in sortedFileInfos)
+            {
+                if (fileInfo.FullName.EndsWith("._.xml"))
+                {
+                    ns = CreateFromFile(fileInfo.FullName);
+                    ns.Extension = extension;
+                    namespaces.Add(ns);
+                }
+                else //it's a type
+                {
+                    var category = EnumCategory.CreateFromFile(fileInfo.FullName);
+                    ns.Categories.Add(category);
+                }
+            }
+
+            return namespaces;
+        }
 
         public static EnumNamespace CreateFromFile(string file)
         {

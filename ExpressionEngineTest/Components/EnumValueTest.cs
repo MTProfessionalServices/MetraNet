@@ -34,7 +34,7 @@ namespace ExpressionEngineTest
         private EnumValue GetEnumValue(string @namespace, string category, string enumValue, int id)
         {
             var space = new MetraTech.ExpressionEngine.Components.EnumNamespace(@namespace, null);
-            var type = space.AddType(category, 1, null);
+            var type = space.AddCategory(category, 1, null);
             var value = type.AddValue(enumValue, id);
             return value;
         }

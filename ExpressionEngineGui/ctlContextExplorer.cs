@@ -59,7 +59,7 @@ namespace PropertyGui
             cboMode.EndUpdate();
             cboMode.SelectedItem = MvcAbstraction.ViewModeType.Entities;
 
-            //Init the Entity Type Filter
+            //Init the PropertyBag Type Filter
             cboEntityTypeFilter.BeginUpdate();
             cboEntityTypeFilter.Items.Clear();
             cboEntityTypeFilter.DropDownStyle = ComboBoxStyle.DropDownList;

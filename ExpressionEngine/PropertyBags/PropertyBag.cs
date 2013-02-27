@@ -13,15 +13,12 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 {
     /// <summary>
     /// Implements a ComplexType, esentially something that PropertyCollection which may include properties and
-    /// other complex types. Note that DataTypeInfo.IsEntity determines if it's deemed an Entity (an important destinction for Metanga)
+    /// other complex types. Note that DataTypeInfo.IsEntity determines if it's deemed an PropertyBag (an important destinction for Metanga)
     /// </summary>
     [DataContract(Namespace = "MetraTech")]
     public class PropertyBag : Property, IExpressionEngineTreeNode
     {
         #region Properties
-
-        [DataMember]
-        public PropertyBagMode PropertyBagMode { get; set; }
 
         [DataMember]
         public PropertyCollection Properties { get; private set; }
@@ -58,7 +55,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             }
         }
 
-        public override string Image {get { return PropertyBagMode.ToString() + ".png"; }}
+        public override string Image {get { return ((PropertyBagType) Type).PropertyBagMode.ToString() + ".png"; }}
 
         public override string ImageDirection
         {
@@ -81,11 +78,11 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         #region Constructor
 
-        public PropertyBag(string name, string propertyBagTypeName, bool isEntity, string description)
-            : base(name, TypeFactory.CreatePropertyBag(propertyBagTypeName), true, description)
+        public PropertyBag(string name, string propertyBagTypeName, PropertyBagMode propertyBagMode, string description)
+            : base(name, TypeFactory.CreatePropertyBag(propertyBagTypeName, propertyBagMode), true, description)
         {
             Name = name;
-            Type = TypeFactory.CreatePropertyBag(propertyBagTypeName, isEntity);
+            Type = TypeFactory.CreatePropertyBag(propertyBagTypeName, propertyBagMode);
             Description = description;
             Properties = new PropertyCollection(this);
         }

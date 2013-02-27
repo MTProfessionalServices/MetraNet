@@ -10,7 +10,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         #region Properties
 
         /// <summary>
-        /// The extension that the Entity is associated with
+        /// The extension that the PropertyBag is associated with
         /// </summary>
         public string Extension { get; set; }
 
@@ -18,9 +18,9 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         #region Constructor
         protected MetraNetEntityBase(string name, string propertyBagTypeName, string description)
-            : base(name, propertyBagTypeName, true, description)
+            : base(name, propertyBagTypeName, PropertyBagMode.ExtensibleEntity, description)
         {
-            PropertyBagMode = PropertyBagMode.ExtensibleEntity;
+            ((PropertyBagType)Type).PropertyBagMode = PropertyBagMode.ExtensibleEntity;
         }
         #endregion
 

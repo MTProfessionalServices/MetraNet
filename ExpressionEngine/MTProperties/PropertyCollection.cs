@@ -22,7 +22,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
         private readonly object _parent;
 
         /// <summary>
-        /// The Entity to which the collection belongs (may be null)
+        /// The PropertyBag to which the collection belongs (may be null)
         /// </summary>
         public PropertyBag Entity { get { return Parent == null || !(Parent is PropertyBag) ? null : (PropertyBag)Parent; } }
 

@@ -183,8 +183,8 @@ namespace MetraTech.ExpressionEngine.MTProperties
                         return "Int64.png";
                     case BaseType.Guid:
                         return "Guid.png";
-                    case BaseType.Entity:
-                        return "Entity.png";
+                    case BaseType.PropertyBag:
+                        return "PropertyBag.png";
                 }
                 return null;
             }

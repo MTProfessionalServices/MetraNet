@@ -81,7 +81,7 @@ namespace PropertyGui
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Entity:";
+            this.label1.Text = "PropertyBag:";
             // 
             // cboPropertyTypeFilter
             // 

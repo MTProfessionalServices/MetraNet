@@ -29,16 +29,11 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         public static PropertyBagType CreatePropertyBag()
         {
-            return CreatePropertyBag(null);
+            return CreatePropertyBag(null, PropertyBagMode.PropertyBag);
         }
-        public static PropertyBagType CreatePropertyBag(string propertyBagTypeName)
+        public static PropertyBagType CreatePropertyBag(string propertyBagTypeName, PropertyBagMode propertyBagMode)
         {
-            return CreatePropertyBag(propertyBagTypeName, true);
-        }
-
-        public static PropertyBagType CreatePropertyBag(string propertyBagTypeName, bool isEntity)
-        {
-            return new PropertyBagType(propertyBagTypeName, isEntity);
+            return new PropertyBagType(propertyBagTypeName, propertyBagMode);
         }
 
         public static Type CreateDateTime()
@@ -195,7 +190,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     return CreateBoolean();
                 case BaseType.Charge:
                     return CreateCharge();
-                case BaseType.Entity:
+                case BaseType.PropertyBag:
                     return CreatePropertyBag();
                 case BaseType.DateTime:
                     return CreateDateTime();

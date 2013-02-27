@@ -125,7 +125,8 @@ namespace MetraTech.ExpressionEngine.Components
 
         public void Save(string dirPath)
         {
-            var file = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.xml", dirPath, NameWithNoSlashes);
+            //A underscore is used so that in alpha sort (i.e., file system) the namespace occurs before the categories
+            var file = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}._.xml", dirPath, NameWithNoSlashes);
             IOHelper.Save(file, this);
 
             foreach (var category in Categories)

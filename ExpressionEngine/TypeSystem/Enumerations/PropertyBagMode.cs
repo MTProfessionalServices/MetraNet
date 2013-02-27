@@ -6,7 +6,7 @@
         /// ComplexType in Metanga. It has no ID. No Equalivent in MetraNet yet
         // Ensure that "least powerful" is first so that default is least powerful
         /// </summary>
-        Value,  
+        PropertyBag,  
         
         /// <summary>
         /// Has an ID, but is not extensible

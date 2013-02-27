@@ -192,7 +192,13 @@ namespace MetraTech.ExpressionEngine
                     if (Context.ProductType == ProductType.MetraNet)
                         entity = PropertyBagFactory.Create(propertyBagTypeName, entityName, entityDescription);
                     else
-                        entity = new PropertyBag(entityName, propertyBagTypeName, entityRecord.IsEntity, entityDescription);
+                    {
+                        //Current CSV doesn't have enough info, they assume all entities aren't expandable
+                        var propertyBagMode = entityRecord.IsEntity
+                                                  ? PropertyBagMode.Entity
+                                                  : PropertyBagMode.PropertyBag;
+                        entity = new PropertyBag(entityName, propertyBagTypeName, propertyBagMode, entityDescription);
+                    }
                     context.Entities.Add(entity.Name, entity);
                 }
 
@@ -213,7 +219,7 @@ namespace MetraTech.ExpressionEngine
                         _enumType.Namespace = enumSpace;
                         _enumType.Category = enumType;
                         break;
-                    case BaseType.Entity:
+                    case BaseType.PropertyBag:
                         var propertyBagType = (PropertyBagType)type;
                         propertyBagType.Name = enumType; //we overrode the column
                         break;

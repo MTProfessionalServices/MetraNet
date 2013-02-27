@@ -169,7 +169,7 @@ namespace MetraTech.ExpressionEngine
 
                     //We're not there yet, it should be ComplexType
 
-                    if (property.Type.BaseType != BaseType.Entity)
+                    if (property.Type.BaseType != BaseType.PropertyBag)
                         return null;
 
                     //Get the complex property
@@ -177,7 +177,7 @@ namespace MetraTech.ExpressionEngine
                     if (secondProperty == null)
                         return null;
 
-                    if (secondProperty.Type.BaseType != BaseType.Entity && parts.Length == 2)
+                    if (secondProperty.Type.BaseType != BaseType.PropertyBag && parts.Length == 2)
                         return secondProperty;
 
                     //var secondName = parts[1];

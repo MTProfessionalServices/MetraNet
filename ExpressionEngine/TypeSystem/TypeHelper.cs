@@ -150,7 +150,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 case "guid":
                     return BaseType.Guid;
                 case "entity":
-                    return BaseType.Entity;
+                    return BaseType.PropertyBag;
                 case "unknown":
                     return BaseType.Unknown;
                 default:

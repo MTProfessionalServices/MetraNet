@@ -14,7 +14,7 @@
         DateTime,
         Decimal,
         Double,
-        Entity,             //Spans everying from BMEs to ProductViews
+        PropertyBag,        //Spans everying from BMEs to ProductViews
         Enumeration,
         Float,
         Guid,

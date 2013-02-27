@@ -8,7 +8,7 @@ namespace Metanga.Miscellaneous.MetadataExport
   public class EntityRecord
   {
     /// <summary>
-    /// Entity Name (this value is repeated for each property)
+    /// PropertyBag Name (this value is repeated for each property)
     /// </summary>
     [CsvField(Index = 0)]
     public string EntityName { get; set; }

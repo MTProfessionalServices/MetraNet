@@ -285,12 +285,12 @@ namespace PropertyGui
             if (node.Nodes.Count == 1 && node.Nodes[0].Text == PropertyListPlaceHolder)
             {
                 node.Nodes.Clear();
-                var entity1 = (PropertyBag)node.Tag;
-                var entitySubType = ((PropertyBagType)entity1.Type).Name;
-                PropertyBag entity;
-                if (!DemoLoader.GlobalContext.Entities.TryGetValue(entitySubType, out entity))
+                var property = (Property) node.Tag;
+                var propertyBagTypeName = ((PropertyBagType) property.Type).Name;
+                PropertyBag propertyBag;
+                if (!DemoLoader.GlobalContext.Entities.TryGetValue(propertyBagTypeName, out propertyBag))
                     return;
-                AddProperties(node, entity.Properties);
+                AddProperties(node, propertyBag.Properties);
             }
         }
 

@@ -53,7 +53,7 @@ namespace MetraTech.ExpressionEngine
                 if (!string.IsNullOrEmpty(Description))
                     toolTip += Environment.NewLine + Description;
                 if (UserSettings.ShowActualMappings)
-                    toolTip += string.Format(CultureInfo.InvariantCulture, "\r\n[DatabaseId={0}]", Id);
+                    toolTip += string.Format(CultureInfo.InvariantCulture, "\r\n[DatabaseId: {0}]", Id);
                 return toolTip;
             }
         }

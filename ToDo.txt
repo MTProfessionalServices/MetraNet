@@ -1,12 +1,8 @@
 *Metanga expand node crash
 *Metanga expresson shows no entites (but email does)
-
-Mario
-*I've switched MetraNet to load via deserilization. I would like to switch to that for Metanga as well. 
-It will force you to use the APIs and we can kill all of the CSV stuff.
-
-*Email deserializetion isn't working. Need help, but I would like to understand what's wrong so that I don't have to 
-keep bothering you
+*Function parameter binding not working
+*In function not working
+*Property view causes exception
 
 *I would like to nail down Charges, Taxes, UOMs and Currencies.
 

@@ -57,7 +57,7 @@ namespace MetraTech.ExpressionEngine
             }
 
 
-            //LoadFunctions();
+            LoadFunctions();
             LoadExpressions();
             LoadEmailTemplates(GlobalContext, Path.Combine(DataPath, "EmailTemplates"));
             LoadEmailInstances(GlobalContext, Path.Combine(DataPath, "EmailInstances"));

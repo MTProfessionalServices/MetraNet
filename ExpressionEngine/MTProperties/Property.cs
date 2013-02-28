@@ -20,6 +20,9 @@ namespace MetraTech.ExpressionEngine.MTProperties
     /// *Unit tests
     /// </summary>
     [DataContract (Namespace = "MetraTech")]
+    [KnownType(typeof(AccountViewProperty))]
+    [KnownType(typeof(ProductViewProperty))]
+    [KnownType(typeof(ServiceDefinitionProperty))]
     public class Property : IExpressionEngineTreeNode
     {
         #region Static Properties

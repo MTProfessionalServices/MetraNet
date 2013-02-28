@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Globalization;
-using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
@@ -153,6 +152,8 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     return BaseType.PropertyBag;
                 case "unknown":
                     return BaseType.Unknown;
+                case "element":
+                    return BaseType.String;
                 default:
                     throw new ArgumentException("Invalid internal data type string [" + value + "]");
             }

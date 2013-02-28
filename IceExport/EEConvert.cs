@@ -8,6 +8,8 @@ using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Components;
 using System.Globalization;
+using MetraTech.ICE.TreeFlows;
+using Function = MetraTech.ICE.TreeFlows.Function;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace MetraTech.ICE.ExpressionEngine
@@ -35,12 +37,20 @@ namespace MetraTech.ICE.ExpressionEngine
       return mtType;
     }
 
+    public static MetraTech.ExpressionEngine.MTProperties.Property GetProperty(string propertyBagTypeName, Property oldProperty)
+    {
+        var type = GetMtType(oldProperty.DataTypeInfo);
+        var property = PropertyFactory.Create(propertyBagTypeName, oldProperty.Name, type, oldProperty.Required, oldProperty.Description);
+        return property;
+    }
+
     public static void CopyProperties(string propertyBagTypeName, PropertyCollection oldCollection, MetraTech.ExpressionEngine.MTProperties.PropertyCollection newCollection)
     {
       foreach (var oldProperty in oldCollection)
       {
-        var type = GetMtType(oldProperty.DataTypeInfo);
-        var property = PropertyFactory.Create(propertyBagTypeName, oldProperty.Name, type, oldProperty.Required, oldProperty.Description);
+        //var type = GetMtType(oldProperty.DataTypeInfo);
+        //var property = PropertyFactory.Create(propertyBagTypeName, oldProperty.Name, type, oldProperty.Required, oldProperty.Description);
+        var property = GetProperty(propertyBagTypeName, oldProperty);
         newCollection.Add(property);
       }
     }
@@ -55,13 +65,13 @@ namespace MetraTech.ICE.ExpressionEngine
         case ElementType.AccountView:
           propertyBagTypeName = PropertyBagConstants.AccountView;
           propertyCollection = ((AccountView) oldEntity).Properties;
-          var avEntity = PropertyBagFactory.CreateAccountViewEntity(oldEntity.Name, oldEntity.Description);
+          var avEntity = PropertyBagFactory.CreateAccountViewEntity(oldEntity.NameWithinNamespace, oldEntity.Description);
           entity = avEntity;
           break;
         case ElementType.ProductView:
           propertyBagTypeName = PropertyBagConstants.ProductView;
           propertyCollection = ((ProductView) oldEntity).Properties;
-          var pvEntity = PropertyBagFactory.CreateProductViewEntity(oldEntity.Name, oldEntity.Description);
+          var pvEntity = PropertyBagFactory.CreateProductViewEntity(oldEntity.NameWithinNamespace, oldEntity.Description);
           //foreach (var key in ((ProductView)oldEntity).UKConstraints)
           //{
           //  pvEntity.UniqueKey.Add(key);
@@ -71,7 +81,7 @@ namespace MetraTech.ICE.ExpressionEngine
         case ElementType.ServiceDefinition:
           propertyBagTypeName = PropertyBagConstants.ServiceDefinition;
           propertyCollection = ((ServiceDefinition) oldEntity).Properties;
-          var sdEntity = PropertyBagFactory.CreateServiceDefinitionEntity(oldEntity.Name, oldEntity.Description);
+          var sdEntity = PropertyBagFactory.CreateServiceDefinitionEntity(oldEntity.NameWithinNamespace, oldEntity.Description);
           entity = sdEntity;
           break;
         default:
@@ -85,6 +95,19 @@ namespace MetraTech.ICE.ExpressionEngine
       return entity;
     }
 
+    #region Functions
+
+    public static MetraTech.ExpressionEngine.MTProperties.Property GetPropertyFromArgument(Argument argument)
+    {
+      if (argument == null)
+        return null;
+
+        var type = GetMtType(argument.TypeInfo);
+        var property = PropertyFactory.Create(null, argument.Name, type, !argument.IsOptional, argument.Description);
+        return property;
+    }
+
+
     //Export functions. This is useful to convert the functions that were prototyped for TreeFlow. It should not
     //be done on a per project basis
     public static void ExportFunctions(string dirPath)
@@ -93,13 +116,24 @@ namespace MetraTech.ICE.ExpressionEngine
       if (!dirInfo.Exists)
         dirInfo.Create();
 
-      foreach (var oldFunction in MetraTech.ICE.TreeFlows.Function.Functions.Values)
+      //Copy the parameters
+      foreach (var oldFunction in TreeFlows.Function.Functions.Values)
       {
         var newFunction = new MetraTech.ExpressionEngine.Components.Function(oldFunction.Name, oldFunction.Category.ToString(), oldFunction.Description);
-        //CopyProperties(ComplexType.None, oldFunction.FixedArguments, newFunction.FixedParameters);
+        newFunction.DynamicParameterPrototype = GetPropertyFromArgument(oldFunction.VariableArgumentTemplate);
+        newFunction.ReturnType = GetMtType(oldFunction.ReturnType);
+        if (oldFunction.ArgumentType == Function.ArgumentListType.Fixed || oldFunction.ArgumentType == Function.ArgumentListType.FixedAndVariable)
+        {
+          foreach (var argument in oldFunction.FixedArguments)
+          {
+            var property = GetPropertyFromArgument(argument);
+            newFunction.FixedParameters.Add(property);
+          }
+        }
         newFunction.Save(string.Format(CultureInfo.InvariantCulture, @"{0}\Functions", dirPath));
       }
     }
+    #endregion
 
     public static void ExportExtensions(string extensionsDir)
     {

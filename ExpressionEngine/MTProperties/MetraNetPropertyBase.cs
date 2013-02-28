@@ -1,7 +1,9 @@
-﻿using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
+﻿using System.Runtime.Serialization;
+using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace MetraTech.ExpressionEngine.MTProperties
 {
+    [DataContract(Namespace = "MetraTech")]
     public abstract class MetraNetPropertyBase : Property
     {
         #region Properties

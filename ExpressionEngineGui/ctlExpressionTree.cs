@@ -5,7 +5,6 @@ using MetraTech.ExpressionEngine;
 using System.IO;
 using System.Drawing;
 using MetraTech.ExpressionEngine.Components;
-using MetraTech.ExpressionEngine.Entities;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;

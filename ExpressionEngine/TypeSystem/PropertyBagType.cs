@@ -10,6 +10,10 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     {
         #region Properties
 
+        /// <summary>
+        /// The name of the PropertyBag type. For example, Account, ProductView, Tax, etc.
+        /// </summary>
+        [DataMember]
         public string Name { get; set; }
 
         [DataMember]

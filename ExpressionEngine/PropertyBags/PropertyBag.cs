@@ -2,7 +2,6 @@
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Runtime.Serialization;
-using MetraTech.ExpressionEngine.Entities;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
@@ -34,15 +33,6 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         public virtual string XqgPrefix { get { return null; } }
 
-        /// <summary>
-        /// The actual database table name. Used in MetraNet which has a prefix on all table names.
-        /// Not sure what to do for Metanga here.
-        /// </summary>
-        public virtual string DBTableName
-        {
-            get { return Name; }
-        }
-
         #endregion
 
         #region GUI Helper Properties (move in future)
@@ -54,7 +44,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
                 if (!string.IsNullOrEmpty(Description))
                     tip += Environment.NewLine + Description;
                 if (UserSettings.ShowActualMappings)
-                    tip += string.Format(CultureInfo.InvariantCulture, "\r\n[TableName={0}]", DBTableName);
+                    tip += string.Format(CultureInfo.InvariantCulture, "\r\n[TableName: {0}]", DatabaseName);
                 return tip;
             }
         }
@@ -161,17 +151,17 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             IOHelper.Save(file, this);
         }
 
-        public static PropertyBag CreateFromFile(string file)
+        public static T CreateFromFile<T>(string file)
         {
             var xmlContent = File.ReadAllText(file);
-            return CreateFromString(xmlContent);
+            return CreateFromString<T>(xmlContent);
         }
 
-        public static PropertyBag CreateFromString(string xmlContent)
+        public static T CreateFromString<T>(string xmlContent)
         {
-            return IOHelper.CreateFromString<PropertyBag>(xmlContent);
+            return IOHelper.CreateFromString<T>(xmlContent);
         }
-
+        
         #endregion
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
-using MetraTech.ExpressionEngine.Entities;
+using System.Collections.Generic;
+using System.IO;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
-using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.PropertyBags
 {
@@ -35,5 +35,49 @@ namespace MetraTech.ExpressionEngine.PropertyBags
                     return Create(propertyBagTypeName, name, description);
             }
         }
+
+        public static List<PropertyBag> LoadDirectory(string dirPath, string expectedPropertyBagTypeName)
+        {
+            var list = new List<PropertyBag>();
+            var dirInfo = new DirectoryInfo(dirPath);
+            if (!dirInfo.Exists)
+                return list;
+
+            foreach (var fileInfo in dirInfo.GetFiles("*.xml"))
+            {
+                PropertyBag propertyBag;
+                switch (expectedPropertyBagTypeName)
+                {
+                    case "AccountView":
+                        propertyBag = PropertyBag.CreateFromFile <AccountViewEntity> (fileInfo.FullName);
+                        break;
+                    case "ProductView":
+                        propertyBag = PropertyBag.CreateFromFile <ProductViewEntity> (fileInfo.FullName);
+                        break;
+                    case "ServiceDefinition":
+                        propertyBag = PropertyBag.CreateFromFile<ServiceDefinitionEntity>(fileInfo.FullName);
+                        break;
+                    default:
+                        propertyBag = PropertyBag.CreateFromFile<PropertyBag>(fileInfo.FullName);
+                        break;
+                }
+
+                list.Add(propertyBag);
+            }
+
+            return list;
+        }
+
+        public static void LoadDirectoryIntoContext(string dirPath, string expectedPropertyBagTypeName, Context context)
+        {
+            if (context == null)
+                throw new ArgumentException("context");
+
+            foreach (var propertyBag in LoadDirectory(dirPath, expectedPropertyBagTypeName))
+            {
+                context.Entities.Add(propertyBag.Name, propertyBag);    
+            }
+        }
+
     }
 }

@@ -24,7 +24,21 @@ namespace MetraTech.ExpressionEngine.MTProperties
         /// <summary>
         /// The PropertyBag to which the collection belongs (may be null)
         /// </summary>
-        public PropertyBag Entity { get { return Parent == null || !(Parent is PropertyBag) ? null : (PropertyBag)Parent; } }
+        public PropertyBag PropertyBag { get { return Parent == null || !(Parent is PropertyBag) ? null : (PropertyBag)Parent; } }
+
+        /// <summary>
+        /// The name of the PropertyBagType (may be null)
+        /// </summary>
+        public string PropertyBagTypeName
+        {
+            get 
+            { 
+                var propertyBag = PropertyBag;
+                if (propertyBag == null)
+                    return null;
+                return ((PropertyBagType) propertyBag.Type).Name;
+            }
+        }
 
         /// <summary>
         /// The number of properties
@@ -166,7 +180,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
        
         public Property AddString(string name, string description, bool isRequired, string defaultValue=null, int length=0)
         {
-            var property = new Property(name, TypeFactory.CreateString(length), isRequired, description);
+            var property = PropertyFactory.Create(PropertyBagTypeName, name, TypeFactory.CreateString(length), isRequired, description);
             property.DefaultValue = defaultValue;
             Add(property);
             return property;
@@ -174,7 +188,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
         public Property AddEnum(string name, string description, bool isRequired, string enumSpace, string enumType, string defaultValue = null)
         {
-            var property = new Property(name, TypeFactory.CreateEnumeration(enumSpace, enumType), isRequired, description);
+            var property = PropertyFactory.Create(PropertyBagTypeName, name, TypeFactory.CreateEnumeration(enumSpace, enumType), isRequired, description);
             property.DefaultValue = defaultValue;
             Add(property);
             return property;
@@ -182,7 +196,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
         public Property AddInteger32(string name, string description, bool isRequired, string defaultValue = null)
         {
-            var property = new Property(name, TypeFactory.CreateInteger32(), isRequired, description);
+            var property = PropertyFactory.Create(PropertyBagTypeName, name, TypeFactory.CreateInteger32(), isRequired, description);
             property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);
@@ -191,7 +205,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
         public Property AddDateTime(string name, string description, bool isRequired, string defaultValue = null)
         {
-            var property = new Property(name, TypeFactory.CreateDateTime(), isRequired, description);
+            var property = PropertyFactory.Create(PropertyBagTypeName, name, TypeFactory.CreateDateTime(), isRequired, description);
             property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);
@@ -200,7 +214,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
         public Property AddDecimal(string name, string description, bool isRequired, string defaultValue = null)
         {
-            var property = new Property(name, TypeFactory.CreateDecimal(), isRequired, description);
+            var property = PropertyFactory.Create(PropertyBagTypeName, name, TypeFactory.CreateDecimal(), isRequired, description);
             property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);
@@ -210,12 +224,13 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
         public Property AddCharge(string name, string description, bool isRequired, string defaultValue = null)
         {
-            var property = new Property(name, TypeFactory.CreateMoney(), isRequired, description);
+            var property = PropertyFactory.Create(PropertyBagTypeName, name, TypeFactory.CreateMoney(), isRequired, description);
             property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);
             return property;
         }
+
         #endregion
 
         #region IEnumerable Methods

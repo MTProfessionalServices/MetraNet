@@ -15,6 +15,8 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         /// </summary>
         public string Extension { get; set; }
 
+        public virtual string SubDirectoryName { get { return ((PropertyBagType)Type).Name + "s"; } }
+
         #endregion
 
         #region Constructor
@@ -26,9 +28,11 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         #endregion
 
         #region Methods
+
+     
         public string GetFileNameGivenExtensionsDirectory(string extensionsDir)
         {
-            var dirPath = IOHelper.GetMetraNetConfigPath(extensionsDir, Extension, ((PropertyBagType) Type).Name + "s");
+            var dirPath = IOHelper.GetMetraNetConfigPath(extensionsDir, Extension, SubDirectoryName);
             return string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.xml", dirPath, Name);
         }
 

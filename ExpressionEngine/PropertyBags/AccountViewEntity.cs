@@ -1,15 +1,13 @@
 ﻿using System.Runtime.Serialization;
-using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
-using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
-namespace MetraTech.ExpressionEngine.Entities
+namespace MetraTech.ExpressionEngine.PropertyBags
 {
     [DataContract (Namespace = "MetraTech")]
     public class AccountViewEntity : MetraNetEntityBase
     {
         #region Properties
-        public override string DBTableName { get { return "t_av_" + Name; } }
+        public override string DatabaseName { get { return "t_av_" + Name; } }
 
         public override string XqgPrefix { get { return "ACCOUNT"; } }
 

@@ -1,5 +1,4 @@
-﻿using MetraTech.ExpressionEngine.Expressions;
-using MetraTech.ExpressionEngine.Expressions.Constants;
+﻿using MetraTech.ExpressionEngine.Expressions.Constants;
 
 namespace MetraTech.ExpressionEngine
 {
@@ -18,7 +17,7 @@ namespace MetraTech.ExpressionEngine
         public static string DefaultEqualityOperator { get; set; }
         public static string DefaultInequalityOperator { get; set; }
         public static bool AutoSelectInsertedSnippets = true;
-        public static bool ShowActualMappings = false; 
+        public static bool ShowActualMappings = true; 
 
         static UserSettings()
         {

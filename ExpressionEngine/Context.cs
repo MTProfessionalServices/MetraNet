@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text.RegularExpressions;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Expressions;
@@ -395,7 +396,7 @@ namespace MetraTech.ExpressionEngine
         #region IO Methods
 
         /// <summary>
-        /// This is used to test things and for prototype assumes MetraNet mode... not applicable in real worl
+        /// This is used to test things and for prototype assumes MetraNet mode... not applicable in real world
         /// </summary>
         /// <param name="dirPath"></param>
         public void Save(string dirPath)
@@ -416,6 +417,37 @@ namespace MetraTech.ExpressionEngine
             }
 
         }
+
+        public static Context LoadExtensions(string extensionsDir)
+        {
+            var dirInfo = new DirectoryInfo(extensionsDir);
+            if (!dirInfo.Exists)
+                throw new ArgumentException("extensionsDir doesn't exist: " + extensionsDir);
+
+            var context = new Context(ProductType.MetraNet);
+            foreach (var extensionDirInfo in dirInfo.GetDirectories())
+            {
+                LoadExtension(context, extensionDirInfo);
+            }
+            return context;
+        }
+
+        public static void LoadExtension(Context context, DirectoryInfo extensionDir)
+        {
+            if (extensionDir == null)
+                throw new ArgumentException("extensionDir");
+            if (!extensionDir.Exists)
+                throw new ArgumentException("extensionDir doesn't exist: " + extensionDir);
+
+            var configDirInfo = new DirectoryInfo(Path.Combine(extensionDir.FullName, "Config"));
+            if (!configDirInfo.Exists)
+                return;
+
+            EnumNamespace.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "Enumerations"), extensionDir.Name, context);
+            PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "AccountViews"), "AccountView", context);
+            PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "ProductViews"), "ProductView", context);     
+        }
+        
         #endregion
 
     }

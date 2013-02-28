@@ -40,9 +40,9 @@ namespace MetraTech.ExpressionEngine.MTProperties
         {
             get
             {
-                if (PropertyCollection == null || PropertyCollection.Entity == null)
+                if (PropertyCollection == null || PropertyCollection.PropertyBag == null)
                     return null;
-                return PropertyCollection.Entity;
+                return PropertyCollection.PropertyBag;
             }
         }
 
@@ -85,10 +85,10 @@ namespace MetraTech.ExpressionEngine.MTProperties
         public bool IsCore { get; set; }
 
         /// <summary>
-        /// The name of the column in the database. MetraNet typically prefixes columns with a "c_". In 
-        /// other cases we have aliases to make things easier for the customer
+        /// The assoicated name, if any, in the database. In the case of property it's a column name, in the case of a PropertyBag, 
+        /// it's a table name. Note that not all PropertyBag types are backed by database table.
         /// </summary>
-        public virtual string DBColumnName { get { return Name; } }
+        public virtual string DatabaseName { get { return Name; } }
 
         /// <summary>
         /// Indicates the how the Property is interacted with (e.g., Input, Output or InOut)
@@ -135,7 +135,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
                     if (!string.IsNullOrEmpty(Description))
                         tooltipStr += Environment.NewLine + Description;
                     if (UserSettings.ShowActualMappings)
-                        tooltipStr += string.Format(CultureInfo.InvariantCulture, "\r\n[ColumnName={0}]", "");
+                        tooltipStr += string.Format(CultureInfo.InvariantCulture, "\r\n[ColumnName: {0}]", DatabaseName);
                     return tooltipStr;
                 }
             }

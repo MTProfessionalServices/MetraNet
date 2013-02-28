@@ -15,7 +15,6 @@ using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
-using MetraTech.ExpressionEngine.Entities;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 
@@ -39,25 +38,29 @@ namespace MetraTech.ExpressionEngine
 
             if (Context.ProductType == ProductType.MetraNet)
             {
-                AddCloudComputeProductView();
-                GlobalContext.AddEntity(DemoLoader.GetCorporateAccountType());
-                AddAircraftLandingProductView();
+                //GlobalContext = Context.LoadExtensions(@"C:\Temp\Scott\Extensions");
+
                 LoadEntities(GlobalContext, PropertyBagConstants.ProductView, Path.Combine(DataPath, "ProductViews.csv"));
                 LoadEntities(GlobalContext, PropertyBagConstants.AccountView, Path.Combine(DataPath, "AccountViews.csv"));
                 LoadEntities(GlobalContext, PropertyBagConstants.ServiceDefinition, Path.Combine(DataPath, "ServiceDefinitions.csv"));
+
+                AddCloudComputeProductView();
+                GlobalContext.AddEntity(DemoLoader.GetCorporateAccountType());
+                AddAircraftLandingProductView();
                 LoadXqg(GlobalContext, ExpressionType.Aqg, Path.Combine(DataPath, "AqgExpressions.csv"));
                 LoadXqg(GlobalContext, ExpressionType.Uqg, Path.Combine(DataPath, "UqgExpressions.csv"));
             }
             else
             {
                 LoadEntities(GlobalContext, null, Path.Combine(DataPath, "Entities.csv"));
+                LoadEnumFile(GlobalContext, Path.Combine(DataPath, "Enums.csv"));
             }
 
-            LoadEnumFile(GlobalContext, Path.Combine(DataPath, "Enums.csv"));
+
             //LoadFunctions();
             LoadExpressions();
-            LoadEmailTemplates(GlobalContext, Path.Combine(DataPath, "EmailTemplates"));
-            LoadEmailInstances(GlobalContext, Path.Combine(DataPath, "EmailInstances"));
+            //LoadEmailTemplates(GlobalContext, Path.Combine(DataPath, "EmailTemplates"));
+            //LoadEmailInstances(GlobalContext, Path.Combine(DataPath, "EmailInstances"));
 
             var uomCategory = new UnitOfMeasureCategory("DigitalInformation");
             uomCategory.AddUnitOfMeasure("Gb", false);

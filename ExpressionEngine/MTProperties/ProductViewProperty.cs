@@ -4,7 +4,7 @@ using MetraTech.ExpressionEngine.TypeSystem;
 namespace MetraTech.ExpressionEngine.MTProperties
 {
     [DataContract (Namespace = "MetraTech")]
-    public class ProductViewProperty : Property
+    public class ProductViewProperty : MetraNetPropertyBase
     {
         #region Properties
         [DataMember]

@@ -34,12 +34,10 @@ namespace MetraTech.ExpressionEngine.Components
         public string Description { get; set; }
 
         /// <summary>
-        /// The data enumerated typs
+        /// The data enumerated types. This isn't serialized because we want each category in a seperate file 
+        /// because we have had production issues when people don't merge things properly
         /// </summary>
-        public Collection<EnumCategory> Categories {
-            get { return _categories; }
-        }
-        private Collection<EnumCategory> _categories = new Collection<EnumCategory>();
+        public Collection<EnumCategory> Categories { get; private set; }
 
 
         /// <summary>
@@ -60,7 +58,17 @@ namespace MetraTech.ExpressionEngine.Components
         {
             Name = name;
             Description = description;
-            //Categories =  new Collection<EnumCategory>();
+            Categories =  new Collection<EnumCategory>();
+        }
+
+        /// <summary>
+        /// This is used to fix things that aren't done properly during deserilizaiton. Specifically
+        /// we chose not to serialize Categories because we want each of them in a seperate XML file
+        /// for merging, diff'ing etc purposes. Thus we must allocate it here.
+        /// </summary>
+        public void FixDeserilization()
+        {
+            Categories = new Collection<EnumCategory>();
         }
         #endregion
 
@@ -119,15 +127,16 @@ namespace MetraTech.ExpressionEngine.Components
             return enumValueObj;
         }
 
+
+        #endregion
+
+        #region IO Methods
+
         public void SaveInExtension(string extensionsDir)
         {
             var dirPath = IOHelper.GetMetraNetConfigPath(extensionsDir, Extension, "Enumerations");
             Save(dirPath);
         }
-
-        #endregion
-
-        #region IO Methods
 
         public void Save(string dirPath)
         {
@@ -141,17 +150,34 @@ namespace MetraTech.ExpressionEngine.Components
             }
         }
 
+        public static void LoadDirectoryIntoContext(string dirPath, string extension, Context context)
+        {
+            if (context == null)
+                throw new ArgumentException("context");
+
+            foreach (var enumNamespace in LoadDirectory(dirPath, extension))
+            {
+                context.EnumNamespaces.Add(enumNamespace.Name, enumNamespace);
+            }
+        }
+
+
         /// <summary>
         /// Assumes proper naming!!!! Could do better checking!!!!
         /// </summary>
-        public static List<EnumNamespace> LoadDirectory(DirectoryInfo dirInfo, string extension)
+        public static List<EnumNamespace> LoadDirectory(string dirPath, string extension)
         {
-            if (dirInfo == null)
-                throw new ArgumentException("dirInfo");
-
             var namespaces = new List<EnumNamespace>();
-            EnumNamespace ns = null;
+
+            if (string.IsNullOrEmpty(dirPath))
+                throw new ArgumentException("dirPath");
+
+            var dirInfo = new DirectoryInfo(dirPath);
+            if (!dirInfo.Exists)
+                return namespaces;
+
             var fileInfos = dirInfo.GetFiles("*.xml");
+            EnumNamespace ns = null;
             var sortedFileInfos = fileInfos.OrderBy(f => f.Name);
 
             foreach (var fileInfo in sortedFileInfos)
@@ -164,6 +190,7 @@ namespace MetraTech.ExpressionEngine.Components
                 }
                 else //it's a type
                 {
+                    ns.FixDeserilization();
                     var category = EnumCategory.CreateFromFile(fileInfo.FullName);
                     ns.Categories.Add(category);
                 }

@@ -1,16 +1,14 @@
 *Metanga expand node crash
 *Metanga expresson shows no entites (but email does)
 
-*MOve PropertyBagMode to Type!
-*Change IsEntity to accessor (must pass in mode type to PropertyBag constructor)
-*._.
+Mario
+*I've switched MetraNet to load via deserilization. I would like to switch to that for Metanga as well. 
+It will force you to use the APIs and we can kill all of the CSV stuff.
 
-*Export Enums
-*Export Functions
-*Export Entities
-*Export Reserved Fields
-*Import all of above
-*Add a DBColumn to MetraNet properties
+*Email deserializetion isn't working. Need help, but I would like to understand what's wrong so that I don't have to 
+keep bothering you
+
+*I would like to nail down Charges, Taxes, UOMs and Currencies.
 
 *LayoutPanel resizing
 

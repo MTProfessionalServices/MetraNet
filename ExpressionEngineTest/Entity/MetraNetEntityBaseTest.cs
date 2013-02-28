@@ -13,7 +13,7 @@ namespace ExpressionEngineTest
             var entity = PropertyBagFactory.CreateProductViewEntity("Foo", null);
             entity.Extension = "Core";
             var file = entity.GetFileNameGivenExtensionsDirectory(@"C:\RMP\Extensions");
-            Assert.AreEqual(@"C:\RMP\Extensions\Core\Config\ProductViews", file);
+            Assert.AreEqual(@"C:\RMP\Extensions\Core\Config\ProductViews\Foo.xml", file);
         }
     }
 }

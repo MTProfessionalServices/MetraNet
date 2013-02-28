@@ -59,9 +59,9 @@ namespace PropertyGui
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.cboMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMode.FormattingEnabled = true;
-            this.cboMode.Location = new System.Drawing.Point(54, 7);
+            this.cboMode.Location = new System.Drawing.Point(74, 7);
             this.cboMode.Name = "cboMode";
-            this.cboMode.Size = new System.Drawing.Size(253, 21);
+            this.cboMode.Size = new System.Drawing.Size(233, 21);
             this.cboMode.TabIndex = 9;
             this.cboMode.SelectedIndexChanged += new System.EventHandler(this.cbo_SelectedIndexChanged);
             // 
@@ -79,7 +79,7 @@ namespace PropertyGui
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "PropertyBag:";
             // 
@@ -88,9 +88,9 @@ namespace PropertyGui
             this.cboPropertyTypeFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.cboPropertyTypeFilter.FormattingEnabled = true;
-            this.cboPropertyTypeFilter.Location = new System.Drawing.Point(54, 30);
+            this.cboPropertyTypeFilter.Location = new System.Drawing.Point(74, 30);
             this.cboPropertyTypeFilter.Name = "cboPropertyTypeFilter";
-            this.cboPropertyTypeFilter.Size = new System.Drawing.Size(250, 21);
+            this.cboPropertyTypeFilter.Size = new System.Drawing.Size(230, 21);
             this.cboPropertyTypeFilter.TabIndex = 7;
             this.cboPropertyTypeFilter.SelectedIndexChanged += new System.EventHandler(this.cbo_SelectedIndexChanged);
             // 
@@ -99,9 +99,9 @@ namespace PropertyGui
             this.cboEntityTypeFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.cboEntityTypeFilter.FormattingEnabled = true;
-            this.cboEntityTypeFilter.Location = new System.Drawing.Point(54, 0);
+            this.cboEntityTypeFilter.Location = new System.Drawing.Point(74, 3);
             this.cboEntityTypeFilter.Name = "cboEntityTypeFilter";
-            this.cboEntityTypeFilter.Size = new System.Drawing.Size(250, 21);
+            this.cboEntityTypeFilter.Size = new System.Drawing.Size(230, 21);
             this.cboEntityTypeFilter.TabIndex = 10;
             this.cboEntityTypeFilter.SelectedIndexChanged += new System.EventHandler(this.cbo_SelectedIndexChanged);
             // 
@@ -120,7 +120,7 @@ namespace PropertyGui
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.panFunction.Controls.Add(this.label3);
             this.panFunction.Controls.Add(this.cboCategory);
-            this.panFunction.Location = new System.Drawing.Point(6, 99);
+            this.panFunction.Location = new System.Drawing.Point(0, 99);
             this.panFunction.Name = "panFunction";
             this.panFunction.Size = new System.Drawing.Size(304, 26);
             this.panFunction.TabIndex = 12;
@@ -139,9 +139,9 @@ namespace PropertyGui
             this.cboCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.cboCategory.FormattingEnabled = true;
-            this.cboCategory.Location = new System.Drawing.Point(54, 0);
+            this.cboCategory.Location = new System.Drawing.Point(74, 0);
             this.cboCategory.Name = "cboCategory";
-            this.cboCategory.Size = new System.Drawing.Size(250, 21);
+            this.cboCategory.Size = new System.Drawing.Size(230, 21);
             this.cboCategory.TabIndex = 13;
             this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cbo_SelectedIndexChanged);
             // 
@@ -153,7 +153,7 @@ namespace PropertyGui
             this.panGeneral.Controls.Add(this.label1);
             this.panGeneral.Controls.Add(this.label2);
             this.panGeneral.Controls.Add(this.cboEntityTypeFilter);
-            this.panGeneral.Location = new System.Drawing.Point(3, 32);
+            this.panGeneral.Location = new System.Drawing.Point(0, 32);
             this.panGeneral.Name = "panGeneral";
             this.panGeneral.Size = new System.Drawing.Size(307, 53);
             this.panGeneral.TabIndex = 13;
@@ -165,7 +165,7 @@ namespace PropertyGui
             this.mnuInsertEqualitySnippet,
             this.mnuInsertInequalitySnippet});
             this.mnuEnumValue.Name = "mnuEnumValue";
-            this.mnuEnumValue.Size = new System.Drawing.Size(202, 92);
+            this.mnuEnumValue.Size = new System.Drawing.Size(202, 70);
             this.mnuEnumValue.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuEnumValue_ItemClicked);
             // 
             // mnuInsertValue
@@ -192,12 +192,13 @@ namespace PropertyGui
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.treExplorer.ContextMenuStrip = this.mnuEnumValue;
-            this.treExplorer.EntityTypeFilter = PropertyBagConstants.ServiceDefinition;
+            this.treExplorer.EntityTypeFilter = "ServiceDefinition";
             this.treExplorer.EnumValueContextMenu = null;
             this.treExplorer.FunctionFilter = null;
             this.treExplorer.ImageIndex = 0;
             this.treExplorer.Location = new System.Drawing.Point(6, 86);
             this.treExplorer.Name = "treExplorer";
+            this.treExplorer.PathSeparator = ".";
             this.treExplorer.PropertyTypeFilter = null;
             this.treExplorer.SelectedImageIndex = 0;
             this.treExplorer.ShowNodeToolTips = true;
@@ -206,7 +207,7 @@ namespace PropertyGui
             this.treExplorer.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
             this.treExplorer.DoubleClick += new System.EventHandler(this.treExplorer_DoubleClick);
             // 
-            // ctlExpressionExplorer
+            // ctlContextExplorer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -215,7 +216,7 @@ namespace PropertyGui
             this.Controls.Add(this.cboMode);
             this.Controls.Add(this.lblMode);
             this.Controls.Add(this.treExplorer);
-            this.Name = "ctlExpressionExplorer";
+            this.Name = "ctlContextExplorer";
             this.Size = new System.Drawing.Size(313, 372);
             this.panFunction.ResumeLayout(false);
             this.panFunction.PerformLayout();

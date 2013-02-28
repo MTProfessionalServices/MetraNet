@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description i:nil="true" />
+  <Name>reg_usage_tax</Name>
+  <Values>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>city_tax</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>city_tax_bu</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>city_tax_div</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>city_tax_gbl</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>county_tax</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>county_tax_bu</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>county_tax_div</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>county_tax_gbl</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>federal_tax</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>federal_tax_bu</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>federal_tax_div</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>federal_tax_gbl</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>ic_charge_code</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>id_interval</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>other_tax</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>other_tax_bu</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>other_tax_div</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>other_tax_gbl</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>r_id_parent_sess</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>state_tax</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>state_tax_bu</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>state_tax_div</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>state_tax_gbl</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>taxedgeocode</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>usf_tax</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>usf_tax_bu</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>usf_tax_div</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>usf_tax_gbl</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

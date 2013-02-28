@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description i:nil="true" />
+  <Name>dayoftheweek</Name>
+  <Values>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>friday</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>monday</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>saturday</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>sunday</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>thursday</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>tuesday</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>wednesday</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

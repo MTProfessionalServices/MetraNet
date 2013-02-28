@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description i:nil="true" />
+  <Name>disc_intercallconnection</Name>
+  <Values>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_bridge_gbl_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_bridge_pct</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_leg_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_leg_bu_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_leg_div_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_leg_gbl_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_leg_pct</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_pi_template_name</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_qualifier</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_surcharge_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_surcharge_bu_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_surcharge_div_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_surcharge_gbl_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_surcharge_pct</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_telecom_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_telecom_bu_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_telecom_div_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_telecom_gbl_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_telecom_pct</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>div_curr</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>gbl_curr</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>id_usage_interval</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>leg_discountable</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>related_id_sess</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>surcharge_discountable</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>telecom_discountable</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>bridge_discountable</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>bu_curr</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_bridge_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_bridge_bu_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_bridge_div_amt</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

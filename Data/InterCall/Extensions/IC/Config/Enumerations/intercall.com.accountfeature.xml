@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description i:nil="true" />
+  <Name>accountfeature</Name>
+  <Values>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>companyname</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>conf_id</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>conf_name</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>cost</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_pi_template_name</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>disc_qualifier</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>entry_type</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>entry_type_str</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>extractdate</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_adj_prop</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_bu_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_bu_curr</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_bu_disc_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_bu_tax_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_charge_code</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_disc_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_disc_pct</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_div_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_div_curr</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_div_disc_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_div_tax_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_gbl_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_gbl_curr</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_gbl_disc_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_gbl_tax_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_rate</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_rate_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_rate_curr</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_tax_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_tax_cntry</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>mdtrid</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>owner_id</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>owner_number</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>paccode</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>paccount_id</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>quantity</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>rate_flag</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>rate_flag_str</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>rated_quantity</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>record_type</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>record_type_str</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>res_date</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>resname</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>retail_id_sess</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>status</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>timezone</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>trans_code</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>trans_code_str</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>trans_datetime</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>transdesc</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>txn_cdetail1</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>txn_cdetail2</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>txn_cdetail3</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>txn_cdetail4</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>txn_cdetail5</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>txn_idetail1</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>txn_idetail2</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>txn_idetail3</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>txn_idetail4</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>txn_idetail5</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>udr_id</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>wholesaler_flag</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>res_id</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>bu_id</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>batch_date</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>ws_owner_number</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>account</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>officecode</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_svc_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_rate_svc_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_div_svc_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_bu_svc_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_gbl_svc_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_tax_exempt_cat</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>feature_tax_rate</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>tax_cntry</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>svc_fee_pct</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>rate_curr</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>div_curr</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>bu_curr</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>gbl_curr</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>fx_inv_rate</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>fx_div_rate</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>fx_bu_rate</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>fx_gbl_rate</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>office_disc_rate_amt</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>u_companyname</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>u_paccode</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description i:nil="true" />
+  <Name>featuretype</Name>
+  <Values>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>0</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>1</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>10</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>11</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>2</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>3</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>4</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>5</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>6</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>7</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>8</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Description i:nil="true" />
+      <Name>9</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

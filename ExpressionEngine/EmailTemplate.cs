@@ -1,7 +1,5 @@
 ﻿using System.Runtime.Serialization;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Xml;
 using System.Globalization;
 
 namespace MetraTech.ExpressionEngine

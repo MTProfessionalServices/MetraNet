@@ -38,15 +38,15 @@ namespace MetraTech.ExpressionEngine
 
             if (Context.ProductType == ProductType.MetraNet)
             {
-                //GlobalContext = Context.LoadExtensions(@"C:\Temp\Scott\Extensions");
+                GlobalContext = Context.LoadExtensions(Path.Combine(DataPath, "Extensions"));
 
-                LoadEntities(GlobalContext, PropertyBagConstants.ProductView, Path.Combine(DataPath, "ProductViews.csv"));
-                LoadEntities(GlobalContext, PropertyBagConstants.AccountView, Path.Combine(DataPath, "AccountViews.csv"));
-                LoadEntities(GlobalContext, PropertyBagConstants.ServiceDefinition, Path.Combine(DataPath, "ServiceDefinitions.csv"));
+                //LoadEntities(GlobalContext, PropertyBagConstants.ProductView, Path.Combine(DataPath, "ProductViews.csv"));
+                //LoadEntities(GlobalContext, PropertyBagConstants.AccountView, Path.Combine(DataPath, "AccountViews.csv"));
+                //LoadEntities(GlobalContext, PropertyBagConstants.ServiceDefinition, Path.Combine(DataPath, "ServiceDefinitions.csv"));
 
-                AddCloudComputeProductView();
-                GlobalContext.AddEntity(DemoLoader.GetCorporateAccountType());
-                AddAircraftLandingProductView();
+                //AddCloudComputeProductView();
+                //GlobalContext.AddEntity(DemoLoader.GetCorporateAccountType());
+                //AddAircraftLandingProductView();
                 LoadXqg(GlobalContext, ExpressionType.Aqg, Path.Combine(DataPath, "AqgExpressions.csv"));
                 LoadXqg(GlobalContext, ExpressionType.Uqg, Path.Combine(DataPath, "UqgExpressions.csv"));
             }
@@ -59,8 +59,8 @@ namespace MetraTech.ExpressionEngine
 
             //LoadFunctions();
             LoadExpressions();
-            //LoadEmailTemplates(GlobalContext, Path.Combine(DataPath, "EmailTemplates"));
-            //LoadEmailInstances(GlobalContext, Path.Combine(DataPath, "EmailInstances"));
+            LoadEmailTemplates(GlobalContext, Path.Combine(DataPath, "EmailTemplates"));
+            LoadEmailInstances(GlobalContext, Path.Combine(DataPath, "EmailInstances"));
 
             var uomCategory = new UnitOfMeasureCategory("DigitalInformation");
             uomCategory.AddUnitOfMeasure("Gb", false);
@@ -208,8 +208,6 @@ namespace MetraTech.ExpressionEngine
                 Type type;
                 if (Context.ProductType == ProductType.MetraNet)
                 {
-                    //var baseType = TypeHelper.PropertyTypeIdToBaseTypeMapping[Int32.Parse(typeStr)];
-                    //dtInfo = TypeFactory.Create(baseType);
                     type = TypeFactory.Create(Int32.Parse(typeStr, NumberStyles.Integer));
                 }
                 else

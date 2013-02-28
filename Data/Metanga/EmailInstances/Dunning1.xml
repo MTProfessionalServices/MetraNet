@@ -1,4 +1,4 @@
-<EmailInstance xmlns="http://schemas.datacontract.org/2004/07/MetraTech.ExpressionEngine" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+<EmailInstance xmlns="MetraTech" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
   <Description>Simple dunning notice</Description>
   <EmailTemplate>Invoice Notice</EmailTemplate>
   <Name>Dunning 1</Name>

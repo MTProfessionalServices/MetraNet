@@ -21,11 +21,11 @@
         <IsCore>false</IsCore>
         <Name>MetraTechResponseCode</Name>
         <Required>true</Required>
-        <Type i:type="PropertyBagType">
+        <Type i:type="EnumerationType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>PaymentBrokerResponseCode</Name>
-          <PropertyBagMode>PropertyBag</PropertyBagMode>
+          <Category>PaymentBrokerResponseCode</Category>
+          <Namespace>metanga</Namespace>
         </Type>
       </Property>
       <Property>

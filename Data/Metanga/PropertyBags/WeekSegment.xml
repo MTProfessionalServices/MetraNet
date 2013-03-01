@@ -25,11 +25,11 @@
         <IsCore>false</IsCore>
         <Name>DaysOfTheWeek</Name>
         <Required>true</Required>
-        <Type i:type="PropertyBagType">
+        <Type i:type="EnumerationType">
           <BaseType>PropertyBag</BaseType>
           <ListType>List</ListType>
-          <Name>DayOfWeek</Name>
-          <PropertyBagMode>PropertyBag</PropertyBagMode>
+          <Category>DayOfWeek</Category>
+          <Namespace>metanga</Namespace>
         </Type>
       </Property>
       <Property>

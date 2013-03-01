@@ -104,7 +104,7 @@
         <Name>SubscriptionPackageProductId</Name>
         <Required>false</Required>
         <Type>
-          <BaseType>UniqueIdentifier</BaseType>
+          <BaseType>Guid</BaseType>
           <ListType>None</ListType>
         </Type>
       </Property>
@@ -184,7 +184,7 @@
         <Name>InvoiceId</Name>
         <Required>false</Required>
         <Type>
-          <BaseType>UniqueIdentifier</BaseType>
+          <BaseType>Guid</BaseType>
           <ListType>None</ListType>
         </Type>
       </Property>

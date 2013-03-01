@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description i:nil="true" />
+  <Name>TransactionStatus</Name>
+  <Values>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>Unknown</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>Submitted</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>Pending</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>Settled</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>Declined</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>Rejected</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>Scheduled</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>ChargedBack</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>Expired</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>Reversed</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>Credited</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>Verified</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>Undefined</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

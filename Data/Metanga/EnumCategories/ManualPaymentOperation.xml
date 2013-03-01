@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>
+            Payment operations type for Manual payments
+            </Description>
+  <Name>ManualPaymentOperation</Name>
+  <Values>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            Submit payment operation.
+            </Description>
+      <Name>Submit</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            Credit payment amount.
+            </Description>
+      <Name>Credit</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

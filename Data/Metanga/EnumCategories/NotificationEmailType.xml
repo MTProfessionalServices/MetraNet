@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description i:nil="true" />
+  <Name>NotificationEmailType</Name>
+  <Values>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>ChangePassword</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>NotificationEmailForNewUser</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>ChangePasswordSubscriber</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>NotificationEmailForNewUserSubscriber</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>PaymentMethodExpiration</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>Dunning</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>FailedPayment</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>FailedPaymentRetry</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

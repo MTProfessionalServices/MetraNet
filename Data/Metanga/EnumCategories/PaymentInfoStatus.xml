@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description i:nil="true" />
+  <Name>PaymentInfoStatus</Name>
+  <Values>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>NotDefined</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>NotRequired</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description i:nil="true" />
+      <Name>Required</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

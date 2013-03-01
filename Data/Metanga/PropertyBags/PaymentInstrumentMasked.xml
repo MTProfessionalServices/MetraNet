@@ -26,7 +26,7 @@
         <Name>InstrumentId</Name>
         <Required>true</Required>
         <Type>
-          <BaseType>UniqueIdentifier</BaseType>
+          <BaseType>Guid</BaseType>
           <ListType>None</ListType>
         </Type>
       </Property>

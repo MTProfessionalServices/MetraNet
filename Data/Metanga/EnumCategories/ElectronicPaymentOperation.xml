@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>
+            Payment operations type for Electronic payments
+            </Description>
+  <Name>ElectronicPaymentOperation</Name>
+  <Values>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            Submit a payment.
+            </Description>
+      <Name>Submit</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            Partially reverse a payment amount.
+            </Description>
+      <Name>Credit</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            Reverse a payment.
+            </Description>
+      <Name>Reverse</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

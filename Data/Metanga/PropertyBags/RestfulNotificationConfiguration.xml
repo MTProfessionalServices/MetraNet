@@ -26,11 +26,11 @@
         <IsCore>false</IsCore>
         <Name>ContentFormat</Name>
         <Required>true</Required>
-        <Type i:type="PropertyBagType">
+        <Type i:type="EnumerationType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>ContentFormat</Name>
-          <PropertyBagMode>PropertyBag</PropertyBagMode>
+          <Category>ContentFormat</Category>
+          <Namespace>metanga</Namespace>
         </Type>
       </Property>
       <Property>

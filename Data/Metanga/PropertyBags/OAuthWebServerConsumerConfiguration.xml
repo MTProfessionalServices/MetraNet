@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <DefaultValue i:nil="true" />
+  <Description>
+            Represents a class for configuring notifications that use OAuth standard for authentication at the notification endpoint.
+            </Description>
+  <Direction>Input</Direction>
+  <IsCore>true</IsCore>
+  <Name>OAuthWebServerConsumerConfiguration</Name>
+  <Required>false</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>OAuthWebServerConsumerConfiguration</Name>
+    <PropertyBagMode>PropertyBag</PropertyBagMode>
+  </Type>
+  <Properties>
+    <Properties>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Represents an authorization URI of the end-user at the Authorization Server.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AccessAuthorizationUri</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            The value must be set to "code" for the Web server authentication flow.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ResponseType</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Consumer key from the remote access application definition.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ClientId</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            The scope parameter enables you to fine-tune what the client application can access at the authorization server.
+            The value of the scope parameter is expressed as a list of space-delimited, case sensitive strings. The strings are defined by the authorization server.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Scope</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            A consumer can use the refresh token to get a new session as needed.
+            This parameter represents an URI of the token endpoint.  
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AccessTokenUri</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Consumer secret from the remote access application definition. This parameter is optional.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ClientSecret</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Refresh tokens are credentials used to obtain access tokens.
+            Refresh tokens are issued to the client by the authorization server and are used to obtain a new access token when the current access token becomes invalid or expires,
+            or to obtain additional access tokens with identical or narrower scope.
+            A refresh token is a string representing the authorization granted to the client by the resource owner.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>RefreshToken</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            A date of the error returned from the authorization server.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>LastAuthorizationErrorDate</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Represents an error code returned from the authorization server.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>LastAuthorizationErrorCode</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Represents description of the error with additional information returned from the authorization server.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>LastAuthorizationErrorDescription</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            This property is to define how Metanga is actually going to use the access token in the notifications. 
+            You can use "Oauth" value to populate this property.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AccessTokenType</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+    </Properties>
+  </Properties>
+</PropertyBag>

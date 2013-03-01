@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <DefaultValue i:nil="true" />
+  <Description>
+            Represents a Day Segment in the calendar. For example: 12am - 9am.
+            </Description>
+  <Direction>Input</Direction>
+  <IsCore>true</IsCore>
+  <Name>DaySegment</Name>
+  <Required>false</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>DaySegment</Name>
+    <PropertyBagMode>PropertyBag</PropertyBagMode>
+  </Type>
+  <Properties>
+    <Properties>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Represents the timespan for this segment. For example: 9am to 5pm.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>DaytimeSpan</Name>
+        <Required>true</Required>
+        <Type i:type="PropertyBagType">
+          <BaseType>PropertyBag</BaseType>
+          <ListType>None</ListType>
+          <Name>TimeSpan</Name>
+          <PropertyBagMode>PropertyBag</PropertyBagMode>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            The product resolved by this segment.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProductId</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>UniqueIdentifier</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+    </Properties>
+  </Properties>
+</PropertyBag>

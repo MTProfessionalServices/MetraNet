@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <DefaultValue i:nil="true" />
+  <Description>
+            Represents a class for configuring notifications that are sent using REST.
+            </Description>
+  <Direction>Input</Direction>
+  <IsCore>true</IsCore>
+  <Name>RestfulNotificationConfiguration</Name>
+  <Required>false</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>RestfulNotificationConfiguration</Name>
+    <PropertyBagMode>PropertyBag</PropertyBagMode>
+  </Type>
+  <Properties>
+    <Properties>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Represents a format of data that is used by your REST service.
+            Metanga supports XML and JSON data formats.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ContentFormat</Name>
+        <Required>true</Required>
+        <Type i:type="PropertyBagType">
+          <BaseType>PropertyBag</BaseType>
+          <ListType>None</ListType>
+          <Name>ContentFormat</Name>
+          <PropertyBagMode>PropertyBag</PropertyBagMode>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Custom headers which users can add
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CustomHeaders</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>KeyList</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description i:nil="true" />
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>EndpointAddress</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+    </Properties>
+  </Properties>
+</PropertyBag>

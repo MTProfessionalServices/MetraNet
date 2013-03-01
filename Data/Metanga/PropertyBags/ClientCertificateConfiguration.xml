@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <DefaultValue i:nil="true" />
+  <Description>
+            Represents a class for configuring notifications that use client certificate for authentication at the notification endpoint. 
+            </Description>
+  <Direction>Input</Direction>
+  <IsCore>true</IsCore>
+  <Name>ClientCertificateConfiguration</Name>
+  <Required>false</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>ClientCertificateConfiguration</Name>
+    <PropertyBagMode>PropertyBag</PropertyBagMode>
+  </Type>
+  <Properties>
+    <Properties />
+  </Properties>
+</PropertyBag>

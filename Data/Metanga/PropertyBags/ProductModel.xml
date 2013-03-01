@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <DefaultValue i:nil="true" />
+  <Description>
+            A product model can resolve a product from another product based on properties of the PreCharge
+            </Description>
+  <Direction>Input</Direction>
+  <IsCore>true</IsCore>
+  <Name>ProductModel</Name>
+  <Required>false</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>ProductModel</Name>
+    <PropertyBagMode>PropertyBag</PropertyBagMode>
+  </Type>
+  <Properties>
+    <Properties />
+  </Properties>
+</PropertyBag>

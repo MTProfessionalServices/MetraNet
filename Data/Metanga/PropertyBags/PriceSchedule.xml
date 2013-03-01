@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <DefaultValue i:nil="true" />
+  <Description>
+             Contains a list of prices that should be applied for a given
+             effective date.
+            </Description>
+  <Direction>Input</Direction>
+  <IsCore>true</IsCore>
+  <Name>PriceSchedule</Name>
+  <Required>false</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>PriceSchedule</Name>
+    <PropertyBagMode>PropertyBag</PropertyBagMode>
+  </Type>
+  <Properties>
+    <Properties>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            A collection of time intervals with applicable prices. Each element in
+            this collection is interpreted as prices that are effective on the
+            start date of the element, up to the start date of the next element.
+            For example, a price schedule that looks like this:
+            - 2012-01-01: $50
+            - 2012-06-01: $45
+            Should be interpreted as: "Events between January 1st 2012 and May 31st 2012
+            should be charged at $50. After June 1st 2012 the price to be applied is $45."
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Intervals</Name>
+        <Required>true</Required>
+        <Type i:type="PropertyBagType">
+          <BaseType>PropertyBag</BaseType>
+          <ListType>List</ListType>
+          <Name>PriceScheduleInterval</Name>
+          <PropertyBagMode>PropertyBag</PropertyBagMode>
+        </Type>
+      </Property>
+    </Properties>
+  </Properties>
+</PropertyBag>

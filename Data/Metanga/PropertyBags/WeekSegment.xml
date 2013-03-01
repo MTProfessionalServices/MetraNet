@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <DefaultValue i:nil="true" />
+  <Description>
+            Represents a Week Segment in the calendar
+            </Description>
+  <Direction>Input</Direction>
+  <IsCore>true</IsCore>
+  <Name>WeekSegment</Name>
+  <Required>false</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>WeekSegment</Name>
+    <PropertyBagMode>PropertyBag</PropertyBagMode>
+  </Type>
+  <Properties>
+    <Properties>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Days of the Week covered by this segment
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>DaysOfTheWeek</Name>
+        <Required>true</Required>
+        <Type i:type="PropertyBagType">
+          <BaseType>PropertyBag</BaseType>
+          <ListType>List</ListType>
+          <Name>DayOfWeek</Name>
+          <PropertyBagMode>PropertyBag</PropertyBagMode>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Day segments for this week segment. The collection has to cover a full day (all 24 hours).
+            Day segments cannot overlapped and have to be ordered.
+            For example:
+                Day Segment 1: 12am - 9am
+                Day Segment 2: 9am - 6pm
+                Day Segment 3: 6pm - 12am
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>DaySegments</Name>
+        <Required>true</Required>
+        <Type i:type="PropertyBagType">
+          <BaseType>PropertyBag</BaseType>
+          <ListType>List</ListType>
+          <Name>DaySegment</Name>
+          <PropertyBagMode>PropertyBag</PropertyBagMode>
+        </Type>
+      </Property>
+    </Properties>
+  </Properties>
+</PropertyBag>

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <DefaultValue i:nil="true" />
+  <Description>
+             Settings class using in Account entity
+            </Description>
+  <Direction>Input</Direction>
+  <IsCore>true</IsCore>
+  <Name>Settings</Name>
+  <Required>false</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>Settings</Name>
+    <PropertyBagMode>PropertyBag</PropertyBagMode>
+  </Type>
+  <Properties>
+    <Properties>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+             DefaultDashboardCurrency
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>DefaultDashboardCurrency</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+             Guid RSS property
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>GuidRichSiteSummary</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+             Default metanga grid length
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>GridSettings</Name>
+        <Required>true</Required>
+        <Type i:type="PropertyBagType">
+          <BaseType>PropertyBag</BaseType>
+          <ListType>List</ListType>
+          <Name>GridSetting</Name>
+          <PropertyBagMode>PropertyBag</PropertyBagMode>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+             Dashboard widgets order
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>WidgetSettings</Name>
+        <Required>true</Required>
+        <Type i:type="PropertyBagType">
+          <BaseType>PropertyBag</BaseType>
+          <ListType>List</ListType>
+          <Name>WidgetSetting</Name>
+          <PropertyBagMode>PropertyBag</PropertyBagMode>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+             Last visited page
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>LastActivePage</Name>
+        <Required>true</Required>
+        <Type i:type="PropertyBagType">
+          <BaseType>PropertyBag</BaseType>
+          <ListType>None</ListType>
+          <Name>LastActivePage</Name>
+          <PropertyBagMode>PropertyBag</PropertyBagMode>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description i:nil="true" />
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>EndpointAddress</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+    </Properties>
+  </Properties>
+</PropertyBag>

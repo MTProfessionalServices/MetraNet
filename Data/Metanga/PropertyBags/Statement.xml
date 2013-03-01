@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <DefaultValue i:nil="true" />
+  <Description>
+            Balance Statement is a stand-alone value object that responsible for providing information
+            about account’s balance at the certain date and information about account's payments and invoices that were made during the certain time range.
+            </Description>
+  <Direction>Input</Direction>
+  <IsCore>true</IsCore>
+  <Name>Statement</Name>
+  <Required>false</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>Statement</Name>
+    <PropertyBagMode>PropertyBag</PropertyBagMode>
+  </Type>
+  <Properties>
+    <Properties>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Previous Balance up to effective Start Date
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PreviousBalance</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Amount of Charges based on effective Start Date and End Date
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TotalCharges</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Amount of Payments based on effective Start Date and End Date
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TotalPayments</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Balance based on effective Start Date and End Date
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>EndingBalance</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Collection of transactions, which contains invoices and payments issued during the specific time range
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Transactions</Name>
+        <Required>true</Required>
+        <Type i:type="PropertyBagType">
+          <BaseType>PropertyBag</BaseType>
+          <ListType>List</ListType>
+          <Name>StatementTransaction</Name>
+          <PropertyBagMode>PropertyBag</PropertyBagMode>
+        </Type>
+      </Property>
+    </Properties>
+  </Properties>
+</PropertyBag>

@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <DefaultValue i:nil="true" />
+  <Description>
+            The NotificationEndpoint class represents a notification endpoint in Metanga.
+            You can use notification endpoints to support different methods of authentication to external systems.
+            </Description>
+  <Direction>Input</Direction>
+  <IsCore>true</IsCore>
+  <Name>NotificationEndpoint</Name>
+  <Required>false</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>NotificationEndpoint</Name>
+    <PropertyBagMode>Entity</PropertyBagMode>
+  </Type>
+  <Properties>
+    <Properties>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Represents a state of the endpoint. Notification endpoint and notification itself can be Enabled or Disabled independently.
+            And notification message will be sent only if both of them the Notification and the Endpoint are Active.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Active</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Represents settings to be used for sending notification messages.
+            It can be initialized by SoapNotificationConfiguration object or RestfulNotificationConfiguration object.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>EndpointConfiguration</Name>
+        <Required>true</Required>
+        <Type i:type="PropertyBagType">
+          <BaseType>PropertyBag</BaseType>
+          <ListType>None</ListType>
+          <Name>NotificationEndpointConfiguration</Name>
+          <PropertyBagMode>PropertyBag</PropertyBagMode>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Represents an authentication protocol to be used for authentication at the service that is listenning for the notification message.
+            It can be initialized by ClientCertificateConfiguration object or OAuthWebServerConsumerConfiguration object.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AuthenticationConfiguration</Name>
+        <Required>true</Required>
+        <Type i:type="PropertyBagType">
+          <BaseType>PropertyBag</BaseType>
+          <ListType>None</ListType>
+          <Name>AuthenticationConfiguration</Name>
+          <PropertyBagMode>PropertyBag</PropertyBagMode>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description i:nil="true" />
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>EntityId</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>UniqueIdentifier</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description i:nil="true" />
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ExternalId</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description i:nil="true" />
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Name</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>KeyList</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <DefaultValue i:nil="true" />
+        <Description i:nil="true" />
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Description</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>KeyList</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+    </Properties>
+  </Properties>
+</PropertyBag>

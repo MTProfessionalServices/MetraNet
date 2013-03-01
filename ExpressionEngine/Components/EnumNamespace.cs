@@ -89,17 +89,17 @@ namespace MetraTech.ExpressionEngine.Components
         }
 
 
-        public bool TryGetEnumType(string name, out EnumCategory type)
+        public bool TryGetEnumType(string name, out EnumCategory enumCategory)
         {
-            foreach (var _type in Categories)
+            foreach (var _category in Categories)
             {
-                if (_type.Name.Equals(name, StringComparison.Ordinal))
+                if (_category.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase))
                 {
-                    type = _type;
+                    enumCategory = _category;
                     return true;
                 }
             }
-            type = null;
+            enumCategory = null;
             return false;
         }
 
@@ -188,7 +188,7 @@ namespace MetraTech.ExpressionEngine.Components
                     ns.Extension = extension;
                     namespaces.Add(ns);
                 }
-                else //it's a type
+                else //it's a enumCategory
                 {
                     ns.FixDeserilization();
                     var category = EnumCategory.CreateFromFile(fileInfo.FullName);

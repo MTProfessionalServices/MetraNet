@@ -173,12 +173,13 @@ namespace PropertyGui
             var cbo = new ComboBox();
             cbo.BeginUpdate();
             cbo.Items.Clear();
-            cbo.DisplayMember = "ToExpressionSnippet";
+            cbo.DisplayMember = "Name";
             var properties = Context.GetProperties(Property.Type, MinimumMatchType, true);
             foreach (var property in properties)
             {
                 cbo.Items.Add(property);
             }
+            cbo.Sorted = true;
             cbo.EndUpdate();
             return cbo;
         }
@@ -194,7 +195,7 @@ namespace PropertyGui
             {
                 cbo.Items.AddRange(enumType.Values.ToArray());
             }
-
+            cbo.Sorted = true;
             cbo.EndUpdate();
             return cbo;
         }

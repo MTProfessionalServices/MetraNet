@@ -30,38 +30,64 @@ namespace MetraTech.ExpressionEngine
         public static bool IsMetraNet { get { return ProductType == ProductType.MetraNet; } }
         public static bool IsMetanga { get { return ProductType == ProductType.Metanga; } }
 
+        /// <summary>
+        /// All expressions
+        /// </summary>
         public Expression Expression { get; private set; }
+
+        /// <summary>
+        /// All EmailInstances
+        /// </summary>
         public EmailInstance EmailInstance { get; private set; }
 
+        /// <summary>
+        /// All Functions
+        /// </summary>
         public Dictionary<string, Function> Functions { get { return _functions; } }
-        private readonly Dictionary<string, Function> _functions = new Dictionary<string, Function>();
+        private readonly Dictionary<string, Function> _functions = new Dictionary<string, Function>(StringComparer.InvariantCultureIgnoreCase);
 
         //Entities may not have unique names across types... need to deal with that, perhaps a composite key
         public Dictionary<string, PropertyBag> Entities { get { return _entities; } }
-        private readonly Dictionary<string, PropertyBag> _entities = new Dictionary<string, PropertyBag>();
+        private readonly Dictionary<string, PropertyBag> _entities = new Dictionary<string, PropertyBag>(StringComparer.InvariantCultureIgnoreCase);
 
+        /// <summary>
+        /// All Account Qualification Groups
+        /// </summary>
         public Dictionary<string, Aqg> Aqgs { get { return _aqgs; } }
-        private Dictionary<string, Aqg> _aqgs = new Dictionary<string, Aqg>();
+        private Dictionary<string, Aqg> _aqgs = new Dictionary<string, Aqg>(StringComparer.InvariantCultureIgnoreCase);
 
+        /// <summary>
+        /// All UsageQualificationGroups
+        /// </summary>
         public Dictionary<string, Uqg> Uqgs { get { return _uqgs; } }
-        private Dictionary<string, Uqg> _uqgs = new Dictionary<string, Uqg>();
+        private Dictionary<string, Uqg> _uqgs = new Dictionary<string, Uqg>(StringComparer.InvariantCultureIgnoreCase);
 
+        /// <summary>
+        /// All EnumerationNamespaces
+        /// </summary>
         public Dictionary<string, EnumNamespace> EnumNamespaces { get { return _enumNamespaces; } }
-        private Dictionary<string, EnumNamespace> _enumNamespaces = new Dictionary<string, EnumNamespace>();
+        private Dictionary<string, EnumNamespace> _enumNamespaces = new Dictionary<string, EnumNamespace>(StringComparer.InvariantCultureIgnoreCase);
 
-
+        /// <summary>
+        /// All expressions
+        /// </summary>
         public Dictionary<string, Expression> Expressions { get { return _expressions; } }
-        private Dictionary<string, Expression> _expressions = new Dictionary<string, Expression>();
+        private Dictionary<string, Expression> _expressions = new Dictionary<string, Expression>(StringComparer.InvariantCultureIgnoreCase);
 
+        /// <summary>
+        /// All units of measure
+        /// </summary>
         public Dictionary<string, UnitOfMeasureCategory> UnitOfMeasures { get { return _unitOfMeasures; } }
-        private Dictionary<string, UnitOfMeasureCategory> _unitOfMeasures = new Dictionary<string, UnitOfMeasureCategory>();
+        private Dictionary<string, UnitOfMeasureCategory> _unitOfMeasures = new Dictionary<string, UnitOfMeasureCategory>(StringComparer.InvariantCultureIgnoreCase);
 
         public Dictionary<string, EmailTemplate> EmailTemplates { get { return _emailTemplates; } }
-        private Dictionary<string, EmailTemplate> _emailTemplates = new Dictionary<string, EmailTemplate>();
+        private Dictionary<string, EmailTemplate> _emailTemplates = new Dictionary<string, EmailTemplate>(StringComparer.InvariantCultureIgnoreCase);
 
         public Dictionary<string, EmailInstance> EmailInstances { get { return _emailInstances; }}
-        private Dictionary<string, EmailInstance> _emailInstances = new Dictionary<string, EmailInstance>();
+        private Dictionary<string, EmailInstance> _emailInstances = new Dictionary<string, EmailInstance>(StringComparer.InvariantCultureIgnoreCase);
+        #endregion
 
+        #region Properties that are updated by UpdateContext()
         //These are updated by UpdateContext()
         public List<EnumCategory> EnumCategories { get { return _enumCategories; } }
         private List<EnumCategory> _enumCategories = new List<EnumCategory>();
@@ -71,7 +97,7 @@ namespace MetraTech.ExpressionEngine
         private List<Property> _allProperties = new List<Property>();
 
         public Dictionary<string, Property> UniqueProperties { get { return _uniqueProperties; } }
-        private Dictionary<string, Property> _uniqueProperties = new Dictionary<string, Property>();
+        private Dictionary<string, Property> _uniqueProperties = new Dictionary<string, Property>(StringComparer.InvariantCultureIgnoreCase);
 
         public List<EnumCategory> RelevantEnums { get { return _relevantEnums; } }
         private List<EnumCategory> _relevantEnums = new List<EnumCategory>();
@@ -240,7 +266,7 @@ namespace MetraTech.ExpressionEngine
         {
             foreach (var property in AllProperties)
             {
-                if (property.ToExpressionSnippet == name)
+                if (property.Name == name)
                 {
                     result = property;
                     return true;
@@ -307,6 +333,7 @@ namespace MetraTech.ExpressionEngine
             types.Add(type);
             return GetEntities(null, types, null, null);
         }
+
         public List<PropertyBag> GetEntities(string entityNameFilter, List<string> entityTypeFilter, string propertyNameFilter, Type propertyTypeFilter)
         {
             var results = new List<PropertyBag>();
@@ -371,21 +398,21 @@ namespace MetraTech.ExpressionEngine
             EnumNamespaces.Add(enumSpace.Name, enumSpace);
         }
 
-        public bool TryGetEnumType(EnumerationType dataType, out EnumCategory enumType)
+        public bool TryGetEnumType(EnumerationType enumerationType, out EnumCategory enumCategory)
         {
-            if (dataType == null)
-                throw new ArgumentNullException("dataType");
+            if (enumerationType == null)
+                throw new ArgumentNullException("enumerationType");
 
-            EnumNamespace space;
-            if (!EnumNamespaces.TryGetValue(dataType.Namespace, out space))
+            EnumNamespace enumNamespace;
+            if (!EnumNamespaces.TryGetValue(enumerationType.Namespace, out enumNamespace))
             {
-                enumType = null;
+                enumCategory = null;
                 return false;
             }
 
-            if (!space.TryGetEnumType(dataType.Category, out enumType))
+            if (!enumNamespace.TryGetEnumType(enumerationType.Category, out enumCategory))
             {
-                enumType = null;
+                enumCategory = null;
                 return false;
             }
 
@@ -451,8 +478,4 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
     }
-
-    public enum ConfigurationType { Expression, Email, Sms, PageLayout, GridLayout }
-
-    public enum ProductType { MetraNet, Metanga }
 }

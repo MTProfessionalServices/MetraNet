@@ -32,6 +32,9 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             var timestamp = Properties.AddDateTime("Timestamp", "The time the event is deemed to have occurred", true);
             timestamp.IsCore = true;
 
+            var currency = Properties.AddDateTime("Currency", "The currency for the Event", true);
+            currency.IsCore = true;
+
             var eventChargeName = UserSettings.NewSyntax ? "EventCharge" : "Amount";
             var eventCharge = (MetraNetPropertyBase)Properties.AddCharge(eventChargeName, "The charge assoicated with the event which may summarize other charges within the event.The amount can be negative to represent a credit.", true);
             eventCharge.IsCore = true;

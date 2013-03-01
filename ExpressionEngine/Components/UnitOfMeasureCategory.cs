@@ -22,7 +22,7 @@ namespace MetraTech.ExpressionEngine.Components
 
         #region GUI Helper Properties (Remove in future)
         public string TreeNodeLabel { get { return Name; } }
-        public string Image { get { return "UomCategory.png"; } }
+        public string Image { get { return "UnitOfMeasureCategory.png"; } }
         public string ToolTip { get { return null; } }
         #endregion
 

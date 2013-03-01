@@ -1,4 +1,3 @@
-*Metanga expand node crash
 *Metanga expresson shows no entites (but email does)
 *Function parameter binding not working
 *In function not working

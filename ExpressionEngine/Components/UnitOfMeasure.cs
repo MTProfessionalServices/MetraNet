@@ -14,7 +14,7 @@ namespace MetraTech.ExpressionEngine.Components
 
         #region GUI Support Properties (should be moved in future)
         public string TreeNodeLabel { get { return Name; } }
-        public string Image { get { return "Uom.png"; } }
+        public string Image { get { return "UnitOfMeasure.png"; } }
         public string ToolTip { get { return null; } }
         #endregion
 

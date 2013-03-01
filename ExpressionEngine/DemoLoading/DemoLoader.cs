@@ -310,6 +310,9 @@ namespace MetraTech.ExpressionEngine
             if (context == null)
                 throw new ArgumentException("context");
 
+            if (!File.Exists(filePath))
+                return;
+
             var lines = File.ReadAllLines(filePath);
             for (int index = 1; index < lines.Length; index++)
             {

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using MetraTech.ExpressionEngine;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine.Expressions;
+using MetraTech.ExpressionEngine.Expressions.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
@@ -97,5 +99,13 @@ namespace PropertyGui
         }
 
         #endregion
+
+        public static Image GetOverlayImage(Image baseImage, Image overlayImage)
+        {
+            var g = Graphics.FromImage(baseImage);
+            g.DrawImageUnscaled(overlayImage, 0, 0);
+            return baseImage;
+        }
+
     }
 }

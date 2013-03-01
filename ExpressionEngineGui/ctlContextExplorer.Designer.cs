@@ -48,6 +48,7 @@ namespace PropertyGui
             this.mnuInsertEqualitySnippet = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuInsertInequalitySnippet = new System.Windows.Forms.ToolStripMenuItem();
             this.treExplorer = new PropertyGui.ctlExpressionTree();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panFunction.SuspendLayout();
             this.panGeneral.SuspendLayout();
             this.mnuEnumValue.SuspendLayout();
@@ -207,6 +208,12 @@ namespace PropertyGui
             this.treExplorer.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
             this.treExplorer.DoubleClick += new System.EventHandler(this.treExplorer_DoubleClick);
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Black;
+            // 
             // ctlContextExplorer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -245,5 +252,6 @@ namespace PropertyGui
         private System.Windows.Forms.ToolStripMenuItem mnuInsertValue;
         private System.Windows.Forms.ToolStripMenuItem mnuInsertEqualitySnippet;
         private System.Windows.Forms.ToolStripMenuItem mnuInsertInequalitySnippet;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

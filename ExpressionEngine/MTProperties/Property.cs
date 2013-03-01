@@ -166,30 +166,10 @@ namespace MetraTech.ExpressionEngine.MTProperties
         {
             get
             {
-                switch (Type.BaseType)
-                {
-                    case BaseType.Boolean:
-                        return "Boolean.png";
-                    case BaseType.Charge:
-                        return "Charge.png";
-                    case BaseType.Decimal:
-                        return "Decimal.png";
-                    case BaseType.Enumeration:
-                        return "EnumType.png";
-                    case BaseType.DateTime:
-                        return "DateTime.png";
-                    case BaseType.String:
-                        return "String.png";
-                    case BaseType.Integer32:
-                        return "Int32.png";
-                    case BaseType.Integer64:
-                        return "Int64.png";
-                    case BaseType.Guid:
-                        return "Guid.png";
-                    case BaseType.PropertyBag:
-                        return "PropertyBag.png";
-                }
-                return null;
+                var baseName = Type.BaseType.ToString();
+                if (IsCore)
+                    baseName += "IsCoreOverlay";
+                return baseName + ".png";
             }
         }
         #endregion

@@ -8,7 +8,6 @@ using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
-using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace PropertyGui
@@ -43,6 +42,22 @@ namespace PropertyGui
             foreach (var file in dirInfo.GetFiles("*.png"))
             {
                 Images.Images.Add(file.Name, Image.FromFile(file.FullName));
+            }
+
+            //Create an overlay for every image
+            Image overlayImage = Images.Images["CoreOverlay.png"];
+            var newImages = new List<KeyValuePair<string, Image>>();
+            foreach (var key in Images.Images.Keys)
+            {
+                var image = Images.Images[key];
+                var newImage = MvcAbstraction.GetOverlayImage(image, overlayImage);
+                var newImageName = GetOverlayImageName(key);
+                newImages.Add(new KeyValuePair<string, Image>(newImageName, newImage));
+            }
+
+            foreach (var kvp in newImages)
+            {
+                Images.Images.Add(kvp.Key, kvp.Value);
             }
         }
         #endregion
@@ -294,6 +309,11 @@ namespace PropertyGui
             }
         }
 
+        private static string GetOverlayImageName(string name)
+        {
+            var parts = name.Split('.');
+            return parts[0] + "IsCoreOverlay.png";
+        }
         #endregion
     }
 }

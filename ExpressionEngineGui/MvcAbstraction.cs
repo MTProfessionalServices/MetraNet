@@ -10,6 +10,7 @@ using MetraTech.ExpressionEngine.Expressions.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
+using MetraTech.ExpressionEngine.Validations.Enumerations;
 
 namespace PropertyGui
 {

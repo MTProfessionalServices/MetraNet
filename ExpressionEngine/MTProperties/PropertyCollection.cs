@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.MTProperties
 {

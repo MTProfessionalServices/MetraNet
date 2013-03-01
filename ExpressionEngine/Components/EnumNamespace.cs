@@ -66,6 +66,7 @@ namespace MetraTech.ExpressionEngine.Components
         /// we chose not to serialize Categories because we want each of them in a seperate XML file
         /// for merging, diff'ing etc purposes. Thus we must allocate it here.
         /// </summary>
+        ///            deserilization
         public void FixDeserilization()
         {
             Categories = new Collection<EnumCategory>();

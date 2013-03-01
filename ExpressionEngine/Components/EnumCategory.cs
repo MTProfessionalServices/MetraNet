@@ -55,7 +55,7 @@ namespace MetraTech.ExpressionEngine.Components
                 var toolTip = "EnumType";
                 if (!string.IsNullOrEmpty(Description))
                     toolTip += "\r\n" + Description;
-                if (UserSettings.ShowActualMappings)
+                if (UserContext.Settings.ShowActualMappings)
                     toolTip += string.Format(CultureInfo.InvariantCulture, "\r\n[DatabaseId={0}]", Id);
                 return toolTip;
             }

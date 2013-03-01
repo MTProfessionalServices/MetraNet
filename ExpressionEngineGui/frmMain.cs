@@ -36,11 +36,11 @@ namespace PropertyGui
             cboContext.EndUpdate();
 
             LoadCombo(cboEqualityOperator, ExpressionHelper.EqualityOperators);
-            cboEqualityOperator.Text = UserSettings.DefaultEqualityOperator;
+            cboEqualityOperator.Text = UserContext.Settings.DefaultEqualityOperator;
             LoadCombo(cboInequalityOperator, ExpressionHelper.InequalityOperators);
-            cboInequalityOperator.Text = UserSettings.DefaultInequalityOperator;
-            chkShowAcutalMappings.Checked = UserSettings.ShowActualMappings;
-            chkAutoSelectInsertedSnippets.Checked = UserSettings.AutoSelectInsertedSnippets;
+            cboInequalityOperator.Text = UserContext.Settings.DefaultInequalityOperator;
+            chkShowAcutalMappings.Checked = UserContext.Settings.ShowActualMappings;
+            chkAutoSelectInsertedSnippets.Checked = UserContext.Settings.AutoSelectInsertedSnippets;
         }
 
         private void LoadCombo<T>(ComboBox cbo, IEnumerable<T> items)
@@ -83,16 +83,16 @@ namespace PropertyGui
 
         private void SyncToObject()
         {
-            UserSettings.DefaultEqualityOperator = cboEqualityOperator.Text;
-            UserSettings.DefaultInequalityOperator = cboInequalityOperator.Text;
-            UserSettings.ShowActualMappings = chkShowAcutalMappings.Checked;
-            UserSettings.AutoSelectInsertedSnippets = chkAutoSelectInsertedSnippets.Checked;
-            UserSettings.NewSyntax = chkNewSyntax.Checked;
+            UserContext.Settings.DefaultEqualityOperator = cboEqualityOperator.Text;
+            UserContext.Settings.DefaultInequalityOperator = cboInequalityOperator.Text;
+            UserContext.Settings.ShowActualMappings = chkShowAcutalMappings.Checked;
+            UserContext.Settings.AutoSelectInsertedSnippets = chkAutoSelectInsertedSnippets.Checked;
+            UserContext.Settings.NewSyntax = chkNewSyntax.Checked;
         }
 
         private void SyncToForm()
         {
-            chkNewSyntax.Checked = UserSettings.NewSyntax;
+            chkNewSyntax.Checked = UserContext.Settings.NewSyntax;
         }
 
         private void ShowExpression(Expression expression, bool isPageLayout=false)

@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 using System.Globalization;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
 {

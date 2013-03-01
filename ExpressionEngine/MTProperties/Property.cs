@@ -6,6 +6,7 @@ using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using MetraTech.ExpressionEngine.Validations;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace MetraTech.ExpressionEngine.MTProperties
@@ -137,7 +138,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
                     var tooltipStr = Type.ToString(true);
                     if (!string.IsNullOrEmpty(Description))
                         tooltipStr += Environment.NewLine + Description;
-                    if (UserSettings.ShowActualMappings)
+                    if (UserContext.Settings.ShowActualMappings)
                         tooltipStr += string.Format(CultureInfo.InvariantCulture, "\r\n[ColumnName: {0}]", DatabaseName);
                     return tooltipStr;
                 }
@@ -291,7 +292,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
                     return null;
 
                 string snippet;
-                if (UserSettings.NewSyntax)
+                if (UserContext.Settings.NewSyntax)
                     snippet = string.Format(CultureInfo.InvariantCulture, "{0}.{1}", entity.XqgPrefix, Name);
                 else
                     snippet = string.Format(CultureInfo.InvariantCulture, "{0}.c_{1}", entity.XqgPrefix, Name);

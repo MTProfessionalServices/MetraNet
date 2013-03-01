@@ -16,7 +16,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         public override string DatabaseName { get { return "t_pv_" + Name; } }
 
-        public override string XqgPrefix { get { return UserSettings.NewSyntax ? "EVENT" : "USAGE"; } }
+        public override string XqgPrefix { get { return UserContext.Settings.NewSyntax ? "EVENT" : "USAGE"; } }
 
         #endregion
 
@@ -35,7 +35,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             var currency = Properties.AddDateTime("Currency", "The currency for the Event", true);
             currency.IsCore = true;
 
-            var eventChargeName = UserSettings.NewSyntax ? "EventCharge" : "Amount";
+            var eventChargeName = UserContext.Settings.NewSyntax ? "EventCharge" : "Amount";
             var eventCharge = (MetraNetPropertyBase)Properties.AddCharge(eventChargeName, "The charge assoicated with the event which may summarize other charges within the event.The amount can be negative to represent a credit.", true);
             eventCharge.IsCore = true;
             eventCharge.DatabaseNameMapping = "c_Amount";

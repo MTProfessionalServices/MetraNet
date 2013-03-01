@@ -101,6 +101,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MTProperties\Property.cs" />
     <Compile Include="MTProperties\PropertyCollection.cs" />
+    <Compile Include="UserContext.cs" />
     <Compile Include="UserTest\EmailEngine.cs" />
     <Compile Include="UserTest\IProcessingEngine.cs" />
     <Compile Include="UserTest\TestInstance.cs" />
@@ -126,8 +127,9 @@
     <Compile Include="Components\UnitOfMeasureCategory.cs" />
     <Compile Include="Placeholders\Uqg.cs" />
     <Compile Include="DemoLoading\DemoLoader.cs" />
-    <Compile Include="ValidationMessage.cs" />
-    <Compile Include="ValidationMessageCollection.cs" />
+    <Compile Include="Validations\Enumerations\SeverityType.cs" />
+    <Compile Include="Validations\ValidationMessage.cs" />
+    <Compile Include="Validations\ValidationMessageCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Localization.resx">

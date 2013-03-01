@@ -26,10 +26,9 @@ namespace MetraTech.ExpressionEngine.MTProperties
         #endregion
 
         #region Constructor
-        public MetraNetPropertyBase(string name, Type type, bool isRequired, string description)
+        protected MetraNetPropertyBase(string name, Type type, bool isRequired, string description)
             : base(name, type, isRequired, description)
-        {
-            
+        {       
         }
 
         #endregion

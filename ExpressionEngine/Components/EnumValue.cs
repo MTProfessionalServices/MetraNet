@@ -52,7 +52,7 @@ namespace MetraTech.ExpressionEngine
                 var toolTip = "EnumValue";
                 if (!string.IsNullOrEmpty(Description))
                     toolTip += Environment.NewLine + Description;
-                if (UserSettings.ShowActualMappings)
+                if (UserContext.Settings.ShowActualMappings)
                     toolTip += string.Format(CultureInfo.InvariantCulture, "\r\n[DatabaseId: {0}]", Id);
                 return toolTip;
             }
@@ -94,7 +94,7 @@ namespace MetraTech.ExpressionEngine
         {
             get
             {
-                if (UserSettings.NewSyntax)
+                if (UserContext.Settings.NewSyntax)
                 {
                     var enumSpace = EnumType.EnumNamespace.Name.Replace('.', '_');
                     return string.Format(CultureInfo.InvariantCulture, "ENUM.{0}.{1}.{2}", enumSpace, EnumType.Name, Name);

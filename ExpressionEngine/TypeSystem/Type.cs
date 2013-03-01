@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
 {

@@ -7,6 +7,7 @@ using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using System.IO;
+using MetraTech.ExpressionEngine.Validations;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace MetraTech.ExpressionEngine.PropertyBags
@@ -43,7 +44,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
                 var tip = ((PropertyBagType)Type).Name;
                 if (!string.IsNullOrEmpty(Description))
                     tip += Environment.NewLine + Description;
-                if (UserSettings.ShowActualMappings)
+                if (UserContext.Settings.ShowActualMappings)
                     tip += string.Format(CultureInfo.InvariantCulture, "\r\n[TableName: {0}]", DatabaseName);
                 return tip;
             }

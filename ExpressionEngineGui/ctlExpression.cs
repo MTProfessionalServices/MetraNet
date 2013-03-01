@@ -94,7 +94,7 @@ namespace PropertyGui
 
             int start = SelectionStart;
             Paste(snippet);
-            if (UserSettings.AutoSelectInsertedSnippets)
+            if (UserContext.Settings.AutoSelectInsertedSnippets)
             {
                 SelectionStart = start;
                 SelectionLength = snippet.Length;

@@ -23,3 +23,9 @@
 5:47   464 warnings
 
 
+
+ into My object - Microsoft Home Page ...
+
+social.msdn.microsoft.com › Forums Home › .NET Framework Forums
+
+Jun 26, 2012 · I have reference a External WCF service which Have one Type Fault On FaultException I got this filled xml Now 

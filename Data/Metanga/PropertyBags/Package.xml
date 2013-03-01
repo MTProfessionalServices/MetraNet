@@ -85,11 +85,11 @@
         <IsCore>false</IsCore>
         <Name>PaymentInfoStatus</Name>
         <Required>true</Required>
-        <Type i:type="PropertyBagType">
+        <Type i:type="EnumerationType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>PaymentInfoStatus</Name>
-          <PropertyBagMode>PropertyBag</PropertyBagMode>
+          <Category>PaymentInfoStatus</Category>
+          <Namespace>metanga</Namespace>
         </Type>
       </Property>
       <Property>
@@ -195,7 +195,7 @@
         <Name>EntityId</Name>
         <Required>false</Required>
         <Type>
-          <BaseType>UniqueIdentifier</BaseType>
+          <BaseType>Guid</BaseType>
           <ListType>None</ListType>
         </Type>
       </Property>

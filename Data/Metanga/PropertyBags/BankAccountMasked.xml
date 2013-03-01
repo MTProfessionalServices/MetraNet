@@ -70,11 +70,11 @@
         <IsCore>false</IsCore>
         <Name>BankAccountType</Name>
         <Required>true</Required>
-        <Type i:type="PropertyBagType">
+        <Type i:type="EnumerationType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>BankAccountType</Name>
-          <PropertyBagMode>PropertyBag</PropertyBagMode>
+          <Category>BankAccountType</Category>
+          <Namespace>metanga</Namespace>
         </Type>
       </Property>
       <Property>
@@ -100,7 +100,7 @@
         <Name>InstrumentId</Name>
         <Required>true</Required>
         <Type>
-          <BaseType>UniqueIdentifier</BaseType>
+          <BaseType>Guid</BaseType>
           <ListType>None</ListType>
         </Type>
       </Property>

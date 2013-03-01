@@ -42,11 +42,11 @@
         <IsCore>false</IsCore>
         <Name>EventModel</Name>
         <Required>true</Required>
-        <Type i:type="PropertyBagType">
+        <Type i:type="EnumerationType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>EventModel</Name>
-          <PropertyBagMode>PropertyBag</PropertyBagMode>
+          <Category>EventModel</Category>
+          <Namespace>metanga</Namespace>
         </Type>
       </Property>
       <Property>

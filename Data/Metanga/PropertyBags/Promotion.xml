@@ -39,11 +39,11 @@
         <IsCore>false</IsCore>
         <Name>CouponAmountType</Name>
         <Required>false</Required>
-        <Type i:type="PropertyBagType">
+        <Type i:type="EnumerationType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>CouponAmountType</Name>
-          <PropertyBagMode>PropertyBag</PropertyBagMode>
+          <Category>CouponAmountType</Category>
+          <Namespace>metanga</Namespace>
         </Type>
       </Property>
       <Property>
@@ -192,7 +192,7 @@
         <Name>EntityId</Name>
         <Required>false</Required>
         <Type>
-          <BaseType>UniqueIdentifier</BaseType>
+          <BaseType>Guid</BaseType>
           <ListType>None</ListType>
         </Type>
       </Property>

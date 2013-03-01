@@ -41,11 +41,11 @@
         <IsCore>false</IsCore>
         <Name>FailedStatus</Name>
         <Required>false</Required>
-        <Type i:type="PropertyBagType">
+        <Type i:type="EnumerationType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>FailedPaymentStatus</Name>
-          <PropertyBagMode>PropertyBag</PropertyBagMode>
+          <Category>FailedPaymentStatus</Category>
+          <Namespace>metanga</Namespace>
         </Type>
       </Property>
       <Property>
@@ -117,11 +117,11 @@
         <IsCore>false</IsCore>
         <Name>PaymentOperation</Name>
         <Required>true</Required>
-        <Type i:type="PropertyBagType">
+        <Type i:type="EnumerationType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>ElectronicPaymentOperation</Name>
-          <PropertyBagMode>PropertyBag</PropertyBagMode>
+          <Category>ElectronicPaymentOperation</Category>
+          <Namespace>metanga</Namespace>
         </Type>
       </Property>
       <Property>
@@ -149,11 +149,11 @@
         <IsCore>false</IsCore>
         <Name>Status</Name>
         <Required>true</Required>
-        <Type i:type="PropertyBagType">
+        <Type i:type="EnumerationType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>TransactionStatus</Name>
-          <PropertyBagMode>PropertyBag</PropertyBagMode>
+          <Category>TransactionStatus</Category>
+          <Namespace>metanga</Namespace>
         </Type>
       </Property>
       <Property>
@@ -219,7 +219,7 @@
         <Name>EntityId</Name>
         <Required>false</Required>
         <Type>
-          <BaseType>UniqueIdentifier</BaseType>
+          <BaseType>Guid</BaseType>
           <ListType>None</ListType>
         </Type>
       </Property>

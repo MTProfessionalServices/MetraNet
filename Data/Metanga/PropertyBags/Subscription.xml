@@ -113,11 +113,11 @@
         <IsCore>false</IsCore>
         <Name>EndReason</Name>
         <Required>false</Required>
-        <Type i:type="PropertyBagType">
+        <Type i:type="EnumerationType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>EndReasonType</Name>
-          <PropertyBagMode>PropertyBag</PropertyBagMode>
+          <Category>EndReasonType</Category>
+          <Namespace>metanga</Namespace>
         </Type>
       </Property>
       <Property>
@@ -128,7 +128,7 @@
         <Name>EntityId</Name>
         <Required>false</Required>
         <Type>
-          <BaseType>UniqueIdentifier</BaseType>
+          <BaseType>Guid</BaseType>
           <ListType>None</ListType>
         </Type>
       </Property>

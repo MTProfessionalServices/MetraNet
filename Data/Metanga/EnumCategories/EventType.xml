@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>
+            Represents types of events, which can occur with entities in Metanga.
+            </Description>
+  <Name>EventType</Name>
+  <Values>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            Create event, occurs when an entity is created.
+            </Description>
+      <Name>Create</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            Update event, occurs when an entity is updated.
+            </Description>
+      <Name>Update</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            Delete event, occurs when an entity is deleted.
+            </Description>
+      <Name>Delete</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

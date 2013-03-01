@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>
+            List of data types that can be chosen for extended entity columns
+            </Description>
+  <Name>DataType</Name>
+  <Values>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            A user or a role in the system
+            </Description>
+      <Name>UserOrRole</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            An image
+            </Description>
+      <Name>Image</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            Link to a website
+            </Description>
+      <Name>Hyperlink</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            Boolean value
+            </Description>
+      <Name>Boolean</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            A reference to an entity
+            </Description>
+      <Name>Entity</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            A date-time value
+            </Description>
+      <Name>DateTime</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            A monetary number
+            </Description>
+      <Name>Money</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            A numerice value
+            </Description>
+      <Name>Number</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            A list of pre-defined values
+            </Description>
+      <Name>Enum</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            A long text value (e.g. a contract, document, terms and conditions, etc.)
+            </Description>
+      <Name>Text</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            A string of up to 4000 characters
+            </Description>
+      <Name>String</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description></Description>
+      <Name>Integer</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description></Description>
+      <Name>Decimal</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

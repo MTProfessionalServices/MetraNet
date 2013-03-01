@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>
+            Desribes the type of the current transaction in BalanceStatement class
+            </Description>
+  <Name>StatementTransactionType</Name>
+  <Values>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            The type of the current trnsaction is Invoice
+            </Description>
+      <Name>Invoice</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>
+            The type of the current transaction is Payment
+            </Description>
+      <Name>Payment</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

@@ -61,11 +61,11 @@
         <IsCore>false</IsCore>
         <Name>DataType</Name>
         <Required>true</Required>
-        <Type i:type="PropertyBagType">
+        <Type i:type="EnumerationType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>DataType</Name>
-          <PropertyBagMode>PropertyBag</PropertyBagMode>
+          <Category>DataType</Category>
+          <Namespace>metanga</Namespace>
         </Type>
       </Property>
       <Property>

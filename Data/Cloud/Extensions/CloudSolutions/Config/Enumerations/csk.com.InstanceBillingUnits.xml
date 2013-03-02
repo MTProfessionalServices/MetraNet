@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>What are the billing units for this service; currently supporting Hour, Day, Monthly and Annual</Description>
+  <Name>InstanceBillingUnits</Name>
+  <Values>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>0</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Minute</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Hour</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Day</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Month</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>4</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Year</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

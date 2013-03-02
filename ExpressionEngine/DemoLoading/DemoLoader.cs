@@ -40,10 +40,6 @@ namespace MetraTech.ExpressionEngine
             {
                 GlobalContext = Context.LoadExtensions(Path.Combine(DataPath, "Extensions"));
 
-                //LoadEntities(GlobalContext, PropertyBagConstants.ProductView, Path.Combine(DataPath, "ProductViews.csv"));
-                //LoadEntities(GlobalContext, PropertyBagConstants.AccountView, Path.Combine(DataPath, "AccountViews.csv"));
-                //LoadEntities(GlobalContext, PropertyBagConstants.ServiceDefinition, Path.Combine(DataPath, "ServiceDefinitions.csv"));
-
                 //AddCloudComputeProductView();
                 //GlobalContext.AddEntity(DemoLoader.GetCorporateAccountType());
                 //AddAircraftLandingProductView();
@@ -52,8 +48,9 @@ namespace MetraTech.ExpressionEngine
             }
             else
             {
-                LoadEntities(GlobalContext, null, Path.Combine(DataPath, "Entities.csv"));
-                LoadEnumFile(GlobalContext, Path.Combine(DataPath, "Enums.csv"));
+                //LoadEntities(GlobalContext, null, Path.Combine(DataPath, "Entities.csv"));
+                //LoadEnumFile(GlobalContext, Path.Combine(DataPath, "Enums.csv"));
+                GlobalContext = Context.LoadMetanga(DataPath);
             }
 
 

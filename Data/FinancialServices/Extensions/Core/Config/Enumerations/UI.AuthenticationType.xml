@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>An enum for supported AuthenticationTypes.  Right now we only support MetraNet auth.  In the future we could have other things like oAuth, and Windows Live ID.</Description>
+  <Name>AuthenticationType</Name>
+  <Values>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>0</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MetraNet</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

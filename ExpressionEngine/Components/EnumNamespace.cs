@@ -69,7 +69,8 @@ namespace MetraTech.ExpressionEngine.Components
         ///            deserilization
         public void FixDeserilization()
         {
-            Categories = new Collection<EnumCategory>();
+            if (Categories == null)
+                Categories = new Collection<EnumCategory>();
         }
         #endregion
 
@@ -171,7 +172,7 @@ namespace MetraTech.ExpressionEngine.Components
             var namespaces = new List<EnumNamespace>();
 
             if (string.IsNullOrEmpty(dirPath))
-                throw new ArgumentException("dirPath");
+                throw new ArgumentException("dirPath is null or empty");
 
             var dirInfo = new DirectoryInfo(dirPath);
             if (!dirInfo.Exists)
@@ -180,7 +181,7 @@ namespace MetraTech.ExpressionEngine.Components
             var fileInfos = dirInfo.GetFiles("*.xml");
             EnumNamespace ns = null;
             var sortedFileInfos = fileInfos.OrderBy(f => f.Name);
-
+            var nsFileName = string.Empty;
             foreach (var fileInfo in sortedFileInfos)
             {
                 if (fileInfo.FullName.EndsWith("._.xml"))
@@ -188,9 +189,12 @@ namespace MetraTech.ExpressionEngine.Components
                     ns = CreateFromFile(fileInfo.FullName);
                     ns.Extension = extension;
                     namespaces.Add(ns);
+                    nsFileName = fileInfo.Name.Substring(0, fileInfo.Name.Length - 5);
                 }
                 else //it's a enumCategory
                 {
+                    if (!fileInfo.Name.StartsWith(nsFileName))
+                        throw new Exception("expected file to start with " + nsFileName);
                     ns.FixDeserilization();
                     var category = EnumCategory.CreateFromFile(fileInfo.FullName);
                     ns.Categories.Add(category);

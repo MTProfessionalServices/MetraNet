@@ -102,7 +102,7 @@ namespace MetraTech.ExpressionEngine.Expressions
 
             //HACK -- since we aren't integrated with MVM parse engine, simulate some stuff!
             var prop = Property.CreateInteger32("USAGE.Hours", true, null);
-            prop.Direction = Direction.InOut;
+            prop.Direction = Direction.InputOutput;
             results.Parameters.Add(prop);
 
             prop = Property.CreateInteger32("USAGE.CpuCount", true, null);

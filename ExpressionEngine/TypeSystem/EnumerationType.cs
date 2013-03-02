@@ -7,12 +7,15 @@ using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
+    /// <summary>
+    /// A enumeration which requires a Namespace and Category 
+    /// </summary>
     [DataContract (Namespace = "MetraTech")]
     public class EnumerationType : Type
     {
         #region Properties
         /// <summary>
-        /// The namespace; used to prevent name collisions
+        /// The namespace; used to prevent name collisions with 
         /// </summary>
         [DataMember]
         public string Namespace { get; set; }

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Indicates the Aggregate Rate structure. ex Bulk is all records are rated at the same rate. Incrementall represents using stepped/hybrid rates.</Description>
+  <Name>RateSubType</Name>
+  <Values>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+        <arrays:string>PickATier</arrays:string>
+        <arrays:string>Tiered</arrays:string>
+        <arrays:string>Ramped</arrays:string>
+        <arrays:string>Bulk</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SingleBucket</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>2</arrays:string>
+        <arrays:string>FillATier</arrays:string>
+        <arrays:string>Tapered</arrays:string>
+        <arrays:string>Incremental</arrays:string>
+        <arrays:string>Stepped</arrays:string>
+        <arrays:string>Progressive</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MultiBucket</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Endpoint Operation</Description>
+  <Name>Operation</Name>
+  <Values>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>Create</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Create</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>CreateAndConnect</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CreateAndConnect</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>Connect</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Connect</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>Disconnect</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Disconnect</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>DisconnectAndEnd</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DisconnectAndEnd</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>Move</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Move</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>AddIDMapping</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AddIDMapping</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>UpdateIDMapping</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UpdateIDMapping</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>RemoveIDMapping</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RemoveIDMapping</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>UpdateEffectiveDate</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UpdateEffectiveDate</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>UpdateExtendedProperties</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UpdateExtendedProperties</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

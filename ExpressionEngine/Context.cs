@@ -475,6 +475,13 @@ namespace MetraTech.ExpressionEngine
             PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "ProductViews"), "ProductView", context);     
         }
         
+        public static Context LoadMetanga(string dirPath)
+        {
+            var context = new Context(ProductType.Metanga);
+            //EnumNamespace.LoadDirectoryIntoContext(Path.Combine(dirPath, "EnumCategories"), null, context);
+            PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(dirPath, "PropertyBags"), null, context);
+            return context;
+        }
         #endregion
 
     }

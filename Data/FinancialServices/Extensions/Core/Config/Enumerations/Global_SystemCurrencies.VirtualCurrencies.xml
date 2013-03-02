@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Virtual Currencies</Description>
+  <Name>VirtualCurrencies</Name>
+  <Values>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+        <arrays:string>AIR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AirMiles</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>2</arrays:string>
+        <arrays:string>UPZ</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UltimatePoints</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>3</arrays:string>
+        <arrays:string>THX</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ThankYouPoints</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Unit representing the service/product consumed</Description>
+  <Name>Unit</Name>
+  <Values>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Seconds</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Minutes</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Hours</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>4</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Days</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>5</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Bytes</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>6</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Kilobytes</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>7</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Megabytes</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>8</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Gigabytes</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>9</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Terabytes</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>10</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Petabytes</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>11</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CPUs</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>12</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Kilocharacters</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>13</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Pages</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>14</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Documents</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DocumentSets</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>16</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Forms</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>17</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Reports</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>18</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Sessions</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>19</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ConcurrentUsers</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>20</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Users</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>21</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Translations</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>22</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Moves</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>23</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Pulls</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>24</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Pushes</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>25</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Downloads</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>26</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Messages</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>27</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Activity</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>28</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Each</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

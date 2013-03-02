@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>List of available site themes.</Description>
+  <Name>Themes</Name>
+  <Values>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>blue</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>blue</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>gold</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>gold</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>gray</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>gray</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>green</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>green</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>orange</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>orange</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>purple</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>purple</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>red</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>red</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

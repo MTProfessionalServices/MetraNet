@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Bands are use to price data transfers as a category </Description>
+  <Name>DataTransferBands</Name>
+  <Values>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>0</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IntraSubZone</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IntraZone</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>InterZone</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Internet</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

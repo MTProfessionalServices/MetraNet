@@ -12,19 +12,31 @@ namespace MetraTech.ExpressionEngine.PropertyBags
     {
         #region Properties
         [DataMember]
+        public bool IsMetered { get; set; }
+
+        [DataMember]
         public Collection<UniqueKey> UniqueKey { get; private set; }
 
         public override string DatabaseName { get { return "t_pv_" + Name; } }
 
+        /// <summary>
+        ///// The xQualificationGroup prefix
+        /// </summary>
         public override string XqgPrefix { get { return UserContext.Settings.NewSyntax ? "EVENT" : "USAGE"; } }
 
         #endregion
 
         #region Constructor
+
         public ProductViewEntity(string name, string description) : base(name, PropertyBagConstants.ProductView, description)
         {
             UniqueKey = new Collection<UniqueKey>();
+        }
+        #endregion
 
+        #region Methods
+        public void AddCoreProperties()
+        {
             //Add the core properties
             var accountId = Properties.AddInteger32("AccountId", "The internal MetraNet account identifiert", true);
             accountId.IsCore = true;

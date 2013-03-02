@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Payment Request Type</Description>
+  <Name>PaymentRequestType</Name>
+  <Values>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>0</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Credit Card Debit</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Credit Card Credit</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Credit Card PreAuth</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Credit Card Capture</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>4</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Credit Card Add</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>5</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Credit Card Delete</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>6</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Credit Card Update</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>7</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ACH Debit</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>8</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ACH Credit</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>9</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ACH Account Add</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>10</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ACH Account Delete</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>11</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ACH Account Update</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>12</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Credit Card Auth Reversal</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

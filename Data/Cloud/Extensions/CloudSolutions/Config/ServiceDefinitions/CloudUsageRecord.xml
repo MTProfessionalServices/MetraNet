@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ServiceDefinitionEntity" xmlns="MetraTech">
+  <DefaultValue i:nil="true" />
+  <Description>General Cloud usage record. Can be used for most all resource usage records</Description>
+  <Direction>Input</Direction>
+  <IsCore>false</IsCore>
+  <Name>CloudUsageRecord</Name>
+  <Required>true</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>ServiceDefinition</Name>
+    <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
+  </Type>
+  <Properties>
+    <Properties>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>The internal MetraNet account identifier</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>AccountId</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>The time the event is deemed to have occurred</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>Timestamp</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>The time that the transaction was deemed to have occured.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TransactionTime</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Unique Virtual Instance ID</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>InstanceID</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Type of Cloud Service</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>InstanceType</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>InstanceTypes</Category>
+          <Namespace>csk.com</Namespace>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Named Instance</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>InstanceName</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Start Time of the message time window</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>StartTime</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>End Time of the message time window</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>EndTime</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Average CPU Usage over the time Window</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CPUUsageAverage</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Average Memory usage over time Window</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>MEMUsageAverage</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Data Transfer Inbound</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>DataTransferIn</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Data Transfer Outbound</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>DataTransferOut</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Storage Reads</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>StorageReads</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Storage Writes</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>StorageWrites</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Total Disk Storage Used</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>DiskStorage</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Total Data Transfer IO</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TotalDataTransferIO</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Sub Zone of the Inbound Data Transfer</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>InboundSubZone</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Sub Zone of the Outbound Data Transfer</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>OutboundSubZone</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Transfer Type i.e. outbound source</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TransferType</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+    </Properties>
+  </Properties>
+  <AutoDelete>false</AutoDelete>
+  <AutoResubmit>false</AutoResubmit>
+</PropertyBag>

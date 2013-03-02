@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>List of supported UI Cultures.</Description>
+  <Name>UICultures</Name>
+  <Values>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>en-US</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>English</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>en-GB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>English GB</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>fr-FR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>French</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>de-DE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>German</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>it</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Italian</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>es</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Spanish</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>ja</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Japanese</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>ar</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Arabic</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>es-mx</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Spanish - Mexican</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>pt-br</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Portuguese - Brazil</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

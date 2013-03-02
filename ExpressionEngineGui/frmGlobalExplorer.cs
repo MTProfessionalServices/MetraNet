@@ -16,6 +16,7 @@ namespace PropertyGui
         public frmGlobalExplorer()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
             ctlExpressionExplorer.Init(DemoLoader.GlobalContext);
         }
         #endregion

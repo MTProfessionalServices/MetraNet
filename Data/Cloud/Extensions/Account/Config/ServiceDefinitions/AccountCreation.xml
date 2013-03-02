@@ -1,0 +1,867 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ServiceDefinitionEntity" xmlns="MetraTech">
+  <DefaultValue i:nil="true" />
+  <Description>This service definition is used to create subscriber accounts, contacts or both. It gets used from the CSR application.  It is also used for customers to send account information to our system.  All the objects involved in processing this service are in a transaction and is considered as 1 atomic unit of work. Subscriber accounts are a part of the account hierarchy, can subscribe to product offerings and can be payers and recieve usage.</Description>
+  <Direction>Input</Direction>
+  <IsCore>false</IsCore>
+  <Name>AccountCreation</Name>
+  <Required>true</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>ServiceDefinition</Name>
+    <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
+  </Type>
+  <Properties>
+    <Properties>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>The internal MetraNet account identifier</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>AccountId</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>The time the event is deemed to have occurred</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>Timestamp</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Action type is used to indicate if you want to create account, contact  or both.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ActionType</Name>
+        <Required>true</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>ActionType</Category>
+          <Namespace>metratech.com/accountcreation</Namespace>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Account Type enumerated value: CSR, Sub.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AccountType</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>200</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>A number to indicate the operation: 0 for add, 1 for update, 2 for delete and 3 for no operation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Operation</Name>
+        <Required>true</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>operation</Category>
+          <Namespace>metratech.com</Namespace>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Username or login that needs to be created. Required for creation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>UserName</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Password associated with that username or login. Required for creation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Password_</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Namespace uniquely identifying that username or login. Required for creation</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Name_Space</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Uniquely generated account ID. This property gets set by the pipeline.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>_AccountID</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>This property is used to control the account start date.  This property is also used when changing the account state.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AccountStartDate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>This property is used to control the end of an account state and is only used on updates.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AccountEndDate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Account State (Changed in 3.0)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AccountStatus</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>AccountStatus</Category>
+          <Namespace>metratech.com/accountcreation</Namespace>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Flag indicates whether DSP should be applied to a newly created account. T for True or 1 and 
+F for False or 0.  Required for creation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ApplyDefaultSecurityPolicy</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>This flag indicates whether account ancestor's account template should be applied to an account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ApplyAccountTemplate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Indicates whether old subscriptions will be truncated on move account action. This property is only considered on account updates when account ancestor changed (Account Move). 		This property is only considered when ApplyAccountTemplate property is set to true.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TruncateOldSubscriptions</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Transaction cookie value used for processes to enlist in DTC transaction. Should have empty value when metered.  The value gets set once the pipeline retrieves it from each machine.  The cookie is machine specific and is unique to a machine.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TransactionCookie</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>The paying account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PayerAccount</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>The paying account namespace.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PayerAccountNS</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>The paying account identifier.  May be used in place of PayerAccount and PayerAccountNS.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PayerID</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>The payment redirection start date.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Payment_StartDate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>The payment redirection end date.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Payment_EndDate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Ancestor account name.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AncestorAccount</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Ancestor account namespace.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AncestorAccountNS</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Ancestor account ID.  May be used instead of ancestorAccount and ancestorAccountNS.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AncestorAccountID</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Hierarchy start date.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Hierarchy_StartDate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Hierarchy start date.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Hierarchy_EndDate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Indicates that the account can pay for charges. T for True or 1 and F for False or 0.  Required for creation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Billable</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Indicates if this account is a folder or not. T for Yes or success or true or 1 and F for no or failure or false or 0.  Required for creation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Folder</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Default pricelist assigned to account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Pricelist</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Currency assigned to account. Required while creating account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Currency</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>10</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Language associated with the account. Required while creation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Language</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>LanguageCode</Category>
+          <Namespace>Global</Namespace>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Tax exempt indicator: T for Yes or success or true or 1 and F for no or failure or false or 0.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TaxExempt</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Tax Exempt ID, if applicable.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TaxExemptID</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Timezone ID of the account. Required for creation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TimeZoneID</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>TimeZoneID</Category>
+          <Namespace>Global</Namespace>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Timezone offset of the account. Usually corresponds to the timezone ID. This is not used or stored for v1.2 releases and higher.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TimeZoneOffset</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Double</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Payment method of the account: 1 for CreditCard/ACH and 2 for Cash/Check.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PaymentMethod</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>PaymentMethod</Category>
+          <Namespace>metratech.com/accountcreation</Namespace>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>If account is not active, why?</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>StatusReason</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>StatusReason</Category>
+          <Namespace>metratech.com/accountcreation</Namespace>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>If account is not active, and it doesn't fall under StatusReason enum.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>StatusReasonOther</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>What question to ask?</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SecurityQuestion</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>SecurityQuestion</Category>
+          <Namespace>metratech.com/accountcreation</Namespace>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>The response to the security question.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SecurityAnswer</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>What kind of paper invoice do I want?</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>InvoiceMethod</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>InvoiceMethod</Category>
+          <Namespace>metratech.com/accountcreation</Namespace>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Usage cycle type associated with the account (daily, weekly, biweeky, semi-monthly, monthly, quarterly, annually.)	On-demand is no longer supported.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>UsageCycleType</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>UsageCycleType</Category>
+          <Namespace>metratech.com/BillingCycle</Namespace>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Day of month that the user wants to get billed on.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>DayOfMonth</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Day of week that the user wants to get billed on (for the Weekly usage cycle type).</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>DayOfWeek</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>DayOfTheWeek</Category>
+          <Namespace>Global</Namespace>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>First day of month that the user wants to get billed on (for the Semi-Monthly usage cycle type).</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>FirstDayOfMonth</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Second day of month that the user wants to get billed on (for the Semi-Monthly usage cycle type).</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SecondDayOfMonth</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>The start month that the user wants to get billed on (for the BiWeekly, Quarterly and Annual usage cycle type).</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>StartMonth</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>MonthOfTheYear</Category>
+          <Namespace>Global</Namespace>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>The start month that the user wants to get billed on (for the BiWeekly, Quarterly and Annual usage cycle type).</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>StartDay</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>The start year that the user wants to get billed on (for the BiWeekly usage cycle type).</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>StartYear</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureQualifier i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Contact type integer value: 1 for Bill-To and 2 for Ship-To.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ContactType</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>ContactType</Category>
+          <Namespace>metratech.com/accountcreation</Namespace>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>First name of the account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>FirstName</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Middle initial of the account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>MiddleInitial</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>1</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Last name of the account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>LastName</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Company name of the associated account</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Company</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Fax number of the account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>FacsimileTelephoneNumber</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Email address associated with the account</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Email</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Phone number of the account</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PhoneNumber</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>First part of the whole address.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Address1</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Second part of the whole address.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Address2</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Third part of the whole address.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Address3</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>City part of the address. If geocode needs to be calculated, then this property should have a value passed in.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>City</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>State part of the address. If geocode needs to be calculated, then
+  this property should have a value passed in.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>State</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Zipcode part of the address. If geocode needs to be calculated, then
+ this property should have a value passed in.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Zip</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Country part of the address</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Country</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>CountryName</Category>
+          <Namespace>Global</Namespace>
+        </Type>
+      </Property>
+    </Properties>
+  </Properties>
+  <AutoDelete>false</AutoDelete>
+  <AutoResubmit>false</AutoResubmit>
+</PropertyBag>

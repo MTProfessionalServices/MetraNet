@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Configurable list of timezones used by the system</Description>
+  <Name>TimeZoneID</Name>
+  <Values>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-12:00) Eniwetok, Kwajalein</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>39</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-11:00) Midway Island, Samoa</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>24</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-10:00) Hawaii</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-09:00) Alaska</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>33</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-08:00) Pacific Time (US &amp; Canada), Tijuana</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>47</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-07:00) Arizona</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>30</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-07:00) Mountain Time (US &amp; Canada)</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>13</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-06:00) Central Time (US &amp; Canada)</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>28</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-06:00) Mexico City, Tegucigalpa</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>8</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-06:00) Saskatchewan</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>37</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-05:00) Bogota, Lima</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>18</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-05:00) Eastern Time (US &amp; Canada)</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>46</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-05:00) Indiana (East)</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>4</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-04:00) Atlantic Time (Canada)</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>38</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-04:00) Caracas, La Paz</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>32</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-03:30) Newfoundland</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>36</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-03:00) Buenos Aires, Georgetown</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>6</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-01:00) Azores, Cape Verde Is.</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>22</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT) Greenwich Mean Time; Dublin, Edinburgh, London, Lisbon</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>23</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT) Monrovia, Casablanca</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>48</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+01:00) Berlin, Stockholm, Rome, Bern, Brussels Vienna</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>34</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+01:00) Paris, Madrid, Amsterdam</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>11</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+01:00) Prague, Warsaw, Budapest</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>21</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+02:00) Athens, Helsinki, Istanbul</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>19</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+02:00) Cairo</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>41</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+02:00) Harare, Pretoria</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>27</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+02:00) Israel</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>40</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+03:00) Baghdad</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>52</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+03:00) Kuwait, Nairobi, Riyadh</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>35</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+03:00) Moscow, St. Petersburg, Kazan, Volgograd</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>26</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+03:30) Tehran</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+04:00) Abu Dhabi, Muscat, Tbilisi</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+04:30) Kabul</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>49</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+05:00) Islamabad, Karachi, Ekaterinburg, Tashkent</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>25</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+05:30) Bombay, Calcutta, Madras, New Delhi, Colombo</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>10</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+06:00) Almaty, Dhaka</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>7</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+07:00) Bangkok, Jakarta, Hanoi</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>14</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+08:00) Beijing, Chongqing, Urumqi</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>43</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+08:00) Hong Kong, Perth, Singapore, Taipei</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>45</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+09:00) Tokyo, Osaka, Sapporo, Seoul, Yakutsk</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>9</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+09:30) Adelaide</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>5</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+09:30) Darwin</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>42</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+10:00) Brisbane</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>51</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+10:00) Sydney, Melbourne</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>50</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+10:00) Guam, Port Moresby, Vladivostok</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>44</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+10:00) Hobart</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>12</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+11:00) Magadan, Solomon Is., New Caledonia</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>20</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+12:00) Fiji, Kamchatka, Marshall Is.</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>31</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+12:00) Wellington, Auckland</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

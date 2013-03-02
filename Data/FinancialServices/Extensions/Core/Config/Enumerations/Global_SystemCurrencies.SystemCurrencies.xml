@@ -1,0 +1,1319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Configurable set of currencies for screens to select from.</Description>
+  <Name>SystemCurrencies</Name>
+  <Values>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>784</arrays:string>
+        <arrays:string>AED</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AED</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>971</arrays:string>
+        <arrays:string>AFN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AFN</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>8</arrays:string>
+        <arrays:string>ALL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ALL</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>51</arrays:string>
+        <arrays:string>AMD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AMD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>532</arrays:string>
+        <arrays:string>ANG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ANG</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>973</arrays:string>
+        <arrays:string>AOA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AOA</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>32</arrays:string>
+        <arrays:string>ARS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ARS</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>36</arrays:string>
+        <arrays:string>AUD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AUD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>533</arrays:string>
+        <arrays:string>AWG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AWG</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>944</arrays:string>
+        <arrays:string>AZN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AZN</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>977</arrays:string>
+        <arrays:string>BAM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BAM</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>52</arrays:string>
+        <arrays:string>BBD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BBD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>50</arrays:string>
+        <arrays:string>BDT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BDT</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>975</arrays:string>
+        <arrays:string>BGN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BGN</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>48</arrays:string>
+        <arrays:string>BHD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BHD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>108</arrays:string>
+        <arrays:string>BIF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BIF</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>60</arrays:string>
+        <arrays:string>BMD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BMD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>96</arrays:string>
+        <arrays:string>BND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BND</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>68</arrays:string>
+        <arrays:string>BOB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BOB</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>986</arrays:string>
+        <arrays:string>BRL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRL</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>44</arrays:string>
+        <arrays:string>BSD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>64</arrays:string>
+        <arrays:string>BTN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BTN</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>72</arrays:string>
+        <arrays:string>BWP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BWP</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>974</arrays:string>
+        <arrays:string>BYR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BYR</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>84</arrays:string>
+        <arrays:string>BZD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BZD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>124</arrays:string>
+        <arrays:string>CAD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CAD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>976</arrays:string>
+        <arrays:string>CDF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CDF</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>756</arrays:string>
+        <arrays:string>CHF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CHF</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>152</arrays:string>
+        <arrays:string>CLP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CLP</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>156</arrays:string>
+        <arrays:string>CNY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CNY</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>170</arrays:string>
+        <arrays:string>COP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>COP</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>188</arrays:string>
+        <arrays:string>CRC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CRC</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>931</arrays:string>
+        <arrays:string>CUC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CUC</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>192</arrays:string>
+        <arrays:string>CUP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CUP</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>132</arrays:string>
+        <arrays:string>CVE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CVE</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>203</arrays:string>
+        <arrays:string>CZK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CZK</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>262</arrays:string>
+        <arrays:string>DJF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DJF</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>208</arrays:string>
+        <arrays:string>DKK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DKK</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>214</arrays:string>
+        <arrays:string>DOP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DOP</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>12</arrays:string>
+        <arrays:string>DZD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DZD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>818</arrays:string>
+        <arrays:string>EGP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EGP</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>232</arrays:string>
+        <arrays:string>ERN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ERN</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>230</arrays:string>
+        <arrays:string>ETB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ETB</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>978</arrays:string>
+        <arrays:string>EUR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EUR</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>242</arrays:string>
+        <arrays:string>FJD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FJD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>238</arrays:string>
+        <arrays:string>FKP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FKP</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>826</arrays:string>
+        <arrays:string>GBP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GBP</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>981</arrays:string>
+        <arrays:string>GEL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GEL</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>1000</arrays:string>
+        <arrays:string>GGP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GGP</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>936</arrays:string>
+        <arrays:string>GHS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GHS</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>292</arrays:string>
+        <arrays:string>GIP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GIP</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>270</arrays:string>
+        <arrays:string>GMD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GMD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>324</arrays:string>
+        <arrays:string>GNF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GNF</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>320</arrays:string>
+        <arrays:string>GTQ</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GTQ</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>328</arrays:string>
+        <arrays:string>GYD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GYD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>344</arrays:string>
+        <arrays:string>HKD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HKD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>340</arrays:string>
+        <arrays:string>HNL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HNL</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>191</arrays:string>
+        <arrays:string>HRK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HRK</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>332</arrays:string>
+        <arrays:string>HTG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HTG</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>348</arrays:string>
+        <arrays:string>HUF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HUF</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>360</arrays:string>
+        <arrays:string>IDR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IDR</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>376</arrays:string>
+        <arrays:string>ILS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ILS</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>1001</arrays:string>
+        <arrays:string>IMP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IMP</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>356</arrays:string>
+        <arrays:string>INR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INR</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>368</arrays:string>
+        <arrays:string>IQD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IQD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>364</arrays:string>
+        <arrays:string>IRR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IRR</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>352</arrays:string>
+        <arrays:string>ISK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ISK</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>1002</arrays:string>
+        <arrays:string>JEP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>JEP</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>388</arrays:string>
+        <arrays:string>JMD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>JMD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>400</arrays:string>
+        <arrays:string>JOD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>JOD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>392</arrays:string>
+        <arrays:string>JPY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>JPY</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>404</arrays:string>
+        <arrays:string>KES</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KES</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>417</arrays:string>
+        <arrays:string>KGS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KGS</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>116</arrays:string>
+        <arrays:string>KHR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KHR</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>174</arrays:string>
+        <arrays:string>KMF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KMF</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>408</arrays:string>
+        <arrays:string>KPW</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KPW</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>410</arrays:string>
+        <arrays:string>KRW</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KRW</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>414</arrays:string>
+        <arrays:string>KWD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KWD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>136</arrays:string>
+        <arrays:string>KYD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KYD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>398</arrays:string>
+        <arrays:string>KZT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KZT</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>418</arrays:string>
+        <arrays:string>LAK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LAK</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>422</arrays:string>
+        <arrays:string>LBP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LBP</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>144</arrays:string>
+        <arrays:string>LKR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LKR</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>430</arrays:string>
+        <arrays:string>LRD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LRD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>426</arrays:string>
+        <arrays:string>LSL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LSL</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>440</arrays:string>
+        <arrays:string>LTL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LTL</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>428</arrays:string>
+        <arrays:string>LVL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LVL</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>434</arrays:string>
+        <arrays:string>LYD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LYD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>504</arrays:string>
+        <arrays:string>MAD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MAD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>498</arrays:string>
+        <arrays:string>MDL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MDL</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>969</arrays:string>
+        <arrays:string>MGA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MGA</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>807</arrays:string>
+        <arrays:string>MKD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MKD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>104</arrays:string>
+        <arrays:string>MMK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MMK</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>496</arrays:string>
+        <arrays:string>MNT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MNT</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>446</arrays:string>
+        <arrays:string>MOP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MOP</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>478</arrays:string>
+        <arrays:string>MRO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MRO</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>480</arrays:string>
+        <arrays:string>MUR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MUR</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>462</arrays:string>
+        <arrays:string>MVR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MVR</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>454</arrays:string>
+        <arrays:string>MWK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MWK</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>484</arrays:string>
+        <arrays:string>MXN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MXN</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>458</arrays:string>
+        <arrays:string>MYR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MYR</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>943</arrays:string>
+        <arrays:string>MZN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MZN</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>516</arrays:string>
+        <arrays:string>NAD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NAD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>566</arrays:string>
+        <arrays:string>NGN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NGN</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>558</arrays:string>
+        <arrays:string>NIO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NIO</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>578</arrays:string>
+        <arrays:string>NOK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NOK</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>524</arrays:string>
+        <arrays:string>NPR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NPR</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>554</arrays:string>
+        <arrays:string>NZD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NZD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>512</arrays:string>
+        <arrays:string>OMR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>OMR</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>590</arrays:string>
+        <arrays:string>PAB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PAB</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>604</arrays:string>
+        <arrays:string>PEN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PEN</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>598</arrays:string>
+        <arrays:string>PGK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PGK</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>608</arrays:string>
+        <arrays:string>PHP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PHP</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>586</arrays:string>
+        <arrays:string>PKR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PKR</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>985</arrays:string>
+        <arrays:string>PLN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLN</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>600</arrays:string>
+        <arrays:string>PYG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PYG</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>634</arrays:string>
+        <arrays:string>QAR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>QAR</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>946</arrays:string>
+        <arrays:string>RON</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RON</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>941</arrays:string>
+        <arrays:string>RSD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RSD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>643</arrays:string>
+        <arrays:string>RUB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RUB</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>646</arrays:string>
+        <arrays:string>RWF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RWF</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>682</arrays:string>
+        <arrays:string>SAR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SAR</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>90</arrays:string>
+        <arrays:string>SBD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SBD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>690</arrays:string>
+        <arrays:string>SCR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SCR</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>938</arrays:string>
+        <arrays:string>SDG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SDG</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>752</arrays:string>
+        <arrays:string>SEK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SEK</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>702</arrays:string>
+        <arrays:string>SGD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SGD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>654</arrays:string>
+        <arrays:string>SHP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SHP</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>694</arrays:string>
+        <arrays:string>SLL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SLL</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>706</arrays:string>
+        <arrays:string>SOS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SOS</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>968</arrays:string>
+        <arrays:string>SRD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SRD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>678</arrays:string>
+        <arrays:string>STD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>STD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>760</arrays:string>
+        <arrays:string>SYP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SYP</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>748</arrays:string>
+        <arrays:string>SZL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SZL</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>764</arrays:string>
+        <arrays:string>THB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>THB</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>972</arrays:string>
+        <arrays:string>TJS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TJS</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>934</arrays:string>
+        <arrays:string>TMT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TMT</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>788</arrays:string>
+        <arrays:string>TND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TND</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>776</arrays:string>
+        <arrays:string>TOP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TOP</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>949</arrays:string>
+        <arrays:string>TRY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TRY</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>780</arrays:string>
+        <arrays:string>TTD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TTD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>901</arrays:string>
+        <arrays:string>TWD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TWD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>834</arrays:string>
+        <arrays:string>TZS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TZS</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>980</arrays:string>
+        <arrays:string>UAH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UAH</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>800</arrays:string>
+        <arrays:string>UGX</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UGX</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>840</arrays:string>
+        <arrays:string>USD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>USD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>858</arrays:string>
+        <arrays:string>UYU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UYU</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>860</arrays:string>
+        <arrays:string>UZS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UZS</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>937</arrays:string>
+        <arrays:string>VEF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VEF</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>704</arrays:string>
+        <arrays:string>VND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VND</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>548</arrays:string>
+        <arrays:string>VUV</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VUV</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>882</arrays:string>
+        <arrays:string>WST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WST</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>950</arrays:string>
+        <arrays:string>XAF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XAF</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>961</arrays:string>
+        <arrays:string>XAG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XAG</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>959</arrays:string>
+        <arrays:string>XAU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XAU</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>951</arrays:string>
+        <arrays:string>XCD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XCD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>960</arrays:string>
+        <arrays:string>XDR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XDR</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>952</arrays:string>
+        <arrays:string>XOF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XOF</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>964</arrays:string>
+        <arrays:string>XPD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XPD</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>953</arrays:string>
+        <arrays:string>XPF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XPF</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>962</arrays:string>
+        <arrays:string>XPT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XPT</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>886</arrays:string>
+        <arrays:string>YER</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>YER</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>710</arrays:string>
+        <arrays:string>ZAR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ZAR</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>894</arrays:string>
+        <arrays:string>ZMK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ZMK</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

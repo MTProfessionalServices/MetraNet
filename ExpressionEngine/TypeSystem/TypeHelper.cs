@@ -241,7 +241,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 case BaseType.DateTime:
                     return "DateTime";
                 default:
-                    throw new Exception("Unhandled BaseType: " + baseType.ToString());
+                    throw new Exception("Unhandled Base Type: " + baseType.ToString());
             }
         }
 

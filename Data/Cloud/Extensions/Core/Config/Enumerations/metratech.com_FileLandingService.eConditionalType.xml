@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>eConditionalType is for conditional arguments</Description>
+  <Name>eConditionalType</Name>
+  <Values>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>0</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ALWAYS</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>100</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ON_RETRY</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases>
+        <arrays:string>101</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ON_NEW</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

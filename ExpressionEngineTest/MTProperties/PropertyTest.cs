@@ -22,7 +22,7 @@ namespace ExpressionEngineTest
             Assert.IsTrue(property.IsInputOrInOut);
             Assert.IsFalse(property.IsOutputOrInOut);
 
-            property.Direction = Direction.InOut;
+            property.Direction = Direction.InputOutput;
             Assert.IsTrue(property.IsOutputOrInOut);
         }
 
@@ -38,7 +38,7 @@ namespace ExpressionEngineTest
             Assert.IsTrue(property.IsOutputOrInOut);
             Assert.IsFalse(property.IsInputOrInOut);
 
-            property.Direction = Direction.InOut;
+            property.Direction = Direction.InputOutput;
             Assert.IsTrue(property.IsOutputOrInOut);
         }
 

@@ -58,7 +58,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             {
                 switch (Direction)
                 {
-                    case Direction.InOut:
+                    case Direction.InputOutput:
                         return "EntityInOut.png";
                     case Direction.Input:
                         return "EntityInput.png";

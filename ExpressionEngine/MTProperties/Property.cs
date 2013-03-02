@@ -95,25 +95,25 @@ namespace MetraTech.ExpressionEngine.MTProperties
         public virtual string DatabaseName { get { return Name; } }
 
         /// <summary>
-        /// Indicates the how the Property is interacted with (e.g., Input, Output or InOut)
+        /// Indicates the how the Property is interacted with (e.g., Input, Output or InputOutput)
         /// </summary>
         [DataMember]
         public Direction Direction { get; set; }
 
         //
-        //Determines if the Direction is Input or InOut
+        //Determines if the Direction is Input or InputOutput
         //
         public bool IsInputOrInOut
         {
-            get { return Direction == Direction.Input || Direction == MTProperties.Enumerations.Direction.InOut; }
+            get { return Direction == Direction.Input || Direction == MTProperties.Enumerations.Direction.InputOutput; }
         }
 
         //
-        //Determines if the Direction is Ouput or InOut
+        //Determines if the Direction is Ouput or InputOutput
         //
         public bool IsOutputOrInOut
         {
-            get { return Direction == Direction.Output || Direction == Direction.InOut; }
+            get { return Direction == Direction.Output || Direction == Direction.InputOutput; }
         }
 
         public virtual string CompatibleKey { get { return Type.CompatibleKey; } }
@@ -151,7 +151,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
             {
                 switch (Direction)
                 {
-                    case Direction.InOut:
+                    case Direction.InputOutput:
                         return "PropertyInOut.png";
                     case Direction.Input:
                         return "PropertyInput.png";

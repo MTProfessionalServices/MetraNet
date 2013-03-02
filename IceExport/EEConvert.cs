@@ -66,6 +66,7 @@ namespace MetraTech.ICE.ExpressionEngine
           propertyBagTypeName = PropertyBagConstants.AccountView;
           propertyCollection = ((AccountView) oldEntity).Properties;
           var avEntity = PropertyBagFactory.CreateAccountViewEntity(oldEntity.NameWithinNamespace, oldEntity.Description);
+          CopyProperties(propertyBagTypeName, propertyCollection, avEntity.Properties);
           entity = avEntity;
           break;
         case ElementType.ProductView:
@@ -76,12 +77,15 @@ namespace MetraTech.ICE.ExpressionEngine
           //{
           //  pvEntity.UniqueKey.Add(key);
           //}
+          CopyProperties(propertyBagTypeName, propertyCollection, pvEntity.Properties);
+          pvEntity.AddCoreProperties();
           entity = pvEntity;
           break;
         case ElementType.ServiceDefinition:
           propertyBagTypeName = PropertyBagConstants.ServiceDefinition;
           propertyCollection = ((ServiceDefinition) oldEntity).Properties;
           var sdEntity = PropertyBagFactory.CreateServiceDefinitionEntity(oldEntity.NameWithinNamespace, oldEntity.Description);
+          CopyProperties(propertyBagTypeName, propertyCollection, sdEntity.Properties);
           entity = sdEntity;
           break;
         default:
@@ -90,7 +94,7 @@ namespace MetraTech.ICE.ExpressionEngine
 
       entity.Extension = oldEntity.Extension;
 
-      CopyProperties(propertyBagTypeName, propertyCollection, entity.Properties);
+ 
 
       return entity;
     }

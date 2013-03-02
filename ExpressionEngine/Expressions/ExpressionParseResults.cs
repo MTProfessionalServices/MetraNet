@@ -61,7 +61,7 @@ namespace MetraTech.ExpressionEngine.Expressions
                     parameter.Description = property.Description;
                     parameter.Type = property.Type.Copy();
                 }
-                else if (parameter.Direction == Direction.Input || parameter.Direction == Direction.InOut)
+                else if (parameter.Direction == Direction.Input || parameter.Direction == Direction.InputOutput)
                 {
                     parameter.Type = TypeFactory.CreateUnknown();
                     parameter.Description = null;

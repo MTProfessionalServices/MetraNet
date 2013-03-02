@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>In most physics textbooks, weight is the name given to the force on an object due to gravity. However, some books use an operational definition, defining the weight of an object as the force measured by the operation of weighing it (that is, the force required to support it).</Description>
+  <Name>Weight</Name>
+  <Values>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Nanogram</Description>
+      <Name>Nanogram</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Pound</Description>
+      <Name>Pound</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Petagram</Description>
+      <Name>Petagram</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Ounce</Description>
+      <Name>Ounce</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Megagram</Description>
+      <Name>Megagram</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Dram</Description>
+      <Name>Dram</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Dekagram</Description>
+      <Name>Dekagram</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Gigagram</Description>
+      <Name>Gigagram</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Kilogram</Description>
+      <Name>Kilogram</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Milligram</Description>
+      <Name>Milligram</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Microgram</Description>
+      <Name>Microgram</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Centigram</Description>
+      <Name>Centigram</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Decigram</Description>
+      <Name>Decigram</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Gram</Description>
+      <Name>Gram</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Hectogram</Description>
+      <Name>Hectogram</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Teragram</Description>
+      <Name>Teragram</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

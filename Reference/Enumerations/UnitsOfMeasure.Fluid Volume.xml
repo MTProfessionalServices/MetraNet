@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Fluid volume is how much three-dimensional space a substance (solid, liquid, gas, or plasma) or shape occupies or contains.</Description>
+  <Name>Fluid Volume</Name>
+  <Values>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Kiloliter</Description>
+      <Name>Kiloliter</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Quart</Description>
+      <Name>Quart</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Nanoliter</Description>
+      <Name>Nanoliter</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Centiliter</Description>
+      <Name>Centiliter</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Gallon</Description>
+      <Name>Gallon</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Liter</Description>
+      <Name>Liter</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Megaliter</Description>
+      <Name>Megaliter</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Pint</Description>
+      <Name>Pint</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Petaliter</Description>
+      <Name>Petaliter</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Gigaliter</Description>
+      <Name>Gigaliter</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Gill</Description>
+      <Name>Gill</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Hectoliter</Description>
+      <Name>Hectoliter</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Barrel</Description>
+      <Name>Barrel</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Dekaliter</Description>
+      <Name>Dekaliter</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Microliter</Description>
+      <Name>Microliter</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Milliliter</Description>
+      <Name>Milliliter</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Fluid Ounce</Description>
+      <Name>Fluid Ounce</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Teraliter</Description>
+      <Name>Teraliter</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Deciliter</Description>
+      <Name>Deciliter</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

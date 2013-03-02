@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>A unit of information is the capacity of some standard data storage system or communication channel, used to measure the capacities of other systems and channels.</Description>
+  <Name>Digital Information</Name>
+  <Values>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Megabit</Description>
+      <Name>Megabit</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Terabit</Description>
+      <Name>Terabit</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Gigabyte</Description>
+      <Name>Gigabyte</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Kilobit</Description>
+      <Name>Kilobit</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Kilobyte</Description>
+      <Name>Kilobyte</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Byte</Description>
+      <Name>Byte</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Bit</Description>
+      <Name>Bit</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Terabyte</Description>
+      <Name>Terabyte</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Gigabit</Description>
+      <Name>Gigabit</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Megabyte</Description>
+      <Name>Megabyte</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

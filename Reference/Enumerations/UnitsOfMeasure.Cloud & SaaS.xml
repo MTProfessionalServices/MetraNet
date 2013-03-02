@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Contains units of measure that are commonly used in Cloud and Software as a Service applications</Description>
+  <Name>Cloud &amp; SaaS</Name>
+  <Values>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Database</Description>
+      <Name>Database</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Seat</Description>
+      <Name>Seat</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Report</Description>
+      <Name>Report</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Download</Description>
+      <Name>Download</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>User</Description>
+      <Name>User</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Click</Description>
+      <Name>Click</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Server</Description>
+      <Name>Server</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>View</Description>
+      <Name>View</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Location</Description>
+      <Name>Location</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Instance</Description>
+      <Name>Instance</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases i:nil="true" />
+      <Description>Email</Description>
+      <Name>Email</Name>
+    </EnumValue>
+  </Values>
+</EnumCategory>

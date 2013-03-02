@@ -59,18 +59,18 @@ namespace MetraTech.ExpressionEngine
             LoadEmailTemplates(GlobalContext, Path.Combine(DataPath, "EmailTemplates"));
             LoadEmailInstances(GlobalContext, Path.Combine(DataPath, "EmailInstances"));
 
-            var uomCategory = new UnitOfMeasureCategory("DigitalInformation");
-            uomCategory.AddUnitOfMeasure("Gb", false);
-            uomCategory.AddUnitOfMeasure("Mb", false);
-            uomCategory.AddUnitOfMeasure("kb", false);
-            GlobalContext.UnitOfMeasures.Add(uomCategory.Name, uomCategory);
+            //var uomCategory = new UnitOfMeasureCategory("DigitalInformation");
+            //uomCategory.AddUnitOfMeasure("Gb", false);
+            //uomCategory.AddUnitOfMeasure("Mb", false);
+            //uomCategory.AddUnitOfMeasure("kb", false);
+            //GlobalContext.UnitOfMeasures.Add(uomCategory.Name, uomCategory);
 
-            uomCategory = new UnitOfMeasureCategory("Time");
-            uomCategory.AddUnitOfMeasure("Millisecond", false);
-            uomCategory.AddUnitOfMeasure("Second", false);
-            uomCategory.AddUnitOfMeasure("Minute", false);
-            uomCategory.AddUnitOfMeasure("Hour", false);
-            GlobalContext.UnitOfMeasures.Add(uomCategory.Name, uomCategory);
+            //uomCategory = new UnitOfMeasureCategory("Time");
+            //uomCategory.AddUnitOfMeasure("Millisecond", false);
+            //uomCategory.AddUnitOfMeasure("Second", false);
+            //uomCategory.AddUnitOfMeasure("Minute", false);
+            //uomCategory.AddUnitOfMeasure("Hour", false);
+            //GlobalContext.UnitOfMeasures.Add(uomCategory.Name, uomCategory);
         }
 
         #endregion
@@ -369,7 +369,7 @@ namespace MetraTech.ExpressionEngine
         public static void LoadFunctions()
         {
             DemoLoader.GlobalContext.Functions.Clear();
-            var dirInfo = new DirectoryInfo(Path.Combine(DirPath, "Functions"));
+            var dirInfo = new DirectoryInfo(Path.Combine(DirPath, @"Reference\Functions"));
             foreach (var file in dirInfo.GetFiles("*.xml"))
             {
                 var func = Function.CreateFromFile(file.FullName);

@@ -41,6 +41,7 @@ namespace PropertyGui
             cboInequalityOperator.Text = UserContext.Settings.DefaultInequalityOperator;
             chkShowAcutalMappings.Checked = UserContext.Settings.ShowActualMappings;
             chkAutoSelectInsertedSnippets.Checked = UserContext.Settings.AutoSelectInsertedSnippets;
+            chkNewSyntax.Checked = UserContext.Settings.NewSyntax;
         }
 
         private void LoadCombo<T>(ComboBox cbo, IEnumerable<T> items)

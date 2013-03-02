@@ -79,6 +79,7 @@ namespace MetraTech.ICE.ExpressionEngine
           //}
           CopyProperties(propertyBagTypeName, propertyCollection, pvEntity.Properties);
           pvEntity.AddCoreProperties();
+          SetMeteredValues(pvEntity);
           entity = pvEntity;
           break;
         case ElementType.ServiceDefinition:
@@ -93,10 +94,21 @@ namespace MetraTech.ICE.ExpressionEngine
       }
 
       entity.Extension = oldEntity.Extension;
-
- 
-
       return entity;
+    }
+
+    private static void SetMeteredValues(ProductViewEntity pv)
+    {
+        var sd = (ServiceDefinition)Config.Instance.GetElement(ElementType.ServiceDefinition, pv.Name);
+        if (sd == null)
+            return;
+
+        foreach (var property in pv.Properties)
+        {
+            var sdProperty = sd.Properties.GetByName(property.Name);
+            if (sdProperty != null)
+                ((ProductViewProperty) property).IsMetered = true;
+        }
     }
 
     #region Functions

@@ -6,7 +6,8 @@ using MetraTech.ExpressionEngine.Validations;
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
     /// <summary>
-    /// The root class for all types
+    /// The base class for all types. Note that simple types (i.e., boolean) aren't implemented
+    /// as a subclass. The simply have a different BaseType.
     /// </summary>
     [DataContract (Namespace = "MetraTech")]
     [KnownType(typeof(EnumerationType))]
@@ -19,7 +20,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #region Properties
 
         /// <summary>
-        /// The underlying type (e.g, string, int32, int64, etc.)
+        /// The underlying type (e.g, String, Integer32, Integer64, etc.)
         /// </summary>
         [DataMember]
         public BaseType BaseType { get; private set; }

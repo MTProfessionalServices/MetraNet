@@ -1,0 +1,29 @@
+<Function xmlns="MetraTech" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <Category>Logic</Category>
+  <Description>Determines if a enumeration value is within the specified list of values.</Description>
+  <DynamicParameterMin>0</DynamicParameterMin>
+  <DynamicParameterPrototype i:nil="true"/>
+  <FixedParameters>
+    <Properties>
+      <Property>
+        <DefaultValue i:nil="true"/>
+        <Description>The enumeration value that you want to determine if in the list of values.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Value</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+    </Properties>
+  </FixedParameters>
+  <Name>In</Name>
+  <ReturnType i:type="NumberType">
+    <BaseType>Boolean</BaseType>
+    <ListType>None</ListType>
+    <UnitOfMeasureMode>None</UnitOfMeasureMode>
+    <UnitOfMeasureQualifier i:nil="true"/>
+  </ReturnType>
+</Function>

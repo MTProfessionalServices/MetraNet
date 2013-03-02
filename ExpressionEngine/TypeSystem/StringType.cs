@@ -4,12 +4,15 @@ using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
+    /// <summary>
+    /// A string data type.
+    /// </summary>
     [DataContract (Namespace = "MetraTech")]
     public class StringType : Type
     {
         #region Properties
         /// <summary>
-        /// Only valid when BaseType is String
+        /// The length of the string. This is only relevant when stored in the database.
         /// </summary>
         [DataMember]
         public int Length { get; set; }

@@ -15,7 +15,10 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// </summary>
         [DataMember]
         public string Name { get; set; }
-
+        
+        /// <summary>
+        /// Indicates the property bag's behavior
+        /// </summary>
         [DataMember]
         public PropertyBagMode PropertyBagMode { get; set; }
 

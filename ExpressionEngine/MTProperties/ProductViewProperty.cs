@@ -8,6 +8,9 @@ namespace MetraTech.ExpressionEngine.MTProperties
     {
         #region Properties
         [DataMember]
+        public bool IsMetered { get; set; }
+
+        [DataMember]
         public bool UserVisible { get; set; }
 
         [DataMember]

@@ -8,53 +8,49 @@ namespace MetraTech.ExpressionEngine.Components
     /// <summary>
     /// </summary>
     [DataContract (Namespace = "MetraTech")]
-    public class UnitOfMeasureCategory : IExpressionEngineTreeNode
+    public class UnitOfMeasureCategory : EnumCategory, IExpressionEngineTreeNode
     {
         #region Properties
-        [DataMember]
-        public string Name { get; set; }
 
-        public string ToExpressionSnippet { get { return string.Format(CultureInfo.InvariantCulture, "UoM.{0}", Name); } }       
+        public override string ToExpressionSnippet { get { return string.Format(CultureInfo.InvariantCulture, "UoM.{0}", Name); } }       
         
-        [DataMember]
-        public Collection<UnitOfMeasure> Items { get; private set; }
+        //[DataMember]
+        //public Collection<UnitOfMeasure> Items { get; private set; }
         #endregion
 
         #region GUI Helper Properties (Remove in future)
-        public string TreeNodeLabel { get { return Name; } }
-        public string Image { get { return "UnitOfMeasureCategory.png"; } }
-        public string ToolTip { get { return null; } }
+        public override string Image { get { return "UnitOfMeasureCategory.png"; } }
         #endregion
 
         #region Constructor
-        public UnitOfMeasureCategory(string name)
+        public UnitOfMeasureCategory(EnumNamespace parent, string name, int id, string description) : base(parent, name, id, description)
         {
-            Name = name;
-            Items = new Collection<UnitOfMeasure>();
+            IsUnitOfMeasure = true;
+            //Items = new Collection<UnitOfMeasure>();
         }
         #endregion
 
         #region Methods
-        public UnitOfMeasure AddUnitOfMeasure(string name, bool isMetric)
+        public UnitOfMeasure AddUnitOfMeasure(string name, int id, bool isMetric)
         {
-            var uom = new UnitOfMeasure(this, name, isMetric);
-            Items.Add(uom);
+            var uom = new UnitOfMeasure(this, name, id, isMetric);
+            Values.Add(uom);
             return uom;
         }
         #endregion
 
         #region IO Methods
 
-        public static UnitOfMeasureCategory CreateFromFile(string file)
-        {
-            var xmlContent = File.ReadAllText(file);
-            return CreateFromString(xmlContent);
-        }
+        //public static UnitOfMeasureCategory CreateFromFile(string file)
+        //{
+        //    var xmlContent = File.ReadAllText(file);
+        //    return CreateFromString(xmlContent);
+        //}
 
-        public static UnitOfMeasureCategory CreateFromString(string xmlContent)
-        {
-            return IOHelper.CreateFromString<UnitOfMeasureCategory>(xmlContent);
-        }
+        //public static UnitOfMeasureCategory CreateFromString(string xmlContent)
+        //{
+        //    return IOHelper.CreateFromString<UnitOfMeasureCategory>(xmlContent);
+        //}
 
         #endregion
     }

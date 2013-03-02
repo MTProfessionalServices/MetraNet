@@ -2,10 +2,12 @@
 using System.Globalization;
 using System.Runtime.Serialization;
 using System.IO;
+using MetraTech.ExpressionEngine.PropertyBags;
 
 namespace MetraTech.ExpressionEngine.Components
 {
     [DataContract (Namespace = "MetraTech")]
+    [KnownType(typeof(UnitOfMeasureCategory))]
     public class EnumCategory : IExpressionEngineTreeNode
     {
         #region Properties
@@ -19,6 +21,11 @@ namespace MetraTech.ExpressionEngine.Components
         /// </summary>
         [DataMember]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Indicates if the Category is a unit of measure (e.g., Duration, Length, etc.)
+        /// </summary>
+        public bool IsUnitOfMeasure { get; set; }
 
         /// <summary>
         /// The description that the user provides
@@ -43,7 +50,7 @@ namespace MetraTech.ExpressionEngine.Components
         #region GUI Support Properties (should be moved in future)
 
         public string TreeNodeLabel { get { return Name; } }
-        public string Image { get { return "EnumType.png"; } }
+        public virtual string Image { get { return "EnumType.png"; } }
 
         /// <summary>
         /// TOGO Localize
@@ -82,7 +89,7 @@ namespace MetraTech.ExpressionEngine.Components
             return enumValue;
         }
 
-        public string ToExpressionSnippet
+        public virtual string ToExpressionSnippet
         {
             get
             {

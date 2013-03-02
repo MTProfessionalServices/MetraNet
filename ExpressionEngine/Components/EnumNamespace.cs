@@ -76,9 +76,9 @@ namespace MetraTech.ExpressionEngine.Components
 
         #region Methods
 
-        public EnumCategory AddCategory(string name, int id, string description)
+        public EnumCategory AddCategory(bool isUnitOfMeasure, string name, int id, string description)
         {
-            var category = new EnumCategory(this, name, id, description);
+            var category = EnumFactory.CreateCategory(this, isUnitOfMeasure, name, id, description);
             Categories.Add(category);
             return category;
         }

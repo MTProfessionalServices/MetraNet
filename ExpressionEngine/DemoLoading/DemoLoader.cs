@@ -53,7 +53,6 @@ namespace MetraTech.ExpressionEngine
                 GlobalContext = Context.LoadMetanga(DataPath);
             }
 
-
             LoadFunctions();
             LoadExpressions();
             LoadEmailTemplates(GlobalContext, Path.Combine(DataPath, "EmailTemplates"));
@@ -294,7 +293,7 @@ namespace MetraTech.ExpressionEngine
 
                 var enumValueObj = EnumNamespace.AddEnum(context, enumNamespace, enumType, -1, enumValue, id);
                 enumValueObj.Description = propertyDescription;
-                enumValueObj.EnumType.Description = entityDescription;
+                enumValueObj.EnumCategory.Description = entityDescription;
             }
         }
 

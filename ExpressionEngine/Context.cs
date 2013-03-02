@@ -456,6 +456,7 @@ namespace MetraTech.ExpressionEngine
             {
                 LoadExtension(context, extensionDirInfo);
             }
+            context.LoadUnitsOfMeasure();
             return context;
         }
 
@@ -472,15 +473,21 @@ namespace MetraTech.ExpressionEngine
 
             EnumNamespace.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "Enumerations"), extensionDir.Name, context);
             PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "AccountViews"), "AccountView", context);
-            PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "ProductViews"), "ProductView", context);     
+            PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "ProductViews"), "ProductView", context);
         }
         
         public static Context LoadMetanga(string dirPath)
         {
             var context = new Context(ProductType.Metanga);
-            //EnumNamespace.LoadDirectoryIntoContext(Path.Combine(dirPath, "EnumCategories"), null, context);
+            EnumNamespace.LoadDirectoryIntoContext(Path.Combine(dirPath, "EnumCategories"), null, context);
             PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(dirPath, "PropertyBags"), null, context);
+            context.LoadUnitsOfMeasure();
             return context;
+        }
+
+        private void LoadUnitsOfMeasure()
+        {
+            EnumNamespace.LoadDirectoryIntoContext(@"C:\ExpressionEngine\Reference\Enumerations", null, this);
         }
         #endregion
 

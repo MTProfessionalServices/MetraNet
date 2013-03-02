@@ -68,6 +68,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeSystem\StringTypeTest.cs" />
     <Compile Include="TypeSystem\TypeTest.cs" />
+    <Compile Include="Components\UnitOfMeasureCategoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExpressionEngine\ExpressionEngine.csproj">
@@ -75,7 +76,9 @@
       <Name>ExpressionEngine</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Spelling\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

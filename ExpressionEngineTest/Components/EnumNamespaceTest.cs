@@ -36,7 +36,7 @@ namespace ExpressionEngineTest
             //Add it
             string name = "Global";
             string description = "Primary enum type";
-            var enumType = enumSpace.AddCategory(name, 1, description);
+            var enumType = enumSpace.AddCategory(false, name, 1, description);
 
             //Look it up
             EnumCategory enumTypeLookup;
@@ -62,7 +62,7 @@ namespace ExpressionEngineTest
             Assert.IsFalse(enumSpace.TryGetEnumType(name, out enumType), "Empty list");
 
             //Add it
-            var actualEnumType = enumSpace.AddCategory("Global", 1, null);
+            var actualEnumType = enumSpace.AddCategory(false, "Global", 1, null);
 
             //Look it up
             Assert.IsTrue(enumSpace.TryGetEnumType(name, out enumType), "Expect to find");

@@ -1,5 +1,6 @@
 ﻿using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Validations.Enumerations;
+using System.Globalization;
 
 namespace MetraTech.ExpressionEngine.Validations
 {
@@ -40,6 +41,18 @@ namespace MetraTech.ExpressionEngine.Validations
             LineNumber = lineNumber;
             ColumnNumber = columnNumber;
         }
+        #endregion
+
+        #region Methods
+
+        public override string ToString()
+        {
+            var str = string.Format(CultureInfo.CurrentUICulture, "[{0}] {1}", Severity, Message);
+            if (LineNumber != ValidationMessageCollection.NoPosition)
+                str += (string.Format(CultureInfo.CurrentUICulture, "Line {0} Column {1}", LineNumber, ColumnNumber));
+            return str;
+        }
+
         #endregion
     }
 }

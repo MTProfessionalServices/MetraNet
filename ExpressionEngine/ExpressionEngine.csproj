@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Charges\Charge.cs" />
+    <Compile Include="Components\EnumFactory.cs" />
     <Compile Include="Expressions\Enumerations\ConfigurationType.cs" />
     <Compile Include="Database\UniqueKey.cs" />
     <Compile Include="Expressions\Constants\ExpressionConstants.cs" />
@@ -58,6 +59,8 @@
     <Compile Include="IOHelper.cs" />
     <Compile Include="MTProperties\MetraNetPropertyBase.cs" />
     <Compile Include="Expressions\Enumerations\ProductType.cs" />
+    <Compile Include="Spelling\CustomDictionary.cs" />
+    <Compile Include="Spelling\Spelling.cs" />
     <Compile Include="TypeSystem\Constants\PropertyBagConstants.cs" />
     <Compile Include="TypeSystem\Enumerations\PropertyBagMode.cs" />
     <Compile Include="Expressions\Enumerations\ExpressionType.cs" />

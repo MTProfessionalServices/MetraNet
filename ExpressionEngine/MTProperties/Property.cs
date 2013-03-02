@@ -237,13 +237,14 @@ namespace MetraTech.ExpressionEngine.MTProperties
         /// </summary>
         public Property GetUnitOfMeasureProperty()
         {
-            if (!Type.IsNumeric || Type.IsMoney)
-                return null;
+            return null;
+            //if (!Type.IsNumeric || Type.IsMoney)
+            //    return null;
 
-            var type = (NumberType)Type;
-            if (!Type.IsNumeric || type.UnitOfMeasureMode != UnitOfMeasureMode.Property || PropertyCollection == null)
-                return null;
-            return PropertyCollection.Get(type.UnitOfMeasureQualifier);
+            //var type = (NumberType)Type;
+            //if (!Type.IsNumeric || type.UnitOfMeasureMode != UnitOfMeasureMode.Property || PropertyCollection == null)
+            //    return null;
+            //return PropertyCollection.Get(type.UnitOfMeasureQualifier);
         }
 
         public virtual object Clone()

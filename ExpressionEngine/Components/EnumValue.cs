@@ -7,6 +7,7 @@ using MetraTech.ExpressionEngine.Components;
 namespace MetraTech.ExpressionEngine
 {
     [DataContract (Namespace = "MetraTech")]
+    [KnownType(typeof(UnitOfMeasure))]
     public class EnumValue : IExpressionEngineTreeNode
     {
         #region Properties
@@ -14,13 +15,15 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// The EnumType to which the value belongs
         /// </summary>
-        public EnumCategory EnumType { get; private set; }
+        public EnumCategory EnumCategory { get; private set; }
 
         /// <summary>
         /// The name of the enum value. Must be unique within the enum type
         /// </summary>
         [DataMember]
         public string Name { get; set; }
+
+        public bool IsUnitOfMeasure { get { return EnumCategory.IsUnitOfMeasure; } }
 
         /// <summary>
         /// Aliased values when integrating with an external system. Used by MetraNet for metering usage data
@@ -45,7 +48,7 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// TOGO Localize
         /// </summary>
-        public string ToolTip
+        public virtual string ToolTip
         {
             get
             {
@@ -63,14 +66,14 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// The 16x16 image associated with the value
         /// </summary>
-        public string Image { get { return "EnumValue.png"; } }
+        public virtual string Image { get { return "EnumValue.png"; } }
 
         #endregion 
 
         #region Constructor
         public EnumValue(EnumCategory parent, string value, int id)
         {
-            EnumType = parent;
+            EnumCategory = parent;
             Name = value;
             Id = id;
 
@@ -84,7 +87,7 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public string ToMtsql()
         {
-            return string.Format(CultureInfo.InvariantCulture, "#{0}/{1}/{2}#", EnumType.EnumNamespace.Name, EnumType.Name, Name);
+            return string.Format(CultureInfo.InvariantCulture, "#{0}/{1}/{2}#", EnumCategory.EnumNamespace.Name, EnumCategory.Name, Name);
         }
 
         /// <summary>
@@ -96,8 +99,8 @@ namespace MetraTech.ExpressionEngine
             {
                 if (UserContext.Settings.NewSyntax)
                 {
-                    var enumSpace = EnumType.EnumNamespace.Name.Replace('.', '_');
-                    return string.Format(CultureInfo.InvariantCulture, "ENUM.{0}.{1}.{2}", enumSpace, EnumType.Name, Name);
+                    var enumSpace = EnumCategory.EnumNamespace.Name.Replace('.', '_');
+                    return string.Format(CultureInfo.InvariantCulture, "ENUM.{0}.{1}.{2}", enumSpace, EnumCategory.Name, Name);
                 }
                 return ToMtsql();
             }

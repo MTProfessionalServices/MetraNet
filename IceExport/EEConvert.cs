@@ -161,7 +161,7 @@ namespace MetraTech.ICE.ExpressionEngine
 
         foreach (var oldEnumType in oldEnumNamespace.EnumTypes.Values)
         {
-          var newEnumType = newEnumNamespace.AddCategory(oldEnumType.Name, 0, oldEnumType.Description);
+          var newEnumType = newEnumNamespace.AddCategory(false, oldEnumType.Name, 0, oldEnumType.Description);
           foreach (var oldEnumValue in oldEnumType.EnumValues.Values)
           {
             var newEnumValue = newEnumType.AddValue(oldEnumValue.Name, 0);

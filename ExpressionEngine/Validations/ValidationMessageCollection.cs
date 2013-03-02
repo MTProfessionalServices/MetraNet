@@ -99,11 +99,7 @@ namespace MetraTech.ExpressionEngine.Validations
             var sb = new StringBuilder();
             foreach (var message in Messages)
             {
-                sb.Append(string.Format(CultureInfo.CurrentUICulture, "[{0}] {1}", message.Severity, message.Message));
-                if (message.LineNumber != NoPosition)
-                    sb.AppendLine(string.Format(CultureInfo.CurrentUICulture, "Line {0} Column {1}", message.LineNumber, message.ColumnNumber));
-                else
-                    sb.AppendLine();
+                sb.AppendLine(message.ToString());
             }
             return sb.ToString();
         }

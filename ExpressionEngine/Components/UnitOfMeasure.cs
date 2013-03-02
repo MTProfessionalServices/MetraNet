@@ -1,28 +1,23 @@
-﻿using System.Globalization;
+﻿using System.Runtime.Serialization;
 
 namespace MetraTech.ExpressionEngine.Components
 {
-    public class UnitOfMeasure : IExpressionEngineTreeNode
+    [DataContract(Namespace = "MetraTech")]
+    public class UnitOfMeasure :  EnumValue //IExpressionEngineTreeNode
     {
         #region Properties
         public UnitOfMeasureCategory Category { get; private set; }
-        public string Name { get; set; }
-        public string PrintSymbol { get; private set; }
-        public bool IsMetric { get; private set; }
-        public string ToExpressionSnippet { get { return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", Category.ToExpressionSnippet, Name); } }
+        public string PrintSymbol { get; set; }
+        public bool IsMetric { get;  set; } 
         #endregion
 
         #region GUI Support Properties (should be moved in future)
-        public string TreeNodeLabel { get { return Name; } }
-        public string Image { get { return "UnitOfMeasure.png"; } }
-        public string ToolTip { get { return null; } }
+        public override string Image { get { return "UnitOfMeasure.png"; } }
         #endregion
 
         #region Constructor
-        public UnitOfMeasure(UnitOfMeasureCategory category, string name, bool isMetric)
+        public UnitOfMeasure(UnitOfMeasureCategory category, string value, int id, bool isMetric) : base(category, value, id)
         {
-            Category = category;
-            Name = name;
             IsMetric = isMetric;
         }
         #endregion

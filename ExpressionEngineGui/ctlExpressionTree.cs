@@ -119,7 +119,7 @@ namespace PropertyGui
                     foreach (var uomCategory in Context.UnitOfMeasures.Values)
                     {
                         var uomCategoryNode = CreateNode(uomCategory);
-                        foreach (var uom in uomCategory.Items)
+                        foreach (var uom in uomCategory.Values)
                         {
                             CreateNode(uom, uomCategoryNode);
                         }

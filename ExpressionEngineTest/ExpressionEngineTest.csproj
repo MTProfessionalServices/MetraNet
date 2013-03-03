@@ -58,6 +58,7 @@
     <Compile Include="MTProperties\PropertyCollectionTest.cs" />
     <Compile Include="MTProperties\ProductViewPropertyTest.cs" />
     <Compile Include="PropertyBags\ProductViewEntityTest.cs" />
+    <Compile Include="SpellingEngineTest.cs" />
     <Compile Include="TypeSystem\MoneyTypeTest.cs" />
     <Compile Include="TypeSystem\EnumerationTypeTest.cs" />
     <Compile Include="Components\EnumNamespaceTest.cs" />

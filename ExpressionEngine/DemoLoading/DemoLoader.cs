@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using CsvHelper;
 using CsvHelper.Configuration;
-using Metanga.Miscellaneous.MetadataExport;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Expressions;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
@@ -39,17 +37,12 @@ namespace MetraTech.ExpressionEngine
             if (Context.ProductType == ProductType.MetraNet)
             {
                 GlobalContext = Context.LoadExtensions(Path.Combine(DataPath, "Extensions"));
-
-                //AddCloudComputeProductView();
-                //GlobalContext.AddEntity(DemoLoader.GetCorporateAccountType());
-                //AddAircraftLandingProductView();
+;
                 LoadXqg(GlobalContext, ExpressionType.Aqg, Path.Combine(DataPath, "AqgExpressions.csv"));
                 LoadXqg(GlobalContext, ExpressionType.Uqg, Path.Combine(DataPath, "UqgExpressions.csv"));
             }
             else
             {
-                //LoadEntities(GlobalContext, null, Path.Combine(DataPath, "Entities.csv"));
-                //LoadEnumFile(GlobalContext, Path.Combine(DataPath, "Enums.csv"));
                 GlobalContext = Context.LoadMetanga(DataPath);
             }
 
@@ -57,19 +50,6 @@ namespace MetraTech.ExpressionEngine
             LoadExpressions();
             LoadEmailTemplates(GlobalContext, Path.Combine(DataPath, "EmailTemplates"));
             LoadEmailInstances(GlobalContext, Path.Combine(DataPath, "EmailInstances"));
-
-            //var uomCategory = new UnitOfMeasureCategory("DigitalInformation");
-            //uomCategory.AddUnitOfMeasure("Gb", false);
-            //uomCategory.AddUnitOfMeasure("Mb", false);
-            //uomCategory.AddUnitOfMeasure("kb", false);
-            //GlobalContext.UnitOfMeasures.Add(uomCategory.Name, uomCategory);
-
-            //uomCategory = new UnitOfMeasureCategory("Time");
-            //uomCategory.AddUnitOfMeasure("Millisecond", false);
-            //uomCategory.AddUnitOfMeasure("Second", false);
-            //uomCategory.AddUnitOfMeasure("Minute", false);
-            //uomCategory.AddUnitOfMeasure("Hour", false);
-            //GlobalContext.UnitOfMeasures.Add(uomCategory.Name, uomCategory);
         }
 
         #endregion
@@ -162,141 +142,6 @@ namespace MetraTech.ExpressionEngine
 
             return entity;
         }
-        #endregion
-
-        #region File-Based Entities
-        public static void LoadEntities(Context context, string propertyBagTypeName, string filePath)
-        {
-            if (context == null)
-                throw new ArgumentException("context");
-
-            var entityList = ReadRecordsFromCsv<EntityRecord>(filePath);
-            foreach (var entityRecord in entityList)
-            {
-                var entityParts = entityRecord.EntityName.Split('/');
-                //var entityNamespace = entityParts[0];
-                var entityName = entityParts[1];
-                var propName = entityRecord.PropertyName;
-                var required = TypeHelper.GetBoolean(entityRecord.IsRequired);
-                var typeStr = entityRecord.PropertyType;
-                var enumSpace = entityRecord.Namespace;
-                var enumType = entityRecord.EnumType;
-
-                var entityDescription = Helper.CleanUpWhiteSpace(entityRecord.EntityDescription);
-                var propertyDescription = Helper.CleanUpWhiteSpace(entityRecord.PropertyDescription);
-
-                PropertyBag entity;
-                if (!context.Entities.TryGetValue(entityName, out entity))
-                {
-                    if (Context.ProductType == ProductType.MetraNet)
-                        entity = PropertyBagFactory.Create(propertyBagTypeName, entityName, entityDescription);
-                    else
-                    {
-                        //Current CSV doesn't have enough info, they assume all entities aren't expandable
-                        var propertyBagMode = entityRecord.IsEntity
-                                                  ? PropertyBagMode.Entity
-                                                  : PropertyBagMode.PropertyBag;
-                        entity = new PropertyBag(entityName, propertyBagTypeName, propertyBagMode, entityDescription);
-                    }
-                    context.Entities.Add(entity.Name, entity);
-                }
-
-                Type type;
-                if (Context.ProductType == ProductType.MetraNet)
-                {
-                    type = TypeFactory.Create(Int32.Parse(typeStr, NumberStyles.Integer));
-                }
-                else
-                    type = TypeFactory.Create(typeStr);
-
-                switch (type.BaseType)
-                {
-                    case BaseType.Enumeration:
-                        var _enumType = (EnumerationType)type;
-                        _enumType.Namespace = enumSpace;
-                        _enumType.Category = enumType;
-                        break;
-                    case BaseType.PropertyBag:
-                        var propertyBagType = (PropertyBagType)type;
-                        propertyBagType.Name = enumType; //we overrode the column
-                        break;
-                }
-
-                if (entityRecord.ListType == null)
-                {
-                    type.ListType = ListType.None;
-                }
-                else
-                {
-                    type.ListType = (ListType)Enum.Parse(typeof(ListType), entityRecord.ListType, true);
-                }
-
-                var property = new Property(propName, type, true, propertyDescription);
-                property.Required = required;
-                entity.Properties.Add(property);
-            }
-        }
-
-        private static IEnumerable<T> ReadRecordsFromCsv<T>(string filePath) where T : class
-        {
-            var configuration = new CsvConfiguration
-                                    {
-                                        IsStrictMode = false,
-                                        HasHeaderRecord = true
-                                    };
-            using (var streamReader = new StreamReader(filePath))
-            {
-                var csv = new CsvReader(streamReader, configuration);
-                var entityList = csv.GetRecords<T>().ToList();
-                return entityList;
-            }
-        }
-
-        #endregion
-
-        #region Enums
-        public static void LoadEnumFile(Context context, string filePath)
-        {
-            var enumList = ReadRecordsFromCsv<EnumRecord>(filePath);
-
-            foreach (var enumRecord in enumList)
-            {
-                var enumValue = enumRecord.EnumValue;
-                var spaceAndType = enumRecord.Namespace;
-                var idStr = enumRecord.EnumDataId;
-
-                var entityDescription = Helper.CleanUpWhiteSpace(enumRecord.EnumDescription);
-                var propertyDescription = Helper.CleanUpWhiteSpace(enumRecord.ValueDescription);
-
-                int id;
-                if (string.IsNullOrEmpty(idStr))
-                    id = 0;
-                else
-                {
-                    if (!Int32.TryParse(idStr, out id))
-                        id = 0;
-                }
-
-                if (string.IsNullOrWhiteSpace(spaceAndType))
-                {
-                    continue;
-                }
-
-                var enumParts = spaceAndType.Split('/');
-
-                //EnumNamespace?
-                if (enumParts.Length == 1)
-                    continue;
-
-                var enumType = enumParts[enumParts.Length - 1];
-                var enumNamespace = spaceAndType.Substring(0, spaceAndType.Length - enumType.Length - 1); //account for one slash
-
-                var enumValueObj = EnumNamespace.AddEnum(context, enumNamespace, enumType, -1, enumValue, id);
-                enumValueObj.Description = propertyDescription;
-                enumValueObj.EnumCategory.Description = entityDescription;
-            }
-        }
-
         #endregion
 
         #region XQGs

@@ -129,13 +129,11 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             if (messages == null)
                 messages = new ValidationMessageCollection();
 
-            var prefix = string.Format(CultureInfo.InvariantCulture, Localization.PropertyMessagePrefix, Name);
+            base.Validate(true, messages);
 
-            //if (NameRegex.IsMatch(Name))
-            //    messages.Error(prefix + Localization.InvalidName);
+            //var prefix = string.Format(CultureInfo.InvariantCulture, Localization.PropertyMessagePrefix, Name);
 
-            Type.Validate(prefix, messages);
-
+            //Valiate all of the properties
             foreach (var property in Properties)
             {
                 property.Validate(prefixMsg, messages);

@@ -55,6 +55,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnSendEvent = new System.Windows.Forms.Button();
+            this.btnValidate = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -330,11 +331,22 @@
             this.btnSendEvent.UseVisualStyleBackColor = true;
             this.btnSendEvent.Click += new System.EventHandler(this.btnSendEvent_Click);
             // 
+            // btnValidate
+            // 
+            this.btnValidate.Location = new System.Drawing.Point(588, 341);
+            this.btnValidate.Name = "btnValidate";
+            this.btnValidate.Size = new System.Drawing.Size(75, 23);
+            this.btnValidate.TabIndex = 19;
+            this.btnValidate.Text = "Validate";
+            this.btnValidate.UseVisualStyleBackColor = true;
+            this.btnValidate.Click += new System.EventHandler(this.btnValidate_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(774, 408);
+            this.Controls.Add(this.btnValidate);
             this.Controls.Add(this.btnSendEvent);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -387,5 +399,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnSendEvent;
+        private System.Windows.Forms.Button btnValidate;
     }
 }

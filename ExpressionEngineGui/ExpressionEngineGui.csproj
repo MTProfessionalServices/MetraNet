@@ -148,6 +148,12 @@
     <Compile Include="frmTest.Designer.cs">
       <DependentUpon>frmTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmValidationMessages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmValidationMessages.Designer.cs">
+      <DependentUpon>frmValidationMessages.cs</DependentUpon>
+    </Compile>
     <Compile Include="MvcAbstraction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -193,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmValidationMessages.resx">
+      <DependentUpon>frmValidationMessages.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

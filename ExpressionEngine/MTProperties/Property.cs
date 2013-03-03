@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.PropertyBags;
+using MetraTech.ExpressionEngine.Spelling;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Validations;
@@ -30,7 +31,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
         /// <summary>
         /// Used to validate the Name property
         /// </summary>
-        private readonly Regex NameRegex = new Regex(".*");//[a-zA-Z][a-ZA-Z0-9_]*");
+        private static readonly Regex NameRegex = new Regex("[a-zA-Z][a-zA-Z0-9_]*");
         #endregion
 
         #region Properties
@@ -268,11 +269,18 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
             var prefix = string.Format(CultureInfo.CurrentUICulture, Localization.PropertyMessagePrefix, Name);
 
-            if (NameRegex.IsMatch(Name))
-                messages.Error(prefix + Localization.InvalidName);
+            if (string.IsNullOrWhiteSpace(Name))
+                messages.Error(prefix + Localization.NameNotSpecified);
+            else
+            {
+                if (!NameRegex.IsMatch(Name))
+                    messages.Error(prefix + Localization.InvalidName);
+                else
+                    SpellingEngine.CheckWord(Name, null, messages);
+            }
 
             Type.Validate(prefix, messages);
-
+            SpellingEngine.CheckString(Description, null, messages);
             return messages;
         }
 

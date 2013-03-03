@@ -60,7 +60,8 @@
     <Compile Include="MTProperties\MetraNetPropertyBase.cs" />
     <Compile Include="Expressions\Enumerations\ProductType.cs" />
     <Compile Include="Spelling\CustomDictionary.cs" />
-    <Compile Include="Spelling\Spelling.cs" />
+    <Compile Include="Spelling\CustomDictionaryResult.cs" />
+    <Compile Include="Spelling\SpellingEngine.cs" />
     <Compile Include="TypeSystem\Constants\PropertyBagConstants.cs" />
     <Compile Include="TypeSystem\Enumerations\PropertyBagMode.cs" />
     <Compile Include="Expressions\Enumerations\ExpressionType.cs" />
@@ -85,8 +86,6 @@
     <Compile Include="PropertyBags\PropertyBag.cs" />
     <Compile Include="EmailInstance.cs" />
     <Compile Include="EmailTemplate.cs" />
-    <Compile Include="DemoLoading\EntityRecord.cs" />
-    <Compile Include="DemoLoading\EnumRecord.cs" />
     <Compile Include="Components\EnumNamespace.cs" />
     <Compile Include="Components\EnumCategory.cs" />
     <Compile Include="Components\EnumValue.cs" />

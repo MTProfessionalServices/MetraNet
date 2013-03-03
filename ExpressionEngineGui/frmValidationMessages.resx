@@ -117,40 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AllChoice" xml:space="preserve">
-    <value>&lt;All&gt;</value>
-  </data>
-  <data name="BaseTypeIncorrect" xml:space="preserve">
-    <value>The BaseType must be {0} for this action not {1}</value>
-  </data>
-  <data name="DuplicatePropertyName" xml:space="preserve">
-    <value>Duplicate Property Name: '{0}'</value>
-  </data>
-  <data name="EnumNamespaceNotSpecified" xml:space="preserve">
-    <value>Enum NameSpace not specified</value>
-  </data>
-  <data name="EnumTypeNotSpecified" xml:space="preserve">
-    <value>EnumType not specified</value>
-  </data>
-  <data name="ExpressionIsValid" xml:space="preserve">
-    <value>The expression is valid.</value>
-  </data>
-  <data name="InvalidName" xml:space="preserve">
-    <value>Invalid Name</value>
-  </data>
-  <data name="NameNotSpecified" xml:space="preserve">
-    <value>Name not specified</value>
-  </data>
-  <data name="PropertyMessagePrefix" xml:space="preserve">
-    <value>Property '{0}':</value>
-  </data>
-  <data name="UnableToFindEnumNamespace" xml:space="preserve">
-    <value>Unaable to find the '{0}' NameSpace</value>
-  </data>
-  <data name="UnableToFindEnumType" xml:space="preserve">
-    <value>Unable to find the '{0}' EnumType</value>
-  </data>
-  <data name="UnableToFindProperty" xml:space="preserve">
-    <value>Unable to find '{0}' property in the current context</value>
-  </data>
 </root>

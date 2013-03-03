@@ -124,6 +124,15 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name not specified.
+        /// </summary>
+        internal static string NameNotSpecified {
+            get {
+                return ResourceManager.GetString("NameNotSpecified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Property &apos;{0}&apos;:.
         /// </summary>
         internal static string PropertyMessagePrefix {

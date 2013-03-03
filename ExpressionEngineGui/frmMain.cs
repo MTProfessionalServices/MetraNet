@@ -19,6 +19,7 @@ namespace PropertyGui
 {
     public partial class frmMain : Form
     {
+        private Context Context;
         #region Constructor
         public frmMain()
         {
@@ -182,6 +183,13 @@ namespace PropertyGui
         {
             var dialog = new frmSendEvent();
             dialog.Init(DemoLoader.GlobalContext);
+            dialog.ShowDialog();
+        }
+
+        private void btnValidate_Click(object sender, EventArgs e)
+        {
+            var messages = DemoLoader.GlobalContext.Validate();
+            var dialog = new frmValidationMessages(messages);
             dialog.ShowDialog();
         }
 

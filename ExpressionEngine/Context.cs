@@ -11,6 +11,7 @@ using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using MetraTech.ExpressionEngine.Validations;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace MetraTech.ExpressionEngine
@@ -490,6 +491,21 @@ namespace MetraTech.ExpressionEngine
             EnumNamespace.LoadDirectoryIntoContext(@"C:\ExpressionEngine\Reference\Enumerations", null, this);
         }
         #endregion
+
+        public ValidationMessageCollection Validate()
+        {
+            var messages = new ValidationMessageCollection();
+            foreach (var propertyBag in Entities.Values)
+            {
+                propertyBag.Validate(true, messages);
+            }
+
+            //foreach (var enumNamespace in EnumNamespaces.Values)
+            //{
+            //    enumNamespace.Validate();
+            //}
+            return messages;
+        }
 
     }
 }

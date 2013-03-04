@@ -1,7 +1,7 @@
-﻿using System.Collections.ObjectModel;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Runtime.Serialization;
-using System.IO;
+using MetraTech.ExpressionEngine.TypeSystem.Constants;
+using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.Components
 {
@@ -11,11 +11,7 @@ namespace MetraTech.ExpressionEngine.Components
     public class UnitOfMeasureCategory : EnumCategory, IExpressionEngineTreeNode
     {
         #region Properties
-
-        public override string ToExpressionSnippet { get { return string.Format(CultureInfo.InvariantCulture, "UoM.{0}", Name); } }       
-        
-        //[DataMember]
-        //public Collection<UnitOfMeasure> Items { get; private set; }
+        public override string ToExpressionSnippet { get { return string.Format(CultureInfo.InvariantCulture, "UoM.{0}", Name); } }              
         #endregion
 
         #region GUI Helper Properties (Remove in future)
@@ -26,7 +22,6 @@ namespace MetraTech.ExpressionEngine.Components
         public UnitOfMeasureCategory(EnumNamespace parent, string name, int id, string description) : base(parent, name, id, description)
         {
             IsUnitOfMeasure = true;
-            //Items = new Collection<UnitOfMeasure>();
         }
         #endregion
 
@@ -37,21 +32,14 @@ namespace MetraTech.ExpressionEngine.Components
             Values.Add(uom);
             return uom;
         }
-        #endregion
 
-        #region IO Methods
-
-        //public static UnitOfMeasureCategory CreateFromFile(string file)
-        //{
-        //    var xmlContent = File.ReadAllText(file);
-        //    return CreateFromString(xmlContent);
-        //}
-
-        //public static UnitOfMeasureCategory CreateFromString(string xmlContent)
-        //{
-        //    return IOHelper.CreateFromString<UnitOfMeasureCategory>(xmlContent);
-        //}
+        public override void Validate(bool prefixMsg, ValidationMessageCollection messages, Context context)
+        {
+            if (EnumNamespace.Name != PropertyBagConstants.MetraTechNamespace)
+                messages.Error(string.Format(Localization.UnitOfMeasureNamespaceMustBeMetraTech, EnumNamespace));
+        }
 
         #endregion
+
     }
 }

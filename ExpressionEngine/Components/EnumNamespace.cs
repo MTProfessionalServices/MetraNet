@@ -91,13 +91,13 @@ namespace MetraTech.ExpressionEngine.Components
         }
 
 
-        public bool TryGetEnumType(string name, out EnumCategory enumCategory)
+        public bool TryGetEnumCategory(string name, out EnumCategory enumCategory)
         {
-            foreach (var _category in Categories)
+            foreach (var category in Categories)
             {
-                if (_category.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase))
+                if (category.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase))
                 {
-                    enumCategory = _category;
+                    enumCategory = category;
                     return true;
                 }
             }
@@ -115,11 +115,11 @@ namespace MetraTech.ExpressionEngine.Components
             if (!context.EnumNamespaces.TryGetValue(enumSpace, out space))
             {
                 space = new EnumNamespace(enumSpace, null);
-                context.AddEnum(space);
+                context.AddEnumNamespace(space);
             }
 
             EnumCategory type;
-            if (!space.TryGetEnumType(enumType, out type))
+            if (!space.TryGetEnumCategory(enumType, out type))
             {
                 type = new EnumCategory(space, enumType, enumTypeId, null);
                 space.Categories.Add(type);

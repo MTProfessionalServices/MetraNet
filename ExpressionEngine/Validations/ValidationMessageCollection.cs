@@ -94,12 +94,19 @@ namespace MetraTech.ExpressionEngine.Validations
         /// Returns a string with a message per line
         /// </summary>
         /// <returns></returns>
-        public string GetSummary()
+        public string GetSummary(bool getBody)
         {
             var sb = new StringBuilder();
-            foreach (var message in Messages)
+            sb.AppendLine("NumErrors:   " + ErrorCount.ToString());
+            sb.AppendLine("NumWarnings: " + WarningCount.ToString());
+            sb.AppendLine("NumInfos:    " + InfoCount.ToString());
+
+            if (getBody)
             {
-                sb.AppendLine(message.ToString());
+                foreach (var message in Messages)
+                {
+                    sb.AppendLine(message.ToString());
+                }
             }
             return sb.ToString();
         }

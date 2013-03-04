@@ -200,11 +200,12 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             type.ListType = ListType;
         }
 
-        public virtual void Validate(string prefix, ValidationMessageCollection messages)
+        public virtual void Validate(string prefix, ValidationMessageCollection messages, Context context)
         {
             if (messages == null)
                 throw new ArgumentNullException("messages");
 
+            //I can't think of anything to validate at this level
         }
 
         #endregion

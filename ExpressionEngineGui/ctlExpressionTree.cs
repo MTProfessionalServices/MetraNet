@@ -185,7 +185,7 @@ namespace PropertyGui
                 }
 
                 //Add the entity to which it belongs
-                CreateNode(property.ParentEntity, propertyNode);
+                CreateNode(property.PropertyBag, propertyNode);
             }
         }
 
@@ -258,7 +258,7 @@ namespace PropertyGui
                 if (property.Type.IsEnum)
                 {
                     EnumCategory enumType;
-                    if (Context.TryGetEnumType((EnumerationType)property.Type, out enumType))
+                    if (Context.TryGetEnumCategory((EnumerationType)property.Type, out enumType))
                         AddEnumValues(enumType, node);          
                 }
 

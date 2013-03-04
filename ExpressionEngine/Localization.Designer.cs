@@ -88,7 +88,7 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enum NameSpace not specified.
+        ///   Looks up a localized string similar to Enumeration NameSpace not specified.
         /// </summary>
         internal static string EnumNamespaceNotSpecified {
             get {
@@ -97,7 +97,7 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EnumType not specified.
+        ///   Looks up a localized string similar to Enumeration Category not specified.
         /// </summary>
         internal static string EnumTypeNotSpecified {
             get {
@@ -111,6 +111,24 @@ namespace MetraTech.ExpressionEngine {
         internal static string ExpressionIsValid {
             get {
                 return ResourceManager.GetString("ExpressionIsValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to in Property &apos;{0}&apos; in PropertyBag &apos;{1}&apos;.
+        /// </summary>
+        internal static string InPropertySuffix {
+            get {
+                return ResourceManager.GetString("InPropertySuffix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Insufficient description.
+        /// </summary>
+        internal static string InsufficientDescription {
+            get {
+                return ResourceManager.GetString("InsufficientDescription", resourceCulture);
             }
         }
         
@@ -142,20 +160,20 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unaable to find the &apos;{0}&apos; NameSpace.
+        ///   Looks up a localized string similar to Unable to find the &apos;{0}&apos; EnumCategory.
         /// </summary>
-        internal static string UnableToFindEnumNamespace {
+        internal static string UnableToFindEnumCategory {
             get {
-                return ResourceManager.GetString("UnableToFindEnumNamespace", resourceCulture);
+                return ResourceManager.GetString("UnableToFindEnumCategory", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unable to find the &apos;{0}&apos; EnumType.
+        ///   Looks up a localized string similar to Unaable to find the &apos;{0}&apos; EnumNamespace.
         /// </summary>
-        internal static string UnableToFindEnumType {
+        internal static string UnableToFindEnumNamespace {
             get {
-                return ResourceManager.GetString("UnableToFindEnumType", resourceCulture);
+                return ResourceManager.GetString("UnableToFindEnumNamespace", resourceCulture);
             }
         }
         
@@ -165,6 +183,51 @@ namespace MetraTech.ExpressionEngine {
         internal static string UnableToFindProperty {
             get {
                 return ResourceManager.GetString("UnableToFindProperty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to find unit of measure &apos;{0}&apos;.
+        /// </summary>
+        internal static string UnableToFindUnitOfMeasure {
+            get {
+                return ResourceManager.GetString("UnableToFindUnitOfMeasure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit of Measure Category can not be a general enumeration, it must be a unit of measure.
+        /// </summary>
+        internal static string UnitOfMeasureCategoryMustBeUom {
+            get {
+                return ResourceManager.GetString("UnitOfMeasureCategoryMustBeUom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit of Measure Category not specified.
+        /// </summary>
+        internal static string UnitOfMeasureCategoryNotSpecified {
+            get {
+                return ResourceManager.GetString("UnitOfMeasureCategoryNotSpecified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit of Measure &apos;{0}&apos; Namespace must be set to MetraTech.
+        /// </summary>
+        internal static string UnitOfMeasureNamespaceMustBeMetraTech {
+            get {
+                return ResourceManager.GetString("UnitOfMeasureNamespaceMustBeMetraTech", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit of Measure not specified.
+        /// </summary>
+        internal static string UnitOfMeasureNotSpecified {
+            get {
+                return ResourceManager.GetString("UnitOfMeasureNotSpecified", resourceCulture);
             }
         }
     }

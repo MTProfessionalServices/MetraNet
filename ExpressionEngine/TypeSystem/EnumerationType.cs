@@ -40,10 +40,10 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #endregion
 
         #region Constructor
-        public EnumerationType(string enumSpace, string enumType):base(BaseType.Enumeration)
+        public EnumerationType(string enumNamespace, string category):base(BaseType.Enumeration)
         {
-            Namespace = enumSpace;
-            Category = enumType;
+            Namespace = enumNamespace;
+            Category = category;
         }
         #endregion
 
@@ -56,7 +56,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         }
 
 
-        public override void Validate(string prefix, ValidationMessageCollection messages)
+        public override void Validate(string prefix, ValidationMessageCollection messages, Context context)
         {
             if (messages == null)
                 throw new ArgumentNullException("messages");
@@ -68,12 +68,13 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 return;
             }
 
-            ////Check if the NameSpace exists
-            //if (!Context.NamespaceExists(EnumNamespace))
-            //{
-            //    messages.Error(string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumNamespace, EnumNamespace));
-            //    return;
-            //}
+            //Check if the NameSpace exists
+            EnumNamespace enumNamespace = null;
+            if (context != null && !context.EnumNamespaces.TryGetValue(Namespace, out enumNamespace))
+            {
+                messages.Error(string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumNamespace, Namespace));
+                return;
+            }
 
             //Check if the Category was specified
             if (string.IsNullOrEmpty(Category))
@@ -83,10 +84,11 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             }
 
             //Check if the Cateegory exists
-            //if (!Context.TypeExists(EnumNamespace, Category))
-            //{
-            //    messages.Error(string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumType, EnumNamespace + "." + Category));
-            //}
+            EnumCategory enumCategory;
+            if (context != null && !enumNamespace.TryGetEnumCategory(Category, out enumCategory))
+            {
+                messages.Error(string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumCategory, Namespace + "." + Category));
+            }
         }
 
         public new EnumerationType Copy()

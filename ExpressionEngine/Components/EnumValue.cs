@@ -2,9 +2,8 @@
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Runtime.Serialization;
-using MetraTech.ExpressionEngine.Components;
 
-namespace MetraTech.ExpressionEngine
+namespace MetraTech.ExpressionEngine.Components
 {
     [DataContract (Namespace = "MetraTech")]
     [KnownType(typeof(UnitOfMeasure))]
@@ -13,9 +12,10 @@ namespace MetraTech.ExpressionEngine
         #region Properties
 
         /// <summary>
-        /// The EnumType to which the value belongs
+        /// The EnumType to which the value belongs; this is externally setable because we need to manually set it post
+        /// deserilization (vs. adding via code)
         /// </summary>
-        public EnumCategory EnumCategory { get; private set; }
+        public EnumCategory EnumCategory { get; set; }
 
         /// <summary>
         /// The name of the enum value. Must be unique within the enum type

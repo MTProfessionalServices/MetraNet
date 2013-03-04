@@ -115,7 +115,7 @@ namespace PropertyGui
             if (results.Messages.ErrorCount == 0)
                 message = "Expression is valid."; //Localization.
             else
-                message = results.Messages.GetSummary();
+                message = results.Messages.GetSummary(true);
 
             MessageBox.Show(message, "Validation Results", MessageBoxButtons.OK, icon);
             return results.Messages.ErrorCount == 0;

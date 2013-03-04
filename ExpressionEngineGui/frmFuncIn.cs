@@ -113,9 +113,9 @@ namespace PropertyGui
                 return;
             }
 
-            EnumCategory enumType;
-            Context.TryGetEnumType((EnumerationType)property.Type, out enumType);
-            LoadValues(enumType);
+            EnumCategory enumCategory;
+            Context.TryGetEnumCategory((EnumerationType)property.Type, out enumCategory);
+            LoadValues(enumCategory);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

@@ -300,7 +300,7 @@ namespace MetraTech.ExpressionEngine
                     if (property.Type.IsEnum)
                     {
                         EnumCategory enumType;
-                        if (TryGetEnumType((EnumerationType)property.Type, out enumType))
+                        if (TryGetEnumCategory((EnumerationType)property.Type, out enumType))
                         {
                             if (!RelevantEnums.Contains(enumType))
                                 RelevantEnums.Add(enumType);
@@ -391,7 +391,7 @@ namespace MetraTech.ExpressionEngine
 
         #region Enums
 
-        public void AddEnum(EnumNamespace enumSpace)
+        public void AddEnumNamespace(EnumNamespace enumSpace)
         {
             if (enumSpace == null)
                 throw new ArgumentNullException("enumSpace");
@@ -399,7 +399,8 @@ namespace MetraTech.ExpressionEngine
             EnumNamespaces.Add(enumSpace.Name, enumSpace);
         }
 
-        public bool TryGetEnumType(EnumerationType enumerationType, out EnumCategory enumCategory)
+      
+        public bool TryGetEnumCategory(EnumerationType enumerationType, out EnumCategory enumCategory)
         {
             if (enumerationType == null)
                 throw new ArgumentNullException("enumerationType");
@@ -411,7 +412,7 @@ namespace MetraTech.ExpressionEngine
                 return false;
             }
 
-            if (!enumNamespace.TryGetEnumType(enumerationType.Category, out enumCategory))
+            if (!enumNamespace.TryGetEnumCategory(enumerationType.Category, out enumCategory))
             {
                 enumCategory = null;
                 return false;
@@ -433,14 +434,14 @@ namespace MetraTech.ExpressionEngine
 
             foreach (var enumNamespace in EnumNamespaces.Values)
             {
-                enumNamespace.Extension = "Scott";
+                enumNamespace.Extension = "SplitPascalOrCamelString";
                 enumNamespace.SaveInExtension(dirPath);
             }
 
             foreach (var propertyBag in Entities.Values)
             {
                 var pb = (MetraNetEntityBase) propertyBag;
-                pb.Extension = "Scott";
+                pb.Extension = "SplitPascalOrCamelString";
                 pb.SaveInExtensionsDirectory(dirPath);
             }
 
@@ -497,7 +498,7 @@ namespace MetraTech.ExpressionEngine
             var messages = new ValidationMessageCollection();
             foreach (var propertyBag in Entities.Values)
             {
-                propertyBag.Validate(true, messages);
+                propertyBag.Validate(true, messages, this);
             }
 
             //foreach (var enumNamespace in EnumNamespaces.Values)

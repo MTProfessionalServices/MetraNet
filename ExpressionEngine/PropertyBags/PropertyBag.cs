@@ -119,24 +119,19 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             //return newEntity;
         }
 
-        public override ValidationMessageCollection Validate(bool prefixMsg)
-        {
-            return Validate(prefixMsg, null);
-        }
-
-        public override ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages)
+        public override ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages, Context context)
         {
             if (messages == null)
                 messages = new ValidationMessageCollection();
 
-            base.Validate(true, messages);
+            base.Validate(true, messages, context);
 
             //var prefix = string.Format(CultureInfo.InvariantCulture, Localization.PropertyMessagePrefix, Name);
 
             //Valiate all of the properties
             foreach (var property in Properties)
             {
-                property.Validate(prefixMsg, messages);
+                property.Validate(prefixMsg, messages, context);
             }
 
             return messages;
@@ -158,7 +153,11 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         public static T CreateFromString<T>(string xmlContent)
         {
-            return IOHelper.CreateFromString<T>(xmlContent);
+            var propertyBag = IOHelper.CreateFromString<T>(xmlContent);
+            var pb = (object) propertyBag;
+            ((PropertyBag)pb).Properties.Parent = propertyBag;
+            ((PropertyBag)pb).Properties.SetPropertyParentReferences();
+            return propertyBag;
         }
         
         #endregion

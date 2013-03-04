@@ -4,7 +4,6 @@ using System.Globalization;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.PropertyBags;
-using MetraTech.ExpressionEngine.Spelling;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Validations;
@@ -18,7 +17,6 @@ namespace MetraTech.ExpressionEngine.MTProperties
     /// 
     /// TO DO:
     /// *Fix NameRegex
-    /// *XML serialization and deserialization
     /// *Unit tests
     /// </summary>
     [DataContract (Namespace = "MetraTech")]
@@ -41,7 +39,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
         /// </summary>
         public PropertyCollection PropertyCollection { get; set; }
 
-        public PropertyBag ParentEntity
+        public PropertyBag PropertyBag
         {
             get
             {
@@ -258,29 +256,33 @@ namespace MetraTech.ExpressionEngine.MTProperties
             //return property;
         }
 
-        public virtual ValidationMessageCollection Validate(bool prefixMsg)
-        {
-            return Validate(prefixMsg, null);
-        }
-        public virtual ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages)
+        public virtual ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages, Context context)
         {
             if (messages == null)
-                messages = new ValidationMessageCollection();
+                throw new ArgumentException("messages is null");
 
             var prefix = string.Format(CultureInfo.CurrentUICulture, Localization.PropertyMessagePrefix, Name);
 
+            //Validate the name
             if (string.IsNullOrWhiteSpace(Name))
                 messages.Error(prefix + Localization.NameNotSpecified);
             else
             {
                 if (!NameRegex.IsMatch(Name))
                     messages.Error(prefix + Localization.InvalidName);
-                else
-                    SpellingEngine.CheckWord(Name, null, messages);
+                //FUTURE FEATURE
+                //else
+                //    SpellingEngine.CheckWord(Name, null, messages);
             }
 
-            Type.Validate(prefix, messages);
-            SpellingEngine.CheckString(Description, null, messages);
+            Type.Validate(prefix, messages, context);
+
+            //Validate the description
+            if (string.IsNullOrEmpty(Description))// || Description.Length < 10)
+                messages.Warn(Localization.InsufficientDescription + ": " + QualifiedName);
+            //FUTURE FEATURE
+            //SpellingEngine.CheckString(Description, null, messages);
+
             return messages;
         }
 
@@ -296,7 +298,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
         {
             get
             {
-                var entity = ParentEntity;
+                var entity = PropertyBag;
                 if (entity == null)
                     return null;
 
@@ -307,6 +309,17 @@ namespace MetraTech.ExpressionEngine.MTProperties
                     snippet = string.Format(CultureInfo.InvariantCulture, "{0}.c_{1}", entity.XqgPrefix, Name);
 
                 return snippet + Type.ListSuffix;
+            }
+        }
+
+        public string QualifiedName
+        {
+            get
+            {
+                var entity = PropertyBag;
+                if (entity == null)
+                    return Name;
+                return entity.Name + "." + Name;
             }
         }
 
@@ -322,13 +335,13 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
         public string GetFullyQualifiedName(bool prefix)
         {
-            var entity = ParentEntity;
-            if (ParentEntity == null)
+            var propertyBag = PropertyBag;
+            if (PropertyBag == null)
                 return Name;
 
-            var name = string.Format(CultureInfo.InvariantCulture, "{0}.{1}", entity.Name, Name);
+            var name = string.Format(CultureInfo.InvariantCulture, "{0}.{1}", propertyBag.Name, Name);
             if (prefix)
-                return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", entity.XqgPrefix, name);
+                return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", propertyBag.XqgPrefix, name);
             return name;
         }
 

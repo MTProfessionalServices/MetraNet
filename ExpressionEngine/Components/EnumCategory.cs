@@ -1,8 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Runtime.Serialization;
 using System.IO;
-using MetraTech.ExpressionEngine.PropertyBags;
+using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.Components
 {
@@ -12,7 +13,7 @@ namespace MetraTech.ExpressionEngine.Components
     {
         #region Properties
         /// <summary>
-        /// The enum space to which the type belongs
+        /// The enum space to which the category belongs
         /// </summary>
         public EnumNamespace EnumNamespace { get; private set; }
 
@@ -89,6 +90,19 @@ namespace MetraTech.ExpressionEngine.Components
             return enumValue;
         }
 
+        public EnumValue GetValue(string name)
+        {
+        if (string.IsNullOrEmpty(name))
+            return null;
+
+            foreach (var value in Values)
+            {
+                if (string.Equals(value.Name, name, StringComparison.InvariantCultureIgnoreCase))
+                    return value;
+            }
+            return null;
+        }
+
         public virtual string ToExpressionSnippet
         {
             get
@@ -96,6 +110,19 @@ namespace MetraTech.ExpressionEngine.Components
                 return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", EnumNamespace.ToExpressionSnippet, Name);
             }
         }
+
+        public void SetValueBackReferences()
+        {
+            foreach (var value in Values)
+            {
+                value.EnumCategory = this;
+            }
+        }
+
+        public virtual void Validate(bool prefixMsg, ValidationMessageCollection messages, Context context)
+        {
+        }
+
         #endregion
 
         #region IO Methods
@@ -120,7 +147,10 @@ namespace MetraTech.ExpressionEngine.Components
 
         public static EnumCategory CreateFromString(string xmlContent)
         {
-            return IOHelper.CreateFromString<EnumCategory>(xmlContent);
+            var category = IOHelper.CreateFromString<EnumCategory>(xmlContent);
+            var cat = (object) category;
+            ((EnumCategory)cat).SetValueBackReferences();
+            return category;
         }
 
         #endregion

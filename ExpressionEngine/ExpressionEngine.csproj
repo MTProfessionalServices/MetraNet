@@ -59,9 +59,6 @@
     <Compile Include="IOHelper.cs" />
     <Compile Include="MTProperties\MetraNetPropertyBase.cs" />
     <Compile Include="Expressions\Enumerations\ProductType.cs" />
-    <Compile Include="Spelling\CustomDictionary.cs" />
-    <Compile Include="Spelling\CustomDictionaryResult.cs" />
-    <Compile Include="Spelling\SpellingEngine.cs" />
     <Compile Include="TypeSystem\Constants\PropertyBagConstants.cs" />
     <Compile Include="TypeSystem\Enumerations\PropertyBagMode.cs" />
     <Compile Include="Expressions\Enumerations\ExpressionType.cs" />
@@ -129,9 +126,15 @@
     <Compile Include="Components\UnitOfMeasureCategory.cs" />
     <Compile Include="Placeholders\Uqg.cs" />
     <Compile Include="DemoLoading\DemoLoader.cs" />
-    <Compile Include="Validations\Enumerations\SeverityType.cs" />
-    <Compile Include="Validations\ValidationMessage.cs" />
-    <Compile Include="Validations\ValidationMessageCollection.cs" />
+    <Compile Include="Validations\Enumerations\SeverityType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Validations\ValidationMessage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Validations\ValidationMessageCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Localization.resx">

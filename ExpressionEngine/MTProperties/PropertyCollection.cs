@@ -19,8 +19,11 @@ namespace MetraTech.ExpressionEngine.MTProperties
     {
         #region Properties
 
-        public object Parent { get { return _parent; } }
-        private readonly object _parent;
+        /// <summary>
+        /// Refers to the parent, typically a PropertyBag or Function. It is not readonly
+        /// because we need to set this after deserilization is performend (vs. via code)
+        /// </summary>
+        public object Parent { get; set; }
 
         /// <summary>
         /// The PropertyBag to which the collection belongs (may be null)
@@ -56,7 +59,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
         #region Constructors
         public PropertyCollection(object parent)
         {
-            _parent = parent;
+            Parent = parent;
         }
         #endregion
 
@@ -129,11 +132,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
             Properties.Clear();
         }
 
-        public ValidationMessageCollection Validate()
-        {
-            return Validate(null);
-        }
-        public ValidationMessageCollection Validate(ValidationMessageCollection messages)
+        public ValidationMessageCollection Validate(ValidationMessageCollection messages, Context context)
         {
             if (messages == null)
                 messages = new ValidationMessageCollection();
@@ -150,7 +149,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
                 names.Add(property.Name, false);
 
                 //Validate each property and prefix with property identifier
-                property.Validate(true, messages);
+                property.Validate(true, messages, context);
 
             }
             return messages;
@@ -165,6 +164,14 @@ namespace MetraTech.ExpressionEngine.MTProperties
                 newCollection.Add((Property)newProperty);
             }
             return newCollection;
+        }
+
+        public void SetPropertyParentReferences()
+        {
+            foreach (var property in Properties)
+            {
+                property.PropertyCollection = this;
+            }
         }
         #endregion
 

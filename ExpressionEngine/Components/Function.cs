@@ -1,7 +1,6 @@
 ﻿using System.Globalization;
 using System.Runtime.Serialization;
 using System.IO;
-using System.Xml.Linq;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem;
 

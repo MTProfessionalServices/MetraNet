@@ -72,7 +72,7 @@ namespace MetraTech.ExpressionEngine.Spelling
         }
 
 
-        public static List<string> Scott(string stringToSplit)
+        public static List<string> SplitPascalOrCamelString(string stringToSplit)
         {
             var words = new List<string>();
 

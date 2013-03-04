@@ -3,7 +3,7 @@
 namespace MetraTech.ExpressionEngine.Components
 {
     [DataContract(Namespace = "MetraTech")]
-    public class UnitOfMeasure :  EnumValue //IExpressionEngineTreeNode
+    public class UnitOfMeasure :  EnumValue 
     {
         #region Properties
         public UnitOfMeasureCategory Category { get; private set; }

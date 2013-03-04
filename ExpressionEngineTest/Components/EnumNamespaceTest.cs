@@ -40,7 +40,7 @@ namespace ExpressionEngineTest
 
             //Look it up
             EnumCategory enumTypeLookup;
-            var result = enumSpace.TryGetEnumType(name, out enumTypeLookup);
+            var result = enumSpace.TryGetEnumCategory(name, out enumTypeLookup);
             Assert.IsTrue(result, "Unable to find added enum type.");
             Assert.AreSame(enumType, enumTypeLookup);
 
@@ -49,7 +49,7 @@ namespace ExpressionEngineTest
         }
 
         /// <summary>
-        ///A test for TryGetEnumType
+        ///A test for TryGetEnumCategory
         ///</summary>
         [TestMethod()]
         public void TryGetEnumTypeTest()
@@ -59,19 +59,19 @@ namespace ExpressionEngineTest
             EnumCategory enumType;
 
             //Ensure that nothing breaks when there is nothing
-            Assert.IsFalse(enumSpace.TryGetEnumType(name, out enumType), "Empty list");
+            Assert.IsFalse(enumSpace.TryGetEnumCategory(name, out enumType), "Empty list");
 
             //Add it
             var actualEnumType = enumSpace.AddCategory(false, "Global", 1, null);
 
             //Look it up
-            Assert.IsTrue(enumSpace.TryGetEnumType(name, out enumType), "Expect to find");
+            Assert.IsTrue(enumSpace.TryGetEnumCategory(name, out enumType), "Expect to find");
             Assert.AreSame(actualEnumType, enumType);
 
             //Try no find case, null and empty string cases
-            Assert.IsFalse(enumSpace.TryGetEnumType("foo" , out enumType), "Doesn't exist");
-            Assert.IsFalse(enumSpace.TryGetEnumType(null, out enumType), "null");
-            Assert.IsFalse(enumSpace.TryGetEnumType(string.Empty, out enumType), "empty string");
+            Assert.IsFalse(enumSpace.TryGetEnumCategory("foo" , out enumType), "Doesn't exist");
+            Assert.IsFalse(enumSpace.TryGetEnumCategory(null, out enumType), "null");
+            Assert.IsFalse(enumSpace.TryGetEnumCategory(string.Empty, out enumType), "empty string");
         }
     }
 }

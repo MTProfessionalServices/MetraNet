@@ -1,6 +1,5 @@
 ﻿using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
-using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.PropertyBags
 {

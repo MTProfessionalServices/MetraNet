@@ -15,7 +15,7 @@ namespace PropertyGui
         public frmValidationMessages(ValidationMessageCollection messages)
         {
             InitializeComponent();
-            txtMessages.Text = messages.GetSummary();
+            txtMessages.Text = messages.GetSummary(true);
         }
     }
 }

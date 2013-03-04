@@ -19,7 +19,6 @@ namespace PropertyGui
 {
     public partial class frmMain : Form
     {
-        private Context Context;
         #region Constructor
         public frmMain()
         {
@@ -154,29 +153,6 @@ namespace PropertyGui
         }
 
         #endregion
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DemoLoader.GlobalContext.Save(@"C:\Temp\Extensions");
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //ProductType product;
-            //if (cboContext.Text == "Metanga")
-            //    product = ProductType.Metanga;
-            //else
-            //    product = ProductType.MetraNet;
-
-            //var context = Context.LoadExtensions(@"C:\Temp\Extensions");
-            //DemoLoader.GlobalContext = context;
-
-            //SetItems(cboAqgs, btnAQG, DemoLoader.GlobalContext.Aqgs.Values.ToArray<Aqg>());
-            //SetItems(cboUqgs, btnUQG, DemoLoader.GlobalContext.Uqgs.Values.ToArray<Uqg>());
-            //SetItems(cboExpressions, btnExpression, DemoLoader.GlobalContext.Expressions.Values.ToArray<Expression>());
-            //SetItems(cboEmailTemplates, btnEmailTemplates, DemoLoader.GlobalContext.EmailInstances.Values.ToArray<EmailInstance>());
-        }
-
 
 
         private void btnSendEvent_Click(object sender, EventArgs e)

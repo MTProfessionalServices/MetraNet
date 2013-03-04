@@ -11,7 +11,7 @@ namespace MetraTech.ExpressionEngine
     /// <summary>
     /// The _isInitialized is used because of the way that serialization works and the desire to not
     /// write out all of the Expression properties for each of the 4 expressions in an Email. I'm not
-    /// happy with the way it works and we probably need to rethink. If you have questions, ask Scott
+    /// happy with the way it works and we probably need to rethink. If you have questions, ask SplitPascalOrCamelString
     /// </summary>
     [DataContract (Namespace = "MetraTech")]
     public class EmailInstance

@@ -127,13 +127,19 @@
     <value>Duplicate Property Name: '{0}'</value>
   </data>
   <data name="EnumNamespaceNotSpecified" xml:space="preserve">
-    <value>Enum NameSpace not specified</value>
+    <value>Enumeration NameSpace not specified</value>
   </data>
   <data name="EnumTypeNotSpecified" xml:space="preserve">
-    <value>EnumType not specified</value>
+    <value>Enumeration Category not specified</value>
   </data>
   <data name="ExpressionIsValid" xml:space="preserve">
     <value>The expression is valid.</value>
+  </data>
+  <data name="InPropertySuffix" xml:space="preserve">
+    <value>in Property '{0}' in PropertyBag '{1}'</value>
+  </data>
+  <data name="InsufficientDescription" xml:space="preserve">
+    <value>Insufficient description</value>
   </data>
   <data name="InvalidName" xml:space="preserve">
     <value>Invalid Name</value>
@@ -144,13 +150,28 @@
   <data name="PropertyMessagePrefix" xml:space="preserve">
     <value>Property '{0}':</value>
   </data>
-  <data name="UnableToFindEnumNamespace" xml:space="preserve">
-    <value>Unaable to find the '{0}' NameSpace</value>
+  <data name="UnableToFindEnumCategory" xml:space="preserve">
+    <value>Unable to find the '{0}' EnumCategory</value>
   </data>
-  <data name="UnableToFindEnumType" xml:space="preserve">
-    <value>Unable to find the '{0}' EnumType</value>
+  <data name="UnableToFindEnumNamespace" xml:space="preserve">
+    <value>Unaable to find the '{0}' EnumNamespace</value>
   </data>
   <data name="UnableToFindProperty" xml:space="preserve">
     <value>Unable to find '{0}' property in the current context</value>
+  </data>
+  <data name="UnableToFindUnitOfMeasure" xml:space="preserve">
+    <value>Unable to find unit of measure '{0}'</value>
+  </data>
+  <data name="UnitOfMeasureCategoryMustBeUom" xml:space="preserve">
+    <value>Unit of Measure Category can not be a general enumeration, it must be a unit of measure</value>
+  </data>
+  <data name="UnitOfMeasureCategoryNotSpecified" xml:space="preserve">
+    <value>Unit of Measure Category not specified</value>
+  </data>
+  <data name="UnitOfMeasureNamespaceMustBeMetraTech" xml:space="preserve">
+    <value>Unit of Measure '{0}' Namespace must be set to MetraTech</value>
+  </data>
+  <data name="UnitOfMeasureNotSpecified" xml:space="preserve">
+    <value>Unit of Measure not specified</value>
   </data>
 </root>

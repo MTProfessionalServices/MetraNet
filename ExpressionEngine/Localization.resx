@@ -141,6 +141,9 @@
   <data name="InsufficientDescription" xml:space="preserve">
     <value>Insufficient description</value>
   </data>
+  <data name="InvalidDefaultValue" xml:space="preserve">
+    <value>Invalid default value</value>
+  </data>
   <data name="InvalidName" xml:space="preserve">
     <value>Invalid Name</value>
   </data>
@@ -148,7 +151,7 @@
     <value>Name not specified</value>
   </data>
   <data name="PropertyMessagePrefix" xml:space="preserve">
-    <value>Property '{0}':</value>
+    <value>Property '{0}': </value>
   </data>
   <data name="UnableToFindEnumCategory" xml:space="preserve">
     <value>Unable to find the '{0}' EnumCategory</value>

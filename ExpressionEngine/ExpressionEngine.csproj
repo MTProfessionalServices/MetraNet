@@ -140,6 +140,7 @@
     <EmbeddedResource Include="Localization.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Localization.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

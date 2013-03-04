@@ -154,9 +154,9 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         public static T CreateFromString<T>(string xmlContent)
         {
             var propertyBag = IOHelper.CreateFromString<T>(xmlContent);
-            var pb = (object) propertyBag;
-            ((PropertyBag)pb).Properties.Parent = propertyBag;
-            ((PropertyBag)pb).Properties.SetPropertyParentReferences();
+            var pb = (PropertyBag)(object)propertyBag;
+            pb.Properties.Parent = propertyBag;
+            pb.Properties.SetPropertyParentReferences();
             return propertyBag;
         }
         

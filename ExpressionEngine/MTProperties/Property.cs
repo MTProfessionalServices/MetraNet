@@ -104,7 +104,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
         //
         public bool IsInputOrInOut
         {
-            get { return Direction == Direction.Input || Direction == MTProperties.Enumerations.Direction.InputOutput; }
+            get { return Direction == Direction.Input || Direction == Direction.InputOutput; }
         }
 
         //
@@ -256,30 +256,52 @@ namespace MetraTech.ExpressionEngine.MTProperties
             //return property;
         }
 
+        private void AddError(ValidationMessageCollection messages, string message)
+        {
+            messages.Error(GetPrefixedMessage(message));
+        }
+        private void AddWarning(ValidationMessageCollection messages, string message)
+        {
+            messages.Warn(GetPrefixedMessage(message));
+        }
+
+        private string GetPrefixedMessage(string message = null)
+        {
+            var prefix = string.Format(CultureInfo.CurrentUICulture, Localization.PropertyMessagePrefix, QualifiedName);
+            prefix += message;
+            return prefix;
+        }
+
+
+
+        //Not sure that I need prefixMsg here
         public virtual ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages, Context context)
         {
             if (messages == null)
                 throw new ArgumentException("messages is null");
 
-            var prefix = string.Format(CultureInfo.CurrentUICulture, Localization.PropertyMessagePrefix, Name);
-
             //Validate the name
             if (string.IsNullOrWhiteSpace(Name))
-                messages.Error(prefix + Localization.NameNotSpecified);
+                AddError(messages, Localization.NameNotSpecified);
             else
             {
                 if (!NameRegex.IsMatch(Name))
-                    messages.Error(prefix + Localization.InvalidName);
+                    AddError(messages, Localization.InvalidName);
                 //FUTURE FEATURE
                 //else
                 //    SpellingEngine.CheckWord(Name, null, messages);
             }
 
-            Type.Validate(prefix, messages, context);
+            //Validate the type
+            Type.Validate(GetPrefixedMessage(), messages, context);
+
+            //Validate the default value, if any
+            if (DefaultValue != null && TypeHelper.ValueIsValid(Type.BaseType, DefaultValue, true))
+                AddError(messages, Localization.InvalidDefaultValue);
 
             //Validate the description
-            if (string.IsNullOrEmpty(Description))// || Description.Length < 10)
-                messages.Warn(Localization.InsufficientDescription + ": " + QualifiedName);
+            if (string.IsNullOrEmpty(Description))
+                AddWarning(messages, Localization.InsufficientDescription);
             //FUTURE FEATURE
             //SpellingEngine.CheckString(Description, null, messages);
 

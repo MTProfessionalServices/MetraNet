@@ -304,6 +304,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     throw new NotImplementedException();
                 //return Config.Instance.EnumerationConfig.ValueExists(EnumNamespace, EnumType, value);
                 case BaseType.Decimal:
+                case BaseType.Money:
                     Decimal theDecimal;
                     return Decimal.TryParse(value, out theDecimal);
                 case BaseType.Float:

@@ -97,7 +97,7 @@ namespace MetraTech.ExpressionEngine.Components
 
             foreach (var value in Values)
             {
-                if (string.Equals(value.Name, name, StringComparison.InvariantCultureIgnoreCase))
+                if (string.Equals(value.Name, name, StringComparison.OrdinalIgnoreCase))
                     return value;
             }
             return null;

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Globalization;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
@@ -21,12 +23,6 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// </summary>
         [DataMember]
         public UnitOfMeasureMode UnitOfMeasureMode { get; set; }
-
-        ///// <summary>
-        ///// Depending on the UomMode, specifies a fixed UoM, a UoM category or the name of the property that determines the UOM.
-        ///// </summary>
-        //[DataMember]
-        //public string UnitOfMeasureQualifier { get; set; }
 
         /// <summary>
         /// The unit of measure category (e.g., Duration, Length, etc.). Only valid when UnitOfMeasureMode is Fixed or Category
@@ -53,7 +49,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             : base(type)
         {
             if (!TypeHelper.IsNumeric(type))
-                throw new ArgumentException("Invalid type: " + type.ToString());
+                throw new ArgumentException("Invalid type: " + type);
 
             UnitOfMeasureMode = unitOfMeasureMode;
             UnitOfMeasureCategory = unitOfMeasureCategory;
@@ -62,18 +58,26 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         #region Methods
 
+        private void AddError(ValidationMessageCollection messages, string prefix, string message)
+        {
+            if (messages == null)
+                throw new ArgumentException("messages is null");
+
+            messages.Error(prefix + ": " + message);
+        }
+
         public override void Validate(string prefix, Validations.ValidationMessageCollection messages, Context context)
         {
             if (UnitOfMeasureMode == UnitOfMeasureMode.None)
             {
-                messages.Error(prefix + ": " + Localization.UnitOfMeasureNotSpecified);
+                AddError(messages, prefix, Localization.UnitOfMeasureNotSpecified);
                 return;
             }
             if (UnitOfMeasureMode == UnitOfMeasureMode.Category || UnitOfMeasureMode == UnitOfMeasureMode.Fixed)
             {
                 if (string.IsNullOrEmpty(UnitOfMeasureCategory))
                 {
-                    messages.Error(prefix + ": " + Localization.UnitOfMeasureCategoryNotSpecified);
+                    AddError(messages, prefix, Localization.UnitOfMeasureCategoryNotSpecified);
                     return;
                 }
 
@@ -85,29 +89,28 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 EnumCategory enumCategory;
                 if (!context.TryGetEnumCategory(new EnumerationType(PropertyBagConstants.MetraTechNamespace, UnitOfMeasureCategory), out enumCategory))
                 {
-                    messages.Error(prefix + ": " + Localization.UnableToFindEnumCategory);
+                    AddError(messages, prefix, Localization.UnableToFindEnumCategory);
                     return;
                 }
 
                 //Ensure Enum is a UoM
                 if (!enumCategory.IsUnitOfMeasure)
                 {
-                    messages.Error(prefix + ": " + Localization.UnitOfMeasureCategoryMustBeUom);
+                    AddError(messages, prefix, Localization.UnitOfMeasureCategoryMustBeUom);
                     return;
                 }
 
                 //Ensure the value is specified
                 if (string.IsNullOrEmpty(UnitOfMeasure))
                 {
-                    messages.Error(prefix + ": " + Localization.UnitOfMeasureNotSpecified);
+                    AddError(messages, prefix, Localization.UnitOfMeasureNotSpecified);
                     return;
                 }
 
                 //Ensure that the value exists
                 if (UnitOfMeasureMode == UnitOfMeasureMode.Fixed)
                 {
-                    messages.Error(prefix + ": " + string.Format(Localization.UnableToFindUnitOfMeasure, UnitOfMeasure));
-                    return;
+                    AddError(messages, prefix, string.Format(CultureInfo.CurrentCulture, Localization.UnableToFindUnitOfMeasure, UnitOfMeasure));
                 }
             }
         }

@@ -1,0 +1,24 @@
+USAGE_QUALIFICATION_GROUP,FILTER
+UMAH_hosted_archive,OBJECT.c_trans_code == #intercall.com/ConfCommon/FeatureCode/UMAH#
+R8_RCs,"OBJECT.id_view == #metratech.com/flatrecurringcharge# and OBJECT.c_orig_id_sess == """" and OBJECT.c_rc_charge_code == #intercall.com/ConfCommon/ChargeCode/R8#"
+R_RCs,"OBJECT.id_view == #metratech.com/flatrecurringcharge# and OBJECT.c_orig_id_sess == """" and OBJECT.c_rc_charge_code == #intercall.com/ConfCommon/ChargeCode/R#"
+resplus,(OBJECT.c_transport == #intercall.com/ConfCommon/Transport/Toll-Free# or OBJECT.c_transport == #intercall.com/ConfCommon/Transport/Toll#) and OBJECT.c_product == #intercall.com/ConfCommon/Product/R# and OBJECT.c_intl_call == 0
+premium,OBJECT.c_product == #intercall.com/ConfCommon/Product/P#
+ium,OBJECT.c_product == #intercall.com/ConfCommon/Product/UMP#
+operator_assisted,OBJECT.c_product == #intercall.com/ConfCommon/Product/L#
+P9_post_conference_emails,OBJECT.c_trans_code == #intercall.com/ConfCommon/FeatureCode/P9#
+WD_res_plus_record,OBJECT.c_trans_code == #intercall.com/ConfCommon/FeatureCode/WD#
+OW_res_plus_playback_phone,OBJECT.c_trans_code == #intercall.com/ConfCommon/FeatureCode/OW#
+WA_res_plus_playback_stream,OBJECT.c_trans_code == #intercall.com/ConfCommon/FeatureCode/WA#
+R,OBJECT.c_bill_code == #intercall.com/ConfCommon/BillCode/R#
+R8,OBJECT.c_bill_code == #intercall.com/ConfCommon/BillCode/R8#
+RVP,OBJECT.c_bill_code == #intercall.com/ConfCommon/BillCode/RVP#
+RVP1,OBJECT.c_bill_code == #intercall.com/ConfCommon/BillCode/RVP1#
+UMP,OBJECT.c_bill_code == #intercall.com/ConfCommon/BillCode/UMP#
+UK_G8,OBJECT.c_surcharge_charge_code == #intercall.com/ConfCommon/ChargeCode/UK# and OBJECT.c_bill_code == #intercall.com/ConfCommon/BillCode/G8#
+SBWAA_RCs,"OBJECT.id_view == #metratech.com/flatrecurringcharge# and OBJECT.c_orig_id_sess == """" and OBJECT.c_rc_charge_code == #intercall.com/ConfCommon/ChargeCode/SBWAA#"
+SBWAM_RCs,"OBJECT.id_view == #metratech.com/flatrecurringcharge# and OBJECT.c_orig_id_sess == """" and OBJECT.c_rc_charge_code == #intercall.com/ConfCommon/ChargeCode/SBWAM#"
+R_or_R8,(OBJECT.c_bill_code == #intercall.com/ConfCommon/BillCode/R# or OBJECT.c_bill_code == #intercall.com/ConfCommon/BillCode/R8#)
+UMABP_UMA_Broadcast_Connection,OBJECT.c_bill_code == #intercall.com/ConfCommon/BillCode/UMABP#
+UMAHR_UMA_Hosting_Renewal,OBJECT.c_trans_code == #intercall.com/ConfCommon/FeatureCode/UMAHR#
+UMZIP_UMA_Zip_File,OBJECT.c_trans_code == #intercall.com/ConfCommon/FeatureCode/UMZIP#

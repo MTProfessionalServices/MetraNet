@@ -133,6 +133,15 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid default value.
+        /// </summary>
+        internal static string InvalidDefaultValue {
+            get {
+                return ResourceManager.GetString("InvalidDefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid Name.
         /// </summary>
         internal static string InvalidName {
@@ -151,7 +160,7 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Property &apos;{0}&apos;:.
+        ///   Looks up a localized string similar to Property &apos;{0}&apos;: .
         /// </summary>
         internal static string PropertyMessagePrefix {
             get {

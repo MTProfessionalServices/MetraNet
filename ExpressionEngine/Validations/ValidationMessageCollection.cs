@@ -97,9 +97,9 @@ namespace MetraTech.ExpressionEngine.Validations
         public string GetSummary(bool getBody)
         {
             var sb = new StringBuilder();
-            sb.AppendLine("NumErrors:   " + ErrorCount.ToString());
-            sb.AppendLine("NumWarnings: " + WarningCount.ToString());
-            sb.AppendLine("NumInfos:    " + InfoCount.ToString());
+            sb.AppendLine("NumErrors:   " + ErrorCount);
+            sb.AppendLine("NumWarnings: " + WarningCount);
+            sb.AppendLine("NumInfos:    " + InfoCount);
 
             if (getBody)
             {

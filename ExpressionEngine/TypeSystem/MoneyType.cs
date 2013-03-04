@@ -9,7 +9,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #region Properties
 
         /// <summary>
-        /// Indicates how the Currency is determine
+        /// Indicates how the FixedCurrency is determine
         /// </summary>
         [DataMember]
         public CurrencyMode CurrencyMode { get; set; }
@@ -19,7 +19,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// ???Should this be renamed to FixedCurrency???
         /// </summary>
         [DataMember]
-        public string Currency { get; set; }
+        public string FixedCurrency { get; set; }
 
         /// <summary>
         /// The property that drives the currency. Only valid when CurrencyMode=Property.
@@ -40,8 +40,8 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public override void Validate(string prefix, Validations.ValidationMessageCollection messages, Context context)
         {
             //Error if None
-            //Error if Currency not specified
-            //Error if Currency doesn't exist
+            //Error if FixedCurrency not specified
+            //Error if FixedCurrency doesn't exist
         }
 
         public new MoneyType Copy()

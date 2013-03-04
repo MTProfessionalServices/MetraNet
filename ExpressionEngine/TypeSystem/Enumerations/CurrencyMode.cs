@@ -1,7 +1,7 @@
 ﻿namespace MetraTech.ExpressionEngine.TypeSystem.Enumerations
 {
     /// <summary>
-    /// Indicates how the Currency is determined.
+    /// Indicates how the FixedCurrency is determined.
     /// </summary>
     public enum CurrencyMode
     {
@@ -16,7 +16,7 @@
         Context,
 
         /// <summary>
-        /// Always the same (i.e., USD). Specified in the Currency field
+        /// Always the same (i.e., USD). Specified in the FixedCurrency field
         /// </summary>
         Fixed,
 

@@ -12,7 +12,7 @@ namespace MetraTech.ExpressionEngine.Components
         #endregion
 
         #region GUI Support Properties (should be moved in future)
-        public override string Image { get { return "UnitOfMeasure.png"; } }
+        public override string Image { get { return "FixedUnitOfMeasure.png"; } }
         #endregion
 
         #region Constructor

@@ -34,7 +34,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// The unit of measure. Must be a value within the UnitofMeasureCategoryName. Only valid when UnitOfMeasuremode is Fixed
         /// </summary>
         [DataMember]
-        public string UnitOfMeasure { get; set; }
+        public string FixedUnitOfMeasure { get; set; }
 
         /// <summary>
         /// The name of the property that specifies the unit of measure; Only valid when UnitOfMeasureMode is Property
@@ -66,7 +66,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             messages.Error(prefix + ": " + message);
         }
 
-        public override void Validate(string prefix, Validations.ValidationMessageCollection messages, Context context)
+        public override void Validate(string prefix, ValidationMessageCollection messages, Context context)
         {
             if (UnitOfMeasureMode == UnitOfMeasureMode.None)
             {
@@ -101,7 +101,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 }
 
                 //Ensure the value is specified
-                if (string.IsNullOrEmpty(UnitOfMeasure))
+                if (string.IsNullOrEmpty(FixedUnitOfMeasure))
                 {
                     AddError(messages, prefix, Localization.UnitOfMeasureNotSpecified);
                     return;
@@ -110,7 +110,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 //Ensure that the value exists
                 if (UnitOfMeasureMode == UnitOfMeasureMode.Fixed)
                 {
-                    AddError(messages, prefix, string.Format(CultureInfo.CurrentCulture, Localization.UnableToFindUnitOfMeasure, UnitOfMeasure));
+                    AddError(messages, prefix, string.Format(CultureInfo.CurrentCulture, Localization.UnableToFindUnitOfMeasure, FixedUnitOfMeasure));
                 }
             }
         }
@@ -129,7 +129,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             InternalCopy(type);
             type.UnitOfMeasureMode = UnitOfMeasureMode;
             type.UnitOfMeasureCategory = UnitOfMeasureCategory;
-            type.UnitOfMeasure = UnitOfMeasure;
+            type.FixedUnitOfMeasure = FixedUnitOfMeasure;
             type.UnitOfMeasureProperty = UnitOfMeasureProperty;
             return type;
         }

@@ -17,7 +17,7 @@
         Any,                
         Binary,
         Boolean,
-        Charge,             //Decimal with Currency that is a, or part of a, charge or a settlement  ((PropertyAttribute))
+        Charge,             //Decimal with FixedCurrency that is a, or part of a, charge or a settlement  ((PropertyAttribute))
         DateTime,
         Decimal,
         Double,

@@ -44,7 +44,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             var timestamp = Properties.AddDateTime("Timestamp", "The time the event is deemed to have occurred", true);
             timestamp.IsCore = true;
 
-            var currency = Properties.AddDateTime("Currency", "The currency for the Event", true);
+            var currency = Properties.AddDateTime("FixedCurrency", "The currency for the Event", true);
             currency.IsCore = true;
 
             var eventChargeName = UserContext.Settings.NewSyntax ? "EventCharge" : "Amount";

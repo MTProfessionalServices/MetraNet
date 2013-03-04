@@ -60,6 +60,7 @@
     <Compile Include="MTProperties\MetraNetPropertyBase.cs" />
     <Compile Include="Expressions\Enumerations\ProductType.cs" />
     <Compile Include="TypeSystem\Constants\PropertyBagConstants.cs" />
+    <Compile Include="TypeSystem\Enumerations\CurrencyMode.cs" />
     <Compile Include="TypeSystem\Enumerations\PropertyBagMode.cs" />
     <Compile Include="Expressions\Enumerations\ExpressionType.cs" />
     <Compile Include="Expressions\ExpressionHelper.cs" />

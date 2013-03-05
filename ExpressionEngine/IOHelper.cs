@@ -27,21 +27,21 @@ namespace MetraTech.ExpressionEngine
 
         public static void Save<T>(string file, T theObject)
         {
-          var dirPath = Path.GetDirectoryName(file);
-          if (string.IsNullOrEmpty(dirPath))
-            throw new ArgumentException("Unable to determine directory path from file: " + file);
+            var dirPath = Path.GetDirectoryName(file);
+            if (string.IsNullOrEmpty(dirPath))
+                throw new ArgumentException("Unable to determine directory path from file: " + file);
 
-          dirPath.EnsureDirectoryExits();
+            dirPath.EnsureDirectoryExits();
 
-          var writerSettings = new XmlWriterSettings {Indent = true};
-          using (var writer = XmlWriter.Create(file, writerSettings))
-          {
-            var ser = new DataContractSerializer(typeof(T));
-            ser.WriteStartObject(writer, theObject);
-            writer.WriteAttributeString("xmlns", "arrays", null, "http://schemas.microsoft.com/2003/10/Serialization/Arrays");
-            ser.WriteObjectContent(writer, theObject);
-            ser.WriteEndObject(writer);
-          }
+            var writerSettings = new XmlWriterSettings { Indent = true };
+            using (var writer = XmlWriter.Create(file, writerSettings))
+            {
+                var ser = new DataContractSerializer(typeof(T));
+                ser.WriteStartObject(writer, theObject);
+                writer.WriteAttributeString("xmlns", "arrays", null, "http://schemas.microsoft.com/2003/10/Serialization/Arrays");
+                ser.WriteObjectContent(writer, theObject);
+                ser.WriteEndObject(writer);
+            }
         }
 
         public static string GetMetraNetConfigPath(string extensionsDir, string extension, string elementDirName)

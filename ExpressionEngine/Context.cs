@@ -456,6 +456,13 @@ namespace MetraTech.ExpressionEngine
 
         public static Context LoadExtensions(string extensionsDir)
         {
+            //Add a LoadMessages to context
+            //            catch (Exception ex)
+            //{   
+            //    var msg = string.Format(CultureInfo.InvariantCulture, string.Format("Error deserializing {0} [{1}]", file, ex.Message));
+            //    throw new Exception(msg, ex.InnerException);
+            //}
+
             var dirInfo = new DirectoryInfo(extensionsDir);
             if (!dirInfo.Exists)
                 throw new ArgumentException("extensionsDir doesn't exist: " + extensionsDir);

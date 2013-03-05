@@ -6,7 +6,10 @@ namespace MetraTech.ExpressionEngine.Components
     public class UnitOfMeasure :  EnumValue 
     {
         #region Properties
+        [DataMember]
         public UnitOfMeasureCategory Category { get; private set; }
+        [DataMember]
+        public string Code { get; set; }
         public string PrintSymbol { get; set; }
         public bool IsMetric { get;  set; } 
         #endregion

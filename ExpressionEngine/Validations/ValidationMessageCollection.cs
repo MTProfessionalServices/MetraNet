@@ -80,6 +80,14 @@ namespace MetraTech.ExpressionEngine.Validations
             Add(SeverityType.Error, message, lineNumber, columnNumber);
         }
 
+        public void Error(string message, Exception exception)
+        {
+            var msg = string.Format(CultureInfo.CurrentCulture, "{0} [{1}]", message, exception.Message);
+            var valMessage = new ValidationMessage(SeverityType.Error, msg);
+            valMessage.Exception = exception;
+            Add(valMessage);
+        }
+
         public void Warn(string message)
         {
             Add(SeverityType.Warn, message);

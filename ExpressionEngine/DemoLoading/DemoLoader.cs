@@ -34,7 +34,7 @@ namespace MetraTech.ExpressionEngine
             GlobalContext = new Context(product);
             DataPath = Path.Combine(TopLevelDataDir, subDir);
 
-            if (Context.ProductType == ProductType.MetraNet)
+            if (GlobalContext.ProductType == ProductType.MetraNet)
             {
                 GlobalContext = Context.LoadExtensions(Path.Combine(DataPath, "Extensions"));
 ;

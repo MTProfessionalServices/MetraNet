@@ -27,9 +27,14 @@ namespace MetraTech.ExpressionEngine
     public class Context
     {
         #region Properties
-        public static ProductType ProductType { get; private set; }
-        public static bool IsMetraNet { get { return ProductType == ProductType.MetraNet; } }
-        public static bool IsMetanga { get { return ProductType == ProductType.Metanga; } }
+        public ProductType ProductType { get; private set; }
+        public bool IsMetraNet { get { return ProductType == ProductType.MetraNet; } }
+        public bool IsMetanga { get { return ProductType == ProductType.Metanga; } }
+
+        /// <summary>
+        /// Contains any messages that were generated during the load (from file or database)
+        /// </summary>
+        public ValidationMessageCollection DeserilizationMessages { get; private set; }
 
         /// <summary>
         /// All expressions
@@ -109,6 +114,7 @@ namespace MetraTech.ExpressionEngine
         public Context(ProductType product)
         {
             ProductType = product;
+            DeserilizationMessages = new ValidationMessageCollection();
         }
 
         public Context(Expression expression)
@@ -456,7 +462,7 @@ namespace MetraTech.ExpressionEngine
 
         public static Context LoadExtensions(string extensionsDir)
         {
-            //Add a LoadMessages to context
+            //Add a DeserilizationMessages to context
             //            catch (Exception ex)
             //{   
             //    var msg = string.Format(CultureInfo.InvariantCulture, string.Format("Error deserializing {0} [{1}]", file, ex.Message));

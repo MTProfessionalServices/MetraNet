@@ -62,6 +62,14 @@ namespace PropertyGui
 
             DemoLoader.LoadGlobalContext(product, cboContext.Text);
 
+            if (DemoLoader.GlobalContext.DeserilizationMessages.Count != 0)
+            {
+                var dialog = new frmValidationMessages(DemoLoader.GlobalContext.DeserilizationMessages);
+                dialog.ShowDialog();
+            }
+                //MessageBox.Show(DemoLoader.GlobalContext.DeserilizationMessages.GetSummary(true),
+                //                "Deserilizaiton Messages", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
             SetItems(cboAqgs, btnAQG, DemoLoader.GlobalContext.Aqgs.Values.ToArray<Aqg>());
             SetItems(cboUqgs, btnUQG, DemoLoader.GlobalContext.Uqgs.Values.ToArray<Uqg>());
             SetItems(cboExpressions, btnExpression, DemoLoader.GlobalContext.Expressions.Values.ToArray<Expression>());

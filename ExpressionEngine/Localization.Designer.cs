@@ -115,6 +115,15 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error loading {0}.
+        /// </summary>
+        internal static string FileLoadError {
+            get {
+                return ResourceManager.GetString("FileLoadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to in Property &apos;{0}&apos; in PropertyBag &apos;{1}&apos;.
         /// </summary>
         internal static string InPropertySuffix {

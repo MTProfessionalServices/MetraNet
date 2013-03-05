@@ -7,6 +7,9 @@ using MetraTech.ExpressionEngine.Validations;
 namespace MetraTech.ExpressionEngine.Components
 {
     /// <summary>
+    /// Unit of measure categories are used to group units in ways that are useful
+    /// for end users to limit the number of options and recognize related units.
+    /// For example, the "Distance" category contains all the units that measure distance.
     /// </summary>
     [DataContract (Namespace = "MetraTech")]
     public class UnitOfMeasureCategory : EnumCategory

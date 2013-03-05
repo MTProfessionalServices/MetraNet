@@ -1,22 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+<UnitOfMeasureCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description>Time is a part of the measuring system used to sequence events, to compare the durations of events and the intervals between them, and to quantify rates of change such as the motions of objects.</Description>
   <Name>Time Month-Based</Name>
   <Values>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Represents a quarter of a year.</Description>
       <Name>Quarter</Name>
+      <Code>ANN/4</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Year</Description>
       <Name>Year</Name>
+      <Code>ANN</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Month</Description>
       <Name>Month</Name>
+      <Code>MO</Code>
     </EnumValue>
   </Values>
-</EnumCategory>
+</UnitOfMeasureCategory>

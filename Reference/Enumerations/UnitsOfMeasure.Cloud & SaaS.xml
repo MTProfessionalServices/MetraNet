@@ -1,62 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+<UnitOfMeasureCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description>Contains units of measure that are commonly used in Cloud and Software as a Service applications</Description>
   <Name>Cloud &amp; SaaS</Name>
   <Values>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Database</Description>
       <Name>Database</Name>
+      <Code>DATABASE</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Seat</Description>
       <Name>Seat</Name>
+      <Code>SEAT</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Report</Description>
       <Name>Report</Name>
+      <Code>REPORT</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Download</Description>
       <Name>Download</Name>
+      <Code>DOWNLOAD</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>User</Description>
       <Name>User</Name>
+      <Code>USER</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Click</Description>
       <Name>Click</Name>
+      <Code>CLICK</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Server</Description>
       <Name>Server</Name>
+      <Code>SERVER</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>View</Description>
       <Name>View</Name>
+      <Code>VIEW</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Location</Description>
       <Name>Location</Name>
+      <Code>LOCATION</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Instance</Description>
       <Name>Instance</Name>
+      <Code>INSTANCE</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Email</Description>
       <Name>Email</Name>
+      <Code>EMAIL</Code>
     </EnumValue>
   </Values>
-</EnumCategory>
+</UnitOfMeasureCategory>

@@ -1,97 +1,115 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+<UnitOfMeasureCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description>Distance is a numerical description of how far apart objects are. In physics or everyday discussion, distance may refer to a physical length, or an estimation based on other criteria (e.g. "two counties over").</Description>
   <Name>Distance</Name>
   <Values>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Gigameter</Description>
       <Name>Gigameter</Name>
+      <Code>GAM</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Dekameter</Description>
       <Name>Dekameter</Name>
+      <Code>DAM</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Yard</Description>
       <Name>Yard</Name>
+      <Code>[YD_US]</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Millimeter</Description>
       <Name>Millimeter</Name>
+      <Code>MM</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Nanometer</Description>
       <Name>Nanometer</Name>
+      <Code>NM</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Mile</Description>
       <Name>Mile</Name>
+      <Code>[MI_US]</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Inch</Description>
       <Name>Inch</Name>
+      <Code>[IN_US]</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Micrometer</Description>
       <Name>Micrometer</Name>
+      <Code>UM</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Decimeter</Description>
       <Name>Decimeter</Name>
+      <Code>DM</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Hectometer</Description>
       <Name>Hectometer</Name>
+      <Code>HM</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Megameter</Description>
       <Name>Megameter</Name>
+      <Code>MAM</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Foot</Description>
       <Name>Foot</Name>
+      <Code>[FT_US]</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Meter</Description>
       <Name>Meter</Name>
+      <Code>M</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Petameter</Description>
       <Name>Petameter</Name>
+      <Code>PTM</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Rod</Description>
       <Name>Rod</Name>
+      <Code>[RD_US]</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Kilometer</Description>
       <Name>Kilometer</Name>
+      <Code>KM</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Terameter</Description>
       <Name>Terameter</Name>
+      <Code>TRM</Code>
     </EnumValue>
-    <EnumValue>
+    <EnumValue i:type="UnitOfMeasure">
       <Aliases i:nil="true" />
       <Description>Centimeter</Description>
       <Name>Centimeter</Name>
+      <Code>CM</Code>
     </EnumValue>
   </Values>
-</EnumCategory>
+</UnitOfMeasureCategory>

@@ -135,6 +135,9 @@
   <data name="ExpressionIsValid" xml:space="preserve">
     <value>The expression is valid.</value>
   </data>
+  <data name="FileLoadError" xml:space="preserve">
+    <value>Error loading {0}</value>
+  </data>
   <data name="InPropertySuffix" xml:space="preserve">
     <value>in Property '{0}' in PropertyBag '{1}'</value>
   </data>

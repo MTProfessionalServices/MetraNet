@@ -5,6 +5,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.Components
 { 
@@ -157,7 +158,7 @@ namespace MetraTech.ExpressionEngine.Components
             if (context == null)
                 throw new ArgumentException("context");
 
-            foreach (var enumNamespace in LoadDirectory(dirPath, extension))
+            foreach (var enumNamespace in LoadDirectory(dirPath, extension, context.DeserilizationMessages))
             {
                 context.EnumNamespaces.Add(enumNamespace.Name, enumNamespace);
             }
@@ -166,8 +167,9 @@ namespace MetraTech.ExpressionEngine.Components
 
         /// <summary>
         /// Assumes proper naming!!!! Could do better checking!!!!
+        /// If messaages is not null, exceptions will be placed into it otherwise they are thrown.
         /// </summary>
-        public static List<EnumNamespace> LoadDirectory(string dirPath, string extension)
+        public static List<EnumNamespace> LoadDirectory(string dirPath, string extension, ValidationMessageCollection messages=null)
         {
             var namespaces = new List<EnumNamespace>();
 
@@ -186,18 +188,37 @@ namespace MetraTech.ExpressionEngine.Components
             {
                 if (fileInfo.FullName.EndsWith("._.xml"))
                 {
-                    ns = CreateFromFile(fileInfo.FullName);
+                    try
+                    {
+                        ns = CreateFromFile(fileInfo.FullName);
+                    }
+                    catch (Exception exception)
+                    {
+                        if (messages == null)
+                            throw;
+                        messages.Error(string.Format(CultureInfo.CurrentCulture, Localization.FileLoadError, fileInfo.FullName), exception);
+                    }
+
                     ns.Extension = extension;
                     namespaces.Add(ns);
                     nsFileName = fileInfo.Name.Substring(0, fileInfo.Name.Length - 5);
                 }
                 else //it's a enumCategory
                 {
-                    if (!fileInfo.Name.StartsWith(nsFileName))
-                        throw new Exception("expected file to start with " + nsFileName);
-                    ns.FixDeserilization();
-                    var category = EnumCategory.CreateFromFile(fileInfo.FullName);
-                    ns.Categories.Add(category);
+                    try
+                    {
+                        if (!fileInfo.Name.StartsWith(nsFileName))
+                            throw new Exception("expected file to start with " + nsFileName);
+                        ns.FixDeserilization();
+                        var category = EnumCategory.CreateFromFile(fileInfo.FullName);
+                        ns.Categories.Add(category);
+                    }
+                    catch (Exception exception)
+                    {
+                        if (messages == null)
+                            throw;
+                        messages.Error(string.Format(CultureInfo.CurrentCulture, Localization.FileLoadError, fileInfo.FullName), exception);
+                    }
                 }
             }
 

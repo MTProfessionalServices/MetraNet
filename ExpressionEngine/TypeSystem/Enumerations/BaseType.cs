@@ -17,7 +17,11 @@
         Any,                
         Binary,
         Boolean,
-        Charge,             //Decimal with FixedCurrency that is a, or part of a, charge or a settlement  ((PropertyAttribute))
+
+        /// <summary>
+        /// NOT SURE HOW THIS DIFFERS FROM MONEY
+        /// </summary>
+        Charge,            
         DateTime,
         Decimal,
         Double,
@@ -26,10 +30,9 @@
         /// A "bag" of properties. See PropertyBagMode for all of the subtypes
         /// </summary>
         PropertyBag,        
-
-
+        
         /// <summary>
-        /// An enumeration that 
+        /// An enumeration (has a Namespace and a Category) 
         /// </summary>
         Enumeration,
 
@@ -60,7 +63,8 @@
         Integer64,
 
         /// <summary>
-        /// A decimal number that's associated with a curreny
+        /// A decimal number that's associated with a currency
+        /// NEED to figure out if Charge is subclass of this
         /// </summary>
         Money,              
 
@@ -79,14 +83,4 @@
         /// </summary>
         UniqueIdentifier   
     }
-
-
-    // AbstractType
-    //     IntegerType
-    //     
-
-    //TypeFactory.CreateBoolean()
-   
-    //
-
 }

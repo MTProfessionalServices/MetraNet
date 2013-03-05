@@ -1,0 +1,482 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="AccountViewEntity" xmlns="MetraTech">
+  <DefaultValue i:nil="true" />
+  <Description>Internal account information.</Description>
+  <Direction>Input</Direction>
+  <IsCore>false</IsCore>
+  <Name>Internal</Name>
+  <Required>true</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>AccountView</Name>
+    <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
+  </Type>
+  <Properties>
+    <Properties>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>The internal MetraNet account identifiert</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>AccountId</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Tax exempt flag.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TaxExempt</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Tax exempt ID.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TaxExemptID</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Time zone ID.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TimezoneID</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>TimeZoneID</Category>
+          <Namespace>Global</Namespace>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Payment method.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PaymentMethod</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>PaymentMethod</Category>
+          <Namespace>metratech.com/accountcreation</Namespace>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Security question.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SecurityQuestion</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>SecurityQuestion</Category>
+          <Namespace>metratech.com/accountcreation</Namespace>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>User defined security question.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SecurityQuestionText</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Answer to security question.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SecurityAnswer</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Invoice method.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>InvoiceMethod</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>InvoiceMethod</Category>
+          <Namespace>metratech.com/accountcreation</Namespace>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Usage cycle type.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>UsageCycleType</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>UsageCycleType</Category>
+          <Namespace>metratech.com/BillingCycle</Namespace>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Language.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Language</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>LanguageCode</Category>
+          <Namespace>Global</Namespace>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Status reason.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>StatusReason</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>StatusReason</Category>
+          <Namespace>metratech.com/accountcreation</Namespace>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Status reason text (if Status reason is Other.)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>StatusReasonOther</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Currency.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Currency</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>10</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Default account price list.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PriceList</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Billable flag</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Billable</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Account is a folder (deprecated.)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Folder</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>This is name of the division to which the account is associated</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Division</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>The tax vendor to use for tax calculations.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TaxVendor</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>TaxVendor</Category>
+          <Namespace>metratech.com/tax</Namespace>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>If using MetraTax, the country to use in tax calculations for the caccount.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>MetraTaxCountryEligibility</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>CountryName</Category>
+          <Namespace>Global</Namespace>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>If using MetraTax, the special geographic zone associated with the account the can have a special tax rate.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>MetraTaxCountryZone</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>TaxZone</Category>
+          <Namespace>metratech.com/tax</Namespace>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>True if using MetraTax and the account has a tax override band that may be used.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>MetraTaxHasOverrideBand</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>If using MetraTax, the override tax band associated with the account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>MetraTaxOverrideBand</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>TaxBand</Category>
+          <Namespace>metratech.com/tax</Namespace>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>For some tax vendors the tax calculation requires a permanent  code that pinpoints the geographic location of the account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TaxServiceAddressPCode</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Typically used for MetraTax to indicate reason, if any, for tax exemption. This field is information only and does not influence tax calculation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TaxExemptReason</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>TaxExemptReason</Category>
+          <Namespace>metratech.com/tax</Namespace>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Typically used for MetraTax to indicate start date for tax exemption.  This field is information only and does not influence tax calculation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TaxExemptStartDate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Typically used for MetraTax to indicate end date for tax exemption.  This field is information only and does not influence tax calculation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TaxExemptEndDate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Typically used for MetraTax to store the VAT registration number.  This field is information only and does not influence tax calculation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TaxRegistryReference</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+    </Properties>
+  </Properties>
+</PropertyBag>

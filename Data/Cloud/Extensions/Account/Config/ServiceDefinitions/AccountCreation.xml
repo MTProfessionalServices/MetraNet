@@ -24,8 +24,10 @@
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
@@ -130,8 +132,10 @@
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
@@ -258,8 +262,10 @@ F for False or 0.  Required for creation.</Description>
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
@@ -322,8 +328,10 @@ F for False or 0.  Required for creation.</Description>
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
@@ -463,8 +471,10 @@ F for False or 0.  Required for creation.</Description>
         <Type i:type="NumberType">
           <BaseType>Double</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
@@ -573,8 +583,10 @@ F for False or 0.  Required for creation.</Description>
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
@@ -601,8 +613,10 @@ F for False or 0.  Required for creation.</Description>
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
@@ -615,8 +629,10 @@ F for False or 0.  Required for creation.</Description>
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
@@ -643,8 +659,10 @@ F for False or 0.  Required for creation.</Description>
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
@@ -657,8 +675,10 @@ F for False or 0.  Required for creation.</Description>
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">

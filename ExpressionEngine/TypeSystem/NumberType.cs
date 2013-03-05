@@ -31,13 +31,13 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public string UnitOfMeasureCategory { get; set; }
 
         /// <summary>
-        /// The unit of measure. Must be a value within the UnitofMeasureCategoryName. Only valid when UnitOfMeasuremode is Fixed
+        /// The unit of measure. Must be a value within the UnitofMeasureCategoryName. Only valid when UnitOfMeasuremode=Fixed
         /// </summary>
         [DataMember]
         public string FixedUnitOfMeasure { get; set; }
 
         /// <summary>
-        /// The name of the property that specifies the unit of measure; Only valid when UnitOfMeasureMode is Property
+        /// The name of the property that specifies the unit of measure; Only valid when UnitOfMeasureMode=Property
         /// </summary>
         [DataMember]
         public string UnitOfMeasureProperty { get; set; }

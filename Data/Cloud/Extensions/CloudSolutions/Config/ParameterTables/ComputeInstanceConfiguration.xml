@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ParameterTableEntity" xmlns="MetraTech">
+  <DefaultValue i:nil="true" />
+  <Description>Store the default configuration for the Compute offer</Description>
+  <Direction>Input</Direction>
+  <IsCore>false</IsCore>
+  <Name>ComputeInstanceConfiguration</Name>
+  <Required>true</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>ParameterTable</Name>
+    <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
+  </Type>
+  <Properties>
+    <Properties>
+      <Property i:type="ParameterTableProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Source of Compute Service</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Source</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Instance Type; VM or DataCenter</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>InstanceType</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>InstanceTypes</Category>
+          <Namespace>csk.com</Namespace>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Zone ( Region )</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Zone</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Service Edition</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Edition</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>Edition</Category>
+          <Namespace>csk.com</Namespace>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Operating System</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>OS</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>OS</Category>
+          <Namespace>csk.com</Namespace>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Size</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Size</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>Sizes</Category>
+          <Namespace>csk.com</Namespace>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Is snapshot enabled</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Snapshot</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+    </Properties>
+  </Properties>
+  <ActionsCaption i:nil="true" />
+  <Category i:nil="true" />
+  <ConditionsCaption i:nil="true" />
+  <HelpUrl i:nil="true" />
+</PropertyBag>

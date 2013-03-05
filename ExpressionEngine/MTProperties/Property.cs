@@ -21,6 +21,8 @@ namespace MetraTech.ExpressionEngine.MTProperties
     /// </summary>
     [DataContract (Namespace = "MetraTech")]
     [KnownType(typeof(AccountViewProperty))]
+    [KnownType(typeof(BusinessModelingEntityProperty))]
+    [KnownType(typeof(ParameterTableProperty))]
     [KnownType(typeof(ProductViewProperty))]
     [KnownType(typeof(ServiceDefinitionProperty))]
     public class Property : IExpressionEngineTreeNode
@@ -256,58 +258,6 @@ namespace MetraTech.ExpressionEngine.MTProperties
             //return property;
         }
 
-        private void AddError(ValidationMessageCollection messages, string message)
-        {
-            messages.Error(GetPrefixedMessage(message));
-        }
-        private void AddWarning(ValidationMessageCollection messages, string message)
-        {
-            messages.Warn(GetPrefixedMessage(message));
-        }
-
-        private string GetPrefixedMessage(string message = null)
-        {
-            var prefix = string.Format(CultureInfo.CurrentUICulture, Localization.PropertyMessagePrefix, QualifiedName);
-            prefix += message;
-            return prefix;
-        }
-
-
-
-        //Not sure that I need prefixMsg here
-        public virtual ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages, Context context)
-        {
-            if (messages == null)
-                throw new ArgumentException("messages is null");
-
-            //Validate the name
-            if (string.IsNullOrWhiteSpace(Name))
-                AddError(messages, Localization.NameNotSpecified);
-            else
-            {
-                if (!NameRegex.IsMatch(Name))
-                    AddError(messages, Localization.InvalidName);
-                //FUTURE FEATURE
-                //else
-                //    SpellingEngine.CheckWord(Name, null, messages);
-            }
-
-            //Validate the type
-            Type.Validate(GetPrefixedMessage(), messages, context);
-
-            //Validate the default value, if any
-            if (DefaultValue != null && TypeHelper.ValueIsValid(Type.BaseType, DefaultValue, true))
-                AddError(messages, Localization.InvalidDefaultValue);
-
-            //Validate the description
-            if (string.IsNullOrEmpty(Description))
-                AddWarning(messages, Localization.InsufficientDescription);
-            //FUTURE FEATURE
-            //SpellingEngine.CheckString(Description, null, messages);
-
-            return messages;
-        }
-
         /// <summary>
         /// Useful for debugging.
         /// </summary>
@@ -368,5 +318,59 @@ namespace MetraTech.ExpressionEngine.MTProperties
         }
 
         #endregion
+
+        #region Validation Methods
+
+        private void AddError(ValidationMessageCollection messages, string message)
+        {
+            messages.Error(GetPrefixedMessage(message));
+        }
+        private void AddWarning(ValidationMessageCollection messages, string message)
+        {
+            messages.Warn(GetPrefixedMessage(message));
+        }
+
+        private string GetPrefixedMessage(string message = null)
+        {
+            var prefix = string.Format(CultureInfo.CurrentUICulture, Localization.PropertyMessagePrefix, QualifiedName);
+            prefix += message;
+            return prefix;
+        }
+
+        //Not sure that I need prefixMsg here
+        public virtual ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages, Context context)
+        {
+            if (messages == null)
+                throw new ArgumentException("messages is null");
+
+            //Validate the name
+            if (string.IsNullOrWhiteSpace(Name))
+                AddError(messages, Localization.NameNotSpecified);
+            else
+            {
+                if (!NameRegex.IsMatch(Name))
+                    AddError(messages, Localization.InvalidName);
+                //FUTURE FEATURE
+                //else
+                //    SpellingEngine.CheckWord(Name, null, messages);
+            }
+
+            //Validate the type
+            Type.Validate(GetPrefixedMessage(), messages, context);
+
+            //Validate the default value, if any
+            if (DefaultValue != null && TypeHelper.ValueIsValid(Type.BaseType, DefaultValue, true))
+                AddError(messages, Localization.InvalidDefaultValue);
+
+            //Validate the description
+            if (string.IsNullOrEmpty(Description))
+                AddWarning(messages, Localization.InsufficientDescription);
+            //FUTURE FEATURE
+            //SpellingEngine.CheckString(Description, null, messages);
+
+            return messages;
+        }
+        #endregion  
+
     }
 }

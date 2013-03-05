@@ -29,6 +29,7 @@
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -45,6 +46,7 @@
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -61,6 +63,7 @@
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -73,11 +76,14 @@
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -94,6 +100,7 @@
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -110,6 +117,7 @@
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -126,6 +134,7 @@
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -142,6 +151,7 @@
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -154,11 +164,14 @@
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -171,11 +184,14 @@
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -188,11 +204,14 @@
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -208,6 +227,7 @@
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -215,7 +235,7 @@
         <Description>The currency for the Event</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
-        <Name>Currency</Name>
+        <Name>FixedCurrency</Name>
         <Required>true</Required>
         <Type>
           <BaseType>DateTime</BaseType>
@@ -223,6 +243,7 @@
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -235,10 +256,13 @@
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <Currency i:nil="true" />
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty i:nil="true" />
+          <FixedCurrency i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -251,11 +275,14 @@
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -268,11 +295,14 @@
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -285,10 +315,13 @@
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <Currency i:nil="true" />
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty i:nil="true" />
+          <FixedCurrency i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -301,10 +334,13 @@
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <Currency i:nil="true" />
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty i:nil="true" />
+          <FixedCurrency i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -317,10 +353,13 @@
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <Currency i:nil="true" />
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty i:nil="true" />
+          <FixedCurrency i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -333,10 +372,13 @@
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <Currency i:nil="true" />
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty i:nil="true" />
+          <FixedCurrency i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -349,10 +391,13 @@
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <Currency i:nil="true" />
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty i:nil="true" />
+          <FixedCurrency i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
@@ -365,10 +410,13 @@
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <Currency i:nil="true" />
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty i:nil="true" />
+          <FixedCurrency i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
     </Properties>

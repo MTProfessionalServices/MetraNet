@@ -11,7 +11,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     {
         #region Properties
 
-        public static readonly IEnumerable<Type> AllTypes; 
+        public static readonly IEnumerable<Type> AllTypes;
 
         /// <summary>
         /// BaseTypes supported by MSIX entities (e.g., Service Definitoins, ProductViews, etc.).
@@ -19,7 +19,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// </summary>
         public static readonly IEnumerable<BaseType> MsixBaseTypes;
 
-        public static readonly IEnumerable<string> MsixEntityTypes; 
+        public static readonly IEnumerable<string> MsixEntityTypes;
 
         /// <summary>
         /// BaseTypes that exist as native database types (e.g., string, int, etc.). In other words, there is a 1:1 mapping.
@@ -50,6 +50,8 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             MsixEntityTypes = new string[]
             {
                 PropertyBagConstants.AccountView,
+                PropertyBagConstants.BusinessModelingEntity,
+                PropertyBagConstants.ParameterTable,
                 PropertyBagConstants.ProductView,
                 PropertyBagConstants.ServiceDefinition
             };
@@ -257,7 +259,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 case BaseType.Double:
                     return typeof(double);
                 case BaseType.Enumeration: //Not sure about this one!
-                    //return typeof (Int32);
+                //return typeof (Int32);
                 case BaseType.Integer32:
                     return typeof(int);
                 case BaseType.Integer64:

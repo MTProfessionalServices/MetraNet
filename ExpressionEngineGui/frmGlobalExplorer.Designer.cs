@@ -36,16 +36,15 @@
             this.ctlExpressionExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ctlExpressionExplorer.Location = new System.Drawing.Point(0, 0);
             this.ctlExpressionExplorer.Name = "ctlExpressionExplorer";
-            this.ctlExpressionExplorer.Size = new System.Drawing.Size(286, 378);
+            this.ctlExpressionExplorer.Size = new System.Drawing.Size(286, 467);
             this.ctlExpressionExplorer.TabIndex = 0;
             // 
             // frmGlobalExplorer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(286, 378);
+            this.ClientSize = new System.Drawing.Size(286, 467);
             this.Controls.Add(this.ctlExpressionExplorer);
-            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmGlobalExplorer";
             this.Text = "Global Explorer";

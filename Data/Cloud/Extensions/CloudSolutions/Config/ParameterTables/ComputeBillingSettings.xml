@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ParameterTableEntity" xmlns="MetraTech">
+  <DefaultValue i:nil="true" />
+  <Description>Stores the Billing settings for Compute service</Description>
+  <Direction>Input</Direction>
+  <IsCore>false</IsCore>
+  <Name>ComputeBillingSettings</Name>
+  <Required>true</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>ParameterTable</Name>
+    <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
+  </Type>
+  <Properties>
+    <Properties>
+      <Property i:type="ParameterTableProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Billing Model selected</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>BillingModel</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>InstanceBillingModels</Category>
+          <Namespace>csk.com</Namespace>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Billing Unit Types</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>BillingUnits</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>InstanceBillingUnits</Category>
+          <Namespace>csk.com</Namespace>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Should the OS be calculated</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>IncludeOS</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <DefaultValue i:nil="true" />
+        <Description>Which Aggregate Plan be used</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AggregatePlan</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>AggregateType</Category>
+          <Namespace>csk.com</Namespace>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+    </Properties>
+  </Properties>
+  <ActionsCaption i:nil="true" />
+  <Category i:nil="true" />
+  <ConditionsCaption i:nil="true" />
+  <HelpUrl i:nil="true" />
+</PropertyBag>

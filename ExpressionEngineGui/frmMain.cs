@@ -122,8 +122,8 @@ namespace PropertyGui
 
         private void btnExplorer_Click(object sender, EventArgs e)
         {
-            var dialog = new frmGlobalExplorer();
-            dialog.ShowDialog();
+            var dialog = new frmGlobalExplorer(cboContext.Text);
+            dialog.Show();
         }
 
         private void btnExpression_Click(object sender, EventArgs e)

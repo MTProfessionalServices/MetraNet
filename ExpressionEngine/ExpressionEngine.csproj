@@ -57,8 +57,14 @@
     <Compile Include="Expressions\Constants\ExpressionConstants.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="IOHelper.cs" />
+    <Compile Include="MTProperties\BusinessModelingEntityProperty.cs" />
+    <Compile Include="MTProperties\Enumerations\OperatorScope.cs" />
+    <Compile Include="MTProperties\Enumerations\ParameterTablePropertyContext.cs" />
     <Compile Include="MTProperties\MetraNetPropertyBase.cs" />
     <Compile Include="Expressions\Enumerations\ProductType.cs" />
+    <Compile Include="MTProperties\ParameterTableProperty.cs" />
+    <Compile Include="PropertyBags\BusinessModelingEntity.cs" />
+    <Compile Include="PropertyBags\ParameterTableEntity.cs" />
     <Compile Include="TypeSystem\Constants\PropertyBagConstants.cs" />
     <Compile Include="TypeSystem\Enumerations\CurrencyMode.cs" />
     <Compile Include="TypeSystem\Enumerations\PropertyBagMode.cs" />

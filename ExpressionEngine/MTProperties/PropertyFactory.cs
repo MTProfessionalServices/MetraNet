@@ -1,4 +1,5 @@
-﻿using MetraTech.ExpressionEngine.TypeSystem;
+﻿using MetraTech.ExpressionEngine.PropertyBags;
+using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
 
 namespace MetraTech.ExpressionEngine.MTProperties
@@ -11,6 +12,10 @@ namespace MetraTech.ExpressionEngine.MTProperties
             {
                 case PropertyBagConstants.AccountView:
                     return new AccountViewProperty(name, type, isRequired, description);
+                case PropertyBagConstants.BusinessModelingEntity:
+                    return new BusinessModelingEntityProperty(name, type, isRequired, description);
+                case PropertyBagConstants.ParameterTable:
+                    return new ParameterTableProperty(name, type, isRequired, description);
                 case PropertyBagConstants.ProductView:
                     return new ProductViewProperty(name, type, isRequired, description);
                 case PropertyBagConstants.ServiceDefinition:

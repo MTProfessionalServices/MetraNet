@@ -34,6 +34,6 @@
         /// <summary>
         /// There is an exact match. For example, Integer32 and Integer32 or two enums with the same namespace and category 
         /// </summary>
-        Exact = 5           // 
+        Exact = 5          
     }
 }

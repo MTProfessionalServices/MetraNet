@@ -18,6 +18,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
     /// </summary>
     [DataContract(Namespace = "MetraTech")]
     [KnownType(typeof(AccountViewEntity))]
+    [KnownType(typeof(ParameterTableEntity))]
     [KnownType(typeof(ProductViewEntity))]
     [KnownType(typeof(ServiceDefinitionEntity))]
     public class PropertyBag : Property, IExpressionEngineTreeNode

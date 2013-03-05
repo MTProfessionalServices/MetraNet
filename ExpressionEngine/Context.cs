@@ -325,6 +325,13 @@ namespace MetraTech.ExpressionEngine
             if (entity == null)
                 throw new ArgumentNullException("entity");
 
+            PropertyBag pb;
+            if (Entities.TryGetValue(entity.Name, out pb))
+            {
+                throw new ArgumentException(string.Format(
+                    "PropertyBag with name='{0} already exists: old={1}, new={2}", entity.Name, pb, entity));
+            }
+
             Entities.Add(entity.Name, entity);
         }
 
@@ -476,6 +483,7 @@ namespace MetraTech.ExpressionEngine
             EnumNamespace.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "Enumerations"), extensionDir.Name, context);
             PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "AccountViews"), "AccountView", context);
             PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "ProductViews"), "ProductView", context);
+            PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "ParameterTables"), "ParameterTable", context);
         }
         
         public static Context LoadMetanga(string dirPath)

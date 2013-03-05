@@ -15,7 +15,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     {
         #region Properties
         /// <summary>
-        /// The namespace; used to prevent name collisions with 
+        /// The namespace; used to prevent Category name collisions 
         /// </summary>
         [DataMember]
         public string Namespace { get; set; }

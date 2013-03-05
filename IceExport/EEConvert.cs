@@ -2,12 +2,14 @@
 using System.Collections;
 using System.IO;
 using MetraTech.ExpressionEngine.MTProperties;
+using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Components;
 using System.Globalization;
+using MetraTech.ICE.BusinessModelingEntities;
 using MetraTech.ICE.TreeFlows;
 using Function = MetraTech.ICE.TreeFlows.Function;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
@@ -41,6 +43,27 @@ namespace MetraTech.ICE.ExpressionEngine
     {
         var type = GetMtType(oldProperty.DataTypeInfo);
         var property = PropertyFactory.Create(propertyBagTypeName, oldProperty.Name, type, oldProperty.Required, oldProperty.Description);
+
+        //we need to cast and map the special values for each property type!!!
+        switch (propertyBagTypeName)
+        {
+            case PropertyBagConstants.ParameterTable:
+                var ptProp = (ParameterTableProperty) property;
+                var oldPtProp = (Property_ParamTable) oldProperty;
+                switch (oldPtProp.PTContext)
+                {
+                    case Property_ParamTable.PTContextType.pt_action:
+                        ptProp.ParameterTablePropertyContext = ParameterTablePropertyContext.Action;
+                        break;
+                    case Property_ParamTable.PTContextType.pt_condition:
+                        ptProp.ParameterTablePropertyContext = ParameterTablePropertyContext.Condition;
+                        break;
+                    case Property_ParamTable.PTContextType.pt_condition_op:
+                        ptProp.ParameterTablePropertyContext = ParameterTablePropertyContext.ConditionOperator;
+                        break;
+                }
+                break;
+        }
         return property;
     }
 
@@ -48,8 +71,6 @@ namespace MetraTech.ICE.ExpressionEngine
     {
       foreach (var oldProperty in oldCollection)
       {
-        //var type = GetMtType(oldProperty.DataTypeInfo);
-        //var property = PropertyFactory.Create(propertyBagTypeName, oldProperty.Name, type, oldProperty.Required, oldProperty.Description);
         var property = GetProperty(propertyBagTypeName, oldProperty);
         newCollection.Add(property);
       }
@@ -68,6 +89,13 @@ namespace MetraTech.ICE.ExpressionEngine
           var avEntity = PropertyBagFactory.CreateAccountViewEntity(oldEntity.NameWithinNamespace, oldEntity.Description);
           CopyProperties(propertyBagTypeName, propertyCollection, avEntity.Properties);
           entity = avEntity;
+          break;
+        case ElementType.ParameterTable:
+          propertyBagTypeName = PropertyBagConstants.ParameterTable;
+          propertyCollection = ((AccountView) oldEntity).Properties;
+          var ptEntity = PropertyBagFactory.CreateAccountViewEntity(oldEntity.NameWithinNamespace, oldEntity.Description);
+          CopyProperties(propertyBagTypeName, propertyCollection, ptEntity.Properties);
+          entity = ptEntity;
           break;
         case ElementType.ProductView:
           propertyBagTypeName = PropertyBagConstants.ProductView;
@@ -178,8 +206,14 @@ namespace MetraTech.ICE.ExpressionEngine
       //Export the MSIX definitions
       SaveInExtension(extensionsDir, ElementType.ServiceDefinition);
       SaveInExtension(extensionsDir, ElementType.ProductView);
-      SaveInExtension(extensionsDir, ElementType.ServiceDefinition); 
-      //TODO: eport parameter tables
+      SaveInExtension(extensionsDir, ElementType.ServiceDefinition);
+      SaveInExtension(extensionsDir, ElementType.ParameterTable);
+
+      foreach (BusinessModelingEntityElement bmee in Config.Instance.BusinessModelingEntities.Values)
+      {
+          var newBme = PropertyBagFactory.CreateBusinessModelingEntity(bmee.Name, bmee.Description);
+          newBme.SaveInExtensionsDirectory(extensionsDir);
+      }
     }
 
     public static void SaveInExtension(string extensionsDir, ElementType elementType)

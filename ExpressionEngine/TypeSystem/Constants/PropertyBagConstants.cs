@@ -6,6 +6,8 @@
         public const string AccountView = "AccountView";
         public const string ProductView = "ProductView";
         public const string ServiceDefinition = "ServiceDefinition";
+        public const string ParameterTable = "ParameterTable";
+        public const string BusinessModelingEntity = "BusinessModelingEntity";
 
         public const string MetraTechNamespace = "MetraTech";
 

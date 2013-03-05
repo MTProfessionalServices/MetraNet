@@ -16,7 +16,6 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         /// <summary>
         /// The currency. Only valid when CurrencyMode=Fixed.
-        /// ???Should this be renamed to FixedCurrency???
         /// </summary>
         [DataMember]
         public string FixedCurrency { get; set; }

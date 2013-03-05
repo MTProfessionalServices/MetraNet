@@ -1,5 +1,8 @@
 ﻿namespace MetraTech.ExpressionEngine.TypeSystem.Enumerations
 {
+    /// <summary>
+    /// Indicates if the data type is a scalar or some type of list
+    /// </summary>
     public enum ListType
     {
         /// <summary>

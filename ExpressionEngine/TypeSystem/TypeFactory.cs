@@ -5,7 +5,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 {
     public static class TypeFactory
     {
-        #region Create Methods
+        #region Create Type-Specific Methods
 
         public static Type CreateAny()
         {
@@ -145,27 +145,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         #endregion
 
-        #region General Create
-        //public static MtType Create<T>() where T : MtType, new()
-        //{
-        //    return new T();
-        //}
-
-        //private static Type RetrieveType(BaseType baseType)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public static MtType Create(string type)
-        //{
-        //    var baseType = TypeHelper.GetBaseType(type);
-        //    var actualType = RetrieveType(baseType);
-        //    var createMethod = typeof(TypeFactory).GetMethod("Create");
-        //    var createOfTypeMethod = createMethod.MakeGenericMethod(new[] { actualType });
-        //    var result = createOfTypeMethod.Invoke(null, new object[] { });
-        //    return (MtType)result;
-        //}
-
+        #region General Create Methods
         public static Type Create(string value)
         {
             var baseType = TypeHelper.GetBaseType(value);

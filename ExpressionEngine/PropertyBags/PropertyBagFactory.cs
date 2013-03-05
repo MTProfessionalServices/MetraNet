@@ -7,15 +7,25 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 {
     public static class PropertyBagFactory
     {
+        public static AccountViewEntity CreateAccountViewEntity(string name, string description)
+        {
+            return new AccountViewEntity(name, description);
+        }
+
+        public static BusinessModelingEntity CreateBusinessModelingEntity(string name, string description)
+        {
+            return new BusinessModelingEntity(name, description);
+        }
+
+        public static ParameterTableEntity CreateParameterTable(string name, string description)
+        {
+            return new ParameterTableEntity(name, description);
+        }
         public static ProductViewEntity CreateProductViewEntity(string name, string description)
         {
             return new ProductViewEntity(name, description);
         }
         
-        public static AccountViewEntity CreateAccountViewEntity(string name, string description)
-        {
-            return new AccountViewEntity(name, description);
-        }
         public static ServiceDefinitionEntity CreateServiceDefinitionEntity(string name, string description)
         {
             return new ServiceDefinitionEntity(name, description);
@@ -27,6 +37,10 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             {
                 case PropertyBagConstants.AccountView:
                     return CreateAccountViewEntity(name, description);
+                case PropertyBagConstants.BusinessModelingEntity:
+                    return CreateBusinessModelingEntity(name, description);
+                case PropertyBagConstants.ParameterTable:
+                    return CreateParameterTable(name, description);
                 case PropertyBagConstants.ProductView:
                     return CreateProductViewEntity(name, description);
                 case PropertyBagConstants.ServiceDefinition:
@@ -75,7 +89,8 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
             foreach (var propertyBag in LoadDirectory(dirPath, expectedPropertyBagTypeName))
             {
-                context.Entities.Add(propertyBag.Name, propertyBag);    
+                context.AddEntity(propertyBag);
+                //context.Entities.Add(propertyBag.Name, propertyBag);    
             }
         }
 

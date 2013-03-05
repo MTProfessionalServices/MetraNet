@@ -24,8 +24,10 @@
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
@@ -50,8 +52,10 @@
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
@@ -112,8 +116,10 @@
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
@@ -126,8 +132,10 @@
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
@@ -140,8 +148,10 @@
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
@@ -154,8 +164,10 @@
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
@@ -168,8 +180,10 @@
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
     </Properties>

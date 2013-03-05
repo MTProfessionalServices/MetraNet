@@ -13,12 +13,12 @@
         PropertyBag,  
         
         /// <summary>
-        /// Has an ID, but is not extensible
+        /// Has an ID (i.e., is saved directly to database), but is not extensible
         /// </summary>
         Entity,             
 
         /// <summary>
-        /// Has an ID and is extensible. In MetraNet this includes, AccountViews, ProductViews and ServiceDefinitons
+        /// Has an ID (i.e., is saved directly to database) and is extensible. In MetraNet this includes, AccountViews, ProductViews and ServiceDefinitons
         /// </summary>
         ExtensibleEntity
     }

@@ -35,9 +35,10 @@ namespace MetraTech.ExpressionEngine.Components
         #endregion
 
         #region Constructor
-        public UnitOfMeasure(UnitOfMeasureCategory category, string value, int id, bool isMetric) : base(category, value, id)
+        public UnitOfMeasure(UnitOfMeasureCategory category, string name, string description, int id, bool isMetric, string code) : base(category, name, description, id)
         {
             IsMetric = isMetric;
+            Code = code;
         }
         #endregion
     }

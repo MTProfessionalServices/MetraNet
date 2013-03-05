@@ -71,10 +71,11 @@ namespace MetraTech.ExpressionEngine.Components
         #endregion 
 
         #region Constructor
-        public EnumValue(EnumCategory parent, string value, int id)
+        public EnumValue(EnumCategory parent, string name, string description, int id)
         {
             EnumCategory = parent;
-            Name = value;
+            Name = name;
+            Description = description;
             Id = id;
 
             Aliases = new Collection<string>();

@@ -85,7 +85,7 @@ namespace MetraTech.ExpressionEngine.Components
         #region Methods
         public EnumValue AddValue(string value, int id)
         {
-            var enumValue = new EnumValue(this, value, id);
+            var enumValue = new EnumValue(this, value, null, id);
             Values.Add(enumValue);
             return enumValue;
         }

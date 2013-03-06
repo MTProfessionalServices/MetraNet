@@ -1,25 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description i:nil="true" />
+  <EnumMode>EnumValue</EnumMode>
   <Name>PaymentBrokerResponseCode</Name>
   <Values>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>Success</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>Decline</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>Error</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>NetworkError</Name>
     </EnumValue>

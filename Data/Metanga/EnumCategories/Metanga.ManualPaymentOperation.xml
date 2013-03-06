@@ -3,17 +3,18 @@
   <Description>
             Payment operations type for Manual payments
             </Description>
+  <EnumMode>EnumValue</EnumMode>
   <Name>ManualPaymentOperation</Name>
   <Values>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
             Submit payment operation.
             </Description>
       <Name>Submit</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
             Credit payment amount.
             </Description>

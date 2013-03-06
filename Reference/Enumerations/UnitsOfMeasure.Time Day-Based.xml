@@ -1,43 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<UnitOfMeasureCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description>Time is a part of the measuring system used to sequence events, to compare the durations of events and the intervals between them, and to quantify rates of change such as the motions of objects.</Description>
+  <EnumMode>UnitOfMeasure</EnumMode>
   <Name>Time Day-Based</Name>
   <Values>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Second</Description>
       <Name>Second</Name>
       <Code>S</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Hour</Description>
       <Name>Hour</Name>
       <Code>HR</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Week</Description>
       <Name>Week</Name>
       <Code>WK</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Represents two weeks.</Description>
       <Name>Biweek</Name>
       <Code>WK.2</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Day</Description>
       <Name>Day</Name>
       <Code>D</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Minute</Description>
       <Name>Minute</Name>
       <Code>MIN</Code>
     </EnumValue>
   </Values>
-</UnitOfMeasureCategory>
+</EnumCategory>

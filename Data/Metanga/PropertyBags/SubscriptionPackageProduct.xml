@@ -8,7 +8,7 @@
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>SubscriptionPackageProduct</Name>
-  <Required>false</Required>
+  <Required>true</Required>
   <Type i:type="PropertyBagType">
     <BaseType>PropertyBag</BaseType>
     <ListType>None</ListType>
@@ -75,8 +75,10 @@
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property>

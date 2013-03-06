@@ -4,37 +4,37 @@
   <Name>DayOfWeek</Name>
   <Values>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>Sunday</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>Monday</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>Tuesday</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>Wednesday</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>Thursday</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>Friday</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>Saturday</Name>
     </EnumValue>

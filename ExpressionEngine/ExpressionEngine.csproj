@@ -43,7 +43,7 @@
     <DelaySign>false</DelaySign>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>..\..\SaaS.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\ExpressionEngine.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CsvHelper">
@@ -160,8 +160,8 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\SaaS.snk">
-      <Link>SaaS.snk</Link>
+    <None Include="..\ExpressionEngine.snk">
+      <Link>ExpressionEngine.snk</Link>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

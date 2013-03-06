@@ -4,42 +4,42 @@
   <Name>NotificationEmailType</Name>
   <Values>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>ChangePassword</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>NotificationEmailForNewUser</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>ChangePasswordSubscriber</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>NotificationEmailForNewUserSubscriber</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>PaymentMethodExpiration</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>Dunning</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>FailedPayment</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>FailedPaymentRetry</Name>
     </EnumValue>

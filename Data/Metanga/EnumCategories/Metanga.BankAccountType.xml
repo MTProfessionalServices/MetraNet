@@ -4,17 +4,17 @@
   <Name>BankAccountType</Name>
   <Values>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>Checking</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>BusinessChecking</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>Savings</Name>
     </EnumValue>

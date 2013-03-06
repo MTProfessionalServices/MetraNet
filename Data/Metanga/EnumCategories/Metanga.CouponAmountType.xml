@@ -6,14 +6,14 @@
   <Name>CouponAmountType</Name>
   <Values>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
              Flat
             </Description>
       <Name>Flat</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
              Percent
             </Description>

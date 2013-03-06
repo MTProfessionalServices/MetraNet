@@ -12,7 +12,7 @@
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>Package</Name>
-  <Required>false</Required>
+  <Required>true</Required>
   <Type i:type="PropertyBagType">
     <BaseType>PropertyBag</BaseType>
     <ListType>None</ListType>
@@ -86,7 +86,7 @@
         <Name>PaymentInfoStatus</Name>
         <Required>true</Required>
         <Type i:type="EnumerationType">
-          <BaseType>PropertyBag</BaseType>
+          <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
           <Category>PaymentInfoStatus</Category>
           <Namespace>metanga</Namespace>
@@ -104,9 +104,13 @@
         <IsCore>false</IsCore>
         <Name>Rank</Name>
         <Required>true</Required>
-        <Type>
+        <Type i:type="NumberType">
           <BaseType>Integer</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property>
@@ -132,9 +136,13 @@
         <IsCore>false</IsCore>
         <Name>TermLength</Name>
         <Required>true</Required>
-        <Type>
+        <Type i:type="NumberType">
           <BaseType>Integer</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property>
@@ -164,9 +172,13 @@
         <IsCore>false</IsCore>
         <Name>GracePeriod</Name>
         <Required>true</Required>
-        <Type>
+        <Type i:type="NumberType">
           <BaseType>Integer</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property>

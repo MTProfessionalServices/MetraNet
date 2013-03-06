@@ -6,21 +6,21 @@
   <Name>ElectronicPaymentOperation</Name>
   <Values>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
             Submit a payment.
             </Description>
       <Name>Submit</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
             Partially reverse a payment amount.
             </Description>
       <Name>Credit</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
             Reverse a payment.
             </Description>

@@ -6,49 +6,49 @@
   <Name>EventModel</Name>
   <Values>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
             Metanga will not produce billable events for this product
             </Description>
       <Name>None</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
             Metanga will produce billable events on a recurring basis, based on subscription configuration
             </Description>
       <Name>Recurring</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
             During a subscription start, if the package contains an "Activation - Flat" model, the one time charge gets applied to the invoice
             </Description>
       <Name>ActivationFlat</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
             Upon Termination the fee should be calculated based on the time span from Termination Date to the Original Fixed-Term End Date for the Subscription.
             </Description>
       <Name>TerminationFeeRemainder</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
             Upon Termination, Products with a time based component assigned this type of Termination Event Model should be priced using a quantity based on the timespan from the Subscription Start to the Termination.
             </Description>
       <Name>TerminationTimeServed</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
             Termination product charge will be applied to the invoice, whenever a user or CSR terminates a from a Fixed Term subscription outside of the grace period.
             </Description>
       <Name>TerminationFeeFlat</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
             Subscription
             </Description>

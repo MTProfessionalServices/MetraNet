@@ -6,21 +6,21 @@
   <Name>EventType</Name>
   <Values>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
             Create event, occurs when an entity is created.
             </Description>
       <Name>Create</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
             Update event, occurs when an entity is updated.
             </Description>
       <Name>Update</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
             Delete event, occurs when an entity is deleted.
             </Description>

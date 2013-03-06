@@ -7,7 +7,7 @@
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>ElectronicPayment</Name>
-  <Required>false</Required>
+  <Required>true</Required>
   <Type i:type="PropertyBagType">
     <BaseType>PropertyBag</BaseType>
     <ListType>None</ListType>
@@ -42,7 +42,7 @@
         <Name>FailedStatus</Name>
         <Required>false</Required>
         <Type i:type="EnumerationType">
-          <BaseType>PropertyBag</BaseType>
+          <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
           <Category>FailedPaymentStatus</Category>
           <Namespace>metanga</Namespace>
@@ -87,9 +87,13 @@
         <IsCore>false</IsCore>
         <Name>NumberOfAttempts</Name>
         <Required>false</Required>
-        <Type>
+        <Type i:type="NumberType">
           <BaseType>Integer</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property>
@@ -118,7 +122,7 @@
         <Name>PaymentOperation</Name>
         <Required>true</Required>
         <Type i:type="EnumerationType">
-          <BaseType>PropertyBag</BaseType>
+          <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
           <Category>ElectronicPaymentOperation</Category>
           <Namespace>metanga</Namespace>
@@ -150,7 +154,7 @@
         <Name>Status</Name>
         <Required>true</Required>
         <Type i:type="EnumerationType">
-          <BaseType>PropertyBag</BaseType>
+          <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
           <Category>TransactionStatus</Category>
           <Namespace>metanga</Namespace>
@@ -180,8 +184,10 @@
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property>

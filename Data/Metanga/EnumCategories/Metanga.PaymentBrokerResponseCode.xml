@@ -4,22 +4,22 @@
   <Name>PaymentBrokerResponseCode</Name>
   <Values>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>Success</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>Decline</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>Error</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description i:nil="true" />
       <Name>NetworkError</Name>
     </EnumValue>

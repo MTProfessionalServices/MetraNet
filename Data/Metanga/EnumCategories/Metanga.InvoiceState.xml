@@ -6,14 +6,14 @@
   <Name>InvoiceState</Name>
   <Values>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
             open state
             </Description>
       <Name>Open</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
             Close state
             </Description>

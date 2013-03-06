@@ -4,67 +4,67 @@
   <Name>Cloud &amp; SaaS</Name>
   <Values>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Database</Description>
       <Name>Database</Name>
       <Code>DATABASE</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Seat</Description>
       <Name>Seat</Name>
       <Code>SEAT</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Report</Description>
       <Name>Report</Name>
       <Code>REPORT</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Download</Description>
       <Name>Download</Name>
       <Code>DOWNLOAD</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>User</Description>
       <Name>User</Name>
       <Code>USER</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Click</Description>
       <Name>Click</Name>
       <Code>CLICK</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Server</Description>
       <Name>Server</Name>
       <Code>SERVER</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>View</Description>
       <Name>View</Name>
       <Code>VIEW</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Location</Description>
       <Name>Location</Name>
       <Code>LOCATION</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Instance</Description>
       <Name>Instance</Name>
       <Code>INSTANCE</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Email</Description>
       <Name>Email</Name>
       <Code>EMAIL</Code>

@@ -6,35 +6,35 @@
   <Name>EndReasonType</Name>
   <Values>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
              If end reason of a subscription is set to Expiration, it means that the subscription has expired.
             </Description>
       <Name>Expiration</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
              If end reason of a subscription is set to Renewal, it means that the subscription has been renewed.
              Renewal implies unsubscribing from the current subscription and creating new one subscription for the same package.Note: This option is not supported by Metanga in current release and will be supported going forward.</Description>
       <Name>Renewal</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
              If end reason of a subscription is set to Conversion, it means that the subscription has been converted.
              Conversion implies unsubscribing from the current subscription and creating new one subscription for a different package.Note: This option is not supported by Metanga in current release and will be supported going forward.</Description>
       <Name>Conversion</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
              If end reason of a subscription is set to Unsubscription, it means that the subscription has been unsubscribed.
             </Description>
       <Name>Unsubscription</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
              If end reason of a subscription is set to Termination, it means that the subscription has been terminated.
              When susbscription is terminated, Metanga generates appropriate termination fee charges.

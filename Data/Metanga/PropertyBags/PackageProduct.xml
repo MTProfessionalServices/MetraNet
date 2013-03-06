@@ -7,7 +7,7 @@
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>PackageProduct</Name>
-  <Required>false</Required>
+  <Required>true</Required>
   <Type i:type="PropertyBagType">
     <BaseType>PropertyBag</BaseType>
     <ListType>None</ListType>
@@ -43,7 +43,7 @@
         <Name>EventModel</Name>
         <Required>true</Required>
         <Type i:type="EnumerationType">
-          <BaseType>PropertyBag</BaseType>
+          <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
           <Category>EventModel</Category>
           <Namespace>metanga</Namespace>

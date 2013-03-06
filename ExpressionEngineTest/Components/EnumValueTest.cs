@@ -24,7 +24,7 @@ namespace ExpressionEngineTest
             var parent = new EnumCategory(null, "Country", 1, null);
             string name = "USA";
             int id = 500; 
-            var target = new EnumValue(parent, name, id);
+            var target = new EnumValue(parent, name, null, id);
             Assert.AreSame(parent, target.EnumCategory, "EnumType");
             Assert.AreEqual(name, target.Name);
             Assert.AreEqual(id, target.Id);

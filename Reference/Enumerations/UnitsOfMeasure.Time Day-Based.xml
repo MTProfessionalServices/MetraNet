@@ -4,37 +4,37 @@
   <Name>Time Day-Based</Name>
   <Values>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Second</Description>
       <Name>Second</Name>
       <Code>S</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Hour</Description>
       <Name>Hour</Name>
       <Code>HR</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Week</Description>
       <Name>Week</Name>
       <Code>WK</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Represents two weeks.</Description>
       <Name>Biweek</Name>
       <Code>WK.2</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Day</Description>
       <Name>Day</Name>
       <Code>D</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Minute</Description>
       <Name>Minute</Name>
       <Code>MIN</Code>

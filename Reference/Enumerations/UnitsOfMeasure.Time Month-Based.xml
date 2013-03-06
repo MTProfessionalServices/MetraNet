@@ -4,19 +4,19 @@
   <Name>Time Month-Based</Name>
   <Values>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Represents a quarter of a year.</Description>
       <Name>Quarter</Name>
       <Code>ANN/4</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Year</Description>
       <Name>Year</Name>
       <Code>ANN</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Month</Description>
       <Name>Month</Name>
       <Code>MO</Code>

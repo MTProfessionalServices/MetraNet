@@ -4,115 +4,115 @@
   <Name>Fluid Volume</Name>
   <Values>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Kiloliter</Description>
       <Name>Kiloliter</Name>
       <Code>KL</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Quart</Description>
       <Name>Quart</Name>
       <Code>[QT_US]</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Nanoliter</Description>
       <Name>Nanoliter</Name>
       <Code>NL</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Centiliter</Description>
       <Name>Centiliter</Name>
       <Code>CL</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Gallon</Description>
       <Name>Gallon</Name>
       <Code>[GAL_US]</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Liter</Description>
       <Name>Liter</Name>
       <Code>L</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Megaliter</Description>
       <Name>Megaliter</Name>
       <Code>MAL</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Pint</Description>
       <Name>Pint</Name>
       <Code>[PT_US]</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Petaliter</Description>
       <Name>Petaliter</Name>
       <Code>PTL</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Gigaliter</Description>
       <Name>Gigaliter</Name>
       <Code>GAL</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Gill</Description>
       <Name>Gill</Name>
       <Code>[GIL_US]</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Hectoliter</Description>
       <Name>Hectoliter</Name>
       <Code>HL</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Barrel</Description>
       <Name>Barrel</Name>
       <Code>[BBL_US]</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Dekaliter</Description>
       <Name>Dekaliter</Name>
       <Code>DAL</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Microliter</Description>
       <Name>Microliter</Name>
       <Code>UL</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Milliliter</Description>
       <Name>Milliliter</Name>
       <Code>ML</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Fluid Ounce</Description>
       <Name>Fluid Ounce</Name>
       <Code>[FOZ_US]</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Teraliter</Description>
       <Name>Teraliter</Name>
       <Code>TRL</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Deciliter</Description>
       <Name>Deciliter</Name>
       <Code>DL</Code>

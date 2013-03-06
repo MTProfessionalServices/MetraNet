@@ -4,61 +4,61 @@
   <Name>Digital Information</Name>
   <Values>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Megabit</Description>
       <Name>Megabit</Name>
       <Code>MABIT</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Terabit</Description>
       <Name>Terabit</Name>
       <Code>TRBIT</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Gigabyte</Description>
       <Name>Gigabyte</Name>
       <Code>GIBBY</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Kilobit</Description>
       <Name>Kilobit</Name>
       <Code>KBIT</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Kilobyte</Description>
       <Name>Kilobyte</Name>
       <Code>KIBBY</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Byte</Description>
       <Name>Byte</Name>
       <Code>BY</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Bit</Description>
       <Name>Bit</Name>
       <Code>BIT</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Terabyte</Description>
       <Name>Terabyte</Name>
       <Code>TIBBY</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Gigabit</Description>
       <Name>Gigabit</Name>
       <Code>GABIT</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Megabyte</Description>
       <Name>Megabyte</Name>
       <Code>MIBBY</Code>

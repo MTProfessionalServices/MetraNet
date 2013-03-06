@@ -36,8 +36,9 @@ namespace MetraTech.ExpressionEngine.Components
         #endregion
 
         #region Constructor
-        public UnitOfMeasure(EnumCategory category, string name, int id, string description) : base(category, name, id, description)
+        public UnitOfMeasure(EnumCategory category, string name, int id, string description, string code) : base(category, name, id, description)
         {
+          Code = code;
         }
         #endregion
     }

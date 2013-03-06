@@ -74,6 +74,7 @@ namespace MetraTech.ExpressionEngine.Components
         {
             EnumCategory = enumCategory;
             Name = name;
+            Name = name;
             Id = id;
             Description = description;
 

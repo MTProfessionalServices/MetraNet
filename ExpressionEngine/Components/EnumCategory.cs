@@ -15,7 +15,7 @@ namespace MetraTech.ExpressionEngine.Components
         /// <summary>
         /// The enum space to which the category belongs
         /// </summary>
-        public EnumNamespace EnumNamespace { get; private set; }
+        public EnumNamespace EnumNamespace { get; set; }
 
         /// <summary>
         /// The name that the user assigns the type. Must be unique within a space
@@ -87,6 +87,12 @@ namespace MetraTech.ExpressionEngine.Components
             var enumValue = EnumFactory.Create(this, name, id, descripton);
             Values.Add(enumValue);
             return enumValue;
+        }
+
+        public void AddEnumValue(EnumValue enumValue)
+        {
+            enumValue.EnumCategory = this;
+            Values.Add(enumValue);
         }
 
 

@@ -19,6 +19,8 @@ namespace PropertyGui
 {
     public partial class frmMain : Form
     {
+        private Context Context;
+
         #region Constructor
         public frmMain()
         {
@@ -175,6 +177,11 @@ namespace PropertyGui
             var messages = DemoLoader.GlobalContext.Validate();
             var dialog = new frmValidationMessages(messages);
             dialog.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DemoLoader.GlobalContext.Save(@"C:\Temp\Export");
         }
 
 

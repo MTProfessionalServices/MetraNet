@@ -32,7 +32,7 @@ namespace MetraTech.ExpressionEngine.Components
         #region Methods
         public UnitOfMeasure AddUnitOfMeasure(string name, int id, bool isMetric)
         {
-            var uom = new UnitOfMeasure(this, name, id, isMetric);
+          var uom = new UnitOfMeasure(this, name, null, 0, isMetric, null);
             Values.Add(uom);
             return uom;
         }

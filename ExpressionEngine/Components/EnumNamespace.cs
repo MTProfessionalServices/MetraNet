@@ -84,6 +84,11 @@ namespace MetraTech.ExpressionEngine.Components
             Categories.Add(category);
             return category;
         }
+        public void AddCategory(EnumCategory enumCategory)
+        {
+            enumCategory.EnumNamespace = this;
+            Categories.Add(enumCategory);
+        }
         public string ToExpressionSnippet
         {
             get
@@ -185,7 +190,7 @@ namespace MetraTech.ExpressionEngine.Components
                             throw new Exception("expected file to start with " + nsFileName);
                         ns.FixDeserilization();
                         var category = EnumCategory.CreateFromFile(fileInfo.FullName);
-                        ns.Categories.Add(category);
+                        ns.AddCategory(category);
                     }
                     catch (Exception exception)
                     {

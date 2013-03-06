@@ -432,7 +432,7 @@ namespace MetraTech.ExpressionEngine
         #region IO Methods
 
         /// <summary>
-        /// This is used to test things and for prototype assumes MetraNet mode... not applicable in real world
+        /// Saves enums and enities to dirPath
         /// </summary>
         /// <param name="dirPath"></param>
         public void Save(string dirPath)
@@ -441,17 +441,19 @@ namespace MetraTech.ExpressionEngine
 
             foreach (var enumNamespace in EnumNamespaces.Values)
             {
-                enumNamespace.Extension = "SplitPascalOrCamelString";
-                enumNamespace.SaveInExtension(dirPath);
+                if (IsMetraNet)
+                    enumNamespace.SaveInExtension(dirPath);
+                else 
+                    enumNamespace.Save(Path.Combine(dirPath, "Enumerations"));
             }
 
             foreach (var propertyBag in Entities.Values)
             {
-                var pb = (MetraNetEntityBase) propertyBag;
-                pb.Extension = "SplitPascalOrCamelString";
-                pb.SaveInExtensionsDirectory(dirPath);
+                if (IsMetraNet)
+                    ((MetraNetEntityBase) propertyBag).SaveInExtensionsDirectory(dirPath);
+                else
+                    propertyBag.Save(string.Format(CultureInfo.InvariantCulture, @"{0}\PropertyBags\{1}.xml", dirPath, propertyBag.Name));
             }
-
         }
 
         public static Context LoadExtensions(string extensionsDir)

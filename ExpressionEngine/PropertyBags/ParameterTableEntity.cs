@@ -15,7 +15,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         public string Category { get; set; }
 
         [DataMember]
-        public string HelpUrl{ get; set; }
+        public System.Uri HelpUrl{ get; set; }
 
         [DataMember]
         public string ConditionsCaption{ get; set; }

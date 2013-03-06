@@ -50,7 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Charges\Charge.cs" />
+    <Compile Include="Components\Enumerations\EnumMode.cs" />
+    <Compile Include="TypeSystem\ChargeType.cs" />
     <Compile Include="Components\EnumFactory.cs" />
     <Compile Include="Expressions\Enumerations\ConfigurationType.cs" />
     <Compile Include="Database\UniqueKey.cs" />
@@ -130,7 +131,6 @@
     <Compile Include="TypeSystem\TypeHelper.cs" />
     <Compile Include="UserSettings.cs" />
     <Compile Include="Components\UnitOfMeasure.cs" />
-    <Compile Include="Components\UnitOfMeasureCategory.cs" />
     <Compile Include="Placeholders\Uqg.cs" />
     <Compile Include="DemoLoading\DemoLoader.cs" />
     <Compile Include="Validations\Enumerations\SeverityType.cs">

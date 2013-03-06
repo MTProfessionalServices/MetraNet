@@ -28,8 +28,11 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         #endregion
       
-        #region Constructor
+        #region Constructors
         public MoneyType():base(BaseType.Money)
+        {
+        }
+        protected MoneyType(BaseType baseType) : base(baseType)
         {
         }
         #endregion

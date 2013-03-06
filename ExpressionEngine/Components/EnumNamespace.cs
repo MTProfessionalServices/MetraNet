@@ -5,6 +5,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.Components
@@ -77,9 +78,9 @@ namespace MetraTech.ExpressionEngine.Components
 
         #region Methods
 
-        public EnumCategory AddCategory(bool isUnitOfMeasure, string name, int id, string description)
+        public EnumCategory AddCategory(EnumMode enumMode, string name, int id, string description)
         {
-            var category = EnumFactory.CreateCategory(this, isUnitOfMeasure, name, id, description);
+            var category = new EnumCategory(this, enumMode, name, id, description);
             Categories.Add(category);
             return category;
         }
@@ -90,7 +91,6 @@ namespace MetraTech.ExpressionEngine.Components
                 return string.Format(CultureInfo.InvariantCulture, "Enum.{0}", Name);
             }
         }
-
 
         public bool TryGetEnumCategory(string name, out EnumCategory enumCategory)
         {
@@ -105,32 +105,6 @@ namespace MetraTech.ExpressionEngine.Components
             enumCategory = null;
             return false;
         }
-
-
-        public static EnumValue AddEnum(Context context, string enumSpace, string enumType, int enumTypeId,  string enumValue, int enumValueId)
-        {
-            if (context == null)
-                throw new ArgumentNullException("context");
-
-            EnumNamespace space;
-            if (!context.EnumNamespaces.TryGetValue(enumSpace, out space))
-            {
-                space = new EnumNamespace(enumSpace, null);
-                context.AddEnumNamespace(space);
-            }
-
-            EnumCategory type;
-            if (!space.TryGetEnumCategory(enumType, out type))
-            {
-                type = new EnumCategory(space, enumType, enumTypeId, null);
-                space.Categories.Add(type);
-            }
-
-            var enumValueObj = type.AddValue(enumValue, enumValueId);
-            return enumValueObj;
-        }
-
-
         #endregion
 
         #region IO Methods
@@ -186,13 +160,13 @@ namespace MetraTech.ExpressionEngine.Components
             var nsFileName = string.Empty;
             foreach (var fileInfo in sortedFileInfos)
             {
-                if (fileInfo.FullName.EndsWith("._.xml"))
+                if (fileInfo.FullName.EndsWith("._.xml", StringComparison.InvariantCultureIgnoreCase))
                 {
                     try
                     {
                         ns = CreateFromFile(fileInfo.FullName);
                     }
-                    catch (Exception exception)
+                    catch (SerializationException exception)
                     {
                         if (messages == null)
                             throw;
@@ -207,7 +181,7 @@ namespace MetraTech.ExpressionEngine.Components
                 {
                     try
                     {
-                        if (!fileInfo.Name.StartsWith(nsFileName))
+                        if (!fileInfo.Name.StartsWith(nsFileName, StringComparison.InvariantCultureIgnoreCase))
                             throw new Exception("expected file to start with " + nsFileName);
                         ns.FixDeserilization();
                         var category = EnumCategory.CreateFromFile(fileInfo.FullName);

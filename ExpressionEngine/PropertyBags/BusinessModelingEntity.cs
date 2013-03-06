@@ -11,7 +11,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         #endregion
 
         #region Constructor
-        public BusinessModelingEntity(string name, string description) : base(name, PropertyBagConstants.ParameterTable, description)
+        public BusinessModelingEntity(string name, string description) : base(name, PropertyBagConstants.BusinessModelingEntity, description)
         {
         }
         #endregion

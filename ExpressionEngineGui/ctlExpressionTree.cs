@@ -5,6 +5,7 @@ using MetraTech.ExpressionEngine;
 using System.IO;
 using System.Drawing;
 using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
@@ -116,8 +117,11 @@ namespace PropertyGui
                     LoadInputsOutputs();
                     break;
                 case MvcAbstraction.ViewModeType.UoMs:
-                    foreach (var uomCategory in Context.UnitOfMeasures.Values)
+                    foreach (var uomCategory in Context.EnumCategories)
                     {
+                        if (uomCategory.EnumMode != EnumMode.UnitOfMeasure)
+                            continue;
+
                         var uomCategoryNode = CreateNode(uomCategory);
                         foreach (var uom in uomCategory.Values)
                         {

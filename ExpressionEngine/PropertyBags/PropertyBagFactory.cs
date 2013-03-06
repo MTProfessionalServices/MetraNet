@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
+using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.PropertyBags
 {
@@ -50,7 +52,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             }
         }
 
-        public static List<PropertyBag> LoadDirectory(string dirPath, string expectedPropertyBagTypeName)
+        public static List<PropertyBag> LoadDirectory(string dirPath, string expectedPropertyBagTypeName, ValidationMessageCollection messages)
         {
             var list = new List<PropertyBag>();
             var dirInfo = new DirectoryInfo(dirPath);
@@ -60,23 +62,32 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             foreach (var fileInfo in dirInfo.GetFiles("*.xml"))
             {
                 PropertyBag propertyBag;
-                switch (expectedPropertyBagTypeName)
-                {
-                    case "AccountView":
-                        propertyBag = PropertyBag.CreateFromFile <AccountViewEntity> (fileInfo.FullName);
-                        break;
-                    case "ProductView":
-                        propertyBag = PropertyBag.CreateFromFile <ProductViewEntity> (fileInfo.FullName);
-                        break;
-                    case "ServiceDefinition":
-                        propertyBag = PropertyBag.CreateFromFile<ServiceDefinitionEntity>(fileInfo.FullName);
-                        break;
-                    default:
-                        propertyBag = PropertyBag.CreateFromFile<PropertyBag>(fileInfo.FullName);
-                        break;
-                }
 
-                list.Add(propertyBag);
+                try
+                {
+                    switch (expectedPropertyBagTypeName)
+                    {
+                        case "AccountView":
+                            propertyBag = PropertyBag.CreateFromFile<AccountViewEntity>(fileInfo.FullName);
+                            break;
+                        case "ProductView":
+                            propertyBag = PropertyBag.CreateFromFile<ProductViewEntity>(fileInfo.FullName);
+                            break;
+                        case "ServiceDefinition":
+                            propertyBag = PropertyBag.CreateFromFile<ServiceDefinitionEntity>(fileInfo.FullName);
+                            break;
+                        default:
+                            propertyBag = PropertyBag.CreateFromFile<PropertyBag>(fileInfo.FullName);
+                            break;
+                    }
+                    list.Add(propertyBag);
+                }
+                catch (Exception exception)
+                {
+                    if (messages == null)
+                        throw;
+                    messages.Error(string.Format(CultureInfo.CurrentCulture, Localization.FileLoadError, fileInfo.FullName), exception);
+                }
             }
 
             return list;
@@ -87,10 +98,19 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             if (context == null)
                 throw new ArgumentException("context");
 
-            foreach (var propertyBag in LoadDirectory(dirPath, expectedPropertyBagTypeName))
+            var propertyBags = LoadDirectory(dirPath, expectedPropertyBagTypeName, context.DeserilizationMessages);
+            foreach (var propertyBag in propertyBags)
             {
-                context.AddEntity(propertyBag);
-                //context.Entities.Add(propertyBag.Name, propertyBag);    
+                try
+                {
+                    context.AddEntity(propertyBag);
+                }
+                catch (Exception exception)
+                {
+                    if (context.DeserilizationMessages == null)
+                        throw;
+                    context.DeserilizationMessages.Error(string.Format(CultureInfo.CurrentCulture, Localization.FileLoadError, propertyBag.ToString()), exception);
+                }
             }
         }
 

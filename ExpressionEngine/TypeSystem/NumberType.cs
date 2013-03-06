@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Validations;
@@ -94,7 +95,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 }
 
                 //Ensure Enum is a UoM
-                if (!enumCategory.IsUnitOfMeasure)
+                if (enumCategory.EnumMode != EnumMode.UnitOfMeasure)
                 {
                     AddError(messages, prefix, Localization.UnitOfMeasureCategoryMustBeUom);
                     return;

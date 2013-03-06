@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.IO;
+using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.PropertyBags;
@@ -10,6 +11,7 @@ using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Components;
 using System.Globalization;
 using MetraTech.ICE.BusinessModelingEntities;
+using MetraTech.BusinessEntity.DataAccess;
 using MetraTech.ICE.TreeFlows;
 using Function = MetraTech.ICE.TreeFlows.Function;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
@@ -92,8 +94,10 @@ namespace MetraTech.ICE.ExpressionEngine
           break;
         case ElementType.ParameterTable:
           propertyBagTypeName = PropertyBagConstants.ParameterTable;
-          propertyCollection = ((AccountView) oldEntity).Properties;
-          var ptEntity = PropertyBagFactory.CreateAccountViewEntity(oldEntity.NameWithinNamespace, oldEntity.Description);
+          var ptEntity = PropertyBagFactory.CreateParameterTable(oldEntity.NameWithinNamespace, oldEntity.Description);
+          propertyCollection = ((ParameterTable) oldEntity).Conditions;
+          CopyProperties(propertyBagTypeName, propertyCollection, ptEntity.Properties);
+          propertyCollection = ((ParameterTable) oldEntity).Actions;
           CopyProperties(propertyBagTypeName, propertyCollection, ptEntity.Properties);
           entity = ptEntity;
           break;
@@ -189,10 +193,10 @@ namespace MetraTech.ICE.ExpressionEngine
 
         foreach (var oldEnumType in oldEnumNamespace.EnumTypes.Values)
         {
-          var newEnumType = newEnumNamespace.AddCategory(false, oldEnumType.Name, 0, oldEnumType.Description);
+          var newEnumType = newEnumNamespace.AddCategory(EnumMode.EnumValue, oldEnumType.Name, 0, oldEnumType.Description);
           foreach (var oldEnumValue in oldEnumType.EnumValues.Values)
           {
-            var newEnumValue = newEnumType.AddValue(oldEnumValue.Name, 0);
+            var newEnumValue = newEnumType.AddEnumValue(oldEnumValue.Name, 0, null);
             foreach (var alias in oldEnumValue._MeteringAliases)
             {
               newEnumValue.Aliases.Add(alias);
@@ -204,6 +208,7 @@ namespace MetraTech.ICE.ExpressionEngine
       }
 
       //Export the MSIX definitions
+      SaveInExtension(extensionsDir, ElementType.AccountView);
       SaveInExtension(extensionsDir, ElementType.ServiceDefinition);
       SaveInExtension(extensionsDir, ElementType.ProductView);
       SaveInExtension(extensionsDir, ElementType.ServiceDefinition);
@@ -212,6 +217,18 @@ namespace MetraTech.ICE.ExpressionEngine
       foreach (BusinessModelingEntityElement bmee in Config.Instance.BusinessModelingEntities.Values)
       {
           var newBme = PropertyBagFactory.CreateBusinessModelingEntity(bmee.Name, bmee.Description);
+          foreach (var property in bmee.Entity.Properties)
+          {
+            var dtInfo = new DataTypeInfo(property);
+            var newType = GetMtType(dtInfo);
+            var newProperty = PropertyFactory.Create(PropertyBagConstants.BusinessModelingEntity, property.Name, newType, property.IsRequired, property.Description);
+            newProperty.DefaultValue = property.DefaultValue;
+
+          
+          }
+
+          //These will map to other entities
+          //bmee.Associations.
           newBme.SaveInExtensionsDirectory(extensionsDir);
       }
     }

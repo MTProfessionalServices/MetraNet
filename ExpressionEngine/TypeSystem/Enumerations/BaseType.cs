@@ -14,14 +14,16 @@
         /// <summary>
         /// Used to match any other BaseType (like object in C#)
         /// </summary>
-        Any,                
+        Any,      
+          
         Binary,
         Boolean,
 
         /// <summary>
-        /// NOT SURE HOW THIS DIFFERS FROM MONEY
+        /// A money type with units and other attributes
         /// </summary>
-        Charge,            
+        Charge,    
+        
         DateTime,
         Decimal,
         Double,

@@ -1,5 +1,6 @@
 ﻿using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
@@ -52,10 +53,10 @@ namespace ExpressionEngineTest
             TestHelper.AssertValidation(messages, 1, 0, 0, "Category not found");
 
             //Set a real Category
-            enumNamespace.AddCategory(false, "Country", 0, null);
+            enumNamespace.AddCategory(EnumMode.EnumValue, "Country", 0, null);
             messages = new ValidationMessageCollection();
             enumerationType.Validate(null, messages, context);
-            TestHelper.AssertValidation(messages, 0, 0, 0, "Evertyhing should work");
+            TestHelper.AssertValidation(messages, 0, 0, 0, "Everything should work at this point");
         }
     }
 }

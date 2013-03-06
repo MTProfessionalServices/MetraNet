@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MetraTech.BusinessEntity.DataAccess">
+      <HintPath>..\ThirdParty\MetraTech.BusinessEntity.DataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="MetraTech.ICE">
       <HintPath>..\ThirdParty\MetraTech.ICE.dll</HintPath>
     </Reference>

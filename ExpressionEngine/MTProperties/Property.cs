@@ -41,6 +41,10 @@ namespace MetraTech.ExpressionEngine.MTProperties
         /// </summary>
         public PropertyCollection PropertyCollection { get; set; }
 
+
+        /// <summary>
+        /// Safe cast f Property Collection
+        /// </summary>
         public PropertyBag PropertyBag
         {
             get

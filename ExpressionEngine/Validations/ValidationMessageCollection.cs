@@ -82,7 +82,10 @@ namespace MetraTech.ExpressionEngine.Validations
 
         public void Error(string message, Exception exception)
         {
-            var msg = string.Format(CultureInfo.CurrentCulture, "{0} [{1}]", message, exception.Message);
+            if (exception == null)
+                throw new ArgumentException("excpetion is null");
+
+            var msg = string.Format(CultureInfo.CurrentCulture, Localization.ExceptionMessage, message, exception.Message);
             var valMessage = new ValidationMessage(SeverityType.Error, msg);
             valMessage.Exception = exception;
             Add(valMessage);

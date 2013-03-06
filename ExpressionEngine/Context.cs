@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
 using MetraTech.ExpressionEngine.Components;
@@ -80,12 +81,6 @@ namespace MetraTech.ExpressionEngine
         public Dictionary<string, Expression> Expressions { get { return _expressions; } }
         private Dictionary<string, Expression> _expressions = new Dictionary<string, Expression>(StringComparer.InvariantCultureIgnoreCase);
 
-        /// <summary>
-        /// All units of measure
-        /// </summary>
-        public Dictionary<string, UnitOfMeasureCategory> UnitOfMeasures { get { return _unitOfMeasures; } }
-        private Dictionary<string, UnitOfMeasureCategory> _unitOfMeasures = new Dictionary<string, UnitOfMeasureCategory>(StringComparer.InvariantCultureIgnoreCase);
-
         public Dictionary<string, EmailTemplate> EmailTemplates { get { return _emailTemplates; } }
         private Dictionary<string, EmailTemplate> _emailTemplates = new Dictionary<string, EmailTemplate>(StringComparer.InvariantCultureIgnoreCase);
 
@@ -153,7 +148,6 @@ namespace MetraTech.ExpressionEngine
 
             _enumNamespaces = DemoLoader.GlobalContext.EnumNamespaces;
             _functions = DemoLoader.GlobalContext.Functions;
-            _unitOfMeasures = DemoLoader.GlobalContext.UnitOfMeasures;
 
             UpdateContext();
         }
@@ -334,7 +328,7 @@ namespace MetraTech.ExpressionEngine
             PropertyBag pb;
             if (Entities.TryGetValue(entity.Name, out pb))
             {
-                throw new ArgumentException(string.Format(
+                throw new ArgumentException(string.Format(CultureInfo.CurrentCulture,
                     "PropertyBag with name='{0} already exists: old={1}, new={2}", entity.Name, pb, entity));
             }
 
@@ -496,6 +490,7 @@ namespace MetraTech.ExpressionEngine
             EnumNamespace.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "Enumerations"), extensionDir.Name, context);
             PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "AccountViews"), "AccountView", context);
             PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "ProductViews"), "ProductView", context);
+            PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "ParameterTables"), "ParameterTable", context);
             PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "ParameterTables"), "ParameterTable", context);
         }
         

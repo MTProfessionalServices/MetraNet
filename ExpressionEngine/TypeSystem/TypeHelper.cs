@@ -110,6 +110,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             {
                 case "str":
                 case "string":
+                case "unistring":
                 case "varchar":
                 case "nvarchar":
                 case "characters":

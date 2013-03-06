@@ -1,5 +1,6 @@
 ﻿using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.Components.Enumerations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -31,21 +32,22 @@ namespace ExpressionEngineTest
         [TestMethod()]
         public void AddTypeTest()
         {
-            var enumSpace = new MetraTech.ExpressionEngine.Components.EnumNamespace("Test", null);
+            var enumSpace = new EnumNamespace("Test", null);
 
             //Add it
-            string name = "Global";
-            string description = "Primary enum type";
-            var enumType = enumSpace.AddCategory(false, name, 1, description);
+            var enumMode = EnumMode.EnumValue;
+            var name = "Global";
+            var description = "Primary enum type";
+            var enumCategory = enumSpace.AddCategory(enumMode, name, 1, description);
 
             //Look it up
-            EnumCategory enumTypeLookup;
-            var result = enumSpace.TryGetEnumCategory(name, out enumTypeLookup);
+            EnumCategory enumCategoryLookup;
+            var result = enumSpace.TryGetEnumCategory(name, out enumCategoryLookup);
             Assert.IsTrue(result, "Unable to find added enum type.");
-            Assert.AreSame(enumType, enumTypeLookup);
+            Assert.AreSame(enumCategory, enumCategoryLookup);
 
-            Assert.AreEqual(name, enumType.Name);
-            Assert.AreEqual(description, enumType.Description);
+            Assert.AreEqual(name, enumCategory.Name);
+            Assert.AreEqual(description, enumCategory.Description);
         }
 
         /// <summary>
@@ -62,7 +64,7 @@ namespace ExpressionEngineTest
             Assert.IsFalse(enumSpace.TryGetEnumCategory(name, out enumType), "Empty list");
 
             //Add it
-            var actualEnumType = enumSpace.AddCategory(false, "Global", 1, null);
+            var actualEnumType = enumSpace.AddCategory(EnumMode.EnumValue, "Global", 1, null);
 
             //Look it up
             Assert.IsTrue(enumSpace.TryGetEnumCategory(name, out enumType), "Expect to find");

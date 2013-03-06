@@ -7,7 +7,7 @@ namespace MetraTech.ExpressionEngine.Components
 {
     [DataContract (Namespace = "MetraTech")]
     [KnownType(typeof(UnitOfMeasure))]
-    [KnownType(typeof(UnitOfMeasureCategory))]
+    [KnownType(typeof(Currency))]
     public class EnumValue : IExpressionEngineTreeNode
     {
         #region Properties
@@ -23,9 +23,7 @@ namespace MetraTech.ExpressionEngine.Components
         /// </summary>
         [DataMember]
         public string Name { get; set; }
-
-        public bool IsUnitOfMeasure { get { return EnumCategory.IsUnitOfMeasure; } }
-
+       
         /// <summary>
         /// Aliased values when integrating with an external system. Used by MetraNet for metering usage data
         /// </summary>
@@ -72,11 +70,12 @@ namespace MetraTech.ExpressionEngine.Components
         #endregion 
 
         #region Constructor
-        public EnumValue(EnumCategory parent, string value, int id)
+        public EnumValue(EnumCategory enumCategory, string name, int id, string description)
         {
-            EnumCategory = parent;
-            Name = value;
+            EnumCategory = enumCategory;
+            Name = name;
             Id = id;
+            Description = description;
 
             Aliases = new Collection<string>();
         }

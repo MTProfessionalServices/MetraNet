@@ -3,12 +3,12 @@ using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Runtime.Serialization;
 using System.IO;
+using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.Components
 {
     [DataContract (Namespace = "MetraTech")]
-    [KnownType(typeof(UnitOfMeasureCategory))]
     public class EnumCategory : IExpressionEngineTreeNode
     {
         #region Properties
@@ -23,10 +23,8 @@ namespace MetraTech.ExpressionEngine.Components
         [DataMember]
         public string Name { get; set; }
 
-        /// <summary>
-        /// Indicates if the Category is a unit of measure (e.g., Duration, Length, etc.)
-        /// </summary>
-        public bool IsUnitOfMeasure { get; set; }
+        [DataMember]
+        public EnumMode EnumMode { get; set; }
 
         /// <summary>
         /// The description that the user provides
@@ -71,9 +69,10 @@ namespace MetraTech.ExpressionEngine.Components
         #endregion
 
         #region Constructor
-        public EnumCategory(EnumNamespace parent, string name, int id, string description)
+        public EnumCategory(EnumNamespace parent, EnumMode enumMode, string name, int id, string description)
         {
             EnumNamespace = parent;
+            EnumMode = enumMode;
             Name = name;
             Id = id;
             Description = description;
@@ -83,12 +82,13 @@ namespace MetraTech.ExpressionEngine.Components
         #endregion
 
         #region Methods
-        public EnumValue AddValue(string value, int id)
+        public EnumValue AddEnumValue(string name, int id, string descripton)
         {
-            var enumValue = new EnumValue(this, value, id);
+            var enumValue = EnumFactory.Create(this, name, id, descripton);
             Values.Add(enumValue);
             return enumValue;
         }
+
 
         public EnumValue GetValue(string name)
         {
@@ -142,10 +142,10 @@ namespace MetraTech.ExpressionEngine.Components
         public static EnumCategory CreateFromFile(string file)
         {
             var xmlContent = File.ReadAllText(file);
-            return CreateFromString(xmlContent);
+            return CreateFromString<EnumCategory>(xmlContent);
         }
 
-        public static EnumCategory CreateFromString(string xmlContent)
+        public static EnumCategory CreateFromString<T>(string xmlContent)
         {
             var category = IOHelper.CreateFromString<EnumCategory>(xmlContent);
             var cat = (object) category;

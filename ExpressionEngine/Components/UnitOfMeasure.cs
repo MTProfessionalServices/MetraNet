@@ -20,7 +20,8 @@ namespace MetraTech.ExpressionEngine.Components
         /// The root category for a given unit is the one that includes all the units that
         /// can be converted to this one.
         /// </summary>
-        public UnitOfMeasureCategory RootCategory { get; private set; }
+        public EnumCategory RootCategory { get; private set; }
+
         /// <summary>
         /// A mnemonic code that can be used to uniquivocally identify the unit
         /// </summary>
@@ -35,9 +36,8 @@ namespace MetraTech.ExpressionEngine.Components
         #endregion
 
         #region Constructor
-        public UnitOfMeasure(UnitOfMeasureCategory category, string value, int id, bool isMetric) : base(category, value, id)
+        public UnitOfMeasure(EnumCategory category, string name, int id, string description) : base(category, name, id, description)
         {
-            IsMetric = isMetric;
         }
         #endregion
     }

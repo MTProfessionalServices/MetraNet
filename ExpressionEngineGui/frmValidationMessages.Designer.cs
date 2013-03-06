@@ -41,6 +41,7 @@
             this.txtMessages.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtMessages.Size = new System.Drawing.Size(553, 330);
             this.txtMessages.TabIndex = 0;
+            this.txtMessages.WordWrap = false;
             // 
             // frmValidationMessages
             // 

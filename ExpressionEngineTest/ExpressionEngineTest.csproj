@@ -54,6 +54,8 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\CurrencyTest.cs" />
+    <Compile Include="TypeSystem\ChargeTypeTest.cs" />
     <Compile Include="MTProperties\PropertyTest.cs" />
     <Compile Include="MTProperties\PropertyCollectionTest.cs" />
     <Compile Include="MTProperties\ProductViewPropertyTest.cs" />
@@ -69,7 +71,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeSystem\StringTypeTest.cs" />
     <Compile Include="TypeSystem\TypeTest.cs" />
-    <Compile Include="Components\UnitOfMeasureCategoryTest.cs" />
+    <Compile Include="Components\EnumCategoryTest.cs" />
+    <Compile Include="Components\UnitOfMeasureTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExpressionEngine\ExpressionEngine.csproj">

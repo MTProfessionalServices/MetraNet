@@ -132,6 +132,9 @@
   <data name="EnumTypeNotSpecified" xml:space="preserve">
     <value>Enumeration Category not specified</value>
   </data>
+  <data name="ExceptionMessage" xml:space="preserve">
+    <value>"{0} [{1}]"</value>
+  </data>
   <data name="ExpressionIsValid" xml:space="preserve">
     <value>The expression is valid.</value>
   </data>

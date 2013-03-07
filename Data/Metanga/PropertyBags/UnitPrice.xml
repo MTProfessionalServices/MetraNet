@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
   <Description>
              The price to be applied for a specific unit of measure. For example, a product measured
@@ -20,6 +21,7 @@
   <Properties>
     <Properties>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
              Required only if the Product is Time-based. Indicates the time period for this price.
@@ -39,6 +41,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
              The unit to which the price is applicable. For example, for a product measured in
@@ -56,6 +59,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
              The price, represented as a collection of key-value pairs where the key represents the currency and the value is the price.

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
   <Description>
             This product model will determine a product id based on accumulative consumption at the
@@ -18,6 +19,7 @@
   <Properties>
     <Properties>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Ordered list of buckets to be tested
@@ -34,6 +36,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Default product to use if all the buckets have been filled

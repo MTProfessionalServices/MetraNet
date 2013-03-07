@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
   <Description>
             A product model can resolve a product from another product based on properties of the PreCharge

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
   <Description>
             Defines a Metanga Custom Entity
@@ -17,6 +18,7 @@
   <Properties>
     <Properties>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             The base entity for this entity type.
@@ -35,6 +37,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             The name of the class for purposes of external web services.
@@ -50,6 +53,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Extended Columns
@@ -66,6 +70,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -78,6 +83,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -91,6 +97,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -104,6 +111,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>

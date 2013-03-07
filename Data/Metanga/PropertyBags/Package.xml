@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
   <Description>
             Packages are created to bundle together a group of products that are sold to customers.
@@ -22,6 +23,7 @@
   <Properties>
     <Properties>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Represents a collection of products associated with a package.
@@ -41,6 +43,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Required only if the package has any products with a Recurring event model.
@@ -60,6 +63,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Defines whether Package will be billed in advance or in arrears.
@@ -76,6 +80,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Indicates if there are any payment instrument requirements to subscribe for a package.
@@ -93,6 +98,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Defines the order in which packages are presented in the Metanga UI.
@@ -114,6 +120,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Indicates that this is a Fixed Term Package. A fixed term package has a pre-defined duration (e.g. 12 months, 5 years, etc.)
@@ -128,6 +135,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             The Subscription Term Length allows you to set the duration for a Subscription.  Once the Subscription end date arrives, the Subscription will expire.
@@ -146,6 +154,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Unit of time for Subscription Term Length
@@ -164,6 +173,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             The Subscription Grace Period allows a subscriber or an account representative to terminate a subscription within a specified period of time, without penalty.
@@ -182,6 +192,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Unit of time for Subscription Grace Period
@@ -200,6 +211,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -212,6 +224,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -225,6 +238,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -238,6 +252,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
   <Description></Description>
   <Direction>Input</Direction>
@@ -15,6 +16,7 @@
   <Properties>
     <Properties>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
              DeliveryLanguage
@@ -30,6 +32,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
              DestinationAddress
@@ -45,6 +48,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
              FromAddresses
@@ -60,6 +64,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
   <Description>
              Represents an external credit card payment class.
@@ -17,6 +18,7 @@
   <Properties>
     <Properties>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             ReferenceNumber - required property
@@ -32,6 +34,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             CardType - required property - value from CreditCardType enum
@@ -48,6 +51,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
              Last4Digits - required property - last 4 digits from Credit Card number
@@ -63,6 +67,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
              ExpirationDate - required property - month and year of Credit Card expiration devided by symbol "/" - "mm/yyyy"
@@ -78,6 +83,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -92,6 +98,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -108,6 +115,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -121,6 +129,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -133,6 +142,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -147,6 +157,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -159,6 +170,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -172,6 +184,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -185,6 +198,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>

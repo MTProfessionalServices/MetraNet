@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
   <Description>
              A PreCharge object has all the properties needed to calculate one
@@ -18,6 +19,7 @@
   <Properties>
     <Properties>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -32,6 +34,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -44,6 +47,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -56,6 +60,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -69,6 +74,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -85,6 +91,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -99,6 +106,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -111,6 +119,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -127,6 +136,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -140,6 +150,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -156,6 +167,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -169,6 +181,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -185,6 +198,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>

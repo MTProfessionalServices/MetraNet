@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
   <Description>
             The Account objects represents a generic Metanga account that can receive charges,
@@ -18,6 +19,7 @@
   <Properties>
     <Properties>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Security Question
@@ -33,6 +35,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Active / Suspended status
@@ -47,6 +50,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Last Change Password
@@ -61,6 +65,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Failed Password Attempt Count
@@ -79,6 +84,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Last Lockout Date
@@ -93,6 +99,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
              Indicates that the account will pay automatically when an invoice is delivered.
@@ -109,6 +116,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Security Answer. This property depend of property ShowSecurityData, 
@@ -125,6 +133,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             The UserName for the account. Used for logging into Self Care portal.
@@ -140,6 +149,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             The Password for the account. Used for logging into Self Care portal.
@@ -157,6 +167,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             The parent account for the new account. If this value is not set, then
@@ -174,6 +185,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             The payer account for the new account. The payer has to be a billable account.
@@ -192,6 +204,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>The account language code is used by Metanga to identify appropriate templates for
             email communications.Language codes in Metanga are based on IETF language tags.
@@ -208,6 +221,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             The invoice currency for the account. Follows the ISO-4217 currency convention.
@@ -223,6 +237,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Represents the collection of payment instruments associated with the account.
@@ -239,6 +254,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Version of accepted Terms and Conditions
@@ -257,6 +273,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Acceptance date of Terms and Conditions
@@ -271,6 +288,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Billing Cycle Type (Years, Months, Days) for NetTerms
@@ -286,6 +304,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Duration of the period from the billing date up to the last invoice payment date
@@ -304,6 +323,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
              Organization
@@ -320,6 +340,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             The First Name for the Account
@@ -335,6 +356,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             The Middle Initial for the Account
@@ -350,6 +372,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             The Last Name for the Account
@@ -365,6 +388,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             First line of the address for the Account
@@ -380,6 +404,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Second line of the address for the Account
@@ -395,6 +420,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Third line of the address for the Account
@@ -410,6 +436,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             The City for the Account
@@ -425,6 +452,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             State or Province of the Account
@@ -440,6 +468,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Zip (or Postal) code for the Account
@@ -455,6 +484,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Country for the Account. The country should be submitted as a 2-character alpha code, based on the ISO 3166-1 2-letter representation.Examples: US - United States, AU - Australia, DE - GermanySee this link for a complete list: http://www.iso.org/iso/home/standards/country_codes/country_names_and_code_elements.htm</Description>
         <Direction>Input</Direction>
@@ -468,6 +498,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Email address for the Account
@@ -483,6 +514,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Phone number for the Account
@@ -498,6 +530,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             Fax number for the Account
@@ -513,6 +546,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
             The name of the company for this account
@@ -528,6 +562,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Represents how frequently should the account be invoiced.The Id represents a Unit of Measure Code. A list of codes can be found in the Metanga UI (go to Configuration -&gt; Units of Measure). Only units of measure based on days or months can be used.The Codes for Units of Measure in Metanga is based on the Unified Code for Units of Measure. You can learn more about this specification here: http://unitsofmeasure.org/Common values used are: "MO" (Monthly), "ANN" (Annual), "ANN/4" (Quarterly)</Description>
         <Direction>Input</Direction>
@@ -541,6 +576,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Represents an anniversary date when an account should receive an invoice.
             This date is used to identify appropriate bill dates, based on the bill
@@ -556,6 +592,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -568,6 +605,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -581,6 +619,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
@@ -594,6 +633,7 @@
         </Type>
       </Property>
       <Property>
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>

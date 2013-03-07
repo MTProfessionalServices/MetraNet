@@ -13,11 +13,13 @@ namespace MetraTech.ExpressionEngine.Components
         /// <summary>
         /// The symbol (i.e., $) I assume these aren't localized
         /// </summary>
+        [DataMember]
         public string Symbol { get; set; }
 
         /// <summary>
         /// Some standards based code (i.e., USD). I assume that these aren't localized
         /// </summary>
+        [DataMember]
         public string Code { get; set; }
 
         #endregion

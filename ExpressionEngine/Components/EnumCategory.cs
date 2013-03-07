@@ -49,7 +49,14 @@ namespace MetraTech.ExpressionEngine.Components
         #region GUI Support Properties (should be moved in future)
 
         public string TreeNodeLabel { get { return Name; } }
-        public virtual string Image { get { return "EnumType.png"; } }
+        public virtual string Image { get
+        {
+            if (EnumMode == EnumMode.EnumValue)
+                return "Enumeration.png";
+            else if (EnumMode == EnumMode.UnitOfMeasure)
+                return "UnitOfMeasureCategory.png";
+            return "Currency.png";
+        } }
 
         /// <summary>
         /// TOGO Localize

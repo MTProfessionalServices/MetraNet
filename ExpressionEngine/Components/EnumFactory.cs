@@ -15,7 +15,7 @@ namespace MetraTech.ExpressionEngine.Components
                 case EnumMode.EnumValue:
                     return new EnumValue(enumCategory, name, id, description);
                 case EnumMode.UnitOfMeasure:
-                    return new UnitOfMeasure(enumCategory, name, id, description);
+                    return new UnitOfMeasure(enumCategory, name, id, description, null);
                 default:
                     throw new ArgumentException("unexpected enumMode");
             }

@@ -1,103 +1,104 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<UnitOfMeasureCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description>In most physics textbooks, weight is the name given to the force on an object due to gravity. However, some books use an operational definition, defining the weight of an object as the force measured by the operation of weighing it (that is, the force required to support it).</Description>
+  <EnumMode>UnitOfMeasure</EnumMode>
   <Name>Weight</Name>
   <Values>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Nanogram</Description>
       <Name>Nanogram</Name>
       <Code>NG</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Pound</Description>
       <Name>Pound</Name>
       <Code>[LB_AV]</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Petagram</Description>
       <Name>Petagram</Name>
       <Code>PTG</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Ounce</Description>
       <Name>Ounce</Name>
       <Code>[OZ_AV]</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Megagram</Description>
       <Name>Megagram</Name>
       <Code>MAG</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Dram</Description>
       <Name>Dram</Name>
       <Code>[DR_AV]</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Dekagram</Description>
       <Name>Dekagram</Name>
       <Code>DAG</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Gigagram</Description>
       <Name>Gigagram</Name>
       <Code>GAG</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Kilogram</Description>
       <Name>Kilogram</Name>
       <Code>KG</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Milligram</Description>
       <Name>Milligram</Name>
       <Code>MG</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Microgram</Description>
       <Name>Microgram</Name>
       <Code>UG</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Centigram</Description>
       <Name>Centigram</Name>
       <Code>CG</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Decigram</Description>
       <Name>Decigram</Name>
       <Code>DG</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Gram</Description>
       <Name>Gram</Name>
       <Code>G</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Hectogram</Description>
       <Name>Hectogram</Name>
       <Code>HG</Code>
     </EnumValue>
     <EnumValue i:type="UnitOfMeasure">
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>Teragram</Description>
       <Name>Teragram</Name>
       <Code>TRG</Code>
     </EnumValue>
   </Values>
-</UnitOfMeasureCategory>
+</EnumCategory>

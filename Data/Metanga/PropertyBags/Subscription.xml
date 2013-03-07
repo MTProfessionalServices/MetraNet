@@ -7,7 +7,7 @@
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>Subscription</Name>
-  <Required>false</Required>
+  <Required>true</Required>
   <Type i:type="PropertyBagType">
     <BaseType>PropertyBag</BaseType>
     <ListType>None</ListType>
@@ -114,7 +114,7 @@
         <Name>EndReason</Name>
         <Required>false</Required>
         <Type i:type="EnumerationType">
-          <BaseType>PropertyBag</BaseType>
+          <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
           <Category>EndReasonType</Category>
           <Namespace>metanga</Namespace>

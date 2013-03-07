@@ -7,7 +7,7 @@
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>StatementTransaction</Name>
-  <Required>false</Required>
+  <Required>true</Required>
   <Type i:type="PropertyBagType">
     <BaseType>PropertyBag</BaseType>
     <ListType>None</ListType>
@@ -69,7 +69,7 @@
         <Name>StatementTransactionType</Name>
         <Required>true</Required>
         <Type i:type="EnumerationType">
-          <BaseType>PropertyBag</BaseType>
+          <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
           <Category>StatementTransactionType</Category>
           <Namespace>metanga</Namespace>
@@ -87,8 +87,10 @@
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property>
@@ -103,8 +105,10 @@
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property>
@@ -119,8 +123,10 @@
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureQualifier i:nil="true" />
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property>

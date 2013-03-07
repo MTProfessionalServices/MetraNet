@@ -7,7 +7,7 @@
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>GridSetting</Name>
-  <Required>false</Required>
+  <Required>true</Required>
   <Type i:type="PropertyBagType">
     <BaseType>PropertyBag</BaseType>
     <ListType>None</ListType>
@@ -25,9 +25,13 @@
         <IsCore>false</IsCore>
         <Name>GridLength</Name>
         <Required>true</Required>
-        <Type>
+        <Type i:type="NumberType">
           <BaseType>Integer</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property>

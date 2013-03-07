@@ -3,17 +3,18 @@
   <Description>
             Desribes the type of the current transaction in BalanceStatement class
             </Description>
+  <EnumMode>EnumValue</EnumMode>
   <Name>StatementTransactionType</Name>
   <Values>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
             The type of the current trnsaction is Invoice
             </Description>
       <Name>Invoice</Name>
     </EnumValue>
     <EnumValue>
-      <Aliases i:nil="true" />
+      <Aliases />
       <Description>
             The type of the current transaction is Payment
             </Description>

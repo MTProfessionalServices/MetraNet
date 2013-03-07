@@ -94,6 +94,13 @@ namespace MetraTech.ExpressionEngine.MTProperties
         public bool IsCore { get; set; }
 
         /// <summary>
+        /// The availability of the property in whatever context is being modeled. Properties that are IsCore=true
+        /// are always available. See the enum for further information.
+        /// </summary>
+        [DataMember]
+        public Availability Availability { get; set; }
+
+        /// <summary>
         /// The assoicated name, if any, in the database. In the case of property it's a column name, in the case of a PropertyBag, 
         /// it's a table name. Note that not all PropertyBag types are backed by database table.
         /// </summary>

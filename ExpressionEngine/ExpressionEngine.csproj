@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\Enumerations\EnumMode.cs" />
+    <Compile Include="MTProperties\Enumerations\Availability.cs" />
     <Compile Include="TypeSystem\ChargeType.cs" />
     <Compile Include="Components\EnumFactory.cs" />
     <Compile Include="Expressions\Enumerations\ConfigurationType.cs" />

@@ -153,6 +153,7 @@ namespace MetraTech.ExpressionEngine
         }
         #endregion
 
+        #region Expression Methods
         public ExpressionParseResults GetExpressionParseResults()
         {
             ExpressionParseResults results;
@@ -164,7 +165,9 @@ namespace MetraTech.ExpressionEngine
             results.BindResultsToContext(this);
             return results;
         }
+        #endregion
 
+        #region Property Methods
         /// <summary>
         /// Searches for a property with the specified name. If not found, null is returned. Order N search. 
         /// </summary>
@@ -226,7 +229,6 @@ namespace MetraTech.ExpressionEngine
             return null;
         }
 
-        #region Property Methods
 
         public List<Property> GetProperties(Type typeFilter, IEnumerable<PropertyBag> entities = null)
         {
@@ -317,6 +319,55 @@ namespace MetraTech.ExpressionEngine
             }
         }
 
+        public ValidationMessageCollection Validate()
+        {
+            var messages = new ValidationMessageCollection();
+            foreach (var propertyBag in Entities.Values)
+            {
+                propertyBag.Validate(true, messages, this);
+            }
+
+            //foreach (var enumNamespace in EnumNamespaces.Values)
+            //{
+            //    enumNamespace.Validate();
+            //}
+            return messages;
+        }
+
+
+        //public PropertyCollection GetAvailability(List<string> propertyBagTypeNames)
+        //{
+        //    //Let's assume that all data types match for now
+        //    //Let's not worry aabout if entites aren't found
+
+        //    var existingProperties = new Dictionary<string, int>(StringComparer.InvariantCultureIgnoreCase);
+        //    var properties = new PropertyCollection(null);
+
+        //    foreach (var propertyBag in Entities.Values)
+        //    {
+        //        foreach (var propertyBagTypeName in propertyBagTypeNames)
+        //        {
+        //            var type = (PropertyBagType) propertyBag.Type;
+        //            if (!type.Name.Equals(propertyBagTypeName, StringComparison.InvariantCultureIgnoreCase)
+        //            continue;
+
+        //            foreach (var property in propertyBag.Properties)
+        //            {
+        //                Property existingProperty;
+        //                if (!existingProperties.TryGetValue(property.Name, out existingProperty))
+        //                {
+        //                    existingProperties.Add(property.Name, 1);
+        //                    properties.Add(property);
+        //                }
+        //                else
+        //                {
+        //                    existingProperty.Value++
+        //                }
+            
+        //    }
+
+        //    return properties;
+        //}
         #endregion
 
         #region Entities
@@ -510,21 +561,6 @@ namespace MetraTech.ExpressionEngine
             EnumNamespace.LoadDirectoryIntoContext(@"C:\ExpressionEngine\Reference\Enumerations", null, this);
         }
         #endregion
-
-        public ValidationMessageCollection Validate()
-        {
-            var messages = new ValidationMessageCollection();
-            foreach (var propertyBag in Entities.Values)
-            {
-                propertyBag.Validate(true, messages, this);
-            }
-
-            //foreach (var enumNamespace in EnumNamespaces.Values)
-            //{
-            //    enumNamespace.Validate();
-            //}
-            return messages;
-        }
 
     }
 }

@@ -24,7 +24,7 @@
             Metanga grid lenght
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>GridLength</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
@@ -43,7 +43,7 @@
             Metanga grid Id
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>GridName</Name>
         <Required>true</Required>
         <Type i:type="StringType">

@@ -24,7 +24,7 @@
             Represents an URL address of your service that is listening for the notification messages.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EndpointAddress</Name>
         <Required>true</Required>
         <Type i:type="StringType">

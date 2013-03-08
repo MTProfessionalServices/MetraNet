@@ -2,45 +2,29 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-             A PreCharge object has all the properties needed to calculate one
-             or more tax charges based on existing Product Models
-            </Description>
+  <Description>Termination - Time Remaining</Description>
   <Direction>Input</Direction>
-  <IsCore>true</IsCore>
-  <Name>TaxCharge</Name>
+  <IsCore>false</IsCore>
+  <Name>TerminationFeeRemainder</Name>
   <Required>true</Required>
   <Type i:type="PropertyBagType">
     <BaseType>PropertyBag</BaseType>
     <ListType>None</ListType>
-    <Name>TaxCharge</Name>
-    <PropertyBagMode>PropertyBag</PropertyBagMode>
+    <Name>BillableEvent</Name>
+    <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
   </Type>
   <Properties>
     <Properties>
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>BillableEvent</Name>
-        <Required>true</Required>
-        <Type i:type="PropertyBagType">
-          <BaseType>PropertyBag</BaseType>
-          <ListType>None</ListType>
-          <Name>BillableEvent</Name>
-          <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
+        <Description>
+            Timestamp of the Usage
+            </Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>StartTime</Name>
-        <Required>true</Required>
+        <Required>false</Required>
         <Type>
           <BaseType>DateTime</BaseType>
           <ListType>None</ListType>
@@ -49,11 +33,15 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
+        <Description>
+            Time at which transaction ended. Requires a StartTime to be passed.
+            If Quantity is not set, MetraNet will set the Quantity to the total minutes between
+            the start and the end time.
+            </Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>EndTime</Name>
-        <Required>true</Required>
+        <Required>false</Required>
         <Type>
           <BaseType>DateTime</BaseType>
           <ListType>None</ListType>
@@ -62,21 +50,26 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
+        <Description>
+            The units used to measure the quantity. The acceptable values can be seen in the
+            Units of Measure Management screen in Metanga. Values provided out of the box are
+            based on the Unified Code for Units of Measure standard: http://en.wikipedia.org/wiki/Unified_Code_for_Units_of_Measure</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
-        <Name>UnitName</Name>
+        <Name>UnitOfMeasure</Name>
         <Required>true</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
-          <ListType>KeyList</ListType>
+          <ListType>None</ListType>
           <Length>255</Length>
         </Type>
       </Property>
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
+        <Description>
+            Number of Items
+            </Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Quantity</Name>
@@ -93,7 +86,26 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
+        <Description>
+            The account that originated this charge.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>Originator</Name>
+        <Required>true</Required>
+        <Type i:type="PropertyBagType">
+          <BaseType>PropertyBag</BaseType>
+          <ListType>None</ListType>
+          <Name>Account</Name>
+          <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>
+            The product for which Metanga will generate this charge.
+            </Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Product</Name>
@@ -111,103 +123,67 @@
         <Description i:nil="true" />
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
+        <Name>EntityId</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Guid</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description i:nil="true" />
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>ExternalId</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description i:nil="true" />
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>Name</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>KeyList</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description i:nil="true" />
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>Description</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>KeyList</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Subscription Package Product Id</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
         <Name>SubscriptionPackageProductId</Name>
         <Required>false</Required>
-        <Type>
-          <BaseType>Guid</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Price</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>PriceCurrency</Name>
-        <Required>true</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
           <ListType>None</ListType>
           <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>PriceAmount</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>ChargeCurrency</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>ChargeAmount</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>InvoiceId</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Guid</BaseType>
-          <ListType>None</ListType>
         </Type>
       </Property>
     </Properties>

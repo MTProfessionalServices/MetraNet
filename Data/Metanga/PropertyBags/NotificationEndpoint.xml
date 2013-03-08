@@ -26,7 +26,7 @@
             And notification message will be sent only if both of them the Notification and the Endpoint are Active.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Active</Name>
         <Required>true</Required>
         <Type>
@@ -42,7 +42,7 @@
             It can be initialized by SoapNotificationConfiguration object or RestfulNotificationConfiguration object.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EndpointConfiguration</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -60,7 +60,7 @@
             It can be initialized by ClientCertificateConfiguration object or OAuthWebServerConsumerConfiguration object.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>AuthenticationConfiguration</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -75,7 +75,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EntityId</Name>
         <Required>false</Required>
         <Type>
@@ -88,7 +88,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ExternalId</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -102,7 +102,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Name</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -116,7 +116,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Description</Name>
         <Required>true</Required>
         <Type i:type="StringType">

@@ -24,7 +24,7 @@
             Gets or sets the first name of the owner of the credit card. This property is required.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>FirstName</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -40,7 +40,7 @@
             Gets or sets the middle name of the owner of the credit card.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>MiddleName</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -56,7 +56,7 @@
             Gets or sets the last name of the owner of the credit card. This property is required.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>LastName</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -72,7 +72,7 @@
             Gets or sets the first address line of the owner of the credit card. This property is required.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Address1</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -88,7 +88,7 @@
             Gets or sets the second address line of the owner of the credit card.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Address2</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -104,7 +104,7 @@
             Gets or sets the third address line of the owner of the credit card.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Address3</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -120,7 +120,7 @@
             Gets or sets the city of the owner of the credit card. This property is required.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>City</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -136,7 +136,7 @@
             Gets or sets the country code of the owner of the credit card. The code must correspond to ISO 3166-1 alpha-2 standart of Country abbreviation.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>CountryCode</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -152,7 +152,7 @@
              Gets or sets the state of the owner of the credit card. For US this property is required and must consist of 2 characters. It should be a valid US state abbreviation.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>State</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -168,7 +168,7 @@
             Gets or sets the postal code of the owner of the credit card. This property is required.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Postal</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -184,7 +184,7 @@
             Gets or sets the phone number of the owner of the credit card.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PhoneNumber</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -200,7 +200,7 @@
             Gets or sets the e-mail address of the owner of the credit card.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Email</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -216,7 +216,7 @@
             Gets or sets the type of the credit card. This property is required.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>CreditCardType</Name>
         <Required>true</Required>
         <Type i:type="EnumerationType">
@@ -233,7 +233,7 @@
              Gets or sets the expiration date of the credit card. The format of this property is "mm/yyyy". This property is required.
              </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ExpirationDate</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -249,7 +249,7 @@
             Last four digits of bank account number
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>CreditCardNumberLast4Digits</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -265,7 +265,7 @@
             Card Verification Number for validating before create new or update existing credit card
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>CardSecurityCode</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -281,7 +281,7 @@
              If true skips verification of the Credit Card when creating or updating.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>IsVerificationSkipped</Name>
         <Required>true</Required>
         <Type>
@@ -294,7 +294,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>InstrumentId</Name>
         <Required>true</Required>
         <Type>

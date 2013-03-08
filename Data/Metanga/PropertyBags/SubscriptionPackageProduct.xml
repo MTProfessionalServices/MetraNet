@@ -25,7 +25,7 @@
             A product that is part of this package.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Product</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -42,7 +42,7 @@
             StartDate of subscription to this product.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>StartDate</Name>
         <Required>true</Required>
         <Type>
@@ -57,7 +57,7 @@
             EndDate of subscription to this product.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EndDate</Name>
         <Required>false</Required>
         <Type>
@@ -74,7 +74,7 @@
             For Reservation products this field will be required.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Quantity</Name>
         <Required>false</Required>
         <Type i:type="NumberType">
@@ -98,7 +98,7 @@
             You can learn more about this specification here: http://unitsofmeasure.org/
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>UnitId</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -116,7 +116,7 @@
             This is useful when onboarding subscriptions from a legacy billing systems that has already generated recurring charges up to a certain date.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>RecurringLastDate</Name>
         <Required>false</Required>
         <Type>
@@ -134,7 +134,7 @@
             A null value indicates that the price set at the packageproduct level should be used.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PriceSchedule</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">

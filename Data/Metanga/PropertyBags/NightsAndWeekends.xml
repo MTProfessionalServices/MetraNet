@@ -28,7 +28,7 @@
             Typical segments are "Weekdays" (Mon, Tue, Wed, Thu, Fri) and "Weekends" (Sat, Sun)
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>WeekSegments</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">

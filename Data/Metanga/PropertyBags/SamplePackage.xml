@@ -2,18 +2,16 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-             Promotion entity
-            </Description>
+  <Description>Sample Package</Description>
   <Direction>Input</Direction>
-  <IsCore>true</IsCore>
-  <Name>Promotion</Name>
+  <IsCore>false</IsCore>
+  <Name>SamplePackage</Name>
   <Required>true</Required>
   <Type i:type="PropertyBagType">
     <BaseType>PropertyBag</BaseType>
     <ListType>None</ListType>
-    <Name>Promotion</Name>
-    <PropertyBagMode>Entity</PropertyBagMode>
+    <Name>Package</Name>
+    <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
   </Type>
   <Properties>
     <Properties>
@@ -21,12 +19,54 @@
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
-             IsCoupon
+            Represents a collection of products associated with a package.
+            Each element contains modifiers to define how the product should
+            behave for this package. The modifiers allow for the pricing
+            or the event model of the product to be configured.
             </Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
-        <Name>IsCoupon</Name>
+        <Name>PackageProducts</Name>
         <Required>true</Required>
+        <Type i:type="PropertyBagType">
+          <BaseType>PropertyBag</BaseType>
+          <ListType>List</ListType>
+          <Name>PackageProduct</Name>
+          <PropertyBagMode>PropertyBag</PropertyBagMode>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Required only if the package has any products with a Recurring event model.
+            This indicates the cycles that should be enabled for a subscription.
+            The list of values represents a Unit of Measure Codes. A list of valid codes can be found in the Metanga UI (go to Configuration -&gt; Units of Measure). Only units of measure based on days or months can be used.
+            The Codes for Units of Measure in Metanga are based on the Unified Code for Units of Measure. You can learn more about this specification here: http://unitsofmeasure.org/
+            Common values used are: "MO" (Monthly), "ANN" (Annual), "ANN/4" (Quarterly)
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>RecurringChargeCycle</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>List</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Defines whether Package will be billed in advance or in arrears.
+            Only applicable if the package has any products with a recurring event model.
+            A charge in advance will trigger the generation of an invoice as soon as a subscriber is enrolled.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>AdvanceRecurringEvents</Name>
+        <Required>false</Required>
         <Type>
           <BaseType>Boolean</BaseType>
           <ListType>None</ListType>
@@ -36,16 +76,17 @@
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
-             Coupon Amount Type
+            Indicates if there are any payment instrument requirements to subscribe for a package.
+            Can be used by a package that requires a customer to have a credit card on file.
             </Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
-        <Name>CouponAmountType</Name>
-        <Required>false</Required>
+        <Name>PaymentInfoStatus</Name>
+        <Required>true</Required>
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>CouponAmountType</Category>
+          <Category>PaymentInfoStatus</Category>
           <Namespace>metanga</Namespace>
         </Type>
       </Property>
@@ -53,107 +94,10 @@
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
-             Coupon Amount Value
-            </Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>CouponAmountValue</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>
-             Coupon Duration Type
-            </Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>CouponDurationType</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>
-             Coupon Duration Value
-            </Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>CouponDurationValue</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>
-             Start date of Promotion
-            </Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>PromoStart</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>
-             End date of Promotion
-            </Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>PromoEnd</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>
-             Promo Code
-            </Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>PromoCode</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>
-             Promo Name
+            Defines the order in which packages are presented in the Metanga UI.
+            A lower rank is presented first. For enrollment sites, packages are normally sorted by this rank.
+            If rank = 0, Metanga will set to the maximum rank of any existing packages, plus 1
+            Other values can be set, but Metanga will verify that the rank is currently available.
             </Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
@@ -172,38 +116,91 @@
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
-            Represents a collection of products associated with a promotion.
-            Each element contains modifiers to define how the product should
-            behave for this promotion.
+            Indicates that this is a Fixed Term Package. A fixed term package has a pre-defined duration (e.g. 12 months, 5 years, etc.)
             </Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
-        <Name>PromotionProducts</Name>
+        <Name>IsFixedTerm</Name>
         <Required>true</Required>
-        <Type i:type="PropertyBagType">
-          <BaseType>PropertyBag</BaseType>
-          <ListType>List</ListType>
-          <Name>Product</Name>
-          <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
         </Type>
       </Property>
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>
-            Represents a collection of products associated with a promotion.
-            Each element contains modifiers to define how the product should
-            behave for this promotion.
+            The Subscription Term Length allows you to set the duration for a Subscription.  Once the Subscription end date arrives, the Subscription will expire.
             </Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
-        <Name>PromotionPackages</Name>
+        <Name>TermLength</Name>
         <Required>true</Required>
-        <Type i:type="PropertyBagType">
-          <BaseType>PropertyBag</BaseType>
-          <ListType>List</ListType>
-          <Name>Package</Name>
-          <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
+        <Type i:type="NumberType">
+          <BaseType>Integer</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Unit of time for Subscription Term Length
+            The value represents a Unit of Measure Code. A list of valid codes can be found in the Metanga UI (go to Configuration -&gt; Units of Measure). Only units of measure based on days or months can be used.
+            The Codes for Units of Measure in Metanga are based on the Unified Code for Units of Measure. You can learn more about this specification here: http://unitsofmeasure.org/
+            Common values used are: "MO" (Monthly), "ANN" (Annual), "ANN/4" (Quarterly)
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>TermTimeUnit</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>
+            The Subscription Grace Period allows a subscriber or an account representative to terminate a subscription within a specified period of time, without penalty.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>GracePeriod</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Unit of time for Subscription Grace Period
+            The value represents a Unit of Measure Code. A list of valid codes can be found in the Metanga UI (go to Configuration -&gt; Units of Measure). Only units of measure based on days or months can be used.
+            The Codes for Units of Measure in Metanga are based on the Unified Code for Units of Measure. You can learn more about this specification here: http://unitsofmeasure.org/
+            Common values used are: "MO" (Monthly), "ANN" (Annual), "ANN/4" (Quarterly)
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>GracePeriodTimeUnit</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
         </Type>
       </Property>
       <Property>

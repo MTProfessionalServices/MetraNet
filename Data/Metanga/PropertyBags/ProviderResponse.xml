@@ -20,7 +20,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>MetraTechResponseCode</Name>
         <Required>true</Required>
         <Type i:type="EnumerationType">
@@ -35,7 +35,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>MetraTechResponseDescription</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -49,7 +49,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ProviderResponseCode</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -63,7 +63,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ProviderResponseDescription</Name>
         <Required>true</Required>
         <Type i:type="StringType">

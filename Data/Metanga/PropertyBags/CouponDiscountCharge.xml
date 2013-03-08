@@ -20,7 +20,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>BillableEvent</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -35,7 +35,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>StartTime</Name>
         <Required>true</Required>
         <Type>
@@ -48,7 +48,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EndTime</Name>
         <Required>true</Required>
         <Type>
@@ -61,7 +61,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>UnitName</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -75,7 +75,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Quantity</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
@@ -92,7 +92,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Product</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -107,7 +107,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>SubscriptionPackageProductId</Name>
         <Required>false</Required>
         <Type>
@@ -120,7 +120,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Price</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
@@ -137,7 +137,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PriceCurrency</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -151,7 +151,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PriceAmount</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
@@ -168,7 +168,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ChargeCurrency</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -182,7 +182,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ChargeAmount</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
@@ -199,7 +199,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>InvoiceId</Name>
         <Required>false</Required>
         <Type>

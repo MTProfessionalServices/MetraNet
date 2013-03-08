@@ -2,13 +2,10 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            The Account objects represents a generic Metanga account that can receive charges,
-            but cannot receive invoices or have balances associated with it.
-            </Description>
+  <Description></Description>
   <Direction>Input</Direction>
-  <IsCore>true</IsCore>
-  <Name>Account</Name>
+  <IsCore>false</IsCore>
+  <Name>SimpleAccountA</Name>
   <Required>true</Required>
   <Type i:type="PropertyBagType">
     <BaseType>PropertyBag</BaseType>
@@ -644,6 +641,33 @@
           <BaseType>String</BaseType>
           <ListType>KeyList</ListType>
           <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>A Field</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AField</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Created On</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CreatedOn</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
         </Type>
       </Property>
     </Properties>

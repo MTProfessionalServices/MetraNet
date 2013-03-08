@@ -24,7 +24,7 @@
             Days of the Week covered by this segment
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>DaysOfTheWeek</Name>
         <Required>true</Required>
         <Type i:type="EnumerationType">
@@ -46,7 +46,7 @@
                 Day Segment 3: 6pm - 12am
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>DaySegments</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">

@@ -25,7 +25,7 @@
             And notification message will be sent only if both of them the Notification and the Endpoint are Active. 
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Active</Name>
         <Required>true</Required>
         <Type>
@@ -41,7 +41,7 @@
             You can use following entities for notifications: Account, Product, Package, Promotion, Invoice, Subscription, NotificationEndpoint and Notification.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>TriggerEntityType</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -58,7 +58,7 @@
             Only the following types are supported by Metanga: Create, Update and Delete.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EventType</Name>
         <Required>true</Required>
         <Type i:type="EnumerationType">
@@ -75,7 +75,7 @@
             You should configure a notification endpoint to able to send notification messages.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>NotificationEndpoint</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -92,7 +92,7 @@
             Represents a name of the triggered event that will be displayed in external system. For example: If new account has been created in Metanga, you can set event name "New Subscriber" for the message.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EventName</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -106,7 +106,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EntityId</Name>
         <Required>false</Required>
         <Type>
@@ -119,7 +119,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ExternalId</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -133,7 +133,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Name</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -147,7 +147,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Description</Name>
         <Required>true</Required>
         <Type i:type="StringType">

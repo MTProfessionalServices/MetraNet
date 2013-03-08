@@ -24,7 +24,7 @@
             Bank Name
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>BankName</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -40,7 +40,7 @@
             Account Holder's Name
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>AccountHoldersName</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -56,7 +56,7 @@
             The Routing Number for the bank
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>RoutingNumber</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -72,7 +72,7 @@
             The type of account
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>BankAccountType</Name>
         <Required>true</Required>
         <Type i:type="EnumerationType">
@@ -89,7 +89,7 @@
             Last four digits of bank account number
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>BankAccountNumberLast4Digits</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -103,7 +103,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>InstrumentId</Name>
         <Required>true</Required>
         <Type>

@@ -25,7 +25,7 @@
             Indicates whether organization is default.By default property is false.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>IsDefault</Name>
         <Required>true</Required>
         <Type>
@@ -40,7 +40,7 @@
             Country's zip code. Is not required field.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ZipCode</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -56,7 +56,7 @@
             Represents state of country where organization is located.If country is USA then state is required properties.Otherwise you will get validation error message.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>State</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -72,7 +72,7 @@
             Represents country code where oragnization is located. Is not required field.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Country</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -88,7 +88,7 @@
              Represents city / town / locality
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Locality</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -104,7 +104,7 @@
             Organization addresss.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>StreetAddressLine1</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -120,7 +120,7 @@
             Additional organization address.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>StreetAddressLine2</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -134,7 +134,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EntityId</Name>
         <Required>false</Required>
         <Type>
@@ -147,7 +147,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ExternalId</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -161,7 +161,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Name</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -175,7 +175,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Description</Name>
         <Required>true</Required>
         <Type i:type="StringType">

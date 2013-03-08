@@ -24,7 +24,7 @@
             The subscriber account.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Account</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -41,7 +41,7 @@
             The package assosiated with this subscription.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Package</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -58,7 +58,7 @@
             An optional promotion that is assosiated with this subscription.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Promotion</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -80,7 +80,7 @@
             The Codes for Units of Measure in Metanga are based on the Unified Code for Units of Measure. 
             You can learn more about this specification here: http://unitsofmeasure.org/ Common values used are: "MO" (Monthly), "ANN" (Annual), "ANN/4" (Quarterly)</Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>RecurringCycleUnitId</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -97,7 +97,7 @@
             Each element contains modifiers to define how the product should behave for this subscription.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>SubscriptionPackageProducts</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -117,7 +117,7 @@
              (*) - these options are not supported by Metanga in current release and will be supported going forward.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EndReason</Name>
         <Required>false</Required>
         <Type i:type="EnumerationType">
@@ -132,7 +132,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EntityId</Name>
         <Required>false</Required>
         <Type>
@@ -145,7 +145,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ExternalId</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -159,7 +159,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Name</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -173,7 +173,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Description</Name>
         <Required>true</Required>
         <Type i:type="StringType">

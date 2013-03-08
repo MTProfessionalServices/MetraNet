@@ -24,7 +24,7 @@
             Represents an authorization URI of the end-user at the Authorization Server.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>AccessAuthorizationUri</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -40,7 +40,7 @@
             The value must be set to "code" for the Web server authentication flow.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ResponseType</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -56,7 +56,7 @@
             Consumer key from the remote access application definition.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ClientId</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -73,7 +73,7 @@
             The value of the scope parameter is expressed as a list of space-delimited, case sensitive strings. The strings are defined by the authorization server.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Scope</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -90,7 +90,7 @@
             This parameter represents an URI of the token endpoint.  
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>AccessTokenUri</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -106,7 +106,7 @@
             Consumer secret from the remote access application definition. This parameter is optional.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ClientSecret</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -125,7 +125,7 @@
             A refresh token is a string representing the authorization granted to the client by the resource owner.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>RefreshToken</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -141,7 +141,7 @@
             A date of the error returned from the authorization server.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>LastAuthorizationErrorDate</Name>
         <Required>true</Required>
         <Type>
@@ -156,7 +156,7 @@
             Represents an error code returned from the authorization server.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>LastAuthorizationErrorCode</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -172,7 +172,7 @@
             Represents description of the error with additional information returned from the authorization server.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>LastAuthorizationErrorDescription</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -188,7 +188,7 @@
             This property is to define how Metanga is actually going to use the access token in the notifications. 
             You can use "Oauth" value to populate this property.</Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>AccessTokenType</Name>
         <Required>true</Required>
         <Type i:type="StringType">

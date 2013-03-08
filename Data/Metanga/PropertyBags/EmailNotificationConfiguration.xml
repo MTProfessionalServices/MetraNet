@@ -22,7 +22,7 @@
              DeliveryLanguage
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>DeliveryLanguage</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -38,7 +38,7 @@
              DestinationAddress
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>DestinationAddress</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -54,7 +54,7 @@
              FromAddresses
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>FromAddress</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -68,7 +68,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EndpointAddress</Name>
         <Required>true</Required>
         <Type i:type="StringType">

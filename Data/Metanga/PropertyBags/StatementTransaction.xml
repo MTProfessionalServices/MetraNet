@@ -24,7 +24,7 @@
             Transaction date.  For invoice this would be the invoice date
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Date</Name>
         <Required>true</Required>
         <Type>
@@ -39,7 +39,7 @@
             InvoiceId or PaymentId. This is the Metanga internal id
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Id</Name>
         <Required>true</Required>
         <Type>
@@ -54,7 +54,7 @@
             InvoiceSeed or empty for payment
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Number</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -70,7 +70,7 @@
             Invoice or Payment
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>StatementTransactionType</Name>
         <Required>true</Required>
         <Type i:type="EnumerationType">
@@ -87,7 +87,7 @@
             Amount of Invoice. Empty fot Payment
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>AmountCharged</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
@@ -106,7 +106,7 @@
             Amount of Payment. Empty for Invoice
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>AmountPaid</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
@@ -125,7 +125,7 @@
             Running balance since statement start date
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Balance</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
@@ -144,7 +144,7 @@
             Empty for Now
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>DueDate</Name>
         <Required>false</Required>
         <Type>

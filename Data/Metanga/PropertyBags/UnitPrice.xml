@@ -31,7 +31,7 @@
              Common values used are: "MO" (Monthly), "ANN" (Annual), "ANN/4" (Quarterly)
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>TimeUnitId</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -49,7 +49,7 @@
              The Id represents a Unit of Measure Code. A list of codes can be found in the Metanga UI (go to Configuration -&gt; Units of Measure). Units should belong to the unit group for the target product. If the product does not have a unit group, then set to "1".
              The Codes for Units of Measure in Metanga is based on the Unified Code for Units of Measure. You can learn more about this specification here: http://unitsofmeasure.org/</Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>UsageUnitId</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -70,7 +70,7 @@
              - JPY 495
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Price</Name>
         <Required>true</Required>
         <Type i:type="StringType">

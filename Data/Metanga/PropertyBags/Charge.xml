@@ -24,7 +24,7 @@
              Billable Event, associated with the current charge
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>BillableEvent</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -41,7 +41,7 @@
             The start date and time used to accrue this charge
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>StartTime</Name>
         <Required>true</Required>
         <Type>
@@ -56,7 +56,7 @@
             The end date and time used to accrue this charge
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EndTime</Name>
         <Required>true</Required>
         <Type>
@@ -71,7 +71,7 @@
              Name of Unit which was used for billing. Also contains the type of recurrent unit. For example Minutes/Month.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>UnitName</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -87,7 +87,7 @@
             The quantity of items included in this charge
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Quantity</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
@@ -106,7 +106,7 @@
             The product used to resolve prices associated with this charge
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Product</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -123,7 +123,7 @@
             The subscription used to resolve prices associated with this charge
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>SubscriptionPackageProductId</Name>
         <Required>false</Required>
         <Type>
@@ -138,7 +138,7 @@
             The price that is being applied for each item
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Price</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
@@ -157,7 +157,7 @@
             The currency in which the price is expressed
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PriceCurrency</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -173,7 +173,7 @@
             Total amount calculated in the price currency
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PriceAmount</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
@@ -192,7 +192,7 @@
             The currency in which the charges will be invoiced
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ChargeCurrency</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -208,7 +208,7 @@
             The total amount for these charges expressed in the charge currency
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ChargeAmount</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
@@ -229,7 +229,7 @@
             of the invoice aggregate and the InvoiceId belongs to the aggregate entity
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>InvoiceId</Name>
         <Required>false</Required>
         <Type>

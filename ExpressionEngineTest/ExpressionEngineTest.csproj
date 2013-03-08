@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\CurrencyTest.cs" />
+    <Compile Include="TypeSystem\TaxTypeTest.cs" />
     <Compile Include="TypeSystem\ChargeTypeTest.cs" />
     <Compile Include="MTProperties\PropertyTest.cs" />
     <Compile Include="MTProperties\PropertyCollectionTest.cs" />

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.Validations;
@@ -251,6 +252,52 @@ namespace MetraTech.ExpressionEngine.MTProperties
         {
             throw new NotImplementedException();
         }
+        #endregion
+
+        #region Static Methods
+
+        /// <summary>
+        /// Not finished....
+        /// </summary>
+        public PropertyCollection GetPropertyUnionAndAvailability(List<PropertyCollection> collections)
+        {
+            //Let's assume that all data types match for now
+            //Let's not worry about if entites aren't found
+
+            var propertyTracker = new Dictionary<string, int>(StringComparer.InvariantCultureIgnoreCase);
+            var conflicts = new List<string>();
+            var consolidatedCollection = new PropertyCollection(null);
+
+            foreach (var collection in collections)
+            {
+                foreach (var property in collection.Properties)
+                {
+                    var compatibleKey = property.CompatibleKey;
+                    if (!propertyTracker.ContainsKey(compatibleKey))
+                    {
+                        propertyTracker.Add(compatibleKey, 1);
+                        consolidatedCollection.Add((Property)property.Clone());
+                    }
+                    else
+                    {
+                        propertyTracker[compatibleKey]++;
+                    }
+
+                    //Determine if there is a conflict
+                }
+            }
+
+            //Now that
+            foreach (var property in consolidatedCollection.Properties)
+            {
+                var compatibleKey = property.CompatibleKey;
+                if (propertyTracker[compatibleKey] == consolidatedCollection.Properties.Count)
+                    property.Availability = Availability.Always;
+               
+            }
+            return consolidatedCollection;
+        }
+
         #endregion
     }
 }

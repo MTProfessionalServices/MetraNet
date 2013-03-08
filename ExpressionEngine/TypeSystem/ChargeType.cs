@@ -1,5 +1,4 @@
 ﻿using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
-
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
     public class ChargeType : MoneyType
@@ -10,6 +9,13 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// The name of the property that specifes the quantity to calculate
         /// </summary>
         public string QuantityProperty { get; set; }
+
+        /// <summary>
+        /// The total price assoicated with the Charge. The Currency is in the parent
+        /// MoneyType class. Unit price can be determined by dividing Price by the 
+        /// value contained in QuantityProperty
+        /// </summary>
+        public decimal Price { get; set; }
 
         /// <summary>
         /// The property that contains the product ID
@@ -30,8 +36,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         #region Constructor
         public ChargeType() : base(BaseType.Charge)
-        {
-            
+        {      
         }
         #endregion
     }

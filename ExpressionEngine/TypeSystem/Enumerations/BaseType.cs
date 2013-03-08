@@ -81,6 +81,11 @@
         String,
 
         /// <summary>
+        /// A tax property that's associated with Price
+        /// </summary>
+        Tax,
+
+        /// <summary>
         /// A Unique Identifier that is differnt than a GUID. Ask CDE team for more information.
         /// </summary>
         UniqueIdentifier   

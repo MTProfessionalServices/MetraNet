@@ -53,9 +53,15 @@ namespace PropertyGui
             {
                 ctlContextBase = new ctlContextExpression();
                 title = Context.Expression.Type.ToString();
+                ctlContextBase.DoubleClick += new EventHandler(ctlContextBase_DoubleClick);
             }
             ctlContextBase.Init(Context);
             internalInit(context, title);
+        }
+
+        void ctlContextBase_DoubleClick(object sender, EventArgs e)
+        {
+            ctlContextBase.EditFunction();
         }
 
 

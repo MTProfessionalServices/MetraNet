@@ -1,18 +1,18 @@
-*Fix UoM loading problem
-*Money and Charge modeling
+*Currency
+*Tax
 *Metanga BillableEvent 100%
 *Cloud Compute PV 100%
+
+*BME relationships
 
 *How to model Account in PV
 *How to deal with duplicate enity names
 *BMEs -- do they have namespaces?
-*BME Connections?
 
 *Metanga expresson shows no entites (but email does)
 *Function parameter binding not working
 *In function not working
 *Property view causes exception
-*I would like to nail down Charges, Taxes, UOMs and Currencies.
 *LayoutPanel resizing
 *Only CountryCode Enum for MetraNet has items in entity view (ok in explorer view and works for metanga!)
 *FormLayout: better image
@@ -21,5 +21,7 @@
 
 
 464 warnings!
+
+
 
 

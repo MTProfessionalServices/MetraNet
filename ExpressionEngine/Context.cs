@@ -112,12 +112,13 @@ namespace MetraTech.ExpressionEngine
             DeserilizationMessages = new ValidationMessageCollection();
         }
 
-        public Context(Expression expression)
-            : this(expression, null)
+        public Context(ProductType product, Expression expression)
+            : this(product, expression, null)
         {
         }
-        public Context(Expression expression, EmailInstance emailInstance)
+        public Context(ProductType product, Expression expression, EmailInstance emailInstance)
         {
+            ProductType = product;
             if (expression == null)
                 throw new ArgumentNullException("expression");
 

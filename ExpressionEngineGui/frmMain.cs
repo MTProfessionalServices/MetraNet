@@ -19,8 +19,6 @@ namespace PropertyGui
 {
     public partial class frmMain : Form
     {
-        private Context Context;
-
         #region Constructor
         public frmMain()
         {
@@ -54,15 +52,15 @@ namespace PropertyGui
            }
         }
 
+        private ProductType GetProductType()
+        {
+            if (cboContext.Text == "Metanga")
+                return ProductType.Metanga;
+            return ProductType.MetraNet;
+        }
         private void LoadContext()
         {
-            ProductType product;
-            if (cboContext.Text == "Metanga")
-                product = ProductType.Metanga;
-            else
-                product = ProductType.MetraNet;
-
-            DemoLoader.LoadGlobalContext(product, cboContext.Text);
+            DemoLoader.LoadGlobalContext(GetProductType(), cboContext.Text);
 
             if (DemoLoader.GlobalContext.DeserilizationMessages.Count != 0)
             {
@@ -110,7 +108,7 @@ namespace PropertyGui
         {
             SyncToObject();
             var dialog = new frmExpressionEngine();
-            var context = new Context(expression);
+            var context = new Context(GetProductType(), expression);
             dialog.Init(context, isPageLayout);
             dialog.ShowDialog();
         }
@@ -157,7 +155,7 @@ namespace PropertyGui
             var emailInstance = (EmailInstance)cboEmailTemplates.SelectedItem;
             emailInstance.UpdateEntityParameters();
             var dialog = new frmExpressionEngine();
-            var context = new Context(emailInstance.BodyExpression, emailInstance);
+            var context = new Context(ProductType.Metanga, emailInstance.BodyExpression, emailInstance);
             dialog.Init(context, emailInstance);
             dialog.ShowDialog();
         }

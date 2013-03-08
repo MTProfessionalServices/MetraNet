@@ -118,6 +118,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MTProperties\Property.cs" />
     <Compile Include="MTProperties\PropertyCollection.cs" />
+    <Compile Include="TypeSystem\TaxType.cs" />
     <Compile Include="UserContext.cs" />
     <Compile Include="UserTest\EmailEngine.cs" />
     <Compile Include="UserTest\IProcessingEngine.cs" />

@@ -24,6 +24,10 @@ namespace MetraTech.ExpressionEngine.Components
 
         #endregion
 
+        #region GUI Support Properties (should be moved in future)
+        public override string Image { get { return "Currency.png"; } }
+        #endregion
+
         #region Constructor
 
         public Currency(EnumCategory enumCategory, string name, int id, string description)

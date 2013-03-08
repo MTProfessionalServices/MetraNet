@@ -363,15 +363,16 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         {
             switch (baseType)
             {
+                case BaseType.Charge:
                 case BaseType.Decimal:
                 case BaseType.Double:
                 case BaseType.Float:
                 case BaseType.Integer:
                 case BaseType.Integer32:
                 case BaseType.Integer64:
-                case BaseType.Charge:
-                case BaseType.Numeric:
                 case BaseType.Money:
+                case BaseType.Numeric:
+                case BaseType.Tax:
                     return true;
                 default:
                     return false;

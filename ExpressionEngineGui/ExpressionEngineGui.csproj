@@ -157,6 +157,9 @@
     <Compile Include="MvcAbstraction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ctlContextBase.resx">
+      <DependentUpon>ctlContextBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ctlContextEmail.resx">
       <DependentUpon>ctlContextEmail.cs</DependentUpon>
       <SubType>Designer</SubType>

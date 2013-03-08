@@ -133,6 +133,11 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return new StringType(length);
         }
 
+        public static TaxType CreateTax()
+        {
+            return new TaxType();
+        }
+
         public static Type CreateUniqueId()
         {
             return new Type(BaseType.UniqueIdentifier);
@@ -196,6 +201,8 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     return CreateNumeric();
                 case BaseType.String:
                     return CreateString();
+                case BaseType.Tax:
+                    return CreateTax();
                 case BaseType.UniqueIdentifier:
                     return CreateUniqueId();
                 case BaseType.Unknown:

@@ -25,7 +25,7 @@
             Ordered list of buckets to be tested
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Buckets</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -42,7 +42,7 @@
             Default product to use if all the buckets have been filled
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>DefaultProduct</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">

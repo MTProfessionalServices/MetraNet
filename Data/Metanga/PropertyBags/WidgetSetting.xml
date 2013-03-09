@@ -24,7 +24,7 @@
             Widget order
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>WidgetOrder</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
@@ -43,7 +43,7 @@
             Widget Id
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>WidgetId</Name>
         <Required>true</Required>
         <Type i:type="StringType">

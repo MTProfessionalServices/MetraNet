@@ -25,7 +25,7 @@
             Metanga supports XML and JSON data formats.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ContentFormat</Name>
         <Required>true</Required>
         <Type i:type="EnumerationType">
@@ -42,7 +42,7 @@
             Custom headers which users can add
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>CustomHeaders</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -56,7 +56,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EndpointAddress</Name>
         <Required>true</Required>
         <Type i:type="StringType">

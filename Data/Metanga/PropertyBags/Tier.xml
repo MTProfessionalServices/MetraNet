@@ -24,7 +24,7 @@
             The product resolved by this tier
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Product</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -41,7 +41,7 @@
             The maximum capacity for this tier
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Capacity</Name>
         <Required>true</Required>
         <Type i:type="NumberType">

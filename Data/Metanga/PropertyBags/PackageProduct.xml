@@ -24,7 +24,7 @@
             A product that is part of this package
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Product</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -42,7 +42,7 @@
             by Metanga for any customers that are subscribed for this product.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EventModel</Name>
         <Required>true</Required>
         <Type i:type="EnumerationType">
@@ -59,7 +59,7 @@
             Defines whether product inside the package required in proccess of subscription or Optional
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Optional</Name>
         <Required>true</Required>
         <Type>
@@ -76,7 +76,7 @@
             A null value indicates that the price set at the product should be used.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PriceSchedule</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -93,7 +93,7 @@
             If product is smart then defines the rules for smart product
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ProductModel</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">

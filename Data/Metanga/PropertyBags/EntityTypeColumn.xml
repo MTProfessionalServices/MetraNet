@@ -27,7 +27,7 @@
             For example: "en-us", "ja-jp". Valid values can be found in Metanga, under Configuration -&gt; Languages To Support (see the Culture Code column).
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Name</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -45,7 +45,7 @@
             For example: "en-us", "ja-jp". Valid values can be found in Metanga, under Configuration -&gt; Languages To Support (see the Culture Code column).
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Description</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -62,7 +62,7 @@
             For example: string, number, boolean, etc.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>DataType</Name>
         <Required>true</Required>
         <Type i:type="EnumerationType">
@@ -79,7 +79,7 @@
             The name of the property for purposes of external web services.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PropertyName</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -95,7 +95,7 @@
              Data Type Configuration of the entity object
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>DataTypeConfiguration</Name>
         <Required>true</Required>
         <Type i:type="StringType">

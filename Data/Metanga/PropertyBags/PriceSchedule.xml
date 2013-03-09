@@ -32,7 +32,7 @@
             should be charged at $50. After June 1st 2012 the price to be applied is $45."
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Intervals</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">

@@ -25,7 +25,7 @@
             Metanga supports v1.1 and v1.2.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ServiceVersion</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -41,7 +41,7 @@
             Custom headers which users can add
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>CustomHeaders</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -55,7 +55,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EndpointAddress</Name>
         <Required>true</Required>
         <Type i:type="StringType">

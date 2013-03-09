@@ -24,7 +24,7 @@
             Represents the timespan for this segment. For example: 9am to 5pm.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>DaytimeSpan</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -41,7 +41,7 @@
             The product resolved by this segment.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ProductId</Name>
         <Required>true</Required>
         <Type>

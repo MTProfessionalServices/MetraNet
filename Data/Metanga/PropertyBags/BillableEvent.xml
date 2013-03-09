@@ -25,7 +25,7 @@
             Timestamp of the Usage
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>StartTime</Name>
         <Required>false</Required>
         <Type>
@@ -42,7 +42,7 @@
             the start and the end time.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EndTime</Name>
         <Required>false</Required>
         <Type>
@@ -58,7 +58,7 @@
             Units of Measure Management screen in Metanga. Values provided out of the box are
             based on the Unified Code for Units of Measure standard: http://en.wikipedia.org/wiki/Unified_Code_for_Units_of_Measure</Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>UnitOfMeasure</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -74,7 +74,7 @@
             Number of Items
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Quantity</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
@@ -93,7 +93,7 @@
             The account that originated this charge.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Originator</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -110,7 +110,7 @@
             The product for which Metanga will generate this charge.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Product</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -125,7 +125,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EntityId</Name>
         <Required>false</Required>
         <Type>
@@ -138,7 +138,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ExternalId</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -152,7 +152,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Name</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -166,7 +166,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Description</Name>
         <Required>true</Required>
         <Type i:type="StringType">

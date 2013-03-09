@@ -24,7 +24,7 @@
              IsCoupon
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>IsCoupon</Name>
         <Required>true</Required>
         <Type>
@@ -39,7 +39,7 @@
              Coupon Amount Type
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>CouponAmountType</Name>
         <Required>false</Required>
         <Type i:type="EnumerationType">
@@ -56,7 +56,7 @@
              Coupon Amount Value
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>CouponAmountValue</Name>
         <Required>false</Required>
         <Type i:type="NumberType">
@@ -75,7 +75,7 @@
              Coupon Duration Type
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>CouponDurationType</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -91,7 +91,7 @@
              Coupon Duration Value
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>CouponDurationValue</Name>
         <Required>false</Required>
         <Type i:type="NumberType">
@@ -110,7 +110,7 @@
              Start date of Promotion
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PromoStart</Name>
         <Required>false</Required>
         <Type>
@@ -125,7 +125,7 @@
              End date of Promotion
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PromoEnd</Name>
         <Required>false</Required>
         <Type>
@@ -140,7 +140,7 @@
              Promo Code
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PromoCode</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -156,7 +156,7 @@
              Promo Name
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Rank</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
@@ -177,7 +177,7 @@
             behave for this promotion.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PromotionProducts</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -196,7 +196,7 @@
             behave for this promotion.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PromotionPackages</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -211,7 +211,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EntityId</Name>
         <Required>false</Required>
         <Type>
@@ -224,7 +224,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ExternalId</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -238,7 +238,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Name</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -252,7 +252,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Description</Name>
         <Required>true</Required>
         <Type i:type="StringType">

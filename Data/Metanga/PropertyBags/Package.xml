@@ -32,7 +32,7 @@
             or the event model of the product to be configured.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PackageProducts</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -53,7 +53,7 @@
             Common values used are: "MO" (Monthly), "ANN" (Annual), "ANN/4" (Quarterly)
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>RecurringChargeCycle</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -71,7 +71,7 @@
             A charge in advance will trigger the generation of an invoice as soon as a subscriber is enrolled.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>AdvanceRecurringEvents</Name>
         <Required>false</Required>
         <Type>
@@ -87,7 +87,7 @@
             Can be used by a package that requires a customer to have a credit card on file.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PaymentInfoStatus</Name>
         <Required>true</Required>
         <Type i:type="EnumerationType">
@@ -107,7 +107,7 @@
             Other values can be set, but Metanga will verify that the rank is currently available.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Rank</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
@@ -126,7 +126,7 @@
             Indicates that this is a Fixed Term Package. A fixed term package has a pre-defined duration (e.g. 12 months, 5 years, etc.)
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>IsFixedTerm</Name>
         <Required>true</Required>
         <Type>
@@ -141,7 +141,7 @@
             The Subscription Term Length allows you to set the duration for a Subscription.  Once the Subscription end date arrives, the Subscription will expire.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>TermLength</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
@@ -163,7 +163,7 @@
             Common values used are: "MO" (Monthly), "ANN" (Annual), "ANN/4" (Quarterly)
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>TermTimeUnit</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -179,7 +179,7 @@
             The Subscription Grace Period allows a subscriber or an account representative to terminate a subscription within a specified period of time, without penalty.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>GracePeriod</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
@@ -201,7 +201,7 @@
             Common values used are: "MO" (Monthly), "ANN" (Annual), "ANN/4" (Quarterly)
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>GracePeriodTimeUnit</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -215,7 +215,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EntityId</Name>
         <Required>false</Required>
         <Type>
@@ -228,7 +228,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ExternalId</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -242,7 +242,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Name</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -256,7 +256,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Description</Name>
         <Required>true</Required>
         <Type i:type="StringType">

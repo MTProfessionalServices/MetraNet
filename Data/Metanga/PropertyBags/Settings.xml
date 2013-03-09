@@ -24,7 +24,7 @@
              DefaultDashboardCurrency
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>DefaultDashboardCurrency</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -40,7 +40,7 @@
              Guid RSS property
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>GuidRichSiteSummary</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -56,7 +56,7 @@
              Default metanga grid length
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>GridSettings</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -73,7 +73,7 @@
              Dashboard widgets order
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>WidgetSettings</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -90,7 +90,7 @@
              Last visited page
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>LastActivePage</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -105,7 +105,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EndpointAddress</Name>
         <Required>true</Required>
         <Type i:type="StringType">

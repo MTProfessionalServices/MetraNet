@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
+  <DefaultValue i:nil="true" />
+  <Description>Sample Subscription</Description>
+  <Direction>Input</Direction>
+  <IsCore>false</IsCore>
+  <Name>SampleSubscription</Name>
+  <Required>true</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>Subscription</Name>
+    <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
+  </Type>
+  <Properties>
+    <Properties>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>
+            The subscriber account.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>Account</Name>
+        <Required>true</Required>
+        <Type i:type="PropertyBagType">
+          <BaseType>PropertyBag</BaseType>
+          <ListType>None</ListType>
+          <Name>Account</Name>
+          <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>
+            The package assosiated with this subscription.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>Package</Name>
+        <Required>true</Required>
+        <Type i:type="PropertyBagType">
+          <BaseType>PropertyBag</BaseType>
+          <ListType>None</ListType>
+          <Name>Package</Name>
+          <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>
+            An optional promotion that is assosiated with this subscription.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>Promotion</Name>
+        <Required>true</Required>
+        <Type i:type="PropertyBagType">
+          <BaseType>PropertyBag</BaseType>
+          <ListType>None</ListType>
+          <Name>Promotion</Name>
+          <PropertyBagMode>Entity</PropertyBagMode>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Required only if the Subscription is subscribed to a package that has any products with a Recurring event model.
+            This indicates the cycles that should be enabled for a subscription. 
+            The list of values represents a Unit of Measure Codes. 
+            A list of valid codes can be found in the Metanga UI (go to Configuration -&gt; Units of Measure). 
+            Only units of measure based on days or months can be used. 
+            The Codes for Units of Measure in Metanga are based on the Unified Code for Units of Measure. 
+            You can learn more about this specification here: http://unitsofmeasure.org/ Common values used are: "MO" (Monthly), "ANN" (Annual), "ANN/4" (Quarterly)</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>RecurringCycleUnitId</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>
+            Represents a collection of SubscriptionPackageProducts for each product that is associated with the subscription. 
+            Each element contains modifiers to define how the product should behave for this subscription.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>SubscriptionPackageProducts</Name>
+        <Required>true</Required>
+        <Type i:type="PropertyBagType">
+          <BaseType>PropertyBag</BaseType>
+          <ListType>List</ListType>
+          <Name>SubscriptionPackageProduct</Name>
+          <PropertyBagMode>PropertyBag</PropertyBagMode>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>
+             Represents a reason of why a subscription is ended.
+             You can use one of the following end reasons:
+             Expiration - means that the subscription has expired.Renewal(*) - means that the subscription has been renewed.Conversion(*) - means that the subscription has been converted.Unsubscription - means that the subscription has been unsubscribed.Termination - means that the subscription has been terminated.
+             (*) - these options are not supported by Metanga in current release and will be supported going forward.
+            </Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>EndReason</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>EndReasonType</Category>
+          <Namespace>metanga</Namespace>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description i:nil="true" />
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>EntityId</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Guid</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description i:nil="true" />
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>ExternalId</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description i:nil="true" />
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>Name</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>KeyList</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description i:nil="true" />
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>Description</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>KeyList</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+    </Properties>
+  </Properties>
+</PropertyBag>

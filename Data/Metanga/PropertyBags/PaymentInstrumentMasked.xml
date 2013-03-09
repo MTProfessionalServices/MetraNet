@@ -24,7 +24,7 @@
             Gets or sets the Id of the masked payment instrument.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>InstrumentId</Name>
         <Required>true</Required>
         <Type>

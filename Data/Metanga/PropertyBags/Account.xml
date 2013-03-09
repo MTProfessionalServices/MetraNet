@@ -25,7 +25,7 @@
             Security Question
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>SecurityQuestion</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -41,7 +41,7 @@
             Active / Suspended status
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Suspended</Name>
         <Required>true</Required>
         <Type>
@@ -56,7 +56,7 @@
             Last Change Password
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>LastChangePassword</Name>
         <Required>false</Required>
         <Type>
@@ -71,7 +71,7 @@
             Failed Password Attempt Count
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>FailedPasswordAttemptCount</Name>
         <Required>false</Required>
         <Type i:type="NumberType">
@@ -90,7 +90,7 @@
             Last Lockout Date
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>LastLockoutDate</Name>
         <Required>false</Required>
         <Type>
@@ -107,7 +107,7 @@
              the highest priority.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PaysAutomatically</Name>
         <Required>true</Required>
         <Type>
@@ -123,7 +123,7 @@
             if that chacked we get real security answer if not we receive null)
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>SecurityAnswer</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -139,7 +139,7 @@
             The UserName for the account. Used for logging into Self Care portal.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>UserName</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -157,7 +157,7 @@
             account is being retrieved.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Password</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -174,7 +174,7 @@
             the account is created at the top level of the hierarchy.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Parent</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -193,7 +193,7 @@
             this case, the account needs to be billable.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Payer</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -211,7 +211,7 @@
             For example: "en-us", "ja-jp". Valid values can be found in Metanga, under Configuration -&gt; Languages To Support (see the Culture Code column).
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Language</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -227,7 +227,7 @@
             The invoice currency for the account. Follows the ISO-4217 currency convention.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Currency</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -243,7 +243,7 @@
             Represents the collection of payment instruments associated with the account.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PaymentInstruments</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -260,7 +260,7 @@
             Version of accepted Terms and Conditions
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>TermsConditionsVersion</Name>
         <Required>false</Required>
         <Type i:type="NumberType">
@@ -279,7 +279,7 @@
             Acceptance date of Terms and Conditions
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>TermsConditionsAcceptDate</Name>
         <Required>false</Required>
         <Type>
@@ -294,7 +294,7 @@
             Billing Cycle Type (Years, Months, Days) for NetTerms
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>NetTermsCycleType</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -310,7 +310,7 @@
             Duration of the period from the billing date up to the last invoice payment date
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>NetTermsQuantity</Name>
         <Required>false</Required>
         <Type i:type="NumberType">
@@ -329,7 +329,7 @@
              Organization
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Organization</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -346,7 +346,7 @@
             The First Name for the Account
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>FirstName</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -362,7 +362,7 @@
             The Middle Initial for the Account
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>MiddleInitial</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -378,7 +378,7 @@
             The Last Name for the Account
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>LastName</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -394,7 +394,7 @@
             First line of the address for the Account
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Address1</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -410,7 +410,7 @@
             Second line of the address for the Account
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Address2</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -426,7 +426,7 @@
             Third line of the address for the Account
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Address3</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -442,7 +442,7 @@
             The City for the Account
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>City</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -458,7 +458,7 @@
             State or Province of the Account
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>State</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -474,7 +474,7 @@
             Zip (or Postal) code for the Account
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Zip</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -488,7 +488,7 @@
         <DefaultValue i:nil="true" />
         <Description>Country for the Account. The country should be submitted as a 2-character alpha code, based on the ISO 3166-1 2-letter representation.Examples: US - United States, AU - Australia, DE - GermanySee this link for a complete list: http://www.iso.org/iso/home/standards/country_codes/country_names_and_code_elements.htm</Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Country</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -504,7 +504,7 @@
             Email address for the Account
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Email</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -520,7 +520,7 @@
             Phone number for the Account
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PhoneNumber</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -536,7 +536,7 @@
             Fax number for the Account
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>FaxNumber</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -552,7 +552,7 @@
             The name of the company for this account
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Company</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -566,7 +566,7 @@
         <DefaultValue i:nil="true" />
         <Description>Represents how frequently should the account be invoiced.The Id represents a Unit of Measure Code. A list of codes can be found in the Metanga UI (go to Configuration -&gt; Units of Measure). Only units of measure based on days or months can be used.The Codes for Units of Measure in Metanga is based on the Unified Code for Units of Measure. You can learn more about this specification here: http://unitsofmeasure.org/Common values used are: "MO" (Monthly), "ANN" (Annual), "ANN/4" (Quarterly)</Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>BillingCycleUnit</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -583,7 +583,7 @@
             frequency specifid by the billing cycle unit.For example, if an account has a BillingCycleEndDate = 2012-01-30 then the account will receive invoices on these dates:Monthly Cycle: On the 30th day of the month (2012-01-30, 2012-02-29(*), 2012-03-30, 2012-04-30, etc.)Weekly Cycle: Every Tusday (2012-01-31, 2012-02-07, 2012-02-14, 2012-02-21, etc.)Quarterly Cycle: 1st month of each quarter on the 30th day (2012-01-30, 2012-04-30, 2012-07-30, etc.)Annual Cycle: Every year on January 30th (2012-01-30, 2013-01-30, 2014-01-30, etc.)(*) On months with less than 30 days, bills are produced on the last day of the month. To always bill on the last day
             of the month, use the last day of a month with 31 days. For example, 2012-01-31.</Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>BillingCycleEndDate</Name>
         <Required>false</Required>
         <Type>
@@ -596,7 +596,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EntityId</Name>
         <Required>false</Required>
         <Type>
@@ -609,7 +609,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ExternalId</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -623,7 +623,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Name</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -637,7 +637,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Description</Name>
         <Required>true</Required>
         <Type i:type="StringType">

@@ -24,7 +24,7 @@
             Ordered list of tiers to be tested
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Tiers</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -41,7 +41,7 @@
             Default product to use if all the tiers have been filled
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>DefaultProduct</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">

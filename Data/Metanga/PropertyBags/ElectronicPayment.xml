@@ -24,7 +24,7 @@
             Invoice - it is used only for Automated payment
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Invoice</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -41,7 +41,7 @@
             Failed payment status
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>FailedStatus</Name>
         <Required>false</Required>
         <Type i:type="EnumerationType">
@@ -58,7 +58,7 @@
             Get UTC date and time when Failed payment status was updated
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>FailedUpdated</Name>
         <Required>false</Required>
         <Type>
@@ -73,7 +73,7 @@
             Get a reason for Failed Payment
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>FailedReason</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -90,7 +90,7 @@
              Specifies the numer of attempts made to retry a failed payment
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>NumberOfAttempts</Name>
         <Required>false</Required>
         <Type i:type="NumberType">
@@ -109,7 +109,7 @@
             Gets or sets the payment instrument id used to make the payment.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PaymentInstrument</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -126,7 +126,7 @@
             Gets or sets the type of payment operation
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PaymentOperation</Name>
         <Required>true</Required>
         <Type i:type="EnumerationType">
@@ -143,7 +143,7 @@
             Gets or sets the Reference on parent electronic payment.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Reference</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -160,7 +160,7 @@
             Get status of Payment. Set should used only for Refresh status
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Status</Name>
         <Required>true</Required>
         <Type i:type="EnumerationType">
@@ -177,7 +177,7 @@
             Get UTC date and time when Status was updated
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>StatusUpdated</Name>
         <Required>true</Required>
         <Type>
@@ -190,7 +190,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Amount</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
@@ -207,7 +207,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Currency</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -221,7 +221,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Payer</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -236,7 +236,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EntityId</Name>
         <Required>false</Required>
         <Type>
@@ -249,7 +249,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ExternalId</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -263,7 +263,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Name</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -277,7 +277,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Description</Name>
         <Required>true</Required>
         <Type i:type="StringType">

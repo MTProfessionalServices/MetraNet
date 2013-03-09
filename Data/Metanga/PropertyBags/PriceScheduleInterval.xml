@@ -25,7 +25,7 @@
             Start date for the price interval
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>StartDate</Name>
         <Required>true</Required>
         <Type>
@@ -40,7 +40,7 @@
             A collection of prices that can be applied for different units of measure.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>UnitPrices</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">

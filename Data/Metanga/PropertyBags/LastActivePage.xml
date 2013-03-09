@@ -24,7 +24,7 @@
             Metanga grid lenght
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>LastVisitedTime</Name>
         <Required>true</Required>
         <Type>
@@ -39,7 +39,7 @@
             Metanga grid Id
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>LastActivePageAddress</Name>
         <Required>true</Required>
         <Type i:type="StringType">

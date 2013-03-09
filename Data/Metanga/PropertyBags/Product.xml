@@ -28,7 +28,7 @@
              Contains the default price that will be applied for this product.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>PriceSchedule</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -47,7 +47,7 @@
              Any billable events for these products should use a Unit of "1".
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>UnitGroup</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -64,7 +64,7 @@
              Indicates whether this product should be taxable.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Taxable</Name>
         <Required>true</Required>
         <Type>
@@ -79,7 +79,7 @@
              Defines a structure for a smart product.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ProductModel</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
@@ -98,7 +98,7 @@
              a start and end date.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>TimeBased</Name>
         <Required>true</Required>
         <Type>
@@ -115,7 +115,7 @@
             Other values can be set, but Metanga will verify that the rank is currently available.
             </Description>
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Rank</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
@@ -132,7 +132,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>EntityId</Name>
         <Required>false</Required>
         <Type>
@@ -145,7 +145,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>ExternalId</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -159,7 +159,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Name</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -173,7 +173,7 @@
         <DefaultValue i:nil="true" />
         <Description i:nil="true" />
         <Direction>Input</Direction>
-        <IsCore>false</IsCore>
+        <IsCore>true</IsCore>
         <Name>Description</Name>
         <Required>true</Required>
         <Type i:type="StringType">

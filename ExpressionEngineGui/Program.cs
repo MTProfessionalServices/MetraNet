@@ -17,7 +17,9 @@ namespace PropertyGui
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmMain());
 
-            var form = new frmCompare(@"C:\ExpressionEngine\Data");
+            //var form = new frmCompare(@"C:\ExpressionEngine\Data");
+
+            var form = new frmLaunch();
             Application.Run(form);
         }
     }

@@ -136,6 +136,12 @@
     <Compile Include="frmFunctionBinder.Designer.cs">
       <DependentUpon>frmFunctionBinder.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLaunch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLaunch.Designer.cs">
+      <DependentUpon>frmLaunch.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmFunctionBinder.resx">
       <DependentUpon>frmFunctionBinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLaunch.resx">
+      <DependentUpon>frmLaunch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>

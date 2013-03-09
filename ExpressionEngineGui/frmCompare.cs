@@ -19,22 +19,32 @@ namespace PropertyGui
         private bool IgnoreChanges = false;
         private Context Context1;
         private Context Context2;
-        private bool FirstContextLoaded = false;
         #endregion
 
         #region Constructor
-        public frmCompare(string dirPath, string context1=null, string context2=null)
+        public frmCompare(Context context1, string context1Name, Context context2, string context2Name)
         {
             InitializeComponent();
             MinimizeBox = false;
             WindowState = FormWindowState.Maximized;
-            Init(dirPath, context1, context2);
+
+            Context1 = context1;
+            Context2 = context2;
+            txtContext1.Text = context1Name;
+            txtContext2.Text = context2Name;
+
+            treContext1.Init(Context1, null);
+            treContext2.Init(Context2, null);
+
+            Init();
+
+            UpdateTrees();
         }
         #endregion
 
-        #region Inint Methods
+        #region Init Methods
 
-        private void Init(string dirPath, string context1=null, string context2=null)
+        private void Init()
         {
             IgnoreChanges = true;
 
@@ -67,28 +77,10 @@ namespace PropertyGui
             cboPropertyTypeFilter.EndUpdate();
             cboPropertyTypeFilter.SelectedIndex = 0;
 
-            //Load the "Data Directories"
-            LoadConfigComboBox(cboContext1, dirPath);
-            LoadConfigComboBox(cboContext2, dirPath);
+            LoadFunctionCategoryFilter();
+            LoadPropertyBagFilter();
 
             IgnoreChanges = false;
-
-            //if (!string.IsNullOrEmpty(context1))
-            //    cboContext1.Text = context1;
-            //if (!string.IsNullOrEmpty(context2))
-            //    cboContext2.Text = context2;
-        }
-
-        private void LoadConfigComboBox(ComboBox cbo, string dirPath)
-        {
-            var dirInfo = new DirectoryInfo(dirPath);
-            cbo.BeginUpdate();
-            foreach (var subDirInfo in dirInfo.GetDirectories())
-            {
-                cbo.Items.Add(subDirInfo.Name);
-            }
-
-            cbo.EndUpdate();
         }
 
         #endregion
@@ -96,27 +88,20 @@ namespace PropertyGui
         #region Tree Methods
         private void UpdateTrees()
         {
-            UpdateTree(treContext1);
-            UpdateTree(treContext2);
-
-            if (!FirstContextLoaded)
-            {
-                LoadFunctionCategoryFilter();
-                FirstContextLoaded = true;
-            }
-            LoadPropertyBagFilter();
+            UpdateTree(treContext1, Context1);
+            UpdateTree(treContext2, Context2);
         }
 
-        public void UpdateTree(ctlExpressionTree tree)
+        public void UpdateTree(ctlExpressionTree tree, Context context)
         {
-            if (tree.Tag == null)
-                return;
-
             tree.ViewMode = (MvcAbstraction.ViewModeType)cboViewMode.SelectedItem;
-            tree.EntityTypeFilter = PropertyBagConstants.AnyFilter;// cboPropertyBagFilter.SelectedItem.ToString();
             tree.PropertyTypeFilter = (MetraTech.ExpressionEngine.TypeSystem.Type)cboPropertyTypeFilter.SelectedItem;
             tree.FunctionFilter = cboCategory.Text;
-            tree.LoadTree();
+            tree.EntityTypeFilter = PropertyBagConstants.AnyFilter;
+            //tree.EntityTypeFilter = cboPropertyBagFilter.SelectedItem.ToString();
+
+            if (context != null)
+                tree.LoadTree();
         }
         #endregion
 
@@ -133,7 +118,6 @@ namespace PropertyGui
             cboCategory.BeginUpdate();
             cboCategory.Items.Clear();
             cboCategory.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboCategory.Items.Add(PropertyBagConstants.AnyFilter);
             cboCategory.Items.AddRange(context.GetFunctionCategories(true).ToArray());
             cboCategory.Sorted = true;
             cboCategory.EndUpdate();
@@ -154,15 +138,18 @@ namespace PropertyGui
             list = list.Distinct().ToList();
 
             cboPropertyBagFilter.Items.Clear();
+            cboPropertyBagFilter.Items.Add(PropertyBagConstants.AnyFilter);
             foreach (var name in list)
             {
                 cboPropertyBagFilter.Items.Add(name);
             }
             cboPropertyBagFilter.Sorted = true;
+            cboPropertyBagFilter.SelectedItem = cboPropertyBagFilter.Items[0];
+
             IgnoreChanges = false;
         }
         #endregion
-
+        
         private Context GetAnyContext()
         {
             if (Context1 != null)
@@ -179,43 +166,7 @@ namespace PropertyGui
         }
 
         #region Events
-        private void cboContext_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var comboBox = (ComboBox)sender;
-
-            ProductType productType;
-            if (comboBox.Text == "Metanga")
-                productType = ProductType.Metanga;
-            else
-                productType = ProductType.MetraNet;
-
-            //Load the context
-            var context = DemoLoader.CreateContext(productType, comboBox.Text);
-
-            //If we had some loading issues, let the user know
-            if (context.DeserilizationMessages.Count != 0)
-            {
-                var dialog = new frmValidationMessages(context.DeserilizationMessages);
-                dialog.ShowDialog();
-            }
-
-            //Update the appropriate tree
-            ctlExpressionTree tree;
-            if (comboBox.Equals(cboContext1))
-            {
-                Context1 = context;
-                tree = treContext1;
-            }
-            else
-            {
-                Context2 = context;
-                tree = treContext2;
-            }
-            tree.Tag = context;
-            tree.Init(context, null);
-            UpdateTree(tree);
-        }
-        private void cboViewMode_SelectedIndexChanged(object sender, EventArgs e)
+        private void settingChanged(object sender, EventArgs e)
         {
             if (!IgnoreChanges)
                 UpdateTrees();
@@ -224,10 +175,14 @@ namespace PropertyGui
 
         private void treContext1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            var tag = e.Node.Tag;
-            var c1 = (Context)e.Node.TreeView.Tag;
+            Context c1;
+            if (e.Node.TreeView.Equals(treContext1))
+                c1 = Context1;
+            else
+                c1 = Context2;
             DemoLoader.GlobalContext = c1;
 
+            var tag = e.Node.Tag;
             if (tag is EmailInstance)
             {
                 var emailInstance = (EmailInstance) tag;
@@ -245,8 +200,8 @@ namespace PropertyGui
             {
                 ShowExpression(c1.ProductType, ((Uqg)tag).Expression);
             }
-
         }
+
         #endregion
     }
 }

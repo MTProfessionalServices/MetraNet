@@ -12,10 +12,13 @@ namespace PropertyGui
 {
     public partial class frmValidationMessages : Form
     {
-        public frmValidationMessages(ValidationMessageCollection messages)
+        public frmValidationMessages(ValidationMessageCollection messages, string subTitle=null)
         {
             InitializeComponent();
             txtMessages.Text = messages.GetSummary(true);
+
+            if (!string.IsNullOrEmpty(subTitle))
+                Text += " (" + subTitle + ")";
         }
     }
 }

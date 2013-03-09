@@ -43,8 +43,8 @@
             this.cboPropertyBagFilter = new System.Windows.Forms.ComboBox();
             this.cboViewMode = new System.Windows.Forms.ComboBox();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.cboContext1 = new System.Windows.Forms.ComboBox();
-            this.cboContext2 = new System.Windows.Forms.ComboBox();
+            this.txtContext1 = new System.Windows.Forms.TextBox();
+            this.txtContext2 = new System.Windows.Forms.TextBox();
             this.treContext1 = new PropertyGui.ctlExpressionTree();
             this.treContext2 = new PropertyGui.ctlExpressionTree();
             this.panHeader.SuspendLayout();
@@ -82,11 +82,12 @@
             this.cboExtensions.Name = "cboExtensions";
             this.cboExtensions.Size = new System.Drawing.Size(233, 21);
             this.cboExtensions.TabIndex = 25;
+            this.cboExtensions.SelectedIndexChanged += new System.EventHandler(this.settingChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(397, 75);
+            this.label5.Location = new System.Drawing.Point(403, 75);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 13);
             this.label5.TabIndex = 26;
@@ -95,17 +96,18 @@
             // chkShowNamespaces
             // 
             this.chkShowNamespaces.AutoSize = true;
-            this.chkShowNamespaces.Location = new System.Drawing.Point(400, 19);
+            this.chkShowNamespaces.Location = new System.Drawing.Point(406, 19);
             this.chkShowNamespaces.Name = "chkShowNamespaces";
             this.chkShowNamespaces.Size = new System.Drawing.Size(116, 17);
             this.chkShowNamespaces.TabIndex = 24;
             this.chkShowNamespaces.Text = "Show namespaces";
             this.chkShowNamespaces.UseVisualStyleBackColor = true;
+            this.chkShowNamespaces.CheckedChanged += new System.EventHandler(this.settingChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(397, 50);
+            this.label4.Location = new System.Drawing.Point(403, 50);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 23;
@@ -114,7 +116,7 @@
             // lblCategory
             // 
             this.lblCategory.AutoSize = true;
-            this.lblCategory.Location = new System.Drawing.Point(394, 104);
+            this.lblCategory.Location = new System.Drawing.Point(403, 107);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(52, 13);
             this.lblCategory.TabIndex = 22;
@@ -137,6 +139,7 @@
             this.cboPropertyTypeFilter.Name = "cboPropertyTypeFilter";
             this.cboPropertyTypeFilter.Size = new System.Drawing.Size(233, 21);
             this.cboPropertyTypeFilter.TabIndex = 16;
+            this.cboPropertyTypeFilter.SelectedIndexChanged += new System.EventHandler(this.settingChanged);
             // 
             // label1
             // 
@@ -155,7 +158,7 @@
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(233, 21);
             this.cboCategory.TabIndex = 21;
-            this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cboViewMode_SelectedIndexChanged);
+            this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.settingChanged);
             // 
             // label2
             // 
@@ -174,7 +177,7 @@
             this.cboPropertyBagFilter.Name = "cboPropertyBagFilter";
             this.cboPropertyBagFilter.Size = new System.Drawing.Size(233, 21);
             this.cboPropertyBagFilter.TabIndex = 19;
-            this.cboPropertyBagFilter.SelectedIndexChanged += new System.EventHandler(this.cboViewMode_SelectedIndexChanged);
+            this.cboPropertyBagFilter.SelectedIndexChanged += new System.EventHandler(this.settingChanged);
             // 
             // cboViewMode
             // 
@@ -184,7 +187,7 @@
             this.cboViewMode.Name = "cboViewMode";
             this.cboViewMode.Size = new System.Drawing.Size(233, 21);
             this.cboViewMode.TabIndex = 18;
-            this.cboViewMode.SelectedIndexChanged += new System.EventHandler(this.cboViewMode_SelectedIndexChanged);
+            this.cboViewMode.SelectedIndexChanged += new System.EventHandler(this.settingChanged);
             // 
             // splitContainer
             // 
@@ -194,40 +197,42 @@
             // 
             // splitContainer.Panel1
             // 
+            this.splitContainer.Panel1.Controls.Add(this.txtContext1);
             this.splitContainer.Panel1.Controls.Add(this.treContext1);
-            this.splitContainer.Panel1.Controls.Add(this.cboContext1);
             // 
             // splitContainer.Panel2
             // 
+            this.splitContainer.Panel2.Controls.Add(this.txtContext2);
             this.splitContainer.Panel2.Controls.Add(this.treContext2);
-            this.splitContainer.Panel2.Controls.Add(this.cboContext2);
             this.splitContainer.Size = new System.Drawing.Size(839, 239);
             this.splitContainer.SplitterDistance = 417;
             this.splitContainer.TabIndex = 1;
             // 
-            // cboContext1
+            // txtContext1
             // 
-            this.cboContext1.BackColor = System.Drawing.SystemColors.Window;
-            this.cboContext1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cboContext1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboContext1.FormattingEnabled = true;
-            this.cboContext1.Location = new System.Drawing.Point(0, 0);
-            this.cboContext1.Name = "cboContext1";
-            this.cboContext1.Size = new System.Drawing.Size(417, 21);
-            this.cboContext1.TabIndex = 26;
-            this.cboContext1.SelectedIndexChanged += new System.EventHandler(this.cboContext_SelectedIndexChanged);
+            this.txtContext1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.txtContext1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtContext1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContext1.ForeColor = System.Drawing.Color.White;
+            this.txtContext1.Location = new System.Drawing.Point(0, 0);
+            this.txtContext1.Name = "txtContext1";
+            this.txtContext1.ReadOnly = true;
+            this.txtContext1.Size = new System.Drawing.Size(417, 20);
+            this.txtContext1.TabIndex = 30;
+            this.txtContext1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // cboContext2
+            // txtContext2
             // 
-            this.cboContext2.BackColor = System.Drawing.SystemColors.Window;
-            this.cboContext2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cboContext2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboContext2.FormattingEnabled = true;
-            this.cboContext2.Location = new System.Drawing.Point(0, 0);
-            this.cboContext2.Name = "cboContext2";
-            this.cboContext2.Size = new System.Drawing.Size(418, 21);
-            this.cboContext2.TabIndex = 27;
-            this.cboContext2.SelectedIndexChanged += new System.EventHandler(this.cboContext_SelectedIndexChanged);
+            this.txtContext2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.txtContext2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtContext2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContext2.ForeColor = System.Drawing.Color.White;
+            this.txtContext2.Location = new System.Drawing.Point(0, 0);
+            this.txtContext2.Name = "txtContext2";
+            this.txtContext2.ReadOnly = true;
+            this.txtContext2.Size = new System.Drawing.Size(418, 20);
+            this.txtContext2.TabIndex = 29;
+            this.txtContext2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // treContext1
             // 
@@ -236,13 +241,13 @@
             this.treContext1.EnumValueContextMenu = null;
             this.treContext1.FunctionFilter = null;
             this.treContext1.ImageIndex = 0;
-            this.treContext1.Location = new System.Drawing.Point(0, 21);
+            this.treContext1.Location = new System.Drawing.Point(0, 0);
             this.treContext1.Name = "treContext1";
             this.treContext1.PathSeparator = ".";
             this.treContext1.PropertyTypeFilter = null;
             this.treContext1.SelectedImageIndex = 0;
             this.treContext1.ShowNodeToolTips = true;
-            this.treContext1.Size = new System.Drawing.Size(417, 218);
+            this.treContext1.Size = new System.Drawing.Size(417, 239);
             this.treContext1.TabIndex = 27;
             this.treContext1.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
             this.treContext1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treContext1_NodeMouseDoubleClick);
@@ -254,13 +259,13 @@
             this.treContext2.EnumValueContextMenu = null;
             this.treContext2.FunctionFilter = null;
             this.treContext2.ImageIndex = 0;
-            this.treContext2.Location = new System.Drawing.Point(0, 21);
+            this.treContext2.Location = new System.Drawing.Point(0, 0);
             this.treContext2.Name = "treContext2";
             this.treContext2.PathSeparator = ".";
             this.treContext2.PropertyTypeFilter = null;
             this.treContext2.SelectedImageIndex = 0;
             this.treContext2.ShowNodeToolTips = true;
-            this.treContext2.Size = new System.Drawing.Size(418, 218);
+            this.treContext2.Size = new System.Drawing.Size(418, 239);
             this.treContext2.TabIndex = 28;
             this.treContext2.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
             this.treContext2.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treContext1_NodeMouseDoubleClick);
@@ -277,7 +282,9 @@
             this.panHeader.ResumeLayout(false);
             this.panHeader.PerformLayout();
             this.splitContainer.Panel1.ResumeLayout(false);
+            this.splitContainer.Panel1.PerformLayout();
             this.splitContainer.Panel2.ResumeLayout(false);
+            this.splitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -300,9 +307,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboPropertyBagFilter;
         private System.Windows.Forms.ComboBox cboViewMode;
-        private System.Windows.Forms.ComboBox cboContext1;
-        private System.Windows.Forms.ComboBox cboContext2;
         private ctlExpressionTree treContext1;
         private ctlExpressionTree treContext2;
+        private System.Windows.Forms.TextBox txtContext1;
+        private System.Windows.Forms.TextBox txtContext2;
     }
 }

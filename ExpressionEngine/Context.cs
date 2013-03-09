@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -102,6 +103,9 @@ namespace MetraTech.ExpressionEngine
 
         public List<EnumCategory> RelevantEnums { get { return _relevantEnums; } }
         private List<EnumCategory> _relevantEnums = new List<EnumCategory>();
+
+        public List<string> Extensions { get { return _extensions; } }
+        private List<string> _extensions = new List<string>(); 
         #endregion
 
         #region Constructors
@@ -317,6 +321,19 @@ namespace MetraTech.ExpressionEngine
             foreach (var enumSpace in EnumNamespaces.Values)
             {
                 EnumCategories.AddRange(enumSpace.Categories);
+            }
+
+            //Find all of the extensions
+            _extensions.Clear();
+            foreach (var propertyBag in Entities.Values)
+            {
+                if (propertyBag is MetraNetEntityBase)
+                {
+                //    var entity = (MetraNetPropertyBase) propertyBag;
+                //    if (!_extensions.Contains(entity.Extension))
+
+                }
+               
             }
         }
 

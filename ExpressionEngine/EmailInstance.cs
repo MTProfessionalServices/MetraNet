@@ -14,7 +14,7 @@ namespace MetraTech.ExpressionEngine
     /// happy with the way it works and we probably need to rethink. If you have questions, ask SplitPascalOrCamelString
     /// </summary>
     [DataContract (Namespace = "MetraTech")]
-    public class EmailInstance
+    public class EmailInstance : IExpressionEngineTreeNode
     {
         #region Constants
         public const string ToPropertyName = "To";
@@ -77,7 +77,8 @@ namespace MetraTech.ExpressionEngine
         #region GUI Helper Properties (move in future)
         public string TreeNodeLabel { get { return Name; } }
         public string ToolTip { get { return Description; } }
-        public string Image { get { return "EmailTemplate.png"; } }
+        public string Image { get { return "EmailInstance.png"; } }
+        public string ToExpressionSnippet { get { return null; } }
         #endregion
 
         #region Initalize

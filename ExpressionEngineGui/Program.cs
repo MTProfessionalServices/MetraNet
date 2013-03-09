@@ -15,7 +15,10 @@ namespace PropertyGui
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            //Application.Run(new frmMain());
+
+            var form = new frmCompare(@"C:\ExpressionEngine\Data");
+            Application.Run(form);
         }
     }
 }

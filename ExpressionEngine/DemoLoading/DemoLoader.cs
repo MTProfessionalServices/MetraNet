@@ -23,37 +23,44 @@ namespace MetraTech.ExpressionEngine
         public const string DirPath = @"C:\ExpressionEngine";
         public static string TopLevelDataDir = Path.Combine(DirPath, "Data");
         private static string DataPath;
-        public static Context GlobalContext { get; private set; }
+        public static Context GlobalContext { get; set; }
         #endregion
 
         #region General
         public static void LoadGlobalContext(ProductType product, string subDir)
         {
-            GlobalContext = new Context(product);
+            GlobalContext = CreateContext(product, subDir);
+        }
+
+        public static Context CreateContext(ProductType product, string subDir)
+        {
+            Context context;
             DataPath = Path.Combine(TopLevelDataDir, subDir);
 
-            if (GlobalContext.ProductType == ProductType.MetraNet)
+            if (product == ProductType.MetraNet)
             {
-                GlobalContext = Context.LoadExtensions(Path.Combine(DataPath, "Extensions"));
-;
-                LoadXqg(GlobalContext, ExpressionType.Aqg, Path.Combine(DataPath, "AqgExpressions.csv"));
-                LoadXqg(GlobalContext, ExpressionType.Uqg, Path.Combine(DataPath, "UqgExpressions.csv"));
+                context = Context.LoadExtensions(Path.Combine(DataPath, "Extensions"));
+                LoadXqg(context, ExpressionType.Aqg, Path.Combine(DataPath, "AqgExpressions.csv"));
+                LoadXqg(context, ExpressionType.Uqg, Path.Combine(DataPath, "UqgExpressions.csv"));
             }
             else
             {
-                GlobalContext = Context.LoadMetanga(DataPath);
+                context = Context.LoadMetanga(DataPath);
             }
 
-            LoadFunctions();
-            LoadExpressions();
-            LoadEmailTemplates(GlobalContext, Path.Combine(DataPath, "EmailTemplates"));
-            LoadEmailInstances(GlobalContext, Path.Combine(DataPath, "EmailInstances"));
+            LoadFunctions(context);
+            LoadExpressions(context);
+            LoadEmailTemplates(context, Path.Combine(DataPath, "EmailTemplates"));
+            LoadEmailInstances(context, Path.Combine(DataPath, "EmailInstances"));
+
+            return context;
         }
+
 
         #endregion
 
         #region Expressions
-        public static void LoadExpressions()
+        public static void LoadExpressions(Context context)
         {
             var dirInfo = new DirectoryInfo(Path.Combine(DataPath, "Expressions"));
             if (!dirInfo.Exists)
@@ -62,7 +69,7 @@ namespace MetraTech.ExpressionEngine
             foreach (var fileInfo in dirInfo.GetFiles("*.xml"))
             {
                 var exp = Expression.CreateFromFile(fileInfo.FullName);
-                GlobalContext.Expressions.Add(exp.Name, exp);
+                context.Expressions.Add(exp.Name, exp);
             }
         }
         #endregion
@@ -133,14 +140,14 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Functions
-        public static void LoadFunctions()
+        public static void LoadFunctions(Context context)
         {
-            DemoLoader.GlobalContext.Functions.Clear();
+            context.Functions.Clear();
             var dirInfo = new DirectoryInfo(Path.Combine(DirPath, @"Reference\Functions"));
             foreach (var file in dirInfo.GetFiles("*.xml"))
             {
                 var func = Function.CreateFromFile(file.FullName);
-                GlobalContext.Functions.Add(func.Name, func);
+                context.Functions.Add(func.Name, func);
             }
         }
         #endregion

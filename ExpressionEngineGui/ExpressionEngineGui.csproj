@@ -106,6 +106,12 @@
     <Compile Include="frmCharge.Designer.cs">
       <DependentUpon>frmCharge.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCompare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCompare.Designer.cs">
+      <DependentUpon>frmCompare.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGlobalExplorer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCharge.resx">
       <DependentUpon>frmCharge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCompare.resx">
+      <DependentUpon>frmCompare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGlobalExplorer.resx">
       <DependentUpon>frmGlobalExplorer.cs</DependentUpon>

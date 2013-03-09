@@ -56,6 +56,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnSendEvent = new System.Windows.Forms.Button();
             this.btnValidate = new System.Windows.Forms.Button();
+            this.btnCompare = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -340,11 +341,22 @@
             this.btnValidate.UseVisualStyleBackColor = true;
             this.btnValidate.Click += new System.EventHandler(this.btnValidate_Click);
             // 
+            // btnCompare
+            // 
+            this.btnCompare.Location = new System.Drawing.Point(475, 373);
+            this.btnCompare.Name = "btnCompare";
+            this.btnCompare.Size = new System.Drawing.Size(75, 23);
+            this.btnCompare.TabIndex = 20;
+            this.btnCompare.Text = "Compare";
+            this.btnCompare.UseVisualStyleBackColor = true;
+            this.btnCompare.Click += new System.EventHandler(this.btnCompare_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(774, 408);
+            this.Controls.Add(this.btnCompare);
             this.Controls.Add(this.btnValidate);
             this.Controls.Add(this.btnSendEvent);
             this.Controls.Add(this.button2);
@@ -399,5 +411,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnSendEvent;
         private System.Windows.Forms.Button btnValidate;
+        private System.Windows.Forms.Button btnCompare;
     }
 }

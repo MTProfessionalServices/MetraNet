@@ -182,6 +182,12 @@ namespace PropertyGui
             DemoLoader.GlobalContext.Save(@"C:\Temp\Export");
         }
 
+        private void btnCompare_Click(object sender, EventArgs e)
+        {
+            var dialog = new frmCompare(Path.Combine(DemoLoader.DirPath, "Data"), "Metanga");
+            dialog.ShowDialog();
+        }
+
 
     }
 }

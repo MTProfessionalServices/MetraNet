@@ -98,7 +98,7 @@ namespace PropertyGui
                 case MvcAbstraction.ViewModeType.Properties:
                     LoadTreeProperties();
                     break;
-                case MvcAbstraction.ViewModeType.Enums:
+                case MvcAbstraction.ViewModeType.Enumerations:
                     LoadTreeEnums(false);
                     break;
                 case MvcAbstraction.ViewModeType.AQGs:
@@ -116,18 +116,14 @@ namespace PropertyGui
                 case MvcAbstraction.ViewModeType.InputsOutputs:
                     LoadInputsOutputs();
                     break;
-                case MvcAbstraction.ViewModeType.UoMs:
-                    foreach (var uomCategory in Context.EnumCategories)
+                case MvcAbstraction.ViewModeType.Emails:
+                    foreach (var email in Context.EmailInstances.Values)
                     {
-                        if (uomCategory.EnumMode != EnumMode.UnitOfMeasure)
-                            continue;
-
-                        var uomCategoryNode = CreateNode(uomCategory);
-                        foreach (var uom in uomCategory.Values)
-                        {
-                            CreateNode(uom, uomCategoryNode);
-                        }
+                        CreateNode(email);
                     }
+                    break;
+                case MvcAbstraction.ViewModeType.PageLayouts:
+                    //CreateNode("AccountLayout");
                     break;
                 default:
                     throw new NotImplementedException();

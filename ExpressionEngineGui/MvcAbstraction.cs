@@ -21,7 +21,7 @@ namespace PropertyGui
     public static class MvcAbstraction
     {
         #region Enums
-        public enum ViewModeType { Properties, Entities, Functions, Enums, AQGs, UQGs, InputsOutputs, UoMs, Emails }
+        public enum ViewModeType { Properties, Entities, Functions, Enumerations, AQGs, UQGs, InputsOutputs, Emails, PageLayouts }
         #endregion
 
         #region Methods
@@ -55,10 +55,9 @@ namespace PropertyGui
                 viewModes.Add(ViewModeType.Entities);
 
             viewModes.Add(ViewModeType.Properties);
-            viewModes.Add(ViewModeType.Enums);
+            viewModes.Add(ViewModeType.Enumerations);
             viewModes.Add(ViewModeType.Functions);
             viewModes.Add(ViewModeType.InputsOutputs);
-            viewModes.Add(ViewModeType.UoMs);
 
             return viewModes;
         }

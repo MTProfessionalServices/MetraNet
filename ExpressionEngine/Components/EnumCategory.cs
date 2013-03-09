@@ -23,8 +23,17 @@ namespace MetraTech.ExpressionEngine.Components
         [DataMember]
         public string Name { get; set; }
 
+        /// <summary>
+        /// Indicates if the category is a basic enumeration, a unit of measure or a currency
+        /// </summary>
         [DataMember]
         public EnumMode EnumMode { get; set; }
+
+        /// <summary>
+        /// The extension that the category was defined in. Only applies to MetraNet.
+        /// </summary>
+        [DataMember]
+        public string Extension { get; set; }
 
         /// <summary>
         /// The description that the user provides

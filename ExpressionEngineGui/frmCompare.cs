@@ -113,7 +113,7 @@ namespace PropertyGui
                 return;
 
             tree.ViewMode = (MvcAbstraction.ViewModeType)cboViewMode.SelectedItem;
-            tree.EntityTypeFilter = PropertyBagConstants.AnyFilter;// (string)cboEntityTypeFilter.SelectedItem.ToString();
+            tree.EntityTypeFilter = PropertyBagConstants.AnyFilter;// cboPropertyBagFilter.SelectedItem.ToString();
             tree.PropertyTypeFilter = (MetraTech.ExpressionEngine.TypeSystem.Type)cboPropertyTypeFilter.SelectedItem;
             tree.FunctionFilter = cboCategory.Text;
             tree.LoadTree();
@@ -133,6 +133,7 @@ namespace PropertyGui
             cboCategory.BeginUpdate();
             cboCategory.Items.Clear();
             cboCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboCategory.Items.Add(PropertyBagConstants.AnyFilter);
             cboCategory.Items.AddRange(context.GetFunctionCategories(true).ToArray());
             cboCategory.Sorted = true;
             cboCategory.EndUpdate();

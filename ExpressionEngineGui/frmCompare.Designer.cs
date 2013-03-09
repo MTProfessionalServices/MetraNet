@@ -131,6 +131,7 @@
             // 
             // cboPropertyTypeFilter
             // 
+            this.cboPropertyTypeFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPropertyTypeFilter.FormattingEnabled = true;
             this.cboPropertyTypeFilter.Location = new System.Drawing.Point(86, 69);
             this.cboPropertyTypeFilter.Name = "cboPropertyTypeFilter";
@@ -148,6 +149,7 @@
             // 
             // cboCategory
             // 
+            this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategory.FormattingEnabled = true;
             this.cboCategory.Location = new System.Drawing.Point(471, 104);
             this.cboCategory.Name = "cboCategory";
@@ -166,11 +168,13 @@
             // 
             // cboPropertyBagFilter
             // 
+            this.cboPropertyBagFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPropertyBagFilter.FormattingEnabled = true;
             this.cboPropertyBagFilter.Location = new System.Drawing.Point(86, 42);
             this.cboPropertyBagFilter.Name = "cboPropertyBagFilter";
             this.cboPropertyBagFilter.Size = new System.Drawing.Size(233, 21);
             this.cboPropertyBagFilter.TabIndex = 19;
+            this.cboPropertyBagFilter.SelectedIndexChanged += new System.EventHandler(this.cboViewMode_SelectedIndexChanged);
             // 
             // cboViewMode
             // 

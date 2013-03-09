@@ -302,7 +302,8 @@ namespace PropertyGui
                 var property = (Property) node.Tag;
                 var propertyBagTypeName = ((PropertyBagType) property.Type).Name;
                 PropertyBag propertyBag;
-                if (!DemoLoader.GlobalContext.Entities.TryGetValue(propertyBagTypeName, out propertyBag))
+                //if (!DemoLoader.GlobalContext.Entities.TryGetValue(propertyBagTypeName, out propertyBag))
+                if (!Context.Entities.TryGetValue(propertyBagTypeName, out propertyBag))
                     return;
                 AddProperties(node, propertyBag.Properties);
             }

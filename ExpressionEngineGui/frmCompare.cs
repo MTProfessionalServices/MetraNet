@@ -28,6 +28,9 @@ namespace PropertyGui
             MinimizeBox = false;
             WindowState = FormWindowState.Maximized;
 
+            if (context1 == null)
+                throw new ArgumentException("context1 is null");
+
             Context1 = context1;
             Context2 = context2;
             txtContext1.Text = context1Name;
@@ -59,9 +62,6 @@ namespace PropertyGui
             cboViewMode.Sorted = true;
             cboViewMode.SelectedItem = MvcAbstraction.ViewModeType.Entities;
             cboViewMode.EndUpdate();
-
-            //Set the entity types
-            cboPropertyBagFilter.Text = PropertyBagConstants.AnyFilter;
 
             //Init the Property Type Filter
             cboPropertyTypeFilter.BeginUpdate();
@@ -103,22 +103,26 @@ namespace PropertyGui
             if (context != null)
                 tree.LoadTree();
         }
+
+        private void ShowExpression(Context masterContext, Expression expression, bool isPageLayout = false)
+        {
+            var dialog = new frmExpressionEngine();
+            var context = new Context(masterContext, expression);
+            dialog.Init(context, isPageLayout);
+            dialog.ShowDialog();
+        }
         #endregion
 
-        #region Filter Functions
+        #region Load Filter Methods
         public void LoadFunctionCategoryFilter()
         {
-            var context = GetAnyContext();
-            if (context == null)
-                return;
-
             IgnoreChanges = true;
 
             //Init the Function Category Filter
             cboCategory.BeginUpdate();
             cboCategory.Items.Clear();
             cboCategory.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboCategory.Items.AddRange(context.GetFunctionCategories(true).ToArray());
+            cboCategory.Items.AddRange(Context1.GetFunctionCategories(true).ToArray());
             cboCategory.Sorted = true;
             cboCategory.EndUpdate();
             cboCategory.SelectedIndex = 0;
@@ -150,20 +154,7 @@ namespace PropertyGui
         }
         #endregion
         
-        private Context GetAnyContext()
-        {
-            if (Context1 != null)
-                return Context1;
-            return Context2;
-        }
 
-        private void ShowExpression(ProductType productType, Expression expression, bool isPageLayout = false)
-        {
-            var dialog = new frmExpressionEngine();
-            var context = new Context(productType, expression);
-            dialog.Init(context, isPageLayout);
-            dialog.ShowDialog();
-        }
 
         #region Events
         private void settingChanged(object sender, EventArgs e)
@@ -175,30 +166,29 @@ namespace PropertyGui
 
         private void treContext1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            Context c1;
+            Context context;
             if (e.Node.TreeView.Equals(treContext1))
-                c1 = Context1;
+                context = Context1;
             else
-                c1 = Context2;
-            DemoLoader.GlobalContext = c1;
+                context = Context2;
 
             var tag = e.Node.Tag;
             if (tag is EmailInstance)
             {
                 var emailInstance = (EmailInstance) tag;
-                emailInstance.UpdateEntityParameters();
+                emailInstance.UpdateEntityParameters(context);
                 var dialog = new frmExpressionEngine();
-                var context = new Context(ProductType.Metanga, emailInstance.BodyExpression, emailInstance);
-                dialog.Init(context, emailInstance);
+                var emailContext = new Context(context, emailInstance.BodyExpression, emailInstance);
+                dialog.Init(emailContext, emailInstance);
                 dialog.ShowDialog();
             }
             else if (tag is Aqg)
             {
-                ShowExpression(c1.ProductType, ((Aqg)tag).Expression);
+                ShowExpression(context, ((Aqg)tag).Expression);
             }
             else if (tag is Uqg)
             {
-                ShowExpression(c1.ProductType, ((Uqg)tag).Expression);
+                ShowExpression(context, ((Uqg)tag).Expression);
             }
         }
 

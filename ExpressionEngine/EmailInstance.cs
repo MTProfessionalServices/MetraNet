@@ -97,14 +97,14 @@ namespace MetraTech.ExpressionEngine
 
         #region Methods
 
-        public void UpdateEntityParameters()
+        public void UpdateEntityParameters(Context masterContext)
         {
             if (string.IsNullOrEmpty(EmailTemplate))
                 return;
 
             //TODO... we need to think through where this is retrieved from!
             EmailTemplate template;
-            if (!DemoLoader.GlobalContext.EmailTemplates.TryGetValue(EmailTemplate, out template))
+            if (!masterContext.EmailTemplates.TryGetValue(EmailTemplate, out template))
                 return;
 
             foreach (var expression in GetExpressions())

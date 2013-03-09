@@ -62,13 +62,13 @@ namespace PropertyGui
             return viewModes;
         }
 
-        public static List<string> GetRelevantEntityTypes(ProductType product, Expression expression = null)
+        public static List<string> GetRelevantEntityTypes(Context context, Expression expression = null)
         {
             var types = new List<string>();
 
-            if (product == ProductType.Metanga)
+            if (context.ProductType == ProductType.Metanga)
             {
-                types.AddRange(DemoLoader.GlobalContext.Entities.Keys.ToArray());
+                types.AddRange(context.Entities.Keys.ToArray());
             }
             else
             {

@@ -13,12 +13,12 @@ namespace PropertyGui
     public partial class frmGlobalExplorer : Form
     {
         #region Constructor
-        public frmGlobalExplorer(string caption)
+        public frmGlobalExplorer(string caption, Context context)
         {
             InitializeComponent();
             this.Text = string.Format("Explorer ({0})", caption);
             WindowState = FormWindowState.Maximized;
-            ctlExpressionExplorer.Init(DemoLoader.GlobalContext);
+            ctlExpressionExplorer.Init(context);
         }
         #endregion
     }

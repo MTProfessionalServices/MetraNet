@@ -33,6 +33,8 @@ namespace MetraTech.ExpressionEngine
         public bool IsMetraNet { get { return ProductType == ProductType.MetraNet; } }
         public bool IsMetanga { get { return ProductType == ProductType.Metanga; } }
 
+        public Context MasterContext { get; private set; }
+
         /// <summary>
         /// Contains any messages that were generated during the load (from file or database)
         /// </summary>
@@ -116,20 +118,24 @@ namespace MetraTech.ExpressionEngine
             DeserilizationMessages = new ValidationMessageCollection();
         }
 
-        public Context(ProductType product, Expression expression)
-            : this(product, expression, null)
+        public Context(Context masterContext, Expression expression)
+            : this(masterContext, expression, null)
         {
         }
-        public Context(ProductType product, Expression expression, EmailInstance emailInstance)
+        public Context(Context masterContext, Expression expression, EmailInstance emailInstance)
         {
-            ProductType = product;
+            if (masterContext == null)
+                throw new ArgumentException("masterContext is null");
+
+            MasterContext = masterContext;
+            ProductType = masterContext.ProductType;
             if (expression == null)
                 throw new ArgumentNullException("expression");
 
             Expression = expression;
             EmailInstance = emailInstance;
 
-            foreach (var entity in DemoLoader.GlobalContext.Entities.Values)
+            foreach (var entity in masterContext.Entities.Values)
             {
                 if (Expression.Info.SupportedEntityTypes.Contains(((PropertyBagType)entity.Type).Name))
                     Entities.Add(entity.Name, entity);
@@ -138,7 +144,7 @@ namespace MetraTech.ExpressionEngine
             foreach (var entityParameterName in Expression.EntityParameters)
             {
                 PropertyBag propertyBag;
-                if (DemoLoader.GlobalContext.Entities.TryGetValue(entityParameterName, out propertyBag))
+                if (masterContext.Entities.TryGetValue(entityParameterName, out propertyBag))
                 {
                     if (!Entities.ContainsKey(propertyBag.Name))
                         Entities.Add(propertyBag.Name, propertyBag);
@@ -146,13 +152,13 @@ namespace MetraTech.ExpressionEngine
             }
 
             if (expression.Info.SupportsAqgs)
-                _aqgs = DemoLoader.GlobalContext.Aqgs;
+                _aqgs = masterContext.Aqgs;
 
             if (expression.Info.SupportsUqgs)
-                _uqgs = DemoLoader.GlobalContext.Uqgs;
+                _uqgs = masterContext.Uqgs;
 
-            _enumNamespaces = DemoLoader.GlobalContext.EnumNamespaces;
-            _functions = DemoLoader.GlobalContext.Functions;
+            _enumNamespaces = masterContext.EnumNamespaces;
+            _functions = masterContext.Functions;
 
             UpdateContext();
         }
@@ -221,7 +227,7 @@ namespace MetraTech.ExpressionEngine
                         return null;
 
                     PropertyBag complexType;
-                    if (!DemoLoader.GlobalContext.Entities.TryGetValue(propertyBagTypeName, out complexType))
+                    if (!MasterContext.Entities.TryGetValue(propertyBagTypeName, out complexType))
                         return null;
 
                     if (parts.Length == 2)

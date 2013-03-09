@@ -23,14 +23,9 @@ namespace MetraTech.ExpressionEngine
         public const string DirPath = @"C:\ExpressionEngine";
         public static string TopLevelDataDir = Path.Combine(DirPath, "Data");
         private static string DataPath;
-        public static Context GlobalContext { get; set; }
         #endregion
 
         #region General
-        public static void LoadGlobalContext(ProductType product, string subDir)
-        {
-            GlobalContext = CreateContext(product, subDir);
-        }
 
         public static Context CreateContext(ProductType product, string subDir)
         {

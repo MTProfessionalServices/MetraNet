@@ -64,7 +64,7 @@ namespace PropertyGui
             cboEntityTypeFilter.BeginUpdate();
             cboEntityTypeFilter.Items.Clear();
             cboEntityTypeFilter.DropDownStyle = ComboBoxStyle.DropDownList;
-            foreach (var type in MvcAbstraction.GetRelevantEntityTypes(Context.ProductType, Context.Expression))
+            foreach (var type in MvcAbstraction.GetRelevantEntityTypes(Context, Context.Expression))
             {
                 cboEntityTypeFilter.Items.Add(type);
             }

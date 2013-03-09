@@ -60,20 +60,20 @@ namespace PropertyGui
         }
         private void LoadContext()
         {
-            DemoLoader.LoadGlobalContext(GetProductType(), cboContext.Text);
+            //DemoLoader.LoadGlobalContext(GetProductType(), cboContext.Text);
 
-            if (DemoLoader.GlobalContext.DeserilizationMessages.Count != 0)
-            {
-                var dialog = new frmValidationMessages(DemoLoader.GlobalContext.DeserilizationMessages);
-                dialog.ShowDialog();
-            }
-                //MessageBox.Show(DemoLoader.GlobalContext.DeserilizationMessages.GetSummary(true),
-                //                "Deserilizaiton Messages", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //if (DemoLoader.GlobalContext.DeserilizationMessages.Count != 0)
+            //{
+            //    var dialog = new frmValidationMessages(DemoLoader.GlobalContext.DeserilizationMessages);
+            //    dialog.ShowDialog();
+            //}
+            //    //MessageBox.Show(DemoLoader.GlobalContext.DeserilizationMessages.GetSummary(true),
+            //    //                "Deserilizaiton Messages", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-            SetItems(cboAqgs, btnAQG, DemoLoader.GlobalContext.Aqgs.Values.ToArray<Aqg>());
-            SetItems(cboUqgs, btnUQG, DemoLoader.GlobalContext.Uqgs.Values.ToArray<Uqg>());
-            SetItems(cboExpressions, btnExpression, DemoLoader.GlobalContext.Expressions.Values.ToArray<Expression>());
-            SetItems(cboEmailTemplates, btnEmailTemplates, DemoLoader.GlobalContext.EmailInstances.Values.ToArray<EmailInstance>());
+            //SetItems(cboAqgs, btnAQG, DemoLoader.GlobalContext.Aqgs.Values.ToArray<Aqg>());
+            //SetItems(cboUqgs, btnUQG, DemoLoader.GlobalContext.Uqgs.Values.ToArray<Uqg>());
+            //SetItems(cboExpressions, btnExpression, DemoLoader.GlobalContext.Expressions.Values.ToArray<Expression>());
+            //SetItems(cboEmailTemplates, btnEmailTemplates, DemoLoader.GlobalContext.EmailInstances.Values.ToArray<EmailInstance>());
         }
         #endregion
 
@@ -106,11 +106,11 @@ namespace PropertyGui
 
         private void ShowExpression(Expression expression, bool isPageLayout=false)
         {
-            SyncToObject();
-            var dialog = new frmExpressionEngine();
-            var context = new Context(GetProductType(), expression);
-            dialog.Init(context, isPageLayout);
-            dialog.ShowDialog();
+            //SyncToObject();
+            //var dialog = new frmExpressionEngine();
+            //var context = new Context(GetProductType(), expression);
+            //dialog.Init(context, isPageLayout);
+            //dialog.ShowDialog();
         }
         #endregion
 
@@ -130,8 +130,8 @@ namespace PropertyGui
 
         private void btnExplorer_Click(object sender, EventArgs e)
         {
-            var dialog = new frmGlobalExplorer(cboContext.Text);
-            dialog.Show();
+            //var dialog = new frmGlobalExplorer(cboContext.Text);
+            //dialog.Show();
         }
 
         private void btnExpression_Click(object sender, EventArgs e)
@@ -152,12 +152,12 @@ namespace PropertyGui
 
         private void btnEmailTemplates_Click(object sender, EventArgs e)
         {
-            var emailInstance = (EmailInstance)cboEmailTemplates.SelectedItem;
-            emailInstance.UpdateEntityParameters();
-            var dialog = new frmExpressionEngine();
-            var context = new Context(ProductType.Metanga, emailInstance.BodyExpression, emailInstance);
-            dialog.Init(context, emailInstance);
-            dialog.ShowDialog();
+            //var emailInstance = (EmailInstance)cboEmailTemplates.SelectedItem;
+            //emailInstance.UpdateEntityParameters();
+            //var dialog = new frmExpressionEngine();
+            //var context = new Context(ProductType.Metanga, emailInstance.BodyExpression, emailInstance);
+            //dialog.Init(context, emailInstance);
+            //dialog.ShowDialog();
         }
 
         #endregion
@@ -165,21 +165,21 @@ namespace PropertyGui
 
         private void btnSendEvent_Click(object sender, EventArgs e)
         {
-            var dialog = new frmSendEvent();
-            dialog.Init(DemoLoader.GlobalContext);
-            dialog.ShowDialog();
+            //var dialog = new frmSendEvent();
+            //dialog.Init(DemoLoader.GlobalContext);
+            //dialog.ShowDialog();
         }
 
         private void btnValidate_Click(object sender, EventArgs e)
         {
-            var messages = DemoLoader.GlobalContext.Validate();
-            var dialog = new frmValidationMessages(messages);
-            dialog.ShowDialog();
+            //var messages = DemoLoader.GlobalContext.Validate();
+            //var dialog = new frmValidationMessages(messages);
+            //dialog.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DemoLoader.GlobalContext.Save(@"C:\Temp\Export");
+            //DemoLoader.GlobalContext.Save(@"C:\Temp\Export");
         }
 
         private void btnCompare_Click(object sender, EventArgs e)

@@ -38,8 +38,9 @@
             this.txtMessages.Location = new System.Drawing.Point(0, 0);
             this.txtMessages.Multiline = true;
             this.txtMessages.Name = "txtMessages";
+            this.txtMessages.ReadOnly = true;
             this.txtMessages.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtMessages.Size = new System.Drawing.Size(553, 330);
+            this.txtMessages.Size = new System.Drawing.Size(871, 368);
             this.txtMessages.TabIndex = 0;
             this.txtMessages.WordWrap = false;
             // 
@@ -47,7 +48,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(553, 330);
+            this.ClientSize = new System.Drawing.Size(871, 368);
             this.Controls.Add(this.txtMessages);
             this.Name = "frmValidationMessages";
             this.Text = "Validation Messages";

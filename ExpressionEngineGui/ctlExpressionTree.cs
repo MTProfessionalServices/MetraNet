@@ -5,7 +5,6 @@ using MetraTech.ExpressionEngine;
 using System.IO;
 using System.Drawing;
 using MetraTech.ExpressionEngine.Components;
-using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
@@ -193,7 +192,7 @@ namespace PropertyGui
         {
             foreach (var func in Context.Functions.Values)
             {
-                if (FunctionFilter != "<All>" && FunctionFilter != func.Category)
+                if (FunctionFilter != "<All>" && !string.IsNullOrEmpty(FunctionFilter) && FunctionFilter != func.Category)
                     continue;
 
                 CreateNode(func, null);

@@ -432,6 +432,18 @@ namespace MetraTech.ExpressionEngine
             }
             return results;
         }
+
+        public List<string> GetPropertyBagTypes()
+        {
+            var types = new List<string>();
+            foreach (var propertyBag in Entities.Values)
+            {
+                var pbType = (PropertyBagType) propertyBag.Type;
+                if (!types.Contains(pbType.Name))
+                    types.Add(pbType.Name);
+            }
+            return types;
+        }
         #endregion
 
         #region Functions

@@ -40,7 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cboCategory = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cboEntityTypeFilter = new System.Windows.Forms.ComboBox();
+            this.cboPropertyBagFilter = new System.Windows.Forms.ComboBox();
             this.cboViewMode = new System.Windows.Forms.ComboBox();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.cboContext1 = new System.Windows.Forms.ComboBox();
@@ -66,7 +66,7 @@
             this.panHeader.Controls.Add(this.label1);
             this.panHeader.Controls.Add(this.cboCategory);
             this.panHeader.Controls.Add(this.label2);
-            this.panHeader.Controls.Add(this.cboEntityTypeFilter);
+            this.panHeader.Controls.Add(this.cboPropertyBagFilter);
             this.panHeader.Controls.Add(this.cboViewMode);
             this.panHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panHeader.Location = new System.Drawing.Point(0, 0);
@@ -132,7 +132,7 @@
             // cboPropertyTypeFilter
             // 
             this.cboPropertyTypeFilter.FormattingEnabled = true;
-            this.cboPropertyTypeFilter.Location = new System.Drawing.Point(86, 75);
+            this.cboPropertyTypeFilter.Location = new System.Drawing.Point(86, 69);
             this.cboPropertyTypeFilter.Name = "cboPropertyTypeFilter";
             this.cboPropertyTypeFilter.Size = new System.Drawing.Size(233, 21);
             this.cboPropertyTypeFilter.TabIndex = 16;
@@ -142,9 +142,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.Size = new System.Drawing.Size(71, 13);
             this.label1.TabIndex = 15;
-            this.label1.Text = "PropertyBag:";
+            this.label1.Text = "Property Bag:";
             // 
             // cboCategory
             // 
@@ -153,6 +153,7 @@
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(233, 21);
             this.cboCategory.TabIndex = 21;
+            this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cboViewMode_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -163,13 +164,13 @@
             this.label2.TabIndex = 20;
             this.label2.Text = "Property:";
             // 
-            // cboEntityTypeFilter
+            // cboPropertyBagFilter
             // 
-            this.cboEntityTypeFilter.FormattingEnabled = true;
-            this.cboEntityTypeFilter.Location = new System.Drawing.Point(86, 42);
-            this.cboEntityTypeFilter.Name = "cboEntityTypeFilter";
-            this.cboEntityTypeFilter.Size = new System.Drawing.Size(233, 21);
-            this.cboEntityTypeFilter.TabIndex = 19;
+            this.cboPropertyBagFilter.FormattingEnabled = true;
+            this.cboPropertyBagFilter.Location = new System.Drawing.Point(86, 42);
+            this.cboPropertyBagFilter.Name = "cboPropertyBagFilter";
+            this.cboPropertyBagFilter.Size = new System.Drawing.Size(233, 21);
+            this.cboPropertyBagFilter.TabIndex = 19;
             // 
             // cboViewMode
             // 
@@ -258,6 +259,7 @@
             this.treContext2.Size = new System.Drawing.Size(418, 218);
             this.treContext2.TabIndex = 28;
             this.treContext2.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
+            this.treContext2.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treContext1_NodeMouseDoubleClick);
             // 
             // frmCompare
             // 
@@ -292,7 +294,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboCategory;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cboEntityTypeFilter;
+        private System.Windows.Forms.ComboBox cboPropertyBagFilter;
         private System.Windows.Forms.ComboBox cboViewMode;
         private System.Windows.Forms.ComboBox cboContext1;
         private System.Windows.Forms.ComboBox cboContext2;

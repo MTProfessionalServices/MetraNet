@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            Represents a class for configuring notifications that use OAuth standard for authentication at the notification endpoint.
-            </Description>
+  <Description>Represents a class for configuring notifications that use OAuth standard for authentication at the notification endpoint.</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>OAuthWebServerConsumerConfiguration</Name>
@@ -20,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Represents an authorization URI of the end-user at the Authorization Server.
-            </Description>
+        <Description>Represents an authorization URI of the end-user at the Authorization Server.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>AccessAuthorizationUri</Name>
@@ -36,9 +32,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The value must be set to "code" for the Web server authentication flow.
-            </Description>
+        <Description>The value must be set to "code" for the Web server authentication flow.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>ResponseType</Name>
@@ -52,9 +46,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Consumer key from the remote access application definition.
-            </Description>
+        <Description>Consumer key from the remote access application definition.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>ClientId</Name>
@@ -68,10 +60,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The scope parameter enables you to fine-tune what the client application can access at the authorization server.
-            The value of the scope parameter is expressed as a list of space-delimited, case sensitive strings. The strings are defined by the authorization server.
-            </Description>
+        <Description>The scope parameter enables you to fine-tune what the client application can access at the authorization server. The value of the scope parameter is expressed as a list of space-delimited, case sensitive strings. The strings are defined by the authorization server.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Scope</Name>
@@ -85,10 +74,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            A consumer can use the refresh token to get a new session as needed.
-            This parameter represents an URI of the token endpoint.  
-            </Description>
+        <Description>A consumer can use the refresh token to get a new session as needed. This parameter represents an URI of the token endpoint.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>AccessTokenUri</Name>
@@ -102,9 +88,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Consumer secret from the remote access application definition. This parameter is optional.
-            </Description>
+        <Description>Consumer secret from the remote access application definition. This parameter is optional.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>ClientSecret</Name>
@@ -118,12 +102,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Refresh tokens are credentials used to obtain access tokens.
-            Refresh tokens are issued to the client by the authorization server and are used to obtain a new access token when the current access token becomes invalid or expires,
-            or to obtain additional access tokens with identical or narrower scope.
-            A refresh token is a string representing the authorization granted to the client by the resource owner.
-            </Description>
+        <Description>Refresh tokens are credentials used to obtain access tokens. Refresh tokens are issued to the client by the authorization server and are used to obtain a new access token when the current access token becomes invalid or expires, or to obtain additional access tokens with identical or narrower scope. A refresh token is a string representing the authorization granted to the client by the resource owner.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>RefreshToken</Name>
@@ -137,9 +116,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            A date of the error returned from the authorization server.
-            </Description>
+        <Description>A date of the error returned from the authorization server.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>LastAuthorizationErrorDate</Name>
@@ -152,9 +129,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Represents an error code returned from the authorization server.
-            </Description>
+        <Description>Represents an error code returned from the authorization server.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>LastAuthorizationErrorCode</Name>
@@ -168,9 +143,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Represents description of the error with additional information returned from the authorization server.
-            </Description>
+        <Description>Represents description of the error with additional information returned from the authorization server.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>LastAuthorizationErrorDescription</Name>
@@ -184,9 +157,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            This property is to define how Metanga is actually going to use the access token in the notifications. 
-            You can use "Oauth" value to populate this property.</Description>
+        <Description>This property is to define how Metanga is actually going to use the access token in the notifications. You can use "Oauth" value to populate this property.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>AccessTokenType</Name>

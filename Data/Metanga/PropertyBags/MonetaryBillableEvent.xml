@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-             Monetary Billable Event class, which extends basic BillableEvent class with Amount and Currency properties
-            </Description>
+  <Description>Monetary Billable Event class, which extends basic BillableEvent class with Amount and Currency properties</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>MonetaryBillableEvent</Name>

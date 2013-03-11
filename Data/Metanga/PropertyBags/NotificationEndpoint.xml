@@ -2,10 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            The NotificationEndpoint class represents a notification endpoint in Metanga.
-            You can use notification endpoints to support different methods of authentication to external systems.
-            </Description>
+  <Description>The NotificationEndpoint class represents a notification endpoint in Metanga. You can use notification endpoints to support different methods of authentication to external systems.</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>NotificationEndpoint</Name>
@@ -21,10 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Represents a state of the endpoint. Notification endpoint and notification itself can be Enabled or Disabled independently.
-            And notification message will be sent only if both of them the Notification and the Endpoint are Active.
-            </Description>
+        <Description>Represents a state of the endpoint. Notification endpoint and notification itself can be Enabled or Disabled independently. And notification message will be sent only if both of them the Notification and the Endpoint are Active.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Active</Name>
@@ -37,10 +31,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Represents settings to be used for sending notification messages.
-            It can be initialized by SoapNotificationConfiguration object or RestfulNotificationConfiguration object.
-            </Description>
+        <Description>Represents settings to be used for sending notification messages. It can be initialized by SoapNotificationConfiguration object or RestfulNotificationConfiguration object.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>EndpointConfiguration</Name>
@@ -55,10 +46,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Represents an authentication protocol to be used for authentication at the service that is listenning for the notification message.
-            It can be initialized by ClientCertificateConfiguration object or OAuthWebServerConsumerConfiguration object.
-            </Description>
+        <Description>Represents an authentication protocol to be used for authentication at the service that is listenning for the notification message. It can be initialized by ClientCertificateConfiguration object or OAuthWebServerConsumerConfiguration object.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>AuthenticationConfiguration</Name>

@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            Represents a class for Bank Account payment instrument which is used to populate Account's Entity collection of payment instruments.
-            </Description>
+  <Description>Represents a class for Bank Account payment instrument which is used to populate Account's Entity collection of payment instruments.</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>BankAccountMasked</Name>
@@ -20,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Bank Name
-            </Description>
+        <Description>Bank Name</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>BankName</Name>
@@ -36,9 +32,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Account Holder's Name
-            </Description>
+        <Description>Account Holder's Name</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>AccountHoldersName</Name>
@@ -52,9 +46,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The Routing Number for the bank
-            </Description>
+        <Description>The Routing Number for the bank</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>RoutingNumber</Name>
@@ -68,9 +60,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The type of account
-            </Description>
+        <Description>The type of account</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>BankAccountType</Name>
@@ -85,9 +75,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Last four digits of bank account number
-            </Description>
+        <Description>Last four digits of bank account number</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>BankAccountNumberLast4Digits</Name>

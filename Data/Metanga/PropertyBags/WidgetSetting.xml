@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            Dashboard widgets settings
-            </Description>
+  <Description>Dashboard widgets settings</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>WidgetSetting</Name>
@@ -20,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Widget order
-            </Description>
+        <Description>Widget order</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>WidgetOrder</Name>
@@ -39,9 +35,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Widget Id
-            </Description>
+        <Description>Widget Id</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>WidgetId</Name>

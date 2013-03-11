@@ -2,10 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            Defines a column of a custom entity
-            The class was an inheritor of Entity class. Inheritation was removed. EntityId, Name and Description propertes were copied from Entity class
-            </Description>
+  <Description>Defines a column of a custom entity The class was an inheritor of Entity class. Inheritation was removed. EntityId, Name and Description propertes were copied from Entity class</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>EntityTypeColumn</Name>
@@ -21,11 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Name of this entity. This is a collection of key-value pairs where the key indicates the language code,
-            and the value contains the name in that language. Language codes in Metanga are based on IETF language tags.
-            For example: "en-us", "ja-jp". Valid values can be found in Metanga, under Configuration -&gt; Languages To Support (see the Culture Code column).
-            </Description>
+        <Description>Name of this entity. This is a collection of key-value pairs where the key indicates the language code, and the value contains the name in that language. Language codes in Metanga are based on IETF language tags. For example: "en-us", "ja-jp". Valid values can be found in Metanga, under Configuration -&gt; Languages To Support (see the Culture Code column).</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Name</Name>
@@ -39,11 +32,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Description of this entity. This is a collection of key-value pairs where the key indicates the language code,
-            and the value contains the name in that language. Language codes in Metanga are based on IETF language tags.
-            For example: "en-us", "ja-jp". Valid values can be found in Metanga, under Configuration -&gt; Languages To Support (see the Culture Code column).
-            </Description>
+        <Description>Description of this entity. This is a collection of key-value pairs where the key indicates the language code, and the value contains the name in that language. Language codes in Metanga are based on IETF language tags. For example: "en-us", "ja-jp". Valid values can be found in Metanga, under Configuration -&gt; Languages To Support (see the Culture Code column).</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Description</Name>
@@ -57,10 +46,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The type of value that can be stored in this column.
-            For example: string, number, boolean, etc.
-            </Description>
+        <Description>The type of value that can be stored in this column. For example: string, number, boolean, etc.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>DataType</Name>
@@ -75,9 +61,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The name of the property for purposes of external web services.
-            </Description>
+        <Description>The name of the property for purposes of external web services.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>PropertyName</Name>
@@ -91,9 +75,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             Data Type Configuration of the entity object
-            </Description>
+        <Description>Data Type Configuration of the entity object</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>DataTypeConfiguration</Name>

@@ -18,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             DeliveryLanguage
-            </Description>
+        <Description>DeliveryLanguage</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>DeliveryLanguage</Name>
@@ -34,9 +32,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             DestinationAddress
-            </Description>
+        <Description>DestinationAddress</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>DestinationAddress</Name>
@@ -50,9 +46,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             FromAddresses
-            </Description>
+        <Description>FromAddresses</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>FromAddress</Name>

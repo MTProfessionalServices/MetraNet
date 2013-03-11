@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            Represents credit card information which is used to populate Account's Entity collection of payment instruments.
-            </Description>
+  <Description>Represents credit card information which is used to populate Account's Entity collection of payment instruments.</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>CreditCardMasked</Name>
@@ -20,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Gets or sets the first name of the owner of the credit card. This property is required.
-            </Description>
+        <Description>Gets or sets the first name of the owner of the credit card. This property is required.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>FirstName</Name>
@@ -36,9 +32,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Gets or sets the middle name of the owner of the credit card.
-            </Description>
+        <Description>Gets or sets the middle name of the owner of the credit card.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>MiddleName</Name>
@@ -52,9 +46,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Gets or sets the last name of the owner of the credit card. This property is required.
-            </Description>
+        <Description>Gets or sets the last name of the owner of the credit card. This property is required.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>LastName</Name>
@@ -68,9 +60,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Gets or sets the first address line of the owner of the credit card. This property is required.
-            </Description>
+        <Description>Gets or sets the first address line of the owner of the credit card. This property is required.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Address1</Name>
@@ -84,9 +74,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Gets or sets the second address line of the owner of the credit card.
-            </Description>
+        <Description>Gets or sets the second address line of the owner of the credit card.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Address2</Name>
@@ -100,9 +88,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Gets or sets the third address line of the owner of the credit card.
-            </Description>
+        <Description>Gets or sets the third address line of the owner of the credit card.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Address3</Name>
@@ -116,9 +102,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Gets or sets the city of the owner of the credit card. This property is required.
-            </Description>
+        <Description>Gets or sets the city of the owner of the credit card. This property is required.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>City</Name>
@@ -132,9 +116,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Gets or sets the country code of the owner of the credit card. The code must correspond to ISO 3166-1 alpha-2 standart of Country abbreviation.
-            </Description>
+        <Description>Gets or sets the country code of the owner of the credit card. The code must correspond to ISO 3166-1 alpha-2 standart of Country abbreviation.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>CountryCode</Name>
@@ -148,9 +130,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             Gets or sets the state of the owner of the credit card. For US this property is required and must consist of 2 characters. It should be a valid US state abbreviation.
-            </Description>
+        <Description>Gets or sets the state of the owner of the credit card. For US this property is required and must consist of 2 characters. It should be a valid US state abbreviation.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>State</Name>
@@ -164,9 +144,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Gets or sets the postal code of the owner of the credit card. This property is required.
-            </Description>
+        <Description>Gets or sets the postal code of the owner of the credit card. This property is required.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Postal</Name>
@@ -180,9 +158,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Gets or sets the phone number of the owner of the credit card.
-            </Description>
+        <Description>Gets or sets the phone number of the owner of the credit card.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>PhoneNumber</Name>
@@ -196,9 +172,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Gets or sets the e-mail address of the owner of the credit card.
-            </Description>
+        <Description>Gets or sets the e-mail address of the owner of the credit card.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Email</Name>
@@ -212,9 +186,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Gets or sets the type of the credit card. This property is required.
-            </Description>
+        <Description>Gets or sets the type of the credit card. This property is required.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>CreditCardType</Name>
@@ -229,9 +201,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             Gets or sets the expiration date of the credit card. The format of this property is "mm/yyyy". This property is required.
-             </Description>
+        <Description>Gets or sets the expiration date of the credit card. The format of this property is "mm/yyyy". This property is required.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>ExpirationDate</Name>
@@ -245,9 +215,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Last four digits of bank account number
-            </Description>
+        <Description>Last four digits of bank account number</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>CreditCardNumberLast4Digits</Name>
@@ -261,9 +229,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Card Verification Number for validating before create new or update existing credit card
-            </Description>
+        <Description>Card Verification Number for validating before create new or update existing credit card</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>CardSecurityCode</Name>
@@ -277,9 +243,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             If true skips verification of the Credit Card when creating or updating.
-            </Description>
+        <Description>If true skips verification of the Credit Card when creating or updating.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>IsVerificationSkipped</Name>

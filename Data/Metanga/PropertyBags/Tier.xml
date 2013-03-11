@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            Defines a product id and its capacity within a given invoice
-            </Description>
+  <Description>Defines a product id and its capacity within a given invoice</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>Tier</Name>
@@ -20,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The product resolved by this tier
-            </Description>
+        <Description>The product resolved by this tier</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Product</Name>
@@ -37,9 +33,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The maximum capacity for this tier
-            </Description>
+        <Description>The maximum capacity for this tier</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Capacity</Name>

@@ -2,11 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            Extensible entities can have additional columns that are configured in Metanga.
-            To create new entity types, go to Configuration -&gt; Extensible Entities in the
-            Metanga UI.
-            </Description>
+  <Description>Extensible entities can have additional columns that are configured in Metanga. To create new entity types, go to Configuration -&gt; Extensible Entities in the Metanga UI.</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>ExtensibleEntity</Name>

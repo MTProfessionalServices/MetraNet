@@ -2,10 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            A Batch entity allows client applications to group entities together. They are used for reconciliation purposes, but
-            also to support certain bulk operations like deleting all entities associated to a given batch
-            </Description>
+  <Description>A Batch entity allows client applications to group entities together. They are used for reconciliation purposes, but also to support certain bulk operations like deleting all entities associated to a given batch</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>Batch</Name>

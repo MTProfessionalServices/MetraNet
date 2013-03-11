@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-             Represent business settings
-            </Description>
+  <Description>Represent business settings</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>CustomerInformationEntity</Name>
@@ -20,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Notification settings for different type of Notificatio (Soap, Rest, Email)
-            </Description>
+        <Description>Notification settings for different type of Notificatio (Soap, Rest, Email)</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>TemplateConfiguration</Name>

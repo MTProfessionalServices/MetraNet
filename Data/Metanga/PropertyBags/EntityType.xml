@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            Defines a Metanga Custom Entity
-            </Description>
+  <Description>Defines a Metanga Custom Entity</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>EntityType</Name>
@@ -20,12 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The base entity for this entity type.
-            For example, a "Vehicle" entity type will have a base type of "Account".
-            Or a "VOIP" entity type can have a base type of "Product".
-            This is a core Metanga type that should inherit from the ExtensibleEntity class
-            </Description>
+        <Description>The base entity for this entity type. For example, a "Vehicle" entity type will have a base type of "Account". Or a "VOIP" entity type can have a base type of "Product". This is a core Metanga type that should inherit from the ExtensibleEntity class</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>BaseEntityType</Name>
@@ -39,9 +32,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The name of the class for purposes of external web services.
-            </Description>
+        <Description>The name of the class for purposes of external web services.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>ClassName</Name>
@@ -55,9 +46,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Extended Columns
-            </Description>
+        <Description>Extended Columns</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>ExtendedColumns</Name>

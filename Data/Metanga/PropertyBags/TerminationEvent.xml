@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            TerminationEvent.
-            </Description>
+  <Description>TerminationEvent.</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>TerminationEvent</Name>
@@ -20,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            EventId
-            </Description>
+        <Description>EventId</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>EventId</Name>
@@ -35,9 +31,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The date of the termination billable event
-            </Description>
+        <Description>The date of the termination billable event</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>TerminationDate</Name>
@@ -50,9 +44,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The end date of the termination billable event
-            </Description>
+        <Description>The end date of the termination billable event</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>TerminationEndDate</Name>

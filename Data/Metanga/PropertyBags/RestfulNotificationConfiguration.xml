@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            Represents a class for configuring notifications that are sent using REST.
-            </Description>
+  <Description>Represents a class for configuring notifications that are sent using REST.</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>RestfulNotificationConfiguration</Name>
@@ -20,10 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Represents a format of data that is used by your REST service.
-            Metanga supports XML and JSON data formats.
-            </Description>
+        <Description>Represents a format of data that is used by your REST service. Metanga supports XML and JSON data formats.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>ContentFormat</Name>
@@ -38,9 +33,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Custom headers which users can add
-            </Description>
+        <Description>Custom headers which users can add</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>CustomHeaders</Name>

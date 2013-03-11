@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-             Creats new records in the PaymentAudit and Payment tables of the NetMeter data context.
-            </Description>
+  <Description>Creats new records in the PaymentAudit and Payment tables of the NetMeter data context.</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>ElectronicPayment</Name>
@@ -20,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Invoice - it is used only for Automated payment
-            </Description>
+        <Description>Invoice - it is used only for Automated payment</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Invoice</Name>
@@ -37,9 +33,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Failed payment status
-            </Description>
+        <Description>Failed payment status</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>FailedStatus</Name>
@@ -54,9 +48,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Get UTC date and time when Failed payment status was updated
-            </Description>
+        <Description>Get UTC date and time when Failed payment status was updated</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>FailedUpdated</Name>
@@ -69,9 +61,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Get a reason for Failed Payment
-            </Description>
+        <Description>Get a reason for Failed Payment</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>FailedReason</Name>
@@ -86,9 +76,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             Specifies the numer of attempts made to retry a failed payment
-            </Description>
+        <Description>Specifies the numer of attempts made to retry a failed payment</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>NumberOfAttempts</Name>
@@ -105,9 +93,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Gets or sets the payment instrument id used to make the payment.
-            </Description>
+        <Description>Gets or sets the payment instrument id used to make the payment.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>PaymentInstrument</Name>
@@ -122,9 +108,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Gets or sets the type of payment operation
-            </Description>
+        <Description>Gets or sets the type of payment operation</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>PaymentOperation</Name>
@@ -139,9 +123,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Gets or sets the Reference on parent electronic payment.
-            </Description>
+        <Description>Gets or sets the Reference on parent electronic payment.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Reference</Name>
@@ -156,9 +138,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Get status of Payment. Set should used only for Refresh status
-            </Description>
+        <Description>Get status of Payment. Set should used only for Refresh status</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Status</Name>
@@ -173,9 +153,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Get UTC date and time when Status was updated
-            </Description>
+        <Description>Get UTC date and time when Status was updated</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>StatusUpdated</Name>

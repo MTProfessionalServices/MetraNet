@@ -228,6 +228,7 @@ namespace MetraTech.ICE.ExpressionEngine
             newProperty.DefaultValue = property.DefaultValue;    
           }
 
+          //Transfer the relationship
           foreach (var relationship in bmee.Entity.Relationships)
           {
               var rEntity = PropertyBagFactory.CreateBusinessModelingEntity(relationship.RelationshipName, null);
@@ -235,8 +236,9 @@ namespace MetraTech.ICE.ExpressionEngine
               newBme.Properties.Add(rEntity);
           }
 
-          //These will map to other entities
-          //bmee.Associations.
+          //I'm not really sure what association are
+
+
           newBme.SaveInExtensionsDirectory(extensionsDir);
       }
     }

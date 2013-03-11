@@ -1,5 +1,4 @@
 *Entity navigation broken again
-*Metanga expression doesn't have entity parameters
 *PropetyBag filter
 *Extensions; issue with casting to a abstract class
 *Move Validate to launch
@@ -21,7 +20,6 @@
 *How to deal with duplicate enity names
 *BMEs -- do they have namespaces?
 
-*Metanga expresson shows no entites (but email does)
 *Function parameter binding not working
 *In function not working
 *Property view causes exception

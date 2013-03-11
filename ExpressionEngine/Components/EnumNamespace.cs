@@ -20,6 +20,8 @@ namespace MetraTech.ExpressionEngine.Components
         [DataMember]
         public string Name { get; set; }
 
+        public string FullName { get { return Name; } }
+
         //I'm not sure if this is needed due to bad data or real data
         public string NameWithNoSlashes
         {

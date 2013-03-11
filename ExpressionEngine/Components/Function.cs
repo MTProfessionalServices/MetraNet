@@ -16,6 +16,9 @@ namespace MetraTech.ExpressionEngine.Components
         [DataMember]
         public string Name { get; set; }
 
+        public string FullName { get { return Name; } }
+
+
         /// <summary>
         /// The category. Used for filtering. Ensure that proper case is used.
         /// DO WE WANT TO SUPPORT MULTIPLE CATEGOREIS?

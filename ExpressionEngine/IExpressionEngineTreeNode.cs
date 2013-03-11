@@ -1,14 +1,9 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace MetraTech.ExpressionEngine
+﻿namespace MetraTech.ExpressionEngine
 {
     public interface IExpressionEngineTreeNode
     {
         string Name { get; set; }
+        string FullName { get; }
         string TreeNodeLabel { get; }
         string ToolTip { get; }
         string Image { get; }

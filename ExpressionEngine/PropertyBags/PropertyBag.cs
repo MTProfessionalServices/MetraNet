@@ -26,6 +26,25 @@ namespace MetraTech.ExpressionEngine.PropertyBags
     {
         #region Properties
 
+        /// <summary>
+        /// The name prefixed with the namespace, if any
+        /// </summary>
+        public override string FullName{get
+        {
+            if (string.IsNullOrEmpty(Namespace))
+                return Name;
+            return Namespace + "." + Name;
+        }}
+
+        /// <summary>
+        /// The entity's namespace. Primarly used to prevent name collisions for MetraNet
+        /// </summary>
+        [DataMember]
+        public string Namespace { get; set; }
+
+        /// <summary>
+        /// The properties contained in the property bag which may include other property bags
+        /// </summary>
         [DataMember]
         public PropertyCollection Properties { get; private set; }
 

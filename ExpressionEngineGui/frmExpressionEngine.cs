@@ -25,6 +25,7 @@ namespace PropertyGui
             ctlExpressionExplorer.OnS2DoubleClick = _OnS2DoubleClick;
             ctlExpressionExplorer.OnInsertSnippet = _OnInsertSnippet;
             WindowState = FormWindowState.Maximized;
+            MinimizeBox = false;
         }
         #endregion
 

@@ -47,6 +47,7 @@ namespace MetraTech.ExpressionEngine
             LoadExpressions(context);
             LoadEmailTemplates(context, Path.Combine(DataPath, "EmailTemplates"));
             LoadEmailInstances(context, Path.Combine(DataPath, "EmailInstances"));
+            context.LoadPageLayouts();
 
             return context;
         }

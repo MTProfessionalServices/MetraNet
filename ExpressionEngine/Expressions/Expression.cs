@@ -17,7 +17,7 @@ namespace MetraTech.ExpressionEngine.Expressions
     /// This is a place holder. Need to think through. We probably will want expression templates.
     /// </summary>
     [DataContract (Namespace="MetraTech")]
-    public class Expression
+    public class Expression : IExpressionEngineTreeNode
     {
         #region Properties
 
@@ -56,6 +56,27 @@ namespace MetraTech.ExpressionEngine.Expressions
         [DataMember]
         public Property DeclaredReturnType { get; set; }
 
+        #endregion
+
+        #region GUI Support Properties (should be moved in future)
+        public string ToExpressionSnippet { get { return Name; } }
+        public string FullName { get { return Name; } }
+        public string TreeNodeLabel { get { return Name; } }
+        public virtual string Image { get { return "Expression.png"; } }
+       
+        /// <summary>
+        /// TOGO Localize
+        /// </summary>
+        public string ToolTip
+        {
+            get
+            {
+                var toolTip = "Expression";
+                if (!string.IsNullOrEmpty(Description))
+                    toolTip += "\r\n" + Description;
+                return toolTip;
+            }
+        }
         #endregion
 
         #region Constructor

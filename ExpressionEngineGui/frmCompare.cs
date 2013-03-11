@@ -42,6 +42,7 @@ namespace PropertyGui
             Init();
 
             UpdateTrees();
+            UpdateGui();
         }
         #endregion
 
@@ -59,6 +60,8 @@ namespace PropertyGui
             cboViewMode.Items.Add(MvcAbstraction.ViewModeType.UQGs);
             cboViewMode.Items.Add(MvcAbstraction.ViewModeType.Emails);
             cboViewMode.Items.Add(MvcAbstraction.ViewModeType.Functions);
+            cboViewMode.Items.Add(MvcAbstraction.ViewModeType.Expressions);
+            cboViewMode.Items.Add(MvcAbstraction.ViewModeType.PageLayouts);
             cboViewMode.Sorted = true;
             cboViewMode.SelectedItem = MvcAbstraction.ViewModeType.Entities;
             cboViewMode.EndUpdate();
@@ -79,6 +82,7 @@ namespace PropertyGui
 
             LoadFunctionCategoryFilter();
             LoadPropertyBagFilter();
+            LoadNamespaceFilter();
 
             IgnoreChanges = false;
         }
@@ -94,6 +98,7 @@ namespace PropertyGui
 
         public void UpdateTree(ctlExpressionTree tree, Context context)
         {
+            tree.ShowNamespaces = chkShowNamespaces.Checked;
             tree.ViewMode = (MvcAbstraction.ViewModeType)cboViewMode.SelectedItem;
             tree.PropertyTypeFilter = (MetraTech.ExpressionEngine.TypeSystem.Type)cboPropertyTypeFilter.SelectedItem;
             tree.FunctionFilter = cboCategory.Text;
@@ -130,6 +135,22 @@ namespace PropertyGui
             IgnoreChanges = false;
         }
 
+        public void LoadNamespaceFilter()
+        {
+            IgnoreChanges = true;
+            var list = new List<string>();
+            if (Context1 != null)
+                list.AddRange(Context1.Namespaces);
+            if (Context2 != null)
+                list.AddRange(Context2.Namespaces);
+            list = list.Distinct().ToList();
+
+            cboNamespace.BeginUpdate();
+            cboNamespace.Items.AddRange(list.ToArray());
+            cboNamespace.EndUpdate();
+            IgnoreChanges = false;
+        }
+
         public void LoadPropertyBagFilter()
         {
             IgnoreChanges = true;
@@ -152,6 +173,22 @@ namespace PropertyGui
 
             IgnoreChanges = false;
         }
+
+        private void UpdateGui()
+        {
+            var viewMode = (MvcAbstraction.ViewModeType) cboViewMode.SelectedItem;
+
+            var pbFlag = (viewMode == MvcAbstraction.ViewModeType.Entities);
+            lblPropertyBag.Enabled = pbFlag;
+            cboPropertyBagFilter.Enabled = pbFlag;
+            lblProperty.Enabled = pbFlag;
+            cboPropertyTypeFilter.Enabled = pbFlag;
+
+            var funcFlag = (viewMode == MvcAbstraction.ViewModeType.Functions);
+            lblCategory.Enabled = funcFlag;
+            cboCategory.Enabled = funcFlag;
+
+        }
         #endregion
         
 
@@ -159,8 +196,11 @@ namespace PropertyGui
         #region Events
         private void settingChanged(object sender, EventArgs e)
         {
-            if (!IgnoreChanges)
-                UpdateTrees();
+            if (IgnoreChanges)
+                return;
+
+            UpdateGui();
+            UpdateTrees();
         }
 
 
@@ -190,8 +230,19 @@ namespace PropertyGui
             {
                 ShowExpression(context, ((Uqg)tag).Expression);
             }
+            else if (tag is Expression)
+            {
+                ShowExpression(context, (Expression)tag);
+            }
+            else if (tag is PageLayout)
+            {
+                ShowExpression(context, new Expression(ExpressionType.Email, "", null), true);
+            }
         }
 
         #endregion
+
+
+
     }
 }

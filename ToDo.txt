@@ -1,3 +1,15 @@
+*Entity navigation broken again
+*Metanga expression doesn't have entity parameters
+*PropetyBag filter
+*Extensions; issue with casting to a abstract class
+*Move Validate to launch
+*Add Form Layout
+*Metanga expressions
+*Namespaces from MetraNet
+*Namespace tree option
+*Namespace filter
+
+
 *Currency
 *Tax
 *Metanga BillableEvent 100%

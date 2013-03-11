@@ -26,6 +26,7 @@ namespace PropertyGui
         public string EntityTypeFilter { get; set; }
         public Type PropertyTypeFilter { get; set; }
         public string FunctionFilter { get; set; }
+        public bool ShowNamespaces { get; set; }
         public ContextMenuStrip EnumValueContextMenu { get; set; }
 
         private TreeNode PropertyListPlaceHolderNode;
@@ -101,28 +102,22 @@ namespace PropertyGui
                     LoadTreeEnums(false);
                     break;
                 case MvcAbstraction.ViewModeType.AQGs:
-                    foreach (var aqg in Context.Aqgs.Values)
-                    {
-                        CreateNode(aqg);
-                    }
+                    LoadGeneric(Context.Aqgs.Values);
                     break;
                 case MvcAbstraction.ViewModeType.UQGs:
-                    foreach (var uqg in Context.Uqgs.Values)
-                    {
-                        CreateNode(uqg);
-                    }
+                    LoadGeneric(Context.Uqgs.Values);
                     break;
                 case MvcAbstraction.ViewModeType.InputsOutputs:
                     LoadInputsOutputs();
                     break;
                 case MvcAbstraction.ViewModeType.Emails:
-                    foreach (var email in Context.EmailInstances.Values)
-                    {
-                        CreateNode(email);
-                    }
+                    LoadGeneric(Context.EmailInstances.Values);
+                    break;
+                case MvcAbstraction.ViewModeType.Expressions:
+                    LoadGeneric(Context.Expressions.Values);
                     break;
                 case MvcAbstraction.ViewModeType.PageLayouts:
-                    //CreateNode("AccountLayout");
+                    LoadGeneric(Context.PageLayouts.Values);
                     break;
                 default:
                     throw new NotImplementedException();
@@ -133,6 +128,14 @@ namespace PropertyGui
                 Nodes[0].Expand();
 
             EndUpdate();
+        }
+
+        private void LoadGeneric(IEnumerable<IExpressionEngineTreeNode> items)
+        {
+            foreach (var item in items)
+            {
+                CreateNode(item, null);
+            }
         }
 
         private void LoadInputsOutputs()
@@ -237,7 +240,13 @@ namespace PropertyGui
 
         public TreeNode CreateNode(IExpressionEngineTreeNode item, TreeNode parentNode=null)
         {
-            var node = new TreeNode(item.TreeNodeLabel);
+            string label;
+            if (ShowNamespaces)
+                label = item.FullName;
+            else
+                label = item.TreeNodeLabel;
+
+            var node = new TreeNode(label);
             node.ToolTipText = item.ToolTip;
             node.SelectedImageKey = item.Image;
             node.ImageKey = item.Image;

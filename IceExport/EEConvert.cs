@@ -126,6 +126,7 @@ namespace MetraTech.ICE.ExpressionEngine
       }
 
       entity.Extension = oldEntity.Extension;
+      entity.Namespace = string.Format("{0}.{1}s", oldEntity.Namespace, oldEntity.ElementType.ToString());
       return entity;
     }
 
@@ -217,14 +218,21 @@ namespace MetraTech.ICE.ExpressionEngine
       foreach (BusinessModelingEntityElement bmee in Config.Instance.BusinessModelingEntities.Values)
       {
           var newBme = PropertyBagFactory.CreateBusinessModelingEntity(bmee.Name, bmee.Description);
+          newBme.Extension = bmee.Extension;
+          newBme.Namespace = bmee.Namespace;
           foreach (var property in bmee.Entity.Properties)
           {
             var dtInfo = new DataTypeInfo(property);
             var newType = GetMtType(dtInfo);
             var newProperty = PropertyFactory.Create(PropertyBagConstants.BusinessModelingEntity, property.Name, newType, property.IsRequired, property.Description);
-            newProperty.DefaultValue = property.DefaultValue;
+            newProperty.DefaultValue = property.DefaultValue;    
+          }
 
-          
+          foreach (var relationship in bmee.Entity.Relationships)
+          {
+              var rEntity = PropertyBagFactory.CreateBusinessModelingEntity(relationship.RelationshipName, null);
+              ((PropertyBagType) rEntity.Type).Name = relationship.RelationshipEntity.FullName;
+              newBme.Properties.Add(rEntity);
           }
 
           //These will map to other entities

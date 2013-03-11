@@ -36,6 +36,8 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
         #region Properties
 
+        public virtual string FullName { get { return Name; } }
+
         /// <summary>
         /// The collection to which the property belongs (may be null)
         /// </summary>
@@ -43,7 +45,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
 
         /// <summary>
-        /// Safe cast f Property Collection
+        /// Safe cast Property Collection
         /// </summary>
         public PropertyBag PropertyBag
         {

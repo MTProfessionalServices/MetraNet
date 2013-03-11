@@ -33,7 +33,7 @@ namespace MetraTech.ExpressionEngine
         public bool IsMetraNet { get { return ProductType == ProductType.MetraNet; } }
         public bool IsMetanga { get { return ProductType == ProductType.Metanga; } }
 
-        public Context MasterContext { get; private set; }
+        public Context MasterContext { get; set; }
 
         /// <summary>
         /// Contains any messages that were generated during the load (from file or database)
@@ -89,6 +89,10 @@ namespace MetraTech.ExpressionEngine
 
         public Dictionary<string, EmailInstance> EmailInstances { get { return _emailInstances; }}
         private Dictionary<string, EmailInstance> _emailInstances = new Dictionary<string, EmailInstance>(StringComparer.InvariantCultureIgnoreCase);
+
+        public Dictionary<string, PageLayout> PageLayouts { get { return _pageLayouts; } }
+        private Dictionary<string, PageLayout> _pageLayouts = new Dictionary<string, PageLayout>(StringComparer.InvariantCultureIgnoreCase);
+                    
         #endregion
 
         #region Properties that are updated by UpdateContext()
@@ -107,7 +111,10 @@ namespace MetraTech.ExpressionEngine
         private List<EnumCategory> _relevantEnums = new List<EnumCategory>();
 
         public List<string> Extensions { get { return _extensions; } }
-        private List<string> _extensions = new List<string>(); 
+        private List<string> _extensions = new List<string>();
+
+        public List<string> Namespaces { get { return _namespaces; } } 
+        private List<string> _namespaces = new List<string>(); 
         #endregion
 
         #region Constructors
@@ -322,14 +329,19 @@ namespace MetraTech.ExpressionEngine
                 }
             }
 
+            _namespaces.Clear();
+
             EnumCategories.Clear();
             RelevantEnums.Clear();
             foreach (var enumSpace in EnumNamespaces.Values)
             {
+                if (!string.IsNullOrEmpty(enumSpace.Name) && !_namespaces.Contains(enumSpace.Name))
+                    _namespaces.Add(enumSpace.Name);
                 EnumCategories.AddRange(enumSpace.Categories);
+
             }
 
-            //Find all of the extensions
+            //Find all of the extensions and namespaces
             _extensions.Clear();
             foreach (var propertyBag in Entities.Values)
             {
@@ -337,6 +349,9 @@ namespace MetraTech.ExpressionEngine
                 {
                 //    var entity = (MetraNetPropertyBase) propertyBag;
                 //    if (!_extensions.Contains(entity.Extension))
+
+                    if (!string.IsNullOrEmpty(propertyBag.Namespace) && !_namespaces.Contains(propertyBag.Name))
+                        _namespaces.Add(propertyBag.Namespace);
 
                 }
                
@@ -545,13 +560,6 @@ namespace MetraTech.ExpressionEngine
 
         public static Context LoadExtensions(string extensionsDir)
         {
-            //Add a DeserilizationMessages to context
-            //            catch (Exception ex)
-            //{   
-            //    var msg = string.Format(CultureInfo.InvariantCulture, string.Format("Error deserializing {0} [{1}]", file, ex.Message));
-            //    throw new Exception(msg, ex.InnerException);
-            //}
-
             var dirInfo = new DirectoryInfo(extensionsDir);
             if (!dirInfo.Exists)
                 throw new ArgumentException("extensionsDir doesn't exist: " + extensionsDir);
@@ -562,6 +570,8 @@ namespace MetraTech.ExpressionEngine
                 LoadExtension(context, extensionDirInfo);
             }
             context.LoadUnitsOfMeasure();
+
+            context.UpdateContext();
             return context;
         }
 
@@ -590,6 +600,12 @@ namespace MetraTech.ExpressionEngine
             PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(dirPath, "PropertyBags"), null, context);
             context.LoadUnitsOfMeasure();
             return context;
+        }
+
+        public void LoadPageLayouts()
+        {
+            var pageLayout = new PageLayout("Sample", "Just a sample page layout.");
+            PageLayouts.Add(pageLayout.Name, pageLayout);
         }
 
         private void LoadUnitsOfMeasure()

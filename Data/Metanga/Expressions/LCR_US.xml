@@ -10,7 +10,7 @@
     <![CDATA[Low cost routing to US provider (e.g. Authorize.Net) for credit cards for accounts in the US, where the payment is in US$ and the amount is < $100
     ]]>  </Description>
   <EntityParameters xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
-  <Name>ayment LCR US</Name>
+  <Name>Payment LCR US</Name>
   <Parameters xmlns:a="MetraTech">
     <a:Properties xmlns:b="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
   </Parameters>

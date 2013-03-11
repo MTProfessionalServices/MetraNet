@@ -33,6 +33,13 @@ namespace MetraTech.ExpressionEngine
         public string Name { get; set; }
 
         [DataMember]
+        public string Namespace { get; set; }
+
+        public string FullName {
+            get { return FullName + "." + Name; }
+        }
+
+        [DataMember]
         public string EmailTemplate { get; set; }
 
         /// <summary>

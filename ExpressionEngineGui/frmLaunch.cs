@@ -19,11 +19,15 @@ namespace PropertyGui
         public frmLaunch()
         {
             InitializeComponent();
+            MinimizeBox = false;
+
             LoadConfigComboBox(cboContext1, DemoLoader.TopLevelDataDir);
             LoadConfigComboBox(cboContext2, DemoLoader.TopLevelDataDir);
 
             cboContext1.Text = "Metanga";
             //cboContext2.Text = "Cloud";
+
+            SyncToForm();
         }
 
         #endregion
@@ -55,6 +59,9 @@ namespace PropertyGui
             //Load the context
             var context = DemoLoader.CreateContext(productType, contextName);
 
+            //So that we can look things up in the next form, set the master context (creats a cycle, but shouldn't hurt anything)
+            context.MasterContext = context;
+
             //If we had some loading issues, let the user know
             if (context.DeserilizationMessages.Count != 0)
             {
@@ -64,11 +71,31 @@ namespace PropertyGui
 
             return context;
         }
+
+        private void SyncToObject()
+        {
+            UserContext.Settings.DefaultEqualityOperator = cboEqualityOperator.Text;
+            UserContext.Settings.DefaultInequalityOperator = cboInequalityOperator.Text;
+            UserContext.Settings.ShowActualMappings = chkShowAcutalMappings.Checked;
+            UserContext.Settings.AutoSelectInsertedSnippets = chkAutoSelectInsertedSnippets.Checked;
+            UserContext.Settings.NewSyntax = chkNewSyntax.Checked;
+        }
+
+        private void SyncToForm()
+        {
+            cboEqualityOperator.Text = UserContext.Settings.DefaultEqualityOperator;
+            cboInequalityOperator.Text = UserContext.Settings.DefaultInequalityOperator;
+            chkShowAcutalMappings.Checked = UserContext.Settings.ShowActualMappings;
+            chkAutoSelectInsertedSnippets.Checked = UserContext.Settings.AutoSelectInsertedSnippets;
+            chkNewSyntax.Checked = UserContext.Settings.NewSyntax;
+        }
         #endregion
 
         #region Events
         private void btnLoad_Click(object sender, EventArgs e)
         {
+            SyncToObject();
+
             var context1 = GetContext(cboContext1.Text);
             var context2 = GetContext(cboContext2.Text);
 
@@ -76,5 +103,6 @@ namespace PropertyGui
             dialog.ShowDialog();
         }
         #endregion
+
     }
 }

@@ -23,7 +23,12 @@ namespace MetraTech.ExpressionEngine.Components
         /// </summary>
         [DataMember]
         public string Name { get; set; }
-       
+
+        public string FullName
+        {
+            get { return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", EnumCategory.FullName, Name); }
+        }
+
         /// <summary>
         /// Aliased values when integrating with an external system. Used by MetraNet for metering usage data
         /// </summary>

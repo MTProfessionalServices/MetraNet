@@ -23,6 +23,14 @@ namespace MetraTech.ExpressionEngine.Components
         [DataMember]
         public string Name { get; set; }
 
+        public string FullName
+        {
+            get
+            {
+                if (String.IsNullOrEmpty(EnumNamespace.Name)) return Name;
+            return EnumNamespace.Name + "." + Name;
+        }}
+
         /// <summary>
         /// Indicates if the category is a basic enumeration, a unit of measure or a currency
         /// </summary>

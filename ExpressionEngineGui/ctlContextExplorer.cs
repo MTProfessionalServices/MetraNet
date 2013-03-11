@@ -70,7 +70,8 @@ namespace PropertyGui
             }
             cboEntityTypeFilter.Sorted = true;
             cboEntityTypeFilter.EndUpdate();
-            cboEntityTypeFilter.SelectedIndex = 0;
+            if (cboEntityTypeFilter.Items.Count > 0)
+                cboEntityTypeFilter.SelectedIndex = 0;
 
             //Init the Property Type Filter
             #region PropertyTypeFilter

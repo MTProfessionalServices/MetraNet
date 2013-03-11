@@ -186,14 +186,14 @@ namespace PropertyGui
                     existingNodes.Add(property.Name, propertyNode);
                 }
 
-                //Add the entity to which it belongs
+                //Add the propertyBag to which it belongs
                 CreateNode(property.PropertyBag, propertyNode);
             }
         }
 
         private void LoadTreeFunctionsMode()
         {
-            foreach (var func in Context.Functions.Values)
+            foreach (var func in Context.Functions)
             {
                 if (FunctionFilter != "<All>" && !string.IsNullOrEmpty(FunctionFilter) && FunctionFilter != func.Category)
                     continue;
@@ -206,10 +206,10 @@ namespace PropertyGui
         {
             var filter = new List<string>();
             filter.Add(EntityTypeFilter);
-            var entities = Context.GetEntities(null, filter, null, PropertyTypeFilter);
+            var entities = Context.GetPropertyBags(null, filter, null, PropertyTypeFilter);
             foreach (var entity in entities)
             {
-                //Create the entity node
+                //Create the propertyBag node
                 var entityNode = CreateNode(entity, null);
 
                 //Create the property nodes
@@ -310,8 +310,8 @@ namespace PropertyGui
                 node.Nodes.Clear();
                 var property = (Property) node.Tag;
                 var propertyBagTypeName = ((PropertyBagType) property.Type).Name;
-                PropertyBag propertyBag;
-                if (!Context.MasterContext.Entities.TryGetValue(propertyBagTypeName, out propertyBag))
+                var propertyBag = Context.MasterContext.GetPropertyBag(propertyBagTypeName);
+                if (propertyBag == null)
                     return;
                 AddProperties(node, propertyBag.Properties);
             }

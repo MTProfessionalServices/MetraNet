@@ -53,12 +53,12 @@ namespace MetraTech.ExpressionEngine
         /// <summary>
         /// All Functions
         /// </summary>
-        public Dictionary<string, Function> Functions { get { return _functions; } }
+        public IEnumerable<Function> Functions { get { return _functions.Values; } }
         private readonly Dictionary<string, Function> _functions = new Dictionary<string, Function>(StringComparer.InvariantCultureIgnoreCase);
 
-        //Entities may not have unique names across types... need to deal with that, perhaps a composite key
-        public Dictionary<string, PropertyBag> Entities { get { return _entities; } }
-        private readonly Dictionary<string, PropertyBag> _entities = new Dictionary<string, PropertyBag>(StringComparer.InvariantCultureIgnoreCase);
+        //PropertyBags may not have unique names across types... need to deal with that, perhaps a composite key       
+        public IEnumerable<PropertyBag> PropertyBags { get { return _propertyBags.Values; } }
+        private readonly Dictionary<string, PropertyBag> _propertyBags = new Dictionary<string, PropertyBag>(StringComparer.InvariantCultureIgnoreCase);
 
         /// <summary>
         /// All Account Qualification Groups
@@ -141,20 +141,23 @@ namespace MetraTech.ExpressionEngine
 
             Expression = expression;
             EmailInstance = emailInstance;
-
-            foreach (var entity in masterContext.Entities.Values)
+            
+            //Add property bag types that are genericall supported by the expression
+            foreach (var propertyBag in masterContext.PropertyBags)
             {
-                if (Expression.Info.SupportedEntityTypes.Contains(((PropertyBagType)entity.Type).Name))
-                    Entities.Add(entity.Name, entity);
+                if (Expression.Info.SupportedEntityTypes.Contains(((PropertyBagType)propertyBag.Type).Name))
+                    AddPropertyBag(propertyBag);
             }
 
+            //Add entities that are specific parameters
             foreach (var entityParameterName in Expression.EntityParameters)
             {
-                PropertyBag propertyBag;
-                if (masterContext.Entities.TryGetValue(entityParameterName, out propertyBag))
+                var masterPropertyBag = masterContext.GetPropertyBag(entityParameterName);
+                if (masterPropertyBag != null)
                 {
-                    if (!Entities.ContainsKey(propertyBag.Name))
-                        Entities.Add(propertyBag.Name, propertyBag);
+                    var thisPropertyBag = GetPropertyBag(entityParameterName);
+                    if (thisPropertyBag == null)
+                        AddPropertyBag(masterPropertyBag);
                 }
             }
 
@@ -165,7 +168,7 @@ namespace MetraTech.ExpressionEngine
                 _uqgs = masterContext.Uqgs;
 
             _enumNamespaces = masterContext.EnumNamespaces;
-            _functions = masterContext.Functions;
+            _functions = masterContext._functions;
 
             UpdateContext();
         }
@@ -194,7 +197,7 @@ namespace MetraTech.ExpressionEngine
             if (string.IsNullOrEmpty(name))
                 return null;
 
-            return _getRecursive(name, (IEnumerable<Property>)Entities.Values);
+            return _getRecursive(name, (IEnumerable<Property>)PropertyBags);
         }
 
         private Property _getRecursive(string name, IEnumerable<Property> properties)
@@ -233,15 +236,15 @@ namespace MetraTech.ExpressionEngine
                     if (propertyBagTypeName == null)
                         return null;
 
-                    PropertyBag complexType;
-                    if (!MasterContext.Entities.TryGetValue(propertyBagTypeName, out complexType))
+                    var propertyBag = MasterContext.GetPropertyBag(propertyBagTypeName);
+                    if (propertyBag == null)
                         return null;
 
                     if (parts.Length == 2)
-                        return complexType;
+                        return propertyBag;
 
                     var remainder = name.Substring(firstName.Length + parts[1].Length + 2);
-                    return _getRecursive(remainder, complexType.Properties);
+                    return _getRecursive(remainder, propertyBag.Properties);
                 }
             }
             return null;
@@ -251,7 +254,7 @@ namespace MetraTech.ExpressionEngine
         public List<Property> GetProperties(Type typeFilter, IEnumerable<PropertyBag> entities = null)
         {
             if (entities == null)
-                entities = Entities.Values;
+                entities = PropertyBags;
 
             var results = new List<Property>();
             foreach (var entity in entities)
@@ -306,9 +309,9 @@ namespace MetraTech.ExpressionEngine
             AllProperties.Clear();
             UniqueProperties.Clear();
             RelevantEnums.Clear();
-            foreach (var entity in Entities.Values)
+            foreach (var propertyBag in PropertyBags)
             {
-                foreach (var property in entity.Properties)
+                foreach (var property in propertyBag.Properties)
                 {
                     AllProperties.Add(property);
 
@@ -343,25 +346,23 @@ namespace MetraTech.ExpressionEngine
 
             //Find all of the extensions and namespaces
             _extensions.Clear();
-            foreach (var propertyBag in Entities.Values)
+            foreach (var propertyBag in PropertyBags)
             {
                 if (propertyBag is MetraNetEntityBase)
                 {
-                //    var entity = (MetraNetPropertyBase) propertyBag;
-                //    if (!_extensions.Contains(entity.Extension))
+                //    var propertyBag = (MetraNetPropertyBase) propertyBag;
+                //    if (!_extensions.Contains(propertyBag.Extension))
 
                     if (!string.IsNullOrEmpty(propertyBag.Namespace) && !_namespaces.Contains(propertyBag.Name))
                         _namespaces.Add(propertyBag.Namespace);
-
-                }
-               
+                }          
             }
         }
 
         public ValidationMessageCollection Validate()
         {
             var messages = new ValidationMessageCollection();
-            foreach (var propertyBag in Entities.Values)
+            foreach (var propertyBag in PropertyBags)
             {
                 propertyBag.Validate(true, messages, this);
             }
@@ -382,7 +383,7 @@ namespace MetraTech.ExpressionEngine
         //    var existingProperties = new Dictionary<string, int>(StringComparer.InvariantCultureIgnoreCase);
         //    var properties = new PropertyCollection(null);
 
-        //    foreach (var propertyBag in Entities.Values)
+        //    foreach (var propertyBag in PropertyBags.Values)
         //    {
         //        foreach (var propertyBagTypeName in propertyBagTypeNames)
         //        {
@@ -409,41 +410,53 @@ namespace MetraTech.ExpressionEngine
         //}
         #endregion
 
-        #region Entities
-        public void AddEntity(PropertyBag entity)
+        #region PropertyBags
+        public void AddPropertyBag(PropertyBag propertyBag)
         {
-            if (entity == null)
-                throw new ArgumentNullException("entity");
+            if (propertyBag == null)
+                throw new ArgumentNullException("propertyBag");
+
+            var key = propertyBag.Name;
 
             PropertyBag pb;
-            if (Entities.TryGetValue(entity.Name, out pb))
+            if (_propertyBags.TryGetValue(key, out pb))
             {
                 throw new ArgumentException(string.Format(CultureInfo.CurrentCulture,
-                    "PropertyBag with name='{0} already exists: old={1}, new={2}", entity.Name, pb, entity));
+                    "PropertyBag with name='{0} already exists: old={1}, new={2}", propertyBag.Name, pb, propertyBag));
             }
 
-            Entities.Add(entity.Name, entity);
+            _propertyBags.Add(key, propertyBag);
         }
 
-        public List<PropertyBag> GetEntities(string type)
+        public PropertyBag GetPropertyBag(string fullName)
+        {
+            if (string.IsNullOrEmpty(fullName))
+                return null;
+
+            PropertyBag propertyBag;
+            _propertyBags.TryGetValue(fullName, out propertyBag);
+            return propertyBag;
+        }
+
+        public List<PropertyBag> GetPropertyBags(string type)
         {
             var types = new List<string>();
             types.Add(type);
-            return GetEntities(null, types, null, null);
+            return GetPropertyBags(null, types, null, null);
         }
 
-        public List<PropertyBag> GetEntities(string entityNameFilter, List<string> entityTypeFilter, string propertyNameFilter, Type propertyTypeFilter)
+        public List<PropertyBag> GetPropertyBags(string propertyBagNameFilter, List<string> propertyBagTypeFilter, string propertyNameFilter, Type propertyTypeFilter)
         {
             var results = new List<PropertyBag>();
 
-            Regex entityRegex = string.IsNullOrEmpty(entityNameFilter) ? null : new Regex(entityNameFilter, RegexOptions.IgnoreCase);
+            Regex entityRegex = string.IsNullOrEmpty(propertyBagNameFilter) ? null : new Regex(propertyBagNameFilter, RegexOptions.IgnoreCase);
             Regex propertyRegex = string.IsNullOrEmpty(propertyNameFilter) ? null : new Regex(propertyNameFilter, RegexOptions.IgnoreCase);
 
-            foreach (var entity in Entities.Values)
+            foreach (var entity in PropertyBags)
             {
                 if (entityRegex != null && !entityRegex.IsMatch(entity.Name))
                     continue;
-                if (entityTypeFilter != null && !entityTypeFilter.Contains(PropertyBagConstants.AnyFilter) && !entityTypeFilter.Contains( ((PropertyBagType)entity.Type).Name) )
+                if (propertyBagTypeFilter != null && !propertyBagTypeFilter.Contains(PropertyBagConstants.AnyFilter) && !propertyBagTypeFilter.Contains( ((PropertyBagType)entity.Type).Name) )
                     continue;
 
                 if (!entity.HasPropertyMatch(propertyRegex, propertyTypeFilter))
@@ -457,7 +470,7 @@ namespace MetraTech.ExpressionEngine
         public List<string> GetPropertyBagTypes()
         {
             var types = new List<string>();
-            foreach (var propertyBag in Entities.Values)
+            foreach (var propertyBag in PropertyBags)
             {
                 var pbType = (PropertyBagType) propertyBag.Type;
                 if (!types.Contains(pbType.Name))
@@ -468,18 +481,22 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Functions
-        public Function TryGetFunction(string name)
+        public Function GetFunction(string name)
         {
-            Function func;
-            Functions.TryGetValue(name, out func);
-            return func;
-        }
-        public Function AddFunction(string name, string category, string description)
-        {
-            var function = new Function(name, category, description);
-            Functions.Add(function.Name, function);
+            if (string.IsNullOrEmpty(name))
+                return null;
+
+            Function function;
+           _functions.TryGetValue(name, out function);
             return function;
         }
+
+        public void AddFunction(Function function)
+        {
+            _functions.Add(function.Name, function);
+        }
+
+      
 
         /// <summary>
         /// Returns a unique list of function categories
@@ -489,7 +506,7 @@ namespace MetraTech.ExpressionEngine
             var categories = new List<string>();
             if (includeAllChoice)
                 categories.Add(Localization.AllChoice);
-            foreach (var func in Functions.Values)
+            foreach (var func in Functions)
             {
                 if (!categories.Contains(func.Category))
                     categories.Add(func.Category);
@@ -531,6 +548,9 @@ namespace MetraTech.ExpressionEngine
         }
         #endregion
 
+        #region XQGs
+        #endregion
+
         #region IO Methods
 
         /// <summary>
@@ -549,7 +569,7 @@ namespace MetraTech.ExpressionEngine
                     enumNamespace.Save(Path.Combine(dirPath, "Enumerations"));
             }
 
-            foreach (var propertyBag in Entities.Values)
+            foreach (var propertyBag in PropertyBags)
             {
                 if (IsMetraNet)
                     ((MetraNetEntityBase) propertyBag).SaveInExtensionsDirectory(dirPath);

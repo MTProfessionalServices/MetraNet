@@ -36,11 +36,11 @@ namespace PropertyGui
             cboEvent.BeginUpdate();
             cboEvent.Sorted = true;
             cboEvent.DisplayMember = "Name";
-            cboEvent.Items.AddRange(context.GetEntities(PropertyBagConstants.ServiceDefinition).ToArray());
+            cboEvent.Items.AddRange(context.GetPropertyBags(PropertyBagConstants.ServiceDefinition).ToArray());
             cboEvent.EndUpdate();
 
-            if (Context.IsMetanga)
-                SetProperties(Context.Entities["BillableEvent"]);
+            //if (Context.IsMetanga)
+            //    SetProperties(Context.PropertyBags["BillableEvent"]);
         }
 
         private void SetProperties(PropertyBag eventEntity)

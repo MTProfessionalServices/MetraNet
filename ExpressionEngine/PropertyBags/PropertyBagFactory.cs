@@ -103,7 +103,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             {
                 try
                 {
-                    context.AddEntity(propertyBag);
+                    context.AddPropertyBag(propertyBag);
                 }
                 catch (Exception exception)
                 {

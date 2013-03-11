@@ -68,7 +68,10 @@ namespace PropertyGui
 
             if (context.ProductType == ProductType.Metanga)
             {
-                types.AddRange(context.Entities.Keys.ToArray());
+                foreach (var propertyBag in context.PropertyBags)
+                {
+                    types.Add(propertyBag.Name);
+                }
             }
             else
             {

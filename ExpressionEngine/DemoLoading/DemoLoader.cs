@@ -138,12 +138,11 @@ namespace MetraTech.ExpressionEngine
         #region Functions
         public static void LoadFunctions(Context context)
         {
-            context.Functions.Clear();
             var dirInfo = new DirectoryInfo(Path.Combine(DirPath, @"Reference\Functions"));
             foreach (var file in dirInfo.GetFiles("*.xml"))
             {
                 var func = Function.CreateFromFile(file.FullName);
-                context.Functions.Add(func.Name, func);
+                context.AddFunction(func);
             }
         }
         #endregion

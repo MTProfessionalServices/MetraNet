@@ -51,7 +51,7 @@ namespace PropertyGui
         public void EditFunction()
         {
             var name = SelectedText;
-            var func = Context.TryGetFunction(name);
+            var func = Context.GetFunction(name);
             if (func == null)
             {
                 MessageBox.Show(string.Format("Unable to find Function '{0}'", name));

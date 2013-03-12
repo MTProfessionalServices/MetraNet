@@ -27,7 +27,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>List</ListType>
-          <Name>PackageProduct</Name>
+          <Name>MetraTech.Metanga.PackageProduct</Name>
           <PropertyBagMode>PropertyBag</PropertyBagMode>
         </Type>
       </Property>
@@ -70,7 +70,7 @@
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
           <Category>PaymentInfoStatus</Category>
-          <Namespace>metanga</Namespace>
+          <Namespace>MetraTech.Metanga</Namespace>
         </Type>
       </Property>
       <Property>

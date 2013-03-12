@@ -27,7 +27,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>Invoice</Name>
+          <Name>MetraTech.Metanga.Invoice</Name>
           <PropertyBagMode>Entity</PropertyBagMode>
         </Type>
       </Property>
@@ -43,7 +43,7 @@
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
           <Category>FailedPaymentStatus</Category>
-          <Namespace>metanga</Namespace>
+          <Namespace>MetraTech.Metanga</Namespace>
         </Type>
       </Property>
       <Property>
@@ -70,7 +70,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>ProviderResponse</Name>
+          <Name>MetraTech.Metanga.ProviderResponse</Name>
           <PropertyBagMode>PropertyBag</PropertyBagMode>
         </Type>
       </Property>
@@ -102,7 +102,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>PaymentInstrumentMasked</Name>
+          <Name>MetraTech.Metanga.PaymentInstrumentMasked</Name>
           <PropertyBagMode>PropertyBag</PropertyBagMode>
         </Type>
       </Property>
@@ -118,7 +118,7 @@
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
           <Category>ElectronicPaymentOperation</Category>
-          <Namespace>metanga</Namespace>
+          <Namespace>MetraTech.Metanga</Namespace>
         </Type>
       </Property>
       <Property>
@@ -132,7 +132,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>ElectronicPayment</Name>
+          <Name>MetraTech.Metanga.ElectronicPayment</Name>
           <PropertyBagMode>Entity</PropertyBagMode>
         </Type>
       </Property>
@@ -148,7 +148,7 @@
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
           <Category>TransactionStatus</Category>
-          <Namespace>metanga</Namespace>
+          <Namespace>MetraTech.Metanga</Namespace>
         </Type>
       </Property>
       <Property>
@@ -206,7 +206,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>Account</Name>
+          <Name>MetraTech.Metanga.Account</Name>
           <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
         </Type>
       </Property>

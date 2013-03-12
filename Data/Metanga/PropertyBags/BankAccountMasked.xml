@@ -70,7 +70,7 @@
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
           <Category>BankAccountType</Category>
-          <Namespace>metanga</Namespace>
+          <Namespace>MetraTech.Metanga</Namespace>
         </Type>
       </Property>
       <Property>

@@ -41,7 +41,7 @@
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
           <Category>CouponAmountType</Category>
-          <Namespace>metanga</Namespace>
+          <Namespace>MetraTech.Metanga</Namespace>
         </Type>
       </Property>
       <Property>
@@ -160,7 +160,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>List</ListType>
-          <Name>Product</Name>
+          <Name>MetraTech.Metanga.Product</Name>
           <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
         </Type>
       </Property>
@@ -175,7 +175,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>List</ListType>
-          <Name>Package</Name>
+          <Name>MetraTech.Metanga.Package</Name>
           <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
         </Type>
       </Property>

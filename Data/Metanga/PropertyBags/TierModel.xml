@@ -27,7 +27,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>List</ListType>
-          <Name>Tier</Name>
+          <Name>MetraTech.Metanga.Tier</Name>
           <PropertyBagMode>PropertyBag</PropertyBagMode>
         </Type>
       </Property>
@@ -42,7 +42,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>Product</Name>
+          <Name>MetraTech.Metanga.Product</Name>
           <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
         </Type>
       </Property>

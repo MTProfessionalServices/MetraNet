@@ -55,7 +55,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>List</ListType>
-          <Name>GridSetting</Name>
+          <Name>MetraTech.Metanga.GridSetting</Name>
           <PropertyBagMode>PropertyBag</PropertyBagMode>
         </Type>
       </Property>
@@ -70,7 +70,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>List</ListType>
-          <Name>WidgetSetting</Name>
+          <Name>MetraTech.Metanga.WidgetSetting</Name>
           <PropertyBagMode>PropertyBag</PropertyBagMode>
         </Type>
       </Property>
@@ -85,7 +85,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>LastActivePage</Name>
+          <Name>MetraTech.Metanga.LastActivePage</Name>
           <PropertyBagMode>PropertyBag</PropertyBagMode>
         </Type>
       </Property>

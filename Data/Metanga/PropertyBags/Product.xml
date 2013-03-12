@@ -27,7 +27,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>PriceSchedule</Name>
+          <Name>MetraTech.Metanga.PriceSchedule</Name>
           <PropertyBagMode>PropertyBag</PropertyBagMode>
         </Type>
       </Property>
@@ -42,7 +42,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>UnitCategory</Name>
+          <Name>MetraTech.Metanga.UnitCategory</Name>
           <PropertyBagMode>Entity</PropertyBagMode>
         </Type>
       </Property>
@@ -70,7 +70,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>ProductModel</Name>
+          <Name>MetraTech.Metanga.ProductModel</Name>
           <PropertyBagMode>PropertyBag</PropertyBagMode>
         </Type>
       </Property>

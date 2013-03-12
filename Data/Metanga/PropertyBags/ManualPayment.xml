@@ -28,7 +28,7 @@
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
           <Category>ManualPaymentOperation</Category>
-          <Namespace>metanga</Namespace>
+          <Namespace>MetraTech.Metanga</Namespace>
         </Type>
       </Property>
       <Property>
@@ -86,7 +86,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>Account</Name>
+          <Name>MetraTech.Metanga.Account</Name>
           <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
         </Type>
       </Property>

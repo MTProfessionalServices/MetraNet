@@ -152,7 +152,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>Account</Name>
+          <Name>MetraTech.Metanga.Account</Name>
           <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
         </Type>
       </Property>
@@ -167,7 +167,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>Account</Name>
+          <Name>MetraTech.Metanga.Account</Name>
           <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
         </Type>
       </Property>
@@ -210,7 +210,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>List</ListType>
-          <Name>PaymentInstrumentMasked</Name>
+          <Name>MetraTech.Metanga.PaymentInstrumentMasked</Name>
           <PropertyBagMode>PropertyBag</PropertyBagMode>
         </Type>
       </Property>
@@ -286,7 +286,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>Organization</Name>
+          <Name>MetraTech.Metanga.Organization</Name>
           <PropertyBagMode>Entity</PropertyBagMode>
         </Type>
       </Property>

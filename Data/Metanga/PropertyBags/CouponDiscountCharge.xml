@@ -27,7 +27,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>BillableEvent</Name>
+          <Name>MetraTech.Metanga.BillableEvent</Name>
           <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
         </Type>
       </Property>
@@ -99,7 +99,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>Product</Name>
+          <Name>MetraTech.Metanga.Product</Name>
           <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
         </Type>
       </Property>

@@ -40,7 +40,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>NotificationEndpointConfiguration</Name>
+          <Name>MetraTech.Metanga.NotificationEndpointConfiguration</Name>
           <PropertyBagMode>PropertyBag</PropertyBagMode>
         </Type>
       </Property>
@@ -55,7 +55,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>AuthenticationConfiguration</Name>
+          <Name>MetraTech.Metanga.AuthenticationConfiguration</Name>
           <PropertyBagMode>PropertyBag</PropertyBagMode>
         </Type>
       </Property>

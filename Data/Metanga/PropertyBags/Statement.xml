@@ -95,7 +95,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>List</ListType>
-          <Name>StatementTransaction</Name>
+          <Name>MetraTech.Metanga.StatementTransaction</Name>
           <PropertyBagMode>PropertyBag</PropertyBagMode>
         </Type>
       </Property>

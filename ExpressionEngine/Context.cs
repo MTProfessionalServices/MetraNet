@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -419,9 +418,7 @@ namespace MetraTech.ExpressionEngine
                 throw new ArgumentNullException("propertyBag");
 
             if (_propertyBags.ContainsKey(propertyBag.FullName))
-            {
-                throw new ArgumentException(string.Format(CultureInfo.CurrentCulture, "Duplicate PropertyBag '{0}'", propertyBag.FullName));
-            }
+                throw new Exception(string.Format(CultureInfo.CurrentCulture, "Duplicate PropertyBag '{0}'", propertyBag.FullName));
 
             _propertyBags.Add(propertyBag.FullName, propertyBag);
         }
@@ -611,8 +608,8 @@ namespace MetraTech.ExpressionEngine
         public static Context LoadMetanga(string dirPath)
         {
             var context = new Context(ProductType.Metanga);
-            EnumCategory.LoadDirectoryIntoContext(Path.Combine(dirPath, "EnumCategories"), null, context);
             PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(dirPath, "PropertyBags"), null, context);
+            EnumCategory.LoadDirectoryIntoContext(Path.Combine(dirPath, "Enumerations"), null, context);
             context.LoadUnitsOfMeasure();
             return context;
         }

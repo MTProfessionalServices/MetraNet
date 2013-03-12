@@ -55,7 +55,7 @@
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
           <Category>EventType</Category>
-          <Namespace>metanga</Namespace>
+          <Namespace>MetraTech.Metanga</Namespace>
         </Type>
       </Property>
       <Property>
@@ -69,7 +69,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>NotificationEndpoint</Name>
+          <Name>MetraTech.Metanga.NotificationEndpoint</Name>
           <PropertyBagMode>Entity</PropertyBagMode>
         </Type>
       </Property>

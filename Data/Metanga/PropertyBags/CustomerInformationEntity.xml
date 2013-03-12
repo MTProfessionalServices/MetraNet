@@ -27,7 +27,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>AccountEmailTemplateConfiguration</Name>
+          <Name>MetraTech.Metanga.AccountEmailTemplateConfiguration</Name>
           <PropertyBagMode>PropertyBag</PropertyBagMode>
         </Type>
       </Property>

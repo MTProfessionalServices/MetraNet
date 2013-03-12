@@ -419,9 +419,7 @@ namespace MetraTech.ExpressionEngine
                 throw new ArgumentNullException("propertyBag");
 
             if (_propertyBags.ContainsKey(propertyBag.FullName))
-            {
-                throw new ArgumentException(string.Format(CultureInfo.CurrentCulture, "Duplicate PropertyBag '{0}'", propertyBag.FullName));
-            }
+                throw new Exception(string.Format(CultureInfo.CurrentCulture, "Duplicate PropertyBag '{0}'", propertyBag.FullName));
 
             _propertyBags.Add(propertyBag.FullName, propertyBag);
         }

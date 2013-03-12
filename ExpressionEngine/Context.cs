@@ -51,6 +51,12 @@ namespace MetraTech.ExpressionEngine
         public EmailInstance EmailInstance { get; private set; }
 
         /// <summary>
+        /// All enumeration categories
+        /// </summary>
+        public IEnumerable<EnumCategory> EnumCategories { get { return _enumCategories.Values; } }
+        private Dictionary<string, EnumCategory> _enumCategories = new Dictionary<string, EnumCategory>(StringComparer.InvariantCultureIgnoreCase);
+
+        /// <summary>
         /// All Functions
         /// </summary>
         public IEnumerable<Function> Functions { get { return _functions.Values; } }
@@ -73,10 +79,10 @@ namespace MetraTech.ExpressionEngine
         private Dictionary<string, Uqg> _uqgs = new Dictionary<string, Uqg>(StringComparer.InvariantCultureIgnoreCase);
 
         /// <summary>
-        /// All EnumerationNamespaces
+        /// All Namespaces
         /// </summary>
-        public Dictionary<string, EnumNamespace> EnumNamespaces { get { return _enumNamespaces; } }
-        private Dictionary<string, EnumNamespace> _enumNamespaces = new Dictionary<string, EnumNamespace>(StringComparer.InvariantCultureIgnoreCase);
+        //public IEnumerable<Namespace> EnumNamespaces { get { return _enumNamespaces; } }
+        //private Dictionary<string, EnumNamespace> _enumNamespaces = new Dictionary<string, EnumNamespace>(StringComparer.InvariantCultureIgnoreCase);
 
         /// <summary>
         /// All expressions
@@ -97,9 +103,6 @@ namespace MetraTech.ExpressionEngine
 
         #region Properties that are updated by UpdateContext()
         //These are updated by UpdateContext()
-        public List<EnumCategory> EnumCategories { get { return _enumCategories; } }
-        private List<EnumCategory> _enumCategories = new List<EnumCategory>();
-
 
         public List<Property> AllProperties { get { return _allProperties; } }
         private List<Property> _allProperties = new List<Property>();
@@ -167,7 +170,7 @@ namespace MetraTech.ExpressionEngine
             if (expression.Info.SupportsUqgs)
                 _uqgs = masterContext.Uqgs;
 
-            _enumNamespaces = masterContext.EnumNamespaces;
+            _enumCategories = masterContext._enumCategories;
             _functions = masterContext._functions;
 
             UpdateContext();
@@ -322,11 +325,11 @@ namespace MetraTech.ExpressionEngine
 
                     if (property.Type.IsEnum)
                     {
-                        EnumCategory enumType;
-                        if (TryGetEnumCategory((EnumerationType)property.Type, out enumType))
+                        var enumCategory = GetEnumCategory((EnumerationType) property.Type);
+                        if (enumCategory != null)
                         {
-                            if (!RelevantEnums.Contains(enumType))
-                                RelevantEnums.Add(enumType);
+                            if (!RelevantEnums.Contains(enumCategory))
+                                RelevantEnums.Add(enumCategory);
                         }
                     }
                 }
@@ -334,15 +337,14 @@ namespace MetraTech.ExpressionEngine
 
             _namespaces.Clear();
 
-            EnumCategories.Clear();
-            RelevantEnums.Clear();
-            foreach (var enumSpace in EnumNamespaces.Values)
-            {
-                if (!string.IsNullOrEmpty(enumSpace.Name) && !_namespaces.Contains(enumSpace.Name))
-                    _namespaces.Add(enumSpace.Name);
-                EnumCategories.AddRange(enumSpace.Categories);
+            //RelevantEnums.Clear();
+            //foreach (var enumSpace in EnumNamespaces.Values)
+            //{
+            //    if (!string.IsNullOrEmpty(enumSpace.Name) && !_namespaces.Contains(enumSpace.Name))
+            //        _namespaces.Add(enumSpace.Name);
+            //    EnumCategories.AddRange(enumSpace.Categories);
 
-            }
+            //}
 
             //Find all of the extensions and namespaces
             _extensions.Clear();
@@ -416,16 +418,12 @@ namespace MetraTech.ExpressionEngine
             if (propertyBag == null)
                 throw new ArgumentNullException("propertyBag");
 
-            var key = propertyBag.Name;
-
-            PropertyBag pb;
-            if (_propertyBags.TryGetValue(key, out pb))
+            if (_propertyBags.ContainsKey(propertyBag.FullName))
             {
-                throw new ArgumentException(string.Format(CultureInfo.CurrentCulture,
-                    "PropertyBag with name='{0} already exists: old={1}, new={2}", propertyBag.Name, pb, propertyBag));
+                throw new ArgumentException(string.Format(CultureInfo.CurrentCulture, "Duplicate PropertyBag '{0}'", propertyBag.FullName));
             }
 
-            _propertyBags.Add(key, propertyBag);
+            _propertyBags.Add(propertyBag.FullName, propertyBag);
         }
 
         public PropertyBag GetPropertyBag(string fullName)
@@ -516,35 +514,32 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region Enums
-
-        public void AddEnumNamespace(EnumNamespace enumSpace)
+   
+        public void AddEnumCategory(EnumCategory enumCategory)
         {
-            if (enumSpace == null)
-                throw new ArgumentNullException("enumSpace");
+            if (enumCategory == null)
+                throw new ArgumentException("enumCategory is null");
 
-            EnumNamespaces.Add(enumSpace.Name, enumSpace);
+            if (_enumCategories.ContainsKey(enumCategory.FullName))
+                throw new Exception(string.Format(CultureInfo.InvariantCulture, "Duplicate EnumCategory '{0}'",enumCategory.FullName));
+            
+            _enumCategories.Add(enumCategory.FullName, enumCategory);
         }
+        public EnumCategory GetEnumCategory(string categoryFullName)
+        {
+            if (string.IsNullOrEmpty(categoryFullName))
+                return null;
 
-      
-        public bool TryGetEnumCategory(EnumerationType enumerationType, out EnumCategory enumCategory)
+            EnumCategory enumCategory;
+            if (!_enumCategories.TryGetValue(categoryFullName, out enumCategory))
+                return null;
+            return enumCategory; 
+        }
+        public EnumCategory GetEnumCategory(EnumerationType enumerationType)
         {
             if (enumerationType == null)
-                throw new ArgumentNullException("enumerationType");
-
-            EnumNamespace enumNamespace;
-            if (!EnumNamespaces.TryGetValue(enumerationType.Namespace, out enumNamespace))
-            {
-                enumCategory = null;
-                return false;
-            }
-
-            if (!enumNamespace.TryGetEnumCategory(enumerationType.Category, out enumCategory))
-            {
-                enumCategory = null;
-                return false;
-            }
-
-            return true;
+                throw new ArgumentException("enumerationType is null");
+            return GetEnumCategory(enumerationType.Category);
         }
         #endregion
 
@@ -561,12 +556,12 @@ namespace MetraTech.ExpressionEngine
         {
             dirPath.EnsureDirectoryExits();
 
-            foreach (var enumNamespace in EnumNamespaces.Values)
+            foreach (var enumCategory in EnumCategories)
             {
                 if (IsMetraNet)
-                    enumNamespace.SaveInExtension(dirPath);
-                else 
-                    enumNamespace.Save(Path.Combine(dirPath, "Enumerations"));
+                    enumCategory.SaveInExtension(dirPath);
+                else
+                    enumCategory.Save(Path.Combine(dirPath, "Enumerations"));
             }
 
             foreach (var propertyBag in PropertyBags)
@@ -606,7 +601,7 @@ namespace MetraTech.ExpressionEngine
             if (!configDirInfo.Exists)
                 return;
 
-            EnumNamespace.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "Enumerations"), extensionDir.Name, context);
+            EnumCategory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "Enumerations"), extensionDir.Name, context);
             PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "AccountViews"), "AccountView", context);
             PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "ProductViews"), "ProductView", context);
             PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "ParameterTables"), "ParameterTable", context);
@@ -616,7 +611,7 @@ namespace MetraTech.ExpressionEngine
         public static Context LoadMetanga(string dirPath)
         {
             var context = new Context(ProductType.Metanga);
-            EnumNamespace.LoadDirectoryIntoContext(Path.Combine(dirPath, "EnumCategories"), null, context);
+            EnumCategory.LoadDirectoryIntoContext(Path.Combine(dirPath, "EnumCategories"), null, context);
             PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(dirPath, "PropertyBags"), null, context);
             context.LoadUnitsOfMeasure();
             return context;
@@ -630,9 +625,10 @@ namespace MetraTech.ExpressionEngine
 
         private void LoadUnitsOfMeasure()
         {
-            EnumNamespace.LoadDirectoryIntoContext(@"C:\ExpressionEngine\Reference\Enumerations", null, this);
+            EnumCategory.LoadDirectoryIntoContext(@"C:\ExpressionEngine\Reference\Enumerations", null, this);
         }
         #endregion
 
     }
 }
+

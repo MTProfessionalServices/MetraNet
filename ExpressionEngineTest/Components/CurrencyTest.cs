@@ -13,7 +13,7 @@ namespace ExpressionEngineTest
         [TestMethod()]
         public void CurrencyConstructorTest()
         {
-            var enumCategory = new EnumCategory(null, EnumMode.Currency, null, 0, null);
+            var enumCategory = new EnumCategory(EnumMode.Currency, null, null, 0, null);
             var name = "Tokens";
             var id = 231;
             var description = "this is a good description";

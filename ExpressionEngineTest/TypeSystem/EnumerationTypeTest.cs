@@ -38,8 +38,7 @@ namespace ExpressionEngineTest
             TestHelper.AssertValidation(messages, 1, 0, 0, "Namespace not found");
 
             //Set a real namespace
-            var enumNamespace = new EnumNamespace("Global", null);
-            context.EnumNamespaces.Add(enumNamespace.Name, enumNamespace);
+            enumerationType.Namespace = "Global";
 
             //Expect Category not spcefied
             messages = new ValidationMessageCollection();
@@ -53,7 +52,8 @@ namespace ExpressionEngineTest
             TestHelper.AssertValidation(messages, 1, 0, 0, "Category not found");
 
             //Set a real Category
-            enumNamespace.AddCategory(EnumMode.EnumValue, "Country", 0, null);
+            var enumCategory = new EnumCategory(EnumMode.EnumValue, "Global", "Country", 0, null);
+            context.AddEnumCategory(enumCategory);
             messages = new ValidationMessageCollection();
             enumerationType.Validate(null, messages, context);
             TestHelper.AssertValidation(messages, 0, 0, 0, "Everything should work at this point");

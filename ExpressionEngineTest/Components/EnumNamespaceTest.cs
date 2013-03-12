@@ -51,7 +51,7 @@ namespace ExpressionEngineTest
         }
 
         /// <summary>
-        ///A test for TryGetEnumCategory
+        ///A test for GetEnumCategory
         ///</summary>
         [TestMethod()]
         public void TryGetEnumTypeTest()

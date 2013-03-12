@@ -99,7 +99,7 @@ namespace PropertyGui
                     LoadTreeProperties();
                     break;
                 case MvcAbstraction.ViewModeType.Enumerations:
-                    LoadTreeEnums(false);
+                    LoadTreeEnums();
                     break;
                 case MvcAbstraction.ViewModeType.AQGs:
                     LoadGeneric(Context.Aqgs.Values);
@@ -149,18 +149,12 @@ namespace PropertyGui
             }
         }
 
-        private void LoadTreeEnums(bool showNamespace)
+        private void LoadTreeEnums()
         {
-            foreach (var enumSpace in Context.EnumNamespaces.Values)
+            foreach (var enumCategory in Context.EnumCategories)
             {
-                TreeNode parent = null;
-                if (showNamespace)
-                    parent = CreateNode(enumSpace);
-                foreach (var enumType in enumSpace.Categories)
-                {
-                    var typeNode = CreateNode(enumType, parent);
-                    AddEnumValues(enumType, typeNode);
-                }
+                var typeNode = CreateNode(enumCategory, null);
+                AddEnumValues(enumCategory, typeNode);
             }
         }
 
@@ -265,8 +259,8 @@ namespace PropertyGui
                 //If it's an enum, append all of the values
                 if (property.Type.IsEnum)
                 {
-                    EnumCategory enumType;
-                    if (Context.TryGetEnumCategory((EnumerationType)property.Type, out enumType))
+                    var enumType = Context.GetEnumCategory((EnumerationType) property.Type);
+                    if (enumType != null)
                         AddEnumValues(enumType, node);          
                 }
 

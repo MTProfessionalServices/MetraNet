@@ -20,7 +20,7 @@ namespace ExpressionEngineTest
         [TestMethod()]
         public void EnumValueConstructorTest()
         {
-            var parent = new EnumCategory(null, EnumMode.EnumValue, "Country", 1, null);
+            var parent = new EnumCategory(EnumMode.EnumValue, "Global", "Country", 1, null);
             var name = "USA";
             var id = 500;
             var description = "Hello world";
@@ -34,8 +34,7 @@ namespace ExpressionEngineTest
         #region Helper Methods
         private EnumValue GetEnumValue(string namespaceName, string categoryName, string enumName, int id, string description = null)
         {
-            var enumNamespace = new EnumNamespace(namespaceName, null);
-            var category = enumNamespace.AddCategory(EnumMode.EnumValue, categoryName, 1, null);
+            var category = new EnumCategory(EnumMode.EnumValue, namespaceName, categoryName, 1, null);
             var value = category.AddEnumValue(enumName, id, description);
             return value;
         }

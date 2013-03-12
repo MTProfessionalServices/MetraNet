@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Runtime.Serialization;
@@ -13,9 +14,10 @@ namespace MetraTech.ExpressionEngine.Components
     {
         #region Properties
         /// <summary>
-        /// The enum space to which the category belongs
+        /// The namespace to which the category belongs
         /// </summary>
-        public EnumNamespace EnumNamespace { get; set; }
+        [DataMember]
+        public string Namespace { get; set; }
 
         /// <summary>
         /// The name that the user assigns the type. Must be unique within a space
@@ -23,13 +25,18 @@ namespace MetraTech.ExpressionEngine.Components
         [DataMember]
         public string Name { get; set; }
 
+        /// <summary>
+        /// The Name prefixed with with Namespace
+        /// </summary>
         public string FullName
         {
-            get
-            {
-                if (String.IsNullOrEmpty(EnumNamespace.Name)) return Name;
-            return EnumNamespace.Name + "." + Name;
-        }}
+            get { return Namespace + "." + Name; }
+        }
+
+        /// <summary>
+        /// Returns the FullName replacing and /'s with _'s. Legacy MetraNet has slashes which causes issues when saving to file
+        /// </summary>
+        public string FullNameWithNoSlashes { get { return FullName.Replace('/', '_'); } }
 
         /// <summary>
         /// Indicates if the category is a basic enumeration, a unit of measure or a currency
@@ -93,10 +100,10 @@ namespace MetraTech.ExpressionEngine.Components
         #endregion
 
         #region Constructor
-        public EnumCategory(EnumNamespace parent, EnumMode enumMode, string name, int id, string description)
+        public EnumCategory(EnumMode enumMode, string _namespace, string name, int id, string description)
         {
-            EnumNamespace = parent;
             EnumMode = enumMode;
+            Namespace = _namespace;
             Name = name;
             Id = id;
             Description = description;
@@ -133,11 +140,15 @@ namespace MetraTech.ExpressionEngine.Components
             return null;
         }
 
+        public override string ToString()
+        {
+            return string.Format(CultureInfo.InvariantCulture, "{0}: {1}", FullName, EnumMode);
+        }
         public virtual string ToExpressionSnippet
         {
             get
             {
-                return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", EnumNamespace.ToExpressionSnippet, Name);
+                return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", Namespace, Name);
             }
         }
 
@@ -159,12 +170,12 @@ namespace MetraTech.ExpressionEngine.Components
 
         public void SaveInExtension(string extensionsDir)
         {
-            var dirPath = IOHelper.GetMetraNetConfigPath(extensionsDir, EnumNamespace.Extension, "Enumerations");
+            var dirPath = IOHelper.GetMetraNetConfigPath(extensionsDir, Extension, "Enumerations");
             Save(dirPath);
         }
         public void Save(string dirPath)
         {
-            var filePath = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.{2}.xml", dirPath, EnumNamespace.NameWithNoSlashes, Name);
+            var filePath = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.{2}.xml", dirPath, FullNameWithNoSlashes, Name);
             IOHelper.Save(filePath, this);
         }
 
@@ -183,6 +194,43 @@ namespace MetraTech.ExpressionEngine.Components
             return category;
         }
 
+        public static void LoadDirectoryIntoContext(string dirPath, string extension, Context context)
+        {
+            var enmuCategories = LoadDirectory(dirPath, extension, context.DeserilizationMessages);
+            foreach (var enumCategory in enmuCategories)
+            {
+                context.AddEnumCategory(enumCategory);
+            }
+        }
+
+        public static List<EnumCategory> LoadDirectory(string dirPath, string extension, ValidationMessageCollection messages = null)
+        {
+            var enmuCategories = new List<EnumCategory>();
+
+            if (string.IsNullOrEmpty(dirPath))
+                throw new ArgumentException("dirPath is null or empty");
+
+            var dirInfo = new DirectoryInfo(dirPath);
+            if (!dirInfo.Exists)
+                return enmuCategories;
+
+            foreach (var fileInfo in dirInfo.GetFiles("*.xml"))
+            {
+                try
+                {
+                    var category = EnumCategory.CreateFromFile(fileInfo.FullName);
+                    enmuCategories.Add(category);
+                }
+                catch (Exception exception)
+                {
+                    if (messages == null)
+                        throw;
+                    messages.Error(string.Format(CultureInfo.CurrentCulture, Localization.FileLoadError, fileInfo.FullName), exception);
+                }               
+            }
+
+            return enmuCategories;
+        }
         #endregion
     }
 }

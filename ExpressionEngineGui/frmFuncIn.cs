@@ -113,8 +113,7 @@ namespace PropertyGui
                 return;
             }
 
-            EnumCategory enumCategory;
-            Context.TryGetEnumCategory((EnumerationType)property.Type, out enumCategory);
+            var enumCategory = Context.GetEnumCategory((EnumerationType)property.Type);
             LoadValues(enumCategory);
         }
 

@@ -11,16 +11,30 @@ namespace ExpressionEngineTest
         [TestMethod()]
         public void UnitOfMeasureCategoryConstructorTest()
         {
-            var parent = new EnumNamespace("MetraTech", null);
+            string _namespace = "MetraTech";
             string name = "Length";
             int id = 500;
             string description = "A linear measurement";
-            var uomCategory = new EnumCategory(parent, EnumMode.UnitOfMeasure, name, id, description);
-            Assert.AreSame(parent, uomCategory.EnumNamespace);
+            var uomCategory = new EnumCategory(EnumMode.UnitOfMeasure, _namespace, name, id, description);
+            Assert.AreSame(_namespace, uomCategory.Namespace);
             Assert.AreEqual(name, uomCategory.Name);
             Assert.AreEqual(id, uomCategory.Id);
             Assert.AreEqual(description, uomCategory.Description);
             Assert.AreEqual(EnumMode.UnitOfMeasure, uomCategory.EnumMode);
+        }
+
+        [TestMethod()]
+        public void FullNameTest()
+        {
+            var category = new EnumCategory(EnumMode.EnumValue, "MetraTech.Hello", "World", 0, null);
+            Assert.AreEqual("MetraTech.Hello.World", category.FullName);
+        }
+
+        [TestMethod()]
+        public void FullNameWithNoSlashesTest()
+        {
+            var category = new EnumCategory(EnumMode.EnumValue, "MetraTech/Hello", "World", 0, null);
+            Assert.AreEqual("MetraTech_Hello.World", category.FullNameWithNoSlashes);
         }
     }
 }

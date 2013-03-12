@@ -102,7 +102,6 @@
     <Compile Include="PropertyBags\PropertyBag.cs" />
     <Compile Include="EmailInstance.cs" />
     <Compile Include="EmailTemplate.cs" />
-    <Compile Include="Components\EnumNamespace.cs" />
     <Compile Include="Components\EnumCategory.cs" />
     <Compile Include="Components\EnumValue.cs" />
     <Compile Include="Expressions\Expression.cs" />

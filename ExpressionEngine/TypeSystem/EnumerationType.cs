@@ -61,18 +61,10 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             if (messages == null)
                 throw new ArgumentNullException("messages");
 
-            //Check if the EnumNamespace was specified
+            //Check if the Namespace was specified
             if (string.IsNullOrEmpty(Namespace))
             {
                 messages.Error(Localization.EnumNamespaceNotSpecified);
-                return;
-            }
-
-            //Check if the NameSpace exists
-            EnumNamespace enumNamespace = null;
-            if (context != null && !context.EnumNamespaces.TryGetValue(Namespace, out enumNamespace))
-            {
-                messages.Error(string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumNamespace, Namespace));
                 return;
             }
 
@@ -83,11 +75,12 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 return;
             }
 
-            //Check if the Cateegory exists
-            EnumCategory enumCategory;
-            if (context != null && !enumNamespace.TryGetEnumCategory(Category, out enumCategory))
+            //Check if the Category exists         
+            if (context != null)
             {
-                messages.Error(string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumCategory, Namespace + "." + Category));
+                var enumCategory = context.GetEnumCategory(Category);
+                if (enumCategory == null)
+                    messages.Error(string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumCategory, Namespace + "." + Category));
             }
         }
 

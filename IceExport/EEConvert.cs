@@ -189,12 +189,12 @@ namespace MetraTech.ICE.ExpressionEngine
       //Enums
       foreach (var oldEnumNamespace in Config.Instance.EnumerationConfig.EnumNamespaces.Values)
       {
-        var newEnumNamespace = new EnumNamespace(oldEnumNamespace.Name, oldEnumNamespace.Description);
-        newEnumNamespace.Extension = oldEnumNamespace.Extension;
+        //var newEnumNamespace = new EnumNamespace(oldEnumNamespace.Name, oldEnumNamespace.Description);
+        //newEnumNamespace.Extension = oldEnumNamespace.Extension;
 
         foreach (var oldEnumType in oldEnumNamespace.EnumTypes.Values)
         {
-          var newEnumType = newEnumNamespace.AddCategory(EnumMode.EnumValue, oldEnumType.Name, 0, oldEnumType.Description);
+          var newEnumType = new EnumCategory(EnumMode.EnumValue, oldEnumNamespace.Name, oldEnumType.Name, 0, oldEnumType.Description);
           foreach (var oldEnumValue in oldEnumType.EnumValues.Values)
           {
             var newEnumValue = newEnumType.AddEnumValue(oldEnumValue.Name, 0, null);
@@ -203,9 +203,9 @@ namespace MetraTech.ICE.ExpressionEngine
               newEnumValue.Aliases.Add(alias);
             }
           }
-        }
 
-        newEnumNamespace.SaveInExtension(extensionsDir);
+          newEnumType.SaveInExtension(extensionsDir);
+        }
       }
 
       //Export the MSIX definitions

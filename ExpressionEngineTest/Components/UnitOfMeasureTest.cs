@@ -14,7 +14,7 @@ namespace ExpressionEngineTest
         [TestMethod()]
         public void UnitOfMeasureConstructorTest()
         {
-            var enumCategory = new EnumCategory(null, EnumMode.UnitOfMeasure, null, 0, null);
+            var enumCategory = new EnumCategory(EnumMode.UnitOfMeasure, null, null, 0, null);
             var name = "Length";
             var id = 1212;
             var description = "linear dimension";

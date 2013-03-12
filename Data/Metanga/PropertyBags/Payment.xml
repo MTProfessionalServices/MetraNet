@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            Represents a payment abstract class
-            </Description>
+  <Description>Represents a payment abstract class</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>Payment</Name>
@@ -20,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Payment amount
-            </Description>
+        <Description>Payment amount</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Amount</Name>
@@ -39,9 +35,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Payment currency
-            </Description>
+        <Description>Payment currency</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Currency</Name>
@@ -55,9 +49,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Payment date
-            </Description>
+        <Description>Payment date</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Date</Name>
@@ -70,9 +62,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Payer (Account domain entity)
-            </Description>
+        <Description>Payer (Account domain entity)</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Payer</Name>

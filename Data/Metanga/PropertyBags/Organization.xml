@@ -2,10 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            In order to support organizations, customers will have to set up multiple business profiles for the different Organizations who re-sell the products that they have in Metanga.
-            Organization entity implements standard CRUD operations.
-            </Description>
+  <Description>In order to support organizations, customers will have to set up multiple business profiles for the different Organizations who re-sell the products that they have in Metanga. Organization entity implements standard CRUD operations.</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>Organization</Name>
@@ -21,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Indicates whether organization is default.By default property is false.
-            </Description>
+        <Description>Indicates whether organization is default.By default property is false.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>IsDefault</Name>
@@ -36,9 +31,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Country's zip code. Is not required field.
-            </Description>
+        <Description>Country's zip code. Is not required field.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>ZipCode</Name>
@@ -52,9 +45,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Represents state of country where organization is located.If country is USA then state is required properties.Otherwise you will get validation error message.
-            </Description>
+        <Description>Represents state of country where organization is located.If country is USA then state is required properties.Otherwise you will get validation error message.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>State</Name>
@@ -68,9 +59,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Represents country code where oragnization is located. Is not required field.
-            </Description>
+        <Description>Represents country code where oragnization is located. Is not required field.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Country</Name>
@@ -84,9 +73,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             Represents city / town / locality
-            </Description>
+        <Description>Represents city / town / locality</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Locality</Name>
@@ -100,9 +87,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Organization addresss.
-            </Description>
+        <Description>Organization addresss.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>StreetAddressLine1</Name>
@@ -116,9 +101,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Additional organization address.
-            </Description>
+        <Description>Additional organization address.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>StreetAddressLine2</Name>

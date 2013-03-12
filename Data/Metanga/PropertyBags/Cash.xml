@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-             Represents a cash payment class
-            </Description>
+  <Description>Represents a cash payment class</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>Cash</Name>
@@ -20,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Payment Reference Number (not required, max 20 symbols)
-            </Description>
+        <Description>Payment Reference Number (not required, max 20 symbols)</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>ReferenceNumber</Name>

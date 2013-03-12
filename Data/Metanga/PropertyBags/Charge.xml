@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            Represents a charge calculated by the Metanga Rating Engine
-            </Description>
+  <Description>Represents a charge calculated by the Metanga Rating Engine</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>Charge</Name>
@@ -20,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             Billable Event, associated with the current charge
-            </Description>
+        <Description>Billable Event, associated with the current charge</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>BillableEvent</Name>
@@ -37,9 +33,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The start date and time used to accrue this charge
-            </Description>
+        <Description>The start date and time used to accrue this charge</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>StartTime</Name>
@@ -52,9 +46,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The end date and time used to accrue this charge
-            </Description>
+        <Description>The end date and time used to accrue this charge</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>EndTime</Name>
@@ -67,9 +59,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             Name of Unit which was used for billing. Also contains the type of recurrent unit. For example Minutes/Month.
-            </Description>
+        <Description>Name of Unit which was used for billing. Also contains the type of recurrent unit. For example Minutes/Month.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>UnitName</Name>
@@ -83,9 +73,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The quantity of items included in this charge
-            </Description>
+        <Description>The quantity of items included in this charge</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Quantity</Name>
@@ -102,9 +90,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The product used to resolve prices associated with this charge
-            </Description>
+        <Description>The product used to resolve prices associated with this charge</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Product</Name>
@@ -119,9 +105,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The subscription used to resolve prices associated with this charge
-            </Description>
+        <Description>The subscription used to resolve prices associated with this charge</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>SubscriptionPackageProductId</Name>
@@ -134,9 +118,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The price that is being applied for each item
-            </Description>
+        <Description>The price that is being applied for each item</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Price</Name>
@@ -153,9 +135,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The currency in which the price is expressed
-            </Description>
+        <Description>The currency in which the price is expressed</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>PriceCurrency</Name>
@@ -169,9 +149,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Total amount calculated in the price currency
-            </Description>
+        <Description>Total amount calculated in the price currency</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>PriceAmount</Name>
@@ -188,9 +166,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The currency in which the charges will be invoiced
-            </Description>
+        <Description>The currency in which the charges will be invoiced</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>ChargeCurrency</Name>
@@ -204,9 +180,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The total amount for these charges expressed in the charge currency
-            </Description>
+        <Description>The total amount for these charges expressed in the charge currency</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>ChargeAmount</Name>
@@ -223,11 +197,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Invoice identity.
-            TODO: Should this property be removed from the charge?? Because it's part
-            of the invoice aggregate and the InvoiceId belongs to the aggregate entity
-            </Description>
+        <Description>Invoice identity. TODO: Should this property be removed from the charge?? Because it's part of the invoice aggregate and the InvoiceId belongs to the aggregate entity</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>InvoiceId</Name>

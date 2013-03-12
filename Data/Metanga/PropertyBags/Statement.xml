@@ -2,10 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            Balance Statement is a stand-alone value object that responsible for providing information
-            about account’s balance at the certain date and information about account's payments and invoices that were made during the certain time range.
-            </Description>
+  <Description>Balance Statement is a stand-alone value object that responsible for providing information about account’s balance at the certain date and information about account's payments and invoices that were made during the certain time range.</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>Statement</Name>
@@ -21,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Previous Balance up to effective Start Date
-            </Description>
+        <Description>Previous Balance up to effective Start Date</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>PreviousBalance</Name>
@@ -40,9 +35,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Amount of Charges based on effective Start Date and End Date
-            </Description>
+        <Description>Amount of Charges based on effective Start Date and End Date</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>TotalCharges</Name>
@@ -59,9 +52,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Amount of Payments based on effective Start Date and End Date
-            </Description>
+        <Description>Amount of Payments based on effective Start Date and End Date</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>TotalPayments</Name>
@@ -78,9 +69,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Balance based on effective Start Date and End Date
-            </Description>
+        <Description>Balance based on effective Start Date and End Date</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>EndingBalance</Name>
@@ -97,9 +86,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Collection of transactions, which contains invoices and payments issued during the specific time range
-            </Description>
+        <Description>Collection of transactions, which contains invoices and payments issued during the specific time range</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Transactions</Name>

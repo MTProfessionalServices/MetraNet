@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            Represents a class for configuring notifications that are sent using SOAP.
-            </Description>
+  <Description>Represents a class for configuring notifications that are sent using SOAP.</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>SoapNotificationConfiguration</Name>
@@ -20,10 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Represents a version of the SOAP standard that is used by your service.
-            Metanga supports v1.1 and v1.2.
-            </Description>
+        <Description>Represents a version of the SOAP standard that is used by your service. Metanga supports v1.1 and v1.2.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>ServiceVersion</Name>
@@ -37,9 +32,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Custom headers which users can add
-            </Description>
+        <Description>Custom headers which users can add</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>CustomHeaders</Name>

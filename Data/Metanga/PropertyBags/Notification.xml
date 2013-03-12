@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            The entity responsible for configure notification for an event in Metanga.
-            </Description>
+  <Description>The entity responsible for configure notification for an event in Metanga.</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>Notification</Name>
@@ -20,10 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Represents a state of the Notification. Notification endpoint and notification itself can be Enabled or Disabled independently. 
-            And notification message will be sent only if both of them the Notification and the Endpoint are Active. 
-            </Description>
+        <Description>Represents a state of the Notification. Notification endpoint and notification itself can be Enabled or Disabled independently. And notification message will be sent only if both of them the Notification and the Endpoint are Active.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Active</Name>
@@ -36,10 +31,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The class name of the entity which will be observe.
-            You can use following entities for notifications: Account, Product, Package, Promotion, Invoice, Subscription, NotificationEndpoint and Notification.
-            </Description>
+        <Description>The class name of the entity which will be observe. You can use following entities for notifications: Account, Product, Package, Promotion, Invoice, Subscription, NotificationEndpoint and Notification.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>TriggerEntityType</Name>
@@ -53,10 +45,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Represents name of the method in observable entity which will generate notification.
-            Only the following types are supported by Metanga: Create, Update and Delete.
-            </Description>
+        <Description>Represents name of the method in observable entity which will generate notification. Only the following types are supported by Metanga: Create, Update and Delete.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>EventType</Name>
@@ -71,9 +60,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            You should configure a notification endpoint to able to send notification messages.
-            </Description>
+        <Description>You should configure a notification endpoint to able to send notification messages.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>NotificationEndpoint</Name>
@@ -88,9 +75,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Represents a name of the triggered event that will be displayed in external system. For example: If new account has been created in Metanga, you can set event name "New Subscriber" for the message.
-            </Description>
+        <Description>Represents a name of the triggered event that will be displayed in external system. For example: If new account has been created in Metanga, you can set event name "New Subscriber" for the message.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>EventName</Name>

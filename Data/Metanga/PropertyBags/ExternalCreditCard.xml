@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-             Represents an external credit card payment class.
-            </Description>
+  <Description>Represents an external credit card payment class.</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>ExternalCreditCard</Name>
@@ -20,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            ReferenceNumber - required property
-            </Description>
+        <Description>ReferenceNumber - required property</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>ReferenceNumber</Name>
@@ -36,9 +32,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            CardType - required property - value from CreditCardType enum
-            </Description>
+        <Description>CardType - required property - value from CreditCardType enum</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>CreditCardType</Name>
@@ -53,9 +47,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             Last4Digits - required property - last 4 digits from Credit Card number
-             </Description>
+        <Description>Last4Digits - required property - last 4 digits from Credit Card number</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Last4Digits</Name>
@@ -69,9 +61,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             ExpirationDate - required property - month and year of Credit Card expiration devided by symbol "/" - "mm/yyyy"
-             </Description>
+        <Description>ExpirationDate - required property - month and year of Credit Card expiration devided by symbol "/" - "mm/yyyy"</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>ExpirationDate</Name>

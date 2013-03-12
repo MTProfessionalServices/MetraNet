@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-             Promotion entity
-            </Description>
+  <Description>Promotion entity</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>Promotion</Name>
@@ -20,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             IsCoupon
-            </Description>
+        <Description>IsCoupon</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>IsCoupon</Name>
@@ -35,9 +31,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             Coupon Amount Type
-            </Description>
+        <Description>Coupon Amount Type</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>CouponAmountType</Name>
@@ -52,9 +46,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             Coupon Amount Value
-            </Description>
+        <Description>Coupon Amount Value</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>CouponAmountValue</Name>
@@ -71,9 +63,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             Coupon Duration Type
-            </Description>
+        <Description>Coupon Duration Type</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>CouponDurationType</Name>
@@ -87,9 +77,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             Coupon Duration Value
-            </Description>
+        <Description>Coupon Duration Value</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>CouponDurationValue</Name>
@@ -106,9 +94,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             Start date of Promotion
-            </Description>
+        <Description>Start date of Promotion</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>PromoStart</Name>
@@ -121,9 +107,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             End date of Promotion
-            </Description>
+        <Description>End date of Promotion</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>PromoEnd</Name>
@@ -136,9 +120,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             Promo Code
-            </Description>
+        <Description>Promo Code</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>PromoCode</Name>
@@ -152,9 +134,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             Promo Name
-            </Description>
+        <Description>Promo Name</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Rank</Name>
@@ -171,11 +151,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Represents a collection of products associated with a promotion.
-            Each element contains modifiers to define how the product should
-            behave for this promotion.
-            </Description>
+        <Description>Represents a collection of products associated with a promotion. Each element contains modifiers to define how the product should behave for this promotion.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>PromotionProducts</Name>
@@ -190,11 +166,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Represents a collection of products associated with a promotion.
-            Each element contains modifiers to define how the product should
-            behave for this promotion.
-            </Description>
+        <Description>Represents a collection of products associated with a promotion. Each element contains modifiers to define how the product should behave for this promotion.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>PromotionPackages</Name>

@@ -2,10 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            This product model will determine a product id based on accumulative consumption at the
-            invoice level
-            </Description>
+  <Description>This product model will determine a product id based on accumulative consumption at the invoice level</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>BucketGroupModel</Name>
@@ -21,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Ordered list of buckets to be tested
-            </Description>
+        <Description>Ordered list of buckets to be tested</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Buckets</Name>
@@ -38,9 +33,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Default product to use if all the buckets have been filled
-            </Description>
+        <Description>Default product to use if all the buckets have been filled</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>DefaultProduct</Name>

@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            Grid data length
-            </Description>
+  <Description>Grid data length</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>GridSetting</Name>
@@ -20,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Metanga grid lenght
-            </Description>
+        <Description>Metanga grid lenght</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>GridLength</Name>
@@ -39,9 +35,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Metanga grid Id
-            </Description>
+        <Description>Metanga grid Id</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>GridName</Name>

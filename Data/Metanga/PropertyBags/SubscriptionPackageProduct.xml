@@ -2,10 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-             SubscriptionPackageProduct contains modifiers to define how 
-             the product should behave for this subscription.
-            </Description>
+  <Description>SubscriptionPackageProduct contains modifiers to define how the product should behave for this subscription.</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>SubscriptionPackageProduct</Name>
@@ -21,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            A product that is part of this package.
-            </Description>
+        <Description>A product that is part of this package.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Product</Name>
@@ -38,9 +33,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            StartDate of subscription to this product.
-            </Description>
+        <Description>StartDate of subscription to this product.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>StartDate</Name>
@@ -53,9 +46,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            EndDate of subscription to this product.
-            </Description>
+        <Description>EndDate of subscription to this product.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>EndDate</Name>
@@ -68,11 +59,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The amount for which this product is subscribed for.
-            For Recurring products this field will be default to 1.
-            For Reservation products this field will be required.
-            </Description>
+        <Description>The amount for which this product is subscribed for. For Recurring products this field will be default to 1. For Reservation products this field will be required.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Quantity</Name>
@@ -89,14 +76,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Indicates the quantity unit. 
-            This is only required for products that have a Reservation type. 
-            The list of values represents a Unit of Measure Codes. 
-            A list of valid codes can be found in the Metanga UI (go to Configuration -&gt; Units of Measure).
-            The Codes for Units of Measure in Metanga are based on the Unified Code for Units of Measure. 
-            You can learn more about this specification here: http://unitsofmeasure.org/
-            </Description>
+        <Description>Indicates the quantity unit. This is only required for products that have a Reservation type. The list of values represents a Unit of Measure Codes. A list of valid codes can be found in the Metanga UI (go to Configuration -&gt; Units of Measure). The Codes for Units of Measure in Metanga are based on the Unified Code for Units of Measure. You can learn more about this specification here: http://unitsofmeasure.org/</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>UnitId</Name>
@@ -110,11 +90,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Last Date on which the recurring charge was billed. 
-            This value is not required, and should not be populated for new subscriptions.
-            This is useful when onboarding subscriptions from a legacy billing systems that has already generated recurring charges up to a certain date.
-            </Description>
+        <Description>Last Date on which the recurring charge was billed. This value is not required, and should not be populated for new subscriptions. This is useful when onboarding subscriptions from a legacy billing systems that has already generated recurring charges up to a certain date.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>RecurringLastDate</Name>
@@ -127,12 +103,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Contains the subscription price that will be applied for this product. 
-            Prices for a product can be overridden for a given subscription by providing a new price schedule. 
-            For example, a product that is normally sold for $5 could be sold for $4 for a given subscription.
-            A null value indicates that the price set at the packageproduct level should be used.
-            </Description>
+        <Description>Contains the subscription price that will be applied for this product. Prices for a product can be overridden for a given subscription by providing a new price schedule. For example, a product that is normally sold for $5 could be sold for $4 for a given subscription. A null value indicates that the price set at the packageproduct level should be used.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>PriceSchedule</Name>

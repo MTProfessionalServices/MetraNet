@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-            Represents a base class for configuring notifications.
-            </Description>
+  <Description>Represents a base class for configuring notifications.</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>NotificationEndpointConfiguration</Name>
@@ -20,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Represents an URL address of your service that is listening for the notification messages.
-            </Description>
+        <Description>Represents an URL address of your service that is listening for the notification messages.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>EndpointAddress</Name>

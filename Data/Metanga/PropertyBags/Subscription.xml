@@ -2,9 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>
-             Represents a Subscription in Metanga.
-            </Description>
+  <Description>Represents a Subscription in Metanga.</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>Subscription</Name>
@@ -20,9 +18,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The subscriber account.
-            </Description>
+        <Description>The subscriber account.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Account</Name>
@@ -37,9 +33,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The package assosiated with this subscription.
-            </Description>
+        <Description>The package assosiated with this subscription.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Package</Name>
@@ -54,9 +48,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            An optional promotion that is assosiated with this subscription.
-            </Description>
+        <Description>An optional promotion that is assosiated with this subscription.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Promotion</Name>
@@ -71,14 +63,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Required only if the Subscription is subscribed to a package that has any products with a Recurring event model.
-            This indicates the cycles that should be enabled for a subscription. 
-            The list of values represents a Unit of Measure Codes. 
-            A list of valid codes can be found in the Metanga UI (go to Configuration -&gt; Units of Measure). 
-            Only units of measure based on days or months can be used. 
-            The Codes for Units of Measure in Metanga are based on the Unified Code for Units of Measure. 
-            You can learn more about this specification here: http://unitsofmeasure.org/ Common values used are: "MO" (Monthly), "ANN" (Annual), "ANN/4" (Quarterly)</Description>
+        <Description>Required only if the Subscription is subscribed to a package that has any products with a Recurring event model. This indicates the cycles that should be enabled for a subscription. The list of values represents a Unit of Measure Codes. A list of valid codes can be found in the Metanga UI (go to Configuration -&gt; Units of Measure). Only units of measure based on days or months can be used. The Codes for Units of Measure in Metanga are based on the Unified Code for Units of Measure. You can learn more about this specification here: http://unitsofmeasure.org/ Common values used are: "MO" (Monthly), "ANN" (Annual), "ANN/4" (Quarterly)</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>RecurringCycleUnitId</Name>
@@ -92,10 +77,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Represents a collection of SubscriptionPackageProducts for each product that is associated with the subscription. 
-            Each element contains modifiers to define how the product should behave for this subscription.
-            </Description>
+        <Description>Represents a collection of SubscriptionPackageProducts for each product that is associated with the subscription. Each element contains modifiers to define how the product should behave for this subscription.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>SubscriptionPackageProducts</Name>
@@ -110,12 +92,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             Represents a reason of why a subscription is ended.
-             You can use one of the following end reasons:
-             Expiration - means that the subscription has expired.Renewal(*) - means that the subscription has been renewed.Conversion(*) - means that the subscription has been converted.Unsubscription - means that the subscription has been unsubscribed.Termination - means that the subscription has been terminated.
-             (*) - these options are not supported by Metanga in current release and will be supported going forward.
-            </Description>
+        <Description>Represents a reason of why a subscription is ended. You can use one of the following end reasons: Expiration - means that the subscription has expired.Renewal(*) - means that the subscription has been renewed.Conversion(*) - means that the subscription has been converted.Unsubscription - means that the subscription has been unsubscribed.Termination - means that the subscription has been terminated. (*) - these options are not supported by Metanga in current release and will be supported going forward.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>EndReason</Name>

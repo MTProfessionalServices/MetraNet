@@ -2,17 +2,24 @@
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description i:nil="true" />
   <EnumMode>EnumValue</EnumMode>
-  <Name>ContentFormat</Name>
+  <Extension i:nil="true" />
+  <Name>PaymentInfoStatus</Name>
+  <Namespace>MetraTech.Metanga</Namespace>
   <Values>
     <EnumValue>
       <Aliases />
       <Description i:nil="true" />
-      <Name>Json</Name>
+      <Name>NotDefined</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
       <Description i:nil="true" />
-      <Name>Xml</Name>
+      <Name>NotRequired</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>Required</Name>
     </EnumValue>
   </Values>
 </EnumCategory>

@@ -2,7 +2,9 @@
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description>Fluid volume is how much three-dimensional space a substance (solid, liquid, gas, or plasma) or shape occupies or contains.</Description>
   <EnumMode>UnitOfMeasure</EnumMode>
-  <Name>Fluid Volume</Name>
+  <Extension i:nil="true" />
+  <Name>FluidVolume</Name>
+  <Namespace>MetraTech</Namespace>
   <Values>
     <EnumValue i:type="UnitOfMeasure">
       <Aliases />

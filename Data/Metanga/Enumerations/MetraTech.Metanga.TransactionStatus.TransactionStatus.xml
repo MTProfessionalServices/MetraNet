@@ -2,7 +2,9 @@
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description i:nil="true" />
   <EnumMode>EnumValue</EnumMode>
+  <Extension i:nil="true" />
   <Name>TransactionStatus</Name>
+  <Namespace>MetraTech.Metanga</Namespace>
   <Values>
     <EnumValue>
       <Aliases />

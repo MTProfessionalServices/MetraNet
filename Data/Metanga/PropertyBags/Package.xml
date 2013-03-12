@@ -13,6 +13,7 @@
     <Name>Package</Name>
     <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
   </Type>
+  <Namespace>MetraTech.Metanga</Namespace>
   <Properties>
     <Properties>
       <Property>

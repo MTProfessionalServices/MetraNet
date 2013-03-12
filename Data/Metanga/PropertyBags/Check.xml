@@ -13,6 +13,7 @@
     <Name>Check</Name>
     <PropertyBagMode>Entity</PropertyBagMode>
   </Type>
+  <Namespace>MetraTech.Metanga</Namespace>
   <Properties>
     <Properties>
       <Property>

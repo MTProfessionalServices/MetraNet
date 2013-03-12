@@ -13,14 +13,13 @@
     <Name>BillableEvent</Name>
     <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
   </Type>
+  <Namespace>MetraTech.Metanga</Namespace>
   <Properties>
     <Properties>
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Timestamp of the Usage
-            </Description>
+        <Description>Timestamp of the Usage</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>StartTime</Name>
@@ -33,11 +32,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Time at which transaction ended. Requires a StartTime to be passed.
-            If Quantity is not set, MetraNet will set the Quantity to the total minutes between
-            the start and the end time.
-            </Description>
+        <Description>Time at which transaction ended. Requires a StartTime to be passed. If Quantity is not set, MetraNet will set the Quantity to the total minutes between the start and the end time.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>EndTime</Name>
@@ -50,10 +45,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The units used to measure the quantity. The acceptable values can be seen in the
-            Units of Measure Management screen in Metanga. Values provided out of the box are
-            based on the Unified Code for Units of Measure standard: http://en.wikipedia.org/wiki/Unified_Code_for_Units_of_Measure</Description>
+        <Description>The units used to measure the quantity. The acceptable values can be seen in the Units of Measure Management screen in Metanga. Values provided out of the box are based on the Unified Code for Units of Measure standard: http://en.wikipedia.org/wiki/Unified_Code_for_Units_of_Measure</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>UnitOfMeasure</Name>
@@ -67,9 +59,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Number of Items
-            </Description>
+        <Description>Number of Items</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Quantity</Name>
@@ -86,9 +76,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The account that originated this charge.
-            </Description>
+        <Description>The account that originated this charge.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Originator</Name>
@@ -103,9 +91,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The product for which Metanga will generate this charge.
-            </Description>
+        <Description>The product for which Metanga will generate this charge.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Product</Name>

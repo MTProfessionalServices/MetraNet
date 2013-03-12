@@ -1,86 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
-  <Description>
-            List of data types that can be chosen for extended entity columns
-            </Description>
+  <Description>List of data types that can be chosen for extended entity columns</Description>
   <EnumMode>EnumValue</EnumMode>
+  <Extension i:nil="true" />
   <Name>DataType</Name>
+  <Namespace>MetraTech.Metanga</Namespace>
   <Values>
     <EnumValue>
       <Aliases />
-      <Description>
-            A user or a role in the system
-            </Description>
+      <Description>A user or a role in the system</Description>
       <Name>UserOrRole</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
-      <Description>
-            An image
-            </Description>
+      <Description>An image</Description>
       <Name>Image</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
-      <Description>
-            Link to a website
-            </Description>
+      <Description>Link to a website</Description>
       <Name>Hyperlink</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
-      <Description>
-            Boolean value
-            </Description>
+      <Description>Boolean value</Description>
       <Name>Boolean</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
-      <Description>
-            A reference to an entity
-            </Description>
+      <Description>A reference to an entity</Description>
       <Name>Entity</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
-      <Description>
-            A date-time value
-            </Description>
+      <Description>A date-time value</Description>
       <Name>DateTime</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
-      <Description>
-            A monetary number
-            </Description>
+      <Description>A monetary number</Description>
       <Name>Money</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
-      <Description>
-            A numerice value
-            </Description>
+      <Description>A numerice value</Description>
       <Name>Number</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
-      <Description>
-            A list of pre-defined values
-            </Description>
+      <Description>A list of pre-defined values</Description>
       <Name>Enum</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
-      <Description>
-            A long text value (e.g. a contract, document, terms and conditions, etc.)
-            </Description>
+      <Description>A long text value (e.g. a contract, document, terms and conditions, etc.)</Description>
       <Name>Text</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
-      <Description>
-            A string of up to 4000 characters
-            </Description>
+      <Description>A string of up to 4000 characters</Description>
       <Name>String</Name>
     </EnumValue>
     <EnumValue>

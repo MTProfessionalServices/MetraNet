@@ -2,7 +2,9 @@
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description>Time is a part of the measuring system used to sequence events, to compare the durations of events and the intervals between them, and to quantify rates of change such as the motions of objects.</Description>
   <EnumMode>UnitOfMeasure</EnumMode>
-  <Name>Time Month-Based</Name>
+  <Extension i:nil="true" />
+  <Name>TimeMonthBased</Name>
+  <Namespace>MetraTech</Namespace>
   <Values>
     <EnumValue i:type="UnitOfMeasure">
       <Aliases />

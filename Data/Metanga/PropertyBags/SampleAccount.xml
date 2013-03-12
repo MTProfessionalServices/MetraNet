@@ -13,14 +13,13 @@
     <Name>Account</Name>
     <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
   </Type>
+  <Namespace>MetraTech.Metanga</Namespace>
   <Properties>
     <Properties>
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Security Question
-            </Description>
+        <Description>Security Question</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>SecurityQuestion</Name>
@@ -34,9 +33,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Active / Suspended status
-            </Description>
+        <Description>Active / Suspended status</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Suspended</Name>
@@ -49,9 +46,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Last Change Password
-            </Description>
+        <Description>Last Change Password</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>LastChangePassword</Name>
@@ -64,9 +59,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Failed Password Attempt Count
-            </Description>
+        <Description>Failed Password Attempt Count</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>FailedPasswordAttemptCount</Name>
@@ -83,9 +76,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Last Lockout Date
-            </Description>
+        <Description>Last Lockout Date</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>LastLockoutDate</Name>
@@ -98,11 +89,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             Indicates that the account will pay automatically when an invoice is delivered.
-             Metanga will debit from the payment instrument (credit card or bank account) with
-             the highest priority.
-            </Description>
+        <Description>Indicates that the account will pay automatically when an invoice is delivered. Metanga will debit from the payment instrument (credit card or bank account) with the highest priority.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>PaysAutomatically</Name>
@@ -115,10 +102,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Security Answer. This property depend of property ShowSecurityData, 
-            if that chacked we get real security answer if not we receive null)
-            </Description>
+        <Description>Security Answer. This property depend of property ShowSecurityData, if that chacked we get real security answer if not we receive null)</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>SecurityAnswer</Name>
@@ -132,9 +116,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The UserName for the account. Used for logging into Self Care portal.
-            </Description>
+        <Description>The UserName for the account. Used for logging into Self Care portal.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>UserName</Name>
@@ -148,11 +130,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The Password for the account. Used for logging into Self Care portal.
-            This is a write-only property. Metanga will always return null when the
-            account is being retrieved.
-            </Description>
+        <Description>The Password for the account. Used for logging into Self Care portal. This is a write-only property. Metanga will always return null when the account is being retrieved.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Password</Name>
@@ -166,10 +144,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The parent account for the new account. If this value is not set, then
-            the account is created at the top level of the hierarchy.
-            </Description>
+        <Description>The parent account for the new account. If this value is not set, then the account is created at the top level of the hierarchy.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Parent</Name>
@@ -184,11 +159,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The payer account for the new account. The payer has to be a billable account.
-            If this value is not set, then the account is considered to be self-paid. In
-            this case, the account needs to be billable.
-            </Description>
+        <Description>The payer account for the new account. The payer has to be a billable account. If this value is not set, then the account is considered to be self-paid. In this case, the account needs to be billable.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Payer</Name>
@@ -203,10 +174,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>The account language code is used by Metanga to identify appropriate templates for
-            email communications.Language codes in Metanga are based on IETF language tags.
-            For example: "en-us", "ja-jp". Valid values can be found in Metanga, under Configuration -&gt; Languages To Support (see the Culture Code column).
-            </Description>
+        <Description>The account language code is used by Metanga to identify appropriate templates for email communications.Language codes in Metanga are based on IETF language tags. For example: "en-us", "ja-jp". Valid values can be found in Metanga, under Configuration -&gt; Languages To Support (see the Culture Code column).</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Language</Name>
@@ -220,9 +188,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The invoice currency for the account. Follows the ISO-4217 currency convention.
-            </Description>
+        <Description>The invoice currency for the account. Follows the ISO-4217 currency convention.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Currency</Name>
@@ -236,9 +202,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Represents the collection of payment instruments associated with the account.
-            </Description>
+        <Description>Represents the collection of payment instruments associated with the account.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>PaymentInstruments</Name>
@@ -253,9 +217,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Version of accepted Terms and Conditions
-            </Description>
+        <Description>Version of accepted Terms and Conditions</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>TermsConditionsVersion</Name>
@@ -272,9 +234,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Acceptance date of Terms and Conditions
-            </Description>
+        <Description>Acceptance date of Terms and Conditions</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>TermsConditionsAcceptDate</Name>
@@ -287,9 +247,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Billing Cycle Type (Years, Months, Days) for NetTerms
-            </Description>
+        <Description>Billing Cycle Type (Years, Months, Days) for NetTerms</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>NetTermsCycleType</Name>
@@ -303,9 +261,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Duration of the period from the billing date up to the last invoice payment date
-            </Description>
+        <Description>Duration of the period from the billing date up to the last invoice payment date</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>NetTermsQuantity</Name>
@@ -322,9 +278,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-             Organization
-            </Description>
+        <Description>Organization</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Organization</Name>
@@ -339,9 +293,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The First Name for the Account
-            </Description>
+        <Description>The First Name for the Account</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>FirstName</Name>
@@ -355,9 +307,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The Middle Initial for the Account
-            </Description>
+        <Description>The Middle Initial for the Account</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>MiddleInitial</Name>
@@ -371,9 +321,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The Last Name for the Account
-            </Description>
+        <Description>The Last Name for the Account</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>LastName</Name>
@@ -387,9 +335,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            First line of the address for the Account
-            </Description>
+        <Description>First line of the address for the Account</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Address1</Name>
@@ -403,9 +349,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Second line of the address for the Account
-            </Description>
+        <Description>Second line of the address for the Account</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Address2</Name>
@@ -419,9 +363,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Third line of the address for the Account
-            </Description>
+        <Description>Third line of the address for the Account</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Address3</Name>
@@ -435,9 +377,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The City for the Account
-            </Description>
+        <Description>The City for the Account</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>City</Name>
@@ -451,9 +391,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            State or Province of the Account
-            </Description>
+        <Description>State or Province of the Account</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>State</Name>
@@ -467,9 +405,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Zip (or Postal) code for the Account
-            </Description>
+        <Description>Zip (or Postal) code for the Account</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Zip</Name>
@@ -497,9 +433,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Email address for the Account
-            </Description>
+        <Description>Email address for the Account</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Email</Name>
@@ -513,9 +447,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Phone number for the Account
-            </Description>
+        <Description>Phone number for the Account</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>PhoneNumber</Name>
@@ -529,9 +461,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            Fax number for the Account
-            </Description>
+        <Description>Fax number for the Account</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>FaxNumber</Name>
@@ -545,9 +475,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>
-            The name of the company for this account
-            </Description>
+        <Description>The name of the company for this account</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Company</Name>
@@ -575,10 +503,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>Represents an anniversary date when an account should receive an invoice.
-            This date is used to identify appropriate bill dates, based on the bill
-            frequency specifid by the billing cycle unit.For example, if an account has a BillingCycleEndDate = 2012-01-30 then the account will receive invoices on these dates:Monthly Cycle: On the 30th day of the month (2012-01-30, 2012-02-29(*), 2012-03-30, 2012-04-30, etc.)Weekly Cycle: Every Tusday (2012-01-31, 2012-02-07, 2012-02-14, 2012-02-21, etc.)Quarterly Cycle: 1st month of each quarter on the 30th day (2012-01-30, 2012-04-30, 2012-07-30, etc.)Annual Cycle: Every year on January 30th (2012-01-30, 2013-01-30, 2014-01-30, etc.)(*) On months with less than 30 days, bills are produced on the last day of the month. To always bill on the last day
-            of the month, use the last day of a month with 31 days. For example, 2012-01-31.</Description>
+        <Description>Represents an anniversary date when an account should receive an invoice. This date is used to identify appropriate bill dates, based on the bill frequency specifid by the billing cycle unit.For example, if an account has a BillingCycleEndDate = 2012-01-30 then the account will receive invoices on these dates:Monthly Cycle: On the 30th day of the month (2012-01-30, 2012-02-29(*), 2012-03-30, 2012-04-30, etc.)Weekly Cycle: Every Tusday (2012-01-31, 2012-02-07, 2012-02-14, 2012-02-21, etc.)Quarterly Cycle: 1st month of each quarter on the 30th day (2012-01-30, 2012-04-30, 2012-07-30, etc.)Annual Cycle: Every year on January 30th (2012-01-30, 2013-01-30, 2014-01-30, etc.)(*) On months with less than 30 days, bills are produced on the last day of the month. To always bill on the last day of the month, use the last day of a month with 31 days. For example, 2012-01-31.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>BillingCycleEndDate</Name>

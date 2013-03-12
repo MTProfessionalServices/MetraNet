@@ -1,23 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
-  <Description i:nil="true" />
+  <Description>Payment operations type for Manual payments</Description>
   <EnumMode>EnumValue</EnumMode>
-  <Name>PaymentInfoStatus</Name>
+  <Extension i:nil="true" />
+  <Name>ManualPaymentOperation</Name>
+  <Namespace>MetraTech.Metanga</Namespace>
   <Values>
     <EnumValue>
       <Aliases />
-      <Description i:nil="true" />
-      <Name>NotDefined</Name>
+      <Description>Submit payment operation.</Description>
+      <Name>Submit</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
-      <Description i:nil="true" />
-      <Name>NotRequired</Name>
-    </EnumValue>
-    <EnumValue>
-      <Aliases />
-      <Description i:nil="true" />
-      <Name>Required</Name>
+      <Description>Credit payment amount.</Description>
+      <Name>Credit</Name>
     </EnumValue>
   </Values>
 </EnumCategory>

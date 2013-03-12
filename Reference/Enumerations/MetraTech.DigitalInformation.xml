@@ -2,7 +2,9 @@
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description>A unit of information is the capacity of some standard data storage system or communication channel, used to measure the capacities of other systems and channels.</Description>
   <EnumMode>UnitOfMeasure</EnumMode>
-  <Name>Digital Information</Name>
+  <Extension i:nil="true" />
+  <Name>DigitalInformation</Name>
+  <Namespace>MetraTech</Namespace>
   <Values>
     <EnumValue i:type="UnitOfMeasure">
       <Aliases />

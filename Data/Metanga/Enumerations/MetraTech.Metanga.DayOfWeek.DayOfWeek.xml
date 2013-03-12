@@ -2,47 +2,44 @@
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description i:nil="true" />
   <EnumMode>EnumValue</EnumMode>
-  <Name>NotificationEmailType</Name>
+  <Extension i:nil="true" />
+  <Name>DayOfWeek</Name>
+  <Namespace>MetraTech.Metanga</Namespace>
   <Values>
     <EnumValue>
       <Aliases />
       <Description i:nil="true" />
-      <Name>ChangePassword</Name>
+      <Name>Sunday</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
       <Description i:nil="true" />
-      <Name>NotificationEmailForNewUser</Name>
+      <Name>Monday</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
       <Description i:nil="true" />
-      <Name>ChangePasswordSubscriber</Name>
+      <Name>Tuesday</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
       <Description i:nil="true" />
-      <Name>NotificationEmailForNewUserSubscriber</Name>
+      <Name>Wednesday</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
       <Description i:nil="true" />
-      <Name>PaymentMethodExpiration</Name>
+      <Name>Thursday</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
       <Description i:nil="true" />
-      <Name>Dunning</Name>
+      <Name>Friday</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
       <Description i:nil="true" />
-      <Name>FailedPayment</Name>
-    </EnumValue>
-    <EnumValue>
-      <Aliases />
-      <Description i:nil="true" />
-      <Name>FailedPaymentRetry</Name>
+      <Name>Saturday</Name>
     </EnumValue>
   </Values>
 </EnumCategory>

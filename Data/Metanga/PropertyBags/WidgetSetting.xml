@@ -13,6 +13,7 @@
     <Name>WidgetSetting</Name>
     <PropertyBagMode>PropertyBag</PropertyBagMode>
   </Type>
+  <Namespace>MetraTech.Metanga</Namespace>
   <Properties>
     <Properties>
       <Property>

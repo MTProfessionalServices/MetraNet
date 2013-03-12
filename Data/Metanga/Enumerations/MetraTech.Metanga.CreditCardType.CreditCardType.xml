@@ -2,27 +2,44 @@
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description i:nil="true" />
   <EnumMode>EnumValue</EnumMode>
-  <Name>PaymentBrokerResponseCode</Name>
+  <Extension i:nil="true" />
+  <Name>CreditCardType</Name>
+  <Namespace>MetraTech.Metanga</Namespace>
   <Values>
     <EnumValue>
       <Aliases />
       <Description i:nil="true" />
-      <Name>Success</Name>
+      <Name>Unknown</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
       <Description i:nil="true" />
-      <Name>Decline</Name>
+      <Name>AmericanExpress</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
       <Description i:nil="true" />
-      <Name>Error</Name>
+      <Name>DinersClub</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
       <Description i:nil="true" />
-      <Name>NetworkError</Name>
+      <Name>Discover</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>JapanCreditBureau</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>MasterCard</Name>
+    </EnumValue>
+    <EnumValue>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>Visa</Name>
     </EnumValue>
   </Values>
 </EnumCategory>

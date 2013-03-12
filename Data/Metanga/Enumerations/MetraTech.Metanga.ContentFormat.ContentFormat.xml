@@ -1,24 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
-  <Description>
-             Coupon Amount Type
-            </Description>
+  <Description i:nil="true" />
   <EnumMode>EnumValue</EnumMode>
-  <Name>CouponAmountType</Name>
+  <Extension i:nil="true" />
+  <Name>ContentFormat</Name>
+  <Namespace>MetraTech.Metanga</Namespace>
   <Values>
     <EnumValue>
       <Aliases />
-      <Description>
-             Flat
-            </Description>
-      <Name>Flat</Name>
+      <Description i:nil="true" />
+      <Name>Json</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
-      <Description>
-             Percent
-            </Description>
-      <Name>Percent</Name>
+      <Description i:nil="true" />
+      <Name>Xml</Name>
     </EnumValue>
   </Values>
 </EnumCategory>

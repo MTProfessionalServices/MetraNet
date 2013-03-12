@@ -1,24 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
-  <Description>
-            Payment operations type for Manual payments
-            </Description>
+  <Description>Invoice State</Description>
   <EnumMode>EnumValue</EnumMode>
-  <Name>ManualPaymentOperation</Name>
+  <Extension i:nil="true" />
+  <Name>InvoiceState</Name>
+  <Namespace>MetraTech.Metanga</Namespace>
   <Values>
     <EnumValue>
       <Aliases />
-      <Description>
-            Submit payment operation.
-            </Description>
-      <Name>Submit</Name>
+      <Description>open state</Description>
+      <Name>Open</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
-      <Description>
-            Credit payment amount.
-            </Description>
-      <Name>Credit</Name>
+      <Description>Close state</Description>
+      <Name>Closed</Name>
     </EnumValue>
   </Values>
 </EnumCategory>

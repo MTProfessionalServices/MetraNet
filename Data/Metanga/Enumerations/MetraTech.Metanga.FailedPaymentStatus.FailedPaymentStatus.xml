@@ -2,22 +2,24 @@
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description i:nil="true" />
   <EnumMode>EnumValue</EnumMode>
-  <Name>BankAccountType</Name>
+  <Extension i:nil="true" />
+  <Name>FailedPaymentStatus</Name>
+  <Namespace>MetraTech.Metanga</Namespace>
   <Values>
     <EnumValue>
       <Aliases />
       <Description i:nil="true" />
-      <Name>Checking</Name>
+      <Name>Failed</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
       <Description i:nil="true" />
-      <Name>BusinessChecking</Name>
+      <Name>Succeeded</Name>
     </EnumValue>
     <EnumValue>
       <Aliases />
       <Description i:nil="true" />
-      <Name>Savings</Name>
+      <Name>Dismissed</Name>
     </EnumValue>
   </Values>
 </EnumCategory>

@@ -13,6 +13,7 @@
     <Name>Product</Name>
     <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
   </Type>
+  <Namespace>MetraTech.Metanga</Namespace>
   <Properties>
     <Properties>
       <Property>
@@ -41,7 +42,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>UnitGroup</Name>
+          <Name>UnitCategory</Name>
           <PropertyBagMode>Entity</PropertyBagMode>
         </Type>
       </Property>

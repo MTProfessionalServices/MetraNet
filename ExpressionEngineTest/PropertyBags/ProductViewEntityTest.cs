@@ -16,9 +16,11 @@ namespace ExpressionEngineTest
         [TestMethod()]
         public void ProductViewEntityConstructorTest()
         {
+            string _namespace = "MetraTech";
             string name = "MyPv";
             string description = "Just a test";
-            var pv = new ProductViewEntity(name, description);
+            var pv = new ProductViewEntity(_namespace, name, description);
+            Assert.AreEqual(_namespace, pv.Namespace);
             Assert.AreEqual(name, pv.Name);
             Assert.AreEqual(description, pv.Description);
             Assert.IsTrue(((PropertyBagType)pv.Type).IsProductView, "IsProductView");
@@ -28,7 +30,7 @@ namespace ExpressionEngineTest
         [TestMethod()]
         public void PropertyDatabaseNameTest()
         {
-            var pv = new ProductViewEntity("foo", null);
+            var pv = new ProductViewEntity("MetraTech", "foo", null);
             var property = (ProductViewProperty)pv.Properties.AddCharge("Amount", "", true);
             Assert.AreEqual(BaseType.Money, property.Type.BaseType);
             Assert.AreEqual("c_Amount", property.DatabaseName, "Default name");

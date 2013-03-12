@@ -15,6 +15,7 @@ using MetraTech.BusinessEntity.DataAccess;
 using MetraTech.ICE.TreeFlows;
 using Function = MetraTech.ICE.TreeFlows.Function;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
+using System.Collections.Generic;
 
 namespace MetraTech.ICE.ExpressionEngine
 {
@@ -28,8 +29,7 @@ namespace MetraTech.ICE.ExpressionEngine
       {
         case BaseType.Enumeration:
           var mtEnum = (MetraTech.ExpressionEngine.TypeSystem.EnumerationType) mtType;
-          mtEnum.Namespace = dtInfo.EnumSpace;
-          mtEnum.Category = dtInfo.EnumType;
+          mtEnum.Category = dtInfo.EnumSpace + "." + dtInfo.EnumType;
           break;
         case BaseType.String:
           if (dtInfo.Length == null)
@@ -80,6 +80,12 @@ namespace MetraTech.ICE.ExpressionEngine
 
     public static PropertyBag GetEntity(ElementBase oldEntity)
     {
+        string oldEntityNamespace;
+        if (oldEntity.Name.Contains("/")) //prevents an exception
+            oldEntityNamespace = oldEntity.Namespace;
+        else
+            oldEntityNamespace = null;
+
       string propertyBagTypeName;
       MetraNetEntityBase entity;
       PropertyCollection propertyCollection;
@@ -88,13 +94,13 @@ namespace MetraTech.ICE.ExpressionEngine
         case ElementType.AccountView:
           propertyBagTypeName = PropertyBagConstants.AccountView;
           propertyCollection = ((AccountView) oldEntity).Properties;
-          var avEntity = PropertyBagFactory.CreateAccountViewEntity(oldEntity.NameWithinNamespace, oldEntity.Description);
+          var avEntity = PropertyBagFactory.CreateAccountViewEntity(oldEntityNamespace, oldEntity.NameWithinNamespace, oldEntity.Description);
           CopyProperties(propertyBagTypeName, propertyCollection, avEntity.Properties);
           entity = avEntity;
           break;
         case ElementType.ParameterTable:
           propertyBagTypeName = PropertyBagConstants.ParameterTable;
-          var ptEntity = PropertyBagFactory.CreateParameterTable(oldEntity.NameWithinNamespace, oldEntity.Description);
+          var ptEntity = PropertyBagFactory.CreateParameterTable(oldEntityNamespace, oldEntity.NameWithinNamespace, oldEntity.Description);
           propertyCollection = ((ParameterTable) oldEntity).Conditions;
           CopyProperties(propertyBagTypeName, propertyCollection, ptEntity.Properties);
           propertyCollection = ((ParameterTable) oldEntity).Actions;
@@ -104,7 +110,7 @@ namespace MetraTech.ICE.ExpressionEngine
         case ElementType.ProductView:
           propertyBagTypeName = PropertyBagConstants.ProductView;
           propertyCollection = ((ProductView) oldEntity).Properties;
-          var pvEntity = PropertyBagFactory.CreateProductViewEntity(oldEntity.NameWithinNamespace, oldEntity.Description);
+          var pvEntity = PropertyBagFactory.CreateProductViewEntity(oldEntityNamespace, oldEntity.NameWithinNamespace, oldEntity.Description);
           //foreach (var key in ((ProductView)oldEntity).UKConstraints)
           //{
           //  pvEntity.UniqueKey.Add(key);
@@ -117,7 +123,7 @@ namespace MetraTech.ICE.ExpressionEngine
         case ElementType.ServiceDefinition:
           propertyBagTypeName = PropertyBagConstants.ServiceDefinition;
           propertyCollection = ((ServiceDefinition) oldEntity).Properties;
-          var sdEntity = PropertyBagFactory.CreateServiceDefinitionEntity(oldEntity.NameWithinNamespace, oldEntity.Description);
+          var sdEntity = PropertyBagFactory.CreateServiceDefinitionEntity(oldEntityNamespace, oldEntity.NameWithinNamespace, oldEntity.Description);
           CopyProperties(propertyBagTypeName, propertyCollection, sdEntity.Properties);
           entity = sdEntity;
           break;
@@ -126,9 +132,21 @@ namespace MetraTech.ICE.ExpressionEngine
       }
 
       entity.Extension = oldEntity.Extension;
-      entity.Namespace = string.Format("{0}.{1}s", oldEntity.Namespace, oldEntity.ElementType.ToString());
+
+
+      entity.Namespace = string.Format("{0}.{1}s", oldEntityNamespace, oldEntity.ElementType.ToString());
+
+      ElementBase firstOldEntity;
+      if (PropertyBags.TryGetValue(entity.FullName, out firstOldEntity))
+      {
+          throw new Exception("Duplicate: "  + entity.FullName);
+      }
+      PropertyBags.Add(entity.FullName, oldEntity);
+
       return entity;
     }
+
+    private static Dictionary<string, ElementBase> PropertyBags = new Dictionary<string, ElementBase>(StringComparer.InvariantCultureIgnoreCase);
 
     private static void SetMeteredValues(ProductViewEntity pv)
     {
@@ -189,15 +207,14 @@ namespace MetraTech.ICE.ExpressionEngine
       //Enums
       foreach (var oldEnumNamespace in Config.Instance.EnumerationConfig.EnumNamespaces.Values)
       {
-        //var newEnumNamespace = new EnumNamespace(oldEnumNamespace.Name, oldEnumNamespace.Description);
-        //newEnumNamespace.Extension = oldEnumNamespace.Extension;
-
         foreach (var oldEnumType in oldEnumNamespace.EnumTypes.Values)
         {
-          var newEnumType = new EnumCategory(EnumMode.EnumValue, oldEnumNamespace.Name, oldEnumType.Name, 0, oldEnumType.Description);
+          var newEnumType = new EnumCategory(EnumMode.Item, oldEnumNamespace.Name, oldEnumType.Name, 0, oldEnumType.Description);
+          newEnumType.Extension = oldEnumNamespace.Extension;
+          newEnumType.Namespace = oldEnumNamespace.Name;
           foreach (var oldEnumValue in oldEnumType.EnumValues.Values)
           {
-            var newEnumValue = newEnumType.AddEnumValue(oldEnumValue.Name, 0, null);
+            var newEnumValue = newEnumType.AddItem(oldEnumValue.Name, 0, null);
             foreach (var alias in oldEnumValue._MeteringAliases)
             {
               newEnumValue.Aliases.Add(alias);
@@ -217,9 +234,8 @@ namespace MetraTech.ICE.ExpressionEngine
 
       foreach (BusinessModelingEntityElement bmee in Config.Instance.BusinessModelingEntities.Values)
       {
-          var newBme = PropertyBagFactory.CreateBusinessModelingEntity(bmee.Name, bmee.Description);
+          var newBme = PropertyBagFactory.CreateBusinessModelingEntity(bmee.Namespace, bmee.Name, bmee.Description);
           newBme.Extension = bmee.Extension;
-          newBme.Namespace = bmee.Namespace;
           foreach (var property in bmee.Entity.Properties)
           {
             var dtInfo = new DataTypeInfo(property);
@@ -231,7 +247,7 @@ namespace MetraTech.ICE.ExpressionEngine
           //Transfer the relationship
           foreach (var relationship in bmee.Entity.Relationships)
           {
-              var rEntity = PropertyBagFactory.CreateBusinessModelingEntity(relationship.RelationshipName, null);
+              var rEntity = PropertyBagFactory.CreateBusinessModelingEntity("NotSureNamespace", relationship.RelationshipName, null);
               ((PropertyBagType) rEntity.Type).Name = relationship.RelationshipEntity.FullName;
               newBme.Properties.Add(rEntity);
           }

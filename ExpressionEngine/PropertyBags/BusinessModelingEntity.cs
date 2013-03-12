@@ -7,11 +7,11 @@ namespace MetraTech.ExpressionEngine.PropertyBags
     public class BusinessModelingEntity : MetraNetEntityBase
     {
          #region Properties
-        //Need to add the incremental properties
+        public override string SubDirectoryName { get { return "BusinessModelingEntities"; } }
         #endregion
 
         #region Constructor
-        public BusinessModelingEntity(string name, string description) : base(name, PropertyBagConstants.BusinessModelingEntity, description)
+        public BusinessModelingEntity(string _namespace, string name, string description) : base(_namespace, name, PropertyBagConstants.BusinessModelingEntity, description)
         {
         }
         #endregion

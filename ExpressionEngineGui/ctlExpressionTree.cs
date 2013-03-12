@@ -159,7 +159,7 @@ namespace PropertyGui
 
         private void AddEnumValues(EnumCategory enumType, TreeNode parentNode)
         {
-            foreach (var value in enumType.Values)
+            foreach (var value in enumType.Items)
             {
                 var node = CreateNode(value, parentNode);
                 node.ContextMenuStrip = EnumValueContextMenu;

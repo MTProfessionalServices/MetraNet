@@ -25,7 +25,8 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         #endregion
 
         #region Constructor
-        public ParameterTableEntity(string name, string description) : base(name, PropertyBagConstants.ParameterTable, description)
+        public ParameterTableEntity(string _namespace, string name, string description)
+            : base(_namespace, name, PropertyBagConstants.ParameterTable, description)
         {
         }
         #endregion

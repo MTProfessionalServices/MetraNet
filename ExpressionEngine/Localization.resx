@@ -129,7 +129,7 @@
   <data name="EnumNamespaceNotSpecified" xml:space="preserve">
     <value>Enumeration NameSpace not specified</value>
   </data>
-  <data name="EnumTypeNotSpecified" xml:space="preserve">
+  <data name="EnumCategoryNotSpecified" xml:space="preserve">
     <value>Enumeration Category not specified</value>
   </data>
   <data name="ExceptionMessage" xml:space="preserve">

@@ -103,12 +103,12 @@
     <Compile Include="EmailInstance.cs" />
     <Compile Include="EmailTemplate.cs" />
     <Compile Include="Components\EnumCategory.cs" />
-    <Compile Include="Components\EnumValue.cs" />
+    <Compile Include="Components\EnumItem.cs" />
     <Compile Include="Expressions\Expression.cs" />
     <Compile Include="Expressions\ExpressionInfo.cs" />
     <Compile Include="Expressions\ExpressionParseResults.cs" />
     <Compile Include="Components\Function.cs" />
-    <Compile Include="Helper.cs" />
+    <Compile Include="BasicHelper.cs" />
     <Compile Include="IExpressionEngineTreeNode.cs" />
     <Compile Include="Localization.Designer.cs">
       <AutoGen>True</AutoGen>

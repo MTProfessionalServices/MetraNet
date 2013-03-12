@@ -15,7 +15,7 @@ namespace ExpressionEngineTest
         [TestMethod()]
         public void CreateEnumerationTest()
         {
-            var eType = TypeFactory.CreateEnumeration("Global", "Country");
+            var eType = TypeFactory.CreateEnumeration("Global.Country");
             Assert.AreEqual(BaseType.Enumeration, eType.BaseType);
             Assert.IsFalse(eType.IsNumeric, "IsNumeric");
             Assert.AreEqual("Enumeration", eType.ToString(false));
@@ -26,19 +26,12 @@ namespace ExpressionEngineTest
         public void ValidationTest()
         {
             var context = new Context(ProductType.MetraNet);
-            var enumerationType = TypeFactory.CreateEnumeration("", "");
+            var enumerationType = TypeFactory.CreateEnumeration("");
             var messages = new ValidationMessageCollection();
 
-            //Expect Namespace not specified
+            //Expect Namespace not specifed
             enumerationType.Validate(null, messages, context);
             TestHelper.AssertValidation(messages, 1, 0, 0, "Namespace not specified");
-
-            //Expect invalid namespace
-            enumerationType.Namespace = "Global";
-            TestHelper.AssertValidation(messages, 1, 0, 0, "Namespace not found");
-
-            //Set a real namespace
-            enumerationType.Namespace = "Global";
 
             //Expect Category not spcefied
             messages = new ValidationMessageCollection();
@@ -52,9 +45,10 @@ namespace ExpressionEngineTest
             TestHelper.AssertValidation(messages, 1, 0, 0, "Category not found");
 
             //Set a real Category
-            var enumCategory = new EnumCategory(EnumMode.EnumValue, "Global", "Country", 0, null);
+            var enumCategory = new EnumCategory(EnumMode.Item, "Global", "Country", 0, null);
             context.AddEnumCategory(enumCategory);
             messages = new ValidationMessageCollection();
+            enumerationType.Category = "Global.Country";
             enumerationType.Validate(null, messages, context);
             TestHelper.AssertValidation(messages, 0, 0, 0, "Everything should work at this point");
         }

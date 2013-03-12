@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using System.Globalization;
-using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Validations;
 
@@ -17,13 +16,11 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// <summary>
         /// The namespace; used to prevent Category name collisions 
         /// </summary>
-        [DataMember]
-        public string Namespace { get; set; }
+        public string Namespace { get { return BasicHelper.GetNamespaceFromFullName(Category); } }
 
         /// <summary>
-        /// The enum's category (what contains the actual values)
+        /// The enum's category. This is a fully qualified name that includes the namespace
         /// </summary>
-        [DataMember]
         public string Category { get; set; }
 
         /// <summary>
@@ -40,9 +37,8 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #endregion
 
         #region Constructor
-        public EnumerationType(string enumNamespace, string category):base(BaseType.Enumeration)
+        public EnumerationType(string category):base(BaseType.Enumeration)
         {
-            Namespace = enumNamespace;
             Category = category;
         }
         #endregion
@@ -51,7 +47,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public override string ToString(bool robust)
         {
             if (robust)
-                return string.Format(CultureInfo.InvariantCulture, "{0}.{1}.{2}", BaseType, Namespace, Category);
+                return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", BaseType, Category);
             return BaseType.ToString();
         }
 
@@ -61,17 +57,10 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             if (messages == null)
                 throw new ArgumentNullException("messages");
 
-            //Check if the Namespace was specified
-            if (string.IsNullOrEmpty(Namespace))
-            {
-                messages.Error(Localization.EnumNamespaceNotSpecified);
-                return;
-            }
-
             //Check if the Category was specified
             if (string.IsNullOrEmpty(Category))
             {
-                messages.Error(string.Format(CultureInfo.CurrentCulture, Localization.EnumTypeNotSpecified));
+                messages.Error(string.Format(CultureInfo.CurrentCulture, Localization.EnumCategoryNotSpecified));
                 return;
             }
 
@@ -88,7 +77,6 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         {
             var type = (EnumerationType)base.Copy();
             InternalCopy(type);
-            type.Namespace = Namespace;
             type.Category = Category;
             return type;
         }

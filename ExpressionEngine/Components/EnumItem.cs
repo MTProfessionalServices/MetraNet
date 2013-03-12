@@ -8,7 +8,7 @@ namespace MetraTech.ExpressionEngine.Components
     [DataContract (Namespace = "MetraTech")]
     [KnownType(typeof(UnitOfMeasure))]
     [KnownType(typeof(Currency))]
-    public class EnumValue : IExpressionEngineTreeNode
+    public class EnumItem : IExpressionEngineTreeNode
     {
         #region Properties
 
@@ -56,7 +56,7 @@ namespace MetraTech.ExpressionEngine.Components
         {
             get
             {
-                var toolTip = "EnumValue";
+                var toolTip = "Item";
                 if (!string.IsNullOrEmpty(Description))
                     toolTip += Environment.NewLine + Description;
                 if (UserContext.Settings.ShowActualMappings)
@@ -70,12 +70,12 @@ namespace MetraTech.ExpressionEngine.Components
         /// <summary>
         /// The 16x16 image associated with the value
         /// </summary>
-        public virtual string Image { get { return "EnumValue.png"; } }
+        public virtual string Image { get { return "Item.png"; } }
 
         #endregion 
 
         #region Constructor
-        public EnumValue(EnumCategory enumCategory, string name, int id, string description)
+        public EnumItem(EnumCategory enumCategory, string name, int id, string description)
         {
             EnumCategory = enumCategory;
             Name = name;

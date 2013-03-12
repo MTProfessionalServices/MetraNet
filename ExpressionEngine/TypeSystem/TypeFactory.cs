@@ -61,12 +61,12 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         public static EnumerationType CreateEnumeration()
         {
-            return CreateEnumeration(null, null);
+            return CreateEnumeration(null);
         }
 
-        public static EnumerationType CreateEnumeration(string enumSpace, string enumType)
+        public static EnumerationType CreateEnumeration(string category)
         {
-            return new EnumerationType(enumSpace, enumType);
+            return new EnumerationType(category);
         }
 
         public static NumberType CreateFloat()

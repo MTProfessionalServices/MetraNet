@@ -52,7 +52,7 @@ namespace PropertyGui
             ctlProp.AllowConstant = false;
             ctlProp.AllowExpression = false;
             ctlProp.MinimumMatchType = MatchType.BaseTypeWithDiff;
-            ctlProp.Init(Context, Property.CreateEnum(null, true, null, null, null));
+            ctlProp.Init(Context, Property.CreateEnum(null, true, null, null));
             ctlProp.OnMyChange = OnMyChange;
 
             if (!string.IsNullOrWhiteSpace(propertyName))
@@ -66,7 +66,7 @@ namespace PropertyGui
             if (enumType == null)
                 return;
 
-            foreach (var value in enumType.Values)
+            foreach (var value in enumType.Items)
             {
                 if (InititalValues != null && InititalValues.Contains(value.Name))
                     lstSelected.Items.Add(value.Name);

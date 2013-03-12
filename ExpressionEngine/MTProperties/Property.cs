@@ -224,9 +224,9 @@ namespace MetraTech.ExpressionEngine.MTProperties
             return property;
         }
 
-        public static Property CreateEnum(string name, bool isRequired, string description, string enumSpace, string enumType)
+        public static Property CreateEnum(string name, bool isRequired, string description, string category)
         {
-            var property = new Property(name, TypeFactory.CreateEnumeration(enumSpace, enumType), isRequired, description);
+            var property = new Property(name, TypeFactory.CreateEnumeration(category), isRequired, description);
             return property;
         }
         #endregion

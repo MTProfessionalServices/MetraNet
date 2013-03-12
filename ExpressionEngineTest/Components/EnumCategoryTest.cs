@@ -26,14 +26,14 @@ namespace ExpressionEngineTest
         [TestMethod()]
         public void FullNameTest()
         {
-            var category = new EnumCategory(EnumMode.EnumValue, "MetraTech.Hello", "World", 0, null);
+            var category = new EnumCategory(EnumMode.Item, "MetraTech.Hello", "World", 0, null);
             Assert.AreEqual("MetraTech.Hello.World", category.FullName);
         }
 
         [TestMethod()]
         public void FullNameWithNoSlashesTest()
         {
-            var category = new EnumCategory(EnumMode.EnumValue, "MetraTech/Hello", "World", 0, null);
+            var category = new EnumCategory(EnumMode.Item, "MetraTech/Hello", "World", 0, null);
             Assert.AreEqual("MetraTech_Hello.World", category.FullNameWithNoSlashes);
         }
     }

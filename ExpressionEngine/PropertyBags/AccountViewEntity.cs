@@ -14,7 +14,8 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         #endregion
 
         #region Constructor
-        public AccountViewEntity(string name, string description) : base(name, PropertyBagConstants.AccountView, description)
+        public AccountViewEntity(string _namespace, string name, string description)
+            : base(_namespace,name, PropertyBagConstants.AccountView, description)
         {
           //Add the core properties
           var accountId = Properties.AddInteger32("AccountId", "The internal MetraNet account identifiert", true);

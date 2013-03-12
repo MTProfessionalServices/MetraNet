@@ -5,8 +5,28 @@ using System.Globalization;
 
 namespace MetraTech.ExpressionEngine
 {
-    public static class Helper
+    public static class BasicHelper
     {
+        public static string GetNameFromFullName(string fullName)
+        {
+            if (string.IsNullOrEmpty(fullName))
+                return null;
+
+            var parts = fullName.Split('.');
+            return parts[parts.Length - 1];
+        }
+
+        public static string GetNamespaceFromFullName(string fullName)
+        {
+            if (string.IsNullOrEmpty(fullName))
+                return null;
+
+            var parts = fullName.Split('.');
+            if (parts.Length == 1)
+                return null;
+            return fullName.Substring(0, fullName.Length - parts[parts.Length - 1].Length - 1);
+        }
+
         public static string CleanUpWhiteSpace(string value)
         {
             if (string.IsNullOrEmpty(value))

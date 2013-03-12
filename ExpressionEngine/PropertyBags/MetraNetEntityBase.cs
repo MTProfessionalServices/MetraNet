@@ -20,8 +20,8 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         #endregion
 
         #region Constructor
-        protected MetraNetEntityBase(string name, string propertyBagTypeName, string description)
-            : base(name, propertyBagTypeName, PropertyBagMode.ExtensibleEntity, description)
+        protected MetraNetEntityBase(string _namespace, string name, string propertyBagTypeName, string description)
+            : base(_namespace, name, propertyBagTypeName, PropertyBagMode.ExtensibleEntity, description)
         {
             ((PropertyBagType)Type).PropertyBagMode = PropertyBagMode.ExtensibleEntity;
         }

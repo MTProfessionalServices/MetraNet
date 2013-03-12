@@ -9,46 +9,46 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 {
     public static class PropertyBagFactory
     {
-        public static AccountViewEntity CreateAccountViewEntity(string name, string description)
+        public static AccountViewEntity CreateAccountViewEntity(string _namespace, string name, string description)
         {
-            return new AccountViewEntity(name, description);
+            return new AccountViewEntity(_namespace, name, description);
         }
 
-        public static BusinessModelingEntity CreateBusinessModelingEntity(string name, string description)
+        public static BusinessModelingEntity CreateBusinessModelingEntity(string _namespace, string name, string description)
         {
-            return new BusinessModelingEntity(name, description);
+            return new BusinessModelingEntity(_namespace, name, description);
         }
 
-        public static ParameterTableEntity CreateParameterTable(string name, string description)
+        public static ParameterTableEntity CreateParameterTable(string _namespace, string name, string description)
         {
-            return new ParameterTableEntity(name, description);
+            return new ParameterTableEntity(_namespace, name, description);
         }
-        public static ProductViewEntity CreateProductViewEntity(string name, string description)
+        public static ProductViewEntity CreateProductViewEntity(string _namespace, string name, string description)
         {
-            return new ProductViewEntity(name, description);
+            return new ProductViewEntity(_namespace, name, description);
         }
         
-        public static ServiceDefinitionEntity CreateServiceDefinitionEntity(string name, string description)
+        public static ServiceDefinitionEntity CreateServiceDefinitionEntity(string _namespace, string name, string description)
         {
-            return new ServiceDefinitionEntity(name, description);
+            return new ServiceDefinitionEntity(_namespace, name, description);
         }
 
-        public static PropertyBag Create(string propertyBagTypeName, string name, string description)
+        public static PropertyBag Create(string propertyBagTypeName, string _namespace, string name, string description)
         {
             switch (propertyBagTypeName)
             {
                 case PropertyBagConstants.AccountView:
-                    return CreateAccountViewEntity(name, description);
+                    return CreateAccountViewEntity(_namespace, name, description);
                 case PropertyBagConstants.BusinessModelingEntity:
-                    return CreateBusinessModelingEntity(name, description);
+                    return CreateBusinessModelingEntity(_namespace, name, description);
                 case PropertyBagConstants.ParameterTable:
-                    return CreateParameterTable(name, description);
+                    return CreateParameterTable(_namespace, name, description);
                 case PropertyBagConstants.ProductView:
-                    return CreateProductViewEntity(name, description);
+                    return CreateProductViewEntity(_namespace, name, description);
                 case PropertyBagConstants.ServiceDefinition:
-                    return CreateServiceDefinitionEntity(name, description);
+                    return CreateServiceDefinitionEntity(_namespace, name, description);
                 default:
-                    return Create(propertyBagTypeName, name, description);
+                    return Create(propertyBagTypeName, _namespace, name, description);
             }
         }
 

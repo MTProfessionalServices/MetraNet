@@ -17,7 +17,8 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         #endregion
 
         #region Constructor
-        public ServiceDefinitionEntity(string name, string description) : base(name, PropertyBagConstants.ServiceDefinition, description)
+        public ServiceDefinitionEntity(string _namespace, string name, string description)
+            : base(_namespace, name, PropertyBagConstants.ServiceDefinition, description)
         {
           //Add the core properties
           var accountId = Properties.AddInteger32("AccountId", "The internal MetraNet account identifier", true);

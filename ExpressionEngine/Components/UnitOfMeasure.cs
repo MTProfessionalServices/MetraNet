@@ -11,7 +11,7 @@ namespace MetraTech.ExpressionEngine.Components
   ///   - Bytes, Gigabytes, Bits (digital information)
   /// </summary>
   [DataContract(Namespace = "MetraTech")]
-    public class UnitOfMeasure :  EnumValue 
+    public class UnitOfMeasure :  EnumItem 
     {
         #region Properties
         /// <summary>

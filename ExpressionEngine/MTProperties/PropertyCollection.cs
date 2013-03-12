@@ -195,9 +195,9 @@ namespace MetraTech.ExpressionEngine.MTProperties
             return property;
         }
 
-        public Property AddEnum(string name, string description, bool isRequired, string enumSpace, string enumType, string defaultValue = null)
+        public Property AddEnum(string name, string description, bool isRequired, string category, string defaultValue = null)
         {
-            var property = PropertyFactory.Create(PropertyBagTypeName, name, TypeFactory.CreateEnumeration(enumSpace, enumType), isRequired, description);
+            var property = PropertyFactory.Create(PropertyBagTypeName, name, TypeFactory.CreateEnumeration(category), isRequired, description);
             property.DefaultValue = defaultValue;
             Add(property);
             return property;

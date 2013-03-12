@@ -2,7 +2,7 @@
 {
     public enum EnumMode
     {
-        EnumValue, 
+        Item, 
         UnitOfMeasure,
         Currency
     }

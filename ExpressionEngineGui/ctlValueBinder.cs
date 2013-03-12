@@ -193,7 +193,7 @@ namespace PropertyGui
             var enumType = Context.GetEnumCategory(type);
             if (enumType != null)
             {
-                cbo.Items.AddRange(enumType.Values.ToArray());
+                cbo.Items.AddRange(enumType.Items.ToArray());
             }
             cbo.Sorted = true;
             cbo.EndUpdate();

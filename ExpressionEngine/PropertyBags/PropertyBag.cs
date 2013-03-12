@@ -29,12 +29,10 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         /// <summary>
         /// The name prefixed with the namespace, if any
         /// </summary>
-        public override string FullName{get
+        public override string FullName
         {
-            if (string.IsNullOrEmpty(Namespace))
-                return Name;
-            return Namespace + "." + Name;
-        }}
+            get { return Namespace + "." + Name; }
+        }
 
         /// <summary>
         /// The entity's namespace. Primarly used to prevent name collisions for MetraNet
@@ -94,9 +92,10 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         #region Constructor
 
-        public PropertyBag(string name, string propertyBagTypeName, PropertyBagMode propertyBagMode, string description)
+        public PropertyBag(string _namespace, string name, string propertyBagTypeName, PropertyBagMode propertyBagMode, string description)
             : base(name, TypeFactory.CreatePropertyBag(propertyBagTypeName, propertyBagMode), true, description)
         {
+            Namespace = _namespace;
             Name = name;
             Type = TypeFactory.CreatePropertyBag(propertyBagTypeName, propertyBagMode);
             Description = description;

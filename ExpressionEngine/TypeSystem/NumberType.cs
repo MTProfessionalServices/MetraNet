@@ -87,7 +87,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     return;
 
                 //Find the category
-                var enumCategory = context.GetEnumCategory(new EnumerationType(PropertyBagConstants.MetraTechNamespace, UnitOfMeasureCategory));
+                var enumCategory = context.GetEnumCategory(new EnumerationType(PropertyBagConstants.MetraTechUnitOfMeasureNamespace));
                 if (enumCategory == null)
                 {
                     AddError(messages, prefix, Localization.UnableToFindEnumCategory);

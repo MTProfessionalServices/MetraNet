@@ -6,7 +6,7 @@ namespace MetraTech.ExpressionEngine.Components
     /// A currency, typically used in combination with a Money or 
     /// </summary>
     [DataContract (Namespace = "MetraTech")]
-    public class Currency : EnumValue
+    public class Currency : EnumItem
     {
         #region Properties
 

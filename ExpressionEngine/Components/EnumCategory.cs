@@ -60,7 +60,7 @@ namespace MetraTech.ExpressionEngine.Components
         /// The actual enumerated values
         /// </summary>
         [DataMember]
-        public Collection<EnumValue> Values { get; private set; }
+        public Collection<EnumItem> Items { get; private set; }
 
         /// <summary>
         /// The unique ID that is assigned by the database. It is only applicable to MetraNet
@@ -75,7 +75,7 @@ namespace MetraTech.ExpressionEngine.Components
         public string TreeNodeLabel { get { return Name; } }
         public virtual string Image { get
         {
-            if (EnumMode == EnumMode.EnumValue)
+            if (EnumMode == EnumMode.Item)
                 return "Enumeration.png";
             else if (EnumMode == EnumMode.UnitOfMeasure)
                 return "UnitOfMeasureCategory.png";
@@ -108,31 +108,31 @@ namespace MetraTech.ExpressionEngine.Components
             Id = id;
             Description = description;
 
-            Values =  new Collection<EnumValue>();
+            Items =  new Collection<EnumItem>();
         }
         #endregion
 
         #region Methods
-        public EnumValue AddEnumValue(string name, int id, string descripton)
+        public EnumItem AddItem(string name, int id, string descripton)
         {
             var enumValue = EnumFactory.Create(this, name, id, descripton);
-            Values.Add(enumValue);
+            Items.Add(enumValue);
             return enumValue;
         }
 
-        public void AddEnumValue(EnumValue enumValue)
+        public void AddItem(EnumItem enumValue)
         {
             enumValue.EnumCategory = this;
-            Values.Add(enumValue);
+            Items.Add(enumValue);
         }
 
 
-        public EnumValue GetValue(string name)
+        public EnumItem GetItem(string name)
         {
         if (string.IsNullOrEmpty(name))
             return null;
 
-            foreach (var value in Values)
+            foreach (var value in Items)
             {
                 if (string.Equals(value.Name, name, StringComparison.OrdinalIgnoreCase))
                     return value;
@@ -154,7 +154,7 @@ namespace MetraTech.ExpressionEngine.Components
 
         public void SetValueBackReferences()
         {
-            foreach (var value in Values)
+            foreach (var value in Items)
             {
                 value.EnumCategory = this;
             }
@@ -175,7 +175,7 @@ namespace MetraTech.ExpressionEngine.Components
         }
         public void Save(string dirPath)
         {
-            var filePath = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.{2}.xml", dirPath, FullNameWithNoSlashes, Name);
+            var filePath = string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.xml", dirPath, FullNameWithNoSlashes);
             IOHelper.Save(filePath, this);
         }
 

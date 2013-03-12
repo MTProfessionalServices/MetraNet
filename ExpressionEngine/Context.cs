@@ -337,7 +337,7 @@ namespace MetraTech.ExpressionEngine
             _namespaces.Clear();
 
             //RelevantEnums.Clear();
-            //foreach (var enumSpace in EnumNamespaces.Values)
+            //foreach (var enumSpace in EnumNamespaces.Items)
             //{
             //    if (!string.IsNullOrEmpty(enumSpace.Name) && !_namespaces.Contains(enumSpace.Name))
             //        _namespaces.Add(enumSpace.Name);
@@ -368,7 +368,7 @@ namespace MetraTech.ExpressionEngine
                 propertyBag.Validate(true, messages, this);
             }
 
-            //foreach (var enumNamespace in EnumNamespaces.Values)
+            //foreach (var enumNamespace in EnumNamespaces.Items)
             //{
             //    enumNamespace.Validate();
             //}
@@ -384,7 +384,7 @@ namespace MetraTech.ExpressionEngine
         //    var existingProperties = new Dictionary<string, int>(StringComparer.InvariantCultureIgnoreCase);
         //    var properties = new PropertyCollection(null);
 
-        //    foreach (var propertyBag in PropertyBags.Values)
+        //    foreach (var propertyBag in PropertyBags.Items)
         //    {
         //        foreach (var propertyBagTypeName in propertyBagTypeNames)
         //        {
@@ -599,10 +599,11 @@ namespace MetraTech.ExpressionEngine
                 return;
 
             EnumCategory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "Enumerations"), extensionDir.Name, context);
-            PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "AccountViews"), "AccountView", context);
-            PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "ProductViews"), "ProductView", context);
-            PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "ParameterTables"), "ParameterTable", context);
-            PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "ParameterTables"), "ParameterTable", context);
+            PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "AccountViews"), PropertyBagConstants.AccountView, context);
+            PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "BusinessModelingEntities"), PropertyBagConstants.BusinessModelingEntity, context);
+            PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "ProductViews"), PropertyBagConstants.ProductView, context);
+            PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "ParameterTables"), PropertyBagConstants.ParameterTable, context);
+            PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(configDirInfo.FullName, "ServiceDefinitions"), PropertyBagConstants.ServiceDefinition, context);
         }
         
         public static Context LoadMetanga(string dirPath)

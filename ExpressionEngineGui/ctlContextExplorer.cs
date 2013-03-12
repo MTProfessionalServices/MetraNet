@@ -146,7 +146,7 @@ namespace PropertyGui
 
         private string GetExpressionPath(TreeNode node)
         {
-            if (node.Tag is Aqg || node.Tag is Uqg || node.Tag is EnumValue)
+            if (node.Tag is Aqg || node.Tag is Uqg || node.Tag is EnumItem)
                 return ((IExpressionEngineTreeNode)node.Tag).ToExpressionSnippet;
 
             if (!(node.Tag is Property))
@@ -197,10 +197,10 @@ namespace PropertyGui
         {
             if (treExplorer.SelectedNode == null)
                 return;
-            if (!(treExplorer.SelectedNode.Tag is EnumValue))
+            if (!(treExplorer.SelectedNode.Tag is EnumItem))
                 return;
 
-            var enumValue = (EnumValue)treExplorer.SelectedNode.Tag;
+            var enumValue = (EnumItem)treExplorer.SelectedNode.Tag;
 
             string text = null;
             if (e.ClickedItem.Equals(mnuInsertValue))

@@ -10,7 +10,7 @@ namespace ExpressionEngineTest
         [TestMethod()]
         public void GetFileNameTest()
         {
-            var entity = PropertyBagFactory.CreateProductViewEntity("Foo", null);
+            var entity = PropertyBagFactory.CreateProductViewEntity("MetraTech", "Foo", null);
             entity.Extension = "Core";
             var file = entity.GetFileNameGivenExtensionsDirectory(@"C:\RMP\Extensions");
             Assert.AreEqual(@"C:\RMP\Extensions\Core\Config\ProductViews\Foo.xml", file);

@@ -15,16 +15,16 @@ namespace ExpressionEngineTest
         }
 
         /// <summary>
-        ///A test for EnumValue Constructor
+        ///A test for Item Constructor
         ///</summary>
         [TestMethod()]
         public void EnumValueConstructorTest()
         {
-            var parent = new EnumCategory(EnumMode.EnumValue, "Global", "Country", 1, null);
+            var parent = new EnumCategory(EnumMode.Item, "Global", "Country", 1, null);
             var name = "USA";
             var id = 500;
             var description = "Hello world";
-            var target = new EnumValue(parent, name, id, description);
+            var target = new EnumItem(parent, name, id, description);
             Assert.AreSame(parent, target.EnumCategory, "EnumType");
             Assert.AreEqual(name, target.Name);
             Assert.AreEqual(id, target.Id);
@@ -32,10 +32,10 @@ namespace ExpressionEngineTest
         }
 
         #region Helper Methods
-        private EnumValue GetEnumValue(string namespaceName, string categoryName, string enumName, int id, string description = null)
+        private EnumItem GetEnumValue(string namespaceName, string categoryName, string enumName, int id, string description = null)
         {
-            var category = new EnumCategory(EnumMode.EnumValue, namespaceName, categoryName, 1, null);
-            var value = category.AddEnumValue(enumName, id, description);
+            var category = new EnumCategory(EnumMode.Item, namespaceName, categoryName, 1, null);
+            var value = category.AddItem(enumName, id, description);
             return value;
         }
         #endregion

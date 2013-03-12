@@ -70,10 +70,10 @@ namespace PropertyGui
             //    //MessageBox.Show(DemoLoader.GlobalContext.DeserilizationMessages.GetSummary(true),
             //    //                "Deserilizaiton Messages", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-            //SetItems(cboAqgs, btnAQG, DemoLoader.GlobalContext.Aqgs.Values.ToArray<Aqg>());
-            //SetItems(cboUqgs, btnUQG, DemoLoader.GlobalContext.Uqgs.Values.ToArray<Uqg>());
-            //SetItems(cboExpressions, btnExpression, DemoLoader.GlobalContext.Expressions.Values.ToArray<Expression>());
-            //SetItems(cboEmailTemplates, btnEmailTemplates, DemoLoader.GlobalContext.EmailInstances.Values.ToArray<EmailInstance>());
+            //SetItems(cboAqgs, btnAQG, DemoLoader.GlobalContext.Aqgs.Items.ToArray<Aqg>());
+            //SetItems(cboUqgs, btnUQG, DemoLoader.GlobalContext.Uqgs.Items.ToArray<Uqg>());
+            //SetItems(cboExpressions, btnExpression, DemoLoader.GlobalContext.Expressions.Items.ToArray<Expression>());
+            //SetItems(cboEmailTemplates, btnEmailTemplates, DemoLoader.GlobalContext.EmailInstances.Items.ToArray<EmailInstance>());
         }
         #endregion
 

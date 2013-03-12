@@ -88,20 +88,20 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enumeration Category not specified.
+        /// </summary>
+        internal static string EnumCategoryNotSpecified {
+            get {
+                return ResourceManager.GetString("EnumCategoryNotSpecified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enumeration NameSpace not specified.
         /// </summary>
         internal static string EnumNamespaceNotSpecified {
             get {
                 return ResourceManager.GetString("EnumNamespaceNotSpecified", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enumeration Category not specified.
-        /// </summary>
-        internal static string EnumTypeNotSpecified {
-            get {
-                return ResourceManager.GetString("EnumTypeNotSpecified", resourceCulture);
             }
         }
         

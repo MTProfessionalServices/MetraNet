@@ -28,7 +28,8 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         #region Constructor
 
-        public ProductViewEntity(string name, string description) : base(name, PropertyBagConstants.ProductView, description)
+        public ProductViewEntity(string _namespace, string name, string description)
+            : base(_namespace, name, PropertyBagConstants.ProductView, description)
         {
             UniqueKey = new Collection<UniqueKey>();
         }

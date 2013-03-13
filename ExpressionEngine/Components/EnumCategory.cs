@@ -72,7 +72,6 @@ namespace MetraTech.ExpressionEngine.Components
 
         #region GUI Support Properties (should be moved in future)
 
-        public string TreeNodeLabel { get { return Name; } }
         public virtual string Image { get
         {
             if (EnumMode == EnumMode.Item)

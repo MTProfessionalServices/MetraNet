@@ -82,7 +82,6 @@ namespace MetraTech.ExpressionEngine
         #endregion
 
         #region GUI Helper Properties (move in future)
-        public string TreeNodeLabel { get { return Name; } }
         public string ToolTip { get { return Description; } }
         public string Image { get { return "EmailInstance.png"; } }
         public string ToExpressionSnippet { get { return null; } }

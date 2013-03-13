@@ -65,12 +65,10 @@ namespace MetraTech.ExpressionEngine.Components
             }
         }
 
-        public string TreeNodeLabel { get { return Name; } }
-
         /// <summary>
         /// The 16x16 image associated with the value
         /// </summary>
-        public virtual string Image { get { return "Item.png"; } }
+        public virtual string Image { get { return "EnumItem.png"; } }
 
         #endregion 
 

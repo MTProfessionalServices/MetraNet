@@ -61,7 +61,6 @@ namespace MetraTech.ExpressionEngine.Expressions
         #region GUI Support Properties (should be moved in future)
         public string ToExpressionSnippet { get { return Name; } }
         public string FullName { get { return Name; } }
-        public string TreeNodeLabel { get { return Name; } }
         public virtual string Image { get { return "Expression.png"; } }
        
         /// <summary>

@@ -9,7 +9,6 @@ namespace MetraTech.ExpressionEngine.Placeholders
         #region Properties
         public string Name { get; set; }
         public string FullName { get { return Name; } }
-        public string TreeNodeLabel { get { return Name; } }
         public string Description { get; set; }
         public string ToolTip { get { return Description; } }
         public string Image { get { return "Aqg.png"; } }

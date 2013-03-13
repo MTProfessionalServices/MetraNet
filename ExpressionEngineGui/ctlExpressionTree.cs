@@ -237,7 +237,10 @@ namespace PropertyGui
             if (ShowNamespaces)
                 label = item.FullName;
             else
-                label = item.TreeNodeLabel;
+                label = item.Name;
+
+            if (item is Property)
+              label += ((Property)item).Type.ListSuffix;            
 
             var node = new TreeNode(label);
             node.ToolTipText = item.ToolTip;
@@ -289,32 +292,33 @@ namespace PropertyGui
             return node;
         }
 
-
-        protected override void OnBeforeExpand(TreeViewCancelEventArgs e)
-        {
-            base.OnBeforeExpand(e);
-
-            if (e.Action != TreeViewAction.Expand)
-                return;
-
-            var node = e.Node;
-            if (node.Nodes.Count == 1 && node.Nodes[0].Text == PropertyListPlaceHolder)
-            {
-                node.Nodes.Clear();
-                var property = (Property) node.Tag;
-                var propertyBagTypeName = ((PropertyBagType) property.Type).Name;
-                var propertyBag = Context.MasterContext.GetPropertyBag(propertyBagTypeName);
-                if (propertyBag == null)
-                    return;
-                AddProperties(node, propertyBag.Properties);
-            }
-        }
-
         private static string GetOverlayImageName(string name)
         {
             var parts = name.Split('.');
             return parts[0] + "IsCoreOverlay.png";
         }
         #endregion
+
+      #region Events
+        protected override void OnBeforeExpand(TreeViewCancelEventArgs e)
+        {
+          base.OnBeforeExpand(e);
+
+          if (e.Action != TreeViewAction.Expand)
+            return;
+
+          var node = e.Node;
+          if (node.Nodes.Count == 1 && node.Nodes[0].Text == PropertyListPlaceHolder)
+          {
+            node.Nodes.Clear();
+            var property = (Property)node.Tag;
+            var propertyBagTypeName = ((PropertyBagType)property.Type).Name;
+            var propertyBag = Context.MasterContext.GetPropertyBag(propertyBagTypeName);
+            if (propertyBag == null)
+              return;
+            AddProperties(node, propertyBag.Properties);
+          }
+        }
+      #endregion
     }
 }

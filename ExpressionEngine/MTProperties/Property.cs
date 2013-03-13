@@ -36,8 +36,6 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
         #region Properties
 
-        public virtual string FullName { get { return Name; } }
-
         /// <summary>
         /// The collection to which the property belongs (may be null)
         /// </summary>
@@ -62,7 +60,14 @@ namespace MetraTech.ExpressionEngine.MTProperties
         /// </summary>
         [DataMember]
         public string Name { get; set; }
+        public string NameWithListSuffix { get { return Name + Type.ListSuffix; } }
 
+        /// <summary>
+        /// Properties don't have a Namespace, so the full name is the same as the name
+        /// </summary>
+        public virtual string FullName { get { return Name; } }
+        public string FullNameWithListSuffix { get { return FullName + Type.ListSuffix; } }
+     
         /// <summary>
         /// Rich data type class
         /// </summary>
@@ -140,7 +145,6 @@ namespace MetraTech.ExpressionEngine.MTProperties
         #endregion Properties
 
         #region GUI Helper Properties (should be moved)
-        public string TreeNodeLabel { get { return Name + Type.ListSuffix; } }
         /// <summary>
         /// Combines the data type and description
         /// </summary>

@@ -3,104 +3,104 @@
   <Description>In most physics textbooks, weight is the name given to the force on an object due to gravity. However, some books use an operational definition, defining the weight of an object as the force measured by the operation of weighing it (that is, the force required to support it).</Description>
   <EnumMode>UnitOfMeasure</EnumMode>
   <Extension i:nil="true" />
-  <Name>Weight</Name>
-  <Namespace>MetraTech</Namespace>
-  <Values>
-    <EnumValue i:type="UnitOfMeasure">
+  <Items>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Nanogram</Description>
       <Name>Nanogram</Name>
       <Code>NG</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Pound</Description>
       <Name>Pound</Name>
       <Code>[LB_AV]</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Petagram</Description>
       <Name>Petagram</Name>
       <Code>PTG</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Ounce</Description>
       <Name>Ounce</Name>
       <Code>[OZ_AV]</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Megagram</Description>
       <Name>Megagram</Name>
       <Code>MAG</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Dram</Description>
       <Name>Dram</Name>
       <Code>[DR_AV]</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Dekagram</Description>
       <Name>Dekagram</Name>
       <Code>DAG</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Gigagram</Description>
       <Name>Gigagram</Name>
       <Code>GAG</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Kilogram</Description>
       <Name>Kilogram</Name>
       <Code>KG</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Milligram</Description>
       <Name>Milligram</Name>
       <Code>MG</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Microgram</Description>
       <Name>Microgram</Name>
       <Code>UG</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Centigram</Description>
       <Name>Centigram</Name>
       <Code>CG</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Decigram</Description>
       <Name>Decigram</Name>
       <Code>DG</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Gram</Description>
       <Name>Gram</Name>
       <Code>G</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Hectogram</Description>
       <Name>Hectogram</Name>
       <Code>HG</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Teragram</Description>
       <Name>Teragram</Name>
       <Code>TRG</Code>
-    </EnumValue>
-  </Values>
+    </EnumItem>
+  </Items>
+  <Name>Weight</Name>
+  <Namespace>MetraTech</Namespace>
 </EnumCategory>

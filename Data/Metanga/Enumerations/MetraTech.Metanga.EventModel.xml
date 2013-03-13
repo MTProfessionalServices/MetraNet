@@ -1,45 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description>EventModel enum which represents the values which can be configured for a product added to a package</Description>
-  <EnumMode>EnumValue</EnumMode>
+  <EnumMode>Item</EnumMode>
   <Extension i:nil="true" />
-  <Name>EventModel</Name>
-  <Namespace>MetraTech.Metanga</Namespace>
-  <Values>
-    <EnumValue>
+  <Items>
+    <EnumItem>
       <Aliases />
       <Description>Metanga will not produce billable events for this product</Description>
       <Name>None</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases />
       <Description>Metanga will produce billable events on a recurring basis, based on subscription configuration</Description>
       <Name>Recurring</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases />
       <Description>During a subscription start, if the package contains an "Activation - Flat" model, the one time charge gets applied to the invoice</Description>
       <Name>ActivationFlat</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases />
       <Description>Upon Termination the fee should be calculated based on the time span from Termination Date to the Original Fixed-Term End Date for the Subscription.</Description>
       <Name>TerminationFeeRemainder</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases />
       <Description>Upon Termination, Products with a time based component assigned this type of Termination Event Model should be priced using a quantity based on the timespan from the Subscription Start to the Termination.</Description>
       <Name>TerminationTimeServed</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases />
       <Description>Termination product charge will be applied to the invoice, whenever a user or CSR terminates a from a Fixed Term subscription outside of the grace period.</Description>
       <Name>TerminationFeeFlat</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases />
       <Description>Subscription</Description>
       <Name>Subscription</Name>
-    </EnumValue>
-  </Values>
+    </EnumItem>
+  </Items>
+  <Name>EventModel</Name>
+  <Namespace>MetraTech.Metanga</Namespace>
 </EnumCategory>

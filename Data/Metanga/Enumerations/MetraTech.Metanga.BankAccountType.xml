@@ -1,20 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description i:nil="true" />
-  <EnumMode>EnumValue</EnumMode>
+  <EnumMode>Item</EnumMode>
   <Extension i:nil="true" />
-  <Name>ContentFormat</Name>
+  <Items>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>Checking</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>BusinessChecking</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>Savings</Name>
+    </EnumItem>
+  </Items>
+  <Name>BankAccountType</Name>
   <Namespace>MetraTech.Metanga</Namespace>
-  <Values>
-    <EnumValue>
-      <Aliases />
-      <Description i:nil="true" />
-      <Name>Json</Name>
-    </EnumValue>
-    <EnumValue>
-      <Aliases />
-      <Description i:nil="true" />
-      <Name>Xml</Name>
-    </EnumValue>
-  </Values>
 </EnumCategory>

@@ -83,8 +83,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>ManualPaymentOperation</Category>
-          <Namespace>MetraTech.Metanga</Namespace>
+          <Category>MetraTech.Metanga.ManualPaymentOperation</Category>
         </Type>
       </Property>
       <Property>

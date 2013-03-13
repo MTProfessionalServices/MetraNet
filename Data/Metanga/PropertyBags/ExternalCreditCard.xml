@@ -41,8 +41,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>CreditCardType</Category>
-          <Namespace>MetraTech.Metanga</Namespace>
+          <Category>MetraTech.Metanga.CreditCardType</Category>
         </Type>
       </Property>
       <Property>
@@ -84,8 +83,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>ManualPaymentOperation</Category>
-          <Namespace>MetraTech.Metanga</Namespace>
+          <Category>MetraTech.Metanga.ManualPaymentOperation</Category>
         </Type>
       </Property>
       <Property>

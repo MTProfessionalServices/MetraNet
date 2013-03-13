@@ -27,8 +27,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>PaymentBrokerResponseCode</Category>
-          <Namespace>MetraTech.Metanga</Namespace>
+          <Category>MetraTech.Metanga.PaymentBrokerResponseCode</Category>
         </Type>
       </Property>
       <Property>

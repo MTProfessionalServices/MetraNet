@@ -42,8 +42,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>EventModel</Category>
-          <Namespace>MetraTech.Metanga</Namespace>
+          <Category>MetraTech.Metanga.EventModel</Category>
         </Type>
       </Property>
       <Property>

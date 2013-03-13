@@ -27,8 +27,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>List</ListType>
-          <Category>DayOfWeek</Category>
-          <Namespace>MetraTech.Metanga</Namespace>
+          <Category>MetraTech.Metanga.DayOfWeek</Category>
         </Type>
       </Property>
       <Property>

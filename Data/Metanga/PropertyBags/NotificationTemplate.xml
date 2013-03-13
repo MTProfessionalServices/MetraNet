@@ -83,8 +83,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>NotificationEmailType</Category>
-          <Namespace>MetraTech.Metanga</Namespace>
+          <Category>MetraTech.Metanga.NotificationEmailType</Category>
         </Type>
       </Property>
       <Property>

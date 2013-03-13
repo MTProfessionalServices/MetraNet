@@ -3,68 +3,68 @@
   <Description>A unit of information is the capacity of some standard data storage system or communication channel, used to measure the capacities of other systems and channels.</Description>
   <EnumMode>UnitOfMeasure</EnumMode>
   <Extension i:nil="true" />
-  <Name>DigitalInformation</Name>
-  <Namespace>MetraTech</Namespace>
-  <Values>
-    <EnumValue i:type="UnitOfMeasure">
+  <Items>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Megabit</Description>
       <Name>Megabit</Name>
       <Code>MABIT</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Terabit</Description>
       <Name>Terabit</Name>
       <Code>TRBIT</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Gigabyte</Description>
       <Name>Gigabyte</Name>
       <Code>GIBBY</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Kilobit</Description>
       <Name>Kilobit</Name>
       <Code>KBIT</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Kilobyte</Description>
       <Name>Kilobyte</Name>
       <Code>KIBBY</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Byte</Description>
       <Name>Byte</Name>
       <Code>BY</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Bit</Description>
       <Name>Bit</Name>
       <Code>BIT</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Terabyte</Description>
       <Name>Terabyte</Name>
       <Code>TIBBY</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Gigabit</Description>
       <Name>Gigabit</Name>
       <Code>GABIT</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Megabyte</Description>
       <Name>Megabyte</Name>
       <Code>MIBBY</Code>
-    </EnumValue>
-  </Values>
+    </EnumItem>
+  </Items>
+  <Name>DigitalInformation</Name>
+  <Namespace>MetraTech</Namespace>
 </EnumCategory>

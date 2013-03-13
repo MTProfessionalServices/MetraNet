@@ -101,8 +101,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>EndReasonType</Category>
-          <Namespace>MetraTech.Metanga</Namespace>
+          <Category>MetraTech.Metanga.EndReasonType</Category>
         </Type>
       </Property>
       <Property>

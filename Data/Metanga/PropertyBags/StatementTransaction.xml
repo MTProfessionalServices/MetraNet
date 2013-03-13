@@ -67,8 +67,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>StatementTransactionType</Category>
-          <Namespace>MetraTech.Metanga</Namespace>
+          <Category>MetraTech.Metanga.StatementTransactionType</Category>
         </Type>
       </Property>
       <Property>

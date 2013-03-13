@@ -115,8 +115,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>InvoiceState</Category>
-          <Namespace>MetraTech.Metanga</Namespace>
+          <Category>MetraTech.Metanga.InvoiceState</Category>
         </Type>
       </Property>
       <Property>

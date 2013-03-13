@@ -40,8 +40,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>CouponAmountType</Category>
-          <Namespace>MetraTech.Metanga</Namespace>
+          <Category>MetraTech.Metanga.CouponAmountType</Category>
         </Type>
       </Property>
       <Property>

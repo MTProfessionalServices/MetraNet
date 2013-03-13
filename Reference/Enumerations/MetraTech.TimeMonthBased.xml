@@ -3,26 +3,26 @@
   <Description>Time is a part of the measuring system used to sequence events, to compare the durations of events and the intervals between them, and to quantify rates of change such as the motions of objects.</Description>
   <EnumMode>UnitOfMeasure</EnumMode>
   <Extension i:nil="true" />
-  <Name>TimeMonthBased</Name>
-  <Namespace>MetraTech</Namespace>
-  <Values>
-    <EnumValue i:type="UnitOfMeasure">
+  <Items>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Represents a quarter of a year.</Description>
       <Name>Quarter</Name>
       <Code>ANN/4</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Year</Description>
       <Name>Year</Name>
       <Code>ANN</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Month</Description>
       <Name>Month</Name>
       <Code>MO</Code>
-    </EnumValue>
-  </Values>
+    </EnumItem>
+  </Items>
+  <Name>TimeMonthBased</Name>
+  <Namespace>MetraTech</Namespace>
 </EnumCategory>

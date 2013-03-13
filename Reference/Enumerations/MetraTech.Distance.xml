@@ -3,116 +3,116 @@
   <Description>Distance is a numerical description of how far apart objects are. In physics or everyday discussion, distance may refer to a physical length, or an estimation based on other criteria (e.g. "two counties over").</Description>
   <EnumMode>UnitOfMeasure</EnumMode>
   <Extension i:nil="true" />
-  <Name>Distance</Name>
-  <Namespace>MetraTech</Namespace>
-  <Values>
-    <EnumValue i:type="UnitOfMeasure">
+  <Items>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Gigameter</Description>
       <Name>Gigameter</Name>
       <Code>GAM</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Dekameter</Description>
       <Name>Dekameter</Name>
       <Code>DAM</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Yard</Description>
       <Name>Yard</Name>
       <Code>[YD_US]</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Millimeter</Description>
       <Name>Millimeter</Name>
       <Code>MM</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Nanometer</Description>
       <Name>Nanometer</Name>
       <Code>NM</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Mile</Description>
       <Name>Mile</Name>
       <Code>[MI_US]</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Inch</Description>
       <Name>Inch</Name>
       <Code>[IN_US]</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Micrometer</Description>
       <Name>Micrometer</Name>
       <Code>UM</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Decimeter</Description>
       <Name>Decimeter</Name>
       <Code>DM</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Hectometer</Description>
       <Name>Hectometer</Name>
       <Code>HM</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Megameter</Description>
       <Name>Megameter</Name>
       <Code>MAM</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Foot</Description>
       <Name>Foot</Name>
       <Code>[FT_US]</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Meter</Description>
       <Name>Meter</Name>
       <Code>M</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Petameter</Description>
       <Name>Petameter</Name>
       <Code>PTM</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Rod</Description>
       <Name>Rod</Name>
       <Code>[RD_US]</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Kilometer</Description>
       <Name>Kilometer</Name>
       <Code>KM</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Terameter</Description>
       <Name>Terameter</Name>
       <Code>TRM</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Centimeter</Description>
       <Name>Centimeter</Name>
       <Code>CM</Code>
-    </EnumValue>
-  </Values>
+    </EnumItem>
+  </Items>
+  <Name>Distance</Name>
+  <Namespace>MetraTech</Namespace>
 </EnumCategory>

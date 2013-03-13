@@ -3,44 +3,44 @@
   <Description>Time is a part of the measuring system used to sequence events, to compare the durations of events and the intervals between them, and to quantify rates of change such as the motions of objects.</Description>
   <EnumMode>UnitOfMeasure</EnumMode>
   <Extension i:nil="true" />
-  <Name>TimeDayBased</Name>
-  <Namespace>MetraTech</Namespace>
-  <Values>
-    <EnumValue i:type="UnitOfMeasure">
+  <Items>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Second</Description>
       <Name>Second</Name>
       <Code>S</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Hour</Description>
       <Name>Hour</Name>
       <Code>HR</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Week</Description>
       <Name>Week</Name>
       <Code>WK</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Represents two weeks.</Description>
       <Name>Biweek</Name>
       <Code>WK.2</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Day</Description>
       <Name>Day</Name>
       <Code>D</Code>
-    </EnumValue>
-    <EnumValue i:type="UnitOfMeasure">
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Minute</Description>
       <Name>Minute</Name>
       <Code>MIN</Code>
-    </EnumValue>
-  </Values>
+    </EnumItem>
+  </Items>
+  <Name>TimeDayBased</Name>
+  <Namespace>MetraTech</Namespace>
 </EnumCategory>

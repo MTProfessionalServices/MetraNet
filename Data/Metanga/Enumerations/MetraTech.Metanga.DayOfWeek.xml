@@ -1,45 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description i:nil="true" />
-  <EnumMode>EnumValue</EnumMode>
+  <EnumMode>Item</EnumMode>
   <Extension i:nil="true" />
-  <Name>CreditCardType</Name>
+  <Items>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>Sunday</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>Monday</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>Tuesday</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>Wednesday</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>Thursday</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>Friday</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>Saturday</Name>
+    </EnumItem>
+  </Items>
+  <Name>DayOfWeek</Name>
   <Namespace>MetraTech.Metanga</Namespace>
-  <Values>
-    <EnumValue>
-      <Aliases />
-      <Description i:nil="true" />
-      <Name>Unknown</Name>
-    </EnumValue>
-    <EnumValue>
-      <Aliases />
-      <Description i:nil="true" />
-      <Name>AmericanExpress</Name>
-    </EnumValue>
-    <EnumValue>
-      <Aliases />
-      <Description i:nil="true" />
-      <Name>DinersClub</Name>
-    </EnumValue>
-    <EnumValue>
-      <Aliases />
-      <Description i:nil="true" />
-      <Name>Discover</Name>
-    </EnumValue>
-    <EnumValue>
-      <Aliases />
-      <Description i:nil="true" />
-      <Name>JapanCreditBureau</Name>
-    </EnumValue>
-    <EnumValue>
-      <Aliases />
-      <Description i:nil="true" />
-      <Name>MasterCard</Name>
-    </EnumValue>
-    <EnumValue>
-      <Aliases />
-      <Description i:nil="true" />
-      <Name>Visa</Name>
-    </EnumValue>
-  </Values>
 </EnumCategory>

@@ -1,25 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description i:nil="true" />
-  <EnumMode>EnumValue</EnumMode>
+  <EnumMode>Item</EnumMode>
   <Extension i:nil="true" />
-  <Name>FailedPaymentStatus</Name>
-  <Namespace>MetraTech.Metanga</Namespace>
-  <Values>
-    <EnumValue>
+  <Items>
+    <EnumItem>
       <Aliases />
       <Description i:nil="true" />
       <Name>Failed</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases />
       <Description i:nil="true" />
       <Name>Succeeded</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases />
       <Description i:nil="true" />
       <Name>Dismissed</Name>
-    </EnumValue>
-  </Values>
+    </EnumItem>
+  </Items>
+  <Name>FailedPaymentStatus</Name>
+  <Namespace>MetraTech.Metanga</Namespace>
 </EnumCategory>

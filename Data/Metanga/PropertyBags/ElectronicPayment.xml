@@ -42,8 +42,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>FailedPaymentStatus</Category>
-          <Namespace>MetraTech.Metanga</Namespace>
+          <Category>MetraTech.Metanga.FailedPaymentStatus</Category>
         </Type>
       </Property>
       <Property>
@@ -117,8 +116,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>ElectronicPaymentOperation</Category>
-          <Namespace>MetraTech.Metanga</Namespace>
+          <Category>MetraTech.Metanga.ElectronicPaymentOperation</Category>
         </Type>
       </Property>
       <Property>
@@ -147,8 +145,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>TransactionStatus</Category>
-          <Namespace>MetraTech.Metanga</Namespace>
+          <Category>MetraTech.Metanga.TransactionStatus</Category>
         </Type>
       </Property>
       <Property>

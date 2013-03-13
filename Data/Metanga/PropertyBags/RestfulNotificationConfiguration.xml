@@ -27,8 +27,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>ContentFormat</Category>
-          <Namespace>MetraTech.Metanga</Namespace>
+          <Category>MetraTech.Metanga.ContentFormat</Category>
         </Type>
       </Property>
       <Property>

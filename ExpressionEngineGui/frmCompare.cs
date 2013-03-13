@@ -102,8 +102,7 @@ namespace PropertyGui
             tree.ViewMode = (MvcAbstraction.ViewModeType)cboViewMode.SelectedItem;
             tree.PropertyTypeFilter = (MetraTech.ExpressionEngine.TypeSystem.Type)cboPropertyTypeFilter.SelectedItem;
             tree.FunctionFilter = cboCategory.Text;
-            tree.EntityTypeFilter = PropertyBagConstants.AnyFilter;
-            //tree.EntityTypeFilter = cboPropertyBagFilter.SelectedItem.ToString();
+            tree.EntityTypeFilter = cboPropertyBagFilter.SelectedItem.ToString();
 
             if (context != null)
                 tree.LoadTree();
@@ -191,8 +190,6 @@ namespace PropertyGui
         }
         #endregion
         
-
-
         #region Events
         private void settingChanged(object sender, EventArgs e)
         {
@@ -241,8 +238,6 @@ namespace PropertyGui
         }
 
         #endregion
-
-
 
     }
 }

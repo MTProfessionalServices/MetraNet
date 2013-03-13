@@ -21,6 +21,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// <summary>
         /// The enum's category. This is a fully qualified name that includes the namespace
         /// </summary>
+        [DataMember]
         public string Category { get; set; }
 
         /// <summary>

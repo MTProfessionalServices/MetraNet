@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Expressions;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
+using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.Placeholders;
@@ -234,6 +235,11 @@ namespace PropertyGui
             else if (tag is PageLayout)
             {
                 ShowExpression(context, new Expression(ExpressionType.Email, "", null), true);
+            }
+            else if (tag is PropertyBag)
+            {
+                var dialog = new frmPropertyBag(context, (PropertyBag) tag);
+                dialog.ShowDialog();
             }
         }
 

@@ -88,6 +88,12 @@
     <Compile Include="ctlExpressionTree.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ctlProperty.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctlProperty.Designer.cs">
+      <DependentUpon>ctlProperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="ctlPropertyCollectionBinder.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -111,6 +117,12 @@
     </Compile>
     <Compile Include="frmCompare.Designer.cs">
       <DependentUpon>frmCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPropertyBag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPropertyBag.Designer.cs">
+      <DependentUpon>frmPropertyBag.cs</DependentUpon>
     </Compile>
     <Compile Include="frmGlobalExplorer.cs">
       <SubType>Form</SubType>
@@ -185,6 +197,9 @@
     <EmbeddedResource Include="ctlContextExplorer.resx">
       <DependentUpon>ctlContextExplorer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ctlProperty.resx">
+      <DependentUpon>ctlProperty.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ctlPropertyCollectionBinder.resx">
       <DependentUpon>ctlPropertyCollectionBinder.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCompare.resx">
       <DependentUpon>frmCompare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPropertyBag.resx">
+      <DependentUpon>frmPropertyBag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGlobalExplorer.resx">
       <DependentUpon>frmGlobalExplorer.cs</DependentUpon>
@@ -258,6 +276,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PageLayout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

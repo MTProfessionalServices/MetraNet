@@ -45,8 +45,8 @@
             this.cboViewMode = new System.Windows.Forms.ComboBox();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.txtContext1 = new System.Windows.Forms.TextBox();
-            this.txtContext2 = new System.Windows.Forms.TextBox();
             this.treContext1 = new PropertyGui.ctlExpressionTree();
+            this.txtContext2 = new System.Windows.Forms.TextBox();
             this.treContext2 = new PropertyGui.ctlExpressionTree();
             this.panHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -129,9 +129,9 @@
             this.lblCategory.AutoSize = true;
             this.lblCategory.Location = new System.Drawing.Point(12, 99);
             this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(52, 13);
+            this.lblCategory.Size = new System.Drawing.Size(96, 13);
             this.lblCategory.TabIndex = 22;
-            this.lblCategory.Text = "Category:";
+            this.lblCategory.Text = "Function Category:";
             // 
             // lblViewMode
             // 
@@ -146,9 +146,9 @@
             // 
             this.cboPropertyTypeFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPropertyTypeFilter.FormattingEnabled = true;
-            this.cboPropertyTypeFilter.Location = new System.Drawing.Point(86, 69);
+            this.cboPropertyTypeFilter.Location = new System.Drawing.Point(116, 69);
             this.cboPropertyTypeFilter.Name = "cboPropertyTypeFilter";
-            this.cboPropertyTypeFilter.Size = new System.Drawing.Size(233, 21);
+            this.cboPropertyTypeFilter.Size = new System.Drawing.Size(203, 21);
             this.cboPropertyTypeFilter.TabIndex = 16;
             this.cboPropertyTypeFilter.SelectedIndexChanged += new System.EventHandler(this.settingChanged);
             // 
@@ -157,17 +157,17 @@
             this.lblPropertyBag.AutoSize = true;
             this.lblPropertyBag.Location = new System.Drawing.Point(12, 45);
             this.lblPropertyBag.Name = "lblPropertyBag";
-            this.lblPropertyBag.Size = new System.Drawing.Size(71, 13);
+            this.lblPropertyBag.Size = new System.Drawing.Size(98, 13);
             this.lblPropertyBag.TabIndex = 15;
-            this.lblPropertyBag.Text = "Property Bag:";
+            this.lblPropertyBag.Text = "Property Bag Type:";
             // 
             // cboCategory
             // 
             this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategory.FormattingEnabled = true;
-            this.cboCategory.Location = new System.Drawing.Point(86, 96);
+            this.cboCategory.Location = new System.Drawing.Point(116, 96);
             this.cboCategory.Name = "cboCategory";
-            this.cboCategory.Size = new System.Drawing.Size(233, 21);
+            this.cboCategory.Size = new System.Drawing.Size(203, 21);
             this.cboCategory.TabIndex = 21;
             this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.settingChanged);
             // 
@@ -176,17 +176,17 @@
             this.lblProperty.AutoSize = true;
             this.lblProperty.Location = new System.Drawing.Point(12, 72);
             this.lblProperty.Name = "lblProperty";
-            this.lblProperty.Size = new System.Drawing.Size(49, 13);
+            this.lblProperty.Size = new System.Drawing.Size(102, 13);
             this.lblProperty.TabIndex = 20;
-            this.lblProperty.Text = "Property:";
+            this.lblProperty.Text = "Property Data Type:";
             // 
             // cboPropertyBagFilter
             // 
             this.cboPropertyBagFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPropertyBagFilter.FormattingEnabled = true;
-            this.cboPropertyBagFilter.Location = new System.Drawing.Point(86, 42);
+            this.cboPropertyBagFilter.Location = new System.Drawing.Point(116, 42);
             this.cboPropertyBagFilter.Name = "cboPropertyBagFilter";
-            this.cboPropertyBagFilter.Size = new System.Drawing.Size(233, 21);
+            this.cboPropertyBagFilter.Size = new System.Drawing.Size(203, 21);
             this.cboPropertyBagFilter.TabIndex = 19;
             this.cboPropertyBagFilter.SelectedIndexChanged += new System.EventHandler(this.settingChanged);
             // 
@@ -194,9 +194,9 @@
             // 
             this.cboViewMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboViewMode.FormattingEnabled = true;
-            this.cboViewMode.Location = new System.Drawing.Point(86, 15);
+            this.cboViewMode.Location = new System.Drawing.Point(116, 15);
             this.cboViewMode.Name = "cboViewMode";
-            this.cboViewMode.Size = new System.Drawing.Size(233, 21);
+            this.cboViewMode.Size = new System.Drawing.Size(203, 21);
             this.cboViewMode.TabIndex = 18;
             this.cboViewMode.SelectedIndexChanged += new System.EventHandler(this.settingChanged);
             // 
@@ -232,19 +232,6 @@
             this.txtContext1.TabIndex = 30;
             this.txtContext1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtContext2
-            // 
-            this.txtContext2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.txtContext2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtContext2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContext2.ForeColor = System.Drawing.Color.White;
-            this.txtContext2.Location = new System.Drawing.Point(0, 0);
-            this.txtContext2.Name = "txtContext2";
-            this.txtContext2.ReadOnly = true;
-            this.txtContext2.Size = new System.Drawing.Size(418, 20);
-            this.txtContext2.TabIndex = 29;
-            this.txtContext2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // treContext1
             // 
             this.treContext1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -265,6 +252,19 @@
             this.treContext1.TabIndex = 27;
             this.treContext1.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
             this.treContext1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treContext1_NodeMouseDoubleClick);
+            // 
+            // txtContext2
+            // 
+            this.txtContext2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.txtContext2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtContext2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContext2.ForeColor = System.Drawing.Color.White;
+            this.txtContext2.Location = new System.Drawing.Point(0, 0);
+            this.txtContext2.Name = "txtContext2";
+            this.txtContext2.ReadOnly = true;
+            this.txtContext2.Size = new System.Drawing.Size(418, 20);
+            this.txtContext2.TabIndex = 29;
+            this.txtContext2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // treContext2
             // 

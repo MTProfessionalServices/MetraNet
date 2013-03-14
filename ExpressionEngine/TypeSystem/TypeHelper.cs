@@ -21,6 +21,8 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         public static readonly IEnumerable<string> MsixEntityTypes;
 
+        public static readonly IEnumerable<BaseType> MetraNetBaseTypes;
+
         /// <summary>
         /// BaseTypes that exist as native database types (e.g., string, int, etc.). In other words, there is a 1:1 mapping.
         /// Do not make changes to the objects in this array. Use CopyFrom to make a copy and make changes to the copy.
@@ -68,6 +70,22 @@ namespace MetraTech.ExpressionEngine.TypeSystem
               BaseType.String,
               BaseType.DateTime
             };
+
+            MetraNetBaseTypes = new BaseType[]
+                {
+                    BaseType.Boolean,
+                    BaseType.Decimal,
+                    BaseType.Charge,
+                    BaseType.Double,
+                    BaseType.Enumeration,
+                    BaseType.Guid,
+                    BaseType.Integer32,
+                    BaseType.Integer64,
+                    BaseType.Money, 
+                    BaseType.String,
+                    BaseType.Tax,
+                    BaseType.DateTime
+                };
 
             DatabaseBaseTypes = new BaseType[] 
           {

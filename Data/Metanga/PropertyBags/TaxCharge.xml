@@ -63,6 +63,20 @@
         <Description i:nil="true" />
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
+        <Name>UnitCode</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description i:nil="true" />
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
         <Name>UnitName</Name>
         <Required>true</Required>
         <Type i:type="StringType">
@@ -84,8 +98,8 @@
           <ListType>None</ListType>
           <FixedUnitOfMeasure i:nil="true" />
           <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <UnitOfMeasureMode>Property</UnitOfMeasureMode>
+          <UnitOfMeasureProperty>UnitCode</UnitOfMeasureProperty>
         </Type>
       </Property>
       <Property>
@@ -124,13 +138,12 @@
         <IsCore>true</IsCore>
         <Name>Price</Name>
         <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>Property</CurrencyMode>
+          <CurrencyProperty>PriceCurrency</CurrencyProperty>
+          <FixedCurrency i:nil="true" />
         </Type>
       </Property>
       <Property>
@@ -155,13 +168,12 @@
         <IsCore>true</IsCore>
         <Name>PriceAmount</Name>
         <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>Property</CurrencyMode>
+          <CurrencyProperty>PriceCurrency</CurrencyProperty>
+          <FixedCurrency i:nil="true" />
         </Type>
       </Property>
       <Property>
@@ -186,13 +198,12 @@
         <IsCore>true</IsCore>
         <Name>ChargeAmount</Name>
         <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>Property</CurrencyMode>
+          <CurrencyProperty>ChargeCurrency</CurrencyProperty>
+          <FixedCurrency i:nil="true" />
         </Type>
       </Property>
       <Property>

@@ -42,7 +42,7 @@
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>MetraTech.Metanga.UnitCategory</Name>
+          <Name>MetraTech.Metanga.UnitGroup</Name>
           <PropertyBagMode>Entity</PropertyBagMode>
         </Type>
       </Property>
@@ -53,6 +53,19 @@
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>Taxable</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>This product is Tax product.</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>IsTaxProduct</Name>
         <Required>true</Required>
         <Type>
           <BaseType>Boolean</BaseType>

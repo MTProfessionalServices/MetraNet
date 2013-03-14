@@ -78,13 +78,12 @@
         <IsCore>true</IsCore>
         <Name>InvoiceTaxableAmount</Name>
         <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>Property</CurrencyMode>
+          <CurrencyProperty>InvoiceCurrency</CurrencyProperty>
+          <FixedCurrency i:nil="true" />
         </Type>
       </Property>
       <Property>
@@ -95,13 +94,12 @@
         <IsCore>true</IsCore>
         <Name>InvoiceTaxAmount</Name>
         <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>Property</CurrencyMode>
+          <CurrencyProperty>InvoiceCurrency</CurrencyProperty>
+          <FixedCurrency i:nil="true" />
         </Type>
       </Property>
       <Property>
@@ -126,13 +124,12 @@
         <IsCore>true</IsCore>
         <Name>InvoiceSalesAmount</Name>
         <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>Property</CurrencyMode>
+          <CurrencyProperty>InvoiceCurrency</CurrencyProperty>
+          <FixedCurrency i:nil="true" />
         </Type>
       </Property>
       <Property>
@@ -239,13 +236,12 @@
         <IsCore>true</IsCore>
         <Name>PreviousBalance</Name>
         <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>Property</CurrencyMode>
+          <CurrencyProperty>InvoiceCurrency</CurrencyProperty>
+          <FixedCurrency i:nil="true" />
         </Type>
       </Property>
       <Property>
@@ -256,13 +252,12 @@
         <IsCore>true</IsCore>
         <Name>CurrentBalance</Name>
         <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>Property</CurrencyMode>
+          <CurrencyProperty>InvoiceCurrency</CurrencyProperty>
+          <FixedCurrency i:nil="true" />
         </Type>
       </Property>
       <Property>
@@ -273,13 +268,12 @@
         <IsCore>true</IsCore>
         <Name>AmountDue</Name>
         <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>Property</CurrencyMode>
+          <CurrencyProperty>InvoiceCurrency</CurrencyProperty>
+          <FixedCurrency i:nil="true" />
         </Type>
       </Property>
       <Property>
@@ -290,13 +284,12 @@
         <IsCore>true</IsCore>
         <Name>PaymentsAndCredits</Name>
         <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>Property</CurrencyMode>
+          <CurrencyProperty>InvoiceCurrency</CurrencyProperty>
+          <FixedCurrency i:nil="true" />
         </Type>
       </Property>
       <Property>

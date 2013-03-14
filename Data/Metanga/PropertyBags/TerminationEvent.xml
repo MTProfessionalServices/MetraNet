@@ -108,8 +108,8 @@
           <ListType>None</ListType>
           <FixedUnitOfMeasure i:nil="true" />
           <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <UnitOfMeasureMode>Property</UnitOfMeasureMode>
+          <UnitOfMeasureProperty>UnitOfMeasure</UnitOfMeasureProperty>
         </Type>
       </Property>
       <Property>

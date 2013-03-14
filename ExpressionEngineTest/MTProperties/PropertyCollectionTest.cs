@@ -48,5 +48,16 @@ namespace ExpressionEngineTest
 
         }
 
+        [TestMethod()]
+        public void GetNewSequentialPropertyNameTest()
+        {
+            var list = new PropertyCollection(null);
+            Assert.AreEqual("Property1", list.GetNewSequentialPropertyName());
+
+            list.AddString("Property1", null, true);
+
+            Assert.AreEqual("Property2", list.GetNewSequentialPropertyName());
+        }
+
     }
 }

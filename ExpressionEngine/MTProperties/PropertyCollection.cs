@@ -156,6 +156,21 @@ namespace MetraTech.ExpressionEngine.MTProperties
             return messages;
         }
 
+        /// <summary>
+        /// Returns a sequential new property name (i.e., Property1, Property2, etc.)
+        /// </summary>
+        /// <returns></returns>
+        public string GetNewSequentialPropertyName()
+        {
+            int index = 1;
+            while (true)
+            {
+                var newName = string.Format(CultureInfo.InvariantCulture, Localization.DefaultNewPropertyName, index);
+                if (Get(newName) == null)
+                    return newName;
+                index++;
+            }
+        }
         public PropertyCollection Clone()
         {
             var newCollection = new PropertyCollection(null);

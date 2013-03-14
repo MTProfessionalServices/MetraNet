@@ -183,4 +183,7 @@
   <data name="UnitOfMeasureNotSpecified" xml:space="preserve">
     <value>Unit of Measure not specified</value>
   </data>
+  <data name="DefaultNewPropertyName" xml:space="preserve">
+    <value>Property{0}</value>
+  </data>
 </root>

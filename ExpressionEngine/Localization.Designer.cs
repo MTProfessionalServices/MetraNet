@@ -79,6 +79,15 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Property{0}.
+        /// </summary>
+        internal static string DefaultNewPropertyName {
+            get {
+                return ResourceManager.GetString("DefaultNewPropertyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Duplicate Property Name: &apos;{0}&apos;.
         /// </summary>
         internal static string DuplicatePropertyName {

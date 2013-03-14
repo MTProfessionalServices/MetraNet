@@ -15,6 +15,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     [KnownType(typeof(NumberType))]
     [KnownType(typeof(PropertyBagType))]
     [KnownType(typeof(StringType))]
+    [KnownType(typeof(ChargeType))]
     public class Type
     {
         #region Properties

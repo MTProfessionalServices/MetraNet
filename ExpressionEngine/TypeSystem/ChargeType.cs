@@ -1,13 +1,16 @@
-﻿using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+﻿using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
-    public class ChargeType : MoneyType
+  [DataContract(Namespace = "MetraTech")]
+  public class ChargeType : MoneyType
     {
         #region Properties
 
         /// <summary>
         /// The name of the property that specifes the quantity to calculate
         /// </summary>
+        [DataMember]
         public string QuantityProperty { get; set; }
 
         /// <summary>
@@ -15,21 +18,25 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// MoneyType class. Unit price can be determined by dividing Price by the 
         /// value contained in QuantityProperty
         /// </summary>
-        public decimal Price { get; set; }
+        [DataMember]
+        public string PriceProperty { get; set; }
 
         /// <summary>
         /// The property that contains the product ID
         /// </summary>
-        public string ProductIdProperty { get; set; }
+        [DataMember]
+        public string ProductProperty { get; set; }
 
         /// <summary>
         /// The property that containss the start date. Used for revenue requsition.
         /// </summary>
+        [DataMember]
         public string StartProperty { get; set; }
 
         /// <summary>
         /// The property that contains the end date. Used for revenue requsition.
         /// </summary>
+        [DataMember]
         public string EndProperty { get; set; }
 
         #endregion

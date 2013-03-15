@@ -12,6 +12,12 @@ namespace PropertyGui
 {
     public partial class frmValidationMessages : Form
     {
+        public static void Show(ValidationMessageCollection messages, string subTitle = null)
+        {
+            var dialog = new frmValidationMessages(messages, subTitle);
+            dialog.ShowDialog();
+        }
+
         public frmValidationMessages(ValidationMessageCollection messages, string subTitle=null)
         {
             InitializeComponent();

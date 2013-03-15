@@ -21,7 +21,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public string FixedCurrency { get; set; }
 
         /// <summary>
-        /// The property that drives the currency. Only valid when CurrencyMode=Property.
+        /// The property that drives the currency. Only valid when CurrencyMode=PropertyDriven.
         /// </summary>
         [DataMember]
         public string CurrencyProperty { get; set; }

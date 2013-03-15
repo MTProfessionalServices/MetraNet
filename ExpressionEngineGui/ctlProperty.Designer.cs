@@ -35,19 +35,9 @@
             this.cboDataType = new System.Windows.Forms.ComboBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cboQuantityProperty = new System.Windows.Forms.ComboBox();
-            this.cboPriceProperty = new System.Windows.Forms.ComboBox();
-            this.cboProductProperty = new System.Windows.Forms.ComboBox();
-            this.cboSartProperty = new System.Windows.Forms.ComboBox();
-            this.cboEndProperty = new System.Windows.Forms.ComboBox();
-            this.cboEnumeration = new System.Windows.Forms.ComboBox();
-            this.panCharge = new System.Windows.Forms.Panel();
-            this.panCharge.SuspendLayout();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtDefaultValue = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label1
@@ -61,9 +51,9 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(81, 14);
+            this.txtName.Location = new System.Drawing.Point(84, 14);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(183, 20);
+            this.txtName.Size = new System.Drawing.Size(250, 20);
             this.txtName.TabIndex = 1;
             this.txtName.TextChanged += new System.EventHandler(this.changeEvent);
             // 
@@ -79,7 +69,7 @@
             // chkIsRequired
             // 
             this.chkIsRequired.AutoSize = true;
-            this.chkIsRequired.Location = new System.Drawing.Point(20, 77);
+            this.chkIsRequired.Location = new System.Drawing.Point(259, 43);
             this.chkIsRequired.Name = "chkIsRequired";
             this.chkIsRequired.Size = new System.Drawing.Size(75, 17);
             this.chkIsRequired.TabIndex = 3;
@@ -94,13 +84,14 @@
             this.cboDataType.Name = "cboDataType";
             this.cboDataType.Size = new System.Drawing.Size(121, 21);
             this.cboDataType.TabIndex = 4;
+            this.cboDataType.SelectedIndexChanged += new System.EventHandler(this.cboDataType_SelectedIndexChanged);
             this.cboDataType.SelectedValueChanged += new System.EventHandler(this.changeEvent);
             // 
             // txtDescription
             // 
             this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescription.Location = new System.Drawing.Point(20, 285);
+            this.txtDescription.Location = new System.Drawing.Point(20, 350);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -111,129 +102,43 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 269);
+            this.label3.Location = new System.Drawing.Point(19, 334);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Description:";
             // 
-            // label4
+            // label9
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1, 6);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Quantity Property:";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(21, 304);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(74, 13);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Default Value:";
             // 
-            // label5
+            // txtDefaultValue
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1, 29);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Price Property:";
+            this.txtDefaultValue.Location = new System.Drawing.Point(101, 301);
+            this.txtDefaultValue.Name = "txtDefaultValue";
+            this.txtDefaultValue.Size = new System.Drawing.Size(250, 20);
+            this.txtDefaultValue.TabIndex = 21;
             // 
-            // label6
+            // panel1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 52);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Product Property:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1, 79);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 13);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Start Property:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(5, 105);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 13);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "End Property:";
-            // 
-            // cboQuantityProperty
-            // 
-            this.cboQuantityProperty.FormattingEnabled = true;
-            this.cboQuantityProperty.Location = new System.Drawing.Point(98, 3);
-            this.cboQuantityProperty.Name = "cboQuantityProperty";
-            this.cboQuantityProperty.Size = new System.Drawing.Size(121, 21);
-            this.cboQuantityProperty.TabIndex = 13;
-            // 
-            // cboPriceProperty
-            // 
-            this.cboPriceProperty.FormattingEnabled = true;
-            this.cboPriceProperty.Location = new System.Drawing.Point(98, 29);
-            this.cboPriceProperty.Name = "cboPriceProperty";
-            this.cboPriceProperty.Size = new System.Drawing.Size(121, 21);
-            this.cboPriceProperty.TabIndex = 14;
-            // 
-            // cboProductProperty
-            // 
-            this.cboProductProperty.FormattingEnabled = true;
-            this.cboProductProperty.Location = new System.Drawing.Point(98, 52);
-            this.cboProductProperty.Name = "cboProductProperty";
-            this.cboProductProperty.Size = new System.Drawing.Size(121, 21);
-            this.cboProductProperty.TabIndex = 15;
-            // 
-            // cboSartProperty
-            // 
-            this.cboSartProperty.FormattingEnabled = true;
-            this.cboSartProperty.Location = new System.Drawing.Point(98, 76);
-            this.cboSartProperty.Name = "cboSartProperty";
-            this.cboSartProperty.Size = new System.Drawing.Size(121, 21);
-            this.cboSartProperty.TabIndex = 16;
-            // 
-            // cboEndProperty
-            // 
-            this.cboEndProperty.FormattingEnabled = true;
-            this.cboEndProperty.Location = new System.Drawing.Point(98, 102);
-            this.cboEndProperty.Name = "cboEndProperty";
-            this.cboEndProperty.Size = new System.Drawing.Size(121, 21);
-            this.cboEndProperty.TabIndex = 17;
-            // 
-            // cboEnumeration
-            // 
-            this.cboEnumeration.FormattingEnabled = true;
-            this.cboEnumeration.Location = new System.Drawing.Point(235, 40);
-            this.cboEnumeration.Name = "cboEnumeration";
-            this.cboEnumeration.Size = new System.Drawing.Size(389, 21);
-            this.cboEnumeration.TabIndex = 18;
-            this.cboEnumeration.SelectedValueChanged += new System.EventHandler(this.changeEvent);
-            // 
-            // panCharge
-            // 
-            this.panCharge.Controls.Add(this.cboQuantityProperty);
-            this.panCharge.Controls.Add(this.label4);
-            this.panCharge.Controls.Add(this.cboEndProperty);
-            this.panCharge.Controls.Add(this.label5);
-            this.panCharge.Controls.Add(this.cboSartProperty);
-            this.panCharge.Controls.Add(this.label6);
-            this.panCharge.Controls.Add(this.cboProductProperty);
-            this.panCharge.Controls.Add(this.label7);
-            this.panCharge.Controls.Add(this.cboPriceProperty);
-            this.panCharge.Controls.Add(this.label8);
-            this.panCharge.Location = new System.Drawing.Point(20, 100);
-            this.panCharge.Name = "panCharge";
-            this.panCharge.Size = new System.Drawing.Size(348, 145);
-            this.panCharge.TabIndex = 19;
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Location = new System.Drawing.Point(20, 85);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(16, 12);
+            this.panel1.TabIndex = 22;
             // 
             // ctlProperty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panCharge);
-            this.Controls.Add(this.cboEnumeration);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.txtDefaultValue);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cboDataType);
@@ -242,9 +147,7 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
             this.Name = "ctlProperty";
-            this.Size = new System.Drawing.Size(705, 347);
-            this.panCharge.ResumeLayout(false);
-            this.panCharge.PerformLayout();
+            this.Size = new System.Drawing.Size(705, 419);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,17 +162,8 @@
         private System.Windows.Forms.ComboBox cboDataType;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cboQuantityProperty;
-        private System.Windows.Forms.ComboBox cboPriceProperty;
-        private System.Windows.Forms.ComboBox cboProductProperty;
-        private System.Windows.Forms.ComboBox cboSartProperty;
-        private System.Windows.Forms.ComboBox cboEndProperty;
-        private System.Windows.Forms.ComboBox cboEnumeration;
-        private System.Windows.Forms.Panel panCharge;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtDefaultValue;
+        private System.Windows.Forms.Panel panel1;
     }
 }

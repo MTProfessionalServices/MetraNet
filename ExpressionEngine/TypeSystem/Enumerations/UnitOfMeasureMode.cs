@@ -26,7 +26,7 @@
         Category, 
 
         /// <summary>
-        /// Determined via a property within the same property collection. Property name specified in the UomQualifier property.
+        /// Determined via a property within the same property collection. PropertyDriven name specified in the UomQualifier property.
         /// </summary>
         Property  
     }

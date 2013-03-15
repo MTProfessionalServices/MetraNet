@@ -38,7 +38,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public string FixedUnitOfMeasure { get; set; }
 
         /// <summary>
-        /// The name of the property that specifies the unit of measure; Only valid when UnitOfMeasureMode=Property
+        /// The name of the property that specifies the unit of measure; Only valid when UnitOfMeasureMode=PropertyDriven
         /// </summary>
         [DataMember]
         public string UnitOfMeasureProperty { get; set; }

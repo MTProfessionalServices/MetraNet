@@ -113,7 +113,7 @@ namespace PropertyGui
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Property:";
+            this.label2.Text = "PropertyDriven:";
             // 
             // panFunction
             // 

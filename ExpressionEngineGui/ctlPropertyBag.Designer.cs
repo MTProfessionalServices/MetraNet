@@ -30,10 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.mnuContext = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.btnAdd = new System.Windows.Forms.Button();
             this.treProperties = new PropertyGui.ctlExpressionTree();
             this.ctlProperty1 = new PropertyGui.ctlProperty();
+            this.mnuContext = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnValidate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -59,21 +60,6 @@
             this.splitContainer.Size = new System.Drawing.Size(689, 346);
             this.splitContainer.SplitterDistance = 285;
             this.splitContainer.TabIndex = 3;
-            // 
-            // mnuContext
-            // 
-            this.mnuContext.Name = "mnuContext";
-            this.mnuContext.Size = new System.Drawing.Size(61, 4);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(5, 3);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // treProperties
             // 
@@ -105,10 +91,36 @@
             this.ctlProperty1.Size = new System.Drawing.Size(396, 342);
             this.ctlProperty1.TabIndex = 0;
             // 
+            // mnuContext
+            // 
+            this.mnuContext.Name = "mnuContext";
+            this.mnuContext.Size = new System.Drawing.Size(61, 4);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(5, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnValidate
+            // 
+            this.btnValidate.Location = new System.Drawing.Point(86, 3);
+            this.btnValidate.Name = "btnValidate";
+            this.btnValidate.Size = new System.Drawing.Size(75, 23);
+            this.btnValidate.TabIndex = 4;
+            this.btnValidate.Text = "Validate";
+            this.btnValidate.UseVisualStyleBackColor = true;
+            this.btnValidate.Click += new System.EventHandler(this.btnValidate_Click);
+            // 
             // ctlPropertyBag
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnValidate);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.splitContainer);
             this.Name = "ctlPropertyBag";
@@ -129,5 +141,6 @@
         private ctlExpressionTree treProperties;
         private ctlProperty ctlProperty1;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnValidate;
     }
 }

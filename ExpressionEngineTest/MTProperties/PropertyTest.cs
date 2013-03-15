@@ -45,7 +45,7 @@ namespace ExpressionEngineTest
 
 
         /// <summary>
-        ///A test for Property Constructor
+        ///A test for PropertyDriven Constructor
         ///</summary>
         [TestMethod()]
         public void PropertyConstructorTest()

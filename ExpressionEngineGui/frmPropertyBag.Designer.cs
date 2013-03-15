@@ -93,7 +93,6 @@
             this.ctlPropertyBag.Name = "ctlPropertyBag";
             this.ctlPropertyBag.Size = new System.Drawing.Size(832, 360);
             this.ctlPropertyBag.TabIndex = 1;
-            this.ctlPropertyBag.Load += new System.EventHandler(this.ctlPropertyBag_Load);
             // 
             // frmPropertyBag
             // 

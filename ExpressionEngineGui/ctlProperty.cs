@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
-using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using PropertyGui.TypeSystemControls;
 
 namespace PropertyGui
 {
@@ -14,12 +13,11 @@ namespace PropertyGui
     public partial class ctlProperty : UserControl
     {
         #region Properties
-
         private bool IgnoreChanges = false;
         private Context Context;
         private Property Property;
         public ChangeEvent OnChangeEvent;
-
+        public ctlBaseType CurrentTypeControl = null;
         #endregion
 
         #region Constructor
@@ -37,8 +35,7 @@ namespace PropertyGui
                 throw new ArgumentException("context is null");
             Context = context;
 
-            LoadBaseTypes(cboDataType);
-            LoadEnumerations(cboEnumeration, Context.EnumCategories);
+            GuiHelper.LoadBaseTypes(cboDataType);
         }
 
         public void SyncToForm(Property property)
@@ -51,22 +48,8 @@ namespace PropertyGui
             txtName.Text = Property.Name;
             chkIsRequired.Checked = Property.Required;
             cboDataType.SelectedItem = Property.Type.BaseType;
+            txtDefaultValue.Text = Property.DefaultValue;
             txtDescription.Text = Property.Description;
-
-            switch (Property.Type.BaseType)
-            {
-                case BaseType.Enumeration:
-                    cboEnumeration.Text = ((EnumerationType) Property.Type).Category;
-                    break;
-                case BaseType.Charge:
-                    var charge = (ChargeType) Property.Type;
-                    cboQuantityProperty.Text = charge.QuantityProperty;
-                    cboPriceProperty.Text = charge.PriceProperty;
-                    cboProductProperty.Text = charge.ProductProperty;
-                    cboSartProperty.Text = charge.StartProperty;
-                    cboEndProperty.Text = charge.EndProperty;
-                    break;
-            }
 
             Enabled = !Property.IsCore;
             IgnoreChanges = false;
@@ -77,30 +60,35 @@ namespace PropertyGui
         {
             Property.Name = txtName.Text;
             Property.Required = chkIsRequired.Checked;
+            Property.DefaultValue = txtDefaultValue.Text;
             Property.Description = txtDescription.Text;
             var baseType = (BaseType) cboDataType.SelectedItem;
             if (Property.Type.BaseType != baseType)
                 Property.Type = TypeFactory.Create(baseType);
-
-            switch (Property.Type.BaseType)
-            {
-                case BaseType.Enumeration:
-                    ((EnumerationType) Property.Type).Category = cboEnumeration.Text;
-                    break;
-            }
         }
 
         private void UpdateGui()
         {
-            cboEnumeration.Visible = Property.Type.IsEnum;
 
-            var isCharge = Property.Type.IsCharge;
-            panCharge.Visible = isCharge;
-            cboQuantityProperty.Visible = isCharge;
-            cboPriceProperty.Visible = isCharge;
-            cboProductProperty.Visible = isCharge;
-            cboSartProperty.Visible = isCharge;
-            cboEndProperty.Visible = isCharge;
+        }
+
+        private ctlBaseType TypeControlFactory()
+        {
+            switch (Property.Type.BaseType)
+            {
+                case BaseType.Charge:
+                    return new ctlChargeType();
+                case BaseType.Enumeration:
+                    return new ctlEnumerationType();
+                case BaseType.Money:
+                    return new ctlMoneyType();
+                case BaseType.String:
+                    return new ctlStringType();
+                default:
+                    if (Property.Type is NumberType)
+                        return new ctlNumberType();
+                    return null;
+            }
         }
 
         #endregion
@@ -119,34 +107,29 @@ namespace PropertyGui
                 OnChangeEvent();
         }
 
-        #endregion
 
-        #region Move to helper class
-        public void LoadBaseTypes(ComboBox comboBox)
+        private void cboDataType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBox.BeginUpdate();
-            comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            foreach (var baseType in Enum.GetValues(typeof(BaseType)))
-            {
-                comboBox.Items.Add(baseType);
-            }
-            comboBox.Sorted = true;
-            comboBox.EndUpdate();
-        }
+            if (IgnoreChanges)
+                return;
 
-
-        public void LoadEnumerations(ComboBox comboBox, IEnumerable<EnumCategory> categories)
-        {
-            comboBox.BeginUpdate();
-            comboBox.DisplayMember = "FullName";
-            foreach (var category in categories)
+            if (CurrentTypeControl != null)
             {
-                comboBox.Items.Add(category);
+                CurrentTypeControl.SyncToObject();
+                CurrentTypeControl.Dispose();
             }
-            comboBox.Sorted = true;
-            comboBox.EndUpdate();
+
+            Property.Type = TypeFactory.Create((BaseType) cboDataType.SelectedItem);
+            CurrentTypeControl = TypeControlFactory();
+            if (CurrentTypeControl != null)
+            {
+                CurrentTypeControl.Parent = this;
+                CurrentTypeControl.Top = panel1.Top;
+                CurrentTypeControl.Left = panel1.Left;
+                CurrentTypeControl.Init(Property, Context);
+                CurrentTypeControl.SyncToForm();
+            }
         }
         #endregion
-
     }
 }

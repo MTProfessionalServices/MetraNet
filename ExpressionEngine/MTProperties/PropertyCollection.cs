@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.MTProperties
@@ -131,6 +132,17 @@ namespace MetraTech.ExpressionEngine.MTProperties
         public void Clear()
         {
             Properties.Clear();
+        }
+       
+        public List<Property> GetFilteredProperties(MetraTech.ExpressionEngine.TypeSystem.Type type)
+        {
+            var properties = new List<Property>();
+            foreach (var property in properties)
+            {
+                if (property.Type.IsBaseTypeFilterMatch(type))
+                    properties.Add(property);
+            }
+            return properties;
         }
 
         public ValidationMessageCollection Validate(ValidationMessageCollection messages, Context context)

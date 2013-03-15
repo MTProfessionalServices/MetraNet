@@ -27,7 +27,7 @@ namespace MetraTech.ExpressionEngine.UserTest
             if (property == null)
                 throw new ArgumentException("Unable to find output property " + outputPropertyName);
             if (property is PropertyBag)
-                throw new ArgumentException("Property is a complex type");
+                throw new ArgumentException("PropertyDriven is a complex type");
 
             ((Property)property).Value = MergeValues(content, propertyCollection);            
         }
@@ -41,7 +41,7 @@ namespace MetraTech.ExpressionEngine.UserTest
             foreach (var property in propertyCollection)
             {
                 if (property is PropertyBag)
-                    throw new ArgumentException("Property is a complex type");
+                    throw new ArgumentException("PropertyDriven is a complex type");
 
                 var pattern = "{" + property.Name + "}";
                 content = content.Replace(pattern, ((Property)property).Value);

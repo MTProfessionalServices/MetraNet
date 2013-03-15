@@ -43,7 +43,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
 
         /// <summary>
-        /// Safe cast Property Collection
+        /// Safe cast PropertyDriven Collection
         /// </summary>
         public PropertyBag PropertyBag
         {
@@ -114,7 +114,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
         public virtual string DatabaseName { get { return Name; } }
 
         /// <summary>
-        /// Indicates the how the Property is interacted with (e.g., Input, Output or InputOutput)
+        /// Indicates the how the PropertyDriven is interacted with (e.g., Input, Output or InputOutput)
         /// </summary>
         [DataMember]
         public Direction Direction { get; set; }
@@ -260,7 +260,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
             //    return null;
 
             //var type = (NumberType)Type;
-            //if (!Type.IsNumeric || type.UnitOfMeasureMode != UnitOfMeasureMode.Property || PropertyCollection == null)
+            //if (!Type.IsNumeric || type.UnitOfMeasureMode != UnitOfMeasureMode.PropertyDriven || PropertyCollection == null)
             //    return null;
             //return PropertyCollection.Get(type.UnitOfMeasureQualifier);
         }
@@ -270,7 +270,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
             throw new NotImplementedException();
             //May want to be more judicious when creating a copy of the property
             //but using MemberwiseClone works for the moment
-            //var property = this.MemberwiseClone() as Property;
+            //var property = this.MemberwiseClone() as PropertyDriven;
             //property.DataTypeInfo = this.DataTypeInfo.Copy();
             //return property;
         }

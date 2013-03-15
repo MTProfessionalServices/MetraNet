@@ -253,7 +253,7 @@ namespace PropertyGui
                 var unitsProperty = property.GetUnitsProperty();
                 if (unitsProperty != null)
                 {
-                    var linkNode = new TreeNode(string.Format("Units Property Link: {0}", unitsProperty.Name));
+                    var linkNode = new TreeNode(string.Format("Units PropertyDriven Link: {0}", unitsProperty.Name));
                     linkNode.ToolTipText = "";
                     linkNode.SelectedImageKey = "Link.png";
                     linkNode.ImageKey = "Link.png";
@@ -264,7 +264,7 @@ namespace PropertyGui
                 var uomProperty = property.GetUnitOfMeasureProperty();
                 if (uomProperty != null)
                 {
-                    var linkNode = new TreeNode(string.Format("UoM Property Link: {0}", uomProperty.Name));
+                    var linkNode = new TreeNode(string.Format("UoM PropertyDriven Link: {0}", uomProperty.Name));
                     linkNode.ToolTipText = "";
                     linkNode.SelectedImageKey = "Link.png";
                     linkNode.ImageKey = "Link.png";

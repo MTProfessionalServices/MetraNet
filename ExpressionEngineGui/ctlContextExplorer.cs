@@ -73,7 +73,7 @@ namespace PropertyGui
             if (cboEntityTypeFilter.Items.Count > 0)
                 cboEntityTypeFilter.SelectedIndex = 0;
 
-            //Init the Property Type Filter
+            //Init the PropertyDriven Type Filter
             #region PropertyTypeFilter
             cboPropertyTypeFilter.BeginUpdate();
             cboPropertyTypeFilter.Items.Clear();

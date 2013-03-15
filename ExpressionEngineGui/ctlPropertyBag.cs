@@ -4,6 +4,7 @@ using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.Validations;
 
 namespace PropertyGui
 {
@@ -85,7 +86,20 @@ namespace PropertyGui
             PropertyBag.Properties.Add(property);
             treProperties.SelectedNode = node;
         }
+
+        private void btnValidate_Click(object sender, EventArgs e)
+        {
+            var messages = new ValidationMessageCollection();
+            PropertyBag.Validate(false, messages, Context);
+            if (messages.Count == 0)
+                MessageBox.Show("No validation issues found.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                frmValidationMessages.Show(messages);
+        }
+
         #endregion
+
+
 
     }
 }

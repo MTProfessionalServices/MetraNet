@@ -1,7 +1,7 @@
 ﻿namespace MetraTech.ExpressionEngine.MTProperties.Enumerations
 {
     /// <summary>
-    /// The scope of a Property in a ParameterTable
+    /// The scope of a PropertyDriven in a ParameterTable
     /// </summary>
     public enum OperatorScope
     {

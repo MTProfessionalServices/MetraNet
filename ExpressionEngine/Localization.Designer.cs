@@ -79,7 +79,7 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Property{0}.
+        ///   Looks up a localized string similar to PropertyDriven{0}.
         /// </summary>
         internal static string DefaultNewPropertyName {
             get {
@@ -88,7 +88,7 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Duplicate Property Name: &apos;{0}&apos;.
+        ///   Looks up a localized string similar to Duplicate PropertyDriven Name: &apos;{0}&apos;.
         /// </summary>
         internal static string DuplicatePropertyName {
             get {
@@ -142,7 +142,7 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to in Property &apos;{0}&apos; in PropertyBag &apos;{1}&apos;.
+        ///   Looks up a localized string similar to in PropertyDriven &apos;{0}&apos; in PropertyBag &apos;{1}&apos;.
         /// </summary>
         internal static string InPropertySuffix {
             get {
@@ -187,7 +187,7 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Property &apos;{0}&apos;: .
+        ///   Looks up a localized string similar to PropertyDriven &apos;{0}&apos;: .
         /// </summary>
         internal static string PropertyMessagePrefix {
             get {

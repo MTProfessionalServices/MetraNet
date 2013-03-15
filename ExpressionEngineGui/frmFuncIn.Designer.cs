@@ -71,7 +71,7 @@ namespace PropertyGui
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Property:";
+            this.label1.Text = "PropertyDriven:";
             // 
             // lstAvailable
             // 

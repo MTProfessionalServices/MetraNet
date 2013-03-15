@@ -24,7 +24,7 @@ namespace PropertyGui
             InitializeComponent();
             Context = context;
             PropertyBag = propertyBag;
-            Text = string.Format("Property Bag ({0})", PropertyBag.Name);
+            Text = string.Format("PropertyDriven Bag ({0})", PropertyBag.Name);
             WindowState = FormWindowState.Maximized;
             ctlPropertyBag.Init(Context, PropertyBag);
         }
@@ -43,11 +43,6 @@ namespace PropertyGui
             }
         }
         #endregion
-
-        private void ctlPropertyBag_Load(object sender, EventArgs e)
-        {
-
-        }
 
     }
 }

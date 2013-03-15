@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
 using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Expressions;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties;
@@ -198,7 +199,7 @@ namespace MetraTech.ExpressionEngine
         }
         #endregion
 
-        #region Property Methods
+        #region PropertyDriven Methods
         /// <summary>
         /// Searches for a property with the specified name. If not found, null is returned. Order N search. 
         /// </summary>
@@ -402,7 +403,7 @@ namespace MetraTech.ExpressionEngine
 
         //            foreach (var property in propertyBag.Properties)
         //            {
-        //                Property existingProperty;
+        //                PropertyDriven existingProperty;
         //                if (!existingProperties.TryGetValue(property.Name, out existingProperty))
         //                {
         //                    existingProperties.Add(property.Name, 1);
@@ -545,6 +546,22 @@ namespace MetraTech.ExpressionEngine
             if (enumerationType == null)
                 throw new ArgumentException("enumerationType is null");
             return GetEnumCategory(enumerationType.Category);
+        }
+
+        public EnumCategory GetCurrencyCategory()
+        {
+            return GetEnumCategory("MetraTech.Curreny");
+        }
+
+        public List<EnumCategory> GetUnitOfMeasureCategories()
+        {
+            var uoms = new List<EnumCategory>();
+            foreach (var category in EnumCategories)
+            {
+                if (category.EnumMode == EnumMode.UnitOfMeasure)
+                    uoms.Add(category);
+            }
+            return uoms;
         }
         #endregion
 

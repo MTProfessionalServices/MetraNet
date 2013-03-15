@@ -176,9 +176,9 @@
             this.lblProperty.AutoSize = true;
             this.lblProperty.Location = new System.Drawing.Point(12, 72);
             this.lblProperty.Name = "lblProperty";
-            this.lblProperty.Size = new System.Drawing.Size(102, 13);
+            this.lblProperty.Size = new System.Drawing.Size(76, 13);
             this.lblProperty.TabIndex = 20;
-            this.lblProperty.Text = "Property Data Type:";
+            this.lblProperty.Text = "Property Type:";
             // 
             // cboPropertyBagFilter
             // 
@@ -234,12 +234,14 @@
             // 
             // treContext1
             // 
+            this.treContext1.AllowEntityExpand = true;
             this.treContext1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.treContext1.EntityTypeFilter = null;
             this.treContext1.EnumValueContextMenu = null;
             this.treContext1.FunctionFilter = null;
+            this.treContext1.HideSelection = false;
             this.treContext1.ImageIndex = 0;
             this.treContext1.Location = new System.Drawing.Point(0, 19);
             this.treContext1.Name = "treContext1";
@@ -268,12 +270,14 @@
             // 
             // treContext2
             // 
+            this.treContext2.AllowEntityExpand = true;
             this.treContext2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.treContext2.EntityTypeFilter = null;
             this.treContext2.EnumValueContextMenu = null;
             this.treContext2.FunctionFilter = null;
+            this.treContext2.HideSelection = false;
             this.treContext2.ImageIndex = 0;
             this.treContext2.Location = new System.Drawing.Point(0, 19);
             this.treContext2.Name = "treContext2";

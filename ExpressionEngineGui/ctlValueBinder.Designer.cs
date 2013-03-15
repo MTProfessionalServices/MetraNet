@@ -55,7 +55,7 @@
             // 
             this.mnuPropertyBinding.Name = "mnuPropertyBinding";
             this.mnuPropertyBinding.Size = new System.Drawing.Size(129, 22);
-            this.mnuPropertyBinding.Text = "Property";
+            this.mnuPropertyBinding.Text = "PropertyDriven";
             this.mnuPropertyBinding.Click += new System.EventHandler(this.mnuPropertyBinding_Click);
             // 
             // mnuConstant

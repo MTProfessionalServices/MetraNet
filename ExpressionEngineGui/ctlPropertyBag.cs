@@ -33,37 +33,34 @@ namespace PropertyGui
             if (propertyBag == null)
                 throw new ArgumentException("propertyBag is null");
 
-            InitializeComponent();
+            //InitializeComponent();
             Context = context;
             PropertyBag = propertyBag;
 
             treProperties.Init(Context, mnuContext);
             treProperties.AddProperties(null, PropertyBag.Properties);
+            treProperties.Sort();
             treProperties.HideSelection = false;
             treProperties.AllowEntityExpand = false;
 
-            //ctlProperty.OnChangeEvent = PropertyChangeEvent;
-            //ctlProperty.Init(Context);
+            ctlProperty1.OnChangeEvent = PropertyChangeEvent;
+            ctlProperty1.Init(Context);
         }
         #endregion
 
         #region Events
         private void treProperties_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            //var property = (Property) treProperties.SelectedNode.Tag;
-            //ctlProperty.SyncToForm(property);
+            var property = (Property)treProperties.SelectedNode.Tag;
+            ctlProperty1.SyncToForm(property);
         }
         public void PropertyChangeEvent()
         {
-            //var property = (Property)treProperties.SelectedNode.Tag;
-            //treProperties.SelectedNode.Text = property.Name;
+            var property = (Property)treProperties.SelectedNode.Tag;
+            treProperties.SelectedNode.Text = property.Name;
         }
         #endregion
 
-        private void tre_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-        }
-
+ 
     }
 }

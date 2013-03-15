@@ -238,10 +238,10 @@ namespace PropertyGui
             }
             else if (tag is PropertyBag)
             {
-                var dialog = new Form1(context, (PropertyBag)tag);
-                dialog.ShowDialog();
-                //var dialog = new frmPropertyBag(context, (PropertyBag)tag);
+                //var dialog = new Form1(context, (PropertyBag)tag);
                 //dialog.ShowDialog();
+                var dialog = new frmPropertyBag(context, (PropertyBag)tag);
+                dialog.ShowDialog();
             }
         }
 

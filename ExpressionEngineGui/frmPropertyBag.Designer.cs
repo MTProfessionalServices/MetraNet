@@ -92,6 +92,7 @@
             this.ctlPropertyBag.Name = "ctlPropertyBag";
             this.ctlPropertyBag.Size = new System.Drawing.Size(832, 388);
             this.ctlPropertyBag.TabIndex = 1;
+            this.ctlPropertyBag.Load += new System.EventHandler(this.ctlPropertyBag_Load);
             // 
             // frmPropertyBag
             // 
@@ -102,7 +103,7 @@
             this.Controls.Add(this.ctlPropertyBag);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmPropertyBag";
-            this.Text = "frmEventConfiguration";
+            this.Text = "frmPropertyBag";
             this.mnuContext.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

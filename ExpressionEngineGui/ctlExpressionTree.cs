@@ -68,6 +68,7 @@ namespace PropertyGui
             ShowNodeToolTips = true;
             PathSeparator = ".";
             AllowEntityExpand = true;
+            HideSelection = false;
         }
         #endregion
 
@@ -226,20 +227,9 @@ namespace PropertyGui
 
         public TreeNode CreateNode(IExpressionEngineTreeNode item, TreeNode parentNode = null)
         {
-            string label;
-            if (ShowNamespaces)
-                label = item.FullName;
-            else
-                label = item.Name;
-
-            if (item is Property)
-                label += ((Property)item).Type.ListSuffix;
-
-            var node = new TreeNode(label);
-            node.ToolTipText = item.ToolTip;
-            node.SelectedImageKey = item.Image;
-            node.ImageKey = item.Image;
+            var node = new TreeNode();
             node.Tag = item;
+            UpdateNode(node);
 
             //Set the parent
             if (parentNode == null)
@@ -283,6 +273,28 @@ namespace PropertyGui
             }
 
             return node;
+        }
+
+        public void UpdateSelectedNode()
+        {
+            UpdateNode(SelectedNode);
+        }
+        public void UpdateNode(TreeNode node)
+        {
+            var item = (IExpressionEngineTreeNode) node.Tag;
+            string label;
+            if (ShowNamespaces)
+                label = item.FullName;
+            else
+                label = item.Name;
+
+            if (item is Property)
+                label += ((Property)item).Type.ListSuffix;
+
+            node.Text = label;
+            node.ToolTipText = item.ToolTip;
+            node.SelectedImageKey = item.Image;
+            node.ImageKey = item.Image;
         }
 
         private static string GetOverlayImageName(string name)

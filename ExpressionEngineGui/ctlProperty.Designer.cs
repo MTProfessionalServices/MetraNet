@@ -46,6 +46,8 @@
             this.cboSartProperty = new System.Windows.Forms.ComboBox();
             this.cboEndProperty = new System.Windows.Forms.ComboBox();
             this.cboEnumeration = new System.Windows.Forms.ComboBox();
+            this.panCharge = new System.Windows.Forms.Panel();
+            this.panCharge.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -92,7 +94,6 @@
             this.cboDataType.Name = "cboDataType";
             this.cboDataType.Size = new System.Drawing.Size(121, 21);
             this.cboDataType.TabIndex = 4;
-            this.cboDataType.SelectedIndexChanged += new System.EventHandler(this.changeEvent);
             this.cboDataType.SelectedValueChanged += new System.EventHandler(this.changeEvent);
             // 
             // txtDescription
@@ -102,7 +103,8 @@
             this.txtDescription.Location = new System.Drawing.Point(20, 285);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(522, 46);
+            this.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDescription.Size = new System.Drawing.Size(671, 46);
             this.txtDescription.TabIndex = 6;
             this.txtDescription.TextChanged += new System.EventHandler(this.changeEvent);
             // 
@@ -118,7 +120,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 108);
+            this.label4.Location = new System.Drawing.Point(1, 6);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 13);
             this.label4.TabIndex = 8;
@@ -127,7 +129,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 131);
+            this.label5.Location = new System.Drawing.Point(1, 29);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 13);
             this.label5.TabIndex = 9;
@@ -136,7 +138,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 154);
+            this.label6.Location = new System.Drawing.Point(3, 52);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(89, 13);
             this.label6.TabIndex = 10;
@@ -145,7 +147,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 181);
+            this.label7.Location = new System.Drawing.Point(1, 79);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(74, 13);
             this.label7.TabIndex = 11;
@@ -154,7 +156,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 207);
+            this.label8.Location = new System.Drawing.Point(5, 105);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 13);
             this.label8.TabIndex = 12;
@@ -163,7 +165,7 @@
             // cboQuantityProperty
             // 
             this.cboQuantityProperty.FormattingEnabled = true;
-            this.cboQuantityProperty.Location = new System.Drawing.Point(114, 105);
+            this.cboQuantityProperty.Location = new System.Drawing.Point(98, 3);
             this.cboQuantityProperty.Name = "cboQuantityProperty";
             this.cboQuantityProperty.Size = new System.Drawing.Size(121, 21);
             this.cboQuantityProperty.TabIndex = 13;
@@ -171,7 +173,7 @@
             // cboPriceProperty
             // 
             this.cboPriceProperty.FormattingEnabled = true;
-            this.cboPriceProperty.Location = new System.Drawing.Point(114, 131);
+            this.cboPriceProperty.Location = new System.Drawing.Point(98, 29);
             this.cboPriceProperty.Name = "cboPriceProperty";
             this.cboPriceProperty.Size = new System.Drawing.Size(121, 21);
             this.cboPriceProperty.TabIndex = 14;
@@ -179,7 +181,7 @@
             // cboProductProperty
             // 
             this.cboProductProperty.FormattingEnabled = true;
-            this.cboProductProperty.Location = new System.Drawing.Point(114, 154);
+            this.cboProductProperty.Location = new System.Drawing.Point(98, 52);
             this.cboProductProperty.Name = "cboProductProperty";
             this.cboProductProperty.Size = new System.Drawing.Size(121, 21);
             this.cboProductProperty.TabIndex = 15;
@@ -187,7 +189,7 @@
             // cboSartProperty
             // 
             this.cboSartProperty.FormattingEnabled = true;
-            this.cboSartProperty.Location = new System.Drawing.Point(114, 178);
+            this.cboSartProperty.Location = new System.Drawing.Point(98, 76);
             this.cboSartProperty.Name = "cboSartProperty";
             this.cboSartProperty.Size = new System.Drawing.Size(121, 21);
             this.cboSartProperty.TabIndex = 16;
@@ -195,7 +197,7 @@
             // cboEndProperty
             // 
             this.cboEndProperty.FormattingEnabled = true;
-            this.cboEndProperty.Location = new System.Drawing.Point(114, 204);
+            this.cboEndProperty.Location = new System.Drawing.Point(98, 102);
             this.cboEndProperty.Name = "cboEndProperty";
             this.cboEndProperty.Size = new System.Drawing.Size(121, 21);
             this.cboEndProperty.TabIndex = 17;
@@ -207,22 +209,31 @@
             this.cboEnumeration.Name = "cboEnumeration";
             this.cboEnumeration.Size = new System.Drawing.Size(389, 21);
             this.cboEnumeration.TabIndex = 18;
+            this.cboEnumeration.SelectedValueChanged += new System.EventHandler(this.changeEvent);
+            // 
+            // panCharge
+            // 
+            this.panCharge.Controls.Add(this.cboQuantityProperty);
+            this.panCharge.Controls.Add(this.label4);
+            this.panCharge.Controls.Add(this.cboEndProperty);
+            this.panCharge.Controls.Add(this.label5);
+            this.panCharge.Controls.Add(this.cboSartProperty);
+            this.panCharge.Controls.Add(this.label6);
+            this.panCharge.Controls.Add(this.cboProductProperty);
+            this.panCharge.Controls.Add(this.label7);
+            this.panCharge.Controls.Add(this.cboPriceProperty);
+            this.panCharge.Controls.Add(this.label8);
+            this.panCharge.Location = new System.Drawing.Point(20, 100);
+            this.panCharge.Name = "panCharge";
+            this.panCharge.Size = new System.Drawing.Size(348, 145);
+            this.panCharge.TabIndex = 19;
             // 
             // ctlProperty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panCharge);
             this.Controls.Add(this.cboEnumeration);
-            this.Controls.Add(this.cboEndProperty);
-            this.Controls.Add(this.cboSartProperty);
-            this.Controls.Add(this.cboProductProperty);
-            this.Controls.Add(this.cboPriceProperty);
-            this.Controls.Add(this.cboQuantityProperty);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cboDataType);
@@ -232,6 +243,8 @@
             this.Controls.Add(this.label1);
             this.Name = "ctlProperty";
             this.Size = new System.Drawing.Size(705, 347);
+            this.panCharge.ResumeLayout(false);
+            this.panCharge.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,5 +270,6 @@
         private System.Windows.Forms.ComboBox cboSartProperty;
         private System.Windows.Forms.ComboBox cboEndProperty;
         private System.Windows.Forms.ComboBox cboEnumeration;
+        private System.Windows.Forms.Panel panCharge;
     }
 }

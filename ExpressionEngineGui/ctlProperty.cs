@@ -23,12 +23,10 @@ namespace PropertyGui
         #endregion
 
         #region Constructor
-
         public ctlProperty()
         {
             InitializeComponent();
         }
-
         #endregion
 
         #region Methods
@@ -97,6 +95,7 @@ namespace PropertyGui
             cboEnumeration.Visible = Property.Type.IsEnum;
 
             var isCharge = Property.Type.IsCharge;
+            panCharge.Visible = isCharge;
             cboQuantityProperty.Visible = isCharge;
             cboPriceProperty.Visible = isCharge;
             cboProductProperty.Visible = isCharge;
@@ -148,5 +147,6 @@ namespace PropertyGui
             comboBox.EndUpdate();
         }
         #endregion
+
     }
 }

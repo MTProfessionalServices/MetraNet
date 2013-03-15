@@ -6,6 +6,11 @@ namespace MetraTech.ExpressionEngine.MTProperties
 {
     public static class PropertyFactory
     {
+        public static Property Create(string name, Type type, bool isRequired, string description)
+        {
+            return PropertyFactory.Create(null, name, type, isRequired, description);
+        }
+
         public static Property Create(string propertyBagTypeName, string name, Type type, bool isRequired, string description)
         {
             switch (propertyBagTypeName)

@@ -13,15 +13,18 @@ namespace PropertyGui
 {
     public partial class ctlP1 : UserControl
     {
+        #region Constructor
         public ctlP1()
         {
             InitializeComponent();
         }
+        #endregion
 
         public void Init(Context context, PropertyBag propertyBag)
         {
             ctlExpressionTree1.Init(context, null);
             ctlExpressionTree1.AddProperties(null, propertyBag.Properties, null);
+            ctlExpressionTree1.Sort();
         }
     }
 }

@@ -90,7 +90,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public bool IsDateTime { get { return BaseType == BaseType.DateTime; } }
         public bool IsDecimal { get { return BaseType == BaseType.Decimal; } }
         public bool IsDouble { get { return BaseType == BaseType.Double; } }
-        public bool IsComplexType { get { return BaseType == BaseType.PropertyBag; } }
+        public bool IsPropertyBag { get { return BaseType == BaseType.PropertyBag; } }
         public bool IsEnum { get { return (BaseType == BaseType.Enumeration); } }
         public bool IsFloat { get { return BaseType == BaseType.Float; } }
         public bool IsGuid { get { return BaseType == BaseType.Guid; } }

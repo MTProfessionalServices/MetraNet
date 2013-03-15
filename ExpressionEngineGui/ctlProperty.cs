@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
+using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
@@ -12,17 +14,21 @@ namespace PropertyGui
     public partial class ctlProperty : UserControl
     {
         #region Properties
+
         private bool IgnoreChanges = false;
         private Context Context;
         private Property Property;
         public ChangeEvent OnChangeEvent;
+
         #endregion
-   
+
         #region Constructor
+
         public ctlProperty()
         {
             InitializeComponent();
         }
+
         #endregion
 
         #region Methods
@@ -33,8 +39,8 @@ namespace PropertyGui
                 throw new ArgumentException("context is null");
             Context = context;
 
-            LoadDataTypes(cboDataType);
-            LoadEnumerations(cboEnumeration);
+            LoadBaseTypes(cboDataType);
+            LoadEnumerations(cboEnumeration, Context.EnumCategories);
         }
 
         public void SyncToForm(Property property)
@@ -52,7 +58,15 @@ namespace PropertyGui
             switch (Property.Type.BaseType)
             {
                 case BaseType.Enumeration:
-                    cboEnumeration.Text = ((EnumerationType)Property.Type).Category;
+                    cboEnumeration.Text = ((EnumerationType) Property.Type).Category;
+                    break;
+                case BaseType.Charge:
+                    var charge = (ChargeType) Property.Type;
+                    cboQuantityProperty.Text = charge.QuantityProperty;
+                    cboPriceProperty.Text = charge.PriceProperty;
+                    cboProductProperty.Text = charge.ProductProperty;
+                    cboSartProperty.Text = charge.StartProperty;
+                    cboEndProperty.Text = charge.EndProperty;
                     break;
             }
 
@@ -66,21 +80,50 @@ namespace PropertyGui
             Property.Name = txtName.Text;
             Property.Required = chkIsRequired.Checked;
             Property.Description = txtDescription.Text;
-            var baseType = (BaseType)cboDataType.SelectedItem;
+            var baseType = (BaseType) cboDataType.SelectedItem;
             if (Property.Type.BaseType != baseType)
                 Property.Type = TypeFactory.Create(baseType);
 
             switch (Property.Type.BaseType)
             {
                 case BaseType.Enumeration:
-                    ((EnumerationType)Property.Type).Category = cboEnumeration.Text;
+                    ((EnumerationType) Property.Type).Category = cboEnumeration.Text;
                     break;
             }
         }
 
+        private void UpdateGui()
+        {
+            cboEnumeration.Visible = Property.Type.IsEnum;
 
+            var isCharge = Property.Type.IsCharge;
+            cboQuantityProperty.Visible = isCharge;
+            cboPriceProperty.Visible = isCharge;
+            cboProductProperty.Visible = isCharge;
+            cboSartProperty.Visible = isCharge;
+            cboEndProperty.Visible = isCharge;
+        }
 
-        public void LoadDataTypes(ComboBox comboBox)
+        #endregion
+
+        #region Events
+
+        private void changeEvent(object sender, System.EventArgs e)
+        {
+            if (IgnoreChanges)
+                return;
+
+            SyncToObject();
+            UpdateGui();
+
+            if (OnChangeEvent != null)
+                OnChangeEvent();
+        }
+
+        #endregion
+
+        #region Move to helper class
+        public void LoadBaseTypes(ComboBox comboBox)
         {
             comboBox.BeginUpdate();
             comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -92,37 +135,17 @@ namespace PropertyGui
             comboBox.EndUpdate();
         }
 
-        public void LoadEnumerations(ComboBox comboBox)
+
+        public void LoadEnumerations(ComboBox comboBox, IEnumerable<EnumCategory> categories)
         {
             comboBox.BeginUpdate();
-            foreach (var category in Context.EnumCategories)
+            comboBox.DisplayMember = "FullName";
+            foreach (var category in categories)
             {
-                foreach (var item in category.Items)
-                {
-                    comboBox.Items.Add(item.FullName);
-                }
+                comboBox.Items.Add(category);
             }
             comboBox.Sorted = true;
             comboBox.EndUpdate();
-        }
-
-        private void UpdateGui()
-        {
-            cboEnumeration.Visible = Property.Type.IsEnum;
-        }
-        #endregion
-
-        #region Events
-        private void changeEvent(object sender, System.EventArgs e)
-        {
-            if (IgnoreChanges)
-                return;
-            
-            SyncToObject();
-            UpdateGui();
-
-            if (OnChangeEvent != null)
-                OnChangeEvent();
         }
         #endregion
     }

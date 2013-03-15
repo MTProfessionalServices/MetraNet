@@ -25,26 +25,22 @@ namespace PropertyGui
             Context = context;
             PropertyBag = propertyBag;
             Text = string.Format("Property Bag ({0})", PropertyBag.Name);
-            treProperties.Init(context, mnuContext);
-            treProperties.AddProperties(null, PropertyBag.Properties);
-            treProperties.HideSelection = false;
             WindowState = FormWindowState.Maximized;
-
-            ctlProperty.OnChangeEvent = PropertyChangeEvent;
-            ctlProperty.Init(Context);
+            ctlPropertyBag.Init(Context, PropertyBag);
         }
         #endregion
 
         #region Events
-        private void treProperties_AfterSelect(object sender, TreeViewEventArgs e)
+        private void mnuSave_Click(object sender, EventArgs e)
         {
-            var property = (Property) treProperties.SelectedNode.Tag;
-            ctlProperty.SyncToForm(property);
-        }
-        public void PropertyChangeEvent()
-        {
-            var property = (Property)treProperties.SelectedNode.Tag;
-            treProperties.SelectedNode.Text = property.Name;
+            try
+            {
+                PropertyBag.Save("");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
         }
         #endregion
     }

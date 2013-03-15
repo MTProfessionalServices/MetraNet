@@ -26,9 +26,8 @@ namespace PropertyGui
         public Type PropertyTypeFilter { get; set; }
         public string FunctionFilter { get; set; }
         public bool ShowNamespaces { get; set; }
+        public bool AllowEntityExpand { get; set; }
         public ContextMenuStrip EnumValueContextMenu { get; set; }
-
-        private TreeNode PropertyListPlaceHolderNode;
         #endregion
 
         #region Static Constructor
@@ -68,8 +67,7 @@ namespace PropertyGui
             ImageList = Images;
             ShowNodeToolTips = true;
             PathSeparator = ".";
-
-            PropertyListPlaceHolderNode = new TreeNode("ProperyListPlaceHolderNode");
+            AllowEntityExpand = true;
         }
         #endregion
 
@@ -210,12 +208,7 @@ namespace PropertyGui
             }
         }
 
-        private void LoadTreePropertyMode()
-        {
-        }
-
-
-        public void AddProperties(TreeNode parentNode, PropertyCollection properties, Type filter=null)
+        public void AddProperties(TreeNode parentNode, PropertyCollection properties, Type filter = null)
         {
             foreach (var property in properties)
             {
@@ -223,7 +216,7 @@ namespace PropertyGui
                 {
                     var node = CreateNode(property, parentNode);
 
-                    if (property.Type.IsComplexType)// && node.Level > 1)
+                    if (property.Type.IsPropertyBag && AllowEntityExpand)
                     {
                         node.Nodes.Add(new TreeNode(PropertyListPlaceHolder));
                     }
@@ -231,7 +224,7 @@ namespace PropertyGui
             }
         }
 
-        public TreeNode CreateNode(IExpressionEngineTreeNode item, TreeNode parentNode=null)
+        public TreeNode CreateNode(IExpressionEngineTreeNode item, TreeNode parentNode = null)
         {
             string label;
             if (ShowNamespaces)
@@ -240,7 +233,7 @@ namespace PropertyGui
                 label = item.Name;
 
             if (item is Property)
-              label += ((Property)item).Type.ListSuffix;            
+                label += ((Property)item).Type.ListSuffix;
 
             var node = new TreeNode(label);
             node.ToolTipText = item.ToolTip;
@@ -253,17 +246,17 @@ namespace PropertyGui
                 Nodes.Add(node);
             else
                 parentNode.Nodes.Add(node);
-     
+
             if (item is Property)
             {
                 var property = (Property)item;
-                
+
                 //If it's an enum, append all of the values
                 if (property.Type.IsEnum)
                 {
-                    var enumType = Context.GetEnumCategory((EnumerationType) property.Type);
+                    var enumType = Context.GetEnumCategory((EnumerationType)property.Type);
                     if (enumType != null)
-                        AddEnumValues(enumType, node);          
+                        AddEnumValues(enumType, node);
                 }
 
                 //Append Units link, if any
@@ -288,7 +281,7 @@ namespace PropertyGui
                     node.Nodes.Add(linkNode);
                 }
             }
-        
+
             return node;
         }
 
@@ -299,26 +292,26 @@ namespace PropertyGui
         }
         #endregion
 
-      #region Events
+        #region Events
         protected override void OnBeforeExpand(TreeViewCancelEventArgs e)
         {
-          base.OnBeforeExpand(e);
+            base.OnBeforeExpand(e);
 
-          if (e.Action != TreeViewAction.Expand)
-            return;
+            if (e.Action != TreeViewAction.Expand)
+                return;
 
-          var node = e.Node;
-          if (node.Nodes.Count == 1 && node.Nodes[0].Text == PropertyListPlaceHolder)
-          {
-            node.Nodes.Clear();
-            var property = (Property)node.Tag;
-            var propertyBagTypeName = ((PropertyBagType)property.Type).Name;
-            var propertyBag = Context.MasterContext.GetPropertyBag(propertyBagTypeName);
-            if (propertyBag == null)
-              return;
-            AddProperties(node, propertyBag.Properties);
-          }
+            var node = e.Node;
+            if (node.Nodes.Count == 1 && node.Nodes[0].Text == PropertyListPlaceHolder)
+            {
+                node.Nodes.Clear();
+                var property = (Property)node.Tag;
+                var propertyBagTypeName = ((PropertyBagType)property.Type).Name;
+                var propertyBag = Context.MasterContext.GetPropertyBag(propertyBagTypeName);
+                if (propertyBag == null)
+                    return;
+                AddProperties(node, propertyBag.Properties);
+            }
         }
-      #endregion
+        #endregion
     }
 }

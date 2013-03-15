@@ -74,7 +74,7 @@ namespace PropertyGui
             cboPropertyTypeFilter.DisplayMember = "FilterString";
             foreach (var type in TypeHelper.AllTypes)
             {
-                if (!type.IsComplexType && type.BaseType != BaseType.Unknown)
+                if (!type.IsPropertyBag && type.BaseType != BaseType.Unknown)
                     cboPropertyTypeFilter.Items.Add(type.Copy());
             }
             cboPropertyTypeFilter.Sorted = true;
@@ -238,8 +238,10 @@ namespace PropertyGui
             }
             else if (tag is PropertyBag)
             {
-                var dialog = new frmPropertyBag(context, (PropertyBag) tag);
+                var dialog = new Form1(context, (PropertyBag)tag);
                 dialog.ShowDialog();
+                //var dialog = new frmPropertyBag(context, (PropertyBag)tag);
+                //dialog.ShowDialog();
             }
         }
 

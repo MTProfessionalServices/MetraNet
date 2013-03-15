@@ -88,11 +88,23 @@
     <Compile Include="ctlExpressionTree.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ctlP1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctlP1.Designer.cs">
+      <DependentUpon>ctlP1.cs</DependentUpon>
+    </Compile>
     <Compile Include="ctlProperty.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ctlProperty.Designer.cs">
       <DependentUpon>ctlProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctlPropertyBag.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctlPropertyBag.Designer.cs">
+      <DependentUpon>ctlPropertyBag.cs</DependentUpon>
     </Compile>
     <Compile Include="ctlPropertyCollectionBinder.cs">
       <SubType>UserControl</SubType>
@@ -105,6 +117,12 @@
     </Compile>
     <Compile Include="ctlValueBinder.Designer.cs">
       <DependentUpon>ctlValueBinder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCharge.cs">
       <SubType>Form</SubType>
@@ -197,14 +215,23 @@
     <EmbeddedResource Include="ctlContextExplorer.resx">
       <DependentUpon>ctlContextExplorer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ctlP1.resx">
+      <DependentUpon>ctlP1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ctlProperty.resx">
       <DependentUpon>ctlProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctlPropertyBag.resx">
+      <DependentUpon>ctlPropertyBag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ctlPropertyCollectionBinder.resx">
       <DependentUpon>ctlPropertyCollectionBinder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ctlValueBinder.resx">
       <DependentUpon>ctlValueBinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCharge.resx">
       <DependentUpon>frmCharge.cs</DependentUpon>
@@ -277,9 +304,7 @@
   <ItemGroup>
     <None Include="Resources\PageLayout.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -32,10 +32,18 @@ namespace MetraTech.ExpressionEngine
         public bool IsMetraNet { get { return ProductType == ProductType.MetraNet; } }
         public bool IsMetanga { get { return ProductType == ProductType.Metanga; } }
 
+        /// <summary>
+        /// The default location that the Context will be saved to. Useful for MetraNet
+        /// </summary>
+        public string ExtensionsDirPath { get; set; }
+
+        /// <summary>
+        /// The context that's used to look up things that aren't in the current context
+        /// </summary>
         public Context MasterContext { get; set; }
 
         /// <summary>
-        /// Contains any messages that were generated during the load (from file or database)
+        /// Contains message, if any, that were generated during the load (from file or database)
         /// </summary>
         public ValidationMessageCollection DeserilizationMessages { get; private set; }
 
@@ -577,6 +585,8 @@ namespace MetraTech.ExpressionEngine
                 throw new ArgumentException("extensionsDir doesn't exist: " + extensionsDir);
 
             var context = new Context(ProductType.MetraNet);
+            context.ExtensionsDirPath = extensionsDir;
+
             foreach (var extensionDirInfo in dirInfo.GetDirectories())
             {
                 LoadExtension(context, extensionDirInfo);

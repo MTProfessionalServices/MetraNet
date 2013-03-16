@@ -103,15 +103,6 @@ namespace PropertyGui
             SyncToObject();
             UpdateGui();
 
-            if (OnChangeEvent != null)
-                OnChangeEvent();
-        }
-
-
-        private void cboDataType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (IgnoreChanges)
-                return;
 
             if (CurrentTypeControl != null)
             {
@@ -119,7 +110,7 @@ namespace PropertyGui
                 CurrentTypeControl.Dispose();
             }
 
-            Property.Type = TypeFactory.Create((BaseType) cboDataType.SelectedItem);
+            Property.Type = TypeFactory.Create((BaseType)cboDataType.SelectedItem);
             CurrentTypeControl = TypeControlFactory();
             if (CurrentTypeControl != null)
             {
@@ -135,12 +126,12 @@ namespace PropertyGui
             {
                 panBottom.Top = lblDataType.Bottom;
             }
+
+            if (OnChangeEvent != null)
+                OnChangeEvent();
         }
+
         #endregion
 
-        private void ctlProperty_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

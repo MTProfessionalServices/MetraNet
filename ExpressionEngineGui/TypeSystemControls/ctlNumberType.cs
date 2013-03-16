@@ -79,10 +79,6 @@ namespace PropertyGui.TypeSystemControls
         #endregion
 
         #region Events
-        private void cboUomCategory_SelectedValueChanged(object sender, System.EventArgs e)
-        {
-
-        }
 
         private void cboUnitOfMeasure_DropDown(object sender, System.EventArgs e)
         {

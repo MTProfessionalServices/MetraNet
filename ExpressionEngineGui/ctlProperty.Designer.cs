@@ -85,7 +85,6 @@
             this.cboDataType.Name = "cboDataType";
             this.cboDataType.Size = new System.Drawing.Size(121, 21);
             this.cboDataType.TabIndex = 4;
-            this.cboDataType.SelectedIndexChanged += new System.EventHandler(this.cboDataType_SelectedIndexChanged);
             this.cboDataType.SelectedValueChanged += new System.EventHandler(this.changeEvent);
             // 
             // txtDescription
@@ -148,7 +147,6 @@
             this.Controls.Add(this.label1);
             this.Name = "ctlProperty";
             this.Size = new System.Drawing.Size(705, 419);
-            this.Load += new System.EventHandler(this.ctlProperty_Load);
             this.panBottom.ResumeLayout(false);
             this.panBottom.PerformLayout();
             this.ResumeLayout(false);

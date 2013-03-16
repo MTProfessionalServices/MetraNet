@@ -42,7 +42,7 @@ namespace PropertyGui
             treProperties.AllowEntityExpand = false;
             treProperties.HideSelection = false;
 
-            LoadTree();
+            LoadTree(false);
             //treProperties.AddProperties(null, PropertyBag.Properties);
             //treProperties.Sort();
 
@@ -64,11 +64,37 @@ namespace PropertyGui
             }
         }
 
-        public void LoadTree()
+        public void LoadTree(bool showFlat)
         {
             treProperties.BeginUpdate();
             treProperties.Nodes.Clear();
-            treProperties.AddProperties(null, PropertyBag.Properties);
+
+            var references = PropertyBag.Properties.GetPropertyReferenceNames();
+            foreach (var property in PropertyBag.Properties)
+            {
+                if (showFlat)
+                {
+                    treProperties.CreateNode(property);
+                    continue;
+                }
+                
+                //If it's referred to by any other node, don't put it at top level
+                if (references.Contains(property.Name))
+                    continue;
+
+                var node = treProperties.CreateNode(property);
+                foreach (var referenceName in property.Type.GetPropertyReferenceNames())
+                {
+                    var referenceProperty = PropertyBag.Properties.Get(property.Name);
+                    if (referenceProperty != null)
+                    {
+                        treProperties.CreateNode(referenceProperty, node);
+                    }
+                }
+
+            }
+            //treProperties.AddProperties(null, PropertyBag.Properties);
+
             treProperties.Sort();
             treProperties.EndUpdate();
         }
@@ -98,7 +124,7 @@ namespace PropertyGui
             var node = treProperties.CreateNode(property, null);
             PropertyBag.Properties.Add(property);
             treProperties.SelectedNode = node;
-            LoadTree();
+            LoadTree(false);
         }
 
         private void btnValidate_Click(object sender, EventArgs e)
@@ -115,7 +141,7 @@ namespace PropertyGui
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             treProperties.PreserveState();
-            LoadTree();
+            LoadTree(false);
             treProperties.RestoreState();
         }
 

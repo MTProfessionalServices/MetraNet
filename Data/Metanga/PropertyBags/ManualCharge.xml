@@ -69,7 +69,7 @@
           <ListType>None</ListType>
           <FixedUnitOfMeasure i:nil="true" />
           <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>Property</UnitOfMeasureMode>
+          <UnitOfMeasureMode>PropertyDriven</UnitOfMeasureMode>
           <UnitOfMeasureProperty>UnitOfMeasure</UnitOfMeasureProperty>
         </Type>
       </Property>

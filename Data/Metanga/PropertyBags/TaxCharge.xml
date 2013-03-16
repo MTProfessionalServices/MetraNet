@@ -98,7 +98,7 @@
           <ListType>None</ListType>
           <FixedUnitOfMeasure i:nil="true" />
           <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>Property</UnitOfMeasureMode>
+          <UnitOfMeasureMode>PropertyDriven</UnitOfMeasureMode>
           <UnitOfMeasureProperty>UnitCode</UnitOfMeasureProperty>
         </Type>
       </Property>
@@ -141,7 +141,7 @@
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>Property</CurrencyMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
           <CurrencyProperty>PriceCurrency</CurrencyProperty>
           <FixedCurrency i:nil="true" />
         </Type>
@@ -171,7 +171,7 @@
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>Property</CurrencyMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
           <CurrencyProperty>PriceCurrency</CurrencyProperty>
           <FixedCurrency i:nil="true" />
         </Type>
@@ -201,7 +201,7 @@
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>Property</CurrencyMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
           <CurrencyProperty>ChargeCurrency</CurrencyProperty>
           <FixedCurrency i:nil="true" />
         </Type>

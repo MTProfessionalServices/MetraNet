@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Components;
@@ -26,13 +27,13 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public UnitOfMeasureMode UnitOfMeasureMode { get; set; }
 
         /// <summary>
-        /// The unit of measure category (e.g., Duration, Length, etc.). Only valid when UnitOfMeasureMode is Fixed or Category
+        /// The unit of measure category (e.g., Duration, Length, etc.). Only valid when UnitOfMeasureMode is FixedUnitOfMeasure or FixedCategory
         /// </summary>
         [DataMember]
         public string UnitOfMeasureCategory { get; set; }
 
         /// <summary>
-        /// The unit of measure. Must be a value within the UnitofMeasureCategoryName. Only valid when UnitOfMeasuremode=Fixed
+        /// The unit of measure. Must be a value within the UnitofMeasureCategoryName. Only valid when UnitOfMeasuremode=FixedUnitOfMeasure
         /// </summary>
         [DataMember]
         public string FixedUnitOfMeasure { get; set; }
@@ -58,7 +59,13 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #endregion
 
         #region Methods
-
+        public override List<string> GetPropertyReferenceNames()
+        {
+            var references = new List<string>();
+            if (UnitOfMeasureMode == UnitOfMeasureMode.PropertyDriven && !string.IsNullOrEmpty(UnitOfMeasureProperty))
+                references.Add(UnitOfMeasureProperty);
+            return references;
+        }
         private void AddError(ValidationMessageCollection messages, string prefix, string message)
         {
             if (messages == null)
@@ -74,7 +81,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 AddError(messages, prefix, Localization.UnitOfMeasureNotSpecified);
                 return;
             }
-            if (UnitOfMeasureMode == UnitOfMeasureMode.Category || UnitOfMeasureMode == UnitOfMeasureMode.Fixed)
+            if (UnitOfMeasureMode == UnitOfMeasureMode.FixedCategory || UnitOfMeasureMode == UnitOfMeasureMode.FixedUnitOfMeasure)
             {
                 if (string.IsNullOrEmpty(UnitOfMeasureCategory))
                 {
@@ -109,14 +116,14 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 }
 
                 //Ensure that the value exists
-                if (UnitOfMeasureMode == UnitOfMeasureMode.Fixed)
+                if (UnitOfMeasureMode == UnitOfMeasureMode.FixedUnitOfMeasure)
                 {
                     AddError(messages, prefix, string.Format(CultureInfo.CurrentCulture, Localization.UnableToFindUnitOfMeasure, FixedUnitOfMeasure));
                 }
             }
         }
 
-        //public UnitOfMeasureCategory GetUnitOfMeasureCategory(Context context)
+        //public UnitOfMeasureCategory GetUnitOfMeasureCategory(ContextDriven context)
         //{
         //    if (context == null)
         //        throw new ArgumentException("context");

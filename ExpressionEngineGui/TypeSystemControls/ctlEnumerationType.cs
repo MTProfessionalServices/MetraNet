@@ -41,6 +41,7 @@ namespace PropertyGui.TypeSystemControls
         {
             cboEnumeration.BeginUpdate();
             cboEnumeration.Items.Clear();
+            cboEnumeration.DisplayMember = "FullNameReversed";
             foreach (var category in Context.EnumCategories)
             {
                 cboEnumeration.Items.Add(category);

@@ -79,7 +79,7 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PropertyDriven{0}.
+        ///   Looks up a localized string similar to Property{0}.
         /// </summary>
         internal static string DefaultNewPropertyName {
             get {
@@ -88,7 +88,7 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Duplicate PropertyDriven Name: &apos;{0}&apos;.
+        ///   Looks up a localized string similar to Duplicate Property Name: &apos;{0}&apos;.
         /// </summary>
         internal static string DuplicatePropertyName {
             get {
@@ -97,7 +97,7 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enumeration Category not specified.
+        ///   Looks up a localized string similar to Enumeration FixedCategory not specified.
         /// </summary>
         internal static string EnumCategoryNotSpecified {
             get {
@@ -142,7 +142,7 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to in PropertyDriven &apos;{0}&apos; in PropertyBag &apos;{1}&apos;.
+        ///   Looks up a localized string similar to in Property  &apos;{0}&apos; in PropertyBag &apos;{1}&apos;.
         /// </summary>
         internal static string InPropertySuffix {
             get {
@@ -187,7 +187,7 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PropertyDriven &apos;{0}&apos;: .
+        ///   Looks up a localized string similar to Property &apos;{0}&apos;: .
         /// </summary>
         internal static string PropertyMessagePrefix {
             get {
@@ -196,7 +196,7 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unable to find the &apos;{0}&apos; EnumCategory.
+        ///   Looks up a localized string similar to Unable to find the &apos;{0}&apos; EnumFixedCategory.
         /// </summary>
         internal static string UnableToFindEnumCategory {
             get {
@@ -232,7 +232,7 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unit of Measure Category can not be a general enumeration, it must be a unit of measure.
+        ///   Looks up a localized string similar to Unit of Measure FixedCategory can not be a general enumeration, it must be a unit of measure.
         /// </summary>
         internal static string UnitOfMeasureCategoryMustBeUom {
             get {
@@ -241,7 +241,7 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unit of Measure Category not specified.
+        ///   Looks up a localized string similar to Unit of Measure FixedCategory not specified.
         /// </summary>
         internal static string UnitOfMeasureCategoryNotSpecified {
             get {

@@ -13,7 +13,7 @@
         /// <summary>
         /// Implied by the context which is up to the developer.
         /// </summary>
-        Context,
+        ContextDriven,
 
         /// <summary>
         /// Always the same (i.e., USD). Specified in the FixedCurrency field

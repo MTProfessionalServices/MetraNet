@@ -7,7 +7,7 @@ namespace ExpressionEngineTest
     [TestClass()]
     public class NumberTypeTest
     {
-        private const UnitOfMeasureMode uomMode = UnitOfMeasureMode.Fixed;
+        private const UnitOfMeasureMode uomMode = UnitOfMeasureMode.FixedUnitOfMeasure;
         private const string uomQualifier = "hello";
 
         [TestMethod()]

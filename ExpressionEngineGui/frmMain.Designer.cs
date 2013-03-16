@@ -199,7 +199,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Context:";
+            this.label1.Text = "ContextDriven:";
             // 
             // btnPageLayout
             // 

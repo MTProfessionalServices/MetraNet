@@ -124,12 +124,23 @@ namespace PropertyGui
             if (CurrentTypeControl != null)
             {
                 CurrentTypeControl.Parent = this;
-                CurrentTypeControl.Top = panel1.Top;
-                CurrentTypeControl.Left = panel1.Left;
+                CurrentTypeControl.Top = lblDataType.Bottom + 5;
+                CurrentTypeControl.Left = lblDataType.Left;
                 CurrentTypeControl.Init(Property, Context);
                 CurrentTypeControl.SyncToForm();
+
+                panBottom.Top = CurrentTypeControl.Bottom + 5;
+            }
+            else
+            {
+                panBottom.Top = lblDataType.Bottom;
             }
         }
         #endregion
+
+        private void ctlProperty_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

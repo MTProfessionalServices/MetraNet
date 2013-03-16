@@ -13,21 +13,21 @@
         /// <summary>
         /// Implied by the context which is up to the developer.
         /// </summary>
-        Context,  
+        ContextDriven,  
 
         /// <summary>
         /// Always the same (i.e., hours or inches). Specified in the UomQualifier field
         /// </summary>
-        Fixed,   
+        FixedUnitOfMeasure,   
  
         /// <summary>
-        /// Always within a given Unit of Measure Category (i.e., time or length). Specified in the UomQualifier field
+        /// Always within a given Unit of Measure FixedCategory (i.e., time or length). Specified in the UomQualifier field
         /// </summary>
-        Category, 
+        FixedCategory, 
 
         /// <summary>
         /// Determined via a property within the same property collection. PropertyDriven name specified in the UomQualifier property.
         /// </summary>
-        Property  
+        PropertyDriven  
     }
 }

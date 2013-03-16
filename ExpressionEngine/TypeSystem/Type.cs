@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Validations;
@@ -64,6 +65,17 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             BaseType = baseType;
         }
 
+        #endregion
+
+        #region Methods
+        /// <summary>
+        /// Several type refer to other properties
+        /// </summary>
+        /// <returns></returns>
+        public virtual List<string> GetPropertyReferenceNames()
+        {
+            return new List<string>();
+        }
         #endregion
 
         #region To Methods

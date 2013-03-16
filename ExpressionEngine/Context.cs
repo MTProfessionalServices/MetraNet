@@ -34,7 +34,7 @@ namespace MetraTech.ExpressionEngine
         public bool IsMetanga { get { return ProductType == ProductType.Metanga; } }
 
         /// <summary>
-        /// The default location that the Context will be saved to. Useful for MetraNet
+        /// The default location that the ContextDriven will be saved to. Useful for MetraNet
         /// </summary>
         public string ExtensionsDirPath { get; set; }
 
@@ -548,9 +548,9 @@ namespace MetraTech.ExpressionEngine
             return GetEnumCategory(enumerationType.Category);
         }
 
-        public EnumCategory GetCurrencyCategory()
+        public EnumCategory GetCurrencyCategories()
         {
-            return GetEnumCategory("MetraTech.Curreny");
+            return GetEnumCategory("MetraTech.Currency");
         }
 
         public List<EnumCategory> GetUnitOfMeasureCategories()

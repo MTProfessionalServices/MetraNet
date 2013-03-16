@@ -133,7 +133,7 @@ namespace PropertyGui
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 14;
-            this.label3.Text = "Category:";
+            this.label3.Text = "FixedCategory:";
             // 
             // cboCategory
             // 

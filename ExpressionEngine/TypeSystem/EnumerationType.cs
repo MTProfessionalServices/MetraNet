@@ -7,14 +7,14 @@ using MetraTech.ExpressionEngine.Validations;
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
     /// <summary>
-    /// A enumeration which requires a Namespace and Category 
+    /// A enumeration which requires a Namespace and FixedCategory 
     /// </summary>
     [DataContract (Namespace = "MetraTech")]
     public class EnumerationType : Type
     {
         #region Properties
         /// <summary>
-        /// The namespace; used to prevent Category name collisions 
+        /// The namespace; used to prevent FixedCategory name collisions 
         /// </summary>
         public string Namespace { get { return BasicHelper.GetNamespaceFromFullName(Category); } }
 
@@ -58,14 +58,14 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             if (messages == null)
                 throw new ArgumentNullException("messages");
 
-            //Check if the Category was specified
+            //Check if the FixedCategory was specified
             if (string.IsNullOrEmpty(Category))
             {
                 messages.Error(string.Format(CultureInfo.CurrentCulture, Localization.EnumCategoryNotSpecified));
                 return;
             }
 
-            //Check if the Category exists         
+            //Check if the FixedCategory exists         
             if (context != null)
             {
                 var enumCategory = context.GetEnumCategory(Category);

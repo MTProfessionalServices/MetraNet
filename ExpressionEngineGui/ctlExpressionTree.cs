@@ -28,6 +28,10 @@ namespace PropertyGui
         public bool ShowNamespaces { get; set; }
         public bool AllowEntityExpand { get; set; }
         public ContextMenuStrip EnumValueContextMenu { get; set; }
+
+        //TreeState
+        private object LastSelectedNodeTag;
+        private List<object> LastExpandedNodeTags = new List<object>(); 
         #endregion
 
         #region Static Constructor
@@ -302,6 +306,31 @@ namespace PropertyGui
             var parts = name.Split('.');
             return parts[0] + "IsCoreOverlay.png";
         }
+
+        public void PreserveState()
+        {
+            LastSelectedNodeTag = SelectedNode;
+
+            LastExpandedNodeTags.Clear();
+            var nodes = this.GetAllNodes();
+            foreach (var node in nodes)
+            {
+              if (node.IsExpanded)  
+                  LastExpandedNodeTags.Add(node.Tag);
+            }
+        }
+
+        public void RestoreState()
+        {
+            var nodes = this.GetAllNodes();
+            foreach (var node in nodes)
+            {
+                if (node.Nodes.Count > 0 && LastExpandedNodeTags.Contains(node.Tag))
+                    node.Expand();
+                if (node.Tag.Equals((object)LastSelectedNodeTag))
+                    SelectedNode = node;
+            }
+        }
         #endregion
 
         #region Events
@@ -325,5 +354,6 @@ namespace PropertyGui
             }
         }
         #endregion
+
     }
 }

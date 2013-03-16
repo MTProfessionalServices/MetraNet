@@ -33,6 +33,8 @@ namespace MetraTech.ExpressionEngine.Components
             get { return Namespace + "." + Name; }
         }
 
+        public string FullNameReversed { get { return string.Format("{0} ({1})", Name, Namespace); } }
+
         /// <summary>
         /// Returns the FullName replacing and /'s with _'s. Legacy MetraNet has slashes which causes issues when saving to file
         /// </summary>

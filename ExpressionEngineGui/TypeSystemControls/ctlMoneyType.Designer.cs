@@ -49,7 +49,7 @@
             this.cboCurrencyMode.Name = "cboCurrencyMode";
             this.cboCurrencyMode.Size = new System.Drawing.Size(183, 21);
             this.cboCurrencyMode.TabIndex = 22;
-            this.cboCurrencyMode.SelectedIndexChanged += new System.EventHandler(this.cboCurrencyMode_DropDown);
+            this.cboCurrencyMode.SelectedValueChanged += new System.EventHandler(this.cboCurrencyMode_SelectedValueChanged);
             // 
             // lblCurrencyModifier
             // 

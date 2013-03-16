@@ -37,16 +37,16 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(0, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Category";
+            this.label1.Text = "Category:";
             // 
             // cboEnumeration
             // 
             this.cboEnumeration.FormattingEnabled = true;
             this.cboEnumeration.Location = new System.Drawing.Point(55, 0);
             this.cboEnumeration.Name = "cboEnumeration";
-            this.cboEnumeration.Size = new System.Drawing.Size(337, 21);
+            this.cboEnumeration.Size = new System.Drawing.Size(345, 21);
             this.cboEnumeration.TabIndex = 1;
             this.cboEnumeration.DropDown += new System.EventHandler(this.cboEnumeration_DropDown);
             // 

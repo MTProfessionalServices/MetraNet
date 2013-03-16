@@ -40,9 +40,12 @@ namespace PropertyGui
 
             treProperties.Init(Context, mnuContext);
             treProperties.AllowEntityExpand = false;
-            treProperties.AddProperties(null, PropertyBag.Properties);
-            treProperties.Sort();
             treProperties.HideSelection = false;
+
+            LoadTree();
+            //treProperties.AddProperties(null, PropertyBag.Properties);
+            //treProperties.Sort();
+
             //treProperties.ShowLines = false;
             //treProperties.FullRowSelect = true;
 
@@ -60,6 +63,15 @@ namespace PropertyGui
                 ctlProperty1.Visible = false;
             }
         }
+
+        public void LoadTree()
+        {
+            treProperties.BeginUpdate();
+            treProperties.Nodes.Clear();
+            treProperties.AddProperties(null, PropertyBag.Properties);
+            treProperties.Sort();
+            treProperties.EndUpdate();
+        }
         #endregion
 
         #region Events
@@ -69,6 +81,7 @@ namespace PropertyGui
             ctlProperty1.SyncToForm(property);
             ctlProperty1.Visible = true;
         }
+
         public void PropertyChangeEvent()
         {
             var property = (Property)treProperties.SelectedNode.Tag;
@@ -85,6 +98,7 @@ namespace PropertyGui
             var node = treProperties.CreateNode(property, null);
             PropertyBag.Properties.Add(property);
             treProperties.SelectedNode = node;
+            LoadTree();
         }
 
         private void btnValidate_Click(object sender, EventArgs e)
@@ -97,9 +111,14 @@ namespace PropertyGui
                 frmValidationMessages.Show(messages);
         }
 
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            treProperties.PreserveState();
+            LoadTree();
+            treProperties.RestoreState();
+        }
+
         #endregion
-
-
-
     }
 }

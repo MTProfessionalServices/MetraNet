@@ -34,7 +34,7 @@
         PropertyBag,        
         
         /// <summary>
-        /// An enumeration (has a Namespace and a Category) 
+        /// An enumeration (has a Namespace and a FixedCategory) 
         /// </summary>
         Enumeration,
 

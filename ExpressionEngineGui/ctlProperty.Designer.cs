@@ -30,14 +30,15 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblDataType = new System.Windows.Forms.Label();
             this.chkIsRequired = new System.Windows.Forms.CheckBox();
             this.cboDataType = new System.Windows.Forms.ComboBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtDefaultValue = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panBottom = new System.Windows.Forms.Panel();
+            this.panBottom.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -57,14 +58,14 @@
             this.txtName.TabIndex = 1;
             this.txtName.TextChanged += new System.EventHandler(this.changeEvent);
             // 
-            // label2
+            // lblDataType
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Data Type:";
+            this.lblDataType.AutoSize = true;
+            this.lblDataType.Location = new System.Drawing.Point(17, 50);
+            this.lblDataType.Name = "lblDataType";
+            this.lblDataType.Size = new System.Drawing.Size(60, 13);
+            this.lblDataType.TabIndex = 2;
+            this.lblDataType.Text = "Data Type:";
             // 
             // chkIsRequired
             // 
@@ -91,18 +92,18 @@
             // 
             this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescription.Location = new System.Drawing.Point(20, 350);
+            this.txtDescription.Location = new System.Drawing.Point(0, 62);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDescription.Size = new System.Drawing.Size(671, 46);
+            this.txtDescription.Size = new System.Drawing.Size(643, 46);
             this.txtDescription.TabIndex = 6;
             this.txtDescription.TextChanged += new System.EventHandler(this.changeEvent);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 334);
+            this.label3.Location = new System.Drawing.Point(-1, 46);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 5;
@@ -111,7 +112,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(21, 304);
+            this.label9.Location = new System.Drawing.Point(1, 16);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(74, 13);
             this.label9.TabIndex = 18;
@@ -119,35 +120,37 @@
             // 
             // txtDefaultValue
             // 
-            this.txtDefaultValue.Location = new System.Drawing.Point(101, 301);
+            this.txtDefaultValue.Location = new System.Drawing.Point(81, 13);
             this.txtDefaultValue.Name = "txtDefaultValue";
             this.txtDefaultValue.Size = new System.Drawing.Size(250, 20);
             this.txtDefaultValue.TabIndex = 21;
             // 
-            // panel1
+            // panBottom
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Location = new System.Drawing.Point(20, 85);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(16, 12);
-            this.panel1.TabIndex = 22;
+            this.panBottom.Controls.Add(this.txtDescription);
+            this.panBottom.Controls.Add(this.txtDefaultValue);
+            this.panBottom.Controls.Add(this.label3);
+            this.panBottom.Controls.Add(this.label9);
+            this.panBottom.Location = new System.Drawing.Point(20, 119);
+            this.panBottom.Name = "panBottom";
+            this.panBottom.Size = new System.Drawing.Size(686, 126);
+            this.panBottom.TabIndex = 22;
             // 
             // ctlProperty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.txtDefaultValue);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.txtDescription);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.panBottom);
             this.Controls.Add(this.cboDataType);
             this.Controls.Add(this.chkIsRequired);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblDataType);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
             this.Name = "ctlProperty";
             this.Size = new System.Drawing.Size(705, 419);
+            this.Load += new System.EventHandler(this.ctlProperty_Load);
+            this.panBottom.ResumeLayout(false);
+            this.panBottom.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,13 +160,13 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDataType;
         private System.Windows.Forms.CheckBox chkIsRequired;
         private System.Windows.Forms.ComboBox cboDataType;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtDefaultValue;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panBottom;
     }
 }

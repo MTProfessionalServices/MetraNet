@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
@@ -15,7 +16,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public CurrencyMode CurrencyMode { get; set; }
 
         /// <summary>
-        /// The currency. Only valid when CurrencyMode=Fixed.
+        /// The currency. Only valid when CurrencyMode=FixedUnitOfMeasure.
         /// </summary>
         [DataMember]
         public string FixedCurrency { get; set; }
@@ -39,6 +40,13 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         #region Methods
 
+        public override List<string> GetPropertyReferenceNames()
+        {
+            var references = new List<string>();
+            if (CurrencyMode == CurrencyMode.PropertyDriven && !string.IsNullOrEmpty(CurrencyProperty))
+                references.Add(CurrencyProperty);
+            return references;
+        }
         public override void Validate(string prefix, Validations.ValidationMessageCollection messages, Context context)
         {
             //Error if None

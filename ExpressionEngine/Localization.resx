@@ -124,13 +124,13 @@
     <value>The BaseType must be {0} for this action not {1}</value>
   </data>
   <data name="DuplicatePropertyName" xml:space="preserve">
-    <value>Duplicate PropertyDriven Name: '{0}'</value>
+    <value>Duplicate Property Name: '{0}'</value>
   </data>
   <data name="EnumNamespaceNotSpecified" xml:space="preserve">
     <value>Enumeration NameSpace not specified</value>
   </data>
   <data name="EnumCategoryNotSpecified" xml:space="preserve">
-    <value>Enumeration Category not specified</value>
+    <value>Enumeration FixedCategory not specified</value>
   </data>
   <data name="ExceptionMessage" xml:space="preserve">
     <value>"{0} [{1}]"</value>
@@ -142,7 +142,7 @@
     <value>Error loading {0}</value>
   </data>
   <data name="InPropertySuffix" xml:space="preserve">
-    <value>in PropertyDriven '{0}' in PropertyDrivenBag '{1}'</value>
+    <value>in Property  '{0}' in PropertyBag '{1}'</value>
   </data>
   <data name="InsufficientDescription" xml:space="preserve">
     <value>Insufficient description</value>
@@ -157,10 +157,10 @@
     <value>Name not specified</value>
   </data>
   <data name="PropertyMessagePrefix" xml:space="preserve">
-    <value>PropertyDriven '{0}': </value>
+    <value>Property '{0}': </value>
   </data>
   <data name="UnableToFindEnumCategory" xml:space="preserve">
-    <value>Unable to find the '{0}' EnumCategory</value>
+    <value>Unable to find the '{0}' EnumFixedCategory</value>
   </data>
   <data name="UnableToFindEnumNamespace" xml:space="preserve">
     <value>Unaable to find the '{0}' EnumNamespace</value>
@@ -172,10 +172,10 @@
     <value>Unable to find unit of measure '{0}'</value>
   </data>
   <data name="UnitOfMeasureCategoryMustBeUom" xml:space="preserve">
-    <value>Unit of Measure Category can not be a general enumeration, it must be a unit of measure</value>
+    <value>Unit of Measure FixedCategory can not be a general enumeration, it must be a unit of measure</value>
   </data>
   <data name="UnitOfMeasureCategoryNotSpecified" xml:space="preserve">
-    <value>Unit of Measure Category not specified</value>
+    <value>Unit of Measure FixedCategory not specified</value>
   </data>
   <data name="UnitOfMeasureNamespaceMustBeMetraTech" xml:space="preserve">
     <value>Unit of Measure '{0}' Namespace must be set to MetraTech</value>
@@ -184,6 +184,6 @@
     <value>Unit of Measure not specified</value>
   </data>
   <data name="DefaultNewPropertyName" xml:space="preserve">
-    <value>PropertyDriven{0}</value>
+    <value>Property{0}</value>
   </data>
 </root>

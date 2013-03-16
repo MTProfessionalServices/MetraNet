@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
+﻿using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
@@ -17,6 +13,9 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #region Constructor
         public TaxType():base(BaseType.Tax)
         {}
+        #endregion
+
+        #region Methods
         #endregion
     }
 }

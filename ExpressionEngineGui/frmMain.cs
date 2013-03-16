@@ -108,7 +108,7 @@ namespace PropertyGui
         {
             //SyncToObject();
             //var dialog = new frmExpressionEngine();
-            //var context = new Context(GetProductType(), expression);
+            //var context = new ContextDriven(GetProductType(), expression);
             //dialog.Init(context, isPageLayout);
             //dialog.ShowDialog();
         }
@@ -155,7 +155,7 @@ namespace PropertyGui
             //var emailInstance = (EmailInstance)cboEmailTemplates.SelectedItem;
             //emailInstance.UpdateEntityParameters();
             //var dialog = new frmExpressionEngine();
-            //var context = new Context(ProductType.Metanga, emailInstance.BodyExpression, emailInstance);
+            //var context = new ContextDriven(ProductType.Metanga, emailInstance.BodyExpression, emailInstance);
             //dialog.Init(context, emailInstance);
             //dialog.ShowDialog();
         }

@@ -89,7 +89,7 @@ namespace PropertyGui
             cboPropertyTypeFilter.SelectedIndex = 0;
             #endregion
 
-            //Init the Function Category Filter
+            //Init the Function FixedCategory Filter
             cboCategory.BeginUpdate();
             cboCategory.Items.Clear();
             cboCategory.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -191,7 +191,7 @@ namespace PropertyGui
 
         #endregion
 
-        #region Context Menu Events
+        #region ContextDriven Menu Events
 
         private void mnuEnumValue_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {

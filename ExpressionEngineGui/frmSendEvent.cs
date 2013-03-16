@@ -39,8 +39,8 @@ namespace PropertyGui
             cboEvent.Items.AddRange(context.GetPropertyBags(PropertyBagConstants.ServiceDefinition).ToArray());
             cboEvent.EndUpdate();
 
-            //if (Context.IsMetanga)
-            //    SetProperties(Context.PropertyBags["BillableEvent"]);
+            //if (ContextDriven.IsMetanga)
+            //    SetProperties(ContextDriven.PropertyBags["BillableEvent"]);
         }
 
         private void SetProperties(PropertyBag eventEntity)

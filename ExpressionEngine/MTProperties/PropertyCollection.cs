@@ -107,6 +107,16 @@ namespace MetraTech.ExpressionEngine.MTProperties
             }
         }
 
+        public List<string> GetPropertyReferenceNames()
+        {
+            var references = new List<string>();
+            foreach (var property in Properties)
+            {
+                references.AddRange(property.Type.GetPropertyReferenceNames());
+            }
+            return references;
+        }
+
         /// <summary>
         /// Binds the KVP values to the properties.
         /// </summary>
@@ -137,7 +147,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
         public List<Property> GetFilteredProperties(MetraTech.ExpressionEngine.TypeSystem.Type type)
         {
             var properties = new List<Property>();
-            foreach (var property in properties)
+            foreach (var property in Properties)
             {
                 if (property.Type.IsBaseTypeFilterMatch(type))
                     properties.Add(property);

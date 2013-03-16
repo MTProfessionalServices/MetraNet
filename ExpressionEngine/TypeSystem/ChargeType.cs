@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
@@ -44,6 +45,24 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #region Constructor
         public ChargeType() : base(BaseType.Charge)
         {      
+        }
+        #endregion
+
+        #region Methods
+        public override List<string> GetPropertyReferenceNames()
+        {
+            var references = new List<string>();
+            if (!string.IsNullOrEmpty(QuantityProperty))
+                references.Add(QuantityProperty);
+            if (!string.IsNullOrEmpty(PriceProperty))
+                references.Add(PriceProperty);
+            if (!string.IsNullOrEmpty(ProductProperty))
+                references.Add(ProductProperty);
+            if (!string.IsNullOrEmpty(StartProperty))
+                references.Add(StartProperty);
+            if (!string.IsNullOrEmpty(EndProperty))
+                references.Add(EndProperty);
+            return references;
         }
         #endregion
     }

@@ -64,6 +64,7 @@
     <Compile Include="MTProperties\Enumerations\Availability.cs" />
     <Compile Include="MTProperties\PropertyReference.cs" />
     <Compile Include="Placeholders\PageLayout.cs" />
+    <Compile Include="PropertyBags\PropertyBagManager.cs" />
     <Compile Include="TypeSystem\ChargeType.cs" />
     <Compile Include="Components\EnumFactory.cs" />
     <Compile Include="Expressions\Enumerations\ConfigurationType.cs" />

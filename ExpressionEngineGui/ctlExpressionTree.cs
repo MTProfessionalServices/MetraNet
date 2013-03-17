@@ -202,7 +202,7 @@ namespace PropertyGui
         {
             var filter = new List<string>();
             filter.Add(EntityTypeFilter);
-            var entities = Context.GetPropertyBags(null, filter, null, PropertyTypeFilter);
+            var entities = Context.PropertyBagManager.GetPropertyBags(null, filter, null, PropertyTypeFilter);
             foreach (var entity in entities)
             {
                 //Create the propertyBag node

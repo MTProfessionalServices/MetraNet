@@ -36,7 +36,7 @@ namespace PropertyGui
             cboEvent.BeginUpdate();
             cboEvent.Sorted = true;
             cboEvent.DisplayMember = "Name";
-            cboEvent.Items.AddRange(context.GetPropertyBags(PropertyBagConstants.ServiceDefinition).ToArray());
+            cboEvent.Items.AddRange(context.PropertyBagManager.GetPropertyBags(PropertyBagConstants.ServiceDefinition).ToArray());
             cboEvent.EndUpdate();
 
             //if (ContextDriven.IsMetanga)

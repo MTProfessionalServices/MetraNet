@@ -157,9 +157,9 @@ namespace PropertyGui
 
             var list = new List<string>();
             if (Context1 != null)
-                list.AddRange(Context1.GetPropertyBagTypes());
+                list.AddRange(Context1.PropertyBagManager.GetPropertyBagTypes());
             if (Context2 != null)
-                list.AddRange(Context2.GetPropertyBagTypes());
+                list.AddRange(Context2.PropertyBagManager.GetPropertyBagTypes());
             list = list.Distinct().ToList();
 
             cboPropertyBagFilter.Items.Clear();

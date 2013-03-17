@@ -161,7 +161,7 @@ namespace MetraTech.ExpressionEngine.Components
             }
         }
 
-        public virtual void Validate(bool prefixMsg, ValidationMessageCollection messages, Context context)
+        public virtual void Validate(bool prefixMsg, ValidationMessageCollection messages)
         {
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.Components
 {
@@ -96,6 +97,14 @@ namespace MetraTech.ExpressionEngine.Components
                 categories.Add(new KeyValuePair<string, EnumCategory>(label, category));
             }
             return categories;
+        }
+
+        public void Validate(ValidationMessageCollection messages)
+        {
+            foreach (var category in Categories)
+            {
+                category.Validate(true, messages);
+            }
         }
 
         #endregion

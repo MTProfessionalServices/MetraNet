@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Runtime.Serialization;
-using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
+using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Validations;
@@ -59,11 +59,11 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #endregion
 
         #region Methods
-        public override List<string> GetPropertyReferenceNames()
+        public override List<PropertyReference> GetPropertyReferences()
         {
-            var references = new List<string>();
+            var references = new List<PropertyReference>();
             if (UnitOfMeasureMode == UnitOfMeasureMode.PropertyDriven && !string.IsNullOrEmpty(UnitOfMeasureProperty))
-                references.Add(UnitOfMeasureProperty);
+                references.Add(new PropertyReference(UnitOfMeasureProperty, TypeFactory.CreateEnumeration(EnumMode.UnitOfMeasure), true));
             return references;
         }
         private void AddError(ValidationMessageCollection messages, string prefix, string message)

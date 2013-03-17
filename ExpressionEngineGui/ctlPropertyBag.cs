@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.Validations;
 
 namespace PropertyGui
@@ -17,6 +19,7 @@ namespace PropertyGui
         #region Properties
         private Context Context;
         private PropertyBag PropertyBag;
+        private Property CurrentProperty = null;
         #endregion
 
         #region Constructor
@@ -42,10 +45,7 @@ namespace PropertyGui
             treProperties.AllowEntityExpand = false;
             treProperties.HideSelection = false;
 
-            LoadTree(false);
-            //treProperties.AddProperties(null, PropertyBag.Properties);
-            //treProperties.Sort();
-
+            LoadTree();
             //treProperties.ShowLines = false;
             //treProperties.FullRowSelect = true;
 
@@ -64,46 +64,110 @@ namespace PropertyGui
             }
         }
 
-        public void LoadTree(bool showFlat)
+        public void LoadTree()
         {
             treProperties.BeginUpdate();
             treProperties.Nodes.Clear();
 
-            var references = PropertyBag.Properties.GetPropertyReferenceNames();
-            foreach (var property in PropertyBag.Properties)
-            {
-                if (showFlat)
-                {
-                    treProperties.CreateNode(property);
-                    continue;
-                }
-                
-                //If it's referred to by any other node, don't put it at top level
-                if (references.Contains(property.Name))
-                    continue;
-
-                var node = treProperties.CreateNode(property);
-                foreach (var referenceName in property.Type.GetPropertyReferenceNames())
-                {
-                    var referenceProperty = PropertyBag.Properties.Get(property.Name);
-                    if (referenceProperty != null)
-                    {
-                        treProperties.CreateNode(referenceProperty, node);
-                    }
-                }
-
-            }
-            //treProperties.AddProperties(null, PropertyBag.Properties);
+            if (!chkShowReferences.Checked)
+                LoadFlat();
+            else
+                LoadHiearchy();
 
             treProperties.Sort();
             treProperties.EndUpdate();
+        }
+
+        private void LoadHiearchy()
+        {
+            var addedProperties = new List<Property>();
+
+            //If it's a ProductView, load the charges
+            if (PropertyBag is ProductViewEntity)
+            {
+                var pv = (ProductViewEntity) PropertyBag;
+
+                //Add the EventCharge
+                var eventCharge = pv.GetEventCharge();
+                TreeNode eventChargeNode = null;
+                if (eventCharge != null)
+                    eventChargeNode = AddPropertyToHiearchy(eventCharge, null, addedProperties);
+
+                //Add the EventTax
+                var eventTax = pv.Properties.Get("EventTax");
+                TreeNode eventTaxNode = null;
+                if (eventCharge != null)
+                    eventTaxNode = AddPropertyToHiearchy(eventTax, null, addedProperties);
+
+                //Add charges and taxes
+                foreach (var property in PropertyBag.Properties)
+                {
+                    if (property.Type.IsCharge && property.Name != PropertyBagConstants.EventCharge)
+                        AddPropertyToHiearchy(property, eventChargeNode, addedProperties);
+                    else if (property.Type.IsTax)
+                        AddPropertyToHiearchy(property, eventTaxNode, addedProperties);
+                }
+            }
+           
+            foreach (var property in PropertyBag.Properties)
+            {
+                //If it's been added, don't add it again
+                if (addedProperties.Contains(property))
+                    continue;
+
+                //Only add things with property references
+                if (property.Type.GetPropertyReferences().Count > 0)
+                    AddPropertyToHiearchy(property, null, addedProperties);
+            }
+
+            //Add anything that hasn't already been added
+            foreach (var property in PropertyBag.Properties)
+            {
+                if (!addedProperties.Contains(property))
+                    AddPropertyToHiearchy(property, null, addedProperties);
+            }
+        }
+
+        private TreeNode AddPropertyToHiearchy(Property property, TreeNode parentNode, List<Property> addedProperties)
+        {
+            if (property == null)
+                throw new ArgumentException("property is null");
+
+            addedProperties.Add(property);
+            var node = treProperties.CreateNode(property, parentNode);
+            foreach (var propertyReference in property.Type.GetPropertyReferences())
+            {
+                var childProperty = property.PropertyCollection.Get(propertyReference.PropertyName);
+                if (childProperty != null)
+                    AddPropertyToHiearchy(childProperty, node, addedProperties);
+            }
+            return node;
+        }
+
+        private void LoadFlat()
+        {
+            foreach (var property in PropertyBag.Properties)
+            {
+                    treProperties.CreateNode(property);
+            }
+        }
+
+        private void Refresh()
+        {
+            treProperties.PreserveState();
+            LoadTree();
+            treProperties.RestoreState();
         }
         #endregion
 
         #region Events
         private void treProperties_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            //if (CurrentProperty != null)
+            //    ctlProperty.SyncToObject();
+
             var property = (Property)treProperties.SelectedNode.Tag;
+            CurrentProperty = property;
             ctlProperty1.SyncToForm(property);
             ctlProperty1.Visible = true;
         }
@@ -124,7 +188,7 @@ namespace PropertyGui
             var node = treProperties.CreateNode(property, null);
             PropertyBag.Properties.Add(property);
             treProperties.SelectedNode = node;
-            LoadTree(false);
+            LoadTree();
         }
 
         private void btnValidate_Click(object sender, EventArgs e)
@@ -140,9 +204,7 @@ namespace PropertyGui
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            treProperties.PreserveState();
-            LoadTree(false);
-            treProperties.RestoreState();
+            Refresh();
         }
 
         #endregion

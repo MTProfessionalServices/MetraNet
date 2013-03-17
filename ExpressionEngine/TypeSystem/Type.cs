@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Validations;
 
@@ -72,9 +73,9 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// Several type refer to other properties
         /// </summary>
         /// <returns></returns>
-        public virtual List<string> GetPropertyReferenceNames()
+        public virtual List<PropertyReference> GetPropertyReferences()
         {
-            return new List<string>();
+            return new List<PropertyReference>();
         }
         #endregion
 
@@ -112,6 +113,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public bool IsMoney { get { return BaseType == BaseType.Money; } }
         public bool IsNumeric { get { return TypeHelper.IsNumeric(BaseType); } }
         public bool IsString { get { return BaseType == BaseType.String; } }
+        public bool IsTax { get { return BaseType == BaseType.Tax; } }
         public bool IsUniqueIdentifier { get { return BaseType == BaseType.UniqueIdentifier; } }
         public bool IsUnknown { get { return BaseType == BaseType.Unknown; } }
         #endregion

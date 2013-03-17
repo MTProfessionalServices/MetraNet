@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
+using MetraTech.ExpressionEngine.PropertyBags;
 
 namespace PropertyGui
 {
@@ -103,6 +104,15 @@ namespace PropertyGui
             dialog.ShowDialog();
         }
         #endregion
+
+        private void btnEditCompute_Click(object sender, EventArgs e)
+        {
+            var context = new Context(ProductType.MetraNet);
+            var compute = ProductViewEntity.CreateCompute();
+            context.AddPropertyBag(compute);
+            var dialog = new frmPropertyBag(context, compute);
+            dialog.ShowDialog();
+        }
 
     }
 }

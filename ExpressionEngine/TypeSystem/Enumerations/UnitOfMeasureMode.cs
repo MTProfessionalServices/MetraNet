@@ -8,7 +8,12 @@
         /// <summary>
         /// Either not a numeric or it's unknown
         /// </summary>
-        None,     
+        None,   
+  
+        /// <summary>
+        /// A count of the units. Must be an integer time
+        /// </summary>
+        Count,
 
         /// <summary>
         /// Implied by the context which is up to the developer.

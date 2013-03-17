@@ -15,7 +15,7 @@ namespace PropertyGui
         #region Properties
         private bool IgnoreChanges = false;
         private Context Context;
-        private Property Property;
+        public Property Property { get; private set; }
         public ChangeEvent OnChangeEvent;
         public ctlBaseType CurrentTypeControl = null;
         #endregion
@@ -69,7 +69,30 @@ namespace PropertyGui
 
         private void UpdateGui()
         {
+            if (CurrentTypeControl != null)
+            {
+                CurrentTypeControl.SyncToObject();
+                CurrentTypeControl.Dispose();
+            }
 
+            var baseType = (BaseType)cboDataType.SelectedItem;
+            if (baseType != Property.Type.BaseType)
+                Property.Type = TypeFactory.Create(baseType);
+            CurrentTypeControl = TypeControlFactory();
+            if (CurrentTypeControl != null)
+            {
+                CurrentTypeControl.Parent = this;
+                CurrentTypeControl.Top = lblDataType.Bottom + 5;
+                CurrentTypeControl.Left = lblDataType.Left;
+                CurrentTypeControl.Init(Property, Context);
+                CurrentTypeControl.SyncToForm();
+
+                panBottom.Top = CurrentTypeControl.Bottom + 5;
+            }
+            else
+            {
+                panBottom.Top = lblDataType.Bottom;
+            }
         }
 
         private ctlBaseType TypeControlFactory()
@@ -102,30 +125,6 @@ namespace PropertyGui
 
             SyncToObject();
             UpdateGui();
-
-
-            if (CurrentTypeControl != null)
-            {
-                CurrentTypeControl.SyncToObject();
-                CurrentTypeControl.Dispose();
-            }
-
-            Property.Type = TypeFactory.Create((BaseType)cboDataType.SelectedItem);
-            CurrentTypeControl = TypeControlFactory();
-            if (CurrentTypeControl != null)
-            {
-                CurrentTypeControl.Parent = this;
-                CurrentTypeControl.Top = lblDataType.Bottom + 5;
-                CurrentTypeControl.Left = lblDataType.Left;
-                CurrentTypeControl.Init(Property, Context);
-                CurrentTypeControl.SyncToForm();
-
-                panBottom.Top = CurrentTypeControl.Bottom + 5;
-            }
-            else
-            {
-                panBottom.Top = lblDataType.Bottom;
-            }
 
             if (OnChangeEvent != null)
                 OnChangeEvent();

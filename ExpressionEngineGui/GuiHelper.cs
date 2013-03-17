@@ -96,6 +96,20 @@ namespace PropertyGui
             comboBox.EndUpdate();
         }
 
+        public static List<object> GetAllNodeTags(this TreeView tree)
+        {
+            var nodes = new List<object>();
+            _getAllNodeTags(nodes, tree.Nodes);
+            return nodes;
+        }
+        private static void _getAllNodeTags(List<object> nodeList, TreeNodeCollection nodes)
+        {
+            foreach (TreeNode node in nodes)
+            {
+                nodeList.Add(node);
+                _getAllNodeTags(nodeList, node.Nodes);
+            }
+        }
         public static List<TreeNode> GetAllNodes(this TreeView tree)
         {
             var nodes = new List<TreeNode>();

@@ -107,16 +107,6 @@ namespace MetraTech.ExpressionEngine.MTProperties
             }
         }
 
-        public List<string> GetPropertyReferenceNames()
-        {
-            var references = new List<string>();
-            foreach (var property in Properties)
-            {
-                references.AddRange(property.Type.GetPropertyReferenceNames());
-            }
-            return references;
-        }
-
         /// <summary>
         /// Binds the KVP values to the properties.
         /// </summary>
@@ -270,13 +260,21 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
         public Property AddCharge(string name, string description, bool isRequired, string defaultValue = null)
         {
-            var property = PropertyFactory.Create(PropertyBagTypeName, name, TypeFactory.CreateMoney(), isRequired, description);
+            var property = PropertyFactory.Create(PropertyBagTypeName, name, TypeFactory.CreateCharge(), isRequired, description);
             property.Required = isRequired;
             property.DefaultValue = defaultValue;
             Add(property);
             return property;
         }
 
+        public Property AddTax(string name, string description, bool isRequired, string defaultValue = null)
+        {
+            var property = PropertyFactory.Create(PropertyBagTypeName, name, TypeFactory.CreateTax(), isRequired, description);
+            property.Required = isRequired;
+            property.DefaultValue = defaultValue;
+            Add(property);
+            return property;
+        }
         #endregion
 
         #region IEnumerable Methods

@@ -66,6 +66,8 @@ namespace PropertyGui.TypeSystemControls
                 case UnitOfMeasureMode.FixedUnitOfMeasure:
                     showQualifier = true;
                     lblUomQualifier.Text = "Unit of Measure Category:";
+                    cboUomQualifier.Text = BasicHelper.GetNamespaceFromFullName(NumberType.FixedUnitOfMeasure);
+                    cboUnitOfMeasure.Text = BasicHelper.GetNameFromFullName(NumberType.FixedUnitOfMeasure);
                     showUnitOfMeasure = (NumberType.UnitOfMeasureMode == UnitOfMeasureMode.FixedUnitOfMeasure);
                     GuiHelper.LoadUnitOfMeasureCategories(cboUomQualifier, Context);
                     break;
@@ -97,5 +99,10 @@ namespace PropertyGui.TypeSystemControls
             
         }
         #endregion
+
+        private void cboUomQualifier_DropDown(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

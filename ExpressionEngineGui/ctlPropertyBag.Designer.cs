@@ -30,12 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.treProperties = new PropertyGui.ctlExpressionTree();
+            this.ctlProperty1 = new PropertyGui.ctlProperty();
             this.mnuContext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnValidate = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.treProperties = new PropertyGui.ctlExpressionTree();
-            this.ctlProperty1 = new PropertyGui.ctlProperty();
+            this.chkShowReferences = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cboDataTypeFilter = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -48,7 +51,7 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.splitContainer.Location = new System.Drawing.Point(3, 30);
+            this.splitContainer.Location = new System.Drawing.Point(3, 48);
             this.splitContainer.Name = "splitContainer";
             // 
             // splitContainer.Panel1
@@ -58,44 +61,9 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.ctlProperty1);
-            this.splitContainer.Size = new System.Drawing.Size(689, 346);
+            this.splitContainer.Size = new System.Drawing.Size(689, 328);
             this.splitContainer.SplitterDistance = 285;
             this.splitContainer.TabIndex = 3;
-            // 
-            // mnuContext
-            // 
-            this.mnuContext.Name = "mnuContext";
-            this.mnuContext.Size = new System.Drawing.Size(61, 4);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(5, 3);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnValidate
-            // 
-            this.btnValidate.Location = new System.Drawing.Point(86, 3);
-            this.btnValidate.Name = "btnValidate";
-            this.btnValidate.Size = new System.Drawing.Size(75, 23);
-            this.btnValidate.TabIndex = 4;
-            this.btnValidate.Text = "Validate";
-            this.btnValidate.UseVisualStyleBackColor = true;
-            this.btnValidate.Click += new System.EventHandler(this.btnValidate_Click);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Location = new System.Drawing.Point(167, 3);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
-            this.btnRefresh.TabIndex = 5;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // treProperties
             // 
@@ -114,7 +82,7 @@
             this.treProperties.SelectedImageIndex = 0;
             this.treProperties.ShowNamespaces = false;
             this.treProperties.ShowNodeToolTips = true;
-            this.treProperties.Size = new System.Drawing.Size(281, 342);
+            this.treProperties.Size = new System.Drawing.Size(281, 324);
             this.treProperties.TabIndex = 4;
             this.treProperties.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
             this.treProperties.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treProperties_AfterSelect);
@@ -124,13 +92,81 @@
             this.ctlProperty1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ctlProperty1.Location = new System.Drawing.Point(0, 0);
             this.ctlProperty1.Name = "ctlProperty1";
-            this.ctlProperty1.Size = new System.Drawing.Size(396, 342);
+            this.ctlProperty1.Size = new System.Drawing.Size(396, 324);
             this.ctlProperty1.TabIndex = 0;
+            // 
+            // mnuContext
+            // 
+            this.mnuContext.Name = "mnuContext";
+            this.mnuContext.Size = new System.Drawing.Size(61, 4);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(294, 21);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnValidate
+            // 
+            this.btnValidate.Location = new System.Drawing.Point(375, 21);
+            this.btnValidate.Name = "btnValidate";
+            this.btnValidate.Size = new System.Drawing.Size(75, 23);
+            this.btnValidate.TabIndex = 4;
+            this.btnValidate.Text = "Validate";
+            this.btnValidate.UseVisualStyleBackColor = true;
+            this.btnValidate.Click += new System.EventHandler(this.btnValidate_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(456, 21);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 5;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // chkShowReferences
+            // 
+            this.chkShowReferences.AutoSize = true;
+            this.chkShowReferences.Checked = true;
+            this.chkShowReferences.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkShowReferences.Location = new System.Drawing.Point(5, 3);
+            this.chkShowReferences.Name = "chkShowReferences";
+            this.chkShowReferences.Size = new System.Drawing.Size(111, 17);
+            this.chkShowReferences.TabIndex = 6;
+            this.chkShowReferences.Text = "Show References";
+            this.chkShowReferences.UseVisualStyleBackColor = true;
+            this.chkShowReferences.CheckedChanged += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(5, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Data Type:";
+            // 
+            // cboDataTypeFilter
+            // 
+            this.cboDataTypeFilter.FormattingEnabled = true;
+            this.cboDataTypeFilter.Location = new System.Drawing.Point(72, 23);
+            this.cboDataTypeFilter.Name = "cboDataTypeFilter";
+            this.cboDataTypeFilter.Size = new System.Drawing.Size(195, 21);
+            this.cboDataTypeFilter.TabIndex = 8;
             // 
             // ctlPropertyBag
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cboDataTypeFilter);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.chkShowReferences);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnValidate);
             this.Controls.Add(this.btnAdd);
@@ -142,6 +178,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -155,5 +192,8 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnValidate;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.CheckBox chkShowReferences;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cboDataTypeFilter;
     }
 }

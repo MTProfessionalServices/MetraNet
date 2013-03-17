@@ -1,5 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using MetraTech.ExpressionEngine.MTProperties;
+using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -57,6 +59,15 @@ namespace ExpressionEngineTest
             list.AddString("Property1", null, true);
 
             Assert.AreEqual("Property2", list.GetNewSequentialPropertyName());
+        }
+
+        [TestMethod()]
+        public void AddChargeTest()
+        {
+            var pc = new PropertyCollection(null);
+            var charge = pc.AddCharge("EventAmount", null, true, null);
+            Assert.AreEqual(BaseType.Charge, charge.Type.BaseType);
+            Assert.IsTrue(charge.Type is ChargeType, "Is ChargeType");
         }
 
     }

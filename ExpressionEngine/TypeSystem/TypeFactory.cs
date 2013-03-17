@@ -1,4 +1,5 @@
 ﻿using System;
+using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
@@ -22,9 +23,10 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return new Type(BaseType.Boolean);
         }
 
+
         public static Type CreateCharge()
         {
-            return new Type(BaseType.Charge);
+            return new ChargeType();
         }
 
         public static PropertyBagType CreatePropertyBag()
@@ -45,7 +47,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         {
             return new NumberType(BaseType.Decimal, UnitOfMeasureMode.None, null);
         }
-        public static NumberType CreateDecimal(UnitOfMeasureMode unitOfMeasureMode, string unitOfMeasureQualifier)
+        public static NumberType CreateDecimal(UnitOfMeasureMode unitOfMeasureMode, string unitOfMeasureQualifier=null)
         {
             return new NumberType(BaseType.Decimal, unitOfMeasureMode, unitOfMeasureQualifier);
         }
@@ -59,6 +61,10 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return new NumberType(BaseType.Double, unitOfMeasureMode, unitOfMeasureQualifier);
         }
 
+        public static EnumerationType CreateEnumeration(EnumMode enumMode)
+        {
+            return CreateEnumeration(enumMode);
+        }
         public static EnumerationType CreateEnumeration()
         {
             return CreateEnumeration(null);

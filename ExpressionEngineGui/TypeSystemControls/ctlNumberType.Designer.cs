@@ -72,6 +72,7 @@
             this.cboUomQualifier.Name = "cboUomQualifier";
             this.cboUomQualifier.Size = new System.Drawing.Size(266, 21);
             this.cboUomQualifier.TabIndex = 3;
+            this.cboUomQualifier.DropDown += new System.EventHandler(this.cboUomQualifier_DropDown);
             // 
             // cboUnitOfMeasure
             // 

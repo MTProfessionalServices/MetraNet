@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Components\Enumerations\EnumMode.cs" />
     <Compile Include="MTProperties\Enumerations\Availability.cs" />
+    <Compile Include="MTProperties\PropertyReference.cs" />
     <Compile Include="Placeholders\PageLayout.cs" />
     <Compile Include="TypeSystem\ChargeType.cs" />
     <Compile Include="Components\EnumFactory.cs" />

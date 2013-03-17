@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
@@ -46,22 +47,21 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public ChargeType() : base(BaseType.Charge)
         {      
         }
+        public ChargeType(string quantityProperty) : this()
+        {
+            QuantityProperty = quantityProperty;
+        }
         #endregion
 
         #region Methods
-        public override List<string> GetPropertyReferenceNames()
+        public override List<PropertyReference> GetPropertyReferences()
         {
-            var references = new List<string>();
-            if (!string.IsNullOrEmpty(QuantityProperty))
-                references.Add(QuantityProperty);
-            if (!string.IsNullOrEmpty(PriceProperty))
-                references.Add(PriceProperty);
-            if (!string.IsNullOrEmpty(ProductProperty))
-                references.Add(ProductProperty);
-            if (!string.IsNullOrEmpty(StartProperty))
-                references.Add(StartProperty);
-            if (!string.IsNullOrEmpty(EndProperty))
-                references.Add(EndProperty);
+            var references = new List<PropertyReference>();
+            references.Add(new PropertyReference(QuantityProperty, TypeFactory.CreateNumeric(), true));
+            references.Add(new PropertyReference(PriceProperty, TypeFactory.CreateMoney(), false));
+            references.Add(new PropertyReference(ProductProperty, TypeFactory.CreateInteger(), false));
+            references.Add(new PropertyReference(StartProperty, TypeFactory.CreateDateTime(), false));
+            references.Add(new PropertyReference(EndProperty, TypeFactory.CreateDateTime(), false));
             return references;
         }
         #endregion

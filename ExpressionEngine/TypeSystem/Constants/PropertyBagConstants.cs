@@ -12,5 +12,7 @@
         public const string MetraTechNamespace = "MetraTech";
         public const string MetraTechUnitOfMeasureNamespace = "MetraTech.UnitOfMeasure";
 
+        public const string EventCharge = "EventCharge";
+
     }
 }

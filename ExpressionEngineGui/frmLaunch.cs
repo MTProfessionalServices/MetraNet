@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
+using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
 using MetraTech.ExpressionEngine.PropertyBags;
 
@@ -107,7 +109,8 @@ namespace PropertyGui
 
         private void btnEditCompute_Click(object sender, EventArgs e)
         {
-            var context = new Context(ProductType.MetraNet);
+            var context = Context.LoadMetanga(@"C:\ExpressionEngine\Data\Metanga");
+            context.AddEnumCategory(new EnumCategory(EnumMode.UnitOfMeasure, "Scott", "DigitalInformation", 0, "Just a sample overlap"));
             var compute = ProductViewEntity.CreateCompute();
             context.AddPropertyBag(compute);
             var dialog = new frmPropertyBag(context, compute);

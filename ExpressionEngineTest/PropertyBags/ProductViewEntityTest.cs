@@ -32,7 +32,7 @@ namespace ExpressionEngineTest
         {
             var pv = new ProductViewEntity("MetraTech", "foo", null);
             var property = (ProductViewProperty)pv.Properties.AddCharge("Amount", "", true);
-            Assert.AreEqual(BaseType.Money, property.Type.BaseType);
+            Assert.AreEqual(BaseType.Charge, property.Type.BaseType);
             Assert.AreEqual("c_Amount", property.DatabaseName, "Default name");
 
             var remappingName = "the reamaped name";

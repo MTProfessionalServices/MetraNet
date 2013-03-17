@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.cboEnumeration = new System.Windows.Forms.ComboBox();
+            this.ctlEnumCategory = new PropertyGui.Compoenents.ctlEnumCategory();
             this.SuspendLayout();
             // 
             // label1
@@ -41,23 +41,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Category:";
             // 
-            // cboEnumeration
+            // ctlEnumCategory
             // 
-            this.cboEnumeration.FormattingEnabled = true;
-            this.cboEnumeration.Location = new System.Drawing.Point(55, 0);
-            this.cboEnumeration.Name = "cboEnumeration";
-            this.cboEnumeration.Size = new System.Drawing.Size(345, 21);
-            this.cboEnumeration.TabIndex = 1;
-            this.cboEnumeration.DropDown += new System.EventHandler(this.cboEnumeration_DropDown);
+            this.ctlEnumCategory.Location = new System.Drawing.Point(55, 0);
+            this.ctlEnumCategory.Name = "ctlEnumCategory";
+            this.ctlEnumCategory.ShowCurrency = true;
+            this.ctlEnumCategory.ShowItems = true;
+            this.ctlEnumCategory.ShowUnitsOfMeasure = true;
+            this.ctlEnumCategory.Size = new System.Drawing.Size(345, 21);
+            this.ctlEnumCategory.TabIndex = 2;
             // 
             // ctlEnumerationType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.cboEnumeration);
+            this.Controls.Add(this.ctlEnumCategory);
             this.Controls.Add(this.label1);
             this.Name = "ctlEnumerationType";
-            this.Size = new System.Drawing.Size(403, 22);
+            this.Size = new System.Drawing.Size(403, 32);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -66,6 +67,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cboEnumeration;
+        private Compoenents.ctlEnumCategory ctlEnumCategory;
     }
 }

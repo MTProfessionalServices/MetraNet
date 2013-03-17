@@ -23,32 +23,18 @@ namespace PropertyGui.TypeSystemControls
         {
  	        base.Init(property, context);
             EnumerationType = (EnumerationType) property.Type;
+            ctlEnumCategory.Init(context.EnumManager);
         }
 
         public override void SyncToForm()
         {
-            cboEnumeration.Text = EnumerationType.Category;
+            ctlEnumCategory.Text = EnumerationType.Category;
         }
         public override void SyncToObject()
         {
-            EnumerationType.Category = cboEnumeration.Text;
+            EnumerationType.Category = ctlEnumCategory.Text;
         }
         #endregion
 
-        #region Events
-
-        private void cboEnumeration_DropDown(object sender, EventArgs e)
-        {
-            cboEnumeration.BeginUpdate();
-            cboEnumeration.Items.Clear();
-            cboEnumeration.DisplayMember = "FullNameReversed";
-            foreach (var category in Context.EnumCategories)
-            {
-                cboEnumeration.Items.Add(category);
-            }
-            cboEnumeration.EndUpdate();
-        }
-
-        #endregion
     }
 }

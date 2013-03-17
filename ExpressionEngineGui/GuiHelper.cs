@@ -22,11 +22,12 @@ namespace PropertyGui
             }
             comboBox.EndUpdate();
         }
+
         public static void LoadCurrencies(ComboBox comboBox, Context context)
         {
             comboBox.BeginUpdate();
             comboBox.Items.Clear();
-            var currencies = context.GetCurrencyCategories();
+            var currencies = context.EnumManager.GetCurrencyCategory();
             if (currencies != null)
             {
                 foreach (var currency in currencies.Items)
@@ -43,7 +44,7 @@ namespace PropertyGui
             comboBox.BeginUpdate();
             comboBox.Items.Clear();
             comboBox.DisplayMember = "FullNameReversed";
-            var categories = context.GetUnitOfMeasureCategories();
+            var categories = context.EnumManager.GetUnitOfMeasureCategories();
             if (categories != null)
             {
                 foreach (var category in categories)

@@ -58,11 +58,12 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public EmailInstance EmailInstance { get; private set; }
 
+        public readonly EnumManager EnumManager = new EnumManager();
+
         /// <summary>
         /// All enumeration categories
         /// </summary>
-        public IEnumerable<EnumCategory> EnumCategories { get { return _enumCategories.Values; } }
-        private Dictionary<string, EnumCategory> _enumCategories = new Dictionary<string, EnumCategory>(StringComparer.InvariantCultureIgnoreCase);
+        public IEnumerable<EnumCategory> EnumCategories { get { return EnumManager.Categories; } }
 
         /// <summary>
         /// All Functions
@@ -178,7 +179,7 @@ namespace MetraTech.ExpressionEngine
             if (expression.Info.SupportsUqgs)
                 _uqgs = masterContext.Uqgs;
 
-            _enumCategories = masterContext._enumCategories;
+            EnumManager = masterContext.EnumManager;
             _functions = masterContext._functions;
 
             UpdateContext();
@@ -523,45 +524,16 @@ namespace MetraTech.ExpressionEngine
    
         public void AddEnumCategory(EnumCategory enumCategory)
         {
-            if (enumCategory == null)
-                throw new ArgumentException("enumCategory is null");
-
-            if (_enumCategories.ContainsKey(enumCategory.FullName))
-                throw new Exception(string.Format(CultureInfo.InvariantCulture, "Duplicate EnumCategory '{0}'",enumCategory.FullName));
-            
-            _enumCategories.Add(enumCategory.FullName, enumCategory);
+            EnumManager.AddCategory(enumCategory);
         }
         public EnumCategory GetEnumCategory(string categoryFullName)
         {
-            if (string.IsNullOrEmpty(categoryFullName))
-                return null;
+            return EnumManager.GetCategory(categoryFullName);
 
-            EnumCategory enumCategory;
-            if (!_enumCategories.TryGetValue(categoryFullName, out enumCategory))
-                return null;
-            return enumCategory; 
         }
         public EnumCategory GetEnumCategory(EnumerationType enumerationType)
         {
-            if (enumerationType == null)
-                throw new ArgumentException("enumerationType is null");
-            return GetEnumCategory(enumerationType.Category);
-        }
-
-        public EnumCategory GetCurrencyCategories()
-        {
-            return GetEnumCategory("MetraTech.Currency");
-        }
-
-        public List<EnumCategory> GetUnitOfMeasureCategories()
-        {
-            var uoms = new List<EnumCategory>();
-            foreach (var category in EnumCategories)
-            {
-                if (category.EnumMode == EnumMode.UnitOfMeasure)
-                    uoms.Add(category);
-            }
-            return uoms;
+            return EnumManager.GetCategory(enumerationType.Category);
         }
         #endregion
 

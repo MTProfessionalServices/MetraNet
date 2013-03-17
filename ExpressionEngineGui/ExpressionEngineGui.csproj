@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compoenents\ctlEnumCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Compoenents\ctlEnumCategory.Designer.cs">
+      <DependentUpon>ctlEnumCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="ctlContextBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -224,6 +230,9 @@
     <Compile Include="TypeSystemControls\ctlStringType.Designer.cs">
       <DependentUpon>ctlStringType.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Compoenents\ctlEnumCategory.resx">
+      <DependentUpon>ctlEnumCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ctlContextBase.resx">
       <DependentUpon>ctlContextBase.cs</DependentUpon>
     </EmbeddedResource>

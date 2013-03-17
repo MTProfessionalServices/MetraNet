@@ -174,6 +174,9 @@ namespace PropertyGui
 
         public void PropertyChangeEvent()
         {
+            if (treProperties.SelectedNode == null)
+                return;
+
             var property = (Property)treProperties.SelectedNode.Tag;
             //treProperties.SelectedNode.Text = property.Name;
             SuspendLayout();

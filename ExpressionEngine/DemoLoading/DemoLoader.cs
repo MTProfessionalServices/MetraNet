@@ -20,7 +20,9 @@ namespace MetraTech.ExpressionEngine
     public static class DemoLoader
     {
         #region Properties
-        public const string DirPath = @"C:\ExpressionEngine";
+
+      public static string Drive = Environment.CurrentDirectory.Substring(0, 3);
+        public static string DirPath = Path.Combine(Drive, "ExpressionEngine");
         public static string TopLevelDataDir = Path.Combine(DirPath, "Data");
         private static string DataPath;
         #endregion

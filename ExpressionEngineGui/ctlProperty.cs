@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.MTProperties;
+using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using PropertyGui.TypeSystemControls;
@@ -15,6 +16,7 @@ namespace PropertyGui
         #region Properties
         private bool IgnoreChanges = false;
         private Context Context;
+        private PropertyBag PropertyBag;
         public Property Property { get; private set; }
         public ChangeEvent OnChangeEvent;
         public ctlBaseType CurrentTypeControl = null;
@@ -29,10 +31,12 @@ namespace PropertyGui
 
         #region Methods
 
-        public void Init(Context context)
+        public void Init(Context context, PropertyBag propertyBag)
         {
             if (context == null)
                 throw new ArgumentException("context is null");
+            if (context == null)
+                throw new AggregateException("propertyBag is null");
             Context = context;
 
             GuiHelper.LoadBaseTypes(cboDataType);

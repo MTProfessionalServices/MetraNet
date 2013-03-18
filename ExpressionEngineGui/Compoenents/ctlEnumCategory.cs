@@ -34,6 +34,11 @@ namespace PropertyGui.Compoenents
                 throw new ArgumentException("enumManager is null");
             EnumManager = enumManager;
         }
+
+        public EnumCategory GetEnumCategory()
+        {
+            return EnumManager.GetCategory(Text);
+        }
         #endregion
 
         #region Events

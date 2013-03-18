@@ -1,6 +1,6 @@
-﻿namespace PropertyGui.TypeSystemControls
+﻿namespace PropertyGui.Compoenents
 {
-    partial class ctlEnumerationType
+    partial class ctlEnumCategoryAndValue
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,45 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.ctlEnumCategory = new PropertyGui.Compoenents.ctlEnumCategory();
+            this.cboEnumItem = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Enum. Category:";
             // 
             // ctlEnumCategory
             // 
-            this.ctlEnumCategory.Location = new System.Drawing.Point(84, 0);
+            this.ctlEnumCategory.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ctlEnumCategory.Location = new System.Drawing.Point(0, 0);
             this.ctlEnumCategory.Name = "ctlEnumCategory";
             this.ctlEnumCategory.ShowCurrency = true;
             this.ctlEnumCategory.ShowItems = true;
             this.ctlEnumCategory.ShowUnitsOfMeasure = true;
-            this.ctlEnumCategory.Size = new System.Drawing.Size(316, 21);
-            this.ctlEnumCategory.TabIndex = 2;
+            this.ctlEnumCategory.Size = new System.Drawing.Size(150, 21);
+            this.ctlEnumCategory.TabIndex = 0;
             // 
-            // ctlEnumerationType
+            // cboEnumItem
+            // 
+            this.cboEnumItem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboEnumItem.FormattingEnabled = true;
+            this.cboEnumItem.Location = new System.Drawing.Point(0, 26);
+            this.cboEnumItem.Name = "cboEnumItem";
+            this.cboEnumItem.Size = new System.Drawing.Size(150, 21);
+            this.cboEnumItem.TabIndex = 1;
+            this.cboEnumItem.DropDown += new System.EventHandler(this.cboEnumItem_DropDown);
+            // 
+            // ctlEnumCategoryAndValue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cboEnumItem);
             this.Controls.Add(this.ctlEnumCategory);
-            this.Controls.Add(this.label1);
-            this.Name = "ctlEnumerationType";
-            this.Size = new System.Drawing.Size(403, 32);
+            this.Name = "ctlEnumCategoryAndValue";
+            this.Size = new System.Drawing.Size(150, 47);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private Compoenents.ctlEnumCategory ctlEnumCategory;
+        private ctlEnumCategory ctlEnumCategory;
+        private System.Windows.Forms.ComboBox cboEnumItem;
     }
 }

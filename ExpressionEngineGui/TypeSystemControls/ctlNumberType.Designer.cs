@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctlNumberType));
             this.label1 = new System.Windows.Forms.Label();
             this.cboUnitOfMeasureMode = new System.Windows.Forms.ComboBox();
-            this.lblUomQualifier = new System.Windows.Forms.Label();
-            this.cboUomQualifier = new System.Windows.Forms.ComboBox();
-            this.cboUnitOfMeasure = new System.Windows.Forms.ComboBox();
+            this.lblGeneric = new System.Windows.Forms.Label();
             this.lblUnitOfMeasure = new System.Windows.Forms.Label();
-            this.btnAddProperty = new System.Windows.Forms.Button();
+            this.ctlUom = new PropertyGui.Compoenents.ctlEnumCategoryAndValue();
+            this.ctlProperty = new PropertyGui.Compoenents.ctlPropertyReference();
             this.SuspendLayout();
             // 
             // label1
@@ -56,32 +54,14 @@
             this.cboUnitOfMeasureMode.TabIndex = 1;
             this.cboUnitOfMeasureMode.SelectedValueChanged += new System.EventHandler(this.cboUnitOfMeasureCategory_SelectedValueChanged);
             // 
-            // lblUomQualifier
+            // lblGeneric
             // 
-            this.lblUomQualifier.AutoSize = true;
-            this.lblUomQualifier.Location = new System.Drawing.Point(4, 30);
-            this.lblUomQualifier.Name = "lblUomQualifier";
-            this.lblUomQualifier.Size = new System.Drawing.Size(45, 13);
-            this.lblUomQualifier.TabIndex = 2;
-            this.lblUomQualifier.Text = "Qualifier";
-            // 
-            // cboUomQualifier
-            // 
-            this.cboUomQualifier.FormattingEnabled = true;
-            this.cboUomQualifier.Location = new System.Drawing.Point(140, 27);
-            this.cboUomQualifier.Name = "cboUomQualifier";
-            this.cboUomQualifier.Size = new System.Drawing.Size(266, 21);
-            this.cboUomQualifier.TabIndex = 3;
-            this.cboUomQualifier.DropDown += new System.EventHandler(this.cboUomQualifier_DropDown);
-            // 
-            // cboUnitOfMeasure
-            // 
-            this.cboUnitOfMeasure.FormattingEnabled = true;
-            this.cboUnitOfMeasure.Location = new System.Drawing.Point(140, 54);
-            this.cboUnitOfMeasure.Name = "cboUnitOfMeasure";
-            this.cboUnitOfMeasure.Size = new System.Drawing.Size(266, 21);
-            this.cboUnitOfMeasure.TabIndex = 5;
-            this.cboUnitOfMeasure.DropDown += new System.EventHandler(this.cboUnitOfMeasure_DropDown);
+            this.lblGeneric.AutoSize = true;
+            this.lblGeneric.Location = new System.Drawing.Point(4, 30);
+            this.lblGeneric.Name = "lblGeneric";
+            this.lblGeneric.Size = new System.Drawing.Size(45, 13);
+            this.lblGeneric.TabIndex = 2;
+            this.lblGeneric.Text = "Qualifier";
             // 
             // lblUnitOfMeasure
             // 
@@ -92,29 +72,38 @@
             this.lblUnitOfMeasure.TabIndex = 4;
             this.lblUnitOfMeasure.Text = "Unit of Measure:";
             // 
-            // btnAddProperty
+            // ctlUom
             // 
-            this.btnAddProperty.Image = ((System.Drawing.Image)(resources.GetObject("btnAddProperty.Image")));
-            this.btnAddProperty.Location = new System.Drawing.Point(412, 27);
-            this.btnAddProperty.Name = "btnAddProperty";
-            this.btnAddProperty.Size = new System.Drawing.Size(24, 23);
-            this.btnAddProperty.TabIndex = 6;
-            this.btnAddProperty.UseVisualStyleBackColor = true;
-            this.btnAddProperty.Click += new System.EventHandler(this.btnAddProperty_Click);
+            this.ctlUom.EnumCategory = "";
+            this.ctlUom.EnumItem = "";
+            this.ctlUom.Location = new System.Drawing.Point(140, 27);
+            this.ctlUom.Name = "ctlUom";
+            this.ctlUom.ShowCurrency = true;
+            this.ctlUom.ShowItems = true;
+            this.ctlUom.ShowUnitsOfMeasure = true;
+            this.ctlUom.Size = new System.Drawing.Size(266, 47);
+            this.ctlUom.TabIndex = 7;
+            // 
+            // ctlProperty
+            // 
+            this.ctlProperty.Location = new System.Drawing.Point(412, 27);
+            this.ctlProperty.Name = "ctlProperty";
+            this.ctlProperty.PropertyName = "";
+            this.ctlProperty.Size = new System.Drawing.Size(218, 28);
+            this.ctlProperty.TabIndex = 8;
             // 
             // ctlNumberType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnAddProperty);
-            this.Controls.Add(this.cboUnitOfMeasure);
+            this.Controls.Add(this.ctlProperty);
+            this.Controls.Add(this.ctlUom);
             this.Controls.Add(this.lblUnitOfMeasure);
-            this.Controls.Add(this.cboUomQualifier);
-            this.Controls.Add(this.lblUomQualifier);
+            this.Controls.Add(this.lblGeneric);
             this.Controls.Add(this.cboUnitOfMeasureMode);
             this.Controls.Add(this.label1);
             this.Name = "ctlNumberType";
-            this.Size = new System.Drawing.Size(503, 81);
+            this.Size = new System.Drawing.Size(665, 78);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,10 +113,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboUnitOfMeasureMode;
-        private System.Windows.Forms.Label lblUomQualifier;
-        private System.Windows.Forms.ComboBox cboUomQualifier;
-        private System.Windows.Forms.ComboBox cboUnitOfMeasure;
+        private System.Windows.Forms.Label lblGeneric;
         private System.Windows.Forms.Label lblUnitOfMeasure;
-        private System.Windows.Forms.Button btnAddProperty;
+        private Compoenents.ctlEnumCategoryAndValue ctlUom;
+        private Compoenents.ctlPropertyReference ctlProperty;
     }
 }

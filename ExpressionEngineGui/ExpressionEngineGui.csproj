@@ -58,6 +58,18 @@
     <Compile Include="Compoenents\ctlEnumCategory.Designer.cs">
       <DependentUpon>ctlEnumCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Compoenents\ctlEnumCategoryAndValue.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Compoenents\ctlEnumCategoryAndValue.Designer.cs">
+      <DependentUpon>ctlEnumCategoryAndValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compoenents\ctlPropertyReference.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Compoenents\ctlPropertyReference.Designer.cs">
+      <DependentUpon>ctlPropertyReference.cs</DependentUpon>
+    </Compile>
     <Compile Include="ctlContextBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -117,6 +129,12 @@
     </Compile>
     <Compile Include="ctlValueBinder.Designer.cs">
       <DependentUpon>ctlValueBinder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddProperty.Designer.cs">
+      <DependentUpon>frmAddProperty.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCharge.cs">
       <SubType>Form</SubType>
@@ -233,6 +251,12 @@
     <EmbeddedResource Include="Compoenents\ctlEnumCategory.resx">
       <DependentUpon>ctlEnumCategory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Compoenents\ctlEnumCategoryAndValue.resx">
+      <DependentUpon>ctlEnumCategoryAndValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compoenents\ctlPropertyReference.resx">
+      <DependentUpon>ctlPropertyReference.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ctlContextBase.resx">
       <DependentUpon>ctlContextBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ctlValueBinder.resx">
       <DependentUpon>ctlValueBinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddProperty.resx">
+      <DependentUpon>frmAddProperty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCharge.resx">
       <DependentUpon>frmCharge.cs</DependentUpon>

@@ -50,7 +50,7 @@ namespace PropertyGui
             //treProperties.FullRowSelect = true;
 
             ctlProperty1.OnChangeEvent = PropertyChangeEvent;
-            ctlProperty1.Init(Context);
+            ctlProperty1.Init(Context, PropertyBag);
             EnsureNodeSelected();
         }
 

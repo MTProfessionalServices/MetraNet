@@ -2,7 +2,6 @@
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
-using MetraTech.ExpressionEngine.Components;
 
 namespace PropertyGui.TypeSystemControls
 {
@@ -26,10 +25,14 @@ namespace PropertyGui.TypeSystemControls
             NumberType = (NumberType)property.Type;
 
             GuiHelper.LoadEnum<UnitOfMeasureMode>(cboUnitOfMeasureMode);
-            //cboUnitOfMeasureCategory.BeginUpdate();
-            //cboUnitOfMeasureCategory.DropDownStyle = ComboBoxStyle.DropDownList;
-            //cboUnitOfMeasureCategory.Items.Add(Enum.GetValues(typeof (UnitOfMeasureMode)));
-            //cboUnitOfMeasureCategory.EndUpdate();
+
+            ctlUom.Init(Context.EnumManager);
+            ctlUom.ShowCurrency = false;
+            ctlUom.ShowItems = false;
+
+            ctlProperty.Top = ctlUom.Top;
+            ctlProperty.Left = ctlUom.Left;
+            ctlProperty.Init(property.PropertyCollection, TypeFactory.CreateNumeric(), "SillyName");
         }
 
         public override void SyncToForm()
@@ -45,64 +48,34 @@ namespace PropertyGui.TypeSystemControls
         private void cboUnitOfMeasureCategory_SelectedValueChanged(object sender, System.EventArgs e)
         {
             NumberType.UnitOfMeasureMode = (UnitOfMeasureMode) cboUnitOfMeasureMode.SelectedItem;
-            bool showQualifier = false;
-            bool showUnitOfMeasure = false;
-            bool showAddButton = false;
+            bool showProperty = false;
+            bool showUomCategory = false;
+            bool showUomItem = false;
+            lblGeneric.Text = null;
             switch (NumberType.UnitOfMeasureMode)
             {
-                case UnitOfMeasureMode.None:
-                case UnitOfMeasureMode.ContextDriven:
-                    showQualifier = false;
-                    showUnitOfMeasure = false;
-                    break;
                 case UnitOfMeasureMode.PropertyDriven:
-                    showQualifier = true;
-                    showUnitOfMeasure = false;
-                    showAddButton = string.IsNullOrEmpty(cboUomQualifier.Text);
-                    lblUomQualifier.Text = "Unit of Measure Property:";
-                    GuiHelper.LoadProperties(cboUomQualifier, TypeFactory.CreateString(), Property.PropertyCollection);
+                    showProperty = true;
+                    lblGeneric.Text = "Unit of Measure Property:";
                     break;
                 case UnitOfMeasureMode.FixedCategory:
                 case UnitOfMeasureMode.FixedUnitOfMeasure:
-                    showQualifier = true;
-                    lblUomQualifier.Text = "Unit of Measure Category:";
-                    cboUomQualifier.Text = BasicHelper.GetNamespaceFromFullName(NumberType.FixedUnitOfMeasure);
-                    cboUnitOfMeasure.Text = BasicHelper.GetNameFromFullName(NumberType.FixedUnitOfMeasure);
-                    showUnitOfMeasure = (NumberType.UnitOfMeasureMode == UnitOfMeasureMode.FixedUnitOfMeasure);
-                    GuiHelper.LoadUnitOfMeasureCategories(cboUomQualifier, Context);
+                    showUomCategory = true;
+                    lblGeneric.Text = "Unit of Measure Category:";
+                    ctlUom.EnumCategory = BasicHelper.GetNamespaceFromFullName(NumberType.FixedUnitOfMeasure);
+                    ctlUom.EnumItem = BasicHelper.GetNameFromFullName(NumberType.FixedUnitOfMeasure);
+                    showUomItem = NumberType.UnitOfMeasureMode == UnitOfMeasureMode.FixedUnitOfMeasure;
+                    ctlUom.SetItemComboBoxVisibility(showUomItem);
                     break;
             }
-            lblUomQualifier.Visible = showQualifier;
-            cboUomQualifier.Visible = showQualifier;
-            lblUnitOfMeasure.Visible = showUnitOfMeasure;
-            cboUnitOfMeasure.Visible = showUnitOfMeasure;
-            btnAddProperty.Visible = showAddButton;
+            ctlProperty.Visible = showProperty;
+            ctlUom.Visible = showUomCategory;
+            lblUnitOfMeasure.Visible = showUomItem;
         }
         #endregion
 
         #region Events
-
-        private void cboUnitOfMeasure_DropDown(object sender, System.EventArgs e)
-        {
-            var uomCategory = (EnumCategory) cboUomQualifier.SelectedItem;
-            GuiHelper.LoadUnitsOfMeasure(cboUnitOfMeasure, uomCategory);
-        }
-
-        private void btnAddProperty_Click(object sender, System.EventArgs e)
-        {
-            var name = Property.Name + "UnitOfMeasure";
-            NumberType.UnitOfMeasureProperty = name;
-            var description = string.Format("Unit of Measure for the {0} property", name);
-            var uomProperty = PropertyFactory.Create(name, TypeFactory.CreateString(), true, description);
-            Property.PropertyCollection.Add(uomProperty);
-            
-            
-        }
         #endregion
 
-        private void cboUomQualifier_DropDown(object sender, System.EventArgs e)
-        {
-
-        }
     }
 }

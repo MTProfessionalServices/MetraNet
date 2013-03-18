@@ -365,7 +365,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
                 AddError(messages, Localization.NameNotSpecified);
             else
             {
-                if (!NameRegex.IsMatch(Name))
+                if (!NameIsValid(Name))
                     AddError(messages, Localization.InvalidName);
                 //FUTURE FEATURE
                 //else
@@ -386,6 +386,11 @@ namespace MetraTech.ExpressionEngine.MTProperties
             //SpellingEngine.CheckString(Description, null, messages);
 
             return messages;
+        }
+
+        public static bool NameIsValid(string name)
+        {
+            return NameRegex.IsMatch(name);
         }
         #endregion  
 

@@ -30,10 +30,11 @@ namespace PropertyGui.Compoenents
             get { return cboEnumItem.Text; }
             set { cboEnumItem.Text = value; }
         }
+        public string EnumFullName { get { return EnumCategory + "." + EnumItem; } }
 
         #endregion
 
-        #region Contstructor
+        #region Constructor
         public ctlEnumCategoryAndValue()
         {
             InitializeComponent();
@@ -53,6 +54,7 @@ namespace PropertyGui.Compoenents
             else
                 Height = ctlEnumCategory.Bottom;
         }
+
         #endregion
 
         #region Events

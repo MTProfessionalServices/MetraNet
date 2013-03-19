@@ -19,11 +19,9 @@ using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 namespace MetraTech.ExpressionEngine
 {
     /// <summary>
-    /// Provides a "context" to the editor so that it knows what's available to the user. A global context is stored in _DemoLoader.GlobalContext.
-    /// "sub copies" are created for eachinteractive context.entered a more restricted context. Since the sub copies only have refences (and keys), 
-    /// a lot of space isn't consumed.
-    /// 
-    /// This class has been thrown together to prototype ideas and to support the GUI prototype. That said, I believe the general concept has merit.
+    /// Provides a configuration "context" to GUIs and runtime engines. 
+    /// This class has been thrown together to prototype ideas and to support the GUI prototype. That said, 
+    /// the general concept has merit.
     /// 
     /// </summary>
     public class Context
@@ -74,6 +72,7 @@ namespace MetraTech.ExpressionEngine
         //PropertyBags may not have unique names across types... need to deal with that, perhaps a composite key       
         public IEnumerable<PropertyBag> PropertyBags { get { return PropertyBagManager.PropertyBags; } }
         public readonly PropertyBagManager PropertyBagManager = new PropertyBagManager();
+
         /// <summary>
         /// All Account Qualification Groups
         /// </summary>
@@ -490,22 +489,8 @@ namespace MetraTech.ExpressionEngine
         public void Save(string dirPath)
         {
             dirPath.EnsureDirectoryExits();
-
-            foreach (var enumCategory in EnumCategories)
-            {
-                if (IsMetraNet)
-                    enumCategory.SaveInExtension(dirPath);
-                else
-                    enumCategory.Save(Path.Combine(dirPath, "Enumerations"));
-            }
-
-            foreach (var propertyBag in PropertyBags)
-            {
-                if (IsMetraNet)
-                    ((MetraNetEntityBase) propertyBag).SaveInExtensionsDirectory(dirPath);
-                else
-                    propertyBag.Save(string.Format(CultureInfo.InvariantCulture, @"{0}\PropertyBags\{1}.xml", dirPath, propertyBag.Name));
-            }
+            EnumManager.Save(dirPath, ProductType);
+            PropertyBagManager.Save(dirPath, ProductType);
         }
 
         public static Context LoadExtensions(string extensionsDir)

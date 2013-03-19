@@ -39,7 +39,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 4);
+            this.label1.Location = new System.Drawing.Point(0, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 13);
             this.label1.TabIndex = 0;
@@ -57,7 +57,7 @@
             // lblGeneric
             // 
             this.lblGeneric.AutoSize = true;
-            this.lblGeneric.Location = new System.Drawing.Point(4, 30);
+            this.lblGeneric.Location = new System.Drawing.Point(0, 30);
             this.lblGeneric.Name = "lblGeneric";
             this.lblGeneric.Size = new System.Drawing.Size(45, 13);
             this.lblGeneric.TabIndex = 2;
@@ -66,7 +66,7 @@
             // lblUnitOfMeasure
             // 
             this.lblUnitOfMeasure.AutoSize = true;
-            this.lblUnitOfMeasure.Location = new System.Drawing.Point(4, 57);
+            this.lblUnitOfMeasure.Location = new System.Drawing.Point(0, 57);
             this.lblUnitOfMeasure.Name = "lblUnitOfMeasure";
             this.lblUnitOfMeasure.Size = new System.Drawing.Size(85, 13);
             this.lblUnitOfMeasure.TabIndex = 4;

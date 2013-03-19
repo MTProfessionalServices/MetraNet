@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using MetraTech.ExpressionEngine.Components.Enumerations;
+using MetraTech.ExpressionEngine.Expressions.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.Validations;
 
@@ -107,6 +109,18 @@ namespace MetraTech.ExpressionEngine.Components
             }
         }
 
+        public void Save(string dirPath, ProductType productType)
+        {
+            dirPath.EnsureDirectoryExits();
+
+            foreach (var enumCategory in Categories)
+            {
+                if (productType == ProductType.MetraNet)
+                    enumCategory.SaveInExtension(dirPath);
+                else
+                    enumCategory.Save(Path.Combine(dirPath, "Enumerations"));
+            }
+        }
         #endregion
     }
 }

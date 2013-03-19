@@ -24,6 +24,11 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public static readonly IEnumerable<BaseType> MetraNetBaseTypes;
 
         /// <summary>
+        /// Contains all of the numeric types.
+        /// </summary>
+        public static readonly IEnumerable<BaseType> NumericTypes;
+
+        /// <summary>
         /// BaseTypes that exist as native database types (e.g., string, int, etc.). In other words, there is a 1:1 mapping.
         /// Do not make changes to the objects in this array. Use CopyFrom to make a copy and make changes to the copy.
         /// </summary>
@@ -41,13 +46,18 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         {
             var baseTypes = Enum.GetValues(typeof(BaseType));
             var allTypes = new Type[baseTypes.Length];
+            var numericTypes = new List<BaseType>();
 
             int index = 0;
             foreach (var value in baseTypes)
             {
-                allTypes[index++] = new Type((BaseType)value);
+                var baseType = (BaseType) value;
+                allTypes[index++] = new Type(baseType);
+                if (TypeHelper.IsNumeric(baseType))
+                    numericTypes.Add(baseType);
             }
             AllTypes = allTypes;
+            NumericTypes = numericTypes;
 
             MsixEntityTypes = new string[]
             {
@@ -397,6 +407,17 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             }
         }
 
+        public static bool BaseTypeFilterSupportsMultipleBaseTypes(BaseType baseType)
+        {
+            switch (baseType)
+            {
+                case BaseType.Numeric:
+                case BaseType.Any:
+                    return true;
+                default:
+                    return false;
+            }
+        }
         #endregion
 
         #region Convert to constant

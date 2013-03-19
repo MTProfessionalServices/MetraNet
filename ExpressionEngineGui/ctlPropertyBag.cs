@@ -36,37 +36,38 @@ namespace PropertyGui
                 throw new ArgumentException("context is null");
             if (propertyBag == null)
                 throw new ArgumentException("propertyBag is null");
-
-            //InitializeComponent();
             Context = context;
             PropertyBag = propertyBag;
 
+            //Init the property editor
+            ctlPropertyEditor.OnChangeEvent = PropertyChangeEvent;
+            ctlPropertyEditor.Init(Context, PropertyBag);
+
+            //Init and load the tree
             treProperties.Init(Context, mnuContext);
             treProperties.AllowEntityExpand = false;
             treProperties.HideSelection = false;
-
             LoadTree();
-            //treProperties.ShowLines = false;
-            //treProperties.FullRowSelect = true;
-
-            ctlProperty1.OnChangeEvent = PropertyChangeEvent;
-            ctlProperty1.Init(Context, PropertyBag);
             EnsureNodeSelected();
         }
 
         private void EnsureNodeSelected()
         {
             if (treProperties.SelectedNode == null && treProperties.Nodes.Count > 0)
+            {
+                ctlPropertyEditor.Visible = true;
                 treProperties.SelectedNode = treProperties.Nodes[0];
+            }
             else
             {
-                ctlProperty1.Visible = false;
+                ctlPropertyEditor.Visible = false;
             }
         }
 
         public void LoadTree()
         {
             treProperties.BeginUpdate();
+            treProperties.PreserveState();
             treProperties.Nodes.Clear();
 
             if (!chkShowReferences.Checked)
@@ -75,6 +76,7 @@ namespace PropertyGui
                 LoadHiearchy();
 
             treProperties.Sort();
+            treProperties.RestoreState();
             treProperties.EndUpdate();
         }
 
@@ -152,33 +154,26 @@ namespace PropertyGui
             }
         }
 
-        private void Refresh()
+        #endregion
+
+        #region Tree Events
+        private void treProperties_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            treProperties.PreserveState();
-            LoadTree();
-            treProperties.RestoreState();
+            if (CurrentProperty != null)
+                ctlPropertyEditor.SyncToObject();
+
+            CurrentProperty = (Property)treProperties.SelectedNode.Tag;
+            ctlPropertyEditor.SyncToForm(CurrentProperty);
+            ctlPropertyEditor.Visible = true;
         }
         #endregion
 
-        #region Events
-        private void treProperties_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            //if (CurrentProperty != null)
-            //    ctlProperty.SyncToObject();
-
-            var property = (Property)treProperties.SelectedNode.Tag;
-            CurrentProperty = property;
-            ctlProperty1.SyncToForm(property);
-            ctlProperty1.Visible = true;
-        }
-
+        #region Button Events
         public void PropertyChangeEvent()
         {
             if (treProperties.SelectedNode == null)
                 return;
 
-            var property = (Property)treProperties.SelectedNode.Tag;
-            //treProperties.SelectedNode.Text = property.Name;
             SuspendLayout();
             treProperties.UpdateSelectedNode();
             ResumeLayout();
@@ -190,8 +185,8 @@ namespace PropertyGui
             var property = PropertyFactory.Create(newName, TypeFactory.CreateString(), true, null);
             var node = treProperties.CreateNode(property, null);
             PropertyBag.Properties.Add(property);
-            treProperties.SelectedNode = node;
             LoadTree();
+            treProperties.SelectedNode = node;
         }
 
         private void btnValidate_Click(object sender, EventArgs e)
@@ -207,7 +202,7 @@ namespace PropertyGui
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            Refresh();
+            LoadTree();
         }
 
         #endregion

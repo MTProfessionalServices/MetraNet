@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.treProperties = new PropertyGui.ctlExpressionTree();
-            this.ctlProperty1 = new PropertyGui.ctlProperty();
+            this.ctlPropertyEditor = new PropertyGui.ctlProperty();
             this.mnuContext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnValidate = new System.Windows.Forms.Button();
@@ -39,6 +39,7 @@
             this.chkShowReferences = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cboDataTypeFilter = new System.Windows.Forms.ComboBox();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -60,7 +61,7 @@
             // 
             // splitContainer.Panel2
             // 
-            this.splitContainer.Panel2.Controls.Add(this.ctlProperty1);
+            this.splitContainer.Panel2.Controls.Add(this.ctlPropertyEditor);
             this.splitContainer.Size = new System.Drawing.Size(689, 328);
             this.splitContainer.SplitterDistance = 285;
             this.splitContainer.TabIndex = 3;
@@ -87,13 +88,13 @@
             this.treProperties.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
             this.treProperties.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treProperties_AfterSelect);
             // 
-            // ctlProperty1
+            // ctlPropertyEditor
             // 
-            this.ctlProperty1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctlProperty1.Location = new System.Drawing.Point(0, 0);
-            this.ctlProperty1.Name = "ctlProperty1";
-            this.ctlProperty1.Size = new System.Drawing.Size(396, 324);
-            this.ctlProperty1.TabIndex = 0;
+            this.ctlPropertyEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctlPropertyEditor.Location = new System.Drawing.Point(0, 0);
+            this.ctlPropertyEditor.Name = "ctlPropertyEditor";
+            this.ctlPropertyEditor.Size = new System.Drawing.Size(396, 324);
+            this.ctlPropertyEditor.TabIndex = 0;
             // 
             // mnuContext
             // 
@@ -112,7 +113,7 @@
             // 
             // btnValidate
             // 
-            this.btnValidate.Location = new System.Drawing.Point(375, 21);
+            this.btnValidate.Location = new System.Drawing.Point(519, 21);
             this.btnValidate.Name = "btnValidate";
             this.btnValidate.Size = new System.Drawing.Size(75, 23);
             this.btnValidate.TabIndex = 4;
@@ -122,7 +123,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(456, 21);
+            this.btnRefresh.Location = new System.Drawing.Point(600, 21);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(75, 23);
             this.btnRefresh.TabIndex = 5;
@@ -137,9 +138,9 @@
             this.chkShowReferences.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkShowReferences.Location = new System.Drawing.Point(5, 3);
             this.chkShowReferences.Name = "chkShowReferences";
-            this.chkShowReferences.Size = new System.Drawing.Size(111, 17);
+            this.chkShowReferences.Size = new System.Drawing.Size(119, 17);
             this.chkShowReferences.TabIndex = 6;
-            this.chkShowReferences.Text = "Show References";
+            this.chkShowReferences.Text = "Show Relationships";
             this.chkShowReferences.UseVisualStyleBackColor = true;
             this.chkShowReferences.CheckedChanged += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -160,10 +161,20 @@
             this.cboDataTypeFilter.Size = new System.Drawing.Size(195, 21);
             this.cboDataTypeFilter.TabIndex = 8;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(375, 21);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 9;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
             // ctlPropertyBag
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.cboDataTypeFilter);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chkShowReferences);
@@ -188,12 +199,13 @@
         private ctlProperty ctlProperty;
         private System.Windows.Forms.ContextMenuStrip mnuContext;
         private ctlExpressionTree treProperties;
-        private ctlProperty ctlProperty1;
+        private ctlProperty ctlPropertyEditor;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnValidate;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.CheckBox chkShowReferences;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboDataTypeFilter;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine.MTProperties;
-using MetraTech.ExpressionEngine.TypeSystem;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace PropertyGui.Compoenents
@@ -59,13 +58,13 @@ namespace PropertyGui.Compoenents
 
         private void btnAddProperty_Click(object sender, EventArgs e)
         {
-            var pbTypeName = Properties.PropertyBagTypeName;
-            //var dialog = new frmAddProperty(null, null);
-            //if (dialog.ShowDialog())
-            //var uomProperty = PropertyFactory.Create(name, TypeFactory.CreateString(), true, description);
-            //Property.PropertyCollection.Add(uomProperty);
+            var dialog = new frmAddProperty(Properties, Type, DefaultName);
+            if (dialog.ShowDialog() == DialogResult.Cancel)
+                return;
 
-
+            cboProperty.Text = dialog.NewProperty.Name;
+            Properties.Add(dialog.NewProperty);
+            //Want to refresh the tree!
         }
         #endregion
     }

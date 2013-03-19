@@ -1,6 +1,7 @@
-﻿using MetraTech.ExpressionEngine.PropertyBags;
-using MetraTech.ExpressionEngine.TypeSystem;
+﻿using System;
+using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
+using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace MetraTech.ExpressionEngine.MTProperties
 {
@@ -13,6 +14,9 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
         public static Property Create(string propertyBagTypeName, string name, Type type, bool isRequired, string description)
         {
+            if (type == null)
+                throw new ArgumentException("type is null");
+
             switch (propertyBagTypeName)
             {
                 case PropertyBagConstants.AccountView:

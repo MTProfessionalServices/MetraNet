@@ -1,0 +1,21 @@
+<EmailInstance xmlns="MetraTech" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <Description>Simple dunning notice</Description>
+  <EmailTemplate>Invoice Notice</EmailTemplate>
+  <Name>DunningWorks</Name>
+  <_bodyExpressionContent>
+<![CDATA[Hello {Invoice.Payer.FirstName},
+
+We noticed that we haven't recieved payment yet for invoice {Invoice.InvoiceNumber} that was due on {Invoice.InvoiceDueDate}.
+This invoice has a balance of {Invoice.Statement.EndingBalance}.
+Could you please contact support to make a prompt payment?
+
+Thank you,
+Support]]>
+  </_bodyExpressionContent>
+  <_ccExpressionContent></_ccExpressionContent>
+  <_subjectExpressionContent>Late payment for invoice {Invoice.InvoiceNumber}</_subjectExpressionContent>
+  <_toExpressionContent>{Invoice.Payer.Email}</_toExpressionContent>
+  <_fromExpressionContent>{Invoice.Payer.Organization.EmailFrom}</_fromExpressionContent>
+  <_fromDisplayExpressionContent>{Invoice.Payer.Organization.EmailFromDisplay}</_fromDisplayExpressionContent>
+  <_fromReplyExpressionContent>{Invoice.Payer.Organization.EmailFromReply}</_fromReplyExpressionContent>
+</EmailInstance>

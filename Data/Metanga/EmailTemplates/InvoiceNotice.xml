@@ -1,0 +1,7 @@
+<EmailTemplate xmlns="MetraTech" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <Description>Sent to customer when an invoice is generated.</Description>
+  <EntityParameters xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <a:string>Invoice</a:string>
+  </EntityParameters>
+  <Name>Invoice Notice</Name>
+</EmailTemplate>

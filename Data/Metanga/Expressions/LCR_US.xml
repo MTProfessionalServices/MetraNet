@@ -1,0 +1,41 @@
+﻿<Expression xmlns="MetraTech" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <Content>
+    <![CDATA[
+  ElectronicPayment.Amount < 100 && ElectronicPayment.Currency == USD 
+  && ElectronicPayment.Payer.Country == US 
+  && ElectronicPayment.PaymentInstrument.CreditCardType != “Discover”
+  ]]>
+  </Content>
+  <Description>
+    <![CDATA[Low cost routing to US provider (e.g. Authorize.Net) for credit cards for accounts in the US, where the payment is in US$ and the amount is < $100
+    ]]>  </Description>
+  <EntityParameters xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+  <Name>Payment LCR US</Name>
+  <Parameters xmlns:a="MetraTech">
+    <a:Properties xmlns:b="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+  </Parameters>
+  <ReturnType xmlns:a="MetraTech">
+    <a:DataTypeInfo>
+      <a:BaseType>Boolean</a:BaseType>
+      <a:ComplexSubtype i:nil="true"/>
+      <a:ComplexType>None</a:ComplexType>
+      <a:EnumSpace i:nil="true"/>
+      <a:EnumType i:nil="true"/>
+      <a:IsEntity>false</a:IsEntity>
+      <a:Length>0</a:Length>
+      <a:ListType>None</a:ListType>
+      <a:UnitOfMeasureMode>None</a:UnitOfMeasureMode>
+      <a:UnitOfMeasureQualifier i:nil="true"/>
+      <a:UnitsProperty i:nil="true"/>
+    </a:DataTypeInfo>
+    <a:DefaultValue i:nil="true"/>
+    <a:Description>The value the expression returns.</a:Description>
+    <a:Direction>Input</a:Direction>
+    <a:IsCommon>false</a:IsCommon>
+    <a:Name>ReturnValue</a:Name>
+    <a:Required>false</a:Required>
+  </ReturnType>
+  <Type>Logic</Type>
+</Expression>
+
+

@@ -10,7 +10,7 @@ ElectronicPayment.Currency == USD
     <![CDATA[Fraud-enabled provider for US transactions (e.g. Litle) where the account is in the US, the amount is US$ and the payment is more than $100]]>
   </Description>
   <EntityParameters xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
-    <a:string>ElectronicPayment</a:string>
+    <a:string>MetraTech.Metanga.ElectronicPayment</a:string>
   </EntityParameters>
   <Name>Fraud Enabled US</Name>
   <Parameters xmlns:a="MetraTech">

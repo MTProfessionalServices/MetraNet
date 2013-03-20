@@ -309,7 +309,10 @@ namespace PropertyGui
 
         public void PreserveState()
         {
-            LastSelectedNodeTag = SelectedNode.Tag;
+            if (SelectedNode == null)
+                LastSelectedNodeTag = null;
+            else
+                LastSelectedNodeTag = SelectedNode.Tag;
 
             LastExpandedNodeTags.Clear();
             var nodes = this.GetAllNodes();

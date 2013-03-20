@@ -248,6 +248,7 @@
     <Compile Include="TypeSystemControls\ctlStringType.Designer.cs">
       <DependentUpon>ctlStringType.cs</DependentUpon>
     </Compile>
+    <Compile Include="TypeSystemControls\ctlTypeFactory.cs" />
     <EmbeddedResource Include="Compoenents\ctlEnumCategory.resx">
       <DependentUpon>ctlEnumCategory.cs</DependentUpon>
     </EmbeddedResource>

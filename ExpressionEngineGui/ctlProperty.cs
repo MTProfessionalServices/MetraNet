@@ -16,9 +16,13 @@ namespace PropertyGui
         #region Properties
         private bool IgnoreChanges = false;
         private Context Context;
-        private PropertyBag PropertyBag;
         public Property Property { get; private set; }
         public ChangeEvent OnChangeEvent;
+
+        /// <summary>
+        /// The current control being used to edit the type specific attributes. Note that many data types don't have
+        /// a specific editor and that this value may be null
+        /// </summary>
         public ctlBaseType CurrentTypeControl = null;
         #endregion
 
@@ -39,6 +43,7 @@ namespace PropertyGui
                 throw new AggregateException("propertyBag is null");
             Context = context;
 
+            //TODO: MetraNet doesn't support all of the data types, need to filter them
             GuiHelper.LoadBaseTypes(cboDataType);
         }
 
@@ -51,13 +56,16 @@ namespace PropertyGui
             IgnoreChanges = true;
             txtName.Text = Property.Name;
             chkIsRequired.Checked = Property.Required;
-            cboDataType.SelectedItem = Property.Type.BaseType;
             txtDefaultValue.Text = Property.DefaultValue;
             txtDescription.Text = Property.Description;
 
+            cboDataType.SelectedItem = Property.Type.BaseType;
+            CreateTypeEditor();
+
+            //If it's core, disallow editing
             Enabled = !Property.IsCore;
+
             IgnoreChanges = false;
-            UpdateGui();
         }
 
         public void SyncToObject()
@@ -66,31 +74,46 @@ namespace PropertyGui
             Property.Required = chkIsRequired.Checked;
             Property.DefaultValue = txtDefaultValue.Text;
             Property.Description = txtDescription.Text;
-            var baseType = (BaseType) cboDataType.SelectedItem;
-            if (Property.Type.BaseType != baseType)
-                Property.Type = TypeFactory.Create(baseType);
+
+            //Note that Property.Type is taken care of when cboDataType changes!
+            
+            if (CurrentTypeControl != null)
+                CurrentTypeControl.SyncToObject();
         }
 
-        private void UpdateGui()
-        {
-            if (CurrentTypeControl != null)
-            {
-                CurrentTypeControl.SyncToObject();
-                CurrentTypeControl.Dispose();
-            }
+        #endregion
 
+        #region Events
+
+        private void cboDataType_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (IgnoreChanges)
+                return;
+
+            CreateTypeEditor();
+            changeEvent(sender, e);
+        }
+
+        private void CreateTypeEditor()
+        {
             var baseType = (BaseType)cboDataType.SelectedItem;
+
+            //If the base type has changed, we need to create a new Type
             if (baseType != Property.Type.BaseType)
                 Property.Type = TypeFactory.Create(baseType);
-            CurrentTypeControl = TypeControlFactory();
+
+            if (CurrentTypeControl != null)
+                CurrentTypeControl.Dispose();
+
+            //Create the appropriate control
+            CurrentTypeControl = ctlTypeFactory.Create(Property.Type.BaseType);
             if (CurrentTypeControl != null)
             {
                 CurrentTypeControl.Parent = this;
-                CurrentTypeControl.Top = lblDataType.Bottom + 5;
-                CurrentTypeControl.Left = lblDataType.Left;
+                CurrentTypeControl.Top = lblDataType.Bottom + 12;
+                CurrentTypeControl.Left = lblDataType.Left + 15;
                 CurrentTypeControl.Init(Property, Context);
                 CurrentTypeControl.SyncToForm();
-
                 panBottom.Top = CurrentTypeControl.Bottom + 5;
             }
             else
@@ -99,36 +122,12 @@ namespace PropertyGui
             }
         }
 
-        private ctlBaseType TypeControlFactory()
-        {
-            switch (Property.Type.BaseType)
-            {
-                case BaseType.Charge:
-                    return new ctlChargeType();
-                case BaseType.Enumeration:
-                    return new ctlEnumerationType();
-                case BaseType.Money:
-                    return new ctlMoneyType();
-                case BaseType.String:
-                    return new ctlStringType();
-                default:
-                    if (Property.Type is NumberType)
-                        return new ctlNumberType();
-                    return null;
-            }
-        }
-
-        #endregion
-
-        #region Events
-
         private void changeEvent(object sender, System.EventArgs e)
         {
             if (IgnoreChanges)
                 return;
 
             SyncToObject();
-            UpdateGui();
 
             if (OnChangeEvent != null)
                 OnChangeEvent();

@@ -61,7 +61,7 @@
             // lblDataType
             // 
             this.lblDataType.AutoSize = true;
-            this.lblDataType.Location = new System.Drawing.Point(17, 50);
+            this.lblDataType.Location = new System.Drawing.Point(17, 44);
             this.lblDataType.Name = "lblDataType";
             this.lblDataType.Size = new System.Drawing.Size(60, 13);
             this.lblDataType.TabIndex = 2;
@@ -70,7 +70,7 @@
             // chkIsRequired
             // 
             this.chkIsRequired.AutoSize = true;
-            this.chkIsRequired.Location = new System.Drawing.Point(259, 43);
+            this.chkIsRequired.Location = new System.Drawing.Point(351, 17);
             this.chkIsRequired.Name = "chkIsRequired";
             this.chkIsRequired.Size = new System.Drawing.Size(75, 17);
             this.chkIsRequired.TabIndex = 3;
@@ -83,9 +83,9 @@
             this.cboDataType.FormattingEnabled = true;
             this.cboDataType.Location = new System.Drawing.Point(84, 41);
             this.cboDataType.Name = "cboDataType";
-            this.cboDataType.Size = new System.Drawing.Size(121, 21);
+            this.cboDataType.Size = new System.Drawing.Size(250, 21);
             this.cboDataType.TabIndex = 4;
-            this.cboDataType.SelectedValueChanged += new System.EventHandler(this.changeEvent);
+            this.cboDataType.SelectedValueChanged += new System.EventHandler(this.cboDataType_SelectedValueChanged);
             // 
             // txtDescription
             // 

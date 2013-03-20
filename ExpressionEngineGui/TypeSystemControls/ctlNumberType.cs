@@ -41,6 +41,12 @@ namespace PropertyGui.TypeSystemControls
         }
         public override void SyncToObject()
         {
+            //Note that UnitOfMeasureMode set in change event
+            NumberType.UnitOfMeasureProperty = ctlProperty.Text;
+            NumberType.UnitOfMeasureCategory = ctlUom.EnumCategory;
+            NumberType.FixedUnitOfMeasure = ctlUom.EnumFullName;
+
+            NumberType.CleanProperties();
         }
         #endregion
 
@@ -72,9 +78,6 @@ namespace PropertyGui.TypeSystemControls
             ctlUom.Visible = showUomCategory;
             lblUnitOfMeasure.Visible = showUomItem;
         }
-        #endregion
-
-        #region Events
         #endregion
 
     }

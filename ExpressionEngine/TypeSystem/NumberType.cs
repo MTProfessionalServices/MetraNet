@@ -33,7 +33,8 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public string UnitOfMeasureCategory { get; set; }
 
         /// <summary>
-        /// The unit of measure. Must be a value within the UnitofMeasureCategoryName. Only valid when UnitOfMeasuremode=FixedUnitOfMeasure
+        /// The unit of measure. Must be a value within the UnitofMeasureCategoryName. This is the fully qualifed name 
+        /// (i.e., UnitOfMeasureCategory isn't used when this is valie). Only valid when UnitOfMeasuremode=FixedUnitOfMeasure
         /// </summary>
         [DataMember]
         public string FixedUnitOfMeasure { get; set; }
@@ -59,6 +60,32 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #endregion
 
         #region Methods
+
+        /// <summary>
+        /// Given the UnitOfMeasureMode, set all of the properties that have irrlevant values to null. Not doing
+        /// so doesn't hurt anything but this makes things cleaner.
+        /// </summary>
+        public void CleanProperties()
+        {
+            switch (UnitOfMeasureMode)
+            {
+                case UnitOfMeasureMode.ContextDriven:
+                case UnitOfMeasureMode.Count:
+                    UnitOfMeasureProperty = null;
+                    UnitOfMeasureCategory = null;
+                    FixedUnitOfMeasure = null;
+                    break;
+                case UnitOfMeasureMode.FixedCategory:
+                    UnitOfMeasureProperty = null;
+                    FixedUnitOfMeasure = null;
+                    break;
+                case UnitOfMeasureMode.FixedUnitOfMeasure:
+                    UnitOfMeasureProperty = null;
+                    UnitOfMeasureCategory = null;
+                    break;
+            }
+        }
+
         public override List<PropertyReference> GetPropertyReferences()
         {
             var references = new List<PropertyReference>();

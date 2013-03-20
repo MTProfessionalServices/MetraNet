@@ -393,6 +393,5 @@ namespace MetraTech.ExpressionEngine.MTProperties
             return NameRegex.IsMatch(name);
         }
         #endregion  
-
     }
 }

@@ -1,5 +1,16 @@
-*Entity navigation broken again
-*PropetyBag filter
+*Type editor doesn't set properly
+*Type editor updates aren't preserved
+*Save PV
+*Cloud export
+*Telmore export
+*GRU export
+*FS export
+*InterCall export
+*PGi export
+*Metanga email not showing up
+*Metanga expressions not showing up
+
+
 *Extensions; issue with casting to a abstract class
 *Move Validate to launch
 *Add Form Layout
@@ -17,8 +28,6 @@
 *BME relationships
 
 *How to model Account in PV
-*How to deal with duplicate enity names
-*BMEs -- do they have namespaces?
 
 *Function parameter binding not working
 *In function not working

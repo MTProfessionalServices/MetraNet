@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Text.RegularExpressions;
+using MetraTech.ExpressionEngine.Expressions.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.Validations;
@@ -84,6 +86,19 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             foreach (var propertyBag in PropertyBags)
             {
                 propertyBag.Validate(true, messages, context);
+            }
+        }
+
+        public void Save(string dirPath, ProductType product)
+        {
+            dirPath.EnsureDirectoryExits();
+
+            foreach (var propertyBag in PropertyBags)
+            {
+                if (product == ProductType.MetraNet)
+                    ((MetraNetEntityBase) propertyBag).SaveInExtensionsDirectory(dirPath);
+                else
+                    propertyBag.Save(string.Format(CultureInfo.InvariantCulture, @"{0}\PropertyBags\{1}.xml", dirPath, propertyBag.Name));
             }
         }
 

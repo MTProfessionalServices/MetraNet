@@ -23,7 +23,7 @@ namespace PropertyGui
             DialogResult = DialogResult.Cancel;
 
             if (properties == null)
-                throw new ArgumentException("property is null");
+                throw new ArgumentException("properties is null");
             Properties = properties;
             Type = type;
             txtName.Text = suggestedName;

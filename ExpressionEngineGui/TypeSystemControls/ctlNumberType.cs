@@ -32,7 +32,7 @@ namespace PropertyGui.TypeSystemControls
 
             ctlProperty.Top = ctlUom.Top;
             ctlProperty.Left = ctlUom.Left;
-            ctlProperty.Init(property.PropertyCollection, TypeFactory.CreateNumeric(), "SillyName");
+            ctlProperty.Init(property, TypeFactory.CreateNumeric(), "UnitOfMeasure");
         }
 
         public override void SyncToForm()
@@ -42,7 +42,7 @@ namespace PropertyGui.TypeSystemControls
         public override void SyncToObject()
         {
             //Note that UnitOfMeasureMode set in change event
-            NumberType.UnitOfMeasureProperty = ctlProperty.Text;
+            NumberType.UnitOfMeasureProperty = ctlProperty.PropertyName;
             NumberType.UnitOfMeasureCategory = ctlUom.EnumCategory;
             NumberType.FixedUnitOfMeasure = ctlUom.EnumFullName;
 
@@ -62,14 +62,22 @@ namespace PropertyGui.TypeSystemControls
             {
                 case UnitOfMeasureMode.PropertyDriven:
                     showProperty = true;
+                    ctlProperty.PropertyName = NumberType.UnitOfMeasureProperty;
                     lblGeneric.Text = "Unit of Measure Property:";
                     break;
                 case UnitOfMeasureMode.FixedCategory:
                 case UnitOfMeasureMode.FixedUnitOfMeasure:
                     showUomCategory = true;
                     lblGeneric.Text = "Unit of Measure Category:";
-                    ctlUom.EnumCategory = BasicHelper.GetNamespaceFromFullName(NumberType.FixedUnitOfMeasure);
-                    ctlUom.EnumItem = BasicHelper.GetNameFromFullName(NumberType.FixedUnitOfMeasure);
+                    if (NumberType.UnitOfMeasureMode == UnitOfMeasureMode.FixedUnitOfMeasure)
+                    {
+                        ctlUom.EnumCategory = BasicHelper.GetNamespaceFromFullName(NumberType.FixedUnitOfMeasure);
+                        ctlUom.EnumItem = BasicHelper.GetNameFromFullName(NumberType.FixedUnitOfMeasure);
+                    }
+                    else
+                    {
+                        ctlUom.EnumCategory = NumberType.UnitOfMeasureCategory;
+                    }
                     showUomItem = NumberType.UnitOfMeasureMode == UnitOfMeasureMode.FixedUnitOfMeasure;
                     ctlUom.SetItemComboBoxVisibility(showUomItem);
                     break;

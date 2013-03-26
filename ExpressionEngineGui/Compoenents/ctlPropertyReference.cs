@@ -14,9 +14,9 @@ namespace PropertyGui.Compoenents
             set { cboProperty.Text = value; }
         }
 
-        private string DefaultName;
+        private string DefaultSuffix;
 
-        private PropertyCollection Properties;
+        private Property Property;
         private Type Type;
         #endregion
 
@@ -29,15 +29,15 @@ namespace PropertyGui.Compoenents
         #endregion
 
         #region Methods
-        public void Init(PropertyCollection properties, Type type, string defaultName)
+        public void Init(Property property, Type type, string defaultSuffix)
         {
-            if (properties == null)
-                throw new ArgumentException("properties is null");
+            if (property == null)
+                throw new ArgumentException("property is null");
             if (type == null)
                 throw new ArgumentException("type is null");
-            Properties = properties;
+            Property = property;
             Type = type;
-            DefaultName = defaultName;
+            DefaultSuffix = defaultSuffix;
         }
         #endregion
 
@@ -47,7 +47,7 @@ namespace PropertyGui.Compoenents
             cboProperty.BeginUpdate();
             cboProperty.Items.Clear();
             cboProperty.DisplayMember = "Name";
-            var filteredProperties = Properties.GetFilteredProperties(Type);
+            var filteredProperties = Property.PropertyCollection.GetFilteredProperties(Type);
             foreach (var property in filteredProperties)
             {
                 cboProperty.Items.Add(property);
@@ -58,12 +58,13 @@ namespace PropertyGui.Compoenents
 
         private void btnAddProperty_Click(object sender, EventArgs e)
         {
-            var dialog = new frmAddProperty(Properties, Type, DefaultName);
+            var defaultName = Property.Name + DefaultSuffix;
+            var dialog = new frmAddProperty(Property.PropertyCollection, Type, defaultName);
             if (dialog.ShowDialog() == DialogResult.Cancel)
                 return;
 
             cboProperty.Text = dialog.NewProperty.Name;
-            Properties.Add(dialog.NewProperty);
+            Property.PropertyCollection.Add(dialog.NewProperty);
             //Want to refresh the tree!
         }
         #endregion

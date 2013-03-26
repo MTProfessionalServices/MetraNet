@@ -118,7 +118,7 @@ namespace PropertyGui
             }
             else
             {
-                panBottom.Top = lblDataType.Bottom;
+                panBottom.Top = lblDataType.Bottom + 5;
             }
         }
 

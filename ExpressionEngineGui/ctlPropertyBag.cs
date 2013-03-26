@@ -96,7 +96,7 @@ namespace PropertyGui
                     eventChargeNode = AddPropertyToHiearchy(eventCharge, null, addedProperties);
 
                 //Add the EventTax
-                var eventTax = pv.Properties.Get("EventTax");
+                var eventTax = pv.Properties.Get(PropertyBagConstants.EventTax);
                 TreeNode eventTaxNode = null;
                 if (eventCharge != null)
                     eventTaxNode = AddPropertyToHiearchy(eventTax, null, addedProperties);
@@ -106,7 +106,7 @@ namespace PropertyGui
                 {
                     if (property.Type.IsCharge && property.Name != PropertyBagConstants.EventCharge)
                         AddPropertyToHiearchy(property, eventChargeNode, addedProperties);
-                    else if (property.Type.IsTax)
+                    else if (property.Type.IsTax && property.Name != PropertyBagConstants.EventTax)
                         AddPropertyToHiearchy(property, eventTaxNode, addedProperties);
                 }
             }
@@ -186,7 +186,13 @@ namespace PropertyGui
             var node = treProperties.CreateNode(property, null);
             PropertyBag.Properties.Add(property);
             LoadTree();
-            treProperties.SelectedNode = node;
+
+            var nodes = treProperties.GetAllNodes();
+            foreach (var treeNode in nodes)
+            {
+                if (treeNode.Text == newName)
+                    treProperties.SelectedNode = treeNode;
+            }
         }
 
         private void btnValidate_Click(object sender, EventArgs e)

@@ -27,6 +27,7 @@ namespace PropertyGui
         {
             comboBox.BeginUpdate();
             comboBox.Items.Clear();
+            comboBox.DisplayMember = "Name";
             var currencies = context.EnumManager.GetCurrencyCategory();
             if (currencies != null)
             {

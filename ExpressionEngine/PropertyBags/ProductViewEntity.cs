@@ -74,7 +74,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             eventId.IsCore = true;
             eventId.DatabaseNameMapping = "c_SessionId";
 
-            AddTaxProperty("c_TaxAmount", "EventTax", Properties);
+            AddTaxProperty("c_TaxAmount", PropertyBagConstants.EventTax, Properties);
             AddTaxProperty("c_FederalTaxAmount", "FederalTax", Properties);
             AddTaxProperty("c_StateTaxAmount", "StateTax", Properties);
             AddTaxProperty("c_CountyTaxAmount", "CountyTax", Properties);
@@ -120,7 +120,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         /// <returns></returns>
         public static ProductViewEntity CreateCompute()
         {
-            var compute = new ProductViewEntity("MetraTech.Cloud", "Compute", "Models a IaaS compute service");
+            var compute = new ProductViewEntity("MetraTech.Cloud", "Compute", "Models an IaaS compute service");
             compute.AddCoreProperties();
 
             //Hours
@@ -134,7 +134,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             var computeCharge = PropertyFactory.Create("ProductView", "ComputeCharge", computeChargeType, true, "The charge associated with computaitonal processing");
             compute.Properties.Add(computeCharge);
 
-            ////Snapshots
+            //Snapshots
             var snapshotType = TypeFactory.CreateDecimal(UnitOfMeasureMode.Count);
             var snapshot = PropertyFactory.Create("ProductView", "Snapshots", snapshotType, true, "The number of snapshots");
             compute.Properties.Add(snapshot);

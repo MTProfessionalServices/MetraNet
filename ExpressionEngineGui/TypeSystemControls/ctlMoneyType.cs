@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
+using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
@@ -34,41 +35,54 @@ namespace PropertyGui.TypeSystemControls
             cboCurrencyMode.Items.Add(CurrencyMode.ContextDriven);
             cboCurrencyMode.Sorted = true;
             cboCurrencyMode.EndUpdate();
+           
+            ctlPropertyReference.Init(Property, TypeFactory.CreateEnumeration(EnumMode.Currency), "Currency");
+
+            ctlPropertyReference.Top = cboCurrency.Top;
+            ctlPropertyReference.Left = cboCurrency.Left;
         }
 
         public override void SyncToForm()
         {
             cboCurrencyMode.SelectedItem = MoneyType.CurrencyMode;
+            cboCurrency.Text = MoneyType.FixedCurrency;
+            ctlPropertyReference.PropertyName = MoneyType.CurrencyProperty;
         }
         public override void SyncToObject()
         {
             MoneyType.CurrencyMode = (CurrencyMode)cboCurrencyMode.SelectedItem;
+            MoneyType.FixedCurrency = cboCurrency.Text;
+            MoneyType.CurrencyProperty = ctlPropertyReference.PropertyName;
         }
         #endregion
 
         #region Events
-        #endregion
 
         private void cboCurrencyMode_SelectedValueChanged(object sender, EventArgs e)
         {
-            bool showQualifier = true;
-            switch ((CurrencyMode)cboCurrencyMode.SelectedItem)
+            var mode = (CurrencyMode) cboCurrencyMode.SelectedItem;
+            switch (mode)
             {
                 case CurrencyMode.ContextDriven:
                 case CurrencyMode.None:
-                    showQualifier = false;
                     break;
                 case CurrencyMode.Fixed:
-                    GuiHelper.LoadCurrencies(cboCurrencyModifier, Context);
                     lblCurrencyModifier.Text = "Fixed Currency:";
                     break;
                 case CurrencyMode.PropertyDriven:
-                    GuiHelper.LoadProperties(cboCurrencyModifier, TypeFactory.CreateString(), Property.PropertyCollection);
                     lblCurrencyModifier.Text = "Currency Property:";
                     break;
             }
-            lblCurrencyModifier.Visible = showQualifier;
-            cboCurrencyModifier.Visible = showQualifier;
+            lblCurrencyModifier.Visible = (mode == CurrencyMode.PropertyDriven || mode == CurrencyMode.Fixed);
+            cboCurrency.Visible = (mode == CurrencyMode.Fixed);
+            ctlPropertyReference.Visible = (mode == CurrencyMode.PropertyDriven);
         }
+
+        private void cboCurrencyMode_DropDown(object sender, EventArgs e)
+        {
+            GuiHelper.LoadCurrencies(cboCurrency, Context);
+        }
+
+        #endregion
     }
 }

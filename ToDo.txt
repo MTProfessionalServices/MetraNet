@@ -1,3 +1,4 @@
+*Don't autoexpand enums option
 *Type editor doesn't set properly
 *Type editor updates aren't preserved
 *Save PV
@@ -7,8 +8,7 @@
 *FS export
 *InterCall export
 *PGi export
-*Metanga email not showing up
-*Metanga expressions not showing up
+
 
 
 *Extensions; issue with casting to a abstract class

@@ -23,12 +23,12 @@ namespace PropertyGui.TypeSystemControls
             base.Init(property, context);
             ChargeType = (ChargeType)property.Type;
 
-            ctlQuantityProperty.Init(Property.PropertyCollection, TypeFactory.CreateNumeric(), "TheBigChargeType");
+            ctlQuantityProperty.Init(Property, TypeFactory.CreateNumeric(), "Quantity");
         }
 
         public override void SyncToForm()
         {
-            ctlQuantityProperty.Text = ChargeType.QuantityProperty;
+            ctlQuantityProperty.PropertyName = ChargeType.QuantityProperty;
             cboPriceProperty.Text = ChargeType.PriceProperty;
             cboProductProperty.Text = ChargeType.ProductProperty;
             cboSartProperty.Text = ChargeType.StartProperty;
@@ -36,7 +36,7 @@ namespace PropertyGui.TypeSystemControls
         }
         public override void SyncToObject()
         {
-            ChargeType.QuantityProperty = ctlQuantityProperty.Text;
+            ChargeType.QuantityProperty = ctlQuantityProperty.PropertyName;
         }
         #endregion
 

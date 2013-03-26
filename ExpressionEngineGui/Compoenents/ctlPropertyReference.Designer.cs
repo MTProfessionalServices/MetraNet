@@ -50,7 +50,7 @@
             this.btnAddProperty.Image = ((System.Drawing.Image)(resources.GetObject("btnAddProperty.Image")));
             this.btnAddProperty.Location = new System.Drawing.Point(190, 0);
             this.btnAddProperty.Name = "btnAddProperty";
-            this.btnAddProperty.Size = new System.Drawing.Size(24, 23);
+            this.btnAddProperty.Size = new System.Drawing.Size(21, 21);
             this.btnAddProperty.TabIndex = 7;
             this.btnAddProperty.UseVisualStyleBackColor = true;
             this.btnAddProperty.Click += new System.EventHandler(this.btnAddProperty_Click);
@@ -62,7 +62,7 @@
             this.Controls.Add(this.btnAddProperty);
             this.Controls.Add(this.cboProperty);
             this.Name = "ctlPropertyReference";
-            this.Size = new System.Drawing.Size(214, 28);
+            this.Size = new System.Drawing.Size(214, 24);
             this.ResumeLayout(false);
 
         }

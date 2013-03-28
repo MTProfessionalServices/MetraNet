@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Carrier</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>PremConf</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ESAT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ESAT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EQUANT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EQUANT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MCI</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MCI</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EIRCOM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EIRCOM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NETIA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NETIA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>COLT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>COLT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ENERGIS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ENERGIS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>INFONET</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INFONET</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>C&amp;W</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>C&amp;W</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Unknown</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UNKNOWN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Premiere Confer</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Premiere Confer</Name>
+    </EnumItem>
+  </Items>
+  <Name>Carrier</Name>
+  <Namespace>premconf.com/Conferencing</Namespace>
+</EnumCategory>

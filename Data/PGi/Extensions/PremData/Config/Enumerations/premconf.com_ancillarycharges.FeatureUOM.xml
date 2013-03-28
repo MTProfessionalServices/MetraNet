@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Unit of Measure for Features</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>PremData</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>1/4</arrays:string>
+        <arrays:string>1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>15 Minutes</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>1/2</arrays:string>
+        <arrays:string>2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>30 Minutes</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DAY</arrays:string>
+        <arrays:string>5</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Day</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EA</arrays:string>
+        <arrays:string>6</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Each</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HIT</arrays:string>
+        <arrays:string>7</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Hit</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Hour</arrays:string>
+        <arrays:string>4</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Hour</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MIN</arrays:string>
+        <arrays:string>3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Minute</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PAG</arrays:string>
+        <arrays:string>8</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Page</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SIT</arrays:string>
+        <arrays:string>9</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Sit</Name>
+    </EnumItem>
+  </Items>
+  <Name>FeatureUOM</Name>
+  <Namespace>premconf.com/ancillarycharges</Namespace>
+</EnumCategory>

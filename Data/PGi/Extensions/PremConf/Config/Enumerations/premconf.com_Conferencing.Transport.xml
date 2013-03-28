@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Transport</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>PremConf</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Domestic</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Domestic</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Voip</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Voip</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Intra-LATA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Intra-LATA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Inter-LATA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Inter-LATA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>International</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>International</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Nat</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Toll</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IFF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Toll-Free</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LongDistance</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LongDistance</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NotRatedYet</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NotRatedYet</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IFFM</arrays:string>
+        <arrays:string>Mobile</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Mobile</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Tie-Line</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Tie-Line</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Carrier Billed</arrays:string>
+        <arrays:string>CarrierBilled</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Carrier Billed</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Shared Tariff</arrays:string>
+        <arrays:string>SharedTariff</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Shared Tariff</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IFFP</arrays:string>
+        <arrays:string>PayPhone</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PayPhone</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MDOM</arrays:string>
+        <arrays:string>Mobile Dial-out</arrays:string>
+        <arrays:string>MobileDialout</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Mobile Dial-out</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Mobile Dial-out Domestic</arrays:string>
+        <arrays:string>MobileDialoutDomestic</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Mobile Dial-out Domestic</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>On Net</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>On Net</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SoftPhone</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SoftPhone</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>OnNetToll</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>OnNetToll</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>OnNetTollFree</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>OnNetTollFree</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Lo-call</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Lo-Call</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Mobile Lo-Call</arrays:string>
+        <arrays:string>MobileLo-Call</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Mobile Lo-Call</Name>
+    </EnumItem>
+  </Items>
+  <Name>Transport</Name>
+  <Namespace>premconf.com/Conferencing</Namespace>
+</EnumCategory>

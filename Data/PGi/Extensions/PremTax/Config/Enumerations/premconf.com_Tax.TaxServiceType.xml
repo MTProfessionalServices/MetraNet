@@ -1,0 +1,612 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Tax Service Type</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>PremTax</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TOLL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>N800</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WATS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PRIVATE_LINE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>5</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LOCAL_EXCHANGE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>6</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LOCAL_LOOP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>7</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SERVICE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>8</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INSTALL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>9</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DIRECTORY_ADS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>10</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>USAGE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>11</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ACTIVATION</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>12</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INTERNATIONAL_TOLL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>13</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EQUIPMENT_REPAIR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>14</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LATE_CHARGE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PRODUCT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>16</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>N_900_SERVICE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>17</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FOB_ORIGIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>18</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FOB_DESTINATION</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>19</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CONSUMPTION</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>20</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FCC_SUBSCRIBER_LINE_FEE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>21</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LINES</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>22</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>COIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>23</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LOCATION</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>24</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PBX_TRUNK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>25</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>USA_INBOUND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>26</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PREPAID</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>27</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DATA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>28</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>E911_CALL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>29</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WEB_HOSTING</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>30</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LOCAL_FEATURE_CHARGE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>31</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>USE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>32</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DEBIT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>33</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ROAMING_CHARGE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>34</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CONFERENCE_BRIDGE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>35</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PREMIUM_SERVICE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>36</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PAY_PER_VIEW_SERVICE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>37</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EQUIPMENT_RENTAL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>38</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WIRE_MAINTENANCE_PLAN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>0</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DO_NOT_APPLY_TAX</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>39</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TV_GUIDE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>40</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CENTREX_EXTENSION</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>41</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PBX_EXTENSION</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>42</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TRUNK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>43</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INVOICE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>44</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TELEGRAPH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>45</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HIGH_CAPACITY_TRUNK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>46</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PICC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>47</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NO_PICK_PICC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>48</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WIRELESS_ACCESS_CHARGE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>49</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INTERSTATE_USAGE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>50</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INTRASTATE_USAGE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>51</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INTERNATIONAL_USAGE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>52</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WIRELESS_LINES</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>53</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LNP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>54</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DIRECTORY_ASSISTANCE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>55</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LOCAL_USAGE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>56</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PROVISIONING</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>57</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DATA_PROCESSING</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>58</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ACCESS_LINE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>59</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LICENSE_SOFTWARE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>60</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SOFTWARE_MAINTENANCE_AGREEMENT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>61</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>REPORT_ON_CD_PAPER_FORM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>62</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INFORMATION_RETRIEVAL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>63</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RESTOCKING_FEE_RENTAL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>64</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RESTOCKING_FEE_PURCHASE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>65</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PARTIAL_CREDIT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>84</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LATE_CHARGE_BUNDLE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>85</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LOCAL_EXCHANGE_BUNDLE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>86</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FCC_SUBSCRIBER_LINE_FEE_BUNDLE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>87</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LINES_BUNDLE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>88</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LOCATION_BUNDLE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>89</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PBX_TRUNK_BUNDLE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>90</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LOCAL_FEATURE_CHARGE_BUNDLE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>91</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CENTREX_EXTENSION_BUNDLE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>92</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PBX_EXTENSION_BUNDLE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>93</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CENTREX_TRUNK_BUNDLE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>94</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INVOICE_BUNDLE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>95</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HIGH_CAPACITY_TRUNK_BUNDLE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>96</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NO_PICK_PICC_BUNDLE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>97</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PICC_BUNDLE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>98</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ACCESS_NUMBER</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>99</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INTERSTATE_ACCESS_CHARGE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>100</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INTRASTATE_ACCESS_CHARGE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>101</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INTERSTATE_ROAMING</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>102</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INTRASTATE_ROAMING</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>103</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SALES_TAX_AND_FUSF</Name>
+    </EnumItem>
+  </Items>
+  <Name>TaxServiceType</Name>
+  <Namespace>premconf.com/Tax</Namespace>
+</EnumCategory>

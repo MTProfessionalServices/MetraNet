@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Tax Error Code</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>PremTax</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>-11</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>JCODE_NOT_FOUND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>-12</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PCODE_NOT_FOUND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>-13</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ZIPCODE_NOT_FOUND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>-14</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NPANXX_NOT_FOUND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>-15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ADDRESS_NOT_FOUND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>-16</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CO_ST_ZP_NOT_FOUND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>-17</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SESSION_NOT_INIT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>-18</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>JCDB_NOT_OPEN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>-19</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PCDB_NOT_OPEN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>-20</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ZIPDB_NOT_OPEN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>-21</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NPDB_NOT_OPEN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>-22</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ADDB_NOT_OPEN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>-23</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>JURISDICTION_NOT_FOUND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>-24</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FIPS_NOT_FOUND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>-25</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FIPS_NOT_OPEN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>-26</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PCODEFIPS_NOT_OPEN</Name>
+    </EnumItem>
+  </Items>
+  <Name>TaxErrorCode</Name>
+  <Namespace>premconf.com/Tax</Namespace>
+</EnumCategory>

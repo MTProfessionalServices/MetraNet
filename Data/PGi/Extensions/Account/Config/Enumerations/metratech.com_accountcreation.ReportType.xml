@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description></Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>Account</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Air Products &amp; Chem</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Air Products &amp; Chem</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Air Products Health Care</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Air Products Health Care</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Aspen Technology 91 Q</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Aspen Technology 91 Q</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Aspen Technology 94 Q</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Aspen Technology 94 Q</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Argo Navis</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Argo Navis</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AT&amp;T External</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AT&amp;T External</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AT&amp;T Internal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AT&amp;T Internal</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Bank Of America Charge Back Feed</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Bank Of America Charge Back Feed</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BMC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BMC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Bridge Conferencing</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Bridge Conferencing</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Bridgecom</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Bridgecom</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Centra Attended</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Centra Attended</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Centra Automated</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Centra Automated</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CIBA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CIBA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Citizens Data Extract v2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Citizens Data Extract v2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Citizens_CA_GROUPBY_Company</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Citizens_CA_GROUPBY_Company</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Citizens_CA_GROUPBY_Client</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Citizens_CA_GROUPBY_Client</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Citizens_CA_GROUPBY_BillTo</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Citizens_CA_GROUPBY_BillTo</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Citizens_CA_GROUPBY_Company_PDF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Citizens_CA_GROUPBY_Company_PDF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Citizens Emeritus</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Citizens Emeritus</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CommPartners - Reseller Summary</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CommPartners - Reseller Summary</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Eatel</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Eatel</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Equant</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Equant</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Fidelity</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Fidelity</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Focal Data Client Minutes Summary</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Focal Data Client Minutes Summary</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Focal Data Detail</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Focal Data Detail</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Focal Data Rollups</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Focal Data Rollups</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Goldman Sachs</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Goldman Sachs</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HCA Monthly Invoice File</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HCA Monthly Invoice File</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HCA PayLink</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HCA PayLink</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IBM Monthly Revenue Report</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IBM Monthly Revenue Report</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IBM PayLink</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IBM PayLink</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LS Line Systems</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LS Line Systems</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LSI New Detail</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LSI New Detail</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LSI Other</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LSI Other</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LSI Report</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LSI Report</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LSI Summary</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LSI Summary</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Merrill Lynch</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Merrill Lynch</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P&amp;G Cross Charge</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P&amp;G Cross Charge</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P&amp;G EOM Mgmt Report</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P&amp;G EOM Mgmt Report</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P&amp;G Monthly Feed</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P&amp;G Monthly Feed</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P&amp;G Remit Page</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P&amp;G Remit Page</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Retail Brand Alliance</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Retail Brand Alliance</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Schwann Food Co.</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Schwann Food Co.</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SCI</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SCI</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SoundPath CSV</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SoundPath CSV</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SoundPath TXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SoundPath TXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Spencer Stuart Chicago</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Spencer Stuart Chicago</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Stryker CSV</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Stryker CSV</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Stryker TXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Stryker TXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SouthEast Telephone</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SouthEast Telephone</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Symantec</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Symantec</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TSI AR Upload</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TSI AR Upload</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TSI Master Invoice Report</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TSI Master Invoice Report</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TSI Wholesale / Retail</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TSI Wholesale / Retail</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>USA Today</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>USA Today</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Valor Bill Feed</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Valor Bill Feed</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Valor CSV Feed</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Valor CSV Feed</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Veritas Global Reports</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Veritas Global Reports</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Weil, Gotshal, and Manges</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Weil, Gotshal, and Manges</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>XO One V1.3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XO One V1.3</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>XO One V1.4</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XO One V1.4</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Xomox CSV</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Xomox CSV</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Xomox TXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Xomox TXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Yazaki North America</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Yazaki North America</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>XO MR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XO MR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Nextel Monthly</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Nextel Monthly</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>XO MW</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XO MW</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Orange Wholesale Feed</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Orange Wholesale Feed</Name>
+    </EnumItem>
+  </Items>
+  <Name>ReportType</Name>
+  <Namespace>metratech.com/accountcreation</Namespace>
+</EnumCategory>

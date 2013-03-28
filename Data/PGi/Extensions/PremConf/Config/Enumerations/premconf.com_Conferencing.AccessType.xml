@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>AccessType</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>PremConf</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>K</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EuroMeeting - Nat</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>J</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EuroMeeting - IFF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>National</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>E</arrays:string>
+        <arrays:string>X</arrays:string>
+        <arrays:string>F</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IFF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>I</arrays:string>
+        <arrays:string>BB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Shared Tariff</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>T</arrays:string>
+        <arrays:string>W</arrays:string>
+        <arrays:string>AB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Toll</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>D</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Tie-Line</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>U</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Unknown</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>C</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Canadian Toll-Free</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>N</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GlobalMeeting - Nat</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>M</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GlobalMeeting - IFF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>G</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Carrier Billed</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>H</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Mobile</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>O</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>On Net</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Q</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VOIP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>V</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>V</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>S</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>S</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>R</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>R</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Y</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>OnNetToll</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Z</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>OnNetTollFree</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Lo-Call</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Mobile Lo-Call</Name>
+    </EnumItem>
+  </Items>
+  <Name>AccessType</Name>
+  <Namespace>premconf.com/Conferencing</Namespace>
+</EnumCategory>

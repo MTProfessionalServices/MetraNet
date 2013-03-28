@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Configurable set of currencies for screens to select from.</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>Core</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>USD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>USD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CAD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CAD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ARS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ARS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CLP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CLP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>COP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>COP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MXN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MXN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VEB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VEB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EUR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EUR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GBP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GBP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>INR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RSD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RSD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AUD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AUD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HKD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HKD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MYR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MYR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NZD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NZD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SGD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SGD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>YEN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>YEN</Name>
+    </EnumItem>
+  </Items>
+  <Name>SystemCurrencies</Name>
+  <Namespace>Global/SystemCurrencies</Namespace>
+</EnumCategory>

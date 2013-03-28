@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Based On ConferenceType.</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>PremConf</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ReadyConference</arrays:string>
+        <arrays:string>1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ReadyConference</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ScheduledReadyConference</arrays:string>
+        <arrays:string>2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ScheduledReadyConference</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Legend</arrays:string>
+        <arrays:string>Connection</arrays:string>
+        <arrays:string>3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Legend</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PremiereCall</arrays:string>
+        <arrays:string>Event</arrays:string>
+        <arrays:string>4</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PremiereCall</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MarketTouch</arrays:string>
+        <arrays:string>5</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MarketTouch</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SoundByte</arrays:string>
+        <arrays:string>6</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SoundByte</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PremiereCallAuditorium</arrays:string>
+        <arrays:string>Auditorium</arrays:string>
+        <arrays:string>7</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PremiereCallAuditorium</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Prairie SoundByte</arrays:string>
+        <arrays:string>8</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PrairieSoundByte</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ReadyCast</arrays:string>
+        <arrays:string>10</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ReadyCast</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ReadyConferenceReplays</arrays:string>
+        <arrays:string>11</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ReadyConferenceReplays</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VCMeeting</arrays:string>
+        <arrays:string>12</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VCMeeting</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ReadyPlace</arrays:string>
+        <arrays:string>13</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ReadyPlace</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VisionCast</arrays:string>
+        <arrays:string>14</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VisionCast</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Wireless</arrays:string>
+        <arrays:string>15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Wireless</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Reservationless RC Replays</arrays:string>
+        <arrays:string>16</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Reservationless RC Replays</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ReadyConference Plus Web</arrays:string>
+        <arrays:string>17</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ReadyConference Plus Web</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GlobalMeet</arrays:string>
+        <arrays:string>18</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GlobalMeet</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AuditoriumSoundByteReplays</arrays:string>
+        <arrays:string>19</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AuditoriumSoundByteReplays</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC Enterprise Edition</arrays:string>
+        <arrays:string>20</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC Enterprise Edition</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC Event Center</arrays:string>
+        <arrays:string>21</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC Event Center</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EuroMeeting</arrays:string>
+        <arrays:string>1001</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EuroMeeting</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GlobalMeeting</arrays:string>
+        <arrays:string>1002</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GlobalMeeting</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Unknown</arrays:string>
+        <arrays:string>0</arrays:string>
+        <arrays:string>99</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Unknown</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NetSpoke</arrays:string>
+        <arrays:string>22</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NetSpoke</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Registration &amp; Archive-A</arrays:string>
+        <arrays:string>23</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Registration &amp; Archive-A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Registration &amp; Archive-W</arrays:string>
+        <arrays:string>24</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Registration &amp; Archive-W</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Adobe Managed Services</arrays:string>
+        <arrays:string>25</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Adobe Managed Services</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Connect Pro</arrays:string>
+        <arrays:string>26</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Connect Pro</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GlobalMeet India</arrays:string>
+        <arrays:string>27</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GlobalMeet India</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Investor Relations Event</arrays:string>
+        <arrays:string>IR</arrays:string>
+        <arrays:string>28</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Investor Relations Event</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GlobalMeet2</arrays:string>
+        <arrays:string>29</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GlobalMeet2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CallBack</arrays:string>
+        <arrays:string>32</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CallBack</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>iMeet</arrays:string>
+        <arrays:string>30</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>iMeet</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Global Access</arrays:string>
+        <arrays:string>31</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Global Access</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EventReplay</arrays:string>
+        <arrays:string>33</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EventReplay</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Unyte Professional Minutes</arrays:string>
+        <arrays:string>34</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Unyte Professional Minutes</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Unyte Seat Minutes</arrays:string>
+        <arrays:string>35</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Unyte Seat Minutes</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Unyte Named User Minutes</arrays:string>
+        <arrays:string>36</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Unyte Named User Minutes</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Unyte Room Minutes</arrays:string>
+        <arrays:string>37</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Unyte Room Minutes</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Ancillary</arrays:string>
+        <arrays:string>9999</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Ancillary</Name>
+    </EnumItem>
+  </Items>
+  <Name>PremServiceLevel</Name>
+  <Namespace>premconf.com/Conferencing</Namespace>
+</EnumCategory>

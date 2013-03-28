@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description></Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>Core</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-12:00) Eniwetok, Kwajalein</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>39</arrays:string>
+        <arrays:string>ASAMO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-11:00) Midway Island, Samoa</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>24</arrays:string>
+        <arrays:string>HAWAI</arrays:string>
+        <arrays:string>TAHIT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-10:00) Hawaii</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>2</arrays:string>
+        <arrays:string>ALASK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-09:00) Alaska</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>33</arrays:string>
+        <arrays:string>PACFC</arrays:string>
+        <arrays:string>PACFS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-08:00) Pacific Time (US &amp; Canada), Tijuana</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>47</arrays:string>
+        <arrays:string>MOUNS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-07:00) Arizona</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>30</arrays:string>
+        <arrays:string>MOUNT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-07:00) Mountain Time (US &amp; Canada)</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>13</arrays:string>
+        <arrays:string>CNTRL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-06:00) Central Time (US &amp; Canada)</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>28</arrays:string>
+        <arrays:string>CENTRS</arrays:string>
+        <arrays:string>CNTRS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-06:00) Mexico City, Tegucigalpa</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>8</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-06:00) Saskatchewan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>37</arrays:string>
+        <arrays:string>CUBA</arrays:string>
+        <arrays:string>ESTRS</arrays:string>
+        <arrays:string>WSAMR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-05:00) Bogota, Lima</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>18</arrays:string>
+        <arrays:string>ESTRN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-05:00) Eastern Time (US &amp; Canada)</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>46</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-05:00) Indiana (East)</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4</arrays:string>
+        <arrays:string>ATLNT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-04:00) Atlantic Time (Canada)</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>38</arrays:string>
+        <arrays:string>ATLNS</arrays:string>
+        <arrays:string>WCSAM</arrays:string>
+        <arrays:string>CHILE</arrays:string>
+        <arrays:string>PARAG</arrays:string>
+        <arrays:string>GRNTH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-04:00) Caracas, La Paz</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>32</arrays:string>
+        <arrays:string>CANNF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-03:30) Newfoundland</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>36</arrays:string>
+        <arrays:string>BRZAR</arrays:string>
+        <arrays:string>FGUIN</arrays:string>
+        <arrays:string>ECSAM</arrays:string>
+        <arrays:string>GRNGO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-03:00) Buenos Aires, Georgetown</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>6</arrays:string>
+        <arrays:string>ESAMR</arrays:string>
+        <arrays:string>CAPVR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT-01:00) Azores, Cape Verde Is.</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>22</arrays:string>
+        <arrays:string>BRTSH</arrays:string>
+        <arrays:string>GRNSC</arrays:string>
+        <arrays:string>GMT</arrays:string>
+        <arrays:string>IRISH</arrays:string>
+        <arrays:string>WEURP</arrays:string>
+        <arrays:string>UNKGD</arrays:string>
+        <arrays:string>UTC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT) Greenwich Mean Time; Dublin, Edinburgh, London, Lisbon</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>23</arrays:string>
+        <arrays:string>WAFRC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT) Monrovia, Casablanca</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>48</arrays:string>
+        <arrays:string>CEURP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+01:00) Berlin, Stockholm, Rome, Bern, Brussels Vienna</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>34</arrays:string>
+        <arrays:string>WCAFR</arrays:string>
+        <arrays:string>NAMIB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+01:00) Paris, Madrid, Amsterdam</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>11</arrays:string>
+        <arrays:string>POLND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+01:00) Prague, Warsaw, Budapest</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>21</arrays:string>
+        <arrays:string>EEURP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+02:00) Athens, Helsinki, Istanbul</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>19</arrays:string>
+        <arrays:string>EGYPT</arrays:string>
+        <arrays:string></arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+02:00) Cairo</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>41</arrays:string>
+        <arrays:string>ECAFR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+02:00) Harare, Pretoria</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>27</arrays:string>
+        <arrays:string>CYPRS</arrays:string>
+        <arrays:string>LEBAN</arrays:string>
+        <arrays:string>ISREL</arrays:string>
+        <arrays:string>JORDN</arrays:string>
+        <arrays:string>GAZA</arrays:string>
+        <arrays:string>SYRIA</arrays:string>
+        <arrays:string>RUSKL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+02:00) Israel</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>40</arrays:string>
+        <arrays:string>FWASA</arrays:string>
+        <arrays:string>IRAQ</arrays:string>
+        <arrays:string>EAFRC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+03:00) Baghdad, Kuwait, Nairobi, Riyadh</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>35</arrays:string>
+        <arrays:string>RUSMS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+03:00) Moscow, St. Petersburg, Kazan, Volgograd</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>26</arrays:string>
+        <arrays:string>IRAN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+03:30) Tehran</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>3</arrays:string>
+        <arrays:string>GEORG</arrays:string>
+        <arrays:string>KZKAT</arrays:string>
+        <arrays:string>AZRBJ</arrays:string>
+        <arrays:string>RUSSA</arrays:string>
+        <arrays:string>RUSSM</arrays:string>
+        <arrays:string>WASIA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+04:00) Abu Dhabi, Muscat, Tbilisi</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+        <arrays:string>AFGHN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+04:30) Kabul</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>49</arrays:string>
+        <arrays:string>KZKAQ</arrays:string>
+        <arrays:string>KYRGZ</arrays:string>
+        <arrays:string>RUSYE</arrays:string>
+        <arrays:string>WCASA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+05:00) Islamabad, Karachi, Ekaterinburg, Tashkent</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>25</arrays:string>
+        <arrays:string>INDIA</arrays:string>
+        <arrays:string>NEPAL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+05:30) Bombay, Calcutta, Madras, New Delhi, Colombo</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>10</arrays:string>
+        <arrays:string>KZKAL</arrays:string>
+        <arrays:string>CASIA</arrays:string>
+        <arrays:string>RUSYA</arrays:string>
+        <arrays:string>RUSNV</arrays:string>
+        <arrays:string>RUSOM</arrays:string>
+        <arrays:string>MYANM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+06:00) Almaty, Dhaka</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>7</arrays:string>
+        <arrays:string>ECASA</arrays:string>
+        <arrays:string>RUSKR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+07:00) Bangkok, Jakarta, Hanoi</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>14</arrays:string>
+        <arrays:string>RUSIR</arrays:string>
+        <arrays:string>CHINA</arrays:string>
+        <arrays:string>MONGL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+08:00) Beijing, Chongqing, Urumqi</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>43</arrays:string>
+        <arrays:string>AUSWS</arrays:string>
+        <arrays:string>EASIA</arrays:string>
+        <arrays:string>PHILP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+08:00) Hong Kong, Perth, Singapore, Taipei</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>45</arrays:string>
+        <arrays:string>JAPAN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+09:00) Tokyo, Osaka, Sapporo, Seoul, Yakutsk</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>9</arrays:string>
+        <arrays:string>AUSSO</arrays:string>
+        <arrays:string>AUSBH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+09:30) Adelaide</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>5</arrays:string>
+        <arrays:string>AUSNT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+09:30) Darwin</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>42</arrays:string>
+        <arrays:string>AUSNS</arrays:string>
+        <arrays:string>AUSLN</arrays:string>
+        <arrays:string>AUSQS</arrays:string>
+        <arrays:string>AUSVC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+10:00) Brisbane, Melbourne, Sydney</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>50</arrays:string>
+        <arrays:string>GUAM</arrays:string>
+        <arrays:string>PAPNG</arrays:string>
+        <arrays:string>RUSVL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+10:00) Guam, Port Moresby, Vladivostok</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>44</arrays:string>
+        <arrays:string>AUSTS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+10:00) Hobart</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>12</arrays:string>
+        <arrays:string>RUSMG</arrays:string>
+        <arrays:string>NEWCL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+11:00) Magadan, Solomon Is., New Caledonia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>20</arrays:string>
+        <arrays:string>FIJI</arrays:string>
+        <arrays:string>RUSKM</arrays:string>
+        <arrays:string>RUSAN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+12:00) Fiji, Kamchatka, Marshall Is.</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>31</arrays:string>
+        <arrays:string>NEWZD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>(GMT+12:00) Wellington, Auckland</Name>
+    </EnumItem>
+  </Items>
+  <Name>TimeZoneID</Name>
+  <Namespace>Global</Namespace>
+</EnumCategory>

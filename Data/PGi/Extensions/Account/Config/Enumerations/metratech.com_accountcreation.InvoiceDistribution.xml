@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Choices to indicate if the invoices are print-formatted in MetraNet or by a 3rd Party Vendor</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>Account</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+        <arrays:string>InHouse</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>InHouse</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>2</arrays:string>
+        <arrays:string>Diversified</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Diversified</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>3</arrays:string>
+        <arrays:string>DoNotPrint</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DoNotPrint</Name>
+    </EnumItem>
+  </Items>
+  <Name>InvoiceDistribution</Name>
+  <Namespace>metratech.com/accountcreation</Namespace>
+</EnumCategory>

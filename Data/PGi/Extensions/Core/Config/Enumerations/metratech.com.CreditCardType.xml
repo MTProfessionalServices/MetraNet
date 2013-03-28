@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>The credit card type we support</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>Core</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Visa</arrays:string>
+        <arrays:string>01</arrays:string>
+        <arrays:string>01-VISA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Visa</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Master Card</arrays:string>
+        <arrays:string>02</arrays:string>
+        <arrays:string>02-MASTERCARD</arrays:string>
+        <arrays:string>MasterCard</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Master Card</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>American Express</arrays:string>
+        <arrays:string>03</arrays:string>
+        <arrays:string>03-AMEX</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>American Express</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Discover</arrays:string>
+        <arrays:string>04</arrays:string>
+        <arrays:string>04-DISCOVER</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Discover</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>JCB</arrays:string>
+        <arrays:string>05</arrays:string>
+        <arrays:string>05-JCB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>JCB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DINERS CLUB</arrays:string>
+        <arrays:string>07</arrays:string>
+        <arrays:string>07-DINERS CLUB</arrays:string>
+        <arrays:string>Diners Club</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Diners Club</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Maestro</arrays:string>
+        <arrays:string>08</arrays:string>
+        <arrays:string>08-Maestro</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Maestro</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>C</arrays:string>
+        <arrays:string>Cybersource_Subscription</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Cybersource_Subscription</Name>
+    </EnumItem>
+  </Items>
+  <Name>CreditCardType</Name>
+  <Namespace>metratech.com</Namespace>
+</EnumCategory>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Payment Method</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>Core</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Credit Card</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CreditCard</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ACH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ACH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Check</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Check</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Cash</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Cash</Name>
+    </EnumItem>
+  </Items>
+  <Name>PaymentMethod</Name>
+  <Namespace>metratech.com/balanceadjustments</Namespace>
+</EnumCategory>

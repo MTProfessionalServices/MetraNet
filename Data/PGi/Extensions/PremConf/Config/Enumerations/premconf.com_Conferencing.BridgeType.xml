@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Bridge Type</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>PremConf</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>C</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Contex</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>D</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Dialog</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>M</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Multilink</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Prairie</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>W</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Webex</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>B</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCPlusWeb</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>?</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Unknown</Name>
+    </EnumItem>
+  </Items>
+  <Name>BridgeType</Name>
+  <Namespace>premconf.com/Conferencing</Namespace>
+</EnumCategory>

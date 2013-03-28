@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>LineType</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>PremConf</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PSTN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PSTN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IFF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IFF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UIFN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UIFN</Name>
+    </EnumItem>
+  </Items>
+  <Name>LineType</Name>
+  <Namespace>premconf.com/Conferencing</Namespace>
+</EnumCategory>

@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Transaction Type</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>PremTax</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INTERSTATE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INTRASTATE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>OTHER</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NON_RECURRING</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>5</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INTERNET</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>6</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PAGING</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>7</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LOCAL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>8</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FAX</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>9</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VOICE_MAIL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>10</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SALES</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>11</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SHIPPING</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>12</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NATURAL_GAS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>13</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CELLULAR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>14</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INTERNATIONAL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TELEPHONY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>16</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CABLE_TELEVISION </Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>0</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DO_NOT_APPLY_TAX</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>18</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SATELLITE_TELEVISION</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>19</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VOIP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>20</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VOIPA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>21</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PAYPHONE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>24</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SOFTWARE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>25</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TIMESHARING</Name>
+    </EnumItem>
+  </Items>
+  <Name>TaxTransactionType</Name>
+  <Namespace>premconf.com/Tax</Namespace>
+</EnumCategory>

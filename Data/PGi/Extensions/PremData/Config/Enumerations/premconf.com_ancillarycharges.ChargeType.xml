@@ -1,0 +1,5771 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Ancillary Charge Type</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>PremData</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CF-EXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CF-EXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PRC-1600</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PRC-1600</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PRC-1600R</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PRC-1600R</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-2DAYSHIP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-2DAYSHIP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PRC-2400</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PRC-2400</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PRC-2400R</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PRC-2400R</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PRC-295</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PRC-295</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AP-RUSH2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AP-RUSH2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AP-RUSH1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AP-RUSH1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>3PARTYPROSERVICE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>3PARTYPROSERVICE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PRC-400</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PRC-400</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PRC-400R</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PRC-400R</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AP-EDIT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AP-EDIT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PRC-800</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PRC-800</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PRC-800R</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PRC-800R</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ACCTFEE-BT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ACCTFEE-BT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ACCTFEE-PDF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ACCTFEE-PDF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTONDMDVID15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTONDMDVID15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTONDMDVSL15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTONDMDVSL15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ADDL16KSTREAM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ADDL16KSTREAM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>COMMADDL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>COMMADDL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVADDLSESSION</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVADDLSESSION</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTAUD15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTAUD15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTVID15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTVID15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTAUDWSLD15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTAUDWSLD15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ADDLREGFIELDS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ADDLREGFIELDS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTAUD250</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTAUD250</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTVID250</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTVID250</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CUSTVIDEOSTREAM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CUSTVIDEOSTREAM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-ADD90</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-ADD90</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTVIDWSLD15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTVIDWSLD15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTAUDWSLD250</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTAUDWSLD250</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTVIDWSLD250</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTVIDWSLD250</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRSHBW</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRSHBW</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRMOCU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRMOCU</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRSHBR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRSHBR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRSOBR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRSOBR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRSHDOC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRSHDOC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRSODOC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRSODOC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRSOES</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRSOES</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BREHEM90</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BREHEM90</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BREOEM90</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BREOEM90</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXXE2E</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXXE2E</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXXIMS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXXIMS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ADOBEMONTHLY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ADOBEMONTHLY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRMHNOL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRMHNOL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRMONOL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRMONOL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRMONOU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRMONOU</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXXOL16</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXXOL16</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXOOSIA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXOOSIA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXOOSI1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXOOSI1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXXOSC2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXXOSC2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXXOSM2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXXOSM2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXXOSM3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXXOSM3</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXXOSN2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXXOSN2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRMHO5K</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRMHO5K</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXOP247</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXOP247</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXOPNPC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXOPNPC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXOPENG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXOPENG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXOPOS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXOPOS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRPHNA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRPHNA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRPHPL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRPHPL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRPOPL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRPOPL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRMHRM6</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRMHRM6</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRMORM6</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRMORM6</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRMHRMA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRMHRMA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRMORMA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRMORMA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRSOUNL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRSOUNL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRSOBU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRSOBU</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRSOCD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRSOCD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRSOSP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRSOSP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRSHSU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRSHSU</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRSHSSL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRSHSSL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRSHSTR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRSHSTR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRTHCL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRTHCL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ADOBEADMINFEE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ADOBEADMINFEE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>3RDPARTYWEB-ADB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>3RDPARTYWEB-ADB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BREHEMA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BREHEMA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BREOEMA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BREOEMA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRMHCU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRMHCU</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ARCHIVEDSEMINAR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ARCHIVEDSEMINAR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AG-IRGENT1500</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AG-IRGENT1500</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AG-IRGENT250</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AG-IRGENT250</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AG-IRGENT500</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AG-IRGENT500</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AG-IRGENT750</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AG-IRGENT750</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLISTRUSH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLISTRUSH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLIST1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLIST1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLIST1MIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLIST1MIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLIST2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLIST2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLIST2MIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLIST2MIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLIST3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLIST3</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLIST3MIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLIST3MIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLIST4</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLIST4</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLIST4MIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLIST4MIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLIST5</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLIST5</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLIST5MIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLIST5MIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLIST6</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLIST6</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLIST6MIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLIST6MIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLIST7</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLIST7</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLIST7MIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLIST7MIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLIST8</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLIST8</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLIST8MIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLIST8MIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLISTPRIORITY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLISTPRIORITY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLISTRESEND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLISTRESEND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EH-EFT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EH-EFT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AUDDEMOCAPTURE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AUDDEMOCAPTURE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WEBSEMINAR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WEBSEMINAR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AUDIOFLVRMAINT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AUDIOFLVRMAINT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CF-CPOST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CF-CPOST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTAUDPOD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTAUDPOD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AP-RUSH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AP-RUSH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AP-MISC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AP-MISC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTAUDWSLDEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTAUDWSLDEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTAUDEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTAUDEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CF-ARWSTRM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CF-ARWSTRM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AUDIOSEMINAR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AUDIOSEMINAR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTAUDSTRM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTAUDSTRM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTAUDWSLIDES</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTAUDWSLIDES</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTAUDCD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTAUDCD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>409</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>409</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>402A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>402A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>402B</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>402B</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>409A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>409A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTAUTOREG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTAUTOREG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BM-EADD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BM-EADD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKCAMPAIGN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKCAMPAIGN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKCAMPAIGN-A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKCAMPAIGN-A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKCLICKPAT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKCLICKPAT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKCLICKPAT-A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKCLICKPAT-A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKCONTMOD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKCONTMOD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKCONTMOD-A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKCONTMOD-A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKLMGATE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKLMGATE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKLMGATE-A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKLMGATE-A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKLMSADAP-A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKLMSADAP-A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKLMSADAPT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKLMSADAPT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKPRES</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKPRES</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKPRES-A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKPRES-A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKPROSVC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKPROSVC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKPROSVC-A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKPROSVC-A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKLEARSVC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKLEARSVC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKLEARSVC-A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKLEARSVC-A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKLEARN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKLEARN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKLEARN-A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKLEARN-A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKSFORCE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKSFORCE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKSFORCE-A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKSFORCE-A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKUNHOOK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKUNHOOK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSHARKUNHOOK-A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSHARKUNHOOK-A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXHBPI</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXHBPI</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXHB5P</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXHB5P</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXHG247</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXHG247</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXHGNPC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXHGNPC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXHGENG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXHGENG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXHGOS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXHGOS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXHG1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXHG1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXHG2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXHG2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXHG1A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXHG1A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXHG2A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXHG2A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXHS1A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXHS1A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRXHS1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRXHS1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRTOCL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRTOCL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRTHNL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRTHNL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRTONL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRTONL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BM-MISC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BM-MISC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BM-RUSH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BM-RUSH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-BLKSHP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-BLKSHP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CALLCANCELLESS24</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CALLCANCELLESS24</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CALLCANCELMORE24</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CALLCANCELMORE24</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>OA-CALLEXSCHTIME</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>OA-CALLEXSCHTIME</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CALLMINIMUM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CALLMINIMUM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NONCAN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NONCAN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RESCHEDULELESS24</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RESCHEDULELESS24</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CANCELLESS10</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CANCELLESS10</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CANCELMORE10</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CANCELMORE10</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CANCELONSITEPROD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CANCELONSITEPROD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CANCELRECSESSION</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CANCELRECSESSION</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CANCELFEE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CANCELFEE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CANCEL24</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CANCEL24</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>REMCAN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>REMCAN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AP-CDSPLIT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AP-CDSPLIT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CD-BILLING</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CD-BILLING</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CF-CD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CF-CD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CD-ROMMSTR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CD-ROMMSTR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EH-WRSVPCH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EH-WRSVPCH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>COMM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>COMM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PARTICIPANTCD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PARTICIPANTCD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>REP-CONDAT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>REP-CONDAT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>COMB-MINUIFN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>COMB-MINUIFN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CONFNONUSE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CONFNONUSE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CONFSETUP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CONFSETUP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CONNECTPROREC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CONNECTPROREC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CONNECTPROMIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CONNECTPROMIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>C-AFTERHRS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>C-AFTERHRS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CMOD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CMOD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>C050</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>C050</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>C175</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>C175</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CPACK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CPACK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SLAGR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SLAGR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>COVERLETTE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>COVERLETTE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-CS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-CS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DISC-FULFILLMENT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DISC-FULFILLMENT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DISC-OP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DISC-OP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DISC-READY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DISC-READY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DISC-RES</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DISC-RES</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DISC-SALES</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DISC-SALES</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DISC-SOUND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DISC-SOUND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTCUSTOMBRD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTCUSTOMBRD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CUSTOMDEV</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CUSTOMDEV</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CUST-DEV-CHRG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CUST-DEV-CHRG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CUSTOMEMAILCHNG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CUSTOMEMAILCHNG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CUSTOMEMAIL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CUSTOMEMAIL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTCUSTOMEVT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTCUSTOMEVT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-CSTFUL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-CSTFUL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CUSTMUSIC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CUSTMUSIC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CT-REC-PS-60D</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CT-REC-PS-60D</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTCUSTOMREG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTCUSTOMREG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CUSTOMREPORT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CUSTOMREPORT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CT-CP-PS-NRC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CT-CP-PS-NRC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-CWCRD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-CWCRD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CUSTOMWELCADDL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CUSTOMWELCADDL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-CWLTR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-CWLTR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CPROMPT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CPROMPT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DISC-FRAUD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DISC-FRAUD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CHGRECSESSION</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CHGRECSESSION</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DEDICATEDRC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DEDICATEDRC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DEDICATEDI</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DEDICATEDI</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DEDICATED</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DEDICATED</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CF-REPDSKT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CF-REPDSKT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DEVEL-IS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DEVEL-IS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DEVEL-RD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DEVEL-RD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DIALOUT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DIALOUT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AP-FILE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AP-FILE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DAT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DAT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BM-DIRMAIL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BM-DIRMAIL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DISK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DISK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EV ADDL SESSION</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EV ADDL SESSION</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EV AFTER HOURS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EV AFTER HOURS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EV CANCEL POST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EV CANCEL POST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EV CANCEL PRE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EV CANCEL PRE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EV RESCHED POST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EV RESCHED POST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EV RESCHED PRE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EV RESCHED PRE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVENT ASSISTANCE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVENT ASSISTANCE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVENT CONTENT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVENT CONTENT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVENT EXPEDITE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVENT EXPEDITE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVENT EXTENSION</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVENT EXTENSION</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVENT MGMT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVENT MGMT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVENT PROD PLUS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVENT PROD PLUS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVENT PRODUCTION</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVENT PRODUCTION</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVENT RECORD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVENT RECORD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVENTRECORDING</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVENTRECORDING</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MEDIA MANAGER</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MEDIA MANAGER</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>APPLYSERVICEFEE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>APPLYSERVICEFEE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PRE-CONF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PRE-CONF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>COMB-MIND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>COMB-MIND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CF-CDNLD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CF-CDNLD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ECIRD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ECIRD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-CD4</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-CD4</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-CD3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-CD3</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-CD2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-CD2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-CD1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-CD1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-TAPE4</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-TAPE4</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-TAPE2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-TAPE2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-TAPE1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-TAPE1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-TAPE3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-TAPE3</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DVDMSTR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DVDMSTR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>E-CLIENTREPORT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>E-CLIENTREPORT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ENGSERVICES</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ENGSERVICES</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ENHEMAILCONFIRM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ENHEMAILCONFIRM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-EFOD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-EFOD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BM-EFOD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BM-EFOD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BM-EFODINTL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BM-EFODINTL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-EFODINTL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-EFODINTL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RSVPWEBE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RSVPWEBE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTENTEVCOMPLX</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTENTEVCOMPLX</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTENTEVMEDIUM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTENTEVMEDIUM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTENTEVSIMPLE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTENTEVSIMPLE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTENTEVSRCHRG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTENTEVSRCHRG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTENTEVMMAINT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTENTEVMMAINT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTENTEVSIGENG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTENTEVSIGENG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EQ-RENT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EQ-RENT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EQ-SALE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EQ-SALE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EUROI</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EUROI</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVAFTERHOURS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVAFTERHOURS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVENTASSISTANCE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVENTASSISTANCE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-APP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-APP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-ASEAT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-ASEAT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-AUD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-AUD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-AVSEAT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-AVSEAT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-BRAND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-BRAND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-CONV</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-CONV</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-HOST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-HOST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-REC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-REC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-RMU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-RMU</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-CD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-CD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-FILE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-FILE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-REPLAY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-REPLAY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-OVER</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-OVER</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-SEATSU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-SEATSU</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-WEB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-WEB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-WSEAT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-WSEAT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-HOSTXL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-HOSTXL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>C200</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>C200</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVENTCONTENT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVENTCONTENT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVENTFEE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVENTFEE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-AUDVID</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-AUDVID</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-ADDL90</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-ADDL90</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVENTEXPEDITE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVENTEXPEDITE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVENTEXTENSION</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVENTEXTENSION</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVENTMGMT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVENTMGMT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MEDIAMANAGER</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MEDIAMANAGER</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RESCHANGE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RESCHANGE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVENTMONITOR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVENTMONITOR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVENTPRODUCTION</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVENTPRODUCTION</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVENTPRODPLUS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVENTPRODPLUS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVENTRECORD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVENTRECORD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>REPORT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>REPORT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTEVENTSEC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTEVENTSEC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTEVENTSURV</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTEVENTSURV</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVCANCELPOST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVCANCELPOST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVCANCELPRE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVCANCELPRE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVRESCHEDPOST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVRESCHEDPOST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVRESCHEDPRE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVRESCHEDPRE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FAX</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FAX</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-FAX</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-FAX</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FAXINTL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FAXINTL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-FAXINTL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-FAXINTL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BM-FOD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BM-FOD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BM-FODINTL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BM-FODINTL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BM-FAX</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BM-FAX</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BM-FAXINTL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BM-FAXINTL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EH-FILCON</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EH-FILCON</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EH-FILCONRS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EH-FILCONRS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>COMM1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>COMM1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-SPECIAL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-SPECIAL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTFLASHLONG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTFLASHLONG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTFLASHSHT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTFLASHSHT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FLASHODAUD15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FLASHODAUD15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FLASHODAUDEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FLASHODAUDEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FLASHODAUDSI15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FLASHODAUDSI15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FLASHODAUDSIEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FLASHODAUDSIEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FLASHODAUD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FLASHODAUD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FLASHODAUDSI</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FLASHODAUDSI</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LFLASHSCREEN15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LFLASHSCREEN15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LFLASHSCREEN250</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LFLASHSCREEN250</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LFLASHSCREENEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LFLASHSCREENEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LFLASHSCREEN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LFLASHSCREEN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LFLASHWEBCAM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LFLASHWEBCAM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WALLETCARD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WALLETCARD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-FLC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-FLC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-RUSH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-RUSH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PAPERINVOICEFEE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PAPERINVOICEFEE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>REP-FUTRES</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>REP-FUTRES</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GMNU-ACTIVE-A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GMNU-ACTIVE-A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NSPK-RECAW</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NSPK-RECAW</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GMAUD10K-SHORT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GMAUD10K-SHORT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GMAUD1K-SHORT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GMAUD1K-SHORT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GMAUD300-SHORT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GMAUD300-SHORT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GMAUD500-SHORT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GMAUD500-SHORT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GM-BUYOUT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GM-BUYOUT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GMNU-AUDWEB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GMNU-AUDWEB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GMNU10K-PREPAID</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GMNU10K-PREPAID</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GMNU-SHORTFALL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GMNU-SHORTFALL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GMNUWEBONLY-P</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GMNUWEBONLY-P</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GMNU-AUDOVER</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GMNU-AUDOVER</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GMNU1K-SHORT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GMNU1K-SHORT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GMNU10K-SHORT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GMNU10K-SHORT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GMNUWEB-SHORT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GMNUWEB-SHORT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NSPK-MIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NSPK-MIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NSPK-NUSER</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NSPK-NUSER</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NSPK-NUSERNC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NSPK-NUSERNC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NSPK-OVER</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NSPK-OVER</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NSPK-RECW</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NSPK-RECW</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NSPK-RPLY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NSPK-RPLY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NSPK-ADD180</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NSPK-ADD180</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NSPK-ADD30</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NSPK-ADD30</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NSPK-ADD360</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NSPK-ADD360</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NSPK-ADD60</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NSPK-ADD60</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NSPK-ADD90</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NSPK-ADD90</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NSPK-SEAT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NSPK-SEAT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NSPK-BRND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NSPK-BRND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NSPK-SSLMIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NSPK-SSLMIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NSPK-SSLMON</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NSPK-SSLMON</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NSPK-CUST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NSPK-CUST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-GROUND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-GROUND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PM-GTP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PM-GTP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PM-GTS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PM-GTS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-HANDLE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-HANDLE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HOSTCNTL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HOSTCNTL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HTMLODAUD15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HTMLODAUD15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HTMLODAUDEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HTMLODAUDEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HTMLODAUD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HTMLODAUD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HTMLODAUDSI15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HTMLODAUDSI15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HTMLODAUDSIEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HTMLODAUDSIEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HTMLODAUDSI</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HTMLODAUDSI</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ILWC-REC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ILWC-REC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ILWC-MIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ILWC-MIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IMEET10K-SHORT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IMEET10K-SHORT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IMEET2K-SHORT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IMEET2K-SHORT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IM-BUYOUT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IM-BUYOUT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IMEET-SHORTFALL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IMEET-SHORTFALL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IMEET-SHORT-SOFT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IMEET-SHORT-SOFT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IMMEDIATEPLIST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IMMEDIATEPLIST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IMMRECSESSION</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IMMRECSESSION</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>INVITE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INVITE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EVENTTELESUPPORT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EVENTTELESUPPORT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-LIVEVIDEO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-LIVEVIDEO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UNYTELITEMIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UNYTELITEMIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UNYTEBRANDLOB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UNYTEBRANDLOB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UNYTENU1000</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UNYTENU1000</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UNYTENU1000A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UNYTENU1000A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UNYTENU15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UNYTENU15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UNYTENU15A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UNYTENU15A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UNYTENU25</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UNYTENU25</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UNYTENU25A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UNYTENU25A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UNYTEPROMIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UNYTEPROMIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UNYTEPROSRVCS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UNYTEPROSRVCS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UNYTERECORD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UNYTERECORD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UNYTEROOM200</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UNYTEROOM200</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UNYTEROOM25</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UNYTEROOM25</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UNYTEROOM50</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UNYTEROOM50</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UNYTEROOM100</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UNYTEROOM100</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UNYTESEATOVER</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UNYTESEATOVER</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UNYTESEAT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UNYTESEAT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTCAMPGNTRK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTCAMPGNTRK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MSG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MSG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BM-EMAIL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BM-EMAIL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>3RDPARTYWEB-MS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>3RDPARTYWEB-MS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MINIMUM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MINIMUM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-MISC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-MISC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MISC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MISC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTMOCKLIVEVID</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTMOCKLIVEVID</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-SITEMIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-SITEMIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MSLMPROUSL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MSLMPROUSL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MSLMPROUSL-A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MSLMPROUSL-A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MSLMSTDUSL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MSLMSTDUSL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MSLMSTDUSL-A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MSLMSTDUSL-A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-UROOMA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-UROOMA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-SEATA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-SEATA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-NUSEATA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-NUSEATA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-SEATSTRG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-SEATSTRG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-SEATOVER</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-SEATOVER</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-SEATSET</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-SEATSET</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-UROOMB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-UROOMB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-SEATB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-SEATB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-NUSEATB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-NUSEATB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MSGI</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MSGI</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTMULTIREG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTMULTIREG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NAMEONENTRY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NAMEONENTRY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SHIPPRTYL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SHIPPRTYL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SHIPPRTYP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SHIPPRTYP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SHIPSTDL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SHIPSTDL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SHIPSTDP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SHIPSTDP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NONSTREAMING</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NONSTREAMING</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NONSTREAMING15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NONSTREAMING15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NONSTREAMING250</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NONSTREAMING250</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NONSTREAMINGEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NONSTREAMINGEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTNONSTRM4000</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTNONSTRM4000</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTNONSTRM6000</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTNONSTRM6000</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTNONSTRM2000</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTNONSTRM2000</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NOSHOW-FEE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NOSHOW-FEE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NOTIF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NOTIF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EMAILSUPPORT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EMAILSUPPORT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTONDMDVID</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTONDMDVID</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTONDMDVSL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTONDMDVSL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ONLINEREG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ONLINEREG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DISC-OPNDRS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DISC-OPNDRS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>OP_ASSIST_TF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>OP_ASSIST_TF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>OPERSTANDBY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>OPERSTANDBY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>REP-OCS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>REP-OCS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>REP-OOPS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>REP-OOPS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>REP-ORES</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>REP-ORES</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-OVER/PRESCONT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-OVER/PRESCONT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-OVER/USERCONT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-OVER/USERCONT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-OVER/WEBCAST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-OVER/WEBCAST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P10AUDWEBCA250</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P10AUDWEBCA250</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P10AUDWEBCA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P10AUDWEBCA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P10WCASTAUD15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P10WCASTAUD15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P10WCASTAUDEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P10WCASTAUDEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P10COLWIDGETBUND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P10COLWIDGETBUND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P10ENTWIDGETBUND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P10ENTWIDGETBUND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P10ONDEMAUD15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P10ONDEMAUD15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P10ONDEMAUDEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P10ONDEMAUDEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P10ONDEMVID15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P10ONDEMVID15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P10ONDEMVIDEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P10ONDEMVIDEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P10ONDEMAUD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P10ONDEMAUD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P10ONDEMVID</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P10ONDEMVID</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P10SCREEWEB15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P10SCREEWEB15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P10SCREWEBAUDEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P10SCREWEBAUDEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P10SCREEWEBCA250</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P10SCREEWEBCA250</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P10SCREENSHARWC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P10SCREENSHARWC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P10WCASTVID15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P10WCASTVID15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P10WCASTVIDEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P10WCASTVIDEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P10VIDWEBCA250</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P10VIDWEBCA250</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>P10VIDWEBCA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>P10VIDWEBCA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-PACKET</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-PACKET</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTPPVEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTPPVEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTPPVEVENT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTPPVEVENT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXSUPPSOL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXSUPPSOL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CT-WS-PP-NRC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CT-WS-PP-NRC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PHONEFAXSCHG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PHONEFAXSCHG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-COPY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-COPY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-COPYC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-COPYC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ECIRPC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ECIRPC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>POLLING</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>POLLING</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>REP-POLL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>REP-POLL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>REP-PSTCON</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>REP-PSTCON</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-SHIP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-SHIP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PRECONFCOMM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PRECONFCOMM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PRECONFSUPP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PRECONFSUPP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>C125</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>C125</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>C100</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>C100</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PRC-295REF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PRC-295REF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PM-PSS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PM-PSS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ECIRPCS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ECIRPCS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-PRINT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-PRINT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-SHPR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-SHPR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PRODSERVICES</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PRODSERVICES</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTPROSVC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTPROSVC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>QAP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>QAP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC-NUSEATA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC-NUSEATA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC-NUSEATB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC-NUSEATB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC-SSLSU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC-SSLSU</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RCAUDITORIUM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCAUDITORIUM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RCVIEW</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCVIEW</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ReadyConference toll</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>READY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ReadyConference toll-free</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>READY8</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ReadyConference/Scheduled ReadyConference Dial-out</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MODDIALOUT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RPLACE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RPLACE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RECORDSETUP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RECORDSETUP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RCAUDIO-2+</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCAUDIO-2+</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CT-REC-PS-EXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CT-REC-PS-EXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CF-RECT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CF-RECT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CF-RECTF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CF-RECTF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RCAUDIO-1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCAUDIO-1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RECRUIT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RECRUIT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-RMSU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-RMSU</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RCREHER</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCREHER</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>REMINDER</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>REMINDER</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EREM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EREM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-RO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-RO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CF-REPT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CF-REPT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CF-REPTF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CF-REPTF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SETUP-FEE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SETUP-FEE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AUDIOFAILOVER</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AUDIOFAILOVER</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PRC-295RR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PRC-295RR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-ASSEMBLE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-ASSEMBLE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RSVPREKEY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RSVPREKEY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RSVPLARGE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RSVPLARGE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RSVP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RSVP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RSVPMED</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RSVPMED</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EH-PROG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EH-PROG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>REP-RSVP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>REP-RSVP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RSVPWEB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RSVPWEB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RSVP-CWSETUP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RSVP-CWSETUP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RSVP-FH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RSVP-FH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RSVP-PH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RSVP-PH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RSVP-RTREP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RSVP-RTREP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTRUSHPROSVC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTRUSHPROSVC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTRUSHFEE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTRUSHFEE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RUSHFEESLESS48</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RUSHFEESLESS48</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RUSHRECSESSION</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RUSHRECSESSION</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Scheduled ReadyConference toll</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PASS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Scheduled ReadyConference toll-free</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PASS8</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SCHEDULINGFEE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SCHEDULINGFEE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SERVICEFEE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SERVICEFEE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RSVP-PSETUP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RSVP-PSETUP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RECR-SETUP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RECR-SETUP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>REM-SETUP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>REM-SETUP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RSVP-WSETUP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RSVP-WSETUP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EH-WRSVPSP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EH-WRSVPSP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RSVP-EWSETUP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RSVP-EWSETUP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SIGACQUISERVICES</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SIGACQUISERVICES</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SLIVFLASHAUDONLY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SLIVFLASHAUDONLY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SLIVEFLAAONLY15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SLIVEFLAAONLY15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SLIVEFLAAONLY250</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SLIVEFLAAONLY250</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SLIVEFLAAONLYEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SLIVEFLAAONLYEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SLIVFLASHVIDONLY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SLIVFLASHVIDONLY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SLIVEFLAVONLY15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SLIVEFLAVONLY15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SLIVEFLAVONLY250</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SLIVEFLAVONLY250</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SLIVEFLAVONLYEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SLIVEFLAVONLYEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SLIVEFLASHAUDWEB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SLIVEFLASHAUDWEB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SLIVEFLASHAUD15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SLIVEFLASHAUD15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SLIVEFLASHAUD250</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SLIVEFLASHAUD250</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SLIVEFLASHAUDEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SLIVEFLASHAUDEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SLIVEFLASHVIDWEB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SLIVEFLASHVIDWEB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SLIVEFLASHVID15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SLIVEFLASHVID15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SLIVEFLASHVID250</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SLIVEFLASHVID250</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SLIVEFLASHVIDEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SLIVEFLASHVIDEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SIMHTMLAUD15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SIMHTMLAUD15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SIMHTMLAUDSI15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SIMHTMLAUDSI15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SIMHTMLAUDEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SIMHTMLAUDEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SIMHTMLAUDSIEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SIMHTMLAUDSIEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SIMHTMLAUD250</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SIMHTMLAUD250</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SIMHTMLAUDSI250</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SIMHTMLAUDSI250</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SIMHTMLAUD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SIMHTMLAUD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SIMHTMLAUDSI</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SIMHTMLAUDSI</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SIMHTMLVID15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SIMHTMLVID15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SIMHTMLVIDEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SIMHTMLVIDEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SIMHTMLVIDSIEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SIMHTMLVIDSIEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SIMHTMLVID250</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SIMHTMLVID250</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SIMHTMLVIDSI250</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SIMHTMLVIDSI250</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SIMHTMLVID</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SIMHTMLVID</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SIMHTMLVIDSI</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SIMHTMLVIDSI</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SIMHTMLVIDSI15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SIMHTMLVIDSI15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTSNGLFILEARC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTSNGLFILEARC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTSLIDES250V</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTSLIDES250V</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTSLIDES30MIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTSLIDES30MIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SLIDESONLYEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SLIDESONLYEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-AUD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-AUD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-BASIC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-BASIC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-BSETUP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-BSETUP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-CUSTOM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-CUSTOM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-SETUPAD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-SETUPAD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-SETUP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-SETUP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-DELUXE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-DELUXE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-TRANENT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-TRANENT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-INTLDAY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-INTLDAY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-MIN8</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-MIN8</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-MIND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-MIND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-MISC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-MISC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-RUSH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-RUSH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-VCSETUP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-VCSETUP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-TRANSCR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-TRANSCR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-UPLOAD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-UPLOAD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-REPORTR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-REPORTR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB-REPORTA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SB-REPORTA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SC-SMALL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SC-SMALL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SC-VERYLARGE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SC-VERYLARGE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SC-MEDIUM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SC-MEDIUM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SC-HUGE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SC-HUGE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SC-LARGE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SC-LARGE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SC-ADDREPLAY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SC-ADDREPLAY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SC-ADDPARTIC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SC-ADDPARTIC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>REP-SCAST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>REP-SCAST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SPANTRLSCRP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SPANTRLSCRP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EQ-PHONERENT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EQ-PHONERENT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SRCRESFEE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SRCRESFEE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>STDRECSESSION</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>STDRECSESSION</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-SHS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-SHS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>STATELOCTAX</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>STATELOCTAX</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LFLASHWEBCAM15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LFLASHWEBCAM15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LFLASHWEBCAM250</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LFLASHWEBCAM250</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LFLASHWEBCAMEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LFLASHWEBCAMEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-STORAGE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-STORAGE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>INTECH-A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INTECH-A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTSLIDESONLY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTSLIDESONLY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AP-CD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AP-CD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SURVEYADDLREPORT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SURVEYADDLREPORT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SURVEYADMINFEE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SURVEYADMINFEE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SURVEYSETUPFEE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SURVEYSETUPFEE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-ARCHIVE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-ARCHIVE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>REPLAY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>REPLAY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>REPLAY2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>REPLAY2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CCRFFEE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CCRFFEE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CONF-MIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CONF-MIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>COMB-MIN8</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>COMB-MIN8</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CF-TRANS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CF-TRANS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TRANASAP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TRANASAP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TRAN2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TRAN2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TRAN3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TRAN3</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TRANEXPRS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TRANEXPRS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TRANLSCRP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TRANLSCRP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TRANSLATE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TRANSLATE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TRAVEL-EXPENSE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TRAVEL-EXPENSE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-SH2d</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-SH2d</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>USFFEE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>USFFEE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UNLWEB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UNLWEB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ECIRUCS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ECIRUCS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>C-VCCONFLDR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>C-VCCONFLDR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-LROOMA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-LROOMA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-LROOMB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-LROOMB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-ROOMSUB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-ROOMSUB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-SEATSREG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-SEATSREG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-SEATASL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-SEATASL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-SEATBREC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-SEATBREC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-SEATBRND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-SEATBRND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ECPRESAS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ECPRESAS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC-PRESENTSVCS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EC-PRESENTSVCS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ECVIDEO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ECVIDEO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-90DA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-90DA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-AH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-AH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-AP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-AP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-AAH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-AAH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-AAS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-AAS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-AE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-AE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-AOD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-AOD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-CDA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-CDA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-CDB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-CDB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-CDF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-CDF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-CP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-CP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-STOR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-STOR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-ACIND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-ACIND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-LPU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-LPU</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-LACL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-LACL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-LACS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-LACS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-LIL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-LIL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-LIS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-LIS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-TRAN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-TRAN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-PP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-PP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-PDFH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-PDFH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-ACPO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-ACPO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-ACPH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-ACPH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-ACQAP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-ACQAP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-REE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-REE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-RES</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-RES</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-H</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-H</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-ACSL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-ACSL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-SSP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-SSP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-SSRES</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-SSRES</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VSD-URL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VSD-URL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTVIDPOD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTVIDPOD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VIDEOPRODUCTION</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VIDEOPRODUCTION</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTONDMDVIDEX</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTONDMDVIDEX</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTVIDWSLDEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTVIDWSLDEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTVIDEXT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTVIDEXT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTVIDSTRM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTVIDSTRM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTVIDWSLIDES</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTVIDWSLIDES</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTVIDCD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTVIDCD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTONDMDVSLEX</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTONDMDVSLEX</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VIRTUALSHOW</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VIRTUALSHOW</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VIRTUALSHOWCUST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VIRTUALSHOWCUST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-REG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-REG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VisionCast Meeting</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-MMIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-MADD90</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-MADD90</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-MREC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-MREC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-MRPLY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-MRPLY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-SSL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-SSL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-REC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-REC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-FILE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-FILE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC-RPLY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VC-RPLY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>REP-VCAST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>REP-VCAST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BM-VMAIL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BM-VMAIL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-WCBSU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-WCBSU</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WALLETCARDINV</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WALLETCARDINV</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-WCLC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-WCLC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VCRC-TRAIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VCRC-TRAIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PRC-295WR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PRC-295WR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ECIRWC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ECIRWC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTCANCEL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTCANCEL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EXPEDITEAUDIO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EXPEDITEAUDIO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EXPEDITEVIDEO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EXPEDITEVIDEO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WEBCAST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WEBCAST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTSIGNALTEST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTSIGNALTEST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXAOLPRO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXAOLPRO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXASSIST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXASSIST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXAUDIO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXAUDIO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXCONNECT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXCONNECT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXCONNFED</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXCONNFED</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXCUSOMMT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXCUSOMMT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXCUSTOM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXCUSTOM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RCEE-MICRO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCEE-MICRO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RCEEMICRO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCEEMICRO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXEENHCP100</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXEENHCP100</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXEENHCP200</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXEENHCP200</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RCEC-MICRO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCEC-MICRO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RCECMICRO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCECMICRO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RCEC-SEAT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCEC-SEAT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXROOM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXROOM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RCECSEAT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCECSEAT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXEVENT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXEVENT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXEVENTREC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXEVENTREC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXROOMEC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXROOMEC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXLIVE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXLIVE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ReadyCast Recording File</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCRECORD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXMCMIN-MICRO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXMCMIN-MICRO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXMCMIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXMCMIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WX-NHOST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WX-NHOST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC-SEATA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC-SEATA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ReadyCast</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCAST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC-SEATB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC-SEATB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RCNUSEATA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCNUSEATA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC-SEATBRND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC-SEATBRND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC-SEATSET</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC-SEATSET</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC-SEATSSL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC-SEATSSL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXROOMMC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXROOMMC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXNAMEOVER</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXNAMEOVER</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC-SEATOVER</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC-SEATOVER</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXPORTSUITE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXPORTSUITE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXSTUDIO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXSTUDIO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXPRODSVCS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXPRODSVCS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXPSO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXPSO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXPSOMAINT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXPSOMAINT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXROOMOVER</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXROOMOVER</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXSALESSEAT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXSALESSEAT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXSALESNH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXSALESNH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXSALESSUPPORT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXSALESSUPPORT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXSALESTRAIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXSALESTRAIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RCSEATOVER</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCSEATOVER</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXSVCDSK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXSVCDSK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RCSEATSET</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCSEATSET</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXSTORE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXSTORE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXSCNAMED</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXSCNAMED</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RCSC-SEAT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCSC-SEAT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RCSCSEAT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCSCSEAT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>3RDPARTYWEB-WBX</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>3RDPARTYWEB-WBX</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXSUPPORTNH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXSUPPORTNH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXSUPPORTSUITE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXSUPPORTSUITE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXSYSMAIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXSYSMAIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXTRCONDEM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXTRCONDEM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXTRAINNHCP100</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXTRAINNHCP100</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXTRAINNHCP30</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXTRAINNHCP30</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXTRAINNHCP50</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXTRAINNHCP50</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXTRAINSUPPORT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXTRAINSUPPORT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXTRAINNAMED</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXTRAINNAMED</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RCTC-SEAT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCTC-SEAT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RCTCSEAT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RCTCSEAT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXTRAINSUITE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXTRAINSUITE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WBXVOIP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WBXVOIP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WEBPROSETUP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WEBPROSETUP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WEBSTDSETUP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WEBSTDSETUP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WEBPROSUB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WEBPROSUB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WEBSTDSUB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WEBSTDSUB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCSTSCHEDFEE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCSTSCHEDFEE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WCASTSCHEDFEE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WCASTSCHEDFEE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-WLPKT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-WLPKT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FL-WPC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL-WPC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WHOLESALE-NRC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WHOLESALE-NRC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UNYTEBRANDSITE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UNYTEBRANDSITE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WHOLESALE-RC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WHOLESALE-RC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WHOLESALE-UDRC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WHOLESALE-UDRC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WC-CON</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WC-CON</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WC-MIN8</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WC-MIN8</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WC-MIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WC-MIN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WXTCONDEMMOD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WXTCONDEMMOD</Name>
+    </EnumItem>
+  </Items>
+  <Name>ChargeType</Name>
+  <Namespace>premconf.com/ancillarycharges</Namespace>
+</EnumCategory>

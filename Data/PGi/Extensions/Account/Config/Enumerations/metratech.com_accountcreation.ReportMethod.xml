@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Report Method</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>Account</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>0</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>None</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+        <arrays:string>P_BI0010Q_CLIENT_EFILE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EFGeneric1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>2</arrays:string>
+        <arrays:string>P_BI0010Q_CLIENT_EFILE_MOD_COMPNAME</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EFGeneric2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>3</arrays:string>
+        <arrays:string>NALLEN_CLIENT_EFILE2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EFGeneric3</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4</arrays:string>
+        <arrays:string>P_BI0052Q_NOVELL_FILE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EFGeneric4</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>13</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EFGeneric5</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EFGeneric5 with Zero-Rated Items</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>5</arrays:string>
+        <arrays:string>TSIBillRef</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TSI - Bill Reference</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>6</arrays:string>
+        <arrays:string>TSIClientMatter</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TSI - Client Matter</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>7</arrays:string>
+        <arrays:string>DiskBill DAT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Disk Bill DAT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>8</arrays:string>
+        <arrays:string>DiskBill CSV</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Disk Bill CSV</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>9</arrays:string>
+        <arrays:string>DiskBill AcctName</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Disk Bill Acct Name</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>10</arrays:string>
+        <arrays:string>DiskBill ConfDate</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Disk Bill Conf Date</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>11</arrays:string>
+        <arrays:string>DiskBill 2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Disk Bill 2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>12</arrays:string>
+        <arrays:string>Citizens Data Extract</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Citizens Data Extract</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>14</arrays:string>
+        <arrays:string>Citizens Data Extract v2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Citizens Data Extract v2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>16</arrays:string>
+        <arrays:string>Orange EBill Extract</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Orange EBill Extract</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>17</arrays:string>
+        <arrays:string>CitiGroup EFile</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CitiGroup EFile</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>18</arrays:string>
+        <arrays:string>Canadian Tax EFile</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Canadian Tax EFile</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>19</arrays:string>
+        <arrays:string>SAP EFile</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SAP EFile</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>20</arrays:string>
+        <arrays:string>CIGNA CPAY EFile</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CIGNA CPAY EFile</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>21</arrays:string>
+        <arrays:string>Cincinnati Bell EFile</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Cincinnati Bell EFile</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>22</arrays:string>
+        <arrays:string>MoneyGram EFile</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MoneyGram EFile</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>23</arrays:string>
+        <arrays:string>LINK EFile</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LINK EFile</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>24</arrays:string>
+        <arrays:string>LINK-Accenture EFile</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LINK-Accenture EFile</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>25</arrays:string>
+        <arrays:string>ModeratorTimeZone</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ModeratorTimeZone</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>26</arrays:string>
+        <arrays:string>Copper EFile</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Copper EFile</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>27</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EFGeneric5Conflink</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>28</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Quorum EFile</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>29</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EFGeneric7</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>30</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EFGeneric6</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>31</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EFGeneric5CitiParticipant</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>32</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TATAModeratorTimeZone</Name>
+    </EnumItem>
+  </Items>
+  <Name>ReportMethod</Name>
+  <Namespace>metratech.com/accountcreation</Namespace>
+</EnumCategory>

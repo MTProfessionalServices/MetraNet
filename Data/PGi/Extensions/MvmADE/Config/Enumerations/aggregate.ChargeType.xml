@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Can be proportional, inverse_proportional, or currency_amount</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>MvmADE</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>0</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PROPORTIONAL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INVERSE_PROPORTIONAL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CURRENCY_AMOUNT</Name>
+    </EnumItem>
+  </Items>
+  <Name>ChargeType</Name>
+  <Namespace>aggregate</Namespace>
+</EnumCategory>

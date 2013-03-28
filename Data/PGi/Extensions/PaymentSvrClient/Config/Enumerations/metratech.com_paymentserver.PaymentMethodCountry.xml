@@ -1,0 +1,1847 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Country list enumeration for CyberSource processing</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>PaymentSvrClient</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AF</arrays:string>
+        <arrays:string>AFG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Afganistan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AL</arrays:string>
+        <arrays:string>ALB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Albania</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DZ</arrays:string>
+        <arrays:string>DZA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Algeria</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AS</arrays:string>
+        <arrays:string>ASM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>American Samoa</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AD</arrays:string>
+        <arrays:string>AND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Andorra</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AO</arrays:string>
+        <arrays:string>AGO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Angola</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AI</arrays:string>
+        <arrays:string>AIA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Anguilla</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AQ</arrays:string>
+        <arrays:string>ATA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Antarctica</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AG</arrays:string>
+        <arrays:string>ATG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Antigua</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AR</arrays:string>
+        <arrays:string>ARG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Argentina</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AM</arrays:string>
+        <arrays:string>ARM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Armenia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AW</arrays:string>
+        <arrays:string>ABW</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Aruba</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AU</arrays:string>
+        <arrays:string>AUS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Australia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AT</arrays:string>
+        <arrays:string>AUT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Austria</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AZ</arrays:string>
+        <arrays:string>AZE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Azerbaijan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BS</arrays:string>
+        <arrays:string>BHS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Bahamas</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BH</arrays:string>
+        <arrays:string>BHR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Bahrain</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BD</arrays:string>
+        <arrays:string>BGD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Bangladesh</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BB</arrays:string>
+        <arrays:string>BRB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Barbados</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BY</arrays:string>
+        <arrays:string>BLR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Belarus</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BE</arrays:string>
+        <arrays:string>BEL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Belgium</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BZ</arrays:string>
+        <arrays:string>BLZ</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Belize</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BJ</arrays:string>
+        <arrays:string>BEN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Benin</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BM</arrays:string>
+        <arrays:string>BMU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Bermuda</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BT</arrays:string>
+        <arrays:string>BTN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Bhutan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BO</arrays:string>
+        <arrays:string>BOL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Bolivia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BA</arrays:string>
+        <arrays:string>BIH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Bosnia/Hercegovina</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BW</arrays:string>
+        <arrays:string>BWA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Botswana</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BR</arrays:string>
+        <arrays:string>BRA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Brazil</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VG</arrays:string>
+        <arrays:string>IOT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>British Virgin Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BN</arrays:string>
+        <arrays:string>BRN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Brunei</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BG</arrays:string>
+        <arrays:string>BGR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Bulgaria</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BF</arrays:string>
+        <arrays:string>BFA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Burkina Faso</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BI</arrays:string>
+        <arrays:string>BDI</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Burundi</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>KH</arrays:string>
+        <arrays:string>KHM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Cambodia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CM</arrays:string>
+        <arrays:string>CMR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Cameroon</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CA</arrays:string>
+        <arrays:string>CAN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Canada</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CV</arrays:string>
+        <arrays:string>CPV</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Cape Verde Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>KY</arrays:string>
+        <arrays:string>CYM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Cayman Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CF</arrays:string>
+        <arrays:string>CAF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Central African Republic</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TD</arrays:string>
+        <arrays:string>TCD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Chad Republic</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CL</arrays:string>
+        <arrays:string>CHL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Chile</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CN</arrays:string>
+        <arrays:string>CHN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>China</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CX</arrays:string>
+        <arrays:string>CXR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Christmas Island</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CC</arrays:string>
+        <arrays:string>CCK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Cocos (Keeling) Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CO</arrays:string>
+        <arrays:string>COL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Colombia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>KM</arrays:string>
+        <arrays:string>COM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Comoros</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CG</arrays:string>
+        <arrays:string>COG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Congo</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CK</arrays:string>
+        <arrays:string>COK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Cook Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CR</arrays:string>
+        <arrays:string>CRI</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Costa Rica</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HR</arrays:string>
+        <arrays:string>HRV</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Croatia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CU</arrays:string>
+        <arrays:string>CUB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Cuba</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CY</arrays:string>
+        <arrays:string>CYP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Cyprus</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CZ</arrays:string>
+        <arrays:string>CZE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Czech Republic</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DK</arrays:string>
+        <arrays:string>DNK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Denmark</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DJ</arrays:string>
+        <arrays:string>DJI</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Djibouti</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DM</arrays:string>
+        <arrays:string>DMA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Dominica</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DO</arrays:string>
+        <arrays:string>DOM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Dominican Republic</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EC</arrays:string>
+        <arrays:string>ECU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Ecuador</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EG</arrays:string>
+        <arrays:string>EGY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Egypt</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SV</arrays:string>
+        <arrays:string>SLV</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>El Salvador</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GQ</arrays:string>
+        <arrays:string>GNQ</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Equatorial Guinea</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ER</arrays:string>
+        <arrays:string>ERI</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Eritrea</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EE</arrays:string>
+        <arrays:string>EST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Estonia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ET</arrays:string>
+        <arrays:string>ETH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Ethiopia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FO</arrays:string>
+        <arrays:string>FLK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Faeroe Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FK</arrays:string>
+        <arrays:string>FRO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Falkland Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FJ</arrays:string>
+        <arrays:string>FJI</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Fiji Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FI</arrays:string>
+        <arrays:string>FIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Finland</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FR</arrays:string>
+        <arrays:string>FRA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>France</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FX</arrays:string>
+        <arrays:string>FXX</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>France, Metropolitan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>French Antilles</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GF</arrays:string>
+        <arrays:string>GUF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>French Guiana</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PF</arrays:string>
+        <arrays:string>PYF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>French Polynesia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GA</arrays:string>
+        <arrays:string>GAB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Gabon</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GM</arrays:string>
+        <arrays:string>GMB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Gambia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GE</arrays:string>
+        <arrays:string>GEO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Georgia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DE</arrays:string>
+        <arrays:string>DEU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Germany</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GH</arrays:string>
+        <arrays:string>GHA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Ghana</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GI</arrays:string>
+        <arrays:string>GIB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Gibraltar</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GD</arrays:string>
+        <arrays:string>GRD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Grenada</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GR</arrays:string>
+        <arrays:string>GRC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Greece</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GL</arrays:string>
+        <arrays:string>GRL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Greenland</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GP</arrays:string>
+        <arrays:string>GLP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Guadeloupe</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GU</arrays:string>
+        <arrays:string>GUM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Guam</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GT</arrays:string>
+        <arrays:string>GTM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Guatemala</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GN</arrays:string>
+        <arrays:string>GIN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Guinea</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GW</arrays:string>
+        <arrays:string>GNB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Guinea-Bissau</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GY</arrays:string>
+        <arrays:string>GUY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Guyana</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HT</arrays:string>
+        <arrays:string>HTI</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Haiti</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HN</arrays:string>
+        <arrays:string>HND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Honduras</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HK</arrays:string>
+        <arrays:string>HKG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Hong Kong</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HU</arrays:string>
+        <arrays:string>HUN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Hungary</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IS</arrays:string>
+        <arrays:string>ISL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Iceland</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IN</arrays:string>
+        <arrays:string>IND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>India</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ID</arrays:string>
+        <arrays:string>IDN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Indonesia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IR</arrays:string>
+        <arrays:string>IRN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Iran</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IQ</arrays:string>
+        <arrays:string>IRQ</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Iraq</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IE</arrays:string>
+        <arrays:string>IRL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Ireland</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IL</arrays:string>
+        <arrays:string>ISR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Israel</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IT</arrays:string>
+        <arrays:string>ITA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Italy</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CI</arrays:string>
+        <arrays:string>CIV</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Ivory Coast</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>JM</arrays:string>
+        <arrays:string>JAM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Jamaica</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>JP</arrays:string>
+        <arrays:string>JPN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Japan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>JO</arrays:string>
+        <arrays:string>JOR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Jordan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>KZ</arrays:string>
+        <arrays:string>KAZ</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Kazakhstan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>KE</arrays:string>
+        <arrays:string>KEN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Kenya</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>KI</arrays:string>
+        <arrays:string>KIR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Kiribati</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>KW</arrays:string>
+        <arrays:string>KWT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Kuwait</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>KG</arrays:string>
+        <arrays:string>KGZ</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Kyrgyzstan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>lA</arrays:string>
+        <arrays:string>LAO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Laos</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LV</arrays:string>
+        <arrays:string>LVA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Latvia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LB</arrays:string>
+        <arrays:string>LBN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Lebanon</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LS</arrays:string>
+        <arrays:string>LSO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Lesotho</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LR</arrays:string>
+        <arrays:string>LBR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Liberia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LY</arrays:string>
+        <arrays:string>LBY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Libya</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LI</arrays:string>
+        <arrays:string>LIE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Liechtenstein</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LT</arrays:string>
+        <arrays:string>LTU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Lithuania</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LU</arrays:string>
+        <arrays:string>LUX</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Luxembourg</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MO</arrays:string>
+        <arrays:string>MAC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Macau</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MK</arrays:string>
+        <arrays:string>MKD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Macedonia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MG</arrays:string>
+        <arrays:string>MDG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Madagascar</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MW</arrays:string>
+        <arrays:string>MWI</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Malawi</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MY</arrays:string>
+        <arrays:string>MYS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Malaysia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MV</arrays:string>
+        <arrays:string>MDV</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Maldives</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ML</arrays:string>
+        <arrays:string>MLI</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Mali Republic</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MT</arrays:string>
+        <arrays:string>MLT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Malta</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MH</arrays:string>
+        <arrays:string>MHL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Marshall Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MU</arrays:string>
+        <arrays:string>MUS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Mauritius</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MR</arrays:string>
+        <arrays:string>MRT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Mauritania</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>YT</arrays:string>
+        <arrays:string>MYT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Mayotte Island</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MX</arrays:string>
+        <arrays:string>MEX</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Mexico</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FM</arrays:string>
+        <arrays:string>FSM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Micronesia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MD</arrays:string>
+        <arrays:string>MDA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Moldova</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MC</arrays:string>
+        <arrays:string>MCO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Monaco</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MN</arrays:string>
+        <arrays:string>MNG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Mongolia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MS</arrays:string>
+        <arrays:string>MSR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MontSerrat</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MA</arrays:string>
+        <arrays:string>MAR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Morocco</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MZ</arrays:string>
+        <arrays:string>MOZ</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Mozambique</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MM</arrays:string>
+        <arrays:string>MMR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Myanmar</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NA</arrays:string>
+        <arrays:string>NAM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Namibia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NR</arrays:string>
+        <arrays:string>NRU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Nauru</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NP</arrays:string>
+        <arrays:string>NPL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Nepal</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NL</arrays:string>
+        <arrays:string>NLD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Netherlands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AN</arrays:string>
+        <arrays:string>ANT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Netherlands Antilles</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NC</arrays:string>
+        <arrays:string>NCL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>New Caledonia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NZ</arrays:string>
+        <arrays:string>NZL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>New Zealand</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NI</arrays:string>
+        <arrays:string>NIC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Nicaragua</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NE</arrays:string>
+        <arrays:string>NER</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Niger Republic</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NG</arrays:string>
+        <arrays:string>NGA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Nigeria</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NU</arrays:string>
+        <arrays:string>NIU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Niue</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NF</arrays:string>
+        <arrays:string>NFK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Norfolk Island</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NO</arrays:string>
+        <arrays:string>NOR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Norway</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>KP</arrays:string>
+        <arrays:string>PRK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>North Korea</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>OM</arrays:string>
+        <arrays:string>OMN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Oman</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PK</arrays:string>
+        <arrays:string>PAK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Pakistan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PW</arrays:string>
+        <arrays:string>PLW</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Palau</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PS</arrays:string>
+        <arrays:string>PSE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Palestine</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PA</arrays:string>
+        <arrays:string>PAN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Panama</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PG</arrays:string>
+        <arrays:string>PNG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Papua New Guinea</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PY</arrays:string>
+        <arrays:string>PRY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Paraguay</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PE</arrays:string>
+        <arrays:string>PER</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Peru</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PH</arrays:string>
+        <arrays:string>PHL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Philippines</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PL</arrays:string>
+        <arrays:string>POL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Poland</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PT</arrays:string>
+        <arrays:string>PRT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Portugal</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PR</arrays:string>
+        <arrays:string>PRI</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Puerto Rico</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>QA</arrays:string>
+        <arrays:string>QAT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Qatar</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RE</arrays:string>
+        <arrays:string>REU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Reunion Island</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RO</arrays:string>
+        <arrays:string>ROM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Romania</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RU</arrays:string>
+        <arrays:string>RUS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Russia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RW</arrays:string>
+        <arrays:string>RWA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Rwanda</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SM</arrays:string>
+        <arrays:string>SMR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>San Marino</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ST</arrays:string>
+        <arrays:string>STP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Sao Tome</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SA</arrays:string>
+        <arrays:string>SAU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Saudi Arabia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SN</arrays:string>
+        <arrays:string>SEN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Senegal Republic</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RS</arrays:string>
+        <arrays:string>SRB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Serbia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ME</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Serbia/Montenegro</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SC</arrays:string>
+        <arrays:string>SYC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Seychelles Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SL</arrays:string>
+        <arrays:string>SLE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Sierra Leone</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SG</arrays:string>
+        <arrays:string>SGP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Singapore</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SK</arrays:string>
+        <arrays:string>SVK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Slovakia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SI</arrays:string>
+        <arrays:string>SVN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Slovenia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SB</arrays:string>
+        <arrays:string>SLB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Solomon Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SO</arrays:string>
+        <arrays:string>SOM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Somalia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ZA</arrays:string>
+        <arrays:string>ZAF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>South Africa</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>KR</arrays:string>
+        <arrays:string>KOR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>South Korea</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ES</arrays:string>
+        <arrays:string>ESP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Spain</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LK</arrays:string>
+        <arrays:string>LKA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Sri Lanka</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SH</arrays:string>
+        <arrays:string>SHN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>St Helena</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>KN</arrays:string>
+        <arrays:string>KNA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>St. Kitts/Nevis</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LC</arrays:string>
+        <arrays:string>LCA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>St. Lucia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PM</arrays:string>
+        <arrays:string>SPM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>St. Pierre/Miquelon</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VC</arrays:string>
+        <arrays:string>VCT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>St. Vincent/Grenadines</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SD</arrays:string>
+        <arrays:string>SDN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Sudan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SR</arrays:string>
+        <arrays:string>SUR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Suriname</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SZ</arrays:string>
+        <arrays:string>SWZ</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Swaziland</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SE</arrays:string>
+        <arrays:string>SWE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Sweden</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CH</arrays:string>
+        <arrays:string>CHE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Switzerland</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SY</arrays:string>
+        <arrays:string>SYR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Syria</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TH</arrays:string>
+        <arrays:string>THA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Thailand</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TW</arrays:string>
+        <arrays:string>TWN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Taiwan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TJ</arrays:string>
+        <arrays:string>TJK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Tajikistan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TZ</arrays:string>
+        <arrays:string>TZA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Tanzania</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TG</arrays:string>
+        <arrays:string>TGO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Togo</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TO</arrays:string>
+        <arrays:string>TON</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Tonga Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TT</arrays:string>
+        <arrays:string>TTO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Trinidad/Tobago</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TN</arrays:string>
+        <arrays:string>TUN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Tunisia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TR</arrays:string>
+        <arrays:string>TUR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Turkey</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TM</arrays:string>
+        <arrays:string>TKM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Turkmenistan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TC</arrays:string>
+        <arrays:string>TCA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Turks/Caicos Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TV</arrays:string>
+        <arrays:string>TUV</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Tuvalu</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VI</arrays:string>
+        <arrays:string>VIR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>US Virgin Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>US</arrays:string>
+        <arrays:string>USA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>United States of America</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UG</arrays:string>
+        <arrays:string>UGA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Uganda</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UA</arrays:string>
+        <arrays:string>UKR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Ukraine</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AE</arrays:string>
+        <arrays:string>ARE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>United Arab Emirates</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GB</arrays:string>
+        <arrays:string>GBR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>United Kingdom</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UM</arrays:string>
+        <arrays:string>UMI</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>United States Minor Outlying Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UY</arrays:string>
+        <arrays:string>URY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Uruguay</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UZ</arrays:string>
+        <arrays:string>UZB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Uzbekistan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VU</arrays:string>
+        <arrays:string>VUT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Vanuatu</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VA</arrays:string>
+        <arrays:string>VAT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Vatican City</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VE</arrays:string>
+        <arrays:string>VEN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Venezuela</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VN</arrays:string>
+        <arrays:string>VNM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Vietnam</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WF</arrays:string>
+        <arrays:string>VGB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Wallis/Futuna Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Western Samoa</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>YE</arrays:string>
+        <arrays:string>YEM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Yemen</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CD</arrays:string>
+        <arrays:string>ZAR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Zaire</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ZW</arrays:string>
+        <arrays:string>ZWE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Zimbabwe</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ZM</arrays:string>
+        <arrays:string>ZMB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Zambia</Name>
+    </EnumItem>
+  </Items>
+  <Name>PaymentMethodCountry</Name>
+  <Namespace>metratech.com/paymentserver</Namespace>
+</EnumCategory>

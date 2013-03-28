@@ -1,0 +1,658 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>PartTypeID</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>PremConf</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>0</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Undefined</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptSimplePart</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptListenOnly</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptNormal</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>5</arrays:string>
+        <arrays:string>124</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptOperator</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>6</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptOperatorN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>7</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptTechLineQA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>8</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptRecordLine1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>9</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptRecordLine2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>10</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptStream1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>11</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptStream2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>12</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptLiveLine1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>13</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptLiveLine2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>14</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptLinkLine</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>16</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptAdmin</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>17</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptModeratorValidate</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>18</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptListenOnlyOutPut</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>19</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptMusicChanOutPut</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>20</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptQNAChanOutPut</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>21</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptReRouted</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>22</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptConfConnection</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>23</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptSupportOperator</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>24</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptOperatorOutLine</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>25</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptWebMeetingRecord</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>26</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptRoutedDialOutMod</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>27</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptRoutedDialOutFD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>28</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptReRoutedConvertMod</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>29</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptReRoutedConvertFD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>30</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptReservedConnection</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>201</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Client Record</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>401</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Participant</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>501</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Min Particip</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>999</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Unknown</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AUDIOLINK</arrays:string>
+        <arrays:string>101</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AUDIOLINK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BACK UP FEEDLINE</arrays:string>
+        <arrays:string>209</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BACK UP FEEDLINE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BACK UP LINK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BACK UP LINK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BACK UP RECORD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BACK UP RECORD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CLIENT MUSIC FEED</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CLIENT MUSIC FEED</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CLIENT PLAYBACK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CLIENT PLAYBACK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CLIENT TECH</arrays:string>
+        <arrays:string>202</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CLIENT TECH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>15</arrays:string>
+        <arrays:string>COMMLINE</arrays:string>
+        <arrays:string>203</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>COMMLINE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CUSTOMER SERVICE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CUSTOMER SERVICE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DIGITAL RECORD</arrays:string>
+        <arrays:string>106</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DIGITAL RECORD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EXTERNAL PLACEWARE RECORD</arrays:string>
+        <arrays:string>305</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EXTERNAL PLACEWARE RECORD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EXTERNAL SOUNDCAST/WEBCAST</arrays:string>
+        <arrays:string>114</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EXTERNAL SOUNDCAST/WEBCAST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FEEDLINE</arrays:string>
+        <arrays:string>205</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FEEDLINE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>INTERNAL COMM LINE</arrays:string>
+        <arrays:string>109</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INTERNAL COMM LINE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LINK</arrays:string>
+        <arrays:string>110</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LINK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MODERATOR</arrays:string>
+        <arrays:string>4</arrays:string>
+        <arrays:string>206</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MODERATOR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MUSIC SOURCE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MUSIC SOURCE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MUSIC FEED</arrays:string>
+        <arrays:string>123</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MUSIC FEED</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLAYBACK</arrays:string>
+        <arrays:string>111</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLAYBACK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PRE CONF LINK</arrays:string>
+        <arrays:string>118</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PRE CONF LINK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>QA PANELISTS</arrays:string>
+        <arrays:string>207</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>QA PANELISTS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SALES</arrays:string>
+        <arrays:string>120</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SALES</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>987654</arrays:string>
+        <arrays:string>SALES AT CLIENT'S REQUEST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SALES AT CLIENT'S REQUEST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SOUNDCAST (WILINK)</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SOUNDCAST (WILINK)</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SPEAKER</arrays:string>
+        <arrays:string>208</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SPEAKER</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TECH</arrays:string>
+        <arrays:string>116</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TECH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TRANSLATOR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TRANSLATOR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VISIONCAST</arrays:string>
+        <arrays:string>117</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VISIONCAST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VISIONCAST RECORD LINE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VISIONCAST RECORD LINE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>102</arrays:string>
+        <arrays:string>Audio Productions</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Audio Productions</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>104</arrays:string>
+        <arrays:string>Consultant</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Consultant</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>105</arrays:string>
+        <arrays:string>DAT Record</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DAT Record</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>E-Media</arrays:string>
+        <arrays:string>108</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>E-Media</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Remote Operator</arrays:string>
+        <arrays:string>112</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Remote Operator</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Reservations</arrays:string>
+        <arrays:string>113</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Reservations</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Taping</arrays:string>
+        <arrays:string>115</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Taping</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Internet Record</arrays:string>
+        <arrays:string>121</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Internet Record</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Live Upload</arrays:string>
+        <arrays:string>122</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Live Upload</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Coordinator</arrays:string>
+        <arrays:string>204</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Coordinator</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Panelist</arrays:string>
+        <arrays:string>210</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Panelist</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Faculty</arrays:string>
+        <arrays:string>211</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Faculty</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Contact</arrays:string>
+        <arrays:string>212</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Contact</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VCall</arrays:string>
+        <arrays:string>301</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VCall</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>StreetEvents</arrays:string>
+        <arrays:string>302</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>StreetEvents</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Webcast</arrays:string>
+        <arrays:string>303</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Webcast</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CommLine1</arrays:string>
+        <arrays:string>221</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CommLine1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CommLine2</arrays:string>
+        <arrays:string>222</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CommLine2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CommLine3</arrays:string>
+        <arrays:string>223</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CommLine3</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CommLine4</arrays:string>
+        <arrays:string>224</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CommLine4</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CommLine5</arrays:string>
+        <arrays:string>225</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CommLine5</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Announcer</arrays:string>
+        <arrays:string>103</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Announcer</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AUDIOLINKLINE</arrays:string>
+        <arrays:string>32</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AUDIOLINKLINE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>31</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ptFeedLine</Name>
+    </EnumItem>
+  </Items>
+  <Name>PartTypeID</Name>
+  <Namespace>premconf.com/Conferencing</Namespace>
+</EnumCategory>

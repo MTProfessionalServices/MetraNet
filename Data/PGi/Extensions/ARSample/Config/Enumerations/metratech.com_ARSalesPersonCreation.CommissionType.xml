@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Sales person commission types that are valid in the external AR system.</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>ARSample</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>0</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Sales</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Invoice</Name>
+    </EnumItem>
+  </Items>
+  <Name>CommissionType</Name>
+  <Namespace>metratech.com/ARSalesPersonCreation</Namespace>
+</EnumCategory>

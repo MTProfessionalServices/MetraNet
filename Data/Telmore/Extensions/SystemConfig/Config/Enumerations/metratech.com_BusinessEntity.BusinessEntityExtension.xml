@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Each entry is an extension name that contains business entities</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>SystemConfig</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Core</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Core</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Acme</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Acme</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>smoketest</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>smoketest</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Messaging</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Messaging</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MetraTech.Common</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MetraTech.Common</Name>
+    </EnumItem>
+  </Items>
+  <Name>BusinessEntityExtension</Name>
+  <Namespace>metratech.com/BusinessEntity</Namespace>
+</EnumCategory>

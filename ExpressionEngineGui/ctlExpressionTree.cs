@@ -27,6 +27,7 @@ namespace PropertyGui
         public string FunctionFilter { get; set; }
         public bool ShowNamespaces { get; set; }
         public bool AllowEntityExpand { get; set; }
+        public bool AllowEnumExpand { get; set; }
         public ContextMenuStrip EnumValueContextMenu { get; set; }
 
         //TreeState
@@ -72,6 +73,7 @@ namespace PropertyGui
             ShowNodeToolTips = true;
             PathSeparator = ".";
             AllowEntityExpand = true;
+            AllowEnumExpand = true;
             HideSelection = false;
         }
         #endregion
@@ -156,7 +158,9 @@ namespace PropertyGui
             foreach (var enumCategory in Context.EnumCategories)
             {
                 var typeNode = CreateNode(enumCategory, null);
-                AddEnumValues(enumCategory, typeNode);
+
+                if (AllowEnumExpand)
+                  AddEnumValues(enumCategory, typeNode);
             }
         }
 
@@ -249,7 +253,7 @@ namespace PropertyGui
                 if (property.Type.IsEnum)
                 {
                     var enumType = Context.GetEnumCategory((EnumerationType)property.Type);
-                    if (enumType != null)
+                    if (enumType != null && AllowEnumExpand)
                         AddEnumValues(enumType, node);
                 }
 

@@ -1,0 +1,1319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Configurable set of currencies for screens to select from.</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>Core</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DKK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DKK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>USD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>USD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AED</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AED</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AFA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AFA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AFF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AFF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AFN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AFN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ALL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ALL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AMD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AMD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ANG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ANG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AOA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AOA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ARS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ARS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AUD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AUD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AWG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AWG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AZN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AZN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BAM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BAM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BBD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BBD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BDT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BDT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BGN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BGN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BHD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BHD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BIF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BIF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BMD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BMD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BOB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BOB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BRL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BRL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BSD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BSD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BTN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BTN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BWP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BWP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BYR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BYR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BZD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BZD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CAD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CAD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CDF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CDF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CHF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CHF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CLP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CLP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CNY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CNY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>COP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>COP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CRC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CRC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CUC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CUC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CUP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CUP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CVE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CVE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CYP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CYP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CZK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CZK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DEM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DEM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DJF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DJF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DOP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DOP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DZD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DZD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EEK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EEK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EGP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EGP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ERN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ERN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ESP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ESP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ETB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ETB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EUR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EUR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FJD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FJD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FKP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FKP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>FRF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FRF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GBP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GBP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GEL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GEL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GGP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GGP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GHS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GHS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GIP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GIP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GMD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GMD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GNF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GNF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GQE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GQE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GTQ</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GTQ</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GYD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GYD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HKD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HKD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HNL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HNL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HRK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HRK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HTG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HTG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HUF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HUF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IDR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IDR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IEP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IEP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ILS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ILS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IMP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IMP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>INR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IQD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IQD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>IRR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IRR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ISK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ISK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>JEP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>JEP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>JMD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>JMD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>JOD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>JOD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>JPY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>JPY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>KES</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KES</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>KGS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KGS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>KHR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KHR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>KMF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KMF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>KPW</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KPW</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>KRW</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KRW</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>KWD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KWD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>KYD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KYD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>KZT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KZT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LAK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LAK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LBP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LBP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LKR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LKR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LRD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LRD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LSL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LSL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LTL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LTL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LVL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LVL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LYD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LYD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MAD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MAD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MDL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MDL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MGA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MGA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MGF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MGF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MKD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MKD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MMK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MMK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MNT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MNT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MOP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MOP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MRO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MRO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MTL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MTL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MUR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MUR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MVR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MVR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MWK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MWK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MXN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MXN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MYR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MYR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MZN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MZN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NAD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NAD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NGN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NGN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NIO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NIO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NOK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NOK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NPR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NPR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NZD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NZD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>OMR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>OMR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PAB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PAB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PEN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PEN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PGK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PGK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PHP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PHP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PKR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PKR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PLN</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PLN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PYG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PYG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>QAR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>QAR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ROL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ROL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RON</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RON</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RSD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RSD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RUB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RUB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RUR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RUR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RWF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RWF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SAR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SAR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SBD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SBD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SCR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SCR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SDD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SDD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SDG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SDG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SEK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SEK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SGD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SGD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SHP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SHP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SKK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SKK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SLL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SLL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SOS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SOS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SPL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SPL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SRD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SRD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>STD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>STD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SVC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SVC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SYP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SYP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SZL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SZL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>THB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>THB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TJS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TJS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TMM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TMM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TMT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TMT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TOP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TOP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TRL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TRL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TRY</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TRY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TTD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TTD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TVD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TVD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TWD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TWD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TZS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TZS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UAH</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UAH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UGX</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UGX</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UYU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UYU</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UZS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UZS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VEB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VEB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VEF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VEF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VND</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>VUV</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VUV</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>XAF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XAF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>XAG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XAG</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>XAU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XAU</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>XCD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XCD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>XDR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XDR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>XOF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XOF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>XPD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XPD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>XPF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XPF</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>XPT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>XPT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>YER</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>YER</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ZAR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ZAR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ZMK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ZMK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ZWD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ZWD</Name>
+    </EnumItem>
+  </Items>
+  <Name>SystemCurrencies</Name>
+  <Namespace>Global/SystemCurrencies</Namespace>
+</EnumCategory>

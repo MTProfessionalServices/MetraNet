@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ParameterTableEntity" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
+  <DefaultValue i:nil="true" />
+  <Description>rates for domestic calls and video calls</Description>
+  <Direction>Input</Direction>
+  <IsCore>false</IsCore>
+  <Name>DomesticRates</Name>
+  <Required>true</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>ParameterTable</Name>
+    <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
+  </Type>
+  <Namespace>sp.tdc.dk.ParameterTables</Namespace>
+  <Properties>
+    <Properties>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>the actual charge name</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TDCDescription</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Condition</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>short, long</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>RatePlan</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>Common/ProductEnums.RatePlanType</Category>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Condition</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Voice, Video, etc.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>UsageType</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>Common/UsageEnums.UsageType</Category>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Condition</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>initial call fee</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SetupFee</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>rate per second of the video call</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>RatePerUnit</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>minute, second, etc.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>UnitType</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>Common/UsageEnums.UnitType</Category>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+    </Properties>
+  </Properties>
+  <ActionsCaption i:nil="true" />
+  <Category i:nil="true" />
+  <ConditionsCaption i:nil="true" />
+  <HelpUrl i:nil="true" />
+</PropertyBag>

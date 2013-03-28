@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ProductViewEntity" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
   <Description></Description>
   <Direction>Input</Direction>
@@ -12,9 +13,11 @@
     <Name>ProductView</Name>
     <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
   </Type>
+  <Namespace>metratech.com.ProductViews</Namespace>
   <Properties>
     <Properties>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>The time that the transaction was deemed to have occured.</Description>
         <Direction>Input</Direction>
@@ -31,6 +34,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>The account to be billed for the transaction.</Description>
         <Direction>Input</Direction>
@@ -48,6 +52,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Provider Name</Description>
         <Direction>Input</Direction>
@@ -65,6 +70,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Original Retail ID_SESS value</Description>
         <Direction>Input</Direction>
@@ -85,6 +91,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Priceable Item Instance Name</Description>
         <Direction>Input</Direction>
@@ -102,6 +109,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Class of Charge</Description>
         <Direction>Input</Direction>
@@ -111,8 +119,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>ChargeTypes</Category>
-          <Namespace>DimensionalTransactions</Namespace>
+          <Category>DimensionalTransactions.ChargeTypes</Category>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -120,6 +127,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Retail Charge Amount</Description>
         <Direction>Input</Direction>
@@ -140,6 +148,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Pass-Thru Settlement Amount</Description>
         <Direction>Input</Direction>
@@ -160,6 +169,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Use Catalog based Settlement calculation</Description>
         <Direction>Input</Direction>
@@ -176,6 +186,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -192,6 +203,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -201,8 +213,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>AccountResolutionRule</Category>
-          <Namespace>DimensionalTransactions</Namespace>
+          <Category>DimensionalTransactions.AccountResolutionRule</Category>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -210,6 +221,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -227,6 +239,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -247,6 +260,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Flat or Percent</Description>
         <Direction>Input</Direction>
@@ -256,8 +270,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>MonetizationPlanTypes</Category>
-          <Namespace>DimensionalTransactions</Namespace>
+          <Category>DimensionalTransactions.MonetizationPlanTypes</Category>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -265,6 +278,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Plan value based on Plan Type</Description>
         <Direction>Input</Direction>
@@ -285,8 +299,9 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>The internal MetraNet account identifiert</Description>
+        <Description>The internal MetraNet account identifier</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>AccountId</Name>
@@ -305,6 +320,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>The time the event is deemed to have occurred</Description>
         <Direction>Input</Direction>
@@ -321,15 +337,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>The currency for the Event</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
-        <Name>FixedCurrency</Name>
+        <Name>Currency</Name>
         <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
           <ListType>None</ListType>
+          <Length>0</Length>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -337,18 +355,24 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>The charge assoicated with the event which may summarize other charges within the event.The amount can be negative to represent a credit.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
         <Name>EventCharge</Name>
         <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
+        <Type i:type="ChargeType">
+          <BaseType>Charge</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>Currency</CurrencyProperty>
           <FixedCurrency i:nil="true" />
+          <EndProperty i:nil="true" />
+          <PriceProperty i:nil="true" />
+          <ProductProperty i:nil="true" />
+          <QuantityProperty i:nil="true" />
+          <StartProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -356,6 +380,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Identifes which MetraView page will present the Event.</Description>
         <Direction>Input</Direction>
@@ -376,6 +401,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Uniquely identifes the Event</Description>
         <Direction>Input</Direction>
@@ -396,18 +422,16 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue>0</DefaultValue>
-        <Description>The Total tax for the Event.</Description>
+        <Description>The EventTax tax for the Event.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
-        <Name>TaxAmount</Name>
+        <Name>EventTax</Name>
         <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
+        <Type i:type="TaxType">
+          <BaseType>Tax</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty i:nil="true" />
-          <FixedCurrency i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -415,18 +439,16 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue>0</DefaultValue>
-        <Description>The Federal tax for the Event.</Description>
+        <Description>The FederalTax tax for the Event.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
-        <Name>FederalTaxAmount</Name>
+        <Name>FederalTax</Name>
         <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
+        <Type i:type="TaxType">
+          <BaseType>Tax</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty i:nil="true" />
-          <FixedCurrency i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -434,18 +456,16 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue>0</DefaultValue>
-        <Description>The Federal tax for the Event.</Description>
+        <Description>The StateTax tax for the Event.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
-        <Name>StateTaxAmount</Name>
+        <Name>StateTax</Name>
         <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
+        <Type i:type="TaxType">
+          <BaseType>Tax</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty i:nil="true" />
-          <FixedCurrency i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -453,18 +473,16 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue>0</DefaultValue>
-        <Description>The County tax for the Event.</Description>
+        <Description>The CountyTax tax for the Event.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
-        <Name>CountyTaxAmount</Name>
+        <Name>CountyTax</Name>
         <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
+        <Type i:type="TaxType">
+          <BaseType>Tax</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty i:nil="true" />
-          <FixedCurrency i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -472,18 +490,16 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue>0</DefaultValue>
-        <Description>The Local tax for the Event.</Description>
+        <Description>The LocalTax tax for the Event.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
-        <Name>LocalTaxAmount</Name>
+        <Name>LocalTax</Name>
         <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
+        <Type i:type="TaxType">
+          <BaseType>Tax</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty i:nil="true" />
-          <FixedCurrency i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -491,18 +507,16 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue>0</DefaultValue>
-        <Description>The Other tax for the Event.</Description>
+        <Description>The OtherTax tax for the Event.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
-        <Name>OtherTaxAmount</Name>
+        <Name>OtherTax</Name>
         <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
+        <Type i:type="TaxType">
+          <BaseType>Tax</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty i:nil="true" />
-          <FixedCurrency i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>

@@ -1,56 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description>Instance Edition</Description>
-  <Name>Edition</Name>
-  <Values>
-    <EnumValue>
+  <EnumMode>Item</EnumMode>
+  <Extension>CloudSolutions</Extension>
+  <Items>
+    <EnumItem>
       <Aliases>
         <arrays:string>0</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>0</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>1</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>1</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>2</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>2</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>3</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>3</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>4</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>4</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>5</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>5</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>6</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>6</Name>
-    </EnumValue>
-  </Values>
+    </EnumItem>
+  </Items>
+  <Name>Edition</Name>
+  <Namespace>csk.com</Namespace>
 </EnumCategory>

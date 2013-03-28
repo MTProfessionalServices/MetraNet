@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ParameterTableEntity" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
   <Description>Stores the rates and configuration for bandwidth monthly charges</Description>
   <Direction>Input</Direction>
@@ -12,9 +13,11 @@
     <Name>ParameterTable</Name>
     <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
   </Type>
+  <Namespace>csk.com.ParameterTables</Namespace>
   <Properties>
     <Properties>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Recurring Base Rate</Description>
         <Direction>Input</Direction>
@@ -35,6 +38,7 @@
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Bandwidth Unit of Measure</Description>
         <Direction>Input</Direction>
@@ -44,8 +48,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>UnitOfMeasure</Category>
-          <Namespace>csk.com</Namespace>
+          <Category>csk.com.UnitOfMeasure</Category>
         </Type>
         <IsFilterable>false</IsFilterable>
         <Operator i:nil="true" />
@@ -53,6 +56,7 @@
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Per Unit Rate</Description>
         <Direction>Input</Direction>
@@ -73,6 +77,7 @@
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Include Bandwidth Units</Description>
         <Direction>Input</Direction>
@@ -93,6 +98,7 @@
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Single Bucket, Multi-Bucket or None</Description>
         <Direction>Input</Direction>
@@ -102,8 +108,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>AggregateType</Category>
-          <Namespace>csk.com</Namespace>
+          <Category>csk.com.AggregateType</Category>
         </Type>
         <IsFilterable>false</IsFilterable>
         <Operator i:nil="true" />
@@ -111,6 +116,7 @@
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>UoM or Money</Description>
         <Direction>Input</Direction>
@@ -120,8 +126,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>DiscountAggregate</Category>
-          <Namespace>csk.com</Namespace>
+          <Category>csk.com.DiscountAggregate</Category>
         </Type>
         <IsFilterable>false</IsFilterable>
         <Operator i:nil="true" />

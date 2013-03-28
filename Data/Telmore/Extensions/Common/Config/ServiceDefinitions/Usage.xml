@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ServiceDefinitionEntity" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
+  <DefaultValue i:nil="true" />
+  <Description>Input data set for usage records</Description>
+  <Direction>Input</Direction>
+  <IsCore>false</IsCore>
+  <Name>Usage</Name>
+  <Required>true</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>ServiceDefinition</Name>
+    <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
+  </Type>
+  <Namespace>sp.tdc.dk.ServiceDefinitions</Namespace>
+  <Properties>
+    <Properties>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>The internal MetraNet account identifier</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>AccountId</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>The time the event is deemed to have occurred</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>Timestamp</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>RecordID</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Code</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Type</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Status</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ErrorCode</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>IMSI</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>BNumber</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ServiceType</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ServiceID</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>MscID</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>LocationArea</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>MsClassMark</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ChargeDate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Duration</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>DataVolume</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>DataVolumeRef</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Charge</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ChargeDKK</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TaxCode</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ExchangeCode</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Vplmn</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProductNumber</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Prepaid</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>BillingSourceID</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TotalValue</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>add description later</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>IMEI</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+      </Property>
+    </Properties>
+  </Properties>
+  <AutoDelete>false</AutoDelete>
+  <AutoResubmit>false</AutoResubmit>
+</PropertyBag>

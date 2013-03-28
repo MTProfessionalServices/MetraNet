@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ServiceDefinitionEntity" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
   <Description></Description>
   <Direction>Input</Direction>
@@ -12,9 +13,11 @@
     <Name>ServiceDefinition</Name>
     <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
   </Type>
+  <Namespace>metratech.com.ServiceDefinitions</Namespace>
   <Properties>
     <Properties>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>The internal MetraNet account identifier</Description>
         <Direction>Input</Direction>
@@ -31,6 +34,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>The time the event is deemed to have occurred</Description>
         <Direction>Input</Direction>
@@ -43,6 +47,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>The time that the transaction was deemed to have occured.</Description>
         <Direction>Input</Direction>
@@ -55,6 +60,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Retail Charge Amount</Description>
         <Direction>Input</Direction>
@@ -71,6 +77,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Pass-Thru Settlement Amount</Description>
         <Direction>Input</Direction>
@@ -87,6 +94,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Use Catalog based Settlement calculation</Description>
         <Direction>Input</Direction>
@@ -99,6 +107,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>username to determine settlement acct resolution</Description>
         <Direction>Input</Direction>
@@ -112,6 +121,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Acct ID to determine settlement acct resolution</Description>
         <Direction>Input</Direction>
@@ -128,6 +138,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>namespace to determine settlement acct resolution</Description>
         <Direction>Input</Direction>
@@ -141,6 +152,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Primary transaction's ID_SESS</Description>
         <Direction>Input</Direction>
@@ -157,6 +169,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>String to describe type of settlement</Description>
         <Direction>Input</Direction>
@@ -170,6 +183,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>String to describe settlement</Description>
         <Direction>Input</Direction>
@@ -183,6 +197,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>id of the row used to produce the settlement record.</Description>
         <Direction>Input</Direction>

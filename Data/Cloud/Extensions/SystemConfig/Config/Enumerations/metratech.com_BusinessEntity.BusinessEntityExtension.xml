@@ -1,49 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description>Each entry is an extension name that contains business entities</Description>
-  <Name>BusinessEntityExtension</Name>
-  <Values>
-    <EnumValue>
+  <EnumMode>Item</EnumMode>
+  <Extension>SystemConfig</Extension>
+  <Items>
+    <EnumItem>
       <Aliases>
         <arrays:string>Core</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>Core</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>Acme</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>Acme</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>smoketest</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>smoketest</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>Messaging</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>Messaging</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>MetraTech.CloudSolutions</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>MetraTech.CloudSolutions</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>MetraTech.RelationshipManagement</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>MetraTech.RelationshipManagement</Name>
-    </EnumValue>
-  </Values>
+    </EnumItem>
+  </Items>
+  <Name>BusinessEntityExtension</Name>
+  <Namespace>metratech.com/BusinessEntity</Namespace>
 </EnumCategory>

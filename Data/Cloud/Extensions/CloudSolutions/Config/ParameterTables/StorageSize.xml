@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ParameterTableEntity" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
   <Description>Storage Configuration - Default values</Description>
   <Direction>Input</Direction>
@@ -12,9 +13,11 @@
     <Name>ParameterTable</Name>
     <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
   </Type>
+  <Namespace>csk.com.ParameterTables</Namespace>
   <Properties>
     <Properties>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Billing Model</Description>
         <Direction>Input</Direction>
@@ -24,8 +27,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>StorageBillingModels</Category>
-          <Namespace>csk.com</Namespace>
+          <Category>csk.com.StorageBillingModels</Category>
         </Type>
         <IsFilterable>false</IsFilterable>
         <Operator i:nil="true" />
@@ -33,6 +35,7 @@
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Storage Unit Of Measure</Description>
         <Direction>Input</Direction>
@@ -42,8 +45,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>UnitOfMeasure</Category>
-          <Namespace>csk.com</Namespace>
+          <Category>csk.com.UnitOfMeasure</Category>
         </Type>
         <IsFilterable>false</IsFilterable>
         <Operator i:nil="true" />
@@ -51,6 +53,7 @@
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Storage Size</Description>
         <Direction>Input</Direction>
@@ -71,6 +74,7 @@
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Is snapshot enabled</Description>
         <Direction>Input</Direction>
@@ -87,6 +91,7 @@
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Which Aggreation plan to use NONE is default</Description>
         <Direction>Input</Direction>
@@ -96,8 +101,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>AggregateType</Category>
-          <Namespace>csk.com</Namespace>
+          <Category>csk.com.AggregateType</Category>
         </Type>
         <IsFilterable>false</IsFilterable>
         <Operator i:nil="true" />

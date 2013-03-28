@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ServiceDefinitionEntity" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
+  <DefaultValue i:nil="true" />
+  <Description>input values for historical, to-be-migrated usage records</Description>
+  <Direction>Input</Direction>
+  <IsCore>false</IsCore>
+  <Name>MigrateUsage</Name>
+  <Required>true</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>ServiceDefinition</Name>
+    <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
+  </Type>
+  <Namespace>sp.tdc.dk.ServiceDefinitions</Namespace>
+  <Properties>
+    <Properties>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>The internal MetraNet account identifier</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>AccountId</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>The time the event is deemed to have occurred</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>Timestamp</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Unique usage record identifier</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>RecordID</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Unique legacy account identifier</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>LegacyAccountID</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>no idea</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SumQuantity</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>duration</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SumTime2</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>rated total without VAT</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TotalExclVat</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>rated total VAT</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TotalVat</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>general descr</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Description</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>transaction date time</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ChargeDate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>level 1 description</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Level1</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>50</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>level 2 description</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Level2</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>50</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Yes/No flag - show the record on the invoice</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>InvoiceShow</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>IMSI number - unique caller identifier I hope</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>IMSI</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Called number - only for calls and messages</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>BNumber</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>to distinguish different call types</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProductNumber</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>for data call it holds actually the amount of data in KB</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Duration</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>charge applied by TDC</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CostTDC2</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>IMEI - International Mobile Equipment Identity</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>IMEI</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+      </Property>
+    </Properties>
+  </Properties>
+  <AutoDelete>false</AutoDelete>
+  <AutoResubmit>false</AutoResubmit>
+</PropertyBag>

@@ -46,6 +46,7 @@ namespace PropertyGui
             //Init and load the tree
             treProperties.Init(Context, mnuContext);
             treProperties.AllowEntityExpand = false;
+          treProperties.AllowEnumExpand = false;
             treProperties.HideSelection = false;
             LoadTree();
             EnsureNodeSelected();

@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ParameterTableEntity" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
+  <DefaultValue i:nil="true" />
+  <Description>Product Number to usage type, category, etc mapping</Description>
+  <Direction>Input</Direction>
+  <IsCore>false</IsCore>
+  <Name>ProductNumberMapping</Name>
+  <Required>true</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>ParameterTable</Name>
+    <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
+  </Type>
+  <Namespace>sp.tdc.dk.ParameterTables</Namespace>
+  <Properties>
+    <Properties>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>ProductNumber as it comes from the serv def</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProductNumber</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Condition</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>ServiceId as it comes from the serv def</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ServiceId</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>32</Length>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Condition</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>usage TDC grouping</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TDCGroup</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>Common/UsageEnums.TDCGroup</Category>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>description - used later in the Rate Param Tables</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TDCDescription</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>type of usage: content, voice, etc.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>UsageType</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>Common/UsageEnums.UsageType</Category>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>another grouping category - see enum values</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>UsageCategory</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>Common/UsageEnums.UsageCategory</Category>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>network name - see enum values</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Network</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>Common/UsageEnums.Network</Category>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Unit type - see enum values</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>UnitType</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>Common/UsageEnums.UnitType</Category>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>what's required for actual rate lookup</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>RatingMethod</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>Common/UsageEnums.RatingMethod</Category>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>percentage of some kind</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>MarkUp</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>can be three state - Y, N, empty
+can be three state - Y, N, empty</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AddVAT</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>can be three state - Y, N, empty</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>IsFee</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>can be three state - Y, N, empty</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>IsPremium</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>can be three state - Y, N, empty</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>IsFlatrate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>can be three state - Y, N, empty</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>IsT2TIncluded</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>can be three state - Y, N, empty</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>IsMinimumUsage</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+    </Properties>
+  </Properties>
+  <ActionsCaption i:nil="true" />
+  <Category i:nil="true" />
+  <ConditionsCaption i:nil="true" />
+  <HelpUrl i:nil="true" />
+</PropertyBag>

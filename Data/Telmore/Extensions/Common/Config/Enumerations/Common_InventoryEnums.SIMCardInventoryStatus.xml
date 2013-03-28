@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description></Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>Common</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>2357</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Active</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>2358</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>New</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>2359</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Reserved</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>5361</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PendingShipMent</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>5360</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Sent</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>2361</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Returned</Name>
+    </EnumItem>
+  </Items>
+  <Name>SIMCardInventoryStatus</Name>
+  <Namespace>Common/InventoryEnums</Namespace>
+</EnumCategory>

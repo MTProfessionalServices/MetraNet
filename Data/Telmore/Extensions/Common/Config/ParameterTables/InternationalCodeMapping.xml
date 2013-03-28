@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ParameterTableEntity" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
+  <DefaultValue i:nil="true" />
+  <Description>phone number international codes to country names mapping.
+NOTE: the order of records must be from the longest to the shortest</Description>
+  <Direction>Input</Direction>
+  <IsCore>false</IsCore>
+  <Name>InternationalCodeMapping</Name>
+  <Required>true</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>ParameterTable</Name>
+    <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
+  </Type>
+  <Namespace>sp.tdc.dk.ParameterTables</Namespace>
+  <Properties>
+    <Properties>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>0045, 00357, etc.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CountryCode</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>10</Length>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Condition</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>name used later in the international rates PT</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CountryName</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+    </Properties>
+  </Properties>
+  <ActionsCaption i:nil="true" />
+  <Category i:nil="true" />
+  <ConditionsCaption i:nil="true" />
+  <HelpUrl i:nil="true" />
+</PropertyBag>

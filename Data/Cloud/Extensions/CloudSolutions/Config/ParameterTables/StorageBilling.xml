@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ParameterTableEntity" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
   <Description>Stores the billing rates for Storage metrics. Support billing for Single and Multi-Bucket rates for the Per Unit rate  only.</Description>
   <Direction>Input</Direction>
@@ -12,9 +13,11 @@
     <Name>ParameterTable</Name>
     <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
   </Type>
+  <Namespace>csk.com.ParameterTables</Namespace>
   <Properties>
     <Properties>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Storage Billing Model</Description>
         <Direction>Input</Direction>
@@ -24,8 +27,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>StorageBillingModels</Category>
-          <Namespace>csk.com</Namespace>
+          <Category>csk.com.StorageBillingModels</Category>
         </Type>
         <IsFilterable>false</IsFilterable>
         <Operator i:nil="true" />
@@ -33,6 +35,7 @@
         <ParameterTablePropertyContext>Condition</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Storage Unit Of Measure</Description>
         <Direction>Input</Direction>
@@ -42,8 +45,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>UnitOfMeasure</Category>
-          <Namespace>csk.com</Namespace>
+          <Category>csk.com.UnitOfMeasure</Category>
         </Type>
         <IsFilterable>false</IsFilterable>
         <Operator i:nil="true" />
@@ -51,6 +53,7 @@
         <ParameterTablePropertyContext>Condition</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Storage Size</Description>
         <Direction>Input</Direction>
@@ -71,6 +74,7 @@
         <ParameterTablePropertyContext>Condition</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Monthly Base Rate Charge</Description>
         <Direction>Input</Direction>
@@ -91,6 +95,7 @@
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Per Unit Rate</Description>
         <Direction>Input</Direction>
@@ -111,6 +116,7 @@
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Free IO as part of rate plan</Description>
         <Direction>Input</Direction>
@@ -131,6 +137,7 @@
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Per Million IO Rate</Description>
         <Direction>Input</Direction>
@@ -151,6 +158,7 @@
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Per Unit Rate for total storage size</Description>
         <Direction>Input</Direction>

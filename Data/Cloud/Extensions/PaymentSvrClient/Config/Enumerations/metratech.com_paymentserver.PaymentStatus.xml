@@ -1,84 +1,87 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description>Scheduled Payment Status</Description>
-  <Name>PaymentStatus</Name>
-  <Values>
-    <EnumValue>
+  <EnumMode>Item</EnumMode>
+  <Extension>PaymentSvrClient</Extension>
+  <Items>
+    <EnumItem>
       <Aliases>
         <arrays:string>0</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>PendingApproval</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>1</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>Pending</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>2</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>Sent</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>3</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>Open</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>4</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>Settled</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>5</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>Failed</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>6</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>IncompleteAccountInformation</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>7</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>Investigate</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>8</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>Archive</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>9</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>Retry</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>10</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>NotPaid</Name>
-    </EnumValue>
-  </Values>
+    </EnumItem>
+  </Items>
+  <Name>PaymentStatus</Name>
+  <Namespace>metratech.com/paymentserver</Namespace>
 </EnumCategory>

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ParameterTableEntity" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
   <Description>Stores configuration data for compute sizes</Description>
   <Direction>Input</Direction>
@@ -12,9 +13,11 @@
     <Name>ParameterTable</Name>
     <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
   </Type>
+  <Namespace>csk.com.ParameterTables</Namespace>
   <Properties>
     <Properties>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -24,8 +27,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>CloudProvider</Category>
-          <Namespace>csk.com</Namespace>
+          <Category>csk.com.CloudProvider</Category>
         </Type>
         <IsFilterable>false</IsFilterable>
         <Operator i:nil="true" />
@@ -33,6 +35,7 @@
         <ParameterTablePropertyContext>Condition</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -42,8 +45,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>Edition</Category>
-          <Namespace>csk.com</Namespace>
+          <Category>csk.com.Edition</Category>
         </Type>
         <IsFilterable>false</IsFilterable>
         <Operator i:nil="true" />
@@ -51,6 +53,7 @@
         <ParameterTablePropertyContext>Condition</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -60,8 +63,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>Sizes</Category>
-          <Namespace>csk.com</Namespace>
+          <Category>csk.com.Sizes</Category>
         </Type>
         <IsFilterable>false</IsFilterable>
         <Operator i:nil="true" />
@@ -69,6 +71,7 @@
         <ParameterTablePropertyContext>Condition</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Virtual CPU Count</Description>
         <Direction>Input</Direction>
@@ -89,6 +92,7 @@
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Memory</Description>
         <Direction>Input</Direction>
@@ -109,6 +113,7 @@
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Loacl Disk Size</Description>
         <Direction>Input</Direction>

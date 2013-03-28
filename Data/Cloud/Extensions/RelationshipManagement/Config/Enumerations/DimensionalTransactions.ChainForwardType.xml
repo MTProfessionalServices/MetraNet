@@ -1,28 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description>Types of amount forwarding supported in chaining</Description>
-  <Name>ChainForwardType</Name>
-  <Values>
-    <EnumValue>
+  <EnumMode>Item</EnumMode>
+  <Extension>RelationshipManagement</Extension>
+  <Items>
+    <EnumItem>
       <Aliases>
         <arrays:string>0</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>Original</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>1</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>NewValue</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>2</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>Remainder</Name>
-    </EnumValue>
-  </Values>
+    </EnumItem>
+  </Items>
+  <Name>ChainForwardType</Name>
+  <Namespace>DimensionalTransactions</Namespace>
 </EnumCategory>

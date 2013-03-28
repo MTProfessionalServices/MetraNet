@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
-using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.PropertyBags;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace PropertyGui
 {
@@ -24,7 +24,7 @@ namespace PropertyGui
             InitializeComponent();
             Context = context;
             PropertyBag = propertyBag;
-            Text = string.Format("PropertyDriven Bag ({0})", PropertyBag.Name);
+            Text = string.Format("{0} ({1})", ((PropertyBagType)propertyBag.Type).Name, PropertyBag.Name);
             WindowState = FormWindowState.Maximized;
             ctlPropertyBag.Init(Context, PropertyBag);
         }

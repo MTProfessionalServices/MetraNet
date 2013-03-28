@@ -1,98 +1,101 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Description>Credit Card Type</Description>
-  <Name>CreditCardType</Name>
-  <Values>
-    <EnumValue>
+  <EnumMode>Item</EnumMode>
+  <Extension>PaymentSvrClient</Extension>
+  <Items>
+    <EnumItem>
       <Aliases>
         <arrays:string>1</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>Visa</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>2</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>MasterCard</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>3</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>American Express</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>4</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>Discover</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>5</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>JCB</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>6</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>Diners Club</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>7</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>Visa - Purchase Card</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>8</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>MasterCard - Purchase Card</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>9</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>American Express - Purchase Card</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>10</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>Visa - Purchase Card Intl</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>11</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>MasterCard - Purchase Card Intl</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>12</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>American Express - Purchase Card Intl</Name>
-    </EnumValue>
-    <EnumValue>
+    </EnumItem>
+    <EnumItem>
       <Aliases>
         <arrays:string>13</arrays:string>
       </Aliases>
       <Description i:nil="true" />
       <Name>Maestro</Name>
-    </EnumValue>
-  </Values>
+    </EnumItem>
+  </Items>
+  <Name>CreditCardType</Name>
+  <Namespace>metratech.com/paymentserver</Namespace>
 </EnumCategory>

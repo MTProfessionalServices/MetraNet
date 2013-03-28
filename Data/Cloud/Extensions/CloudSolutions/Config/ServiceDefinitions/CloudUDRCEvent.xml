@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ServiceDefinitionEntity" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
   <Description>Cloud based Unit-dependent recurring charge and events.</Description>
   <Direction>Input</Direction>
@@ -12,9 +13,11 @@
     <Name>ServiceDefinition</Name>
     <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
   </Type>
+  <Namespace>csk.com.ServiceDefinitions</Namespace>
   <Properties>
     <Properties>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>The internal MetraNet account identifier</Description>
         <Direction>Input</Direction>
@@ -31,6 +34,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>The time the event is deemed to have occurred</Description>
         <Direction>Input</Direction>
@@ -43,6 +47,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Specifies type of the charge: arrears, advance, credit, initial, initial correction, advance correction, or debit correction charge</Description>
         <Direction>Input</Direction>
@@ -56,6 +61,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Start date of recurring charge interval.</Description>
         <Direction>Input</Direction>
@@ -68,6 +74,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>End date of recurring charge interval.</Description>
         <Direction>Input</Direction>
@@ -80,6 +87,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Start date of billing interval.</Description>
         <Direction>Input</Direction>
@@ -92,6 +100,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>End date of billing interval.</Description>
         <Direction>Input</Direction>
@@ -104,6 +113,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Start date of intersection of the recurring charge and subscription intervals.</Description>
         <Direction>Input</Direction>
@@ -116,6 +126,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>End date of intersection of the recurring charge and subscription intervals.</Description>
         <Direction>Input</Direction>
@@ -128,6 +139,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Start date of subscription.</Description>
         <Direction>Input</Direction>
@@ -140,6 +152,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>End date of subscription.</Description>
         <Direction>Input</Direction>
@@ -152,6 +165,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>True for advance, false for arrears.</Description>
         <Direction>Input</Direction>
@@ -164,6 +178,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>If true, prorate on subscription</Description>
         <Direction>Input</Direction>
@@ -176,6 +191,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Start date of the unit value effective date.</Description>
         <Direction>Input</Direction>
@@ -188,6 +204,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>End date of the unit value effective date.</Description>
         <Direction>Input</Direction>
@@ -200,6 +217,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Amount of the unit value.</Description>
         <Direction>Input</Direction>
@@ -216,6 +234,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>0 if the unit-dependent recurring charge uses tiered rating, 1 if it uses tapered.</Description>
         <Direction>Input</Direction>
@@ -232,6 +251,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>If true, prorate on unsubscription.</Description>
         <Direction>Input</Direction>
@@ -244,6 +264,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Fixed number of days to prorate to. 0 means use actual.</Description>
         <Direction>Input</Direction>
@@ -260,6 +281,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>For credits, this is the rate effective date to look up the rates when the advance or initial charge was issued.</Description>
         <Direction>Input</Direction>
@@ -272,6 +294,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Subscription to the recurring charge</Description>
         <Direction>Input</Direction>
@@ -288,6 +311,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Account ID</Description>
         <Direction>Input</Direction>
@@ -304,6 +328,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Payer's account ID</Description>
         <Direction>Input</Direction>
@@ -320,6 +345,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Recurring charge (priceable item) instance ID.</Description>
         <Direction>Input</Direction>
@@ -336,6 +362,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Recurring charge (priceable item) template ID.</Description>
         <Direction>Input</Direction>
@@ -352,6 +379,7 @@
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Product offering ID.</Description>
         <Direction>Input</Direction>

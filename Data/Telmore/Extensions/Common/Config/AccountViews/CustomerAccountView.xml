@@ -1,0 +1,648 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="AccountViewEntity" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
+  <DefaultValue i:nil="true" />
+  <Description></Description>
+  <Direction>Input</Direction>
+  <IsCore>false</IsCore>
+  <Name>CustomerAccountView</Name>
+  <Required>true</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>AccountView</Name>
+    <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
+  </Type>
+  <Namespace>sp.tdc.dk.AccountViews</Namespace>
+  <Properties>
+    <Properties>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>The internal MetraNet account identifiert</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>AccountId</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Identifier of the floor where the entrance is located</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AddressFloor</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>2</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CustomerInformationStatus</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>Common/CustomerEnums.CustomerInformationStatus</Category>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CustomerAccountState</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>Common/CustomerEnums.CustomerAccountState</Category>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>The house number maybe including a letter</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AddressHouseNumber</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>4</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Name of the property (e.g. a farm) which is used as a supplement to the address</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AddressLocality</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>34</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>The code of the municipality where the address is located</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AddressMunicipalityCode</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>4</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Identifier of the specific entrance on a floor</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AddressSide</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>4</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Unique identifier of the street</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AddressStreetCode</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>4</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>The name of the street</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AddressStreetName</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Date of birth (CPR only)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>BirthDate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>C/O name</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CO_Name</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>34</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Company name (CVR only)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CompanyName</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>34</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>First and Middle name (CPR only)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>First_Name</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>50</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Customer gender (M/K) (CPR only)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Gender</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>1</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Indicates whether the Customer has a protected address in the CPR registry. (CPR only)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>IsProtectedAddress</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Last name (CPR only)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Last_Name</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Employment position description. (CPR Only)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>OccupationalTitle</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>34</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>P-number  (CVR only)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Pnumber</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>10</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Postal code in which the address is located</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PostalCode</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>4</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>District name matching the postal code</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PostalDistrict</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Town or place name that which is a part of unique address</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PostalSubDistrict</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Supplementary address field (CPR only)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SupplementaryAddressField01</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>34</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Supplementary address field (CPR only)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SupplementaryAddressField02</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>34</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Supplementary address field (CPR only)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SupplementaryAddressField03</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>34</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Supplementary address field (CPR only)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SupplementaryAddressField04</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>34</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Supplementary address field (CPR only)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SupplementaryAddressField05</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>34</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Supplementary address field (CPR only)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SupplementaryAddressField06</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>34</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>If address information has been manually edited</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>IsManuallyEdited</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>If it is numberblinded</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>IsNumberBlinded</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>CVR number</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CVR</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>8</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>CPR number</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CPR</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>12</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>If the customer is a company (true) or not (false)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>IsCompany</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>If the customer has passed credit score</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CreditScoreIsRegistered</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Time of credit score check</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CreditScoreLookupTimeStamp</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Actual credit score</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CreditScore</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Date when the address was updated from CPR last</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AddressLastUpdated</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+    </Properties>
+  </Properties>
+</PropertyBag>

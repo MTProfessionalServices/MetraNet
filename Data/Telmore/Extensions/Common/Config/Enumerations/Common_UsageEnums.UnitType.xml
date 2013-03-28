@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>seconds, minutes, kilo bytes, etc.</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>Common</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>0</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Second</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Minute</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MinSec</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KiloByte</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Event</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>5</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NA</Name>
+    </EnumItem>
+  </Items>
+  <Name>UnitType</Name>
+  <Namespace>Common/UsageEnums</Namespace>
+</EnumCategory>

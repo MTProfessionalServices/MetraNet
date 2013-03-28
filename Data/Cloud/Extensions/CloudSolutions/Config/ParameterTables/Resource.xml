@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ParameterTableEntity" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
   <Description>Stores the configuration for a virtual resource. </Description>
   <Direction>Input</Direction>
@@ -12,9 +13,11 @@
     <Name>ParameterTable</Name>
     <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
   </Type>
+  <Namespace>csk.com.ParameterTables</Namespace>
   <Properties>
     <Properties>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Billing model when Resource not inlcuded</Description>
         <Direction>Input</Direction>
@@ -24,8 +27,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>InstanceBillingModels</Category>
-          <Namespace>csk.com</Namespace>
+          <Category>csk.com.InstanceBillingModels</Category>
         </Type>
         <IsFilterable>false</IsFilterable>
         <Operator i:nil="true" />
@@ -33,6 +35,7 @@
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Billing units; represented by time window unt</Description>
         <Direction>Input</Direction>
@@ -42,8 +45,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>InstanceBillingUnits</Category>
-          <Namespace>csk.com</Namespace>
+          <Category>csk.com.InstanceBillingUnits</Category>
         </Type>
         <IsFilterable>false</IsFilterable>
         <Operator i:nil="true" />
@@ -51,6 +53,7 @@
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Resource Type i.e. VCPU, Memory ...</Description>
         <Direction>Input</Direction>
@@ -60,8 +63,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>CloudMetric</Category>
-          <Namespace>csk.com</Namespace>
+          <Category>csk.com.CloudMetric</Category>
         </Type>
         <IsFilterable>false</IsFilterable>
         <Operator i:nil="true" />
@@ -69,6 +71,7 @@
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>GB, MB, EACH, VCPU etc.</Description>
         <Direction>Input</Direction>
@@ -78,8 +81,7 @@
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>UnitOfMeasure</Category>
-          <Namespace>csk.com</Namespace>
+          <Category>csk.com.UnitOfMeasure</Category>
         </Type>
         <IsFilterable>false</IsFilterable>
         <Operator i:nil="true" />
@@ -87,6 +89,7 @@
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
         <Description>Resource Value</Description>
         <Direction>Input</Direction>

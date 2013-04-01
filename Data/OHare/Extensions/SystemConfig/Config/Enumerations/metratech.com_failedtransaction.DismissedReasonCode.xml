@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Configurable Reason Codes For Marking Dismissed Failed Transactions</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>SystemConfig</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Test</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Test</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ResendOriginal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ResendOriginal</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UnableToResolve</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UnableToResolve</Name>
+    </EnumItem>
+  </Items>
+  <Name>DismissedReasonCode</Name>
+  <Namespace>metratech.com/failedtransaction</Namespace>
+</EnumCategory>

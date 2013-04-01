@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Utility Meter Type.</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>COCDOA</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Standard</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Standard</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>HotWater</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HotWater</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ColdWater</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ColdWater</Name>
+    </EnumItem>
+  </Items>
+  <Name>UtilityMeterType</Name>
+  <Namespace>ci.chi.il.us/cocdoacommon</Namespace>
+</EnumCategory>

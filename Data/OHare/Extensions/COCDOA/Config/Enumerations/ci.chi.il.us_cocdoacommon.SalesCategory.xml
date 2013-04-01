@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>List of sales categories for concessions</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>COCDOA</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CandyShop</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CandyShop</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Restaurant</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Restaurant</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NewsStand</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NewsStand</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Telephone</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Telephone</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>LeatherGoods</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LeatherGoods</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Car Rental Company</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CarRentalCompany</Name>
+    </EnumItem>
+  </Items>
+  <Name>SalesCategory</Name>
+  <Namespace>ci.chi.il.us/cocdoacommon</Namespace>
+</EnumCategory>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>List of Utilities that can be charged to airlines</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>COCDOA</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>Gas</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>Electric</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>Water</Name>
+    </EnumItem>
+  </Items>
+  <Name>UtilityType</Name>
+  <Namespace>ci.chi.il.us/cocdoacommon</Namespace>
+</EnumCategory>

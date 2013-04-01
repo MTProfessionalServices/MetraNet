@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description></Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>Account</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PendingActiveApproval</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Active</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SU</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Suspended</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PF</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PendingFinalBill</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Closed</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>AR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Archived</Name>
+    </EnumItem>
+  </Items>
+  <Name>AccountStatus</Name>
+  <Namespace>metratech.com/accountcreation</Namespace>
+</EnumCategory>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using System.Globalization;
+using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Validations;
 
@@ -23,6 +24,12 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// </summary>
         [DataMember]
         public string Category { get; set; }
+
+        /// <summary>
+        /// Note than Item allows for UnitOfMeasure or Currency
+        /// </summary>
+        [DataMember]
+        public EnumMode Mode { get; set; } 
 
         /// <summary>
         /// Returns a string that can be used to determine if two types are directly compatible (which is differnt than castable)

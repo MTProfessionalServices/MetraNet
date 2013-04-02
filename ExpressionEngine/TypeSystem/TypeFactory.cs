@@ -63,7 +63,9 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         public static EnumerationType CreateEnumeration(EnumMode enumMode)
         {
-            return CreateEnumeration(enumMode);
+          var enumerationType = new EnumerationType(null);
+          enumerationType.Mode = enumMode;
+          return enumerationType;
         }
         public static EnumerationType CreateEnumeration()
         {

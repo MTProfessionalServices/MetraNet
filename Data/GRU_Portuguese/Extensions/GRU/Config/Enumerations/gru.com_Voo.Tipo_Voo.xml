@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description></Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>GRU</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PASSAGEIRO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Passageiro</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CARGA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Carga</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MISTO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Misto</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>REDE POSTAL NOTURNA (RPN)</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Rede Postal Noturna (RPN)</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>NÃO PREVISTO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Não Previsto</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>6</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Não Informado</Name>
+    </EnumItem>
+  </Items>
+  <Name>Tipo_Voo</Name>
+  <Namespace>gru.com/Voo</Namespace>
+</EnumCategory>

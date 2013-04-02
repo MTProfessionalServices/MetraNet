@@ -40,10 +40,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cboDataTypeFilter = new System.Windows.Forms.ComboBox();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.tabMain = new System.Windows.Forms.TabControl();
+            this.tabGeneral = new System.Windows.Forms.TabPage();
+            this.cboEventType = new System.Windows.Forms.ComboBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tabProperties = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
+            this.tabMain.SuspendLayout();
+            this.tabGeneral.SuspendLayout();
+            this.tabProperties.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer
@@ -52,7 +64,7 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.splitContainer.Location = new System.Drawing.Point(3, 48);
+            this.splitContainer.Location = new System.Drawing.Point(6, 74);
             this.splitContainer.Name = "splitContainer";
             // 
             // splitContainer.Panel1
@@ -62,13 +74,15 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.ctlPropertyEditor);
-            this.splitContainer.Size = new System.Drawing.Size(689, 328);
-            this.splitContainer.SplitterDistance = 285;
+            this.splitContainer.Size = new System.Drawing.Size(865, 273);
+            this.splitContainer.SplitterDistance = 357;
             this.splitContainer.TabIndex = 3;
             // 
             // treProperties
             // 
             this.treProperties.AllowEntityExpand = true;
+            this.treProperties.AllowEnumExpand = true;
+            this.treProperties.DefaultNodeContextMenu = null;
             this.treProperties.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treProperties.EntityTypeFilter = null;
             this.treProperties.EnumValueContextMenu = null;
@@ -83,7 +97,7 @@
             this.treProperties.SelectedImageIndex = 0;
             this.treProperties.ShowNamespaces = false;
             this.treProperties.ShowNodeToolTips = true;
-            this.treProperties.Size = new System.Drawing.Size(281, 324);
+            this.treProperties.Size = new System.Drawing.Size(353, 269);
             this.treProperties.TabIndex = 4;
             this.treProperties.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
             this.treProperties.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treProperties_AfterSelect);
@@ -93,7 +107,7 @@
             this.ctlPropertyEditor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ctlPropertyEditor.Location = new System.Drawing.Point(0, 0);
             this.ctlPropertyEditor.Name = "ctlPropertyEditor";
-            this.ctlPropertyEditor.Size = new System.Drawing.Size(396, 324);
+            this.ctlPropertyEditor.Size = new System.Drawing.Size(500, 269);
             this.ctlPropertyEditor.TabIndex = 0;
             // 
             // mnuContext
@@ -103,7 +117,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(294, 21);
+            this.btnAdd.Location = new System.Drawing.Point(300, 26);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 0;
@@ -113,7 +127,7 @@
             // 
             // btnValidate
             // 
-            this.btnValidate.Location = new System.Drawing.Point(519, 21);
+            this.btnValidate.Location = new System.Drawing.Point(525, 26);
             this.btnValidate.Name = "btnValidate";
             this.btnValidate.Size = new System.Drawing.Size(75, 23);
             this.btnValidate.TabIndex = 4;
@@ -123,7 +137,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(600, 21);
+            this.btnRefresh.Location = new System.Drawing.Point(606, 26);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(75, 23);
             this.btnRefresh.TabIndex = 5;
@@ -136,7 +150,7 @@
             this.chkShowReferences.AutoSize = true;
             this.chkShowReferences.Checked = true;
             this.chkShowReferences.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkShowReferences.Location = new System.Drawing.Point(5, 3);
+            this.chkShowReferences.Location = new System.Drawing.Point(11, 8);
             this.chkShowReferences.Name = "chkShowReferences";
             this.chkShowReferences.Size = new System.Drawing.Size(119, 17);
             this.chkShowReferences.TabIndex = 6;
@@ -147,7 +161,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 29);
+            this.label1.Location = new System.Drawing.Point(11, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 7;
@@ -156,40 +170,134 @@
             // cboDataTypeFilter
             // 
             this.cboDataTypeFilter.FormattingEnabled = true;
-            this.cboDataTypeFilter.Location = new System.Drawing.Point(72, 23);
+            this.cboDataTypeFilter.Location = new System.Drawing.Point(78, 28);
             this.cboDataTypeFilter.Name = "cboDataTypeFilter";
             this.cboDataTypeFilter.Size = new System.Drawing.Size(195, 21);
             this.cboDataTypeFilter.TabIndex = 8;
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(375, 21);
+            this.btnDelete.Location = new System.Drawing.Point(381, 26);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 9;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
+            // tabMain
+            // 
+            this.tabMain.Controls.Add(this.tabGeneral);
+            this.tabMain.Controls.Add(this.tabProperties);
+            this.tabMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabMain.Location = new System.Drawing.Point(0, 0);
+            this.tabMain.Name = "tabMain";
+            this.tabMain.SelectedIndex = 0;
+            this.tabMain.Size = new System.Drawing.Size(871, 379);
+            this.tabMain.TabIndex = 10;
+            // 
+            // tabGeneral
+            // 
+            this.tabGeneral.Controls.Add(this.cboEventType);
+            this.tabGeneral.Controls.Add(this.txtName);
+            this.tabGeneral.Controls.Add(this.txtDescription);
+            this.tabGeneral.Controls.Add(this.label4);
+            this.tabGeneral.Controls.Add(this.label3);
+            this.tabGeneral.Controls.Add(this.label2);
+            this.tabGeneral.Location = new System.Drawing.Point(4, 22);
+            this.tabGeneral.Name = "tabGeneral";
+            this.tabGeneral.Padding = new System.Windows.Forms.Padding(3);
+            this.tabGeneral.Size = new System.Drawing.Size(687, 353);
+            this.tabGeneral.TabIndex = 0;
+            this.tabGeneral.Text = "General";
+            this.tabGeneral.UseVisualStyleBackColor = true;
+            // 
+            // cboEventType
+            // 
+            this.cboEventType.FormattingEnabled = true;
+            this.cboEventType.Location = new System.Drawing.Point(81, 61);
+            this.cboEventType.Name = "cboEventType";
+            this.cboEventType.Size = new System.Drawing.Size(258, 21);
+            this.cboEventType.TabIndex = 5;
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(81, 27);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(258, 20);
+            this.txtName.TabIndex = 4;
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescription.Location = new System.Drawing.Point(13, 160);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(655, 79);
+            this.txtDescription.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 144);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Description:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 69);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Event Type:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Name:";
+            // 
+            // tabProperties
+            // 
+            this.tabProperties.Controls.Add(this.btnRefresh);
+            this.tabProperties.Controls.Add(this.btnAdd);
+            this.tabProperties.Controls.Add(this.splitContainer);
+            this.tabProperties.Controls.Add(this.btnDelete);
+            this.tabProperties.Controls.Add(this.btnValidate);
+            this.tabProperties.Controls.Add(this.cboDataTypeFilter);
+            this.tabProperties.Controls.Add(this.chkShowReferences);
+            this.tabProperties.Controls.Add(this.label1);
+            this.tabProperties.Location = new System.Drawing.Point(4, 22);
+            this.tabProperties.Name = "tabProperties";
+            this.tabProperties.Padding = new System.Windows.Forms.Padding(3);
+            this.tabProperties.Size = new System.Drawing.Size(863, 353);
+            this.tabProperties.TabIndex = 1;
+            this.tabProperties.Text = "Properties";
+            this.tabProperties.UseVisualStyleBackColor = true;
+            // 
             // ctlPropertyBag
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.cboDataTypeFilter);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.chkShowReferences);
-            this.Controls.Add(this.btnRefresh);
-            this.Controls.Add(this.btnValidate);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.splitContainer);
+            this.Controls.Add(this.tabMain);
             this.Name = "ctlPropertyBag";
-            this.Size = new System.Drawing.Size(695, 379);
+            this.Size = new System.Drawing.Size(871, 379);
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
+            this.tabMain.ResumeLayout(false);
+            this.tabGeneral.ResumeLayout(false);
+            this.tabGeneral.PerformLayout();
+            this.tabProperties.ResumeLayout(false);
+            this.tabProperties.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -207,5 +315,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboDataTypeFilter;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TabControl tabMain;
+        private System.Windows.Forms.TabPage tabGeneral;
+        private System.Windows.Forms.TabPage tabProperties;
+        private System.Windows.Forms.ComboBox cboEventType;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }

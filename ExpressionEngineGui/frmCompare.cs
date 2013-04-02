@@ -38,7 +38,9 @@ namespace PropertyGui
           txtContext2.Text = context2Name;
 
           treContext1.Init(Context1, null);
+          treContext1.DefaultNodeContextMenu = mnuContext;
           treContext2.Init(Context2, null);
+          treContext2.DefaultNodeContextMenu = mnuContext;
 
           Init();
 
@@ -260,6 +262,17 @@ namespace PropertyGui
 
 
         #endregion
+
+      private void mnuEdit_DropDownOpening(object sender, EventArgs e)
+      {
+        //mnuEdit.Enabled = (
+
+      }
+
+      private void mnuEdit_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+      {
+         
+      }
 
         
 

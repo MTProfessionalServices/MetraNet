@@ -7,6 +7,7 @@ using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.Validations;
+using MetraTech.ExpressionEngine.PropertyBags.Enumerations;
 
 namespace PropertyGui
 {
@@ -39,6 +40,12 @@ namespace PropertyGui
             Context = context;
             PropertyBag = propertyBag;
 
+            txtName.Text = PropertyBag.Name;
+            txtDescription.Text = PropertyBag.Description;
+            GuiHelper.LoadEnum<EventType>(cboEventType);
+            cboEventType.SelectedItem = ((ProductViewEntity)PropertyBag).EventType;
+
+
             //Init the property editor
             ctlPropertyEditor.OnChangeEvent = PropertyChangeEvent;
             ctlPropertyEditor.Init(Context, PropertyBag);
@@ -46,11 +53,14 @@ namespace PropertyGui
             //Init and load the tree
             treProperties.Init(Context, mnuContext);
             treProperties.AllowEntityExpand = false;
-          treProperties.AllowEnumExpand = false;
+            treProperties.AllowEnumExpand = false;
             treProperties.HideSelection = false;
             LoadTree();
             EnsureNodeSelected();
+
+            tabMain.SelectedTab = tabProperties;
         }
+
 
         private void EnsureNodeSelected()
         {
@@ -213,5 +223,6 @@ namespace PropertyGui
         }
 
         #endregion
+
     }
 }

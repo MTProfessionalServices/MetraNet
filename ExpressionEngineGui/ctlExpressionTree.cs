@@ -29,6 +29,7 @@ namespace PropertyGui
         public bool AllowEntityExpand { get; set; }
         public bool AllowEnumExpand { get; set; }
         public ContextMenuStrip EnumValueContextMenu { get; set; }
+        public ContextMenuStrip DefaultNodeContextMenu { get; set; }
 
         //TreeState
         private object LastSelectedNodeTag;
@@ -237,8 +238,10 @@ namespace PropertyGui
         {
             var node = new TreeNode();
             node.Tag = item;
+            //node.ContextMenu = DefaultNodeContextMenu;
             UpdateNode(node);
 
+            
             //Set the parent
             if (parentNode == null)
                 Nodes.Add(node);
@@ -359,6 +362,20 @@ namespace PropertyGui
                     return;
                 AddProperties(node, propertyBag.Properties);
             }
+        }
+        
+        /// <summary>
+        /// Ensure that when the user right clicks the node becomes selected
+        /// </summary>
+        protected override void OnNodeMouseClick(TreeNodeMouseClickEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                var node = GetNodeAt(e.Location);
+                if (node != null)
+                    SelectedNode = node;
+            }
+            base.OnNodeMouseClick(e);
         }
         #endregion
 

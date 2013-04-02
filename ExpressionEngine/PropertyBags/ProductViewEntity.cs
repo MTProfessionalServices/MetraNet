@@ -7,6 +7,7 @@ using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using System.Runtime.Serialization;
 using System.Globalization;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using MetraTech.ExpressionEngine.PropertyBags.Enumerations;
 
 namespace MetraTech.ExpressionEngine.PropertyBags
 {
@@ -22,6 +23,9 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         public override string DatabaseName { get { return "t_pv_" + Name; } }
 
+        [DataMember]
+        public EventType EventType { get; set; }
+
         /// <summary>
         ///// The xQualificationGroup prefix
         /// </summary>
@@ -33,6 +37,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         public ProductViewEntity(string _namespace, string name, string description)
             : base(_namespace, name, PropertyBagConstants.ProductView, description)
         {
+            EventType = EventType.Unknown;
             UniqueKey = new Collection<UniqueKey>();
         }
         #endregion

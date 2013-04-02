@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Configurable set of currencies for screens to select from.</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>Core</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>USD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>USD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GBP</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GBP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CAD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CAD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EUR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EUR</Name>
+    </EnumItem>
+  </Items>
+  <Name>SystemCurrencies</Name>
+  <Namespace>Global/SystemCurrencies</Namespace>
+</EnumCategory>

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Tipo de mensagem do arquivo SISO</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>GRU</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>0</arrays:string>
+        <arrays:string>REG</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Novo_Pouso_grupo1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+        <arrays:string>REGEST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Estorno_Pouso_grupo1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>2</arrays:string>
+        <arrays:string>REGACT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Acerto_Pouso_grupo1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>3</arrays:string>
+        <arrays:string>PER1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Novo_Permanencia_grupo1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4</arrays:string>
+        <arrays:string>PER1EST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Estorno_Permanencia_grupo1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>5</arrays:string>
+        <arrays:string>PER1ACT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Acerto_Permanencia_grupo1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>6</arrays:string>
+        <arrays:string>MOV</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Novo_Pouso_grupo2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>7</arrays:string>
+        <arrays:string>MOVEST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Estorno_Pouso_grupo2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>8</arrays:string>
+        <arrays:string>MOVACT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Acerto_Pouso_grupo2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>9</arrays:string>
+        <arrays:string>PER2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Novo_Permanencia_grupo2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>10</arrays:string>
+        <arrays:string>PER2EST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Estorno_Permanencia_grupo2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>11</arrays:string>
+        <arrays:string>PER2ACT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Acerto_Permanencia_grupo2</Name>
+    </EnumItem>
+  </Items>
+  <Name>TipoMensagem</Name>
+  <Namespace>gru.com/Arquivo</Namespace>
+</EnumCategory>

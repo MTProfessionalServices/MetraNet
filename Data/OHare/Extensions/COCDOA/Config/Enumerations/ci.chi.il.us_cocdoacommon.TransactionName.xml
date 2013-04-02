@@ -1,0 +1,1312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>This defines the transaction name and description to be used by the Oracle System.</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>COCDOA</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Landings-Freight-Airfield</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0001</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Landings-83 User Agreement-Airfield</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0002</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Landings-Scheduled-Airfield</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0003</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Landings-Non Scheduled-Airfield</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0004</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Decrease(Increase) in Fees-Deferred(Accrued) Revenue-Airfield</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0005</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-FBO-Landings-Airfield</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0006</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-FBO-Tie Down and Parking Fees-Airfield</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0007</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-FBO-Rental Air Cargo Building and Site-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0008</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-FBO-Other Gross Receipts % Fee-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0009</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-FBO-Minimum Guarantee Fee-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0010</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-FBO-Retail Fuel Minimum Guarantee Fee-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0011</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-FBO-Retail Fuel Per Cent Fee-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0011A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-FBO-Metered Water-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0012</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-FBO-Metered Water-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0012A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concession Bus Service-Terminal Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0016</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concesion Candy Shop-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0017</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concession Heel Bar Valet-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0018</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concession News Stand-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0022</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concession Gift Stand-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0026</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concession Auto Rental -Terminal Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0029</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concession Restaurant-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0030</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concession Restaurant-Domestic Terminal-SQFT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0030A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concession Telephone-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0037</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concession Baggage Carts-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0038</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concession Foreign Bank-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0039</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concession Duty Free-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0040</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concession ATM-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0044</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concession Sports Shop-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0045</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concession Bookstore-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0047</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concession Leather Goods-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0048</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concesson Cookies Shop-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0051</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concession Coffee Muffin Shop-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0052</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concession Coffee Muffin Shop-Exclusive Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0053</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concession Cable Television-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0054</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concession Miscellaneous-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0055</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Minimum Guarantee Fee-Concession Health Services-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0056</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Monthly Fee-Concession Employee Parking-Terminal Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0057</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Monthly Fee-Concession Overflow Parking-Terminal Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0057A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Display Advertising-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0058</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Display Advertising-Exclusive Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0059</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Bus Service-Terminal Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0060</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Candy Shop-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0061</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Heel Bar Valet-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0062</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Per Cent Fee-Concession In Flight Meals-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0063</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Tele-Trip-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0065</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession News Stand-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0066</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession News Boxes-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0066A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession News Stand-Exclusive Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0067</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession News Stand-Enplaned Common Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0068</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession News Stand-Deplaned Common Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0069</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Gift Stand-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0070</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Auto Rental-Terminal Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0073</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Restaurant-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0074</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Restaurant-Exclusive Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0075</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Restaurant-Enplaned Common Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0076</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Restaurant-Deplaned Common Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0077</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Concession Telephone-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0078</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession WIFI-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0078A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Telephone-Exclusive Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0079</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Telephone-Enplaned Common Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0080</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Telephone-Deplaned Common Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0081</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Baggage Carts-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0082</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Foreign Bank-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0083</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Duty Free-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0084</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Duty Free-Exclusive Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0085</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Duty Free-Enplaned Com</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0086</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession ATM-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0087</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Sports Shop-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0088</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Sports Shop-Exclusive Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0090</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Bookstore-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0091</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Leather Goods-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0092</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Cookies Shop-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0095</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Coffee Muffin Shop-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0096</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Vending Machines-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0096A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Coffee Muffin Shop-Exclusive Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0097</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession-Vending Machines-Exclusive Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0097A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Cable Television-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0098</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Per Cent Fee-Concession Health Services-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0099</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Common Area Maintenance Fee Restaurant-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0100</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Common Area Maintenance Fee Coffee Muffin Shop-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0101</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Common Area Maintenance Fee Concession Duty Free-Enplaned Common Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0102</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Common Area Maintenance Fee Concession Duty Free-Exclusive Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0102A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Marketing Fund Fee Gift Stand-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0103</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Marketing Fund Fee Restaurant-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0104</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Marketing Fund Fee-Concesion Candy Shop-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0104A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Marketing Fund Fee-Concession Newstand-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0104B</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Marketing Fund Fee-Concession Sports Shop-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0104C</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Marketing Fund Fee-Concession Restaurant-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0104D</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Marketing Fund Fee-Concession Coffee Muffin Shop-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0104E</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Marketing Fund Fee-Concession Duty Free-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0104F</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Marketing Fund Fee-Concession Bookstore-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0104G</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Miscellaneous Concession-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0107</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Miscellaneous Concession-Terminal Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0108</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Miscellaneous Concession-Exclusive Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0109</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Miscellaneous Concession-Enplaned Com</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0110</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Miscellaneous Concession-Deplaned Com</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0111</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Air Cargo Building and Site-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0112</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Air Cargo Building Additional</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0112A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Rental Hotel -Terminal Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0113</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Rental Hotel-True Up-Terminal Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0113A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Hanger Site and Ground Rent-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0114</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Hanger Site and Ground Rent-Land Support-Acres</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0114A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Hanger Site and Ground Rent-Land Support-Flat</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0114B</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Land-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0117</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Land-Annual Per Cent Fee True UP-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0117A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Land-Land Support-Acres</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0117B</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Land-Land Support-Flat</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0117C</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Land-Land Support-EQJ</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0117D</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Maintenance Area -Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0118</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Rental Maintenance Area -Terminal Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0118A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Common Area Maintenance - Additional</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0118B</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Maintenance Area Service Area-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0119</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Maintenance Area Service Area-Land Support-EQJ</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0119A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Rental Other Buildings-Airfield</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0120</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Rental Other Buildings-Terminal Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0121</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Rental Other Buildings-GSA-Exclusive Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0122</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Other Buildings-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0123</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Other Buildings-Land Support-Flat</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0123A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Ramp-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0124</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Other Land-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0125</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Other Land-Minimum Guarantee Fee-Ground Handling-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0125A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>TBD3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0125B</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Other Land-Storage Area-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0126</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Turns-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0126A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Fueling Charges Ground Rental Portion-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0127</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Rental Other-Domestic Terminal-GSA-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0128</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Rental Other-Domestic Terminal-U.S. Postal-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0128A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Rental Other-Domestic Terminal-GSA US Visit Kiosks-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0129</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Rental Other-Domestic Terminal-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0130</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Rental Other-Domestic Terminal-Antennas-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0131</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Rental Other Fees-T5 Antenna-Exclusive Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0131A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Rental Other-Domestic Terminal-Antennas Cable Television-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0131B</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Rental Other-Domestic Terminal-Common Use Gate-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0132</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Rental Other-Domestic Terminal-Rental &amp; Counter Space-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0133</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Rental Other-Domestic Terminal-EPS-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0134</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741- Other Terminal Rental - Concourse L Residual - Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0134A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Rental Other-Domestic Terminal-Common Use Gate OAL-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0134C</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Costs Per Departure-Common Use Gate-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0134D</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Rental Other-Equipment Rental CICA Tec-Equipment</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0135</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Fixed License Fees-Concessions-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0136</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Space Rental-U.S. Postal-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0136A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Fixed License Fees-Concessions-Terminal Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0136B</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Fixed License Fees-T5 Antenna-Exclusive Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0137</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Fixed License Fees-Antenna-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0138</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Rental Other--Antennas Cable Television-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0138A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-International Terminal 1983-Thru Put Fees-Enplaned Com</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0139</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-International Terminal 1983-Thru Put Fees-Deplaned Com</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0140</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-International Terminal 1983-NACA-Enplaned Com</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0141</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-International Terminal 1983-NACA-Deplaned Com</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0142</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-734-PFC-Passenger Facility Charges</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0143</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Terminal Area Use Charges 1983-Base Rental Fee-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0144</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Base Rental Other Domestic Terminal-Common Use Gate OAL - Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0144A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Terminal Area Use Charges 1983-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0145</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Terminal Area Use Charges 1983-Exclusive Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0146</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-InternationalTerminal Rent-Equipment</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0147</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Parking (Net )-Parking</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0148</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Fueling Charges (Ground Rental Portion)-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0149</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Fueling System Charges-Debt Service- Fuel</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0150</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Fuel Farm -Rental Land- Fueling System</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0151</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Electricity Unmetered- Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0152</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Electricity Unmetered- GSA-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0153</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Electricity Unmetered- Concession-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0154</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Electricity Unmetered- CICATEC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0154A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Metered Water-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0155</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Metered Water-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0156</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Metered Water-Terminal Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0156A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Water Minimum-Terminal Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0156B</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Metered Water Hot &amp; Chilled-Terminal Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0156C</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Security Guards Reimbursement-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0157</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Security Guards Reimbursement-Terminal Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0158</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Grant Revenue-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0159</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Grant Revenue-GSA Electricity Unmetered-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0160</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Grant Revenue-K-9-Terminal Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0161</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Grant Revenue-K-9-Terminal Support TBD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0161A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Grant Revenue-GSA(LEO)-Terminal Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0162</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Miscellaneous Revenue-Other Funds</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0163</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Miscellaneous Revenue-Airfield</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0164</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Miscellaneous Revenue-Domestic Terminal</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0165</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Miscellaneous Revenue-Terminal Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0166</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Miscellaneous Revenue-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0167</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Miscellaneous Revenue-Exclusive Use</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0168</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Miscellaneous Revenue-Enplaned Com</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0169</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-741-Miscellaneous Revenue-Deplaned Com</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0170</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Miscellaneous Revenue-Land Support</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0171</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-757-Miscellaneous Revenue-Land Support TBD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0171A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>085-R01-OHare Customer Facility Charge</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>085-0171B</Name>
+    </EnumItem>
+  </Items>
+  <Name>TransactionName</Name>
+  <Namespace>ci.chi.il.us/cocdoacommon</Namespace>
+</EnumCategory>

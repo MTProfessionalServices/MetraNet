@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description></Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>GRU</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>UNICA OPERADORA</arrays:string>
+        <arrays:string>ÚNICA OPERADORA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Unica operadora</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PRINCIPAL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Principal</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SECUNDARIA</arrays:string>
+        <arrays:string>SECUNDÁRIA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Secundária</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>6</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Não Informado</Name>
+    </EnumItem>
+  </Items>
+  <Name>Participacao</Name>
+  <Namespace>gru.com/Voo</Namespace>
+</EnumCategory>

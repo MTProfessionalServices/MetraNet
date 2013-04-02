@@ -1,0 +1,724 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Lista as atividades comerciais</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>GRU</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4020</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FILMAGENS - 4020</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4021</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FOTOGRAFIA - 4021</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4022</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UTILIZACAO AREA EVENTUAL - 4022</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4024</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ESTACIONAMENTO DE VEICULOS E EQUIPAMENTO - 4024</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4026</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PROMOCOES E EVENTOS - 4026</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4035</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TERMINAL ALTO ATENDIMENTO CHECK-IN - 4035</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4043</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TELEFONIA AEROPORTUARIA - 4043</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4045</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TELECOMUNICACOES AERONAUTICAS - 4045</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4047</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RECUP.DESPESAS-TELEFONE/TELEX - 4047</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4074</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FACILIDADES DE TELECOM/ANTENAS - 4074</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4082</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AGENCIA DE TURISMO - 4082</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4086</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ARTIGOS IMPORTADOS - 4086</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4089</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BALCAO DE INFORMACOES - 4089</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4094</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CHAVEIRO - 4094</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4095</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CLINICA MEDICA - 4095</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4101</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ARTESANATO/ ARTIGOS REGIONAIS - 4101</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4102</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ART ESPORT/CONFECCAO/COURO/CALCADOS - 4102</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4104</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ART PRESENTES/BRINQ/BIJOU/BAZAR - 4104</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4106</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BANCO - AGENCIA OU POSTO - 4106</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4107</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BANCO - EQUIPAMENTO ELETRONICO - 4107</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4108</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BARBEARIA/CABELEREIRO - 4108</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4109</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BAR/LANCHONETE/CHOPARIA - 4109</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4112</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BOMBONIERE - 4112</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4113</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CAFEZINHO - 4113</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4115</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>COM-CARGA/DESCARGA/MANUS/MERCADORIA - 4115</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4116</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CARREGADOR DE BAGAGEM - 4116</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4118</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>COM CARRINHOS/QUIOSQUES/TRAILLER - 4118</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4121</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>COMIDAS TIP/LATICIN/DOCES/SUCOS/FRU - 4121</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4122</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>COMISSARIA BORDO NAO EMPRESA AEREA - 4122</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4124</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CONSULTORIO DENTARIO - 4124</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4125</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DEPOSITO PROPRIO / ALMOXARIFADO - 4125</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4126</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DESPACHO PASSAGEIRO E BAGAGENS - 4126</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4127</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ENGRAXATARIA - 4127</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4129</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ESC. ADMINISTRATIVO OPERACIONAL - 4129</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4130</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ESC IMPORT E EXPORT DE CARGAS - 4130</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4134</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UTILIZ. EVENTUAL  AREA (C.CONTRATO) - 4134</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4136</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PROTECAO DE BAGAGENS E EQUIPAMENTOS - 4136</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4137</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FARMACIA / DROGARIA - 4137</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4138</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FLORICULTURA / VIVEIRO PLANTAS - 4138</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4141</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GUARDA DE MATERIAL RAMPA - 4141</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4142</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GUARDA VOLUME AUTOMATICO - 4142</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4143</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HANG AERON PROP OU TERC EMP AEREA - 4143</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4144</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HAN AERON PROP OU TER NAO EMPR AERE - 4144</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4145</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HOTEL/POUSADA/CASA BANHO/SAUNA - 4145</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4147</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>INFORM E VENDA DE PASSAGENS P/ CRED - 4147</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4149</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>JOALHERIA /OTICA - 4149</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4150</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>JORNAIS/REVISTAS/LIVROS/PAPEL/XEROX - 4150</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4152</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LOCACAO VEICULOS BALCAO - 4152</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4154</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LOJAS FRANCAS - 4154</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4155</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LOTERIA - 4155</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4157</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MANUTENCAO E/OU REVISAO AERONAVES - 4157</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4161</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PERFUMARIA - 4161</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4164</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>POSTO DE GASOLINA E SERV APOIO - 4164</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4166</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PUBLICIDADE CARRINHO DE BAGAGEM - 4166</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4171</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PUBLICIDADES PAINEIS EXTERNOS - 4171</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4172</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PUBLICIDADES PAINEIS INTERNOS - 4172</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4174</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PUBLICIDADE RELOGIO - 4174</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4175</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PUBLICIDADE TV - 4175</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4179</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PUBLICIDADES DIVERSAS - 4179</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4182</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RESTAURANTE - 4182</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4184</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SALA RECEPCAO (EXPLORACAO) - 4184</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4186</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SERV LIMPEZA E HIGIENIZ AERONAVES - 4186</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4187</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SERV POSTAIS E TELEGRAFICOS - 4187</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4188</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SERVICOS TELEFONICOS - 4188</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4190</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TABACARIA / CHARUTARIA - 4190</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4192</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TRANSPORTE DE VALORES - 4192</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4201</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DESPACHO ANV PAX E SUAS BAGAGENS - 4201</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4202</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>REC DESPA CARGAS/BENS POR ANV - 4202</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4204</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CARGA E DESCARGA DE ANV - 4204</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4206</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>COMISSARIA - 4206</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4207</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GUARDA MAT. RAMPA - OPE - 4207</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4210</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VENDA PASSAGENS PELO TRANSPORTADOR - 4210</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4211</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ESC MAN HANG E PART VEND PECA AERON - 4211</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4215</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ESCRITORIO ASSOC./AGREMIACAO - 4215</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4216</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ESCRITORIO VIRTUAL - 4216</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4222</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LOJA DE CONVENIENCIAS - 4222</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4235</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MAQUINA P/ VENDA DE SUCOS/SALGADOS - 4235</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4239</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>REVISTAS (ASSINATURA) - BALCAO/QUIO - 4239</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4243</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SERV.  REPRES. GERAL DE CIAS AEREAS - 4243</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4245</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SERV. DE PROMOCOES - ATRAVES PROMOT - 4245</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4248</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SERV. MAN. E OPERACAO DO SIST. CUTE - 4248</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4253</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VENDA DE BILHETES PARA ONIBUS - 4253</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4256</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PUBLICIDADE EM MONITOR - 4256</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4301</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SERV. AUX AEROP E DE TRANSP.  AEREO - 4301</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4304</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SERVICO FORNEC. COMB. LUB. AVIACAO - 4304</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4305</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SERV. MANUT ANV E EQUIP AERONAUTICO - 4305</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4307</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CARTAO TELEFONICO - 4307</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4310</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EQUIPAMENTOS E FACILIDADES - 4310</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4315</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>COOPERATIVA/ASSOCIACAO - 4315</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4317</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SERVICOS E PRODUTOS PARA MASSAGENS - 4317</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4325</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ARTIGOS DE BIJUTERIAS - 4325</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4330</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SERVICO DE TAXI - 4330</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4332</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SERVICO DE FUMIGACAO DE EMBALAGENS - 4332</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4341</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ESCRITORIO ADMINISTRATIVO - 4341</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4346</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SALA DE APOIO - 4346</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4347</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SERV AGENCIAMENTO DE BENS TRANSPORT - 4347</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4351</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SERVICO DE MANUTENCAO E SUPORTE TI - 4351</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4416</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PUBLICIDADE AREA - 4416</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4417</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PUBLICIDADE BANNER - 4417</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4425</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>QUIOSQUE - 4425</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4447</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PADARIA - 4447</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>5089</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CONCESSAO PARA ACESSO DE VEICULOS AO PATIO DE MANOBRAS - 5089</Name>
+    </EnumItem>
+  </Items>
+  <Name>AtividadeComercial</Name>
+  <Namespace>gru.com/Concessionario</Namespace>
+</EnumCategory>

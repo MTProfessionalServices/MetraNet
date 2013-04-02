@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Subscriber Credit Account Request Reason</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>Core</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DroppedCall</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DroppedCall</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PoorConnection</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PoorConnection</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BadService</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BadService</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GeneralDissatisfaction</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GeneralDissatisfaction</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Other</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Other</Name>
+    </EnumItem>
+  </Items>
+  <Name>SubscriberCreditAccountRequestReason</Name>
+  <Namespace>metratech.com</Namespace>
+</EnumCategory>

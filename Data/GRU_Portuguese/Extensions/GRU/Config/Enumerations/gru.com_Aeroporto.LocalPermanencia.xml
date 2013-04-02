@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Description>Local de permanencia de aeronove</Description>
+  <EnumMode>Item</EnumMode>
+  <Extension>GRU</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>0</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Patio de Manobras (PPM)</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Area de Estadia (PPE)</Name>
+    </EnumItem>
+  </Items>
+  <Name>LocalPermanencia</Name>
+  <Namespace>gru.com/Aeroporto</Namespace>
+</EnumCategory>

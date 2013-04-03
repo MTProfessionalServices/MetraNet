@@ -136,12 +136,12 @@ namespace MetraTech.ICE.ExpressionEngine
 
       entity.Namespace = string.Format("{0}.{1}s", oldEntityNamespace, oldEntity.ElementType.ToString());
 
-      ElementBase firstOldEntity;
-      if (PropertyBags.TryGetValue(entity.FullName, out firstOldEntity))
-      {
-          throw new Exception("Duplicate: "  + entity.FullName);
-      }
-      PropertyBags.Add(entity.FullName, oldEntity);
+      //ElementBase firstOldEntity;
+      //if (PropertyBags.TryGetValue(entity.FullName, out firstOldEntity))
+      //{
+      //    throw new Exception("Duplicate: "  + entity.FullName);
+      //}
+      //PropertyBags.Add(entity.FullName, oldEntity);
 
       return entity;
     }
@@ -204,6 +204,13 @@ namespace MetraTech.ICE.ExpressionEngine
 
     public static void ExportExtensions(string extensionsDir)
     {
+      ExportEnums(extensionsDir);
+      ExportMsixElements(extensionsDir);
+      ExportBmes(extensionsDir);
+    }
+
+    public static void ExportEnums(string extensionsDir)
+    {
       //Enums
       foreach (var oldEnumNamespace in Config.Instance.EnumerationConfig.EnumNamespaces.Values)
       {
@@ -224,14 +231,19 @@ namespace MetraTech.ICE.ExpressionEngine
           newEnumType.SaveInExtension(extensionsDir);
         }
       }
+    }
 
-      //Export the MSIX definitions
+    public static void ExportMsixElements(string extensionsDir)
+    {
       SaveInExtension(extensionsDir, ElementType.AccountView);
       SaveInExtension(extensionsDir, ElementType.ServiceDefinition);
       SaveInExtension(extensionsDir, ElementType.ProductView);
       SaveInExtension(extensionsDir, ElementType.ServiceDefinition);
       SaveInExtension(extensionsDir, ElementType.ParameterTable);
+    }
 
+    public static void ExportBmes(string extensionsDir)
+    {
       foreach (BusinessModelingEntityElement bmee in Config.Instance.BusinessModelingEntities.Values)
       {
           var newBme = PropertyBagFactory.CreateBusinessModelingEntity(bmee.Namespace, bmee.Name, bmee.Description);
@@ -241,15 +253,24 @@ namespace MetraTech.ICE.ExpressionEngine
             var dtInfo = new DataTypeInfo(property);
             var newType = GetMtType(dtInfo);
             var newProperty = PropertyFactory.Create(PropertyBagConstants.BusinessModelingEntity, property.Name, newType, property.IsRequired, property.Description);
-            newProperty.DefaultValue = property.DefaultValue;    
+            newProperty.DefaultValue = property.DefaultValue;
+            newBme.Properties.Add(newProperty);
           }
 
-          //Transfer the relationship
+          //Add the relationships as Extensible property bag properties
           foreach (var relationship in bmee.Entity.Relationships)
           {
-              var rEntity = PropertyBagFactory.CreateBusinessModelingEntity("NotSureNamespace", relationship.RelationshipName, null);
-              ((PropertyBagType) rEntity.Type).Name = relationship.RelationshipEntity.FullName;
-              newBme.Properties.Add(rEntity);
+              var rEntityFullName = relationship.RelationshipEntity.TargetEntityName;
+              var type = TypeFactory.CreatePropertyBag(rEntityFullName, PropertyBagMode.ExtensibleEntity);
+              if (relationship.End1.Multiplicity == BusinessEntity.Core.Multiplicity.Many)
+                type.ListType = ListType.List;
+              else
+                type.ListType = ListType.None;
+
+              var propertyEntityReference = PropertyFactory.Create(null, relationship.End1.PropertyName, type, false, null);
+              //((PropertyBagType)propertyEntityReference.Type).Name = relationship.RelationshipEntity.FullName;
+
+              newBme.Properties.Add(propertyEntityReference);
           }
 
           //I'm not really sure what association are

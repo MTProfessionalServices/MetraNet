@@ -122,7 +122,7 @@ namespace PropertyGui
             }
         }
 
-        private void changeEvent(object sender, System.EventArgs e)
+        private void changeEvent(object sender, EventArgs e)
         {
             if (IgnoreChanges)
                 return;

@@ -8,6 +8,7 @@ using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.Validations;
 using MetraTech.ExpressionEngine.PropertyBags.Enumerations;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace PropertyGui
 {
@@ -21,6 +22,7 @@ namespace PropertyGui
         private Context Context;
         private PropertyBag PropertyBag;
         private Property CurrentProperty = null;
+        private bool IgnoreChanges = false;
         #endregion
 
         #region Constructor
@@ -40,15 +42,22 @@ namespace PropertyGui
             Context = context;
             PropertyBag = propertyBag;
 
+            IgnoreChanges = true;
+
+            //Init the general stuff
             txtName.Text = PropertyBag.Name;
             txtDescription.Text = PropertyBag.Description;
             GuiHelper.LoadEnum<EventType>(cboEventType);
             cboEventType.SelectedItem = ((ProductViewEntity)PropertyBag).EventType;
 
+            //Init the filter
+            GuiHelper.LoadMetraNetBaseTypes(cboDataTypeFilter, true, true);
+            cboDataTypeFilter.SelectedItem = BaseType.Any;
 
             //Init the property editor
             ctlPropertyEditor.OnChangeEvent = PropertyChangeEvent;
             ctlPropertyEditor.Init(Context, PropertyBag);
+            ctlPropertyEditor.OnPropertyCreated = PropertyCreatedEvent;
 
             //Init and load the tree
             treProperties.Init(Context, mnuContext);
@@ -57,8 +66,11 @@ namespace PropertyGui
             treProperties.HideSelection = false;
             LoadTree();
             EnsureNodeSelected();
+            treProperties.ExpandAll();
 
             tabMain.SelectedTab = tabProperties;
+
+            IgnoreChanges = false;
         }
 
 
@@ -81,17 +93,18 @@ namespace PropertyGui
             treProperties.PreserveState();
             treProperties.Nodes.Clear();
 
+            var filter = (BaseType)cboDataTypeFilter.SelectedItem;
             if (!chkShowReferences.Checked)
-                LoadFlat();
+                LoadFlat(filter);
             else
-                LoadHiearchy();
+                LoadHiearchy(filter);
 
             treProperties.Sort();
             treProperties.RestoreState();
             treProperties.EndUpdate();
         }
 
-        private void LoadHiearchy()
+        private void LoadHiearchy(BaseType filter)
         {
             var addedProperties = new List<Property>();
 
@@ -104,21 +117,21 @@ namespace PropertyGui
                 var eventCharge = pv.GetEventCharge();
                 TreeNode eventChargeNode = null;
                 if (eventCharge != null)
-                    eventChargeNode = AddPropertyToHiearchy(eventCharge, null, addedProperties);
+                    eventChargeNode = AddPropertyToHiearchy(eventCharge, null, addedProperties, filter);
 
                 //Add the EventTax
                 var eventTax = pv.Properties.Get(PropertyBagConstants.EventTax);
                 TreeNode eventTaxNode = null;
                 if (eventCharge != null)
-                    eventTaxNode = AddPropertyToHiearchy(eventTax, null, addedProperties);
+                    eventTaxNode = AddPropertyToHiearchy(eventTax, null, addedProperties, filter);
 
                 //Add charges and taxes
                 foreach (var property in PropertyBag.Properties)
                 {
                     if (property.Type.IsCharge && property.Name != PropertyBagConstants.EventCharge)
-                        AddPropertyToHiearchy(property, eventChargeNode, addedProperties);
+                        AddPropertyToHiearchy(property, eventChargeNode, addedProperties, filter);
                     else if (property.Type.IsTax && property.Name != PropertyBagConstants.EventTax)
-                        AddPropertyToHiearchy(property, eventTaxNode, addedProperties);
+                        AddPropertyToHiearchy(property, eventTaxNode, addedProperties, filter);
                 }
             }
            
@@ -130,41 +143,80 @@ namespace PropertyGui
 
                 //Only add things with property references
                 if (property.Type.GetPropertyReferences().Count > 0)
-                    AddPropertyToHiearchy(property, null, addedProperties);
+                    AddPropertyToHiearchy(property, null, addedProperties, filter);
             }
 
             //Add anything that hasn't already been added
             foreach (var property in PropertyBag.Properties)
             {
                 if (!addedProperties.Contains(property))
-                    AddPropertyToHiearchy(property, null, addedProperties);
+                    AddPropertyToHiearchy(property, null, addedProperties, filter);
             }
         }
 
-        private TreeNode AddPropertyToHiearchy(Property property, TreeNode parentNode, List<Property> addedProperties)
+        private TreeNode AddPropertyToHiearchy(Property property, TreeNode parentNode, List<Property> addedProperties, BaseType filter)
         {
             if (property == null)
                 throw new ArgumentException("property is null");
 
             addedProperties.Add(property);
-            var node = treProperties.CreateNode(property, parentNode);
+            var node = treProperties.CreateNode(property, filter, parentNode);
             foreach (var propertyReference in property.Type.GetPropertyReferences())
             {
                 var childProperty = property.PropertyCollection.Get(propertyReference.PropertyName);
                 if (childProperty != null)
-                    AddPropertyToHiearchy(childProperty, node, addedProperties);
+                    AddPropertyToHiearchy(childProperty, node, addedProperties, filter);
             }
             return node;
         }
 
-        private void LoadFlat()
+        private void LoadFlat(BaseType filter)
         {
             foreach (var property in PropertyBag.Properties)
             {
-                    treProperties.CreateNode(property);
+                treProperties.CreateNode(property, filter);
             }
         }
 
+        private void RefreshTree()
+        {
+            ctlPropertyEditor.SyncToObject();
+            LoadTree();
+        }
+
+        private void Delete()
+        {
+            if (!treProperties.CheckNodeIsSelected(true))
+                return;
+            if (((Property)treProperties.SelectedNode.Tag).IsCore)
+            {
+                MessageBox.Show("Core properties can't be deleted.", null, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            treProperties.SelectedNode.Remove();
+            RefreshTree();
+        }
+
+        #endregion
+
+        #region Misc Events
+        public void PropertyCreatedEvent(Property property)
+        {
+            btnRefresh_Click(null, null);
+            if (treProperties.SelectedNode != null)
+                treProperties.SelectedNode.Expand();
+            else if (treProperties.Nodes.Count > 0)
+                treProperties.SelectedNode = treProperties.Nodes[0];
+
+        }
+        #endregion
+
+        #region Misc Events
+        private void mnuContext_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if (e.ClickedItem.Equals(mnuExpandAll))
+                treProperties.ExpandAll();
+        }
         #endregion
 
         #region Tree Events
@@ -215,13 +267,18 @@ namespace PropertyGui
             else
                 frmValidationMessages.Show(messages);
         }
-
+       
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            LoadTree();
+            if (!IgnoreChanges)
+                RefreshTree();
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            Delete();
+        }
         #endregion
 
     }

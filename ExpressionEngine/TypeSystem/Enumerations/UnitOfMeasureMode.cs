@@ -18,7 +18,7 @@
         /// <summary>
         /// Implied by the context which is up to the developer.
         /// </summary>
-        ContextDriven,  
+        //ContextDriven,  
 
         /// <summary>
         /// Always the same (i.e., hours or inches). Specified in the UomQualifier field

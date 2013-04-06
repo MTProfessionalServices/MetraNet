@@ -84,8 +84,10 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             MetraNetBaseTypes = new BaseType[]
                 {
                     BaseType.Boolean,
-                    BaseType.Decimal,
                     BaseType.Charge,
+                    BaseType.Currency,
+                    BaseType.DateTime,
+                    BaseType.Decimal,
                     BaseType.Double,
                     BaseType.Enumeration,
                     BaseType.Guid,
@@ -94,7 +96,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     BaseType.Money, 
                     BaseType.String,
                     BaseType.Tax,
-                    BaseType.DateTime
+                    BaseType.UnitOfMeasure
                 };
 
             DatabaseBaseTypes = new BaseType[] 

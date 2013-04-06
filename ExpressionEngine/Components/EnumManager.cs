@@ -6,6 +6,8 @@ using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.Validations;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using MetraTech.ExpressionEngine.TypeSystem.Constants;
 
 namespace MetraTech.ExpressionEngine.Components
 {
@@ -25,8 +27,14 @@ namespace MetraTech.ExpressionEngine.Components
             if (_categories.ContainsKey(enumCategory.FullName))
                 throw new Exception(string.Format(CultureInfo.InvariantCulture, "Duplicate EnumCategory '{0}'", enumCategory.FullName));
 
+            //There can be only one currency
+            if (enumCategory.BaseType == BaseType.Currency && enumCategory.FullName != PropertyBagConstants.MetraTechCurrencies)
+                throw new Exception(string.Format(CultureInfo.InvariantCulture, "The only valid currency category is '{0}'", PropertyBagConstants.MetraTechCurrencies));
+
+
             _categories.Add(enumCategory.FullName, enumCategory);
         }
+
         public EnumCategory GetCategory(string categoryFullName)
         {
             if (string.IsNullOrEmpty(categoryFullName))
@@ -37,6 +45,7 @@ namespace MetraTech.ExpressionEngine.Components
                 return null;
             return enumCategory;
         }
+
         public EnumCategory GetCategory(EnumerationType enumerationType)
         {
             if (enumerationType == null)
@@ -54,7 +63,7 @@ namespace MetraTech.ExpressionEngine.Components
             var uoms = new List<EnumCategory>();
             foreach (var category in Categories)
             {
-                if (category.EnumMode == EnumMode.UnitOfMeasure)
+                if (category.BaseType == BaseType.UnitOfMeasure)
                     uoms.Add(category);
             }
             return uoms;
@@ -74,11 +83,11 @@ namespace MetraTech.ExpressionEngine.Components
             //Find name overlaps
             foreach (var category in Categories)
             {
-                if (!showItems && category.EnumMode == EnumMode.Item)
+                if (!showItems && category.BaseType == BaseType.Enumeration)
                     continue;
-                if (!showUoms && category.EnumMode == EnumMode.UnitOfMeasure)
+                if (!showUoms && category.BaseType == BaseType.UnitOfMeasure)
                     continue;
-                if (!showCurrency && category.EnumMode == EnumMode.Currency)
+                if (!showCurrency && category.BaseType == BaseType.Currency)
                     continue;
 
                 if (names.ContainsKey(category.Name))

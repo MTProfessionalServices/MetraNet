@@ -32,11 +32,11 @@ namespace PropertyGui.TypeSystemControls
             cboCurrencyMode.Items.Add(CurrencyMode.Fixed);
             cboCurrencyMode.Items.Add(CurrencyMode.None);
             cboCurrencyMode.Items.Add(CurrencyMode.PropertyDriven);
-            cboCurrencyMode.Items.Add(CurrencyMode.ContextDriven);
+            //cboCurrencyMode.Items.Add(CurrencyMode.ContextDriven);
             cboCurrencyMode.Sorted = true;
             cboCurrencyMode.EndUpdate();
-           
-            ctlPropertyReference.Init(Property, TypeFactory.CreateEnumeration(EnumMode.Currency), "Currency");
+
+            ctlPropertyReference.Init(Property, TypeFactory.CreateCurrency(), "Currency", PropertyCreated);
 
             ctlPropertyReference.Top = cboCurrency.Top;
             ctlPropertyReference.Left = cboCurrency.Left;
@@ -63,7 +63,7 @@ namespace PropertyGui.TypeSystemControls
             var mode = (CurrencyMode) cboCurrencyMode.SelectedItem;
             switch (mode)
             {
-                case CurrencyMode.ContextDriven:
+                //case CurrencyMode.ContextDriven:
                 case CurrencyMode.None:
                     break;
                 case CurrencyMode.Fixed:

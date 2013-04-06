@@ -1,6 +1,7 @@
 ﻿using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace ExpressionEngineTest
 {  
@@ -20,7 +21,7 @@ namespace ExpressionEngineTest
         [TestMethod()]
         public void EnumValueConstructorTest()
         {
-            var parent = new EnumCategory(EnumMode.Item, "Global", "Country", 1, null);
+            var parent = new EnumCategory(BaseType.Enumeration, "Global", "Country", 1, null);
             var name = "USA";
             var id = 500;
             var description = "Hello world";
@@ -34,7 +35,7 @@ namespace ExpressionEngineTest
         #region Helper Methods
         private EnumItem GetEnumValue(string namespaceName, string categoryName, string enumName, int id, string description = null)
         {
-            var category = new EnumCategory(EnumMode.Item, namespaceName, categoryName, 1, null);
+            var category = new EnumCategory(BaseType.Enumeration, namespaceName, categoryName, 1, null);
             var value = category.AddItem(enumName, id, description);
             return value;
         }

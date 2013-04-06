@@ -2,6 +2,7 @@
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using MetraTech.ExpressionEngine.Components.Enumerations;
 
 namespace PropertyGui.TypeSystemControls
 {
@@ -32,7 +33,8 @@ namespace PropertyGui.TypeSystemControls
 
             ctlProperty.Top = ctlUom.Top;
             ctlProperty.Left = ctlUom.Left;
-            ctlProperty.Init(property, TypeFactory.CreateNumeric(), "UnitOfMeasure");
+            ctlProperty.Init(property, TypeFactory.CreateUnitOfMeasure(), "UnitOfMeasure", PropertyCreated);
+            //ctlProperty.OnPropertyCreated = PropertyCreated;
         }
 
         public override void SyncToForm()
@@ -86,6 +88,7 @@ namespace PropertyGui.TypeSystemControls
             ctlUom.Visible = showUomCategory;
             lblUnitOfMeasure.Visible = showUomItem;
         }
+
         #endregion
 
     }

@@ -26,12 +26,6 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public string Category { get; set; }
 
         /// <summary>
-        /// Note than Item allows for UnitOfMeasure or Currency
-        /// </summary>
-        [DataMember]
-        public EnumMode Mode { get; set; } 
-
-        /// <summary>
         /// Returns a string that can be used to determine if two types are directly compatible (which is differnt than castable)
         /// </summary>
         /// <returns></returns>
@@ -45,8 +39,10 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #endregion
 
         #region Constructor
-        public EnumerationType(string category):base(BaseType.Enumeration)
+        public EnumerationType(string category, BaseType baseType):base(baseType)
         {
+            if (!IsGeneralEnumType(baseType))
+                throw new ArgumentException("invalid base typeType");
             Category = category;
         }
         #endregion
@@ -87,6 +83,13 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             InternalCopy(type);
             type.Category = Category;
             return type;
+        }
+
+        public static bool IsGeneralEnumType(BaseType baseType)
+        {
+            return baseType == Enumerations.BaseType.Currency ||
+                baseType == Enumerations.BaseType.Enumeration ||
+                baseType == Enumerations.BaseType.UnitOfMeasure;
         }
         #endregion
 

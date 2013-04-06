@@ -23,7 +23,7 @@ namespace PropertyGui.TypeSystemControls
             base.Init(property, context);
             ChargeType = (ChargeType)property.Type;
 
-            ctlQuantityProperty.Init(Property, TypeFactory.CreateNumeric(), "Quantity");
+            ctlQuantityProperty.Init(Property, TypeFactory.CreateNumeric(), "Quantity", PropertyCreated);
         }
 
         public override void SyncToForm()

@@ -6,6 +6,7 @@ using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using PropertyGui.TypeSystemControls;
+using PropertyGui.Compoenents;
 
 namespace PropertyGui
 {
@@ -18,6 +19,7 @@ namespace PropertyGui
         private Context Context;
         public Property Property { get; private set; }
         public ChangeEvent OnChangeEvent;
+        public PropertyCreated OnPropertyCreated;
 
         /// <summary>
         /// The current control being used to edit the type specific attributes. Note that many data types don't have
@@ -44,7 +46,7 @@ namespace PropertyGui
             Context = context;
 
             //TODO: MetraNet doesn't support all of the data types, need to filter them
-            GuiHelper.LoadBaseTypes(cboDataType);
+            GuiHelper.LoadMetraNetBaseTypes(cboDataType);
         }
 
         public void SyncToForm(Property property)
@@ -114,6 +116,7 @@ namespace PropertyGui
                 CurrentTypeControl.Left = lblDataType.Left + 15;
                 CurrentTypeControl.Init(Property, Context);
                 CurrentTypeControl.SyncToForm();
+                CurrentTypeControl.OnPropertyCreated = PropertyCreated;
                 panBottom.Top = CurrentTypeControl.Bottom + 5;
             }
             else
@@ -131,6 +134,12 @@ namespace PropertyGui
 
             if (OnChangeEvent != null)
                 OnChangeEvent();
+        }
+
+        public void PropertyCreated(Property property)
+        {
+            if (OnPropertyCreated != null)
+                OnPropertyCreated(property);
         }
 
         #endregion

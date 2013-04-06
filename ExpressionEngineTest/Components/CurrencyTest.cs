@@ -1,6 +1,7 @@
 ﻿using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace ExpressionEngineTest
 {
@@ -13,13 +14,13 @@ namespace ExpressionEngineTest
         [TestMethod()]
         public void CurrencyConstructorTest()
         {
-            var enumCategory = new EnumCategory(EnumMode.Currency, null, null, 0, null);
+            var enumCategory = new EnumCategory(BaseType.Currency, null, null, 0, null);
             var name = "Tokens";
             var id = 231;
             var description = "this is a good description";
             var currency = EnumFactory.Create(enumCategory, name, id, description);
             Assert.AreSame(enumCategory, currency.EnumCategory);
-            Assert.AreEqual(EnumMode.Currency, currency.EnumCategory.EnumMode);
+            Assert.AreEqual(BaseType.Currency, currency.EnumCategory.BaseType);
             Assert.AreEqual(name, currency.Name);
             Assert.AreEqual(id, currency.Id);
             Assert.AreEqual(description, currency.Description);

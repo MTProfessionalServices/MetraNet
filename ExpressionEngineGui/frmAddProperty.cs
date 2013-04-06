@@ -31,8 +31,8 @@ namespace PropertyGui
             UserDrivenType = TypeHelper.BaseTypeFilterSupportsMultipleBaseTypes(type.BaseType);
             if (!UserDrivenType)
             {
-                cboType.Items.Add(Type);
-                cboType.SelectedItem = Type;
+                cboType.Items.Add(Type.BaseType);
+                cboType.SelectedItem = Type.BaseType;
                 cboType.Enabled = false;
             }
             else

@@ -12,6 +12,7 @@ using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
 using MetraTech.ExpressionEngine.PropertyBags;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace PropertyGui
 {
@@ -110,7 +111,7 @@ namespace PropertyGui
         private void btnEditCompute_Click(object sender, EventArgs e)
         {
             var context = Context.LoadMetanga(@"C:\ExpressionEngine\Data\Metanga");
-            context.AddEnumCategory(new EnumCategory(EnumMode.UnitOfMeasure, "Scott", "DigitalInformation", 0, "Just a sample overlap"));
+            context.AddEnumCategory(new EnumCategory(BaseType.UnitOfMeasure, "Scott", "DigitalInformation", 0, "Just a sample overlap"));
             var compute = ProductViewEntity.CreateCompute();
             context.AddPropertyBag(compute);
             var dialog = new frmPropertyBag(context, compute);

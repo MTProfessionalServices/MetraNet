@@ -86,6 +86,22 @@ namespace PropertyGui
             comboBox.EndUpdate();
         }
 
+        public static void LoadMetraNetBaseTypes(ComboBox comboBox, bool includeAny=false, bool includeNumeric=false)
+        {
+            comboBox.BeginUpdate();
+            comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            if (includeAny)
+                comboBox.Items.Add(BaseType.Any);
+            if (includeNumeric)
+                comboBox.Items.Add(BaseType.Numeric);
+            foreach (var baseType in TypeHelper.MetraNetBaseTypes)
+            {
+                comboBox.Items.Add(baseType);
+            }
+            comboBox.Sorted = true;
+            comboBox.EndUpdate();
+        }
+
         public static void LoadBaseTypes(ComboBox comboBox)
         {
             comboBox.BeginUpdate();

@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.MTProperties;
+using PropertyGui.Compoenents;
 
 namespace PropertyGui.TypeSystemControls
 {
@@ -10,6 +11,7 @@ namespace PropertyGui.TypeSystemControls
         #region Properties
         protected Property Property;
         protected Context Context;
+        public PropertyCreated OnPropertyCreated;
         #endregion
 
         #region Constructor
@@ -41,5 +43,15 @@ namespace PropertyGui.TypeSystemControls
             throw new NotImplementedException();
         }
         #endregion
+
+        #region Events
+        public void PropertyCreated(Property property)
+        {
+            if (OnPropertyCreated != null)
+                OnPropertyCreated(property);
+        }
+
+        #endregion
+
     }
 }

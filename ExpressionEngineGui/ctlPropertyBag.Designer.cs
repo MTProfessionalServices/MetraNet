@@ -31,8 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.treProperties = new PropertyGui.ctlExpressionTree();
-            this.ctlPropertyEditor = new PropertyGui.ctlProperty();
             this.mnuContext = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuExpandAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctlPropertyEditor = new PropertyGui.ctlProperty();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnValidate = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -53,6 +54,7 @@
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
+            this.mnuContext.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.tabProperties.SuspendLayout();
@@ -64,7 +66,7 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.splitContainer.Location = new System.Drawing.Point(6, 74);
+            this.splitContainer.Location = new System.Drawing.Point(6, 67);
             this.splitContainer.Name = "splitContainer";
             // 
             // splitContainer.Panel1
@@ -74,14 +76,15 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.ctlPropertyEditor);
-            this.splitContainer.Size = new System.Drawing.Size(865, 273);
-            this.splitContainer.SplitterDistance = 357;
+            this.splitContainer.Size = new System.Drawing.Size(851, 280);
+            this.splitContainer.SplitterDistance = 351;
             this.splitContainer.TabIndex = 3;
             // 
             // treProperties
             // 
             this.treProperties.AllowEntityExpand = true;
             this.treProperties.AllowEnumExpand = true;
+            this.treProperties.ContextMenuStrip = this.mnuContext;
             this.treProperties.DefaultNodeContextMenu = null;
             this.treProperties.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treProperties.EntityTypeFilter = null;
@@ -97,23 +100,32 @@
             this.treProperties.SelectedImageIndex = 0;
             this.treProperties.ShowNamespaces = false;
             this.treProperties.ShowNodeToolTips = true;
-            this.treProperties.Size = new System.Drawing.Size(353, 269);
+            this.treProperties.Size = new System.Drawing.Size(347, 276);
             this.treProperties.TabIndex = 4;
             this.treProperties.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
             this.treProperties.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treProperties_AfterSelect);
+            // 
+            // mnuContext
+            // 
+            this.mnuContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuExpandAll});
+            this.mnuContext.Name = "mnuContext";
+            this.mnuContext.Size = new System.Drawing.Size(130, 26);
+            this.mnuContext.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuContext_ItemClicked);
+            // 
+            // mnuExpandAll
+            // 
+            this.mnuExpandAll.Name = "mnuExpandAll";
+            this.mnuExpandAll.Size = new System.Drawing.Size(129, 22);
+            this.mnuExpandAll.Text = "Expand All";
             // 
             // ctlPropertyEditor
             // 
             this.ctlPropertyEditor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ctlPropertyEditor.Location = new System.Drawing.Point(0, 0);
             this.ctlPropertyEditor.Name = "ctlPropertyEditor";
-            this.ctlPropertyEditor.Size = new System.Drawing.Size(500, 269);
+            this.ctlPropertyEditor.Size = new System.Drawing.Size(492, 276);
             this.ctlPropertyEditor.TabIndex = 0;
-            // 
-            // mnuContext
-            // 
-            this.mnuContext.Name = "mnuContext";
-            this.mnuContext.Size = new System.Drawing.Size(61, 4);
             // 
             // btnAdd
             // 
@@ -174,6 +186,7 @@
             this.cboDataTypeFilter.Name = "cboDataTypeFilter";
             this.cboDataTypeFilter.Size = new System.Drawing.Size(195, 21);
             this.cboDataTypeFilter.TabIndex = 8;
+            this.cboDataTypeFilter.SelectedValueChanged += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnDelete
             // 
@@ -183,6 +196,7 @@
             this.btnDelete.TabIndex = 9;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // tabMain
             // 
@@ -206,7 +220,7 @@
             this.tabGeneral.Location = new System.Drawing.Point(4, 22);
             this.tabGeneral.Name = "tabGeneral";
             this.tabGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGeneral.Size = new System.Drawing.Size(687, 353);
+            this.tabGeneral.Size = new System.Drawing.Size(863, 353);
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "General";
             this.tabGeneral.UseVisualStyleBackColor = true;
@@ -292,6 +306,7 @@
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
+            this.mnuContext.ResumeLayout(false);
             this.tabMain.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);
             this.tabGeneral.PerformLayout();
@@ -324,5 +339,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripMenuItem mnuExpandAll;
     }
 }

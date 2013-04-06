@@ -5,6 +5,8 @@ using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace PropertyGui.Compoenents
 {
+    public delegate void PropertyCreated(Property property);
+
     public partial class ctlPropertyReference : UserControl
     {
         #region Properties
@@ -18,6 +20,8 @@ namespace PropertyGui.Compoenents
 
         private Property Property;
         private Type Type;
+
+        public PropertyCreated OnPropertyCreated; 
         #endregion
 
         #region Constructor
@@ -29,7 +33,7 @@ namespace PropertyGui.Compoenents
         #endregion
 
         #region Methods
-        public void Init(Property property, Type type, string defaultSuffix)
+        public void Init(Property property, Type type, string defaultSuffix, PropertyCreated propertyCreatedEvent)
         {
             if (property == null)
                 throw new ArgumentException("property is null");
@@ -38,6 +42,7 @@ namespace PropertyGui.Compoenents
             Property = property;
             Type = type;
             DefaultSuffix = defaultSuffix;
+            OnPropertyCreated = propertyCreatedEvent;
         }
         #endregion
 
@@ -65,7 +70,9 @@ namespace PropertyGui.Compoenents
 
             cboProperty.Text = dialog.NewProperty.Name;
             Property.PropertyCollection.Add(dialog.NewProperty);
-            //Want to refresh the tree!
+
+            if (OnPropertyCreated != null)
+                OnPropertyCreated(dialog.NewProperty);
         }
         #endregion
     }

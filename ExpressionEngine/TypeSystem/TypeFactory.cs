@@ -29,6 +29,11 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return new ChargeType();
         }
 
+        public static Type CreateCurrency()
+        {
+            return new EnumerationType(null, BaseType.Currency);
+        }
+
         public static PropertyBagType CreatePropertyBag()
         {
             return CreatePropertyBag(null, PropertyBagMode.PropertyBag);
@@ -61,20 +66,14 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return new NumberType(BaseType.Double, unitOfMeasureMode, unitOfMeasureQualifier);
         }
 
-        public static EnumerationType CreateEnumeration(EnumMode enumMode)
-        {
-          var enumerationType = new EnumerationType(null);
-          enumerationType.Mode = enumMode;
-          return enumerationType;
-        }
         public static EnumerationType CreateEnumeration()
         {
-            return CreateEnumeration(null);
+          return new EnumerationType(null, BaseType.Enumeration);
         }
 
         public static EnumerationType CreateEnumeration(string category)
         {
-            return new EnumerationType(category);
+            return new EnumerationType(category, BaseType.Enumeration);
         }
 
         public static NumberType CreateFloat()
@@ -156,6 +155,10 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return new Type(BaseType.Unknown);
         }
 
+        public static Type CreateUnitOfMeasure()
+        {
+            return new EnumerationType(null, BaseType.UnitOfMeasure);
+        }
         #endregion
 
         #region General Create Methods
@@ -183,6 +186,8 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     return CreateBoolean();
                 case BaseType.Charge:
                     return CreateCharge();
+                case BaseType.Currency:
+                    return CreateCurrency();
                 case BaseType.PropertyBag:
                     return CreatePropertyBag();
                 case BaseType.DateTime:
@@ -213,6 +218,8 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     return CreateTax();
                 case BaseType.UniqueIdentifier:
                     return CreateUniqueId();
+                case BaseType.UnitOfMeasure:
+                    return CreateUnitOfMeasure();
                 case BaseType.Unknown:
                     return CreateUnknown();
                 default:

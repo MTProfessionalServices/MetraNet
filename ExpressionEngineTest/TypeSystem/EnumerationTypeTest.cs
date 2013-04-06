@@ -45,7 +45,7 @@ namespace ExpressionEngineTest
             TestHelper.AssertValidation(messages, 1, 0, 0, "FixedCategory not found");
 
             //Set a real FixedCategory
-            var enumCategory = new EnumCategory(EnumMode.Item, "Global", "Country", 0, null);
+            var enumCategory = new EnumCategory(BaseType.Enumeration, "Global", "Country", 0, null);
             context.AddEnumCategory(enumCategory);
             messages = new ValidationMessageCollection();
             enumerationType.Category = "Global.Country";

@@ -8,6 +8,7 @@ using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace PropertyGui
 {
@@ -234,6 +235,13 @@ namespace PropertyGui
             }
         }
 
+        public TreeNode CreateNode(Property property, BaseType filter, TreeNode parentNode = null)
+        {
+            if (property.Type.IsBaseTypeFilterMatch(filter))
+                return CreateNode(property, parentNode);
+            return null;
+        }
+
         public TreeNode CreateNode(IExpressionEngineTreeNode item, TreeNode parentNode = null)
         {
             var node = new TreeNode();
@@ -253,33 +261,11 @@ namespace PropertyGui
                 var property = (Property)item;
 
                 //If it's an enum, append all of the values
-                if (property.Type.IsEnum)
+                if (property.Type.IsEnum && AllowEnumExpand)
                 {
                     var enumType = Context.GetEnumCategory((EnumerationType)property.Type);
-                    if (enumType != null && AllowEnumExpand)
+                    if (enumType != null)
                         AddEnumValues(enumType, node);
-                }
-
-                //Append Units link, if any
-                var unitsProperty = property.GetUnitsProperty();
-                if (unitsProperty != null)
-                {
-                    var linkNode = new TreeNode(string.Format("Units PropertyDriven Link: {0}", unitsProperty.Name));
-                    linkNode.ToolTipText = "";
-                    linkNode.SelectedImageKey = "Link.png";
-                    linkNode.ImageKey = "Link.png";
-                    node.Nodes.Add(linkNode);
-                }
-
-                //Append UoM link, if any
-                var uomProperty = property.GetUnitOfMeasureProperty();
-                if (uomProperty != null)
-                {
-                    var linkNode = new TreeNode(string.Format("UoM PropertyDriven Link: {0}", uomProperty.Name));
-                    linkNode.ToolTipText = "";
-                    linkNode.SelectedImageKey = "Link.png";
-                    linkNode.ImageKey = "Link.png";
-                    node.Nodes.Add(linkNode);
                 }
             }
 
@@ -341,6 +327,15 @@ namespace PropertyGui
                     SelectedNode = node;
             }
         }
+
+        public bool CheckNodeIsSelected(bool showErrorMessage)
+        {
+            var result = SelectedNode != null;
+            if (!result && showErrorMessage)
+                MessageBox.Show("Node is not selected.", null, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return result;
+        }
+
         #endregion
 
         #region Events

@@ -69,7 +69,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         {
             switch (UnitOfMeasureMode)
             {
-                case UnitOfMeasureMode.ContextDriven:
+                //case UnitOfMeasureMode.ContextDriven:
                 case UnitOfMeasureMode.Count:
                     UnitOfMeasureProperty = null;
                     UnitOfMeasureCategory = null;
@@ -90,7 +90,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         {
             var references = new List<PropertyReference>();
             if (UnitOfMeasureMode == UnitOfMeasureMode.PropertyDriven && !string.IsNullOrEmpty(UnitOfMeasureProperty))
-                references.Add(new PropertyReference(UnitOfMeasureProperty, TypeFactory.CreateEnumeration(EnumMode.UnitOfMeasure), true));
+                references.Add(new PropertyReference(UnitOfMeasureProperty, TypeFactory.CreateUnitOfMeasure(), true));
             return references;
         }
         private void AddError(ValidationMessageCollection messages, string prefix, string message)
@@ -121,7 +121,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     return;
 
                 //Find the category
-                var enumCategory = context.GetEnumCategory(new EnumerationType(PropertyBagConstants.MetraTechUnitOfMeasureNamespace));
+                var enumCategory = context.GetEnumCategory(new EnumerationType(PropertyBagConstants.MetraTechUnitOfMeasureNamespace, BaseType.UnitOfMeasure));
                 if (enumCategory == null)
                 {
                     AddError(messages, prefix, Localization.UnableToFindEnumCategory);
@@ -129,7 +129,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 }
 
                 //Ensure Enum is a UoM
-                if (enumCategory.EnumMode != EnumMode.UnitOfMeasure)
+                if (enumCategory.BaseType != BaseType.UnitOfMeasure)
                 {
                     AddError(messages, prefix, Localization.UnitOfMeasureCategoryMustBeUom);
                     return;

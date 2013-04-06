@@ -1,15 +1,22 @@
-*Don't autoexpand enums option
-*Type editor doesn't set properly
-*Type editor updates aren't preserved
+*Numeric editor; UOM categories are all enums... need to filter
+*EnumCategory icon is wrong
+*Hide property panel when no properties
+*Clicking on a tax prevents any further updates to the property panel!
+
 *Save PV
-*Cloud export
-*Telmore export
-*GRU export
 *FS export
 *InterCall export
-*PGi export
 
 
+DONE:
+-----------------------------------------------------------
+*Currency and UnitOfMeasure now first class BaseTypes
+*ctlProperty restrict MSIXDataTypes
+*Property filter combo box.
+*Expand All context menu
+*Numeric; add propertydriven is currency, not UOM
+*Money; when add property driven reference, tree not updated 
+-----------------------------------------------------------
 
 *Extensions; issue with casting to a abstract class
 *Move Validate to launch

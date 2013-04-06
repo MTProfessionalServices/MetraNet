@@ -101,6 +101,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public bool IsBinary { get { return BaseType == BaseType.Binary; } }
         public bool IsBoolean { get { return BaseType == BaseType.Boolean; } }
         public bool IsCharge { get { return BaseType == BaseType.Charge; } }
+        public bool IsCurrency { get { return BaseType == BaseType.Currency; } }
         public bool IsDateTime { get { return BaseType == BaseType.DateTime; } }
         public bool IsDecimal { get { return BaseType == BaseType.Decimal; } }
         public bool IsDouble { get { return BaseType == BaseType.Double; } }
@@ -116,6 +117,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public bool IsString { get { return BaseType == BaseType.String; } }
         public bool IsTax { get { return BaseType == BaseType.Tax; } }
         public bool IsUniqueIdentifier { get { return BaseType == BaseType.UniqueIdentifier; } }
+        public bool IsUnitOfMeasure { get { return BaseType == BaseType.UnitOfMeasure; } }
         public bool IsUnknown { get { return BaseType == BaseType.Unknown; } }
         #endregion
 
@@ -167,7 +169,10 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             //Not dealing with UoM or Currencies
         }
 
-
+        public bool IsBaseTypeFilterMatch(BaseType baseType)
+        {
+            return IsBaseTypeFilterMatch(TypeFactory.Create(baseType));
+        }
         public bool IsBaseTypeFilterMatch(Type type)
         {
             if (type == null)

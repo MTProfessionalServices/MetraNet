@@ -6,6 +6,8 @@ using System.Runtime.Serialization;
 using System.IO;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Validations;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace MetraTech.ExpressionEngine.Components
 {
@@ -44,7 +46,15 @@ namespace MetraTech.ExpressionEngine.Components
         /// Indicates if the category is a basic enumeration, a unit of measure or a currency
         /// </summary>
         [DataMember]
-        public EnumMode EnumMode { get; set; }
+        public BaseType BaseType { get { return _type; }
+            set
+            {
+                if (!EnumerationType.IsGeneralEnumType(value))
+                    throw new Exception("Invalid Type");
+                _type = value;
+            }
+        }
+        private BaseType _type;
 
         /// <summary>
         /// The extension that the category was defined in. Only applies to MetraNet.
@@ -76,11 +86,15 @@ namespace MetraTech.ExpressionEngine.Components
 
         public virtual string Image { get
         {
-            if (EnumMode == EnumMode.Item)
-                return "Enumeration.png";
-            else if (EnumMode == EnumMode.UnitOfMeasure)
-                return "UnitOfMeasureCategory.png";
-            return "Currency.png";
+            switch (BaseType)
+            {
+                case TypeSystem.Enumerations.BaseType.Enumeration:
+                    return "Enumeration.png";
+                case TypeSystem.Enumerations.BaseType.UnitOfMeasure:
+                    return "UnitOfMeasureCategory.png";
+                default:
+                    return "Currency.png";
+            }
         } }
 
         /// <summary>
@@ -101,9 +115,9 @@ namespace MetraTech.ExpressionEngine.Components
         #endregion
 
         #region Constructor
-        public EnumCategory(EnumMode enumMode, string _namespace, string name, int id, string description)
+        public EnumCategory(BaseType baseType, string _namespace, string name, int id, string description)
         {
-            EnumMode = enumMode;
+            BaseType = baseType;
             Namespace = _namespace;
             Name = name;
             Id = id;
@@ -143,7 +157,7 @@ namespace MetraTech.ExpressionEngine.Components
 
         public override string ToString()
         {
-            return string.Format(CultureInfo.InvariantCulture, "{0}: {1}", FullName, EnumMode);
+            return string.Format(CultureInfo.InvariantCulture, "{0}: {1}", FullName, BaseType);
         }
         public virtual string ToExpressionSnippet
         {

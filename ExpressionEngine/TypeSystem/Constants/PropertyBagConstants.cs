@@ -10,6 +10,7 @@
         public const string BusinessModelingEntity = "BusinessModelingEntity";
 
         public const string MetraTechNamespace = "MetraTech";
+        public const string MetraTechCurrencies = "MetraTech.Currencies";
         public const string MetraTechUnitOfMeasureNamespace = "MetraTech.UnitOfMeasure";
 
         public const string EventCharge = "EventCharge";

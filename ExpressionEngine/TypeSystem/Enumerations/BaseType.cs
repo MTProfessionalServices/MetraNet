@@ -22,7 +22,9 @@
         /// <summary>
         /// A money type with units and other attributes
         /// </summary>
-        Charge,    
+        Charge, 
+   
+        Currency,
         
         DateTime,
         Decimal,
@@ -84,6 +86,8 @@
         /// A tax property that's associated with Price
         /// </summary>
         Tax,
+
+        UnitOfMeasure,
 
         /// <summary>
         /// A Unique Identifier that is differnt than a GUID. Ask CDE team for more information.

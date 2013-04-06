@@ -46,7 +46,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         {
             var references = new List<PropertyReference>();
             if (CurrencyMode == CurrencyMode.PropertyDriven && !string.IsNullOrEmpty(CurrencyProperty))
-                references.Add(new PropertyReference(CurrencyProperty, TypeFactory.CreateEnumeration(EnumMode.Currency), true));
+                references.Add(new PropertyReference(CurrencyProperty, TypeFactory.CreateEnumeration(null), true));
             return references;
         }
         public override void Validate(string prefix, Validations.ValidationMessageCollection messages, Context context)

@@ -31,7 +31,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
         /// <summary>
         /// Used to validate the Name property
         /// </summary>
-        private static readonly Regex NameRegex = new Regex("[a-zA-Z][a-zA-Z0-9_]*");
+
         #endregion
 
         #region Properties
@@ -390,7 +390,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
         public static bool NameIsValid(string name)
         {
-            return NameRegex.IsMatch(name);
+            return BasicHelper.NameIsValid(name);
         }
         #endregion  
     }

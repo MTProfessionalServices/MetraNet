@@ -321,6 +321,8 @@ namespace PropertyGui
             var nodes = this.GetAllNodes();
             foreach (var node in nodes)
             {
+                if (node.Tag == null)
+                    continue;
                 if (node.Nodes.Count > 0 && LastExpandedNodeTags.Contains(node.Tag))
                     node.Expand();
                 if (node.Tag.Equals((object)LastSelectedNodeTag))

@@ -2,7 +2,6 @@
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
-using MetraTech.ExpressionEngine.Components.Enumerations;
 
 namespace PropertyGui.TypeSystemControls
 {

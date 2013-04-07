@@ -225,5 +225,15 @@ namespace PropertyGui
                 OnInsertSnippet(text);
         }
         #endregion
+
+        #region Other Events
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            treExplorer.PreserveState();
+            UpdateGui();
+            treExplorer.RestoreState();
+        }
+        #endregion
     }
 }

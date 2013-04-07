@@ -47,8 +47,9 @@ namespace PropertyGui
             this.mnuInsertValue = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuInsertEqualitySnippet = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuInsertInequalitySnippet = new System.Windows.Forms.ToolStripMenuItem();
-            this.treExplorer = new PropertyGui.ctlExpressionTree();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.treExplorer = new PropertyGui.ctlExpressionTree();
             this.panFunction.SuspendLayout();
             this.panGeneral.SuspendLayout();
             this.mnuEnumValue.SuspendLayout();
@@ -60,9 +61,9 @@ namespace PropertyGui
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.cboMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMode.FormattingEnabled = true;
-            this.cboMode.Location = new System.Drawing.Point(74, 7);
+            this.cboMode.Location = new System.Drawing.Point(74, 5);
             this.cboMode.Name = "cboMode";
-            this.cboMode.Size = new System.Drawing.Size(233, 21);
+            this.cboMode.Size = new System.Drawing.Size(166, 21);
             this.cboMode.TabIndex = 9;
             this.cboMode.SelectedIndexChanged += new System.EventHandler(this.cbo_SelectedIndexChanged);
             // 
@@ -111,9 +112,9 @@ namespace PropertyGui
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.Size = new System.Drawing.Size(76, 13);
             this.label2.TabIndex = 11;
-            this.label2.Text = "PropertyDriven:";
+            this.label2.Text = "Property Type:";
             // 
             // panFunction
             // 
@@ -131,7 +132,7 @@ namespace PropertyGui
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.Size = new System.Drawing.Size(77, 13);
             this.label3.TabIndex = 14;
             this.label3.Text = "FixedCategory:";
             // 
@@ -187,37 +188,54 @@ namespace PropertyGui
             this.mnuInsertInequalitySnippet.Size = new System.Drawing.Size(201, 22);
             this.mnuInsertInequalitySnippet.Text = "Insert Inequality Snippet";
             // 
-            // treExplorer
-            // 
-            this.treExplorer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.treExplorer.ContextMenuStrip = this.mnuEnumValue;
-            this.treExplorer.EntityTypeFilter = "ServiceDefinition";
-            this.treExplorer.EnumValueContextMenu = null;
-            this.treExplorer.FunctionFilter = null;
-            this.treExplorer.ImageIndex = 0;
-            this.treExplorer.Location = new System.Drawing.Point(6, 86);
-            this.treExplorer.Name = "treExplorer";
-            this.treExplorer.PathSeparator = ".";
-            this.treExplorer.PropertyTypeFilter = null;
-            this.treExplorer.SelectedImageIndex = 0;
-            this.treExplorer.ShowNodeToolTips = true;
-            this.treExplorer.Size = new System.Drawing.Size(301, 283);
-            this.treExplorer.TabIndex = 5;
-            this.treExplorer.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
-            this.treExplorer.DoubleClick += new System.EventHandler(this.treExplorer_DoubleClick);
-            // 
             // imageList1
             // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Black;
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.Location = new System.Drawing.Point(246, 5);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(58, 23);
+            this.btnRefresh.TabIndex = 14;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // treExplorer
+            // 
+            this.treExplorer.AllowEntityExpand = true;
+            this.treExplorer.AllowEnumExpand = true;
+            this.treExplorer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.treExplorer.ContextMenuStrip = this.mnuEnumValue;
+            this.treExplorer.DefaultNodeContextMenu = null;
+            this.treExplorer.EntityTypeFilter = "ServiceDefinition";
+            this.treExplorer.EnumValueContextMenu = null;
+            this.treExplorer.FunctionFilter = null;
+            this.treExplorer.HideSelection = false;
+            this.treExplorer.ImageIndex = 0;
+            this.treExplorer.Location = new System.Drawing.Point(6, 86);
+            this.treExplorer.Name = "treExplorer";
+            this.treExplorer.PathSeparator = ".";
+            this.treExplorer.PropertyTypeFilter = null;
+            this.treExplorer.SelectedImageIndex = 0;
+            this.treExplorer.ShowNamespaces = false;
+            this.treExplorer.ShowNodeToolTips = true;
+            this.treExplorer.Size = new System.Drawing.Size(301, 283);
+            this.treExplorer.TabIndex = 5;
+            this.treExplorer.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
+            this.treExplorer.DoubleClick += new System.EventHandler(this.treExplorer_DoubleClick);
+            // 
             // ctlContextExplorer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.panGeneral);
             this.Controls.Add(this.panFunction);
             this.Controls.Add(this.cboMode);
@@ -253,5 +271,6 @@ namespace PropertyGui
         private System.Windows.Forms.ToolStripMenuItem mnuInsertEqualitySnippet;
         private System.Windows.Forms.ToolStripMenuItem mnuInsertInequalitySnippet;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

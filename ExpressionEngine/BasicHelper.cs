@@ -7,6 +7,48 @@ namespace MetraTech.ExpressionEngine
 {
     public static class BasicHelper
     {
+        private const string NameRegexString = "[a-zA-Z][a-zA-Z0-9_]*";
+        private static readonly Regex NameRegex;
+        private static readonly Regex NamespaceRegex;
+        private static readonly Regex FullNameRegex;
+
+        #region Constructor
+        static BasicHelper()
+        {
+            //Create the Name regex
+            NameRegex = new Regex(WrapToMatchAll(NameRegexString));
+
+            //Create the base dotted name patten which will be varied slightly for Namespace and full name
+            var dottedNamePattern = string.Format(CultureInfo.InvariantCulture, @"{0}(\.{0})", NameRegexString);
+            NamespaceRegex = new Regex(WrapToMatchAll(dottedNamePattern + "*"));
+            FullNameRegex  = new Regex(WrapToMatchAll(dottedNamePattern + "+"));
+        }
+        #endregion
+
+        #region Name Methods
+        private static string WrapToMatchAll(string regex)
+        {
+            return "^" + regex + "$";
+        }
+        public static bool NameIsValid(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+                return false;
+            return NameRegex.IsMatch(name);
+        }
+        public static bool FullNameIsValid(string fullName)
+        {
+            if (string.IsNullOrEmpty(fullName))
+                return false;
+            return FullNameRegex.IsMatch(fullName);
+        }
+        public static bool NamespaceIsValid(string _namespace)
+        {
+            if (string.IsNullOrEmpty(_namespace))
+                return false;
+            return NamespaceRegex.IsMatch(_namespace);
+        }
+
         public static string GetNameFromFullName(string fullName)
         {
             if (string.IsNullOrEmpty(fullName))
@@ -26,7 +68,9 @@ namespace MetraTech.ExpressionEngine
                 return null;
             return fullName.Substring(0, fullName.Length - parts[parts.Length - 1].Length - 1);
         }
+        #endregion
 
+        #region Methods
         public static string CleanUpWhiteSpace(string value)
         {
             if (string.IsNullOrEmpty(value))
@@ -68,8 +112,7 @@ namespace MetraTech.ExpressionEngine
                 return builder.ToString().ToLower(CultureInfo.InvariantCulture);
             return builder.ToString();
         }
-
-
+        #endregion
 
     }
 }

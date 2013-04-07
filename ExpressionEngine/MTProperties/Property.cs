@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
@@ -202,6 +201,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
             Required = isRequired;
             Description = description;
 
+            DefaultValue = null;
             IsCore = false;
         }
 
@@ -373,10 +373,10 @@ namespace MetraTech.ExpressionEngine.MTProperties
             }
 
             //Validate the type
-            Type.Validate(GetPrefixedMessage(), messages, context);
+            Type.Validate(GetPrefixedMessage(), messages, context, PropertyCollection);
 
             //Validate the default value, if any
-            if (DefaultValue != null && TypeHelper.ValueIsValid(Type.BaseType, DefaultValue, true))
+            if (!TypeHelper.ValueIsValid(Type, DefaultValue, true, context.EnumManager))
                 AddError(messages, Localization.InvalidDefaultValue);
 
             //Validate the description

@@ -7,13 +7,15 @@ using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 namespace MetraTech.ExpressionEngine.MTProperties
 {
     /// <summary>
-    /// Implements a reference to a property. Used to simplify validation and renaming.
+    /// Implements a reference to a property. Used to simplify validation and renaming. Note that reflection is used to
+    /// get and set the name of the reference
     /// </summary>
     public class PropertyReference
     {
         #region Properties
+
         /// <summary>
-        /// The name of the property that's being referred to
+        /// The name of the property that's being referred to; uses reflection
         /// </summary>
         public string PropertyName
         {
@@ -21,11 +23,14 @@ namespace MetraTech.ExpressionEngine.MTProperties
         }
 
         /// <summary>
-        /// The object that contains the property reference. Used in combination with ReflectionName for 
+        /// The object that contains the property reference. Used in combination with PropertyInfo for 
         /// refactoring via reflection
         /// </summary>
         private object ReflectionObject;
 
+        /// <summary>
+        /// Reflected in constructor
+        /// </summary>
         private PropertyInfo PropertyInfo;
 
         /// <summary>
@@ -49,10 +54,18 @@ namespace MetraTech.ExpressionEngine.MTProperties
         #region Constructor
         public PropertyReference(object reflectionObject, string reflectionName, Type expectedType, bool required)
         {
+            if (reflectionObject == null)
+                throw new ArgumentException("reflectionObject is null");
+            if (string.IsNullOrWhiteSpace(reflectionName))
+                throw new ArgumentException("reflectionName is not specified");
+            if (expectedType == null)
+                throw new ArgumentException("expectedType is null");
+
             ExpectedType = expectedType;
             Required = required;
             ReflectionObject = reflectionObject;
 
+            //Get the property info via reflection
             PropertyInfo = ReflectionObject.GetType().GetProperty(reflectionName);
             if (PropertyInfo == null)
                 throw new Exception("GetProperty() returned null");

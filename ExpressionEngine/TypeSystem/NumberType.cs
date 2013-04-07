@@ -101,13 +101,15 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             messages.Error(prefix + ": " + message);
         }
 
-        public override void Validate(string prefix, ValidationMessageCollection messages, Context context)
+        public override void Validate(string prefix, ValidationMessageCollection messages, Context context, PropertyCollection properties)
         {
-            if (UnitOfMeasureMode == UnitOfMeasureMode.None)
-            {
-                AddError(messages, prefix, Localization.UnitOfMeasureNotSpecified);
-                return;
-            }
+            base.Validate(prefix, messages, context, properties);
+
+            //if (UnitOfMeasureMode == UnitOfMeasureMode.None)
+            //{
+            //    AddError(messages, prefix, Localization.UnitOfMeasureNotSpecified);
+            //    return;
+            //}
             if (UnitOfMeasureMode == UnitOfMeasureMode.FixedCategory || UnitOfMeasureMode == UnitOfMeasureMode.FixedUnitOfMeasure)
             {
                 if (string.IsNullOrEmpty(UnitOfMeasureCategory))
@@ -149,14 +151,6 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 }
             }
         }
-
-        //public UnitOfMeasureCategory GetUnitOfMeasureCategory(ContextDriven context)
-        //{
-        //    if (context == null)
-        //        throw new ArgumentException("context");
-
-        //}
-
 
         public new NumberType Copy()
         {

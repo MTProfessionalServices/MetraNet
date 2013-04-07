@@ -49,8 +49,9 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
             return references;
         }
-        public override void Validate(string prefix, Validations.ValidationMessageCollection messages, Context context)
+        public override void Validate(string prefix, Validations.ValidationMessageCollection messages, Context context, PropertyCollection properties)
         {
+            base.Validate(prefix, messages, context, properties);
             //Error if None
             //Error if FixedCurrency not specified
             //Error if FixedCurrency doesn't exist

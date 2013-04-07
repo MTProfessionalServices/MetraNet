@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Globalization;
+using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
@@ -305,19 +306,20 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         }
 
         /// <summary>
-        /// Determines if the specified value is valid for the type
+        /// Determines if the specified value is valid for the type. Enumerations can't be validated unless
+        /// you pass an EnumerationManager
         /// </summary>
         /// <param name="value">The value to be checked</param>
         /// <param name="allowEmpty">Indicates if empty string and null values are allowed</param>
         /// <returns></returns>
-        public static bool ValueIsValid(BaseType baseType, string value, bool allowEmpty)
+        public static bool ValueIsValid(Type type, string value, bool allowEmpty, EnumManager enumManager=null)
         {
             //Check for null and empty string
             if (string.IsNullOrEmpty(value))
                 return allowEmpty;
 
             //Try a conversion to see if it works
-            switch (baseType)
+            switch (type.BaseType)
             {
                 case BaseType.Unknown:
                     return true;//Not sure if this is best behavior...
@@ -334,10 +336,12 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     DateTime theDt;
                     return DateTime.TryParse(value, out theDt);
                 case BaseType.Enumeration:
-                    throw new NotImplementedException();
-                //return Config.Instance.EnumerationConfig.ValueExists(EnumNamespace, EnumType, value);
+                    if (enumManager == null)
+                        return true;
+                    return enumManager.ValueIsValid((EnumerationType)type, value);
                 case BaseType.Decimal:
                 case BaseType.Money:
+                case BaseType.Tax:
                     Decimal theDecimal;
                     return Decimal.TryParse(value, out theDecimal);
                 case BaseType.Float:
@@ -349,7 +353,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     Double theDouble;
                     return double.TryParse(value, out theDouble);
                 default:
-                    throw new ApplicationException(" Unknown data type '" + baseType.ToString());
+                    throw new ArgumentException("Unexpected Type");
             }
         }
 

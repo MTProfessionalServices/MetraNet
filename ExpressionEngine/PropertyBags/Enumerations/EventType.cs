@@ -7,7 +7,6 @@
     {
         Unknown,
         Charge,
-        Payment,
-        Credit
+        Payment
     }
 }

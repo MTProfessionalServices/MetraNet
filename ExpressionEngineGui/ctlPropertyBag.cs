@@ -33,6 +33,7 @@ namespace PropertyGui
         #endregion
 
         #region Methods
+
         public void Init(Context context, PropertyBag propertyBag)
         {
             if (context == null)
@@ -42,10 +43,15 @@ namespace PropertyGui
             Context = context;
             PropertyBag = propertyBag;
 
+            SyncToForm();
+        }
+        
+        public void SyncToForm()
+        {
             IgnoreChanges = true;
 
             //Init the general stuff
-            txtName.Text = PropertyBag.Name;
+            txtFullName.Text = PropertyBag.FullName;
             txtDescription.Text = PropertyBag.Description;
             GuiHelper.LoadEnum<EventType>(cboEventType);
             cboEventType.SelectedItem = ((ProductViewEntity)PropertyBag).EventType;
@@ -73,6 +79,12 @@ namespace PropertyGui
             IgnoreChanges = false;
         }
 
+        public void SyncToObject()
+        {
+            PropertyBag.Description = txtDescription.Text;
+            ((ProductViewEntity)PropertyBag).EventType = (EventType)cboEventType.SelectedItem;
+            //ctlProperty.SyncToObject();
+        }
 
         private void EnsureNodeSelected()
         {
@@ -261,6 +273,7 @@ namespace PropertyGui
 
         private void btnValidate_Click(object sender, EventArgs e)
         {
+            SyncToObject();
             var messages = new ValidationMessageCollection();
             PropertyBag.Validate(false, messages, Context);
             if (messages.Count == 0)
@@ -280,6 +293,12 @@ namespace PropertyGui
         {
             Delete();
         }
+
+        private void btnRename_Click(object sender, EventArgs e)
+        {
+         
+        }
+
         #endregion
 
     }

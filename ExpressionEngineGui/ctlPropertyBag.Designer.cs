@@ -44,12 +44,13 @@
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabGeneral = new System.Windows.Forms.TabPage();
             this.cboEventType = new System.Windows.Forms.ComboBox();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtFullName = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabProperties = new System.Windows.Forms.TabPage();
+            this.btnRename = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -139,7 +140,7 @@
             // 
             // btnValidate
             // 
-            this.btnValidate.Location = new System.Drawing.Point(525, 26);
+            this.btnValidate.Location = new System.Drawing.Point(638, 26);
             this.btnValidate.Name = "btnValidate";
             this.btnValidate.Size = new System.Drawing.Size(75, 23);
             this.btnValidate.TabIndex = 4;
@@ -149,7 +150,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(606, 26);
+            this.btnRefresh.Location = new System.Drawing.Point(719, 26);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(75, 23);
             this.btnRefresh.TabIndex = 5;
@@ -212,7 +213,7 @@
             // tabGeneral
             // 
             this.tabGeneral.Controls.Add(this.cboEventType);
-            this.tabGeneral.Controls.Add(this.txtName);
+            this.tabGeneral.Controls.Add(this.txtFullName);
             this.tabGeneral.Controls.Add(this.txtDescription);
             this.tabGeneral.Controls.Add(this.label4);
             this.tabGeneral.Controls.Add(this.label3);
@@ -228,17 +229,18 @@
             // cboEventType
             // 
             this.cboEventType.FormattingEnabled = true;
-            this.cboEventType.Location = new System.Drawing.Point(81, 61);
+            this.cboEventType.Location = new System.Drawing.Point(78, 48);
             this.cboEventType.Name = "cboEventType";
             this.cboEventType.Size = new System.Drawing.Size(258, 21);
             this.cboEventType.TabIndex = 5;
             // 
-            // txtName
+            // txtFullName
             // 
-            this.txtName.Location = new System.Drawing.Point(81, 27);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(258, 20);
-            this.txtName.TabIndex = 4;
+            this.txtFullName.Location = new System.Drawing.Point(78, 22);
+            this.txtFullName.Name = "txtFullName";
+            this.txtFullName.ReadOnly = true;
+            this.txtFullName.Size = new System.Drawing.Size(258, 20);
+            this.txtFullName.TabIndex = 4;
             // 
             // txtDescription
             // 
@@ -262,7 +264,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 69);
+            this.label3.Location = new System.Drawing.Point(7, 51);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 13);
             this.label3.TabIndex = 1;
@@ -271,14 +273,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 34);
+            this.label2.Location = new System.Drawing.Point(7, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Name:";
+            this.label2.Text = "Full Name:";
             // 
             // tabProperties
             // 
+            this.tabProperties.Controls.Add(this.btnRename);
             this.tabProperties.Controls.Add(this.btnRefresh);
             this.tabProperties.Controls.Add(this.btnAdd);
             this.tabProperties.Controls.Add(this.splitContainer);
@@ -294,6 +297,16 @@
             this.tabProperties.TabIndex = 1;
             this.tabProperties.Text = "Properties";
             this.tabProperties.UseVisualStyleBackColor = true;
+            // 
+            // btnRename
+            // 
+            this.btnRename.Location = new System.Drawing.Point(462, 26);
+            this.btnRename.Name = "btnRename";
+            this.btnRename.Size = new System.Drawing.Size(75, 23);
+            this.btnRename.TabIndex = 10;
+            this.btnRename.Text = "Rename";
+            this.btnRename.UseVisualStyleBackColor = true;
+            this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
             // 
             // ctlPropertyBag
             // 
@@ -334,11 +347,12 @@
         private System.Windows.Forms.TabPage tabGeneral;
         private System.Windows.Forms.TabPage tabProperties;
         private System.Windows.Forms.ComboBox cboEventType;
-        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtFullName;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem mnuExpandAll;
+        private System.Windows.Forms.Button btnRename;
     }
 }

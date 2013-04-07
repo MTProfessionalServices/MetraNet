@@ -224,12 +224,15 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             type.ListType = ListType;
         }
 
-        public virtual void Validate(string prefix, ValidationMessageCollection messages, Context context)
+        public virtual void Validate(string prefix, ValidationMessageCollection messages, Context context, PropertyCollection properties)
         {
             if (messages == null)
                 throw new ArgumentNullException("messages");
 
-            //I can't think of anything to validate at this level
+            foreach (var propertyReference in GetPropertyReferences())
+            {
+                propertyReference.Validate(prefix, properties, messages);
+            }
         }
 
         #endregion

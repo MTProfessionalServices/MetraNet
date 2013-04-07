@@ -2,6 +2,7 @@
 using System.Runtime.Serialization;
 using System.Globalization;
 using MetraTech.ExpressionEngine.Components.Enumerations;
+using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Validations;
 
@@ -56,8 +57,10 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         }
 
 
-        public override void Validate(string prefix, ValidationMessageCollection messages, Context context)
+        public override void Validate(string prefix, ValidationMessageCollection messages, Context context, PropertyCollection properties)
         {
+            base.Validate(prefix, messages, context, properties);
+
             if (messages == null)
                 throw new ArgumentNullException("messages");
 

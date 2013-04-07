@@ -141,12 +141,13 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         public override ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages, Context context)
         {
-            if (messages == null)
-                messages = new ValidationMessageCollection();
+            var prefix = string.Format(CultureInfo.CurrentCulture, "PropertyBag '{0}':", FullName);
+            if (!BasicHelper.FullNameIsValid(FullName))
+                messages.Error(prefix + "Invalid name.");
+            if (string.IsNullOrWhiteSpace(Description))
+                messages.Info(prefix + "Invalid name.");
 
-            base.Validate(true, messages, context);
-
-            //var prefix = string.Format(CultureInfo.InvariantCulture, Localization.PropertyMessagePrefix, Name);
+            prefix = string.Format(CultureInfo.CurrentCulture, prefix + Localization.PropertyMessagePrefix, Name);
 
             //Valiate all of the properties
             foreach (var property in Properties)

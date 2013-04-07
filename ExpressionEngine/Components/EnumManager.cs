@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.Validations;
@@ -129,6 +128,20 @@ namespace MetraTech.ExpressionEngine.Components
                 else
                     enumCategory.Save(Path.Combine(dirPath, "Enumerations"));
             }
+        }
+
+        /// <summary>
+        /// Determines if the specified enum value is valid. If the type isn't found, false is returned
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public bool ValueIsValid(EnumerationType type, string name)
+        {
+            var enumCategory = GetCategory(type);
+            if (enumCategory == null)
+                return false;
+            return enumCategory.ItemExists(name);
         }
         #endregion
     }

@@ -30,18 +30,18 @@ namespace ExpressionEngineTest
             var messages = new ValidationMessageCollection();
 
             //Expect Namespace not specifed
-            enumerationType.Validate(null, messages, context);
+            enumerationType.Validate(null, messages, context, null);
             TestHelper.AssertValidation(messages, 1, 0, 0, "Namespace not specified");
 
             //Expect FixedCategory not spcefied
             messages = new ValidationMessageCollection();
-            enumerationType.Validate(null, messages, context);
+            enumerationType.Validate(null, messages, context, null);
             TestHelper.AssertValidation(messages, 1, 0, 0, "FixedCategory not specified");
 
             //Expect FixedCategory not found
             enumerationType.Category = "Country";
             messages = new ValidationMessageCollection();
-            enumerationType.Validate(null, messages, context);
+            enumerationType.Validate(null, messages, context, null);
             TestHelper.AssertValidation(messages, 1, 0, 0, "FixedCategory not found");
 
             //Set a real FixedCategory
@@ -49,7 +49,7 @@ namespace ExpressionEngineTest
             context.AddEnumCategory(enumCategory);
             messages = new ValidationMessageCollection();
             enumerationType.Category = "Global.Country";
-            enumerationType.Validate(null, messages, context);
+            //enumerationType.Validate(null, messages, context, null);
             TestHelper.AssertValidation(messages, 0, 0, 0, "Everything should work at this point");
         }
     }

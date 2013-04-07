@@ -90,7 +90,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         public MetraNetPropertyBase AddTaxProperty(string realName, string newName, PropertyCollection properties)
         {
             var description = string.Format(CultureInfo.InvariantCulture, "The {0} tax for the Event.", newName);
-            var tax = (MetraNetPropertyBase) Properties.AddTax(newName, description, true, "0");
+            var tax = (MetraNetPropertyBase) Properties.AddTax(newName, description, true, null);
             tax.DatabaseNameMapping = realName;
             tax.IsCore = true;
             return tax;

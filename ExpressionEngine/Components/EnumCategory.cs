@@ -155,6 +155,11 @@ namespace MetraTech.ExpressionEngine.Components
             return null;
         }
 
+        public bool ItemExists(string name)
+        {
+            return GetItem(name) == null;
+        }
+
         public override string ToString()
         {
             return string.Format(CultureInfo.InvariantCulture, "{0}: {1}", FullName, BaseType);

@@ -9,7 +9,9 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 {
     /// <summary>
     /// The base class for all types. Note that simple types (i.e., boolean) aren't implemented
-    /// as a subclass. The simply have a different BaseType.
+    /// as a subclass. The simply have a different BaseType. Other similar types may share the same
+    /// sub class. For example, NumberType implements all of the numeric types and EnumerationType implements
+    /// Enumerations, Currencies and UnitOfMeasures.
     /// </summary>
     [DataContract (Namespace = "MetraTech")]
     [KnownType(typeof(EnumerationType))]
@@ -30,7 +32,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public BaseType BaseType { get; private set; }
 
         /// <summary>
-        /// The type of list 
+        /// The type of list (Scalar, List or KeyList)
         /// </summary>
         [DataMember]
         public ListType ListType { get; set; }
@@ -71,13 +73,14 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         #region Methods
         /// <summary>
-        /// Several type refer to other properties
+        /// Several type refer to other properties. Base class has none. Override as necessary
         /// </summary>
         /// <returns></returns>
         public virtual List<PropertyReference> GetPropertyReferences()
         {
             return new List<PropertyReference>();
         }
+
         #endregion
 
         #region To Methods

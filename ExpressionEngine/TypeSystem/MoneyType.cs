@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
-using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
@@ -45,8 +44,9 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public override List<PropertyReference> GetPropertyReferences()
         {
             var references = new List<PropertyReference>();
-            if (CurrencyMode == CurrencyMode.PropertyDriven && !string.IsNullOrEmpty(CurrencyProperty))
-                references.Add(new PropertyReference(CurrencyProperty, TypeFactory.CreateEnumeration(null), true));
+            if (CurrencyMode == CurrencyMode.PropertyDriven)
+                references.Add(new PropertyReference(this, "CurrencyProperty", TypeFactory.CreateEnumeration(null), true));
+
             return references;
         }
         public override void Validate(string prefix, Validations.ValidationMessageCollection messages, Context context)

@@ -57,11 +57,12 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public override List<PropertyReference> GetPropertyReferences()
         {
             var references = new List<PropertyReference>();
-            references.Add(new PropertyReference(QuantityProperty, TypeFactory.CreateNumeric(), true));
-            references.Add(new PropertyReference(PriceProperty, TypeFactory.CreateMoney(), false));
-            references.Add(new PropertyReference(ProductProperty, TypeFactory.CreateInteger(), false));
-            references.Add(new PropertyReference(StartProperty, TypeFactory.CreateDateTime(), false));
-            references.Add(new PropertyReference(EndProperty, TypeFactory.CreateDateTime(), false));
+            references.Add(new PropertyReference(this, "QuantityProperty", TypeFactory.CreateNumeric(), true));
+
+            //references.Add(new PropertyReference(PriceProperty, TypeFactory.CreateMoney(), false));
+            //references.Add(new PropertyReference(ProductProperty, TypeFactory.CreateInteger(), false));
+            //references.Add(new PropertyReference(StartProperty, TypeFactory.CreateDateTime(), false));
+            //references.Add(new PropertyReference(EndProperty, TypeFactory.CreateDateTime(), false));
             return references;
         }
         #endregion

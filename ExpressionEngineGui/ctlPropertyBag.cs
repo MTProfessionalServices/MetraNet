@@ -232,6 +232,7 @@ namespace PropertyGui
         #endregion
 
         #region Button Events
+
         public void PropertyChangeEvent()
         {
             if (treProperties.SelectedNode == null)

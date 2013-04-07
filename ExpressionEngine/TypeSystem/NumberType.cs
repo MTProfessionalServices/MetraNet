@@ -90,7 +90,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         {
             var references = new List<PropertyReference>();
             if (UnitOfMeasureMode == UnitOfMeasureMode.PropertyDriven && !string.IsNullOrEmpty(UnitOfMeasureProperty))
-                references.Add(new PropertyReference(UnitOfMeasureProperty, TypeFactory.CreateUnitOfMeasure(), true));
+                references.Add(new PropertyReference(this, "UnitOfMeasureProperty", TypeFactory.CreateUnitOfMeasure(), true));
             return references;
         }
         private void AddError(ValidationMessageCollection messages, string prefix, string message)

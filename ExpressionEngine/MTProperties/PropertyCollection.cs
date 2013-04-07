@@ -5,14 +5,15 @@ using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
-using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.MTProperties
 {
     /// <summary>
-    /// TO DO:
+    /// Implements a collection of properties. This is used for property bags, function parameter lists, etc.
+    /// TODO:
     /// *Should property names be case sensitive???
+    /// *Note sure Clone() is implemented properly
     /// </summary>
     [DataContract (Namespace = "MetraTech")]
     [KnownType(typeof(Property))]
@@ -52,13 +53,13 @@ namespace MetraTech.ExpressionEngine.MTProperties
         public int Count { get { return Properties.Count; } }
 
         /// <summary>
-        /// Internal list. Kept private to reduce what a developer has access to
+        /// Internal property list. Kept private to reduce what a developer has access to
         /// </summary>
         [DataMember]
         private List<Property> Properties = new List<Property>();
         #endregion
 
-        #region Constructors
+        #region Constructor
         public PropertyCollection(object parent)
         {
             Parent = parent;
@@ -67,6 +68,9 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
         #region Methods
 
+        /// <summary>
+        /// Returns the specified property. If not found, null is returned.
+        /// </summary>
         public Property Get(string name)
         {
             if (string.IsNullOrEmpty(name))
@@ -99,6 +103,9 @@ namespace MetraTech.ExpressionEngine.MTProperties
             return property.Value;
         }
 
+        /// <summary>
+        /// Clears all of the properties
+        /// </summary>
         public void ClearValues()
         {
             foreach (var property in Properties)
@@ -108,9 +115,39 @@ namespace MetraTech.ExpressionEngine.MTProperties
         }
 
         /// <summary>
-        /// Binds the KVP values to the properties.
+        /// Renames a property and everything that refers to it.
         /// </summary>
-        /// <param name="data"></param>
+        public void RenameProperty(string oldName, string newName)
+        {
+            //Rename the property itself
+            var property = Get(oldName);
+            if (property != null)
+                property.Name = newName;
+
+            //TODO: rename any references
+            //Get the refrences
+            //Iterate and change
+        }
+
+        /// <summary>
+        /// Returns a list of Properties whose underlying Type refers to the specified propertyName
+        /// </summary>
+        /// <typeparam name="PropertyReference"></typeparam>
+        /// <param name="?"></param>
+        public List<PropertyReference> GetAllPropertyReferences(string propertyName)
+        {
+            var references = new List<PropertyReference>();
+            foreach (var property in Properties)
+            {
+                
+            }
+
+            return references;
+        }
+
+        /// <summary>
+        /// Binds the KVP values to the properties. Primarily used for unit testing.
+        /// </summary>
         public void BindValues(IEnumerable<KeyValuePair<string, string>> data)
         {
             if (data == null)
@@ -134,6 +171,9 @@ namespace MetraTech.ExpressionEngine.MTProperties
             Properties.Clear();
         }
        
+        /// <summary>
+        /// Returns a list of properties that match the specified type filter.
+        /// </summary>
         public List<Property> GetFilteredProperties(MetraTech.ExpressionEngine.TypeSystem.Type type)
         {
             var properties = new List<Property>();
@@ -171,7 +211,6 @@ namespace MetraTech.ExpressionEngine.MTProperties
         /// <summary>
         /// Returns a sequential new property name (i.e., Property1, Property2, etc.)
         /// </summary>
-        /// <returns></returns>
         public string GetNewSequentialPropertyName()
         {
             int index = 1;
@@ -183,6 +222,11 @@ namespace MetraTech.ExpressionEngine.MTProperties
                 index++;
             }
         }
+
+        /// <summary>
+        /// TODO: NOT SURE THAT THIS IS DONE PROPERLY
+        /// </summary>
+        /// <returns></returns>
         public PropertyCollection Clone()
         {
             var newCollection = new PropertyCollection(null);

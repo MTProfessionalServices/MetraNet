@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
-  <BaseType>UnitOfMeasure</BaseType>
+  <BaseType>Enumeration</BaseType>
   <Description>A binary operator can be used to evaluate an expression that takes 2 input expressions (Order of values in this file is used as order of precedence)</Description>
   <Extension i:nil="true" />
   <Items>

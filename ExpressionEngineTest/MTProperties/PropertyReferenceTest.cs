@@ -15,15 +15,13 @@ namespace ExpressionEngineTest
         public void PropertyReferenceConstructorTest()
         {
             string propertyName = "MyProperty";
-            var expectedType = TypeFactory.CreateDecimal();
+            var type = TypeFactory.CreateDecimal();
+            type.UnitOfMeasureProperty = propertyName;
             var required = true;
-            var rObject = this;
-            var rName = "rName";
-            var reference = new PropertyReference(rObject, rName, expectedType, required);
+            var reference = new PropertyReference(type, "UnitOfMeasureProperty", type, required);
             Assert.AreEqual(propertyName, reference.PropertyName);
-            Assert.AreEqual(expectedType.BaseType, reference.ExpectedType.BaseType);
-            Assert.AreEqual(required, reference.Required, "Required");
-            Assert.AreEqual(this, rObject);
+            Assert.AreEqual(type.BaseType, reference.ExpectedType.BaseType);
+            Assert.AreEqual(required, reference.Required, "Required");;
         }
 
         [TestMethod()]

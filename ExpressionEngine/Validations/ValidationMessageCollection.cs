@@ -75,6 +75,11 @@ namespace MetraTech.ExpressionEngine.Validations
         {
             Add(SeverityType.Error, message, NoPosition, NoPosition);
         }
+        public void Error(string template, object[] args)
+        {
+            var message = string.Format(CultureInfo.CurrentCulture,template, args);
+            Error(message);
+        }
         public void Error(string message, int lineNumber, int columnNumber)
         {
             Add(SeverityType.Error, message, lineNumber, columnNumber);

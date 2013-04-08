@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Enumerations\ComponentType.cs" />
     <Compile Include="Components\Enumerations\EnumSpecificationLevel.cs" />
     <Compile Include="Components\EnumManager.cs" />
     <Compile Include="MTProperties\Enumerations\Availability.cs" />

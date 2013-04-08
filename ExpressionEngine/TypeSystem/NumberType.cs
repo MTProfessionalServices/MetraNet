@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
@@ -34,7 +35,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         /// <summary>
         /// The unit of measure. Must be a value within the UnitofMeasureCategoryName. This is the fully qualifed name 
-        /// (i.e., UnitOfMeasureCategory isn't used when this is valie). Only valid when UnitOfMeasuremode=FixedUnitOfMeasure
+        /// (i.e., UnitOfMeasureCategory isn't used in combination with this combination). Only valid when UnitOfMeasuremode=FixedUnitOfMeasure
         /// </summary>
         [DataMember]
         public string FixedUnitOfMeasure { get; set; }
@@ -105,12 +106,12 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         {
             base.Validate(prefix, messages, context, properties);
 
-            //if (UnitOfMeasureMode == UnitOfMeasureMode.None)
-            //{
-            //    AddError(messages, prefix, Localization.UnitOfMeasureNotSpecified);
-            //    return;
-            //}
-            if (UnitOfMeasureMode == UnitOfMeasureMode.FixedCategory || UnitOfMeasureMode == UnitOfMeasureMode.FixedUnitOfMeasure)
+            if (UnitOfMeasureMode == UnitOfMeasureMode.None || UnitOfMeasureMode == UnitOfMeasureMode.Count)
+                return;
+
+            EnumCategory category = null;
+            string value = null;
+            if (UnitOfMeasureMode == UnitOfMeasureMode.FixedCategory) 
             {
                 if (string.IsNullOrEmpty(UnitOfMeasureCategory))
                 {
@@ -118,25 +119,16 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     return;
                 }
 
-                //If there's no context, we can't look for things
-                if (context == null)
-                    return;
-
-                //Find the category
-                var enumCategory = context.GetEnumCategory(new EnumerationType(PropertyBagConstants.MetraTechUnitOfMeasureNamespace, BaseType.UnitOfMeasure));
-                if (enumCategory == null)
+                category = context.EnumManager.GetCategory(UnitOfMeasureCategory);
+                if (category == null)
                 {
-                    AddError(messages, prefix, Localization.UnableToFindEnumCategory);
+                    AddError(messages, prefix, string.Format(Localization.UnableToFindEnumCategory, UnitOfMeasureCategory));
                     return;
                 }
-
-                //Ensure Enum is a UoM
-                if (enumCategory.BaseType != BaseType.UnitOfMeasure)
-                {
-                    AddError(messages, prefix, Localization.UnitOfMeasureCategoryMustBeUom);
-                    return;
-                }
-
+                value = UnitOfMeasureCategory;
+            }
+            else if (UnitOfMeasureMode == UnitOfMeasureMode.FixedUnitOfMeasure)
+            {
                 //Ensure the value is specified
                 if (string.IsNullOrEmpty(FixedUnitOfMeasure))
                 {
@@ -144,12 +136,18 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     return;
                 }
 
-                //Ensure that the value exists
-                if (UnitOfMeasureMode == UnitOfMeasureMode.FixedUnitOfMeasure)
+                var item = context.EnumManager.GetItem(FixedUnitOfMeasure);
+                if (item == null)
                 {
-                    AddError(messages, prefix, string.Format(CultureInfo.CurrentCulture, Localization.UnableToFindUnitOfMeasure, FixedUnitOfMeasure));
+                    AddError(messages, prefix, string.Format(CultureInfo.CurrentCulture, Localization.UnableToFindUnitOfMeasureItem, FixedUnitOfMeasure));
+                    return;
                 }
+                value = FixedUnitOfMeasure;
+                category = item.EnumCategory;
             }
+
+            if (category.BaseType != BaseType.UnitOfMeasure)
+                AddError(messages, prefix, string.Format(CultureInfo.CurrentCulture, Localization.EnumerationIsNotUoM, value));
         }
 
         public new NumberType Copy()

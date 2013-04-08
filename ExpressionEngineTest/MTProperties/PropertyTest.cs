@@ -60,27 +60,5 @@ namespace ExpressionEngineTest
             Assert.AreEqual(description, property.Description);
         }
 
-        [TestMethod()]
-        public void ValidateTest()
-        {
-            var property = new Property("GoodName", TypeFactory.CreateBoolean(), false);
-
-            AssertNameTest(property, "GoodName", true);
-            AssertNameTest(property, "GoodName8", true);
-            AssertNameTest(property, "GoodName", true);
-            //AssertNameTest(property, "Bad!Name", false);  NEED TO FIX REQEX SO THAT THIS PASSES
-            AssertNameTest(property, "!!!!!!!", false);
-            AssertNameTest(property, "", false, "Empty string");
-            AssertNameTest(property, null, false, "null");
-            AssertNameTest(property, "  ", false, "whitespace");
-        }
-
-        private void AssertNameTest(Property property, string nameToTest, bool expectedValue, string extendedMsg=null)
-        {
-            property.Name = nameToTest;
-            var msgs = new ValidationMessageCollection();
-            property.Validate(false, msgs, null);
-            Assert.AreEqual(expectedValue, (msgs.ErrorCount == 0), nameToTest);
-        }
     }
 }

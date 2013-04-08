@@ -248,6 +248,12 @@
     <Compile Include="TypeSystemControls\ctlStringType.Designer.cs">
       <DependentUpon>ctlStringType.cs</DependentUpon>
     </Compile>
+    <Compile Include="TypeSystemControls\ctlTaxType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TypeSystemControls\ctlTaxType.Designer.cs">
+      <DependentUpon>ctlTaxType.cs</DependentUpon>
+    </Compile>
     <Compile Include="TypeSystemControls\ctlTypeFactory.cs" />
     <EmbeddedResource Include="Compoenents\ctlEnumCategory.resx">
       <DependentUpon>ctlEnumCategory.cs</DependentUpon>
@@ -352,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TypeSystemControls\ctlStringType.resx">
       <DependentUpon>ctlStringType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TypeSystemControls\ctlTaxType.resx">
+      <DependentUpon>ctlTaxType.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

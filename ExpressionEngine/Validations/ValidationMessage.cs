@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Validations.Enumerations;
 using System.Globalization;
 
@@ -9,6 +10,9 @@ namespace MetraTech.ExpressionEngine.Validations
     public class ValidationMessage
     {
         #region Properties
+
+        [DataMember]
+        public ComponentType ComponentType { get; set; }
 
         /// <summary>
         /// An ID that in unique to the type of message. This is presented to the user so that they can get help, etc.

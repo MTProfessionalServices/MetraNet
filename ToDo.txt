@@ -3,7 +3,7 @@
 *Numeric editor; UOM categories are all enums... need to filter
 *EnumCategory icon is wrong
 *Hide property panel when no properties
-*Clicking on a tax prevents any further updates to the property panel!
+
 
 *Save PV
 *FS export
@@ -18,6 +18,7 @@ DONE:
 *Expand All context menu
 *Numeric; add propertydriven is currency, not UOM
 *Money; when add property driven reference, tree not updated 
+*Clicking on a tax prevents any further updates to the property panel!
 -----------------------------------------------------------
 
 *Extensions; issue with casting to a abstract class

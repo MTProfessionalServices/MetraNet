@@ -18,6 +18,8 @@ namespace PropertyGui.TypeSystemControls
                     return new ctlMoneyType();
                 case BaseType.String:
                     return new ctlStringType();
+                case BaseType.Tax:
+                    return new ctlTaxType();
             }
 
             if (TypeHelper.IsNumeric(baseType))

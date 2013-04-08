@@ -68,7 +68,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
             //Get the property info via reflection
             PropertyInfo = ReflectionObject.GetType().GetProperty(reflectionName);
             if (PropertyInfo == null)
-                throw new Exception("GetProperty() returned null");
+                throw new Exception("GetProperty() returned null; reflectionName=" + reflectionName);
         }
         #endregion
 

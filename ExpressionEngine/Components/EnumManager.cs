@@ -52,6 +52,22 @@ namespace MetraTech.ExpressionEngine.Components
             return GetCategory(enumerationType.Category);
         }
 
+        public bool CategoryExists(string categoryFullName)
+        {
+            return GetCategory(categoryFullName) != null;
+        }
+        public bool CategoryExists(EnumerationType enumerationType)
+        {
+            return GetCategory(enumerationType) != null;
+        }
+
+        public string GetCategoryErrorMessage(string categoryFullName)
+        {
+            if (CategoryExists(categoryFullName))
+                return null;
+            return string.Format(CultureInfo.CurrentCulture, string.Format(Localization.UnableToFindEnumCategory), categoryFullName);
+        }
+
         public EnumCategory GetCurrencyCategory()
         {
             return GetCategory("MetraTech.Currency");
@@ -136,12 +152,50 @@ namespace MetraTech.ExpressionEngine.Components
         /// <param name="type"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public bool ValueIsValid(EnumerationType type, string name)
+        public bool ValueExists(EnumerationType type, string name)
         {
             var enumCategory = GetCategory(type);
             if (enumCategory == null)
                 return false;
             return enumCategory.ItemExists(name);
+        }
+
+        public EnumItem GetItem(string fullName)
+        {
+            string namespaceStr;
+            string categoryStr;
+            string itemStr;
+            if (!TryParseEnumItemFullName(fullName, out namespaceStr, out categoryStr, out itemStr))
+                return null;
+
+            var category = GetCategory(namespaceStr + "." + categoryStr);
+            if (category == null)
+                return null;
+
+            return category.GetItem(itemStr);
+        }
+        public bool ValueExists(string fullName)
+        {
+            return GetItem(fullName) != null;
+        }
+
+        public static bool TryParseEnumItemFullName(string fullName, out string _namespace, out string category, out string item)
+        {
+            _namespace = null;
+            category = null;
+            item = null;
+            if (!BasicHelper.FullNameIsValid(fullName))
+                return false;
+
+            var parts = fullName.Split('.');
+            if (parts.Length < 3)
+                return false;
+
+            item = parts[parts.Length - 1];
+            category = parts[parts.Length - 2];
+            _namespace = fullName.Substring(0, fullName.Length - category.Length - item.Length - 2);
+
+            return true;
         }
         #endregion
     }

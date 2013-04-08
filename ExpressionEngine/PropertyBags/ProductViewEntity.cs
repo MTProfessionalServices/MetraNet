@@ -130,7 +130,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
             //Hours
             var hoursType = TypeFactory.CreateDecimal(UnitOfMeasureMode.FixedUnitOfMeasure);
-            hoursType.FixedUnitOfMeasure = "MetraTech.Time.Hours";
+            hoursType.FixedUnitOfMeasure = "MetraTech.TimeDayBased.Hour";
             var hours = PropertyFactory.Create("ProductView","Hours", hoursType, true, "Duration in hours");
             compute.Properties.Add(hours);
 

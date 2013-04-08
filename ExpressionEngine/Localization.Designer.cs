@@ -106,6 +106,15 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enumeration &apos;{0}&apos; is not a Unit of Measure.
+        /// </summary>
+        internal static string EnumerationIsNotUoM {
+            get {
+                return ResourceManager.GetString("EnumerationIsNotUoM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enumeration NameSpace not specified.
         /// </summary>
         internal static string EnumNamespaceNotSpecified {
@@ -196,7 +205,25 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unable to find the &apos;{0}&apos; EnumFixedCategory.
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string String {
+            get {
+                return ResourceManager.GetString("String", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to return;.
+        /// </summary>
+        internal static string String1 {
+            get {
+                return ResourceManager.GetString("String1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to find the &apos;{0}&apos; Enumeration Category.
         /// </summary>
         internal static string UnableToFindEnumCategory {
             get {
@@ -223,11 +250,20 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unable to find unit of measure &apos;{0}&apos;.
+        ///   Looks up a localized string similar to Unable to find Unit of Measure item&apos;{0}&apos;.
         /// </summary>
-        internal static string UnableToFindUnitOfMeasure {
+        internal static string UnableToFindUnitOfMeasureItem {
             get {
-                return ResourceManager.GetString("UnableToFindUnitOfMeasure", resourceCulture);
+                return ResourceManager.GetString("UnableToFindUnitOfMeasureItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to find Unit of Measure category &apos;{0}&apos;.
+        /// </summary>
+        internal static string UnableToFinUnitOfMeasureCategory {
+            get {
+                return ResourceManager.GetString("UnableToFinUnitOfMeasureCategory", resourceCulture);
             }
         }
         

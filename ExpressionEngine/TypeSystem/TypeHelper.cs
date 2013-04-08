@@ -338,7 +338,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 case BaseType.Enumeration:
                     if (enumManager == null)
                         return true;
-                    return enumManager.ValueIsValid((EnumerationType)type, value);
+                    return enumManager.ValueExists((EnumerationType)type, value);
                 case BaseType.Decimal:
                 case BaseType.Money:
                 case BaseType.Tax:

@@ -26,12 +26,12 @@ namespace MetraTech.ExpressionEngine.MTProperties
         /// The object that contains the property reference. Used in combination with PropertyInfo for 
         /// refactoring via reflection
         /// </summary>
-        private object ReflectionObject;
+        private readonly object ReflectionObject;
 
         /// <summary>
         /// Reflected in constructor
         /// </summary>
-        private PropertyInfo PropertyInfo;
+        private readonly PropertyInfo PropertyInfo;
 
         /// <summary>
         /// The expected data type of the property

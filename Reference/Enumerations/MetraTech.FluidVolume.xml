@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>UnitOfMeasure</BaseType>
   <Description>Fluid volume is how much three-dimensional space a substance (solid, liquid, gas, or plasma) or shape occupies or contains.</Description>
-  <EnumMode>UnitOfMeasure</EnumMode>
   <Extension i:nil="true" />
   <Items>
     <EnumItem i:type="UnitOfMeasure">
@@ -75,6 +75,12 @@
       <Description>Hectoliter</Description>
       <Name>Hectoliter</Name>
       <Code>HL</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Cubic Meter</Description>
+      <Name>Cubic Meter</Name>
+      <Code>M3</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />

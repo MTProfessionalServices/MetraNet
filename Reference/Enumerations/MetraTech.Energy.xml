@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>UnitOfMeasure</BaseType>
+  <Description>Energy is an indirectly observed quantity which comes in many forms, such as kinetic energy, potential energy, radiant energy, and many others</Description>
+  <Extension i:nil="true" />
+  <Items>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Joule</Description>
+      <Name>Joule</Name>
+      <Code>J</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Calorie</Description>
+      <Name>Calorie</Name>
+      <Code>CAL</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Kilowatt Hour</Description>
+      <Name>Kilowatt Hour</Name>
+      <Code>KW/H</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>British Thermal Unit</Description>
+      <Name>British Thermal Unit</Name>
+      <Code>[BTU]</Code>
+    </EnumItem>
+  </Items>
+  <Name>Energy</Name>
+  <Namespace>MetraTech</Namespace>
+</EnumCategory>

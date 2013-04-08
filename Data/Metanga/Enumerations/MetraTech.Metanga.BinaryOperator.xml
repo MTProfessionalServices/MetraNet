@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>UnitOfMeasure</BaseType>
+  <Description>A binary operator can be used to evaluate an expression that takes 2 input expressions (Order of values in this file is used as order of precedence)</Description>
+  <Extension i:nil="true" />
+  <Items>
+    <EnumItem>
+      <Aliases />
+      <Description>A logical operation that returns true if either operand is true</Description>
+      <Name>Or</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description>A logical operation that returns true if both operands must be true</Description>
+      <Name>And</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description>An inequality comparison that returns true if the operands have different values</Description>
+      <Name>NotEqual</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description>An equality comparison that returns true if both operands have the same value</Description>
+      <Name>Equal</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description>A comparison that returns true if the left operand is greater than or equal to the right one</Description>
+      <Name>GreaterThanOrEqual</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description>A comparison that returns true if the left operand is less than or equal to the right one</Description>
+      <Name>LessThanOrEqual</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description>A comparison that returns true if the left operand is greater than the right one</Description>
+      <Name>GreaterThan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description>A comparison that returns true if the left operand is less than the right one</Description>
+      <Name>LessThan</Name>
+    </EnumItem>
+  </Items>
+  <Name>BinaryOperator</Name>
+  <Namespace>MetraTech.Metanga</Namespace>
+</EnumCategory>

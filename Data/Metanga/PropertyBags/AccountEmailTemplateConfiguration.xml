@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
+  <DefaultValue i:nil="true" />
+  <Description>Class for Account Email Template Configuration</Description>
+  <Direction>Input</Direction>
+  <IsCore>true</IsCore>
+  <Name>AccountEmailTemplateConfiguration</Name>
+  <Required>true</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>AccountEmailTemplateConfiguration</Name>
+    <PropertyBagMode>PropertyBag</PropertyBagMode>
+  </Type>
+  <Namespace>MetraTech.Metanga</Namespace>
+  <Properties>
+    <Properties>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>SendWelcomeEmail</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>SendWelcomeEmail</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>WelcomeEmailTemplateId</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>WelcomeEmailTemplateId</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Guid</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>SendLostPasswordEmail</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>SendLostPasswordEmail</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>LostPasswordTemplateId</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>LostPasswordTemplateId</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Guid</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>WelcomeEmailTemplateSubscriberId</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>WelcomeEmailTemplateSubscriberId</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Guid</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>LostPasswordTemplateId</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>LostPasswordTemplateSubscriberId</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Guid</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+    </Properties>
+  </Properties>
+</PropertyBag>

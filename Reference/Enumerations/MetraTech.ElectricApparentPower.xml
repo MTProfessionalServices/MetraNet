@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>UnitOfMeasure</BaseType>
+  <Description>Power in an electric circuit is the rate of flow of energy past a given point of the circuit. In alternating current circuits, energy storage elements such as inductance and capacitance may result in periodic reversals of the direction of energy flow. The portion of power that, averaged over a complete cycle of the AC waveform, results in net transfer of energy in one direction is known as real power. The portion of power due to stored energy, which returns to the source in each cycle, is known as reactive power.
+Practical loads have resistance, inductance, and capacitance, so both real and reactive power will flow to real loads. Power engineers measure apparent power as the magnitude of the vector sum of real and reactive power. Apparent power is the product of the root-mean-square of voltage and current.</Description>
+  <Extension i:nil="true" />
+  <Items>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Volt Ampere</Description>
+      <Name>Volt Ampere</Name>
+      <Code>V.A</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Kilovolt Ampere</Description>
+      <Name>Kilovolt Ampere</Name>
+      <Code>KV.A</Code>
+    </EnumItem>
+  </Items>
+  <Name>ElectricApparentPower</Name>
+  <Namespace>MetraTech</Namespace>
+</EnumCategory>

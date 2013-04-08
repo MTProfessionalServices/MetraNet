@@ -571,7 +571,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>Category</Description>
+        <Description>Extra Property 1</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>ExtraProperty1</Name>
@@ -585,7 +585,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>Size</Description>
+        <Description>Extra Property 2</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>ExtraProperty2</Name>
@@ -599,7 +599,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>Department</Description>
+        <Description>Extra Property 3</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>ExtraProperty3</Name>
@@ -613,7 +613,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>Title</Description>
+        <Description>Extra Property 4</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>ExtraProperty4</Name>
@@ -627,7 +627,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>Salutation</Description>
+        <Description>Extra Property 5</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>ExtraProperty5</Name>
@@ -641,7 +641,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>User ID</Description>
+        <Description>Extra Property 6</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>ExtraProperty6</Name>
@@ -655,7 +655,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>Website</Description>
+        <Description>Extra Property 7</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>ExtraProperty7</Name>
@@ -669,7 +669,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>Industry</Description>
+        <Description>Extra Property 8</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>ExtraProperty8</Name>
@@ -683,7 +683,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>Employees</Description>
+        <Description>Extra Property 9</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>ExtraProperty9</Name>
@@ -697,7 +697,7 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>Business Score</Description>
+        <Description>Extra Property 10</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>ExtraProperty10</Name>

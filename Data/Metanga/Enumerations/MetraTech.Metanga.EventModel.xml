@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>UnitOfMeasure</BaseType>
   <Description>EventModel enum which represents the values which can be configured for a product added to a package</Description>
-  <EnumMode>Item</EnumMode>
   <Extension i:nil="true" />
   <Items>
     <EnumItem>

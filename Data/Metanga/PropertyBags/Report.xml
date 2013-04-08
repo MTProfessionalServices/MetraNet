@@ -2,16 +2,16 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>Tax Product</Description>
+  <Description>Report Entity</Description>
   <Direction>Input</Direction>
-  <IsCore>false</IsCore>
-  <Name>TaxProduct</Name>
+  <IsCore>true</IsCore>
+  <Name>Report</Name>
   <Required>true</Required>
   <Type i:type="PropertyBagType">
     <BaseType>PropertyBag</BaseType>
     <ListType>None</ListType>
-    <Name>Product</Name>
-    <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
+    <Name>Report</Name>
+    <PropertyBagMode>Entity</PropertyBagMode>
   </Type>
   <Namespace>MetraTech.Metanga</Namespace>
   <Properties>
@@ -19,102 +19,58 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>Contains the default price that will be applied for this product.</Description>
+        <Description>Indicates argument Entity Type</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
-        <Name>PriceSchedule</Name>
+        <Name>ArgumentEntityType</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Collumps which are necessary for current report</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>Columns</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>List</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Expression which report is going to use for filter</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>Filter</Name>
         <Required>true</Required>
         <Type i:type="PropertyBagType">
           <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Name>MetraTech.Metanga.PriceSchedule</Name>
+          <Name>MetraTech.Metanga.BinaryExpression</Name>
           <PropertyBagMode>PropertyBag</PropertyBagMode>
         </Type>
       </Property>
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description>Contains the unit group to which this product belongs. If this value is null, it means that the product is soled on an itemized basis. Any billable events for these products should use a Unit of "1".</Description>
+        <Description>Collums order</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
-        <Name>UnitGroup</Name>
+        <Name>Order</Name>
         <Required>true</Required>
-        <Type i:type="PropertyBagType">
-          <BaseType>PropertyBag</BaseType>
-          <ListType>None</ListType>
-          <Name>MetraTech.Metanga.UnitGroup</Name>
-          <PropertyBagMode>Entity</PropertyBagMode>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Indicates whether this product should be taxable.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Taxable</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>This product is Tax product.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>IsTaxProduct</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Defines a structure for a smart product.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>ProductModel</Name>
-        <Required>true</Required>
-        <Type i:type="PropertyBagType">
-          <BaseType>PropertyBag</BaseType>
-          <ListType>None</ListType>
-          <Name>MetraTech.Metanga.ProductModel</Name>
-          <PropertyBagMode>PropertyBag</PropertyBagMode>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Indicates that the product will priced based on a reservation time-period. When this value is set to true, Metanga will prorate charges based on a start and end date.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>TimeBased</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Defines the order of a product to be displayed in the list of products. If rank = 0, Metanga will set to the maximum rank of any existing products, plus 1 Other values can be set, but Metanga will verify that the rank is currently available.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Rank</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>List</ListType>
+          <Length>255</Length>
         </Type>
       </Property>
       <Property>

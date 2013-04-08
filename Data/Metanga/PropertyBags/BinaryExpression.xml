@@ -2,16 +2,16 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>Represent tax rate settings</Description>
+  <Description>An expression that is evaluated by taking an operator and 2 input expressions</Description>
   <Direction>Input</Direction>
   <IsCore>true</IsCore>
-  <Name>TaxRateEntity</Name>
+  <Name>BinaryExpression</Name>
   <Required>true</Required>
   <Type i:type="PropertyBagType">
     <BaseType>PropertyBag</BaseType>
     <ListType>None</ListType>
-    <Name>TaxRateEntity</Name>
-    <PropertyBagMode>Entity</PropertyBagMode>
+    <Name>BinaryExpression</Name>
+    <PropertyBagMode>PropertyBag</PropertyBagMode>
   </Type>
   <Namespace>MetraTech.Metanga</Namespace>
   <Properties>
@@ -19,56 +19,45 @@
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
+        <Description>The operator used to evaluate the expression</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
-        <Name>EntityId</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Guid</BaseType>
+        <Name>Operator</Name>
+        <Required>true</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
+          <Category>MetraTech.Metanga.BinaryOperator</Category>
         </Type>
       </Property>
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
+        <Description>The left operand for the binary expression</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
-        <Name>ExternalId</Name>
+        <Name>Left</Name>
         <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
+        <Type i:type="PropertyBagType">
+          <BaseType>PropertyBag</BaseType>
           <ListType>None</ListType>
-          <Length>255</Length>
+          <Name>MetraTech.Metanga.Expression</Name>
+          <PropertyBagMode>PropertyBag</PropertyBagMode>
         </Type>
       </Property>
       <Property>
         <Availability>Unknown</Availability>
         <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
+        <Description>The right operand for the binary expression</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
-        <Name>Name</Name>
+        <Name>Right</Name>
         <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>KeyList</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Description</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>KeyList</ListType>
-          <Length>255</Length>
+        <Type i:type="PropertyBagType">
+          <BaseType>PropertyBag</BaseType>
+          <ListType>None</ListType>
+          <Name>MetraTech.Metanga.Expression</Name>
+          <PropertyBagMode>PropertyBag</PropertyBagMode>
         </Type>
       </Property>
     </Properties>

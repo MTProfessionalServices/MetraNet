@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>Currency</BaseType>
   <Description>List of global currencies used</Description>
-  <EnumMode>Currency</EnumMode>
   <Extension i:nil="true" />
   <Items>
     <EnumItem i:type="Currency">
@@ -1244,6 +1244,6 @@
       <Symbol>ZWL</Symbol>
     </EnumItem>
   </Items>
-  <Name>Currency</Name>
+  <Name>Currencies</Name>
   <Namespace>MetraTech</Namespace>
 </EnumCategory>

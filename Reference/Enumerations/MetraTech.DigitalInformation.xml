@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>UnitOfMeasure</BaseType>
   <Description>A unit of information is the capacity of some standard data storage system or communication channel, used to measure the capacities of other systems and channels.</Description>
-  <EnumMode>UnitOfMeasure</EnumMode>
   <Extension i:nil="true" />
   <Items>
     <EnumItem i:type="UnitOfMeasure">

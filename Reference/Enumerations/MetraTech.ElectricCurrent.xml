@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>UnitOfMeasure</BaseType>
+  <Description>An electric current is a flow of electric charge. Electric charge flows when there is voltage present across a conductor.
+In electric circuits this charge is often carried by moving electrons in a wire. It can also be carried by ions in an electrolyte, or by both ions and electrons such as in a plasma.</Description>
+  <Extension i:nil="true" />
+  <Items>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Ampere</Description>
+      <Name>Ampere</Name>
+      <Code>A</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Biot</Description>
+      <Name>Biot</Name>
+      <Code>BI</Code>
+    </EnumItem>
+  </Items>
+  <Name>ElectricCurrent</Name>
+  <Namespace>MetraTech</Namespace>
+</EnumCategory>

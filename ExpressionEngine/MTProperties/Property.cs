@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Globalization;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
@@ -27,10 +29,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
     public class Property : IExpressionEngineTreeNode
     {
         #region Static Properties
-        /// <summary>
-        /// Used to validate the Name property
-        /// </summary>
-
+        public static readonly ComponentType ComponentType = ComponentType.PropertyBagProperty;
         #endregion
 
         #region Properties
@@ -236,6 +235,11 @@ namespace MetraTech.ExpressionEngine.MTProperties
         #endregion
 
         #region Methods
+
+        public ComponentReference GetComponentReference()
+        {
+            return new ComponentReference(ComponentType, FullName);
+        }
 
         /// <summary>
         /// Returns the Units property associated with this property. Only valid for Charges.

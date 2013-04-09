@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Validations;
@@ -79,6 +80,18 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public virtual List<PropertyReference> GetPropertyReferences()
         {
             return new List<PropertyReference>();
+        }
+
+        public virtual ComponentLinkCollection GetComponentLinks()
+        {
+            var links = new ComponentLinkCollection();
+            AddComponentLinks(links);
+            return links;
+        }
+
+        public virtual void AddComponentLinks(ComponentLinkCollection links)
+        {
+            //Do something in subclass if necessary
         }
 
         #endregion
@@ -229,6 +242,12 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             if (messages == null)
                 throw new ArgumentNullException("messages");
 
+            foreach (var link in GetComponentLinks())
+            {
+                link.Validate(messages, context);
+            }
+
+            //Can this be incorporated into the above????
             foreach (var propertyReference in GetPropertyReferences())
             {
                 propertyReference.Validate(prefix, properties, messages);

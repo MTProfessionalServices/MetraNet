@@ -59,9 +59,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\Enumerations\ComponentType.cs" />
-    <Compile Include="Components\Enumerations\EnumSpecificationLevel.cs" />
+    <Compile Include="Infrastructure\ComponentLinkCollection.cs" />
+    <Compile Include="Infrastructure\ComponentReference.cs" />
+    <Compile Include="Infrastructure\ComponentLink.cs" />
+    <Compile Include="Infrastructure\Enumerations\ComponentType.cs" />
     <Compile Include="Components\EnumManager.cs" />
+    <Compile Include="Infrastructure\GlobalComponentTable.cs" />
+    <Compile Include="Infrastructure\IComponent.cs" />
     <Compile Include="MTProperties\Enumerations\Availability.cs" />
     <Compile Include="MTProperties\PropertyReference.cs" />
     <Compile Include="Placeholders\PageLayout.cs" />
@@ -102,7 +106,7 @@
     <Compile Include="MTProperties\Enumerations\Direction.cs" />
     <Compile Include="Placeholders\Aqg.cs" />
     <Compile Include="TypeSystem\Enumerations\BaseType.cs" />
-    <Compile Include="Context.cs" />
+    <Compile Include="Infrastructure\Context.cs" />
     <Compile Include="Components\Currency.cs" />
     <Compile Include="PropertyBags\PropertyBag.cs" />
     <Compile Include="EmailInstance.cs" />
@@ -177,6 +181,7 @@
     <CodeAnalysisDictionary Include="CustomDictionary.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Components\Enumerations\" />
     <Folder Include="UserTest\Enumerations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

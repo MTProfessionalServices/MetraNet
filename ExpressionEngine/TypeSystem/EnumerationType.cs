@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using System.Globalization;
+using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
@@ -14,6 +15,11 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     [DataContract (Namespace = "MetraTech")]
     public class EnumerationType : Type
     {
+        #region Constants
+
+        public const string CategoryPropertyName = "Category";
+        #endregion
+
         #region Properties
         /// <summary>
         /// The namespace; used to prevent FixedCategory name collisions 
@@ -57,6 +63,14 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         }
 
 
+        public override void AddComponentLinks(ComponentLinkCollection links)
+        {
+            if (links == null)
+                throw new ArgumentException("links is null");
+
+            links.Add(ComponentType.EnumerationCategory, this, CategoryPropertyName, true, "Enumeration Category");
+        }
+
         public override void Validate(string prefix, ValidationMessageCollection messages, Context context, PropertyCollection properties)
         {
             base.Validate(prefix, messages, context, properties);
@@ -79,6 +93,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     messages.Error(string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumCategory, Namespace + "." + Category));
             }
         }
+
 
         public new EnumerationType Copy()
         {

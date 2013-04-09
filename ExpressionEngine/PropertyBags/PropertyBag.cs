@@ -2,6 +2,8 @@
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
@@ -25,6 +27,8 @@ namespace MetraTech.ExpressionEngine.PropertyBags
     public class PropertyBag : Property, IExpressionEngineTreeNode
     {
         #region Properties
+
+        public static readonly ComponentType ComponentType = ComponentType.PropertyBag;
 
         /// <summary>
         /// The name prefixed with the namespace, if any
@@ -156,6 +160,11 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             }
 
             return messages;
+        }
+
+        public ComponentReference GetComponentReference()
+        {
+            return new ComponentReference(ComponentType, FullName);
         }
         #endregion
 

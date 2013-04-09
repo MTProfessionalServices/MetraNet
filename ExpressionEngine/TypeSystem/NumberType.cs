@@ -5,7 +5,6 @@ using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties;
-using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Validations;
 
@@ -19,6 +18,12 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     [DataContract (Namespace = "MetraTech")]
     public class NumberType : Type
     {
+        #region Constants
+        public const string UnitOfMeasureCategoryStr = "UnitOfMeasureCategory";
+        public const string FixedUnitOfMeasureStr = "FixedUnitOfMeasure";
+        public const string UnitOfMeasurePropertyStr = "UnitOfMeasureProperty";
+        #endregion
+
         #region Properties
 
         /// <summary>
@@ -93,6 +98,25 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             if (UnitOfMeasureMode == UnitOfMeasureMode.PropertyDriven && !string.IsNullOrEmpty(UnitOfMeasureProperty))
                 references.Add(new PropertyReference(this, "UnitOfMeasureProperty", TypeFactory.CreateUnitOfMeasure(), true));
             return references;
+        }
+
+        public override ComponentLinkCollection GetComponentLinks()
+        {
+            var links = new ComponentLinkCollection();
+
+            switch (UnitOfMeasureMode)
+            {
+                case UnitOfMeasureMode.FixedCategory:
+                    links.Add(ComponentType.EnumerationCategory, this, UnitOfMeasureCategoryStr, true, "Unit of Measure Category");
+                    break;
+                case UnitOfMeasureMode.FixedUnitOfMeasure:
+                    links.Add(ComponentType.Enumeration, this, FixedUnitOfMeasure, true, "Fixed Unit of Measure");
+                    break;
+                case UnitOfMeasureMode.PropertyDriven:
+                    links.Add(ComponentType.PropertyBagProperty, this, UnitOfMeasurePropertyStr, true, "Unit of Measure Property");
+                    break;
+            }
+            return links;
         }
         private void AddError(ValidationMessageCollection messages, string prefix, string message)
         {

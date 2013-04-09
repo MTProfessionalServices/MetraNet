@@ -1,4 +1,5 @@
 ﻿using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.Components.Enumerations;
 
 namespace MetraTech.ExpressionEngine.Components
 {
@@ -9,6 +10,7 @@ namespace MetraTech.ExpressionEngine.Components
     public class Currency : EnumItem
     {
         #region Properties
+        public readonly static ComponentType ComponentType = ComponentType.Currency;
 
         /// <summary>
         /// The symbol (i.e., $) I assume these aren't localized
@@ -33,6 +35,13 @@ namespace MetraTech.ExpressionEngine.Components
         public Currency(EnumCategory enumCategory, string name, int id, string description)
             : base(enumCategory, name, id, description)
         {
+        }
+        #endregion
+
+        #region Methods
+        public override ComponentReference GetComponentReference()
+        {
+            return new ComponentReference(ComponentType, FullName);
         }
         #endregion
     }

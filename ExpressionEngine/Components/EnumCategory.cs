@@ -184,6 +184,26 @@ namespace MetraTech.ExpressionEngine.Components
         {
         }
 
+        public ComponentReference GetComponentReference()
+        {
+            ComponentType componentType;
+            switch (BaseType)
+            {
+                case BaseType.Enumeration:
+                    componentType = ComponentType.EnumerationCategory;
+                    break;
+                case BaseType.UnitOfMeasure:
+                    componentType = ComponentType.UnitOfMeasure;
+                    break;
+                case BaseType.Currency:
+                    componentType = ComponentType.CurrencyCategory;
+                    break;
+                default:
+                    throw new Exception("Unexpected BaseType");
+            }
+            return new ComponentReference(componentType, FullName);
+        }
+
         #endregion
 
         #region IO Methods

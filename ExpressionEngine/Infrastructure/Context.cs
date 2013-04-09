@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
-using System.Text.RegularExpressions;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Expressions;
@@ -314,6 +312,33 @@ namespace MetraTech.ExpressionEngine
 
         #region Methods
 
+        public object GetComponent(ComponentReference reference)
+        {
+            return GetComponent(reference.ComponentType, reference.FullName);
+        }
+        /// <summary>
+        /// Returns a component based on type and full name. If not found, null is returned.
+        /// Only partially implemented because many component types may be moved into seperate
+        /// managers. Also, the return signature should likely be changed to IComponenet in the future
+        /// </summary>
+        public object GetComponent(ComponentType type, string fullName)
+        {
+            switch (type)
+            {
+                case ComponentType.EnumerationCategory:
+                    return EnumManager.GetCategory(fullName);
+                case ComponentType.Enumeration:
+                    return EnumManager.GetItem(fullName);
+                case ComponentType.PropertyBag:
+                    return PropertyBagManager.Get(fullName);
+                default:
+                    throw new ArgumentException("Unexpected type");
+            }
+        }
+        public bool ComponentExists(ComponentType type, string fullName)
+        {
+            return GetComponent(type, fullName) != null;
+        }
         public void UpdateContext()
         {
             AllProperties.Clear();

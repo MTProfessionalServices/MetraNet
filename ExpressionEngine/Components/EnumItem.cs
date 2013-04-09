@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.Components.Enumerations;
 
 namespace MetraTech.ExpressionEngine.Components
 {
@@ -11,6 +12,7 @@ namespace MetraTech.ExpressionEngine.Components
     public class EnumItem : IExpressionEngineTreeNode
     {
         #region Properties
+        static readonly ComponentType ComponentType = ComponentType.Enumeration;
 
         /// <summary>
         /// The EnumType to which the value belongs; this is externally setable because we need to manually set it post
@@ -108,6 +110,11 @@ namespace MetraTech.ExpressionEngine.Components
                 }
                 return ToMtsql();
             }
+        }
+
+        public virtual ComponentReference GetComponentReference()
+        {
+            return new ComponentReference(ComponentType, FullName);
         }
 
         #endregion

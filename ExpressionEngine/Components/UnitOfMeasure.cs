@@ -1,4 +1,5 @@
 ﻿using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.Components.Enumerations;
 
 namespace MetraTech.ExpressionEngine.Components
 {
@@ -14,6 +15,8 @@ namespace MetraTech.ExpressionEngine.Components
     public class UnitOfMeasure :  EnumItem 
     {
         #region Properties
+        public static readonly ComponentType ComponentType = ComponentType.UnitOfMeasure;
+
         /// <summary>
         /// The root category to which this unit belongs. Example categories are: distance,
         /// weight, digital information, fluid volume, time, etc.
@@ -39,6 +42,13 @@ namespace MetraTech.ExpressionEngine.Components
         public UnitOfMeasure(EnumCategory category, string name, int id, string description, string code) : base(category, name, id, description)
         {
           Code = code;
+        }
+        #endregion
+
+        #region Methods
+        public override ComponentReference GetComponentReference()
+        {
+            return new ComponentReference(ComponentType, FullName);
         }
         #endregion
     }

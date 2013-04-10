@@ -47,7 +47,11 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public ChargeType() : base(BaseType.Charge)
         {      
         }
-        public ChargeType(string quantityProperty) : this()
+        protected ChargeType(BaseType baseType)
+          : base(baseType)
+        {
+        }
+         public ChargeType(string quantityProperty) : this()
         {
             QuantityProperty = quantityProperty;
         }

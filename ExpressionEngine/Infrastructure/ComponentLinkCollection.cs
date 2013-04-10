@@ -25,7 +25,6 @@ namespace MetraTech.ExpressionEngine.Components
             return link;
         }
 
-
         public void Validate(ValidationMessageCollection messages, Context context)
         {
             if (messages == null)

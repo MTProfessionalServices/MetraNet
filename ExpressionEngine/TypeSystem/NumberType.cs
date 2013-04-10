@@ -110,7 +110,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                     links.Add(ComponentType.EnumerationCategory, this, UnitOfMeasureCategoryStr, true, "Unit of Measure Category");
                     break;
                 case UnitOfMeasureMode.FixedUnitOfMeasure:
-                    links.Add(ComponentType.Enumeration, this, FixedUnitOfMeasure, true, "Fixed Unit of Measure");
+                    links.Add(ComponentType.Enumeration, this, FixedUnitOfMeasureStr, true, "Fixed Unit of Measure");
                     break;
                 case UnitOfMeasureMode.PropertyDriven:
                     links.Add(ComponentType.PropertyBagProperty, this, UnitOfMeasurePropertyStr, true, "Unit of Measure Property");
@@ -118,6 +118,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             }
             return links;
         }
+
         private void AddError(ValidationMessageCollection messages, string prefix, string message)
         {
             if (messages == null)

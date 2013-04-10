@@ -63,7 +63,7 @@
     <Compile Include="Infrastructure\ComponentReference.cs" />
     <Compile Include="Infrastructure\ComponentLink.cs" />
     <Compile Include="Infrastructure\Enumerations\ComponentType.cs" />
-    <Compile Include="Components\EnumManager.cs" />
+    <Compile Include="Enums\EnumManager.cs" />
     <Compile Include="Infrastructure\GlobalComponentTable.cs" />
     <Compile Include="Infrastructure\IComponent.cs" />
     <Compile Include="MTProperties\Enumerations\Availability.cs" />
@@ -72,7 +72,7 @@
     <Compile Include="PropertyBags\Enumerations\EventType.cs" />
     <Compile Include="PropertyBags\PropertyBagManager.cs" />
     <Compile Include="TypeSystem\ChargeType.cs" />
-    <Compile Include="Components\EnumFactory.cs" />
+    <Compile Include="Enums\EnumFactory.cs" />
     <Compile Include="Expressions\Enumerations\ConfigurationType.cs" />
     <Compile Include="Database\UniqueKey.cs" />
     <Compile Include="Expressions\Constants\ExpressionConstants.cs" />
@@ -82,7 +82,7 @@
     <Compile Include="MTProperties\Enumerations\OperatorScope.cs" />
     <Compile Include="MTProperties\Enumerations\ParameterTablePropertyContext.cs" />
     <Compile Include="MTProperties\MetraNetPropertyBase.cs" />
-    <Compile Include="Expressions\Enumerations\ProductType.cs" />
+    <Compile Include="Infrastructure\Enumerations\ProductType.cs" />
     <Compile Include="MTProperties\ParameterTableProperty.cs" />
     <Compile Include="PropertyBags\BusinessModelingEntity.cs" />
     <Compile Include="PropertyBags\ParameterTableEntity.cs" />
@@ -107,16 +107,16 @@
     <Compile Include="Placeholders\Aqg.cs" />
     <Compile Include="TypeSystem\Enumerations\BaseType.cs" />
     <Compile Include="Infrastructure\Context.cs" />
-    <Compile Include="Components\Currency.cs" />
+    <Compile Include="Enums\Currency.cs" />
     <Compile Include="PropertyBags\PropertyBag.cs" />
     <Compile Include="EmailInstance.cs" />
     <Compile Include="EmailTemplate.cs" />
-    <Compile Include="Components\EnumCategory.cs" />
-    <Compile Include="Components\EnumItem.cs" />
+    <Compile Include="Enums\EnumCategory.cs" />
+    <Compile Include="Enums\EnumItem.cs" />
     <Compile Include="Expressions\Expression.cs" />
     <Compile Include="Expressions\ExpressionInfo.cs" />
     <Compile Include="Expressions\ExpressionParseResults.cs" />
-    <Compile Include="Components\Function.cs" />
+    <Compile Include="Function.cs" />
     <Compile Include="BasicHelper.cs" />
     <Compile Include="IExpressionEngineTreeNode.cs" />
     <Compile Include="Localization.Designer.cs">
@@ -151,7 +151,7 @@
     </Compile>
     <Compile Include="TypeSystem\TypeHelper.cs" />
     <Compile Include="UserSettings.cs" />
-    <Compile Include="Components\UnitOfMeasure.cs" />
+    <Compile Include="Enums\UnitOfMeasure.cs" />
     <Compile Include="Placeholders\Uqg.cs" />
     <Compile Include="DemoLoading\DemoLoader.cs" />
     <Compile Include="Validations\Enumerations\SeverityType.cs">
@@ -181,7 +181,6 @@
     <CodeAnalysisDictionary Include="CustomDictionary.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Components\Enumerations\" />
     <Folder Include="UserTest\Enumerations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

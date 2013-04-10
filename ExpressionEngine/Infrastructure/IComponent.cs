@@ -8,6 +8,7 @@ namespace MetraTech.ExpressionEngine.Components
         ComponentType ComponentType { get; }
         string FullName { get; }
         string UserContext { get; }
+        string Description { get; set; }
         ComponentReference GetComponentReference();
         List<ComponentLink> GetComponentLinks();
     }

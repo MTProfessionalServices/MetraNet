@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using MetraTech.ExpressionEngine.Components;
@@ -83,6 +84,18 @@ namespace MetraTech.ExpressionEngine.Infrastructure
             //Load AQGs
 
             return messages;
+        }
+
+        public void WriteCsvFile(string filePath)
+        {
+            IOHelper.EnsureDirectoryExits(Path.GetDirectoryName(filePath));
+            var sb = new StringBuilder();
+            foreach (var component in Components.Values)
+            {
+                sb.AppendLine(string.Format(CultureInfo.InvariantCulture, "{0},{1}", component.FullName, component.ComponentType));
+            }
+
+            File.WriteAllText(filePath, sb.ToString());
         }
         #endregion
 

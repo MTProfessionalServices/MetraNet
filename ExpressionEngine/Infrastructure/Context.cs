@@ -5,6 +5,7 @@ using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Expressions;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
+using MetraTech.ExpressionEngine.Infrastructure;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.Placeholders;
 using MetraTech.ExpressionEngine.PropertyBags;
@@ -43,6 +44,8 @@ namespace MetraTech.ExpressionEngine
         /// Contains message, if any, that were generated during the load (from file or database)
         /// </summary>
         public ValidationMessageCollection DeserilizationMessages { get; private set; }
+
+        public readonly GlobalComponentTable GlobalComponentTable;
 
         /// <summary>
         /// All expressions
@@ -131,6 +134,7 @@ namespace MetraTech.ExpressionEngine
         {
             ProductType = product;
             DeserilizationMessages = new ValidationMessageCollection();
+            GlobalComponentTable = new GlobalComponentTable(this);
         }
 
         public Context(Context masterContext, Expression expression)
@@ -534,6 +538,9 @@ namespace MetraTech.ExpressionEngine
             context.LoadUnitsOfMeasure();
 
             context.UpdateContext();
+
+            var messages = context.GlobalComponentTable.Load();
+            context.DeserilizationMessages.AddRange(messages);
             return context;
         }
 
@@ -562,6 +569,9 @@ namespace MetraTech.ExpressionEngine
             PropertyBagFactory.LoadDirectoryIntoContext(Path.Combine(dirPath, "PropertyBags"), null, context);
             EnumCategory.LoadDirectoryIntoContext(Path.Combine(dirPath, "Enumerations"), null, context);
             context.LoadUnitsOfMeasure();
+
+            var messages = context.GlobalComponentTable.Load();
+            context.DeserilizationMessages.AddRange(messages);
             return context;
         }
 

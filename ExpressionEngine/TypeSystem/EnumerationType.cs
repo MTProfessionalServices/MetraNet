@@ -73,25 +73,25 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         public override void Validate(string prefix, ValidationMessageCollection messages, Context context, PropertyCollection properties)
         {
-            base.Validate(prefix, messages, context, properties);
-
             if (messages == null)
                 throw new ArgumentNullException("messages");
+            
+            base.Validate(prefix, messages, context, properties);
 
-            //Check if the FixedCategory was specified
-            if (string.IsNullOrEmpty(Category))
-            {
-                messages.Error(string.Format(CultureInfo.CurrentCulture, Localization.EnumCategoryNotSpecified));
-                return;
-            }
+            ////Check if the FixedCategory was specified
+            //if (string.IsNullOrEmpty(Category))
+            //{
+            //    messages.Error(string.Format(CultureInfo.CurrentCulture, Localization.EnumCategoryNotSpecified));
+            //    return;
+            //}
 
-            //Check if the FixedCategory exists         
-            if (context != null)
-            {
-                var enumCategory = context.GetEnumCategory(Category);
-                if (enumCategory == null)
-                    messages.Error(string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumCategory, Namespace + "." + Category));
-            }
+            ////Check if the FixedCategory exists         
+            //if (context != null)
+            //{
+            //    var enumCategory = context.GetEnumCategory(Category);
+            //    if (enumCategory == null)
+            //        messages.Error(string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumCategory, Namespace + "." + Category));
+            //}
         }
 
 

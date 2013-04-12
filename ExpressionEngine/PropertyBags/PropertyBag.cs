@@ -28,8 +28,6 @@ namespace MetraTech.ExpressionEngine.PropertyBags
     {
         #region Properties
 
-        public static readonly ComponentType ComponentType = ComponentType.PropertyBag;
-
         /// <summary>
         /// The name prefixed with the namespace, if any
         /// </summary>
@@ -160,11 +158,6 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             }
 
             return messages;
-        }
-
-        public ComponentReference GetComponentReference()
-        {
-            return new ComponentReference(ComponentType, FullName);
         }
         #endregion
 

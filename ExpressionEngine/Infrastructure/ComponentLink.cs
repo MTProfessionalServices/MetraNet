@@ -13,6 +13,11 @@ namespace MetraTech.ExpressionEngine.Components
     /// to generically rename the string. Since reflection was required for renaming, reflection is also used to read the
     /// value of string during validation (one code path). This approch keeps the runtime simple (reference are just a string)
     /// and this class, and it's associated relatively expensive reflection, are only invode at design or vaidation time.
+    /// 
+    /// For validation need to think through;
+    /// *PropertyBag: PropertyBagTypeName
+    /// *Property:    Type
+    /// 
     /// </summary>
     public class ComponentLink
     {

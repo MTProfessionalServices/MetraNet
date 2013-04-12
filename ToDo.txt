@@ -6,19 +6,13 @@
 
 
 *Save PV
-*FS export
-*InterCall export
+*MetraNet Extended Properties
+*MetraNet Extended Subscriptions
 
 
 DONE:
 -----------------------------------------------------------
-*Currency and UnitOfMeasure now first class BaseTypes
-*ctlProperty restrict MSIXDataTypes
-*Property filter combo box.
-*Expand All context menu
-*Numeric; add propertydriven is currency, not UOM
-*Money; when add property driven reference, tree not updated 
-*Clicking on a tax prevents any further updates to the property panel!
+
 -----------------------------------------------------------
 
 *Extensions; issue with casting to a abstract class
@@ -30,7 +24,7 @@ DONE:
 *Namespace filter
 
 
-*Currency
+
 *Tax
 *Metanga BillableEvent 100%
 *Cloud Compute PV 100%
@@ -51,7 +45,10 @@ DONE:
 
 464 warnings!
 
-
+TaxCategoryProperty { get; set; }
+TaxAuthorityProperty { get; set; }
+TaxLocationProperty { get; set; }
+TaxReportToProperty { get; set; }
 
 
 

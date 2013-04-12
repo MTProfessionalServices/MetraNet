@@ -106,6 +106,11 @@ namespace MetraTech.ExpressionEngine.Validations
             Add(SeverityType.Info, message);
         }
             
+        public void AddRange(ValidationMessageCollection messages)
+        {
+            Messages.AddRange(messages);
+        }
+
         /// <summary>
         /// Returns a string with a message per line
         /// </summary>

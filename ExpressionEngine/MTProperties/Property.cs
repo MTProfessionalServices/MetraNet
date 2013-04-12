@@ -63,7 +63,13 @@ namespace MetraTech.ExpressionEngine.MTProperties
         /// <summary>
         /// Properties don't have a Namespace, so the full name is the same as the name
         /// </summary>
-        public virtual string FullName { get { return Name; } }
+        public virtual string FullName { get
+        {
+            var pb = PropertyBag;
+            if (pb == null)
+                return Name;
+            return pb.FullName + "." + Name;
+        } }
         public string FullNameWithListSuffix { get { return FullName + Type.ListSuffix; } }
      
         /// <summary>

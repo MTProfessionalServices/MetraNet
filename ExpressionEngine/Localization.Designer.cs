@@ -79,6 +79,24 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Currency.
+        /// </summary>
+        internal static string Currency {
+            get {
+                return ResourceManager.GetString("Currency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Currency Category.
+        /// </summary>
+        internal static string CurrencyCategory {
+            get {
+                return ResourceManager.GetString("CurrencyCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Property{0}.
         /// </summary>
         internal static string DefaultNewPropertyName {
@@ -102,6 +120,24 @@ namespace MetraTech.ExpressionEngine {
         internal static string EnumCategoryNotSpecified {
             get {
                 return ResourceManager.GetString("EnumCategoryNotSpecified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enumeration.
+        /// </summary>
+        internal static string Enumeration {
+            get {
+                return ResourceManager.GetString("Enumeration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enumeration Category.
+        /// </summary>
+        internal static string EnumerationCategory {
+            get {
+                return ResourceManager.GetString("EnumerationCategory", resourceCulture);
             }
         }
         
@@ -151,6 +187,15 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fixed Currency.
+        /// </summary>
+        internal static string FixedCurrency {
+            get {
+                return ResourceManager.GetString("FixedCurrency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to in Property  &apos;{0}&apos; in PropertyBag &apos;{1}&apos;.
         /// </summary>
         internal static string InPropertySuffix {
@@ -196,11 +241,47 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No description.
+        /// </summary>
+        internal static string NoDescription {
+            get {
+                return ResourceManager.GetString("NoDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PropertyBag.
+        /// </summary>
+        internal static string PropertyBag {
+            get {
+                return ResourceManager.GetString("PropertyBag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Property.
+        /// </summary>
+        internal static string PropertyBagProperty {
+            get {
+                return ResourceManager.GetString("PropertyBagProperty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Property &apos;{0}&apos;: .
         /// </summary>
         internal static string PropertyMessagePrefix {
             get {
                 return ResourceManager.GetString("PropertyMessagePrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity Property.
+        /// </summary>
+        internal static string QuantityProperty {
+            get {
+                return ResourceManager.GetString("QuantityProperty", resourceCulture);
             }
         }
         
@@ -264,6 +345,24 @@ namespace MetraTech.ExpressionEngine {
         internal static string UnableToFinUnitOfMeasureCategory {
             get {
                 return ResourceManager.GetString("UnableToFinUnitOfMeasureCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit of Measure.
+        /// </summary>
+        internal static string UnitOfMeasure {
+            get {
+                return ResourceManager.GetString("UnitOfMeasure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit of Measure Category.
+        /// </summary>
+        internal static string UnitOfMeasureCategory {
+            get {
+                return ResourceManager.GetString("UnitOfMeasureCategory", resourceCulture);
             }
         }
         

@@ -12,7 +12,7 @@ namespace MetraTech.ExpressionEngine.Validations
         #region Properties
 
         [DataMember]
-        public ComponentType ComponentType { get; set; }
+        public string ComponentName { get; set; }
 
         /// <summary>
         /// An ID that in unique to the type of message. This is presented to the user so that they can get help, etc.

@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
-using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
-using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
@@ -19,9 +15,9 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     public class NumberType : Type
     {
         #region Constants
-        public const string UnitOfMeasureCategoryStr = "UnitOfMeasureCategory";
-        public const string FixedUnitOfMeasureStr = "FixedUnitOfMeasure";
-        public const string UnitOfMeasurePropertyStr = "UnitOfMeasureProperty";
+        public const string UnitOfMeasureCategoryPropertyName = "UnitOfMeasureCategory";
+        public const string FixedUnitOfMeasurePropertyName = "FixedUnitOfMeasure";
+        public const string UnitOfMeasurePropertyPropertyName = "UnitOfMeasureProperty";
         #endregion
 
         #region Properties
@@ -92,89 +88,6 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             }
         }
 
-        public override List<PropertyReference> GetPropertyReferences()
-        {
-            var references = new List<PropertyReference>();
-            if (UnitOfMeasureMode == UnitOfMeasureMode.PropertyDriven && !string.IsNullOrEmpty(UnitOfMeasureProperty))
-                references.Add(new PropertyReference(this, "UnitOfMeasureProperty", TypeFactory.CreateUnitOfMeasure(), true));
-            return references;
-        }
-
-        public override ComponentLinkCollection GetComponentLinks()
-        {
-            var links = new ComponentLinkCollection();
-
-            switch (UnitOfMeasureMode)
-            {
-                case UnitOfMeasureMode.FixedCategory:
-                    links.Add(ComponentType.EnumerationCategory, this, UnitOfMeasureCategoryStr, true, "Unit of Measure Category");
-                    break;
-                case UnitOfMeasureMode.FixedUnitOfMeasure:
-                    links.Add(ComponentType.Enumeration, this, FixedUnitOfMeasureStr, true, "Fixed Unit of Measure");
-                    break;
-                case UnitOfMeasureMode.PropertyDriven:
-                    links.Add(ComponentType.PropertyBagProperty, this, UnitOfMeasurePropertyStr, true, "Unit of Measure Property");
-                    break;
-            }
-            return links;
-        }
-
-        private void AddError(ValidationMessageCollection messages, string prefix, string message)
-        {
-            if (messages == null)
-                throw new ArgumentException("messages is null");
-
-            messages.Error(prefix + ": " + message);
-        }
-
-        public override void Validate(string prefix, ValidationMessageCollection messages, Context context, PropertyCollection properties)
-        {
-            base.Validate(prefix, messages, context, properties);
-
-            if (UnitOfMeasureMode == UnitOfMeasureMode.None || UnitOfMeasureMode == UnitOfMeasureMode.Count)
-                return;
-
-            EnumCategory category = null;
-            string value = null;
-            if (UnitOfMeasureMode == UnitOfMeasureMode.FixedCategory) 
-            {
-                if (string.IsNullOrEmpty(UnitOfMeasureCategory))
-                {
-                    AddError(messages, prefix, Localization.UnitOfMeasureCategoryNotSpecified);
-                    return;
-                }
-
-                category = context.EnumManager.GetCategory(UnitOfMeasureCategory);
-                if (category == null)
-                {
-                    AddError(messages, prefix, string.Format(Localization.UnableToFindEnumCategory, UnitOfMeasureCategory));
-                    return;
-                }
-                value = UnitOfMeasureCategory;
-            }
-            else if (UnitOfMeasureMode == UnitOfMeasureMode.FixedUnitOfMeasure)
-            {
-                //Ensure the value is specified
-                if (string.IsNullOrEmpty(FixedUnitOfMeasure))
-                {
-                    AddError(messages, prefix, Localization.UnitOfMeasureNotSpecified);
-                    return;
-                }
-
-                var item = context.EnumManager.GetItem(FixedUnitOfMeasure);
-                if (item == null)
-                {
-                    AddError(messages, prefix, string.Format(CultureInfo.CurrentCulture, Localization.UnableToFindUnitOfMeasureItem, FixedUnitOfMeasure));
-                    return;
-                }
-                value = FixedUnitOfMeasure;
-                category = item.EnumCategory;
-            }
-
-            if (category.BaseType != BaseType.UnitOfMeasure)
-                AddError(messages, prefix, string.Format(CultureInfo.CurrentCulture, Localization.EnumerationIsNotUoM, value));
-        }
-
         public new NumberType Copy()
         {
             var type = (NumberType)base.Copy();
@@ -187,5 +100,37 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         }
         #endregion
 
+        #region Link Methods
+        public override ComponentLinkCollection GetComponentLinks()
+        {
+            var links = new ComponentLinkCollection();
+
+            switch (UnitOfMeasureMode)
+            {
+                case UnitOfMeasureMode.FixedCategory:
+                    links.Add(GetFixedCategoryLink());
+                    break;
+                case UnitOfMeasureMode.FixedUnitOfMeasure:
+                    links.Add(GetFixedUnitOfMeasureLink());
+                    break;
+                case UnitOfMeasureMode.PropertyDriven:
+                    links.Add(GetUnitOfMeasurePropertyLink());
+                    break;
+            }
+            return links;
+        }
+        public ComponentLink GetFixedCategoryLink()
+        {
+            return new ComponentLink(ComponentType.UnitOfMeasureCategory, this, UnitOfMeasureCategoryPropertyName, true, "Unit of Measure Category");
+        }
+        public ComponentLink GetFixedUnitOfMeasureLink()
+        {
+            return new ComponentLink(ComponentType.UnitOfMeasure, this, FixedUnitOfMeasurePropertyName, true, "Fixed Unit of Measure");
+        }
+        public ComponentLink GetUnitOfMeasurePropertyLink()
+        {
+            return new ComponentLink(ComponentType.PropertyBagProperty, this, UnitOfMeasurePropertyPropertyName, true, "Unit of Measure Property");
+        }
+        #endregion
     }
 }

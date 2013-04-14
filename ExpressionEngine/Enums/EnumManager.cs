@@ -14,22 +14,22 @@ namespace MetraTech.ExpressionEngine.Components
     {
         #region Properties
         public IEnumerable<EnumCategory> Categories { get { return _categories.Values; } }
-        private Dictionary<string, EnumCategory> _categories = new Dictionary<string, EnumCategory>(StringComparer.InvariantCultureIgnoreCase);
+        private readonly Dictionary<string, EnumCategory> _categories = new Dictionary<string, EnumCategory>(StringComparer.InvariantCultureIgnoreCase);
         #endregion
 
         #region Methods
+
         public void AddCategory(EnumCategory enumCategory)
         {
             if (enumCategory == null)
                 throw new ArgumentException("enumCategory is null");
 
-            if (_categories.ContainsKey(enumCategory.FullName))
-                throw new Exception(string.Format(CultureInfo.InvariantCulture, "Duplicate EnumCategory '{0}'", enumCategory.FullName));
-
             //There can be only one currency
             if (enumCategory.BaseType == BaseType.Currency && enumCategory.FullName != PropertyBagConstants.MetraTechCurrencies)
                 throw new Exception(string.Format(CultureInfo.InvariantCulture, "The only valid currency category is '{0}'", PropertyBagConstants.MetraTechCurrencies));
-
+        
+            if (_categories.ContainsKey(enumCategory.FullName))
+                throw new Exception(string.Format(CultureInfo.InvariantCulture, "Duplicate EnumCategory '{0}'", enumCategory.FullName));
 
             _categories.Add(enumCategory.FullName, enumCategory);
         }
@@ -149,9 +149,6 @@ namespace MetraTech.ExpressionEngine.Components
         /// <summary>
         /// Determines if the specified enum value is valid. If the type isn't found, false is returned
         /// </summary>
-        /// <param name="type"></param>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public bool ValueExists(EnumerationType type, string name)
         {
             var enumCategory = GetCategory(type);

@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
-using MetraTech.ExpressionEngine.MTProperties;
+﻿using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.Components.Enumerations;
+using MetraTech.ExpressionEngine.Infrastructure;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
@@ -8,6 +9,11 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     [DataContract (Namespace = "MetraTech")]
     public class MoneyType : Type
     {
+        #region Constants
+        private const string FixedCurrencyPropertyName = "FixedCurrency";
+        private const string CurrencyPropertyPropertyName = "CurrencyProperty";
+        #endregion
+
         #region Properties
 
         /// <summary>
@@ -41,22 +47,28 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         #region Methods
 
-        public override List<PropertyReference> GetPropertyReferences()
+        public override ComponentLinkCollection GetComponentLinks()
         {
-            var references = new List<PropertyReference>();
-            if (CurrencyMode == CurrencyMode.PropertyDriven)
-                references.Add(new PropertyReference(this, "CurrencyProperty", TypeFactory.CreateEnumeration(null), true));
-
-            return references;
+            var links = new ComponentLinkCollection();
+            switch (CurrencyMode)
+            {
+                case CurrencyMode.Fixed:
+                    links.Add(GetFixedCurrencyLink());
+                    break;
+                case CurrencyMode.PropertyDriven:
+                    links.Add(GetCurrencyPropertyLink());
+                    break;
+            }
+            return links;
         }
-        public override void Validate(string prefix, Validations.ValidationMessageCollection messages, Context context, PropertyCollection properties)
+        public ComponentLink GetFixedCurrencyLink()
         {
-            base.Validate(prefix, messages, context, properties);
-            //Error if None
-            //Error if FixedCurrency not specified
-            //Error if FixedCurrency doesn't exist
+            return new ComponentLink(ComponentType.Currency, this, FixedCurrencyPropertyName, true, Localization.FixedCurrency);
         }
-
+        public ComponentLink GetCurrencyPropertyLink()
+        {
+            return new PropertyLink(TypeFactory.CreateCurrency(), this, CurrencyPropertyPropertyName, true, Localization.FixedCurrency);
+        }
         public new MoneyType Copy()
         {
             var type = (MoneyType)base.Copy();

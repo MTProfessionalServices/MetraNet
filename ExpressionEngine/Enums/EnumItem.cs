@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Runtime.Serialization;
@@ -9,10 +10,10 @@ namespace MetraTech.ExpressionEngine.Components
     [DataContract (Namespace = "MetraTech")]
     [KnownType(typeof(UnitOfMeasure))]
     [KnownType(typeof(Currency))]
-    public class EnumItem : IExpressionEngineTreeNode
+    public class EnumItem : IComponent, IExpressionEngineTreeNode
     {
         #region Properties
-        static readonly ComponentType ComponentType = ComponentType.Enumeration;
+        public virtual ComponentType ComponentType { get { return ComponentType.Enumeration; } }
 
         /// <summary>
         /// The EnumType to which the value belongs; this is externally setable because we need to manually set it post
@@ -112,11 +113,15 @@ namespace MetraTech.ExpressionEngine.Components
             }
         }
 
-        public virtual ComponentReference GetComponentReference()
+        public void Rename(string newName)
         {
-            return new ComponentReference(ComponentType, FullName);
+            throw new NotImplementedException();
         }
 
+        public List<ComponentLink> GetComponentLinks()
+        {
+            throw new NotImplementedException();
+        }
         #endregion
     }
 

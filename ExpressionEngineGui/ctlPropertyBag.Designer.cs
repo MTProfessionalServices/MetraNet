@@ -332,7 +332,6 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer;
-        private ctlProperty ctlProperty;
         private System.Windows.Forms.ContextMenuStrip mnuContext;
         private ctlExpressionTree treProperties;
         private ctlProperty ctlPropertyEditor;

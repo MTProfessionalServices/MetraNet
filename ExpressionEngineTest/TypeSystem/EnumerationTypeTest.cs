@@ -1,6 +1,5 @@
 ﻿using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Components;
-using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
@@ -29,18 +28,21 @@ namespace ExpressionEngineTest
             var enumerationType = TypeFactory.CreateEnumeration("");
             var messages = new ValidationMessageCollection();
 
-            //Expect Namespace not specifed
+            //Expect Namespace not specified
+            context.GlobalComponentCollection.Load();
             enumerationType.Validate(null, messages, context, null);
             TestHelper.AssertValidation(messages, 1, 0, 0, "Namespace not specified");
 
-            //Expect FixedCategory not spcefied
+            //Expect FixedCategory not specified
             messages = new ValidationMessageCollection();
+            context.GlobalComponentCollection.Load();
             enumerationType.Validate(null, messages, context, null);
             TestHelper.AssertValidation(messages, 1, 0, 0, "FixedCategory not specified");
 
             //Expect FixedCategory not found
             enumerationType.Category = "Country";
             messages = new ValidationMessageCollection();
+            context.GlobalComponentCollection.Load();
             enumerationType.Validate(null, messages, context, null);
             TestHelper.AssertValidation(messages, 1, 0, 0, "FixedCategory not found");
 
@@ -49,7 +51,8 @@ namespace ExpressionEngineTest
             context.AddEnumCategory(enumCategory);
             messages = new ValidationMessageCollection();
             enumerationType.Category = "Global.Country";
-            //enumerationType.Validate(null, messages, context, null);
+            context.GlobalComponentCollection.Load();
+            enumerationType.Validate(null, messages, context, null);
             TestHelper.AssertValidation(messages, 0, 0, 0, "Everything should work at this point");
         }
     }

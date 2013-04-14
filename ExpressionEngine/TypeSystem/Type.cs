@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.Infrastructure;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Validations;
@@ -73,26 +74,37 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #endregion
 
         #region Methods
+
         /// <summary>
-        /// Several type refer to other properties. Base class has none. Override as necessary
+        /// Returns a list of property links by first calling GetComponentLinks
+        /// and then filtering the results
         /// </summary>
-        /// <returns></returns>
-        public virtual List<PropertyReference> GetPropertyReferences()
+        public List<PropertyLink> GetPropertyLinks()
         {
-            return new List<PropertyReference>();
+            var propertyLinks = new List<PropertyLink>();
+            foreach (var link in GetComponentLinks())
+            {
+                if (link is PropertyLink)
+                    propertyLinks.Add((PropertyLink)link);
+            }
+            return propertyLinks;
         }
 
+        /// <summary>
+        /// Returns a collection that contains all references to components. Very useful
+        /// for generic validation and name refactoring.
+        /// </summary>
         public virtual ComponentLinkCollection GetComponentLinks()
         {
             var links = new ComponentLinkCollection();
-            AddComponentLinks(links);
+            //AddComponentLinks(links);
             return links;
         }
 
-        public virtual void AddComponentLinks(ComponentLinkCollection links)
-        {
-            //Do something in subclass if necessary
-        }
+        //public virtual void AddComponentLinks(ComponentLinkCollection links)
+        //{
+        //    //Do something in subclass if necessary
+        //}
 
         #endregion
 
@@ -237,23 +249,16 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             type.ListType = ListType;
         }
 
-        public virtual void Validate(string prefix, ValidationMessageCollection messages, Context context, PropertyCollection properties)
+        public virtual void Validate(IComponent component, ValidationMessageCollection messages, Context context, PropertyCollection properties)
         {
             if (messages == null)
                 throw new ArgumentNullException("messages");
 
             foreach (var link in GetComponentLinks())
             {
-                link.Validate(messages, context);
-            }
-
-            //Can this be incorporated into the above????
-            foreach (var propertyReference in GetPropertyReferences())
-            {
-                propertyReference.Validate(prefix, properties, messages);
+                link.Validate(component, messages, context);
             }
         }
-
         #endregion
     }
 }

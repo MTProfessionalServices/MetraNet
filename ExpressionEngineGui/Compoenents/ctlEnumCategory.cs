@@ -11,7 +11,7 @@ namespace PropertyGui.Compoenents
         public bool ShowItems { get; set; }
         public bool ShowUnitsOfMeasure { get; set; }
         public bool ShowCurrency { get; set; }
-        public string Text { get { return txtValue.Text; } set { txtValue.Text = value; } }
+        public override string Text { get { return txtValue.Text; } set { txtValue.Text = value; } }
         private EnumManager EnumManager;
         #endregion
 

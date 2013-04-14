@@ -1,5 +1,6 @@
 ﻿using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.MTProperties;
+using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace PropertyGui.TypeSystemControls
@@ -28,6 +29,7 @@ namespace PropertyGui.TypeSystemControls
 
         public override void SyncToForm()
         {
+            Visible = !Property.IsCore || ((ProductViewEntity)Property.PropertyCollection.PropertyBag).GetCharges(false).Count == 0;
             ctlQuantityProperty.PropertyName = ChargeType.QuantityProperty;
             cboPriceProperty.Text = ChargeType.PriceProperty;
             cboProductProperty.Text = ChargeType.ProductProperty;

@@ -3,9 +3,7 @@ using System.Runtime.Serialization;
 using System.Globalization;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
-using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
-using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
@@ -16,7 +14,6 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     public class EnumerationType : Type
     {
         #region Constants
-
         public const string CategoryPropertyName = "Category";
         #endregion
 
@@ -62,38 +59,16 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             return BaseType.ToString();
         }
 
-
-        public override void AddComponentLinks(ComponentLinkCollection links)
+        public override ComponentLinkCollection GetComponentLinks()
         {
-            if (links == null)
-                throw new ArgumentException("links is null");
-
-            links.Add(ComponentType.EnumerationCategory, this, CategoryPropertyName, true, "Enumeration Category");
+            var links = new ComponentLinkCollection();
+            links.Add(GetCategoryLink());
+            return links;
         }
-
-        public override void Validate(string prefix, ValidationMessageCollection messages, Context context, PropertyCollection properties)
+        public ComponentLink GetCategoryLink()
         {
-            if (messages == null)
-                throw new ArgumentNullException("messages");
-            
-            base.Validate(prefix, messages, context, properties);
-
-            ////Check if the FixedCategory was specified
-            //if (string.IsNullOrEmpty(Category))
-            //{
-            //    messages.Error(string.Format(CultureInfo.CurrentCulture, Localization.EnumCategoryNotSpecified));
-            //    return;
-            //}
-
-            ////Check if the FixedCategory exists         
-            //if (context != null)
-            //{
-            //    var enumCategory = context.GetEnumCategory(Category);
-            //    if (enumCategory == null)
-            //        messages.Error(string.Format(CultureInfo.InvariantCulture, Localization.UnableToFindEnumCategory, Namespace + "." + Category));
-            //}
+            return new ComponentLink(ComponentType.EnumerationCategory, this, CategoryPropertyName, true, Localization.EnumerationCategory);
         }
-
 
         public new EnumerationType Copy()
         {
@@ -105,11 +80,10 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         public static bool IsGeneralEnumType(BaseType baseType)
         {
-            return baseType == Enumerations.BaseType.Currency ||
-                baseType == Enumerations.BaseType.Enumeration ||
-                baseType == Enumerations.BaseType.UnitOfMeasure;
+            return baseType == BaseType.Currency ||
+                baseType == BaseType.Enumeration ||
+                baseType == BaseType.UnitOfMeasure;
         }
         #endregion
-
     }
 }

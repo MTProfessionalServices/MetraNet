@@ -8,12 +8,14 @@ namespace MetraTech.ExpressionEngine.Components
     public class ComponentLinkCollection : IEnumerable<ComponentLink>
     {
         #region Properties
-        private List<ComponentLink> Links = new List<ComponentLink>();
+        private readonly List<ComponentLink> Links = new List<ComponentLink>();
         #endregion
 
         #region Methods
         public ComponentLink Add(ComponentLink link)
         {
+            if (link == null)
+                throw new ArgumentException("link is null");
             Links.Add(link);
             return link;
         }
@@ -25,8 +27,10 @@ namespace MetraTech.ExpressionEngine.Components
             return link;
         }
 
-        public void Validate(ValidationMessageCollection messages, Context context)
+        public void Validate(IComponent associatedComponent, ValidationMessageCollection messages, Context context)
         {
+            if (associatedComponent == null)
+                throw new ArgumentException("associatedComponent is null");
             if (messages == null)
                 throw new ArgumentException("messages is null");
             if (context == null)
@@ -34,7 +38,7 @@ namespace MetraTech.ExpressionEngine.Components
 
             foreach (var link in Links)
             {
-                link.Validate(messages, context);
+                link.Validate(associatedComponent, messages, context);
             }
         }
 

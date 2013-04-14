@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.IO;
-using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.PropertyBags;
@@ -11,7 +10,6 @@ using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Components;
 using System.Globalization;
 using MetraTech.ICE.BusinessModelingEntities;
-using MetraTech.BusinessEntity.DataAccess;
 using MetraTech.ICE.TreeFlows;
 using Function = MetraTech.ICE.TreeFlows.Function;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
@@ -82,9 +80,9 @@ namespace MetraTech.ICE.ExpressionEngine
     {
         string oldEntityNamespace;
         if (oldEntity.Name.Contains("/")) //prevents an exception
-            oldEntityNamespace = oldEntity.Namespace;
+            oldEntityNamespace = string.Format("{0}.{1}s", oldEntity.Namespace, oldEntity.ElementType.ToString());
         else
-            oldEntityNamespace = null;
+            oldEntityNamespace = string.Format("{0}s", oldEntity.ElementType.ToString());
 
       string propertyBagTypeName;
       MetraNetEntityBase entity;
@@ -133,8 +131,6 @@ namespace MetraTech.ICE.ExpressionEngine
 
       entity.Extension = oldEntity.Extension;
 
-
-      entity.Namespace = string.Format("{0}.{1}s", oldEntityNamespace, oldEntity.ElementType.ToString());
 
       //ElementBase firstOldEntity;
       //if (PropertyBags.TryGetValue(entity.FullName, out firstOldEntity))

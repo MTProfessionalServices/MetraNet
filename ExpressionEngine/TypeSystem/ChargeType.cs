@@ -1,12 +1,16 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
-using MetraTech.ExpressionEngine.MTProperties;
+﻿using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.Infrastructure;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
-  [DataContract(Namespace = "MetraTech")]
-  public class ChargeType : MoneyType
+    [DataContract(Namespace = "MetraTech")]
+    public class ChargeType : MoneyType
     {
+        #region Constants
+        private const string QuantityPropertyPropertyName = "QuantityProperty";
+        #endregion
+
         #region Properties
 
         /// <summary>
@@ -44,31 +48,38 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         #endregion
 
         #region Constructor
-        public ChargeType() : base(BaseType.Charge)
-        {      
-        }
-        protected ChargeType(BaseType baseType)
-          : base(baseType)
+        public ChargeType()
+            : base(BaseType.Charge)
         {
         }
-         public ChargeType(string quantityProperty) : this()
+        protected ChargeType(BaseType baseType)
+            : base(baseType)
+        {
+        }
+        public ChargeType(string quantityProperty)
+            : this()
         {
             QuantityProperty = quantityProperty;
         }
         #endregion
 
-        #region Methods
-        public override List<PropertyReference> GetPropertyReferences()
+        #region Link Methods
+        public override ComponentLinkCollection GetComponentLinks()
         {
-            var references = new List<PropertyReference>();
-            references.Add(new PropertyReference(this, "QuantityProperty", TypeFactory.CreateNumeric(), true));
+            var links = new ComponentLinkCollection();
+            links.Add(GetQuantityPropertyLink());
 
             //references.Add(new PropertyReference(PriceProperty, TypeFactory.CreateMoney(), false));
             //references.Add(new PropertyReference(ProductProperty, TypeFactory.CreateInteger(), false));
             //references.Add(new PropertyReference(StartProperty, TypeFactory.CreateDateTime(), false));
             //references.Add(new PropertyReference(EndProperty, TypeFactory.CreateDateTime(), false));
-            return references;
+            return links;
         }
+        public ComponentLink GetQuantityPropertyLink()
+        {
+            return new PropertyLink(TypeFactory.CreateNumeric(), this, QuantityPropertyPropertyName, true, Localization.QuantityProperty);
+        }
+
         #endregion
     }
 }

@@ -59,13 +59,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\ComponentHelper.cs" />
     <Compile Include="Infrastructure\ComponentLinkCollection.cs" />
-    <Compile Include="Infrastructure\ComponentReference.cs" />
     <Compile Include="Infrastructure\ComponentLink.cs" />
+    <Compile Include="Infrastructure\Enumerations\ScopeType.cs" />
     <Compile Include="Infrastructure\Enumerations\ComponentType.cs" />
     <Compile Include="Enums\EnumManager.cs" />
-    <Compile Include="Infrastructure\GlobalComponentTable.cs" />
+    <Compile Include="Infrastructure\GlobalComponentCollection.cs" />
     <Compile Include="Infrastructure\IComponent.cs" />
+    <Compile Include="Infrastructure\PropertyLink.cs" />
     <Compile Include="MTProperties\Enumerations\Availability.cs" />
     <Compile Include="MTProperties\PropertyReference.cs" />
     <Compile Include="Placeholders\PageLayout.cs" />

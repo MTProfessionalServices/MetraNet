@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Reflection;
 using MetraTech.ExpressionEngine.Components.Enumerations;
+using MetraTech.ExpressionEngine.Infrastructure;
 using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.Components
@@ -22,7 +23,8 @@ namespace MetraTech.ExpressionEngine.Components
     public class ComponentLink
     {
         #region Properties
-        public ComponentType ComponentType { get; private set; }
+        public ComponentType ExpectedComponentType { get; private set; }
+        //private IComponent LinkComponent;
         private object LinkObject;
         private PropertyInfo PropertyInfo;
         public string UserContext { get; private set; }
@@ -30,8 +32,10 @@ namespace MetraTech.ExpressionEngine.Components
         #endregion
 
         #region Constructor
-        public ComponentLink(ComponentType type, object linkObject, string linkObjectPropertyName, bool isRequired, string userContext)
+        public ComponentLink(ComponentType expectedType, object linkObject, string linkObjectPropertyName, bool isRequired, string userContext)
         {
+            //if (linkComponent == null)
+            //    throw new ArgumentException("linkComponent is null");
             if (linkObject == null)
                 throw new ArgumentException("linkObject is null");
             if (string.IsNullOrEmpty(linkObjectPropertyName))
@@ -39,7 +43,8 @@ namespace MetraTech.ExpressionEngine.Components
             if (string.IsNullOrEmpty(userContext))
                 throw new ArgumentException("userContext is null or empty");
 
-            ComponentType = type;
+            ExpectedComponentType = expectedType;
+            //LinkComponent = linkComponent;
             LinkObject = linkObject;
             IsRequired = isRequired;
             UserContext = userContext;
@@ -54,35 +59,42 @@ namespace MetraTech.ExpressionEngine.Components
         #endregion
 
         #region Methods
-        public void Validate(ValidationMessageCollection messages, Context context)
+        public void Validate(IComponent associatedComponent, ValidationMessageCollection messages, Context context)
         {
             if (messages == null)
                 throw new ArgumentException("messages is null");
             if (context == null)
                 throw new ArgumentException("context is null");
 
-            var errorMsg = GetValidateStr(context);
+            var errorMsg = GetValidationMessage(context);
             if (errorMsg != null)
-                messages.Error(errorMsg);
+                messages.Error(associatedComponent, errorMsg);
         }
 
-        public string GetValidateStr(Context context)
+        public string GetFullName()
+        {
+           return (string)PropertyInfo.GetValue(LinkObject, null);
+        }
+
+        public virtual string GetValidationMessage(Context context)
         {
             if (context == null)
                 throw new ArgumentException("context is null");
 
-            var fullName = (string)PropertyInfo.GetValue(LinkObject, null);
+            var fullName = GetFullName();
             if (string.IsNullOrEmpty(fullName))
             {
                 if (IsRequired)
                     return string.Format(CultureInfo.CurrentCulture, "{0} is not specified.", UserContext);
                 return null;
             }
-       
-            if (context.ComponentExists(ComponentType, fullName))
-                return null;
 
-            return string.Format(CultureInfo.CurrentCulture, "Invalid {0}: Unable to find {1}", UserContext, fullName);
+            var component = context.GlobalComponentCollection.Get(fullName);
+            if (component == null)
+                return string.Format(CultureInfo.CurrentCulture, "Invalid {0}: Unable to find '{1}'", UserContext, fullName);
+            if (component.ComponentType != ExpectedComponentType)
+                return string.Format(CultureInfo.CurrentCulture, "Invalid {0}: Expected a {1} but found a {2}", UserContext, ComponentHelper.GetUserName(ExpectedComponentType), component.ComponentType);
+            return null;
         }
 
         public void Rename(string newName)

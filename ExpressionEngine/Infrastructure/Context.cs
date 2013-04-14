@@ -45,7 +45,7 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public ValidationMessageCollection DeserilizationMessages { get; private set; }
 
-        public readonly GlobalComponentTable GlobalComponentTable;
+        public GlobalComponentCollection GlobalComponentCollection { get; private set; }
 
         /// <summary>
         /// All expressions
@@ -57,7 +57,7 @@ namespace MetraTech.ExpressionEngine
         /// </summary>
         public EmailInstance EmailInstance { get; private set; }
 
-        public readonly EnumManager EnumManager = new EnumManager();
+        public readonly EnumManager EnumManager;
 
         /// <summary>
         /// All enumeration categories
@@ -72,7 +72,7 @@ namespace MetraTech.ExpressionEngine
 
         //PropertyBags may not have unique names across types... need to deal with that, perhaps a composite key       
         public IEnumerable<PropertyBag> PropertyBags { get { return PropertyBagManager.PropertyBags; } }
-        public readonly PropertyBagManager PropertyBagManager = new PropertyBagManager();
+        public readonly PropertyBagManager PropertyBagManager;
 
         /// <summary>
         /// All Account Qualification Groups
@@ -134,7 +134,9 @@ namespace MetraTech.ExpressionEngine
         {
             ProductType = product;
             DeserilizationMessages = new ValidationMessageCollection();
-            GlobalComponentTable = new GlobalComponentTable(this);
+            GlobalComponentCollection = new GlobalComponentCollection(this);
+            PropertyBagManager = new PropertyBagManager();
+            EnumManager = new EnumManager();
         }
 
         public Context(Context masterContext, Expression expression)
@@ -316,10 +318,7 @@ namespace MetraTech.ExpressionEngine
 
         #region Methods
 
-        public object GetComponent(ComponentReference reference)
-        {
-            return GetComponent(reference.ComponentType, reference.FullName);
-        }
+
         /// <summary>
         /// Returns a component based on type and full name. If not found, null is returned.
         /// Only partially implemented because many component types may be moved into seperate
@@ -539,7 +538,7 @@ namespace MetraTech.ExpressionEngine
 
             context.UpdateContext();
 
-            var messages = context.GlobalComponentTable.Load();
+            var messages = context.GlobalComponentCollection.Load();
             context.DeserilizationMessages.AddRange(messages);
             return context;
         }
@@ -570,7 +569,7 @@ namespace MetraTech.ExpressionEngine
             EnumCategory.LoadDirectoryIntoContext(Path.Combine(dirPath, "Enumerations"), null, context);
             context.LoadUnitsOfMeasure();
 
-            var messages = context.GlobalComponentTable.Load();
+            var messages = context.GlobalComponentCollection.Load();
             context.DeserilizationMessages.AddRange(messages);
             return context;
         }

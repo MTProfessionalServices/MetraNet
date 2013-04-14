@@ -115,21 +115,6 @@ namespace MetraTech.ExpressionEngine.MTProperties
         }
 
         /// <summary>
-        /// Renames a property and everything that refers to it.
-        /// </summary>
-        public void RenameProperty(string oldName, string newName)
-        {
-            //Rename the property itself
-            var property = Get(oldName);
-            if (property != null)
-                property.Name = newName;
-
-            //TODO: rename any references
-            //Get the refrences
-            //Iterate and change
-        }
-
-        /// <summary>
         /// Returns a list of Properties whose underlying Type refers to the specified propertyName
         /// </summary>
         /// <typeparam name="PropertyReference"></typeparam>
@@ -202,7 +187,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
                 names.Add(property.Name, false);
 
                 //Validate each property and prefix with property identifier
-                property.Validate(true, messages, context);
+                property.Validate(messages, context);
 
             }
             return messages;

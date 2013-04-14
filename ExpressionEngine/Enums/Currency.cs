@@ -10,7 +10,7 @@ namespace MetraTech.ExpressionEngine.Components
     public class Currency : EnumItem
     {
         #region Properties
-        public readonly static ComponentType ComponentType = ComponentType.Currency;
+        public override ComponentType ComponentType { get { return ComponentType.Currency; } }
 
         /// <summary>
         /// The symbol (i.e., $) I assume these aren't localized
@@ -35,13 +35,6 @@ namespace MetraTech.ExpressionEngine.Components
         public Currency(EnumCategory enumCategory, string name, int id, string description)
             : base(enumCategory, name, id, description)
         {
-        }
-        #endregion
-
-        #region Methods
-        public override ComponentReference GetComponentReference()
-        {
-            return new ComponentReference(ComponentType, FullName);
         }
         #endregion
     }

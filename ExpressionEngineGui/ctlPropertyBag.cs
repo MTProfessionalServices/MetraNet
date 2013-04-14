@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
+using MetraTech.ExpressionEngine.Infrastructure;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
@@ -83,7 +84,7 @@ namespace PropertyGui
         {
             PropertyBag.Description = txtDescription.Text;
             ((ProductViewEntity)PropertyBag).EventType = (EventType)cboEventType.SelectedItem;
-            //ctlProperty.SyncToObject();
+            ctlPropertyEditor.SyncToObject();
         }
 
         private void EnsureNodeSelected()
@@ -154,7 +155,7 @@ namespace PropertyGui
                     continue;
 
                 //Only add things with property references
-                if (property.Type.GetPropertyReferences().Count > 0)
+                if (property.Type.GetPropertyLinks().Count > 0)
                     AddPropertyToHiearchy(property, null, addedProperties, filter);
             }
 
@@ -173,9 +174,9 @@ namespace PropertyGui
 
             addedProperties.Add(property);
             var node = treProperties.CreateNode(property, filter, parentNode);
-            foreach (var propertyReference in property.Type.GetPropertyReferences())
+            foreach (var propertyLink in property.Type.GetPropertyLinks())
             {
-                var childProperty = property.PropertyCollection.Get(propertyReference.PropertyName);
+                var childProperty = property.PropertyCollection.Get(propertyLink.GetFullName());
                 if (childProperty != null)
                     AddPropertyToHiearchy(childProperty, node, addedProperties, filter);
             }
@@ -275,7 +276,8 @@ namespace PropertyGui
         {
             SyncToObject();
             var messages = new ValidationMessageCollection();
-            PropertyBag.Validate(false, messages, Context);
+            Context.GlobalComponentCollection.Load();
+            PropertyBag.Validate(messages, Context);
             if (messages.Count == 0)
                 MessageBox.Show("No validation issues found.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using System.Text.RegularExpressions;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
+using MetraTech.ExpressionEngine.Infrastructure;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.Validations;
@@ -85,7 +85,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         {
             foreach (var propertyBag in PropertyBags)
             {
-                propertyBag.Validate(true, messages, context);
+                propertyBag.Validate(messages, context);
             }
         }
 

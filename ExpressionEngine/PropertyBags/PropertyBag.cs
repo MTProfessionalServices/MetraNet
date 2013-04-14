@@ -2,7 +2,6 @@
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Runtime.Serialization;
-using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
@@ -24,7 +23,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
     [KnownType(typeof(ParameterTableEntity))]
     [KnownType(typeof(ProductViewEntity))]
     [KnownType(typeof(ServiceDefinitionEntity))]
-    public class PropertyBag : Property, IExpressionEngineTreeNode
+    public class PropertyBag : Property
     {
         #region Properties
 
@@ -40,7 +39,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         /// The entity's namespace. Primarly used to prevent name collisions for MetraNet
         /// </summary>
         [DataMember]
-        public string Namespace { get; set; }
+        public string Namespace { get; private set; }
 
         /// <summary>
         /// The properties contained in the property bag which may include other property bags
@@ -97,8 +96,8 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         public PropertyBag(string _namespace, string name, string propertyBagTypeName, PropertyBagMode propertyBagMode, string description)
             : base(name, TypeFactory.CreatePropertyBag(propertyBagTypeName, propertyBagMode), true, description)
         {
+            ComponentType = ComponentType.PropertyBag;
             Namespace = _namespace;
-            Name = name;
             Type = TypeFactory.CreatePropertyBag(propertyBagTypeName, propertyBagMode);
             Description = description;
             Properties = new PropertyCollection(this);
@@ -141,23 +140,31 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             //return newEntity;
         }
 
-        public override ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages, Context context)
+        /// <summary>
+        /// Note that the component parameter is ignored!
+        /// </summary>
+        public override ValidationMessageCollection Validate(ValidationMessageCollection messages, Context context)
         {
-            var prefix = string.Format(CultureInfo.CurrentCulture, "PropertyBag '{0}':", FullName);
+            if (messages == null)
+                throw new ArgumentException("messages is null");
+            if (context == null)
+                throw new ArgumentException("context is null");
+
             if (!BasicHelper.FullNameIsValid(FullName))
-                messages.Error(prefix + "Invalid name.");
+                messages.Error(this, Localization.InvalidName);
             if (string.IsNullOrWhiteSpace(Description))
-                messages.Info(prefix + "Invalid name.");
+                messages.Info(Localization.NoDescription);
 
-            prefix = string.Format(CultureInfo.CurrentCulture, prefix + Localization.PropertyMessagePrefix, Name);
+            ValidateProperties(messages, context);
+            return messages;
+        }
 
-            //Valiate all of the properties
+        protected virtual void ValidateProperties(ValidationMessageCollection messages, Context context)
+        {
             foreach (var property in Properties)
             {
-                property.Validate(prefixMsg, messages, context);
+                property.Validate(messages, context);
             }
-
-            return messages;
         }
         #endregion
 

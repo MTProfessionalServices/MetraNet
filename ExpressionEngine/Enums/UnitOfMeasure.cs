@@ -15,7 +15,7 @@ namespace MetraTech.ExpressionEngine.Components
     public class UnitOfMeasure :  EnumItem 
     {
         #region Properties
-        public static readonly ComponentType ComponentType = ComponentType.UnitOfMeasure;
+        public override ComponentType ComponentType { get { return ComponentType.UnitOfMeasure; } }
 
         /// <summary>
         /// The root category to which this unit belongs. Example categories are: distance,
@@ -23,7 +23,7 @@ namespace MetraTech.ExpressionEngine.Components
         /// The root category for a given unit is the one that includes all the units that
         /// can be converted to this one.
         /// </summary>
-        public EnumCategory RootCategory { get; private set; }
+        //public EnumCategory RootCategory { get; private set; }
 
         /// <summary>
         /// A mnemonic code that can be used to uniquivocally identify the unit
@@ -42,13 +42,6 @@ namespace MetraTech.ExpressionEngine.Components
         public UnitOfMeasure(EnumCategory category, string name, int id, string description, string code) : base(category, name, id, description)
         {
           Code = code;
-        }
-        #endregion
-
-        #region Methods
-        public override ComponentReference GetComponentReference()
-        {
-            return new ComponentReference(ComponentType, FullName);
         }
         #endregion
     }

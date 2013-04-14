@@ -12,9 +12,22 @@ using MetraTech.ExpressionEngine.TypeSystem;
 namespace MetraTech.ExpressionEngine.Components
 {
     [DataContract (Namespace = "MetraTech")]
-    public class EnumCategory : IExpressionEngineTreeNode
+    public class EnumCategory : IComponent, IExpressionEngineTreeNode
     {
         #region Properties
+        public ComponentType ComponentType { get
+        {
+            switch (BaseType)
+            {
+                case BaseType.UnitOfMeasure:
+                    return ComponentType.UnitOfMeasureCategory;
+                case BaseType.Currency:
+                    return ComponentType.Currency;
+                default:
+                    return ComponentType.EnumerationCategory;
+            }
+        } }
+
         /// <summary>
         /// The namespace to which the category belongs
         /// </summary>
@@ -88,9 +101,9 @@ namespace MetraTech.ExpressionEngine.Components
         {
             switch (BaseType)
             {
-                case TypeSystem.Enumerations.BaseType.Enumeration:
+                case BaseType.Enumeration:
                     return "Enumeration.png";
-                case TypeSystem.Enumerations.BaseType.UnitOfMeasure:
+                case BaseType.UnitOfMeasure:
                     return "UnitOfMeasureCategory.png";
                 default:
                     return "Currency.png";
@@ -141,7 +154,6 @@ namespace MetraTech.ExpressionEngine.Components
             Items.Add(enumValue);
         }
 
-
         public EnumItem GetItem(string name)
         {
         if (string.IsNullOrEmpty(name))
@@ -184,26 +196,15 @@ namespace MetraTech.ExpressionEngine.Components
         {
         }
 
-        public ComponentReference GetComponentReference()
+        public List<ComponentLink> GetComponentLinks()
         {
-            ComponentType componentType;
-            switch (BaseType)
-            {
-                case BaseType.Enumeration:
-                    componentType = ComponentType.EnumerationCategory;
-                    break;
-                case BaseType.UnitOfMeasure:
-                    componentType = ComponentType.UnitOfMeasure;
-                    break;
-                case BaseType.Currency:
-                    componentType = ComponentType.CurrencyCategory;
-                    break;
-                default:
-                    throw new Exception("Unexpected BaseType");
-            }
-            return new ComponentReference(componentType, FullName);
+            return new List<ComponentLink>();
         }
 
+        public void Rename(string newName)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
         #region IO Methods
@@ -219,14 +220,13 @@ namespace MetraTech.ExpressionEngine.Components
             IOHelper.Save(filePath, this);
         }
 
-
         public static EnumCategory CreateFromFile(string file)
         {
             var xmlContent = File.ReadAllText(file);
-            return CreateFromString<EnumCategory>(xmlContent);
+            return CreateFromString(xmlContent);
         }
 
-        public static EnumCategory CreateFromString<T>(string xmlContent)
+        public static EnumCategory CreateFromString(string xmlContent)
         {
             var category = IOHelper.CreateFromString<EnumCategory>(xmlContent);
             var cat = (object) category;
@@ -272,5 +272,6 @@ namespace MetraTech.ExpressionEngine.Components
             return enmuCategories;
         }
         #endregion
+
     }
 }

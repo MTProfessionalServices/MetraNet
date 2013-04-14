@@ -8,15 +8,17 @@ using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.Infrastructure
 {
-    public class GlobalComponentTable : IEnumerable<ComponentReference>
+    public class GlobalComponentCollection : IEnumerable<IComponent>
     {
         #region Properties
         private Context Context;
-        private Dictionary<string, ComponentReference> Components = new Dictionary<string, ComponentReference>(StringComparer.InvariantCultureIgnoreCase);
+        private Dictionary<string, IComponent> Components = new Dictionary<string, IComponent>(StringComparer.InvariantCultureIgnoreCase);
+        private List<IComponent> _duplicates = new List<IComponent>();
+        public IEnumerable<IComponent> Duplicates { get { return _duplicates.ToArray(); } }
         #endregion
 
         #region Constructor
-        public GlobalComponentTable(Context context)
+        public GlobalComponentCollection(Context context)
         {
             if (context == null)
                 throw new ArgumentException("context is null");
@@ -25,44 +27,58 @@ namespace MetraTech.ExpressionEngine.Infrastructure
         #endregion
 
         #region Methods
-        public bool Add(ComponentReference componentReference, ValidationMessageCollection messages)
+        private bool Add(IComponent component, ValidationMessageCollection messages)
         {
             string errorMessage;
-            var result = Add(componentReference, out errorMessage);
+            var result = Add(component, out errorMessage);
             if (!result)
                 messages.Error(errorMessage);
             return result;
         }
-        public bool Add(ComponentReference componentReference, out string errorMessage)
+
+        private bool Add(IComponent component, out string errorMessage)
         {
-            if (componentReference == null)
+            if (component == null)
                 throw new ArgumentException("componentReference is null");
 
-            if (Components.ContainsKey(componentReference.FullName))
+            if (Components.ContainsKey(component.FullName))
             {
-                errorMessage =
-                    string.Format(string.Format(CultureInfo.CurrentCulture, "Duplicate name {0}", componentReference.FullName));
+                errorMessage = string.Format(CultureInfo.CurrentCulture, "Duplicate name {0}", component.FullName);
+                _duplicates.Add(component);
                 return false;
             }
 
-            Components.Add(componentReference.FullName, componentReference);
+            Components.Add(component.FullName, component);
             errorMessage = null;
             return true;
+        }
+
+        public IComponent Get(string fullName)
+        {
+            IComponent component;
+            Components.TryGetValue(fullName, out component);
+            return component;
+        }
+
+        public bool Exists(string fullName)
+        {
+            return Get(fullName) != null;
         }
 
         public ValidationMessageCollection Load()
         {
             var messages = new ValidationMessageCollection();
             Components.Clear();
+            _duplicates.Clear();
 
             //Property bags are most critical, load them first
             foreach (var propertyBag in Context.PropertyBags)
             {
-                if (Add(propertyBag.GetComponentReference(), messages))
+                if (Add(propertyBag, messages))
                 {
                     foreach (var property in propertyBag.Properties)
                     {
-                        Add(property.GetComponentReference(), messages);
+                        Add(property, messages);
                     }
                 }
             }
@@ -70,11 +86,11 @@ namespace MetraTech.ExpressionEngine.Infrastructure
             //Load Enumerations
             foreach (var enumCategory in Context.EnumManager.Categories)
             {
-                if (Add(enumCategory.GetComponentReference(), messages))
+                if (Add(enumCategory, messages))
                 {
                     foreach (var enumItem in enumCategory.Items)
                     {
-                        Add(enumItem.GetComponentReference(), messages);
+                        Add(enumItem, messages);
                     }
                 }
             }
@@ -84,6 +100,7 @@ namespace MetraTech.ExpressionEngine.Infrastructure
 
             return messages;
         }
+
 
         public void WriteCsvFile(string filePath)
         {
@@ -99,7 +116,7 @@ namespace MetraTech.ExpressionEngine.Infrastructure
         #endregion
 
         #region IEnumerable Methods
-        IEnumerator<ComponentReference> IEnumerable<ComponentReference>.GetEnumerator()
+        IEnumerator<IComponent> IEnumerable<IComponent>.GetEnumerator()
         {
             return Components.Values.GetEnumerator();
         }

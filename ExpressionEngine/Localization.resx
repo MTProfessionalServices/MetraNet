@@ -198,4 +198,37 @@
   <data name="UnableToFinUnitOfMeasureCategory" xml:space="preserve">
     <value>Unable to find Unit of Measure category '{0}'</value>
   </data>
+  <data name="FixedCurrency" xml:space="preserve">
+    <value>Fixed Currency</value>
+  </data>
+  <data name="EnumerationCategory" xml:space="preserve">
+    <value>Enumeration Category</value>
+  </data>
+  <data name="QuantityProperty" xml:space="preserve">
+    <value>Quantity Property</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Currency</value>
+  </data>
+  <data name="CurrencyCategory" xml:space="preserve">
+    <value>Currency Category</value>
+  </data>
+  <data name="Enumeration" xml:space="preserve">
+    <value>Enumeration</value>
+  </data>
+  <data name="NoDescription" xml:space="preserve">
+    <value>No description</value>
+  </data>
+  <data name="PropertyBag" xml:space="preserve">
+    <value>PropertyBag</value>
+  </data>
+  <data name="PropertyBagProperty" xml:space="preserve">
+    <value>Property</value>
+  </data>
+  <data name="UnitOfMeasure" xml:space="preserve">
+    <value>Unit of Measure</value>
+  </data>
+  <data name="UnitOfMeasureCategory" xml:space="preserve">
+    <value>Unit of Measure Category</value>
+  </data>
 </root>

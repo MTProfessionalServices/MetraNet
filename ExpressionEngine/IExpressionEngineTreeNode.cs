@@ -2,7 +2,7 @@
 {
     public interface IExpressionEngineTreeNode
     {
-        string Name { get; set; }
+        string Name { get; }
         string FullName { get; }
         string ToolTip { get; }
         string Image { get; }

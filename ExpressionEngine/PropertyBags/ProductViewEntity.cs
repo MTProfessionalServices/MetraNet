@@ -8,6 +8,7 @@ using System.Runtime.Serialization;
 using System.Globalization;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.PropertyBags.Enumerations;
+using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.PropertyBags
 {
@@ -114,6 +115,18 @@ namespace MetraTech.ExpressionEngine.PropertyBags
                 }
             }
             return charges;
+        }
+
+        protected override void ValidateProperties(ValidationMessageCollection messages, Context context)
+        {
+            var hasCharges = GetCharges(false).Count > 0;
+            foreach (var property in Properties)
+            {
+                //Skip the top-level charge if there are sub charges
+                if (property.IsCore && property.Type.IsCharge && hasCharges)
+                    continue;
+                property.Validate(messages, context);
+            }
         }
         #endregion
 

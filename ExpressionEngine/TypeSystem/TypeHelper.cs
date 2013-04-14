@@ -54,7 +54,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             {
                 var baseType = (BaseType) value;
                 allTypes[index++] = new Type(baseType);
-                if (TypeHelper.IsNumeric(baseType))
+                if (IsNumeric(baseType))
                     numericTypes.Add(baseType);
             }
             AllTypes = allTypes;

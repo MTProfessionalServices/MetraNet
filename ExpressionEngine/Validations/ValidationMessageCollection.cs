@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Globalization;
+using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.Infrastructure;
 using MetraTech.ExpressionEngine.Validations.Enumerations;
 
 namespace MetraTech.ExpressionEngine.Validations
@@ -61,6 +63,20 @@ namespace MetraTech.ExpressionEngine.Validations
             Messages.Add(message);
         }
 
+        public void Add(IComponent component, SeverityType severityType, string formatTemplate, object[] args)
+        {
+            if (component == null)
+                throw new ArgumentException("component is null");
+
+            var prefix = string.Format(CultureInfo.CurrentCulture, "{0} {1}: ", ComponentHelper.GetUserName(component.ComponentType), component.FullName);
+            string subMessage;
+            if (args != null)
+                subMessage = string.Format(CultureInfo.CurrentCulture, formatTemplate, args);
+            else
+                subMessage = formatTemplate;
+            var message = prefix + subMessage;
+            Add(severityType, message);
+        }
         public void Add(SeverityType severity, string message)
         {
             Add(severity, message, NoPosition, NoPosition);
@@ -75,10 +91,9 @@ namespace MetraTech.ExpressionEngine.Validations
         {
             Add(SeverityType.Error, message, NoPosition, NoPosition);
         }
-        public void Error(string template, object[] args)
+        public void Error(IComponent component, string formatTemplate, object[] args=null)
         {
-            var message = string.Format(CultureInfo.CurrentCulture,template, args);
-            Error(message);
+            Add(component, SeverityType.Error, formatTemplate, args);
         }
         public void Error(string message, int lineNumber, int columnNumber)
         {
@@ -100,12 +115,18 @@ namespace MetraTech.ExpressionEngine.Validations
         {
             Add(SeverityType.Warn, message);
         }
-
+        public void Warn(IComponent component, string formatTemplate, object[] args = null)
+        {
+            Add(component, SeverityType.Warn, formatTemplate, args);
+        }
         public void Info(string message)
         {
             Add(SeverityType.Info, message);
         }
-            
+        public void Info(IComponent component, string formatTemplate, object[] args = null)
+        {
+            Add(component, SeverityType.Info, formatTemplate, args);
+        }
         public void AddRange(ValidationMessageCollection messages)
         {
             Messages.AddRange(messages);

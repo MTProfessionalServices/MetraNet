@@ -26,10 +26,10 @@ namespace MetraTech.ExpressionEngine.MTProperties
     [KnownType(typeof(ParameterTableProperty))]
     [KnownType(typeof(ProductViewProperty))]
     [KnownType(typeof(ServiceDefinitionProperty))]
-    public class Property : IExpressionEngineTreeNode
+    public class Property : IComponent, IExpressionEngineTreeNode
     {
         #region Static Properties
-        public static readonly ComponentType ComponentType = ComponentType.PropertyBagProperty;
+        public ComponentType ComponentType { get; protected set; } 
         #endregion
 
         #region Properties
@@ -201,6 +201,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
         public Property(string name, Type type, bool isRequired, string description = null)
         {
+            ComponentType = ComponentType.PropertyBagProperty;
             Name = name;
             Type = type;
             Required = isRequired;
@@ -242,38 +243,6 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
         #region Methods
 
-        public ComponentReference GetComponentReference()
-        {
-            return new ComponentReference(ComponentType, FullName);
-        }
-
-        /// <summary>
-        /// Returns the Units property associated with this property. Only valid for Charges.
-        /// </summary>
-        public Property GetUnitsProperty()
-        {
-            if (!Type.IsMoney || PropertyCollection == null)
-                return null;
-
-            return null;
-            //throw new NotImplementedException("need to decide right model");
-            //return PropertyCollection.Get(((MoneyType)Type).UnitsProperty);
-        }
-
-        /// <summary>
-        /// Returns the UOM property associated with this property. Only valid for Numerics.
-        /// </summary>
-        public Property GetUnitOfMeasureProperty()
-        {
-            return null;
-            //if (!Type.IsNumeric || Type.IsMoney)
-            //    return null;
-
-            //var type = (NumberType)Type;
-            //if (!Type.IsNumeric || type.UnitOfMeasureMode != UnitOfMeasureMode.PropertyDriven || PropertyCollection == null)
-            //    return null;
-            //return PropertyCollection.Get(type.UnitOfMeasureQualifier);
-        }
 
         public virtual object Clone()
         {
@@ -348,50 +317,36 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
         #region Validation Methods
 
-        private void AddError(ValidationMessageCollection messages, string message)
-        {
-            messages.Error(GetPrefixedMessage(message));
-        }
-        private void AddWarning(ValidationMessageCollection messages, string message)
-        {
-            messages.Warn(GetPrefixedMessage(message));
-        }
-
-        private string GetPrefixedMessage(string message = null)
-        {
-            var prefix = string.Format(CultureInfo.CurrentUICulture, Localization.PropertyMessagePrefix, QualifiedName);
-            prefix += message;
-            return prefix;
-        }
-
         //Not sure that I need prefixMsg here
-        public virtual ValidationMessageCollection Validate(bool prefixMsg, ValidationMessageCollection messages, Context context)
+        public virtual ValidationMessageCollection Validate(ValidationMessageCollection messages, Context context)
         {
             if (messages == null)
                 throw new ArgumentException("messages is null");
+            if (context == null)
+                throw new ArgumentException("context is null");
 
             //Validate the name
             if (string.IsNullOrWhiteSpace(Name))
-                AddError(messages, Localization.NameNotSpecified);
+                messages.Error(this, Localization.NameNotSpecified);
             else
             {
                 if (!NameIsValid(Name))
-                    AddError(messages, Localization.InvalidName);
+                    messages.Error(Localization.InvalidName);
                 //FUTURE FEATURE
                 //else
                 //    SpellingEngine.CheckWord(Name, null, messages);
             }
 
             //Validate the type
-            Type.Validate(GetPrefixedMessage(), messages, context, PropertyCollection);
+            Type.Validate(this, messages, context, PropertyCollection);
 
             //Validate the default value, if any
             if (!TypeHelper.ValueIsValid(Type, DefaultValue, true, context.EnumManager))
-                AddError(messages, Localization.InvalidDefaultValue);
+                messages.Error(this, Localization.InvalidDefaultValue);
 
             //Validate the description
             if (string.IsNullOrEmpty(Description))
-                AddWarning(messages, Localization.InsufficientDescription);
+                messages.Info(this, Localization.NoDescription);
             //FUTURE FEATURE
             //SpellingEngine.CheckString(Description, null, messages);
 
@@ -403,5 +358,15 @@ namespace MetraTech.ExpressionEngine.MTProperties
             return BasicHelper.NameIsValid(name);
         }
         #endregion  
+
+        System.Collections.Generic.List<ComponentLink> IComponent.GetComponentLinks()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Rename(string newName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

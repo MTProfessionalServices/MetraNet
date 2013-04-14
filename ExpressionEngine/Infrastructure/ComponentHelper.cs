@@ -1,10 +1,46 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 
 namespace MetraTech.ExpressionEngine.Infrastructure
 {
     public static class ComponentHelper
     {
+        public static List<KeyValuePair<string, IComponent>> GetNameWithTieBreaker(IEnumerable<IComponent> components)
+        {
+            var names = new Dictionary<string, int>(StringComparer.InvariantCultureIgnoreCase);
+            foreach (var component in components)
+            {
+                var name = component.Name;
+                if (string.IsNullOrEmpty(name))
+                    continue;
+                if (names.ContainsKey(name))
+                    names[name]++;
+                else
+                    names.Add(name, 1);
+            }
+
+            var list = new List<KeyValuePair<string, IComponent>>();
+            foreach (var component in components)
+            {
+                var name = component.Name;
+                if (string.IsNullOrEmpty(name))
+                    continue;
+                string label = name;
+                if (names[name] > 1)
+                    label = string.Format(CultureInfo.CurrentCulture, "{0} ({1})", name, component.FullName.Substring(0, component.FullName.Length - name.Length - 1));
+
+                list.Add(new KeyValuePair<string, IComponent>(label, component));
+            }
+            return list;
+        }
+
+
+        /// <summary>
+        /// Returns a localizeable string for the provided ComponentType
+        /// </summary>
         public static string GetUserName(ComponentType type)
         {
             switch (type)

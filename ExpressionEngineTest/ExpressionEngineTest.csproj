@@ -55,8 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasicHelperTest.cs" />
-    <Compile Include="Components\CurrencyTest.cs" />
-    <Compile Include="Components\EnumManagerTest.cs" />
+    <Compile Include="Infrastructure\ComponentHelperTest.cs" />
+    <Compile Include="Enums\CurrencyTest.cs" />
+    <Compile Include="Enums\EnumManagerTest.cs" />
     <Compile Include="MTProperties\PropertyReferenceTest.cs" />
     <Compile Include="TypeSystem\TaxTypeTest.cs" />
     <Compile Include="TypeSystem\ChargeTypeTest.cs" />
@@ -67,15 +68,15 @@
     <Compile Include="TestHelper.cs" />
     <Compile Include="TypeSystem\MoneyTypeTest.cs" />
     <Compile Include="TypeSystem\EnumerationTypeTest.cs" />
-    <Compile Include="Components\EnumValueTest.cs" />
+    <Compile Include="Enums\EnumValueTest.cs" />
     <Compile Include="Expressions\ExpressionTest.cs" />
     <Compile Include="Entity\MetraNetEntityBaseTest.cs" />
     <Compile Include="TypeSystem\NumberTypeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeSystem\StringTypeTest.cs" />
     <Compile Include="TypeSystem\TypeTest.cs" />
-    <Compile Include="Components\EnumCategoryTest.cs" />
-    <Compile Include="Components\UnitOfMeasureTest.cs" />
+    <Compile Include="Enums\EnumCategoryTest.cs" />
+    <Compile Include="Enums\UnitOfMeasureTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExpressionEngine\ExpressionEngine.csproj">

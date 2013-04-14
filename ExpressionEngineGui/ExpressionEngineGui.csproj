@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compoenents\ctlComponentLink.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Compoenents\ctlComponentLink.Designer.cs">
+      <DependentUpon>ctlComponentLink.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compoenents\ctlEnumCategory.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -255,6 +261,9 @@
       <DependentUpon>ctlTaxType.cs</DependentUpon>
     </Compile>
     <Compile Include="TypeSystemControls\ctlTypeFactory.cs" />
+    <EmbeddedResource Include="Compoenents\ctlComponentLink.resx">
+      <DependentUpon>ctlComponentLink.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Compoenents\ctlEnumCategory.resx">
       <DependentUpon>ctlEnumCategory.cs</DependentUpon>
     </EmbeddedResource>

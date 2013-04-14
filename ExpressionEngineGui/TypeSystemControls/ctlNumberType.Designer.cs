@@ -34,6 +34,7 @@
             this.lblUnitOfMeasure = new System.Windows.Forms.Label();
             this.ctlUom = new PropertyGui.Compoenents.ctlEnumCategoryAndValue();
             this.ctlProperty = new PropertyGui.Compoenents.ctlPropertyReference();
+            this.ctlLink = new PropertyGui.Compoenents.ctlComponentLink();
             this.SuspendLayout();
             // 
             // label1
@@ -92,10 +93,18 @@
             this.ctlProperty.Size = new System.Drawing.Size(218, 28);
             this.ctlProperty.TabIndex = 8;
             // 
+            // ctlLink
+            // 
+            this.ctlLink.Location = new System.Drawing.Point(140, 108);
+            this.ctlLink.Name = "ctlLink";
+            this.ctlLink.Size = new System.Drawing.Size(270, 21);
+            this.ctlLink.TabIndex = 11;
+            // 
             // ctlNumberType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ctlLink);
             this.Controls.Add(this.ctlProperty);
             this.Controls.Add(this.ctlUom);
             this.Controls.Add(this.lblUnitOfMeasure);
@@ -103,7 +112,7 @@
             this.Controls.Add(this.cboUnitOfMeasureMode);
             this.Controls.Add(this.label1);
             this.Name = "ctlNumberType";
-            this.Size = new System.Drawing.Size(665, 78);
+            this.Size = new System.Drawing.Size(665, 162);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,5 +126,6 @@
         private System.Windows.Forms.Label lblUnitOfMeasure;
         private Compoenents.ctlEnumCategoryAndValue ctlUom;
         private Compoenents.ctlPropertyReference ctlProperty;
+        private Compoenents.ctlComponentLink ctlLink;
     }
 }

@@ -97,7 +97,7 @@ namespace MetraTech.ExpressionEngine.Components
             return null;
         }
 
-        public void Rename(string newName)
+        public void SetFullName(string newName)
         {
             PropertyInfo.SetValue(LinkObject, newName, null);
         }

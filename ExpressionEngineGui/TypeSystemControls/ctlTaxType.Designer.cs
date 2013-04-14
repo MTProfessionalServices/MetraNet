@@ -119,7 +119,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ctlTaxType";
-            this.Size = new System.Drawing.Size(346, 122);
+            this.Size = new System.Drawing.Size(346, 123);
             this.ResumeLayout(false);
             this.PerformLayout();
 

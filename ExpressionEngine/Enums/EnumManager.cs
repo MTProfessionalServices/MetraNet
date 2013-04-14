@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
+using MetraTech.ExpressionEngine.Infrastructure;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.Validations;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
@@ -90,40 +91,63 @@ namespace MetraTech.ExpressionEngine.Components
         /// conflict just the category is returned. Other wise, the conflicting categories have their 
         /// namespace appended.
         /// </summary>
-        public List<KeyValuePair<string, EnumCategory>> GetCategoryDropDownList(bool showItems, bool showUoms, bool showCurrency)
+        //public List<KeyValuePair<string, EnumCategory>> GetCategoryDropDownList(bool showItems, bool showUoms, bool showCurrency)
+        //{
+        //    var names = new Dictionary<string, bool>();
+        //    var nameOverlaps = new List<string>();
+
+        //    //Find name overlaps
+        //    foreach (var category in Categories)
+        //    {
+        //        if (!showItems && category.BaseType == BaseType.Enumeration)
+        //            continue;
+        //        if (!showUoms && category.BaseType == BaseType.UnitOfMeasure)
+        //            continue;
+        //        if (!showCurrency && category.BaseType == BaseType.Currency)
+        //            continue;
+
+        //        if (names.ContainsKey(category.Name))
+        //            nameOverlaps.Add(category.Name);
+        //        else
+        //            names.Add(category.Name, false);
+        //    }
+
+        //    var categories = new List<KeyValuePair<string, EnumCategory>>();
+        //    foreach (var category in Categories)
+        //    {
+        //        string label;
+        //        if (nameOverlaps.Contains(category.Name))
+        //            label = string.Format(CultureInfo.InvariantCulture, "{0} ({1})", category.Name, category.Namespace);
+        //        else
+        //            label = category.Name;
+
+        //        categories.Add(new KeyValuePair<string, EnumCategory>(label, category));
+        //    }
+        //    return categories;
+        //}
+
+        public List<KeyValuePair<string, IComponent>> GetCategoryDropDownList(bool showItems, bool showUoms, bool showCurrency)
         {
-            var names = new Dictionary<string, bool>();
-            var nameOverlaps = new List<string>();
+            var results = ComponentHelper.GetNameWithTieBreaker(Categories);
+            //var filterList = new List<int>();
 
-            //Find name overlaps
-            foreach (var category in Categories)
-            {
-                if (!showItems && category.BaseType == BaseType.Enumeration)
-                    continue;
-                if (!showUoms && category.BaseType == BaseType.UnitOfMeasure)
-                    continue;
-                if (!showCurrency && category.BaseType == BaseType.Currency)
-                    continue;
+            ////Filter 
+            //for (int index = 0; index < results.Count; index++)
+            //{
+            //    var category = (EnumCategory)results[index].Value;
+            //    if (!showItems && category.BaseType == BaseType.Enumeration)
+            //        filterList.Add(index);
+            //    else if (!showUoms && category.BaseType == BaseType.UnitOfMeasure)
+            //        filterList.Add(index);
+            //    if (!showCurrency && category.BaseType == BaseType.Currency)
+            //        filterList.Add(index);
+            //}
 
-                if (names.ContainsKey(category.Name))
-                    nameOverlaps.Add(category.Name);
-                else
-                    names.Add(category.Name, false);
-            }
+            //for (int index = filterList.Count-1; )
 
-            var categories = new List<KeyValuePair<string, EnumCategory>>();
-            foreach (var category in Categories)
-            {
-                string label;
-                if (nameOverlaps.Contains(category.Name))
-                    label = string.Format(CultureInfo.InvariantCulture, "{0} ({1})", category.Name, category.Namespace);
-                else
-                    label = category.Name;
-
-                categories.Add(new KeyValuePair<string, EnumCategory>(label, category));
-            }
-            return categories;
+            return results;
         }
+
 
         public void Validate(ValidationMessageCollection messages)
         {

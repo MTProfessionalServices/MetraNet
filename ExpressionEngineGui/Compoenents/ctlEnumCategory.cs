@@ -59,7 +59,7 @@ namespace PropertyGui.Compoenents
 
         private void cboCatogories_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var kvp = (KeyValuePair<string, EnumCategory>)cboCatogories.SelectedItem;
+            var kvp = (KeyValuePair<string, IComponent>)cboCatogories.SelectedItem;
             txtValue.Text = kvp.Value.FullName;
         }
 

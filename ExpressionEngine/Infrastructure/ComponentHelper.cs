@@ -8,8 +8,11 @@ namespace MetraTech.ExpressionEngine.Infrastructure
 {
     public static class ComponentHelper
     {
-        public static List<KeyValuePair<string, IComponent>> GetNameWithTieBreaker(IEnumerable<IComponent> components)
+        public static List<KeyValuePair<string, IComponent>> GetNameWithTiebreaker(IEnumerable<IComponent> components)
         {
+            if (components == null)
+                throw new ArgumentException("components is null");
+
             var names = new Dictionary<string, int>(StringComparer.InvariantCultureIgnoreCase);
             foreach (var component in components)
             {

@@ -84,8 +84,9 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             var propertyLinks = new List<PropertyLink>();
             foreach (var link in GetComponentLinks())
             {
-                if (link is PropertyLink)
-                    propertyLinks.Add((PropertyLink)link);
+                var propertyLink = link as PropertyLink;
+                if (propertyLink != null)
+                    propertyLinks.Add(propertyLink);
             }
             return propertyLinks;
         }

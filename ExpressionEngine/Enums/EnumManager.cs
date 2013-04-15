@@ -128,7 +128,7 @@ namespace MetraTech.ExpressionEngine.Components
 
         public List<KeyValuePair<string, IComponent>> GetCategoryDropDownList(bool showItems, bool showUoms, bool showCurrency)
         {
-            var results = ComponentHelper.GetNameWithTieBreaker(Categories);
+            var results = ComponentHelper.GetNameWithTiebreaker(Categories);
             //var filterList = new List<int>();
 
             ////Filter 

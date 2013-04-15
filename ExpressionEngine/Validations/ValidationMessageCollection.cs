@@ -68,7 +68,7 @@ namespace MetraTech.ExpressionEngine.Validations
             if (component == null)
                 throw new ArgumentException("component is null");
 
-            var prefix = string.Format(CultureInfo.CurrentCulture, "{0} {1}: ", ComponentHelper.GetUserName(component.ComponentType), component.FullName);
+            var prefix = string.Format(CultureInfo.CurrentCulture, Localization.ComponentValidationMessagePrefix, ComponentHelper.GetUserName(component.ComponentType), component.FullName);
             string subMessage;
             if (args != null)
                 subMessage = string.Format(CultureInfo.CurrentCulture, formatTemplate, args);

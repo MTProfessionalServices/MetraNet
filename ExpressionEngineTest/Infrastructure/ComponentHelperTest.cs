@@ -24,7 +24,7 @@ namespace ExpressionEngineTest
             components.Add(new PropertyBag("MetraTech.Cloud", "C", null, PropertyBagMode.Entity, null));
             components.Add(new PropertyBag("Hello", "A", null, PropertyBagMode.Entity, null));
 
-            var results = ComponentHelper.GetNameWithTieBreaker(components);
+            var results = ComponentHelper.GetNameWithTiebreaker(components);
             AssertTieKvp(results, 0, "A (MetraTech.Cloud)");
             AssertTieKvp(results, 1, "B");
             AssertTieKvp(results, 2, "C");

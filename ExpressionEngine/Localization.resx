@@ -231,4 +231,7 @@
   <data name="UnitOfMeasureCategory" xml:space="preserve">
     <value>Unit of Measure Category</value>
   </data>
+  <data name="ComponentValidationMessagePrefix" xml:space="preserve">
+    <value>{0} {1}: </value>
+  </data>
 </root>

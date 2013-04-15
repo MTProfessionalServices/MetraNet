@@ -1,8 +1,9 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties;
-using MetraTech.ExpressionEngine.TypeSystem;
+using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace MetraTech.ExpressionEngine.Infrastructure
 {
@@ -23,6 +24,9 @@ namespace MetraTech.ExpressionEngine.Infrastructure
         #region Methods
         public override string GetValidationMessage(Context context)
         {
+            if (context == null)
+                throw new ArgumentException("context is null");
+
             var errorMsg = base.GetValidationMessage(context);
             if (errorMsg != null)
                 return errorMsg;

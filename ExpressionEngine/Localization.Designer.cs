@@ -79,6 +79,15 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} {1}: .
+        /// </summary>
+        internal static string ComponentValidationMessagePrefix {
+            get {
+                return ResourceManager.GetString("ComponentValidationMessagePrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Currency.
         /// </summary>
         internal static string Currency {

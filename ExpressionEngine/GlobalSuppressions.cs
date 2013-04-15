@@ -391,6 +391,7 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2104:DoNotDeclareReadOnlyMutableReferenceTypes", Scope = "member", Target = "MetraTech.ExpressionEngine.TypeSystem.TypeHelper.#NumericTypes")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member", Target = "MetraTech.ExpressionEngine.TypeSystem.TypeHelper.#ValueIsValid(MetraTech.ExpressionEngine.TypeSystem.Type,System.String,System.Boolean,MetraTech.ExpressionEngine.Components.EnumManager)")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0", Scope = "member", Target = "MetraTech.ExpressionEngine.TypeSystem.TypeHelper.#ValueIsValid(MetraTech.ExpressionEngine.TypeSystem.Type,System.String,System.Boolean,MetraTech.ExpressionEngine.Components.EnumManager)")]
+<<<<<<< HEAD
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists", Scope = "member", Target = "MetraTech.ExpressionEngine.Components.EnumCategory.#GetComponentLinks()")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists", Scope = "member", Target = "MetraTech.ExpressionEngine.Components.EnumItem.#GetComponentLinks()")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists", Scope = "member", Target = "MetraTech.ExpressionEngine.Components.IComponent.#GetComponentLinks()")]
@@ -426,3 +427,7 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "showCurrency", Scope = "member", Target = "MetraTech.ExpressionEngine.Components.EnumManager.#GetCategoryDropDownList(System.Boolean,System.Boolean,System.Boolean)")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "showItems", Scope = "member", Target = "MetraTech.ExpressionEngine.Components.EnumManager.#GetCategoryDropDownList(System.Boolean,System.Boolean,System.Boolean)")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "showUoms", Scope = "member", Target = "MetraTech.ExpressionEngine.Components.EnumManager.#GetCategoryDropDownList(System.Boolean,System.Boolean,System.Boolean)")]
+=======
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields", Scope = "member", Target = "MetraTech.ExpressionEngine.Context.#GlobalComponentTable")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2104:DoNotDeclareReadOnlyMutableReferenceTypes", Scope = "member", Target = "MetraTech.ExpressionEngine.Context.#GlobalComponentTable")]
+>>>>>>> 17e0c0766ec20e9e956b813d0109767ac5f615d6

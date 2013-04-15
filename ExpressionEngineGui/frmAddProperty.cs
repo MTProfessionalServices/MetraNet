@@ -67,11 +67,11 @@ namespace PropertyGui
             }
             
             var baseType = (BaseType)cboType.SelectedItem;
-            if (baseType == null)
-            {
-                MessageBox.Show("Type not specified", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (baseType == null)
+            //{
+            //    MessageBox.Show("Type not specified", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
             NewProperty = PropertyFactory.Create(Properties.PropertyBagTypeName, name, TypeFactory.Create(baseType), true, null);
             DialogResult = DialogResult.OK;
             Close();

@@ -6,7 +6,7 @@ namespace PropertyGui.TypeSystemControls
     public partial class ctlTaxType : ctlBaseType
     {
         #region Properties
-        private TaxType TaxType;
+        //private TaxType TaxType;
         #endregion
 
         #region Constructor

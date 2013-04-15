@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.PropertyBags
@@ -48,7 +49,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
                 case PropertyBagConstants.ServiceDefinition:
                     return CreateServiceDefinitionEntity(_namespace, name, description);
                 default:
-                    return Create(propertyBagTypeName, _namespace, name, description);
+                    return new PropertyBag(_namespace, name, propertyBagTypeName, PropertyBagMode.PropertyBag, description);
             }
         }
 

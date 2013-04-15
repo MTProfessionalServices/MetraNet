@@ -61,6 +61,8 @@ namespace MetraTech.ExpressionEngine.Components
         #region Methods
         public void Validate(IComponent associatedComponent, ValidationMessageCollection messages, Context context)
         {
+            if (associatedComponent == null)
+                throw new ArgumentException("associatedComponent is null");
             if (messages == null)
                 throw new ArgumentException("messages is null");
             if (context == null)

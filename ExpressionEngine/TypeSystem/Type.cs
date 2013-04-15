@@ -251,6 +251,8 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         public virtual void Validate(IComponent component, ValidationMessageCollection messages, Context context, PropertyCollection properties)
         {
+            if (component == null)
+                throw new ArgumentException("component is null");
             if (messages == null)
                 throw new ArgumentNullException("messages");
 

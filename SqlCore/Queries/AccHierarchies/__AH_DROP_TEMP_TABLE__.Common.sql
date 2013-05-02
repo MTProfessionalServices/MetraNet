@@ -1,0 +1,3 @@
+
+          IF OBJECT_ID('%%TMP_TABLE_NAME%%') IS NOT NULL DROP TABLE %%TMP_TABLE_NAME%%
+        

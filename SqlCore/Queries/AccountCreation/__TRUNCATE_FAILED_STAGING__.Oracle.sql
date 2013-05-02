@@ -1,0 +1,3 @@
+
+		delete from %%NETMETERSTAGE%%.T_FAILED_TRANSACTION_STAGE
+		

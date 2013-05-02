@@ -1,0 +1,8 @@
+﻿<xmlconfig>
+
+	<RootType Name="MetraPaymentInfo">
+	</RootType>
+
+	<RootType Name="MetraPaymentMethod">
+	</RootType>
+</xmlconfig>

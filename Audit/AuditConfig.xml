@@ -1,0 +1,3 @@
+<xmlconfig>
+	<AuditingEnabled ptype="BOOL">True</AuditingEnabled>
+</xmlconfig>

@@ -1,0 +1,346 @@
+<SubsystemProperties Signature="" IsRuntimeApiEnabled="true" IsRuntimeApiPublic="true" IsControlApiEnabled="true" IsControlApiPublic="true">
+  <Engines>
+    <Engine Id="Url.V1" IsDefault="true" RealType="MetraTech.SecurityFramework.DefaultUrlDecoderEngine, MetraTech.SecurityFramework"/>
+    <Engine Id="Html.V1" Category="Html" IsDefault="true"
+            RealType="MetraTech.SecurityFramework.Core.Decoder.EntityDecoderEngine, MetraTech.SecurityFramework"
+            RequireTrailingSemicolon="false"
+            EnableUnicodePrefixUppercase="true">
+      <NamedEntities>
+        <Entity Name="iuml" Value="ï"/>
+        <Entity Name="eth" Value="ð"/>
+        <Entity Name="ntilde" Value="ñ"/>
+        <Entity Name="ograve" Value="ò"/>
+        <Entity Name="oacute" Value="ó"/>
+        <Entity Name="ocirc" Value="ô"/>
+        <Entity Name="otilde" Value="õ"/>
+        <Entity Name="ouml" Value="ö"/>
+        <Entity Name="divide" Value="÷"/>
+        <Entity Name="oslash" Value="ø"/>
+        <Entity Name="ugrave" Value="ù"/>
+        <Entity Name="uacute" Value="ú"/>
+        <Entity Name="ucirc" Value="û"/>
+        <Entity Name="uuml" Value="ü"/>
+        <Entity Name="yacute" Value="ý"/>
+        <Entity Name="thorn" Value="þ"/>
+        <Entity Name="yuml" Value="ÿ"/>
+        <Entity Name="OElig" Value="Œ"/>
+        <Entity Name="oelig" Value="œ"/>
+        <Entity Name="Scaron" Value="Š"/>
+        <Entity Name="scaron" Value="š"/>
+        <Entity Name="Yuml" Value="Ÿ"/>
+        <Entity Name="fnof" Value="ƒ"/>
+        <Entity Name="circ" Value="ˆ"/>
+        <Entity Name="tilde" Value="˜"/>
+        <Entity Name="Alpha" Value="Α"/>
+        <Entity Name="Beta" Value="Β"/>
+        <Entity Name="Gamma" Value="Γ"/>
+        <Entity Name="Delta" Value="Δ"/>
+        <Entity Name="Epsilon" Value="Ε"/>
+        <Entity Name="Zeta" Value="Ζ"/>
+        <Entity Name="Eta" Value="Η"/>
+        <Entity Name="Theta" Value="Θ"/>
+        <Entity Name="Iota" Value="Ι"/>
+        <Entity Name="Kappa" Value="Κ"/>
+        <Entity Name="Lambda" Value="Λ"/>
+        <Entity Name="Mu" Value="Μ"/>
+        <Entity Name="Nu" Value="Ν"/>
+        <Entity Name="Xi" Value="Ξ"/>
+        <Entity Name="Omicron" Value="Ο"/>
+        <Entity Name="Pi" Value="Π"/>
+        <Entity Name="Rho" Value="Ρ"/>
+        <Entity Name="Sigma" Value="Σ"/>
+        <Entity Name="Tau" Value="Τ"/>
+        <Entity Name="Upsilon" Value="Υ"/>
+        <Entity Name="Phi" Value="Φ"/>
+        <Entity Name="Chi" Value="Χ"/>
+        <Entity Name="Psi" Value="Ψ"/>
+        <Entity Name="Omega" Value="Ω"/>
+        <Entity Name="alpha" Value="α"/>
+        <Entity Name="beta" Value="β"/>
+        <Entity Name="gamma" Value="γ"/>
+        <Entity Name="delta" Value="δ"/>
+        <Entity Name="epsilon" Value="ε"/>
+        <Entity Name="zeta" Value="ζ"/>
+        <Entity Name="eta" Value="η"/>
+        <Entity Name="theta" Value="θ"/>
+        <Entity Name="iota" Value="ι"/>
+        <Entity Name="kappa" Value="κ"/>
+        <Entity Name="lambda" Value="λ"/>
+        <Entity Name="mu" Value="μ"/>
+        <Entity Name="nu" Value="ν"/>
+        <Entity Name="xi" Value="ξ"/>
+        <Entity Name="omicron" Value="ο"/>
+        <Entity Name="pi" Value="π"/>
+        <Entity Name="rho" Value="ρ"/>
+        <Entity Name="sigmaf" Value="ς"/>
+        <Entity Name="sigma" Value="σ"/>
+        <Entity Name="tau" Value="τ"/>
+        <Entity Name="upsilon" Value="υ"/>
+        <Entity Name="phi" Value="φ"/>
+        <Entity Name="chi" Value="χ"/>
+        <Entity Name="psi" Value="ψ"/>
+        <Entity Name="omega" Value="ω"/>
+        <Entity Name="thetasym" Value="ϑ"/>
+        <Entity Name="upsih" Value="ϒ"/>
+        <Entity Name="piv" Value="ϖ"/>
+        <Entity Name="ensp" Value="&#x2002;"/>
+        <Entity Name="emsp" Value="&#x2003;"/>
+        <Entity Name="thinsp" Value="&#x2009;"/>
+        <Entity Name="zwnj" Value="&#x200C;"/>
+        <Entity Name="zwj" Value="&#x200D;"/>
+        <Entity Name="lrm" Value="&#x200E;"/>
+        <Entity Name="rlm" Value="&#x200F;"/>
+        <Entity Name="ndash" Value="–"/>
+        <Entity Name="mdash" Value="—"/>
+        <Entity Name="lsquo" Value="‘"/>
+        <Entity Name="rsquo" Value="’"/>
+        <Entity Name="sbquo" Value="‚"/>
+        <Entity Name="ldquo" Value="“"/>
+        <Entity Name="rdquo" Value="”"/>
+        <Entity Name="bdquo" Value="„"/>
+        <Entity Name="dagger" Value="†"/>
+        <Entity Name="Dagger" Value="‡"/>
+        <Entity Name="bull" Value="•"/>
+        <Entity Name="hellip" Value="…"/>
+        <Entity Name="permil" Value="‰"/>
+        <Entity Name="prime" Value="′"/>
+        <Entity Name="Prime" Value="″"/>
+        <Entity Name="lsaquo" Value="‹"/>
+        <Entity Name="rsaquo" Value="›"/>
+        <Entity Name="oline" Value="‾"/>
+        <Entity Name="frasl" Value="⁄"/>
+        <Entity Name="euro" Value="€"/>
+        <Entity Name="image" Value="ℑ"/>
+        <Entity Name="weierp" Value="℘"/>
+        <Entity Name="real" Value="ℜ"/>
+        <Entity Name="trade" Value="™"/>
+        <Entity Name="alefsym" Value="ℵ"/>
+        <Entity Name="larr" Value="←"/>
+        <Entity Name="uarr" Value="↑"/>
+        <Entity Name="rarr" Value="→"/>
+        <Entity Name="darr" Value="↓"/>
+        <Entity Name="harr" Value="↔"/>
+        <Entity Name="crarr" Value="↵"/>
+        <Entity Name="lArr" Value="⇐"/>
+        <Entity Name="uArr" Value="⇑"/>
+        <Entity Name="rArr" Value="⇒"/>
+        <Entity Name="dArr" Value="⇓"/>
+        <Entity Name="hArr" Value="⇔"/>
+        <Entity Name="forall" Value="∀"/>
+        <Entity Name="part" Value="∂"/>
+        <Entity Name="exist" Value="∃"/>
+        <Entity Name="empty" Value="∅"/>
+        <Entity Name="nabla" Value="∇"/>
+        <Entity Name="isin" Value="∈"/>
+        <Entity Name="notin" Value="∉"/>
+        <Entity Name="ni" Value="∋"/>
+        <Entity Name="prod" Value="∏"/>
+        <Entity Name="sum" Value="∑"/>
+        <Entity Name="minus" Value="−"/>
+        <Entity Name="lowast" Value="∗"/>
+        <Entity Name="radic" Value="√"/>
+        <Entity Name="prop" Value="∝"/>
+        <Entity Name="infin" Value="∞"/>
+        <Entity Name="ang" Value="∠"/>
+        <Entity Name="and" Value="∧"/>
+        <Entity Name="or" Value="∨"/>
+        <Entity Name="cap" Value="∩"/>
+        <Entity Name="cup" Value="∪"/>
+        <Entity Name="int" Value="∫"/>
+        <Entity Name="there4" Value="∴"/>
+        <Entity Name="sim" Value="∼"/>
+        <Entity Name="cong" Value="≅"/>
+        <Entity Name="asymp" Value="≈"/>
+        <Entity Name="ne" Value="≠"/>
+        <Entity Name="equiv" Value="≡"/>
+        <Entity Name="le" Value="≤"/>
+        <Entity Name="ge" Value="≥"/>
+        <Entity Name="sub" Value="⊂"/>
+        <Entity Name="sup" Value="⊃"/>
+        <Entity Name="nsub" Value="⊄"/>
+        <Entity Name="sube" Value="⊆"/>
+        <Entity Name="supe" Value="⊇"/>
+        <Entity Name="oplus" Value="⊕"/>
+        <Entity Name="otimes" Value="⊗"/>
+        <Entity Name="perp" Value="⊥"/>
+        <Entity Name="sdot" Value="⋅"/>
+        <Entity Name="lceil" Value="⌈"/>
+        <Entity Name="rceil" Value="⌉"/>
+        <Entity Name="lfloor" Value="⌊"/>
+        <Entity Name="rfloor" Value="⌋"/>
+        <Entity Name="lang" Value="〈"/>
+        <Entity Name="rang" Value="〉"/>
+        <Entity Name="loz" Value="◊"/>
+        <Entity Name="spades" Value="♠"/>
+        <Entity Name="clubs" Value="♣"/>
+        <Entity Name="hearts" Value="♥"/>
+        <Entity Name="diams" Value="♦"/>
+        <Entity Name="quot" Value="&quot;"/>
+        <Entity Name="QUOT" Value="&quot;"/>
+        <Entity Name="amp" Value="&amp;"/>
+        <Entity Name="AMP" Value="&amp;"/>
+        <Entity Name="apos" Value="'"/>
+        <Entity Name="lpar" Value="("/>
+        <Entity Name="rpar" Value=")"/>
+        <Entity Name="lt" Value="&lt;"/>
+        <Entity Name="LT" Value="&lt;"/>
+        <Entity Name="gt" Value="&gt;"/>
+        <Entity Name="GT" Value="&gt;"/>
+        <Entity Name="nbsp" Value="&#160;"/>
+        <Entity Name="iexcl" Value="¡"/>
+        <Entity Name="cent" Value="¢"/>
+        <Entity Name="pound" Value="£"/>
+        <Entity Name="curren" Value="¤"/>
+        <Entity Name="yen" Value="¥"/>
+        <Entity Name="brvbar" Value="¦"/>
+        <Entity Name="sect" Value="§"/>
+        <Entity Name="uml" Value="¨"/>
+        <Entity Name="copy" Value="©"/>
+        <Entity Name="COPY" Value="©"/>
+        <Entity Name="ordf" Value="ª"/>
+        <Entity Name="laquo" Value="«"/>
+        <Entity Name="not" Value="¬"/>
+        <Entity Name="shy" Value="&#xad;"/>
+        <Entity Name="reg" Value="®"/>
+        <Entity Name="REG" Value="®"/>
+        <Entity Name="macr" Value="¯"/>
+        <Entity Name="deg" Value="°"/>
+        <Entity Name="plusmn" Value="±"/>
+        <Entity Name="sup2" Value="²"/>
+        <Entity Name="sup3" Value="³"/>
+        <Entity Name="acute" Value="´"/>
+        <Entity Name="micro" Value="µ"/>
+        <Entity Name="para" Value="¶"/>
+        <Entity Name="middot" Value="·"/>
+        <Entity Name="cedil" Value="¸"/>
+        <Entity Name="sup1" Value="¹"/>
+        <Entity Name="ordm" Value="º"/>
+        <Entity Name="raquo" Value="»"/>
+        <Entity Name="frac14" Value="¼"/>
+        <Entity Name="frac12" Value="½"/>
+        <Entity Name="frac34" Value="¾"/>
+        <Entity Name="iquest" Value="¿"/>
+        <Entity Name="Agrave" Value="À"/>
+        <Entity Name="Aacute" Value="Á"/>
+        <Entity Name="Acirc" Value="Â"/>
+        <Entity Name="Atilde" Value="Ã"/>
+        <Entity Name="Auml" Value="Ä"/>
+        <Entity Name="Aring" Value="Å"/>
+        <Entity Name="AElig" Value="Æ"/>
+        <Entity Name="Ccedil" Value="Ç"/>
+        <Entity Name="Egrave" Value="È"/>
+        <Entity Name="Eacute" Value="É"/>
+        <Entity Name="Ecirc" Value="Ê"/>
+        <Entity Name="Euml" Value="Ë"/>
+        <Entity Name="Igrave" Value="Ì"/>
+        <Entity Name="Iacute" Value="Í"/>
+        <Entity Name="Icirc" Value="Î"/>
+        <Entity Name="Iuml" Value="Ï"/>
+        <Entity Name="ETH" Value="Ð"/>
+        <Entity Name="Ntilde" Value="Ñ"/>
+        <Entity Name="Ograve" Value="Ò"/>
+        <Entity Name="Oacute" Value="Ó"/>
+        <Entity Name="Ocirc" Value="Ô"/>
+        <Entity Name="Otilde" Value="Õ"/>
+        <Entity Name="Ouml" Value="Ö"/>
+        <Entity Name="times" Value="×"/>
+        <Entity Name="Oslash" Value="Ø"/>
+        <Entity Name="Ugrave" Value="Ù"/>
+        <Entity Name="Uacute" Value="Ú"/>
+        <Entity Name="Ucirc" Value="Û"/>
+        <Entity Name="Uuml" Value="Ü"/>
+        <Entity Name="Yacute" Value="Ý"/>
+        <Entity Name="THORN" Value="Þ"/>
+        <Entity Name="szlig" Value="ß"/>
+        <Entity Name="agrave" Value="à"/>
+        <Entity Name="aacute" Value="á"/>
+        <Entity Name="acirc" Value="â"/>
+        <Entity Name="atilde" Value="ã"/>
+        <Entity Name="auml" Value="ä"/>
+        <Entity Name="aring" Value="å"/>
+        <Entity Name="aelig" Value="æ"/>
+        <Entity Name="ccedil" Value="ç"/>
+        <Entity Name="egrave" Value="è"/>
+        <Entity Name="eacute" Value="é"/>
+        <Entity Name="ecirc" Value="ê"/>
+        <Entity Name="euml" Value="ë"/>
+        <Entity Name="igrave" Value="ì"/>
+        <Entity Name="iacute" Value="í"/>
+        <Entity Name="icirc" Value="î"/>
+        <Entity Name="plus" Value="+"/>
+        <Entity Name="sol" Value="/"/>
+        <Entity Name="ast" Value="*"/>
+        <Entity Name="hyphen" Value="-"/>
+        <Entity Name="lcub" Value="{"/>
+        <Entity Name="rcub" Value="}"/>
+        <Entity Name="equals" Value="="/>
+        <Entity Name="commat" Value="@"/>
+        <Entity Name="semi" Value=";"/>
+        <Entity Name="colon" Value=":"/>
+        <Entity Name="num" Value="#"/>
+        <Entity Name="quest" Value="?"/>
+        <Entity Name="excl" Value="!"/>
+        <Entity Name="period" Value="."/>
+        <Entity Name="percnt" Value="%"/>        
+      </NamedEntities>
+    </Engine>
+    <Engine Id="Base64.Standart" IsDefault="true"  RealType="MetraTech.SecurityFramework.Core.Decoder.Base64DecoderToStringEngine, MetraTech.SecurityFramework">
+    </Engine>
+    <Engine Id="Base64.ModifiedForFilenames" IsDefault="false" 
+            RealType="MetraTech.SecurityFramework.Core.Decoder.Base64DecoderToStringEngine, MetraTech.SecurityFramework"
+            CharForIndex62="+"
+            CharForIndex63="-">
+    </Engine>
+    <Engine Id="Base64.ModifiedForURL" IsDefault="false" 
+            RealType="MetraTech.SecurityFramework.Core.Decoder.Base64DecoderToStringEngine, MetraTech.SecurityFramework"
+            CharForIndex62="-"
+            CharForIndex63="_">      
+    </Engine>
+    <Engine Id="Base64.ModifiedForXmlNmtoken" IsDefault="false"
+            RealType="MetraTech.SecurityFramework.Core.Decoder.Base64DecoderToStringEngine, MetraTech.SecurityFramework"
+            CharForIndex62="."
+            CharForIndex63="-">     
+    </Engine>
+    <Engine Id="Base64.ModifiedForXmlName" IsDefault="false"
+            RealType="MetraTech.SecurityFramework.Core.Decoder.Base64DecoderToStringEngine, MetraTech.SecurityFramework"
+            CharForIndex62="_"
+            CharForIndex63=":">     
+    </Engine>
+    <Engine Id="Base64.ModifiedForProgramIdentifiersV1" IsDefault="false"
+            RealType="MetraTech.SecurityFramework.Core.Decoder.Base64DecoderToStringEngine, MetraTech.SecurityFramework"
+            CharForIndex62="_" 
+            CharForIndex63="-">     
+    </Engine>
+    <Engine Id="Base64.ModifiedForProgramIdentifiersV2" IsDefault="false"
+           RealType="MetraTech.SecurityFramework.Core.Decoder.Base64DecoderToStringEngine, MetraTech.SecurityFramework"
+            CharForIndex62="."
+            CharForIndex63="_">     
+    </Engine>
+    <Engine Id="Base64.ModifiedForRegularExpressions" IsDefault="false"
+           RealType="MetraTech.SecurityFramework.Core.Decoder.Base64DecoderToStringEngine, MetraTech.SecurityFramework"
+            CharForIndex62="!"
+            CharForIndex63="-">     
+    </Engine>
+    <Engine Id="JavaScript.V1" IsDefault="true" RealType="MetraTech.SecurityFramework.Core.Decoder.JavaScriptDecoderEngine, MetraTech.SecurityFramework"/>
+    <Engine Id="VbScript.V1" IsDefault="true" RealType="MetraTech.SecurityFramework.Core.Decoder.VbScriptDecoderEngine, MetraTech.SecurityFramework"/>
+    <Engine Id="Css.V1" IsDefault="true" RealType="MetraTech.SecurityFramework.Core.Decoder.CssDecoderEngine, MetraTech.SecurityFramework"/>
+    <Engine Id="Xml.V1" Category="Xml" IsDefault="true"
+            RealType="MetraTech.SecurityFramework.Core.Decoder.EntityDecoderEngine, MetraTech.SecurityFramework"
+            RequireTrailingSemicolon="true">
+      <NamedEntities>
+        <Entity Name="quot" Value="&quot;"/>
+        <Entity Name="amp" Value="&amp;"/>
+        <Entity Name="apos" Value="&apos;"/>
+        <Entity Name="lt" Value="&lt;"/>
+        <Entity Name="gt" Value="&gt;"/>
+      </NamedEntities>
+    </Engine>
+    <Engine Id="GZip.V1" IsDefault="true" RealType="MetraTech.SecurityFramework.Core.Decoder.GZipDecoderEngine, MetraTech.SecurityFramework">
+    </Engine>
+    <Engine Id="Ldap.V1" IsDefault="true" RealType="MetraTech.SecurityFramework.Core.Decoder.LdapDecoderEngine, MetraTech.SecurityFramework">
+    </Engine>
+    <Engine Id="Base64.ComplexDecoder" IsDefault="false"
+           RealType="MetraTech.SecurityFramework.Core.Decoder.ComplexBase64Decoder, MetraTech.SecurityFramework">        
+    </Engine>
+  </Engines>
+</SubsystemProperties>

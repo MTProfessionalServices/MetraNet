@@ -1,0 +1,1 @@
+update t_pending_payment_trans set b_captured = 1 where id_pending_payment = %%PENDING_PAYMENT_ID%%

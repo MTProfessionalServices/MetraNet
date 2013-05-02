@@ -1,0 +1,8 @@
+<ARDocument>
+  <CanDeleteAdjustmentResponse>
+    <AdjustmentID/>
+    <Type/>
+    <Exists/>
+    <CanDelete/>
+  </CanDeleteAdjustmentResponse>
+</ARDocument>

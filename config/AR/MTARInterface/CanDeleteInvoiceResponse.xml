@@ -1,0 +1,7 @@
+<ARDocument>
+  <CanDeleteInvoiceResponse>
+    <InvoiceID/>
+    <Exists/>
+    <CanDelete/>
+  </CanDeleteInvoiceResponse>
+</ARDocument>

@@ -1,0 +1,20 @@
+<ARDocument>
+  <CreateOrUpdateAccount>
+    <ExtAccountID/>
+    <AccountName/>
+    <ContactName/>
+    <Address1/>
+    <Address2/>
+    <Address3/>
+    <City/>
+    <State/>
+    <Zip/>
+    <Country/>
+    <PhoneNumber/>
+    <FaxNumber/>
+    <EMail/>
+    <Currency/>
+    <TerritoryID/>
+    <SalesPersonID/>
+  </CreateOrUpdateAccount>
+</ARDocument>

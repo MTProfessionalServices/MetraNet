@@ -1,0 +1,12 @@
+<ARDocument>
+  <AgingConfiguration>
+    <AgingBuckets>
+      <AgingBucket>
+        <AgingBucketIdx/>
+        <StartDay/>
+        <EndDay/>
+        <Description/>
+      </AgingBucket>
+    </AgingBuckets>
+  </AgingConfiguration>
+</ARDocument>

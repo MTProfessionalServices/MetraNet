@@ -1,0 +1,1 @@
+nunit-console /fixture:MetraTech.Pipeline.Test.SmokeTest /assembly:MetraTech.Pipeline.Test.dll

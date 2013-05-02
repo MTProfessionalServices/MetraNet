@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<priceable_item>
+  <name>Test Service</name>
+  <description>A priceable item type for the infamous testservice</description>
+  <item_type>usage</item_type>
+  <relationships>
+    <parent></parent>
+  </relationships>
+  <counters></counters>
+  <charges>
+	<charge>
+	<name>DecProp1</name>
+	<display_name>Decimal Property</display_name>
+	</charge>
+	<charge>
+	<name>DecProp2</name>
+	<display_name>Decimal Property</display_name>
+	</charge>
+	<charge>
+	<name>DecProp3</name>
+	<display_name>Decimal Property</display_name>
+	</charge>
+  </charges>
+  <pipeline>
+    <service_definition>metratech.com/testservice</service_definition>
+    <product_view>metratech.com/testservice</product_view>
+  </pipeline>
+   <adjustment_type>
+    <name>TestServiceFlatAdjustment</name>
+    <description>Test Service Flat Adjustment</description>
+    <displayname>Test Service Flat Adjustment</displayname>
+    <CalculationEngine>1</CalculationEngine>
+    <supportsBulk>Y</supportsBulk>
+    <formula>
+	    <![CDATA[
+        Create Procedure DoAdjustmentCalc 
+	        -- inputs
+	        @Amount DECIMAL,
+	        -- outputs
+					@AJ_DecProp1 DECIMAL OUTPUT
+					@AJ_DecProp2 DECIMAL OUTPUT
+					@AJ_DecProp3 DECIMAL OUTPUT
+	        @TotalAdjustmentAmount DECIMAL OUTPUT
+	        as
+         set @AJ_DecProp1 = @Amount
+         set @AJ_DecProp2 = @Amount
+         set @AJ_DecProp3 = @Amount
+         set @TotalAdjustmentAmount = @Amount
+	    ]]>
+    </formula>
+    <applicabilityrules>
+    </applicabilityrules>
+    <reasoncodes>
+      <reasoncode>Bankruptcy</reasoncode>
+    </reasoncodes>
+    <Kind>3</Kind>
+    <required_inputs>
+      <input_val
+        name="Amount"
+        type="DECIMAL"
+        displayname="Amount to adjust recurring charge"
+      />
+    </required_inputs>
+    <outputs>
+      <output_val
+        name="AJ_DecProp1"
+        type="DECIMAL"
+        displayname="Dec Prop 1 Adjustment Amount"
+      />
+      <output_val
+        name="AJ_DecProp2"
+        type="DECIMAL"
+        displayname="Dec Prop 2 Adjustment Amount"
+      />
+      <output_val
+        name="AJ_DecProp3"
+        type="DECIMAL"
+        displayname="Dec Prop 3 Adjustment Amount"
+      />
+      <output_val
+        name="TotalAdjustmentAmount"
+        type="DECIMAL"
+        displayname="Total Adjustment Amount"
+      />
+    </outputs>
+    
+   </adjustment_type>
+</priceable_item>

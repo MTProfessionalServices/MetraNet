@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<priceable_item>
+  <name>AudioConfFeature.3.0</name>
+  <description>Feature Child 3.0 Priceable Item for Audioconferencing reference implementation</description>
+  <item_type>usage</item_type>
+  <relationships>
+    <parent>AudioConfCall.3.0</parent>
+  </relationships>
+  <parameter_table>metratech.com/featuresetupcharge</parameter_table>
+  <parameter_table>metratech.com/metricfeaturerate</parameter_table>
+  <parameter_table>metratech.com/timefeaturerate</parameter_table>
+  <counters></counters>
+  <charges>
+	  <charge>
+      <name>SetupCharge</name>
+      <display_name>Setup Chargesfdasdfa</display_name>
+	    <charge_property>
+        <name>FeatureType</name>
+      </charge_property>
+    </charge>
+	  <charge>
+      <name>TimeBasedCharge</name>
+      <display_name>Time Based Charge</display_name>
+	    <charge_property>
+        <name>FeatureType</name>
+      </charge_property>
+    </charge>
+	  <charge>
+      <name>MetricCharge</name>
+      <display_name>Metric Charge</display_name>
+	    <charge_property>
+        <name>FeatureType</name>
+      </charge_property>
+    </charge>
+  </charges>
+  <pipeline>
+    <service_definition>metratech.com/audioconffeature</service_definition>
+    <product_view>metratech.com/audioconffeature</product_view>
+  </pipeline>
+   <adjustment_type>
+    <name>FeatureFlatAdjustment.3.0</name>
+    <description>Audio Conference Feature Flat Adjustment</description>
+    <displayname>Audio Conference Feature Flat Adjustment</displayname>
+    <CalculationEngine>1</CalculationEngine>
+    <supportsBulk>Y</supportsBulk>
+    <formula>
+	    <![CDATA[
+        Create Procedure DoAdjustmentCalc 
+	        -- inputs
+	        @SetupChargeAdjustmentAmount DECIMAL,
+	        @TimeBasedChargeAdjustmentAmount DECIMAL,
+	        @MetricChargeAdjustmentAmount DECIMAL,
+	        -- outputs
+	        @AJ_SetupCharge DECIMAL OUTPUT,
+	        @AJ_TimeBasedCharge DECIMAL OUTPUT,
+	        @AJ_MetricCharge DECIMAL OUTPUT,
+	        @TotalAdjustmentAmount DECIMAL OUTPUT
+	        as
+        set @AJ_SetupCharge = @SetupChargeAdjustmentAmount
+        set @AJ_TimeBasedCharge = @TimeBasedChargeAdjustmentAmount
+        set @AJ_MetricCharge = @MetricChargeAdjustmentAmount
+        set @TotalAdjustmentAmount = round((@AJ_SetupCharge + @AJ_TimeBasedCharge + @AJ_MetricCharge), 2)
+	    ]]>
+    </formula>
+    <applicabilityrules>
+    </applicabilityrules>
+    <reasoncodes>
+      <reasoncode>RateCorrection</reasoncode>
+      <reasoncode>RecordingPoorQuality</reasoncode>
+    </reasoncodes>
+    <Kind>1</Kind>
+    <required_inputs>
+      <input_val
+        name="SetupChargeAdjustmentAmount"
+        type="DECIMAL"
+        displayname="Setup Charge Adjustment Amount"
+      />
+      <input_val
+        name="TimeBasedChargeAdjustmentAmount"
+        type="DECIMAL"
+        displayname="Time Based Charge Adjustment Amount"
+      />
+      <input_val
+        name="MetricChargeAdjustmentAmount"
+        type="DECIMAL"
+        displayname="Metric Charge Adjustment Amount"
+      />
+    </required_inputs>
+    <outputs>
+      <output_val
+        name="AJ_SetupCharge"
+        type="DECIMAL"
+        displayname="Adjustment For Setup Charge"
+      />
+      <output_val
+        name="AJ_TimeBasedCharge"
+        type="DECIMAL"
+        displayname="Adjustment For Time Based Charge"
+      />
+      <output_val
+        name="AJ_MetricCharge"
+        type="DECIMAL"
+        displayname="Adjustment For Metric Charge"
+      />
+       <output_val
+        name="TotalAdjustmentAmount"
+        type="DECIMAL"
+        displayname="Total Adjustment Amount"
+      />
+    </outputs>
+  </adjustment_type>
+   <adjustment_type>
+    <name>FeaturePercentAdjustment.3.0</name>
+    <description>Audio Conference Feature Percent Adjustment</description>
+    <displayname>Audio Conference Feature Percent Adjustment</displayname>
+    <CalculationEngine>1</CalculationEngine>
+    <supportsBulk>Y</supportsBulk>
+    <formula>
+	    <![CDATA[
+       Create Procedure DoAdjustmentCalc
+	        -- inputs
+	        @SetupChargeAdjustmentPercent DECIMAL,
+	        @TimeBasedChargeAdjustmentPercent DECIMAL,
+	        @MetricChargeAdjustmentPercent DECIMAL,
+	        @SetupCharge DECIMAL,
+	        @TimeBasedCharge DECIMAL,
+	        @MetricCharge DECIMAL,
+	        -- outputs
+	        @AJ_SetupCharge DECIMAL OUTPUT,
+	        @AJ_TimeBasedCharge DECIMAL OUTPUT,
+	        @AJ_MetricCharge DECIMAL OUTPUT,
+	        @TotalAdjustmentAmount DECIMAL OUTPUT
+	        as
+          set @AJ_SetupCharge = @SetupCharge * (@SetupChargeAdjustmentPercent * 0.01)
+          set @AJ_TimeBasedCharge = @TimeBasedCharge * (@TimeBasedChargeAdjustmentPercent * 0.01)
+          set @AJ_MetricCharge = @MetricCharge * (@MetricChargeAdjustmentPercent * 0.01)
+          set @TotalAdjustmentAmount = round((@AJ_SetupCharge + @AJ_TimeBasedCharge + @AJ_MetricCharge), 2)
+	    ]]>
+    </formula>
+    <applicabilityrules>
+    </applicabilityrules>
+    <reasoncodes>
+      <reasoncode>RateCorrection</reasoncode>
+      <reasoncode>RecordingPoorQuality</reasoncode>
+    </reasoncodes>
+    <Kind>2</Kind>
+     <required_inputs>
+      <input_val
+        name="SetupChargeAdjustmentPercent"
+        type="DECIMAL"
+        displayname="Setup Charge Adjustment Percent"
+      />
+      <input_val
+        name="TimeBasedChargeAdjustmentPercent"
+        type="DECIMAL"
+        displayname="Time Based Charge Adjustment Percent"
+      />
+      <input_val
+        name="MetricChargeAdjustmentPercent"
+        type="DECIMAL"
+        displayname="Metric Charge Adjustment Percent"
+      />
+    </required_inputs>
+    <outputs>
+      <output_val
+        name="AJ_SetupCharge"
+        type="DECIMAL"
+        displayname="Adjustment For Setup Charge"
+      />
+      <output_val
+        name="AJ_TimeBasedCharge"
+        type="DECIMAL"
+        displayname="Adjustment For Time Based Charge"
+      />
+      <output_val
+        name="AJ_MetricCharge"
+        type="DECIMAL"
+        displayname="Adjustment For Metric Charge"
+      />
+       <output_val
+        name="TotalAdjustmentAmount"
+        type="DECIMAL"
+        displayname="Total Adjustment Amount"
+      />
+    </outputs>
+  </adjustment_type>
+  <adjustment_type>
+    <name>RecordFeatureFlatAdjustment.3.0</name>
+    <description>Audio Conference Record Feature Flat Adjustment</description>
+    <displayname>Audio Conference Record Feature Flat Adjustment</displayname>
+    <CalculationEngine>1</CalculationEngine>
+    <supportsBulk>Y</supportsBulk>
+    <formula>
+	    <![CDATA[
+        Create Procedure DoAdjustmentCalc 
+	        -- inputs
+	        @SetupChargeAdjustmentAmount DECIMAL,
+	        @TimeBasedChargeAdjustmentAmount DECIMAL,
+	        @MetricChargeAdjustmentAmount DECIMAL,
+	        -- outputs
+	        @AJ_SetupCharge DECIMAL OUTPUT,
+	        @AJ_TimeBasedCharge DECIMAL OUTPUT,
+	        @AJ_MetricCharge DECIMAL OUTPUT,
+	        @TotalAdjustmentAmount DECIMAL OUTPUT
+	        as
+          set @AJ_SetupCharge = @SetupChargeAdjustmentAmount
+          set @AJ_TimeBasedCharge = @TimeBasedChargeAdjustmentAmount
+          set @AJ_MetricCharge = @MetricChargeAdjustmentAmount
+          set @TotalAdjustmentAmount = round((@AJ_SetupCharge + @AJ_TimeBasedCharge + @AJ_MetricCharge), 2)
+	    ]]>
+    </formula>
+    <applicabilityrules>
+      <rule>IsRecordFeature</rule>
+    </applicabilityrules>
+    <reasoncodes>
+      <reasoncode>RecordingPoorQuality</reasoncode>
+    </reasoncodes>
+    <Kind>1</Kind>
+    <required_inputs>
+      <input_val
+        name="SetupChargeAdjustmentAmount"
+        type="DECIMAL"
+        displayname="Setup Charge Adjustment Amount"
+      />
+      <input_val
+        name="TimeBasedChargeAdjustmentAmount"
+        type="DECIMAL"
+        displayname="Time Based Charge Adjustment Amount"
+      />
+      <input_val
+        name="MetricChargeAdjustmentAmount"
+        type="DECIMAL"
+        displayname="Metric Charge Adjustment Amount"
+      />
+    </required_inputs>
+    <outputs>
+      <output_val
+        name="AJ_SetupCharge"
+        type="DECIMAL"
+        displayname="Adjustment For Setup Charge"
+      />
+      <output_val
+        name="AJ_TimeBasedCharge"
+        type="DECIMAL"
+        displayname="Adjustment For Time Based Charge"
+      />
+      <output_val
+        name="AJ_MetricCharge"
+        type="DECIMAL"
+        displayname="Adjustment For Metric Charge"
+      />
+       <output_val
+        name="TotalAdjustmentAmount"
+        type="DECIMAL"
+        displayname="Total Adjustment Amount"
+      />
+    </outputs>
+  </adjustment_type>
+</priceable_item>

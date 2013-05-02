@@ -1,0 +1,156 @@
+<xmlconfig>
+  <VendorParameters Vendor="BillSoft">
+    <params>
+      <param>
+        <name>id_tax_charge</name>
+        <type>Integer</type>
+        <default>0</default>
+        <description>Primary key for this tax charge</description>
+      </param>
+      <param>
+        <name>amount</name>
+        <type>decimal</type>
+        <default>3.50</default>
+        <description>Amount to be taxed</description>
+      </param>
+      <param>
+        <name>bus_class_ind</name>
+        <type>String</type>
+        <default>C</default>
+        <description>Business class indicator (C-CLEC or I-ILEC)</description>
+      </param>
+      <param>
+        <name>call_duration</name>
+        <type>decimal</type>
+        <default>0</default>
+        <description>Call duration time</description>
+      </param>
+      <param>
+        <name>client_resale</name>
+        <type>string</type>
+        <default>S</default>
+        <description>"S-Sale, R-Resale"</description>
+      </param>
+      <param>
+        <name>customer_type</name>
+        <type>String</type>
+        <default>B</default>
+        <description>"B/R/I/S B- Business, I-Industrina, R-Residental Customer, S- Senior Citizen"</description>
+      </param>
+      <param>
+        <name>facilities_flag</name>
+        <type>String</type>
+        <default>N</default>
+        <description>facilities based flag (F or N)</description>
+      </param>
+      <param>
+        <name>franchise_flag</name>
+        <type>String</type>
+        <default>N</default>
+        <description>Franchise or Non-Franchise (F or N)</description>
+      </param>
+      <param>
+        <name>id_acc</name>
+        <type>Integer</type>
+        <default>123</default>
+        <description>Customer account id. Will be used to define PK in BIllSoft generated logs</description>
+      </param>
+      <param>
+        <name>inc_code</name>
+        <type>String</type>
+        <default>I</default>
+        <description>Customer Inside or Outside incorporated area</description>
+      </param>
+      <param>
+        <name>invoice_date</name>
+        <type>DateTime</type>
+        <default>7/14/2006</default>
+        <description>Date of the invoice</description>
+      </param>
+      <param>
+        <name>invoice_id</name>
+        <type>String</type>
+        <default></default>
+        <description>"Used in the tax vendor's audit information.  In the audit, the invoice_id may be reported with the corresponding tax details."</description>
+      </param>
+      <param>
+        <name>is_implied_tax</name>
+        <type>String</type>
+        <default>N</default>
+        <description>Y/N. Implied means taxes are included in the amount</description>
+      </param>
+      <param>
+        <name>is_regulated</name>
+        <type>String</type>
+        <default>R</default>
+        <description>"Reseller regulated or unregulated in the state of sale. R-Regulated, U-Unregulated"</description>
+      </param>
+      <param>
+        <name>lifeline_flag</name>
+        <type>String</type>
+        <default>I</default>
+        <description>"L- lifeline customer, I - not lifeline"</description>
+      </param>
+      <param>
+        <name>lines</name>
+        <type>Integer</type>
+        <default>0</default>
+        <description>"When local service is provided, a transaction should be generated with the Lines field populated with the number of lines the customer subscribes to. "</description>
+      </param>
+      <param>
+        <name>location</name>
+        <type>Integer</type>
+        <default>0</default>
+        <description>"When local service is provided, the Locations Field should be populated with the number of locations the customer has. "</description>
+      </param>
+      <param>
+        <name>orig_pcode</name>
+        <type>Integer</type>
+        <default></default>
+        <description>Originating PCode</description>
+      </param>
+      <param>
+        <name>product_code</name>
+        <type>String</type>
+        <default>AC-000</default>
+        <description>"Product code to be mapped to Transaction Type, Service Type"</description>
+      </param>
+      <param>
+        <name>round_alg</name>
+        <type>String</type>
+        <default>MATH</default>
+        <description>"rounding algorith. None  for no rounding, MATH for regular rounding, BANK - for bankers rounding."</description>
+      </param>
+      <param>
+        <name>round_digits</name>
+        <type>Integer</type>
+        <default>3</default>
+        <description>"0 - no rounding, 1 round to 1 digit after decimal point"</description>
+      </param>
+      <param>
+        <name>svc_addr_pcode</name>
+        <type>Integer</type>
+        <default></default>
+        <description>Service Address PCode</description>
+      </param>
+      <param>
+        <name>svc_class_ind</name>
+        <type>String</type>
+        <default>D</default>
+        <description>Long Distance or Local primary (D or L)</description>
+      </param>
+      <param>
+        <name>telecom_type</name>
+        <type>String</type>
+        <default>C</default>
+        <description>"C-Calls(telcom), D-Debit Card Calls, P-Point of sale"</description>
+      </param>
+      <param>
+        <name>term_pcode</name>
+        <type>Integer</type>
+        <default></default>
+        <description>Termination PCode</description>
+      </param>
+    </params>
+  </VendorParameters>
+</xmlconfig>

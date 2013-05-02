@@ -1,0 +1,4 @@
+﻿<SecurityFrameworkSettings
+  autoMonitorExceptions="false"
+  executionContextTypeName="MetraTech.SecurityFramework.Core.Common.Testing.UnitTestExecutionContext, MetraTech.SecurityFramework">
+</SecurityFrameworkSettings>

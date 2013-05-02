@@ -1,0 +1,6 @@
+<xmlconfig>
+  <BillSoft>
+    <EZTaxLogPath>C:\BillSoft\EZTax\BillSoftLogs\</EZTaxLogPath>
+    <EZTaxLogFilePrefix>EZTaxLog</EZTaxLogFilePrefix>
+  </BillSoft>
+</xmlconfig>

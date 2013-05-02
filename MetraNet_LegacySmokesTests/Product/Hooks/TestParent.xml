@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<priceable_item>
+  <name>Test Parent</name>
+  <description>A priceable item type for the infamous testparent</description>
+  <item_type>usage</item_type>
+  <relationships>
+    <parent></parent>
+  </relationships>
+  <counters></counters>
+  <charges>
+	<charge>
+	  <name>totalamount</name>
+	  <display_name>Total Amount of Charge</display_name>
+	  <charge_property>
+       <name>totalunits</name>
+    </charge_property>
+	</charge>
+  </charges>
+  <pipeline>
+    <service_definition>metratech.com/testparent</service_definition>
+    <product_view>metratech.com/testparent</product_view>
+  </pipeline>
+</priceable_item>

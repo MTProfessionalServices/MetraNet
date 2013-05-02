@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="All">
+	
+	<PropertyGroup>
+		<BasePath>..\</BasePath>
+		<config>Release</config>
+		<platform>x86</platform>
+		<OutDir>$(MTOUTDIR)\LegacySmokeTests\</OutDir>
+		<BuildPath Condition="'$(BuildPath)'==''">$(MSBuildProjectDirectory)</BuildPath>
+		<TasksPath Condition="'$(TasksPath)'==''">$(BuildPath)\bin\$(config)</TasksPath>
+	</PropertyGroup>
+  
+	<Target Name="Init">
+		<!-- remove existing output directory -->
+		<RemoveDir Directories="$(OUTDIR)" />
+		
+        <!-- create the output directory -->
+		<MakeDir Directories="$(OutDir)"/>		
+    </Target>
+  
+	<ItemGroup>
+		<SmokeTestProjects Include="$(BasePath)\**\*.csproj" />
+	</ItemGroup>
+  
+	<Target Name="all" DependsOnTargets="Init;Build" />
+  
+	<Target Name="Build">
+		<Message Text="BuildPath = $(MSBuildProjectDirectory)"  Importance="high" />
+		<Message Text="TasksPath = $(TasksPath)"  Importance="high" />
+
+		<MSBuild Projects="@(SmokeTestProjects)"
+			Targets="build"
+			Properties="Configuration=$(config);Platform=$(platform);OUTDIR=$(OutDir)"
+			StopOnFirstFailure="true"
+			RebaseOutputs="true" />
+    
+		<Message Text="$(TaskResult)"  Importance="high" />
+	</Target>  
+</Project>

@@ -1,0 +1,1 @@
+nunit-console /assembly:o:\debug\bin\MetraTech.Capabilities.Test.dll

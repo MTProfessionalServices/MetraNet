@@ -1,0 +1,352 @@
+﻿<SecurityMonitorProperties Signature="" IsRuntimeApiEnabled="true" IsRuntimeApiPublic="true" IsControlApiEnabled="true" IsControlApiPublic="true">
+  <Recorders>
+    <item
+      RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.CsvFileRecorderDefinitionProperties, MetraTech.SecurityFramework"
+      Id="CsvFileRecorder"
+      LogFileName="C:\Temp\SecurityFramework\unittest_event_log.csv"
+      RollFileName="True">
+      <Filters>
+        <item>
+          <CustomFilter TypeName="MetraTech.SecurityFrameworkUnitTests.TestCustomFilter, SecurityFrameworkUnitTests" MethodName="Filter" />
+        </item>
+      </Filters>
+      <Columns>
+        <item Name="EventType" Caption="Event Type" />
+        <item Name="SubsystemName" Caption="Subsystem Name" />
+        <item Name="CategoryName" Caption="Category Name" />
+        <item Name="TimeStamp" Caption="Time Stamp" />
+        <item Name="Path" Caption="Operation Path" />
+        <item Name="HostName" Caption="Server Name" />
+        <item Name="Message" Caption="Event Message" />
+        <item Name="ClientAddress" Caption="Client IP" />
+        <item Name="UserIdentity" Caption="User" />
+        <item Name="SessionId" Caption="User Session ID" />
+        <item Name="ClientInfo" Caption="User Client App" />
+        <item Name="StackTrace" Caption="Stack Trace" />
+      </Columns>
+    </item>
+    <item
+      RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.SQLiteRecorderDefinitionProperties, MetraTech.SecurityFramework"
+      Id="SQLiteRecorder"
+      DatabaseFileName="o:\Debug\Bin\TestConfigs\SecurityFramework.db">
+      <Filters>
+      </Filters>
+    </item>
+  </Recorders>
+  <Policies>
+    <item Id="TestSecurityEventTypePolicy">
+      <Actions>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.LogoutUserPolicyAction, MetraTech.SecurityFramework"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventTypeRule, MetraTech.SecurityFramework"
+          EventType="AppActivityTrendEventType"></item>
+      </Rules>
+    </item>
+    <item Id="SqlDetectionPolicy">
+      <Actions>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.NotifyUserPolicyAction, MetraTech.SecurityFramework"
+          Message="Do not climb - will kill!"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventSourceRule, MetraTech.SecurityFramework"
+          SubsystemName="Detector"
+          CategoryName="Sql"></item>
+      </Rules>
+    </item>
+    <item Id="XssDetectionPolicy">
+      <Actions>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.NotifyUserPolicyAction, MetraTech.SecurityFramework"
+          Message="Ha-ha! Gotcha!"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventSourceRule, MetraTech.SecurityFramework"
+          SubsystemName="Detector"
+          CategoryName="Xss"></item>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventRepeatThresholdRule, MetraTech.SecurityFramework"
+          RepeatThreshold="2"></item>
+      </Rules>
+    </item>
+    <item Id="SqlAttackDetectionPolicy">
+      <Actions>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.RedirectOperationPolicyAction, MetraTech.SecurityFramework"
+          DestinationPath="~/Events.aspx"></item>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.BlockOperationPolicyAction, MetraTech.SecurityFramework"
+          BlockingPeriod="01:00:00"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventSourceRule, MetraTech.SecurityFramework"
+          SubsystemName="Detector"
+          CategoryName="Sql"></item>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventTimespanThresholdRule, MetraTech.SecurityFramework"
+          RepeatThreshold="4"
+          TimeThreshold="00:00:00.300"></item>
+      </Rules>
+    </item>
+    <item Id="ChangeIPPolicy">
+      <Actions>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.BlockOperationPolicyAction, MetraTech.SecurityFramework"
+          BlockingPeriod="01:00:00"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.IPChangeRule, MetraTech.SecurityFramework"
+          NumberThreshold="2"></item>
+      </Rules>
+    </item>
+    <item Id="ActionFrequencyPolicy">
+      <Actions>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.NotifyAdminPolicyAction, MetraTech.SecurityFramework"
+          Message="Test"
+          AdminEmailAddress="testtest1@metratech.com"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.ActionFrequencyRule, MetraTech.SecurityFramework"
+          PolicyActionType="SendAdminNotification"
+          TimeThreshold="00:00:00.090"></item>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventSourceRule, MetraTech.SecurityFramework"
+          SubsystemName="Detector"
+          CategoryName="Sql"></item>
+      </Rules>
+    </item>
+    <item Id="InputDataSizePolicy">
+      <Actions>
+        <item RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.LogoutUserPolicyAction, MetraTech.SecurityFramework"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.InputDataSizeRule, MetraTech.SecurityFramework"
+          SizeLimit="1000000"></item>
+      </Rules>
+    </item>
+    <item Id="EventRatioPolicy">
+      <Actions>
+        <item RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.RedirectOperationPolicyAction, MetraTech.SecurityFramework" DestinationPath="Test"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventRatioThresholdRule, MetraTech.SecurityFramework"
+          TimeThreshold="00:00:00.090"
+          RatioLimit="0.74"
+          SourceSubsystem1="Statistics"
+          SourceCategory1="UserLogout"
+          SourceSubsystem2="Statistics"
+          SourceCategory2="UserLogin"></item>
+      </Rules>
+    </item>
+    <item Id="ReportLoginPolicy">
+      <Actions>
+        <item RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.LogoutUserPolicyAction, MetraTech.SecurityFramework"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventSourceRule, MetraTech.SecurityFramework"
+          SubsystemName="Statistics"
+          CategoryName="UserLogin"></item>
+      </Rules>
+    </item>
+    <item Id="ReportLogoutPolicy">
+      <Actions>
+        <item RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.LogoutUserPolicyAction, MetraTech.SecurityFramework"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventSourceRule, MetraTech.SecurityFramework"
+          SubsystemName="Statistics"
+          CategoryName="UserLogout"></item>
+      </Rules>
+    </item>
+    <item Id="ReportFeatureUsagePolicy">
+      <Actions>
+        <item RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.LogoutUserPolicyAction, MetraTech.SecurityFramework"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventSourceRule, MetraTech.SecurityFramework"
+          SubsystemName="Statistics"
+          CategoryName="FeatureUsage"></item>
+      </Rules>
+    </item>
+    <item Id="ReportTransactionUsagePolicy">
+      <Actions>
+        <item RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.LogoutUserPolicyAction, MetraTech.SecurityFramework"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventSourceRule, MetraTech.SecurityFramework"
+          SubsystemName="Statistics"
+          CategoryName="TransactionUsage"></item>
+      </Rules>
+    </item>
+    <item Id="ReportIrregularUsagePolicy">
+      <Actions>
+        <item RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.LogoutUserPolicyAction, MetraTech.SecurityFramework"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventSourceRule, MetraTech.SecurityFramework"
+          SubsystemName="Statistics"
+          CategoryName="IrregularUsage"></item>
+      </Rules>
+    </item>
+    <item Id="ReportFileUploadPolicy">
+      <Actions>
+        <item RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.LogoutUserPolicyAction, MetraTech.SecurityFramework"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventSourceRule, MetraTech.SecurityFramework"
+          SubsystemName="Statistics"
+          CategoryName="FileUpload"></item>
+      </Rules>
+    </item>
+    <item Id="TestBlockOperationPolicy">
+      <Actions>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.BlockOperationPolicyAction, MetraTech.SecurityFramework"
+          BlockingPeriod="01:00:00"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventSourceRule, MetraTech.SecurityFramework"
+          SubsystemName="Encoder"
+          CategoryName="Url"></item>
+      </Rules>
+    </item>
+    <item Id="TestBlockUserPolicy">
+      <Actions>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.BlockUserPolicyAction, MetraTech.SecurityFramework"
+          BlockingPeriod="01:00:00"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventSourceRule, MetraTech.SecurityFramework"
+          SubsystemName="Encoder"
+          CategoryName="JavaScript"></item>
+      </Rules>
+    </item>
+    <item Id="TestBlockAddressPolicy">
+      <Actions>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.BlockAddressPolicyAction, MetraTech.SecurityFramework"
+          BlockingPeriod="01:00:00"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventSourceRule, MetraTech.SecurityFramework"
+          SubsystemName="Encoder"
+          CategoryName="VbScript"></item>
+      </Rules>
+    </item>
+    <item Id="TestLogPolicy">
+      <Actions>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.LogPolicyAction, MetraTech.SecurityFramework"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventSourceRule, MetraTech.SecurityFramework"
+          SubsystemName="Encoder"
+          CategoryName="Css"></item>
+      </Rules>
+    </item>
+    <item Id="TestRedirectOperationPolicy">
+      <Actions>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.RedirectOperationPolicyAction, MetraTech.SecurityFramework"
+          DestinationPath="Test"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventSourceRule, MetraTech.SecurityFramework"
+          SubsystemName="Encoder"
+          CategoryName="Html"></item>
+      </Rules>
+    </item>
+    <item Id="TestRedirectUserPolicy">
+      <Actions>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.RedirectUserActionPolicy, MetraTech.SecurityFramework"
+          DestinationPath="Test"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventSourceRule, MetraTech.SecurityFramework"
+          SubsystemName="Encoder"
+          CategoryName="HtmlAttribute"></item>
+      </Rules>
+    </item>
+    <item Id="TestLogoutUserPolicy">
+      <Actions>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.LogoutUserPolicyAction, MetraTech.SecurityFramework"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventSourceRule, MetraTech.SecurityFramework"
+          SubsystemName="Encoder"
+          CategoryName="Xml"></item>
+      </Rules>
+    </item>
+    <item Id="TestSendSecurityWarningToUserPolicy">
+      <Actions>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.NotifyUserPolicyAction, MetraTech.SecurityFramework"
+          Message="Test message"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventSourceRule, MetraTech.SecurityFramework"
+          SubsystemName="Encoder"
+          CategoryName="XmlAttribute"></item>
+      </Rules>
+    </item>
+    <item Id="TestSendAdminNotificationPolicy">
+      <Actions>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.NotifyAdminPolicyAction, MetraTech.SecurityFramework"
+          Message="Test message"
+          AdminEmailAddress="alokshin@metratech.com"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventSourceRule, MetraTech.SecurityFramework"
+          SubsystemName="Encoder"
+          CategoryName="Ldap"></item>
+      </Rules>
+    </item>
+    <item Id="TestChangeSessionParameterPolicy">
+      <Actions>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.ChangeSessionParameterPolicyAction, MetraTech.SecurityFramework"
+          ParameterName="Param"
+          ParameterValue="Value"></item>
+      </Actions>
+      <Rules>
+        <item
+          RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.Policy.EventSourceRule, MetraTech.SecurityFramework"
+          SubsystemName="Encoder"
+          CategoryName="Base64"></item>
+      </Rules>
+    </item>
+  </Policies>
+  <LogAnalyzer
+    RealType="MetraTech.SecurityFramework.Core.SecurityMonitor.SQLiteLogAnalyzer, MetraTech.SecurityFramework"
+    DatabaseFileName="o:\Debug\Bin\TestConfigs\SecurityFramework.db"/>
+</SecurityMonitorProperties>

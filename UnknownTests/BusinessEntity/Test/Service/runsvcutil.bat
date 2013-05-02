@@ -1,0 +1,1 @@
+svcutil.exe http://localhost:8010/RepositoryService?wsdl /config:App.config /ct:System.Collections.Generic.List`1 /n:*,MetraTech.BusinessEntity.Test.Service

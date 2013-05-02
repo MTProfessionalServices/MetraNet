@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<priceable_item>
+  <name>AudioConfCall.3.0</name>
+  <description>Parent Priceable Item for 3.0 Audioconferencing reference implementation</description>
+  <item_type>usage</item_type>
+  <relationships>
+    <parent></parent>
+    <child>AudioConfConn.3.0</child>
+    <child>AudioConfFeature.3.0</child>
+  </relationships>
+  <parameter_table>metratech.com/cancelapplic</parameter_table>
+  <parameter_table>metratech.com/minapplic</parameter_table>
+  <parameter_table>metratech.com/reservationapplic</parameter_table>
+  <parameter_table>metratech.com/unusedportapplic</parameter_table>
+  <parameter_table>metratech.com/overusedportapplic</parameter_table>
+  <parameter_table>metratech.com/overusedportdef</parameter_table>
+  <parameter_table>metratech.com/unusedportdef</parameter_table>
+  <parameter_table>metratech.com/mincharge</parameter_table>
+  <parameter_table>metratech.com/cancelrate</parameter_table>
+  <parameter_table>metratech.com/reserverate</parameter_table>
+  <parameter_table>metratech.com/unusedportrate</parameter_table>
+  <parameter_table>metratech.com/overusedportrate</parameter_table>
+  <counters></counters>
+  <pipeline>
+    <service_definition>metratech.com/audioconfcall</service_definition>
+    <product_view>metratech.com/audioconfcall</product_view>
+  </pipeline>
+</priceable_item>

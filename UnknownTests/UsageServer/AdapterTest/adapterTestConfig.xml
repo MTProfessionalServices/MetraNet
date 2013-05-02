@@ -1,0 +1,50 @@
+﻿<adapterTestConfig>
+    <!-- User account -->
+    <userId>123</userId>
+  
+    <!-- 
+    (1) The following specifies the intervals for which the adapters may be run. 
+    (2) Each interval specifies zero or more billing groups.
+    (3) Each billing group specifies one or more member accounts.
+    -->
+    <interval id="903544835">
+        <billingGroup name="test0" description="">
+            <account id="137"/>
+            <account id="138"/>
+            <account id="139"/>
+        </billingGroup>
+        <billingGroup name="test1" description="">
+          <account id="140"/>
+        </billingGroup>
+    </interval>
+    <interval id="744095747">
+        <billingGroup name="test0" description="">
+            <account id="137"/>
+            <account id="138"/>
+        </billingGroup>
+    </interval>
+
+  
+    <!-- The Invoices adapter will be executed and reversed for the given 
+         intervals/billing groups. The test class must implement the following interface:
+         
+         public interface IAdapterTest (MetraTech.UsageServer.Test)
+         {
+           void CleanData(Interval interval);
+           void InitializeData(Interval interval);
+           bool ValidateExecution(Interval interval, BillingGroup billingGroup, out string errors);
+           bool ValidateReversal(Interval interval, BillingGroup billingGroup, out string errors);
+         }
+    -->
+    <adapter name="Invoices"
+             testClass="MetraTech.UsageServer.Test.InvoiceTest,MetraTech.UsageServer.Test" 
+             reverse="true"
+             ignore="false">
+        <interval id="903544835">
+            <billingGroup name="test1"/>
+        </interval>
+      <interval id="744095747">
+        <billingGroup name="test0"/>
+      </interval>
+    </adapter>
+</adapterTestConfig>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<priceable_item>
+  <name>Test Service</name>
+  <description>A priceable item type for the infamous testservice</description>
+  <item_type>usage</item_type>
+  <relationships>
+    <parent></parent>
+  </relationships>
+  <counters></counters>
+  <charges>
+	<charge>
+	<name>DecProp1</name>
+	<display_name>Decimal Property</display_name>
+	</charge>
+	<charge>
+	<name>DecProp2</name>
+	<display_name>Decimal Property</display_name>
+	</charge>
+	<charge>
+	<name>DecProp3</name>
+	<display_name>Decimal Property</display_name>
+	</charge>
+  </charges>
+  <pipeline>
+    <service_definition>metratech.com/testservice</service_definition>
+    <product_view>metratech.com/testservice</product_view>
+  </pipeline>
+</priceable_item>

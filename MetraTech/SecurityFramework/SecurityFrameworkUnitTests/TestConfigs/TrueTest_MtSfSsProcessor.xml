@@ -1,0 +1,36 @@
+<SubsystemProperties Signature="" IsRuntimeApiEnabled="true" IsRuntimeApiPublic="true" IsControlApiEnabled="true" IsControlApiPublic="true">
+  <Engines>
+    <Engine Id="Processor.Default" MaxExecution="10" Category="General" IsDefault="true" IdFirstRule="Validator.BasicString.Default.Rule" RealType="MetraTech.SecurityFramework.ProcessorEngine, MetraTech.SecurityFramework">
+      <Rules>
+        <Rule Id="Decoder.Url.Default.Rule" MaxExecution="30" Subsystem="Decoder" IdEngine="Url.Default" IdNextRule="Detector.Xss.Default.Rule" IdExceptionRule="Detector.Xss.Default.Rule"/>
+        <Rule Id="Detector.Sql.Default.Rule" MaxExecution="1" Subsystem="Detector" IdEngine="Sql.Default" IdNextRule="Processor.Default.Stop.Rule" IdExceptionRule="Processor.Default.Stop.Rule"/>
+        <Rule Id="Detector.Xss.Default.Rule" MaxExecution="1" Subsystem="Detector" IdEngine="Xss.Default" IdNextRule="Detector.Sql.Default.Rule" IdExceptionRule="Detector.Sql.Default.Rule"/>
+        <Rule Id="Validator.BasicString.Default.Rule" MaxExecution="1"
+               RealType="MetraTech.SecurityFramework.SwitchRule, MetraTech.SecurityFramework" IdExceptionRule="Detector.Xss.Default.Rule">
+          <Cases>
+            <Case CompareValue="%" IdNextRule="Decoder.Url.Default.Rule" OperationType="Contain" />
+            <Default value="Detector.Xss.Default.Rule"/>
+          </Cases>
+        </Rule>
+        <Rule Id="Processor.Default.Stop.Rule" RealType="MetraTech.SecurityFramework.StopRule, MetraTech.SecurityFramework"/>
+      </Rules>
+    </Engine>
+
+    <Engine Id="Processor.CompositeRule.Test" MaxExecution="5" Category="General" IsDefault="true" IdFirstRule="Decoder.Html.Test.Rule" RealType="MetraTech.SecurityFramework.ProcessorEngine, MetraTech.SecurityFramework">
+      <Rules>
+        <Rule Id="Decoder.Html.Test.Rule" MaxExecution="5" Subsystem="Decoder" IdEngine="Html.V1" IdNextRule="Processor.Test.Rule" IdExceptionRule="Processor.Test.Rule"/>
+        <Rule Id="Processor.Test.Rule" MaxExecution="5" Subsystem="Processor" IdEngine="Processor.Default" IdNextRule="Decoder.Stop2.Rule" IdExceptionRule="Decoder.Stop2.Rule"/>
+
+        <Rule Id="Decoder.Stop2.Rule" RealType="MetraTech.SecurityFramework.StopRule, MetraTech.SecurityFramework"/>
+      </Rules>
+    </Engine>
+
+    <Engine Id="Processor.Cycle.Test" MaxExecution="10" Category="General" IsDefault="true" IdFirstRule="Detector.Sql.Default.Rule" RealType="MetraTech.SecurityFramework.ProcessorEngine, MetraTech.SecurityFramework">
+      <Rules>
+        <Rule Id="Detector.Sql.Default.Rule" MaxExecution="5" Subsystem="Detector" IdEngine="Sql.Default" IdNextRule="Detector.Xss.Default.Rule" IdExceptionRule="Processor.Default.Stop.Rule"/>
+        <Rule Id="Detector.Xss.Default.Rule" Subsystem="Detector" IdEngine="Xss.Default" IdNextRule="Detector.Sql.Default.Rule" IdExceptionRule="Processor.Default.Stop.Rule"/>
+        <Rule Id="Processor.Default.Stop.Rule" RealType="MetraTech.SecurityFramework.StopRule, MetraTech.SecurityFramework"/>
+      </Rules>
+    </Engine>
+  </Engines>
+</SubsystemProperties>

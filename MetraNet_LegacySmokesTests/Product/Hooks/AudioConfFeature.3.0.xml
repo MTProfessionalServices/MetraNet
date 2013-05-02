@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<priceable_item>
+  <name>AudioConfFeature.3.0</name>
+  <description>Feature Child 3.0 Priceable Item for Audioconferencing reference implementation</description>
+  <item_type>usage</item_type>
+  <relationships>
+    <parent>AudioConfCall.3.0</parent>
+  </relationships>
+  <parameter_table>metratech.com/featuresetupcharge</parameter_table>
+  <parameter_table>metratech.com/metricfeaturerate</parameter_table>
+  <parameter_table>metratech.com/timefeaturerate</parameter_table>
+  <counters></counters>
+  <pipeline>
+    <service_definition>metratech.com/audioconffeature</service_definition>
+    <product_view>metratech.com/audioconffeature</product_view>
+  </pipeline>
+</priceable_item>

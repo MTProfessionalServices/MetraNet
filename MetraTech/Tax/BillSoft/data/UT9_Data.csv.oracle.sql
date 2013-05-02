@@ -1,0 +1,11 @@
+delete from t_tax_input_9
+insert into t_tax_input_9 values (1, 1,105.50,0,0,1248900,'R',TO_DATE('2012-02-20','YYYY-MM-DD'),'N','BANK',3,1,1,'BSPC0001','S','I',1,'R',45.0,'D','D','L','F','F','C-CLEC')
+insert into t_tax_input_9 values (2, 2,105.50,0,0,1248900,'R',TO_DATE('2002-05-23','YYYY-MM-DD'),'N','BANK',3,2,2,'BSPC0002','S','I',2,'R',45.0,'D','D','L','F','F','C-CLEC')
+insert into t_tax_input_9 values (3, 3,105.50,0,0,1248900,'R',TO_DATE('2003-05-23','YYYY-MM-DD'),'N','ABC',3,3,3,'BSPC0003','S','I',3,'R',45.0,'D','D','L','F','F','C-CLEC')
+insert into t_tax_input_9 values (4, 4,105.50,0,0,1248900,'R',TO_DATE('2004-05-23','YYYY-MM-DD'),'N','BANK',3,4,4,'BSPC0004','S','I',4,'R',45.0,'D','D','L','F','F','C-CLEC')
+insert into t_tax_input_9 values (5, 5,105.50,0,0,1248900,'R',TO_DATE('2005-05-23','YYYY-MM-DD'),'N','ABC',3,5,5,'BSPC0005','S','I',5,'R',45.0,'D','D','L','F','F','C-CLEC')
+insert into t_tax_input_9 values (6, 6,105.50,0,0,1248900,'R',TO_DATE('2006-05-23','YYYY-MM-DD'),'N','BANK',3,6,6,'BSPC0006','S','I',6,'R',45.0,'D','D','L','F','F','C-CLEC')
+insert into t_tax_input_9 values (7, 7,105.50,0,0,1248900,'R',TO_DATE('2007-05-23','YYYY-MM-DD'),'N','ABC',3,7,7,'BSPC0007','S','I',7,'R',45.0,'D','D','L','F','F','C-CLEC')
+insert into t_tax_input_9 values (8, 8,105.50,0,0,1248900,'R',TO_DATE('2008-05-23','YYYY-MM-DD'),'N','BANK',3,8,8,'BSPC0008','S','I',8,'R',45.0,'D','D','L','F','F','C-CLEC')
+insert into t_tax_input_9 values (9, 9,105.50,0,0,1248900,'R',TO_DATE('2009-05-23','YYYY-MM-DD'),'N','ABC',3,9,9,'BSPC0009','S','I',9,'R',45.0,'D','D','L','F','F','C-CLEC')
+insert into t_tax_input_9 values (10, 10,105.50,0,0,1248900,'R',TO_DATE('2005-05-23','YYYY-MM-DD'),'N','BANK',3,10,10,'BSPC0001','S','I',10,'R',45.0,'D','D','L','F','F','C-CLEC')

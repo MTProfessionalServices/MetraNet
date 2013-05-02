@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<priceable_item>
+  <name>AudioConfConn.3.0</name>
+  <description>AudioConfCall child 3.0 Priceable Item for Audioconferencing reference implementation</description>
+  <item_type>usage</item_type>
+  <relationships>
+    <parent>AudioConfCall.3.0</parent>
+  </relationships>
+  <parameter_table>metratech.com/basetransportrate</parameter_table>
+  <parameter_table>metratech.com/ldrate</parameter_table>
+  <parameter_table>metratech.com/intlrate</parameter_table>
+  <parameter_table>metratech.com/tollfreerate</parameter_table>
+  <parameter_table>metratech.com/bridgerate</parameter_table>
+  <parameter_table>metratech.com/globalactions</parameter_table>
+  <parameter_table>metratech.com/includedrole</parameter_table>
+  <parameter_table>metratech.com/calendar</parameter_table>
+  <counters></counters>
+  <pipeline>
+    <service_definition>metratech.com/audioconfconnection</service_definition>
+    <product_view>metratech.com/audioconfconnection</product_view>
+  </pipeline>
+</priceable_item>

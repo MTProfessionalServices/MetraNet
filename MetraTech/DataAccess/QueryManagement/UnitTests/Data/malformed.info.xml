@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Query xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.metratech.com">
+  <Action>Query</Action>
+  <Description>This is a query info file</Description>
+  <Implementations>
+    <Implementation>Oracle</Implementation>
+    <Implementation>SqlServer</Implementation>
+    <Implementation>Common</Implementation>
+  </Implementations>
+  <Parameters>
+    <QueryParameter>
+      <Name>Foo</Name>
+      <DataType>string</DataType>
+      <Description>This is a Foo</Description>
+      <SampleValue>Foo</SampleValue>
+    </QueryParameter>
+    <QueryParameter>
+      <Name>Bar</Name>
+      <DataType>int</DataType>
+      <Description>This is a Bar</Description>
+      <SampleValue>Bar</SampleValue>
+    </QueryParameter>
+  </Parameters>
+</Query>

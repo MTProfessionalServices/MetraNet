@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmlconfig>
+     <creationdate>3/27/2012 6:21:16 AM</creationdate>
+     <computername>NKSQL67_2</computername>
+     <username>Administrator</username>
+     <pcimportexportversion>5.0.0</pcimportexportversion>
+     <rmpversion></rmpversion>
+     <rmpishierarchyrestrictedoperations>True</rmpishierarchyrestrictedoperations>
+     <productofferings>
+          <productoffering name="feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034">
+               <displaynames>
+                    <language name="ES-MX">feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {ES-MX}</language>
+                    <language name="US">feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</language>
+                    <language name="JP">feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {JP}</language>
+                    <language name="FR">feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {FR}</language>
+                    <language name="ES">feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {ES}</language>
+                    <language name="DE">feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {DE}</language>
+                    <language name="GB">feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {GB}</language>
+                    <language name="IT">feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {IT}</language>
+                    <language name="PT-BR">feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {PT-BR}</language>
+               </displaynames>
+               <displaydescriptions>
+                    <language name="ES-MX">description of feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</language>
+                    <language name="US">description of feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</language>
+                    <language name="JP">description of feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</language>
+                    <language name="FR">description of feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</language>
+                    <language name="ES">description of feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</language>
+                    <language name="DE">description of feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</language>
+                    <language name="GB">description of feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</language>
+                    <language name="IT">description of feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</language>
+                    <language name="PT-BR">description of feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</language>
+               </displaydescriptions>
+               <currency>USD</currency>
+               <pctimespan name="AvailabilityDate">
+                    <property name="EndDate">12:00:00 AM</property>
+                    <property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+                    <property name="EndOffset">0</property>
+                    <property name="ID">464</property>
+                    <property name="StartDate">1/1/2000</property>
+                    <property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+                    <property name="StartOffset">0</property>
+               </pctimespan>
+               <property name="Description">description of feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</property>
+               <property name="DisplayName">feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</property>
+               <pctimespan name="EffectiveDate">
+                    <property name="EndDate">12:00:00 AM</property>
+                    <property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+                    <property name="EndOffset">0</property>
+                    <property name="ID">462</property>
+                    <property name="StartDate">1/1/2000</property>
+                    <property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+                    <property name="StartOffset">0</property>
+               </pctimespan>
+               <property name="ExternalInformationURL"> </property>
+               <property name="glcode"> </property>
+               <property name="Hidden">0</property>
+               <property name="ID">465</property>
+               <property name="InternalInformationURL"> </property>
+               <property name="NonSharedPriceListID">463</property>
+               <property name="SelfSubscribable">0</property>
+               <property name="SelfUnsubscribable">0</property>
+               <collection name="SubscribableAccountTypes">
+               </collection>
+               <exportpriceableiteminstanceonly>False</exportpriceableiteminstanceonly>
+               <!-- PriceAbleItems Template used by product offering feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 -->
+               <priceableitemtemplates>
+                    <recurringcharge name="testRC">
+                         <property name="ChargeInAdvance">-1</property>
+                         <property name="ChargePerParticipant">-1</property>
+                         <pccycle name="Cycle">
+                              <property name="AdapterProgID"></property>
+                              <property name="CycleID">0</property>
+                              <property name="CycleTypeDescription"></property>
+                              <property name="CycleTypeID">1<!-- MONTHLY_CYCLE --></property>
+                              <property name="EndDayOfMonth">0</property>
+                              <property name="EndDayOfMonth2">0</property>
+                              <property name="EndDayOfWeek">0</property>
+                              <property name="Mode">2</property>
+                              <property name="StartDay">0</property>
+                              <property name="StartMonth">0</property>
+                              <property name="StartYear">0</property>
+                         </pccycle>
+                         <property name="Description">description of testRC</property>
+                         <property name="DisplayName">testRC</property>
+                         <property name="FixedProrationLength">0</property>
+                         <property name="glcode"> </property>
+                         <property name="ID">458</property>
+                         <property name="IntegerUnitValue">0</property>
+                         <property name="Kind">20</property>
+                         <property name="MaxUnitValue">999999999</property>
+                         <property name="MinUnitValue">0</property>
+                         <property name="ParentID">-1</property>
+                         <priceableitemtype name="Flat Rate Recurring Charge">
+                              <property name="ConstrainSubscriberCycle">-1</property>
+                              <property name="Description">Recurring charge with a flat rate</property>
+                              <property name="ID">55</property>
+                              <property name="Kind">20</property>
+                              <property name="ParentID">-1</property>
+                              <property name="ProductView">metratech.com/flatrecurringcharge</property>
+                              <property name="ServiceDefinition">metratech.com/flatrecurringcharge</property>
+                         </priceableitemtype>
+                         <property name="ProductOfferingID">-1</property>
+                         <property name="ProrateInstantly">0</property>
+                         <property name="ProrateOnActivation">0</property>
+                         <property name="ProrateOnDeactivation">0</property>
+                         <property name="ProrateOnRateChange">0</property>
+                         <property name="RatingType">1</property>
+                         <property name="TemplateID">-1</property>
+                         <property name="UnitDisplayName">  </property>
+                         <property name="UnitName">  </property>
+                         <property name="UnitValueEnumeration"></property>
+                         <displaynames>
+                              <language name="ES-MX">testRC {ES-MX}</language>
+                              <language name="US">testRC</language>
+                              <language name="JP">testRC {JP}</language>
+                              <language name="FR">testRC {FR}</language>
+                              <language name="ES">testRC {ES}</language>
+                              <language name="DE">testRC {DE}</language>
+                              <language name="GB">testRC {GB}</language>
+                              <language name="IT">testRC {IT}</language>
+                              <language name="PT-BR">testRC {PT-BR}</language>
+                         </displaynames>
+                         <adjustments type="Template">
+                         </adjustments>
+                    </recurringcharge>
+                    <nonrecurringcharge name="NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034">
+                         <property name="Description">description of NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</property>
+                         <property name="DisplayName">NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</property>
+                         <property name="glcode"> </property>
+                         <property name="ID">473</property>
+                         <property name="Kind">30</property>
+                         <property name="NonRecurringChargeEvent">1</property>
+                         <property name="ParentID">-1</property>
+                         <priceableitemtype name="Flat Rate Non Recurring Charge">
+                              <property name="ConstrainSubscriberCycle">-1</property>
+                              <property name="Description">One time service charge with a flat rate.</property>
+                              <property name="ID">32</property>
+                              <property name="Kind">30</property>
+                              <property name="ParentID">-1</property>
+                              <property name="ProductView">metratech.com/nonrecurringcharge</property>
+                              <property name="ServiceDefinition">metratech.com/nonrecurringcharge</property>
+                         </priceableitemtype>
+                         <property name="ProductOfferingID">-1</property>
+                         <property name="TemplateID">-1</property>
+                         <displaynames>
+                              <language name="ES-MX">NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {ES-MX}</language>
+                              <language name="US">NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</language>
+                              <language name="JP">NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {JP}</language>
+                              <language name="FR">NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {FR}</language>
+                              <language name="ES">NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {ES}</language>
+                              <language name="DE">NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {DE}</language>
+                              <language name="GB">NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {GB}</language>
+                              <language name="IT">NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {IT}</language>
+                              <language name="PT-BR">NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {PT-BR}</language>
+                         </displaynames>
+                         <adjustments type="Template">
+                         </adjustments>
+                    </nonrecurringcharge>
+               </priceableitemtemplates>
+               <!-- PriceLists used by product offering feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 -->
+               <pricelists>
+                    <pricelist name="Nonshared PL for:feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034" private="true">
+                         <property name="CurrencyCode">USD</property>
+                         <property name="Description">Nonshared PL for:feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</property>
+                         <property name="ID">463</property>
+                         <property name="Type">2</property>
+                    </pricelist>
+               </pricelists>
+               <!-- Calendar used by product offering feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 -->
+               <calendars>
+               </calendars>
+               <!-- RateSchedules used by product offering feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 -->
+               <rateschedules>
+                    <rateschedule name="testRC|metratech.com/FlatRecurringCharge|Nonshared PL for:feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034|12:00:00 AM|4|0|12:00:00 AM|4|0">
+                         <property name="Description">Default Rate Schedule</property>
+                         <pctimespan name="EffectiveDate">
+                              <property name="EndDate">12:00:00 AM</property>
+                              <property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+                              <property name="EndOffset">0</property>
+                              <property name="ID">469</property>
+                              <property name="StartDate">12:00:00 AM</property>
+                              <property name="StartDateType">4<!-- PCDATE_TYPE_NULL --></property>
+                              <property name="StartOffset">0</property>
+                         </pctimespan>
+                         <property name="ID">470</property>
+                         <property name="ParameterTableID">4</property>
+                         <property name="PriceListID">463</property>
+                         <property name="TemplateID">458</property>
+                         <priceableitemname>testRC</priceableitemname>
+                         <parametertablename>metratech.com/FlatRecurringCharge</parametertablename>
+                         <pricelistname>Nonshared PL for:feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</pricelistname>
+                         <defaultactionscount>1</defaultactionscount>
+                         <rulesetcount>0</rulesetcount>
+                         <ruleset>
+<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>RCAmount</prop_name>
+      <prop_value ptype="DECIMAL">5</prop_value>
+    </action>
+  </default_actions>
+</configdata>
+]]>
+                         </ruleset>
+                    </rateschedule>
+                    <rateschedule name="NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034|metratech.com/NonRecurringCharge|Nonshared PL for:feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034|12:00:00 AM|4|0|12:00:00 AM|4|0">
+                         <property name="Description">Default Rate Schedule</property>
+                         <pctimespan name="EffectiveDate">
+                              <property name="EndDate">12:00:00 AM</property>
+                              <property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+                              <property name="EndOffset">0</property>
+                              <property name="ID">475</property>
+                              <property name="StartDate">12:00:00 AM</property>
+                              <property name="StartDateType">4<!-- PCDATE_TYPE_NULL --></property>
+                              <property name="StartOffset">0</property>
+                         </pctimespan>
+                         <property name="ID">476</property>
+                         <property name="ParameterTableID">5</property>
+                         <property name="PriceListID">463</property>
+                         <property name="TemplateID">473</property>
+                         <priceableitemname>NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</priceableitemname>
+                         <parametertablename>metratech.com/NonRecurringCharge</parametertablename>
+                         <pricelistname>Nonshared PL for:feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</pricelistname>
+                         <defaultactionscount>1</defaultactionscount>
+                         <rulesetcount>0</rulesetcount>
+                         <ruleset>
+<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>NRCAmount</prop_name>
+      <prop_value ptype="DECIMAL">12</prop_value>
+    </action>
+  </default_actions>
+</configdata>
+]]>
+                         </ruleset>
+                    </rateschedule>
+               </rateschedules>
+               <!-- product offering feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 description -->
+               <priceableiteminstances>
+                    <recurringcharge name="testRC">
+                         <property name="ChargeInAdvance">-1</property>
+                         <property name="ChargePerParticipant">-1</property>
+                         <pccycle name="Cycle">
+                              <property name="AdapterProgID"></property>
+                              <property name="CycleID">0</property>
+                              <property name="CycleTypeDescription"></property>
+                              <property name="CycleTypeID">1<!-- MONTHLY_CYCLE --></property>
+                              <property name="EndDayOfMonth">0</property>
+                              <property name="EndDayOfMonth2">0</property>
+                              <property name="EndDayOfWeek">0</property>
+                              <property name="Mode">2</property>
+                              <property name="StartDay">0</property>
+                              <property name="StartMonth">0</property>
+                              <property name="StartYear">0</property>
+                         </pccycle>
+                         <property name="Description">description of testRC</property>
+                         <property name="DisplayName">testRC</property>
+                         <property name="FixedProrationLength">0</property>
+                         <property name="glcode"> </property>
+                         <property name="ID">468</property>
+                         <property name="IntegerUnitValue">0</property>
+                         <property name="Kind">20</property>
+                         <property name="MaxUnitValue">999999999</property>
+                         <property name="MinUnitValue">0</property>
+                         <property name="ParentID">-1</property>
+                         <priceableitemtype name="Flat Rate Recurring Charge">
+                              <property name="ConstrainSubscriberCycle">-1</property>
+                              <property name="Description">Recurring charge with a flat rate</property>
+                              <property name="ID">55</property>
+                              <property name="Kind">20</property>
+                              <property name="ParentID">-1</property>
+                              <property name="ProductView">metratech.com/flatrecurringcharge</property>
+                              <property name="ServiceDefinition">metratech.com/flatrecurringcharge</property>
+                         </priceableitemtype>
+                         <property name="ProductOfferingID">465</property>
+                         <property name="ProrateInstantly">0</property>
+                         <property name="ProrateOnActivation">0</property>
+                         <property name="ProrateOnDeactivation">0</property>
+                         <property name="ProrateOnRateChange">0</property>
+                         <property name="RatingType">1</property>
+                         <property name="TemplateID">458</property>
+                         <property name="UnitDisplayName">  </property>
+                         <property name="UnitName">  </property>
+                         <property name="UnitValueEnumeration"></property>
+                         <displaynames>
+                              <language name="ES-MX">testRC {ES-MX}</language>
+                              <language name="US">testRC</language>
+                              <language name="JP">testRC {JP}</language>
+                              <language name="FR">testRC {FR}</language>
+                              <language name="ES">testRC {ES}</language>
+                              <language name="DE">testRC {DE}</language>
+                              <language name="GB">testRC {GB}</language>
+                              <language name="IT">testRC {IT}</language>
+                              <language name="PT-BR">testRC {PT-BR}</language>
+                         </displaynames>
+                         <pricelistmappings>
+                              <pricelistmapping name="testRC:metratech.com/FlatRecurringCharge">
+                                   <property name="CanICB">0</property>
+                                   <property name="ParamTableDefinitionID">4</property>
+                                   <property name="PriceableItemID">468</property>
+                                   <property name="PriceListID">463</property>
+                                   <paramtabledefinitionname>metratech.com/FlatRecurringCharge</paramtabledefinitionname>
+                                   <pricelistname>Nonshared PL for:feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</pricelistname>
+                              </pricelistmapping>
+                         </pricelistmappings>
+                         <adjustments type="Instance">
+                         </adjustments>
+                    </recurringcharge>
+                    <nonrecurringcharge name="NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034">
+                         <property name="Description">description of NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</property>
+                         <property name="DisplayName">NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</property>
+                         <property name="glcode"> </property>
+                         <property name="ID">474</property>
+                         <property name="Kind">30</property>
+                         <property name="NonRecurringChargeEvent">1</property>
+                         <property name="ParentID">-1</property>
+                         <priceableitemtype name="Flat Rate Non Recurring Charge">
+                              <property name="ConstrainSubscriberCycle">-1</property>
+                              <property name="Description">One time service charge with a flat rate.</property>
+                              <property name="ID">32</property>
+                              <property name="Kind">30</property>
+                              <property name="ParentID">-1</property>
+                              <property name="ProductView">metratech.com/nonrecurringcharge</property>
+                              <property name="ServiceDefinition">metratech.com/nonrecurringcharge</property>
+                         </priceableitemtype>
+                         <property name="ProductOfferingID">465</property>
+                         <property name="TemplateID">473</property>
+                         <displaynames>
+                              <language name="ES-MX">NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {ES-MX}</language>
+                              <language name="US">NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</language>
+                              <language name="JP">NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {JP}</language>
+                              <language name="FR">NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {FR}</language>
+                              <language name="ES">NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {ES}</language>
+                              <language name="DE">NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {DE}</language>
+                              <language name="GB">NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {GB}</language>
+                              <language name="IT">NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {IT}</language>
+                              <language name="PT-BR">NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034 {PT-BR}</language>
+                         </displaynames>
+                         <pricelistmappings>
+                              <pricelistmapping name="NRC-feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034:metratech.com/NonRecurringCharge">
+                                   <property name="CanICB">0</property>
+                                   <property name="ParamTableDefinitionID">5</property>
+                                   <property name="PriceableItemID">474</property>
+                                   <property name="PriceListID">463</property>
+                                   <paramtabledefinitionname>metratech.com/NonRecurringCharge</paramtabledefinitionname>
+                                   <pricelistname>Nonshared PL for:feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034</pricelistname>
+                              </pricelistmapping>
+                         </pricelistmappings>
+                         <adjustments type="Instance">
+                         </adjustments>
+                    </nonrecurringcharge>
+               </priceableiteminstances>
+          </productoffering>
+     </productofferings>
+     <integrity>
+          <parametertables>
+               <parametertable name="metratech.com/FlatRecurringCharge">
+                    <checksum>53ed5350885e5bb0f70fdb7e613de69b</checksum>
+                    <id>4</id>
+               </parametertable>
+               <parametertable name="metratech.com/NonRecurringCharge">
+                    <checksum>bbfb09a9d21928215503bbea97ff157d</checksum>
+                    <id>5</id>
+               </parametertable>
+          </parametertables>
+     </integrity>
+</xmlconfig>

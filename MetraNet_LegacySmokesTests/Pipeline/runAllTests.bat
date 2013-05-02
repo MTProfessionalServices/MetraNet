@@ -1,0 +1,1 @@
+nunit-console /assembly:MetraTech.Pipeline.Test.dll

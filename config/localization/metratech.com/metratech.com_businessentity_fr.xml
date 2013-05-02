@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mt_config>
+    <language_code>fr</language_code>
+    <locale_space name="metratech.com/BusinessEntity">
+        <locale_entry>
+            <Name>metratech.com/BusinessEntity/BusinessEntityExtension/Acme</Name>
+            <Value>Acme</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/BusinessEntity/BusinessEntityExtension/Core</Name>
+            <Value>Principal</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/BusinessEntity/BusinessEntityExtension/Messaging</Name>
+            <Value>Messagerie</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/BusinessEntity/BusinessEntityExtension/smoketest</Name>
+            <Value>testfumée</Value>
+        </locale_entry>
+    </locale_space>
+</mt_config>

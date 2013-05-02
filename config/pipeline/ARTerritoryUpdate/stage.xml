@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xmlconfig>
+  <version ptype="INTEGER">1</version>
+  <stage>
+    <name>ARTerritoryUpdate</name>
+    <startstage ptype="BOOL">TRUE</startstage>
+    <finalstage ptype="BOOL">TRUE</finalstage>
+    <nextstage></nextstage>
+    <dependencies>
+      <dependson>ARPropagation</dependson>
+    </dependencies>
+  </stage>
+</xmlconfig>

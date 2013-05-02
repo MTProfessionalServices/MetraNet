@@ -1,0 +1,30 @@
+
+				exec export_CreateReportInstance 	
+					@id_rep					=%%ID_REP%%,
+					@desc					=%%DESC%%,
+					@outputType				=%%OUTPUT_TYPE%%,
+					@distributionType		=%%DELIVERY_TYPE%%,
+					@destination			=%%DESTINATION%%,
+					@ReportExecutionType	=%%EXEC_TYPE%%,
+					@xmlConfigLocation		=%%CONFIG_FILE_LOC%%,
+					@c_report_online		= 0,
+					@dtActivate				=%%DT_ACTIVATE%%,
+					@dtDeActivate			=%%DT_DEACTIVATE%%,
+					@directMoveToDestn		=0,
+					@destnAccessUser		=%%FTP_USER%%,
+					@destnAccessPwd			=%%FTP_PASSWORD%%,
+					@compressreport			=%%COMPRESS_REPORT%%,
+					@compressthreshold		=%%COMPRESS_THRESHOLD%%,
+					@ds_id					=%%DS_ID%%,
+					@eopinstancename		=%%EOP_INSTANCE_NAME%%,
+					@createcontrolfile		=%%CREATE_CONTROL_FILE%%,
+					@controlfiledelivery	=%%CONTROL_FILE_DESTINATION%%,
+					@outputExecuteParams	=%%OUTPUT_EXEC_PARAMS_TO_REPORT%%,
+					@UseQuotedIdentifiers	=%%USE_QUOTED_IDENTIFIERS%%,
+					@dtLastRunDateTime		=%%DT_LAST_RUN%%,
+					@dtNextRunDateTime		=%%DT_NEXT_RUN%%,
+					@paramDefaultNameValues	=%%PARAM_NAME_VALUES%%,
+					@outputFileName			=%%OUTPUT_FILE_NAME%%,
+					@ReportInstanceId		=NULL
+				
+			

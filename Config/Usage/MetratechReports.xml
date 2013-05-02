@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<xmlconfig>
+	<reports>
+		<scandataexportservice>
+			<scaninterval value="1" />	<!-- in minutes -->
+		</scandataexportservice>
+		<!-- Change the  below entry to the server name where the Metratech Data Export Service is running.-->
+		<processingserver>localhost</processingserver>
+		<workingfolder>Config\WorkingFolder</workingfolder>
+		<queries>
+			<v1_format>
+				<service>Config\Queries\Service</service>
+				<custom>Config\Queries\Custom</custom>
+			</v1_format>
+			<v2_format>
+				<service>Config\SqlCore\Queries\Service</service>
+				<custom>Config\SqlCore\Queries\Custom</custom>
+			</v2_format>
+		</queries>
+	</reports>
+</xmlconfig>

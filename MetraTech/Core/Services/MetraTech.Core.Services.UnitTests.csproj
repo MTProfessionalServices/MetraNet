@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{24DB3503-1249-4E5C-9824-4DDF1AE4E443}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetraTech.Core.Services.UnitTests</RootNamespace>
+    <AssemblyName>MetraTech.Core.Services.UnitTests</AssemblyName>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <NoWarn>1591</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\Development\UnitTests\MetraTech\MetraAR\Services\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\Development\UnitTests\MetraTech\MetraAR\Services\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Core.FileLandingService.Entity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Core.FileLandingService.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="Core.Interface, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Core.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.Approvals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Approvals.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.BusinessEntity.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.BusinessEntity.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.BusinessEntity.DataAccess">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.BusinessEntity.DataAccess.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.Common">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.Core.Services.ClientProxies, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Core.Services.ClientProxies.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.AccountTypes.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.AccountTypes.Generated.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.Enums.Generated">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.BusinessEntity.DataAccess">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.BusinessEntity.DataAccess.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.ActivityServices.Common">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.ActivityServices.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.BaseTypes">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.BaseTypes.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.Common">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.Enums">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Enums.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.Basic">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Basic.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.MetraPay">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.MetraPay.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.ProductCatalog">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.ProductCatalog.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.Billing">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Billing.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.ProductCatalog.Generated">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.ProductCatalog.Generated.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.Security">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Security.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.Xml">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Xml.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.Test">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Test.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MTAuth.interop">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTAuth.interop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MTYAAC.interop">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTYAAC.interop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NHibernate">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\NHibernate.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RCD.interop">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>$(MTRMPBIN)\RCD.interop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApprovalManagementService.UnitTests.cs" />
+    <Compile Include="ElectronicPaymentService.Tests.cs" />
+    <Compile Include="FileManagementServiceTests.cs" />
+    <Compile Include="ParameterValidationInspectorTest.cs" />
+    <Compile Include="SampleUnitTest.cs" />
+    <Compile Include="SpecificationServiceUnitTests.cs" />
+    <Compile Include="AmpServiceTests.cs" />
+    <Compile Include="GetAccountListTests.cs" />
+    <Compile Include="PerfGetAccountListTests.cs" />
+    <Compile Include="TaxServiceTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ASPTypeLibrary">
+      <Guid>{D97A6DA0-A85C-11CF-83AE-00A0C90C2BD8}</Guid>
+      <VersionMajor>3</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="METRATIMELib">
+      <Guid>{0900FBFB-65A0-4DF6-8212-9DB496A0FF5A}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="MSXML">
+      <Guid>{D63E0CE2-A0A2-11D0-9C02-00C04FC99C8E}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="SYSCONTEXTLib">
+      <Guid>{7B106340-5EE4-11D2-A1C9-006008C0E24A}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

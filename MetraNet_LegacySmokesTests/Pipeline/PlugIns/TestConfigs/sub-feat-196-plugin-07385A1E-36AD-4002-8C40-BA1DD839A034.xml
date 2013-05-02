@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmlconfig>
+     <creationdate>3/27/2012 6:27:54 AM</creationdate>
+     <computername>NKSQL67_2</computername>
+     <username>Administrator</username>
+     <pcimportexportversion>5.0.0</pcimportexportversion>
+     <rmpversion></rmpversion>
+     <rmpishierarchyrestrictedoperations>True</rmpishierarchyrestrictedoperations>
+     <subscriptions>
+          <subscription name="feat-196-plugin-07385A1E-36AD-4002-8C40-BA1DD839A034">
+               <property name="accountID">123</property>
+               <pctimespan name="EffectiveDate">
+                    <property name="EndDate">1/1/2038</property>
+                    <property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+                    <property name="EndOffset">0</property>
+                    <property name="ID">-1</property>
+                    <property name="StartDate">1/10/2012</property>
+                    <property name="StartDateType">4<!-- PCDATE_TYPE_NULL --></property>
+                    <property name="StartOffset">0</property>
+               </pctimespan>
+               <property name="ExternalIdentifier">{8D1D9185-7F3F-40D5-AF0C-CB2E9BA95C35}</property>
+               <property name="id_sub">291958155</property>
+               <property name="po">465</property>
+               <username>demo</username>
+               <namespace>mt</namespace>
+               <icbs>
+               </icbs>
+               <udrcs>
+               </udrcs>
+          </subscription>
+     </subscriptions>
+     <integrity>
+          <parametertables>
+          </parametertables>
+     </integrity>
+</xmlconfig>

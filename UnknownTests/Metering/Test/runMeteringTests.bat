@@ -1,0 +1,1 @@
+nunit-console /fixture:MetraTech.Metering.Test.MeteringTests /assembly:O:\debug\bin\MetraTech.Metering.Test.dll

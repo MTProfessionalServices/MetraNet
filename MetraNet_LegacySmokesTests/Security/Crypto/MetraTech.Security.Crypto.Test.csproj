@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)'==''">Debug</Configuration>
+    <Platform Condition="'$(Platform)'==''">x86</Platform>
+    <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6C4B9F5D-DA79-4616-A9B2-47651331BA43}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetraTech.Security.Crypto.Test</RootNamespace>
+    <AssemblyName>MetraTech.Security.Crypto.Test</AssemblyName>
+    <MinFrameworkVersionRequired>3.0</MinFrameworkVersionRequired>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <NoWarn>1591, 0618</NoWarn>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\Security\Test\Crypto</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin</OutputPath>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <NoWarn>1591, 0618</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\Security\Test\Crypto</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MetraTech.Security.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+      <Private>false</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Security.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.SecurityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+      <Private>false</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.SecurityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.SecurityFramework.Serialization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+      <Private>false</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.SecurityFramework.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.SecurityFramework.Core.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+      <Private>false</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.SecurityFramework.Core.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MTAuth.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTAuth.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MTServerAccess.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTServerAccess.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Source\Thirdparty\NUnit260\bin\framework\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="RCD.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\RCD.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="SysContext.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\SysContext.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.Common">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Common.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="MetraTech.Security.Crypto">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Security.Crypto.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="MetraTech.Security.DPAPI">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Security.DPAPI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="MetraTech.Security">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Security.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TestCrypto.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Test\MetraTech.Test.csproj">
+      <Project>{E95B8F73-F559-48AE-BCC2-7B0A9B3AC5A2}</Project>
+      <Name>MetraTech.Test</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MetraTech.Security.Test.csproj">
+      <Project>{7547DEDC-7449-4190-9B8A-7C0C8FBE46E4}</Project>
+      <Name>MetraTech.Security.Test</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

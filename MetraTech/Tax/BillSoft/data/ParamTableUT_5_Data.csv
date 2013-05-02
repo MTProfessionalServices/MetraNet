@@ -1,0 +1,30 @@
+0,invoice_date,date,null,Invoice Date
+0,round_alg,string,MATH,"rounding algorith. None  for no rounding, MATH for regular rounding, BANK - for bankers rounding."
+0,round_digits,number,3,"0 - no rounding, 1 round to 1 digit after decimal point"
+1,id_tax_charge,int,0,Primary key for this tax charge
+1,amount,decimal,0,Amount to be taxed
+1,bus_class_ind,string,C,Business class indicator (C-CLEC or I-ILEC)
+1,call_duration,decimal,0,Call duration time
+1,client_resale,sting,S,"S-Sale, R-Resale"
+1,customer_type,string,B,"B/R/I/S B- Business, I-Industrina, R-Residental Customer, S- Senior Citizen"
+1,facilities_flag,string,N,facilities based flag (F or N)
+1,franchise_flag,string,N,Franchise or Non-Franchise (F or N)
+1,id_acc,number,null,Customer account id. Will be used to define PK in BIllSoft generated logs
+1,inc_code,string,I,Customer Inside or Outside incorporated area
+1,invoice_date,date,null,Date of the invoice
+1,invoice_id,string,null,"Used in the tax vendor's audit information.  In the audit, the invoice_id may be reported with the corresponding tax details."
+1,is_implied_tax,string,N,Y/N. Implied means taxes are included in the amount
+1,is_regulated,string,R,"Reseller regulated or unregulated in the state of sale. R-Regulated, U-Unregulated"
+1,lifeline_flag,string,I,"L- lifeline customer, I - not lifeline"
+1,lines,number,0,"When local service is provided, a transaction should be generated with the Lines field populated with the number of lines the customer subscribes to. "
+1,location,number,0,"When local service is provided, the Locations Field should be populated with the number of locations the customer has. "
+1,orig_pcode,int,null,Originating PCode
+1,product_code,string,AC-000,"Product code to be mapped to Transaction Type, Service Type"
+1,round_alg,string,MATH,"rounding algorith. None  for no rounding, MATH for regular rounding, BANK - for bankers rounding."
+1,round_digits,number,3,"0 - no rounding, 1 round to 1 digit after decimal point"
+1,svc_addr_pcode,int,null,Service Address PCode
+1,svc_class_ind,string,D,Long Distance or Local primary (D or L)
+1,telecom_type,string,C,"C-Calls(telcom), D-Debit Card Calls, P-Point of sale"
+1,term_pcode,int,null,Termination PCode
+2,amount,decimal,0,Amount to be taxes
+2,invoice_id,string,null,"Used in the tax vendor's audit information.  In the audit, the invoice_id may be reported with the corresponding tax details."

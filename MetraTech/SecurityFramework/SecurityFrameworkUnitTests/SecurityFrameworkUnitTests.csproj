@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3839E185-1D0D-44EC-9852-815D52576445}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetraTech.SecurityFrameworkUnitTests</RootNamespace>
+    <AssemblyName>SecurityFrameworkUnitTests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="RCD.interop">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\RCD.interop.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="AntiXssLibrary">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\AntiXssLibrary.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="MetraTech.Security.Common">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Security.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.SecurityFramework.Serialization">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.SecurityFramework.Serialization.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.SecurityFramework.Core.Common">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.SecurityFramework.Core.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.SecurityFramework">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.SecurityFramework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccessController\AccessControllerUrlTests.cs" />
+    <Compile Include="ConfigurationLoaderForTesting.cs" />
+    <Compile Include="ConfigurationLoaderTest.cs" />
+    <Compile Include="Decoder\DecoderExtensionsTest.cs" />
+    <Compile Include="Decoder\DecoderTest.cs" />
+    <Compile Include="Detector\Base64DetectionTest.cs" />
+    <Compile Include="Detector\DetectorExtensionsTest.cs" />
+    <Compile Include="Detector\DetectorPropertiesTest.cs" />
+    <Compile Include="Detector\DetectorTest.cs" />
+    <Compile Include="EncoderExtensionsTest.cs" />
+    <Compile Include="EncoderTest.cs" />
+    <Compile Include="Encryptor\EncryptorExtensionsTest.cs" />
+    <Compile Include="EntLibErrorLoggerTest.cs" />
+    <Compile Include="PasswordConfigTest.cs" />
+    <Compile Include="Processor\ProcessorEngineTest.cs" />
+    <Compile Include="Processor\ProcessorXssDetectorTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sanitizer\SanitizerExtensionsTest.cs" />
+    <Compile Include="Sanitizer\SanitizerTest.cs" />
+    <Compile Include="SaveConfigurationTest.cs" />
+    <Compile Include="SecurityEventFilterTest.cs" />
+    <Compile Include="SecurityMonitorTest.cs" />
+    <Compile Include="SubsystemPropertiesTest.cs" />
+    <Compile Include="TestCustomFilter.cs" />
+    <Compile Include="UnitTestUtility.cs" />
+    <Compile Include="Encryptor\EncryptorTest.cs" />
+    <Compile Include="Validator\ValidatorExtensionsTest.cs" />
+    <Compile Include="Validator\ValidatorTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EmailTemplates\TestTemplate.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Key.snk" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="$(RMPDIR)\config\Security\mtpassword.xml">
+      <Link>TestConfigs\mtpassword.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(RMPDIR)\config\Security\mtsecurity.xml">
+      <Link>TestConfigs\mtsecurity.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="$(ROOTDIR)\MetraTech\SecurityFramework\Configs\MtSfAccessController.xml">
+      <Link>TestConfigs\MtSfAccessController.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(ROOTDIR)\MetraTech\SecurityFramework\Configs\MtSfConfigurationLoader.xml">
+      <Link>TestConfigs\MtSfConfigurationLoader.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(ROOTDIR)\MetraTech\SecurityFramework\Configs\MtSfDecoder.xml">
+      <Link>TestConfigs\MtSfDecoder.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(ROOTDIR)\MetraTech\SecurityFramework\Configs\MtSfEncryptor.xml">
+      <Link>TestConfigs\MtSfEncryptor.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="$(ROOTDIR)\MetraTech\SecurityFramework\Configs\MtSfSanitizer.xml">
+      <Link>TestConfigs\MtSfSanitizer.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(ROOTDIR)\MetraTech\SecurityFramework\Configs\MtSfSsDetector.xml">
+      <Link>TestConfigs\MtSfSsDetector.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(ROOTDIR)\MetraTech\SecurityFramework\Configs\MtSfSsEncoder.xml">
+      <Link>TestConfigs\MtSfSsEncoder.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(ROOTDIR)\MetraTech\SecurityFramework\Configs\MtSfSsProcessor.xml">
+      <Link>TestConfigs\MtSfSsProcessor.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(ROOTDIR)\MetraTech\SecurityFramework\Configs\MtSfSsValidator.xml">
+      <Link>TestConfigs\MtSfSsValidator.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestConfigs\DoubleRuleId_MtSfSsProcessor.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestConfigs\DoubleEngineId_MtSfSsProcessor.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestConfigs\MtSfConfigurationLoaderNoApi.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestConfigs\MtSfLogging.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TestConfigs\MtSfSettings.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestConfigs\XmlSerializer_Test.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestConfigs\TrueTest_MtSfSsProcessor.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestConfigs\MtSfSsSecurityMonitor.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TestConfigs\MtSfSsDetectorNoApi.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>XCOPY "%25ROOTDIR%25\MetraTech\SecurityFramework\Core\App_Data\SecurityFramework.db" "%25MTOUTDIR%25\Debug\bin\TestConfigs\*" /Y
+XCOPY "$(ProjectDir)\TestConfigs\*.xml" "%25RMPDIR%25\config\Security\Validation\TestConfigs\*.xml" /Y
+XCOPY "%25RMPDIR%25\config\Security\Validation\*.xml" "%25RMPDIR%25\config\Security\Validation\TestConfigs\*.xml" /Y
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1 @@
+svcutil.exe http://localhost/Service/DataAccessService.svc?wsdl /config:App.config /ct:System.Collections.Generic.List`1 /n:*,MetraTech.BusinessEntity.Test.CoreService

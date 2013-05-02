@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<priceable_item>
+  <name>Song Downloads Copy</name>
+  <description>Sample aggregate charge</description>
+  <item_type>aggregate</item_type>
+  <relationships>
+    <parent></parent>
+  </relationships>
+  <parameter_table>metratech.com/songdownloads</parameter_table>
+  <counters>
+    <cpd>
+      <name>TotalSongs</name>
+      <display_name>Total songs downloaded</display_name>
+      <service_property>TotalSongs</service_property>
+      <preferred_counter_type>SumOfOneProperty</preferred_counter_type>
+    </cpd>
+    <cpd>
+      <name>TotalBytes</name>
+      <display_name>Total bytes downloaded</display_name>
+      <service_property>TotalBytes</service_property>
+      <preferred_counter_type>SumOfOneProperty</preferred_counter_type>
+    </cpd>
+    <counter>
+      <name>TotalSongs</name>
+      <type>SumOfOneProperty</type>
+      <parameter>
+        <name>A</name>
+        <value>metratech.com/songdownloads_temp/songs</value>
+      </parameter>
+    </counter>
+    <counter>
+      <name>TotalBytes</name>
+      <type>SumOfTwoProperties</type>
+      <parameter>
+        <name>A</name>
+        <value>metratech.com/songdownloads_temp/mp3bytes</value>
+      </parameter>
+      <parameter>
+        <name>B</name>
+        <value>metratech.com/songdownloads_temp/wavbytes</value>
+      </parameter>
+    </counter>
+  </counters>
+  <charges>
+	<charge>
+		<name>ConnectionFee</name>
+		<display_name>Connection Fee Charge</display_name>
+	</charge>
+  </charges>
+  <pipeline>
+    <service_definition>metratech.com/songdownloads</service_definition>
+    <product_view>metratech.com/songdownloads</product_view>
+  </pipeline>
+   <adjustment_type>
+    <name>ConnectionFeeFlatAdjustmentCopy</name>
+    <description>Connection Fee Flat Adjustment Copy</description>
+    <displayname>Connection Fee Flat Adjustment Display Copy</displayname>
+    <CalculationEngine>1</CalculationEngine>
+    <supportsBulk>N</supportsBulk>
+    <formula>
+	    <![CDATA[
+       Create Procedure CalcConnectionFeeAdjustment
+	        -- required inputs
+	        @ConnectionFeeAdjustmentAmount DECIMAL
+	        -- outputs
+	        @AJ_ConnectionFee DECIMAL OUTPUT,
+	        @TotalAdjustmentAmount DECIMAL OUTPUT
+	        As
+          set @AJ_ConnectionFee = @ConnectionFeeAdjustmentAmount
+          set @TotalAdjustmentAmount = round(@AJ_ConnectionFee, 2)
+          
+        ]]>
+    </formula>
+    <applicabilityrules>
+    </applicabilityrules>
+    <reasoncodes>
+      <reasoncode>Bankruptcy</reasoncode>
+      <reasoncode>RateCorrection</reasoncode>
+    </reasoncodes>
+    <Kind>1</Kind>
+    
+    <required_inputs>
+      <input_val
+        name="ConnectionFeeAdjustmentAmount"
+        type="DECIMAL"
+        displayname="Adjustment Amount for Connection Fee"
+      />
+     </required_inputs>
+   
+    <outputs>
+      <output_val
+        name="AJ_ConnectionFee"
+        type="DECIMAL"
+        displayname="Adjustment For Connection Fee"
+      />
+       <output_val
+        name="TotalAdjustmentAmount"
+        type="DECIMAL"
+        displayname="Connection Fee Total Adjustment Amount"
+      />
+    </outputs>
+   </adjustment_type>
+   <adjustment_type>
+    <name>ConnectionFeePercentAdjustmentCopy</name>
+    <description>Connection Fee Percentage Adjustment Copy</description>
+    <displayname>Connection Fee Percentage Adjustment Display Copy</displayname>
+    <CalculationEngine>1</CalculationEngine>
+    <supportsBulk>N</supportsBulk>
+    <formula>
+	    <![CDATA[
+      Create Procedure CalcPercentConnectFeeAdjust
+	        -- required inputs
+	        @ConnectionFeePercent DECIMAL,
+	         -- non required inputs
+	        @ConnectionFee DECIMAL,
+	        -- outputs
+	        @AJ_ConnectionFee  DECIMAL OUTPUT,
+	        @TotalAdjustmentAmount DECIMAL OUTPUT
+	        as
+          set @AJ_ConnectionFee  = round(@ConnectionFee*@ConnectionFeePercent*0.01, 2)
+          set @TotalAdjustmentAmount = @AJ_ConnectionFee
+        ]]>
+    </formula>
+    <applicabilityrules>
+    </applicabilityrules> <!-- no rule, so can be used as prebill or postbill -->
+    <reasoncodes>
+      <reasoncode>Bankruptcy</reasoncode>
+      <reasoncode>RateCorrection</reasoncode>
+    </reasoncodes>
+    <Kind>2</Kind>
+    
+    <required_inputs>
+      <input_val
+        name="ConnectionFeePercent"
+        type="DECIMAL"
+        displayname="Adjustment Percentage for Connection Fee"
+      />
+    </required_inputs>
+   
+    <outputs>
+      <output_val
+        name="AJ_ConnectionFee"
+        type="DECIMAL"
+        displayname="Adjustment For Connection Fee"
+      />
+       <output_val
+        name="TotalAdjustmentAmount"
+        type="DECIMAL"
+        displayname="Connection Fee Total Adjustment Amount"
+      />
+  </outputs>
+   </adjustment_type>
+</priceable_item>

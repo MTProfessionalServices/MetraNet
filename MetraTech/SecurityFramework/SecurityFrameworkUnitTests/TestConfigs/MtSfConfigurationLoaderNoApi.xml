@@ -1,0 +1,8 @@
+﻿<ConfigurationLoader>
+  <Items>
+    <item Id="766DCC7A-DDBB-4759-A74A-1BE9611EA774" IsServiceSubsystem="true" IsEnabled="true" Name="SecurityFrameworkSettings" Path="MtSfSettings.xml" Type="MetraTech.SecurityFramework.Core.Common.Configuration.SecurityFrameworkSettings, MetraTech.SecurityFramework" />
+    <item Id="162212C5-8ABC-40F2-9E36-BEEFC6739EE4" IsServiceSubsystem="true" IsEnabled="true" Name="LoggerClassConfiguration" Path="MtSfLogging.xml" Type="MetraTech.SecurityFramework.Core.Common.Logging.Configuration.LoggerClassConfiguration, MetraTech.SecurityFramework.Core.Common"/>
+    <item Id="A6743AD8-B7B9-4985-B07D-404E8FA6D977" IsEnabled="true" Name="Detector" Path="MtSfSsDetectorNoApi.xml" SubsystemType="MetraTech.SecurityFramework.Detector, MetraTech.SecurityFramework" Type="MetraTech.SecurityFramework.Core.SubsystemProperties, MetraTech.SecurityFramework.Core.Common"/>
+    <item Id="9FF69BC7-2805-4F2B-AE7D-223386B12CF3" IsEnabled="true" Name="Decoder" Path="MtSfDecoder.xml" SubsystemType="MetraTech.SecurityFramework.Decoder, MetraTech.SecurityFramework" Type="MetraTech.SecurityFramework.Core.SubsystemProperties, MetraTech.SecurityFramework.Core.Common" />
+  </Items>
+</ConfigurationLoader>

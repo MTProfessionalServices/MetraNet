@@ -1,0 +1,114 @@
+using System.Runtime.InteropServices;
+
+[assembly: GuidAttribute("E5B87A2E-FB2F-48a2-8126-3079D3100925")]
+
+namespace MetraTech.Pipeline.PlugIns.Test
+{
+	using System;
+	using System.Collections;				// IEnumerator
+	using MetraTech.Interop.MTPipelineLib;	// 
+
+	[ClassInterface(ClassInterfaceType.None)]
+	[Guid("72B3AF98-027C-4dcf-BC67-4C48600A9DAB")]
+	public class MTCSharpPropTestPlugIn : IMTPipelinePlugIn// ,IMTManagedPipelinePlugIn 
+	{
+		public void Configure(object systemContext,
+			 				  IMTConfigPropSet propSet)
+		{
+			// Initialize totals.
+			mlBoolTotal = 0;
+			mlIntTotal = 0;
+			mlStringTotal = 0;
+			mdDecimalTotal = 0;
+			mdDoubleTotal = 0;
+
+			// Get interfaces
+			mLogger = new Logger((MetraTech.Interop.SysContext.IMTLog) systemContext);
+			mNameID = (IMTNameID) systemContext;
+			
+			// Get property iD's
+			mlBoolProp = mNameID.GetNameID("boolVal");
+			mlIntProp = mNameID.GetNameID("intVal");
+			mlStringProp = mNameID.GetNameID("strVal");
+			mlDecimalProp = mNameID.GetNameID("decValue");
+			mlDoubleProp = mNameID.GetNameID("dVal");
+
+			mLogger.LogDebug("MTCShapPropTestPlugIn plug-in starting");
+		}
+
+		public void ProcessSessions(IMTSessionSet sessions)
+		{
+			IEnumerator enumerator = sessions.GetEnumerator();
+
+			try
+			{
+				while (enumerator.MoveNext())
+				{
+					IMTSession aSession = (IMTSession) enumerator.Current;
+					try
+					{
+						mlBoolTotal += (aSession.GetBoolProperty(mlBoolProp) == true ? 1 : 0);
+						mlIntTotal += aSession.GetLongProperty(mlIntProp);
+
+						string strValue = aSession.GetStringProperty(mlStringProp);
+						mlStringTotal += strValue[0];
+						mdDoubleTotal += aSession.GetDoubleProperty(mlDoubleProp);
+
+						mdDecimalTotal += (decimal) aSession.GetDecimalProperty(mlDecimalProp);
+					}
+					finally
+					{
+						Marshal.ReleaseComObject(aSession);
+					}
+				}
+			}
+			catch(Exception ex)
+			{
+				mLogger.LogError(ex.Message);
+				throw;
+			}
+			finally
+			{
+				// important - explicitly release our reference to the object
+				ICustomAdapter adapter = (ICustomAdapter)enumerator;
+				Marshal.ReleaseComObject(adapter.GetUnderlyingObject());
+				Marshal.ReleaseComObject(sessions);
+			}
+		}
+
+		public int ProcessorInfo
+		{
+			get
+			{
+				int E_NOTIMPL = -2147467263; //0x80004001
+				// throw new COMException("not implemented", E_NOTIMPL);
+				return E_NOTIMPL;
+			}
+			
+		}
+
+		// Nothing to do here.
+		public void Shutdown()
+		{
+		}
+
+		private Logger mLogger;
+		private IMTNameID mNameID;
+
+		// Property ID's
+		private int mlBoolProp;
+		private int mlIntProp;
+		private int mlStringProp;
+		private int mlDecimalProp;
+		private int mlDoubleProp;
+
+		// Totals for each property
+		private long mlBoolTotal;
+		private long mlIntTotal;
+		private long mlStringTotal;
+		private decimal mdDecimalTotal;
+		private double mdDoubleTotal;
+	}
+}
+
+//-- EOF --

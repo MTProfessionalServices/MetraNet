@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<xs:schema id="xmlconfig" targetNamespace="http://tempuri.org/timezone.xsd" xmlns:mstns="http://tempuri.org/timezone.xsd"
+  xmlns="http://tempuri.org/timezone.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+  attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:element name="xmlconfig" msdata:IsDataSet="true" msdata:EnforceConstraints="False">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="mtconfigdata">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="timezone" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="id_timezone" type="xs:int" minOccurs="0" />
+                    <xs:element name="nm_timezone" type="xs:string" minOccurs="0" />
+                    <xs:element name="tx_timezone_info" type="xs:string" minOccurs="0" />
+                    <xs:element name="tx_DLST" type="xs:string" minOccurs="0" />
+                    <xs:element name="description_id" type="xs:string" minOccurs="0" />
+                    <xs:element name="useWindowsTimeZone" nillable="true" type="xs:boolean" minOccurs="0" default="true" />
+                    <xs:element name="qn_GMT_offset" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:simpleContent msdata:ColumnName="qn_GMT_offset_Text" msdata:Ordinal="1">
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="ptype" form="unqualified" type="xs:string" />
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

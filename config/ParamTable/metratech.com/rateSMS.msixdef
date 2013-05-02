@@ -1,0 +1,3 @@
+<defineservice>
+	<name display_name="Rate SMS" condition_header="Conditions" action_header="Actions">metratech.com/rateSMS</name>
+	<ptype operator="Y"><dn>SMStype_op</dn><type>string</type><length>5</length><required>Y</required><defaultvalue/></ptype><ptype condition="Y" display_name="SMS Type" operator_per_rule="Y"><dn>SMStype</dn><type EnumSpace="metratech.com/SMSType" EnumType="SMSType">enum</type><length></length><required>Y</required><defaultvalue></defaultvalue></ptype><ptype display_name="Rate" action="Y"><dn>Rate</dn><type>decimal</type><length></length><required>Y</required><defaultvalue>0.0</defaultvalue></ptype></defineservice>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xmlconfig>
+  <mtsysconfigdata>
+    <effective_date ptype="DATETIME">2001-04-06T21:46:29Z</effective_date>
+    <timeout ptype="INTEGER">365</timeout>
+    <configfiletype>CONFIG_DATA</configfiletype>
+  </mtsysconfigdata>
+  <mtconfigdata>
+    <version ptype="INTEGER">1</version>
+    <processor>
+      <name>pcratelookup</name>
+      <progid>MetraPipeline.PCRate.1</progid>
+      <description></description>
+      <inputs>
+        <input type="ENUM">Priority</input>
+      </inputs>
+      <outputs>
+        <output type="DECIMAL">Rate</output>
+       </outputs>
+
+      <configdata>
+           <ResolveSubscription ptype="BOOLEAN">False</ResolveSubscription>
+          <!-- lookup from a named parameter table -->
+        <RateLookup>
+          <ParamTable>metratech.com/rateSMS</ParamTable>
+        </RateLookup>
+
+      </configdata>
+    </processor>
+  </mtconfigdata>
+</xmlconfig>

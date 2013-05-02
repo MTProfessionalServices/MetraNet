@@ -1,0 +1,32 @@
+
+<xmlconfig>
+	<server>
+		<servertype>ReportingDBServer</servertype>
+		<servername>localhost</servername>
+		<databasetype>{SQL Server}</databasetype>
+     <timeout ptype="INTEGER">11800</timeout>
+		<username>nmdbo</username>
+		<password>MetraTech1</password>
+	</server>
+
+	<!--server>
+		<servertype>ReportingDBServer</servertype>
+		<servername>pluto</servername>
+		<databasedriver>{Oracle in OraHome}</databasedriver>
+		<databasetype>{Oracle}</databasetype>
+		<username>nmdbo</username>
+		<password>nmdbo</password>
+	</server-->
+
+	<server>
+		<servertype>APSServer</servertype>
+		<servername>crystal-xi-1</servername>
+    <databasename>MetraNet</databasename>
+		<username>crystal-xi-1\mtuser</username>
+		<password>MetraTech1</password>
+		<secure ptype="INTEGER">0</secure>
+		<portnumber ptype="INTEGER">80</portnumber>
+	</server>
+
+
+</xmlconfig>

@@ -1,0 +1,5 @@
+c:\rudi\QueueTest\RabbitMQTestSendString\RabbitMQTestSendString\bin\Debug\RabbitMQTestSendString.exe
+c:\rudi\QueueTest\RabbitMQTestSendString\RabbitMQTestSendString\bin\Debug\RabbitMQTestSendString.pdb
+c:\rudi\QueueTest\RabbitMQTestSendString\RabbitMQTestSendString\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\rudi\QueueTest\RabbitMQTestSendString\RabbitMQTestSendString\obj\x86\Debug\RabbitMQTestSendString.exe
+c:\rudi\QueueTest\RabbitMQTestSendString\RabbitMQTestSendString\obj\x86\Debug\RabbitMQTestSendString.pdb

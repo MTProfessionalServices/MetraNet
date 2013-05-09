@@ -1,0 +1,16 @@
+
+RELATIVEDIR := MetraTech\Sms\SMSServer
+SRC :=  
+
+ASSEMBLIES := CookComputing.XmlRpc.dll
+SYSTEM_ASSEMBLIES := system.web.dll
+
+DEFINES := 
+
+CSHARPDLL := MetraTech.SMSServer
+
+REGISTER_COMINTEROP := 1
+SIGN_WITH_METRATECH_KEY := 1
+
+TEST_UTILITY := 1
+

@@ -1,0 +1,14 @@
+BODY{
+	background-color:white;
+    color:black;
+    font-family:Arial;
+    font-size:10px;
+}
+
+A{
+	color:"darkgoldenrod";
+}
+
+A:Visited{
+	color:blue;
+}

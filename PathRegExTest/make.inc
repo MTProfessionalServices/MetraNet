@@ -1,0 +1,21 @@
+RELATIVEDIR := Shared/PathRegEx/Test
+
+SRC := Test.cpp
+
+INCLUDEDIRS :=	$(OUTPUTROOT)\Shared\PathRegEx $(SRCROOT)\Shared\PathRegEx	\
+
+
+MIDL_INCLUDEDIRS := 
+  
+
+DEFINES := 
+
+EXTRA_LIBS := PathRegEx.lib
+
+EXTRA_SYS_LIBS := 
+
+EXENAME := PathRegExTest
+
+OVERRIDE_UNICODE_CPP_FLAGS := 
+
+TEST_UTILITY := 1

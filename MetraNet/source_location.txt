@@ -1,1 +1,1 @@
-..\..\..\Source\MetraTech\UI\MetraNet
+..\..\Extensions\Legacy_Internal\MetraTech\UI\Res

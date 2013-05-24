@@ -1,0 +1,108 @@
+MessageId=0
+Facility=MTACCOUNTSTATES_ERR
+Severity=Informational
+SymbolicName=MTACCOUNTSTATES_ERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Event Definitions...                                             **/
+/**    Defines common Event Ids and their message text...            **/
+/**********************************************************************/
+.
+MessageId=1
+Facility=MTACCOUNTSTATES_ERR
+Severity=Error
+SymbolicName=ACTIVE_TO_ARCHIVED_FAILED
+Language=English
+State Transition from Active to Archived is not allowed
+.
+MessageId=2
+Facility=MTACCOUNTSTATES_ERR
+Severity=Error
+SymbolicName=STATE_TRANSITION_FAILED_ACCOUNT_IS_A_PAYEE
+Language=English
+This account is a payee.  State transition not allowed. 
+.
+MessageId=3
+Facility=MTACCOUNTSTATES_ERR
+Severity=Error
+SymbolicName=GET_CURRENT_STATE_FROM_DB_FAILED
+Language=English
+The state information could not be retrieved from the database for this account
+.
+MessageId=4
+Facility=MTACCOUNTSTATES_ERR
+Severity=Error
+SymbolicName=STATE_CHANGE_FAILED
+Language=English
+The state could not be changed in the database
+.
+MessageId=5
+Facility=MTACCOUNTSTATES_ERR
+Severity=Error
+SymbolicName=OPERATION_NOT_ALLOWED_IN_CLOSED_OR_ARCHIVED
+Language=English
+The operation failed because the account is closed or archived
+.
+MessageId=6
+Facility=MTACCOUNTSTATES_ERR
+Severity=Error
+SymbolicName=INTERVAL_NOT_HARD_CLOSED
+Language=English
+This interval is not hard closed
+.
+MessageId=7
+Facility=MTACCOUNTSTATES_ERR
+Severity=Error
+SymbolicName=ACTIVE_TO_CLOSED_NOT_ALLOWED
+Language=English
+State transition from Active to Closed is not allowed.  The system will change to Pending Final Bill state first.
+.
+MessageId=8
+Facility=MTACCOUNTSTATES_ERR
+Severity=Error
+SymbolicName=RECURRING_CHARGES_NOT_ALLOWED_FOR_THIS_STATE
+Language=English
+Recurring charges against accounts in '%1!s!' state is disallowed by business rule.
+.
+MessageId=9
+Facility=MTACCOUNTSTATES_ERR
+Severity=Error
+SymbolicName=NON_RECURRING_CHARGES_NOT_ALLOWED_FOR_THIS_STATE
+Language=English
+Non Recurring charges against accounts in '%1!s!' state is disallowed by business rule.
+.
+MessageId=10
+Facility=MTACCOUNTSTATES_ERR
+Severity=Error
+SymbolicName=DISCOUNTS_NOT_ALLOWED_FOR_THIS_STATE
+Language=English
+Discounts against accounts in '%1!s!' state is disallowed by business rule.
+.
+MessageId=11
+Facility=MTACCOUNTSTATES_ERR
+Severity=Error
+SymbolicName=CREDITS_NOT_ALLOWED_FOR_THIS_STATE
+Language=English
+Miscellaneous adjustment against accounts in '%1!s!' state is disallowed by business rule.
+.
+MessageId=12
+Facility=MTACCOUNTSTATES_ERR
+Severity=Error
+SymbolicName=ADDITIONAL_CHARGES_NOT_ALLOWED_FOR_THIS_STATE
+Language=English
+Additional charges against accounts in '%1!s!' state is disallowed by business rule.
+.
+MessageId=13
+Facility=MTACCOUNTSTATES_ERR
+Severity=Error
+SymbolicName=USAGE_NOT_ALLOWED_FOR_THIS_STATE
+Language=English
+Usage against accounts in '%1!s!' state is disallowed by business rule.
+.
+MessageId=14
+Facility=MTACCOUNTSTATES_ERR
+Severity=Error
+SymbolicName=ACCOUNT_CONTAINS_USAGE_ACTIVE_DATE_MOVE_IN_FUTURE_NOT_ALLOWED
+Language=English
+This account contains usage and is already active.  Action to move the start date in future not allowed.  Please Close this account first.
+.

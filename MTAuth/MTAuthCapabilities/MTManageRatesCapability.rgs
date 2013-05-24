@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTManageRatesCapability.1 = s 'MTManageRatesCapability Class'
+	{
+		CLSID = s '{32AC4CAA-F016-40EF-978C-73F8EECF2CDD}'
+	}
+	MetraTech.MTManageRatesCapability = s 'MTManageRatesCapability Class'
+	{
+		CLSID = s '{32AC4CAA-F016-40EF-978C-73F8EECF2CDD}'
+		CurVer = s 'MetraTech.MTManageRatesCapability.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {32AC4CAA-F016-40EF-978C-73F8EECF2CDD} = s 'MTManageRatesCapability Class'
+		{
+			ProgID = s 'MetraTech.MTManageRatesCapability.1'
+			VersionIndependentProgID = s 'MetraTech.MTManageRatesCapability'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{6E741478-C134-452C-8A0D-5689AA2A59C7}'
+		}
+	}
+}

@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTPathCapabilityWriter.1 = s 'MTPathCapabilityWriter Class'
+	{
+		CLSID = s '{9EF8E414-B5B4-4EFB-BE3F-5C348F4972C4}'
+	}
+	Metratech.MTPathCapabilityWriter = s 'MTPathCapabilityWriter Class'
+	{
+		CLSID = s '{9EF8E414-B5B4-4EFB-BE3F-5C348F4972C4}'
+		CurVer = s 'Metratech.MTPathCapabilityWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {9EF8E414-B5B4-4EFB-BE3F-5C348F4972C4} = s 'MTPathCapabilityWriter Class'
+		{
+			ProgID = s 'Metratech.MTPathCapabilityWriter.1'
+			VersionIndependentProgID = s 'Metratech.MTPathCapabilityWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{8D082AAD-43F0-4C97-BDFC-29A20862B17D}'
+		}
+	}
+}

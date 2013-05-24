@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTSecurityContext.1 = s 'MTSecurityContext Class'
+	{
+		CLSID = s '{AF7EDFEE-B5A9-4306-A63E-48C941314383}'
+	}
+	Metratech.MTSecurityContext = s 'MTSecurityContext Class'
+	{
+		CLSID = s '{AF7EDFEE-B5A9-4306-A63E-48C941314383}'
+		CurVer = s 'Metratech.MTSecurityContext.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {AF7EDFEE-B5A9-4306-A63E-48C941314383} = s 'MTSecurityContext Class'
+		{
+			ProgID = s 'Metratech.MTSecurityContext.1'
+			VersionIndependentProgID = s 'Metratech.MTSecurityContext'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{E77362A0-A368-4F3E-A642-843A34C0B83B}'
+		}
+	}
+}

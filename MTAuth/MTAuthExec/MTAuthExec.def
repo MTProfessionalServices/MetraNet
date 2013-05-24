@@ -1,0 +1,9 @@
+; MTAuthExec.def : Declares the module parameters.
+
+LIBRARY      "MTAuthExec.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

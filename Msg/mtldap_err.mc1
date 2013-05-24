@@ -1,0 +1,80 @@
+MessageId=0
+Facility=MTLDAP_ERR
+Severity=Informational
+SymbolicName=MTLDAP_ERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Event Definitions...                                             **/
+/**    Defines common Event Ids and their message text...            **/
+/**********************************************************************/
+.
+MessageId=1
+Facility=MTLDAP_ERR
+Severity=Error
+SymbolicName=MTLDAP_ERR_OPEN_FAILED
+Language=English
+The call to ldap_open failed
+.
+MessageId=2
+Facility=MTLDAP_ERR
+Severity=Error
+SymbolicName=MTLDAP_ERR_BIND_FAILED
+Language=English
+The call to ldap_bind failed
+.
+MessageId=3
+Facility=MTLDAP_ERR
+Severity=Error
+SymbolicName=MTLDAP_ERR_SEARCH_FAILED
+Language=English
+The call to ldap_search failed
+.
+MessageId=4
+Facility=MTLDAP_ERR
+Severity=Error
+SymbolicName=MTLDAP_ERR_ADD_FAILED
+Language=English
+The call to ldap_add failed
+.
+MessageId=5
+Facility=MTLDAP_ERR
+Severity=Error
+SymbolicName=MTLDAP_ERR_MODIFY_FAILED
+Language=English
+The call to ldap_modify failed
+.
+MessageId=6
+Facility=MTLDAP_ERR
+Severity=Error
+SymbolicName=MTLDAP_ERR_DELETE_FAILED
+Language=English
+The call to ldap_delete failed
+.
+MessageId=7
+Facility=MTLDAP_ERR
+Severity=Error
+SymbolicName=MTLDAP_ERR_CONTACT_ALREADY_EXISTS
+Language=English
+Attempt to add duplicate contact
+.
+MessageId=8
+Facility=MTLDAP_ERR
+Severity=Error
+SymbolicName=MTLDAP_ERR_REQUIRED_FIELD_MISSING
+Language=English
+One of the required fields for LDAP server is missing
+.
+MessageId=9
+Facility=MTLDAP_ERR
+Severity=Error
+SymbolicName=MTLDAP_ERR_DELETE_NONEXISTING_CONTACT
+Language=English
+Attempt to delete contact that does not exist
+.
+MessageId=10
+Facility=MTLDAP_ERR
+Severity=Error
+SymbolicName=MTLDAP_ERR_SEARCH_RESULT_NO_CONTACTS
+Language=English
+LDAP search resulted in no contacts
+.

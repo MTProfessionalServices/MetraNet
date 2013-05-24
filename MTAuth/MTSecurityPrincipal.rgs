@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTSecurityPrincipal.1 = s 'MTSecurityPrincipal Class'
+	{
+		CLSID = s '{03613F3A-4631-48C5-B8FE-A03ACB5D7DC8}'
+	}
+	Metratech.MTSecurityPrincipal = s 'MTSecurityPrincipal Class'
+	{
+		CLSID = s '{03613F3A-4631-48C5-B8FE-A03ACB5D7DC8}'
+		CurVer = s 'Metratech.MTSecurityPrincipal.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {03613F3A-4631-48C5-B8FE-A03ACB5D7DC8} = s 'MTSecurityPrincipal Class'
+		{
+			ProgID = s 'Metratech.MTSecurityPrincipal.1'
+			VersionIndependentProgID = s 'Metratech.MTSecurityPrincipal'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{E77362A0-A368-4F3E-A642-843A34C0B83B}'
+		}
+	}
+}

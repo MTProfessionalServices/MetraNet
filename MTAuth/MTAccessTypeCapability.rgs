@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTAccessTypeCapability.1 = s 'MTAccessTypeCapability Class'
+	{
+		CLSID = s '{F5902493-25B5-469F-9C06-649C774D6FB8}'
+	}
+	Metratech.MTAccessTypeCapability = s 'MTAccessTypeCapability Class'
+	{
+		CLSID = s '{F5902493-25B5-469F-9C06-649C774D6FB8}'
+		CurVer = s 'Metratech.MTAccessTypeCapability.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F5902493-25B5-469F-9C06-649C774D6FB8} = s 'MTAccessTypeCapability Class'
+		{
+			ProgID = s 'Metratech.MTAccessTypeCapability.1'
+			VersionIndependentProgID = s 'Metratech.MTAccessTypeCapability'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{E77362A0-A368-4F3E-A642-843A34C0B83B}'
+		}
+	}
+}

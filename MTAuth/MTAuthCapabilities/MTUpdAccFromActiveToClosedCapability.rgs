@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTUpdAccFromActiveToClosedCapability.1 = s 'MTUpdAccFromActiveToClosedCapability Class'
+	{
+		CLSID = s '{e345f6e2-ed28-4e50-9e9a-84c5251f4ec6}'
+	}
+	MetraTech.MTUpdAccFromActiveToClosedCapability = s 'MTUpdAccFromActiveToClosedCapability Class'
+	{
+		CLSID = s '{e345f6e2-ed28-4e50-9e9a-84c5251f4ec6}'
+		CurVer = s 'MetraTech.MTUpdAccFromActiveToClosedCapability.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {e345f6e2-ed28-4e50-9e9a-84c5251f4ec6} = s 'MTUpdAccFromActiveToClosedCapability Class'
+		{
+			ProgID = s 'MetraTech.MTUpdAccFromActiveToClosedCapability.1'
+			VersionIndependentProgID = s 'MetraTech.MTUpdAccFromActiveToClosedCapability'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{6E741478-C134-452C-8A0D-5689AA2A59C7}'
+		}
+	}
+}

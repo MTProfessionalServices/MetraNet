@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTModifyGroupSubMemberCapability.1 = s 'MTModifyGroupSubMemberCapability Class'
+	{
+		CLSID = s '{6B77DE3E-BB6D-44D1-A969-2A2532F0741E}'
+	}
+	MetraTech.MTModifyGroupSubMemberCapability = s 'MTModifyGroupSubMemberCapability Class'
+	{
+		CLSID = s '{6B77DE3E-BB6D-44D1-A969-2A2532F0741E}'
+		CurVer = s 'MetraTech.MTModifyGroupSubMemberCapability.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {6B77DE3E-BB6D-44D1-A969-2A2532F0741E} = s 'MTModifyGroupSubMemberCapability Class'
+		{
+			ProgID = s 'MetraTech.MTModifyGroupSubMemberCapability.1'
+			VersionIndependentProgID = s 'MetraTech.MTModifyGroupSubMemberCapability'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{6E741478-C134-452C-8A0D-5689AA2A59C7}'
+		}
+	}
+}

@@ -1,0 +1,38 @@
+//{{NO_DEPENDENCIES}}
+// Microsoft Developer Studio generated include file.
+// Used by MTAuth.rc
+//
+#define IDS_PROJNAME                    100
+#define IDR_MTCOMPOSITECAPABILITY       102
+#define IDR_MTPATHCAPABILITY            104
+#define IDR_MTLOGINCONTEXT              106
+#define IDR_MTSECURITYCONTEXT           107
+#define IDR_MTSECURITYPRINCIPAL         108
+#define IDR_MTATOMICCAPABILITYTYPE      109
+#define IDR_MTCOMPOSITECAPABILITYTYPE   110
+#define IDR_MTPRINCIPALPOLICY           111
+#define IDR_MTROLE                      112
+#define IDR_MTSECURITY                  115
+#define IDR_MTALLCAPABILITY             116
+#define IDR_MTATOMICCAPABILITYBASE      118
+#define IDR_MTPATHPARAMETER             119
+#define IDR_MTSESSIONCONTEXT            120
+#define IDR_MTMANAGEGLOBALAUTH          121
+#define IDR_MTVIEWONLINEBILL            122
+#define IDR_MTENUMTYPECAPABILITY        123
+#define IDR_MTDECIMALCAPABILITY         124
+#define IDR_MTISSUECREDITCAPABILITY     125
+#define IDR_MTAPPLICATIONLOGONCAPABILITY 126
+#define IDR_MTCOMPOSITECAPABILITYBASE   127
+#define IDR_MTSTRINGCOLLECTIONCAPABILITY  128
+
+// Next default values for new objects
+// 
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+#define _APS_NEXT_RESOURCE_VALUE        202
+#define _APS_NEXT_COMMAND_VALUE         32768
+#define _APS_NEXT_CONTROL_VALUE         201
+#define _APS_NEXT_SYMED_VALUE           127
+#endif
+#endif

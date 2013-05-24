@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTImpersonateUserCapability.1 = s 'MTImpersonateUserCapability Class'
+	{
+		CLSID = s '{4BC7767F-4031-4EBE-AF4D-EDF0B5392E50}'
+	}
+	MetraTech.MTImpersonateUserCapability = s 'MTImpersonateUserCapability Class'
+	{
+		CLSID = s '{4BC7767F-4031-4EBE-AF4D-EDF0B5392E50}'
+		CurVer = s 'MetraTech.MTImpersonateUserCapability.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {4BC7767F-4031-4EBE-AF4D-EDF0B5392E50} = s 'MTImpersonateUserCapability Class'
+		{
+			ProgID = s 'MetraTech.MTImpersonateUserCapability.1'
+			VersionIndependentProgID = s 'MetraTech.MTImpersonateUserCapability'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{6E741478-C134-452C-8A0D-5689AA2A59C7}'
+		}
+	}
+}

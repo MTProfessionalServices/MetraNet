@@ -1,0 +1,17 @@
+MessageId=0
+Facility=ACCOUNTCREDIT_ERR
+Severity=Informational
+SymbolicName=ACCOUNTCREDIT_ERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Event Definitions...                                             **/
+/**    Defines common Event Ids and their message text...            **/
+/**********************************************************************/
+.
+MessageId=1
+Facility=ACCOUNTCREDIT_ERR
+Severity=Error
+SymbolicName=ACCOUNTCREDIT_REQUESTRECORD_NOT_FOUND
+Language=English
+Credit request record with specified session id and PENDING status not found
+.

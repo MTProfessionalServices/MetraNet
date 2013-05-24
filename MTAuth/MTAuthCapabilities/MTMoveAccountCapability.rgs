@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTMoveAccountCapability.1 = s 'MTMoveAccountCapability Class'
+	{
+		CLSID = s '{1C3ADF63-612E-4EA5-A59C-277B8F141C26}'
+	}
+	MetraTech.MTMoveAccountCapability = s 'MTMoveAccountCapability Class'
+	{
+		CLSID = s '{1C3ADF63-612E-4EA5-A59C-277B8F141C26}'
+		CurVer = s 'MetraTech.MTMoveAccountCapability.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1C3ADF63-612E-4EA5-A59C-277B8F141C26} = s 'MTMoveAccountCapability Class'
+		{
+			ProgID = s 'MetraTech.MTMoveAccountCapability.1'
+			VersionIndependentProgID = s 'MetraTech.MTMoveAccountCapability'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{6E741478-C134-452C-8A0D-5689AA2A59C7}'
+		}
+	}
+}

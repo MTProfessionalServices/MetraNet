@@ -1,0 +1,297 @@
+MessageId=0
+Facility=MTPC_ERR
+Severity=Informational
+SymbolicName=MTPC_ERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Event Definitions...                                             **/
+/**    Defines common Event Ids and their message text...            **/
+/**********************************************************************/
+.
+MessageId=1
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_INVALID_COUNTER_PARAM_KIND
+Language=English
+Invalid Counter Parameter kind
+.
+MessageId=2
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_INVALID_COUNTER_PARAM_DBTYPE
+Language=English
+Invalid Counter Parameter kind
+.
+MessageId=3
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_ITEM_NOT_FOUND
+Language=English
+Item with specified parameter(s) not found in database
+.
+MessageId=4
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_ITEM_ALREADY_EXISTS
+Language=English
+Item with specified parameter(s) is already in the database and is not updateable
+.
+MessageId=5
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_ITEM_CANNOT_BE_SAVED
+Language=English
+Item can not be saved in a state it's in
+.
+MessageId=6
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_MULTIPLE_ITEMS_WITH_SAME_NAME
+Language=English
+More then one items with the same name were returned from database
+.
+MessageId=7
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_NOT_ALL_PARAMS_SPECIFIED
+Language=English
+Can not save counter until all parameter values are specified
+.
+MessageId=8
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_PROPERTY_IRRELEVANT_FOR_THIS_PARAM_KIND
+Language=English
+This property is not applicable for this parameter
+.
+MessageId=9
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_PARAMETER_VALUE_NOT_SET
+Language=English
+Parameter Value was not set
+.
+MessageId=10
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_INVALID_PRODUCT_VIEW_NAME
+Language=English
+Product View by this name does not exist
+.
+MessageId=11
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_INVALID_PRODUCT_VIEW_PROPERTY
+Language=English
+Product View by this name does not exist
+.
+MessageId=12
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_OBJECT_NO_STATE
+Language=English
+This method can not be called on empty object, call Load or Save first
+.
+MessageId=13
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_UNABLE_TO_PARSE_COUNTER_FORMULA
+Language=English
+Unable to parse counter formula
+.
+MessageId=14
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_INVALID_PROPERTY
+Language=English
+Property contains invalid value.
+.
+MessageId=15
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_MISSING_COUNTER
+Language=English
+Counter is not found.
+.
+MessageId=16
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_WRONG_COUNTER_PROPERTY_DEFINITION
+Language=English
+Counter property definition is not found.
+.
+MessageId=17
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_INVALID_PRICEABLE_ITEM_KIND
+Language=English
+Invalid kind of priceable item: %1!d!
+.
+MessageId=18
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_ITEM_NOT_FOUND_BY_ID
+Language=English
+Item of kind %1!d! with ID %2!d! not found in database
+.
+MessageId=19
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_PROPERTY_NOT_FOUND
+Language=English
+Property named '%1!s!' not found
+.
+MessageId=20
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_ATTRIBUTE_NOT_FOUND
+Language=English
+Attribute named '%1!s!' not found
+.
+MessageId=21
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_INDEX_OUT_OF_RANGE
+Language=English
+Index %1!d! out of range
+.
+MessageId=22
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_CHILD_ITEM_TYPE_NOT_FOUND_BY_ID
+Language=English
+Child Item type with ID '%1!d!' not found
+.
+MessageId=23
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_UNKNOWN_PL_CHAINING_RULE
+Language=English
+Unknown chaining rule, check PCConfig.xml file. 
+.
+MessageId=24
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_UNKNOWN_BUSINESS_RULE
+Language=English
+Unknown business rule, check PCConfig.xml file.
+.
+MessageId=25
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_INVALID_CONFIGURATION_FILE
+Language=English
+Failed to parse PCConfig.xml file.
+.
+MessageId=26
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_REQUESTED_BUSINESS_RULE_NOT_FOUND
+Language=English
+Requested business rule was not found in the configuration
+.
+MessageId=27
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_CPD_HAS_NO_COUNTER
+Language=English
+One of the Counter PropertyDefinitions does not have counter associated with it
+.
+MessageId=28
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_PRICELISTS_WITH_DIFFERENT_CURRENCIES
+Language=English
+[TEXT_KEYTERM_PRODUCT_OFFERING] with ID '%1!d!' has [TEXT_KEYTERM_PRICE_LIST]s with different currencies
+.
+MessageId=29
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_INVALID_PROPERTY_DEFAULT_VALUE
+Language=English
+Property '%1!s!' has invalid default value: '%2!s!'
+.
+MessageId=30
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_INVALID_PROPERTY_TYPE
+Language=English
+Property '%1!s!' has invalid type
+.
+MessageId=31
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_CANNOT_FIND_ENUM_FOR_CALENDARCODE
+Language=English
+Could not find the enumerator for calendar code with value '%1!d!'
+.
+MessageId=32
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_COUNTER_NOT_FOR_DISTRIBUTION
+Language=English
+Counter is not valid for distribution
+.
+MessageId=33
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_COUNTER_NOT_IN_DISCOUNT
+Language=English
+Counter not found in discount
+.
+MessageId=34
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_UNABLE_CREATE_COUNTER_PARAM_PREDICATE
+Language=English
+Counter Parameter Value has to be specified before predicate can be created
+.
+MessageId=35
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_COUNTER_PARAM_PREDICATE_PRODUCT_VIEW_MISMATCH
+Language=English
+Parameter and Parameter Predicate have to belong to same product view
+.
+MessageId=36
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_COUNTER_PREDICATE_PROPERTY_MISSING
+Language=English
+ProductViewProperty object has to be set before value
+.
+MessageId=37
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_PARAM_PREDICATE_UNSUPPORTED_MSIX_TYPE
+Language=English
+Specified MSIX type is currently not supported for counter parameter predicates
+.
+MessageId=38
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_COUNTER_PARAM_NOT_SAVED
+Language=English
+Shared Counter parameter has to be saved first before mapping it to a counter
+.
+MessageId=39
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_CHARGE_ACCOUNT_ONLY_ON_RC
+Language=English
+Charge accounts can only be set on valid recurring charges
+.
+MessageId=40
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_UNIT_VALUE_ONLY_ON_UDRC
+Language=English
+Unit values can only be set on valid unit dependent recurring charges
+.
+MessageId=41
+Facility=MTPC_ERR
+Severity=Error
+SymbolicName=MTPC_BULKSUBCHANGE_NO_SOURCEPO_SUBSCRIBERS_FOUND
+Language=English
+Product Offering chosen as source had no subscribers as of specified time
+.

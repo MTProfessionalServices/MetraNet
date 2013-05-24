@@ -1,0 +1,416 @@
+MessageId=0
+Facility=KIOSK_ERR
+Severity=Informational
+SymbolicName=KIOSK_ERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Event Definitions...                                             **/
+/**    Defines common Event Ids and their message text...            **/
+/**********************************************************************/
+.
+MessageId=1
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_UNHANDLED_EXCEPTION
+Language=English
+The database access layer caught an unhandled exception
+.
+MessageId=2
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_NOT_INITIALIZED
+Language=English
+The object is not initialized
+.
+MessageId=3
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_INVALID_PARAMETER
+Language=English
+An invalid parameter was passed into a routine
+.
+MessageId=4
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_NO_ROWS
+Language=English
+There are no more rows in the rowset
+.
+MessageId=5
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_GATE_INITIALIZATION_FAILED
+Language=English
+Kiosk Gate object cannot be initialized
+.
+MessageId=6
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=ACCOUNT_MAPPER_INITIALIZATION_FAILED
+Language=English
+Account Mapper object cannot be initialized
+.
+MessageId=7
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=CREDENTIALS_INITIALIZATION_FAILED
+Language=English
+Credentials object cannot be initialized
+.
+MessageId=8
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_AUTHENTICATOR_INITIALIZATION_FAILED
+Language=English
+Kiosk Authenticator object cannot be initialized
+.
+MessageId=9
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=SITE_CONFIG_INITIALIZATION_FAILED
+Language=English
+Site Config object cannot be initialized
+.
+MessageId=10
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=USER_CONFIG_INITIALIZATION_FAILED
+Language=English
+User Config object cannot be initialized
+.
+MessageId=11
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=VENDOR_KIOSK_INITIALIZATION_FAILED
+Language=English
+Vendor Kiosk object cannot be initialized
+.
+MessageId=12
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_ADD_FAILED
+Language=English
+Unable to add a new instance of account mapper details
+.
+MessageId=13
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_CLSID_NOT_DERIVED_FOR_ACC_MAPPER
+Language=English
+Unable to derive class ID for Account Mapper
+.
+MessageId=14
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_CLSID_NOT_DERIVED_FOR_AUTH
+Language=English
+Unable to derive class ID for Kiosk Authenticator
+.
+MessageId=15
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_ADDUSER_FAILED
+Language=English
+Unable to add a new user in the system.
+.
+MessageId=16
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_SETPASSWORD_FAILED
+Language=English
+Unable to set password for the user.
+.
+MessageId=17
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_SETTING_USER_CONFIG_FAILED
+Language=English
+Setting of user configuration failed.
+.
+MessageId=18
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_SETTING_SITE_CONFIG_FAILED
+Language=English
+Setting of site configuration failed.
+.
+MessageId=19
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_GET_COLORS_FAILED
+Language=English
+Retrieval of colors from the database failed.
+.
+MessageId=20
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_GET_TIMEZONE_FAILED
+Language=English
+Retrieval of timezone from the database failed.
+.
+MessageId=21
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_ROWSET_INSTANTIATION_FAILED
+Language=English
+Rowset instantiation failed.
+.
+MessageId=22
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_UPDATE_CREDENTIALS
+Language=English
+Updating of credentials failed.
+.
+MessageId=23
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_IS_AUTHENTIC
+Language=English
+Unable to authenticate.
+.
+MessageId=24
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_ACCOUNT_ALREADY_EXISTS
+Language=English
+Account for this login/namespace combination already exists in the database.
+.
+MessageId=25
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_GET_ACCOUNT_INFO_FAILED
+Language=English
+User account information retrieval failed.
+.
+MessageId=26
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_ITEM_NOT_FOUND
+Language=English
+The specified item was not found in the list.
+.
+MessageId=27
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_ACCOUNT_NOT_FOUND
+Language=English
+The account was not found in the database.
+.
+MessageId=28
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_MORE_THAN_ONE_ACC
+Language=English
+More than one account was found in the database.
+.
+MessageId=29
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_TARIFF_NOT_FOUND
+Language=English
+The tariff was not found in the database.
+.
+MessageId=30
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_MORE_THAN_ONE_TARIFF
+Language=English
+More than one tariff was found in the database.
+.
+MessageId=31
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_INVALID_USER_CREDENTIALS
+Language=English
+Unable to logon user. Invalid user credentials.
+.
+MessageId=32
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_GEOCODE_NOT_FOUND
+Language=English
+The GeoCode was not found in the database.
+.
+MessageId=33
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_MORE_THAN_ONE_GEOCODE
+Language=English
+More than one GeoCode was found in the database.
+.
+MessageId=34
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_TAX_EXEMPT_NOT_FOUND
+Language=English
+The TaxExempt was not found in the database.
+.
+MessageId=35
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_MORE_THAN_ONE_TAX_EXEMPT
+Language=English
+More than one TaxExempt was found in the database.
+.
+MessageId=36
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_TIMEZONE_ID_NOT_FOUND
+Language=English
+The Timezone ID was not found in the database.
+.
+MessageId=37
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_MORE_THAN_ONE_TIMEZONE_ID
+Language=English
+More than one Timezone ID was found in the database.
+.
+MessageId=38
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_TIMEZONE_OFFSET_NOT_FOUND
+Language=English
+The Timezone Offset was not found in the database.
+.
+MessageId=39
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_MORE_THAN_ONE_TIMEZONE_OFFSET
+Language=English
+More than one Timezone Offset was found in the database.
+.
+MessageId=40
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_INVALID_TAX_EXEMPT_FLAG
+Language=English
+Tax exempt flag has a value other than Yes or No in the database.
+.
+MessageId=41
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_ACCOUNT_INFO_FAILED
+Language=English
+Retrieval of account information failed.
+.
+MessageId=42
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_EMPTY_CONFIGURATION
+Language=English
+The configuration file is empty.
+.
+MessageId=43
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_MISSING_SITE_SET
+Language=English
+The site set is missing
+.
+MessageId=44
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_MISSING_PRODUCT_SET
+Language=English
+The product set is missing
+.
+MessageId=45
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_BAD_CONFIG_SET
+Language=English
+Attempt to read bad configuration set
+.
+MessageId=46
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_EMPTY_PRODUCT_PAGE_MAP
+Language=English
+The product page map is empty
+.
+MessageId=47
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=ACCOUNT_INITIALIZATION_FAILED
+Language=English
+Account object cannot be initialized
+.
+MessageId=48
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=ACCOUNT_NOT_FOUND_IN_ACCOUNT_TABLES
+Language=English
+Account could not be found in account tables
+.
+MessageId=49
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=ACCOUNT_IN_PENDING_STATE
+Language=English
+Account is in pending state
+.
+MessageId=50
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=ACCOUNT_IN_INACTIVE_STATE
+Language=English
+Account is in an inactive state
+.
+MessageId=51
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=ACCOUNT_IN_UNKNOWN_STATE
+Language=English
+Account is in an unknown state
+.
+MessageId=52
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=ACCOUNT_PASSWORD_INCORRECT
+Language=English
+Account password is not correct
+.
+MessageId=53
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=UPDATE_USER_LANGUAGE_FAILED
+Language=English
+Updating user language failed
+.
+MessageId=54
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_GET_LANGUAGE_COLLECTION_FAILED
+Language=English
+Retrieval of the language collection failed
+.
+MessageId=55
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_LOADING_DEFAULT_USER_CONFIGURATION_FAILED
+Language=English
+Loading of default user configuration failed
+.
+MessageId=56
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=KIOSK_ERR_DELETEUSER_FAILED
+Language=English
+Unable to delete a new user from the system.
+.
+MessageId=57
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=ACCOUNTMAPPER_ERR_DOES_NOT_EXIST
+Language=English
+Account for this login/namespace combination does not exist in the database.
+.
+MessageId=58
+Facility=KIOSK_ERR
+Severity=Error
+SymbolicName=ACCOUNTMAPPER_ERR_NAMESPACE_DOES_NOT_EXIST
+Language=English
+Namespace does not exist in the database.
+.

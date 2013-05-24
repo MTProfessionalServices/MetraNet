@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTHierarchyPath.1 = s 'MTHierarchyPath Class'
+	{
+		CLSID = s '{8902C9B7-6B08-4F8F-B9A5-A4D64FE257E6}'
+	}
+	Metratech.MTHierarchyPath = s 'MTHierarchyPath Class'
+	{
+		CLSID = s '{8902C9B7-6B08-4F8F-B9A5-A4D64FE257E6}'
+		CurVer = s 'Metratech.MTHierarchyPath.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8902C9B7-6B08-4F8F-B9A5-A4D64FE257E6} = s 'MTHierarchyPath Class'
+		{
+			ProgID = s 'Metratech.MTHierarchyPath.1'
+			VersionIndependentProgID = s 'Metratech.MTHierarchyPath'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{08FF399B-EF5B-4FB7-B537-4EB0F8BF6AE9}'
+		}
+	}
+}

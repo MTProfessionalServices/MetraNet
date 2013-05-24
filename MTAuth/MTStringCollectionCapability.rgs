@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTStringCollectionCapability.1 = s 'MTStringCollectionCapability Class'
+	{
+		CLSID = s '{249194BA-9CA0-49fc-8270-25BC47B60E96}'
+	}
+	Metratech.MTStringCollectionCapability = s 'MTStringCollectionCapability Class'
+	{
+		CLSID = s '{249194BA-9CA0-49fc-8270-25BC47B60E96}'
+		CurVer = s 'Metratech.MTStringCollectionCapability.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {249194BA-9CA0-49fc-8270-25BC47B60E96} = s 'MTStringCollectionCapability Class'
+		{
+			ProgID = s 'Metratech.MTStringCollectionCapability.1'
+			VersionIndependentProgID = s 'Metratech.MTStringCollectionCapability'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{E77362A0-A368-4F3E-A642-843A34C0B83B}'
+		}
+	}
+}

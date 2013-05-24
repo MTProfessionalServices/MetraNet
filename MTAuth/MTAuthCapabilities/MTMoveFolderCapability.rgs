@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTMoveFolderCapability.1 = s 'MTMoveFolderCapability Class'
+	{
+		CLSID = s '{432684B6-1591-4828-9962-BA0C8EDD8085}'
+	}
+	MetraTech.MTMoveFolderCapability = s 'MTMoveFolderCapability Class'
+	{
+		CLSID = s '{432684B6-1591-4828-9962-BA0C8EDD8085}'
+		CurVer = s 'MetraTech.MTMoveFolderCapability.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {432684B6-1591-4828-9962-BA0C8EDD8085} = s 'MTMoveFolderCapability Class'
+		{
+			ProgID = s 'MetraTech.MTMoveFolderCapability.1'
+			VersionIndependentProgID = s 'MetraTech.MTMoveFolderCapability'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{6E741478-C134-452C-8A0D-5689AA2A59C7}'
+		}
+	}
+}

@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTAtomicCapabilityBase.1 = s 'MTAtomicCapabilityBase Class'
+	{
+		CLSID = s '{1A74356D-D948-47AE-8602-21BEE9B72834}'
+	}
+	Metratech.MTAtomicCapabilityBase = s 'MTAtomicCapabilityBase Class'
+	{
+		CLSID = s '{1A74356D-D948-47AE-8602-21BEE9B72834}'
+		CurVer = s 'Metratech.MTAtomicCapabilityBase.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1A74356D-D948-47AE-8602-21BEE9B72834} = s 'MTAtomicCapabilityBase Class'
+		{
+			ProgID = s 'Metratech.MTAtomicCapabilityBase.1'
+			VersionIndependentProgID = s 'Metratech.MTAtomicCapabilityBase'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{E77362A0-A368-4F3E-A642-843A34C0B83B}'
+		}
+	}
+}

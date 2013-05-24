@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTICBGroupSubscriptionCapability.1 = s 'MTICBGroupSubscriptionCapability Class'
+	{
+		CLSID = s '{881F39F0-BFEC-4666-AAC3-8A5A32086FEE}'
+	}
+	MetraTech.MTICBGroupSubscriptionCapability = s 'MTICBGroupSubscriptionCapability Class'
+	{
+		CLSID = s '{881F39F0-BFEC-4666-AAC3-8A5A32086FEE}'
+		CurVer = s 'MetraTech.MTICBGroupSubscriptionCapability.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {881F39F0-BFEC-4666-AAC3-8A5A32086FEE} = s 'MTICBGroupSubscriptionCapability Class'
+		{
+			ProgID = s 'MetraTech.MTICBGroupSubscriptionCapability.1'
+			VersionIndependentProgID = s 'MetraTech.MTICBGroupSubscriptionCapability'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{6E741478-C134-452C-8A0D-5689AA2A59C7}'
+		}
+	}
+}

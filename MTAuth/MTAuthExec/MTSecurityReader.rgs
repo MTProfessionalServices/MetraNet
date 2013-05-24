@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTSecurityReader.1 = s 'MTSecurityReader Class'
+	{
+		CLSID = s '{7A8731CA-221E-4CC8-9743-51E826D1BEEE}'
+	}
+	Metratech.MTSecurityReader = s 'MTSecurityReader Class'
+	{
+		CLSID = s '{7A8731CA-221E-4CC8-9743-51E826D1BEEE}'
+		CurVer = s 'Metratech.MTSecurityReader.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {7A8731CA-221E-4CC8-9743-51E826D1BEEE} = s 'MTSecurityReader Class'
+		{
+			ProgID = s 'Metratech.MTSecurityReader.1'
+			VersionIndependentProgID = s 'Metratech.MTSecurityReader'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{8D082AAD-43F0-4C97-BDFC-29A20862B17D}'
+		}
+	}
+}

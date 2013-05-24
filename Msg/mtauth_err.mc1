@@ -1,0 +1,345 @@
+MessageId=0
+Facility=MTAUTH_ERR
+Severity=Informational
+SymbolicName=MTAUTH_ERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Event Definitions...                                             **/
+/**    Defines common Event Ids and their message text...            **/
+/**********************************************************************/
+.
+MessageId=1
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ACCESS_DENIED
+Language=English
+Access Denied. %1!s!
+.
+
+MessageId=2
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_COMPOSITE_CAPABILITY_CREATION_FAILED
+Language=English
+Failed to create instance of composite capability with progid '%1!s!', Error Code '%2!x!'
+.
+MessageId=3
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ATOMIC_CAPABILITY_CREATION_FAILED
+Language=English
+Failed to create instance of atomic capability with progid '%1!s!', Error Code '%2!x!'
+.
+MessageId=4
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ATOMIC_CAPABILITY_TYPE_NAME_NOT_UNIQUE
+Language=English
+More then one atomic capability type records found with same name. Name: '%1!s!'
+.
+MessageId=5
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_COMPOSITE_CAPABILITY_TYPE_NAME_NOT_UNIQUE
+Language=English
+More then one composite capability type records found with same name. Name: '%1!s!'
+.
+MessageId=6
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_COMPOSITE_CAPABILITY_TYPE_UPDATE_FAILED
+Language=English
+Can not update Prog id of the type that has instances. Name: '%1!s!', Old ProgID: '%2!s!', New ProgID: '%3!s!'
+.
+
+MessageId=7
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_COMPOSITE_CAPABILITY_TYPE_PROGID_COLLISION
+Language=English
+Can not update Prog id of the type that has instances. Name: '%1!s!', ProgID: '%2!s!'
+.
+MessageId=8
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ATOMIC_CAPABILITY_TYPE_UPDATE_FAILED
+Language=English
+Can not update Prog id of the type that has instances. Name: '%1!s!', Old ProgID: '%2!s!', New ProgID: '%3!s!'
+.
+
+MessageId=9
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ATOMIC_CAPABILITY_TYPE_PROGID_COLLISION
+Language=English
+Same Prog ID already specified for the type with different name. Name: '%1!s!', ProgID: '%2!s!'
+.
+
+MessageId=10
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_INVALID_ENUM_CAPABILITY_PARAMETER_NAME
+Language=English
+Parameter Name specified in t_compositor is invalid: '%1!s!'
+.
+MessageId=11
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_LOGON_DENIED
+Language=English
+Logon Denied
+.
+MessageId=12
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_COMPOSITE_CAPABILITY_TYPE_NOT_FOUND_BY_INSTANCE
+Language=English
+Composite Capability Type Could not be found by instance id. Instance ID '%1!d!'
+.
+MessageId=13
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ATOMIC_CAPABILITY_TYPE_NOT_FOUND_BY_INSTANCE
+Language=English
+Atomic Capability Type Could not be found by instance id. Instance ID '%1!d!'
+.
+MessageId=14
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_COMPOSITE_CAPABILITY_TYPE_MORE_THEN_ONE_FOUND
+Language=English
+More then one record was found for Composite Capability Type with Name '%1!s!'
+.
+MessageId=15
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ATOMIC_CAPABILITY_TYPE_MORE_THEN_ONE_FOUND
+Language=English
+More then one record was found for Atomic Capability Type with Name '%1!s!'
+.
+MessageId=16
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_COMPOSITE_CAPABILITY_TYPE_NOT_FOUND
+Language=English
+Composite Capability Type with Name '%1!s!' could not be found
+.
+MessageId=17
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ATOMIC_CAPABILITY_TYPE_NOT_FOUND
+Language=English
+Atomic Capability Type with Name '%1!s!' could not be found
+.
+MessageId=18
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ROLE_NOT_FOUND
+Language=English
+Role with Name '%1!s!' could not be found
+.
+MessageId=19
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ROLE_NOT_FOUND_BY_ID
+Language=English
+Role with Database ID '%1!d!' does not exist
+.
+MessageId=20
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ORPHAN_ROLE
+Language=English
+At least one Assignable flag on the role has to be set. Role Name: '%1!s!'
+.
+MessageId=21
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ROLE_HAS_MEMBERS
+Language=English
+Role could not be removed because it either has members or attached to a folder default security policy. Role Name: '%1!s!'
+.
+MessageId=22
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ATOMIC_CAPABILITY_PARAMETER_NOT_SPECIFIED
+Language=English
+Parameter unspecified for Atomic Capability Of Type '%1!s!'
+.
+MessageId=23
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_COMPOSITE_CAPABILITY_TYPE_NOT_FOUND_BY_ID
+Language=English
+Composite Capability Type with database id '%1!d!' does not exist.
+.
+MessageId=24
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_SESSION_CONTEXT_DESERIALIZATION_FAILED
+Language=English
+Failed to deserialize session context, XML set is not as expected
+.
+MessageId=25
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_SESSION_CONTEXT_SERIALIZATION_FAILED
+Language=English
+Failed to serialize session context, XML set is not as expected
+.
+MessageId=26
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ADDING_ROLE_TO_ROLE_NOT_SUPPORTED
+Language=English
+Adding role to a role is not currently supported.
+.
+MessageId=27
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_CAPABILITY_OUTSIDE_OF_CORPORATE_ACCOUNT
+Language=English
+A Subscriber can only be assigned path capabilities that match the subscriber's corporate account
+.
+MessageId=28
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ROLE_CAN_NOT_BE_ASSIGNED_TO_SUBSCRIBER
+Language=English
+Role '%1!s!' can not be assigned to a Subscriber
+.
+MessageId=29
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ROLE_CAN_NOT_BE_ASSIGNED_TO_CSR
+Language=English
+Role '%1!s!' can not be assigned to a CSR
+.
+MessageId=30
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_CAPABILITY_CAN_NOT_BE_ASSIGNED_TO_SUBSCRIBER
+Language=English
+Capability '%1!s!' can not be assigned to a Subscriber
+.
+MessageId=31
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_CAPABILITY_CAN_NOT_BE_ASSIGNED_TO_CSR
+Language=English
+Capability '%1!s!' can not be assigned to CSR
+.
+MessageId=32
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ROLE_DESERIALIZATION_FAILED
+Language=English
+Role could not be deserialized, Xml is probably malformed
+.
+MessageId=33
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_SECURITY_PRINCIPAL_DESERIALIZATION_FAILED
+Language=English
+SecurityPrincipal could not be deserialized, Xml is probably malformed
+.
+MessageId=34
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_PRINCIPAL_POLICY_DESERIALIZATION_FAILED
+Language=English
+Principal Policy could not be deserialized, Xml is probably malformed
+.
+MessageId=35
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_COMPOSITE_CAPABILITY_DESERIALIZATION_FAILED
+Language=English
+Composite Capability could not be deserialized, Xml is probably malformed
+.
+MessageId=36
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_YAAC_DESERIALIZATION_FAILED
+Language=English
+MTYAAC could not be deserialized, Xml is probably malformed
+.
+MessageId=37
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ENUM_CAPABILITY_PARAMETER_NAME_NOT_INITIALIZED
+Language=English
+Parameter Name for Enum Type capability has to be set
+.
+MessageId=38
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_UNKNOWN_ATOMIC_CAPABILITY
+Language=English
+Atomic Capability with Program ID '%s' is unknown to the system
+.
+MessageId=39
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_DEFAULT_POLICY_CAN_ONLY_CONTAIN_ROLES
+Language=English
+Adding capabilities to Default policy is not supported
+.
+MessageId=40
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_MANAGE_AH_CAN_NOT_BE_ASSIGNED_TO_ROLE
+Language=English
+Manage Account Hierarchies capability can not be associated with Subscriber Assignable Role '%1!s!'
+.
+MessageId=41
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_PATH_TOO_LONG
+Language=English
+Hierarchy path can not exceed 3098 characters
+.
+MessageId=42
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ROLE_SUB_ASSIGNABLE_FLAG_MISMATCH
+Language=English
+Role '%1!s!' Is Assignable to subscriber, while capability '%2!s!' is not.
+.
+MessageId=43
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ROLE_CSR_ASSIGNABLE_FLAG_MISMATCH
+Language=English
+Role '%1!s!' Is Assignable to CSR, while capability '%2!s!' is not.
+.
+MessageId=44
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ROLE_DUPLICATE_NAME
+Language=English
+Role with name '%1!s!' already exists.
+.
+MessageId=45
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ROLE_NO_ENTRIES_FOUND
+Language=English
+No entries found for Role '%1!s!', Role update failed.
+.
+MessageId=46
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ROLE_MULTIPLE_ENTRIES_FOUND
+Language=English
+Multiple entries found for Role '%1!s!', Role update failed.
+.
+MessageId=47
+Facility=MTAUTH_ERR
+Severity=Error
+SymbolicName=MTAUTH_ROLE_CAN_NOT_UPDATE_FLAGS
+Language=English
+Assignable flags on a Role can not be changed as long as Role has either members, capabilities or belongs to a folder default security policy (%1!s!).
+.
+
+

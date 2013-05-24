@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTManageGlobalAuthCapability.1 = s 'MTManageGlobalAuthCapability Class'
+	{
+		CLSID = s '{23FCC1F7-50A3-48FC-9886-F5DDDFE2B2FC}'
+	}
+	MetraTech.MTManageGlobalAuthCapability = s 'MTManageGlobalAuthCapability Class'
+	{
+		CLSID = s '{23FCC1F7-50A3-48FC-9886-F5DDDFE2B2FC}'
+		CurVer = s 'MetraTech.MTManageGlobalAuthCapability.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {23FCC1F7-50A3-48FC-9886-F5DDDFE2B2FC} = s 'MTManageGlobalAuthCapability Class'
+		{
+			ProgID = s 'MetraTech.MTManageGlobalAuthCapability.1'
+			VersionIndependentProgID = s 'MetraTech.MTManageGlobalAuthCapability'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{6E741478-C134-452C-8A0D-5689AA2A59C7}'
+		}
+	}
+}

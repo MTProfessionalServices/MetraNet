@@ -1,0 +1,45 @@
+MessageId=0
+Facility=ACCOUNTCREDITREQUEST_ERR
+Severity=Informational
+SymbolicName=ACCOUNTCREDITREQUEST_ERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Event Definitions...                                             **/
+/**    Defines common Event Ids and their message text...            **/
+/**********************************************************************/
+.
+MessageId=1
+Facility=ACCOUNTCREDITREQUEST_ERR
+Severity=Error
+SymbolicName=ACCOUNTCREDITREQUEST_ERR_SDK_STARTUP_FAILED
+Language=English
+SDK initialization failed
+.
+MessageId=2
+Facility=ACCOUNTCREDITREQUEST_ERR
+Severity=Error
+SymbolicName=ACCOUNTCREDITREQUEST_ERR_SESS_INIT_PROPERTY_FAILED;
+Language=English
+Initialization of the session property failed
+.
+MessageId=3
+Facility=ACCOUNTCREDITREQUEST_ERR
+Severity=Error
+SymbolicName=ACCOUNTCREDITREQUEST_ERR_SESS_CLOSE_FAILED;
+Language=English
+Metering/Closing the session failed
+.
+MessageId=4
+Facility=ACCOUNTCREDITREQUEST_ERR
+Severity=Error
+SymbolicName=ACCOUNTCREDITREQUEST_OBJECT_NOT_INITIALIZED;
+Language=English
+AccountCreditRequest object not initialized, initializing...
+.
+MessageId=5
+Facility=ACCOUNTCREDITREQUEST_ERR
+Severity=Error
+SymbolicName=ACCOUNTCREDITREQUEST_NOT_ALL_NEEDED_PROPERTIES_INITIALIZED;
+Language=English
+Not all needed properties initialized
+.

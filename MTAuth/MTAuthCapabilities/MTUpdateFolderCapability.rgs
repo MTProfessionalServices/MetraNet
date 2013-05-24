@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTUpdateFolderCapability.1 = s 'MTUpdateFolderCapability Class'
+	{
+		CLSID = s '{C0033899-0ED0-4CFE-8C37-2AF58F400681}'
+	}
+	MetraTech.MTUpdateFolderCapability = s 'MTUpdateFolderCapability Class'
+	{
+		CLSID = s '{C0033899-0ED0-4CFE-8C37-2AF58F400681}'
+		CurVer = s 'MetraTech.MTUpdateFolderCapability.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {C0033899-0ED0-4CFE-8C37-2AF58F400681} = s 'MTUpdateFolderCapability Class'
+		{
+			ProgID = s 'MetraTech.MTUpdateFolderCapability.1'
+			VersionIndependentProgID = s 'MetraTech.MTUpdateFolderCapability'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{6E741478-C134-452C-8A0D-5689AA2A59C7}'
+		}
+	}
+}

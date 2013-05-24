@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTDecimalCapabilityWriter.1 = s 'MTDecimalCapabilityWriter Class'
+	{
+		CLSID = s '{E4FA002E-D600-4493-95E0-E1D1BBB34AD3}'
+	}
+	Metratech.MTDecimalCapabilityWriter = s 'MTDecimalCapabilityWriter Class'
+	{
+		CLSID = s '{E4FA002E-D600-4493-95E0-E1D1BBB34AD3}'
+		CurVer = s 'Metratech.MTDecimalCapabilityWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E4FA002E-D600-4493-95E0-E1D1BBB34AD3} = s 'MTDecimalCapabilityWriter Class'
+		{
+			ProgID = s 'Metratech.MTDecimalCapabilityWriter.1'
+			VersionIndependentProgID = s 'Metratech.MTDecimalCapabilityWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{8D082AAD-43F0-4C97-BDFC-29A20862B17D}'
+		}
+	}
+}

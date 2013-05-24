@@ -1,0 +1,67 @@
+MessageId=0
+Facility=MTBATCH_ERR
+Severity=Informational
+SymbolicName=MTBATCH_ERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Event Definitions...                                             **/
+/**    Defines common Event Ids and their message text...            **/
+/**********************************************************************/
+.
+MessageId=1
+Facility=MTBATCH_ERR
+Severity=Error
+SymbolicName=MTBATCH_BATCH_ALREADY_EXISTS
+Language=English
+A batch with name, namespace and sequence number combination already exists in the database
+.
+MessageId=2
+Facility=MTBATCH_ERR
+Severity=Error
+SymbolicName=MTBATCH_BATCH_LOAD_RETURNED_0_ROWS
+Language=English
+Loading of batch from the database returned 0 rows
+.
+MessageId=3
+Facility=MTBATCH_ERR
+Severity=Error
+SymbolicName=MTBATCH_BATCH_CREATION_FAILED
+Language=English
+Creation of batch failed
+.
+MessageId=4
+Facility=MTBATCH_ERR
+Severity=Error
+SymbolicName=MTBATCH_MARK_AS_FAILED_FAILED
+Language=English
+Marking a batch as Failed operation did not succeed
+.
+MessageId=5
+Facility=MTBATCH_ERR
+Severity=Error
+SymbolicName=MTBATCH_MARK_AS_DISMISSED_FAILED
+Language=English
+Marking a batch as Dismissed failed
+.
+MessageId=6
+Facility=MTBATCH_ERR
+Severity=Error
+SymbolicName=MTBATCH_MARK_AS_COMPLETED_FAILED
+Language=English
+Marking a batch as Completed failed
+.
+MessageId=7
+Facility=MTBATCH_ERR
+Severity=Error
+SymbolicName=MTBATCH_BATCH_DOES_NOT_EXIST
+Language=English
+An attempt is being made to update a batch that does not 
+exist in the system 
+.
+MessageId=8
+Facility=MTBATCH_ERR
+Severity=Error
+SymbolicName=MTBATCH_STATE_CHANGE_NOT_PERMITTED
+Language=English
+State transition from '%1!s!' to '%2!s!' is not permitted
+.

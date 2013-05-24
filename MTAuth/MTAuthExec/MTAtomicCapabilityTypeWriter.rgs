@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTAtomicCapabilityTypeWriter.1 = s 'MTAtomicCapabilityTypeWriter Class'
+	{
+		CLSID = s '{11C4D6E6-C4EC-452C-B800-E774F5F4D327}'
+	}
+	Metratech.MTAtomicCapabilityTypeWriter = s 'MTAtomicCapabilityTypeWriter Class'
+	{
+		CLSID = s '{11C4D6E6-C4EC-452C-B800-E774F5F4D327}'
+		CurVer = s 'Metratech.MTAtomicCapabilityTypeWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {11C4D6E6-C4EC-452C-B800-E774F5F4D327} = s 'MTAtomicCapabilityTypeWriter Class'
+		{
+			ProgID = s 'Metratech.MTAtomicCapabilityTypeWriter.1'
+			VersionIndependentProgID = s 'Metratech.MTAtomicCapabilityTypeWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{8D082AAD-43F0-4C97-BDFC-29A20862B17D}'
+		}
+	}
+}

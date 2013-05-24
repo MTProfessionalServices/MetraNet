@@ -1,0 +1,45 @@
+MessageId=0
+Facility=ACCOUNTMAPPER_ERR
+Severity=Informational
+SymbolicName=ACCOUNTMAPPER_ERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Event Definitions...                                             **/
+/**    Defines common Event Ids and their message text...            **/
+/**********************************************************************/
+.
+MessageId=1
+Facility=ACCOUNTMAPPER_ERR
+Severity=Error
+SymbolicName=ACCOUNTMAPPER_ERR_INVALID_ACCOUNTMAPPING;
+Language=English
+Invalid account mapping
+.
+MessageId=2
+Facility=ACCOUNTMAPPER_ERR
+Severity=Error
+SymbolicName=ACCOUNTMAPPER_ERR_ALREADY_EXISTS;
+Language=English
+Account mapping already exists
+.
+MessageId=3
+Facility=ACCOUNTMAPPER_ERR
+Severity=Error
+SymbolicName=ACCOUNTMAPPER_ERR_NAMESPACE_INVALID;
+Language=English
+Invalid name space
+.
+MessageId=4
+Facility=ACCOUNTMAPPER_ERR
+Severity=Error
+SymbolicName=ACCOUNTMAPPER_ERR_NOCHANGESMADE_ACCOUNTMAPPING;
+Language=English
+No changes where made to account
+.
+MessageId=5
+Facility=ACCOUNTMAPPER_ERR
+Severity=Error
+SymbolicName=ACCOUNTMAPPER_ERR_DBERROR;
+Language=English
+Database error
+.

@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTUpdAccFromPendingFinalBillToActiveCapability.1 = s 'MTUpdAccFromPendingFinalBillToActiveCapability Class'
+	{
+		CLSID = s '{6A8280E9-C347-4C87-BCC5-01546949D229}'
+	}
+	MetraTech.MTUpdAccFromPendingFinalBillToActiveCapability = s 'MTUpdAccFromPendingFinalBillToActiveCapability Class'
+	{
+		CLSID = s '{6A8280E9-C347-4C87-BCC5-01546949D229}'
+		CurVer = s 'MetraTech.MTUpdAccFromPendingFinalBillToActiveCapability.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {6A8280E9-C347-4C87-BCC5-01546949D229} = s 'MTUpdAccFromPendingFinalBillToActiveCapability Class'
+		{
+			ProgID = s 'MetraTech.MTUpdAccFromPendingFinalBillToActiveCapability.1'
+			VersionIndependentProgID = s 'MetraTech.MTUpdAccFromPendingFinalBillToActiveCapability'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{6E741478-C134-452C-8A0D-5689AA2A59C7}'
+		}
+	}
+}

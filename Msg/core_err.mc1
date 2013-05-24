@@ -1,0 +1,185 @@
+MessageId=0
+Facility=CORE_ERR
+Severity=Informational
+SymbolicName=CORE_ERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Event Definitions...                                             **/
+/**    Defines common Event Ids and their message text...            **/
+/**********************************************************************/
+.
+MessageId=1
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_LOG_MSG
+Language=English
+%1.
+.
+MessageId=2
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_NO_INSTANCE
+Language=English
+Unable to get an instance of a singleton.
+.
+MessageId=3
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_ITEM_NOT_FOUND
+Language=English
+The specified item was not found.
+.
+MessageId=4
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_CONFIGURATION_PARSE_ERROR
+Language=English
+Parse error while reading a configuration file.
+.
+MessageId=5
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_BAD_CONFIG_DIRECTORY
+Language=English
+Bad configuration directory.
+.
+MessageId=6
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_SHUTDOWN
+Language=English
+The requested operation is not allowed due to a shutdown.
+.
+MessageId=7
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_NO_CONFIG_INFO
+Language=English
+No configuration information was found.
+.
+MessageId=8
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_NOT_INITIALIZED
+Language=English
+Object is not initialized.
+.
+MessageId=9
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_NO_PROP_SET
+Language=English
+No property set was found.
+.
+MessageId=10
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_INVALID_DATA_SECTION
+Language=English
+An invalid data section was found.
+.
+MessageId=11
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_INVALID_HEADER
+Language=English
+An invalid header was found.
+.
+MessageId=12
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_DUPLICATE_VALUE
+Language=English
+A duplicate value was found.
+.
+MessageId=13
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_UNKNOWN_ERROR
+Language=English
+An unknown error occurred.
+.
+MessageId=14
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_BAD_HTTP_RESPONSE
+Language=English
+A bad HTTP response code was returned.
+.
+MessageId=15
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_WRITE_ERROR
+Language=English
+Unable to write to specified file.
+.
+MessageId=16
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_USER_AUTHENTICATION_FAILED
+Language=English
+User authentication failed.
+.
+MessageId=17
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_VIRTUAL_DIRECTORY_NOT_FOUND
+Language=English
+Virtual directory not found.
+.
+MessageId=18
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_CONFIG_LOADER_OBJECT_INITIALIZATION_FAILED
+Language=English
+Config Loader initialization failed
+.
+MessageId=19
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_XML_PARSER_INITIALIZATION_FAILED
+Language=English
+XML Parser initialization failed
+.
+MessageId=20
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_NOSERVICETOSTAGEMAPPINGS_FOUND
+Language=English
+The Listener failed to find any service to stage mapping configuration
+.
+MessageId=21
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_NOMSIXFILEFILES_FOUND
+Language=English
+The system failed to find the specifies MSIX configuration file(s)
+.
+MessageId=22
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_CRYPTO_FAILURE
+Language=English
+The system is unable to initialize crypto API functions.
+.
+MessageId=23
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_NAME_CONFLICT_FOUND_IN_MSIX_FILES
+Language=English
+There was a duplicate name found in the MSIX configuration file(s)
+.
+MessageId=24
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_INCORRECT_PERMISSIONS_ON_LOGFILE
+Language=English
+Incorrect permissions on the log file(s)
+.
+MessageId=25
+Facility=CORE_ERR
+Severity=Error
+SymbolicName=CORE_ERR_INVALID_LOGFILE_PATH
+Language=English
+Invalid path for the log file(s)
+.

@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTPrincipalPolicyWriter.1 = s 'MTPrincipalPolicyWriter Class'
+	{
+		CLSID = s '{B27F9F2C-85FA-4DB4-97BE-5F6B7A6E202F}'
+	}
+	Metratech.MTPrincipalPolicyWriter = s 'MTPrincipalPolicyWriter Class'
+	{
+		CLSID = s '{B27F9F2C-85FA-4DB4-97BE-5F6B7A6E202F}'
+		CurVer = s 'Metratech.MTPrincipalPolicyWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B27F9F2C-85FA-4DB4-97BE-5F6B7A6E202F} = s 'MTPrincipalPolicyWriter Class'
+		{
+			ProgID = s 'Metratech.MTPrincipalPolicyWriter.1'
+			VersionIndependentProgID = s 'Metratech.MTPrincipalPolicyWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{8D082AAD-43F0-4C97-BDFC-29A20862B17D}'
+		}
+	}
+}

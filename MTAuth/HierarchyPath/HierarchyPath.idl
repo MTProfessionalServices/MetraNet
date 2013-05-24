@@ -1,0 +1,63 @@
+/**************************************************************************
+ *
+ * Copyright 2001 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ * Created by: Boris Partensky
+ * $Author$
+ * $Header$
+ *
+ * "Helper" COM wrapper around calls to C++ CMTPathRegEx objects
+ * This wrapper is only used by MTAuth API prototypes (VB stubs). Production APIs
+ * will be calling underlying C++ objects directly
+ ***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(1AD41953-CAF1-4CED-B530-A319EB87B3E0),
+		dual,
+		helpstring("IMTHierarchyPath Interface"),
+		pointer_default(unique)
+	]
+	interface IMTHierarchyPath : IDispatch
+	{
+		[propget, id(1), helpstring("property Pattern")] HRESULT Pattern([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property Pattern")] HRESULT Pattern([in] BSTR newVal);
+		[propget, id(2), helpstring("property CaseSensitive")] HRESULT CaseSensitive([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(2), helpstring("property CaseSensitive")] HRESULT CaseSensitive([in] VARIANT_BOOL newVal);
+		[id(3), helpstring("method Implies")] HRESULT Implies([in]BSTR aPath, [out, retval]VARIANT_BOOL* aMatch);
+	};
+
+[
+	uuid(08FF399B-EF5B-4FB7-B537-4EB0F8BF6AE9),
+	version(1.0),
+	helpstring("HierarchyPath 1.0 Type Library")
+]
+library HIERARCHYPATHLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(8902C9B7-6B08-4F8F-B9A5-A4D64FE257E6),
+		helpstring("MTHierarchyPath Class")
+	]
+	coclass MTHierarchyPath
+	{
+		[default] interface IMTHierarchyPath;
+	};
+};

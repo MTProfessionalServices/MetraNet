@@ -1,0 +1,383 @@
+// MTAuthExec.idl : IDL source for MTAuthExec.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTAuthExec.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "GenericCollection.idl";
+//import "MTSessionContext.idl";
+import "MTAuth.idl";
+import "rowset.idl";
+	
+	[
+		object,
+		uuid(4D0894E5-2BEA-414B-8CC6-DD5EF8FAA9C0),
+		dual,
+		helpstring("IMTPrincipalPolicyReader Interface"),
+		pointer_default(unique)
+	]
+	interface IMTPrincipalPolicyReader : IDispatch
+	{
+		[id(1), helpstring("method GetAccountRoles")] HRESULT GetAccountRoles([in]IMTSessionContext* aCtx, [in]long aAccountID, [in]MTPrincipalPolicyType aPolicyType, [in]VARIANT_BOOL abIncludeOwnedFolders, [out, retval]IMTCollection** apRoles);
+		[id(2), helpstring("method GetPrincipalCapabilities")] HRESULT GetPrincipalCapabilities([in]IMTSessionContext* aCtx, [in]IMTSecurityPrincipal* aPrincipal, MTPrincipalPolicyType aPolicyType,  [in]VARIANT_BOOL abIncludeOwnedFolders, [out, retval]IMTCollection **apCaps);
+		[id(3), helpstring("method GetCapabilitiesAsRowset")] HRESULT GetCapabilitiesAsRowset([in]IMTSessionContext* aCtx, [in]long aPolicyID, [out, retval]IMTSQLRowset** apRowset);
+		[id(4), helpstring("method GetRolesAsRowset")] HRESULT GetRolesAsRowset([in]IMTSessionContext* aCtx, [in]long aPolicyID, [out, retval]IMTSQLRowset** apRowset);
+		[id(5), helpstring("method GetPolicyID")] HRESULT GetPolicyID([in]IMTSessionContext* aCtx, [in]IMTPrincipalPolicy* aPolicy, [out, retval]long* apID);
+	};
+	[
+		object,
+		uuid(5B84CF4C-1743-4317-B716-2DDA3D379EC3),
+		dual,
+		helpstring("IMTSecurityContextReader Interface"),
+		pointer_default(unique)
+	]
+	interface IMTSecurityContextReader : IDispatch
+	{
+	};
+	[
+		object,
+		uuid(3B7C611A-0D0D-49AA-A28E-8F44DF819788),
+		dual,
+		helpstring("IMTCompositeCapabilityTypeReader Interface"),
+		pointer_default(unique)
+	]
+	interface IMTCompositeCapabilityTypeReader : IDispatch
+	{
+		[id(1), helpstring("method Get")] HRESULT Get([in]long aTypeID, [out, retval]IMTCompositeCapabilityType** apNewType);
+		[id(2), helpstring("method GetByInstanceID")] HRESULT GetByInstanceID([in]long aInstanceID, [out, retval]IMTCompositeCapabilityType** apNewType);
+		[id(3), helpstring("method GetAsRowset")] HRESULT GetAsRowset([in]long aTypeID, [out, retval]IMTSQLRowset** apRowset);
+		[id(4), helpstring("method GetByInstanceIDAsRowset")] HRESULT GetByInstanceIDAsRowset([in]long aInstanceID, [out, retval]IMTSQLRowset **apRowset);
+		[id(5), helpstring("method GetTypeIDByInstanceID")] HRESULT GetTypeIDByInstanceID([in]long aInstanceID, [out, retval]long* apTypeID);
+		[id(6), helpstring("method GetTypeIDByName")] HRESULT GetTypeIDByName([in]BSTR aTypeName, [out, retval]long* apTypeID);
+		[id(7), helpstring("method GetByName")] HRESULT GetByName([in]BSTR aTypeName, [out,retval]IMTCompositeCapabilityType** apResult);
+		[id(8), helpstring("method FindRecordsByNameAsRowset")] HRESULT FindRecordsByNameAsRowset([in]BSTR aTypeName, [out, retval]IMTSQLRowset** apResult);
+		[id(9), helpstring("method FindNameByProgIDAsRowset")] HRESULT FindNameByProgIDAsRowset([in]BSTR aProgID, [out, retval]IMTSQLRowset** apRowset);
+		[id(10), helpstring("method FindInstancesByNameAsRowset")] HRESULT FindInstancesByNameAsRowset([in]BSTR aName, [out, retval]IMTSQLRowset** apRowset);
+		[id(11), helpstring("method GetAllAsRowset")] HRESULT GetAllAsRowset([in]IMTSessionContext* aCtx, [out, retval]IMTSQLRowset** apRowset);
+	};
+	[
+		object,
+		uuid(8339E429-F4B9-4B67-81D3-FA330F5D8604),
+		dual,
+		helpstring("IMTAtomicCapabilityTypeReader Interface"),
+		pointer_default(unique)
+	]
+	interface IMTAtomicCapabilityTypeReader : IDispatch
+	{
+		[id(1), helpstring("method Get")] HRESULT Get([in]long aTypeID, [out, retval]IMTAtomicCapabilityType** apNewType);
+		[id(2), helpstring("method GetByInstanceID")] HRESULT GetByInstanceID([in]long aInstanceID, [out, retval]IMTAtomicCapabilityType** apNewType);
+		[id(3), helpstring("method GetAsRowset")] HRESULT GetAsRowset([in]long aTypeID, [out, retval]IMTSQLRowset** apRowset);
+		[id(4), helpstring("method GetByInstanceIDAsRowset")] HRESULT GetByInstanceIDAsRowset([in]long aInstanceID, [out, retval]IMTSQLRowset **apRowset);
+		[id(5), helpstring("method GetTypeIDByInstanceID")] HRESULT GetTypeIDByInstanceID([in]long aInstanceID, [out, retval]long* apTypeID);
+		[id(6), helpstring("method GetTypeIDByName")] HRESULT GetTypeIDByName([in]BSTR aTypeName, [out, retval]long* apTypeID);
+		[id(7), helpstring("method GetByName")] HRESULT GetByName([in]BSTR aTypeName, [out,retval]IMTAtomicCapabilityType** apResult);
+		[id(8), helpstring("method FindRecordsByNameAsRowset")] HRESULT FindRecordsByNameAsRowset([in]BSTR aTypeName, [out, retval]IMTSQLRowset** apResult);
+		[id(9), helpstring("method FindNameByProgIDAsRowset")] HRESULT FindNameByProgIDAsRowset([in]BSTR aProgID, [out, retval]IMTSQLRowset** apRowset);
+		[id(10), helpstring("method FindInstancesByNameAsRowset")] HRESULT FindInstancesByNameAsRowset([in]BSTR aName, [out, retval]IMTSQLRowset** apRowset);
+	};
+	[
+		object,
+		uuid(E1DABA3E-3B51-42AB-8739-DA10C3A915B2),
+		dual,
+		helpstring("IMTCompositeCapabilityTypeWriter Interface"),
+		pointer_default(unique)
+	]
+	interface IMTCompositeCapabilityTypeWriter : IDispatch
+	{
+		[id(1), helpstring("method Update")] HRESULT Update([in]IMTCompositeCapabilityType* aType, [out, retval]long* apID);
+		[id(2), helpstring("method Create")] HRESULT Create([in]IMTCompositeCapabilityType* aType, [out, retval]long* apID);
+		[id(3), helpstring("method InsertCompositorMappings")] HRESULT InsertCompositorMappings([in]IMTCompositeCapabilityType* aType);
+	};
+	[
+		object,
+		uuid(0FD4A20E-17BD-4CEF-B886-4D55229227C1),
+		dual,
+		helpstring("IMTAtomicCapabilityTypeWriter Interface"),
+		pointer_default(unique)
+	]
+	interface IMTAtomicCapabilityTypeWriter : IDispatch
+	{
+		[id(1), helpstring("method Create")] HRESULT Create([in]IMTAtomicCapabilityType* aType, [out, retval]long* apID);
+		[id(2), helpstring("method Update")] HRESULT Update([in]IMTAtomicCapabilityType* aType, [out, retval]long* apID);
+	};
+	[
+		object,
+		uuid(480C825D-8FFB-46CB-BC01-473FAA90C907),
+		dual,
+		helpstring("IMTSecurityReader Interface"),
+		pointer_default(unique)
+	]
+	interface IMTSecurityReader : IDispatch
+	{
+		[id(1), helpstring("method GetRoleByName")] HRESULT GetRoleByName([in]IMTSessionContext* aCtx, [in]BSTR aRoleName, [out, retval]IMTRole** apRole);
+		[id(2), helpstring("method GetRoleByID")] HRESULT GetRoleByID([in]IMTSessionContext* aCtx, [in]long aRoleID, [out, retval]IMTRole** apRole);
+		[id(3), helpstring("method GetAllRolesAsRowset")] HRESULT GetAllRolesAsRowset([in]IMTSessionContext* aCtx, [out, retval]IMTSQLRowset** apRowset);
+		[id(4), helpstring("method GetCapabilityTypesAsRowset")] HRESULT GetCapabilityTypesAsRowset([in]IMTSessionContext* aCtx, [out, retval]IMTSQLRowset** apRowset);
+		[id(5), helpstring("method GetAvailableCapabilityTypesAsRowset")] HRESULT GetAvailableCapabilityTypesAsRowset([in]IMTSessionContext* aCtx, [in]IMTSecurityPrincipal* aPrincipal, [out, retval]IMTSQLRowset** apRowset);
+		[id(6), helpstring("method GetAvailableRolesAsRowset")] HRESULT GetAvailableRolesAsRowset([in]IMTSessionContext* aCtx, [in]IMTSecurityPrincipal* aPrincipal,[in]MTPrincipalPolicyType aPolicyType, [out, retval]IMTSQLRowset** apRowset);
+	};
+	[
+		object,
+		uuid(8FD10E99-8EEB-4D6E-8E08-D2B1D7938784),
+		dual,
+		helpstring("IMTPrincipalPolicyWriter Interface"),
+		pointer_default(unique)
+	]
+	interface IMTPrincipalPolicyWriter : IDispatch
+	{
+		[id(1), helpstring("method CreateCompositeInstance")] HRESULT CreateCompositeInstance([in]IMTCompositeCapability* aCap, [in]IMTPrincipalPolicy* aPolicy,  [out, retval]long* apID);
+		[id(2), helpstring("method CreateAtomicInstance")] HRESULT CreateAtomicInstance([in]IMTAtomicCapability* aCap, [in]IMTPrincipalPolicy* aPolicy,  [out, retval]long* apID);
+		[id(3), helpstring("method Create")] HRESULT Create([in]IMTPrincipalPolicy* aPolicy, [out, retval]long* apID);
+		[id(4), helpstring("method Update")] HRESULT Update([in]IMTSessionContext* apCtxt, [in]IMTPrincipalPolicy* aPolicy);
+		[id(5), helpstring("method InsertRoleMappings")] HRESULT InsertRoleMappings([in]IMTPrincipalPolicy* aPolicy);
+		[id(6), helpstring("method DeleteRoleMappings")] HRESULT DeleteRoleMappings([in]IMTPrincipalPolicy* aPolicy);
+		[id(7), helpstring("method UpdateCompositeInstance")] HRESULT UpdateCompositeInstance([in]IMTCompositeCapability* aCap, [in]IMTPrincipalPolicy* aPolicy);
+	};
+	[
+		object,
+		uuid(6897D233-50B4-486B-A86F-3DB7A213F162),
+		dual,
+		helpstring("IMTAccessTypeCapabilityWriter Interface"),
+		pointer_default(unique)
+	]
+	interface IMTAccessTypeCapabilityWriter : IDispatch
+	{
+		[id(1), helpstring("method CreateOrUpdate")] HRESULT CreateOrUpdate([in]long aInstanceID, [in]BSTR aParam);
+		[id(2), helpstring("method Remove")] HRESULT Remove([in]long aInstanceID);
+	};
+	[
+		object,
+		uuid(C2E1FF8D-78B3-432D-B0A6-6C62173BD045),
+		dual,
+		helpstring("IMTPathCapabilityWriter Interface"),
+		pointer_default(unique)
+	]
+	interface IMTPathCapabilityWriter : IDispatch
+	{
+		[id(1), helpstring("method CreateOrUpdate")] HRESULT CreateOrUpdate([in]long aInstanceID, [in]BSTR aParam);
+		[id(2), helpstring("method Remove")] HRESULT Remove([in]long aInstanceID);
+	};
+	[
+		object,
+		uuid(E55A2A6F-705A-4596-8F1D-3B96AA8B8603),
+		dual,
+		helpstring("IMTRoleReader Interface"),
+		pointer_default(unique)
+	]
+	interface IMTRoleReader : IDispatch
+	{
+		[id(1), helpstring("method FindRecordsByNameAsRowset")] HRESULT FindRecordsByNameAsRowset([in]BSTR aRoleName, [out, retval]IMTSQLRowset** apResult);
+		[id(2), helpstring("method HasMembers")] HRESULT HasMembers([in]BSTR aName, [out, retval]VARIANT_BOOL* apRes);
+		[id(3), helpstring("method IsDuplicateName")] HRESULT IsDuplicateName([in]BSTR aRoleName, [out, retval]VARIANT_BOOL* apRes);
+		[id(4), helpstring("method GetMembersAsRowset")] HRESULT GetMembersAsRowset([in]long aRoleID, [in]MTPrincipalPolicyType aPolicyType, [out, retval]IMTSQLRowset** apRowset);
+		[id(5), helpstring("method Get")] HRESULT Get([in]IMTSessionContext* aCtx, [in]long aRoleID, [out, retval]IMTRole** apRole);
+		[id(6), helpstring("method GetByName")] HRESULT GetByName([in]IMTSessionContext* aCtx, [in]BSTR aRoleName, [out, retval]IMTRole** apRole);
+		[id(7), helpstring("method HasCapabilities")] HRESULT HasCapabilities([in]BSTR aRoleName, [out, retval]VARIANT_BOOL* apRes);
+	};
+	[
+		object,
+		uuid(D04A5BBE-4556-4928-8017-85BA042961D0),
+		dual,
+		helpstring("IMTRoleWriter Interface"),
+		pointer_default(unique)
+	]
+	interface IMTRoleWriter : IDispatch
+	{
+		[id(1), helpstring("method Create")] HRESULT Create([in]IMTSessionContext* apCtxt, [in]IMTRole* apRole, [out, retval]long* apID);
+		[id(2), helpstring("method Update")] HRESULT Update([in]IMTSessionContext* apCtxt, [in]IMTRole* apRole);
+		[id(3), helpstring("method Remove")] HRESULT Remove([in]IMTSessionContext* apCtxt, [in]IMTRole* aRole, IMTPrincipalPolicy* aPolicy);
+		[id(4), helpstring("method AddMember")] HRESULT AddMember([in]IMTRole* aRole, [in]long aMember);
+		[id(5), helpstring("method RemoveMember")] HRESULT RemoveMember([in]IMTRole* aRole, [in]long aMember);
+		[id(6), helpstring("method AddMemberBatch")] HRESULT AddMemberBatch([in]IMTCollection* aBatch, [in]IMTProgress* aProgress, [in]IMTRole* aRole, [out, retval]IMTRowSet** apRowset);
+		[id(7), helpstring("method CreateOrUpdate")] HRESULT CreateOrUpdate([in]IMTRole* aRole);
+	};
+	[
+		object,
+		uuid(E8D47DD3-EBB3-4120-B178-1DED337D763B),
+		dual,
+		helpstring("IMTCompositeCapabilityWriter Interface"),
+		pointer_default(unique)
+	]
+	interface IMTCapabilityWriter : IDispatch
+	{
+		[id(1), helpstring("method RemoveCompositeInstance")] HRESULT RemoveCompositeInstance([in]IMTCompositeCapability* apCap, [in]IMTPrincipalPolicy* aPolicy);
+		[id(2), helpstring("method RemoveAtomicInstance"), hidden] HRESULT RemoveAtomicInstance([in]IMTAtomicCapability* apCap, [in]IMTPrincipalPolicy* aPolicy);
+	};
+	[
+		object,
+		uuid(6C19EC01-C743-4A3A-A192-923DAE8E980E),
+		dual,
+		helpstring("IMTEnumTypeCapabilityWriter Interface"),
+		pointer_default(unique)
+	]
+	interface IMTEnumTypeCapabilityWriter : IDispatch
+	{
+		[id(1), helpstring("method CreateOrUpdate")] HRESULT CreateOrUpdate([in]long aInstanceID, [in]VARIANT aParam);
+		[id(2), helpstring("method Remove")] HRESULT Remove([in]long aInstanceID);
+	};
+	[
+		object,
+		uuid(DC828A9E-ABD5-4339-9C8E-979A21FCB7AE),
+		dual,
+		helpstring("IMTDecimalCapabilityWriter Interface"),
+		pointer_default(unique)
+	]
+	interface IMTDecimalCapabilityWriter : IDispatch
+	{
+		[id(1), helpstring("method CreateOrUpdate")] HRESULT CreateOrUpdate([in]long aInstanceID, [in]IMTSimpleCondition* aParam);
+		[id(2), helpstring("method Remove")] HRESULT Remove([in]long aInstanceID);
+	};
+	[
+		object,
+		uuid(FB593E76-3909-4299-8334-D33B2BA4AC06),
+		dual,
+		helpstring("IMTBatchAuthCheckReader Interface"),
+		pointer_default(unique)
+	]
+	interface IMTBatchAuthCheckReader : IDispatch
+	{
+		[id(1), helpstring("method BatchUmbrellaCheck")] HRESULT BatchUmbrellaCheck([in] IMTSessionContext* apCtx,
+		[in] IMTCollectionEx* pCol,[in] DATE RefDate,[out, retval] IMTRowSet** ppRowset);
+	};
+
+[
+	uuid(8D082AAD-43F0-4C97-BDFC-29A20862B17D),
+	version(1.0),
+	helpstring("MTAuthExec 1.0 Type Library")
+]
+library MTAUTHEXECLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(64ACE5EC-71E2-4CC3-93D3-C397CCD5DAFB),
+		helpstring("MTPrincipalPolicyReader Class")
+	]
+	coclass MTPrincipalPolicyReader
+	{
+		[default] interface IMTPrincipalPolicyReader;
+	};
+	[
+		uuid(A03A021D-73E1-4202-AC5A-837FB96729EF),
+		helpstring("MTSecurityContextReader Class")
+	]
+	coclass MTSecurityContextReader
+	{
+		[default] interface IMTSecurityContextReader;
+	};
+	[
+		uuid(B881E296-3994-45CD-84AC-B3ED8833EDA2),
+		helpstring("MTCompositeCapabilityTypeReader Class")
+	]
+	coclass MTCompositeCapabilityTypeReader
+	{
+		[default] interface IMTCompositeCapabilityTypeReader;
+	};
+	[
+		uuid(44AC012F-DD2D-4556-A529-C457579F2DDD),
+		helpstring("MTAtomicCapabilityTypeReader Class")
+	]
+	coclass MTAtomicCapabilityTypeReader
+	{
+		[default] interface IMTAtomicCapabilityTypeReader;
+	};
+	[
+		uuid(55D61727-C963-4C78-8DCE-B82E2C2BADFC),
+		helpstring("MTCompositeCapabilityTypeWriter Class")
+	]
+	coclass MTCompositeCapabilityTypeWriter
+	{
+		[default] interface IMTCompositeCapabilityTypeWriter;
+	};
+	[
+		uuid(11C4D6E6-C4EC-452C-B800-E774F5F4D327),
+		helpstring("MTAtomicCapabilityTypeWriter Class")
+	]
+	coclass MTAtomicCapabilityTypeWriter
+	{
+		[default] interface IMTAtomicCapabilityTypeWriter;
+	};
+	[
+		uuid(7A8731CA-221E-4CC8-9743-51E826D1BEEE),
+		helpstring("MTSecurityReader Class")
+	]
+	coclass MTSecurityReader
+	{
+		[default] interface IMTSecurityReader;
+	};
+	[
+		uuid(B27F9F2C-85FA-4DB4-97BE-5F6B7A6E202F),
+		helpstring("MTPrincipalPolicyWriter Class")
+	]
+	coclass MTPrincipalPolicyWriter
+	{
+		[default] interface IMTPrincipalPolicyWriter;
+	};
+	[
+		uuid(EA00F65C-E420-4B70-915B-CF4C3E4737C7),
+		helpstring("MTAccessTypeCapabilityWriter Class")
+	]
+	coclass MTAccessTypeCapabilityWriter
+	{
+		[default] interface IMTAccessTypeCapabilityWriter;
+	};
+	[
+		uuid(9EF8E414-B5B4-4EFB-BE3F-5C348F4972C4),
+		helpstring("MTPathCapabilityWriter Class")
+	]
+	coclass MTPathCapabilityWriter
+	{
+		[default] interface IMTPathCapabilityWriter;
+	};
+	[
+		uuid(A02D1055-E4F2-4166-9A1D-C719F65C5E52),
+		helpstring("MTRoleReader Class")
+	]
+	coclass MTRoleReader
+	{
+		[default] interface IMTRoleReader;
+	};
+	[
+		uuid(11AE6BE1-E0DA-4D7D-BB27-5D6CBD61DBBE),
+		helpstring("MTRoleWriter Class")
+	]
+	coclass MTRoleWriter
+	{
+		[default] interface IMTRoleWriter;
+	};
+	[
+		uuid(03837BDB-D5F3-4140-B013-128330EDCF0B),
+		helpstring("MTCompositeCapabilityWriter Class")
+	]
+	coclass MTCapabilityWriter
+	{
+		[default] interface IMTCapabilityWriter;
+	};
+	[
+		uuid(D6518570-886C-49A5-A86C-846BA642E5D6),
+		helpstring("MTEnumTypeCapabilityWriter Class")
+	]
+	coclass MTEnumTypeCapabilityWriter
+	{
+		[default] interface IMTEnumTypeCapabilityWriter;
+	};
+	[
+		uuid(E4FA002E-D600-4493-95E0-E1D1BBB34AD3),
+		helpstring("MTDecimalCapabilityWriter Class")
+	]
+	coclass MTDecimalCapabilityWriter
+	{
+		[default] interface IMTDecimalCapabilityWriter;
+	};
+	[
+		uuid(70D3CE1A-C4E1-4983-8C2E-27B232C628C5),
+		helpstring("MTBatchAuthCheckReader Class")
+	]
+	coclass MTBatchAuthCheckReader
+	{
+		[default] interface IMTBatchAuthCheckReader;
+	};
+};

@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTPrincipalPolicyReader.1 = s 'MTPrincipalPolicyReader Class'
+	{
+		CLSID = s '{64ACE5EC-71E2-4CC3-93D3-C397CCD5DAFB}'
+	}
+	Metratech.MTPrincipalPolicyReader = s 'MTPrincipalPolicyReader Class'
+	{
+		CLSID = s '{64ACE5EC-71E2-4CC3-93D3-C397CCD5DAFB}'
+		CurVer = s 'Metratech.MTPrincipalPolicyReader.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {64ACE5EC-71E2-4CC3-93D3-C397CCD5DAFB} = s 'MTPrincipalPolicyReader Class'
+		{
+			ProgID = s 'Metratech.MTPrincipalPolicyReader.1'
+			VersionIndependentProgID = s 'Metratech.MTPrincipalPolicyReader'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{8D082AAD-43F0-4C97-BDFC-29A20862B17D}'
+		}
+	}
+}

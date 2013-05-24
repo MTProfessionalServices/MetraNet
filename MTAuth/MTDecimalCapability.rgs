@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTDecimalCapability.1 = s 'MTDecimalCapability Class'
+	{
+		CLSID = s '{B45F1CF6-DDBF-49D8-8350-891EE710459D}'
+	}
+	Metratech.MTDecimalCapability = s 'MTDecimalCapability Class'
+	{
+		CLSID = s '{B45F1CF6-DDBF-49D8-8350-891EE710459D}'
+		CurVer = s 'Metratech.MTDecimalCapability.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B45F1CF6-DDBF-49D8-8350-891EE710459D} = s 'MTDecimalCapability Class'
+		{
+			ProgID = s 'Metratech.MTDecimalCapability.1'
+			VersionIndependentProgID = s 'Metratech.MTDecimalCapability'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{E77362A0-A368-4F3E-A642-843A34C0B83B}'
+		}
+	}
+}

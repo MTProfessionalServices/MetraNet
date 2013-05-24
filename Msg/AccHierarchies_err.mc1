@@ -1,0 +1,634 @@
+MessageId=0
+Facility=MTACCHIERARCHY_ERR
+Severity=Informational
+SymbolicName=MTACCHIERARCHY_COMMENT
+Language=English
+/*					*/
+/* Messages for Account Hierarchies 	*/
+/*					*/
+.
+MessageId=1
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ACCOUNT_NOT_A_FOLDER
+Language=English
+Specified parent account is not marked a folder.
+.
+MessageId=2
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_FOLDER_DOES_NOT_HAVE_INFINITE_END_DATE
+Language=English
+The move operation can not be completed because the parent folder does not have an infinite end date.
+.
+MessageId=3
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_NEW_PARENT_IS_A_CHILD
+Language=English
+The move operation can not be completed because the new parent account is a child of the target account.
+.
+MessageId=4
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_MOVE_ALREADY_SCHEDULED_FOR_TARGET_ACCOUNT
+Language=English
+The move operation can not be completed because the account has a move pending in the future.
+.
+MessageId=5
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ACCOUNT_IS_NOT_BILLABLE
+Language=English
+The paying account is not billable.
+.
+MessageId=6
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_PAYMENT_RELATIONSHIP_EXISTS
+Language=English
+The current paying account and the new paying account are the same.
+.
+MessageId=7
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ACCOUNT_CAN_NOT_PAY_FOR_ITSELF
+Language=English
+An account can not pay for itself.  Mark the account as billable if you desire this behavior.
+.
+MessageId=8
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_CANNOT_RESOLVE_PAYING_ACCOUNT
+Language=English
+Account Creation can not resolve the payer account from the login and namespace.
+.
+MessageId=9
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_CANNOT_RESOLVE_HIERARCHY_ACCOUNT
+Language=English
+Account Creation can not resolve the hierarchy parent from the login and namespace.
+.
+MessageId=10
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ACCOUNT_ALREADY_IN_GROUP_SUBSCRIPTION
+Language=English
+The account is already in the [TEXT_KEYTERM_GROUP_SUBSCRIPTION] in the specified date range.
+.
+MessageId=11
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_GSUB_DATERANGE_NOT_IN_SUB_RANGE
+Language=English
+The effective date range of the [TEXT_KEYTERM_GROUP_SUBSCRIPTION] membership is not in the range of the [TEXT_KEYTERM_GROUP_SUBSCRIPTION] effective date.
+.
+MessageId=12
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_GROUP_SUBSCRIPTION_DOES_NOT_EXIST
+Language=English
+The group subscription does not exist.
+.
+MessageId=13
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_GROUP_SUB_DISCOUNT_ACCOUNT_REQUIRED
+Language=English
+The [TEXT_KEYTERM_PRODUCT_OFFERING] contains a [TEXT_KEYTERM_DISCOUNT] but the [TEXT_KEYTERM_GROUP_SUBSCRIPTION] is not configured for proportional distribution but their is no account specified to receive the discount.
+.
+MessageId=14
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_GROUP_SUB_CORPORATE_ACCOUNT_INVALID
+Language=English
+The [TEXT_KEYTERM_CORPORATE_ACCOUNT] associated with the [TEXT_KEYTERM_GROUP_SUBSCRIPTION] is invalid.
+.
+MessageId=15
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ACCOUNT_ALREADY_IN_HIEARCHY
+Language=English
+The account is already in the hierarchy in the specified time range.
+.
+MessageId=16
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_GROUP_SUB_NAME_EXISTS
+Language=English
+The name of the [TEXT_KEYTERM_GROUP_SUBSCRIPTION] is the same as an existing [TEXT_KEYTERM_GROUP_SUBSCRIPTION]
+.
+MessageId=17
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_GROUPSUB_NOT_FOUND
+Language=English
+The [TEXT_KEYTERM_GROUP_SUBSCRIPTION] does not exist.
+.
+MessageId=18
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_GROUPSUB_STARTDATE_AFTER_ENDDATE
+Language=English
+The start date is after the end date.
+.
+MessageId=19
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_PAYMENTUPDATE_FAILED
+Language=English
+Failed to update the payment record because the specified record does not exist.
+.
+MessageId=20
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_PAYMENT_UDDATE_END_DATE_INVALID
+Language=English
+The system cannot change the end date of the payment redirection record because the account is not billable.
+.
+MessageId=21
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_EXISTING_FOLDER_OWNER
+Language=English
+The account is already administered by another account.
+.
+MessageId=22
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_NOT_A_FOLDER
+Language=English
+The target account does not exist in the system.
+.
+MessageId=23
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_GROUPSUB_ACCOUNT_NOT_IN_GROUP_SUB
+Language=English
+The system cannot modify the [TEXT_KEYTERM_GROUP_SUBSCRIPTION] membership record because the account is not in the [TEXT_KEYTERM_GROUP_SUBSCRIPTION].
+.
+MessageId=24
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_GROUPSUB_DELETE_MEMBER_FAILED
+Language=English
+The system cannot delete the [TEXT_KEYTERM_GROUP_SUBSCRIPTION] membership record because it does not exist or is currently active.
+.
+MessageId=25
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_MOVEACCOUNT_BAD_STATE
+Language=English
+The system can not move the target account because it is not in a valid state.
+.
+MessageId=26
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ADD_TO_GROUP_SUB_BAD_STATE
+Language=English
+The system can not create the subscription because the account is not in a valid state.
+.
+MessageId=27
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_PAYMENT_CURRENCY_MISMATCH
+Language=English
+The currency of the paying account does not match that of the subscriber account.
+.
+MessageId=28
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_PARENT_TEMPLATE_DOES_NOT_EXIST
+Language=English
+The parent folder does not currently have a template.  The new template for folder ID %1!d! will be empty.
+.
+MessageId=29
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_PARENT_NOT_IN_HIERARCHY
+Language=English
+The specified parent does not exist in the hierarchy.
+.
+MessageId=30
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_CANNOT_MOVE_CORPORATE_ACCOUNT
+Language=English
+The [TEXT_KEYTERM_CORPORATE_ACCOUNT] may not be moved.
+.
+MessageId=31
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ACCOUNT_NOT_IN_GSUB_CORPORATE_ACCOUNT
+Language=English
+The account is not in the same [TEXT_KEYTERM_CORPORATE_ACCOUNT] as the group subscription.
+.
+MessageId=32
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_NONBILLABLE_ACCOUNTS_REQUIRE_PAYER
+Language=English
+An account marked as non-billable must have a paying account.
+.
+MessageId=33
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ACCOUNT_NON_BILLABLE_AND_HAS_NON_PAYING_SUBSCRIBERS
+Language=English
+The account cannot be marked as non-billable as it is paying for other subscribers (or itself) now or in the future.  
+.
+MessageId=34
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ACCOUNT_IS_FOLDER_AND_HAS_NO_DESCENDENTS_IN_CLOSED_STATE
+Language=English
+The account is a folder but has no descendents in closed state
+.
+MessageId=35
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ACCOUNT_IS_FOLDER_AND_HAS_DESCENDENTS_IN_STATE_OTHER_THAN_CLOSED
+Language=English
+The account is a folder and has descendents in state other than closed
+.
+MessageId=36
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ACCOUNT_IS_FOLDER_AND_HAS_NO_DESCENDENTS_IN_ARCHIVED_STATE
+Language=English
+The account is a folder but has no descendents in closed state
+.
+MessageId=37
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ACCOUNT_IS_FOLDER_AND_HAS_DESCENDENTS_IN_STATE_OTHER_THAN_ARCHIVED
+Language=English
+The account is a folder and has descendents in state other than archived
+.
+MessageId=38
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_GROUP_SUB_CYCLE_TYPE_MISMATCH
+Language=English
+The usage cycle of the [TEXT_KEYTERM_GROUP_SUBSCRIPTION] does not match the type required by the [TEXT_KEYTERM_PRODUCT_OFFERING]
+.
+MessageId=39
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_FOLDER_CANNOT_OWN_ITSELF
+Language=English
+An account cannot administer itself.
+.
+MessageId=40
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_DISCOUNT_ACCOUNT_MUST_BE_IN_CORPORATE_HIERARCHY
+Language=English
+The account receiving the discount must be in the corporate hierarchy specified on the [TEXT_KEYTERM_GROUP_SUBSCRIPTION].
+.
+MessageId=41
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_CANNOT_MOVE_BETWEEN_CORPORATE_HIERARCHIES
+Language=English
+Both the parent and child account must share the same [TEXT_KEYTERM_CORPORATE_ACCOUNT].
+.
+MessageId=42
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_CANNOT_PAY_FOR_ACCOUNT_IN_OTHER_CORPORATE_ACCOUNT
+Language=English
+Both the [PAYER_ACCOUNT] and [PAYEE_ACCOUNT] must share the same [TEXT_KEYTERM_CORPORATE_ACCOUNT].
+.
+MessageId=43
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_CANNOT_PAY_FOR_INDEPENDENT_ACCOUNT
+Language=English
+The [PAYER_ACCOUNT] cannot pay for an [INDEPENDENT_ACCOUNT].
+.
+MessageId=44
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_RECORD_FOR_SUSPENSION_ALREADY_EXISTS
+Language=English
+This account is set to be suspended for the future.  It will be updated to
+reflect the current time for update.
+.
+MessageId=45
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_RECORD_FOR_CLOSED_PFB_ALREADY_EXISTS
+Language=English
+This account is set to be closed or pending final bill for the future.  It will be updated to
+reflect the current time for update.
+.
+MessageId=46
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_START_DATE_BEFORE_ACCOUNT_INCEPTION_DATE_NOT_ALLOWED
+Language=English
+An attempt is being made to set the start date for the account to be before the accounts inception date.  This operation is not allowed.
+.
+MessageId=47
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_PAYMENT_DATE_BEFORE_ACCOUNT_STARDATE
+Language=English
+The system cannot create a payment record before the creation date of the account.
+.
+MessageId=48
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ACCOUNT_PAYING_FOR_OTHERS
+Language=English
+The account is marked billable and is paying for other subscribers now or in the future.
+.
+MessageId=49
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_CANNOT_OWN_FOLDER_IN_DIFFERENT_CORPORATE_ACCOUNT
+Language=English
+The target account exists in a different [TEXT_KEYTERM_CORPORATE_ACCOUNT] than the specified owner.
+.
+MessageId=50
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_CANNOT_MOVE_ACCOUNT_BEFORE_START_DATE
+Language=English
+The system cannot move an account effective before the start date of the folder or the account.
+.
+MessageId=51
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_CANNOT_MOVE_MODIFY_PAYMENT_ENDDATE_IF_INFINITE
+Language=English
+The system cannot modify the end date of a payment record if the original end date is infinite.
+.
+MessageId=52
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_CANNOT_MOVE_MODIFY_PAYMENT_STARTDATE_IF_ACC_STARTDATE
+Language=English
+The system cannot modify the start date of a payment record if the original start date is the same as the account creation date.
+.
+MessageId=53
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_CANNOT_CREATE_GROUPSUB_BEFORE_CORPORATE_START_DATE
+Language=English
+The system cannot create the [TEXT_KEYTERM_GROUP_SUBSCRIPTION] before the start date of the [TEXT_KEYTERM_CORPORATE_ACCOUNT].
+.
+MessageId=54
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_CANNOT_CREATE_ACCOUNT_BEFORE_ANCESTOR_START
+Language=English
+The system cannot create the account in the hierarchy before the start date of the ancestor.
+.
+MessageId=55
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_YAAC_ACCOUNT_NOT_FOUND
+Language=English
+No data found for account %1!d! at date %2!s!.
+.
+MessageId=56
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_YAAC_ACCOUNT_NOT_FOUND_STR
+Language=English
+No data found for account '%1!s!' at date %2!s!.
+.
+MessageId=57
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ONLY_CORPORATE_ACCS_AT_TOP_LEVEL
+Language=English
+A [TEXT_KEYTERM_CORPORATE_ACCOUNT] must be created as a folder.
+.
+MessageId=58
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_UNSUPPORTED_ACCOUNT_OPERATION
+Language=English
+Unsupported Account Operation '%1!s!'
+.
+MessageId=59
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_NO_LANGUAGE_SPECIFIED
+Language=English
+Language not specified.
+.
+MessageId=60
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_USAGE_CYCLE_INFO_REQUIRED
+Language=English
+Usage cycle information required for account creation.
+.
+MessageId=61
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_PARTIAL_ACCOUNT_STATE_INFO
+Language=English
+partial information for updating the account state.  The system requires the new statem, the start date and the end date.
+.
+MessageId=62
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_PARTIAL_INFO_ON_PASSWORD_CHANGE
+Language=English
+Login name and namespace required when changing the password.
+.
+MessageId=63
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_CURRENCY_MISMATCH
+Language=English
+The currency of the account must match the currency of the [TEXT_KEYTERM_CORPORATE_ACCOUNT].
+.
+MessageId=64
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_PAYER_IN_INVALID_STATE
+Language=English
+The paying account is not active during the payment time interval.
+.
+MessageId=65
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_PAYMENT_START_AND_END_ARE_THE_SAME
+Language=English
+The system cannot create a payment record where the start and end day are the same day.
+.
+MessageId=66
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_PAYMENT_START_AFTER_END
+Language=English
+The payment start date must be before the payment end date.
+.
+MessageId=67
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_UNKNOWN_PAYMENT_ERROR
+Language=English
+Unknown error attempting to create the payment record.  Please check the log file.
+.
+MessageId=68
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ACCOUNT_TYPE_AND_NAMESPACE_MISMATCH
+Language=English
+Account Type and Namespace mismatch during account creation
+.
+MessageId=69
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ACCOUNT_NAMESPACE_AND_HIERARCHY_MISMATCH
+Language=English
+An account in the hierarchy cannot be of system namespace type
+.
+MessageId=70
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_GROUP_SUB_MEMBER_CYCLE_MISMATCH
+Language=English
+The usage cycle of a member's payer or future payer does not match the usage cycle required by the [TEXT_KEYTERM_GROUP_SUBSCRIPTION]
+.
+MessageId=71
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ACCOUNT_PO_CURRENCY_MISMATCH
+Language=English
+The currency of the account must match the currency of the [TEXT_KEYTERM_PRODUCT_OFFERING].
+.
+MessageId=72
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_PAYER_PAYEE_CURRENCY_MISMATCH
+Language=English
+The currency of the [PAYER_ACCOUNT] must match the currency of the [PAYEE_ACCOUNT].
+.
+MessageId=73
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_NEW_ANCESTOR_CANNOT_HAVE_CHILDREN_OF_THIS_TYPE
+Language=English
+Ancestor type descendent type mismatch.
+.
+MessageId=74
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_CANNOT_MOVE_TO_NON_FOLDER_ACCOUNT
+Language=English
+Account Ancestor has to be a folder
+.
+MessageId=75
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_NO_TEMPLATE_FOUND
+Language=English
+No template found for the account
+.
+MessageId=76
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ACCOUNT_IS_NOT_A_FOLDER
+Language=English
+Account is not a folder
+.
+MessageId=77
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_UNABLE_TO_CREATE_SITE_RECORD
+Language=English
+Missing site entry
+.
+MessageId=78
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ACCOUNT_ERR_DBERROR
+Language=English
+Unable to access CreateUsageIntervals code
+.
+MessageId=79
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_UNABLE_TO_CREATE_POLICY_RECORD
+Language=English
+Unable to create a security policy
+.
+MessageId=80
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_OWNERSHIP_START_DATE_AFTER_END_DATE
+Language=English
+Account ownership Start Date has to be before End Date
+.
+MessageId=81
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_OWNERSHIP_PERCENT_OUT_OF_RANGE
+Language=English
+Account ownership percentage has to be a value between 0 and 100
+.
+MessageId=82
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_OWNED_ACCOUNT_NOT_SUBSCRIBER
+Language=English
+Owned account must be a subscriber
+.
+MessageId=83
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_CAN_NOT_OWN_SELF
+Language=English
+Account can not own itself
+.
+MessageId=84
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_OWNERSHIP_START_DATE_NOT_SET
+Language=English
+Account ownership Start Date not set
+.
+MessageId=85
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_OWNERSHIP_END_DATE_NOT_SET
+Language=English
+Account ownership End Date not set
+.
+MessageId=86
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ANCESTOR_OF_INCORRECT_TYPE
+Language=English
+Account of type %1!s! is not configured to have ancestor of type %2!s!
+.
+MessageId=87
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_ANCESTOR_INVALID_SYNTHETIC_ROOT
+Language=English
+Invalid ancestor (-1) specified.
+.
+MessageId=88
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_INVALID_GROUP_SUB_MEMBERSHIP_DATES
+Language=English
+Group subscription membership dates are outside the group subscription effective date range.
+.
+MessageId=89
+Facility=MTACCHIERARCHY_ERR
+Severity=Error
+SymbolicName=MT_START_DATE_AFTER_ACCOUNT_INCEPTION_DATE_NOT_ALLOWED
+Language=English
+An attempt is being made to set the start date for the account to be after the accounts inception date.  This operation is not allowed.
+.

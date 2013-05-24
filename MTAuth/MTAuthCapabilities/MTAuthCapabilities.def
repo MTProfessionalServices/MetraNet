@@ -1,0 +1,9 @@
+; MTAuthCapabilities.def : Declares the module parameters.
+
+LIBRARY      "MTAuthCapabilities.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

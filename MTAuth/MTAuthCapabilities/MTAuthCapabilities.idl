@@ -1,0 +1,387 @@
+/**************************************************************************
+* Copyright 1997-2002 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+***************************************************************************/
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTAuthCapabilities.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "IMTCapabilities.idl";
+
+[
+	object,
+	uuid(d7648c15-12ad-4eb9-ab4a-7f74375fce53),
+	dual,
+	helpstring("Dummy interface"),
+	pointer_default(unique)
+]
+interface IDummy : IDispatch
+{
+};
+	
+
+[
+	object,
+	uuid(E1D1F507-446C-4E9E-9E4A-20DB14D9B313),
+	dual,
+	nonextensible,
+	helpstring("IMTManageProductOfferingsCapability Interface"),
+	pointer_default(unique)
+]
+interface IMTManageProductOfferingsCapability : IDispatch{
+};
+[
+	uuid(6E741478-C134-452C-8A0D-5689AA2A59C7),
+	version(1.0),
+	helpstring("MTAuthCapabilities 1.0 Type Library")
+]
+library MTAUTHCAPABILITIESLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(26621a0f-aa52-4d68-8489-2e31969224a3),
+		helpstring("MTManageAHCapability Class")
+	]
+	coclass MTManageAHCapability
+	{
+		[default] interface IMTManageAHCapability;
+	};
+	[
+		uuid(053BF4BC-AA57-4C91-B222-E1BD6BEF58A5),
+		helpstring("MTApplicationLogOnCapability Class")
+	]
+	coclass MTApplicationLogOnCapability
+	{
+		[default] interface IMTApplicationLogOnCapability;
+	};
+	[
+		uuid(23FCC1F7-50A3-48FC-9886-F5DDDFE2B2FC),
+		helpstring("MTManageGlobalAuthCapability Class")
+	]
+	coclass MTManageGlobalAuthCapability
+	{
+		[default] interface IMTManageGlobalAuthCapability;
+	};
+	[
+		uuid(6A276D8B-9916-4353-96E9-FEB62D49A8C0),
+		helpstring("MTAllCapability Class")
+	]
+	coclass MTAllCapability
+	{
+		[default] interface IMTAllCapability;
+	};
+	[
+		uuid(9D36D5F2-81CF-4213-80AF-CED042255167),
+		helpstring("MTViewOnlineBillCapability Class")
+	]
+	coclass MTViewOnlineBillCapability
+	{
+		[default] interface IMTViewOnlineBillCapability;
+	};
+	[
+		uuid(4F1B974C-D472-4964-A5D2-EDF5A6A3A489),
+		helpstring("MTIssueCreditCapability Class")
+	]
+	coclass MTIssueCreditCapability
+	{
+		[default] interface IMTIssueCreditCapability;
+	};
+	[
+		uuid(B8100CF9-FA39-45F3-8EB4-C05B2B729BA1),
+		helpstring("CMTCreateCorporateAccountCapability Class")
+	]
+	coclass CMTCreateCorporateAccountCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(F356152F-9D0C-4FD7-BFB9-33E309D6E90E),
+		helpstring("CMTUpdateCorporateAccountCapability Class")
+	]
+	coclass CMTUpdateCorporateAccountCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(398E3126-F0C0-4FD0-8C90-576E55096AA7),
+		helpstring("MTCreateCSRCapability Class")
+	]
+	coclass MTCreateCSRCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(361BA525-5BC8-447A-8AC3-7CEEB1EA5F1A),
+		helpstring("MTUpdateCSRCapability Class")
+	]
+	coclass MTUpdateCSRCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(5244E9D6-463E-4F61-B243-8D819D1419A4),
+		helpstring("MTCreateSubscriberCapability Class")
+	]
+	coclass MTCreateSubscriberCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(D0CBB804-E9FB-4D59-BBE8-2BE921D40E15),
+		helpstring("MTUpdateSubscriberCapability Class")
+	]
+	coclass MTUpdateSubscriberCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(7ECDB025-C7B4-4536-8FF6-0D26B4C6CAD6),
+		helpstring("MTCreateFolderCapability Class")
+	]
+	coclass MTCreateFolderCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(C0033899-0ED0-4CFE-8C37-2AF58F400681),
+		helpstring("MTUpdateFolderCapability Class")
+	]
+	coclass MTUpdateFolderCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(1C3ADF63-612E-4EA5-A59C-277B8F141C26),
+		helpstring("MTMoveAccountCapability Class")
+	]
+	coclass MTMoveAccountCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(432684B6-1591-4828-9962-BA0C8EDD8085),
+		helpstring("MTMoveFolderCapability Class")
+	]
+	coclass MTMoveFolderCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(1D61F591-BA32-47C1-9FED-80EED78F8EAD),
+		helpstring("MTManagePaymentCapability Class")
+	]
+	coclass MTManagePaymentCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(B992BA68-D5B8-4A53-8823-F02AA7ADD92B),
+		helpstring("MTManageBillableCapability Class")
+	]
+	coclass MTManageBillableCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(cf050232-8994-4663-bb25-5b88ec13e99f),
+		helpstring("MTUpdAccFromActiveToSuspendedCapability Class")
+	]
+	coclass MTUpdAccFromActiveToSuspendedCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(65355f48-63c1-486a-8c06-b048a1410d5c),
+		helpstring("MTUpdAccFromSuspendedToActiveCapability Class")
+	]
+	coclass MTUpdAccFromSuspendedToActiveCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(e345f6e2-ed28-4e50-9e9a-84c5251f4ec6),
+		helpstring("MTUpdAccFromActiveToClosedCapability Class")
+	]
+	coclass MTUpdAccFromActiveToClosedCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(E5761960-C71D-4B76-8F84-709839C73A3F),
+		helpstring("MTCreateGroupSubCapability Class")
+	]
+	coclass MTCreateGroupSubCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(2564B2CA-50D1-4396-967D-D7DF52F9EF95),
+		helpstring("MTUpdateGroupSubCapability Class")
+	]
+	coclass MTUpdateGroupSubCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(6FE996EF-EC4A-45A1-B41A-4E32D796D79B),
+		helpstring("MTAddMemberToGroupSubCapability Class")
+	]
+	coclass MTAddMemberToGroupSubCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(6B77DE3E-BB6D-44D1-A969-2A2532F0741E),
+		helpstring("MTModifyGroupSubMemberCapability Class")
+	]
+	coclass MTModifyGroupSubMemberCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(BA0BCA6E-7261-49D1-B4F9-5B7695A45CFA),
+		helpstring("MTCreateSubscriptionCapability Class")
+	]
+	coclass MTCreateSubscriptionCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(3015950F-3759-453A-A889-961625C6D01A),
+		helpstring("MTUpdateSubscriptionCapability Class")
+	]
+	coclass MTUpdateSubscriptionCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(E90145F3-037C-480B-810B-0D6476B87B0D),
+		helpstring("MTICBSubscriptionCapability Class")
+	]
+	coclass MTICBSubscriptionCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(881F39F0-BFEC-4666-AAC3-8A5A32086FEE),
+		helpstring("MTICBGroupSubscriptionCapability Class")
+	]
+	coclass MTICBGroupSubscriptionCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(9C2623D8-3F00-4801-B732-DD60AC6F7A05),
+		helpstring("MTViewSubscriptionsCapability Class")
+	]
+	coclass MTViewSubscriptionsCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(73B82C7B-7A16-4E52-9A12-525D5FB28770),
+		helpstring("MTViewGroupSubCapability Class")
+	]
+	coclass MTViewGroupSubCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(16827CFF-D03B-44BB-8235-1B05EE0F28DD),
+		helpstring("MTManageSubscriberAuthCapability Class")
+	]
+	coclass MTManageSubscriberAuthCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(55BC035F-8273-4B23-B9C9-D1A6CE0D29E8),
+		helpstring("MTManageCSRAuthCapability Class")
+	]
+	coclass MTManageCSRAuthCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+
+	[
+		uuid(D3A003B4-8112-4A3F-9004-8585453C71E3),
+		helpstring("MTManageNHAccounts Class")
+	]
+	coclass MTManageNHAccounts
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(4BC7767F-4031-4EBE-AF4D-EDF0B5392E50),
+		helpstring("MTImpersonateUserCapability Class")
+	]
+	coclass MTImpersonateUserCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(908E91AF-7D9B-4FA5-94CD-944CF4E3FF93),
+		helpstring("MTDeleteSubscriptionCapability Class")
+	]
+	coclass MTDeleteSubscriptionCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(6A8280E9-C347-4C87-BCC5-01546949D229),
+		helpstring("MTUpdAccFromPendingFinalBillToActiveCapability Class")
+	]
+	coclass MTUpdAccFromPendingFinalBillToActiveCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(80DDD2DE-78ED-466F-A50D-7F372688BA9D),
+		helpstring("MTSelfSubscribe Class")
+	]
+	coclass MTSelfSubscribe
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(8BF7F84B-0207-4ACE-BA6D-37DE4C601927),
+		helpstring("MTUpdateFailedTransactions Class")
+	]
+	coclass MTUpdateFailedTransactions
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(32AC4CAA-F016-40EF-978C-73F8EECF2CDD),
+		helpstring("MTManageRatesCapability Class")
+	]
+	coclass MTManageRatesCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+	[
+		uuid(19B3A8A7-8EF5-4118-9969-0139BC7F7108),
+		helpstring("MTManageProductOfferingsCapability Class")
+	]
+	coclass MTManageProductOfferingsCapability
+	{
+		[default] interface IMTCompositeCapability;
+	};
+};

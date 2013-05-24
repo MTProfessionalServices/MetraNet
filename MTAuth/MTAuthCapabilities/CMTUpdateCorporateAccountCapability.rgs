@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.CMTUpdateCorporateAccountCapability.1 = s 'CMTUpdateCorporateAccountCapability Class'
+	{
+		CLSID = s '{F356152F-9D0C-4FD7-BFB9-33E309D6E90E}'
+	}
+	MetraTech.CMTUpdateCorporateAccountCapability = s 'CMTUpdateCorporateAccountCapability Class'
+	{
+		CLSID = s '{F356152F-9D0C-4FD7-BFB9-33E309D6E90E}'
+		CurVer = s 'MetraTech.CMTUpdateCorporateAccountCapability.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F356152F-9D0C-4FD7-BFB9-33E309D6E90E} = s 'CMTUpdateCorporateAccountCapability Class'
+		{
+			ProgID = s 'MetraTech.CMTUpdateCorporateAccountCapability.1'
+			VersionIndependentProgID = s 'MetraTech.CMTUpdateCorporateAccountCapability'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{6E741478-C134-452C-8A0D-5689AA2A59C7}'
+		}
+	}
+}

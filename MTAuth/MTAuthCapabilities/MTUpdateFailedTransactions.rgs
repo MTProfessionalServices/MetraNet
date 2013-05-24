@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTUpdateFailedTransactions.1 = s 'MTUpdateFailedTransactions Class'
+	{
+		CLSID = s '{8BF7F84B-0207-4ACE-BA6D-37DE4C601927}'
+	}
+	MetraTech.MTUpdateFailedTransactions = s 'MTUpdateFailedTransactions Class'
+	{
+		CLSID = s '{8BF7F84B-0207-4ACE-BA6D-37DE4C601927}'
+		CurVer = s 'MetraTech.MTUpdateFailedTransactions.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8BF7F84B-0207-4ACE-BA6D-37DE4C601927} = s 'MTUpdateFailedTransactions Class'
+		{
+			ProgID = s 'MetraTech.MTUpdateFailedTransactions.1'
+			VersionIndependentProgID = s 'MetraTech.MTUpdateFailedTransactions'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{6E741478-C134-452C-8A0D-5689AA2A59C7}'
+		}
+	}
+}

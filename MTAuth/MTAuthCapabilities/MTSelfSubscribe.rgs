@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTSelfSubscribe.1 = s 'MTSelfSubscribe Class'
+	{
+		CLSID = s '{80DDD2DE-78ED-466F-A50D-7F372688BA9D}'
+	}
+	MetraTech.MTSelfSubscribe = s 'MTSelfSubscribe Class'
+	{
+		CLSID = s '{80DDD2DE-78ED-466F-A50D-7F372688BA9D}'
+		CurVer = s 'MetraTech.MTSelfSubscribe.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {80DDD2DE-78ED-466F-A50D-7F372688BA9D} = s 'MTSelfSubscribe Class'
+		{
+			ProgID = s 'MetraTech.MTSelfSubscribe.1'
+			VersionIndependentProgID = s 'MetraTech.MTSelfSubscribe'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{6E741478-C134-452C-8A0D-5689AA2A59C7}'
+		}
+	}
+}

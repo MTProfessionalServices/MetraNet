@@ -1,0 +1,262 @@
+MessageId=0
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Informational
+SymbolicName=CREDITCARDACCOUNT_ERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Event Definitions...                                             **/
+/**    Defines common Event Ids and their message text...            **/
+/**********************************************************************/
+.
+MessageId=1
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_SDK_STARTUP_FAILED
+Language=English
+SDK initialization failed
+.
+MessageId=2
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_SESS_INIT_PROPERTY_FAILED
+Language=English
+Initialization of the session property failed
+.
+MessageId=3
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_SESS_CLOSE_FAILED
+Language=English
+Metering/Closing the session failed
+.
+MessageId=4
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_HASHING_FAILED
+Language=English
+Unable to hash string
+.
+MessageId=5
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_INVALID_CREDIT_CARD_TYPE
+Language=English
+This credit card type is not supported at this time
+.
+MessageId=6
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_OBJECT_NOT_INITIALIZED
+Language=English
+This credit card account object is not initialized
+.
+MessageId=7
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_PRE_AUTH_FAILED
+Language=English
+Pre Auth Failed
+.
+MessageId=8
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_ACCOUNT_ADDITION_FAILED
+Language=English
+Addition of payment server account failed
+.
+MessageId=9
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_DECLINED
+Language=English
+Authorization declined
+.
+MessageId=10
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_INVALID_CREDIT_CARD_NUMBER
+Language=English
+Credit card number is invalid
+.
+MessageId=11
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_INVALID_EXPIRATION_DATE
+Language=English
+Expiration date is invalid
+.
+MessageId=12
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_INSUFFICIENT_FUNDS
+Language=English
+Available credit limit exceeded
+.
+MessageId=13
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_FAILED_AVS
+Language=English
+User specified address information does not match credit card address information 
+.
+MessageId=14
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_EXCEED_SALES_CAP
+Language=English
+Amount exceeds merchant limit 
+.
+MessageId=15
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_PROCESSOR_UNAVAILABLE
+Language=English
+Processor is unavailable
+.
+MessageId=16
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_ANY_ERROR
+Language=English
+Display generic error to user
+.
+MessageId=17
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_ACCOUNT_NOT_FOUND
+Language=English
+Account does not exist on the payment server
+.
+MessageId=18
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_TEST_SESSION
+Language=English
+This is a test session
+.
+MessageId=19
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Informational
+SymbolicName=CREDITCARDACCOUNT_SUCCESS
+Language=English
+Successful Payment Server transaction
+.
+MessageId=20
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_INVALID_AMOUNT
+Language=English
+Invalid amount
+.
+MessageId=21
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_DUPLICATE_PAYMENT_METHOD
+Language=English
+Payment method with the same type and last four digits already exists
+.
+MessageId=22
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_REFERRAL
+Language=English
+Referral
+.
+MessageId=23
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_TRANSACTION_ID_NOT_FOUND
+Language=English
+Original Transaction ID not found
+.
+MessageId=24
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_INVALID_ROUTING_NUMBER
+Language=English
+Invalid ABA number: Failed ACH MOD 10 check
+.
+MessageId=25
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_NON_NUMERIC_CHARACTER
+Language=English
+Credit Card Number contains a non-numeric character
+.
+MessageId=26
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_CARD_TYPE_MISMATCH
+Language=English
+Provided credit card number does not match provided credit card type
+.
+MessageId=27
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_CHECKSUM
+Language=English
+Mod 10 on credit card number is different from 0
+.
+MessageId=28
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_INVALID_EXP_DATE
+Language=English
+Invalid expiration date
+.
+MessageId=29
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_CARD_EXPIRED
+Language=English
+Credit Card is expired according to provided expiration date
+.
+MessageId=30
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_REQUIRED_AVS_FIELD_MISSING
+Language=English
+Required AVS field is missing
+.
+MessageId=31
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_INVALID_NUM_DIGITS
+Language=English
+Incorrect Number Of Digits in Credit Card number or ACH account number
+.
+MessageId=32
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_FAILED_TO_DECRYPT_ACCOUNT_NUMBER
+Language=English
+Failed to decrypt Credit Card or ACH Account number. Error Code: '%1!x!'
+.
+MessageId=33
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_FAILED_TO_ENCRYPT_ACCOUNT_NUMBER
+Language=English
+Failed to encrypt Credit Card or ACH Account number. Error Code: '%1!x!'
+.
+MessageId=34
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_CVV2_MISMATCH
+Language=English
+Credit Card Security Code (CVV2) mismatch
+.
+MessageId=35
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_CVV2_NOT_SUPPORTED
+Language=English
+CVV2 is not supported for specified credit card
+.
+MessageId=36
+Facility=CREDITCARDACCOUNT_ERR
+Severity=Error
+SymbolicName=CREDITCARDACCOUNT_ERR_CVV2MATCH_NOT_FOUND
+Language=English
+Credit card processor did not return CVV2MATCH response, while CVV2 was sent in the request.
+.

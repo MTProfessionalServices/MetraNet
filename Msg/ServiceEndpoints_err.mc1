@@ -1,0 +1,924 @@
+MessageId=0
+Facility=MTSE_ERR
+Severity=Informational
+SymbolicName=MTSE_ERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Event Definitions...                                             **/
+/**    Defines common Event Ids and their message text...            **/
+/**********************************************************************/
+.
+MessageID=1
+Facility=MTSE_ERR
+Severity=Informational
+SymbolicName=MTSE_ENDPOINTMGR_CONTEXT_SET
+Language=English
+The service endpoint manager session context has been set.  Using context of account id [%1!d!].
+.
+MessageID=2
+Facility=MTSE_ERR
+SymbolicName=MTSE_ENDPOINTMGR_CONTEXT_NOT_SET
+Language=English
+Service endpoint manager initialized without a session context.  No auth/auth checks will be performed.
+.
+MessageID=3
+Facility=MTSE_ERR
+Severity=Informational
+SymbolicName=MTSE_ENDPOINTMGR_LOADED_UNIQUENESS_CONSTRAINT
+Language=English
+Uniqueness constraint loaded from configuration file and is [%1!s!].
+.
+MessageID=4
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_ENDPOINTMGR_UNABLE_TO_GET_YAAC
+Language=English
+Unable to check auth for the operation.  A YAAC for the user could not be found: [AccountID/Login: %1!s!, Namespace: %2!s!].
+.
+MessageID=5
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_ENDPOINTMGR_AUTH_MANAGE_ACCOUNT_DENIED
+Language=English
+Unable to complete the operation.  The user does not have the capability to modify service endpoint connections for the account [%1!d!].
+.
+MessageID=10
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_ENDPOINT_UNABLE_TO_GET_CONNECTION_COLL_COUNT
+Language=English
+An error occurred while getting the count for the internal connection information collection.  HRESULT was [%1!x!].
+.
+MessageID=11
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_ENDPOINT_UNABLE_TO_GET_CONNECTION_COLL_ITEM
+Language=English
+An error occurred while getting an item from the connection information collection.  Attempted to get item [%1!d!] of [%2!d!]. HRESULT was [%3!x!].
+.
+MessageID=12
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_ENDPOINT_INVALID_CONNECTION_INFO
+Language=English
+A bad or NULL connection info object was passed to %1!s!.
+.
+MessageID=13
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_ENDPOINT_UNABLE_TO_FIND_CONNECTION_FOR_UPDATE
+Language=English
+Unable to find the service endpoint connection to update.  Specified start date was [%1!s!].
+.
+MessageID=14
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_ENDPOINT_UNABLE_TO_FIND_CONNECTION_FOR_DISCONNECT
+Language=English
+Unable to find a connection for disconnect.  Specified new end date was [%1!s!].
+.
+MessageID=15
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_ENDPOINT_UNABLE_TO_UDPATE_CONNECTION_NO_CONNECTIONS_EXIST
+Language=English
+Unable to update connection.  This service endpoint has no connections.
+.
+MessageID=16
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_ENDPOINT_UNABLE_TO_REMOVE_CONNECTION_COLL_ITEM
+Language=English
+An error occurred while removing an item from the connection collection.  Attempted to remove item [%1!d!] of [%2!d!]. HRESULT was [%3!x!].
+.
+MessageID=17
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_ENDPOINT_UNABLE_TO_GET_IDMAPPING_COLL_COUNT
+Language=English
+An error occurred while getting the count for the internal id mapping information collection.  HRESULT was [%1!x!].
+.
+MessageID=18
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_ENDPOINT_UNABLE_TO_GET_IDMAPPING_COLL_ITEM
+Language=English
+An error occurred while getting an item from the id mapping information collection.  Attempted to get item [%1!d!] of [%2!d!]. HRESULT was [%3!x!].
+.
+MessageID=19
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_ENDPOINT_UNABLE_TO_REMOVE_IDMAPPING_COLL_ITEM
+Language=English
+An error occurred while removing an item from the id mapping information collection.  Attempted to remove item [%1!d!] of [%2!d!]. HRESULT was [%3!x!].
+.
+MessageID=20
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_ENDPOINT_INVALID_ID_MAPPING
+Language=English
+A bad or NULL ID mapping object was passed to %1!s!.
+.
+MessageID=21
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_ENDPOINT_INVALID_ID_MAPPING_PARAMETER
+Language=English
+The ID mapping passed is contains invalid data or is missing data.  Login was [%1!s!] and Namespace was [%2!s!].
+.
+MessageID=22
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_ENDPOINT_UNABLE_TO_FIND_ID_MAPPING_FOR_UPDATE
+Language=English
+Unable to find the service endpoint id mapping to update.  Login was [%1!s!] and Namespace was [%2!s!].
+.
+MessageID=23
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_ENDPOINT_UNABLE_TO_REMOVE_ONLY_ID_MAPPING
+Language=English
+The service endpoint must have at least one ID mapping.
+.
+MessageID=24
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_ENDPOINT_UNABLE_TO_GET_ID_PROP
+Language=English
+An error occurred while getting id_prop for the service endpoint.  HRESULT was [%1!x!].
+.
+MessageID=30
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_CONN_INFO_END_PRECEDES_START
+Language=English
+Unable to initialize the connection info object. The end date precedes the start date.
+.
+MessageID=31
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_CONN_INFO_INVALID_ACCOUNT_ID
+Language=English
+Unable to initialize the connection info object. The account ID [%1!d!] could not be found in the database.
+.
+MessageID=32
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_CONN_INFO_INVALID_ACCOUNT_LOGIN
+Language=English
+Unable to initialize the connection info object. The account [Login: %1!s!, Namespace: %2!s!] could not be found in the database.
+.
+MessageID=33
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_CONN_INFO_INVALID_ACCOUNT_INFO
+Language=English
+Unable to initialize the connection info object. The account was not specified as an ID or as a login/namespace.
+.
+MessageID=40
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_ID_MAPPING_INVALID_LOGIN
+Language=English
+Unable to initialize the ID mapping object.  A blank login was specified.
+.
+MessageID=41
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_ID_MAPPING_INVALID_NAMESPACE
+Language=English
+Unable to initialize the ID mapping object.  A blank namespace was specified.
+.
+MessageID=50
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_SE_CREATE_INSTANCE_FAILED
+Language=English
+Attempt to create instance of MTServiceEndpoint object failed.  HRESULT was [%1!x!].
+.
+MessageID=51
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_SE_LOAD_BASE_PROPS_FAILED
+Language=English
+Attempt to load the base properties for the service endpoint failed.  HRESULT was [%1!x!].
+.
+MessageID=52
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_SE_LOAD_EXTENDED_PROPS_FAILED
+Language=English
+Attempt to load the extended properties for the service endpoint failed.  HRESULT was [%1!x!].
+.
+MessageID=53
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_SE_LOAD_ID_MAPPINGS_FAILED
+Language=English
+Attempt to load the ID Mappings for the service endpoint failed.  HRESULT was [%1!x!].
+.
+MessageID=54
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_SE_LOAD_CONNECTIONS_FAILED
+Language=English
+Attempt to load the Connections for the service endpoint failed.  HRESULT was [%1!x!].
+.
+MessageID=55
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_INVALID_SE
+Language=English
+An invalid or NULL MTServiceEndpoint object was passed to %1!s!.
+.
+MessageID=56
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_INITIALIZE_FROM_ROWSET_FAILED
+Language=English
+Attempt to initialize the service endpoint with a rowset failed.  HRESULT was [%1!x!].
+.
+MessageID=57
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_INVALID_ROWSET
+Language=English
+An invalid or NULL MTSQLRowset object was passed to %1!s!.
+.
+MessageID=58
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_SE_ADD_MAPPING_FAILED
+Language=English
+Attempt to add an ID Mapping to the service endpoint's internal collection failed.  HRESULT was [%1!x!].
+.
+MessageID=59
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_SE_ADD_CONNECTION_FAILED
+Language=English
+Attempt to add a Connection to the service endpoint's internal collection failed.  HRESULT was [%1!x!].
+.
+MessageID=60
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_UNABLE_TO_LOAD_XML_ROOT
+Language=English
+Unable to load the XML root.  The reason is unknown.
+.
+MessageID=61
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_FIND_ACCOUNT_BAD_POINTER
+Language=English
+COM passed a bad rowset pointer in. Unable to proceed with the find.
+.
+MessageID=62
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_IDMAPPING_CREATE_INSTANCE_FAILED
+Language=English
+Attempt to CreateInstance of an ID Mapping information object failed.  HRESULT was [%1!x!].
+.
+MessageID=63
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_CONNECTION_CREATE_INSTANCE_FAILED
+Language=English
+Attempt to CreateInstance of an ID Mapping information object failed.  HRESULT was [%1!x!].
+.
+MessageID=64
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_ENUM_CREATE_INSTANCE_FAILED
+Language=English
+Attempt to CreateInstance of enum config object failed.  This object is required for the FINDER to work correctly.  HRESULT was [0x%1!x!H].
+.
+MessageID=65
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_ENDPOINT_ID_MISSING
+Language=English
+Unable to load base properties for the service endpoint.  Neither the ENDPOINT ID nor an ENDPOINT ID MAPPING were specified.
+.
+MessageID=66
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_ENDPOINT_NAMESPACE_MISSING
+Language=English
+Unable to load base properties for the service endpoint.  An ENDPOINT ID MAPPING was specified, but the associated NAMESPACE was not.
+.
+MessageID=67
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_ENDPOINT_CORPORATE_NAMESPACE_MISSING
+Language=English
+Unable to load base properties for the service endpoint.  The LOGIN for the associated corporate account was specified, but the NAMESPACE was not.  Both are required if the corporate account is not specified by ID.
+.
+MessageID=68
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_ENDPOINT_NAMESPACE_PROVIDED
+Language=English
+Unable to load base properties for the service endpoint.  The ACCOUNT ID for the associated corporate account was specified, but the NAMESPACE was also specified.  The namespace is not required if the corporate account ID is specified.  Aborting due to possible confusion in the caller.
+.
+MessageID=69
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_UNABLE_TO_FORMAT_DATE
+Language=English
+Unable to format a date for the database.
+.
+MessageID=70
+Facility=MTSE_ERR
+Severity=Informational
+SymbolicName=MTSE_WRITER_CREATED_ENDPOINT
+Language=English
+A service endpoint with ID [%1!d!] was created successfully.  Login: %2!s!,  Namespace: %3!s!, Start Date: %4!s!, End Date: %5!s!,  Corporate ID: %6!s!.
+.
+MessageID=71
+Facility=MTSE_ERR
+Severity=Informational
+SymbolicName=MTSE_WRITER_CONNECT_SUCCESS
+Language=English
+Service endpoint connected to account.  Endpoint ID: %1!d!, Account: %2!s!, Namespace: %3!s!, Connection Start: %4!s!, Connection End: %5!s!.
+.
+MessageID=72
+Facility=MTSE_ERR
+Severity=Informational
+SymbolicName=MTSE_WRITER_UPDATE_CONNECTION_SUCCESS
+Language=English
+Service endpoint connection updated.  Endpoint ID: %1!d!, Account ID: %2!d!, Previous Connection Start: %3!s!, New Connection Start: %4!s!, New Connection End: %5!s!.
+.
+MessageID=73
+Facility=MTSE_ERR
+Severity=Informational
+SymbolicName=MTSE_WRITER_MOVE_CONNECTION_SUCCESS
+Language=English
+Service endpoint connection moved.  Endpoint ID: %1!d!, Previous Account [id = %2!d!]: %3!s!, Namespace %4!s! --  New Account: %5!s!, New Account Namespace: %6!s!, Move Date: %7!s!, New Connection End: %8!s!.
+.
+MessageID=74
+Facility=MTSE_ERR
+Severity=Informational
+SymbolicName=MTSE_WRITER_DATES_UPDATED
+Language=English
+Service endpoint effective dates updated.  Endpoint ID: %1!d!, New Start Date: %2!s!, New End Date: %3!s!.
+.
+MessageID=75
+Facility=MTSE_ERR
+Severity=Informational
+SymbolicName=MTSE_WRITER_ID_MAPPING_UPDATED
+Language=English
+Service endpoint ID mapping updated.  Endpoint ID: %1!d!, Old ID: %2!s!, Old Namespace: %3!s!, New ID: %4!s!, New Namespace: %5!s!
+.
+MessageID=76
+Facility=MTSE_ERR
+Severity=Informational
+SymbolicName=MTSE_WRITER_ID_MAPPING_ADDED
+Language=English
+Service endpoint ID mapping added.  Endpoint ID: %1!d!, New ID: %2!s!, New Namespace: %3!s!
+.
+MessageID=77
+Facility=MTSE_ERR
+Severity=Informational
+SymbolicName=MTSE_WRITER_ID_MAPPING_REMOVED
+Language=English
+Service endpoint ID mapping REMOVED.  Endpoint ID: %1!d!, ID: %2!s!, Namespace: %3!s!
+.
+MessageID=78
+Facility=MTSE_ERR
+Severity=Informational
+SymbolicName=MTSE_WRITER_CONNECTION_REMOVED
+Language=English
+Service endpoint connection removed.  Endpoint ID: %1!d!, Account ID: %2!d!, Connection Start Date: %3!s!
+.
+MessageID=79
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_BASE_PROPS_INSERT_FAILED
+Language=English
+Attempt to create base properties entries failed.
+.
+MessageID=80
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_CREATE_ID_MISSING
+Language=English
+Unable to CREATE the service endpoint.  The EXTERNAL ID for the endpoint is required, but was not specified.
+.
+MessageID=81
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_CREATE_NAMESPACE_MISSING
+Language=English
+Unable to CREATE the service endpoint.  The NAMESPACE for the endpoint is required, but was not specified.
+.
+MessageID=82
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_CREATE_CORP_NAMESPACE_MISSING
+Language=English
+Unable to CREATE the service endpoint.  The EXTERNAL ID for the associated corporate account was specified, but the NAMESPACE was not.  For locally unique endpoints, both must be specified and for globally unique endpoints both must NOT BE specified.
+.
+MessageID=83
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_CREATE_CORP_NAMESPACE_PROVIDED
+Language=English
+Unable to CREATE the service endpoint.  The ACCOUNT ID for the associated corporate account was specified, but the NAMESPACE was as well.  When the account ID is specified, the namespace should not be.  Creation aborting due to possible confusion in the caller.
+.
+MessageID=84
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_UNABLE_TO_FORMAT_DATE
+Language=English
+Unable to format a date for the database.
+.
+MessageID=85
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_CREATE_START_DATE_MISSING
+Language=English
+Unable to CREATE the service endpoint.  An effective start date was not specified.
+.
+MessageID=86
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_CREATE_INVALID_IDMAPPING
+Language=English
+Unable to CREATE the service endpoint.  A NULL pointer was passed for the ID Mapping.
+.
+MessageID=87
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_CREATE_CORP_NAMESPACE_PROVIDED_WITHOUT_NAME
+Language=English
+Unable to CREATE the service endpoint.  The corporate namespace was provided, but the corporate login was not.  Aborting due to possible confusion in the caller.
+.
+MessageID=88
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_CREATE_INVALID_CONNECTION
+Language=English
+Unable to CREATE the service endpoint.  Connection information was specified, but was incomplete.  Either the account ID or start date was not set.
+.
+MessageID=89
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_CONNECT_INVALID_SE
+Language=English
+Unable to CONNECT the service endpoint.  A NULL pointer was passed for the service endpoint.
+.
+MessageID=90
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_CONNECT_INVALID_CONN_INFO
+Language=English
+Unable to CONNECT the service endpoint.  A NULL pointer was passed for the connection info.
+.
+MessageID=91
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_CONNECT_INVALID_CONNECTION
+Language=English
+Unable to CONNECT the service endpoint.  Connection information was specified, but was incomplete.  Either the account ID or start date was not set.
+.
+MessageID=92
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_UPDATE_CONNECTION_INVALID_SE
+Language=English
+Unable to UPDATE the service endpoint connection.  A NULL pointer was passed for the service endpoint.
+.
+MessageID=93
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_UPDATE_CONNECTION_INVALID_CUR_INFO
+Language=English
+Unable to UPDATE the service endpoint connection.  A NULL pointer was passed for the connection to modify.
+.
+MessageID=94
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_UPDATE_CONNECTION_INVALID_NEW_INFO
+Language=English
+Unable to UPDATE the service endpoint connection.  A NULL pointer was passed for the new connection information.
+.
+MessageID=95
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_REMOVE_CONN_INVALID_SE
+Language=English
+Unable to REMOVE the service endpoint connection.  A NULL pointer was passed for the service endpoint.
+.
+MessageID=96
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_REMOVE_CONN_INVALID_CONNECTION
+Language=English
+Unable to REMOVE the service endpoint connection.  A NULL pointer was passed for the connection to remove.
+.
+MessageID=97
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_UPDATE_DATES_INVALID_SE
+Language=English
+Unable to UPDATE the service endpoint effective dates.  A NULL pointer was passed for the service endpoint.
+.
+MessageID=98
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_ADD_ID_MAPPING_INVALID_SE
+Language=English
+Unable to ADD ID MAPPING to the service endpoint effective dates.  A NULL pointer was passed for the service endpoint.
+.
+MessageID=99
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_ADD_ID_MAPPING_INVALID_MAPPING
+Language=English
+Unable to ADD ID MAPPING to the service endpoint.  A NULL pointer was passed for the ID Mapping.
+.
+MessageID=151
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_ADD_ID_MAPPING_ID_MISSING
+Language=English
+Unable to ADD ID MAPPING to the service endpoint.  The EXTERNAL ID for the endpoint is required, but was not specified.
+.
+MessageID=152
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_ADD_ID_MAPPING_NAMESPACE_MISSING
+Language=English
+Unable to ADD ID MAPPING to the service endpoint.  The NAMESPACE for the endpoint is required, but was not specified.
+.
+MessageID=153
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_UPDATE_ID_MAPPING_INVALID_SE
+Language=English
+Unable to UPDATE ID MAPPING for the service endpoint.  A NULL pointer was passed for the service endpoint.
+.
+MessageID=154
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_UPDATE_ID_MAPPING_INVALID_MAPPING
+Language=English
+Unable to UPDATE ID MAPPING for the service endpoint.  A NULL pointer was passed for the ID Mapping.
+.
+MessageID=155
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_UPDATE_ID_MAPPING_INVALID_NEW_MAPPING
+Language=English
+Unable to UPDATE ID MAPPING for the service endpoint.  A NULL pointer was passed for the new ID Mapping.
+.
+MessageID=156
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_UPDATE_ID_MAPPING_ID_MISSING
+Language=English
+Unable to UPDATE ID MAPPING for the service endpoint.  The new EXTERNAL ID for the endpoint ID mapping is required, but was not specified.
+.
+MessageID=157
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_UPDATE_ID_MAPPING_NAMESPACE_MISSING
+Language=English
+Unable to UPDATE ID MAPPING for the service endpoint.  The new NAMESPACE for the endpoint ID mapping is required, but was not specified.
+.
+MessageID=158
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_REMOVE_ID_MAPPING_INVALID_SE
+Language=English
+Unable to REMOVE ID MAPPING for the service endpoint.  A NULL pointer was passed for the service endpoint.
+.
+MessageID=159
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_REMOVE_ID_MAPPING_INVALID_MAPPING
+Language=English
+Unable to REMOVE ID MAPPING for the service endpoint.  A NULL pointer was passed for the ID Mapping.
+.
+MessageID=160
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_SAVE_PROPERTIES_INVALID_SE
+Language=English
+Unable to SAVE EXTENDED PROPERTIES for the service endpoint.  A NULL pointer was passed for the service endpoint.
+.
+MessageID=161
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_REMOVE_CONNECTION_INVALID_CUR_INFO
+Language=English
+Unable to REMOVE the service endpoint connection.  Invalid connection information was passed.
+.
+MessageID=162
+Facility=MTSE_ERR
+Severity=Informational
+SymbolicName=MTSE_WRITER_SAVE_PROPERTIES_SUCCESS
+Language=English
+Service endpoint extended properties saved successfully.
+.
+MessageID=163
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_WRITER_INVALID_CORPORATEID
+Language=English
+The endpoint cannot be created because the account specified was NOT a corporate account.
+.
+MessageID=164
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_CREATE_FAILED_NAMESPACE_NOT_ALLOWED
+Language=English
+Unable to CREATE the service endpoint. Endpoint may not be created in a system_user namespace.
+.
+MessageId=170
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_AUTH_MANAGE_SE_CAP_WRITE_MISSING
+Language=English
+A capability [Manage Service Endpoint -- Write] is required to perform this operation [%1!s!].
+.
+MessageId=171
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_AUTH_MANAGE_SE_CAP_READ_MISSING
+Language=English
+A capability [Manage Service Endpoint -- Read] is required to perform this operation [%1!s!].
+.
+MessageID=172
+Facility=MTSE_ERR
+Severity=Informational
+SymbolicName=MTSE_AUTH_ENDPOINT_CONNECT_DENIED
+Language=English
+Unable to connect the service endpoint.  The required capability was not possessed.
+.
+MessageID=173
+Facility=MTSE_ERR
+Severity=Informational
+SymbolicName=MTSE_AUTH_ENDPOINT_UPDATE_CONNECTION_DENIED
+Language=English
+Unable to modify the service endpoint connection.  The required capability was not possessed.
+.
+MessageID=174
+Facility=MTSE_ERR
+Severity=Informational
+SymbolicName=MTSE_AUTH_ENDPOINT_REMOVE_CONNECTION_DENIED
+Language=English
+Unable to remove the service endpoint connection.  The required capability was not possessed.
+.
+MessageID=180
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_UNIQUENESS_CONSTRAINT_VIOLATION
+Language=English
+The attempted operation violates the service endpoint uniqueness constraint [%1!s!]  Corporate ID was [%2!s!].
+.
+MessageID=181
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_UNABLE_TO_LOAD_SE_CONFIG
+Language=English
+Unable to load the service endpoint configuration file [%1!s!].
+.
+MessageID=182
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_PARSE_ERROR
+Language=English
+A parse error [%1!s!] occurred while loading an XML file [%2!s!].
+.
+MessageID=183
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_UNABLE_TO_FIND_CONSTRAINT
+Language=English
+Unable to find the service endpoint uniqueness constraint node [/xmlconfig/uniqueness_constraint] in the configuration file [%1!s!].
+.
+MessageID=184
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_UNABLE_TO_SET_CONSTRAINT
+Language=English
+Unable to set the service endpoint uniqueness constraint to [%1!s!] because %2!s! endpoints were found in the database.
+.
+MessageID=185
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_READER_ENDPOINT_NOT_EXIST
+Language=English
+The service endpoint with the specified id [%1!s!] does not exist.
+.
+MessageID=100
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_BLOCK_START
+Language=English
+.
+MessageID=101
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_SQL_ERROR
+Language=English
+Stored procedure [%1!s!] did not execute successfully.  Error code was [%2!x!].
+.
+MessageID=102
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_CREATE_FAILED_INVALID_DATES
+Language=English
+Unable to CREATE the service endpoint. The end date precedes the start date.
+.
+MessageID=103
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_CONNECT_FAILED_INVALID_DATES
+Language=English
+Unable to CONNECT the service endpoint. The end date precedes the start date.
+.
+MessageID=104
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_CONNECT_FAILED_INVALID_ENDPOINT
+Language=English
+Unable to CONNECT the service endpoint. The specified endpoint does not exist during the entire time interval for the connection.
+.
+MessageID=105
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_CONNECT_FAILED_CONNECTION_EXISTS
+Language=English
+Unable to CONNECT the service endpoint.  The new connection would overlap with an existing connection.
+.
+MessageID=106
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_CONNECT_FAILED_RESOLVE_FAILED
+Language=English
+Unable to CONNECT the service endpoint.  The ID of the account to connect the endpoint to can not be resolved from the login/namespace.
+.
+MessageID=107
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_CONNECT_FAILED_INSERT_FAILED
+Language=English
+Unable to CONNECT the service endpoint.  The attempt to create entry in t_se_mapper failed.
+.
+MessageID=108
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_CONNECT_FAILED_INVALID_ACCOUNT_ID
+Language=English
+Unable to CONNECT the service endpoint.  The specified account ID was not found in t_account.
+.
+MessageID=109
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_UPDATE_CONNECTION_FAILED_INVALID_CONNECTION
+Language=English
+Unable to UPDATE the service endpoint connection.  The connection to update could not be found.
+.
+MessageID=110
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_UPDATE_CONNECTION_FAILED_INVALID_DATES
+Language=English
+Unable to UPDATE the service endpoint connection.  The end date precedes the start date.
+.
+MessageID=111
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_UPDATE_CONNECTION_FAILED_CONNECTION_EXISTS
+Language=English
+Unable to UPDATE the service endpoint connection.  The updated connection would overlap with an existing connection.
+.
+MessageID=112
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_UPDATE_DATES_FAILED_INVALID_SE
+Language=English
+Unable to UPDATE the service endpoint effective dates.  The specified service endpoint could not be found.
+.
+MessageID=113
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_UPDATE_DATES_FAILED_INVALID_START_DATE
+Language=English
+Unable to UPDATE the service endpoint effective dates.  The START DATE is required, but was not specified.
+.
+MessageID=114
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_UPDATE_DATES_FAILED_INVALID_DATES
+Language=English
+Unable to UPDATE the service endpoint effective dates.  The end date precedes the start date.
+.
+MessageID=115
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_ADD_MAPPING_MAPPING_EXISTS
+Language=English
+Unable to ADD the ID mapping for the service endpoint.  The ID mapping already exists.
+.
+MessageID=116
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_UPDATE_MAPPING_INVALID_MAPPING
+Language=English
+Unable to UPDATE the ID mapping for the service endpoint.  The ID mapping to update does not exist.
+.
+MessageID=117
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_REMOVE_MAPPING_INVALID_MAPPING
+Language=English
+Unable to REMOVE the ID mapping for the service endpoint.  The ID mapping to remove does not exist.
+.
+MessageID=118
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_CREATE_FAILED_DUPLICATE_MAPPING
+Language=English
+Unable to CREATE the service endpoint.  The specified ID mapping already exists.
+.
+MessageID=119
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_CONNECT_FAILED_NO_ACCOUNT
+Language=English
+Unable to connect the service endpoint.  The specified account does not exist during the entire time span of the connection.
+.
+MessageID=120
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_CONNECT_FAILED_WRONG_CORP
+Language=English
+Unable to connect the service endpoint.  The corporate id of the specified account does not match the corporate ID of the service endpoint.
+.
+MessageID=121
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_CONNECT_FAILED_BAD_END
+Language=English
+Unable to update the service endpoint connection.  The specified end date is later than the end date for the service endpoint.
+.
+MessageID=122
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_CONNECT_FAILED_BAD_START
+Language=English
+Unable to update the service endpoint connection.  The specified start date is earlier than the start date for the service endpoint.
+.
+MessageID=123
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_REMOVE_ID_MAPPING_FAILED_REMOVE_PRIMARY
+Language=English
+Unable to remove the endpoint ID mapping.  Unable to remove the primary ID mapping.
+.
+MessageID=124
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_UPDATE_ID_MAPPING_FAILED_REMOVE_PRIMARY
+Language=English
+Unable to update the endpoint ID mapping.  The endpoint must have one and only one primary ID mapping.
+.
+MessageID=125
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_UPDATE_DATES_FAILED_START_INVALID_CONN
+Language=English
+Unable to update the service endpoint effective dates.  The new start date is later than the start date of an existing connection for the service endpoint.
+.
+MessageID=126
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_UPDATE_DATES_FAILED_END_INVALID_CONN
+Language=English
+Unable to update the service endpoint effective dates.  The new end date is earlier than the end date of an existing connection for the service endpoint.
+.
+MessageID=127
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_UPDATE_ID_MAPPING_FAILED_DUPLICATE
+Language=English
+Unable to update the endpoint ID mapping.  The values duplicate the external identifiers for an existing endpoint.
+.
+MessageID=128
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_UPDATE_DATES_FAILED_ID_MAPPING
+Language=English
+Unable to update the service endpoint effective dates.  The new effective dates would create an ID Mapping conflict with another service endpoint.
+.
+MessageID=150
+Facility=MTSE_ERR
+Severity=Error
+SymbolicName=MTSE_SPROC_BLOCK_END
+Language=English
+.

@@ -1,0 +1,198 @@
+/**************************************************************************
+* Copyright 1997-2002 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+***************************************************************************/
+
+import "IMTAuth.idl";
+import "oaidl.idl";
+import "IMTYAAC.idl";
+import "IMTSecurity.idl";
+
+[
+	object,
+	uuid(1168e6d6-8cd2-4528-b366-d5b949dbbd23),
+	dual,
+	helpstring("Dummy interface"),
+	pointer_default(unique)
+]
+interface IDummy : IDispatch
+{
+};
+	
+[
+	uuid(E77362A0-A368-4F3E-A642-843A34C0B83B),
+	version(1.0),
+	helpstring("MTAuth 1.0 Type Library")
+]
+library MTAUTHLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(FC296257-AFC2-4A4E-91D9-54E27B41141A),
+		helpstring("MTCompositeCapability Class")
+	]
+
+	coclass MTCompositeCapabilityBase
+	{
+		[default] interface IMTCompositeCapabilityBase;
+	};
+	[
+		uuid(F23C1169-EFF0-45B0-994A-B9A603B690A4),
+		helpstring("MTAtomicCapability Class")
+	]
+	coclass MTAtomicCapability
+	{
+		[default] interface IMTAtomicCapability;
+	};
+	[
+		uuid(6478CDE1-2CCE-49CF-B67B-F3339160D451),
+		helpstring("MTPathCapability Class")
+	]
+	coclass MTPathCapability
+	{
+		[default] interface IMTPathCapability;
+	};
+	/*
+	[
+		uuid(F5902493-25B5-469F-9C06-649C774D6FB8),
+		helpstring("MTAccessTypeCapability Class")
+	]
+	coclass MTAccessTypeCapability
+	{
+		[default] interface IMTAccessTypeCapability;
+	};
+	*/
+	[
+		uuid(69DAC584-6B18-4C89-93B0-AC06117B9633),
+		helpstring("MTLoginContext Class")
+	]
+	coclass MTLoginContext
+	{
+		[default] interface IMTLoginContext;
+	};
+	[
+		uuid(AF7EDFEE-B5A9-4306-A63E-48C941314383),
+		helpstring("MTSecurityContext Class")
+	]
+	coclass MTSecurityContext
+	{
+		[default] interface IMTSecurityContext;
+	};
+	/*
+	[
+		uuid(03613F3A-4631-48C5-B8FE-A03ACB5D7DC8),
+		helpstring("MTSecurityPrincipal Class")
+	]
+	coclass MTSecurityPrincipal
+	{
+		[default] interface IMTSecurityPrincipal;
+	};
+	*/
+	[
+		uuid(D7C38D69-ACC8-43E8-BE2F-069B8EC52BB0),
+		helpstring("MTAtomicCapabilityType Class")
+	]
+	coclass MTAtomicCapabilityType
+	{
+		[default] interface IMTAtomicCapabilityType;
+	};
+	[
+		uuid(6FF8A0EF-BE83-427E-A93C-C49905E26B64),
+		helpstring("MTCompositeCapabilityType Class")
+	]
+	coclass MTCompositeCapabilityType
+	{
+		[default] interface IMTCompositeCapabilityType;
+	};
+	[
+		uuid(A7B658CD-36D5-4D22-852B-7360A8DC2130),
+		helpstring("MTPrincipalPolicy Class")
+	]
+	coclass MTPrincipalPolicy
+	{
+		[default] interface IMTPrincipalPolicy;
+	};
+	[
+		uuid(58039299-251B-47F8-AE30-772A3D558B18),
+		helpstring("MTRole Class")
+	]
+	coclass MTRole
+	{
+		[default] interface IMTRole;
+	};
+	[
+		uuid(F8B78AA7-BE32-4023-82BA-576117DB6CCF),
+		helpstring("MTSecurity Class")
+	]
+	coclass MTSecurity
+	{
+		[default] interface IMTSecurity;
+	};
+	
+	
+	[
+		uuid(1A74356D-D948-47AE-8602-21BEE9B72834),
+		helpstring("MTAtomicCapabilityBase Class")
+	]
+	coclass MTAtomicCapabilityBase
+	{
+		[default] interface IMTAtomicCapabilityBase;
+	};
+	[
+		uuid(BDB8D83B-2879-40B3-80C8-5147F3B03317),
+		helpstring("MTPathParameter Class")
+	]
+	coclass MTPathParameter
+	{
+		[default] interface IMTPathParameter;
+	};
+	[
+		uuid(A5C1D2EF-4EB0-4675-BBC4-CF39C5F60292),
+		helpstring("MTSessionContext Class")
+	]
+	coclass MTSessionContext
+	{
+		[default] interface IMTSessionContext;
+	};
+	
+	[
+		uuid(331AAD97-D7D4-4671-8E21-45318C5C0567),
+		helpstring("MTEnumTypeCapability Class")
+	]
+	coclass MTEnumTypeCapability
+	{
+		[default] interface IMTEnumTypeCapability;
+	};
+	[
+		uuid(B45F1CF6-DDBF-49D8-8350-891EE710459D),
+		helpstring("MTDecimalCapability Class")
+	]
+	coclass MTDecimalCapability
+	{
+		[default] interface IMTDecimalCapability;
+	};
+	[
+		uuid(249194BA-9CA0-49fc-8270-25BC47B60E96),
+		helpstring("MTStringCollectionCapability Class")
+	]
+	coclass MTStringCollectionCapability
+	{
+		[default] interface IMTStringCollectionCapability;
+	};
+	
+};

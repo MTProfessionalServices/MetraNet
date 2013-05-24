@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTApplicationLogOnCapability.1 = s 'MTApplicationLogOnCapability Class'
+	{
+		CLSID = s '{053BF4BC-AA57-4C91-B222-E1BD6BEF58A5}'
+	}
+	MetraTech.MTApplicationLogOnCapability = s 'MTApplicationLogOnCapability Class'
+	{
+		CLSID = s '{053BF4BC-AA57-4C91-B222-E1BD6BEF58A5}'
+		CurVer = s 'MetraTech.MTApplicationLogOnCapability.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {053BF4BC-AA57-4C91-B222-E1BD6BEF58A5} = s 'MTApplicationLogOnCapability Class'
+		{
+			ProgID = s 'MetraTech.MTApplicationLogOnCapability.1'
+			VersionIndependentProgID = s 'MetraTech.MTApplicationLogOnCapability'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{6E741478-C134-452C-8A0D-5689AA2A59C7}'
+		}
+	}
+}

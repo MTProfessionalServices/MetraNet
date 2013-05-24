@@ -1,0 +1,332 @@
+MessageId=0
+Facility=PIPE_ERR
+Severity=Informational
+SymbolicName=PIPE_ERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Event Definitions...                                             **/
+/**    Defines common Event Ids and their message text...            **/
+/**********************************************************************/
+.
+MessageId=1
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_MISSING_ACTIONS
+Language=English
+Missing property set in configuration.
+.
+MessageId=2
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_MISSING_PROP_NAME
+Language=English
+Missing property value in configuration.
+.
+MessageId=3
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_MISSING_PROP_VALUE
+Language=English
+Missing property value in configuration.
+.
+MessageId=4
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_INCORRECT_CONSTRAINT_SET
+Language=English
+Constraint set in configuration is not correct.
+.
+MessageId=5
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_MISSING_DERIVED_PROP_VALUE
+Language=English
+Missing derived property value set.
+.
+MessageId=6
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_CONFIGURATION_ERROR
+Language=English
+There is an error in the pipeline configuration.
+.
+MessageId=7
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_BAD_MESSAGE
+Language=English
+The pipeline received an invalid message.
+.
+MessageId=8
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_ROUTING_ERROR
+Language=English
+A pipeline stage received a message it was unable to handle.
+.
+MessageId=9
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_INTERNAL_ERROR
+Language=English
+An internal pipeline error occurred.
+.
+MessageId=10
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_RESTART_FAILED
+Language=English
+A pipeline stage could not be retried.
+.
+MessageId=11
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_INPROCESS_NOT_FOUND
+Language=English
+A session was not found in the inprocess queue.
+.
+MessageId=12
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_NO_CONFIG_FOR_DATE
+Language=English
+No configuration was available for the given date.
+.
+MessageId=13
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_AUTOTEST_OUTPUT_MISMATCH
+Language=English
+Outputs were not correct after running a plug-in autotest.
+.
+MessageId=14
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_INVALID_STAGE_ID
+Language=English
+The stage ID is not valid.
+.
+MessageId=15
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_STAGES_FAILED_STARTUP
+Language=English
+One or more stages failed to start.
+.
+MessageId=16
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_MUTEX_TIMEOUT
+Language=English
+Unable to gain ownership of a mutex.
+.
+MessageId=17
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_SHARED_MEM_INIT
+Language=English
+Unable to initialize shared memory.
+.
+MessageId=18
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_INVALID_SESSION
+Language=English
+The session does not exist.
+.
+MessageId=19
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_INVALID_PROPERTY
+Language=English
+The property does not exist.
+.
+MessageId=20
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_INVALID_SESSION_SET
+Language=English
+The session set does not exist.
+.
+MessageId=21
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_PROP_TYPE_MISMATCH
+Language=English
+The property is of the wrong type.
+.
+MessageId=22
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_PARSE_ERROR
+Language=English
+Error parsing message.
+.
+MessageId=23
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_ACCOUNT_ID_MISMATCH
+Language=English
+Account IDs of sub-sessions within a compound session do not match.
+.
+MessageId=24
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_SHARED_OBJECT_FAILURE
+Language=English
+Unable to create a shared object.
+.
+MessageId=25
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_DUPLICATE_SESSION
+Language=English
+Attempting to process a duplicate session.
+.
+MessageId=26
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_ZIPCODE_INVALID
+Language=English
+Zipcode may be invalid for given city and state.
+.
+MessageId=27
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_CITY_NAME_MISMATCH
+Language=English
+City may be invalid for state and zipcode.
+.
+MessageId=28
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_GEOCODE_INVALID
+Language=English
+Failed to find matching geocode.
+.
+MessageId=29
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_GEOCODE_MATCH_STATEONLY
+Language=English
+Geocode match found on state only.
+.
+MessageId=30
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_UNKNOWN_GEOCODE_TYPE
+Language=English
+Unknown match type.
+.
+MessageId=31
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_SUBSET_OF_BATCH_FAILED
+Language=English
+A subset of sessions from a client batch has failed.
+.
+MessageId=32
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_CANNOT_AUTO_RESUBMIT
+Language=English
+The session could not automatically be resubmitted for reprocessing.
+.
+MessageId=33
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_CONDITION_EXECUTION_FAILED
+Language=English
+The plug-in's condition procedure failed during execution.
+.
+MessageId=34
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_CONDITION_PROP_MISSING
+Language=English
+The condition procedure did not set the required _ExecutePlugin property.
+.
+MessageId=35
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_CONDITION_OTHER_PROP_SET
+Language=English
+The condition procedure can only set the _ExecutePlugin property.
+.
+MessageId=36
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_ACCOUNT_RESOLUTION
+Language=English
+Account resolution failed.
+.
+MessageId=37
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_USAGE_INTERVAL_RESOLUTION
+Language=English
+Usage interval resolution failed.
+.
+MessageId=38
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_PRICEABLE_ITEM_RESOLUTION
+Language=English
+Priceable item resolution failed.
+.
+MessageId=39
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_PI_HIERARCHY
+Language=English
+Incorrect parent/child relationship between priceable items.
+.
+MessageId=40
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_NO_RATE_SCHEDULES
+Language=English
+No matching rate schedules found.
+.
+MessageId=41
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_NO_RULES_MATCH
+Language=English
+No rules matched in rate schedules.
+.
+MessageId=42
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_SESSION_COMMIT_TIMEOUT
+Language=English
+Timeout expired while waiting for sessions to commit
+.
+MessageId=43
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_SESSION_COMMIT_FAILED_DUE_TO_FAILED_BATCH
+Language=English
+Batch failed! No longer waiting to commit more sessions.
+.
+MessageId=44
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_APPLY_TEMPLATE_PROPS_FAILED
+Language=English
+Failed to apply template properties
+.
+MessageId=45
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_FAILED_TRANSACTION_INVALID_STATUS_CHANGE
+Language=English
+Failed to update failed transaction status because the failed transaction is in a state (Dismissed or Resubmitted) that cannot be updated.
+.
+MessageId=46
+Facility=PIPE_ERR
+Severity=Error
+SymbolicName=PIPE_ERR_UNIQUE_CONSTRAINT_VIOLATION
+Language=English
+Violation of UNIQUE KEY constraint.
+.

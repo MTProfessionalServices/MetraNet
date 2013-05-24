@@ -1,0 +1,349 @@
+MessageId=0
+Facility=MT_ERR
+Severity=Informational
+SymbolicName=MT_ERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Event Definitions...                                             **/
+/**    Defines common Event Ids and their message text...            **/
+/**********************************************************************/
+.
+MessageId=1
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_ERROR_MSG
+Language=English
+This is a really bad error.
+.
+MessageId=2
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_PARENT_COMMITTED
+Language=English
+Parent session already committed.
+.
+MessageId=3
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_NO_PROPERTY
+Language=English
+Property does not exist.
+.
+MessageId=4
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_DUPLICATE_PROPERTY
+Language=English
+Property already exists.
+.
+MessageId=5
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_MESSAGE_MODULE_NOT_FOUND
+Language=English
+Error message module not found.
+.
+MessageId=6
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_BAD_HTTP_RESPONSE
+Language=English
+Bad HTTP response.
+.
+MessageId=7
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_PARSE_ERROR
+Language=English
+Unable to parse message.
+.
+MessageId=8
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_NOT_INITIALIZED
+Language=English
+Not initialized.
+.
+MessageId=9
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_SERVER_ERROR
+Language=English
+Unknown server error.
+.
+MessageId=10
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_UNKNOWN_SERVICE
+Language=English
+Server has no knowledge of this service.
+.
+MessageId=11
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_BAD_PROPERTY
+Language=English
+A property is invalid.
+.
+MessageId=12
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_NO_HOSTS
+Language=English
+No metering servers added.
+.
+MessageId=13
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_LOCAL_MODE_RECORD_EXISTS
+Language=English
+A duplicate record file name was found for a local mode session.
+.
+MessageId=14
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_LOCAL_MODE_RECORD_COPY
+Language=English
+An error occurred moving the local mode record to the pending area.
+.
+MessageId=15
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_LOCAL_MODE_NOT_SET
+Language=English
+A local mode must be selected before setting the local mode path
+information.
+.
+MessageId=16
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_LOCAL_MODE_BAD_DIR
+Language=English
+The local mode directory does not exist.
+.
+MessageId=17
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_LOCAL_MODE_DIR_SETUP
+Language=English
+An error occurred creating the local mode storage subdirectories.
+.
+MessageId=18
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_LOCAL_PLAYBACK_FILE
+Language=English
+Local mode playback failed to open the playback record.
+.
+MessageId=19
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_LOCAL_PLAYBACK_UNKNOWN_COMMAND
+Language=English
+An unknown command was detected in a playback record. Probably due to 
+corrupt file or version mismatch.
+.
+MessageId=20
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_LOCAL_CANNOT_CREATE
+Language=English
+Could not create the playback record.
+.
+MessageId=21
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_COMPRESS_CODEBOOK_FILE
+Language=English
+Invalid codebook path.
+.
+MessageId=23
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_COMPRESS_UNKNOWN_MESSAGE
+Language=English
+Unknown or bogus compressed message type.
+.
+MessageId=24
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_COMPRESS_BAD_CODEBOOK
+Language=English
+Fatal syntax error in codebook definition.
+.
+MessageId=25
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_COMPRESS_PROP_MISSING
+Language=English
+A required property was never set in the compression object.
+.
+MessageId=26
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_COMPRESS_UNKNOWN_COMMAND
+Language=English
+Unknown or bogus command in message.
+.
+MessageId=27
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_COMPRESS_BUFFER_OVERRUN
+Language=English
+Error in compressor, output buffer overrun.
+.
+MessageId=28
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_COMPRESS_READ_EOF
+Language=English
+Unexpected EOF reading compressed data.
+.
+MessageId=29
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_COMPRESS_READ_BUFFER
+Language=English
+Buffer overrun reading compressed data.
+.
+MessageId=30
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_COMPRESS_PROTOCOL
+Language=English
+Binary stream does not match codebook protocol.
+.
+MessageId=31
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_COMPRESS_VERSION
+Language=English
+Version from compressed message does not match codebook protocol.
+.
+MessageId=32
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_CONFIG_PARSE_ERROR
+Language=English
+Error parsing XML configuration.
+.
+MessageId=33
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_BAD_CONFIG
+Language=English
+Invalid configuration value.
+.
+MessageId=34
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_NOT_IMPLEMENTED
+Language=English
+Feature has not yet been implemented.
+.
+MessageId=35
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_FIELD_COMPUTATION
+Language=English
+Field computation failed.
+.
+MessageId=36
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_READ_ERROR
+Language=English
+The read operation failed.
+.
+
+MessageId=37
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_SYN_TIMEOUT
+Language=English
+Synchronous metering timeout.
+.
+MessageId=38
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_SERVER_BUSY
+Language=English
+The server is busy handling requests.
+.
+MessageId=39
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_RESPONSE_MISSING
+Language=English
+No response was received for a session that requested it.
+.
+MessageId=40
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_SESSION_SET_FAILED
+Language=English
+Some or all sessions in the session set failed.
+.
+MessageId=41
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_CANNOT_CLOSE
+Language=English
+This session is part of a session set or a child session and cannot be closed.
+.
+MessageId=42
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_LOCALMODE_NOSUPPORT_SC_TI
+Language=English
+Localmode does not support sessions with the security context or the transaction id set.
+.
+MessageId=43
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_BATCH_NAME_CANNOT_BE_BLANK
+Language=English
+Batch name cannot be blank when creating a batch.
+.
+MessageId=44
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_BATCH_NAMESPACE_CANNOT_BE_BLANK
+Language=English
+Batch namespace cannot be blank when creating a batch.
+.
+MessageId=45
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_BATCH_SEQUENCE_NUMBER_CANNOT_BE_BLANK
+Language=English
+Batch sequence number cannot be blank when creating a batch.
+.
+MessageId=46
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_AUTHORIZATION_FAILURE_BAD_CREDENTIALS
+Language=English
+Authorization failure. Please check your credentials.
+.
+MessageId=47
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_BLANK_HOST_SPECIFIED
+Language=English
+Host name is required property and was specified as blank
+.
+MessageId=48
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_INCORRECT_PORT_SPECIFIED
+Language=English
+Port is required property and was specified as less than or equal to zero
+.
+MessageId=49
+Facility=MT_ERR
+Severity=Error
+SymbolicName=MT_ERR_VALIDATION_FAILED
+Language=English
+Listener validation failed for this message
+.

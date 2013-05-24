@@ -1,0 +1,227 @@
+MessageId=0
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_MSG_BEGIN
+Language=English
+.
+
+;/**********************************************************************/
+;/** Event Definitions...                                             **/
+;/**    Defines common Event Ids and their message text...            **/
+;/**																  **/
+;/** Add new messages at the end of the file!! 					      **/
+;/**																  **/
+;/** Note that spaces are important in the message string!			  **/
+;/**                                                                  **/
+;/** If you change any of the MessageID's you must up the end tags    **/
+;/** through this file!												  **/
+;/**********************************************************************/
+
+MessageId=1
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_CONTENT_TYPE
+Language=English
+application/x-metratech-xml
+.
+
+MessageId=2
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_HTML_CONTENT_TYPE
+Language=English
+text/html
+.
+
+MessageId=3
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_HTTP_GET
+Language=English
+GET
+.
+
+MessageId=4
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_HTTP_POST
+Language=English
+POST
+.
+
+MessageId=5
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_START_TEST
+Language=English
+StartTest
+.
+
+MessageId=6
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_END_TEST
+Language=English
+EndTest
+.
+
+MessageId=7
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_PARSE_ONLY
+Language=English
+ParseOnly
+.
+
+MessageId=8
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_IMM_RETURN
+Language=English
+ImmediateReturn
+.
+
+MessageId=9
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_EXTENSION_NAME
+Language=English
+MSIX Listener
+.
+
+
+MessageId=10
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_BAD_REQUST_TAIL
+Language=English
+</DL><a href=/msix/listener.dll>
+Refresh</a><br>
+<a href=/msix/listener.dll?StartTest>Start Test</a><br>
+<a href=/msix/listener.dll?EndTest>End Test</a><br>
+<a href=/msix/listener.dll?ImmediateReturn>Immediate Return</a><br>
+<a href=/msix/listener.dll?ParseOnly>Parse Only</a><br>
+</BODY>
+</HTML>
+
+
+.
+
+
+MessageId=11
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_BAD_REQUST
+Language=English
+400 Bad Request
+.
+
+MessageId=12
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_GOOD_REQUEST
+Language=English
+200 OK
+.
+
+MessageId=13
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_XML_TEST_STR
+Language=English
+<msix>\n<timestamp>1998-05-08T14:42:10+05:00</timestamp>\n<version>1.0</version>\n<uid>x6s09uAgkgKgCaDZDF29+w===</uid>\n<entity>www.metratech.com</entity>\n<status>\n<code>0</code>\n</status>\n</msix>\n
+.
+
+
+;// 
+;// MT_LISTENER_MSG_END marks the end of messages without inserts.  Bump 
+;// the message id if you add more non formatted strings
+;//
+
+
+MessageId=14
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_MSG_END_NON_INSERTS
+Language=English
+LastMessage
+.
+
+;//
+;// start formatted strings section
+;//
+;//
+
+MessageId=101
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_BAD_PERF_REQUEST
+Language=English
+%1!s!<DT>Test status</DT><DD>%2!s!</DD><DT>Immediate Return?</DT><DD>%3!s!</DD><DT>Parse Only?</DT><DD>%4!s!</DD>%5!s!
+.
+
+MessageId=102
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_PERF_REQUEST
+Language=English
+%1!s!<DT>Duration</DT><DD>%2!ld!ms</DD><DT>Hits</DT><DD>%3!ld!</DD><DT>Hits per second</DT><DD>%4!d!/s</DD><DT>Immediate Return?</DT><DD>%5!s!</DD><DT>Parse Only?</DT><DD>%6!s!</DD>%7!s!
+.
+
+MessageId=103
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_CONTENT_TYPE_STR__WITH_LENGTH
+Language=English
+Connection: Keep-Alive
+Content-Length: %1!lu!
+Content-type: %2!s!
+
+
+.
+
+
+MessageId=104
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_CONTENT_TYPE_STR
+Language=English
+Content-type: %1!s!
+
+
+.
+
+
+MessageId=105
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_BAD_REQUEST_HEAD_DEBUG
+Language=English
+<HTML><HEAD><TITLE> Bad MSIX Request </TITLE></HEAD>
+<BODY><H3>Bad MSIX Request</H3>
+<DL><DT>Listener process ID</DT><DD>%1!s!</DD><DT>Date of last compile</DT><DD>%2!s!</DD><DT>Time of last compile </DT><DD>%3!s!</DD><DT>Timestamp of listener.cpp</DT><DD>%4!s!</DD><DD>Debug</DD>
+.
+
+MessageId=106
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_BAD_REQUEST_HEAD_RELEASE
+Language=English
+<HTML><HEAD><TITLE> Bad MSIX Request </TITLE></HEAD>
+<BODY><H3>Bad MSIX Request</H3>
+<DL><DT>Listener process ID</DT><DD>%1!s!</DD><DT>Date of last compile</DT><DD>%2!s!</DD><DT>Time of last compile </DT><DD>%3!s!</DD><DT>Timestamp of listener.cpp</DT><DD>%4!s!</DD><DD>Release</DD>
+.
+
+
+;//
+;// MT_LISTENER_MSG_END marks the last resource message.  Move this message ID
+;// if you add new messages
+;//
+
+MessageId=107
+Facility=MT_LISTENER_MSG
+Severity=Informational
+SymbolicName=MT_LISTENER_MSG_END
+Language=English
+LastMessage
+.

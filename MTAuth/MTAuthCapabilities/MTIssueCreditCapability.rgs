@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTIssueCreditCapability.1 = s 'MTIssueCreditCapability Class'
+	{
+		CLSID = s '{4F1B974C-D472-4964-A5D2-EDF5A6A3A489}'
+	}
+	MetraTech.MTIssueCreditCapability = s 'MTIssueCreditCapability Class'
+	{
+		CLSID = s '{4F1B974C-D472-4964-A5D2-EDF5A6A3A489}'
+		CurVer = s 'MetraTech.MTIssueCreditCapability.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {4F1B974C-D472-4964-A5D2-EDF5A6A3A489} = s 'MTIssueCreditCapability Class'
+		{
+			ProgID = s 'MetraTech.MTIssueCreditCapability.1'
+			VersionIndependentProgID = s 'MetraTech.MTIssueCreditCapability'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{6E741478-C134-452C-8A0D-5689AA2A59C7}'
+		}
+	}
+}

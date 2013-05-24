@@ -1,0 +1,17 @@
+MessageId=0
+Facility=MTLOCALECONFIG_ERR
+Severity=Informational
+SymbolicName=MTLOCALECONFIG_ERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Event Definitions...                                             **/
+/**    Defines common Event Ids and their message text...            **/
+/**********************************************************************/
+.
+MessageId=1
+Facility=MTLOCALECONFIG_ERR
+Severity=Error
+SymbolicName=MTLOCALECONFIG_FILE_NAME_MISMATCH;
+Language=English
+Locale_space and/or lang_code specified in this file do not match expected file name
+.

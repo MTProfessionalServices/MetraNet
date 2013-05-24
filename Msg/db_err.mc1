@@ -1,0 +1,178 @@
+MessageId=0
+Facility=DB_ERR
+Severity=Informational
+SymbolicName=DBERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Event Definitions...                                             **/
+/**    Defines common Event Ids and their message text...            **/
+/**********************************************************************/
+.
+MessageId=1
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_UNHANDLED_EXCEPTION
+Language=English
+The database access layer caught an unhandled exception.
+.
+MessageId=2
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_NOT_INITIALIZED
+Language=English
+The object is not initialized.
+.
+MessageId=3
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_INVALID_PARAMETER
+Language=English
+An invalid parameter was passed into a routine.
+.
+MessageId=4
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_NO_ROWS
+Language=English
+There are no more rows in the rowset.
+.
+MessageId=5
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_ITEM_NOT_FOUND
+Language=English
+The specified item was not found.
+.
+MessageId=6
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_NO_MORE_DATA
+Language=English
+There is no more data in the collection.
+.
+MessageId=7
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_INCORRECT_TYPE
+Language=English
+The data requested is of the wrong datatype.
+.
+MessageId=8
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_NO_INSTANCE
+Language=English
+Unable to get an instance of a singleton.
+.
+MessageId=9
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_UNSUPPORTED_VERSION
+Language=English
+An unsupported version was detected.
+.
+MessageId=10
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_NO_QUERY
+Language=English
+No query was specified.
+.
+MessageId=11
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_ITEM_NOT_ADDED
+Language=English
+The view item was not added to the database.
+.
+MessageId=12
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_PARAMETER_NOT_SPECIFIED
+Language=English
+A parameter was not specified in the query.
+.
+MessageId=13
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_DUPLICATE_QUERY_TAG
+Language=English
+A duplicate query tag was found.
+.
+MessageId=14
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_BUCKETS_EXIST
+Language=English
+Usage buckets already exist.
+.
+MessageId=15
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_UNKNOWN_VALUE
+Language=English
+An unknown value was found.
+.
+MessageId=16
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_DUPLICATE_PROPERTY
+Language=English
+A property was duplicated.
+.
+MessageId=17
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_TOO_MANY_ROWS
+Language=English
+There were more rows returned from the database than expected.
+.
+MessageId=18
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_UNSUPPORTED_FUNCTION
+Language=English
+An unsupported function was called.
+.
+MessageId=19
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_ODBC_ERROR
+Language=English
+An ODBC error occurred.
+.
+MessageId=20
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_NOT_CONNECTED
+Language=English
+The database context is not connected.
+.
+MessageId=21
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_TRANSACTION_STARTED
+Language=English
+A transaction has already been started for this session.
+.
+MessageId=22
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_NO_TRANSACTION
+Language=English
+A transaction has not been begun for this session.
+.
+MessageId=23
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_NO_DISTRIBUTED_TRANSACTION_SUPPORT
+Language=English
+The access type does not support distributed transactions.
+.
+MessageId=24
+Facility=DB_ERR
+Severity=Error
+SymbolicName=DB_ERR_DEFAULT_VALUE_ERROR
+Language=English
+A problem occured trying to read a property's default value.
+.

@@ -1,0 +1,584 @@
+MessageId=0
+Facility=MTPC_USER_ERR
+Severity=Informational
+SymbolicName=MTPC_USER_ERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Product Catalog User Errors                                      **/
+/**    Defines user visible busines rule errors                      **/
+/**********************************************************************/
+.
+MessageId=1
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_SYSTEM_ERROR
+Language=English
+System error occured. Please consult log file for details.
+.
+MessageId=2
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_PI_CAN_NOT_BE_MODIFIED
+Language=English
+[TEXT_KEYTERM_PRICEABLE_ITEM] is not modifiable.
+.
+MessageId=3
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_PO_CAN_NOT_BE_MODIFIED
+Language=English
+[TEXT_KEYTERM_PRODUCT_OFFERING] cannot be modified since its availability date has been set.
+.
+MessageId=4
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_USAGE_CHARGE_ALREADY_IN_PRODOFF
+Language=English
+[TEXT_KEYTERM_USAGE_CHARGE] '%1!s!' already exists in the [TEXT_KEYTERM_PRODUCT_OFFERING]
+.
+MessageId=5
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_EFFECTIVE_END_BEFORE_START
+Language=English
+Effective end date must occur on or after start date
+.
+MessageId=6
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_AVAILABLE_END_BEFORE_START
+Language=English
+Available end date must occur on or after start date
+.
+MessageId=7
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_PROPERTY_REQUIRED
+Language=English
+Property '%1!s!' is required but not specified
+.
+MessageId=8
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_PROPERTY_LENGTH_EXCEEDED
+Language=English
+Length of property '%1!s!' is limited to %2!d! characters but value has %3!d! characters
+.
+MessageId=9
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_PROD_OFF_EXISTS
+Language=English
+Name '%1!s!' is already being used by an existing [TEXT_KEYTERM_PRODUCT_OFFERING]
+.
+MessageId=10
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_PRC_ITEM_TYPE_EXISTS
+Language=English
+Name '%1!s!' is already being used by an existing [TEXT_KEYTERM_PRICEABLE_ITEM] type
+.
+MessageId=11
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_PRC_ITEM_TEMPLATE_EXISTS
+Language=English
+Name '%1!s!' is already being used by an existing [TEXT_KEYTERM_PRICEABLE_ITEM]
+.
+MessageId=12
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_PRC_ITEM_INSTANCE_EXISTS
+Language=English
+Name '%1!s!' is already being used by an existing [TEXT_KEYTERM_PRICEABLE_ITEM] in the [TEXT_KEYTERM_PRODUCT_OFFERING]
+.
+MessageId=13
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_PRICE_LIST_EXISTS
+Language=English
+Name '%1!s!' is already being used by an existing [TEXT_KEYTERM_PRICE_LIST]
+.
+MessageId=14
+Facility=MTPC_USER_ERR
+Severity=Warning
+SymbolicName=MTPCUSER_PRC_ITEM_HAS_NO_PRICE_LIST
+Language=English
+'%1!s!' does not have a [TEXT_KEYTERM_PRICE_LIST] configured for [TEXT_KEYTERM_PARAMETER_TABLE] '%2!s!'
+.
+MessageId=15
+Facility=MTPC_USER_ERR
+Severity=Warning
+SymbolicName=MTPCUSER_PRC_ITEM_HAS_NO_RATES
+Language=English
+'%1!s!' does not have rates configured for [TEXT_KEYTERM_PARAMETER_TABLE] '%2!s!'
+.
+MessageId=16
+Facility=MTPC_USER_ERR
+Severity=Warning
+SymbolicName=MTPCUSER_PRC_ITEM_HAS_NO_COUNTER
+Language=English
+'%1!s!' does not have [TEXT_KEYTERM_COUNTER] '%2!s!' configured
+.
+MessageId=17
+Facility=MTPC_USER_ERR
+Severity=Warning
+SymbolicName=MTPCUSER_BULKSUB_ACCS_ALREADY_SUBS_TO_NEW_PO
+Language=English
+An account is already subscribed to the destination [TEXT_KEYTERM_PRODUCT_OFFERING] as well as the source [TEXT_KEYTERM_PRODUCT_OFFERING]
+.
+MessageId=18
+Facility=MTPC_USER_ERR
+Severity=Warning
+SymbolicName=MTPCUSER_BULKSUB_CONFLICTING_PO
+Language=English
+The destination [TEXT_KEYTERM_PRODUCT_OFFERING] contains a [TEXT_KEYTERM_PRICEABLE_ITEM] that conflicts with existing subscriptions.
+.
+MessageId=19
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_TEMPLATE_ALREADY_IN_PRODOFF
+Language=English
+[TEXT_KEYTERM_PRICEABLE_ITEM] '%1!s!' already exists in the [TEXT_KEYTERM_PRODUCT_OFFERING]
+.
+MessageId=20
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_PRC_ITEM_TYPE_HAS_TEMPLATES
+Language=English
+[TEXT_KEYTERM_PRICEABLE_ITEM] type '%1!s!' is being used by an existing [TEXT_KEYTERM_PRICEABLE_ITEM]
+.
+MessageId=21
+Facility=MTPC_USER_ERR
+Severity=Warning
+SymbolicName=MTPCUSER_PRODOFF_HAS_ACTIVE_SUBSCRIPTIONS
+Language=English
+[TEXT_KEYTERM_PRODUCT_OFFERING] has %1!d! active subscription(s)
+.
+MessageId=22
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_INCOMPATIBLE_DATE_COMBINATION
+Language=English
+Start date type and end date type are not compatible
+.
+MessageId=23
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_END_DATE_BEFORE_START_DATE
+Language=English
+End date must occur after start date
+.
+MessageId=24
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_BILLING_RELATIVE_CYCLE_CONFLICT
+Language=English
+[TEXT_KEYTERM_PRODUCT_OFFERING] already contains a [TEXT_KEYTERM_PRICEABLE_ITEM] that has a billing-relative cycle of different type.
+.
+MessageId=25
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_CURRENCY_DOES_NOT_MATCH_PRODOFF
+Language=English
+Currency '%1!s!' of [TEXT_KEYTERM_PRICE_LIST] '%2!s!' does not match currency '%3!s!' of [TEXT_KEYTERM_PRODUCT_OFFERING] '%4!s!'
+.
+MessageId=26
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_CANNOT_CHANGE_BILLING_CYCLE
+Language=English
+The account is subscribed to a billing cycle constrained or recurring charge [TEXT_KEYTERM_PRICEABLE_ITEM] and cannot change billing cycles.
+.
+MessageId=27
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_CONFLICTING_PO_SUBSCRIPTION
+Language=English
+The account is already subscribed to the [TEXT_KEYTERM_PRODUCT_OFFERING] in the requested time period.
+.
+MessageId=28
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_CONFLICTING_PO_SUB_PRICEABLEITEM
+Language=English
+The [TEXT_KEYTERM_PRODUCT_OFFERING] contains one or more [TEXT_KEYTERM_PRICEABLE_ITEMS] that conflict with an existing subscription.
+.
+MessageId=29
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_DUPLICATE_RATE_SCHEDULE
+Language=English
+An identical [TEXT_KEYTERM_RATE_SCHEDULE] already exists in the system.  Please change the range of the effective date and try again.
+.
+MessageId=30
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_PO_NOT_COMPLETELY_CONFIGURED
+Language=English
+Availability date cannot be set until [TEXT_KEYTERM_PRODUCT_OFFERING] is completely configured. %1!s!
+.
+MessageId=31
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_CANNOT_ADD_PI_IF_AVAIL_DATE_SET
+Language=English
+Cannot add [TEXT_KEYTERM_PRICEABLE_ITEMS] to a [TEXT_KEYTERM_PRODUCT_OFFERING] that has an availability date set. Please remove the availability date first.
+.
+MessageId=32
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_PERIODSTART_MUSTBE_BEFORE_PERIODEND
+Language=English
+A calendar period has it's start time greater then it's end time.
+.
+MessageId=33
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_PERIODS_OVERLAP
+Language=English
+Please make sure that your calendar periods do not overlap.
+.
+MessageId=34
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_PERIOD_TIME_MORETHAN_24H
+Language=English
+A calendar period has a start or end time of more than 24 hours.
+.
+MessageId=35
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_PERIOD_NEGATIVE_TIME
+Language=English
+A calendar period has a start or end time that is negative.
+.
+MessageId=36
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_PERIOD_CANNOT_CONVERT_STRING_TO_SECONDS
+Language=English
+The start time for this calendar period can not be converted to seconds.
+.
+MessageId=37
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_CALENDAR_WITHNAME_ALREADY_EXISTS
+Language=English
+A calendar with name '%1!s!' already exists in the system.
+.
+MessageId=38
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_HOLIDAY_WITHNAME_ALREADY_EXISTS
+Language=English
+A holiday with name '%1!s!' already exists on this calendar.
+.
+MessageId=39
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_SUBSCRIPTION_START_DATE_BEFORE_ACCOUNT_START_DATE
+Language=English
+The subscription start date is before the account start date.
+.
+MessageId=40
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_PRODUCTOFFERING_NOT_EFFECTIVE
+Language=English
+The [TEXT_KEYTERM_PRODUCT_OFFERING] is not effective in the specified time interval.
+.
+MessageId=41
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_FAILED_TO_DELETE_SUBSCRIPTION
+Language=English
+The system cannot delete the subscription because the start date is in the past.
+.
+MessageId=42
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_GROUP_SUB_CONSTRAINED_RATE_SCHEDULES
+Language=English
+The system can only create rate schedules with absolute effective dates when the rate schedule is referenced by a [TEXT_KEYTERM_GROUP_SUBSCRIPTION].
+.
+MessageId=43
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_CANNOT_RATE_SCHEDULES_CONFLICT_WITH_GROUP_SUB
+Language=English
+The system cannot create the group subscription because the [TEXT_KEYTERM_PRODUCT_OFFERING] references rate schedules that are not using absolute effective dates.
+.
+MessageId=44
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_GROUPSUB_NOT_EFFECTIVE
+Language=English
+The system cannot create the group subscription because the [TEXT_KEYTERM_PRODUCT_OFFERING] references rate schedules that are not using absolute effective dates.
+.
+MessageId=45
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_CYCLE_CONFLICTS_WITH_OTHER_PRC_ITEM
+Language=English
+Cycle conflicts with cycle of [TEXT_KEYTERM_PRICEABLE_ITEM] '%1!s!' in [TEXT_KEYTERM_PRODUCT_OFFERING] '%2!s!'
+.
+MessageId=46
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_CYCLE_CONFLICTS_WITH_ACCOUNT
+Language=English
+Cycle conflicts with cycle of %1!d! subscriber(s) to [TEXT_KEYTERM_PRODUCT_OFFERING] '%2!s!'
+.
+MessageId=47
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_CYCLE_CONFLICTS_WITH_GROUP_SUB
+Language=English
+Cycle conflicts with cycle of the following [TEXT_KEYTERM_GROUP_SUBSCRIPTIONS] to [TEXT_KEYTERM_PRODUCT_OFFERING] '%1!s!':%n%2!s!
+.
+MessageId=48
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_CYCLE_CONFLICTS_WITH_ACCOUNT_CYCLE
+Language=English
+The [TEXT_KEYTERM_PRODUCT_OFFERING] only supports accounts whose payers have the same cycle.
+.
+MessageId=49
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_DOES_NOT_ALLOW_RATE_DELETE
+Language=English
+This system is not configured to allow deletion of [TEXT_KEYTERM_RATE_SCHEDULES] or [TEXT_KEYTERM_PRICE_LISTS].
+.
+MessageId=50
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_CANNOT_DELETE_PRICELIST_POUSED
+Language=English
+You can not delete this [TEXT_KEYTERM_PRICE_LIST] because it is being used by a product offering.
+.
+MessageId=51
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_CANNOT_DELETE_PRICELIST_ACCUSED
+Language=English
+You can not delete this [TEXT_KEYTERM_PRICE_LIST] because it is being used by an account.
+.
+MessageId=52
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_CANNOT_DELETE_SUBSCRIBED_PO
+Language=English
+This [TEXT_KEYTERM_PRODUCT_OFFERING] can not be deleted because it was subscribed to.
+.
+MessageId=53
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_CANNOT_SET_NEWPO_CURRENCY_SHARED_MAPPINGS
+Language=English
+This [TEXT_KEYTERM_PRODUCT_OFFERING] currency has to be %1!s! because the source [TEXT_KEYTERM_PRODUCT_OFFERING] has shared [TEXT_KEYTERM_PRICE_LIST] mappings.
+.
+MessageId=54
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_CANNOT_SET_NEWPO_CURRENCY_HAS_RATESCHEDULES
+Language=English
+This [TEXT_KEYTERM_PRODUCT_OFFERING] currency has to be %1!s! because the source [TEXT_KEYTERM_PRODUCT_OFFERING] already has [TEXT_KEYTERM_RATE_SCHEDULES].
+.
+MessageId=55
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_UDRC_DUPLICATE_UNIT_NAME_IN_PO
+Language=English
+[TEXT_KEYTERM_PRODUCT_OFFERING] already contains a [TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGE] with the property '%1!s!'.
+.
+MessageId=56
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_UDRC_EMPTY_UNIT_VALUE
+Language=English
+[TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGE] '%1!s!' must have a non-empty unit value specified.
+.
+MessageId=57
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_UDRC_MIN_MAX_CONSTRAINT
+Language=English
+[TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGE] value '%1!s!' must be between %2!s! and %3!s!.
+.
+MessageId=58
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_UDRC_INTEGER_CONSTRAINT
+Language=English
+[TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGE] value '%1!s!' must be an integer.
+.
+MessageId=59
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_UDRC_ENUM_CONSTRAINT
+Language=English
+[TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGE] value '%1!s!' must be one of the values %2!s!.
+.
+MessageId=60
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_UDRC_CONSTRAINT_INVALID_SUBS
+Language=English
+[TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGE] constraints are not satisfied by all existing subscriptions.
+.
+MessageId=61
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_AVAILABILITY_DATE_NOT_SET
+Language=English
+Cannot subscribe to a [TEXT_KEYTERM_PRODUCT_OFFERING] whose availability date is not set.
+.
+MessageId=62
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_AVAILABILITY_DATE_IN_PAST
+Language=English
+Cannot subscribe to a [TEXT_KEYTERM_PRODUCT_OFFERING] whose availability date ends in the past.
+.
+MessageId=63
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_AVAILABILITY_DATE_IN_FUTURE
+Language=English
+Cannot subscribe to a [TEXT_KEYTERM_PRODUCT_OFFERING] whose availability date starts in the future.
+.
+MessageId=64
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_UDRC_MAX_LESS_THAN_MIN
+Language=English
+[TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGE] '%1!s!' maximum unit value must be less than minimum unit value.
+.
+MessageId=65
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_SUBS_EXIST_BEFORE_PO_EFF_START_DATE
+Language=English
+There are subscriptions that start before the [TEXT_KEYTERM_PRODUCT_OFFERING] effective start date.
+.
+MessageId=66
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_SUBS_EXIST_AFTER_PO_EFF_END_DATE
+Language=English
+There are subscriptions that start after the [TEXT_KEYTERM_PRODUCT_OFFERING] effective end date.
+.
+MessageId=67
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_CANNOT_DELETE_GROUPSUB_HASMEMBERS
+Language=English
+This [TEXT_KEYTERM_GROUP_SUBSCRIPTION] can not be deleted because it has or had participants. 
+.
+MessageId=68
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_EBCR_CYCLE_CONFLICTS_WITH_ACCOUNT_CYCLE
+Language=English
+The account's billing cycle conflicts with an aligned charge cycle of a [TEXT_KEYTERM_PRICEABLE_ITEM] contained in the [TEXT_KEYTERM_PRODUCT_OFFERING].
+.
+MessageId=69
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_EBCR_CYCLE_CONFLICTS_WITH_PAYER_OF_MEMBER
+Language=English
+The participant's payer's billing cycle is incompatible with an aligned charge cycle of a [TEXT_KEYTERM_PRICEABLE_ITEM] contained in the [TEXT_KEYTERM_PRODUCT_OFFERING].
+.
+MessageId=70
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_EBCR_MEMBERS_CONFLICT_WITH_EACH_OTHER
+Language=English
+The participant's payer's billing cycle conflicts with the billing cycle established by other payers of this participant for use with an aligned charge cycle of a [TEXT_KEYTERM_PRICEABLE_ITEM] contained in the [TEXT_KEYTERM_PRODUCT_OFFERING].
+.
+MessageId=71
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_EBCR_CYCLE_CONFLICTS_WITH_PAYER_OF_RECEIVER
+Language=English
+The charge account's payer's billing cycle is incompatible with an aligned charge cycle of a [TEXT_KEYTERM_PRICEABLE_ITEM] contained in the [TEXT_KEYTERM_PRODUCT_OFFERING].
+.
+MessageId=72
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_EBCR_RECEIVERS_CONFLICT_WITH_EACH_OTHER
+Language=English
+The charge account's payer's billing cycle conflicts with the billing cycle established by other charge accounts' payers for use with an aligned charge cycle of a [TEXT_KEYTERM_PRICEABLE_ITEM] contained in the [TEXT_KEYTERM_PRODUCT_OFFERING].
+.
+MessageId=73
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_CANNOT_CHANGE_BILLING_CYCLE_EBCR_PAYER_OF_MEMBER
+Language=English
+The account pays for a participant in a [TEXT_KEYTERM_GROUP_SUBSCRIPTION] subscribed to an aligned charge cycle based [TEXT_KEYTERM_PRICEABLE_ITEM] and cannot change billing cycles.
+.
+MessageId=74
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_CANNOT_CHANGE_BILLING_CYCLE_EBCR_PAYER_OF_RECEIVER
+Language=English
+The account pays for a charge account for a [TEXT_KEYTERM_GROUP_SUBSCRIPTION] subscribed to an aligned charge cycle based [TEXT_KEYTERM_PRICEABLE_ITEM] and cannot change billing cycles.
+.
+MessageId=75
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_MISSING_RC_CHARGE_ACCOUNT
+Language=English
+At least one charge account was not specified.
+.
+MessageId=76
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_MISSING_UDRC_UNIT_VALUE
+Language=English
+At least one unit value was not specified!
+.
+MessageId=77
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_CONFLICTING_PO_ACCOUNT_TYPE
+Language=English
+Subscription to the [TEXT_KEYTERM_PRODUCT_OFFERING] is not allowed for this [TEXT_KEYTERM_ACCOUNT_TYPE]!
+.
+MessageId=78
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_ACCOUNT_TYPE_NOT_SUBSCRIBABLE
+Language=English
+The [TEXT_KEYTERM_ACCOUNT_TYPE] is not subscribable!
+.
+MessageId=79
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_ACCOUNT_TYPE_CANNOT_PARTICIPATE_IN_GSUB
+Language=English
+The [TEXT_KEYTERM_ACCOUNT_TYPE] can not participate in [TEXT_KEYTERM_GROUP_SUBSCRIPTION]!
+.
+MessageId=80
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_DUPLICATE_ITEMS_IN_BATCH
+Language=English
+More than one identical record was encountered in collection!
+.
+MessageId=81
+Facility=MTPC_USER_ERR
+Severity=Warning
+SymbolicName=MTPCUSER_PO_HAS_NO_PRC
+Language=English
+'%1!s!' does not contain any priceable items or discounts.
+.
+MessageId=82
+Facility=MTPC_USER_ERR
+Severity=Error
+SymbolicName=MTPCUSER_SUBSCRIPTION_START_DATE_LESS_THAN_ACCOUNT_CREATION_DATE
+Language=English
+Subscription start date less than account creation date.
+.

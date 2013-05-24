@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTCompositeCapabilityWriter.1 = s 'MTCompositeCapabilityWriter Class'
+	{
+		CLSID = s '{03837BDB-D5F3-4140-B013-128330EDCF0B}'
+	}
+	Metratech.MTCompositeCapabilityWriter = s 'MTCompositeCapabilityWriter Class'
+	{
+		CLSID = s '{03837BDB-D5F3-4140-B013-128330EDCF0B}'
+		CurVer = s 'Metratech.MTCompositeCapabilityWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {03837BDB-D5F3-4140-B013-128330EDCF0B} = s 'MTCompositeCapabilityWriter Class'
+		{
+			ProgID = s 'Metratech.MTCompositeCapabilityWriter.1'
+			VersionIndependentProgID = s 'Metratech.MTCompositeCapabilityWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{8D082AAD-43F0-4C97-BDFC-29A20862B17D}'
+		}
+	}
+}

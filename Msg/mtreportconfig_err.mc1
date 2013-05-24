@@ -1,0 +1,31 @@
+MessageId=0
+Facility=MTREPORTCONFIG_ERR
+Severity=Informational
+SymbolicName=MTREPORTCONFIG_ERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Event Definitions...                                             **/
+/**    Defines common Event Ids and their message text...            **/
+/**********************************************************************/
+.
+MessageId=1
+Facility=MTREPORTCONFIG_ERR
+Severity=Error
+SymbolicName=NOT_ALL_NECESSARY_PROPERTIES_SET;
+Language=English
+Either Report Type or Namespace or both are not set
+.
+MessageId=2
+Facility=MTREPORTCONFIG_ERR
+Severity=Error
+SymbolicName=NO_SUCH_REPORT_DEFINED;
+Language=English
+Report with given type and name is not defined
+.
+MessageId=3
+Facility=MTREPORTCONFIG_ERR
+Severity=Error
+SymbolicName=NOT_SUPPORTED_DATE_RANGE;
+Language=English
+Date range in report list definition file is not one of supported predefined date ranges nor it is a number
+.

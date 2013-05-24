@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTManageAHCapability.1 = s 'MTManageAHCapability Class'
+	{
+		CLSID = s '{26621a0f-aa52-4d68-8489-2e31969224a3}'
+	}
+	MetraTech.MTManageAHCapability = s 'MTManageAHCapability Class'
+	{
+		CLSID = s '{26621a0f-aa52-4d68-8489-2e31969224a3}'
+		CurVer = s 'MetraTech.MTManageAHCapability.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {26621a0f-aa52-4d68-8489-2e31969224a3} = s 'MTManageAHCapability Class'
+		{
+			ProgID = s 'MetraTech.MTManageAHCapability.1'
+			VersionIndependentProgID = s 'MetraTech.MTManageAHCapability'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{6E741478-C134-452C-8A0D-5689AA2A59C7}'
+		}
+	}
+}

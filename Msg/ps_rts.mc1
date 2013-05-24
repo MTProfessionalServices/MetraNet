@@ -1,0 +1,17 @@
+MessageId=0
+Facility=PS_RTS_ERR
+Severity=Informational
+SymbolicName=PS_RTS_ERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Event Definitions...                                             **/
+/**    Defines common Event Ids and their message text...            **/
+/**********************************************************************/
+.
+MessageId=1
+Facility=PS_RTS_ERR
+Severity=Error
+SymbolicName=MORE_THEN_ONE_RECORD_WITH_SAME_PS_TRANSACTION_ID_FOUND;
+Language=English
+More then one record with same payment service transaction id found
+.

@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{ae8e6b07-7d2c-4586-a43b-4b4959045ab2}</ProjectGuid>
+    <RootNamespace>MTAuthCapabilities</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>True</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>False</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(MTOUTDIR)\$(Configuration)\Bin\</OutDir>
+    <GenerateManifest>false</GenerateManifest>
+	<LinkIncremental>false</LinkIncremental>
+    <IntDir>$(MTOUTDIR)\$(Configuration)\MTAuth\MTAuthCapabilities\</IntDir>
+    <CustomBuildBeforeTargets>ClCompile</CustomBuildBeforeTargets>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <CLCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(MTOUTDIR)\$(CONFIGURATION)\MTAuth\MTAuthCapabilities\..;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(ROOTDIR)\MTAuth;$(MTOUTDIR)\$(CONFIGURATION)\MTAuth;$(ROOTDIR)\MTAuth\MTAuthCapabilities;$(MTOUTDIR)\$(CONFIGURATION)\MTAuth\MTAuthCapabilities;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;RWDEBUG;WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_WIN32_WINNT=0x501;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;UNICODE;_UNICODE;_USRDLL;</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
+      <DisableSpecificWarnings>4995;4335;</DisableSpecificWarnings>
+      <StringPooling>true</StringPooling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalOptions>/bigobj /c /MDd </AdditionalOptions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)stdafx.pch</PrecompiledHeaderOutputFile>
+    </CLCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>kernel32.lib;user32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;</AdditionalDependencies>
+      <EnableUAC>false</EnableUAC>
+      <ProfileGuidedDatabase>
+      </ProfileGuidedDatabase>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalLibraryDirectories>$(MTOUTDIR)\$(Configuration)\lib;</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4070 /ignore:4217 /ignore:4199 /ignore:4098  /subsystem:windows</AdditionalOptions>
+      <ImportLibrary>$(MTOUTDIR)\$(Configuration)\lib\MTAuthCapabilities.lib</ImportLibrary>
+      <ModuleDefinitionFile>$(ROOTDIR)\MTAuth\MTAuthCapabilities\MTAuthCapabilities.def</ModuleDefinitionFile>
+      <RegisterOutput>true</RegisterOutput>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>s:\build\tools\MakeTreeVersion;$(MTOUTDIR)\$(CONFIGURATION)\MTAuth\MTAuthCapabilities\..;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(ROOTDIR)\MTAuth;$(MTOUTDIR)\$(CONFIGURATION)\MTAuth;$(ROOTDIR)\MTAuth\MTAuthCapabilities;$(MTOUTDIR)\$(CONFIGURATION)\MTAuth\MTAuthCapabilities;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG</PreprocessorDefinitions>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Post-Build Event</Message>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Message>Generate derived RC file</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Command>bash s:\build\tools\GenerateDerivedRc.bash MTAuthCapabilities_version.h $(ROOTDIR)\MTAuth\MTAuthCapabilities\MTAuthCapabilities.rc &gt; $(IntDir)\MTAuthCapabilities_derived.rc</Command>
+      <Outputs>$(IntDir)\MTAuthCapabilities_derived.rc</Outputs>
+      <Inputs>MTAuthCapabilities_version.h;s:\build\tools\MakeTreeVersion\template.rc</Inputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(MTOUTDIR)\$(Configuration)\Bin\</OutDir>
+    <GenerateManifest>false</GenerateManifest>
+    <IntDir>$(MTOUTDIR)\$(Configuration)\MTAuth\MTAuthCapabilities\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <CustomBuildBeforeTargets>ClCompile</CustomBuildBeforeTargets>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <CLCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>$(MTOUTDIR)\$(CONFIGURATION)\MTAuth\MTAuthCapabilities\..;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(ROOTDIR)\MTAuth;$(MTOUTDIR)\$(CONFIGURATION)\MTAuth;$(ROOTDIR)\MTAuth\MTAuthCapabilities;$(MTOUTDIR)\$(CONFIGURATION)\MTAuth\MTAuthCapabilities;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_WIN32_WINNT=0x501;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;UNICODE;_UNICODE;</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
+      <DisableSpecificWarnings>4995;4335;</DisableSpecificWarnings>
+      <StringPooling>true</StringPooling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalOptions>/bigobj /c </AdditionalOptions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)stdafx.pch</PrecompiledHeaderOutputFile>
+    </CLCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <MapExports>true</MapExports>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>kernel32.lib;user32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;</AdditionalDependencies>
+      <EnableUAC>false</EnableUAC>
+      <ProfileGuidedDatabase>
+      </ProfileGuidedDatabase>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalOptions>/ignore:4070 /ignore:4217 /ignore:4199 /ignore:4098  /subsystem:windows</AdditionalOptions>
+      <AdditionalLibraryDirectories>$(MTOUTDIR)\$(Configuration)\lib;</AdditionalLibraryDirectories>
+      <ImportLibrary>$(MTOUTDIR)\$(Configuration)\lib\MTAuthCapabilities.lib</ImportLibrary>
+      <ModuleDefinitionFile>$(ROOTDIR)\MTAuth\MTAuthCapabilities\MTAuthCapabilities.def</ModuleDefinitionFile>
+      <RegisterOutput>true</RegisterOutput>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>s:\build\tools\MakeTreeVersion;$(MTOUTDIR)\$(CONFIGURATION)\MTAuth\MTAuthCapabilities\..;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(ROOTDIR)\MTAuth;$(MTOUTDIR)\$(CONFIGURATION)\MTAuth;$(ROOTDIR)\MTAuth\MTAuthCapabilities;$(MTOUTDIR)\$(CONFIGURATION)\MTAuth\MTAuthCapabilities;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG</PreprocessorDefinitions>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Post-Build Event</Message>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Message>Generate derived RC file</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Command>bash s:\build\tools\GenerateDerivedRc.bash MTAuthCapabilities_version.h $(ROOTDIR)\MTAuth\MTAuthCapabilities\MTAuthCapabilities.rc &gt; $(IntDir)\MTAuthCapabilities_derived.rc</Command>
+      <Outputs>$(IntDir)\MTAuthCapabilities_derived.rc</Outputs>
+      <Inputs>MTAuthCapabilities_version.h;s:\build\tools\MakeTreeVersion\template.rc</Inputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ResourceCompile Include="$(IntDir)\MTAuthCapabilities_derived.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <CLCompile Include="..\..\build\stdafx.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <AdditionalIncludeDirectories>$(ROOTDIR)\MTAuth\MTAuthCapabilities;$(ROOTDIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </CLCompile>
+    <ClCompile Include="CMTCreateCorporateAccountCapability.cpp" />
+    <ClCompile Include="CMTUpdateCorporateAccountCapability.cpp" />
+    <ClCompile Include="MTAddMemberToGroupSubCapability.cpp" />
+    <ClCompile Include="MTAllCapability.cpp" />
+    <ClCompile Include="MTApplicationLogOnCapability.cpp" />
+    <ClCompile Include="MTAuthCapabilities.cpp" />
+    <ClCompile Include="MTCreateCSRCapability.cpp" />
+    <ClCompile Include="MTCreateFolderCapability.cpp" />
+    <ClCompile Include="MTCreateGroupSubCapability.cpp" />
+    <ClCompile Include="MTCreateSubscriberCapability.cpp" />
+    <ClCompile Include="MTCreateSubscriptionCapability.cpp" />
+    <ClCompile Include="MTDeleteSubscriptionCapability.cpp" />
+    <ClCompile Include="MTICBGroupSubscriptionCapability.cpp" />
+    <ClCompile Include="MTICBSubscriptionCapability.cpp" />
+    <ClCompile Include="MTImpersonateUserCapability.cpp" />
+    <ClCompile Include="MTIssueCreditCapability.cpp" />
+    <ClCompile Include="MTManageAH.cpp" />
+    <ClCompile Include="MTManageBillableCapability.cpp" />
+    <ClCompile Include="MTManageCSRAuthCapability.cpp" />
+    <ClCompile Include="MTManageGlobalAuth.cpp" />
+    <ClCompile Include="MTManageNHAccounts.cpp" />
+    <ClCompile Include="MTManagePaymentCapability.cpp" />
+    <ClCompile Include="MTManageProductOfferingsCapability.cpp" />
+    <ClCompile Include="MTManageRatesCapability.cpp" />
+    <ClCompile Include="MTManageSubscriberAuthCapability.cpp" />
+    <ClCompile Include="MTModifyGroupSubMemberCapability.cpp" />
+    <ClCompile Include="MTMoveAccountCapability.cpp" />
+    <ClCompile Include="MTMoveFolderCapability.cpp" />
+    <ClCompile Include="MTSelfSubscribe.cpp" />
+    <ClCompile Include="MTUpdAccFromActiveToClosedCapability.cpp" />
+    <ClCompile Include="MTUpdAccFromActiveToSuspendedCapability.cpp" />
+    <ClCompile Include="MTUpdAccFromPendingFinalBillToActiveCapability.cpp" />
+    <ClCompile Include="MTUpdAccFromSuspendedToActiveCapability.cpp" />
+    <ClCompile Include="MTUpdateCSRCapability.cpp" />
+    <ClCompile Include="MTUpdateFailedTransactions.cpp" />
+    <ClCompile Include="MTUpdateFolderCapability.cpp" />
+    <ClCompile Include="MTUpdateGroupSubCapability.cpp" />
+    <ClCompile Include="MTUpdateSubscriberCapability.cpp" />
+    <ClCompile Include="MTUpdateSubscriptionCapability.cpp" />
+    <ClCompile Include="MTViewGroupSubCapability.cpp" />
+    <ClCompile Include="MTViewOnlineBillCapability.cpp" />
+    <ClCompile Include="MTViewSubscriptionsCapability.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\error\error.vcxproj">
+      <Project>{3e843aea-c148-4997-bb48-9bfc4e6bbd39}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\mtcomerr\mtcomerr.vcxproj">
+      <Project>{fc230fdb-5c05-45be-a5ae-e6db137061e7}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

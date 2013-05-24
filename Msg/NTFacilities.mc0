@@ -1,0 +1,57 @@
+MessageIdTypedef=DWORD
+
+SeverityNames=(Success=0x0:STATUS_SEVERITY_SUCCESS
+               Informational=0x1:STATUS_SEVERITY_INFORMATIONAL
+               Warning=0x2:STATUS_SEVERITY_WARNING
+               Error=0x3:STATUS_SEVERITY_ERROR
+              )
+
+FacilityNames=( MTAbsStart_ERR=0x000:MTABSSTART_ERR
+                MTStart_ERR=0x100:MTSTART_ERR
+                CORE_ERR=0x110:CORE_ERR
+                PIPE_ERR=0x120:PIPE_ERR
+                MT_ERR=0x130:MT_ERR
+                KIOSK_ERR=0x140:KIOSK_ERR
+                DB_ERR=0x150:DB_ERR
+                MT_LISTENER_MSG=0x160:MT_LISTENER_MSG
+                MTLDAP_ERR=0x17F:MTLDAP_ERR
+                CREDITCARDACCOUNT_ERR=0x18F:CREDITCARDACCOUNT_ERR
+                MTACCOUNT_ERR=0x19F:MTACCOUNT_ERR
+                ACCOUNTCREDITREQUEST_ERR=0xA10:ACCOUNTCREDITREQUEST_ERR
+                MTREMOTELOGGER_ERR=0x1BF:MTREMOTELOGGER_ERR
+                MTENUMCONFIG_ERR=0x1DF:MTENUMCONFIG_ERR
+                PS_RTS_ERR=0x1FF:PS_RTS_ERR
+                ACCOUNTMAPPER_ERR=0x21F:ACCOUNTMAPPER_ERR
+                ACCOUNTCREDIT_ERR=0x23F:ACCOUNTCREDIT_ERR
+                MTREPORTCONFIG_ERR=0x25F:MTREPORTCONFIG_ERR
+                PAYMENTSERVER_ERR=0x27F:PAYMENTSERVER_ERR
+                MTAUTH_ERR=0x29F:MTAUTH_ERR
+                MTPC_ERR=0x2BF:MTPC_ERR
+                MTPC_USER_ERR=0xEBF:MTPC_USER_ERR
+                MTLOCALECONFIG_ERR=0x2DF:MTLOCALECONFIG_ERR
+                MTACCHIERARCHY_ERR=0x2FF:MTACCHIERARCHY_ERR
+                MTAR_ERR=0x30F:MTAR_ERR
+                MTSE_ERR=0x32F:MTSE_ERR
+                MTErrorEnd_ERR=0x3FF:MTERROREND_ERR
+                NTEVT=0x400:NTEVT
+                MTACCOUNTSTATES_ERR=0x406:MTACCOUNTSTATES_ERR
+                MTBATCH_ERR=0x402:MTBATCH_ERR
+                Tree3End_EVT=0x403:TREE3EVT_END
+                Tree4End_EVT=0x404:TREE4EVT_END
+                Tree5End_EVT=0x405:TREE5EVT_END
+                Tree6End_EVT=0x406:TREE6EVT_END
+                Tree7End_EVT=0x407:TREE7EVT_END
+                Tree8End_EVT=0x408:TREE8EVT_END
+                Tree9End_EVT=0x409:TREE9EVT_END
+                Tree10End_EVT=0x40A:TREE10EVT_END
+                Tree11End_EVT=0x40B:TREE11EVT_END
+                Tree12End_EVT=0x40C:TREE12EVT_END
+                Tree13End_EVT=0x40D:TREE13EVT_END
+                Tree14End_EVT=0x40D:TREE14EVT_END
+                Tree15End_EVT=0x40E:TREE15EVT_END
+                Tree16End_EVT=0x40F:TREE16EVT_END
+                MTEnd_EVT=0x440:MTEnd_EVT
+                MTEnd_ERR=0x4FF:MTEnd_ERR
+                
+              )
+

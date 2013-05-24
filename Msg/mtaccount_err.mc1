@@ -1,0 +1,103 @@
+MessageId=0
+Facility=MTACCOUNT_ERR
+Severity=Informational
+SymbolicName=MTACCOUNT_ERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Event Definitions...                                             **/
+/**    Defines common Event Ids and their message text...            **/
+/**********************************************************************/
+.
+MessageId=1
+Facility=MTACCOUNT_ERR
+Severity=Error
+SymbolicName=QUERY_ADAPTER_INITIALIZATION_FAILED
+Language=English
+Unable to initialize query adapter
+.
+MessageId=2
+Facility=MTACCOUNT_ERR
+Severity=Error
+SymbolicName=DATABASE_INITIALIZATION_FAILED
+Language=English
+Database initialization failed
+.
+MessageId=3
+Facility=MTACCOUNT_ERR
+Severity=Error
+SymbolicName=ACCOUNT_NOT_FOUND
+Language=English
+The account was not found in the database.
+.
+MessageId=4
+Facility=MTACCOUNT_ERR
+Severity=Error
+SymbolicName=MORE_THAN_ONE_ACC
+Language=English
+More than one account was found in the database.
+.
+MessageId=5
+Facility=MTACCOUNT_ERR
+Severity=Error
+SymbolicName=TOO_MANY_ACCOUNTS
+Language=English
+Too many accounts matched search criteria.
+.
+MessageId=6
+Facility=MTACCOUNT_ERR
+Severity=Error
+SymbolicName=EMPTY_SEARCH_CRITERIA_COLLECTION
+Language=English
+Search Criteria Collection has to haev at least one criteria
+.
+MessageId=7
+Facility=MTACCOUNT_ERR
+Severity=Error
+SymbolicName=CONFIG_FILE_ENTRY_MISSING
+Language=English
+Config File tag is empty on AccountAdapters.xml
+.
+MessageId=8
+Facility=MTACCOUNT_ERR
+Severity=Error
+SymbolicName=ACCOUNT_VIEW_MISSING
+Language=English
+Unable to find Account View Definition
+.
+MessageId=9
+Facility=MTACCOUNT_ERR
+Severity=Error
+SymbolicName=NO_CONTACT_RECORDS_FOUND
+Language=English
+Unable to find Account View Definition
+.
+MessageId=10
+Facility=MTACCOUNT_ERR
+Severity=Error
+SymbolicName=UNKNOWN_SEARCH_PARAMETER
+Language=English
+Property passed as a part of search criteria collection is unknown
+.
+MessageId=11
+Facility=MTACCOUNT_ERR
+Severity=Error
+SymbolicName=MTACCOUNT_FAILED_PASSWORD_UPDATE
+Language=English
+Failed to update the password because the account can not be found with the corresponding namespace.
+.
+MessageId=12
+Facility=MTACCOUNT_ERR
+Severity=Error
+SymbolicName=MTACCOUNT_RESOLUTION_FAILED
+Language=English
+Failed to resolve account from login and namespace.
+.
+MessageId=13
+Facility=MTACCOUNT_ERR
+Severity=Error
+SymbolicName=MTACCOUNT_FAILED_TO_RESOLVE_USAGEINTERVAL
+Language=English
+Failed to resolve the usage interval from the passed in values.
+.
+
+

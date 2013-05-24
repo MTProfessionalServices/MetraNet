@@ -1,0 +1,73 @@
+MessageId=0
+Facility=MTENUMCONFIG_ERR
+Severity=Informational
+SymbolicName=MTENUMCONFIG_ERR_COMMENT
+Language=English
+/**********************************************************************/
+/** Event Definitions...                                             **/
+/**    Defines common Event Ids and their message text...            **/
+/**********************************************************************/
+.
+MessageId=1
+Facility=MTENUMCONFIG_ERR
+Severity=Error
+SymbolicName=MTENUMCONFIG_NOT_A_VALID_ENUMERATOR;
+Language=English
+There is no enumerator defined that matches passed in FQN
+.
+MessageId=2
+Facility=MTENUMCONFIG_ERR
+Severity=Error
+SymbolicName=MTENUMCONFIG_ENUMERATOR_HAS_NO_VALUES;
+Language=English
+This Enumerator has no values defined
+.
+MessageId=3
+Facility=MTENUMCONFIG_ERR
+Severity=Error
+SymbolicName=MTENUMCONFIG_ENUM_TYPE_COLLECTION_EMPTY;
+Language=English
+Enum Type collection is empty
+.
+MessageId=4
+Facility=MTENUMCONFIG_ERR
+Severity=Error
+SymbolicName=MTENUMCONFIG_NOT_A_VALID_ENUMSPACE;
+Language=English
+Can not find enumspace
+.
+MessageId=5
+Facility=MTENUMCONFIG_ERR
+Severity=Error
+SymbolicName=MTENUMCONFIG_MALFORMED_XML_SET;
+Language=English
+No well formed enum XML set
+.
+MessageId=6
+Facility=MTENUMCONFIG_ERR
+Severity=Error
+SymbolicName=MTENUMCONFIG_DUPLICATE_ENUMSPACE;
+Language=English
+Duplicate EnumSpace
+.
+MessageId=7
+Facility=MTENUMCONFIG_ERR
+Severity=Error
+SymbolicName=MTENUMCONFIG_ATTRIBUTE_MISSING;
+Language=English
+One or more necessary attributes missing from COM object
+.
+MessageId=8
+Facility=MTENUMCONFIG_ERR
+Severity=Error
+SymbolicName=MTENUMCONFIG_DUPLICATE_ENUMERATOR;
+Language=English
+Enumerator '%1!s!' already exists
+.
+MessageId=9
+Facility=MTENUMCONFIG_ERR
+Severity=Error
+SymbolicName=MTENUMCONFIG_DUPLICATE_ENUMERATION_VALUE;
+Language=English
+%1!s!
+.

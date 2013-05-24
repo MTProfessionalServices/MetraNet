@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTUpdateSubscriberCapability.1 = s 'MTUpdateSubscriberCapability Class'
+	{
+		CLSID = s '{D0CBB804-E9FB-4D59-BBE8-2BE921D40E15}'
+	}
+	MetraTech.MTUpdateSubscriberCapability = s 'MTUpdateSubscriberCapability Class'
+	{
+		CLSID = s '{D0CBB804-E9FB-4D59-BBE8-2BE921D40E15}'
+		CurVer = s 'MetraTech.MTUpdateSubscriberCapability.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {D0CBB804-E9FB-4D59-BBE8-2BE921D40E15} = s 'MTUpdateSubscriberCapability Class'
+		{
+			ProgID = s 'MetraTech.MTUpdateSubscriberCapability.1'
+			VersionIndependentProgID = s 'MetraTech.MTUpdateSubscriberCapability'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{6E741478-C134-452C-8A0D-5689AA2A59C7}'
+		}
+	}
+}

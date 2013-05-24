@@ -1,0 +1,9 @@
+; HierarchyPath.def : Declares the module parameters.
+
+LIBRARY      "HierarchyPath.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTManageBillableCapability.1 = s 'MTManageBillableCapability Class'
+	{
+		CLSID = s '{B992BA68-D5B8-4A53-8823-F02AA7ADD92B}'
+	}
+	MetraTech.MTManageBillableCapability = s 'MTManageBillableCapability Class'
+	{
+		CLSID = s '{B992BA68-D5B8-4A53-8823-F02AA7ADD92B}'
+		CurVer = s 'MetraTech.MTManageBillableCapability.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B992BA68-D5B8-4A53-8823-F02AA7ADD92B} = s 'MTManageBillableCapability Class'
+		{
+			ProgID = s 'MetraTech.MTManageBillableCapability.1'
+			VersionIndependentProgID = s 'MetraTech.MTManageBillableCapability'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{6E741478-C134-452C-8A0D-5689AA2A59C7}'
+		}
+	}
+}

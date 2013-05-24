@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTCompositeCapabilityTypeReader.1 = s 'MTCompositeCapabilityTypeReader Class'
+	{
+		CLSID = s '{B881E296-3994-45CD-84AC-B3ED8833EDA2}'
+	}
+	Metratech.MTCompositeCapabilityTypeReader = s 'MTCompositeCapabilityTypeReader Class'
+	{
+		CLSID = s '{B881E296-3994-45CD-84AC-B3ED8833EDA2}'
+		CurVer = s 'Metratech.MTCompositeCapabilityTypeReader.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B881E296-3994-45CD-84AC-B3ED8833EDA2} = s 'MTCompositeCapabilityTypeReader Class'
+		{
+			ProgID = s 'Metratech.MTCompositeCapabilityTypeReader.1'
+			VersionIndependentProgID = s 'Metratech.MTCompositeCapabilityTypeReader'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{8D082AAD-43F0-4C97-BDFC-29A20862B17D}'
+		}
+	}
+}

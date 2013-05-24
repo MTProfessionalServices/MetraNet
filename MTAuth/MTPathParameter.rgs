@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTPathParameter.1 = s 'MTPathParameter Class'
+	{
+		CLSID = s '{BDB8D83B-2879-40B3-80C8-5147F3B03317}'
+	}
+	Metratech.MTPathParameter = s 'MTPathParameter Class'
+	{
+		CLSID = s '{BDB8D83B-2879-40B3-80C8-5147F3B03317}'
+		CurVer = s 'Metratech.MTPathParameter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {BDB8D83B-2879-40B3-80C8-5147F3B03317} = s 'MTPathParameter Class'
+		{
+			ProgID = s 'Metratech.MTPathParameter.1'
+			VersionIndependentProgID = s 'Metratech.MTPathParameter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{E77362A0-A368-4F3E-A642-843A34C0B83B}'
+		}
+	}
+}

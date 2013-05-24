@@ -1,0 +1,39 @@
+// VersionReporting.idl : IDL source for VersionReporting.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (VersionReporting.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(B2410049-AF38-11D4-9160-00B0D02B575C),
+		dual,
+		helpstring("IVersionTool Interface"),
+		pointer_default(unique)
+	]
+	interface IVersionTool : IDispatch
+	{
+		[id(1), helpstring("method GetVersion")] HRESULT GetVersion([out,retval]BSTR*);
+	};
+
+[
+	uuid(B241003D-AF38-11D4-9160-00B0D02B575C),
+	version(1.0),
+	helpstring("VersionReporting 1.0 Type Library")
+]
+library VERSIONREPORTINGLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(B241004A-AF38-11D4-9160-00B0D02B575C),
+		helpstring("VersionTool Class")
+	]
+	coclass VersionTool
+	{
+		[default] interface IVersionTool;
+	};
+};

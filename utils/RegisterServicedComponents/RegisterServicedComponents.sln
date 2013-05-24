@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegisterServicedComponents", "RegisterServicedComponents.csproj", "{B09F33BD-E109-4A08-9217-0C90F1C93958}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{B09F33BD-E109-4A08-9217-0C90F1C93958}.Debug.ActiveCfg = Debug|.NET
+		{B09F33BD-E109-4A08-9217-0C90F1C93958}.Debug.Build.0 = Debug|.NET
+		{B09F33BD-E109-4A08-9217-0C90F1C93958}.Release.ActiveCfg = Release|.NET
+		{B09F33BD-E109-4A08-9217-0C90F1C93958}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

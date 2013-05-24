@@ -1,0 +1,8 @@
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\MetraTech\Configuration\CurrentVersion\Database]
+"DataSourceDatabase"="NetMeter"
+"DataSourcePassword"="nmdbo"
+"DataSourceUserName"="nmdbo"
+"ODBCDataSource"="tomspc"
+

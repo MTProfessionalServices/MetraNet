@@ -1,0 +1,8 @@
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\MetraTech\Configuration\CurrentVersion\Database]
+"DataSourceDatabase"="NewDB"
+"DataSourcePassword"="newdbo"
+"DataSourceUserName"="newdbo"
+"ODBCDataSource"="MATTA"
+

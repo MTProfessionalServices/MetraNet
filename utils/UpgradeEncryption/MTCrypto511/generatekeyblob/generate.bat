@@ -1,0 +1,2 @@
+#Generates publickeyblob_pipeline sessionkeyblob_pipeline in the R:\config\ServerAccess\ using 5.1.1 way
+#C:\build\debug\bin\generatekeyblob511.exe -encryptiontype 3DES -encryptionkey mtkey -inputpublickeyblob publickeyblob_pipeline -outputsessionkeyblob sessionkeyblob_pipeline -createkeypair

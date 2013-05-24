@@ -1,0 +1,15 @@
+	[ uuid(9E90CBD0-3EA3-11d2-8345-006008C80D4B) ]
+	dispinterface IMyObject
+	{
+		properties:
+		// none
+
+		methods:
+		[id(4)] void HelloBongo(void);
+	};
+
+   [ uuid(9E90CBD5-3EA3-11d2-8345-006008C80D4B) ]
+	coclass myObject
+	{
+		[default] dispinterface IMyObject;
+	};

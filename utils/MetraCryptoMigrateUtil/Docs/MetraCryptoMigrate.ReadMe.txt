@@ -1,0 +1,144 @@
+The MetraCryptoMigrate utility is controlled through the .properties files,
+which contain a set of actions the user wants to perform.
+
+There can be one or more actions in a single .properties file.
+If you don't want to use some of the actions in a given file
+you can either remove the action definition from the file
+or you can set the "active" property to false.
+
+===========================================================================================
+Data Export Action:
+-------------------
+
+tid - Transaction ID for a data migration operation, which includes a data export
+      and a data import actions. The "tid" value in the data export action 
+      settings must match the 'tid' value during the corresponding data import action.
+
+'dttPassPhrase' - Passphrase that's used to protect secret data migration operation
+                  information. It must be at least 12 characters long (can contain spaces).
+
+'serverLocation' - IP/name for the computer where the database with credit card number
+                   info is located.
+
+'dbName' - database name for the database where the credit card number info is located.
+           For distributed installations it's NetmeterPay and for standalone installations
+           it's Netmeter.
+
+'uid' - SQL database account ID to access the database identfied by 'dbName'.
+
+'password' - SQL database account password to access the database identified by 'dbName'. 
+
+'rsaKmcConfigFileName' - Must point to the RSA Key Manager Client key.cfg file. When you set 
+                         this property make sure to use double backslashes if you use 
+                         windows path separators.
+
+'rsaKmcCertPass' - Must contain the password for the RSA Key Manager Client certificate file.
+                   The value for this property should populated based on the KMS certificate
+                   password field in the MetraTech mtsecurity.xml file.
+
+'mirror' - Set to 'true' to save the old and new values for the transformed data in a data
+           mirror store file (which is an SQLite database that can be viewed
+           with the SQLite Database Browser tool distributed in the package).
+
+'updateSource' - Set to 'true' to save the transformed data back to the MetraTech product database.
+
+This action produces several files that need to be available for the corresponding
+data import action.
+
+All data export actions generate at least two files:
+
+<TID>.dtt and State.<TID>.export.Das.Store
+
+If you enable data mirroring than a third file will be generated:
+
+<TID>.export.Dmm.Store
+
+This DMM file is an SQLite database file that contains a map for the old and new card number
+along with the original index information. This file can be useful for debugging purposes.
+
+When data export is done the total number of records and the number of tranformed records
+is displayed (and written to the log file). For successful data export actions these
+two numbers must match.
+
+===========================================================================================
+Data Import Action:
+-------------------
+
+tid - Transaction ID for a data migration operation, which includes a data export
+      and a data import actions. The "tid" value in the data import action 
+      settings must match the 'tid' value during the corresponding data export action.
+
+'dttPassPhrase' - Passphrase that's used to protect secret data migration operation
+                  information. It must be at least 12 characters long (can contain spaces).
+                  It must be the same value used for the corresponding data export action.
+
+'NetmeterPay.serverLocation' - IP/name for the computer where the database with credit card number
+                               info is located.
+
+'NetmeterPay.dbName' - database name for the database where the credit card number info is located.
+                       For distributed installations it's NetmeterPay and for standalone installations
+                       it's Netmeter.
+
+'NetmeterPay.uid' - SQL database account ID to access the database identfied by 'NetmeterPay.dbName'.
+
+'NetmeterPay.password' - SQL database account password to access the database identified by 'NetmeterPay.dbName'. 
+
+'Netmeter.serverLocation' - IP/name for the computer where the database with credit card number hash
+                            info is located.
+
+'Netmeter.dbName' - database name for the database where the credit card number hash info is located.
+                    It's always Netmeter.
+
+'Netmeter.uid' - SQL database account ID to access the database identfied by 'NetmeterPay.dbName'.
+
+'Netmeter.password' - SQL database account password to access the database identified by 'NetmeterPay.dbName'. 
+
+
+'rsaKmcConfigFileName' - Must point to the RSA Key Manager Client key.cfg file. When you set 
+                         this property make sure to use double backslashes if you use 
+                         windows path separators.
+
+'rsaKmcCertPass' - Must contain the password for the RSA Key Manager Client certificate file.
+                   The value for this property should populated based on the KMS certificate
+                   password field in the MetraTech mtsecurity.xml file.
+
+'mirror' - Set to 'true' to save the old and new values for the transformed data in a data
+           mirror store file (which is an SQLite database that can be viewed
+           with the SQLite Database Browser tool distributed in the package).
+
+'updateSource' - Set to 'true' to save the transformed data back to the MetraTech product database.
+
+'fromMirror' - Set to 'true' to import data from an export data mirror. This param must be enabled
+               when 'updateSource' in the corresponding data export action was set to 'false'.
+               This param can be set to 'true' even if 'updateSource' from the corresponding
+               data export action was set to 'true' as long as the 'mirror' in that data export
+               action was set to 'true' as well. This is a way to minimize the number of data
+               modifications in the MetraTech product database where you can export data into
+               a data mirror file and then import that data back from the data mirror file.
+
+When data import is done the total number of records and the number of tranformed records
+is displayed (and written to the log file). For successful data import actions these
+two numbers must match.
+
+===========================================================================================
+Generate Data Signature Action:
+-------------------------------
+
+This action produces the number of records and a hash for all credit card number records.
+
+This information is printed to the screen and written to the log file. It can also be
+found in the "State.<TID>.generator.Das.Store" file (this is an SQLite file that can be examined
+with any SQLite database viewer application including the one available with the package).
+
+===========================================================================================
+Verify Data Signature Action:
+-----------------------------
+
+This action produces the number of records and a hash for all credit card number records
+comparing the results with the values from the corresponding data signature generation action.
+If the values match it prints out a message indicating a successful data signature verification.
+
+
+
+
+

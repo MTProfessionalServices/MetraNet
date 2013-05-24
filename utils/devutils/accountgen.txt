@@ -1,0 +1,195 @@
+declare @i as int
+declare @k as int
+declare @id_acc as int
+declare @id_site as int
+declare @accname as varchar(256)
+set @i = 0
+set @k=1010
+declare @accountstatus as int
+declare @invoicemethod as int
+declare @language as int
+declare @paymentmethod as int
+declare @securityanswer as int
+declare @securityquestion as int
+declare @statusreason as int
+declare @statusreasonother as int
+declare @timezoneid as int
+declare @usagecycletype as int
+declare @actstatusactive as int
+declare @country as int
+declare @accounttype as int
+declare @tariffid as int
+
+
+select @accountstatus =(select id_enum_data from t_enum_data
+where rtrim(substring(nm_enum_data,31,55)) = 'ACCOUNTSTATUS')
+
+select @invoicemethod =(select id_enum_data from t_enum_data
+where rtrim(substring(nm_enum_data,31,55)) ='INVOICEMETHOD')
+
+select @language = (select id_enum_data from t_enum_data
+where rtrim(substring(nm_enum_data,31,55)) ='LANGUAGE')
+
+select @paymentmethod= (select id_enum_data from t_enum_data
+where rtrim(substring(nm_enum_data,31,55)) = 'paymentmethod')
+
+select @securityanswer = (select id_enum_data from t_enum_data
+where rtrim(substring(nm_enum_data,31,55)) ='securityanswer')
+
+select @securityquestion =(select id_enum_data from t_enum_data
+where rtrim(substring(nm_enum_data,31,55)) ='securityquestion')
+
+select @statusreason = (select id_enum_data from t_enum_data
+where rtrim(substring(nm_enum_data,31,55)) ='statusreason')
+
+select @statusreasonother = (select id_enum_data from t_enum_data
+where rtrim(substring(nm_enum_data,31,55)) = 'statusreasonother')
+
+select @timezoneid = (select id_enum_data from t_enum_data
+where rtrim(substring(nm_enum_data,31,55)) = 'timezoneid')
+
+select @usagecycletype = (select id_enum_data from t_enum_data
+where rtrim(substring(nm_enum_data,31,55)) = 'usagecycletype')
+
+select @actstatusactive  = (select id_enum_data from t_enum_data
+where nm_enum_data = 'metratech.com/accountcreation/accountstatus/active')
+
+select @country = (select id_enum_data from t_enum_data
+where rtrim(substring(nm_enum_data,31,55)) = 'country')
+
+select @accounttype = (select id_enum_data from t_enum_data
+where rtrim(substring(nm_enum_data,31,55)) = 'accounttype')
+
+select @tariffid = (select id_enum_data from t_enum_data
+where rtrim(substring(nm_enum_data,31,55)) = 'tariffid')
+
+
+while(@i < 1000) begin
+	set NOCOUNT ON
+	insert into t_account (id_status,dt_start,dt_end) values (@actstatusactive,GetUTCdate(),NULL)
+	set @id_acc = @@identity
+	set @accname = 'gentest' + CAST(@id_acc as varchar(100))
+	
+        insert into t_account_mapper values (@accname,'mt',@id_acc)
+	insert into t_account_mapper values (@accname + 'ext','metratech.com/external',@id_acc)
+
+        insert into t_user_credentials (nm_login, tx_password, nm_space) values 
+        (@accname, '098f6bcd4621d373cade4e832627b4f6','mt')
+       
+        insert into t_localized_site (nm_space, tx_lang_code) values ('mt', 'US')
+        set @id_site = @@identity 
+        
+        insert into t_site_user (nm_login, id_site, id_profile) values 
+        (@accname, @id_site, 1010)
+
+        insert into t_profile (id_profile, nm_tag, val_tag, tx_desc) values
+        (@k, 'timeZoneID', '18', 'System')
+                
+        insert into t_acc_usage_interval select @id_acc,
+        case @id_acc%31 
+        when 0 then 1038
+        when 1 then 1001
+        when 2 then 1010
+        when 3 then 1011
+        when 4 then 1012
+        when 5 then 1013
+        when 6 then 1014
+        when 7 then 1015
+        when 8 then 1016
+        when 9 then 1017
+        when 10 then 1018
+        when 11 then 1019
+        when 12 then 1020
+        when 13 then 1021
+        when 14 then 1022
+        when 15 then 1023
+        when 16 then 1024
+        when 17 then 1025
+        when 18 then 1026
+        when 19 then 1027
+        when 20 then 1028
+        when 21 then 1029
+        when 22 then 1030
+        when 23 then 1031
+        when 24 then 1032
+        when 25 then 1033
+        when 26 then 1034
+        when 27 then 1035
+        when 28 then 1036
+        when 29 then 1037
+        when 30 then 1038 end,'0',NULL
+           
+ 
+        insert into t_acc_usage_cycle values (@id_acc,30)
+        
+        insert into t_av_internal values (@id_acc,@tariffid,'Y',0,0,
+	@timezoneid, -- timezoneID
+	@paymentmethod, -- payment method
+	@accountstatus, -- account status
+	@securityquestion, -- security question
+	@securityanswer, --security answer
+	@invoicemethod , -- invoice method
+	@usagecycletype, -- UsageCycleType
+	@language, -- language
+	@statusreason , -- statusreason
+	@statusreasonother, -- other status reason
+	'USD', --currency
+	null, -- pricelist
+	NULL  -- secure item
+	)
+	
+        insert into t_av_contact (id_acc , c_accounttype, c_firstname, c_lastname, 
+        c_email, c_phonenumber, c_company, c_address1, c_address2, c_address3, 
+        c_city, c_state, c_zip, c_country, c_facsimiletelephonenumber, 
+        c_middleinitial) values (@id_acc, @accounttype, 'John', 'Smith', 'jsmith@metratech.com', 
+        '617-491-7646', 'CQS', '229 W 43rd St', NULL, NULL, 'New York', 'NY', 
+        '10036', @country, NULL, 'L')
+        
+        set @i = @i + 1
+        set @k=  @k + 1
+end
+
+                
+set NOCOUNT OFF
+
+
+--------------------------------------------------
+-- subscribe generated account to product offering
+declare @id_po as int
+set @id_po = 1
+
+--declare @i as int
+--declare @id_acc as int
+declare @count as int
+declare @cursor cursor
+set @cursor = CURSOR STATIC FOR
+select id_acc from t_account
+
+declare @id_eff_date as int
+declare @id_sub as int
+
+insert into t_effectivedate values(1,1,getutcdate(),0,1,null,0)
+insert into t_effectivedate values(2,1,getutcdate(),0,1,null,0)
+insert into t_po values(1,1,2,'N','N')
+OPEN @cursor
+set @count = @@cursor_rows
+set @i = 0
+SET NOCOUNT ON
+while @i < @count begin
+	FETCH NEXT FROM @cursor into @id_acc
+
+	-- subscribe user to product offering
+
+	insert into t_base_props (n_kind) values (160)
+	set @id_eff_date = @@identity
+	insert into t_effectivedate values (@id_eff_date,1,GetUTCDate(),0,1,NULL,0)
+	insert into t_base_props (n_kind) values (120)
+	set @id_sub = @@identity
+	insert into t_sub values (@id_sub,@id_acc,@id_eff_date,'Y',@id_po,GetUTCDate())
+	set @i = @i + 1
+end	
+CLOSE @cursor
+DEALLOCATE @cursor
+SET NOCOUNT OFF
+
+

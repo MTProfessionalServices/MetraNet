@@ -1,0 +1,7 @@
+To be PCI compliant sensitive data (such as credit card number and password information)
+MUST NOT be stored or transferred in clear text. 
+
+This means that you should populate 'dttPassPhrase', 'password', and 'rsaKmcCertPass'
+properties only when you are using the tool. Do not send .properties files
+with those fields populated with real values.
+

@@ -1,0 +1,60 @@
+The MetraCryptoMigrate utility is controlled through the .properties files,
+which contain a set of actions the user wants to perform.
+
+There can be one or more actions in a single .properties file.
+If you don't want to use some of the actions in a given file
+you can either remove the action definition from the file
+or you can set the "active" property to false.
+
+
+========================================================================================
+
+Data Export Action:
+
+The "tid" value in the data export action settings must match the 'tid' value
+during the corresponding data import action.
+
+'dttPassPhrase' - must be at least 12 characters long 
+
+'rsaKmcConfigFileName' - must point to the RSA Key Manager Client key.cfg file
+'rsaKmcCertPass' - must contain the password for the RSA Key Manager Client certificate file
+
+This action produces several files that need to be available for the corresponding
+data import action.
+
+All data export actions generate at least two files:
+
+<TID>.dtt and State.<TID>.export.Das.Store
+
+If you enable data mirroring than a third file will be generated:
+
+<TID>.export.Dmm.Store
+
+This DMM file is an SQLite database file that contains a map for the old and new card number
+along with the original index information. This file can be useful for debugging purposes.
+
+
+Data Import Action:
+
+
+
+Generate Data Signature Action:
+
+
+
+Verify Data Signature Action:
+
+
+
+============================================================================================
+
+NOTES:
+
+When you set the 'rsaKmcConfigFileName' property make sure to use double backslashes
+if you use windows path separators.
+
+The value for the 'rsaKmcCertPass' property should populated based on the KMS certificate
+password field in the MetraTech mtsecurity.xml file.
+
+
+

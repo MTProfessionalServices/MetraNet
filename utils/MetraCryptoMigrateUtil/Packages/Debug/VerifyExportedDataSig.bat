@@ -1,0 +1,1 @@
+MetraCryptoMigrate.exe --actions=MetraCryptoMigrate.VerifyExportedDataSig.properties

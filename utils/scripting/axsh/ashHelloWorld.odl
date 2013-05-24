@@ -1,0 +1,75 @@
+//*****************************************************************************
+//
+//   File:   ashHelloWorld.odl
+//
+//   Author:   Joel Alley
+//
+//   Date:   March 9, 1998
+//
+//   Description:   This file contains the definition of a type library for 
+//               the ashHelloWorld example.  It is compiled by the MIDL
+//               compiler to produce the ashHelloWorld.h, ashhelloworld_i.c,
+//               and ashHelloWorld.tlb files, which are then used by the 
+//               ActiveX Script Host.
+//
+//   Modifications:   
+//****************************************************************************/
+#include "MyDispids.h"
+
+
+//DEFINE_GUID(<<name>>, 
+//0x9e90cbd0, 0x3ea3, 0x11d2, 0x83, 0x45, 0x0, 0x60, 0x8, 0xc8, 0xd, 0x4b);
+
+[ uuid(C3079A20-B425-11d1-94A1-006008939020), version(1.0) ]
+library ashHelloWorld
+{
+   importlib("stdole32.tlb");
+
+   [ uuid(156EE0C1-B426-11d1-94A1-006008939020) ]
+   dispinterface ISayHello
+   {
+      properties:
+      //none
+
+      methods:
+      [id(1)] void SayHi( void );
+      [id(2)] void SayHi2( void );
+      [id(3)] void SaySomething( BSTR bstrSomething );
+   };
+
+   [ uuid(A5673BE0-B512-11d1-94A1-006008939020) ]
+   dispinterface ISayHelloEvents
+   {
+      properties:
+      //none
+
+      methods:
+      [id(DISPID_MYEVENT)] void MyEvent( void );
+   };
+
+	[ uuid(9E90CBD0-3EA3-11d2-8345-006008C80D4B) ]
+	dispinterface IMyObject
+	{
+		properties:
+		// none
+
+		methods:
+		[id(1)] void HelloBongo(void);
+		[id(2)] LPDISPATCH CreateObject(BSTR bstrProgId);
+	};
+
+
+   [ uuid(854C92C1-B426-11d1-94A1-006008939020) ]
+   coclass ashObject
+   {
+      [default] dispinterface ISayHello;
+      [default, source] interface ISayHelloEvents;
+   };
+
+  [ uuid(9E90CBD5-3EA3-11d2-8345-006008C80D4B) ]
+	coclass myObject
+	{
+		[default] dispinterface IMyObject;
+	};
+
+};

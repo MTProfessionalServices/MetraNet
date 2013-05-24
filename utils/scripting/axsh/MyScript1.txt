@@ -1,0 +1,30 @@
+Dim strMessage
+Dim theCount
+Dim theConnection
+Dim RS
+
+strMessage = "Hello Fredbo: "
+theCount = 2121
+
+'stop
+strMessage = strMessage & theCount
+
+MyObject.SayHi
+MyObject.SayHi2
+MyObject.SaySomething(strMessage)
+
+MTScripting.HelloBongo
+
+Set theConnection = MTScripting.CreateObject("ADODB.Connection")
+
+theConnection.Open "ADOSamples"
+set RS = theConnection.Execute("Select * from orders")
+MyObject.SaySomething(RS(0).Name)
+
+set RS = Nothing
+
+sub MyObject_MyEvent
+
+	MyObject.SaySomething(strMessage)
+
+end sub

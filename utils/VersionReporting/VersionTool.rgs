@@ -1,0 +1,26 @@
+HKCR
+{
+	VersionReporting.VersionTool.1 = s 'VersionTool Class'
+	{
+		CLSID = s '{B241004A-AF38-11D4-9160-00B0D02B575C}'
+	}
+	VersionReporting.VersionTool = s 'VersionTool Class'
+	{
+		CLSID = s '{B241004A-AF38-11D4-9160-00B0D02B575C}'
+		CurVer = s 'VersionReporting.VersionTool.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B241004A-AF38-11D4-9160-00B0D02B575C} = s 'VersionTool Class'
+		{
+			ProgID = s 'VersionReporting.VersionTool.1'
+			VersionIndependentProgID = s 'VersionReporting.VersionTool'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{B241003D-AF38-11D4-9160-00B0D02B575C}'
+		}
+	}
+}

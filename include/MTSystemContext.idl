@@ -1,0 +1,83 @@
+/**************************************************************************
+ * @doc MTSYSTEMCONTEXT
+ *
+ * Copyright 1998 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ * Created by: Derek Young
+ * $Header$
+ ***************************************************************************/
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTLog.idl";
+import "MTNameID.idl";
+import "MTConfigFile.idl";
+import "IMTEnumConfig.idl";
+
+// ----------------------------------------------------------------
+// Object: MTSystemContext
+// Prog ID: MetraPipeline.MTSystemContext.1
+// Description: This interface aggregates interfaces to several interfaces used
+//              by plug-ins.
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(16f737d0-3eaf-11d2-a1c5-006008c0e24a),
+  dual,
+  helpstring("IMTSystemContext Interface"),
+  pointer_default(unique)
+]
+interface IMTSystemContext : IDispatch
+{
+  // return the logger interface
+  [id(1), helpstring("method GetLog")]
+  HRESULT GetLog([out, retval] IMTLog * * log);
+
+  // return the NameID interface
+  [id(2), helpstring("method GetNameID")]
+  HRESULT GetNameID([out, retval] IMTNameID * * nameid);
+
+  // return information about the configuration file used to configure the
+  // plug-in.
+  [propget, id(3), helpstring("property GetEffectiveConfig")]
+  HRESULT EffectiveConfig([out, retval] IMTConfigFile ** pEffectiveConfig);
+
+  // set the information about the configuration file used to configure the
+  // plug-in.
+  // INTERNAL use only.
+  [id(3), hidden, propput, helpstring("property PutEffectiveConfig")]
+  HRESULT EffectiveConfig([in] IMTConfigFile * pEffectiveConfig);
+
+  // Return the enumeration object
+  [id(4), helpstring("method GetEnumConfig")]
+  HRESULT GetEnumConfig([out, retval] IEnumConfig * * enum_config);
+
+	// set the extension name
+	[id(5), hidden, propput, helpstring("set the Extension name")] HRESULT ExtensionName([in] BSTR aExtensionName);
+	// get the extension name
+	[id(5), propget, helpstring("get the Extension name")] HRESULT ExtensionName([out, retval] BSTR* pExtensionName);
+
+	// set the stage path
+	[id(6), hidden, propput, helpstring("set the path to the stage directory")] HRESULT StageDirectory([in] BSTR aStageDir);
+	// get the stage path
+	[id(6), propget, helpstring("get the path to the stage directory")] HRESULT StageDirectory([out, retval] BSTR* pStageDir);
+
+	[id(7), helpstring("Decrypts a string encrypted via the listener")] HRESULT Decrypt([in] BSTR aEncryptedStr,[out, retval] BSTR* pvalue);
+  [id(8), helpstring("Encrypts a string")] HRESULT Encrypt([in] BSTR aStringToEncrypt,[out, retval] BSTR* pvalue);
+};
+

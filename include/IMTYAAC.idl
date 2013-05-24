@@ -1,0 +1,692 @@
+/**************************************************************************
+* Copyright 1997-2002 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+***************************************************************************/
+
+import "MTAccountStateInterface.idl";
+import "rowsetinterfaces.idl";
+import "GenericCollectionInterfaces.idl";
+import "IMTAuth.idl";
+import "IMTProgress.idl";
+import "Properties.idl";
+import "IMTAccountType.idl";
+import "PropValType.idl";
+
+interface IMTYAAC;
+interface IMTAccountTemplateSubscription;
+interface IMTAccountTemplateSubscriptions;
+interface IMTAccountTemplateProperties;
+interface IMTAccountType;
+
+
+// ----------------------------------------------------------------
+// Object:      MTAccountCatalog
+// Prog ID:     MetraTech.MTAccountCatalog.1
+// Description: Top level interface to the account classes.
+//              Create and initialize per session.
+// ----------------------------------------------------------------
+[
+	object,
+	uuid(16B7B5FF-092D-4FD4-BA90-C4B8046BBE5C),
+	dual,
+	helpstring("Interface to herd MTYAACs"),
+	pointer_default(unique)
+]
+interface IMTAccountCatalog : IDispatch
+{
+  // initialize object for a session
+  [id(1), helpstring("method Init")] HRESULT Init([in] IMTSessionContext* apCTX);
+
+  // get the acting account MTYAAC for this session
+  [id(2), helpstring("method GetActorAccount")] HRESULT GetActorAccount([in,optional] VARIANT RefDate,[out,retval] IMTYAAC** apYAAC);
+
+  // get an account MTYAAC, given its accountID
+  [id(3), helpstring("method GetAccount")] HRESULT GetAccount([in] long aAccountID,[in,optional] VARIANT RefDate,[out,retval] IMTYAAC** apYAAC);
+
+  // Search for accounts given various limiting criteria.
+  // Returns a disconnected, updatable rowset with the specified apColumns.
+  //  aRefDate:     Date to use when looking up temporal data
+  //  apColumns:    Collection specifying the account properties to return.
+  //                In addition to column names, SPECIAL VALUES can be specified to make the finder
+  //                return certain pieces of data.  These special values are (including the brackets)
+  //                  [ALL_PROPERTIES]                        --  All possible properties
+  //                  [CORE_ACCOUNT_PROPERTIES]               --  Core account properties (specified in AccountMetaData.cpp)
+  //                  [ACCOUNT_EXTENSION_PROPERTIES]          --  Account extension properties
+  //                Using NULL for apColumns is the same as specifying two SPECIAL VALUE columns,
+  //                [CORE_ACCOUNT_PROPERTIES] and [ACCOUNT_EXTENSION_PROPERTIES]
+  //  apFilter:     Filter criteria applied to result. One filter item contains account property name, operator and value.
+  //  apJoinFilter: Filter criteria applied to join. Allows surpressing of duplicate columns if there is a 1:M relationship to account views
+  //                Can be NULL.
+  //  aMaxRows:     Maximum number of rows to return. if 0 all rows will be returned
+  //  apMoreRows:   TRUE if the number of rows exceeded aMaxRows.
+  [id(4), helpstring("method FindAccountsAsRowset")] HRESULT FindAccountsAsRowset(
+    [in] DATE aRefDate,
+    [in] IMTCollection* apColumns,
+    [in] IMTDataFilter* apFilter,
+    [in] IMTDataFilter* apJoinFilter,
+    [in] IMTCollection* apOrder,
+    [in] long aMaxRows,
+    [out] VARIANT* apMoreRows,
+    [in, optional] VARIANT aTransaction,
+    [out,retval] IMTSQLRowset** apRowset
+    );
+
+  // Returns all properties for one account identified by its ID.
+  // Note: Multiple rows can be returned, one per contact type.
+  [id(5), helpstring("method FindAccountByIDAsRowset")] HRESULT FindAccountByIDAsRowset(
+    [in] DATE aRefDate,
+    [in] long aAccountID,
+    [in, optional] VARIANT aTransaction,
+    [out,retval] IMTSQLRowset** apRowset);
+
+  // return meta data for an account
+  [id(6), helpstring("method GetAccountMetaData")] HRESULT GetAccountMetaData([out,retval] IMTPropertyMetaDataSet** apMetaData);
+  [id(7), helpstring("method GetAccountByName")] HRESULT GetAccountByName([in] BSTR aName,[in] BSTR aNamespace,[in, optional] VARIANT RefDate,[out,retval] IMTYAAC **apYAAC);
+
+  // Returns filter to be used as base for all subsequent account searches
+  // (the MAMfilter excludes accounts in certain states depending on AccountStates.xml)
+  [id(8), helpstring("method GetMAMFilter")] HRESULT GetMAMFilter([out,retval] IMTDataFilter** apFilter);
+  [id(9), helpstring("method Refresh")] HRESULT Refresh();
+
+
+	// Same as FindAccountsByID but returns the generated query instead of running it.
+	// See FindAccountsByID for information on parameters
+  [id(10), helpstring("method GenerateAccountSearchQuery")] HRESULT GenerateAccountSearchQuery(
+    [in] DATE aRefDate,
+    [in] IMTCollection* apColumns,
+    [in] IMTDataFilter* apFilter,
+    [in] IMTDataFilter* apJoinFilter,
+    [in] IMTCollection* apOrder,
+    [in] long aMaxRows,
+    [out,retval] BSTR * apQuery);
+
+  //Accepts a collection of IOwnershipAssociationObjects and creates
+  //ownerhip in batch
+  [id(11), helpstring("method BatchCreateOrUpdateOwnerhip")] HRESULT BatchCreateOrUpdateOwnerhip(
+  [in] IMTCollection* pCol,
+  [in] IMTProgress* pProgress,
+  [in,optional] VARIANT transaction,
+  [out,retval] IMTRowSet** ppRowset);
+  
+  //Accepts a collection of IOwnershipAssociationObjects and removes account
+  //ownerhips in batch
+  [id(12), helpstring("method BatchDeleteOwnerhip")] HRESULT BatchDeleteOwnerhip(
+  [in] IMTCollection* pCol,
+  [in] IMTProgress* pProgress,
+  [in,optional] VARIANT transaction,
+  [out,retval] IMTRowSet** ppRowset);
+
+  //Additions for Account Types in Kona
+
+  [id(13), helpstring("method GetAllAccountTypes")] HRESULT GetAllAccountTypes(
+    [out, retval] IMTCollection** apAccountTypes);
+
+  [id(14), helpstring("metohd GetAllAccountTypesAsRowset")] HRESULT GetAllAccountTypesAsRowset(
+    [out, retval] IMTSQLRowset** ppRowset); 
+
+  [id(15), helpstring("method GetAccountTypeByName")] HRESULT GetAccountTypeByName(
+    [in]BSTR aName,
+    [out, retval] IMTAccountType** apAccType);
+
+  [id(16), helpstring("method GetAccountTypeByID")] HRESULT GetAccountTypeByID(
+    [in]long aName,
+    [out, retval] IMTAccountType** apAccType);
+
+  [id(17), helpstring("method FindAccountByNameAsRowset")] HRESULT FindAccountByNameAsRowset(
+    [in] DATE aRefDate,
+    [in] BSTR aName,
+    [in] BSTR aNamespace,
+    [in, optional] VARIANT aTransaction,
+    [out,retval] IMTSQLRowset** apRowset);
+
+  //returns a collection of account type names that support the given operation.
+  [id(18), helpstring("method FindAllAccountTypesWithOperation")] HRESULT FindAllAccountTypesWithOperation(
+    [in] BSTR operation, 
+    [out, retval] IMTCollectionReadOnly** ppCol);
+
+  	// Same as FindAccountsByID but returns the generated query instead of running it.
+	// See FindAccountsByID for information on parameters
+  [id(19), helpstring("method GenerateParameterizedAccountSearchQuery")] HRESULT GenerateParameterizedAccountSearchQuery(
+    [in] DATE aRefDate,
+    [in] IMTCollection* apColumns,
+    [in] IMTDataFilter* apFilter,
+    [in] IMTDataFilter* apJoinFilter,
+    [in] IMTCollection* apOrder,
+    [in] long aMaxRows,
+    [out,retval] BSTR * apQuery);
+
+};
+
+// ----------------------------------------------------------------
+// Object: MTAccountTemplate
+// Prog ID:  MetraTech.MTAccountTemplate   
+// Description: The Account template object is used to supply default
+// properties when creating a new account in a folder.  The properties
+// are not required (or enforced) and may be overridden by the user.
+// ----------------------------------------------------------------
+
+
+[
+	object,
+	uuid(67AECACD-055B-4FD4-9069-1669E4A3B08D),
+	dual,
+	helpstring("IMTAccountTemplate Interface"),
+	pointer_default(unique)
+]
+interface IMTAccountTemplate : IDispatch
+{
+	// hidden methods
+	[id(1),hidden, helpstring("method Initialize")] HRESULT Initialize([in] IMTSessionContext* pCTX,[in] long aAccountID, [in] long aCorporateID, [in] long aAccountTypeID, [in, optional] VARIANT vRefDate);
+	
+	// properties
+
+  // returns the list of current subscriptions
+	[propget, id(50), helpstring("returns the list of current subscriptions")] HRESULT Subscriptions([out, retval] IMTAccountTemplateSubscriptions** pVal);
+	// template identifier
+  [propget, id(51), helpstring("template identifier")] HRESULT ID([out, retval] long *pVal);
+	[propput, id(51), helpstring("template identifier")] HRESULT ID([in] long newVal);
+  // template account identifier
+	[propget, id(52), helpstring("template account identifier")] HRESULT AccountID([out, retval] long *pVal);
+	[propput, id(52), helpstring("template account identifier")] HRESULT AccountID([in] long newVal);
+  // creation date
+	[propget, id(53), helpstring("creation date")] HRESULT DateCrt([out, retval] DATE *pVal);
+	[propput, id(53), helpstring("creation date")] HRESULT DateCrt([in] DATE newVal);
+  // template name
+	[propget, id(54), helpstring("template name")] HRESULT Name([out, retval] BSTR *pVal);
+	[propput, id(54), helpstring("template name")] HRESULT Name([in] BSTR newVal);
+  // template description
+	[propget, id(55), helpstring("template description")] HRESULT Description([out, retval] BSTR *pVal);
+	[propput, id(55), helpstring("template description")] HRESULT Description([in] BSTR newVal);
+  // apply default children to child accounts
+	[propget, id(56), helpstring("apply default children to child accounts")] HRESULT ApplyDefaultSecurityPolicy([out, retval] VARIANT_BOOL *pVal);
+	[propput, id(56), helpstring("apply default children to child accounts")] HRESULT ApplyDefaultSecurityPolicy([in] VARIANT_BOOL newVal);
+  // properties list
+	[propget, id(57), helpstring("properties list")] HRESULT Properties([out, retval] IMTAccountTemplateProperties** pVal);
+	[propput, id(57), helpstring("properties list")] HRESULT Properties([in] IMTAccountTemplateProperties* newVal);
+	// logon name of the first ancestor with template
+	[propget, id(58), helpstring("template account name")] HRESULT TemplateAccountName([out, retval] BSTR *pVal);
+	[propput, id(58), helpstring("template account name")] HRESULT TemplateAccountName([in] BSTR newVal);
+	// logon name space of the first ancestor with template
+	[propget, id(59), helpstring("template account name space")] HRESULT TemplateAccountNameSpace([out, retval] BSTR *pVal);
+	[propput, id(59), helpstring("template account name space")] HRESULT TemplateAccountNameSpace([in] BSTR newVal);
+	// account id of the first ancestor with template
+	[propget, id(60), helpstring("template account id")] HRESULT TemplateAccountID([out, retval] long *pVal);
+	[propput, id(60), helpstring("template account id")] HRESULT TemplateAccountID([in] long newVal);
+  // account type id of the template
+	[propget, id(61), helpstring("template account type id")] HRESULT TemplateAccountTypeID([out, retval] long *pVal);
+	[propput, id(61), helpstring("template account type id")] HRESULT TemplateAccountTypeID([in] long newVal);
+
+  
+
+	// methods
+  // persist the template.  Note that operations are done in memory and nothing is persisted
+  // until Save is called
+	[id(100), helpstring("Save the template")] HRESULT Save([in, optional] VARIANT vRefDate, [out, retval] VARIANT_BOOL* bRetVal);
+  // save only the properties.  Internal use only
+	[id(101), hidden, helpstring("Save the template properties")] HRESULT SaveProperties([out, retval] VARIANT_BOOL* bRetVal);
+  // save the main properties.  Internal use only
+	[id(102), hidden, helpstring("Save main properties")] HRESULT SaveMainMember([in, optional] VARIANT vRefDate, [out, retval] VARIANT_BOOL* bRetVal);
+  // save the template usbscriptions
+	[id(103), hidden, helpstring("Save template subscriptions")] HRESULT SaveSubscriptions([out, retval] VARIANT_BOOL* bRetVal);
+  // load the template
+	[id(104), helpstring("Load the account template")] HRESULT Load([in, optional] VARIANT vRefDate, [out, retval] VARIANT_BOOL* bRetVal);
+  // load template properties.  Internal use only
+	[id(105), hidden, helpstring("load template properties")] HRESULT LoadProperties([out, retval] VARIANT_BOOL* bRetVal);
+  // load template subscriptions.  Internal use only
+	[id(106), hidden, helpstring("load template subscriptions")] HRESULT LoadSubscription([out, retval] VARIANT_BOOL* bRetVal);
+  // Load the main template properties.  internal use only
+	[id(107), hidden, helpstring("load main properties")] HRESULT LoadMainMembers([in] long aAccountTypeID,  [in, optional] VARIANT vRefDate, [out, retval] VARIANT_BOOL* bRetVal);
+  // Get template subscriptions as a rowset
+	[id(109), helpstring("Get template subscriptions as a MTSQLRowset (similar to ADO)")] HRESULT GetSubscriptionsAsRowSet([out, retval] IMTSQLRowset** ppRowset);
+  // copy template from parent folder
+  [id(110), helpstring("Copy Template from parent folder")] HRESULT CopyTemplateFromParent([in, optional] VARIANT vRefDate);
+  // copy template from specific folder
+  [id(111), helpstring("Copy template from folder")] HRESULT CopyTemplateFromFolder([in] long aFolderID, [in, optional] VARIANT vRefDate);
+
+  // Get available product offerings for individual subscription.  The date parameter
+  // is used to check against the product offering effective date.  If no date is specified, the current metratime
+  // is used
+	[id(112), helpstring("method GetAvailableProductOfferingsAsRowset")] HRESULT GetAvailableProductOfferingsAsRowset(
+  [in, optional] VARIANT RefDate,
+  [out,retval] IMTSQLRowset** ppRowset);
+  // get the available product offerings for group subscription.  Same date rules apply.
+	[id(113), helpstring("method GetAvailableGroupSubscriptionsAsRowset")] HRESULT GetAvailableGroupSubscriptionsAsRowset(
+  [in, optional] VARIANT RefDate,
+  [out,retval] IMTSQLRowset** ppRowset);
+  // clear the template
+  [id(114), helpstring("Clear the template")] HRESULT Clear();
+  // rowset of nearest parent information
+  [id(115),helpstring("find nearest parent information")] HRESULT NearestParentInfo([in, optional] VARIANT vRefDate, [out,retval] IMTSQLRowset** ppRowset);
+};
+
+  // ----------------------------------------------------------------
+  // Object:   MTPaymentSlice
+  // Prog ID:  MetraTech.MTPaymentSlice
+  // Description: All of the payees for an account based on a specific time
+  // ----------------------------------------------------------------
+  [
+	  object,
+	  uuid(9A004D02-C83F-4D8D-B33C-4FBB197AB0C7),
+	  dual,
+	  helpstring("IMTPaymentSlice Interface"),
+	  pointer_default(unique)
+  ]
+  interface IMTPaymentSlice : IMTCollectionReadOnly
+  {
+	  // hiden methods.  The intialize methods are called by the YAAC to initialize the slice.
+
+      // initialize with a payer, payee at a specific date
+		  [id(50),hidden, helpstring("method Initialize")] HRESULT Initialize([in] IMTSessionContext* pCTX,
+			  [in] IMTYAAC* pPayer,[in] DATE RefDate);
+      // initialize with a specific date based on the system configuration at SystemDate (uses the bitemporal information)
+		  [id(51), hidden, helpstring("method InitializeBitemporal")] HRESULT InitializeBitemporal([in] IMTSessionContext* pCTX,[in] IMTYAAC* pPayer,
+        [in] DATE RefDate,[in] DATE SystemDate);
+      // initialize based on the payer
+		  [id(52), hidden, helpstring("method IntializeAll")] HRESULT InitializeAll([in] IMTSessionContext* pCTX,[in] IMTYAAC* pPayer);
+      // returns list of Payees as a rowset.  This is the only public method.
+		  [id(53), helpstring("method PayeesAsRowset")] HRESULT PayeesAsRowset([out, retval] IMTSQLRowset** ppRowset);
+  };
+
+
+  // ----------------------------------------------------------------
+  // Object:  MTPaymentMgr    
+  // Prog ID:  MetraTech.MTPaymentMgr   
+  // Description: Manages all of the payment operations for a single
+  // paying account.  The payment manager is only accessible through the YAAC
+  // ----------------------------------------------------------------
+  [
+	  object,
+	  uuid(F61EDD51-86E5-4847-863E-B4DAEC9303E3),
+	  dual,
+	  helpstring("IMTPaymentMgr Interface"),
+	  pointer_default(unique)
+  ]
+  interface IMTPaymentMgr : IDispatch
+  {
+    // properties
+
+    // Indicates if the account can pay for other accounts
+	  [propget, id(1), helpstring("Indicates if the account can pay for other accounts")] HRESULT AccountIsBillable([out, retval] VARIANT_BOOL *pVal);
+	  
+	  // hidden methods
+	  [id(50), hidden, helpstring("method Initialize")] HRESULT Initialize([in] IMTSessionContext* pCTX, 
+		  [in] VARIANT_BOOL aBillable,[in] IMTYAAC* pPayer);
+	  
+    // methods
+
+    // pay for another account.  The account ID can be the same as the payer.
+	  [id(60), helpstring("Pay for another account")] HRESULT PayForAccount([in] long aAccount,[in] DATE StartDate,[in,optional] VARIANT EndDate);
+    // update an existing payment record
+	  [id(61), helpstring("update an existing payment record")] HRESULT ChangePaymentEffectiveDate([in] long aAccount,
+		  [in] DATE OldStartDate,[in] DATE OldEndDate,[in] DATE StartDate,[in] DATE EndDate);
+    // Pay for accounts using a batch interface.  pCol is a collection of account ID's (the index is "id_acc"). 
+    // the IMTPRogress object is used to indicate the current progress to the UI.  See the MTProgressExec.idl for more information.
+    // StartDate indicates the payment startdate.  The return value
+    // is a rowset of errors.  If the rowset is empty, the operation succeeded.
+	  [id(62), helpstring("method PayForAccountBatch")] HRESULT PayForAccountBatch(
+		  [in] IMTCollectionEx* pCol,
+		  [in] IMTProgress* pProgress,
+		  [in] DATE aStartDate,
+		  [in,optional] VARIANT aEndDate,
+		  [out,retval] IMTRowSet** ppCol);
+
+    // returns a payment slice at the specified date
+	  [id(63), helpstring("returns a payment slice at the specified date")] HRESULT PaymentSlice([in] DATE RefDate,[out, retval] IMTPaymentSlice** ppSlace);
+    // returns a payment slice at the current system time
+	  [id(64), helpstring("returns a payment slice at the current system time")] HRESULT PaymentSliceNow([out, retval] IMTPaymentSlice** ppSlice);
+    // returns a payment slice at the specified system time
+	  [id(65), helpstring("returns a payment slice at the spcified system time")] HRESULT PaymentSliceAtSystemDate([in] DATE RefDate,
+		  [in] DATE SystemDate,[out, retval] IMTPaymentSlice** ppSlice);
+    // set the account as billable
+    [id(66), helpstring("Make the account billable")] HRESULT SetAccountAsBillable();
+    // mark the account as non billable
+    [id(67), helpstring("mark the account as non billable")] HRESULT SetAccountAsNonBillable();
+    // returns all of the payees
+    [id(68), helpstring("returns all of the payees")] HRESULT AllPayees([out, retval] IMTPaymentSlice** ppSlice);
+    // the history of payment redirection for the payer
+    [id(69), helpstring("the history of payment redirection for the payer")] HRESULT PaymentHistory([out,retval] IMTRowSet** ppRowset);
+    // returns the history of payment redirection (including bitemporal information)
+    [id(70), helpstring("returns the history of payment redirection (including bitemporal information)")] HRESULT BitemporalPaymentHistory([out,retval] IMTRowSet** ppRowset);
+
+
+  };
+
+  // ----------------------------------------------------------------
+  // Object: MTAccountHierarchySlice     
+  // Prog ID:  MetraTech.MTAccountHierarchySlice   
+  // Description: All of the children accounts for the parent account, based 
+  // on a specific time)
+  // ----------------------------------------------------------------
+  [
+	  object,
+	  uuid(13CB073B-3A54-4CC2-907C-F28EE549FDBC),
+	  dual,
+	  helpstring("IMTAccountHierarchySlice Interface"),
+	  pointer_default(unique)
+  ]
+  interface IMTAccountHierarchySlice : IDispatch
+  {
+      // hidden methods, use the initialize the class
+
+      // initialize at a specific time
+		  [id(1), hidden, helpstring("method Initialize")] HRESULT Initialize([in] IMTSessionContext* apCTX,[in] long aDescendent,
+			  [in] DATE RefDate,[in] IMTYAAC* pActorYAAC);
+      // return the list of children in XML.
+		  [id(50), helpstring("list of children in XML")] HRESULT GetChildListXML([out, retval] IXMLDOMNode** ppNode);
+      // returns a list of all ancestor accounts
+		  [id(51), helpstring("returns a list of all ancestor accounts")] HRESULT GetAncestorList([out, retval] IMTSQLRowset** ppRowset);
+      // hierarchy parent
+		  [propget, id(53), helpstring("Hierarchy Parent")] HRESULT Parent([out, retval] long *pVal);
+      // current node ID
+		  [propget, id(54), helpstring("Current Node ID")] HRESULT CurrentNodeID([out, retval] long *pVal);
+      // list of children in rowset format
+		  [id(56), helpstring("list of children in rowset format")] HRESULT GetChildListAsRowset([out, retval] IMTSQLRowset** ppRowset);
+  };
+
+  // ----------------------------------------------------------------
+  // Object:  MTAncestorMgr   
+  // Prog ID:  MetraTech.MTAncestorMgr   
+  // Description: Controls access to all of the descendents for the parent accoutn
+  // and serves as a factory for the MTAccountHierarchySlice objects
+  // ----------------------------------------------------------------
+	[
+		object,
+		uuid(19E983DF-60EE-4782-AF71-23D1B78A1018),
+		dual,
+		helpstring("IMTAncestorMgr Interface"),
+		pointer_default(unique)
+	]
+	interface IMTAncestorMgr : IDispatch
+	{
+		// hidden methods
+		[id(1), hidden, helpstring("method Initialize")] HRESULT Initialize([in] IMTSessionContext* pCTX,[in] IMTYAAC* pActorYAAC);
+		
+    // retrieves a hierarchy slice at the specified time
+		[id(2), helpstring("retrieves a hierarchy slice at the specified time")] HRESULT HierarchySlice([in] long AncestorID,[in] DATE RefDate,
+			[out, retval] IMTAccountHierarchySlice** ppSlice);
+    // retrieves a hierarchy slice using the current system time
+		[id(3), helpstring("retrieves a hierarchy slice using the current system time")] HRESULT HierarchySliceNow([in] long AncestorID,
+			[out,retval] IMTAccountHierarchySlice** ppSlice);
+    // retrieves the root of the hierarchy (all corporate accounts)
+		[id(5), helpstring("retrieves the root of the hierarchy (all corporate accounts)")] HRESULT HierarchyRoot([in] DATE RefDate,[out, retval] IMTAccountHierarchySlice** ppSlice);
+    // moves an account at the specified date
+		[id(7), helpstring("moves an account at the specified date")] HRESULT MoveAccount([in] long aAncestor,[in] long aDescendent,[in] DATE NewDate);
+
+    // moves all accounts in the collection under the ancestor
+		[id(8), helpstring("moves all accounts in the collection under the ancestor")] HRESULT MoveAccountBatch([in] long aAncestor,
+		[in] IMTCollection* pCol,
+    [in] IMTProgress* pProgress,
+    [in] DATE StartDate,
+    [out,retval] IMTRowSet** ppErrors);
+    // adds an account to the hiearchy
+		[id(9), helpstring("adds an account to the hiearchy")] HRESULT AddToHierarchy([in] long aAncestor,[in] long aDescendent,[in] DATE StartDate,[in] DATE EndDate);
+	};
+
+
+  // ----------------------------------------------------------------
+  // Object:  MTYAAC (MetraTech Yet Another Account Class)   
+  // Prog ID:   MetraTech.MTYAAC  
+  // Description: The YAAC object is the main object for all new account
+  // information.  It contains many of the core properties and serves
+  // as a factory for hierarchy, payment, template, and account state information.
+  // ----------------------------------------------------------------
+	[
+		object,
+		uuid(A44A1A09-D8E7-4990-AE87-20A9FB9856A5),
+		dual,
+		helpstring("IMTYAAC Interface (MetraTech Yet Another Account Class Interface)"),
+		pointer_default(unique)
+	]
+	interface IMTYAAC : IMTSecurityPrincipal
+	{
+		// properties
+    
+    // retrieves the current account template
+		//[propget, id(50), helpstring("retrieves the current account template")] HRESULT AccountTemplate([out, retval] IMTAccountTemplate* *pVal);
+		[propget, id(51), helpstring("property AccountID")] HRESULT AccountID([out, retval] long *pVal);
+		[propget, id(52), helpstring("property IsFolder")] HRESULT IsFolder([out, retval] VARIANT_BOOL *pVal);
+    // account loginname
+		[propget, id(53), helpstring("property LoginName")] HRESULT LoginName([out, retval] BSTR *pVal);
+    // the path that uniquely identifies the account in the hierarchy.  the format is something like /1/138/256/234
+		[propget, id(54), helpstring("property HierarchyPath")] HRESULT HierarchyPath([out, retval] BSTR *pVal);
+    // the corporate account.  This value can never change for an account.
+		[propget, id(55), helpstring("property CorporateAccountID")] HRESULT CorporateAccountID([out, retval] long *pVal);
+    // type of account.  values are CSR, SUB, OPS, IND, etc.  this really should be an enumeration
+		[propget, id(56), helpstring("property AccountType")] HRESULT AccountType([out, retval] BSTR *pVal);
+		[propget, id(57), helpstring("property namespace")] HRESULT Namespace([out, retval] BSTR *pVal);
+    // current account name.  See MT Documentation for more details on how this property is derived from the database
+		[propget, id(58), helpstring("property AccountName")] HRESULT AccountName([out, retval] BSTR *pVal);
+    // current parent folder
+		[propget, id(59), helpstring("The current parent folder")] HRESULT CurrentFolderOwner([out, retval] long *pVal);
+    // a GUID that uniquely identifies the account
+    [propget, id(60), helpstring(" a GUID that uniquely identifies the account")] HRESULT AccountExternalIdentifier([out, retval] BSTR *pVal);
+
+		// hidden initialization methods
+
+    // used to initialize a YAAC that will be used interactively as the account
+		[id(100), hidden, helpstring("method InitAsActor")] HRESULT InitAsActor([in] IMTSessionContext* pCTX ,[in,optional] VARIANT RefDate);
+    // used when manipulating an account (the account is not logged in)
+		[id(101), hidden, helpstring("method InitAsSecuredResource")] HRESULT InitAsSecuredResource([in] long aAccountID,[in] IMTSessionContext* pCTX,[in,optional] VARIANT RefDate);
+    // construct a YAAC from another YAAC
+		[id(102), hidden, helpstring("method CopyConstruct")] HRESULT CopyConstruct([out, retval] IMTYAAC** pNewYaac);
+    // load the yaac properties by login name namespace
+    [id(103), hidden, helpstring("method InitByName")] HRESULT InitByName([in] BSTR aName,[in] BSTR aNamespace,[in] IMTSessionContext* pCTX,[in,optional] VARIANT RefDate);
+
+		// methods
+    // retrieves the payment mgr factory
+		[id(150), helpstring("retrieves the payment mgr factory")] HRESULT GetPaymentMgr([out, retval] IMTPaymentMgr** ppPaymentMgr);
+    // retrieves the account state mgr factory
+		[id(151), helpstring("retrieves the account state mgr factory")] HRESULT GetAccountStateMgr([out, retval] IMTAccountStateManager** ppMgr);
+    // the account state history (not including bitemporal information)
+		[id(152), helpstring("the account state history (not including bitemporal information)")] HRESULT GetStateHistory([in, optional] VARIANT SystemDate,[out,retval] IMTSQLRowset** ppRowset);
+    // Makes the current YAAC own a folder
+		[id(155), helpstring("Makes the current YAAC own a folder")] HRESULT AddOwnedFolderByID([in] long aFolderID);
+    // The folder is no longer owned by the YAAC
+		[id(156), helpstring("The folder is no longer owned by the YAAC")] HRESULT RemovedOwnedFolderById([in] long aFolderID);
+    // retrieves list of owned folders
+		[id(157), helpstring("retrieves list of owned folders")] HRESULT GetOwnedFolderList([out, retval] IMTSQLRowset** ppRowset);
+    // retrieves ancestor mgr factory
+		[id(158), helpstring("retrieves ancestor mgr factory")] HRESULT GetAncestorMgr([out,retval] IMTAncestorMgr** ppMgr);
+    // indicates if the current YAAC can manage other accounts
+		[id(159), helpstring("indicates if the current YAAC can manage other accounts")] HRESULT CanManageAccount([out,retval] VARIANT_BOOL* pRetVal);
+    // retries a collection of all descendents at the specified date
+		[id(160), helpstring("retries a collection of all descendents at the specified date")] HRESULT GetDescendents([in] IMTCollection* pCol,
+      [in] DATE RefDate,[in] MTHierarchyPathWildCard treeHint,[in] VARIANT_BOOL IncludeFolders, [in, optional]VARIANT pAccountTypeNameCollection);
+    // the list of corporate accounts accessible by the actor
+    [id(161), helpstring("the list of corporate accounts accessible by the actor")] HRESULT AccessibleCorporateAccounts([in,optional] VARIANT RefDate,[out, retval] IMTCollectionReadOnly** ppCol);
+    // own a collection of folders as part of one operation
+		[id(162), helpstring("own a collection of folders as part of one operation")] HRESULT SetOwnedFoldersBatch([in] IMTCollectionEx* pCol,[in] IMTProgress* pProgress,[out,retval] IMTRowSet** ppErrors);
+    // refresh the YAAC properties
+		[id(163), helpstring("refresh the YAAC properties")] HRESULT Refresh([in,optional] VARIANT RefDate);
+    // used to remove the existing folder owner and apply the account from the YAAC
+		[id(164), helpstring("method UpdateOwnedFolder")] HRESULT UpdateOwnedFolder([in] long aFolderID);
+    //Get the account template for the YAAC, for a particular account type.  Each account (if folder) can have multiple templates, one for each account type living beneath it.
+    [id(166), helpstring("retrieves the current account template")] HRESULT GetAccountTemplate([in, optional] VARIANT vRefDate, [in, optional] VARIANT aAccountTypeID, [out, retval] IMTAccountTemplate* *pVal);
+	  [id(167), helpstring("deletes the template specified by the id")] HRESULT DeleteTemplate([in, optional] VARIANT aAccountTypeID, [out,retval] VARIANT_BOOL* bRetVal); 
+		//Retrieve IOwnershipMgr object. we haev to return IDispatch because there is no IDL for managed library
+    [id(168), helpstring("retrieves the ownership mgr factory")] HRESULT GetOwnershipMgr([out, retval] IDispatch** ppOwnershipMgr);
+    [propget, id(169), helpstring("property AccountTypeID")] HRESULT AccountTypeID([out, retval] long *pVal);
+    //Get a rowset describing all the templates on the nearest ancestor that has at least one template
+    [id(170), helpstring("Get a rowset describing all the templates on the nearest ancestor that has at least one template.")] HRESULT GetTemplatesAsRowset([in, optional] VARIANT vRefDate, [out, retval] IMTSQLRowset** ppRowset);
+    [id(171), helpstring("Get Group Subscriptions that are applicable to this account.")] HRESULT GetAvailableGroupSubscriptionsAsRowset([in]DATE RefDate, [in,optional] VARIANT aFilter, [out, retval] IMTSQLRowset **ppRowset);
+    [id(172), helpstring("Get a account templates type.")] HRESULT GetAccountTemplateType([out, retval] long *pVal);
+
+
+    //hidden stuff - for convenient initialization in COM+ context
+    [propput, hidden, id(500), helpstring("property Billable")] HRESULT Billable([in] VARIANT_BOOL newVal);
+    [propput, hidden, id(501), helpstring("property Folder")] HRESULT Folder([in] VARIANT_BOOL newVal);
+    [propput, hidden, id(53), helpstring("property LoginName")] HRESULT LoginName([in] BSTR newVal);
+    [propput, hidden, id(54), helpstring("property HierarchyPath")] HRESULT HierarchyPath([in] BSTR newVal);
+    [propput, hidden, id(55), helpstring("property CorporateAccountID")] HRESULT CorporateAccountID([in] long newVal);
+    [propput, hidden, id(169), helpstring("property AccountTypeID")] HRESULT AccountTypeID([in] long newVal);
+    [propput, hidden, id(56), helpstring("property AccountType")] HRESULT AccountType([in] BSTR newVal);
+    [propput, hidden, id(507), helpstring("property AccStatus")] HRESULT AccStatus([in] BSTR newVal);
+    [propput, hidden, id(51), helpstring("property AccountID")] HRESULT AccountID([in] long newVal);
+    [propput, hidden, id(57), helpstring("property NameSpace")] HRESULT NameSpace([in] BSTR newVal);
+    [propput, hidden, id(58), helpstring("property AccountName")] HRESULT AccountName([in] BSTR newVal);
+    [propput, hidden, id(59), helpstring("property CurrentFolderOwner")] HRESULT CurrentFolderOwner([in] long newVal);
+    [propput, hidden, id(512), helpstring("property Loaded")] HRESULT Loaded([in] VARIANT_BOOL newVal);
+    [propput, hidden, id(60), helpstring("property AccountExternalIdentifier")] HRESULT AccountExternalIdentifier([in] BSTR newVal);
+
+    
+    
+
+	};
+
+
+  // ----------------------------------------------------------------
+  // Object: MTPaymentAssocation     
+  // Prog ID:   MetraTech.MTPaymentAssociation  
+  // Description: An association class between the payer and payee with the corresponding
+  // date range.  For instance, the PaymentAssociation object describes
+  // that Alice pays for Bob between 2/3/2004 and 10/11/2004
+  // ----------------------------------------------------------------
+	[
+		object,
+		uuid(407A32EF-02F6-433B-BA1E-ED847A0D4840),
+		dual,
+		helpstring("IMTPaymentAssociation Interface"),
+		pointer_default(unique)
+	]
+	interface IMTPaymentAssociation : IDispatch
+	{
+    // initialize the association class
+		[id(1), hidden, helpstring("method Initialize")] HRESULT Initialize([in] IMTSessionContext* pCTX,
+			[in] long aPayer,[in] long aPayee,[in] DATE StartDate,[in] DATE EndDate);
+
+     // paying account
+		[propget, id(2), helpstring("paying account")] HRESULT Payer([out, retval] long *pVal);
+    // paying YAAC
+		[propget, id(3), helpstring("paying YAAC")] HRESULT PayerYAAC([out, retval] IMTYAAC* *pVal);
+    // Payee account
+		[propget, id(4), helpstring("Payee account")] HRESULT Payee([out, retval] long *pVal);
+    // Payee YAAC
+		[propget, id(5), helpstring("Payee YAAC")] HRESULT PayeeYAAC([out, retval] IMTYAAC* *pVal);
+		[propget, id(6), helpstring("property StartDate")] HRESULT StartDate([out, retval] DATE *pVal);
+		[propget, id(7), helpstring("property EndDate")] HRESULT EndDate([out, retval] DATE *pVal);
+	};
+
+  // ----------------------------------------------------------------
+  // Object: MTAccountTemplateSubscriptions     
+  // Prog ID:    MetraTech.MTAccountTemplateSubscriptions 
+  // Description: a collection of account template subscription objects
+  // for one folder
+  // ----------------------------------------------------------------
+	[
+		object,
+		uuid(9E5308EC-8BB1-40C6-91BF-BFD879AD5CD2),
+		dual,
+		helpstring("IMTAccountTemplateSubscriptions Interface"),
+		pointer_default(unique)
+	]
+	interface IMTAccountTemplateSubscriptions : IMTCollectionEx
+	{
+    // add a subscription to the collection
+		[id(101), helpstring("add a subscription to the collection")] HRESULT AddSubscription([out, retval] IMTAccountTemplateSubscription** ppTemplateSub);
+		[propget, id(102), helpstring("property GetItemIndexWithProductOfferingID")] HRESULT GetItemIndexWithProductOfferingID([in] long lngPOID, [out, retval] long *pVal);
+		// remove a subscription from the collection
+    [id(103), helpstring("remove a subscription from the collection")] HRESULT RemoveSubscription([in] long aProductOfferingID);
+    [propget, id(104), helpstring("property AccountTemplate")] HRESULT AccountTemplate([out, retval]IMTAccountTemplate** appTemplate);
+    [propput, hidden, id(104), helpstring("property AccountTemplate")] HRESULT AccountTemplate([in]IMTAccountTemplate* apTemplate);
+	};
+
+
+  // ----------------------------------------------------------------
+  // Object: MTAccountTemplateSubscription     
+  // Prog ID: MetraTech.MTAccountTemplateSubscription    
+  // Description: The properties required to configure a suggested subscription
+  // for the template
+  // ----------------------------------------------------------------
+	[
+		object,
+		uuid(3EA4BF2C-7577-4A68-ABF0-EAD5D0FB611C),
+		dual,
+		helpstring("IMTAccountTemplateSubscription Interface"),
+		pointer_default(unique)
+	]
+	interface IMTAccountTemplateSubscription : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize([in] IMTSessionContext* pCTX,[in] IMTSQLRowset* pRowset);
+    // persist to DB
+		[id(2), helpstring("persist to DB")] HRESULT Save([in] long lngTemplateID,[out, retval] VARIANT_BOOL* pSuccess);
+    //ProductOfferingID in case of individual subscriptions or -1
+		[propget, id(3), helpstring("property ProductOfferingID")] HRESULT ProductOfferingID([out, retval] long *pVal);
+		[propput, id(3), helpstring("property ProductOfferingID")] HRESULT ProductOfferingID([in] long newVal);
+		[propget, id(4), helpstring("property GroupSubscription")] HRESULT GroupSubscription([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(5), helpstring("property GroupSubName")] HRESULT GroupSubName([out, retval] BSTR *pVal);
+		[propput, id(5), helpstring("property GroupSubName")] HRESULT GroupSubName([in] BSTR newVal);
+		[propget, id(6), helpstring("property StartDate")] HRESULT StartDate([out, retval] DATE *pVal);
+		[propput, id(6), helpstring("property StartDate")] HRESULT StartDate([in] DATE newVal);
+		[propget, id(7), helpstring("property EndDate")] HRESULT EndDate([out, retval] DATE *pVal);
+		[propput, id(7), helpstring("property EndDate")] HRESULT EndDate([in] DATE newVal);
+		//REAL Product Offering ID in case of both group subscriptions and individual ones.
+		[propget, id(8), helpstring("property SubscriptionProductOfferingID")] HRESULT SubscriptionProductOfferingID([out, retval] long *pVal);
+		[propput, hidden, id(8), helpstring("property SubscriptionProductOfferingID")] HRESULT SubscriptionProductOfferingID([in] long newVal);
+
+    //GroupID in case of group subscriptions or -1
+		[propget, id(9), helpstring("property GroupID")] HRESULT GroupID([out, retval] long *pVal);
+		[propput, id(9), helpstring("property GroupID")] HRESULT GroupID([in] long newVal);
+		
+    // serializes results to a string
+		[id(100), helpstring("serializes results to a string")] HRESULT ToString([out, retval] BSTR* pVal);
+	};
+
+
+  // ----------------------------------------------------------------
+  // Object:  MTAccountTemplateProperty    
+  // Prog ID:  MetraTech.MTAccountTemplateProperty
+  // Description: A single name / value / class 3-tuple for an account template property
+  // ----------------------------------------------------------------
+	[
+		object,
+		uuid(90CB326A-FCE9-43EF-830F-35235CB064D3),
+		dual,
+		helpstring("IMTAccountTemplateProperty Interface"),
+		pointer_default(unique)
+	]
+	interface IMTAccountTemplateProperty : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize([in] BSTR aClass,[in] BSTR aName,[in] BSTR aValue);
+		[propget, id(2), helpstring("property ToString")] HRESULT ToString([out, retval] BSTR *pVal);
+		[propget, id(3), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		[propget, id(4), helpstring("property Value")] HRESULT Value([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property Value")] HRESULT Value([in] BSTR newVal);
+		[propget, id(5), helpstring("property Class")] HRESULT Class([out, retval] BSTR *pVal);
+		[propput, id(5), helpstring("property Class")] HRESULT Class([in] BSTR newVal);
+    [propget, id(6), helpstring("property Type")] HRESULT Type([out, retval] PropValType *pVal);
+		[propput, id(6), helpstring("property Type")] HRESULT Type([in] PropValType newVal);
+    [propget, hidden, id(7), helpstring("property InternalValue")] HRESULT InternalValue([out, retval] BSTR *pVal);
+		[propput, hidden, id(7), helpstring("property InternalValue")] HRESULT InternalValue([in] BSTR newVal);
+	};
+
+  // ----------------------------------------------------------------
+  // Object:  MTAccountTemplateProperties    
+  // Prog ID:  MetraTech.MTAccountTemplateProperties   
+  // Description: a collection of MTAccountTemplateProperty objects
+  // ----------------------------------------------------------------
+	[
+		object,
+		uuid(ACFD8A0E-3668-4886-AE49-BE275C778D98),
+		dual,
+		helpstring("IMTAccountTemplateProperties Interface"),
+		pointer_default(unique)
+	]
+	interface IMTAccountTemplateProperties : IMTCollectionEx
+	{
+    // add property to the collection
+		[id(100), helpstring("add property to the collection")] HRESULT Add([in] BSTR aName,[in] BSTR aValue, [in, optional] VARIANT aType, [out, retval] IMTAccountTemplateProperty** ppProp);
+	};

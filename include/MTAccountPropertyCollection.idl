@@ -1,0 +1,28 @@
+// MTAccountPropertyCollection.idl : IDL source for MTAccount.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTAccountPropertyCollection.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "MTAccountProperty.idl";
+
+[
+	object,
+    uuid(c5b549c0-e63c-11d3-aec9-00c04f54fe3b),
+	dual,
+	helpstring("IMTAccountPropertyCollection Interface"),
+	pointer_default(unique)
+]
+interface IMTAccountPropertyCollection : IDispatch
+{
+	[id(1), helpstring("method AddToCollection")] 
+	  HRESULT Add([in] BSTR Name, [in] VARIANT Value, [out, retval] IMTAccountProperty **AccProp);
+	[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] 
+	  HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+	[propget, id(3), helpstring("property Count")] 
+	  HRESULT Count([out, retval] long *pVal);
+	[propget, id(DISPID_VALUE), helpstring("property Item")] 
+	  HRESULT Item([in] VARIANT Index, [out, retval] VARIANT *pVal);
+};

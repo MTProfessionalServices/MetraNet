@@ -1,0 +1,58 @@
+/**************************************************************************
+ * @doc MTPROCESSOR
+ *
+ * Copyright 1998 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ * Created by: Carl Shimer
+ * $Header$
+ *
+ * This file will be processed by the MIDL tool to
+ * produce the type library (Hook.tlb) and marshalling code.
+ *
+ * Implement this interface to provide the capabilities of a Metratech hook
+ *
+ ***************************************************************************/
+ 
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "MTHook.idl";
+import "MTSecuredHook.idl";
+
+[
+	object,
+	uuid(5FC99E89-8869-4854-9287-C3872DC6C53B),
+	dual,
+	helpstring("IMTDummy Interface"),
+	pointer_default(unique)
+]
+interface Dummy : IDispatch
+{
+};
+
+[
+	uuid(54592000-0481-11d3-a59c-00c04f579c39),
+	version(1.0),
+	helpstring("MetraTech Hook 1.0 Type Library")
+]
+library MTHookLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	interface IMTHook;
+	interface IMTSecuredHook;
+};

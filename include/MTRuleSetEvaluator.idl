@@ -1,0 +1,25 @@
+// RuleSetEval.idl : IDL source for RuleSetEval.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (RuleSetEval.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTSession.idl";
+import "IMTRuleSet.idl";
+
+	[
+		object,
+		uuid(024696D1-D5C9-43F1-A6AC-02CC4D6B034B),
+		dual,
+		helpstring("IMTRuleSetEvaluator Interface"),
+		pointer_default(unique)
+	]
+	interface IMTRuleSetEvaluator : IDispatch
+	{
+		[id(1), helpstring("method Configure")] HRESULT Configure(IMTRuleSet * ruleset);
+	  	[id(2), helpstring("method Match")] HRESULT Match(IMTSession * session, [out, retval] VARIANT_BOOL * matched);
+	};
+

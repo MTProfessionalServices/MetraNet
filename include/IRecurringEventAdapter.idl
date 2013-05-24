@@ -1,0 +1,176 @@
+// NOTE: this is manually generated from MetraTech.UsageServer.tlb
+// it is very important that it stay in sync.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "IMTAuth.idl";
+
+    typedef [uuid(2BED934E-56D3-3D43-AAA1-699307E91408), version(1.0)]
+    enum {
+        ReverseMode_NotImplemented = 0,
+        ReverseMode_NotNeeded = 1,
+        ReverseMode_Auto = 2,
+        ReverseMode_Custom = 3
+    } ReverseMode;
+
+    typedef [uuid(C83F7359-389B-3B2C-A047-A4202DC4AE12), version(1.0)]
+    enum {
+        RecurringEventType_Root = 0,
+        RecurringEventType_Scheduled = 1,
+        RecurringEventType_EndOfPeriod = 2,
+        RecurringEventType_Checkpoint = 3
+    } RecurringEventType;
+
+    typedef [uuid(A425B64E-6C98-4A9E-A6E6-F58B973DD1EF), version(1.0)]
+    enum {
+        BillingGroupSupportType_Interval = 0,
+        BillingGroupSupportType_BillingGroup = 1,
+        BillingGroupSupportType_Account = 2
+    } BillingGroupSupportType;
+
+    [
+      odl,
+      uuid(53E24365-02EC-34AD-BE01-3A383D49B4C4),
+      version(1.0),
+      dual,
+      oleautomation
+    ]
+    interface IRecurringEventRunContext : IDispatch {
+        [id(0x60020000), propget]
+        HRESULT EventType([out, retval] RecurringEventType* pRetVal);
+        [id(0x60020001), propget]
+        HRESULT RunID([out, retval] long* pRetVal);
+        [id(0x60020002), propget]
+        HRESULT RunIDToReverse([out, retval] long* pRetVal);
+        [id(0x60020003), propget]
+        HRESULT UsageIntervalID([out, retval] long* pRetVal);
+        [id(0x60020004), propget]
+        HRESULT StartDate([out, retval] DATE* pRetVal);
+        [id(0x60020005), propget]
+        HRESULT EndDate([out, retval] DATE* pRetVal);
+        [id(0x60020006), propget]
+        HRESULT BillingGroupID([out, retval] long* pRetVal);
+        [id(0x60020007)]
+        HRESULT RecordInfo([in] BSTR detail);
+        [id(0x60020008)]
+        HRESULT RecordWarning([in] BSTR detail);
+        [id(0x60020009)]
+        HRESULT AutoReverse([out, retval] BSTR* pRetVal);
+        [id(0x6002000a)]
+        HRESULT CreateDerivedEndOfPeriodContext(
+                        [in] long UsageIntervalID, 
+                        [out, retval] IRecurringEventRunContext** pRetVal);
+        [id(0x6002000b)]
+        HRESULT CreateDerivedScheduledContext(
+                        [in] DATE StartDate, 
+                        [in] DATE EndDate, 
+                        [out, retval] IRecurringEventRunContext** pRetVal);
+        [id(0x6002000c)]
+        HRESULT RecordInfoBatch([in] IMTRowSet* detail);
+        [id(0x6002000d)]
+        HRESULT RecordWarningBatch([in] IMTRowSet* detail);
+        [id(0x6002000e)]
+        HRESULT RecordFailureAccount([in] long accountID);
+        [id(0x6002000f)]
+        HRESULT RecordFailureAccountsFromFailedTransactions();
+    };
+
+    [
+      odl,
+      uuid(F3052EDE-BF2A-3879-B221-CED05C6E8E27),
+      version(1.0),
+      dual,
+      oleautomation
+    ]
+    interface IRecurringEventAdapter : IDispatch {
+        [id(0x60020000)]
+        HRESULT Initialize(
+                        [in] BSTR eventName, 
+                        [in] BSTR configFile, 
+                        [in] IMTSessionContext* context, 
+                        [in] VARIANT_BOOL limitedInit);
+        [id(0x60020001)]
+        HRESULT Execute(
+                        [in] IRecurringEventRunContext* context, 
+                        [out, retval] BSTR* pRetVal);
+        [id(0x60020002)]
+        HRESULT Reverse(
+                        [in] IRecurringEventRunContext* context, 
+                        [out, retval] BSTR* pRetVal);
+        [id(0x60020003)]
+        HRESULT Shutdown();
+        [id(0x60020004), propget]
+        HRESULT SupportsScheduledEvents([out, retval] VARIANT_BOOL* pRetVal);
+        [id(0x60020005), propget]
+        HRESULT SupportsEndOfPeriodEvents([out, retval] VARIANT_BOOL* pRetVal);
+        [id(0x60020006), propget]
+        HRESULT Reversibility([out, retval] ReverseMode* pRetVal);
+        [id(0x60020007), propget]
+        HRESULT AllowMultipleInstances([out, retval] VARIANT_BOOL* pRetVal);
+    };
+
+    [
+      odl,
+      uuid(D99B8308-04B9-489C-8BAE-9B3598D80B16),
+      version(1.0),
+      dual,
+      oleautomation
+    ]
+    interface IRecurringEventAdapter2 : IDispatch {
+        [id(0x60020000)]
+        HRESULT Initialize(
+                        [in] BSTR eventName, 
+                        [in] BSTR configFile, 
+                        [in] IMTSessionContext* context, 
+                        [in] VARIANT_BOOL limitedInit);
+        [id(0x60020001)]
+        HRESULT Execute(
+                        [in] IRecurringEventRunContext* context, 
+                        [out, retval] BSTR* pRetVal);
+        [id(0x60020002)]
+        HRESULT Reverse(
+                        [in] IRecurringEventRunContext* context, 
+                        [out, retval] BSTR* pRetVal);
+        [id(0x60020003)]
+        HRESULT Shutdown();
+        [id(0x60020004)]
+        HRESULT CreateBillingGroupConstraints(
+                        [in] long intervalID,
+                        [in] long materializationID);
+        [id(0x60020005)]
+        HRESULT SplitReverseState(
+                        [in] long parentRunID, 
+                        [in] long parentBillingGroupID, 
+                        [in] long childRunID, 
+                        [in] long childBillingGroupID);
+        [id(0x60020006), propget]
+        HRESULT SupportsScheduledEvents([out, retval] VARIANT_BOOL* pRetVal);
+        [id(0x60020007), propget]
+        HRESULT SupportsEndOfPeriodEvents([out, retval] VARIANT_BOOL* pRetVal);
+        [id(0x60020008), propget]
+        HRESULT Reversibility([out, retval] ReverseMode* pRetVal);
+        [id(0x60020009), propget]
+        HRESULT AllowMultipleInstances([out, retval] VARIANT_BOOL* pRetVal);
+        [id(0x6002000a), propget]
+        HRESULT BillingGroupSupport([out, retval] BillingGroupSupportType* pRetVal);
+        [id(0x6002000b), propget]
+        HRESULT HasBillingGroupConstraints([out, retval] VARIANT_BOOL* pRetVal);
+    };
+    [
+      odl,
+      uuid(7175ee95-c14e-4c96-b01b-62a83bb29498),
+      version(1.0),
+      dual,
+      oleautomation
+    ]
+    interface IMetraFlowConfig : IDispatch {
+        [id(0x60020000)]
+        HRESULT Load([in] BSTR fileName);
+        [id(0x60020001), propget]
+        HRESULT RunRemote([out, retval] VARIANT_BOOL* pRetVal);
+        [id(0x60020002), propget]
+        HRESULT NumHosts([out, retval] long * pRetVal);
+        [id(0x60020003)]
+        HRESULT GetHost([in] long idx, [out, retval] BSTR * pRetVal);
+    };

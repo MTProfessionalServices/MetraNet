@@ -1,0 +1,10 @@
+#ifndef __ACCHIERARCHIESSHARED_H__
+#define __ACCHIERARCHIESSHARED_H__
+#pragma once
+
+#define ACC_HIERARCHIES_QUERIES "queries\\Acchierarchies"
+#define HIERARCHY_ROOT 1l
+#define HIERARCHY_SYNTHETIC_ROOT -1l
+
+
+#endif //__ACCHIERARCHIESSHARED_H__

@@ -1,0 +1,94 @@
+/**************************************************************************
+ * @doc MTTRANSACTION
+ *
+ * Copyright 2000 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ * Created by: Alan Blount
+ * 
+ * interface definition for sessions and sets
+ ***************************************************************************/
+
+// MTTransaction.idl : IDL source for MTTransaction.dll
+//
+
+// This file will be processed by the MIDL tool to produce the type
+// library (MTTransaction.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	[
+		object,
+		uuid(54D992ED-93E1-11D4-AC60-00B0D04256F3),
+		dual,
+		helpstring("IMTTransaction Interface"),
+		pointer_default(unique)
+	]
+
+interface IMTTransaction : IDispatch
+{
+	// begin a distributed transaction.  This object will be the owner of the
+	// new transaction.
+  [helpstring("method Begin")]
+	HRESULT Begin(BSTR aDescription, int aTimeout);
+
+	// commit the transaction
+  [helpstring("method Commit")]
+	HRESULT Commit();
+
+	// rollback the transaction
+  [helpstring("method Rollback")]
+	HRESULT Rollback();
+
+	// copy in an existing transaction object.  If the second argument is
+	// true, then this IMTTransaction object will "own" the transaction.
+  [helpstring("method SetTransaction")]
+	HRESULT SetTransaction([in] IUnknown * apTransaction, [in, optional] VARIANT aOwner);
+
+	// return the underlying ITransaction object (usually used to pass into
+	// ADO/OLEDB/ODBC.
+  [helpstring("method GetTransaction")]
+	HRESULT GetTransaction([out, retval] IUnknown * * apTransaction);
+
+	// given a DTC's whereabouts, encode this transaction into a cookie
+  [helpstring("method Export")]
+	HRESULT Export(BSTR aWhereAbouts, [out, retval] BSTR * aEncodedCookie);
+
+	// given a transaction cookie/ID, reconstruct a real transaction object
+  [helpstring("method Import")]
+	HRESULT Import(BSTR aEncodedCookie);
+
+	// returns true if this IMTTransaction object "owns" the transaction.
+	// The transaction owner is the one that commits the transaction.
+  [helpstring("method IsOwner")]
+	HRESULT IsOwner([out, retval] VARIANT_BOOL* aIsOwner);
+
+	// returns the default transaction timeout set for COM+
+  [propget, helpstring("property DefaultTimeout")]
+	HRESULT DefaultTimeout([out, retval] long *pVal);
+
+  // create an object with the current transaction using the COM+ byot object.
+  // NOTE: The target object must be registered in COM+ and support IDispatch.
+  //
+  // Additionally, this method uses CLSIDFromProgID API call which is fairly slow.  
+  // Performance oriented code should call CreateObjectWithTransactionByCLSID
+	[helpstring("method CreateObjectWithTransaction")] 
+  HRESULT CreateObjectWithTransaction([in] BSTR progid,[out,retval] IDispatch** pDisp);
+	
+  // create an object with the current transaction using the COM+ byot object
+  // NOTE: The target object must be registered in COM+ and support IDispatch
+  [helpstring("method CreateObjectWithTransactionByCLSID")] HRESULT CreateObjectWithTransactionByCLSID([in] REFIID riid,[out,retval] IDispatch** ppDisp);
+};

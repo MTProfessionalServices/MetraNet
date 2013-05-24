@@ -1,0 +1,48 @@
+/**************************************************************************
+ *
+ * Copyright 2001 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ * Created by: Ralf Boeck
+ * $Header: OperatorType.idl, 3, 3/18/2002 4:21:58 PM, Ralf Boeck$
+ *
+ ***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+
+// ----------------------------------------------------------------
+// Enum:        MTOperatorType
+// Description: type of the operator used in
+//              MTConditionMetaData and MTActionMetaData
+typedef [uuid(cac2a2d0-ebaa-4710-9823-a171a2bd63a0), version(1.0)]
+enum
+{
+    OPERATOR_TYPE_NONE = 0,           // no operator defined
+    OPERATOR_TYPE_LIKE = 1,           // LIKE
+    OPERATOR_TYPE_LIKE_W = 2,         // LIKE that adds wildcard to value (for convenience)
+    OPERATOR_TYPE_EQUAL = 3,          // =
+    OPERATOR_TYPE_NOT_EQUAL = 4,      // !=
+    OPERATOR_TYPE_GREATER = 5,        // >
+    OPERATOR_TYPE_GREATER_EQUAL = 6,  // >=
+    OPERATOR_TYPE_LESS = 7,           // <
+    OPERATOR_TYPE_LESS_EQUAL = 8,     // <=
+    OPERATOR_TYPE_DEFAULT = 9,        // use LIKE_W for string, EQUAL for numeric values
+    OPERATOR_TYPE_IN = 10,             // in
+    OPERATOR_TYPE_IS_NULL = 11,             // IS NULL
+    OPERATOR_TYPE_IS_NOT_NULL = 12             // IS NOT NULL
+} MTOperatorType;
+

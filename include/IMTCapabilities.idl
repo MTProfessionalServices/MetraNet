@@ -1,0 +1,64 @@
+import "oaidl.idl";
+import "ocidl.idl";
+import "IMTAuth.idl";
+
+	[
+		object,
+		uuid(f04788a5-941d-4f10-a017-3da225b9c65b),
+		dual,
+		helpstring("IMTManageAHCapability Interface"),
+		pointer_default(unique)
+	]
+	interface IMTManageAHCapability : IMTCompositeCapability
+	{
+	};
+	[
+		object,
+		uuid(B44A737B-3549-4E9B-A94F-0F9541AF66DF),
+		dual,
+		helpstring("IMTApplicationLogOnCapability Interface"),
+		pointer_default(unique)
+	]
+	interface IMTApplicationLogOnCapability : IMTCompositeCapability
+	{
+	};
+	[
+		object,
+		uuid(B45E2A62-63E0-4100-B4E4-3495C397FFD4),
+		dual,
+		helpstring("IMTManageGlobalAuthCapability Interface"),
+		pointer_default(unique)
+	]
+	interface IMTManageGlobalAuthCapability : IMTCompositeCapability
+	{
+	};
+	[
+		object,
+		uuid(5183B28C-988E-483B-AF9D-C0331E43EEB2),
+		dual,
+		helpstring("IMTAllCapability Interface"),
+		pointer_default(unique)
+	]
+	interface IMTAllCapability : IMTCompositeCapability
+	{
+	};
+	[
+		object,
+		uuid(AD1BECA1-9073-4994-84E9-106313708E1C),
+		dual,
+		helpstring("IMTViewOnlineBillCapability Interface"),
+		pointer_default(unique)
+	]
+	interface IMTViewOnlineBillCapability : IMTCompositeCapability
+	{
+	};
+	[
+		object,
+		uuid(8CD93A5E-852C-4A17-A592-BABCD520076B),
+		dual,
+		helpstring("IMTIssueCreditCapability Interface"),
+		pointer_default(unique)
+	]
+	interface IMTIssueCreditCapability : IMTCompositeCapability
+	{
+	};

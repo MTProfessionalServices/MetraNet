@@ -1,0 +1,154 @@
+/**************************************************************************
+ *
+ * Copyright 2001 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ * Created by: Ralf Boeck
+ * $Header: MTFilter.idl, 6, 3/12/2002 2:20:36 PM, Derek Young$
+ *
+ ***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "OperatorType.idl";
+import "PropValType.idl";
+
+typedef [uuid(fbe08e47-ad25-436d-9e31-2bfdfe2072db), version(1.0)]
+enum
+{
+    MERGE_AND = 0, 
+    MERGE_OR = 1,  
+} MTMergeAction;
+
+
+[
+	object,
+	uuid(5A1EC1FC-77D1-4DE2-9E9E-EA2486EE9349),
+	dual,
+	helpstring("IMTFilterItem Interface"),
+	pointer_default(unique)
+]
+
+
+// ----------------------------------------------------------------
+// Object:   	MTFilterItem
+// Prog ID:		MTSQLRowset.MTFilterItem.1
+// Description:  The DataFilter object contains IMTFilterItem objects.  Each Filter item 
+// comprises a single filter criteria.  Multiple filter items are combined by the data filter to 
+// create composite filters.
+// ----------------------------------------------------------------
+	
+interface IMTFilterItem : IDispatch
+{
+	// get the name of the filter column
+	[propget, id(1), helpstring("get the name of the filter column")] HRESULT PropertyName([out, retval] BSTR *pVal);
+	// set the name of the filter column
+	[propput, id(1), helpstring("set the name of the filter column")] HRESULT PropertyName([in] BSTR newVal);
+	// get the filter operator
+	[propget, id(2), helpstring("set the filter operator")] HRESULT Operator([out, retval] MTOperatorType *pVal);
+	// set the filter operator
+	[propput, id(2), helpstring("set the filter operator")] HRESULT Operator([in] MTOperatorType newVal);
+	// get the filter match data
+	[propget, id(3), helpstring("get the filter match data")] HRESULT Value([out, retval] VARIANT *pVal);
+	// set the filter match data
+	[propput, id(3), helpstring("set the filter match data")] HRESULT Value([in] VARIANT newVal);
+	// get the filter string for use in a SQL query or ADO filter 
+	[propget, id(4), helpstring("get the filter string for use in a SQL query or ADO filter")] HRESULT FilterString([out, retval] BSTR* pFilterStr);
+	// set the filter operator as a string (<,>,<>,<=,>=)
+	[propput, id(5), helpstring("set the filter operator as a string (<,>,<>,<=,>=)")] HRESULT OperatorAsString([in] BSTR pOperator);
+	// get the condition part of the filter string
+	[propget, id(6), helpstring("get just the condition part of the filter string")] HRESULT FilterCondition([out, retval] BSTR* pFilterCondition);
+
+	// if true, filter item will be used as a where clause.  If false, filter will be used as an ADO filter.
+	// This affects the format of the filter string generated.
+	[propput,id(10),helpstring("property IsWhereClause")] HRESULT IsWhereClause([in] VARIANT_BOOL isWhere);
+	[propget,id(10),helpstring("property IsWhereClause")] HRESULT IsWhereClause([out, retval] VARIANT_BOOL *val);
+
+  // get the property type
+	[propget, id(11), helpstring("get the property type")] HRESULT PropertyType([out, retval] PropValType *pVal);
+	// set the property type
+	[propput, id(11), helpstring("set the property type")] HRESULT PropertyType([in] PropValType newVal);
+
+  [propput,id(12),helpstring("property IsOracle")] HRESULT IsOracle([in] VARIANT_BOOL newVal);
+	[propget,id(12),helpstring("property IsOracle")] HRESULT IsOracle([out, retval] VARIANT_BOOL *pVal);
+	
+	// ESR-3281 and ESR-3315,(Revert CORE-1778) if using a data access method that supports UniCode,(i.e ADO.NET record sets) 
+	// then "Escape" the string with ("N"), (ADO disconnected record sets DO NOT support unicode) if true, we are going to format 
+	// sql statements for UniCode characters (i.e. prefixing predicates with N). If false, sql will not have Unicode prefix
+	// Since Unicode is not supported within ADO filter by default this will be false. If working with a data access layer that supports unicode set to TRUE
+	[propput,id(13),helpstring("property EscapeString")] HRESULT EscapeString([in] VARIANT_BOOL newVal);
+	[propget,id(13),helpstring("property EscapeString")] HRESULT EscapeString([out, retval] VARIANT_BOOL *pVal);
+
+};
+
+[
+	object,
+	uuid(78D289BF-A201-4888-99FF-5BBB1999B6DD),
+	dual,
+	helpstring("IMTDataFilter Interface"),
+	pointer_default(unique)
+]
+
+// ----------------------------------------------------------------
+// Object:   	MTFilter
+// Prog ID:		MTSQLRowset.MTDataFilter.1
+// Description: The MTFilter object is used to build a filter string for either an ADO recordset or for use
+// in generating a SQL query.  By default, a filter criteria are logically ANDED together.  The only way to create
+// a filter string with an OR clause is use the CreateMergedFilter method.
+// ----------------------------------------------------------------
+
+interface IMTDataFilter : IDispatch
+{
+	//	get the IMTDataFilter interface pointer based on the index.
+	[propget, id(1), helpstring("property Item")] HRESULT Item([in] long aIndex,[out, retval] IMTFilterItem* *pVal);
+	// the number of items in the collection
+	[propget, id(2), helpstring("the number of items in the collection")] HRESULT Count([out, retval] long *pVal);
+	// Add filter criteria in the form of column name, operator,comparison value
+	[id(3), helpstring("Add filter criteria in the form of column name, operator,comparison value")] HRESULT Add([in] BSTR propName,[in] VARIANT aOperator,[in] VARIANT Value);
+	// Remove a filter item at a specific index
+	[id(4), helpstring("Remove a filter item at a specific index")] HRESULT Remove([in] long aIndex);
+	// Clear the filter
+	[id(5), helpstring("Clear the filter")] HRESULT Clear();
+	// Create a merged filter from the existing filter and the input filter.  The merge action specifies
+	// whether the filter criteria should be joined with an AND or an OR
+	[id(6), helpstring("Create a merged filter from the existing filter and the input filter")] HRESULT 
+	CreateMergedFilter([in] IMTDataFilter* pFilter,[in] MTMergeAction aMergeAction,[out,retval] IMTDataFilter** pMergedFilter);
+	// undocumented
+	[propget, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] IUnknown* *pVal);
+	// Get the combined filter string for use in an ADO filter or a SQL string
+	[propget,id(7),helpstring("Get the combined filter string for use in an ADO filter or a SQL string")] HRESULT FilterString([out, retval] BSTR* pFilterStr);
+	// undocumented
+	[propput,id(7),helpstring("method FilterString")] HRESULT FilterString([in] BSTR pFilterStr);
+  // Add IS NULL filter criteria
+	[id(8), helpstring("Add filter IS NULL criteria")] HRESULT AddIsNull([in] BSTR propName);
+  // Add IS NOT NULL filter criteria
+	[id(9), helpstring("Add filter IS NULL criteria")] HRESULT AddIsNotNull([in] BSTR propName);
+
+	// if true, filter will be used as a where clause.  If false, filter will be used as an ADO filter.
+	// This affects the format of the filter string generated.
+	[propput,id(10),helpstring("property IsWhereClause")] HRESULT IsWhereClause([in] VARIANT_BOOL isWhere);
+	[propget,id(10),helpstring("property IsWhereClause")] HRESULT IsWhereClause([out, retval] VARIANT_BOOL *val);
+
+  [propput,id(11),helpstring("property IsOracle")] HRESULT IsOracle([in] VARIANT_BOOL newVal);
+	[propget,id(11),helpstring("property IsOracle")] HRESULT IsOracle([out, retval] VARIANT_BOOL *pVal);
+
+	// ESR-3281 and ESR-3315,(Revert CORE-1778) if using a data access method that supports UniCode,(i.e ADO.NET record sets)
+	// then "Escape" the string with ("N"), (ADO disconnected record sets DO NOT support unicode) if true, we are going to format 
+	// sql statements for UniCode characters (i.e. prefixing predicates with N). If false, sql will not have Unicode prefix
+	// Since Unicode is not supported within ADO filter by default this will be false. If working with a data access layer that supports unicode set to TRUE
+	[propput,id(12),helpstring("property EscapeString")] HRESULT EscapeString([in] VARIANT_BOOL newVal);
+	[propget,id(12),helpstring("property EscapeString")] HRESULT EscapeString([out, retval] VARIANT_BOOL *pVal);
+
+};

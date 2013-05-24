@@ -1,0 +1,409 @@
+/**************************************************************************
+ *
+ * Copyright 2001 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ * Created by: Travis Gebhardt
+ * $Header$
+ *
+ ***************************************************************************/
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "PropValType.idl";
+import "rowsetinterfaces.idl";
+import "MTFilter.idl";
+import "IMTAuth.idl"; //for IMTSessionContext
+import "IMTEnumConfig.idl"; //for IMTEnumeratorCollection
+
+// interfaces declared in this idl
+interface IMTAttribute;
+interface IMTAttributes;
+interface IMTAttributeMetaData;
+interface IMTAttributeMetaDataSet;
+interface IMTProperties;
+interface IMTProperty;
+interface IMTPropertyMetaData;
+
+// ----------------------------------------------------------------
+// Object:      MTAttribute
+// Prog ID:     Metratech.MTAttribute.1
+// Description: value of an attribute (one property can have many attributes).
+//              An attribute corresponds to a name/value pair with a default
+//              value. The name and default value are system wide and
+//              therefore stored in MTAttributeMetaData
+// ----------------------------------------------------------------
+[
+	object,
+	uuid(F093EBEE-8E4B-40A7-91ED-80BB2B31D0A8),
+	dual,
+	helpstring("IMTAttribute Interface"),
+	pointer_default(unique)
+]
+interface IMTAttribute : IDispatch
+{
+	// value of this attribute
+	[propget, id(DISPID_VALUE), helpstring("property Value")] HRESULT Value([out, retval] VARIANT *pVal);
+	[propput, id(DISPID_VALUE), helpstring("property Value")] HRESULT Value([in] VARIANT newVal);
+
+	// name of this attribute (from meta data)
+	[propget, id(2), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+	
+	// returns the meta data for this attribute
+	[id(100), helpstring("method GetMetaData")] HRESULT GetMetaData([out, retval] IMTAttributeMetaData** apMetaData);
+
+	// internal use only
+	[hidden, id(500), helpstring("method SetMetaData")] HRESULT SetMetaData([in] IMTAttributeMetaData* apMetaData);
+};
+
+// ----------------------------------------------------------------
+// Object:      MTAttributes
+// Prog ID:     Metratech.MTAttributes.1
+// Description: collection of MTAttribute objects
+// ----------------------------------------------------------------
+[
+	object,
+	uuid(178A9C2C-0284-46C0-A514-3F9FAE9E0104),
+	dual,
+	helpstring("IMTAttributes Interface"),
+	pointer_default(unique)
+]
+interface IMTAttributes : IDispatch
+{
+	// returns a COM Enumerator over this collection. Allows to use "for each"
+	[propget, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] IUnknown**pVal);
+
+	// returns a MTAttribute in the collection by position or name (not case sensitive)
+	[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item([in] VARIANT aKey, [out, retval] VARIANT *pVal);
+	
+	// returns the number of items in the collection.
+	[propget, id(1), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+
+	// returns true if the specified item exists in the collection
+	[id(2), helpstring("method Exists")] HRESULT Exists([in] VARIANT aKey, [out, retval] VARIANT_BOOL *pVal);
+
+	// add a new MTAttribute based on meta data, returns the new MTAttribute
+	[id(100), helpstring("method Add")] HRESULT Add([in] IMTAttributeMetaData* apMetaData, [out, retval] IMTAttribute** apAttr);
+};
+
+// ----------------------------------------------------------------
+// Object:      MTAttributeMetaData
+// Prog ID:     Metratech.MTAttributeMetaData.1
+// Description: describes an MTAttribute
+// ----------------------------------------------------------------
+[
+	object,
+	uuid(3F2F3E84-7219-4FDC-876A-79A4242CC645),
+	dual,
+	helpstring("IMTAttributeMetaData Interface"),
+	pointer_default(unique)
+]
+interface IMTAttributeMetaData : IDispatch
+{
+	// name of attribute
+	[propget, id(DISPID_VALUE), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+	[propput, id(DISPID_VALUE), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+	
+	// default value of attribute, if an attribute is not explicitly specified its value will be this default value.
+	[propget, id(1), helpstring("property DefaultValue")] HRESULT DefaultValue([out, retval] VARIANT *pVal);
+	[propput, id(1), helpstring("property DefaultValue")] HRESULT DefaultValue([in] VARIANT newVal);
+};
+
+// ----------------------------------------------------------------
+// Object:      MTAttributeMetaDataSet
+// Prog ID:     Metratech.MTAttributeMetaDataSet.1
+// Description: collection of MTAttributeMetaData objects
+// ----------------------------------------------------------------
+[
+	object,
+	uuid(F7229E0D-44D1-4473-B8D3-E4BEE12B52B5),
+	dual,
+	helpstring("IMTAttributeMetaDataSet Interface"),
+	pointer_default(unique)
+]
+interface IMTAttributeMetaDataSet : IDispatch
+{
+	// return a COM Enumerator over this collection. Allows to use "for each".
+	[propget, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] IUnknown**pVal);
+
+	// returns a MTAttributeMetaData in the collection by position or name (not case sensitive)
+	[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item([in] VARIANT aKey, [out, retval] VARIANT *pVal);
+	
+	// returns the number of items in the collection.
+	[propget, id(1), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+
+	// create a MTAttributeMetaData that will be part of this set.
+	[id(100), helpstring("method CreateMetaData")] HRESULT CreateMetaData([in] BSTR aAttributeName, [out, retval] IMTAttributeMetaData** apMetaData);
+};
+
+
+
+// ----------------------------------------------------------------
+// Object:      MTProperties
+// Prog ID:     Metratech.MTProperties.1
+// Description: collection of MTProperty objects
+// ----------------------------------------------------------------
+[
+	object,
+	uuid(C2028280-43CC-4402-B3AC-9FEDDBF559A3),
+	dual,
+	helpstring("IMTProperties Interface"),
+	pointer_default(unique)
+]
+interface IMTProperties : IDispatch
+{
+	// returns a COM Enumerator over this collection. Allows to use "for each"
+	[propget, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] IUnknown**pVal);
+
+	// returns a MTProperty in the collection by position or name (not case sensitive)
+	[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item([in] VARIANT aKey, [out, retval] VARIANT *pVal);
+	
+	// returns the number of items in the collection.
+	[propget, id(1), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+
+	// Add a new MTProperty based on meta data, returns the new MTProperty
+	[id(100), helpstring("method Add")] HRESULT Add([in] IMTPropertyMetaData* apMetaData, [out, retval] IMTProperty** aProp);
+
+	// returns true if item idendified by position or name (not case sensitive) exists in the collection
+	[id(101), helpstring("method Exist")] HRESULT Exist([in] VARIANT aKey, [out, retval] VARIANT_BOOL* pVal);
+
+	// Dumps property and all its attribute values to a string (for debugging)
+	[id(102), helpstring("method ToString")] HRESULT ToString([out, retval] BSTR* pVal);
+};
+
+// ----------------------------------------------------------------
+// Object:      MTProperty
+// Prog ID:     Metratech.MTProperty.1
+// Description: generic holder of a single property (core or extended).
+//              A property is a the one data fiels of an entity such as
+//              priceable item, or product offering.
+//              A property can have many attributes.
+// ----------------------------------------------------------------
+[
+	object,
+	uuid(908DF0D7-091D-4D13-A285-75324C1DC063),
+	dual,
+	helpstring("IMTProperty Interface"),
+	pointer_default(unique)
+]
+interface IMTProperty : IDispatch
+{
+	// the property value
+	[propget, id(DISPID_VALUE), helpstring("property Value")] HRESULT Value([out, retval] VARIANT *pVal);
+	[propput, id(DISPID_VALUE), helpstring("property Value")] HRESULT Value([in] VARIANT newVal);
+
+	// attributes for this property
+	[propget, id(1), helpstring("property Attributes")] HRESULT Attributes([out, retval] IMTAttributes **pVal);
+
+	// --- various accessors to meta data: ---
+	
+	//Property name, aka distinguished name, the name used in business object (eg. "Description") (from meta data)
+	[propget, id(3), helpstring("property Name")]	HRESULT Name([out, retval] BSTR *pVal);
+	
+	// localized name of property (from meta data)
+	[propget, id(4), helpstring("property DisplayName")] HRESULT DisplayName([out, retval] BSTR *pVal);
+
+	// Data type (an MSIX type) (from meta data)
+	[propget, id(5), helpstring("property DataType")] HRESULT DataType([out, retval] PropValType *pVal);
+	
+	// Helper to show MSIX type as string (from meta data)
+	[propget, id(6), helpstring("property DataTypeAsString")] HRESULT DataTypeAsString([out, retval] BSTR *pVal);
+	
+	// Further specifies DataType, for string: max length in chars (from meta data)
+	[propget, id(9), helpstring("property Length")] HRESULT Length([out, retval] long *pVal);
+
+	// if DataType is enum, specificies the MetraTech enum space (from meta data)
+	[propget, id(7), helpstring("property EnumSpace")] HRESULT EnumSpace([out, retval] BSTR *pVal);
+
+	// if DataType is enum, specificies the MetraTech enum type (from meta data)
+	[propget, id(8), helpstring("property EnumType")] HRESULT EnumType([out, retval] BSTR *pVal);
+
+	// if true, value must be specified (from meta data)
+	[propget, id(10), helpstring("property Required")] HRESULT Required([out, retval] VARIANT_BOOL *pVal);
+	
+	// False for a core property, true for extended (from meta data)
+	[propget, id(11), helpstring("property Extended")] HRESULT Extended([out, retval] VARIANT_BOOL *pVal);
+	
+	// group that this property belongs to, allows grouping of properties (from meta data)
+	[propget, id(12), helpstring("property PropertyGroup")] HRESULT PropertyGroup([out, retval] BSTR *pVal);
+	
+	// Specifies whether this property value can be overridden (from meta data)
+	// Used in priceable item instances that override values of their templates
+	[propget, id(13), helpstring("property Overrideable")] HRESULT Overrideable([out, retval] VARIANT_BOOL *pVal);
+
+	// Specifies whether this property is to be included in summary views. (from meta data)
+	[propget, id(14), helpstring("property SummaryView")] HRESULT SummaryView([out, retval] VARIANT_BOOL *pVal);
+
+  // returns true if a value was ever set, false otherwise
+	[propget, id(15), helpstring("property Empty")] HRESULT Empty([out, retval] VARIANT_BOOL *pVal);
+
+	// returns the meta data for this property (from meta data)
+	[id(100), helpstring("method GetMetaData")] HRESULT GetMetaData([out, retval] IMTPropertyMetaData** apMetaData);
+
+	// internal use only
+	[hidden, id(500), helpstring("method SetMetaData")] HRESULT SetMetaData([in] IMTPropertyMetaData* apMetaData);
+};
+
+// ----------------------------------------------------------------
+// Object:      MTPropertyMetaData
+// Prog ID:     Metratech.MTPropertyMetaData.1
+// Description: describes a MTProperty
+// ----------------------------------------------------------------
+[
+	object,
+	uuid(4A8B589A-7AD3-4E47-9D9A-9C113A54F3D6),
+	dual,
+	helpstring("IMTPropertyMetaData Interface"),
+	pointer_default(unique)
+]
+interface IMTPropertyMetaData : IDispatch
+{
+	// Property name, aka distinguished name, the name used in business object (eg. "Description")
+	[propget, id(DISPID_VALUE), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+	[propput, id(DISPID_VALUE), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+
+	// localized name of property
+	[propget, id(2), helpstring("property DisplayName")] HRESULT DisplayName([out, retval] BSTR *pVal);
+	[propput, id(2), helpstring("property DisplayName")] HRESULT DisplayName([in] BSTR pVal);
+
+	// Data type (an MSIX type)
+	[propget, id(3), helpstring("property DataType")] HRESULT DataType([out, retval] PropValType *pVal);
+	[propput, id(3), helpstring("property DataType")] HRESULT DataType([in] PropValType newVal);
+
+	// Helper to show MSIX type as string
+	[propget, id(4), helpstring("property DataTypeAsString")]	HRESULT DataTypeAsString([out, retval] BSTR *pVal);
+
+	// Further specifies DataType, for string: max length in chars
+	[propget, id(5), helpstring("property Length")] HRESULT Length([out, retval] long *pVal);
+	[propput, id(5), helpstring("property Length")]	HRESULT Length([in] long newVal);
+
+	// if DataType is enum, specificies the MetraTech enum space
+	[propget, id(6), helpstring("property EnumSpace")] HRESULT EnumSpace([out, retval] BSTR *pVal);
+	[propput, id(6), helpstring("property EnumSpace")] HRESULT EnumSpace([in] BSTR newVal);
+
+	// if DataType is enum, specificies the MetraTech enum type
+	[propget, id(7), helpstring("property EnumType")] HRESULT EnumType([out, retval] BSTR *pVal);
+	[propput, id(7), helpstring("property EnumType")] HRESULT EnumType([in] BSTR newVal);
+	
+	// if true, value must be specified
+	[propget, id(8), helpstring("property Required")] HRESULT Required([out, retval] VARIANT_BOOL *pVal);
+	[propput, id(8), helpstring("property Required")] HRESULT Required([in] VARIANT_BOOL newVal);
+	
+	// Default value of property
+	[propget, id(9), helpstring("property DefaultValue")] HRESULT DefaultValue([out, retval] VARIANT *pVal);
+	[propput, id(9), helpstring("property DefaultValue")] HRESULT DefaultValue([in] VARIANT newVal);
+
+	// False for a core property, true for extended
+	[propget, id(10), helpstring("property Extended")] HRESULT Extended([out, retval] VARIANT_BOOL *pVal);
+	[propput, id(10), helpstring("property Extended")] HRESULT Extended([in] VARIANT_BOOL newVal);
+
+	// group that this property belongs to, allows grouping of properties
+	[propget, id(11), helpstring("property PropertyGroup")] HRESULT PropertyGroup([out, retval] BSTR *pVal);
+	[propput, id(11), helpstring("property PropertyGroup")] HRESULT PropertyGroup([in] BSTR newVal);
+
+	// name used in database (eg. "n_desc")
+	[propget, id(12), helpstring("property DBColumnName")] HRESULT DBColumnName([out, retval] BSTR *pVal);
+	[propput, id(12), helpstring("property DBColumnName")] HRESULT DBColumnName([in] BSTR newVal);
+	
+	// Database table that stores this property
+	[propget, id(13), helpstring("property DBTableName")] HRESULT DBTableName([out, retval] BSTR *pVal);
+	[propput, id(13), helpstring("property DBTableName")] HRESULT DBTableName([in] BSTR newVal);
+
+	// Alias name of this property in a rowset (eg. "t_ep__c_ExternalInformationURL"),
+	// composed of DBTableName and DBColumnName, limited to 30 chars
+	[propget, id(14), helpstring("property DBAliasName")] HRESULT DBAliasName([out, retval] BSTR *pVal);
+
+	// Data type in database.
+	[propget, id(15), helpstring("property DBDataType")] HRESULT DBDataType([out, retval] BSTR *pVal);
+
+	// Attribute values for this property
+	[propget, id(20), helpstring("property Attributes")] HRESULT Attributes([out, retval] IMTAttributes** pVal);
+	[hidden, propput, id(20), helpstring("property Attributes")] HRESULT Attributes([in] IMTAttributes* newVal);
+
+	// Specifies whether this property value can be overridden
+	// Used in priceable item instances that override values of their templates
+	[propget, id(21), helpstring("property Overrideable")] HRESULT Overrideable([out, retval] VARIANT_BOOL *pVal);
+
+	// Specifies whether this property is to be included in summary views.
+	[propget, id(22), helpstring("property SummaryView")] HRESULT SummaryView([out, retval] VARIANT_BOOL *pVal);
+
+	// if true, value must be specified
+	[propget, id(23), helpstring("property Enumerators")] HRESULT Enumerators([out, retval] IMTEnumeratorCollection * *pVal);
+	[propput, id(23), helpstring("property Enumerators")] HRESULT Enumerators([in]  IMTEnumeratorCollection * newVal);
+
+	// Database table/column description
+	[propget, id(24), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+	[propput, id(24), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+	
+	// internal use only
+	[hidden, id(500), helpstring("method InitDefault")] HRESULT InitDefault([in] PropValType aDataType,[in] VARIANT aDefault);
+};
+
+// ----------------------------------------------------------------
+// Object:      MTPropertyMetaDataSet
+// Prog ID:     Metratech.MTPropertyMetaDataSet.1
+// Description: collection of MTPropertyMetaData
+//              describes one kind of entity (usage charge, rec. charge,
+//              prod. offerring)
+// ----------------------------------------------------------------
+[
+	object,
+	uuid(33D8C7A7-F458-49AA-8D9F-944F86B97823),
+	dual,
+	helpstring("IMTPropertyMetaDataSet Interface"),
+	pointer_default(unique)
+]
+interface IMTPropertyMetaDataSet : IDispatch
+{
+	// return a COM Enumerator over this collection. Allows to use "for each".
+	[propget, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] IUnknown**pVal);
+
+	// returns a MTPropertyMetaData in the collection by position or name (not case sensitive)
+	[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item([in] VARIANT aKey, [out, retval] VARIANT *pVal);
+	
+	// returns the number of items in the collection.
+	[propget, id(1), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+
+	// name of the meta data set
+	[propget, id(2), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+	[propput, id(2), helpstring("property Name")] HRESULT Name([in] BSTR pVal);
+
+	// table name of the meta data set
+	[propget, id(3), helpstring("property TableName")] HRESULT TableName([out, retval] BSTR *pVal);
+	[propput, id(3), helpstring("property TableName")] HRESULT TableName([in] BSTR pVal);
+
+	// description of the meta data set
+	[propget, id(4), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+	[propput, id(4), helpstring("property Description")] HRESULT Description([in] BSTR pVal);
+
+	// Translates alias name (in rowset) to display name
+	[id(100), helpstring("method DBAliasNameToDisplayName")] HRESULT DBAliasNameToDisplayName([in] BSTR aDBAliasName, [out, retval] BSTR* apDisplayName);
+
+	// returns true if item idendified by position or name (not case sensitive) exists in the collection
+	[id(101), helpstring("method Exist")] HRESULT Exist([in] VARIANT aKey, [out, retval] VARIANT_BOOL* pVal);
+
+	// internal use only
+	[hidden, id(500), helpstring("method TranslateFilter")] HRESULT TranslateFilter( [in] VARIANT aInFilter, [out,retval] IMTDataFilter** pFilter);
+	[hidden, id(501), helpstring("method CreateMetaData")] HRESULT CreateMetaData([in] BSTR aPropertyName, [out, retval] IMTPropertyMetaData** apMetaData);
+	[hidden, id(502), helpstring("method GetPropertySQL")] HRESULT	GetPropertySQL([in] VARIANT aID, [in] BSTR aBaseTableName, [in] VARIANT_BOOL aSummaryViewOnly, [in,out] BSTR* pSelectList, [in,out] BSTR* pJoinList);
+	[hidden, id(503), helpstring("method PopulateProperties")] HRESULT PopulateProperties([in] IMTProperties* pProperties,[in] IMTRowSet *pRowset);
+	[hidden, id(504), helpstring("method UpsertExtendedProperties")] HRESULT UpsertExtendedProperties([in] IMTSessionContext* apCtxt, [in] IMTProperties* pProperties, [in] VARIANT_BOOL aOverrideableOnly);
+	[hidden, id(505), helpstring("method PropagateProperties")] HRESULT PropagateProperties([in] IMTSessionContext* apCtxt, [in] IMTProperties* apProperties, [in] BSTR aTableName, [in] BSTR aExtraUpdateString);
+	[hidden, id(506), helpstring("method PropagateExtendedProperties")] HRESULT PropagateExtendedProperties([in] IMTSessionContext* apCtxt, [in] IMTProperties* apProperties);
+	[hidden, id(507), helpstring("method UpdateProperties")] HRESULT UpdateProperties([in] IMTSessionContext* apCtxt, [in] IMTProperties *pProperties, [in] VARIANT_BOOL bOverridableOnly, [in] BSTR aTableName, [in] BSTR aExtraUpdates);
+	[hidden, id(508), helpstring("method RemoveExtendedProperties")] HRESULT RemoveExtendedProperties([in] IMTSessionContext* apCtxt, IMTProperties* apProperties);
+};
+

@@ -1,0 +1,82 @@
+/**************************************************************************
+* Copyright 1997-2002 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "IMTAuth.idl";
+import "IMTYAAC.idl";
+
+
+// ----------------------------------------------------------------
+// Object:      MTSecurity
+// Prog ID:     Metratech.MTSecurity.1
+// Description: a Top level Data object used to get Auth related data
+// ----------------------------------------------------------------
+	[
+		object,
+		uuid(99245A7B-EAD1-424F-94A2-09006FA42B05),
+		dual,
+		helpstring("IMTSecurity Interface"),
+		pointer_default(unique)
+	]
+	interface IMTSecurity : IDispatch
+	{
+		//returns an instance of MTYAAC, initialized as actor		
+		[id(1), helpstring("method GetAccountByID")] HRESULT GetAccountByID([in]IMTSessionContext* aCtx, [in]long aAccountID,[in,optional] VARIANT aRefDate, [out, retval]IMTYAAC** apAccount);
+		//returns an instance of Anonymous MTYAAC, used to log some one in as anonymous account
+		[id(2), helpstring("method GetAnonymousAccount")] HRESULT GetAnonymousAccount([in]IMTSessionContext* aCtx, [out, retval]IMTYAAC** apAccount);
+		//returns an instance of MTYAAC, pointing to "hidden" CSR folder, used to configure DSP for CSR accounts
+		[id(3), helpstring("method GetCSRFolder")] HRESULT GetCSRFolder([in]IMTSessionContext* aCtx, [out, retval]IMTYAAC** apFolder);
+		//Creates New Role - ManageGlobalAuth capability is checked
+		[id(4), helpstring("method CreateRole")] HRESULT CreateRole([in]IMTSessionContext* aCtx, [out, retval]IMTRole** apNewRole);
+		//Returns Role by given name or NULL if not found - ManageGlobalAuth capability is checked
+		[id(5), helpstring("method GetRoleByName")] HRESULT GetRoleByName([in]IMTSessionContext* aCtx, [in]BSTR aRoleName, [out, retval]IMTRole** apRole);
+		//Returns Role by given ID or NULL if not found - ManageGlobalAuth capability is checked
+		[id(6), helpstring("method GetRoleByID")] HRESULT GetRoleByID([in]IMTSessionContext* aCtx, [in]long aRoleID,  [out, retval]IMTRole** apRole);
+		//Returns All roles in the system or NULL if none found - ManageGlobalAuth capability is checked
+		[id(7), helpstring("method GetAllRolesAsRowset")] HRESULT GetAllRolesAsRowset([in]IMTSessionContext* aCtx, [out, retval]IMTSQLRowset** apRowset);
+		//Returns All composite capability types in the system or NULL if none found - ManageGlobalAuth capability is checked
+		[id(8), helpstring("method GetCapabilityTypesAsRowset")] HRESULT GetCapabilityTypesAsRowset([in]IMTSessionContext* aCtx, [out, retval]IMTSQLRowset** apRowset);
+		//Returns available capability types for a given principal (account or role). Availability is determined like listed below:
+		//1. The principal has 0 instances of the type OR
+		//2. The type allows multiple instances (flag on CCT meta data)
+		[id(9), helpstring("method GetAvailableCapabilityTypesAsRowset")] HRESULT GetAvailableCapabilityTypesAsRowset([in]IMTSessionContext *aCtx, [in]IMTSecurityPrincipal *aPrincipal, [out, retval]IMTSQLRowset **apRowset);
+		//Looks up the Composite Capability Type object by it's name and returns it fully initialized.
+        // If logErrorIfNotFound is true, and the specified capabilityType is NOT found in the DB, then an error message will be generated.
+		//NOTE: This method is not protected by Auth&Auth, it's marked as hidden on the interface
+		[id(17), helpstring("method GetCapabilityTypeByNameControlLogging"), hidden] HRESULT GetCapabilityTypeByNameControlLogging([in]BSTR aTypeName, [in]VARIANT_BOOL logErrorIfNotFound, [out, retval]IMTCompositeCapabilityType** apCapType);
+		// Looks up the Composite Capability Type object by it's name and returns it fully initialized.
+        // Same as the above method, but the caller has no control over the error message.
+        // If capabilityType is NOT found in the DB, then an error message will be generated.
+		[id(10), helpstring("method GetCapabilityTypeByName"), hidden] HRESULT GetCapabilityTypeByName([in]BSTR aTypeName, [out, retval]IMTCompositeCapabilityType** apCapType);
+		//Looks up the Atomic Capability Type object by it's name and returns it fully initialized
+		//only used by CapType deployment hook
+		//NOTE: This method is not protected by Auth&Auth, it's marked as hidden on the interface
+		[id(11), hidden, helpstring("method GetAtomicCapabilityTypeByName")] HRESULT GetAtomicCapabilityTypeByName([in]BSTR aTypeName, [out, retval]IMTAtomicCapabilityType** apCapType);
+		//NOTE: This method is not protected by Auth&Auth, it's marked as hidden on the interface
+		[id(12), hidden, helpstring("method GetCapabilityTypeByID")] HRESULT GetCapabilityTypeByID([in]long aTypeID, [out, retval]IMTCompositeCapabilityType** apCapType);
+		//Helper method: given a specified principal, returns the roles that this principal doesn't yet have
+		//and is permitted to have based on CSRAssignable, SubscriberAssignable flags
+		[id(13), helpstring("method GetAvailableRolesAsRowset")] HRESULT GetAvailableRolesAsRowset([in]IMTSessionContext* aCtx, [in]IMTSecurityPrincipal* aPrincipal, [in]MTPrincipalPolicyType aPolicyType, [out, retval]IMTSQLRowset** apRowset);
+		//internal
+		[id(14), helpstring("method GetMOMFolder")] HRESULT GetMOMFolder([in]IMTSessionContext* aCtx, [out, retval]IMTYAAC** apFolder);
+		//internal
+		[id(15), helpstring("method GetMCMFolder")] HRESULT GetMCMFolder([in]IMTSessionContext* apCtx, [out, retval]IMTYAAC** apFolder);
+		//remove a role from a specified principal
+		[id(16), helpstring("method RemoveRole")] HRESULT RemoveRole([in]IMTSessionContext* apCtx, [in]long aRoleID);
+	};

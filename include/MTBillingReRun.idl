@@ -1,0 +1,140 @@
+// MTBillingReRun.idl : IDL source for MTBillingReRun.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTBillingReRun.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "IMTAuth.idl";
+import "GenericCollectionInterfaces.idl";
+import "rowsetinterfaces.idl";
+
+interface IMTIdentificationFilter;
+	[
+		object,
+		uuid(C0E84061-6AE4-40A5-A4A2-77C7D810A21B),
+		dual,
+		helpstring("IMTBillingReRun Interface"),
+		pointer_default(unique)
+	]
+	interface IMTBillingReRun : IDispatch
+	{
+		[propget, id(1), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+		[propput, id(1), helpstring("property ID")] HRESULT ID([in] long newVal);
+
+ 		[propget, id(2), helpstring("property Synchronous")] HRESULT Synchronous([out, retval] VARIANT_BOOL * syn);
+		[propput, id(2), helpstring("property Synchronous")] HRESULT Synchronous([in] VARIANT_BOOL syn);
+
+		[propget, id(3), helpstring("property TransactionID")] HRESULT TransactionID([out, retval] BSTR * txn);
+		[propput, id(3), helpstring("property TransactionID")] HRESULT TransactionID([in] BSTR txn);
+
+ 		[propget, id(4), helpstring("property TableName")] HRESULT TableName([out, retval] BSTR * val);
+
+    [propget, id(5), helpstring("property provides count of what Analyze determined will be operated on")] HRESULT AnalyzeCount([out, retval] long * val);
+
+ 		[id(6), helpstring("method Login")] HRESULT Login(IMTSessionContext* user);
+		[id(7), helpstring("method Setup")] HRESULT Setup(BSTR comment);
+
+ 		[id(8), helpstring("method CreateFilter")] HRESULT CreateFilter([out, retval] IMTIdentificationFilter * * filter);
+		[id(9), helpstring("method CreateIdentificationQuery")] HRESULT CreateIdentificationQuery(IMTIdentificationFilter * filter, [out, retval] BSTR * query);
+
+    [id(10), helpstring("method Identify")] HRESULT Identify(IMTIdentificationFilter * filter, BSTR comment);
+		[id(11), helpstring("method Analyze")] HRESULT Analyze(BSTR comment);
+
+ 		[id(12), helpstring("method BackoutDelete")] HRESULT BackoutDelete(BSTR comment);
+		[id(13), helpstring("method BackoutResubmit")] HRESULT BackoutResubmit(BSTR comment);
+
+		[id(14), helpstring("method Abandon")] HRESULT Abandon(BSTR comment);
+    [id(15), helpstring("method Delete")] HRESULT Delete(BSTR comment);
+
+		[id(16), helpstring("method IdentifyAndAnalyze")] HRESULT IdentifyAndAnalyze(IMTIdentificationFilter * filter, BSTR comment);
+ 		[id(17), helpstring("method IdentifyAnalyzeAndResubmit")] 
+		HRESULT IdentifyAnalyzeAndResubmit(IMTIdentificationFilter * filter, BSTR comment);
+
+		[id(18), helpstring("method IsComplete")] HRESULT IsComplete([out, retval] VARIANT_BOOL * val);
+
+ 		[id(19), helpstring("method IdentifyAnalyzeAndDelete")] 
+		HRESULT IdentifyAnalyzeAndDelete(IMTIdentificationFilter * filter, BSTR comment);
+
+
+	};
+	[
+		object,
+		uuid(339e7ed1-87a5-420c-908f-27a6364afd37),
+		dual,
+		helpstring("IMTFilterCondition Interface"),
+		pointer_default(unique)
+	]
+	interface IMTFilterCondition : IDispatch
+	{
+		[propget, id(1), helpstring("property EntityName")] HRESULT EntityName([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property EntityName")] HRESULT EntityName([in] BSTR newVal);
+		[propget, id(2), helpstring("property PropertyName")] HRESULT PropertyName([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property PropertyName")] HRESULT PropertyName([in] BSTR newVal);
+		[propget, id(3), helpstring("property Value")] HRESULT Value([out, retval] VARIANT *pVal);
+		[propput, id(3), helpstring("property Value")] HRESULT Value([in] VARIANT newVal);
+	};
+
+	[
+		object,
+		uuid(DF945E7B-56DA-480D-BF12-21A4DF7E4C88),
+		dual,
+		helpstring("IMTIdentificationFilter Interface"),
+		pointer_default(unique)
+	]
+	interface IMTIdentificationFilter : IDispatch
+	{
+		[propget, id(1), helpstring("property BatchID")] HRESULT BatchID([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property BatchID")] HRESULT BatchID([in] BSTR newVal);
+		[id(3), helpstring("method AddServiceDefinition")] HRESULT AddServiceDefinition(BSTR serviceDefName);
+		[propget, id(4), helpstring("property BeginDatetime")] HRESULT BeginDatetime([out, retval] DATE *pVal);
+		[propput, id(4), helpstring("property BeginDatetime")] HRESULT BeginDatetime([in] DATE newVal);
+		[id(5), helpstring("method AddUserDefinedProperty")] HRESULT AddUserDefinedProperty(BSTR propName, BSTR propValue);
+		[propget, id(6), helpstring("property ServiceDefinitions")] HRESULT ServiceDefinitions([out, retval] IMTCollection * *pVal);
+		[propget, id(7), helpstring("property BeginDatetimeIsSet")] HRESULT BeginDatetimeIsSet([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(8), helpstring("property EndDatetime")] HRESULT EndDatetime([out, retval] DATE *pVal);
+		[propput, id(8), helpstring("property EndDatetime")] HRESULT EndDatetime([in] DATE newVal);
+		[propget, id(9), helpstring("property EndDatetimeIsSet")] HRESULT EndDatetimeIsSet([out, retval] VARIANT_BOOL *pVal);
+		[id(10), helpstring("method AddProductView")] HRESULT AddProductView(BSTR productView);
+		[propget, id(11), helpstring("property ProductViews")] HRESULT ProductViews([out, retval] IMTCollection * *pVal);
+		[propput, id(12), helpstring("property AccountConditions")] HRESULT AccountConditions(IMTDataFilter * accountViewFilter);
+		[propget, id(12), helpstring("property AccountConditions")] HRESULT AccountConditions([out, retval] IMTDataFilter * * accountViewFilter);
+		[id(13), helpstring("method AddProductViewProperty")] HRESULT AddProductViewProperty(BSTR productView, BSTR propName, VARIANT value);
+		[id(14), helpstring("method AddServiceDefinitionProperty")] HRESULT AddServiceDefinitionProperty(BSTR svcDef, BSTR propName, VARIANT value);
+		[propget, id(15), helpstring("property ServiceDefinitionProperties")] HRESULT ServiceDefinitionProperties([out, retval] IMTCollection * *pVal);
+		[propget, id(16), helpstring("property ProductViewProperties")] HRESULT ProductViewProperties([out, retval] IMTCollection * *pVal);
+		[propget, id(17), helpstring("property IntervalID")] HRESULT IntervalID([out, retval] long *pVal);
+		[propput, id(17), helpstring("property IntervalID")] HRESULT IntervalID([in] long newVal);
+		[id(18), helpstring("method AddSessionID")] HRESULT AddSessionID(BSTR sessionID);
+		[propget, id(19), helpstring("property SessionIDs")] HRESULT SessionIDs([out, retval] IMTCollection * *pVal);
+		[propget, id(20), helpstring("property QueueMatchPossible")] HRESULT QueueMatchPossible([out, retval] VARIANT_BOOL *pVal);
+		[id(21), helpstring("Check if only batch id is set in the filter condition")] HRESULT IsOnlyBatchIDSet([out, retval] VARIANT_BOOL *pVal);
+		[id(22), helpstring("Check if filter conditions are such that sessions can be found in failed transactions")] HRESULT IsFailedTransactionMatchPossible([out, retval] VARIANT_BOOL *pVal);
+    [id(23), helpstring("check if any filter is specified")] HRESULT IsNoFilterSpecified([out, retval] VARIANT_BOOL *pVal);
+    [propget, id(24), helpstring("property identify suspended transactions")] HRESULT IsIdentifySuspendedTransactions([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(24), helpstring("property identify suspended transactions")] HRESULT IsIdentifySuspendedTransactions([in] VARIANT_BOOL newVal);
+    [propget, id(25), helpstring("property identify pending transactions")] HRESULT IsIdentifyPendingTransactions([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(25), helpstring("property identify pending transactions")] HRESULT IsIdentifyPendingTransactions([in] VARIANT_BOOL newVal);
+    [propget, id(26), helpstring("property suspended transaction interval")] HRESULT SuspendedInterval([out, retval] double *pVal);
+		[propput, id(26), helpstring("property suspended transaction interval")] HRESULT SuspendedInterval([in] double newVal);
+
+		[propget, id(27), helpstring("property BillingGroupID")] HRESULT BillingGroupID([out, retval] long *pVal);
+		[propput, id(27), helpstring("property BillingGroupID")] HRESULT BillingGroupID([in] long newVal);
+	};
+
+[
+	uuid(B6304D65-2AE4-4C26-A6B3-D134927F1B7D),
+	version(1.0),
+	helpstring("MTBillingReRun 1.0 Type Library")
+]
+library MTBILLINGRERUNLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	interface IMTFilterCondition;
+	interface IMTIdentificationFilter;
+
+  interface IMTBillingReRun;
+};

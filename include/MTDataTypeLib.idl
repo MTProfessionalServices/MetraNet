@@ -1,0 +1,48 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+
+// MetraTech Data Types
+typedef [uuid(31c2c444-e134-11d2-a238-00a0cc3ad9cd)]
+enum {
+	MTC_DT_UNKNOWN   = -1,
+	MTC_DT_WCHAR     = 0,
+	MTC_DT_CHAR      = 1,
+	MTC_DT_INT       = 2,
+	MTC_DT_FLOAT     = 3,
+	MTC_DT_DOUBLE    = 4,
+	MTC_DT_TIME      = 5,
+	MTC_DT_BOOL      = 6,
+	MTC_DT_DECIMAL   = 7,
+	MTC_DT_ENUM      = 8,
+ 	MTC_DT_TIMESTAMP = 9,
+ 	MTC_DT_BIGINT    = 10
+} DataType;
+
+
+
+
+//dummy interface to force inclusion of enum in typelib
+[
+	object,
+	uuid(CC4F5018-933C-4617-8B51-DC684E5516C1),
+	dual,
+	helpstring("IMTDummy Interface"),
+	pointer_default(unique)
+]
+interface IMTDummy : IDispatch
+{
+	[id(1), helpstring("method Dummy")] HRESULT Dummy([in]DataType);
+};
+
+
+[
+	uuid(C40359B0-796B-49a9-840D-84854EA743FB),
+	version(1.0),
+	helpstring("MTDataType 1.0 Type Library")
+]
+
+library MTDataTypeLib
+{
+  interface IMTDummy;
+};

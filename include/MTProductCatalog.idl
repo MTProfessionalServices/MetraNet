@@ -1,0 +1,391 @@
+/**************************************************************************
+ *
+ * Copyright 2001 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ * Created by: Ralf Boeck
+ * $Header$
+ *
+ * interface to product catalog business objects
+ ***************************************************************************/
+// MTProductCatalog.idl : IDL source for MTProductCatalog.dll
+//
+// This file will be processed by the MIDL tool to
+// produce the type library (MTProductCatalog.tlb) and marshalling code.
+//
+//----------------------------------------------------------------------------
+// ORDER of this file
+// ------------------
+// - Enum types in alphabetical order
+// - Objects in alphabetical order
+// - Members within an Object are in the semantic order group like this:
+//    properties         (id 1-49 with DISPID_VALUE being 0)
+//    hidden properties  (id 50-99)
+//    methods            (id 100-499)
+//    hidden methods     (id 500-999)
+//                       (derived classes add 1000 to the id)
+//----------------------------------------------------------------------------
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "IMTPCBase.idl";
+import "MTProductCatalogInterfaces.idl";
+
+[
+	object,
+	uuid(5f786c39-68cd-4407-b0ef-6b96fc75752c),
+	dual,
+	helpstring("IProdcatDummyInterface Interface"),
+	pointer_default(unique)
+]
+interface IProdcatDummyInterface : IDispatch
+{
+};
+
+
+  
+[
+  uuid(39F610B0-42DB-4D96-ADB8-4BA15DCCC763),
+  version(1.0),
+  helpstring("MTProductCatalog 1.0 Type Library")
+]
+library MTPRODUCTCATALOGLib
+{
+  importlib("stdole32.tlb");
+  importlib("stdole2.tlb");
+  //importlib("MetraTech.Adjustments.tlb");
+
+  [
+    uuid(90180E5C-4A4F-41F6-A6B4-6DB9964B88A7),
+    helpstring("MTProductOffering Class")
+  ]
+  coclass MTProductOffering
+  {
+    [default] interface IMTProductOffering;
+  };
+  [
+    uuid(C1B664C0-60B1-4751-8BA0-A62222606CBD),
+    helpstring("MTProductCatalog Class")
+  ]
+  coclass MTProductCatalog
+  {
+    [default] interface IMTProductCatalog;
+  };
+  [
+    uuid(7DD4AA3E-B3A1-49D3-BD24-FA01CF97B2F4),
+    helpstring("MTPCTimeSpan Class")
+  ]
+  coclass MTPCTimeSpan
+  {
+    [default] interface IMTPCTimeSpan;
+  };
+  [
+    uuid(9DB84C80-D3D7-4CAA-95A7-A9D5F976EDB6),
+    helpstring("MTProperty Class")
+  ]
+  coclass MTProperty
+  {
+    [default] interface IMTProperty;
+  };
+  [
+    uuid(E73DBDC0-F656-4386-9052-4F529E5D8FC2),
+    helpstring("MTProperties Class")
+  ]
+  coclass MTProperties
+  {
+    [default] interface IMTProperties;
+  };
+  [
+    uuid(542B0106-399A-4076-ACC4-CB647FC21655),
+    helpstring("MTPropertyMetaData Class")
+  ]
+  coclass MTPropertyMetaData
+  {
+    [default] interface IMTPropertyMetaData;
+  };
+  [
+    uuid(53441EA5-940E-4947-B375-4571F0DFEE79),
+    helpstring("MTPropertyMetaDataSet Class")
+  ]
+  coclass MTPropertyMetaDataSet
+  {
+    [default] interface IMTPropertyMetaDataSet;
+  };
+  [
+    uuid(C59B98B4-49CE-454A-859C-C656328593F5),
+    helpstring("MTParamTableDefinition Class")
+  ]
+  coclass MTParamTableDefinition
+  {
+    [default] interface IMTParamTableDefinition;
+  };
+  [
+    uuid(6EAC5911-F48E-4DD4-AFB2-D0C1CD4F3CD6),
+    helpstring("MTConditionMetaData Class")
+  ]
+  coclass MTConditionMetaData
+  {
+    [default] interface IMTConditionMetaData;
+  };
+  [
+    uuid(FF286F83-2B9F-49AF-ADA7-BCCCDAD72733),
+    helpstring("MTActionMetaData Class")
+  ]
+  coclass MTActionMetaData
+  {
+    [default] interface IMTActionMetaData;
+  };
+  [
+    uuid(86EB36F9-9A78-4246-844D-26541E1A7082),
+    helpstring("MTPCCycle Class")
+  ]
+  coclass MTPCCycle
+  {
+    [default] interface IMTPCCycle;
+  };
+  [
+    uuid(9C6DBD36-20F3-4903-8227-6ADFAE25106A),
+    helpstring("MTPriceableItem Class")
+  ]
+  coclass MTPriceableItem
+  {
+    [default] interface IMTPriceableItem;
+  };
+  [
+    uuid(2C5E102B-A59A-4D64-B337-560BAE0C97DA),
+    helpstring("MTUsageCharge Class")
+  ]
+  coclass MTUsageCharge
+  {
+    [default] interface IMTUsageCharge;
+  };
+  [
+    uuid(56767D64-44BB-4883-81A1-606D8462B1FC),
+    helpstring("MTRecurringCharge Class")
+  ]
+  coclass MTRecurringCharge
+  {
+    [default] interface IMTRecurringCharge;
+  };
+  [
+    uuid(89156ECD-C9BC-4286-B35A-795CC03B3556),
+    helpstring("MTNonRecurringCharge Class")
+  ]
+  coclass MTNonRecurringCharge
+  {
+    [default] interface IMTNonRecurringCharge;
+  };
+  [
+    uuid(F23A8145-1A3B-4453-B655-E562E88A104B),
+    helpstring("MTDiscount Class")
+  ]
+  coclass MTDiscount
+  {
+    [default] interface IMTDiscount;
+  };
+  [
+    uuid(9B2807CC-900D-49A9-9DE2-B2D4714DB6D6),
+    helpstring("MTPriceableItemType Class")
+  ]
+  coclass MTPriceableItemType
+  {
+    [default] interface IMTPriceableItemType;
+  };
+  [
+    uuid(C625A0C5-6611-427B-B925-F76AB9C20CCF),
+    helpstring("MTPCAccount Class")
+  ]
+  coclass MTPCAccount
+  {
+    [default] interface IMTPCAccount;
+  };
+  [
+    uuid(E21E2682-0B27-4D7C-BC69-9FEA81DB43CD),
+    helpstring("MTAttribute Class")
+  ]
+  coclass MTAttribute
+  {
+    [default] interface IMTAttribute;
+  };
+  [
+    uuid(22593C24-3E3B-433B-8DBF-2C1EDA2E107A),
+    helpstring("MTAttributeMetaData Class")
+  ]
+  coclass MTAttributeMetaData
+  {
+    [default] interface IMTAttributeMetaData;
+  };
+  [
+    uuid(031674EB-C796-4BF9-A9A1-59E601EF8065),
+    helpstring("MTAttributes Class")
+  ]
+  coclass MTAttributes
+  {
+    [default] interface IMTAttributes;
+  };
+  [
+    uuid(5F64FB1A-1A1A-41E9-98AA-39F8D4880A9A),
+    helpstring("MTAttributeMetaDataSet Class")
+  ]
+  coclass MTAttributeMetaDataSet
+  {
+    [default] interface IMTAttributeMetaDataSet;
+  };
+  [
+    uuid(FDC6EFA5-D765-478A-AE94-EA53409A2750),
+    helpstring("MTPriceList Class")
+  ]
+  coclass MTPriceList
+  {
+    [default] interface IMTPriceList;
+  };
+  [
+    uuid(3A4B5258-6D7E-4DA7-9C23-E45874C65BAA),
+    helpstring("MTPriceListMapping Class")
+  ]
+  coclass MTPriceListMapping
+  {
+    [default] interface IMTPriceListMapping;
+  };
+  [
+    uuid(CDBB8764-D923-42EB-9CAD-A23D32CFA6D2),
+    helpstring("MTRateSchedule Class")
+  ]
+  coclass MTRateSchedule
+  {
+    [default] interface IMTRateSchedule;
+  };
+  [
+    uuid(C2F9EB78-7038-4A81-8133-B759278E2EE1),
+    helpstring("MTSubscription Class")
+  ]
+  coclass MTSubscription
+  {
+    [default] interface IMTSubscription;
+  };
+  [
+    uuid(21AF4D65-24C3-4BD4-952C-6E9215EB8435),
+    helpstring("MTCounterPropertyDefinition Class")
+  ]
+  coclass MTCounterPropertyDefinition
+  {
+    [default] interface IMTCounterPropertyDefinition;
+  };
+  [
+    uuid(9C09FC2B-20C5-4492-842C-AF2C0FB6B409),
+    helpstring("MTAggregateCharge Class")
+  ]
+  coclass MTAggregateCharge
+  {
+    [default] interface IMTAggregateCharge;
+  };
+  [
+    uuid(D8C739CB-04AB-4784-9B7A-FDBA1DC0A4FC),
+    helpstring("MTCalendar Class")
+  ]
+  coclass MTCalendar
+  {
+    [default] interface IMTCalendar;
+  };
+  [
+    uuid(2c031c1b-671c-4df0-9cd4-f170fb1aaea9),
+    helpstring("MTCalendarPeriod Class")
+  ]
+  coclass MTCalendarPeriod
+  {
+    [default] interface IMTCalendarPeriod;
+  };
+  [
+    uuid(17596325-D0F0-4CF7-B76C-727A7C740D86),
+    helpstring("MTProductCatalogMetaData Class")
+  ]
+  coclass MTProductCatalogMetaData
+  {
+    [default] interface IMTProductCatalogMetaData;
+  };
+  [
+    uuid(1A10ECEE-2F47-4F17-8BBE-1B6EA577ED3E),
+    helpstring("MTCalendarWeekday Class")
+  ]
+  coclass MTCalendarWeekday
+  {
+    [default] interface IMTCalendarWeekday;
+  };
+  [
+    uuid(7136086D-E6D1-4BB1-8E14-CD1759B89239),
+    helpstring("MTCalendarHoliday Class")
+  ]
+  coclass MTCalendarHoliday
+  {
+    [default] interface IMTCalendarHoliday;
+  };
+  [
+    uuid(75D2EB1D-63D1-4131-94BC-3EE8316A9272),
+    helpstring("MTCalendarDay Class")
+  ]
+  coclass MTCalendarDay
+  {
+    [default] interface IMTCalendarDay;
+  };
+  [
+    uuid(2FEB82E1-C0AB-462E-A654-6736B13C1227),
+    helpstring("MTGroupSubscription Class")
+  ]
+  coclass MTGroupSubscription
+  {
+    [default] interface IMTGroupSubscription;
+  };
+  [
+    uuid(21757ABA-9E4E-4043-84A4-75048F7EFD98),
+    helpstring("MTGroupSubSlice Class")
+  ]
+  coclass MTGroupSubSlice
+  {
+    [default] interface IMTGroupSubSlice;
+  };
+  [
+    uuid(DD821F5E-395A-4103-8AEE-0C74E5D1E545),
+    helpstring("MTGSubMember Class")
+  ]
+  coclass MTGSubMember
+  {
+    [default] interface IMTGSubMember;
+  };
+	[
+		uuid(BABC8AF6-CCDE-4803-BB8A-B661707A8CDA),
+		helpstring("MTCharge Class")
+	]
+	coclass MTCharge
+	{
+		[default] interface IMTCharge;
+	};
+	[
+		uuid(8858b503-ab87-49a3-b03c-407e7db5e16a),
+		helpstring("MTChargeProperty Class")
+	]
+	coclass MTChargeProperty
+	{
+		[default] interface IMTChargeProperty;
+	};
+  [
+    uuid(25FC1956-B5E4-4540-B21B-C7BE3C513941),
+    helpstring("MTSubInfo Class")
+  ]
+  coclass MTSubInfo
+  {
+    [default] interface IMTSubInfo;
+  };
+};
+

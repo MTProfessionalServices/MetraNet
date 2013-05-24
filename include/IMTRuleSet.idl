@@ -1,0 +1,379 @@
+// MTRuleSet.idl : IDL source for MTRuleSet.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTRuleSet.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "PropValType.idl";
+import "MTConfigPropSet.idl";
+
+interface IMTRule;
+interface IMTActionSet;
+interface IMTConditionSet;
+interface IMTAssignmentAction;
+
+// ----------------------------------------------------------------
+// Object:      MTRuleSet
+// Prog ID:     MTRuleSet.MTRuleSet.1
+// Description: Rule sets are collections of rules.  When applying a rule set
+//              to a session, the rules are attempted in order.  When the first
+//              rule matches, all actions are applied.  If no rules match and there
+//              are default actions, these actions are applied.  Otherwise an error
+//              is generated.
+//              Rule sets can be written to and read from XML.
+// Enumeration Element Type: MTRule
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(CD730A31-D8B8-11D2-A1DE-006008C0E24A),
+  dual,
+  helpstring("IMTRuleSet Interface"),
+  pointer_default(unique)
+]
+interface IMTRuleSet : IDispatch
+{
+  // Return the number of rules within this rule set
+  [propget, id(4), helpstring("property Count")]
+  HRESULT Count([out, retval] long *pVal);
+
+  // Return the given rule.  the index is 1-based.
+  [propget, id(DISPID_VALUE), helpstring("property Item")]
+  HRESULT Item(long aIndex, [out, retval] VARIANT *pVal);
+  
+  // Automation method, used for enumerating rules within this ruleset
+  [propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")]
+  HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+
+  // Actions that are applied if no rules match
+  [propget, id(3), helpstring("property DefaultActions")]
+  HRESULT DefaultActions([out, retval] IMTActionSet * *pVal);
+
+  [propput, id(3), helpstring("property DefaultActions")]
+  HRESULT DefaultActions([in] IMTActionSet * newVal);
+
+
+  // Read the rule set from the given file.
+  [id(5), helpstring("method Read")]
+  HRESULT Read([in] BSTR filename);
+
+  // Read the rule set from the given host, via HTTP
+  [id(6), helpstring("method ReadFromHost")]
+  HRESULT ReadFromHost([in] BSTR hostname, [in] BSTR relativePath,
+		       VARIANT_BOOL secure);
+
+  // Write the rule set to a file.
+  [id(7), helpstring("method Write")]
+  HRESULT Write([in] BSTR filename);
+
+  // Write the rule set to the given host, via HTTP
+  [id(8), helpstring("method WriteToHost")]
+  HRESULT WriteToHost([in] BSTR hostname,
+		      [in] BSTR relativePath,
+		      [in] BSTR username,
+		      [in] BSTR password,
+		      [in] VARIANT_BOOL secure);
+
+  // Add a rule to the rule set.
+  [id(9)]
+  HRESULT Add([in] IMTRule * pMyObj);
+
+  // The name of the plug-in executing the rules.  Used when generating a plug-in
+  // configuration file.
+  [propget, id(10), helpstring("property PluginName")]
+  HRESULT PluginName([out, retval] BSTR *pVal);
+
+  [propput, id(10), helpstring("property PluginName")]
+  HRESULT PluginName([in] BSTR newVal);
+
+
+  // Write the rule set to an IMTConfigPropSet object
+  [id(11),helpstring("method WriteToSet")]
+  HRESULT WriteToSet([out, retval] IMTConfigPropSet** ppSet);
+
+  // Read the rule set from an IMTConfigPropSet object
+  [id(12),helpstring("method ReadFromSet")]
+  HRESULT ReadFromSet([in] IMTConfigPropSet* pSet);
+
+  // Insert a rule into the rule set at the given index.
+  // The index is 1-based.
+  [id(13)]
+  HRESULT Insert([in] IMTRule * pMyObj, [in] int aIndex);
+
+  // Remove the rule at the given index.  The index is
+  // 1-based.
+  [id(14)]
+  HRESULT Remove([in] int aIndex);
+
+  // The effective date of the plugin configuration file.  (The date when the ruleset can be used for rating)
+  [propget, id(15), helpstring("Get the effective date (The date when the ruleset can be used for rating)")]
+  HRESULT EffectiveDate([out, retval] VARIANT *pVal);
+
+  [propput, id(15), helpstring("Set the effective date (The date when the ruleset can be used for rating)")]
+  HRESULT EffectiveDate([in] VARIANT newVal);
+
+
+  // The number of days that the plug-in configuration file is still available after it is no longer effective
+  [propget, id(16), helpstring("Get the the number of days that the ruleset is still available after it is no longer effective")]
+  HRESULT Timeout([out, retval] long *pVal);
+
+  [propput, id(16), helpstring("Set the the number of days that the ruleset is still available after it is no longer effective")]
+  HRESULT Timeout([in] long newVal);
+};
+
+// ----------------------------------------------------------------
+// Object:      MTRule
+// Prog ID:     MTRule.MTRule.1
+// Description: 
+// Enumeration Element Type: MTRule
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(CD730A33-D8B8-11D2-A1DE-006008C0E24A),
+  dual,
+  helpstring("IMTRule Interface"),
+  pointer_default(unique)
+]
+interface IMTRule : IDispatch
+{
+  // Actions to apply if all conditions of this rule match
+  [propget, id(1), helpstring("property Actions")]
+  HRESULT Actions([out, retval] IMTActionSet * *pVal);
+
+  [propput, id(1), helpstring("property Actions")]
+  HRESULT Actions([in] IMTActionSet * newVal);
+
+
+  // A set of conditions that must apply for this rule to match.
+  // All actions must apply (AND is used)
+  [propget, id(2), helpstring("property Conditions")]
+  HRESULT Conditions([out, retval] IMTConditionSet * *pVal);
+
+  [propput, id(2), helpstring("property Conditions")]
+  HRESULT Conditions([in] IMTConditionSet * newVal);
+};
+
+// ----------------------------------------------------------------
+// Object:      MTCondition
+// Prog ID:     MTCondition.MTCondition.1
+// Description: NOT CURRENTLY USED/DOCUMENTED
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(CD730A35-D8B8-11D2-A1DE-006008C0E24A),
+  dual,
+  helpstring("IMTCondition Interface"),
+  pointer_default(unique)
+]
+interface IMTCondition : IDispatch
+{
+};
+
+// ----------------------------------------------------------------
+// Object:      MTAssignmentAction
+// Prog ID:     MTAssignmentAction.MTAssignmentAction.1
+// Description: An action where a named property is assigned a value
+//              of the given type.
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(CD730A38-D8B8-11D2-A1DE-006008C0E24A),
+  dual,
+  helpstring("IMTAssignmentAction Interface"),
+  pointer_default(unique)
+]
+interface IMTAssignmentAction : IDispatch
+{
+  // The name of the property to set.
+  [propget, id(1), helpstring("property PropertyName")]
+  HRESULT PropertyName([out, retval] BSTR *pVal);
+
+  [propput, id(1), helpstring("property PropertyName")]
+  HRESULT PropertyName([in] BSTR newVal);
+
+
+  // The value to assign to the named property
+  [propget, id(2), helpstring("property PropertyValue")]
+  HRESULT PropertyValue([out, retval] VARIANT *pVal);
+
+  [propput, id(2), helpstring("property PropertyValue")]
+  HRESULT PropertyValue([in] VARIANT newVal);
+
+
+  // The type of the value to assign to the property
+  [propget, id(3), helpstring("property PropertyType")]
+  HRESULT PropertyType([out, retval] PropValType *pVal);
+
+  [propput, id(3), helpstring("property PropertyType")]
+  HRESULT PropertyType([in] PropValType pVal);
+
+
+  // If the property value is an enumerated type, this property
+  // holds the enum type's enum space.
+  [propget, id(5), helpstring("property EnumSpace")]
+  HRESULT EnumSpace([out, retval] BSTR *pVal);
+
+  [propput, id(5), helpstring("property EnumSpace")]
+  HRESULT EnumSpace([in] BSTR newVal);
+
+  // If the property value is an enumerated type, this property
+  // holds the enum type's enum type name.
+  [propget, id(6), helpstring("property EnumType")]
+  HRESULT EnumType([out, retval] BSTR *pVal);
+
+  [propput, id(6), helpstring("property EnumType")]
+  HRESULT EnumType([in] BSTR newVal);
+};
+
+// ----------------------------------------------------------------
+// Object:      MTSimpleCondition
+// Prog ID:     MTSimpleCondition.MTSimpleCondition.1
+// Description: 
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(CD730A3A-D8B8-11D2-A1DE-006008C0E24A),
+  dual,
+  helpstring("IMTSimpleCondition Interface"),
+  pointer_default(unique)
+]
+interface IMTSimpleCondition : IDispatch
+{
+  // name of the property to test
+  [propget, id(1), helpstring("property PropertyName")]
+  HRESULT PropertyName([out, retval] BSTR *pVal);
+
+  [propput, id(1), helpstring("property PropertyName")]
+  HRESULT PropertyName([in] BSTR newVal);
+
+
+  // operator used to test the property value
+  [propget, id(2), helpstring("property Test")]
+  HRESULT Test([out, retval] BSTR *pVal);
+
+  [propput, id(2), helpstring("property Test")]
+  HRESULT Test([in] BSTR newVal);
+
+
+  // value to compare property value to
+  [propget, id(3), helpstring("property Value")]
+  HRESULT Value([out, retval] VARIANT *pVal);
+
+  [propput, id(3), helpstring("property Value")]
+  HRESULT Value([in] VARIANT newVal);
+
+
+  // type of the property value
+  [propget, id(4), helpstring("property ValueType")]
+  HRESULT ValueType([out, retval] PropValType *pVal);
+
+  [propput, id(4), helpstring("property ValueType")]
+  HRESULT ValueType([in] PropValType newVal);
+
+
+  // if the property is an enumerated type, this property
+  // holds the enum space to use
+  [propget, id(5), helpstring("property EnumSpace")]
+  HRESULT EnumSpace([out, retval] BSTR *pVal);
+
+  [propput, id(5), helpstring("property EnumSpace")]
+  HRESULT EnumSpace([in] BSTR newVal);
+
+
+  // if the property is an enumerated type, this property
+  // holds the enum space to use within the enum space
+  [propget, id(6), helpstring("property EnumType")]
+  HRESULT EnumType([out, retval] BSTR *pVal);
+
+  [propput, id(6), helpstring("property EnumType")]
+  HRESULT EnumType([in] BSTR newVal);
+};
+
+
+// ----------------------------------------------------------------
+// Object:      MTConditionSet
+// Prog ID:     MTConditionSet.MTConditionSet.1
+// Description: The set of conditions within a rule that must all
+//              match in order for the rule to match.
+//              All conditions within the set are combined with the AND operator.
+// Enumeration Element Type: MTSimpleCondition
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(CD730A3C-D8B8-11D2-A1DE-006008C0E24A),
+  dual,
+  helpstring("IMTConditionSet Interface"),
+  pointer_default(unique)
+]
+interface IMTConditionSet : IDispatch
+{
+  // number of conditions in this set
+  [propget, id(4), helpstring("property Count")]
+  HRESULT Count([out, retval] long *pVal);
+
+  // Either the n-th condition in the set or the condition with the given property name,
+  // depending on the type of the argument.
+  [propget, id(DISPID_VALUE), helpstring("property Item")]
+  HRESULT Item(VARIANT aIndex, [out, retval] VARIANT *pVal);
+
+  // Automation method, used for enumerating conditions within this condition set
+  [propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")]
+  HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+
+  /* [id(5), helpstring("method GetConditionForProperty")] HRESULT GetConditionForProper  */
+
+  // Add a condition to the condition set
+  [id(7)]
+  HRESULT Add([in] IMTSimpleCondition * condition);
+
+  // return the Nth item with the given name.  For example, if there are two conditions
+  // that hold the property name "ABC", NthItem can be used to return either the
+  // first or second.
+  // NOT CURRENTLY IMPLEMENTED.  DO NOT USE
+  [propget, id(8), helpstring("property NthItem")]
+  HRESULT NthItem(VARIANT aIndex, long aN, [out, retval] VARIANT *pVal);
+};
+
+
+// ----------------------------------------------------------------
+// Object:      MTActionSet
+// Prog ID:     MTActionSet.MTActionSet.1
+// Description: The set of actions to apply when a rule matches.
+//              Action sets are also used to hold default actions for a rule set.
+//              Default actions are only applied if no other rule matches.
+// Enumeration Element Type: MTAssignmentAction
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(CD730A3E-D8B8-11D2-A1DE-006008C0E24A),
+  dual,
+  helpstring("IMTActionSet Interface"),
+  pointer_default(unique)
+]
+interface IMTActionSet : IDispatch
+{
+  // number of actions in this set
+  [propget, id(4), helpstring("property Count")]
+  HRESULT Count([out, retval] long *pVal);
+
+  // Either the n-th action in the set or the action with the given property name,
+  // depending on the type of the argument.
+  [propget, id(DISPID_VALUE), helpstring("property Item")]
+  HRESULT Item(VARIANT aIndex, [out, retval] VARIANT *pVal);
+
+  // Automation method, used for enumerating actions within this action set
+  [propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")]
+  HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+
+  // Add an action to the set
+  [id(7)]
+  HRESULT Add([in] IMTAssignmentAction * pMyObj);
+
+  // return the Nth item with the given name.  For example, if there are two actions
+  // that hold the property name "ABC", NthItem can be used to return either the
+  // first or second.
+  [propget, id(8), helpstring("property NthItem")]
+  HRESULT NthItem(VARIANT aIndex, long aN, [out, retval] VARIANT *pVal);
+};

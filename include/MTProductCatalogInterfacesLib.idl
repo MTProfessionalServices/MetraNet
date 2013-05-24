@@ -1,0 +1,85 @@
+/**************************************************************************
+ * @doc MTPIPELINELIB
+ *
+ * Copyright 1998 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ * Created by: Boris Partensky
+ * $$
+ ***************************************************************************/
+
+import "MTProductCatalogInterfaces.idl";
+
+[
+	object,
+	uuid(a259da36-8ff9-4433-8153-f7d5ec1c857f),
+	dual,
+	helpstring("IMTDummy Interface"),
+	pointer_default(unique)
+]
+interface Dummy : IDispatch
+{
+};
+
+
+
+[
+	uuid(d17e8975-3260-4544-bf6b-ac968c16b7d8),
+	version(1.0),
+	helpstring("MetraTech Product Catalog interfaces type library")
+]
+library MTProductCatalogInterfacesLib
+{
+  importlib("stdole32.tlb");
+  importlib("stdole2.tlb");
+
+  interface IMTActionMetaData;
+  interface IMTAggregateCharge;
+  interface IMTCalendar;
+  interface IMTCalendarDay;
+  interface IMTCalendarPeriod;
+  interface IMTCalendarWeekday;
+  interface IMTCalendarHoliday;
+  interface IMTConditionMetaData;
+  interface IMTCounterPropertyDefinition;
+  interface IMTDiscount;
+  interface IMTNonRecurringCharge;
+  interface IMTParamTableDefinition;
+  interface IMTPCAccount;
+  interface IMTPCCycle;
+  interface IMTPCTimeSpan;
+  interface IMTPriceableItem;
+  interface IMTPriceableItemType;
+  interface IMTPriceList;
+  interface IMTPriceListMapping;
+  interface IMTProductCatalog;
+  interface IMTProductOffering;
+  interface IMTRateSchedule;
+  interface IMTRecurringCharge;
+  interface IMTSubscription;
+  interface IMTUsageCharge;
+  interface IMTGroupSubSlice;
+  interface IMTGroupSubscription;
+  interface IMTGSubMember;
+  interface IMTSubscriptionBase;
+  interface IMTUsage;
+  interface IMTCharge;
+  interface IMTChargeProperty;
+  interface IMTProductCatalogMetaData;
+  interface IMTPropertyMetaDataSet;
+  interface IMTPropertyMetaData;
+  interface IMTProperties;
+
+};

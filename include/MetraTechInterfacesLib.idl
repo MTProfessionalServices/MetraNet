@@ -1,0 +1,62 @@
+/**************************************************************************
+ * @doc MetraTechInterfacesLib
+ *
+ * Copyright 1998 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ * Created by: Derek Young
+ ***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTLog.idl";
+import "MTNameID.idl";
+import "IMTAuth.idl";
+import "rowsetinterfaces.idl";
+import "IMTServerAccess.idl";
+
+[
+	object,
+	uuid(ac0368d6-a96e-4b80-b2e9-331eaa89a41d),
+	dual,
+	helpstring("IMTDummy Interface"),
+	pointer_default(unique)
+]
+interface Dummy : IDispatch
+{
+};
+
+[
+	uuid(7d4afcc2-b3e9-4c98-9534-a6e9deb9b646),
+	version(1.0),
+	helpstring("MetraTech Interfaces 1.0 Type Library")
+]
+library MTInterfacesLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	interface IMTLog;
+	interface IMTNameID;
+	interface IMTAuth;
+	interface IMTSessionContext;
+	interface IMTRcd;
+	interface IMTSQLRowset;
+	interface IMTQueryAdapter;
+	interface IMTServerAccessData;
+	interface IMTServerAccessDataSet;
+	interface IMTCollection;
+}

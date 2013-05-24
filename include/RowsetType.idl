@@ -1,0 +1,12 @@
+
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+
+    typedef [uuid(f9bedc20-b421-11d4-9e71-00c04f46eb1e), version(1.0)]
+    enum {
+  SORT_ASCENDING = 1,
+  SORT_DESCENDING = 2,
+    } MTSortOrder;

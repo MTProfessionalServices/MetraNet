@@ -1,0 +1,60 @@
+// MTGenericDBExec.idl : IDL source for MTGenericDBExec.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTGenericDBExec.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "rowsetinterfaces.idl";
+
+	[
+		object,
+		uuid(DB6DF8C7-F284-487D-8CBD-FA2A4A76FF12),
+		dual,
+		helpstring("IMTGenericDBReader Interface"),
+		pointer_default(unique)
+	]
+	interface IMTGenericDBReader : IDispatch
+	{
+		[id(1), helpstring("method ExecuteStatement")] HRESULT ExecuteStatement([in] BSTR aQuery,[in, optional] VARIANT aQueryDir,[out, retval] IMTSQLRowset** ppRowset);
+	};
+	[
+		object,
+		uuid(52263BA1-EDF4-4CF1-8A12-AC0A54F34AD7),
+		dual,
+		helpstring("IMTGenericDBWriter Interface"),
+		pointer_default(unique)
+	]
+	interface IMTGenericDBWriter : IDispatch
+	{
+		[id(1), helpstring("method ExecuteStatement")] HRESULT ExecuteStatement([in] BSTR aQuery,[in,optional] VARIANT aQueryDir);
+	};
+
+[
+	uuid(B430744C-4954-4C8E-8686-A72F653914C1),
+	version(1.0),
+	helpstring("MTGenericDBExec 1.0 Type Library")
+]
+library MTGENERICDBEXECLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(C87832E9-77EC-4BD6-A9B6-635E57D001E3),
+		helpstring("MTGenericDBReader Class")
+	]
+	coclass MTGenericDBReader
+	{
+		[default] interface IMTGenericDBReader;
+	};
+	[
+		uuid(CA1E3625-7A82-4C62-A750-5E1398A94F3B),
+		helpstring("MTGenericDBWriter Class")
+	]
+	coclass MTGenericDBWriter
+	{
+		[default] interface IMTGenericDBWriter;
+	};
+};

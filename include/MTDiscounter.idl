@@ -1,0 +1,124 @@
+
+// include standard IDL files
+import "oaidl.idl";
+import "ocidl.idl";
+import "MTSession.idl";
+import "MTNameID.idl";
+import "MTConfigPropSet.idl";
+
+
+typedef [uuid(b94f2af0-87ad-11d3-a5ea-00c04f579c39), version(1.0)]
+enum {
+	DISCOUNT_UNBUNDLED,
+	DISCOUNT_BUNDLED,
+	DISCOUNT_ALL
+} MTDiscountType;
+
+// ----------------------------------------------------------------
+// Description:  	The IMTDiscounter interface is used by the
+// discount plugins to calculate discounts in the pipeline.  Every discount
+// object that is created must implement this interface
+// ----------------------------------------------------------------
+
+
+[
+	object,
+	uuid(df1b6f70-7ce0-11d3-a5e9-00c04f579c39),
+	helpstring("IMTDiscounter Interface"),
+	pointer_default(unique),
+]
+interface IMTDiscounter : IDispatch
+{
+
+	// ----------------------------------------------------------------
+	// Description:   CalculateDiscount can be used to proces a single session
+	// in the pipeline.  The object is expected to get the required properties form
+	// the session and set discount as the discounted amount.
+	// Arguments:     <argument 1> The current session that is used to calculated the discount
+	//                <argument 2> - the output discount amoun
+	// Return Value:  the output discount amount
+	// ----------------------------------------------------------------
+
+
+	[id(1), helpstring("Calculate Discount")]
+	HRESULT CalculateDiscount([in] IMTSession* pSession,[out, retval] VARIANT *discount);
+
+	// ----------------------------------------------------------------
+	// Description:   Initialize is used during pipeline initialization (similar to a plugin)
+	// the object is expected to read any configuration and look up session ID values prior 
+	// to processing sessions.
+	// Arguments:     <argument 1> - Pointer to a pipeline system context object
+	// Return Value:  none.
+	// ----------------------------------------------------------------
+	[id(2), helpstring("Initialize")]
+	HRESULT Initialize([in] IDispatch* pSysContext);
+
+	// ----------------------------------------------------------------
+	// Description:   This method is similar to calculateDiscount except that it accepts
+	// a Sessionset object
+	// Arguments:     <argument 1> - Pointer to pipeline Session set object.  Can be used to process a session set
+	// instead of iterating through the session and calling CalculateDiscount
+	// Return Value:  none
+	// ----------------------------------------------------------------
+	[id(3), helpstring("Calculate Discounts with session set")]
+	HRESULT CalculateDiscountWithSet([in] IMTSessionSet* pSessionSet);
+
+
+};
+
+// ----------------------------------------------------------------
+// Description:   IMTDiscountConfig describes the several properties about
+// the discount.  It also supports generating default configuration.
+// ----------------------------------------------------------------
+
+[
+	object,
+	uuid(675fec50-8263-11d3-a5e9-00c04f579c39),
+	helpstring("IMTDiscountConfig Interface"),
+	pointer_default(unique),
+]
+
+
+interface IMTDiscountConfig : IDispatch
+{
+	// ----------------------------------------------------------------
+	// Description:   The progid of the discount.
+	// Arguments:     none
+	// Return Value:  the Progid of the object
+	// ----------------------------------------------------------------
+
+	[propget, id(1), helpstring("ProgId")] HRESULT ProgId([out, retval] BSTR *pVal);
+
+	// ----------------------------------------------------------------
+	// Description:  The name of the discount
+	// Arguments:     none
+	// Return Value:  the name of the discount  
+	// ----------------------------------------------------------------
+
+	[propget, id(2), helpstring("DefaultName")] HRESULT DefaultName([out, retval] BSTR *pVal);
+
+	// ----------------------------------------------------------------
+	// Description:   Generate any default configuration.  Useful if created for the 
+	// the first time.
+	// Arguments:     none
+	// Return Value:  none
+	// ----------------------------------------------------------------
+
+	[id(3), helpstring("Default configuration")] HRESULT GenerateDefaultConfig();
+
+	// ----------------------------------------------------------------
+	// Description:  Does this object have XML configuration
+	// Arguments:     none
+	// Return Value:  returns a BOOLEAN value if this object requires XML configuration
+	// ----------------------------------------------------------------
+	[id(4), helpstring("HasXmlConfig")] HRESULT HasXmlConfig([out, retval] VARIANT_BOOL* pBool);
+
+	// ----------------------------------------------------------------
+	// Description:   The type of discount.
+	// Arguments:     none
+	// Return Value:  the type of discount this object supports.
+	// ----------------------------------------------------------------
+	[propget, id(5), helpstring("Get kind of discount")] HRESULT DiscountType([out, retval] MTDiscountType* pType);
+}
+
+

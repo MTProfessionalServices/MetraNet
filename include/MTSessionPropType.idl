@@ -1,0 +1,19 @@
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+
+    typedef [uuid(E2A4AA70-F5B0-11D2-A1E3-006008C0E24A), version(1.0)]
+    enum {
+	SESS_PROP_TYPE_DATE = 1,
+	SESS_PROP_TYPE_TIME = 2,
+	SESS_PROP_TYPE_STRING = 3,
+	SESS_PROP_TYPE_LONG = 4,
+	SESS_PROP_TYPE_DOUBLE = 5,
+	SESS_PROP_TYPE_BOOL = 6,
+	SESS_PROP_TYPE_ENUM = 7,
+	SESS_PROP_TYPE_DECIMAL = 8,
+	SESS_PROP_TYPE_OBJECT = 9,
+  SESS_PROP_TYPE_LONGLONG = 10
+    } MTSessionPropType;

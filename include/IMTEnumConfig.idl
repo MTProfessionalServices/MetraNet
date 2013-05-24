@@ -1,0 +1,444 @@
+import "MTConfig.idl";
+
+interface IMTEnumType;
+interface IMTEnumerator;
+interface IMTEnumeratorCollection;
+interface IMTEnumSpace;
+interface IMTEnumSpaceCollection;
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	
+	[
+		object,
+		uuid(3ADA859F-01C6-11D4-95A0-00B0D025B121),
+		dual,
+		helpstring("IMTEnumType Interface"),
+		pointer_default(unique)
+	]
+	interface IMTEnumType : IDispatch
+	{
+		
+		// ----------------------------------------------------------------
+		// Description:   Name for Enumspace this enumtype belongs to
+		// ----------------------------------------------------------------
+
+		[propget, id(1), helpstring("property Enumspace")] HRESULT Enumspace([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property Enumspace")] HRESULT Enumspace([in] BSTR newVal);
+		
+		// ----------------------------------------------------------------
+		// Description:   name for enumtype
+		// ----------------------------------------------------------------
+		
+		[propget, id(2), helpstring("property EnumTypeName")] HRESULT EnumTypeName([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property EnumTypeName")] HRESULT EnumTypeName([in] BSTR newVal);
+		
+		// ----------------------------------------------------------------
+		// Description:   Adds an Enumerator object to this enumtype
+		// ----------------------------------------------------------------
+
+		[id(3), helpstring("method Add")] HRESULT Add(IMTEnumerator* pEnum);
+		
+		// ----------------------------------------------------------------
+		// Description:   INTERNAL USE ONLY
+		// ----------------------------------------------------------------
+
+
+		[id(4), hidden, helpstring("method WriteSet")] HRESULT WriteSet(IMTConfigPropSet* pSet);
+		
+		// ----------------------------------------------------------------
+		// Description:   enumtype description
+		// ----------------------------------------------------------------
+		
+		[propget, id(5), helpstring("property EnumTypeDescription")] HRESULT EnumTypeDescription([out, retval] BSTR *pVal);
+		[propput, id(5), helpstring("property EnumTypeDescription")] HRESULT EnumTypeDescription([in] BSTR newVal);
+		
+		// ----------------------------------------------------------------
+		// Description:   description for enumspace this enum type belongs to
+		// ----------------------------------------------------------------
+		
+		[propget, id(6), helpstring("property EnumSpaceDescription")] HRESULT EnumSpaceDescription([out, retval] BSTR *pVal);
+		[propput, id(6), helpstring("property EnumSpaceDescription")] HRESULT EnumSpaceDescription([in] BSTR newVal);
+		
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns a collection of enumerators belonging to this enumtype
+		// ----------------------------------------------------------------
+		
+		[id(7), helpstring("method GetEnumerators")] HRESULT GetEnumerators([out, retval] IMTEnumeratorCollection**);
+		
+		// ----------------------------------------------------------------
+		// Description:   INTERNAL USE ONLY (Currently not used)
+		// ----------------------------------------------------------------
+
+
+		[propget, hidden, id(9), helpstring("property Status")] HRESULT Status([out, retval] BSTR *pVal);
+		[propput, hidden, id(9), helpstring("property Status")] HRESULT Status([in] BSTR newVal);
+	};
+	
+	[
+		object,
+		uuid(BDF32815-027D-11D4-95A0-00B0D025B121),
+		dual,
+		helpstring("IMTEnumerator Interface"),
+		pointer_default(unique)
+	]
+	interface IMTEnumerator : IDispatch
+	{
+		
+		// ----------------------------------------------------------------
+		// Description:   Enumerator Name
+		// ----------------------------------------------------------------
+		[propget, id(1), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		
+		
+		// ----------------------------------------------------------------
+		// Description:   Adds a value to this enumerator
+		// ----------------------------------------------------------------
+		[id(2), helpstring("method AddValue")] HRESULT AddValue(BSTR value);
+		
+		
+		// ----------------------------------------------------------------
+		// Description:   name for Enumspace this enumerator belongs to
+		// ----------------------------------------------------------------
+		[propget, id(3), helpstring("property EnumSpace")] HRESULT EnumSpace([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property EnumSpace")] HRESULT EnumSpace([in] BSTR newVal);
+		
+		// ----------------------------------------------------------------
+		// Description:   name for EnumType this enumerator belongs to
+		// ----------------------------------------------------------------
+		[propget, id(4), helpstring("property EnumType")] HRESULT EnumType([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property EnumType")] HRESULT EnumType([in] BSTR newVal);
+		
+		
+		// ----------------------------------------------------------------
+		// Description:   INTERNAL USE ONLY
+		// ----------------------------------------------------------------
+		[id(5), hidden, helpstring("method WriteSet")] HRESULT WriteSet(IMTConfigPropSet* pSet);
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns a number of values in this enumerator
+		// ----------------------------------------------------------------
+		[id(6), helpstring("method NumValues")] HRESULT NumValues([out, retval] int*);
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns a value at a specified index (0 to NumValues)
+		// ----------------------------------------------------------------
+		[id(7), helpstring("method ElementAt")] HRESULT ElementAt([in] int, [out, retval] BSTR* pEnumValue);
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns a fully qualified name for this enumerator
+		// ----------------------------------------------------------------
+		[propget, id(8), helpstring("property FQN")] HRESULT FQN([out, retval] BSTR *pVal);
+		
+		// ----------------------------------------------------------------
+		// Description:   Removes a value by name
+		// ----------------------------------------------------------------
+		[id(9), helpstring("method ClearValue")] HRESULT ClearValue(BSTR value);
+		
+		// ----------------------------------------------------------------
+		// Description:   Removes all values from this enumerator
+		// ----------------------------------------------------------------
+		[id(10), helpstring("method ClearValues")] HRESULT ClearValues();
+
+		// ----------------------------------------------------------------
+		// Description:   Enumerator display name
+		// ----------------------------------------------------------------
+		[propget, id(11), helpstring("property DisplayName")] HRESULT DisplayName([out, retval] BSTR *pVal);
+		[propput, id(11), helpstring("property DisplayName")] HRESULT DisplayName([in] BSTR newVal);
+
+	};
+	[
+		object,
+		uuid(68870841-03F4-11D4-95A0-00B0D025B121),
+		dual,
+		helpstring("IMTEnumeratorCollection Interface"),
+		pointer_default(unique)
+	]
+	interface IMTEnumeratorCollection : IDispatch
+	{
+		
+		// ----------------------------------------------------------------
+		// Description:   Not used directly (for each ... in ... support in VB)
+		// ----------------------------------------------------------------
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		
+		// ----------------------------------------------------------------
+		// Description:   Adds an enumerator object to the collection
+		// ----------------------------------------------------------------
+		[id(1), helpstring("method Add")] HRESULT Add(IMTEnumerator*);
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns a number of enumerator objects in the collection
+		// ----------------------------------------------------------------
+		[propget, id(2), helpstring("property Size")] HRESULT Size([out, retval] long *pVal);
+		
+		// ----------------------------------------------------------------
+		// Description:   Same as Size
+		// ----------------------------------------------------------------
+		[propget, id(3), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns an enumerator object at a specifed index (1 to Count)
+		// ----------------------------------------------------------------
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(long aIndex, [out, retval] VARIANT *pVal);
+	};
+	[
+		object,
+		uuid(BC3E00F1-0665-11D4-95A1-00B0D025B121),
+		dual,
+		helpstring("IMTEnumTypeCollection Interface"),
+		pointer_default(unique)
+	]
+	interface IMTEnumTypeCollection : IDispatch
+	{
+		
+		// ----------------------------------------------------------------
+		// Description:   Not used directly (for each ... in ... support in VB)
+		// ----------------------------------------------------------------
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		
+		
+		// ----------------------------------------------------------------
+		// Description:   Adds an enumtype object to the collection
+		// ----------------------------------------------------------------
+		[id(1), helpstring("method Add")] HRESULT Add(IMTEnumType* enum_type);
+		
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns a number of enumtype objects in the collection
+		// ----------------------------------------------------------------;
+		[propget, id(2), helpstring("property Size")] HRESULT Size([out, retval] long *pVal);
+		
+		// ----------------------------------------------------------------
+		// Description:   Same as Size
+		// ----------------------------------------------------------------
+		[propget, id(3), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns an enumtype object at a specifed index (1 to Count)
+		// ----------------------------------------------------------------
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(long aIndex, [out, retval] VARIANT *pVal);
+
+	};
+	[
+		object,
+		uuid(BC3E00F8-0665-11D4-95A1-00B0D025B121),
+		dual,
+		helpstring("IMTEnumSpace Interface"),
+		pointer_default(unique)
+	]
+	interface IMTEnumSpace : IDispatch
+	{
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns IMTEnumTypeCollection associated with this EnumSpace
+		// ----------------------------------------------------------------
+		[id(1), helpstring("method GetEnumTypes")] HRESULT GetEnumTypes([out, retval] IMTEnumTypeCollection**);
+		
+		// --------------------------------------------------------------------------------
+		// Description:   Returns IMTEnumType object associated with this EnumSpace by name
+		// ---------------------------------------------------------------------------------
+		[id(2), helpstring("method GetEnumType")] HRESULT GetEnumType(BSTR, [out, retval]IMTEnumType**);
+		
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns IMTEnumTypeCollection associated with this EnumSpace
+		// ----------------------------------------------------------------
+		[id(3), helpstring("method Add")] HRESULT Add(IMTEnumType* enum_type);
+		
+		
+		
+		// ----------------------------------------------------------------
+		// Description:   Name for this EnumSpace
+		// ----------------------------------------------------------------
+		[propget, id(4), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		
+		
+		// ----------------------------------------------------------------
+		// Description:   Description for this EnumSpace
+		// ----------------------------------------------------------------
+		[propget, id(5), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+		[propput, id(5), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+		
+		// ----------------------------------------------------------------
+		// Description:   File name this EnumSpace is defined in
+		// ----------------------------------------------------------------
+		[propget, id(8), helpstring("property Location")] HRESULT Location([out, retval] BSTR *pVal);
+		[propput, id(8), helpstring("property Location")] HRESULT Location([in] BSTR newVal);
+		
+		// ----------------------------------------------------------------
+		// Description:   INTERNAL USE ONLY
+		// ----------------------------------------------------------------
+		[id(9), hidden, helpstring("method WriteSet")] HRESULT WriteSet(IMTConfigPropSet*);
+
+		// get the extension name
+		[propget,id(10), helpstring("get the extension name")] HRESULT Extension([out, retval] BSTR* pExtensionName);
+	};
+	[
+		object,
+		uuid(7F834F73-067C-11D4-95A1-00B0D025B121),
+		dual,
+		helpstring("IMTEnumSpaceCollection Interface"),
+		pointer_default(unique)
+	]
+	interface IMTEnumSpaceCollection : IDispatch
+	{
+		
+		// ----------------------------------------------------------------
+		// Description:   Not used directly (for each ... in ... support in VB)
+		// ----------------------------------------------------------------
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		
+		
+		// ----------------------------------------------------------------
+		// Description:   Adds an enumspace object to the collection
+		// ----------------------------------------------------------------
+		[id(1), helpstring("method Add")] HRESULT Add(IMTEnumSpace* enum_space);
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns a number of enumtype objects in the collection
+		// ----------------------------------------------------------------;
+		[propget, id(2), helpstring("property Size")] HRESULT Size([out, retval] long *pVal);
+		
+		// ----------------------------------------------------------------
+		// Description:   Same as Size
+		// ----------------------------------------------------------------;
+		[propget, id(3), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns an enumspace object at a specifed index (1 to Count)
+		// ----------------------------------------------------------------
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(long aIndex, [out, retval] VARIANT *pVal);
+	};
+	
+	[
+		object,
+		uuid(3ADA858D-01C6-11D4-95A0-00B0D025B121),
+		dual,
+		helpstring("IEnumConfig Interface"),
+		pointer_default(unique)
+	]
+	interface IEnumConfig : IDispatch
+	{
+		// ----------------------------------------------------------------
+		// Description:   Creates Internal enum type collections from runtime or from an extension
+		// ----------------------------------------------------------------
+		[id(1), hidden, helpstring("method Initialize")] HRESULT Initialize([in, optional] VARIANT Extension);
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns Enumerator name given enum space, enum type and value metered in
+		// ----------------------------------------------------------------
+		[id(2), helpstring("method GetEnumWithValue")] HRESULT GetEnumWithValue([in] BSTR enum_space, [in] BSTR  enum_name, [in]BSTR enum_value, [out,retval]BSTR* name);
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns IMTEnumSpace object by name
+		// ----------------------------------------------------------------
+		[id(3), helpstring("method GetEnumSpace")] HRESULT GetEnumSpace([in] BSTR, [out, retval] IMTEnumSpace** enum_space);
+		
+		// ----------------------------------------------------------------
+		// Description:   Writes out IMTEnumSpace object to given file 
+		// ----------------------------------------------------------------
+		[id(4), hidden, helpstring("method WriteNewEnumSpaceWithFileName")] HRESULT WriteNewEnumSpaceWithFileName(BSTR file, IMTEnumSpace* enum_space);
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns FQN for an enumerator given enum space, enum type and value metered in
+		// ----------------------------------------------------------------
+		[id(5), helpstring("method GetFQN")] HRESULT GetFQN([in] BSTR enum_space, [in] BSTR  enum_name, [in]BSTR enum_value, [out,retval]BSTR* name);
+		
+		// ----------------------------------------------------------------
+		// Description:   Updates existing enum space
+		// ----------------------------------------------------------------
+		[id(6), helpstring("method UpdateEnumSpace")] HRESULT UpdateEnumSpace(IMTEnumSpace* enum_space);
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns enumspace collection
+		// ----------------------------------------------------------------
+		[id(7), helpstring("method GetEnumSpaces")] HRESULT GetEnumSpaces([in, optional] VARIANT extension, [out, retval] IMTEnumSpaceCollection**);
+		
+		// ----------------------------------------------------------------
+		// Description:   Writes new enum space out to file, file name is determined by enumspace name
+		// ----------------------------------------------------------------
+		[id(8), helpstring("method WriteNewEnumSpace")] HRESULT WriteNewEnumSpace([in] IMTEnumSpace* enum_space, [in]BSTR aExtension);
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns 0 if given enumspace is not defined or 1 if it is
+		// ----------------------------------------------------------------
+		[id(9), helpstring("method ValidEnumSpace")] HRESULT ValidEnumSpace([in] BSTR name, [out, retval] int* ret);
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns 0 if given enumtype is not defined or 1 if it is
+		// ----------------------------------------------------------------
+		[id(10), helpstring("method ValidEnumType")] HRESULT ValidEnumType([in] BSTR enumspace_name, [in] BSTR enumtype_name, [out, retval] int* ret);
+		
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns enumtype object given enum space name and enum type name
+		// ----------------------------------------------------------------
+		[id(11), helpstring("method GetEnumType")] HRESULT GetEnumType([in] BSTR enum_space, [in] BSTR enum_type, [out, retval] IMTEnumType** pEnumType);
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns enumerator collection
+		// ----------------------------------------------------------------
+		[id(12), helpstring("method GetEnumerators")] HRESULT GetEnumerators([in] BSTR enum_space, [in] BSTR enum_type, [out, retval] IMTEnumeratorCollection** coll);
+		
+		// ----------------------------------------------------------------
+		// Description:   Creates Internal enum type collections remotely given host name and relative path
+		// ----------------------------------------------------------------
+		[id(13), helpstring("method InitializeFromHost")] HRESULT InitializeFromHost(BSTR host, BSTR relative_path);
+		
+
+		// ----------------------------------------------------------------
+		// Description:   Internal use only
+		// ----------------------------------------------------------------
+	
+		[id(14), hidden, helpstring("method Read")] HRESULT Read([in]BSTR file);
+		
+		// ----------------------------------------------------------------
+		// Description:   Adds enumeration defined in given file name to internal collection
+		// ----------------------------------------------------------------
+		[id(15), helpstring("method LoadEnumeration")] HRESULT LoadEnumeration([in] BSTR from_file_path);
+		
+		// ----------------------------------------------------------------
+		// Description:   Creates Internal enum type collections given master file path and optionally host name
+		// ----------------------------------------------------------------
+		[id(16), helpstring("method InitializeWithFileName")] HRESULT InitializeWithFileName([in]BSTR master_file_full_path, [in, optional]VARIANT host_name);
+		
+		// ----------------------------------------------------------------
+		// Description:   Sets internal iterator to beginning of FQN collection
+		// ----------------------------------------------------------------
+		[id(17), helpstring("method EnumerateFQN")] HRESULT EnumerateFQN();
+		
+		// ----------------------------------------------------------------
+		// Description:   Moves internal iterator to next element of FQN collection and returns it
+		// ----------------------------------------------------------------
+		[id(18), helpstring("method NextFQN")] HRESULT NextFQN([out, retval] BSTR* fqn);
+		
+		// ----------------------------------------------------------------
+		// Description:   Returns 1 if internal iterator hit FQN collection end and 0 otherwise
+		// ----------------------------------------------------------------
+		[id(19), helpstring("method FQNCollectionEnd")] HRESULT FQNCollectionEnd([out, retval] int* ret);
+		
+		// ----------------------------------------------------------------
+		// Description:  returns number of elements in internal FQN collection
+		// ----------------------------------------------------------------
+		[id(20), helpstring("method FQNCount")] HRESULT FQNCount([out, retval] int* pVal);
+
+		// ----------------------------------------------------------------
+		// Description:  returns enumerator name by given id
+		// ----------------------------------------------------------------
+		[id(21), helpstring("method GetEnumeratorByID")] HRESULT GetEnumeratorByID([in] long aID, [out, retval] BSTR* aEnum);
+		
+		// ----------------------------------------------------------------
+		// Description:  returns a first value for enumerator by given id
+		// ----------------------------------------------------------------
+		[id(22), helpstring("method GetEnumeratorValueByID")] HRESULT GetEnumeratorValueByID([in] long aID, [out, retval] BSTR* aEnum);
+			// ----------------------------------------------------------------
+		// Description:  returns a description id
+		// ----------------------------------------------------------------
+		[id(23), helpstring("method GetID")] HRESULT GetID([in] BSTR enum_space, [in] BSTR  enum_name, [in]BSTR enum_value, [out,retval]long* name);
+	};

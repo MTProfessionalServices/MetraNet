@@ -1,0 +1,26 @@
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// configuration interface
+import "MTConfig.idl";
+
+	[
+		object,
+		uuid(20021546-741F-11D2-80FC-006008C0E8B7),
+		dual,
+		helpstring("IMTConfigFileList Interface"),
+		pointer_default(unique)
+	]
+	interface IMTConfigFileList : IDispatch
+	{
+		[propget, id(1), helpstring("Returns number of items in collection")] HRESULT Count([out, retval] long *pVal);
+		[propput, id(1), helpstring("Returns number of items in collection")] HRESULT Count([in] long newVal);
+		[id(2), helpstring("method AddCFile")] HRESULT AddCFile([in] IMTConfigPropSet* apMainVal, [in] IMTConfigPropSet* apVal, [in] long aEffDate, [in] long aLingerDate, [in] BSTR aFilename);
+		[id(3), helpstring("method CalculateEffDate")] HRESULT CalculateEffDate();
+		[propget, id(4), helpstring("property EffectConfig")] HRESULT EffectConfig([in]long curDate, [out, retval] IMTConfigPropSet* *pVal);
+		[id(5), helpstring("method RemoveItem")] HRESULT RemoveItem([in]long aIndex);
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item([in] long aIndex, [out, retval] VARIANT *pVal);
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+	};

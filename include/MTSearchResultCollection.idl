@@ -1,0 +1,25 @@
+// This file will be processed by the MIDL tool to
+// produce the type library (MTAccountPropertyCollection.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTAccountPropertyCollection.idl";
+
+	[
+		object,
+		uuid(BB48A9F2-89D1-11D4-9165-00B0D02B5777),
+		dual,
+		helpstring("IMTSearchResultCollection Interface"),
+		pointer_default(unique)
+	]
+	interface IMTSearchResultCollection : IDispatch
+	{
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item([in] long aIndex, [out, retval] VARIANT *pVal);
+		[propget, id(1), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[propget, id(DISPID_NEWENUM), helpstring("property _NewEnum"), restricted] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[id(2), helpstring("method Add")] HRESULT Add([in] IMTAccountPropertyCollection* pAccPropColl);
+		[id(3), helpstring("method Append")] HRESULT Append([in] IMTSearchResultCollection* apSRC);
+		[id(4), helpstring("method Clear")] HRESULT Clear();
+
+	};

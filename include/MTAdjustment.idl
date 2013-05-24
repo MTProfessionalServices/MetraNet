@@ -1,0 +1,73 @@
+/**************************************************************************
+* Copyright 1997-2002 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+***************************************************************************/
+
+import "AdjustmentInterfaces.idl";
+
+[
+	object,
+	uuid(0cb9be37-2211-4fd8-833d-76016ee632a2),
+	dual,
+	helpstring("COM_ROCKS_A_WHOLE_BUNCH Interface"),
+	pointer_default(unique)
+]
+interface COM_ROCKS_A_WHOLE_BUNCH : IDispatch
+{
+};
+[
+	uuid(1892058F-9334-44DA-BEFC-3D777ED7CEEB),
+	version(1.0),
+	helpstring("MTAdjustment 1.0 Type Library")
+]
+library MTADJUSTMENTLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(69A4A514-4E10-4ECF-ACFC-C54675EF8A92),
+		helpstring("MTAdjustmentType Class")
+	]
+	coclass MTAdjustmentType
+	{
+		[default] interface IMTAdjustmentType;
+	};
+	[
+		uuid(73D7E786-B3EC-4036-B5D4-DD2A97B03D9C),
+		helpstring("MTAdjustmentInstance Class")
+	]
+	coclass MTAdjustmentInstance
+	{
+		[default] interface IMTAdjustmentInstance;
+	};
+	[
+		uuid(0E0E180B-1F83-4411-ACEB-2AB1EECAB846),
+		helpstring("MTAdjustmentTypeCol Class")
+	]
+	coclass MTAdjustmentCatalog
+	{
+		[default] interface IMTAdjustmentCatalog;
+	};
+	[
+		uuid(57FE6A32-A15B-4F33-8171-128A2F73325C),
+		helpstring("MTPriceableItemAdjustmentFramework Class")
+	]
+	coclass MTPriceableItemAdjustmentFramework
+	{
+		[default] interface IMTPriceableItemAdjustmentFramework;
+	};
+};

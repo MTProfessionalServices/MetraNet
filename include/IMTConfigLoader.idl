@@ -1,0 +1,43 @@
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTConfigFileList.idl";
+
+	[
+		object,
+		uuid(20021541-741F-11D2-80FC-006008C0E8B7),
+		dual,
+		helpstring("IMTConfigLoader Interface"),
+		pointer_default(unique)
+	]
+	interface IMTConfigLoader : IDispatch
+	{
+		[id(1), helpstring("method Init")] HRESULT Init();
+
+		[id(2), helpstring("method InitWithPath")] HRESULT InitWithPath([in]BSTR aRootPath);
+
+		[id(3), helpstring("method GetAllFiles")] HRESULT GetAllFiles([in]BSTR aCompName, 
+				[in]BSTR aFileName, 
+				[out, retval]IMTConfigFileList** apConfigFileList);
+
+		[id(4), helpstring("method GetActiveFiles")] HRESULT GetActiveFiles([in]BSTR aCompName, 
+				[in]BSTR aFileName, 
+				[out, retval]IMTConfigFileList** apConfigFileList);
+
+		[id(5), helpstring("method GetEffectFile")] HRESULT GetEffectiveFile([in]BSTR aCompName, 
+				[in]BSTR aFileName, 
+				[out, retval]IMTConfigPropSet ** apConfigPropSet);
+
+		[id(6), helpstring("method GetEffectFileWithDate")] HRESULT GetEffectiveFileWithDate([in]BSTR aCompName, 
+				[in]BSTR aFileName, 
+				[in]VARIANT aDate, 
+				[out,retval]IMTConfigPropSet** apConfigPropSet);
+
+		[id(7), helpstring("method GetPath")] HRESULT GetPath([in]BSTR aCompName,
+												[out, retval]BSTR* apRetVal);
+
+		[propput, id(8), helpstring("property AutoEnumConversion")] HRESULT AutoEnumConversion([in] VARIANT_BOOL aConversionSwitch);
+		[propget, id(8), helpstring("property AutoEnumConversion")] HRESULT AutoEnumConversion([out, retval] VARIANT_BOOL* aConversionSwitch);
+
+	};

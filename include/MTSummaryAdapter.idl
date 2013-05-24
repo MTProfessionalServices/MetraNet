@@ -1,0 +1,47 @@
+
+// include standard IDL files
+import "oaidl.idl";
+import "ocidl.idl";
+import "COMDBObjects.idl";
+import "COMMeter.idl";
+import "MTConfigPropSet.idl";
+
+// ----------------------------------------------------------------
+// Description:  IMTSummaryAdapter provides a layer on top of the standard 
+// usage server adapter interface that supports metering via the MetraTech SDK.	
+// ----------------------------------------------------------------
+
+
+[
+	object,
+	uuid(ace68bb0-7c2f-11d3-a5e9-00c04f579c39),
+	helpstring("IMTSummaryAdapter Interface"),
+	pointer_default(unique),
+]
+interface IMTSummaryAdapter : IUnknown
+{
+	// ----------------------------------------------------------------
+	// Name:     	Init
+	// Arguments:     <pService> - The name of the MetraTech service
+	//                <pPropSet> - a set of XML configuration
+	// Return Value:  none.    
+	// Description:   Initializes the summary adapter with a service name and a set of XML configuration.
+	// ----------------------------------------------------------------
+
+	[id(1), helpstring("Init Summary Adapter")]
+	HRESULT Init([in] BSTR pService,[in] IMTConfigPropSet* pPropSet);
+	
+	// ----------------------------------------------------------------
+	// Name:     	ProcessUser
+	// Arguments:     <pSummaryView> - a summary view for the current account
+	//                <pSession> - the COM SDK session
+	// Return Value:  none    
+	// Description:   ProcessUser is called on an account by account basis.  The implementation should
+	// expect to read populate pSession with information from pSummaryView.
+	// ----------------------------------------------------------------
+
+	[id(2), helpstring("Process summary information per user")]
+	HRESULT ProcessUser([in] ICOMSummaryView* pSummaryView,[in] ISession* pSession);
+};
+
+

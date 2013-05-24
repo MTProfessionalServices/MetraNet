@@ -1,0 +1,43 @@
+// MTCLoader.idl : IDL source for MTCLoader.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ConfigLoader.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// configuration interface
+import "MTConfig.idl";
+
+import "MTConfigFileList.idl";
+import "MTConfigFile.idl";
+import "IMTConfigLoader.idl";
+
+
+	[
+		object,
+		uuid(0CCDD560-B0B0-11D2-A1D7-006008C0E24A),
+		dual,
+		helpstring("IConfigLoaderDummy Interface"),
+		pointer_default(unique)
+	]
+	interface IConfigLoaderDummy : IDispatch
+	{
+	};
+
+
+[
+	uuid(20021534-741F-11D2-80FC-006008C0E8B7),
+	version(1.0),
+	helpstring("MTCLoader 1.0 Type Library")
+]
+library CONFIGLOADERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	interface IMTConfigLoader;
+	interface IMTConfigFileList;
+	interface IMTConfigFile;
+};

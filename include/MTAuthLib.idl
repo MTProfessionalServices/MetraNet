@@ -1,0 +1,58 @@
+/**************************************************************************
+* Copyright 1997-2002 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+***************************************************************************/
+
+import "IMTAuth.idl";
+import "IMTSecurity.idl";
+
+[
+	uuid(af28b7e1-b7ab-42dd-a6ce-2dc418e6e0df),
+	version(1.0),
+	helpstring("MTAuth 1.0 Type Library")
+]
+library MTAuthInterfacesLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	interface IMTCompositeCapabilityBase;
+	interface IMTCompositeCapability;
+	interface IMTAtomicCapability;
+	
+	interface IMTPathCapability;
+	interface IMTAccessTypeCapability;
+	interface IMTEnumTypeCapability;
+	interface IMTDecimalCapability;
+	
+	interface IMTSecurityContext;
+	interface IMTLoginContext;
+	interface IMTSecurityPrincipal;
+	interface IMTCapabilityType;
+	interface IMTAtomicCapabilityType;
+	interface IMTCompositeCapabilityType;
+	interface IMTPrincipalPolicy;
+	interface IMTRole;
+	interface IMTYAAC;
+	
+	interface IMTSecurity;
+	
+	interface IMTAtomicCapabilityBase;
+	interface IMTPathParameter;
+	
+	interface IMTSessionContext;
+	
+};

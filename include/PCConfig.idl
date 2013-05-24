@@ -1,0 +1,111 @@
+/**************************************************************************
+ * @doc SIMPLE
+ *
+ * Copyright 1999 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ * Created by: Boris Partensky
+ *
+ * $Date: 10/1/2002 11:05:17 AM$
+ * $Author: Fabricio Pettena$
+ * $Revision: 3$
+ ***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	typedef [uuid(2af94aa1-f622-4512-93fc-852a8ed925f9), version(1.0)]
+	enum
+	{
+		MTPC_PRICELIST_CHAIN_RULE_UNKNOWN,
+		MTPC_PRICELIST_CHAIN_RULE_ALL,
+		MTPC_PRICELIST_CHAIN_RULE_NONE,
+		MTPC_PRICELIST_CHAIN_RULE_PO_ONLY,
+	}	MTPC_PRICELIST_CHAIN_RULE;
+
+	typedef [uuid(9f89c374-19fc-45a2-a315-44a98cbcad9e), version(1.0)]
+	enum
+	{
+    MTPC_BUSINESS_RULE_UNKNOWN,
+    MTPC_BUSINESS_RULE_All_NoEmptyRequiredProperty,
+    MTPC_BUSINESS_RULE_All_CheckStringLength,
+    MTPC_BUSINESS_RULE_Account_NoConflictingProdOff,
+    MTPC_BUSINESS_RULE_Account_NoDuplicateProdOff,
+    MTPC_BUSINESS_RULE_EffDate_CheckDateCompatibility,
+    MTPC_BUSINESS_RULE_EffDate_NoEndBeforeStart,
+    MTPC_BUSINESS_RULE_PITempl_NoDuplicateName,
+    MTPC_BUSINESS_RULE_PIType_NoDuplicateName,
+    MTPC_BUSINESS_RULE_PIType_NoRemoveIfTemplate,
+    MTPC_BUSINESS_RULE_PriceList_NoDuplicateName,
+    MTPC_BUSINESS_RULE_ProdOff_CheckConfiguration,
+    MTPC_BUSINESS_RULE_ProdOff_CheckCurrency,
+    MTPC_BUSINESS_RULE_ProdOff_CheckDates,
+    MTPC_BUSINESS_RULE_ProdOff_CheckModification,
+    MTPC_BUSINESS_RULE_ProdOff_NoDuplicateUsageTemplate,
+    MTPC_BUSINESS_RULE_ProdOff_NoDuplicateTemplate,
+    MTPC_BUSINESS_RULE_ProdOff_NoDuplicateInstanceName,
+    MTPC_BUSINESS_RULE_ProdOff_NoDuplicateName,
+    MTPC_BUSINESS_RULE_Account_CheckBillingCycleChange,
+    MTPC_BUSINESS_RULE_ProdOff_NoModificationIfAvailable,
+    MTPC_BUSINESS_RULE_IgnoreDateCheckOnGroupSubDelete,
+    MTPC_BUSINESS_RULE_IgnoreDateCheckOnSubscriptionDelete,
+    MTPC_BUSINESS_RULE_OnlyAbsoluteRateSchedulesWithGroupSubscription,
+    MTPC_BUSINESS_RULE_PI_CheckCycleChange,
+		MTPC_BUSINESS_RULE_Rates_DeleteOverride,
+    MTPC_BUSINESS_RULE_Adjustments_NoGreaterThanCharge,
+    MTPC_BUSINESS_RULE_Hierarchy_RestrictedOperations,
+	MTPC_BUSINESS_RULE_Subscription_TruncateTimeValues,
+	MTPC_BUSINESS_RULE_ProdOff_AllowAccountPOCurrencyMismatch,
+	MTPC_BUSINESS_RULE_ProdOff_AllowMultiplePISubscriptionRCNRC
+	}	MTPC_BUSINESS_RULE;
+
+
+	[
+		object,
+		uuid(A894E469-8279-499C-91E7-D69E113BF5D5),
+		dual,
+		helpstring("IMTPCConfiguration Interface"),
+		pointer_default(unique)
+	]
+	interface IMTPCConfiguration : IDispatch
+	{
+		[id(1), helpstring("method Load")] HRESULT Load();
+		[id(2), helpstring("method GetPLChaining")] HRESULT GetPLChaining([out, retval]MTPC_PRICELIST_CHAIN_RULE* apChainRule);
+		[id(3), helpstring("method IsBusinessRuleEnabled")] HRESULT IsBusinessRuleEnabled([in]MTPC_BUSINESS_RULE aBusRule, [out, retval]VARIANT_BOOL* apEnabledFlag);
+		[id(4), helpstring("method GetBatchSubmitTimeout")] HRESULT GetBatchSubmitTimeout([out, retval] long* apTimeout);
+    [id(5), helpstring("method OverrideBusinessRule")] HRESULT OverrideBusinessRule([in] MTPC_BUSINESS_RULE aBusRule,[in] VARIANT_BOOL aVal);
+    [id(6), helpstring("method GetDebugTempTables")] HRESULT GetDebugTempTables([out, retval] VARIANT_BOOL* apDTT);
+    [id(7), helpstring("method GetRSCacheMaxSize")] HRESULT GetRSCacheMaxSize([out, retval] long* apMax);
+	};
+
+[
+	uuid(A4175A41-AF24-4F1E-B408-00CF83690549),
+	version(1.0),
+	helpstring("PCConfig 1.0 Type Library")
+]
+library PCCONFIGLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(6346CB06-224B-4284-B6F7-7CF7F4508B1F),
+		helpstring("MTPCConfiguration Class")
+	]
+	coclass MTPCConfiguration
+	{
+		[default] interface IMTPCConfiguration;
+	};
+};

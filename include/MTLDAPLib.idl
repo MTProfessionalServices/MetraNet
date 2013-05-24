@@ -1,0 +1,20 @@
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "ILDAP.idl";
+
+[
+	uuid(01cf4570-5049-11d3-ae86-00c04f54fe3b),
+	version(1.0),
+	helpstring("MetraTech LDAP Type Library")
+]
+library MTLDAPLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	interface IMTLDAPData;
+	interface IMTLDAPDataSet;
+	interface IMTLDAPImpl;
+};

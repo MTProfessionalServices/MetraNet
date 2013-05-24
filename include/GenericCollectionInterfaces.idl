@@ -1,0 +1,100 @@
+/**************************************************************************
+* Copyright 1997-2001 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+* Created by: Boris Partensky
+* 
+***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+
+	[
+		object,
+		uuid(819aa69a-4f36-4962-a15a-cc3bae797b13),
+		dual,
+		helpstring("IMTCollectionReadOnly Interface"),
+		pointer_default(unique)
+	]
+	interface IMTCollectionReadOnly : IDispatch
+	{
+		[id(DISPID_NEWENUM), propget]
+		HRESULT _NewEnum([out, retval] IUnknown** ppUnk);
+
+		[id(DISPID_VALUE), propget, helpstring("retrieve an item from the collection")]
+		HRESULT Item(
+						[in] long Index, 
+						[out, retval] VARIANT* pVal);
+		[id(0x00000001), propget, helpstring("the number of members in the collection")]
+		HRESULT Count([out, retval] long* pVal);
+
+		[id(0x00000005), helpstring("sort the members of the collection.  The object must support the IMTSortProperty interface")]
+		HRESULT Sort();
+	};
+
+
+	[
+		object,
+		uuid(0B789D93-4D00-400E-B5B5-FBB107CEF540),
+		dual,
+		helpstring("IMTCollection Interface (index starts at 1)"),
+		pointer_default(unique)
+	]
+	interface IMTCollection : IMTCollectionReadOnly
+	{
+
+		[id(0x00000002), helpstring("Add an item to the end of the collection")]
+		HRESULT Add(
+						[in] VARIANT Item
+						);
+
+		[id(0x00000003), helpstring("Insert an item in the collection at the specified index")]
+		HRESULT Insert([in] VARIANT Item, long aIndex);
+
+		[id(0x00000004), helpstring("remove an item from the collection")]
+		HRESULT Remove(long aIndex);
+
+	};
+
+	[
+		object,
+		uuid(3f98522f-0537-413a-aa0c-4ef0c8dbc672),
+		dual,
+		helpstring("IMTCollectionEx Interface"),
+		pointer_default(unique)
+	]
+	interface IMTCollectionEx : IMTCollection
+	{
+		[id(50), propget, helpstring("determine if an item is in the collection based on the key")] 
+			HRESULT Exists([in] VARIANT vtKey,[out,retval] VARIANT_BOOL* pBool);
+		[id(51), helpstring("clear the collection")] HRESULT Clear();
+		[id(52), helpstring("serializes results to a comma seperated string")] HRESULT ToString([out, retval] BSTR* pStr);
+	};
+
+
+	
+	[
+		object,
+		uuid(a5d0111d-6120-4400-add1-1a7be98a7a42),
+		dual,
+		helpstring("IMTSortProperty Interface"),
+		pointer_default(unique)
+	]
+	interface IMTSortProperty : IUnknown
+	{
+		[id(1)]
+		HRESULT Compare([in] IUnknown* pUnk1, [out, retval] VARIANT_BOOL *apGreaterThan);
+	};

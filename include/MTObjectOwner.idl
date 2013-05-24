@@ -1,0 +1,182 @@
+/**************************************************************************
+ * @doc MTOBJECTOWNER
+ *
+ * Copyright 2001 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ * Created by: Derek Young
+ * $Header$
+ *
+ * interface definition for shared object owners
+ ***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTTransaction.idl";
+import "IMTAuth.idl";
+import "IMTSecurity.idl";
+
+// ----------------------------------------------------------------
+// Object: MTObjectOwner
+// Prog ID: MetraPipeline.MTObjectOwner.1
+// Description: Interface to get and set properties of a session.
+// ----------------------------------------------------------------
+[
+	object,
+	uuid(5C7EC888-2BC6-498A-9B4D-29622C942154),
+	dual,
+	helpstring("IMTObjectOwner Interface"),
+	pointer_default(unique)
+]
+interface IMTObjectOwner : IDispatch
+{
+  // Return this object owner's ID
+  [propget, helpstring("property ID")]
+    HRESULT ID([out, retval] long *pVal);
+
+  // Return the total number of objects we "own".
+	// this count doesn't change after it's initially set.
+  [propget, helpstring("property TotalCount")]
+    HRESULT TotalCount([out, retval] long *pVal);
+
+  // Return the stage ID waiting for info on this
+  [propget, helpstring("property StageID")]
+    HRESULT StageID([out, retval] long *pVal);
+
+  // Return the session set that we need to send feedback on
+  [propget, helpstring("property StageID")]
+    HRESULT SessionSetID([out, retval] long *pVal);
+
+  // Return true if a stage should be notified when the waiting count
+	// drops to zero.
+  [propget, helpstring("property ")]
+    HRESULT NotifyStage([out, retval] VARIANT_BOOL *pVal);
+
+  // Return true if processing should be completed when the waiting count
+	// drops to zero.
+  [propget, helpstring("property CompleteProcessing")]
+    HRESULT CompleteProcessing([out, retval] VARIANT_BOOL *pVal);
+
+  // Return true if feedback should be sent when the waiting count
+	// drops to zero
+  [propget, helpstring("property SendFeedback")]
+    HRESULT SendFeedback([out, retval] VARIANT_BOOL *pVal);
+
+  // Return the total number of object we're waiting
+	// for.
+	// this count is initially set to TotalCount.  When
+	// it drops to zero, an event is fired, sending a message to the stage
+	// specified in OwnerStage.
+  [propget, helpstring("property WaitingCount")]
+    HRESULT WaitingCount([out, retval] long *pVal);
+
+	// return true if all elements we own have completed.  This is
+	// really a helper that is equivalent to WaitingCount == 0
+  [propget, helpstring("property IsComplete")]
+    HRESULT IsComplete([out, retval] VARIANT_BOOL *pVal);
+	
+  [helpstring("method DecrementWaitingCount")]
+	  HRESULT DecrementWaitingCount([out, retval] VARIANT_BOOL *pVal);
+
+  [helpstring("method InitForNotifyStage")]
+	  HRESULT InitForNotifyStage(int aTotalCount, int aOwnerStage);
+
+  [helpstring("method InitForSendFeedback")]
+	  HRESULT InitForSendFeedback(int aTotalCount, int aSessionSetID);
+
+  [helpstring("method InitForCompleteProcessing")]
+	  HRESULT InitForCompleteProcessing(int aTotalCount, int aSessionSetID);
+
+  // Return the next ObjectOwner in the chain.  -1 if there is no next
+  [propget, helpstring("property NextObjectOwnerID")]
+    HRESULT NextObjectOwnerID([out, retval] long *pVal);
+
+  // Return the next ObjectOwner in the chain.  -1 if there is no next
+  [propput, helpstring("property NextObjectOwnerID")]
+    HRESULT NextObjectOwnerID(long val);
+
+  // Indicate that at least one session in the group has failed
+  [helpstring("method FlagError")]
+    HRESULT FlagError();
+
+  // True if at least one session in the group has failed.
+  [propget, helpstring("method ErrorFlag")]
+    HRESULT ErrorFlag([out, retval] VARIANT_BOOL *pVal);
+
+  [helpstring("method IncreaseSharedRefCount")]
+    HRESULT IncreaseSharedRefCount([out, retval] long * apNewCount);
+
+  [helpstring("method DecreaseSharedRefCount")]
+    HRESULT DecreaseSharedRefCount([out, retval] long * apNewCount);
+
+  [propget, helpstring("property Transaction")]
+    HRESULT Transaction([out, retval] IMTTransaction * * apTran);
+
+  [propput, helpstring("property Transaction")]
+    HRESULT Transaction([in] IMTTransaction * apTran);
+
+  [propget, helpstring("property TransactionID")]
+    HRESULT TransactionID([out, retval] BSTR * pVal);
+
+  [propput, helpstring("property TransactionID")]
+    HRESULT TransactionID([in] BSTR newVal);
+	
+	//auth and auth properties
+	[propget, helpstring("property SerializedSessionContext")]
+    HRESULT SerializedSessionContext([out, retval] BSTR * pVal);
+
+  [propput, helpstring("property SerializedSessionContext")]
+    HRESULT SerializedSessionContext([in] BSTR newVal);
+
+	[propget, helpstring("property SessionContextUserName")]
+    HRESULT SessionContextUserName([out, retval] BSTR * pVal);
+
+  [propput, helpstring("property SessionContextUserName")]
+    HRESULT SessionContextUserName([in] BSTR newVal);
+	
+	[propget, helpstring("property SessionContextPassword")]
+    HRESULT SessionContextPassword([out, retval] BSTR * pVal);
+
+  [propput, helpstring("property SessionContextPassword")]
+    HRESULT SessionContextPassword([in] BSTR newVal);
+	
+	[propget, helpstring("property SessionContextNamespace")]
+    HRESULT SessionContextNamespace([out, retval] BSTR * pVal);
+
+  [propput, helpstring("property SessionContextNamespace")]
+    HRESULT SessionContextNamespace([in] BSTR newVal);
+
+	[propget, helpstring("property SessionContext")]
+    HRESULT SessionContext([out, retval] IMTSessionContext * * apSC);
+
+  [propput, helpstring("property SessionContext")]
+    HRESULT SessionContext([in] IMTSessionContext * apSC);
+	
+  [propget, helpstring("property RSIDCache")]
+    HRESULT RSIDCache([out, retval] IUnknown * * apCache);
+
+  [propput, helpstring("property RSIDCache")]
+    HRESULT RSIDCache([in] IUnknown * apCache);
+
+  [helpstring("method InitLock")]
+	  HRESULT InitLock();
+
+  [helpstring("method Lock")]
+	  HRESULT Lock();
+
+  [helpstring("method Unlock")]
+	  HRESULT Unlock();
+};

@@ -1,0 +1,31 @@
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "mtxmlIO.idl";
+
+
+[
+	object,
+	uuid(4b213c40-7a6c-11d3-a5e9-00c04f579c39),
+	dual,
+	helpstring("IMTDummy Interface"),
+	pointer_default(unique)
+]
+interface Dummy : IDispatch
+{
+};
+
+
+[
+	uuid(506b1c60-7a6c-11d3-a5e9-00c04f579c39),
+	version(1.0),
+	helpstring("XmlIO 1.0 Type Library")
+]
+library MTXMLlib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	interface IMTxmlIO;
+};

@@ -1,0 +1,83 @@
+/**************************************************************************
+ * @doc MTSESSIONSET
+ *
+ * Copyright 1998 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ * Created by: Derek Young
+ * $Header$
+ ***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// ----------------------------------------------------------------
+// Object: MTSessionSet
+// Prog ID: MetraPipeline.MTSessionSet.1
+// Description: Object that holds any number of sessions
+// Enumeration Element Type: MTSession
+// ----------------------------------------------------------------
+[
+	object,
+	uuid(C8757978-20E5-11D2-A1C1-006008C0E24A),
+	dual,
+	helpstring("IMTSessionSet Interface"),
+	pointer_default(unique)
+]
+interface IMTSessionSet : IDispatch
+{
+  // Add a session to the set.
+  [id(3), helpstring("method AddSession")] HRESULT AddSession(long aSessionId, long aServiceId);
+
+  // automation methods
+  [propget, id(4), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+  [propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(long aIndex, [out, retval] VARIANT *pVal);
+  [propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+
+  // Returns the session set ID.  This ID is an internal ID used by the Pipeline
+  // and is not related to any UID.
+  [propget, id(6), helpstring("property ID")] HRESULT ID([out, retval] long * ID);
+
+  // private/undocumented interface used by pipeline internals only
+  [helpstring("Internal Session Set handle")]
+	HRESULT GetInternalSetHandle([out, retval] long * SetHandle);
+
+  // private/undocumented interface used by pipeline internals only
+  [helpstring("method IncreaseSharedRefCount")]
+    HRESULT IncreaseSharedRefCount([out, retval] long * apNewCount);
+
+  // private/undocumented interface used by pipeline internals only
+  [helpstring("method DecreaseSharedRefCount")]
+    HRESULT DecreaseSharedRefCount([out, retval] long * apNewCount);
+
+  // Return the set's Unique ID (UID), unencoded.
+midl_pragma warning( disable: 2039 )
+  [propget, helpstring("property UID")]
+    HRESULT UID([out] unsigned char uid[16]);
+midl_pragma warning( default: 2039 )
+
+  // set the UID of the session set.
+  // INTERNAL use only
+midl_pragma warning( disable: 2039 )
+  [helpstring("method SetUID")]
+    HRESULT SetUID([in] unsigned char uid[16]);
+midl_pragma warning( default: 2039 )
+
+
+  // Return the set's Unique ID (UID) base64 encoded into a string.
+  [propget, helpstring("property UIDAsString")]
+    HRESULT UIDAsString([out, retval] BSTR *pVal);
+
+};

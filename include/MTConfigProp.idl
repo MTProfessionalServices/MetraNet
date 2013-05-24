@@ -1,0 +1,75 @@
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "PropValType.idl";
+
+	[
+		object,
+		uuid(88E54E75-B325-11D3-A604-00C04F579C39),
+		dual,
+		helpstring("IMTConfigAttribSet Interface"),
+		pointer_default(unique)
+	]
+	interface IMTConfigAttribSet : IDispatch
+	{
+		
+		// Gets the count of attribute name/value pairs in the set
+		[propget, id(1), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+
+		// Gets an attribute's value given its key
+		[propget, id(2), helpstring("property AttrValue")] HRESULT AttrValue([in] BSTR bstrKey, [out, retval] BSTR *pVal);
+		
+		// Adds a key/value pair into the set
+		[id(3), helpstring("property AddPair")] HRESULT AddPair([in] BSTR bstrKey, [in] BSTR pVal);
+		
+		// Initializes the object
+		[id(4), helpstring("method Initialize")] HRESULT Initialize();
+		
+		// Removes an attribute given its key
+		[id(5), helpstring("method RemoveAttr")] HRESULT RemoveAttr([in] BSTR key);
+		
+		//Gets a key and its associated value given an index into the set
+		[id(6), helpstring("property AttrItem")] HRESULT GetAttrItem([in] long aIndex, [out] BSTR* bKey,[out] BSTR *pVal);
+
+	};
+
+	[
+		object,
+		uuid(9ADCD81C-35FD-11D2-A1C4-006008C0E24A),
+		dual,
+		helpstring("IMTConfigProp Interface"),
+		pointer_default(unique)
+	]
+	interface IMTConfigProp : IDispatch
+	{
+
+		// Gets the name of the config prop
+		[propget, id(1), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		
+		// Sets the name of the config prop
+		[propput, id(1), helpstring("property Name")] HRESULT Name([in] BSTR pVal);
+
+		// Gets the property type and property value as a variant
+		[propget, id(2), helpstring("property Value")] HRESULT Value([out] PropValType * apType, [out, retval] VARIANT *pVal);
+
+		// Gets the value of the property as a variant
+		[propget, id(3), helpstring("property PropValue")] HRESULT PropValue([out, retval] VARIANT *pVal);
+
+		// Gets the property's type
+		[propget, id(4), helpstring("property PropType")] HRESULT PropType([out, retval] PropValType * apType);
+
+		// Gets the value of the property as a string
+		[propget, id(5), helpstring("property ValueAsString")] HRESULT ValueAsString([out, retval] BSTR *pVal);
+
+		// Gets the map of XML attributes associated with this property.
+		[propget, id(6), helpstring("property AttribSet")] HRESULT AttribSet([out, retval] IMTConfigAttribSet** ppAttribSet);
+		
+		// Sets the map of XML attributes associated with this property.
+		[propput, id(6), helpstring("property AttribSet")] HRESULT AttribSet([in] IMTConfigAttribSet* pAttribSet);
+
+        // Adds a value with the specified type into the property
+		[id(7), helpstring("method AddProp")] HRESULT AddProp([in] PropValType aType, [in] VARIANT aVal);
+	};
+

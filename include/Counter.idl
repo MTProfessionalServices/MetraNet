@@ -1,0 +1,404 @@
+/**************************************************************************
+ *
+ * Copyright 2001 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ * Created by: Boris Partensky
+ * $Header: Counter.idl, 32, 6/26/2002 11:25:32 AM, Boris$
+ *
+ ***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "GenericCollectionInterfaces.idl";
+
+import "MTProductView.idl";
+
+import "rowset.idl";
+import "OperatorType.idl";
+import "IMTPCBase.idl";
+
+interface IMTCounterType;
+interface IMTCounterParameterPredicate;
+interface IMTCounterParameter;
+
+
+	typedef [uuid(bfbe4df2-b2cf-4b86-9c95-f86c1349f661), version(1.0)]
+	enum
+	{
+		PARAM_PRODUCT_VIEW_PROPERTY = 0,
+		PARAM_PRODUCT_VIEW = 1,
+		PARAM_CONST = 2,
+	}	MTCounterParamKind;
+
+	typedef [uuid(5570a0bf-dfbe-4ce5-a053-c4a108769cfd), version(1.0)]
+	enum
+	{
+		PARAM_NUMERIC = 0,
+		PARAM_STRING = 1,
+	}	MTCounterParamDBType;
+
+	typedef [uuid(bc4e4227-edbd-4873-9ace-c78a0fc2dba1), version(1.0)]
+	enum
+	{
+		VIEW_FINAL = 0,
+		VIEW_NORMAL = 1,
+		VIEW_SQL = 2,
+		VIEW_USER = 3,
+		//Undocumented, internal use only
+		//should be removed later. created temporarily
+		//in order to return SQL formulas differently for discounts and aggregate charges
+		VIEW_DISCOUNTS = 4,
+	}	MTViewPreference;
+
+	[
+		object,
+		uuid(26369D00-1DE8-4CC5-BAD2-A5BB7C0D8E26),
+		dual,
+		helpstring("IMTCounter Interface"),
+		pointer_default(unique)
+	]
+	interface IMTCounter : IDispatch
+	{
+		//Counter Formula. aView parameter specifies the way to present the formula field
+		[propget, id(1), helpstring("property Formula")] HRESULT Formula([in]MTViewPreference aView, [out, retval] BSTR *pVal);
+		//Sets the value for named parameter
+		[id(2), helpstring("method SetParameter")] HRESULT SetParameter([in]BSTR aParamName, [in]BSTR aParam, [in, optional]VARIANT aDontValidateString);
+		//NOT USED
+		[id(3), helpstring("method Execute")] HRESULT Execute([in]long aStrategy, [in]DATE aStartDate, [in]DATE aEndDate, [in]IMTCollection* apAccountList, [out, retval]IMTSQLRowset** aCounterValue);
+		//saves this item in database. NOOP if it already exists in DB (if ID property is set)
+		[id(4), helpstring("method Save")] HRESULT Save([out, retval]long* aDBID);
+		//returns IMTCounterParameterCollection of actual parameters associated with this instance
+		[propget, id(5), helpstring("property Parameters")] HRESULT Parameters([out, retval] IMTCollection** pVal);
+		//INTERNAL USE ONLY
+		[id(6), helpstring("method Load")] HRESULT Load([in]long aDBID);
+
+		//Name for the counter
+		[propget, id(8), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(8), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+
+		//Description for the counter
+		[propget, id(10), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+		[propput, id(10), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+		
+		//database id
+		[propget, id(11), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+		[propput, hidden, id(11), helpstring("property ID")] HRESULT ID([in] long newVal);
+		//database id for the counter type this counter belongs to
+		[propget, id(12), helpstring("property TypeID")] HRESULT TypeID([out, retval] long *pVal);
+		[propput, hidden, id(12), helpstring("property TypeID")] HRESULT TypeID([in] long newVal);
+		//return a CounterType object this instance was created from
+		[propget, id(13), helpstring("property Type")] HRESULT Type([out, retval] IMTCounterType* *pVal);
+		//INTERNAL USE ONLY
+		[propput, hidden, id(13), helpstring("property Type")] HRESULT Type([in] IMTCounterType* newVal);
+		//Alias for the result set column this counter is returned as. Used by aggregate charges and discounts
+		[propget, id(14), helpstring("property Alias")] HRESULT Alias([out, retval] BSTR *pVal);
+		[propput, id(14), helpstring("property Alias")] HRESULT Alias([in] BSTR newVal);
+		// ----------------------------------------------------------------
+		// Method:      <<accessor>> Properties
+		// Description: Interface to get all (core and extended) properties of this object
+		//              by name or collection.
+		// Returns:     MTProperties
+		[propget, id(15), helpstring("property Properties")]
+		HRESULT Properties([out, retval] LPDISPATCH* pVal);
+		//INTERNAL USE ONLY
+		[id(16), helpstring("method Remove")] HRESULT Remove();
+		[id(17), helpstring("method GetParameter")] HRESULT GetParameter([in]BSTR aParamName, [out, retval]IMTCounterParameter** apParam);
+
+		//Set parameter that is not owned by this counter, aka "Shared" parameter
+		//Shared Parameter may have predicates associated with it
+		[id(18), helpstring("method SetSharedParameter")] HRESULT SetSharedParameter([in]BSTR aParamName, [in]IMTCounterParameter* apParam);
+
+    //discount or aggr template id
+		[propget, hidden, id(19), helpstring("property PriceableItemID")] HRESULT PriceableItemID([out, retval] long *pVal);
+		[propput, hidden, id(19), helpstring("property PriceableItemID")] HRESULT PriceableItemID([in] long newVal);
+
+	};
+	
+	[
+		object,
+		uuid(CA23413B-7A8D-4522-BB45-3CC2F4155655),
+		dual,
+		helpstring("IMTCounterType Interface"),
+		pointer_default(unique)
+	]
+	interface IMTCounterType : IDispatch
+	{
+		//Name for counter type
+		[propget, id(1), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+
+		//Description for counter type
+		[propget, id(2), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+
+		//Formula template : SUM(%%A%%) for example
+		[propget, id(3), helpstring("property FormulaTemplate")] HRESULT FormulaTemplate([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property FormulaTemplate")] HRESULT FormulaTemplate([in] BSTR newVal);
+
+		//collection of parameters
+		[propget, id(4), helpstring("property Parameters")] HRESULT Parameters([out, retval] IMTCollection** pVal);
+		[propput, id(4), helpstring("property Parameters")] HRESULT Parameters([in] IMTCollection* pVal);
+	
+  	// if true, proportional distribution can be used for a counter of this type
+  	[propget, id(14), helpstring("property ValidForDistribution")] HRESULT ValidForDistribution([out, retval] VARIANT_BOOL *pVal);
+	  [propput, id(14), helpstring("property ValidForDistribution")] HRESULT ValidForDistribution([in] VARIANT_BOOL newVal);
+  
+  	//creates new empty counter instance of this type
+		[id(5), helpstring("method CreateCounter")] HRESULT CreateCounter([out, retval]IMTCounter** apCounter);
+		//remove a counter instance from database by given DB id. Will fail if:
+		//	1. Counter instance with this DB id is not of this type
+		[id(6), helpstring("method RemoveCounter")] HRESULT RemoveCounter([in]long aDBID);
+		//return a counter instance from database by given DB id. Will fail if:
+		//	1. Counter instance with this DB id is not of this type
+		//	2. There are priceable item (or discount instances associated with this counter instance)
+		[id(7), helpstring("method GetCounter")] HRESULT GetCounter([in]long aDBID, [out, retval]IMTCounter** apCounter);
+		//Return all counter instances of this type that are currently in DB
+		[id(8), helpstring("method GetCounters")] HRESULT GetCounters([out, retval]IMTCollection** apCounters);
+		//database id of this type
+		[propget, id(9), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+		[propput, hidden, id(9), helpstring("property ID")] HRESULT ID([in] long newVal);
+
+		//Constructs the state by given DB id
+		[id(10), helpstring("method Load")] HRESULT Load([in]long aDBID);
+		//Constructs the state by given Name
+		[id(11), helpstring("method LoadByName")] HRESULT LoadByName([in]BSTR aName);
+			// ----------------------------------------------------------------
+		// Method:      <<accessor>> Properties
+		// Description: Interface to get all (core and extended) properties of this object
+		//              by name or collection.
+		// Returns:     MTProperties
+		[propget, id(12), helpstring("property Properties")]
+		HRESULT Properties([out, retval] LPDISPATCH* pVal);
+
+		//Saves counter type in database: creates new or updates existing one
+		[id(13), helpstring("method Save")] HRESULT Save([out, retval]long* aDBID);
+		
+	};
+	
+	[
+		object,
+		uuid(27DF5534-130F-48DA-B79B-3BF4B957F9AF),
+		dual,
+		helpstring("IMTCounterParameter Interface"),
+		pointer_default(unique)
+	]
+	interface IMTCounterParameter : IMTPCBase
+	{
+		//Name for counter parameter
+		[propget, id(1), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, hidden, id(1), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+
+		//Value for counter parameter, could be PV property, PV name or numeric constant
+		[propget, id(2), helpstring("property Value")] HRESULT Value([out, retval] BSTR *pVal);
+		[propput, hidden, id(2), helpstring("property Value")] HRESULT Value([in] BSTR newVal);
+
+		//Specifies the parameter kind: PV property, PV name or numeric constant
+		[propget, id(3), helpstring("property Kind")] HRESULT Kind([out, retval] MTCounterParamKind *pVal);
+		[propput, id(3), helpstring("property Kind")] HRESULT Kind([in] BSTR newVal);
+
+		//NOT USED
+		[propget, id(4), helpstring("property DBType")] HRESULT DBType([out, retval] MTCounterParamDBType *pVal);
+		[propput, hidden, id(4), helpstring("property DBType")] HRESULT DBType([in] BSTR newVal);
+
+		//NOT USED
+		[propget, id(5), helpstring("property Alias")] HRESULT Alias([out, retval] BSTR *pVal);
+		[propput, id(5), helpstring("property Alias")] HRESULT Alias([in] BSTR newVal);
+
+		//Name for product view (constructed from counter parameter value)
+		[propget, id(6), helpstring("property ProductViewName")] HRESULT ProductViewName([out, retval] BSTR *pVal);
+
+		//Name for product view property (constructed from counter parameter value)
+		[propget, id(7), helpstring("property PropertyName")] HRESULT PropertyName([out, retval] BSTR *pVal);
+
+		//database id
+		[propget, id(8), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+		[propput, id(8), helpstring("property ID")] HRESULT ID([in] long newVal);
+
+		//database id of parameter type this parameter belongs to
+		[propget, id(9), helpstring("property TypeID")] HRESULT TypeID([out, retval] long *pVal);
+		[propput, id(9), helpstring("property TypeID")] HRESULT TypeID([in] long newVal);
+
+		//Name for actual table OR view this counter will be executed against.
+		//It is different from ProductViewTable, right now it's a view that joins product view table and usage table
+		[propget, id(10), helpstring("property TableName")] HRESULT TableName([out, retval] BSTR *pVal);
+
+		//Name for product view table column (constructed from counter parameter value). Only applies to PVProperty kind
+		[propget, id(11), helpstring("property ColumnName")] HRESULT ColumnName([out, retval] BSTR *pVal);
+
+		//Value for this parameter the way it will be passed into database during counter execution
+		[propget, id(12), helpstring("property FinalValue")] HRESULT FinalValue([out, retval] BSTR *pVal);
+		
+		//Name for product view table (constructed from counter parameter value)
+		[propget, id(14), helpstring("property ProductViewTable")] HRESULT ProductViewTable([out, retval] BSTR *pVal);
+
+		
+		// ----------------------------------------------------------------
+		// Method:      <<accessor>> Properties
+		// Description: Interface to get all (core and extended) properties of this object
+		//              by name or collection.
+		// Returns:     MTProperties
+		[propget, id(15), helpstring("property Properties")]
+		HRESULT Properties([out, retval] LPDISPATCH* pVal);
+		
+		//indicates to the GUI whether this parameter can be changed. This property is FALSE on all the 
+		//counter parameters except for the ones that are hardcoded (TotalUsageCounter counter type is an 
+		//example)
+
+		[propget, id(16), helpstring("property ReadOnly")] HRESULT ReadOnly([out, retval] VARIANT_BOOL *pVal);
+
+		//Internal Use Only
+		[propput, id(16), helpstring("property ReadOnly")] HRESULT ReadOnly([in] VARIANT_BOOL newVal);
+		[propget, id(17), helpstring("property ViewName")] HRESULT ViewName([out, retval] BSTR *pVal);
+		
+		[propget, id(18), helpstring("property Predicates")] HRESULT Predicates([out, retval] IMTCollection* *pVal);
+		[id(19), helpstring("method CreatePredicate")] HRESULT CreatePredicate([out, retval]IMTCounterParameterPredicate** apPredicate);
+		//get counter object which owns this parameter
+		[propget, id(20), helpstring("property Counter"), hidden] HRESULT Counter([out, retval] IMTCounter* *pVal);
+		[propput, id(20), helpstring("property Counter"), hidden] HRESULT Counter([in] IMTCounter* newVal);
+		[propget, id(21), helpstring("property DisplayName")] HRESULT DisplayName([out, retval] BSTR *pVal);
+		[propput, id(21), helpstring("property DisplayName")] HRESULT DisplayName([in] BSTR newVal);
+		[propget, id(22), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+		[propput, id(22), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+		[id(23), helpstring("method Save")] HRESULT Save([out, retval] long* apDBID);
+    //Property will be -1 if counter parameter is not based on a charge. Otherwise - id for the charge
+    [propget, id(24), helpstring("property ChargeID")] HRESULT ChargeID([out, retval] long *pVal);
+
+    //Calculated property.
+    //Depending on the value of the parameter, it will correspond to either
+    //t_adjustment_transaction, or to T_AJ* table.
+    [propput, hidden, id(25), helpstring("property AdjustmentTable")] HRESULT AdjustmentTable([in] BSTR newVal);
+    [propget, hidden, id(25), helpstring("property AdjustmentTable")] HRESULT AdjustmentTable([out, retval] BSTR *pVal);
+
+    //ID of a PI type whose product view this counter parameter references
+		[propget, hidden, id(26), helpstring("property PriceableItemTypeID")] HRESULT PriceableItemTypeID([out, retval] long *pVal);
+		[propput, hidden, id(26), helpstring("property PriceableItemTypeID")] HRESULT PriceableItemTypeID([in] long newVal);
+
+		//internal, hidden
+		[propget, hidden, id(27), helpstring("property Shared")] HRESULT Shared([out, retval] VARIANT_BOOL *pVal);
+		
+    
+	};
+	[
+		object,
+		uuid(500A1AFF-5ADB-4FF0-BF43-E91F7C2171A0),
+		dual,
+		helpstring("IMTCounterParameterPredicate Interface"),
+		pointer_default(unique)
+	]
+	interface IMTCounterParameterPredicate : IDispatch
+	{
+		[propget, id(1), helpstring("property Operator")] HRESULT Operator([out, retval] MTOperatorType *pVal);
+		[propput, id(1), helpstring("property Operator")] HRESULT Operator([in] MTOperatorType newVal);
+		[propget, id(2), helpstring("property Value")] HRESULT Value([out, retval] VARIANT *pVal);
+		[propput, id(2), helpstring("property Value")] HRESULT Value([in] VARIANT newVal);
+		[propget, id(3), helpstring("property ProductViewProperty")] HRESULT ProductViewProperty([out, retval] IProductViewProperty* *pVal);
+		[propput, id(3), helpstring("property ProductViewProperty")] HRESULT ProductViewProperty([in] IProductViewProperty* newVal);
+		[propget, id(4), helpstring("property ProductViewName"), hidden] HRESULT ProductViewName([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property ProductViewName"), hidden] HRESULT ProductViewName([in] BSTR newVal);
+		[propget, id(5), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+		[propput, id(5), helpstring("property ID")] HRESULT ID([in] long newVal);
+		//get counter parameter object which owns this predicate
+		[propget, id(6), helpstring("property CounterParameter"), hidden] HRESULT CounterParameter([out, retval] IMTCounterParameter* *pVal);
+		[propput, id(6), helpstring("property CounterParameter"), hidden] HRESULT CounterParameter([in] IMTCounterParameter* newVal);
+		//output the predicate statement as string
+		[id(7), helpstring("method ToString")] HRESULT ToString([out, retval]BSTR* apVal);
+	};
+
+	
+[
+	uuid(FD989129-805F-4351-B5AC-773732368586),
+	version(1.0),
+	helpstring("MetraTech Counter 1.0 Type Library")
+]
+library MTCOUNTERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	
+	[
+		uuid(D404C02F-B3B9-477E-891A-C989BAC288E0),
+		helpstring("MTCounterType Class")
+	]
+	/*
+		Progid: Metratech.MTCounterType
+
+		Countertype object represents meta data which describes counter:
+		SQL formula template (for example SUM), name (for example 'A', 'B' etc.) number and type of parameters
+		(for example product view property and product view)
+
+	*/
+	coclass MTCounterType
+	{
+		[default] interface IMTCounterType;
+	};
+	
+	[
+		uuid(1B99ED03-30B9-4E4B-89A5-56C32E4DA321),
+		helpstring("MTCounter Class")
+	]
+	/*
+		Progid: Metratech.MTCounter
+
+		Counter object represents a part of SQL query which performs aggregate
+		function on a product view(s) or product view property(es). Counters
+		are used by counter "consumers" - Discount and aggregate rating adapters.
+		
+		For example: 
+		
+		Percent Discount which ships with MetraBill has two counters associated with it -
+		 - Qualifying Counter. Indicates the product view property, qualifying someone for a discount
+		 - Target Counter. Indicates the product view property to apply discount percentage to.
+
+		If a counter was created from 'Sum Of One Product View Property' counter type and  Amount on 'PI Test'
+		product view was specified as a parameter, then the formula of this counter will look like
+		(SUM(ISNULL(t_vw_testpi.Amount, 0)))
+
+	*/
+	coclass MTCounter
+	{
+		[default] interface IMTCounter;
+	};
+	[
+		uuid(7E262109-E8EA-443D-B0BD-2BEA4DABA3DF),
+		helpstring("MTCounterParameter Class")
+	]
+
+	/*
+		Progid: Metratech.MTCounterParameter
+
+		MTCounterParameter object represents a mapping of counter parameter name with
+		a specific database object (product view property or product view). Counter can have 0 or
+		more parameters associated with it. Note that a number of parameters belongs to counter type object.
+
+	*/
+	coclass MTCounterParameter
+	{
+		[default] interface IMTCounterParameter;
+	};
+	[
+		uuid(104A118C-5DC2-4259-B9FC-F1D3779F2984),
+		helpstring("MTCounterParameterPredicate Class")
+	]
+	coclass MTCounterParameterPredicate
+	{
+		[default] interface IMTCounterParameterPredicate;
+	};
+
+
+
+};
+

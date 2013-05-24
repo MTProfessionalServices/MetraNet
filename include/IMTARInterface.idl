@@ -1,0 +1,86 @@
+/**************************************************************************
+* Copyright 1997-2001 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+* Created by: Ralf Boeck
+* 
+***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+
+[
+	object,
+	uuid(FAAD3E05-2A79-4F2B-ACAE-1E9E699D0895),
+	dual,
+	helpstring("IMTARConfig Interface"),
+	pointer_default(unique)
+]
+interface IMTARConfig : IDispatch
+{
+	[id(1), helpstring("method Configure")] HRESULT Configure([in, optional] VARIANT aInternalSystemInfo, [out, retval] VARIANT* configState);
+	
+};
+
+
+[
+	object,
+	uuid(0347F7EC-BB0E-43EB-936A-D67DF96DA674),
+	dual,
+	helpstring("IMTARWriter Interface"),
+	pointer_default(unique)
+]
+interface IMTARWriter : IDispatch
+{
+	[id(1), helpstring("method CreateOrUpdateAccounts")] HRESULT CreateOrUpdateAccounts([in] BSTR aDoc, [in] VARIANT aConfigState);
+	[id(2), helpstring("method UpdateAccountStatus")] HRESULT UpdateAccountStatus([in] BSTR aDoc, [in] VARIANT aConfigState);
+	[id(3), helpstring("method CreateOrUpdateTerritories")] HRESULT CreateOrUpdateTerritories([in] BSTR aDoc, [in] VARIANT aConfigState);
+	[id(4), helpstring("method UpdateTerritoryManagers")] HRESULT UpdateTerritoryManagers([in] BSTR aDoc, [in] VARIANT aConfigState);
+	[id(5), helpstring("method CreateOrUpdateSalesPersons")] HRESULT CreateOrUpdateSalesPersons([in] BSTR aDoc, [in] VARIANT aConfigState);
+	[id(6), helpstring("method MoveBalances")] HRESULT MoveBalances([in] BSTR aDoc, [in] VARIANT aConfigState, [out, retval] BSTR* apResponseDoc);
+	[id(7), helpstring("method CreateInvoices")] HRESULT CreateInvoices([in] BSTR aDoc, [in] VARIANT aConfigState);
+	[id(8), helpstring("method CreateAdjustments")] HRESULT CreateAdjustments([in] BSTR aDoc, [in] VARIANT aConfigState);
+	[id(9), helpstring("method CreatePayments")] HRESULT CreatePayments([in] BSTR aDoc, [in] VARIANT aConfigState);
+	[id(10), helpstring("method DeleteInvoices")] HRESULT DeleteInvoices([in] BSTR aDoc, [in] VARIANT aConfigState);
+	[id(11), helpstring("method DeleteAdjustments")] HRESULT DeleteAdjustments([in] BSTR aDoc, [in] VARIANT aConfigState);
+	[id(12), helpstring("method DeletePayments")] HRESULT DeletePayments([in] BSTR aDoc, [in] VARIANT aConfigState);
+	[id(13), helpstring("method DeleteBatches")] HRESULT DeleteBatches([in] BSTR aDoc, [in] VARIANT aConfigState);
+	[id(14), helpstring("method ApplyCredits")] HRESULT ApplyCredits([in] VARIANT aConfigState);
+	[id(15), helpstring("method RunAging")] HRESULT RunAging([in] BSTR aDoc, [in] VARIANT aConfigState);
+	[id(16), helpstring("method DeleteAccountStatusChanges")] HRESULT DeleteAccountStatusChanges([in] BSTR aDoc, [in] VARIANT aConfigState);
+	[id(17), helpstring("method CreateInvoicesWithTaxDetails")] HRESULT CreateInvoicesWithTaxDetails([in] BSTR aDoc, [in] VARIANT aConfigState);
+
+};
+
+
+[
+	object,
+	uuid(F73167C1-97E0-4B68-AB70-4A05FD5D6488),
+	dual,
+	helpstring("IMTARReader Interface"),
+	pointer_default(unique)
+]
+interface IMTARReader : IDispatch
+{
+	[id(1), helpstring("method GetBalances")] HRESULT GetBalances([in] BSTR aDoc, [in] VARIANT aConfigState, [out, retval] BSTR* apResponseDoc);
+	[id(2), helpstring("method GetBalanceDetails")] HRESULT GetBalanceDetails([in] BSTR aDoc, [in] VARIANT aConfigState, [out, retval] BSTR* apResponseDoc);
+	[id(3), helpstring("method GetAgingConfiguration")] HRESULT GetAgingConfiguration([in] VARIANT aConfigState, [out, retval] BSTR* apResponseDoc);
+	[id(4), helpstring("method CanDeleteInvoices")] HRESULT CanDeleteInvoices([in] BSTR aDoc, [in] VARIANT aConfigState, [out, retval] BSTR* apResponseDoc);
+	[id(5), helpstring("method CanDeleteAdjustments")] HRESULT CanDeleteAdjustments([in] BSTR  aDoc, [in] VARIANT aConfigState, [out, retval] BSTR* apResponseDoc);
+	[id(6), helpstring("method CanDeletePayments")] HRESULT CanDeletePayments([in] BSTR aDoc, [in] VARIANT aConfigState, [out, retval] BSTR* apResponseDoc);
+	[id(7), helpstring("method CanDeleteBatches")] HRESULT CanDeleteBatches([in] BSTR aDoc, [in] VARIANT aConfigState, [out, retval] BSTR* apResponseDoc);
+	[id(8), helpstring("method GetAccountStatusChanges")] HRESULT GetAccountStatusChanges([in] VARIANT aConfigState, [out, retval] BSTR* apResponseDoc);
+};

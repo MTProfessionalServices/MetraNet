@@ -1,0 +1,259 @@
+// MTProductView.idl : IDL source for MTProductView.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTProductView.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "COMDBObjects.idl";
+import "IMTAuth.idl";
+
+interface IProductView;
+interface IProductViewProperty;
+
+	[helpstring("MSIX Property Type"),
+	 uuid(600bef01-b959-48f9-b292-68528341c411), version(1.0)]
+	typedef enum
+	{
+		MSIX_TYPE_STRING = 0,
+		MSIX_TYPE_WIDESTRING = 1,
+		MSIX_TYPE_INT32 = 2,
+		MSIX_TYPE_TIMESTAMP = 3,
+		MSIX_TYPE_FLOAT = 4,
+		MSIX_TYPE_DOUBLE = 5,
+		MSIX_TYPE_NUMERIC = 6,
+		MSIX_TYPE_DECIMAL = 7,
+		MSIX_TYPE_ENUM = 8,
+		MSIX_TYPE_BOOLEAN = 9,
+		MSIX_TYPE_TIME = 10,
+    MSIX_TYPE_INT64 = 11
+	} MSIX_PROPERTY_TYPE;
+	
+	[
+		object,
+		uuid(D0CF078B-A746-11D2-B298-006008925549),
+		dual,
+		helpstring("IMTProductViewDef Interface"),
+		pointer_default(unique)
+	]
+	interface IMTProductViewDef : IDispatch
+	{
+		[id(1), helpstring("method AddProperty")] HRESULT AddProperty(BSTR dn, BSTR type, BSTR length, BSTR required, BSTR defaultVal);
+		[id(2), helpstring("method Initialize")] HRESULT Initialize();
+		[id(3), helpstring("method Save")] HRESULT Save();
+		[propget, id(4), helpstring("property name")] HRESULT name([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property name")] HRESULT name([in] BSTR newVal);
+		[propget, id(5), helpstring("property majorversion")] HRESULT majorversion([out, retval] BSTR *pVal);
+		[propput, id(5), helpstring("property majorversion")] HRESULT majorversion([in] BSTR newVal);
+		[propget, id(6), helpstring("property minorversion")] HRESULT minorversion([out, retval] BSTR *pVal);
+		[propput, id(6), helpstring("property minorversion")] HRESULT minorversion([in] BSTR newVal);
+		[propget, id(7), helpstring("property tablename")] HRESULT tablename([out, retval] BSTR *pVal);
+		[propput, id(7), helpstring("property tablename")] HRESULT tablename([in] BSTR newVal);
+		[propget, id(8), helpstring("property exttablename")] HRESULT exttablename([out, retval] BSTR *pVal);
+		[propput, id(8), helpstring("property exttablename")] HRESULT exttablename([in] BSTR newVal);
+	};
+	[
+		object,
+		uuid(14ED2FC8-CCDE-11D3-A60D-00C04F579C39),
+		dual,
+		helpstring("IMTProductViewOps Interface"),
+		pointer_default(unique)
+	]
+	interface IMTProductViewOps : IDispatch
+	{
+		[id(1), helpstring("method AddProductView")] HRESULT AddProductView([in] BSTR xmlFile);
+		[id(2), helpstring("method AddAllProductViews")] HRESULT AddAllProductViews();
+		[id(3), helpstring("method DropProductView")] HRESULT DropProductView([in] BSTR xmlfile);
+		[id(4), helpstring("method DropAllProductViews")] HRESULT DropAllProductViews();
+		[id(5), helpstring("method UpgradeProductViews30To35")] HRESULT UpgradeProductViews30To35();
+	};
+	[
+		object,
+		uuid(ABFA79CA-6DFD-4900-B97C-C3F87C256E36),
+		dual,
+		helpstring("IProductView Interface"),
+		pointer_default(unique)
+	]
+	interface IProductView : IDispatch
+	{
+		[id(1), helpstring("method Init")] HRESULT Init([in] BSTR aProductViewName, VARIANT_BOOL aHasChildren);
+		[propget, id(3), helpstring("property TableName")] HRESULT TableName([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property TableName")] HRESULT TableName([in] BSTR newVal);
+		[propget, id(4), helpstring("property ViewID")] HRESULT ViewID([out, retval] long *pVal);
+    [propput, hidden, id(4), helpstring("property ViewID")] HRESULT ViewID([in] long newVal);
+		[propget, id(5), helpstring("property HasChildren")] HRESULT HasChildren([out, retval] VARIANT_BOOL *pVal);
+		[id(6), helpstring("method GetProperties")] HRESULT GetProperties([out, retval] IMTCollection **pProperties);
+		[id(7), helpstring("method GetPropertyByName")] HRESULT GetPropertyByName([in] BSTR aDN, [out, retval] IProductViewProperty* *pVal);
+		[id(8), helpstring("method GetPropertyByColumnName")] HRESULT GetPropertyByColumnName([in] BSTR aColumnName, [out, retval] IProductViewProperty* *pVal);
+		[propget, id(9), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(9), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		[propget, id(10), helpstring("property SessionContext")] HRESULT SessionContext([out, retval] IMTSessionContext* *pVal);
+		[propputref, id(10), helpstring("property SessionContext")] HRESULT SessionContext([in] IMTSessionContext* newVal);		
+		// Save the product view property to the database.  Call save on all properties as well.
+		[id(11), helpstring("method Save")] HRESULT Save([out, retval] long * apID);
+		// Database ID of the product view.  -1 if the product view hasn't been persisted yet.
+		[propget, id(12), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+		[propput, id(12), helpstring("property ID")] HRESULT ID([in] long newVal);
+		[id(13), helpstring("method GetUniqueKeys")] HRESULT GetUniqueKeys([out, retval] IMTCollection **pKeys);
+		[propget, id(14), helpstring("property CanResubmitFrom")] HRESULT CanResubmitFrom([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(14), helpstring("property CanResubmitFrom")] HRESULT CanResubmitFrom([in] VARIANT_BOOL newVal);
+	};
+	[
+		object,
+		uuid(E212C34D-2D81-423E-A296-4C2A054640F3),
+		dual,
+		helpstring("IProductViewProperty Interface"),
+		pointer_default(unique)
+	]
+	interface IProductViewProperty : IDispatch
+	{
+		[propget, id(1), helpstring("property UserVisible")] HRESULT UserVisible([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(1), helpstring("property UserVisible")] HRESULT UserVisible([in] VARIANT_BOOL newVal);
+		[propget, id(2), helpstring("property Filterable")] HRESULT Filterable([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(2), helpstring("property Filterable")] HRESULT Filterable([in] VARIANT_BOOL newVal);
+		[propget, id(3), helpstring("property Exportable")] HRESULT Exportable([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(3), helpstring("property Exportable")] HRESULT Exportable([in] VARIANT_BOOL newVal);
+		[propget, id(4), helpstring("property PartOfKey")] HRESULT PartOfKey([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(4), helpstring("property PartOfKey")] HRESULT PartOfKey([in] VARIANT_BOOL newVal);
+		[propget, id(5), helpstring("property SingleIndex")] HRESULT SingleIndex([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(5), helpstring("property SingleIndex")] HRESULT SingleIndex([in] VARIANT_BOOL newVal);
+		[propget, id(6), helpstring("property CompositeIndex")] HRESULT CompositeIndex([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(6), helpstring("property CompositeIndex")] HRESULT CompositeIndex([in] VARIANT_BOOL newVal);
+		[propget, id(7), helpstring("property DescriptionID")] HRESULT DescriptionID([out, retval] long *pVal);
+		[propput, id(7), helpstring("property DescriptionID")] HRESULT DescriptionID([in] long newVal);
+		[propget, id(8), helpstring("property Required")] HRESULT Required([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(8), helpstring("property Required")] HRESULT Required([in] VARIANT_BOOL newVal);
+		[propget, id(9), helpstring("property DN")] HRESULT DN([out, retval] BSTR *pVal);
+		[propput, id(9), helpstring("property DN")] HRESULT DN([in] BSTR newVal);
+		[propget, id(10), helpstring("property ColumnName")] HRESULT ColumnName([out, retval] BSTR *pVal);
+		[propput, id(10), helpstring("property ColumnName")] HRESULT ColumnName([in] BSTR newVal);
+		[propget, id(11), helpstring("property DataType")] HRESULT DataType([out, retval] BSTR *pVal);
+		[propput, id(11), helpstring("property DataType")] HRESULT DataType([in] BSTR newVal);
+		[propget, id(12), helpstring("property DefaultValue")] HRESULT DefaultValue([out, retval] VARIANT *pVal);
+		[propput, id(12), helpstring("property DefaultValue")] HRESULT DefaultValue([in] VARIANT newVal);
+		[propget, id(13), helpstring("property PropertyType")] HRESULT PropertyType([out, retval] MSIX_PROPERTY_TYPE *pVal);
+		[propput, id(13), helpstring("property PropertyType")] HRESULT PropertyType([in] MSIX_PROPERTY_TYPE newVal);
+		[propget, id(14), helpstring("property EnumNamespace")] HRESULT EnumNamespace([out, retval] BSTR *pVal);
+		[propput, id(14), helpstring("property EnumNamespace")] HRESULT EnumNamespace([in] BSTR newVal);
+		[propget, id(15), helpstring("property EnumEnumeration")] HRESULT EnumEnumeration([out, retval] BSTR *pVal);
+		[propput, id(15), helpstring("property EnumEnumeration")] HRESULT EnumEnumeration([in] BSTR newVal);
+		[propget, id(16), helpstring("property Core")] HRESULT Core([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(16), helpstring("property Core")] HRESULT Core([in] VARIANT_BOOL newVal);
+		[propget, id(17), helpstring("property DisplayName")] HRESULT DisplayName([in] ICOMLocaleTranslator* apLocale, [out, retval] BSTR *pVal);
+		// The product view that contains the property
+		[propget, id(18), helpstring("property ProductView")] HRESULT ProductView([out, retval] IProductView* *pVal);
+		[propputref, id(18), helpstring("property ProductView")] HRESULT ProductView([in] IProductView* newVal);
+		// Database ID of the product view property.  -1 if the property hasn't been persisted yet.
+		[propget, id(19), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+		[propput, id(19), helpstring("property ID")] HRESULT ID([in] long newVal);
+		[propget, id(20), helpstring("property SessionContext")] HRESULT SessionContext([out, retval] IMTSessionContext* *pVal);
+		[propputref, id(20), helpstring("property SessionContext")] HRESULT SessionContext([in] IMTSessionContext* newVal);
+		// Save the product view property to the database
+		[id(21), helpstring("method Save")] HRESULT Save([out, retval] long * apID);
+		// The database ID product view that contains the property
+		[propget, id(22), helpstring("property ProductViewID")] HRESULT ProductViewID([out, retval] long *pVal);
+		[propput, id(22), helpstring("property ProductViewID")] HRESULT ProductViewID([in] long newVal);
+		[propget, id(23), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+		[propput, id(23), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+	};
+
+	[
+		object,
+		uuid(F95192FC-85C5-4AFD-B586-7FBE618A86B5),
+		dual,
+		helpstring("IProductViewUniqueKey Interface"),
+		pointer_default(unique)
+	]
+	interface IProductViewUniqueKey : IDispatch
+	{
+		[propget, id(1), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+		[propput, id(1), helpstring("property ID")] HRESULT ID([in] long newVal);
+		[propget, id(2), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		[propget, id(3), helpstring("property TableName")] HRESULT TableName([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property TableName")] HRESULT TableName([in] BSTR newVal);
+		[propget, id(4), helpstring("property ProductView")] HRESULT ProductView([out, retval] IProductView* *pVal);
+		[propputref, id(4), helpstring("property ProductView")] HRESULT ProductView([in] IProductView* newVal);
+		[id(5), helpstring("method GetProperties")] HRESULT GetProperties([out, retval] IMTCollection **pProperties);
+		[id(6), helpstring("method AddProperty")] HRESULT AddProperty([in] IProductViewProperty *pProperty);
+};
+
+
+	[
+		object,
+		uuid(A5ED61F7-FEA1-4E9A-9D9B-3016CDFA462A),
+		dual,
+		helpstring("IProductViewCatalog Interface"),
+		pointer_default(unique)
+	]
+	interface IProductViewCatalog : IDispatch
+	{
+		[id(1), helpstring("method CreateProductViewFromConfig")] HRESULT CreateProductViewFromConfig([in] BSTR aProductViewName, [in] VARIANT_BOOL aHasChildren, [out, retval] IProductView* *apPV);
+		[id(2), helpstring("method GetProductViewByName")] HRESULT GetProductViewByName([in] BSTR aName, [out, retval] IProductView* *apPV);
+		[id(3), helpstring("method GetProductView")] HRESULT GetProductView([in] long aID, [out, retval] IProductView* *apPV);
+		[id(4), helpstring("method RemoveProductView")] HRESULT RemoveProductView([in] long aID);
+		[propget, id(5), helpstring("property SessionContext")] HRESULT SessionContext([out, retval] IMTSessionContext* *pVal);
+		[propputref, id(5), helpstring("property SessionContext")] HRESULT SessionContext([in] IMTSessionContext* newVal);
+		[id(6), helpstring("method GetProductViewProperty")] HRESULT GetProductViewProperty([in] long aID, [out, retval] IProductViewProperty* *apPVProp);
+	};
+[
+	uuid(D0CF0775-A746-11D2-B298-006008925549),
+	version(1.0),
+	helpstring("MTProductView 1.0 Type Library")
+]
+library MTPRODUCTVIEWLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(D0CF078C-A746-11D2-B298-006008925549),
+		helpstring("MTProductViewDef Class")
+	]
+	coclass MTProductViewDef
+	{
+		[default] interface IMTProductViewDef;
+	};
+	[
+		uuid(14ED2FC7-CCDE-11D3-A60D-00C04F579C39),
+		helpstring("MTProductViewOps Class")
+	]
+	coclass MTProductViewOps
+	{
+		[default] interface IMTProductViewOps;
+	};
+	[
+		uuid(288D0D34-D382-461E-B890-26B1183037F3),
+		helpstring("ProductView Class")
+	]
+	coclass ProductView
+	{
+		[default] interface IProductView;
+	};
+	[
+		uuid(D9A688BA-1DC9-439A-957D-3A437C8ACA07),
+		helpstring("ProductViewUniqueKey Class")
+	]
+	coclass ProductViewUniqueKey
+	{
+		[default] interface IProductViewUniqueKey;
+	};
+	[
+		uuid(4B05E19F-E01F-412E-B89C-2D92E4BD957F),
+		helpstring("ProductViewProperty Class")
+	]
+	coclass ProductViewProperty
+	{
+		[default] interface IProductViewProperty;
+	};
+	[
+		uuid(1963CC01-975C-4AD0-BC93-27D2D77A39E5),
+		helpstring("ProductViewCatalog Class")
+	]
+	coclass ProductViewCatalog
+	{
+		[default] interface IProductViewCatalog;
+	};
+};

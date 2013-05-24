@@ -1,0 +1,144 @@
+/**************************************************************************
+ * @doc MTSESSIONSERVER
+ *
+ * Copyright 1998 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ * Created by: Derek Young
+ * $Header$
+ ***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTNameID.idl";
+import "MTSession.idl";
+import "MTSessionSet.idl";
+import "MTObjectOwner.idl";
+
+// ----------------------------------------------------------------
+// Object: MTSessionServer
+// Prog ID: MetraPipeline.MTSessionServer.1
+// Description: Interface to retrieve and create sessions.
+// ----------------------------------------------------------------
+[
+	object,
+	uuid(C8757975-20E5-11D2-A1C1-006008C0E24A),
+	dual,
+	helpstring("IMTSessionServer Interface"),
+	pointer_default(unique)
+]
+interface IMTSessionServer : IDispatch
+{
+  // Return a given session, given the session ID.
+  [id(1), helpstring("method GetSession")]
+  HRESULT GetSession(long sessionId, [out,retval] IMTSession * * session);
+
+  // Create a new session, given a Unique ID (UID) and service ID.
+  // INTERNAL use only
+midl_pragma warning( disable: 2039 )
+  [id(2), helpstring("method CreateSession")]
+  HRESULT CreateSession([in] unsigned char uid[16], long serviceId,
+			[out,retval] IMTSession * * session);
+midl_pragma warning( default: 2039 )
+
+  // Create a new session that links to an existing parent.
+  // INTERNAL use only
+midl_pragma warning( disable: 2039 )
+  [id(3), helpstring("method CreateChildSession")]
+  HRESULT CreateChildSession([in] unsigned char uid[16], long serviceId,
+			     [in] unsigned char parentUId[16],
+			     [out,retval] IMTSession * * session);
+midl_pragma warning( default: 2039 )
+
+  // Create a "test" session that has no unique ID.
+  // DO NOT USE.
+  [id(4), helpstring("method CreateTestSession")]
+  HRESULT CreateTestSession(long serviceId, [out,retval] IMTSession * * session);
+
+  // Create an initially empty set of sessions.
+  [id(5), helpstring("method CreateSessionSet")]
+  HRESULT CreateSessionSet([out, retval] IMTSessionSet * * apSet);
+
+  // Return a session set, given the session set's ID.
+  [id(6), helpstring("method GetSessionSet")]
+  HRESULT GetSessionSet(long setId, [out, retval] IMTSessionSet * * apSet);
+
+  // Initialize the shared memory used to hold session state.
+  [id(7), helpstring("method Init")]
+  HRESULT Init(BSTR filename, BSTR sharename, long totalSize);
+  
+  // Return all sessions currently marked as IN_PROCESS by a given stage.
+  // INTERNAL use only.
+  [id(8), helpstring("method SessionsInProcessBy")]
+  HRESULT SessionsInProcessBy(int aStageID,
+			      [out, retval] IMTSessionSet * * apSet);
+
+  // Return all session currently marked as ROLLEDBACK.
+  // INTERNAL use only.
+  [id(9), helpstring("method FailedSessions")]
+  HRESULT FailedSessions([out, retval] IMTSessionSet * * apSet);
+  
+  // Return the session with the given Unique ID (UID).
+midl_pragma warning( disable: 2039 )
+  [id(10), helpstring("method GetSessionWithUID")]
+  HRESULT GetSessionWithUID([in] unsigned char uid[16],
+			    [out,retval] IMTSession * * session);
+midl_pragma warning( default: 2039 )
+
+  // Create a "test" session that links to an existing parent.
+  // DO NOT USE.
+  [id(11), helpstring("method CreateChildTestSession")]
+  HRESULT CreateChildTestSession(long serviceId,
+				 long parentId, [out,retval] IMTSession * * session);
+
+  // Return the percentage of space used for storing session data.
+  // Space used is defined as the max percent full of all the shared memory
+  // pools.
+  [id(12), propget, helpstring("property PercentUsed")]
+  HRESULT PercentUsed([out, retval] double * pVal);
+
+  // DEPRACATED.  Call PercentUsed instead.
+  [id(13), propget, helpstring("property CurrentCapacity")]
+  HRESULT CurrentCapacity([out, retval] double * pVal);
+
+  // Delete all sessions that are being processed by a given stage.
+  // INTERNAL use only.
+  [id(14), helpstring("method DeleteSessionsInProcessBy")]
+  HRESULT DeleteSessionsInProcessBy(int aStageID);
+
+
+  // Return a given object owner, given the ID.
+	// INTERNAL use only
+  [helpstring("method GetObjectOwner")]
+  HRESULT GetObjectOwner(long ownerId, [out,retval] IMTObjectOwner * * objectOwner);
+
+  // Create an object owner
+	// INTERNAL use only
+  [helpstring("method CreateObjectOwner")]
+  HRESULT CreateObjectOwner([out,retval] IMTObjectOwner * * objectOwner);
+
+  // Delete an object owner
+	// INTERNAL use only
+  [helpstring("method CreateObjectOwner")]
+  HRESULT DeleteObjectOwner(long ownerId);
+
+  // private/undocumented interface used by pipeline internals only
+  // INTERNAL use only
+  [helpstring("Internal Session Server handle")]
+	HRESULT GetInternalServerHandle([out, retval] long * ServerHandle);
+};
+
+

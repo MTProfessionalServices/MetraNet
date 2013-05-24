@@ -1,0 +1,22 @@
+//import "oaidl.idl";
+//import "ocidl.idl";
+
+import "HookHandler.idl";
+
+[
+	uuid(af684b7a-0c9f-4118-b7d4-8a4db7b9e7dd),
+	version(1.0),
+	helpstring("MetraTech Pipeline ext 1.0 Type Library")
+]
+library MTPipelineLibExt
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	interface IMTHookHandler;
+	
+	interface IMTSessionContext;
+	interface IMTLoginContext;
+	interface IMTCompositeCapability;
+
+};

@@ -1,0 +1,458 @@
+// COMDBObjects.idl : IDL source for COMDBObjects.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (COMDBObjects.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "rowsetinterfaces.idl";
+
+typedef enum 
+{
+  TYPE_STRING = 1,
+  TYPE_INTEGER = 2,
+  TYPE_FLOAT = 3,
+  TYPE_DATE = 4,
+} MTPropertyType;
+
+typedef enum 
+{
+  SORT_ASC = 1,
+  SORT_DESC = 2,
+} MTPVSortOrder;
+
+
+
+	[
+		object,
+		uuid(0119D8D4-307D-11D2-B5F5-00104B2B980B),
+		dual,
+		helpstring("ICOMDataAccessor Interface"),
+		pointer_default(unique)
+	]
+// ----------------------------------------------------------------
+// Object:   	ICOMDataAccessor
+// Prog ID:		COMDataAccessor.COMDataAccessor.1
+// Description:  	The data accessor allows for the creation of summary view,
+//  product view and product view item rowsets for the specified 
+//  account id and interval id. The various view rowsets provide a tabular
+//  view of the usage data for the specified account id and interval id. The 
+//  data accessor also allows access the locale translator, the usage interval
+//  rowset, the property collection and the view collection.
+// ----------------------------------------------------------------
+	interface ICOMDataAccessor : IDispatch
+	{
+		// The AccountID property gets the account id.
+		[propget, id(1), helpstring("property AccountID")] HRESULT AccountID([out, retval] long *pVal);
+		// The AccountID property sets the account id.
+		[propput, id(1), helpstring("property AccountID")] HRESULT AccountID([in] long newVal);
+		// The IntervalID property gets the interval id.
+		[propget, id(2), helpstring("property IntervalID")] HRESULT IntervalID([out, retval] long *pVal);
+		// The IntervalID property sets the interval id.
+		[propput, id(2), helpstring("property IntervalID")] HRESULT IntervalID([in] long newVal);
+		// The GetSummaryView method gets the summary view for the specified account id and interval id
+		[id(3), helpstring("method GetSummaryView")] HRESULT GetSummaryView([in] BSTR apQueryExtension, [out,retval] LPDISPATCH *pView);
+		// The GetProductView method gets the product view for the specified view id, account id and interval id
+		[id(4), helpstring("method GetProductView")] HRESULT GetProductView([in] long ViewID, [in] BSTR pQueryExtension, [out,retval] LPDISPATCH *pView);
+		// The GetProductViewItem method gets the product view item for the specified session id, view id, account id and interval id
+		[id(5), helpstring("method GetProductViewItem")] HRESULT GetProductViewItem([in] long ViewID, [in] long SessionID,[out,retval] LPDISPATCH *pView);
+		// The GetLocaleTranslator method gets the locale translator for the specified language.
+		[id(6), helpstring("method GetLocaleTranslator")] HRESULT GetLocaleTranslator([out,retval] LPDISPATCH *pLocale);
+		// The GetUsageInterval method gets the usage intervals for the specified account
+		[id(7), helpstring("method GetUsageInterval")] HRESULT GetUsageInterval([out,retval] LPDISPATCH *pUsageInterval);
+		// The GetProperties method gets the property collection for the specified view.
+		[id(8), helpstring("method GetProperties")] HRESULT GetProperties([in] long ViewID, [out,retval] LPDISPATCH *pPropCollection);
+		// The GetViewCollection gets the view collection.
+		[id(9), helpstring("method GetViewCollection")] HRESULT GetViewCollection([out,retval] LPDISPATCH *pViewCollection);
+		// The LanguageCode property sets the language code.
+		[propput, id(10), helpstring("property LanguageCode")] HRESULT LanguageCode([in] BSTR newVal);
+		// Get the internal product view code
+		[id(11), helpstring("method GetInternalPVID")] HRESULT GetInternalPVID([in] long viewID,[out,retval] long* InternalPVID);
+	};
+	[
+		object,
+		uuid(0119D8D6-307D-11D2-B5F5-00104B2B980B),
+		dual,
+		helpstring("ICOMProductView Interface"),
+		pointer_default(unique)
+	]
+// ----------------------------------------------------------------
+// Object:   	ICOMProductView
+// Prog ID:		MetraTech.COMProductView.1
+// Description:  	The product view rowset provides a tabluar view for
+//  the specified product view, account id and interval id. The product 
+//  view rowset also allows access to the product view child summary 
+//  rowset, the property collection for the product view and is sortable..
+// ----------------------------------------------------------------
+	interface ICOMProductView : IMTRowSet
+	{
+		// The Init method initializes the product view rowset
+		[id(50), helpstring("method Init")] HRESULT Init([in] BSTR aLangCode, [in] BSTR pQueryExtension);
+		// The AccountID property gets the account id.
+		[propget, id(51), helpstring("property AccountID")] HRESULT AccountID([out, retval] long *pVal);
+		// The AccountID property sets the account id.
+		[propput, id(51), helpstring("property AccountID")] HRESULT AccountID([in] long newVal);
+		// The ViewID property gets the view id.
+		[propget, id(52), helpstring("property ViewID")] HRESULT ViewID([out, retval] long *pVal);
+		// The ViewID property sets the view id.
+		[propput, id(52), helpstring("property ViewID")] HRESULT ViewID([in] long newVal);
+		// The GetChildrenSummary gets the summary rowset for the children of the current parent view item.
+		[id(53), helpstring("method GetChildrenSummary")] HRESULT GetChildrenSummary([out,retval] LPDISPATCH *pView);
+		// The IntervalID property gets the interval id.
+		[propget, id(54), helpstring("property IntervalID")] HRESULT IntervalID([out, retval] long *pVal);
+		// The IntervalID property sets the interval id.
+		[propput, id(54), helpstring("property IntervalID")] HRESULT IntervalID([in] long newVal);
+		// The Sort method sorts the current rowset.
+		[id(55), helpstring("method GetProperties")] HRESULT GetProperties([out,retval] LPDISPATCH *pPropCollection);
+		// The Filter method filters the internal rowset object based on criteria passed in  apFilterObject param (IMTFilter)
+		[id(56), helpstring("method Refresh")] HRESULT Refresh();
+		// The PopulatedRecordSet propget returnes the underline rowset object.
+	    [id(57), propget, helpstring("Populated recordset")] HRESULT PopulatedRecordSet([out,retval] IDispatch** pDisp);
+	};
+	[
+		object,
+		uuid(0119D8D8-307D-11D2-B5F5-00104B2B980B),
+		dual,
+		helpstring("ICOMSummaryView Interface"),
+		pointer_default(unique)
+	]
+// ----------------------------------------------------------------
+// Object:   	ICOMSummaryView
+// Prog ID:		MetraTech.COMSummaryView.1
+// Description:  	The summary view rowset provides a tabluar view for
+//  the account id and interval id. The summary view rowset also allows 
+//  access to the contents of a summary view row, either a product view 
+//  or summary view rowset.
+// ----------------------------------------------------------------
+	interface ICOMSummaryView : IMTRowSet
+	{
+// The Init method initializes the summary view rowset.
+		[id(50), helpstring("method Init")] HRESULT Init([in] BSTR aLangCode, [in] BSTR apQueryExtension);
+// The AccountID property gets the account id.
+		[propget, id(51), helpstring("property AccountID")] HRESULT AccountID([out, retval] long *pVal);
+// The AccountID property sets the account id.
+		[propput, id(51), helpstring("property AccountID")] HRESULT AccountID([in] long newVal);
+// The ViewID property gets the view id.
+		[propget, id(52), helpstring("property ViewID")] HRESULT ViewID([out, retval] long *pVal);
+// The ViewID property sets the view id.
+		[propput, id(52), helpstring("property ViewID")] HRESULT ViewID([in] long newVal);
+// The GetContents method gets the detailed rowset for the current rowset.
+		[id(53), helpstring("method GetContents")] HRESULT GetContents([out,retval] LPDISPATCH *pView);
+// The IntervalID property gets the interval id.
+		[propget, id(54), helpstring("property IntervalID")] HRESULT IntervalID([out, retval] long *pVal);
+// The IntervalID property sets the interval id.
+		[propput, id(54), helpstring("property IntervalID")] HRESULT IntervalID([in] long newVal);
+	};
+	[
+		object,
+		uuid(1CCFC1B5-35CC-11D2-B5F5-00104B2B980B),
+		dual,
+		helpstring("ICOMProductViewItem Interface"),
+		pointer_default(unique)
+	]
+// ----------------------------------------------------------------
+// Object:   	ICOMProductViewItem
+// Prog ID:		MetraTech.COMProductViewItem.1
+// Description:  	The product view item rowset provides a tabluar view for
+//  the specified product view, session id, account id and interval id. The 
+//  product view item rowset also allows access to the product view child 
+//  summary rowset.
+// ----------------------------------------------------------------
+	interface ICOMProductViewItem : IMTRowSet
+	{
+// The Init method initializes the rowset for the specified session id, account id, view id and interval id.
+		[id(50), helpstring("method Init")] HRESULT Init([in] BSTR aLangCode);
+// The AccountID property gets the account id.
+		[propget, id(51), helpstring("property AccountID")] HRESULT AccountID([out, retval] long *pVal);
+// The AccountID property sets the account id.
+		[propput, id(51), helpstring("property AccountID")] HRESULT AccountID([in] long newVal);
+// The ViewID property gets the view id.
+		[propget, id(52), helpstring("property ViewID")] HRESULT ViewID([out, retval] long *pVal);
+// The ViewID property sets the view id.
+		[propput, id(52), helpstring("property ViewID")] HRESULT ViewID([in] long newVal);
+// The SessionID property gets the session id.
+		[propget, id(53), helpstring("property SessionID")] HRESULT SessionID([out, retval] long  *pVal);
+// The SessionID property sets the session id.
+		[propput, id(53), helpstring("property SessionID")] HRESULT SessionID([in] long  newVal);
+// The GetChildrenSummary gets the summary rowset for the children of the current parent view item.
+		[id(54), helpstring("method GetChildrenSummary")] HRESULT GetChildrenSummary([out,retval] LPDISPATCH *pView);
+// The IntervalID property gets the interval id.
+		[propget, id(55), helpstring("property IntervalID")] HRESULT IntervalID([out, retval] long *pVal);
+// The IntervalID property sets the interval id.
+		[propput, id(55), helpstring("property IntervalID")] HRESULT IntervalID([in] long newVal);
+	};
+	[
+		object,
+		uuid(1CCFC1B7-35CC-11D2-B5F5-00104B2B980B),
+		dual,
+		helpstring("ICOMProductViewSummary Interface"),
+		pointer_default(unique)
+	]
+// ----------------------------------------------------------------
+// Object:   	ICOMProductViewSummary
+// Prog ID:		MetraTech.COMProductViewSummary.1
+// Description:  	The product view summary rowset provides a tabluar view 
+//  of the product view children for the specified product view. session id,
+//  account id and interval id. The product summary view rowset also allows 
+//  access to the product view child rowset.
+// ----------------------------------------------------------------
+	interface ICOMProductViewSummary : IMTRowSet
+	{
+		// The Init method initializes the product view summary rowset for the specified account id, interval id, view id and session id.
+		[id(50), helpstring("method Init")] HRESULT Init([in] BSTR aLangCode);
+		// The AccountID property gets the account id.
+		[propget, id(51), helpstring("property AccountID")] HRESULT AccountID([out, retval] long *pVal);
+		// The AccountID property sets the account id.
+		[propput, id(51), helpstring("property AccountID")] HRESULT AccountID([in] long newVal);
+		// The ViewID property gets the view id.
+		[propget, id(52), helpstring("property ViewID")] HRESULT ViewID([out, retval] long *pVal);
+		// The ViewID property sets the view id.
+		[propput, id(52), helpstring("property ViewID")] HRESULT ViewID([in] long newVal);
+		// The GetContents method get the product view item rowset for the specified account id, interval id, view id and session id.
+		[id(53), helpstring("method GetContents")] HRESULT GetContents([in] BSTR pQueryExtension, [out,retval] LPDISPATCH *pView);
+		// The SessionID property gets the session id.
+		[propget, id(54), helpstring("property SessionID")] HRESULT SessionID([out, retval] long *pVal);
+		// The SessionID property sets the session id.
+		[propput, id(54), helpstring("property SessionID")] HRESULT SessionID([in] long newVal);
+		// The IntervalID property gets the interval id.
+		[propget, id(55), helpstring("property IntervalID")] HRESULT IntervalID([out, retval] long *pVal);
+		// The IntervalID property sets the interval id.
+		[propput, id(55), helpstring("property IntervalID")] HRESULT IntervalID([in] long newVal);
+	};
+	[
+		object,
+		uuid(1CCFC1B9-35CC-11D2-B5F5-00104B2B980B),
+		dual,
+		helpstring("ICOMProductViewChild Interface"),
+		pointer_default(unique)
+	]
+// ----------------------------------------------------------------
+// Object:   	ICOMProductViewChild
+// Prog ID:		MetraTech.COMProductViewChild.1
+// Description:  	The product view child rowset provides a tabluar view for
+//  the specified product view, parent session id, account id and interval id. 
+//  The product view rowset also allows access to the property collection for 
+//  the product view and is sortable.
+// ----------------------------------------------------------------
+	interface ICOMProductViewChild : IMTRowSet
+	{
+		// The Init method initializes the product view child rowset with the specified account id, view id, interval id and session id.
+		[id(50), helpstring("method Init")] HRESULT Init([in] BSTR aLangCode, [in] BSTR pQueryExtension);
+		// The AccountID property gets the account id.
+		[propget, id(51), helpstring("property AccountID")] HRESULT AccountID([out, retval] long *pVal);
+		// The AccountID property sets the account id.
+		[propput, id(51), helpstring("property AccountID")] HRESULT AccountID([in] long newVal);
+		// The ViewID property gets the view id.
+		[propget, id(52), helpstring("property ViewID")] HRESULT ViewID([out, retval] long *pVal);
+		// The ViewID property sets the view id.
+		[propput, id(52), helpstring("property ViewID")] HRESULT ViewID([in] long newVal);
+		// The SessionID property gets the session id.
+		[propget, id(53), helpstring("property SessionID")] HRESULT SessionID([out, retval] long  *pVal);
+		// The SessionID property sets the session id.
+		[propput, id(53), helpstring("property SessionID")] HRESULT SessionID([in] long  newVal);
+		// The IntervalID property gets the interval id.
+		[propget, id(54), helpstring("property IntervalID")] HRESULT IntervalID([out, retval] long *pVal);
+		// The IntervalID property sets the interval id.
+		[propput, id(54), helpstring("property IntervalID")] HRESULT IntervalID([in] long newVal);
+		// The GetProperties method gets the property collection for the specified view id.
+		[id(55), helpstring("method GetProperties")] HRESULT GetProperties([out,retval] LPDISPATCH *pPropCollection);
+		// The Refresh method  refreshes internal rowset object from database
+		[id(56), helpstring("method Refresh")] HRESULT Refresh();
+		// The PopulatedRecordSet property returnes internal rowset object
+		[id(57), propget, helpstring("Populated recordset")] HRESULT PopulatedRecordSet([out,retval] IDispatch** pDisp);
+	};
+	[
+		object,
+		uuid(1CCFC1BB-35CC-11D2-B5F5-00104B2B980B),
+		dual,
+		helpstring("ICOMLocaleTranslator Interface"),
+		pointer_default(unique)
+	]
+// ----------------------------------------------------------------
+// Object:   	ICOMLocaleTranslator
+// Prog ID:		MetraTech.COMLocaleTranslator.1
+// Description:  	The locale translator provides localization and 
+//  conversion support. The localization support includes the localizing 
+// of property names, view names, and currency. The conversion support
+// includes the conversion from a currency to Euro currency and the 
+// conversion of date time's to the appropriate data time for the 
+// specified time zone.
+// ----------------------------------------------------------------
+	interface ICOMLocaleTranslator : IDispatch
+	{
+// The Init method initializes the locale translator with the specified language code.
+		[id(1), helpstring("method Init")] HRESULT Init([in] BSTR aLangCode);
+// The GetPropertyDescription method gets the localized property name for the specified property name and view id.
+		[id(2), helpstring("method GetPropertyDescription")] HRESULT GetPropertyDescription([in] long aViewID, [in] BSTR aName, [out,retval] BSTR *pDesc);
+// The GetDescription method gets the localized description for the specified description id
+		[id(3), helpstring("method GetDescription")] HRESULT GetDescription([in] long aDescID, [out,retval] BSTR *pDesc);
+// The GetCurrency method gets the localized currency for the specified currency code and amount.
+		[id(4), helpstring("method GetCurrency")] HRESULT GetCurrency([in] VARIANT aAmount, [in] BSTR aUOM, [out,retval] BSTR *pCurrency);
+// The GetViewDescription method gets the localized view description for the specified view.
+		[id(5), helpstring("method GetViewDescription")] HRESULT GetViewDescription([in] long aViewID, [out,retval] BSTR *apDesc);
+// The GetEuroCurrency method gets the Euro currency for the specified amount and currency code.
+		[id(6), helpstring("method GetEuroCurrency")] HRESULT GetEuroCurrency([in] VARIANT aAmount, [in] BSTR aUOM, [out,retval] BSTR *pCurrency);
+// The LanguageCode property gets the language code.
+		[propget, id(7), helpstring("property LanguageCode")] HRESULT LanguageCode([out, retval] BSTR *pVal);
+// The LanguageCode property sets the language code.
+		[propput, id(7), helpstring("property LanguageCode")] HRESULT LanguageCode([in] BSTR newVal);
+// The GetDateTime method gets the converted date time value based on the timezone and daylight savings time.
+		[id(8), helpstring("method GetDateTime")] HRESULT GetDateTime([in] VARIANT aInputDateTime, 
+																	[in] long aMTZoneCode, 
+																	[in] VARIANT_BOOL aDayLightSavingFlag, 
+																	[out,retval] VARIANT *apLocalDateTime);
+// The GetLocaleListForEnumTypes method gets the localized string list for the specified enumerated type.
+		[id(9), helpstring("method GetLocaleListForEnumTypes")] HRESULT GetLocaleListForEnumTypes([in] BSTR aLangCode, 
+																	[in] BSTR aEnumSpace, 
+																	[in] BSTR aEnumTypeName, 
+																    [out,retval] LPDISPATCH* pInterface);
+// The GetLocalizedString method gets the localized string for the specified name
+		[id(10), helpstring("method GetLocalizedString")] HRESULT GetLocalizedString([in] BSTR aFQN, [out,retval] BSTR *pDesc);
+// The GetLocalizedMonth method gets the localized string for the specified month
+		[id(11), helpstring("method GetLocalizedMonth")] HRESULT GetLocalizedMonth([in] BSTR aMonth, [out,retval] BSTR *pDesc);
+// The GetLocalizedWeekday method gets the localized string for the specified weekday
+		[id(12), helpstring("method GetLocalizedWeekday")] HRESULT GetLocalizedWeekday([in] BSTR aWeekday, [out,retval] BSTR *pDesc);
+// Get the language id
+		[propget, id(13), helpstring("property LanguageID")] HRESULT LanguageID([out,retval] long* aLanguageID);
+// The GetLocalizedDescription method gets the localized string for the specified id
+		[id(14), helpstring("method GetLocalizedDescription")] HRESULT GetLocalizedDescription([in] long aDescriptionID, [out,retval] BSTR *pDesc);
+	};
+	[
+		object,
+		uuid(AEA6A4E3-4DB6-11D2-B5FD-00104B2B980B),
+		dual,
+		helpstring("ICOMPropertyCollection Interface"),
+		pointer_default(unique)
+	]
+// ----------------------------------------------------------------
+// Object:   	ICOMPropertyCollection
+// Prog ID:		MetraTech.COMPropertyCollection.1
+// Description:  	The property collection provides a tabluar view for
+//  the properties of the specified product view. The columns of the
+//  collection include the property name, property type and property
+//  database name.
+// ----------------------------------------------------------------
+	interface ICOMPropertyCollection : IDispatch
+	{
+// The ViewID property gets the view id.
+		[propget, id(1), helpstring("property ViewID")] HRESULT ViewID([out, retval] long *pVal);
+// The ViewID property sets the view id.
+		[propput, id(1), helpstring("property ViewID")] HRESULT ViewID([in] long newVal);
+// The Init method initializes the property collection for the specified view id.
+		[id(2), helpstring("method Init")] HRESULT Init();
+// The MoveNext method moves to the next row of the rowset.
+		[id(3), helpstring("method MoveNext")] HRESULT MoveNext();
+// The MoveFirst method moves to the first row of the rowset.
+		[id(4), helpstring("method MoveFirst")] HRESULT MoveFirst();
+// The MoveLast method moves to the last row of the rowset.
+		[id(5), helpstring("method MoveLast")] HRESULT MoveLast();
+// The Count property gets the number of columns in the rowset.
+		[propget, id(6), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+// The Name property gets the name for the specified column.
+		[propget, id(7), helpstring("property Name")] HRESULT Name([in] VARIANT vtIndex, [out, retval] BSTR *pVal);
+// The Value property gets the value for the specified column.
+		[propget, id(8), helpstring("property Value")] HRESULT Value([in] VARIANT vtIndex, [out, retval] VARIANT *pVal);
+// The Type property gets the type for the specified column.
+		[propget, id(9), helpstring("property Type")] HRESULT Type([in] VARIANT vtIndex, [out, retval] BSTR *pVal);
+// The RecordCount property gets the number of rows in the rowset.
+		[propget, id(10), helpstring("property RecordCount")] HRESULT RecordCount([out, retval] long *pVal);
+// The EOF property gets the current status of the rowset cursor.
+		[propget, id(11), helpstring("property EOF")] HRESULT EOF([out, retval] VARIANT *pVal);
+	};
+	[
+		object,
+		uuid(D87A19E9-8EBB-44D5-A44C-04ACEC996351),
+		dual,
+		helpstring("ICOMDataAccessorUtil Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMDataAccessorUtil : IDispatch
+	{
+		[id(1), helpstring("method GetProductViewTableName")] HRESULT GetProductViewTableName([in] BSTR ProductViewName, [out,retval] BSTR *pTableName);
+	};
+
+
+[
+	uuid(0119D8C7-307D-11D2-B5F5-00104B2B980B),
+	version(1.0),
+	helpstring("COMDBObjects 1.0 Type Library")
+]
+library COMDBOBJECTSLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(0119D8D5-307D-11D2-B5F5-00104B2B980B),
+		helpstring("COMDataAccessor Class")
+	]
+	coclass COMDataAccessor
+	{
+		[default] interface ICOMDataAccessor;
+	};
+	[
+		uuid(0119D8D7-307D-11D2-B5F5-00104B2B980B),
+		helpstring("COMProductView Class")
+	]
+	coclass COMProductView
+	{
+		[default] interface ICOMProductView;
+	};
+	[
+		uuid(0119D8D9-307D-11D2-B5F5-00104B2B980B),
+		helpstring("COMSummaryView Class")
+	]
+	coclass COMSummaryView
+	{
+		[default] interface ICOMSummaryView;
+	};
+	[
+		uuid(1CCFC1B6-35CC-11D2-B5F5-00104B2B980B),
+		helpstring("COMProductViewItem Class")
+	]
+	coclass COMProductViewItem
+	{
+		[default] interface ICOMProductViewItem;
+	};
+	[
+		uuid(1CCFC1B8-35CC-11D2-B5F5-00104B2B980B),
+		helpstring("COMProductViewSummary Class")
+	]
+	coclass COMProductViewSummary
+	{
+		[default] interface ICOMProductViewSummary;
+	};
+	[
+		uuid(1CCFC1BA-35CC-11D2-B5F5-00104B2B980B),
+		helpstring("COMProductViewChild Class")
+	]
+	coclass COMProductViewChild
+	{
+		[default] interface ICOMProductViewChild;
+	};
+	[
+		uuid(1CCFC1BC-35CC-11D2-B5F5-00104B2B980B),
+		helpstring("COMLocaleTranslator Class")
+	]
+	coclass COMLocaleTranslator
+	{
+		[default] interface ICOMLocaleTranslator;
+	};
+	[
+		uuid(AEA6A4E4-4DB6-11D2-B5FD-00104B2B980B),
+		helpstring("COMPropertyCollection Class")
+	]
+	coclass COMPropertyCollection
+	{
+		[default] interface ICOMPropertyCollection;
+	};
+	[
+		uuid(87ED89B7-AE07-4533-953D-6A2F6076E21E),
+		helpstring("CCOMDataAccessorUtil Class")
+	]
+	coclass COMDataAccessorUtil
+	{
+		[default] interface ICOMDataAccessorUtil;
+	};
+};

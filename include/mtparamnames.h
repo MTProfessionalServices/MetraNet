@@ -1,0 +1,269 @@
+/**************************************************************************
+ * @doc 
+ * 
+ * @module  |
+ * 
+ * This file contains the parameter names for MetraTech queries
+ * 
+ * Copyright 1998 by MetraTech
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+ * REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+ * WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+ * OR THAT THE USE OF THE LICENSED SOFTWARE OR DOCUMENTATION WILL NOT
+ * INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+ * RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech, and USER
+ * agrees to preserve the same.
+ *
+ * Created by: Kevin Fitzgerald
+ * $Header$
+ *
+ * @index | 
+ ***************************************************************************/
+
+// 
+#define MTPARAM_SELECTCLAUSE      L"%%SELECT_CLAUSE%%"
+#define MTPARAM_SESSIONTYPE       L"%%SESSION_TYPE%%"
+#define MTPARAM_TABLENAME         L"%%TABLE_NAME%%"
+#define MTPARAM_TABLESUFFIX       L"%%TABLE_SUFFIX%%"
+#define MTPARAM_VIEWID            L"%%VIEW_ID%%"
+#define MTPARAM_VIEWTYPE          L"%%VIEW_TYPE%%"
+#define MTPARAM_VIEWNAME          L"%%VIEW_NAME%%"
+#define MTPARAM_DESCID            L"%%DESC_ID%%"
+#define MTPARAM_EXT               L"%%EXT%%"
+#define MTPARAM_PARENTID          L"%%PARENT_ID%%"
+#define MTPARAM_SESSIONID         L"%%SESSION_ID%%"
+#define MTPARAM_INTERVALID        L"%%INTERVAL_ID%%"
+#define MTPARAM_PRODUCTID         L"%%PRODUCT_ID%%"
+#define MTPARAM_SVCID             L"%%SERVICE_ID%%"
+#define MTPARAM_AMOUNT            L"%%AMOUNT%%"
+#define MTPARAM_CURRENCY          L"%%CURRENCY%%"
+#define MTPARAM_TXNTIME           L"%%TXN_TIME%%"
+#define MTPARAM_COLUMNNAMES       L"%%COLUMN_NAMES%%"
+#define MTPARAM_COLUMNVALUES      L"%%COLUMN_VALUES%%"
+#define MTPARAM_UPDATEID          L"%%UPDATE_ID%%"
+#define MTPARAM_SOURCERID         L"%%SOURCER_ID%%"
+#define MTPARAM_DELIVERERID       L"%%DELIVERER_ID%%"
+#define MTPARAM_STATUS            L"%%STATUS%%"
+#define MTPARAM_UPDATECLAUSE      L"%%UPDATE_CLAUSE%%"
+#define MTPARAM_PRINTABLEID       L"%%PRINTABLE_ID%%"
+#define MTPARAM_VARBINID          L"%%VARBIN_ID%%"
+#define MTPARAM_PARENTVARBINID    L"%%PARENT_VARBIN_ID%%"
+#define MTPARAM_ACCOUNTID         L"%%ACCOUNT_ID%%"
+#define MTPARAM_DATE              L"%%DATE%%"
+#define MTPARAM_CYCLETYPE         L"%%CYCLE_TYPE%%"
+#define MTPARAM_STARTDATE         L"%%START_DATE%%"
+#define MTPARAM_ENDDATE           L"%%END_DATE%%"
+#define MTPARAM_DAYOFMONTH        L"%%DOM%%"
+#define MTPARAM_TIMESTAMP         L"%%TIMESTAMP%%"
+#define MTPARAM_CYCLEID           L"%%CYCLE_ID%%"
+#define MTPARAM_TAX_FEDERAL       L"%%FEDERAL_TAX%%"
+#define MTPARAM_TAX_STATE         L"%%STATE_TAX%%"
+#define MTPARAM_TAX_COUNTY        L"%%COUNTY_TAX%%"
+#define MTPARAM_TAX_LOCAL         L"%%LOCAL_TAX%%"
+#define MTPARAM_TAX_OTHER         L"%%OTHER_TAX%%"
+#define MTPARAM_BATCHID           L"%%BATCH_ID%%"
+#define MTPARAM_PERIODTYPE        L"%%PERIOD_TYPE%%"
+#define MTPARAM_ENUM_PROP_NAME    L"%%ENUM_PROPERTY_NAME%%"
+#define MTPARAM_RUNID             L"%%RUN_ID%%"
+#define MTPARAM_WHERECLAUSE       L"%%WHERE_CLAUSE%%"
+#define MTPARAM_FROMCLAUSE        L"%%FROM_CLAUSE%%"
+#define MTPARAM_VIEWIDS           L"%%VIEW_IDS%%"
+
+// reporting stuff 
+#define MTPARAM_ENUM_CODE         L"%%ENUM_CODE%%"
+#define MTPARAM_PROPERTY_NAME     L"%%PROPERTY_NAME%%"
+#define MTPARAM_NAME              L"%%NAME%%"
+#define MTPARAM_ADDR1             L"%%ADDRESS1%%"
+#define MTPARAM_ADDR2             L"%%ADDRESS2%%"
+#define MTPARAM_ADDR3             L"%%ADDRESS3%%"
+//#define MTPARAM_CITY              L"%%CITY%%"
+//#define MTPARAM_STATE             L"%%STATE%%"
+//#define MTPARAM_ZIP               L"%%ZIP%%"
+//#define MTPARAM_COUNTRY           L"%%COUNTRY%%"
+
+// kiosk stuff
+#define MTPARAM_LOGINID       		L"%%LOGIN_ID%%"
+#define MTPARAM_NAMESPACE       	L"%%NAME_SPACE%%"
+#define MTPARAM_PASSWORD       		L"%%PASSWORD%%"
+#define MTPARAM_VENDORID       		L"%%VENDOR_ID%%"
+#define MTPARAM_WEBURLSTR       	L"%%WEB_URL%%"
+#define MTPARAM_REFERRINGURL       	L"%%REFERRING_URL%%"
+#define MTPARAM_KIOSKID       		L"%%KIOSK_ID%%"
+#define MTPARAM_LANGCODE       		L"%%LANG_CODE%%"
+#define MTPARAM_PROFILEID       	L"%%PROFILE_ID%%"
+#define MTPARAM_PROFILETYPEID      	L"%%PROFILE_TYPE_ID%%"
+#define MTPARAM_TAGNAME       		L"%%TAG_NAME%%"
+#define MTPARAM_TAGVALUE       		L"%%TAG_VALUE%%"
+#define MTPARAM_TEXTDESCRIPTION    	L"%%TEXT_DESCRIPTION%%"
+#define MTPARAM_KIOSKUSERID    	    L"%%KIOSK_USER_ID%%"
+#define MTPARAM_PROVIDERNAME    	L"%%PROVIDER_NAME%%"
+#define MTPARAM_FIELDNAME    	    L"%%FIELD_NAME%%"
+#define MTPARAM_SITEID              L"%%SITE_ID%%"
+#define MTPARAM_NEWSITEID              L"%%NEW_SITE_ID%%"
+#define MTPARAM_NEWNAMESPACE           L"%%NEW_NAME_SPACE%%"
+#define MTPARAM_NEWLOGINID             L"%%NEW_LOGIN_ID%%"
+
+// account stuff
+#define MTPARAM_ACCOUNTTYPE         L"%%ACCOUNT_TYPE%%"
+#define MTPARAM_TARIFFID            L"%%TARIFF_ID%%"
+#define MTPARAM_GEOCODE             L"%%GEOCODE%%"
+#define MTPARAM_TAXEXEMPTFLAG       L"%%TAX_EXEMPT_FLAG%%"
+#define MTPARAM_TIMEZONEID          L"%%TIMEZONE_ID%%"
+#define MTPARAM_TIMEZONEOFFSET      L"%%TIMEZONE_OFFSET%%"
+#define MTPARAM_ACCOUNTSTATUS       L"%%ACCOUNT_STATUS%%"
+#define MTPARAM_ACCOUNTSTARTDATE    L"%%ACCOUNT_START_DATE%%"
+#define MTPARAM_ACCOUNTENDDATE      L"%%ACCOUNT_END_DATE%%"
+
+// code lookup stuff
+#define MTPARAM_NEWENUMDATAVALUE  	L"%%NEW_ENUM_DATA_VALUE%%"
+
+// payment server
+#define MTPARAM_CREDITCARDTYPE      L"%%CREDIT_CARD_TYPE%%"
+#define MTPARAM_LASTFOURDIGITS      L"%%LAST_FOUR_DIGITS%%"
+#define MTPARAM_CUSTOMERNAME        L"%%CUSTOMER_NAME%%"
+#define MTPARAM_ADDRESS             L"%%ADDRESS%%"
+#define MTPARAM_CITY                L"%%CITY%%"
+#define MTPARAM_STATE               L"%%STATE%%"
+#define MTPARAM_ZIP                 L"%%ZIP%%"
+#define MTPARAM_COUNTRY             L"%%COUNTRY%%"
+#define MTPARAM_EMAIL               L"%%EMAIL%%"
+#define MTPARAM_CREDITCARDNUMBER    L"%%CREDIT_CARD_NUMBER%%"
+#define MTPARAM_EXPDATE             L"%%EXP_DATE%%"
+#define MTPARAM_EXPDATEFORMAT       L"%%EXP_DATE_FORMAT%%"
+#define MTPARAM_STARTDATE           L"%%START_DATE%%"
+#define MTPARAM_STARTDATEFORMAT     L"%%START_DATE_FORMAT%%"
+#define MTPARAM_ISSUERNUMBER        L"%%ISSUER_NUMBER%%"
+#define MTPARAM_XACTIONID           L"%%XACTION_ID%%"
+#define MTPARAM_TERMINALID          L"%%TERMINAL_ID%%"
+#define MTPARAM_PAYMENTMETHOD       L"%%PAYMENT_METHOD%%"
+#define MTPARAM_CARDID              L"%%CARDID%%"
+#define MTPARAM_CARDVERIFYVALUE     L"%%CARD_VERIFY_VALUE%%"
+#define MTPARAM_CUSTOMERREFERENCEID L"%%CUSTOMERREFERENCEID%%"
+#define MTPARAM_CUSTOMERVATNUMBER   L"%%CUSTOMERVATNUMBER%%"
+#define MTPARAM_COMPANYADDRESS      L"%%COMPANYADDRESS%%"
+#define MTPARAM_COMPANYPOSTALCODE   L"%%COMPANYPOSTALCODE%%"
+#define MTPARAM_COMPANYPHONE        L"%%COMPANYPHONE%%"
+#define MTPARAM_RESERVED1           L"%%RESERVED1%%"
+#define MTPARAM_RESERVED2           L"%%RESERVED2%%"
+#define MTPARAM_RETAINCARDINFO      L"%%RETAINCARDINFO%%"
+#define MTPARAM_PRIMARY             L"%%PRIMARY%%"
+#define MTPARAM_ENABLED             L"%%ENABLED%%"
+#define MTPARAM_AUTHRECEIVED        L"%%AUTHRECEIVED%%"
+#define MTPARAM_VALIDATED           L"%%VALIDATED%%"
+#define MTPARAM_RETRYONFAILURE      L"%%RETRYONFAILURE%%"
+#define MTPARAM_NUMBERRETRIES       L"%%NUMBERRETRIES%%"
+#define MTPARAM_CONFIRMREQUESTED    L"%%CONFIRMREQUESTED%%"
+#define MTPARAM_DELAY               L"%%DELAY%%"
+#define MTPARAM_BILLEARLY           L"%%BILLEARLY%%"
+#define MTPARAM_PCARD               L"%%PCARD%%"
+#define MTPARAM_BANKNAME            L"%%BANKNAME%%"
+#define MTPARAM_ROUTINGNUMBER       L"%%ROUTINGNUMBER%%"
+#define MTPARAM_ACCOUNTNUMBER       L"%%ACCOUNTNUMBER%%"
+
+#define MTPARAM_ACTIONNAME          L"%%ACTION_NAME%%"
+#define MTPARAM_SUBSCRIBERIP				L"%%SUBSCRIBER_IP%%"
+#define MTPARAM_PHONENUNBER					L"%%PHONE_NUNBER%%"
+#define MTPARAM_CSRIP								L"%%CSR_IP%%"
+#define MTPARAM_CSRID								L"%%CSR_ID%%"
+#define MTPARAM_NOTES								L"%%NOTES%%"
+
+// product view stuff
+#define MTPARAM_PRODUCT_VIEW_NAME		L"%%PRODUCT_VIEW_NAME%%"
+#define MTPARAM_TABLE_SUFFIX		    L"%%TABLE_SUFFIX%%"
+#define MTPARAM_DDL_INNARDS		      L"%%DDL_INNARDS%%"
+
+#define MTPARAM_TABLE_NAME					L"%%TABLE_NAME%%"
+#define MTPARAM_PRODUCT_VIEW_PROP_ARGS L"%%PRODUCT_VIEW_PROP_ARGS%%"
+#define MTPARAM_PV_TABLE_NAME		    L"%%PV_TABLE_NAME%%"
+#define MTPARAM_PRODUCT_VIEW_PROP_NAMES L"%%PRODUCT_VIEW_PROP_NAMES%%"
+#define MTPARAM_PRODUCT_VIEW_PROP_ARG_VALUES L"%%PRODUCT_VIEW_PROP_ARG_VALUES%%"
+#define MTPARAM_PV_NAME             L"%%PV_NAME%%"
+#define MTPARAM_PV_CHECKSUM         L"%%PV_CHECKSUM%%"
+
+// account view stuff
+#define MTPARAM_ACCOUNT_VIEW_NAME		L"%%ACCOUNT_VIEW_NAME%%"
+#define MTPARAM_INPUTS		L"%%INPUTS%%"
+#define MTPARAM_COLUMN_NAMES		L"%%COLUMN_NAMES%%"
+#define MTPARAM_COLUMN_VALUES		L"%%COLUMN_VALUES%%"
+#define MTPARAM_COLUMN_NAME_COLUMN_VALUE		L"%%COLUMN_NAME_COLUMN_VALUE%%"
+#define MTPARAM_KEY_COLUMNS		L"%%KEY_COLUMNS%%"
+#define MTPARAM_INDEX_SUFFIX		L"%%INDEX_SUFFIX%%"
+#define MTPARAM_INDEX_COLUMNS		L"%%INDEX_COLUMNS%%"
+
+// account view foreign keys
+#define MTPARAM_AV_FKNAME L"%%FK_NAME%%"
+#define MTPARAM_AV_COLUMNNAME L"%%AV_COLUMN_NAME%%"
+#define MTPARAM_AV_FOREIGNTABLE L"%%FORIEGN_TABLE%%"
+#define MTPARAM_AV_FOREIGN_COLUMN L"%%FORIEGN_COLUMN%%"
+
+// invoice stuff
+#define MTPARAM_INVOICE_STRING  	L"%%INVOICE_STRING%%"
+#define MTPARAM_INVOICE_ID_FIRST  	L"%%INVOICE_ID_FIRST%%"
+#define MTPARAM_INVOICE_ID_LAST  	L"%%INVOICE_ID_LAST%%"
+#define MTPARAM_ACCOUNT_ID  	L"%%ACCOUNT_ID%%"
+#define MTPARAM_INTERVAL_ID  	L"%%INTERVAL_ID%%"
+
+//account mapper
+#define MTPARAM_ACCOUNT_NAME  	L"%%ACCOUNT_NAME%%"
+#define MTPARAM_WHERE_CLAUSE  	L"%%WHERE_CLAUSE%%"
+
+//account credit request stuff
+#define MTPARAM_CREDIT_REQUEST_STATUS  	L"%%CREDIT_REQUEST_STATUS%%"
+#define MTPARAM_CREDIT_REQUEST_SESSION_ID  	L"%%CREDIT_REQUEST_SESSION_ID%%"
+#define MTPARAM_CREDIT_AMOUNT  	L"%%CREDITAMOUNT%%"
+
+//populate reporting data adapter stuff
+#define MTPARAM_RPT_LANGUAGE_CODE  	L"%%LanguageCode%%"
+#define MTPARAM_RPT_MACHINE_NAME  	L"%%MachineName%%"
+#define MTPARAM_RPT_DBNAME  	L"%%DBName%%"
+#define MTPARAM_RPT_DBOWNER  	L"%%DBOwner%%"
+#define MTPARAM_RPT_LANGUAGE_ID  	L"%%LanguageID%%"
+#define MTPARAM_RPT_SESSION_ID  	L"%%SessionID%%"
+
+//PaymentServer stuff
+#define MTPARAM_PS_INTERVAL_ID  					L"%%INTERVAL_ID%%"
+#define MTPARAM_PS_TRANSACTION_ID  			L"%%PS_TRANSACTION_ID%%"
+#define MTPARAM_PS_PAYMENT_STATUS_ID  	L"%%PAYMENT_STATUS%%"
+#define MTPARAM_RESP_STRING_PARAM				L"%%RESPSTRING%%"
+#define MTPARAM_PAYMENT_PROVIDER_CODE_PARAM	L"%%PAYMENTPROVIDERCODE%%"
+
+//Product Catalog
+#define MTPARAM_ID_PROP  					L"%%ID_PROP%%"
+#define MTPARAM_NM_NAME  					L"%%NM_NAME%%"
+#define MTPARAM_NM_DESC  					L"%%NM_DESC%%"
+#define MTPARAM_TYPE_ID  					L"%%TYPE_ID%%"
+#define MTPARAM_N_KIND  					L"%%N_KIND%%"
+
+// Database stuff
+#define MTPARAM_DBO_LOGON  				L"%%DBO_LOGON%%"
+
+// Metered SDK Batch stuff
+#define MTPARAM_BATCH_ID L"%%BATCH_ID%%"
+#define MTPARAM_BATCH_UID L"%%BATCH_UID%%"
+#define MTPARAM_BATCH_SOURCE L"%%BATCH_SOURCE%%"
+#define MTPARAM_BATCH_SEQUENCE L"%%BATCH_SEQUENCE%%"
+#define MTPARAM_BATCH_NAME L"%%BATCH_NAME%%"
+#define MTPARAM_BATCH_NAMESPACE L"%%BATCH_NAMESPACE%%"
+#define MTPARAM_BATCH_STATUS L"%%BATCH_STATUS%%"
+#define MTPARAM_BATCH_SOURCECREATEDATE L"%%BATCH_SOURCECREATEDATE%%"
+#define MTPARAM_BATCH_FIRSTDATE L"%%BATCH_FIRSTDATE%%"
+#define MTPARAM_BATCH_LASTDATE L"%%BATCH_LASTDATE%%"
+#define MTPARAM_BATCH_NUMCOMPLETED L"%%BATCH_NUMCOMPLETED%%"
+#define MTPARAM_BATCH_NUMSUCCEEDED L"%%BATCH_NUMSUCCEEDED%%"
+#define MTPARAM_BATCH_NUMFAILED L"%%BATCH_NUMFAILED%%"
+#define MTPARAM_BATCH_NUMEXPECTED L"%%BATCH_NUMEXPECTED%%"
+#define MTPARAM_BATCH_NUMMAXFAILED L"%%BATCH_NUMMAXFAILED%%"
+#define MTPARAM_BATCH_FAILURETEXT L"%%BATCH_FAILURETEXT"
+
+
+
+//Counter related parameters
+
+
+

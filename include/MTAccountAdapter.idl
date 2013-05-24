@@ -1,0 +1,221 @@
+// MTAccountAdapter.idl : IDL source for MTAccountAdapter.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTAccountAdapter.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "MTSearchResultCollection.idl";
+import "Properties.idl";
+//import "rowsetinterfaces.idl";
+
+// To generate a user defined account adapter, a COM object must implement the
+// IMTAccountAdapter interface. The methods of this interface ar called 
+// at the appropriate times to export data from the product views.
+
+[
+	object,
+    uuid(5508c3a0-e008-11d3-aec7-00c04f54fe3b),
+	dual,
+	helpstring("IMTAccountAdapter Interface"),
+	pointer_default(unique)
+]
+interface IMTAccountAdapter : IDispatch
+{
+  // --------------------------------------------------------------------------------
+  // A method that every adapter implements to stored data in a local
+  // collection.  In the SQL adapter case (SQL server), a connection to
+  // the database is made here and the account view files are loaded.   In
+  // the case of LDAP adapter, a connection to the LDAP server is made.
+  // --------------------------------------------------------------------------------
+  [id(1), helpstring("method Initialize")] HRESULT Initialize([in] BSTR AdapterName);
+
+  // --------------------------------------------------------------------------------
+  // This method can be implemented to install or create the base
+  // information to support the adapter.  In the SQL adapter case (SQL
+  // server), the tables are created.
+  // --------------------------------------------------------------------------------
+  [id(2), helpstring("method Install")] HRESULT Install();
+
+  // --------------------------------------------------------------------------------
+  // This method can be implemented to drop or deinstall the base 
+  // information to support the adapter.  In the SQL adapter case (SQL
+  // server), the tables are dropped.
+  // --------------------------------------------------------------------------------
+  [id(3), helpstring("method Uninstall")] HRESULT Uninstall();
+
+  // --------------------------------------------------------------------------------
+  // This method can be implemented to add data to the respective adapters.
+  // The adapter name is passed in as an argument.  Supported values are 
+  // SQL and LDAP. The account property collection is an enumeration over the
+  // AccountProperty object.  A new entry gets added to either the table or
+  // the LDAP server.  
+  // --------------------------------------------------------------------------------
+  midl_pragma warning( disable: 2400 )
+
+  [id(4), helpstring("method AddData")] HRESULT AddData([in] BSTR AdapterName, 
+														[in] IMTAccountPropertyCollection* mtptr,
+														[in, optional]VARIANT apRowset);
+	
+
+  // --------------------------------------------------------------------------------
+  // This method can be implemented to update data to the respective adapters.
+  // The adapter name is passed in as an argument.  Supported values are
+  // SQL and LDAP. The account property collection is an enumeration over the
+  // AccountProperty object.  A new entry gets added to either the table or
+  // the LDAP server  
+  // --------------------------------------------------------------------------------
+  [id(5), helpstring("method UpdateData")] HRESULT UpdateData([in] BSTR AdapterName, 
+															  [in] IMTAccountPropertyCollection* mtptr,
+															  [in, optional]VARIANT apRowset);
+
+  midl_pragma warning( default: 2400)
+
+  // --------------------------------------------------------------------------------
+  // This method can be implemented to get data from the respective adapters.
+  // The adapter name is passed in as an argument.  Supported values are
+  // SQL and LDAP. Account ID is also passed in to uniquely identify a
+  // record.  The account property collection is an enumeration over the
+  // AccountProperty object.  The account property collection gets populated
+  // as a result of this operation. 
+  // --------------------------------------------------------------------------------
+  [id(6), helpstring("method GetData")] HRESULT GetData([in] BSTR AdapterName, 
+														[in] long AccountID,
+														[in, optional]VARIANT apRowset,
+														[out,retval] IMTAccountPropertyCollection** mtptr);
+
+  // -----------------------------------------------------------------------------------
+  // This method can be implemented to search data in the respective adapters
+  // The adapter name is passed in as an argument. The account property collection is 
+  // an enumeration over the AccountProperty object.
+  // ------------------------------------------------------------------------------------
+
+  [id(7), helpstring("method SearchData")] HRESULT SearchData([in] BSTR AdapterName,
+  														      [in] IMTAccountPropertyCollection* mtptr,
+															  [in, optional]VARIANT apRowset,
+  														      [out,retval] IMTSearchResultCollection** mtp); 
+
+
+  // -----------------------------------------------------------------------------------
+  // This method can optionally be implemented to return metadata about the requested
+	// account view property. This method is used by plugins such as BatchAccountResolution
+	// to build dynamic queries which go against the account view tables directly for improved
+	// performance.
+  // ------------------------------------------------------------------------------------
+	[id(8), helpstring("method GetPropertyMetaData")] HRESULT GetPropertyMetaData(
+		[in] BSTR aPropertyName,
+		[out,retval] IMTPropertyMetaData** apMetaData); 
+
+
+};
+
+
+
+[
+	object,
+    uuid(494f21c3-2e02-40d6-8f10-374776863711),
+	helpstring("IMTAccountAdapter2 Interface"),
+	pointer_default(unique)
+]
+interface IMTAccountAdapter2 : IUnknown
+{
+  // --------------------------------------------------------------------------------
+  // A method that every adapter implements to stored data in a local
+  // collection.  In the SQL adapter case (SQL server), a connection to
+  // the database is made here and the account view files are loaded.   In
+  // the case of LDAP adapter, a connection to the LDAP server is made.
+  // --------------------------------------------------------------------------------
+  [id(1), helpstring("method Initialize")] HRESULT Initialize([in] BSTR AdapterName);
+
+  // --------------------------------------------------------------------------------
+  // This method can be implemented to install or create the base
+  // information to support the adapter.  In the SQL adapter case (SQL
+  // server), the tables are created.
+  // --------------------------------------------------------------------------------
+  [id(2), helpstring("method Install")] HRESULT Install();
+
+  // --------------------------------------------------------------------------------
+  // This method can be implemented to drop or deinstall the base 
+  // information to support the adapter.  In the SQL adapter case (SQL
+  // server), the tables are dropped.
+  // --------------------------------------------------------------------------------
+  [id(3), helpstring("method Uninstall")] HRESULT Uninstall();
+
+  // --------------------------------------------------------------------------------
+  // This method can be implemented to add data to the respective adapters.
+  // The adapter name is passed in as an argument.  Supported values are 
+  // SQL and LDAP. The account property collection is an enumeration over the
+  // AccountProperty object.  A new entry gets added to either the table or
+  // the LDAP server.  
+  // --------------------------------------------------------------------------------
+  midl_pragma warning( disable: 2400 )
+
+  [id(4), helpstring("method AddData")] HRESULT AddData([in] BSTR AdapterName, 
+														[in] IMTAccountPropertyCollection* mtptr,
+														[in, optional]VARIANT apRowset);
+	
+
+  // --------------------------------------------------------------------------------
+  // This method can be implemented to update data to the respective adapters.
+  // The adapter name is passed in as an argument.  Supported values are
+  // SQL and LDAP. The account property collection is an enumeration over the
+  // AccountProperty object.  A new entry gets added to either the table or
+  // the LDAP server  
+  // --------------------------------------------------------------------------------
+  [id(5), helpstring("method UpdateData")] HRESULT UpdateData([in] BSTR AdapterName, 
+															  [in] IMTAccountPropertyCollection* mtptr,
+															  [in, optional]VARIANT apRowset);
+
+  midl_pragma warning( default: 2400)
+
+  // --------------------------------------------------------------------------------
+  // This method can be implemented to get data from the respective adapters.
+  // The adapter name is passed in as an argument.  Supported values are
+  // SQL and LDAP. Account ID is also passed in to uniquely identify a
+  // record.  The account property collection is an enumeration over the
+  // AccountProperty object.  The account property collection gets populated
+  // as a result of this operation. 
+  // --------------------------------------------------------------------------------
+  [id(6), helpstring("method GetData")] HRESULT GetData([in] BSTR AdapterName, 
+														[in] long AccountID,
+														[in, optional]VARIANT apRowset,
+														[out,retval] IMTAccountPropertyCollection** mtptr);
+
+  // -----------------------------------------------------------------------------------
+  // This method can be implemented to search data in the respective adapters
+  // The adapter name is passed in as an argument. The account property collection is 
+  // an enumeration over the AccountProperty object.
+  // ------------------------------------------------------------------------------------
+
+  [id(7), helpstring("method SearchData")] HRESULT SearchData([in] BSTR AdapterName,
+  														      [in] IMTAccountPropertyCollection* mtptr,
+															  [in, optional]VARIANT apRowset,
+  														      [out,retval] IMTSearchResultCollection** mtp); 
+
+  // -----------------------------------------------------------------------------------
+  // This method can be implemented to search data in the respective adapters with an update 
+  // lock for sql server
+  // The adapter name is passed in as an argument. The account property collection is 
+  // an enumeration over the AccountProperty object.
+  // ------------------------------------------------------------------------------------
+
+  [id(8), helpstring("method SearchDataWithUpdLock")] HRESULT SearchDataWithUpdLock([in] BSTR AdapterName,
+  														      [in] IMTAccountPropertyCollection* mtptr,
+															  [in] BOOL wUpdLock,
+															  [in, optional]VARIANT apRowset,
+  														      [out,retval] IMTSearchResultCollection** mtp); 
+
+  // -----------------------------------------------------------------------------------
+  // This method can optionally be implemented to return metadata about the requested
+	// account view property. This method is used by plugins such as BatchAccountResolution
+	// to build dynamic queries which go against the account view tables directly for improved
+	// performance.
+  // ------------------------------------------------------------------------------------
+	[id(9), helpstring("method GetPropertyMetaData")] HRESULT GetPropertyMetaData(
+		[in] BSTR aPropertyName,
+		[out,retval] IMTPropertyMetaData** apMetaData); 
+
+
+};
+

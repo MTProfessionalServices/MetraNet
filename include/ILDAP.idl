@@ -1,0 +1,76 @@
+// MTLDAP.idl : IDL source for MTLDAP.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTLDAP.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTAccountAdapter.idl";
+
+// definition prototypes
+
+	[
+		object,
+		uuid(888BD3A3-1EB5-11D3-AE6D-00C04F54FE3B),
+		dual,
+		helpstring("IMTLDAPData Interface"),
+		pointer_default(unique)
+	]
+	interface IMTLDAPData : IDispatch
+	{
+		[propget, id(1), helpstring("property Attribute")] HRESULT Attribute([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property Attribute")] HRESULT Attribute([in] BSTR newVal);
+		[propget, id(2), helpstring("property Value")] HRESULT Value([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Value")] HRESULT Value([in] BSTR newVal);
+	};
+	[
+		object,
+		uuid(B52920E3-1F5C-11D3-AE6D-00C04F54FE3B),
+		dual,
+		helpstring("IMTLDAPDataSet Interface"),
+		pointer_default(unique)
+	]
+	interface IMTLDAPDataSet : IDispatch
+	{
+		[propget, id(1), helpstring("property DN")] HRESULT DN([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property DN")] HRESULT DN([in] BSTR newVal);
+		[id(2), helpstring("method Add")] HRESULT Add(BSTR Attribute, BSTR Value);
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[propget, id(4), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(long aIndex, [out, retval] VARIANT *pVal);
+	};
+	[
+		object,
+		uuid(B6C0AF6F-1E06-11D3-AE6D-00C04F54FE3B),
+		dual,
+		helpstring("IMTLDAPImpl Interface"),
+		pointer_default(unique)
+	]
+	interface IMTLDAPImpl : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize();
+		[id(2), helpstring("method Add")] HRESULT Add(IMTLDAPDataSet* pDataSet);
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[propget, id(4), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[id(5), helpstring("method AddContact")] HRESULT AddContact(BSTR FirstName, BSTR LastName, BSTR Email, BSTR TelephoneNumber, 
+																	BSTR AccountType, long AccountID, long TariffID, long GeoCode,
+																	BSTR TaxExempt, long TimezoneID, double TimezoneOffset,
+																	BSTR Company, BSTR Address1, BSTR Address2, BSTR Address3, 
+																	BSTR City, BSTR State, BSTR Zip, BSTR Country, BSTR Fax,
+																	BSTR MiddleInitial);
+		[id(6), helpstring("method ModifyContact")] HRESULT ModifyContact(BSTR FirstName, BSTR LastName, BSTR Email, BSTR TelephoneNumber, 
+																		  BSTR AccountType, long AccountID, long TariffID,
+																		  BSTR TaxExempt, long TimezoneID, double TimezoneOffset,
+																		  BSTR Company, BSTR Address1, BSTR Address2, BSTR Address3, 
+																		  BSTR City, BSTR State, BSTR Zip, BSTR Country, BSTR Fax,
+																		  BSTR MiddleInitial, BSTR DN);
+		[id(7), helpstring("method DeleteContact")] HRESULT DeleteContact(BSTR DN);
+		[id(8), helpstring("method RetrieveContact")] HRESULT RetrieveContact([in] long AccountID);
+		[id(9), helpstring("method Search")] HRESULT Search([in] IMTAccountPropertyCollection* mtptr);
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(long aIndex, [out, retval] VARIANT *pVal);
+		[id(11), helpstring("method AddData")] HRESULT AddData([in] IMTAccountPropertyCollection* mtptr);
+		[id(12), helpstring("method UpdateData")] HRESULT UpdateData([in] IMTAccountPropertyCollection* mtptr);
+		[id(13), helpstring("method RetrieveContactByAttribute")] HRESULT RetrieveContactByAttribute([in] long AccountID, [in] BSTR Attribute, [out, retval] BSTR* pVal);
+	};

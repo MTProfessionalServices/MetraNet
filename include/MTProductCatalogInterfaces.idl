@@ -1,0 +1,2587 @@
+/**************************************************************************
+ *
+ * Copyright 2001 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ * Created by: Boris Partensky
+ * $Header: c:\development35\include\MTProductCatalogInterfaces.idl, 17, 11/13/2002 7:21:04 PM, David Blair$
+ *
+ * interface to product catalog business objects
+ ***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "GenericCollectionInterfaces.idl";
+import "Rowset.idl";
+import "Counter.idl"; 
+import "IMTRuleSet.idl";
+import "OperatorType.idl";
+import "MTFilter.idl";
+import "PCConfig.idl";
+import "Properties.idl";
+import "IMTProgress.idl";
+import "IMTUsageCycle.idl";
+import "AdjustmentInterfaces.idl";
+import "MTProductView.idl";
+import "IRecurringEventAdapter.idl";
+
+
+// all interfaces declared in this idl
+interface IMTActionMetaData;
+interface IMTAggregateCharge;
+interface IMTCalendar;
+interface IMTCalendarDay;
+interface IMTCalendarPeriod;
+interface IMTCalendarWeekday;
+interface IMTCalendarHoliday;
+interface IMTConditionMetaData;
+interface IMTCounterPropertyDefinition;
+interface IMTDiscount;
+interface IMTNonRecurringCharge;
+interface IMTParamTableDefinition;
+interface IMTPCAccount;
+interface IMTPCCycle;
+interface IMTPCTimeSpan;
+interface IMTPriceableItem;
+interface IMTPriceableItemType;
+interface IMTPriceList;
+interface IMTPriceListMapping;
+interface IMTProductCatalog;
+interface IMTProductOffering;
+interface IMTRateSchedule;
+interface IMTRecurringCharge;
+interface IMTSubscription;
+interface IMTUsageCharge;
+interface IMTGroupSubSlice;
+interface IMTGroupSubscription;
+interface IMTGSubMember;
+interface IMTSubscriptionBase;
+interface IMTUsage;
+interface IMTCharge;
+interface IMTChargeProperty;
+interface IMTSubInfo;
+
+//C# intrfaces forward declare
+interface IAdjustmentType;
+
+
+
+// ----------------------------------------------------------------
+// Enum:        MTPCEntityType
+// Description: kind of product catalog entity (includes kind of priceable item)
+//              The values have to be unique for all kinds of
+//              product catalog entities.
+//              The valueshave to match in these places:
+//              - enum type
+//              - SQL queries
+//              - metratechenum type
+typedef [uuid(8580B210-C104-48ae-901A-EA94FD2EF43E), version(1.0)]
+enum
+{
+  PCENTITY_TYPE_UNKNOWN             = 0,
+  PCENTITY_TYPE_PRICEABLE_ITEM_TYPE = 1,
+  PCENTITY_TYPE_USAGE               = 10,
+  PCENTITY_TYPE_AGGREGATE_CHARGE    = 15,
+  PCENTITY_TYPE_RECURRING           = 20,
+  PCENTITY_TYPE_RECURRING_UNIT_DEPENDENT = 25,
+  PCENTITY_TYPE_NON_RECURRING       = 30,
+  PCENTITY_TYPE_DISCOUNT            = 40,
+  PCENTITY_TYPE_PRODUCT_OFFERING    = 100,
+  PCENTITY_TYPE_PRICE_LIST_MAP      = 110,
+  PCENTITY_TYPE_SUBSCRIPTION        = 120,
+  PCENTITY_TYPE_RATE_SCHEDULE       = 130,
+  PCENTITY_TYPE_PARAM_TABLE_DEF     = 140,
+  PCENTITY_TYPE_PRICE_LIST          = 150,
+  PCENTITY_TYPE_TIME_SPAN           = 160,
+  PCENTITY_TYPE_COUNTER       = 170,
+  PCENTITY_TYPE_COUNTER_META_DATA   = 180,
+  PCENTITY_TYPE_COUNTER_PARAM       = 190,
+  PCENTITY_TYPE_CONDITION_META_DATA = 200,
+  PCENTITY_TYPE_ACTION_META_DATA    = 210,
+  PCENTITY_TYPE_CYCLE               = 220,
+  PCENTITY_TYPE_COUNTER_PROPERTY_DEF= 230,
+  PCENTITY_TYPE_CALENDAR        = 240,
+  PCENTITY_TYPE_CALENDARPERIOD  = 250,
+  PCENTITY_TYPE_CALENDARWEEKDAY = 260,
+  PCENTITY_TYPE_CALENDARHOLIDAY = 270,
+  PCENTITY_TYPE_GROUPSUBSCRIPTION = 280,
+  PCENTITY_TYPE_GSUBMEMBER = 290,
+	PCENTITY_TYPE_CHARGE = 300,
+	PCENTITY_TYPE_CHARGEPROPERTY = 310,
+	PCENTITY_TYPE_ADJUSTMENTTYPE = 320,
+  PCENTITY_TYPE_ADJUSTMENTTYPE_PROP = 330,
+  PCENTITY_TYPE_ADJUSTMENT = 340,
+  PCENTITY_TYPE_ADJUSTMENT_REASON_CODE = 350,
+  PCENTITY_TYPE_ADJUSTMENT_APPLIC_RULE = 360,
+} MTPCEntityType;
+
+// ----------------------------------------------------------------
+// Enum:        MTPCDateType
+// Description: type of date as used in MTPCTimeSpan
+typedef [uuid(34380CE2-52FC-4076-9095-8C64A7EDA0AC), version(1.0)]
+enum
+{
+  PCDATE_TYPE_NO_DATE = 0,               //date not set
+  PCDATE_TYPE_ABSOLUTE = 1,
+  PCDATE_TYPE_SUBSCRIPTION_RELATIVE = 2,
+  PCDATE_TYPE_NEXT_BILLING_PERIOD = 3,
+  PCDATE_TYPE_NULL = 4,                  //infinite
+} MTPCDateType;
+
+// ----------------------------------------------------------------
+// Enum:        MTDiscountValueType
+// Description: What kind of the discount is it :
+//          - flat rate (e.g. $20 off), or
+//          - percentage (e.g. 15% of audioconferecing charges).
+typedef [uuid(96CEB3FB-47E7-4fc3-8887-3844A0D144BF), version(1.0)]
+enum
+{
+    DISCOUNT_VALUE_TYPE_MIN = 0,
+
+    DISCOUNT_VALUE_TYPE_UNKNOWN = 0,
+    DISCOUNT_VALUE_TYPE_FLAT = 1,
+    DISCOUNT_VALUE_TYPE_PERCENTAGE = 2,
+
+    DISCOUNT_VALUE_TYPE_MAX = 2
+} MTDiscountValueType;
+
+// ----------------------------------------------------------------
+// Enum:        MTDistributionRequirementType
+// Description: Specifies how distribution needs to be configured 
+//              - distribution configuration not needed
+//              - must configure an account
+//              - must configure an account or specify proportional distribution
+typedef [uuid(39056905-6834-48ad-93E5-4AB6449FC655), version(1.0)]
+enum
+{
+    DISTRIBUTION_REQUIREMENT_TYPE_MIN = 0,
+
+    DISTRIBUTION_REQUIREMENT_TYPE_UNKNOWN = 0,
+    DISTRIBUTION_REQUIREMENT_TYPE_NONE = 1,
+    DISTRIBUTION_REQUIREMENT_TYPE_ACCOUNT = 2,
+    DISTRIBUTION_REQUIREMENT_TYPE_ACCOUNT_OR_PROPORTIONAL = 3,
+
+    DISTRIBUTION_REQUIREMENT_TYPE_MAX = 3
+} MTDistributionRequirementType;
+
+// ----------------------------------------------------------------
+// Enum:        MTNonRecurringEventType
+// Description: type of event, causing a non-recurring charge.
+typedef [uuid(EDA93BBE-209C-48d5-A566-409DCC587767), version(1.0)]
+enum
+{
+  NREVENT_TYPE_MIN = 0,
+
+    NREVENT_TYPE_UNKNOWN = 0,
+    NREVENT_TYPE_SUBSCRIBE = 1,
+    NREVENT_TYPE_UNSUBSCRIBE = 2,
+    NREVENT_TYPE_CHANGE_SUBSCRIPTION = 3,
+
+  NREVENT_TYPE_MAX = 3
+} MTNonRecurringEventType;
+
+// ----------------------------------------------------------------
+// Enum:        MTCalendarWeekdayType
+// Description: enumeration of calendar weekdays
+typedef [uuid(85526df5-b42c-42d1-9869-37c600e4c8a2), version(1.0)]
+enum
+{
+  CALENDARDAY_SUNDAY                  = 0,
+  CALENDARDAY_MONDAY                 = 1,
+  CALENDARDAY_TUESDAY                 = 2,
+  CALENDARDAY_WEDNESDAY             = 3,
+  CALENDARDAY_THURSDAY                = 4,
+  CALENDARDAY_FRIDAY                    = 5,
+  CALENDARDAY_SATURDAY                = 6,
+  CALENDARDAY_DEFAULTWEEKDAY      = 7,
+  CALENDARDAY_DEFAULTWEEKEND      = 8
+  
+} MTCalendarWeekdayType;
+
+// ----------------------------------------------------------------
+// Enum:        MTPriceListMappingType
+// Description: enumeration of pricelist mapping types
+typedef [uuid(173ee614-30ea-45e9-982e-6c5b958c8756), version(1.0)]
+enum
+{
+  MAPPING_ALL		                 = -1, // Do not set this value in type, only used for reporting purposes (IMTProductOffering->GetCountOfPriceListMappings)
+  MAPPING_NORMAL                  = 0,
+  MAPPING_ICB_SUBSCRIPTION        = 1,
+  MAPPING_ICB_GROUP_SUBSCRIPTION  = 2,
+	MAPPING_PO_PRICELIST    				= 3
+} MTPriceListMappingType;
+
+// ----------------------------------------------------------------
+// Enum:        MTPriceListType
+// Description: enumeration of pricelist mapping types
+typedef [uuid(6d125fd1-d8e1-45e7-bb53-2f646199ecfc), version(1.0)]
+enum
+{
+  PRICELIST_TYPE_ICB = 0, 
+  PRICELIST_TYPE_REGULAR = 1,
+  PRICELIST_TYPE_PO = 2
+} MTPriceListType;
+
+// ----------------------------------------------------------------
+// Enum:        MTUDRCRatingType
+// Description: enumeration of types of rating
+typedef [uuid(addc303f-e68d-4b78-bd9c-2cb0ebba617a), version(1.0)]
+enum
+{
+  UDRCRATING_TYPE_TIERED = 0, 
+  UDRCRATING_TYPE_TAPERED = 1
+} MTUDRCRatingType;
+
+// ----------------------------------------------------------------
+// Enum:        MTCycleMode
+// Description: enumeration of cycle modes
+// ----------------------------------------------------------------
+typedef [uuid(97624183-b494-48f5-b23c-c2d06aa2b59f), version(1.0)]
+enum
+{
+  CYCLE_MODE_FIXED = 0,
+  CYCLE_MODE_BCR = 1,
+  CYCLE_MODE_BCR_CONSTRAINED = 2,
+  CYCLE_MODE_EBCR  = 3
+} MTCycleMode;
+
+// ----------------------------------------------------------------
+// Object:      MTActionMetaData
+// Prog ID:     Metratech.MTActionMetaData.1
+// Description: describes an action column in a RuleSet
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(252B549B-A4D1-4239-BAAB-90472E529EA0),
+  dual,
+  helpstring("IMTActionMetaData Interface"),
+  pointer_default(unique)
+]
+interface IMTActionMetaData : IMTPCBase
+{
+  // get all (core and extended) properties of this object in a collection of MTProperty objects.
+  [propget, id(1), helpstring("property Properties")] HRESULT Properties([out, retval] IMTProperties **pVal);
+
+  // name of property (in session)
+  [propget, id(DISPID_VALUE), helpstring("property PropertyName")] HRESULT PropertyName([out, retval] BSTR *pVal);
+  [propput, id(DISPID_VALUE), helpstring("property PropertyName")] HRESULT PropertyName([in] BSTR newVal);
+  
+  // localized name, displayed to user
+  [propget, id(2), helpstring("property DisplayName")] HRESULT DisplayName([out, retval] BSTR *pVal);
+  [propput, id(2), helpstring("property DisplayName")] HRESULT DisplayName([in] BSTR newVal);
+
+  // column name in database table
+  [propget, id(3), helpstring("property ColumnName")] HRESULT ColumnName([out, retval] BSTR *pVal);
+  [propput, id(3), helpstring("property ColumnName")] HRESULT ColumnName([in] BSTR newVal);
+
+  // undocumented - not yet supported - should be metered or synthetic
+  [hidden, propget, id(4), helpstring("property Kind")] HRESULT Kind([out, retval] long *pVal);
+  [hidden, propput, id(4), helpstring("property Kind")] HRESULT Kind([in] long newVal);
+  
+  // Data type (an MSIX type)
+  [propget, id(5), helpstring("property DataType")] HRESULT DataType([out, retval] PropValType *pVal);
+  [propput, id(5), helpstring("property DataType")] HRESULT DataType([in] PropValType newVal);
+
+  // Further specifies DataType, for string: max length in chars
+  [propget, id(6), helpstring("property Length")] HRESULT Length([out, retval] long *pVal);
+  [propput, id(6), helpstring("property Length")] HRESULT Length([in] long newVal);
+
+  // if DataType is enum, specificies the MetraTech enum space
+  [propget, id(7), helpstring("property EnumSpace")] HRESULT EnumSpace([out, retval] BSTR *pVal);
+  [propput, id(7), helpstring("property EnumSpace")] HRESULT EnumSpace([in] BSTR newVal);
+
+  // if DataType is enum, specificies the MetraTech enum type
+  [propget, id(8), helpstring("property EnumType")] HRESULT EnumType([out, retval] BSTR *pVal);
+  [propput, id(8), helpstring("property EnumType")] HRESULT EnumType([in] BSTR newVal);
+
+  // Default value of action
+  [propget, id(9), helpstring("property DefaultValue")] HRESULT DefaultValue([out, retval] VARIANT *pVal);
+  [propput, id(9), helpstring("property DefaultValue")] HRESULT DefaultValue([in] VARIANT newVal);
+
+  // if true value can be modified by user
+  [propget, id(10), helpstring("property Editable")] HRESULT Editable([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(10), helpstring("property Editable")] HRESULT Editable([in] VARIANT_BOOL newVal);
+
+  // if true, value must be specified
+  [propget, id(11), helpstring("property Required")] HRESULT Required([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(11), helpstring("property Required")] HRESULT Required([in] VARIANT_BOOL newVal);
+};
+
+// ----------------------------------------------------------------
+// Object:      MTAggregateCharge
+// Prog ID:     Metratech.AggregateCharge.1
+// Description: a PriceableItem of kind AggregateCharge.
+//              A line item on a bill whose amount is determined by counters (in a tapered fashion).
+//              Modeled as a derived PriceableItem and therefore inherits all
+//              properties and methods from PriceableItem.
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(B754679C-5778-44A3-9B18-0B2E25500657),
+  dual,
+  helpstring("IMTAggregateCharge Interface"),
+  pointer_default(unique)
+]
+interface IMTAggregateCharge : IMTPriceableItem
+{
+  //returns the aggregate rating cycle for this charge
+  [propget, id(1001), helpstring("property Cycle")] HRESULT Cycle([out, retval] IMTPCCycle* *pVal);
+
+  //returns the first pass product view (which is the second pass product view with "_temp" appended to it)
+  [propget, id(1002), helpstring("property FirstPassProductView")] HRESULT FirstPassProductView([out, retval] BSTR *pVal);
+
+  //returns the second pass service def (which is the fist pass service def with "_temp" appended to it)
+  [propget, id(1003), helpstring("property SecondPassServiceDefinition")] HRESULT SecondPassServiceDefinition([out, retval] BSTR *pVal);
+
+  //internal use only - called by MTAggregateWriter to figure out which "removed" counters need to be removed from the DB
+  [hidden, propget, id(1050), helpstring("property RemovedCounters")] HRESULT RemovedCounters([out, retval] IMTCollection* *pVal);
+
+  //returns instance of the counter, associated with given property. Returns NULL, if no counter is associated yet.
+  [id(1100), helpstring("method GetCounter")] HRESULT GetCounter([in] long aCpdID, [out, retval] IMTCounter** apCounter);
+  
+  //sets (or updates) instance of the counter, associated with given property.
+  [id(1101), helpstring("method SetCounter")] HRESULT SetCounter([in] long aCpdID, [in] IMTCounter* apCounter);
+
+  //performs aggregate rating on transactions in the given interval over all accounts
+  //waits for commit of all sessions before returning
+  [id(1102), helpstring("method Rate")] HRESULT Rate([in] long aIntervalID, [in] long aSessionSetSize);
+
+  //performs aggregate rating on transactions in the given interval for a given account 
+  //waits for commit of all sessions before returning
+  [id(1103), helpstring("method RateAccount")] HRESULT RateAccount([in] long aIntervalID, [in] long aAccountID);
+
+  //performs aggregate rating on transactions in the given interval for a given account
+  //does *NOT* wait for sessions to commit before returning
+  [id(1104), helpstring("method RateAccountAsynch")] HRESULT RateAccountAsynch([in] long aIntervalID, [in] long aAccountID);
+
+  //performs aggregate rating on transactions in the given interval over all accounts
+  //waits for commit of all sessions before returning
+	//this method is called by the aggregate rating recurring event adapter
+  [id(1105), helpstring("method RateForRecurringEvent")] HRESULT RateForRecurringEvent([in] long aSessionSetSize,
+																																											 [in] long aCommitTimeout,
+																																											 [in] VARIANT_BOOL aFailImmediately,
+																																											 [in] BSTR aEventName,
+																																											 [in] IRecurringEventRunContext* apRunContext,
+																																											 [out] long * apChargesGenerated);
+
+  //performs aggregate rating on transactions in the given interval over all accounts
+  //waits for commit of all sessions before returning
+	//this method is called by the aggregate rating recurring event adapter
+  [id(1106), helpstring("method RateRemoteForRecurringEvent")] HRESULT RateRemoteForRecurringEvent([in] long aSessionSetSize,
+                                                                                                   [in] long aCommitTimeout,
+                                                                                                   [in] VARIANT_BOOL aFailImmediately,
+                                                                                                   [in] BSTR aEventName,
+                                                                                                   [in] IRecurringEventRunContext* apRunContext,
+                                                                                                   [in] IMetraFlowConfig* apMetraFlowConfig,
+                                                                                                   [out] long * apChargesGenerated);
+
+	//
+  // INTERNAL USE ONLY
+	//
+  [hidden, id(1500), helpstring("method GetRowsetForParent")] HRESULT GetRowsetForParent([in] long aUsageIntervalID,
+                                                                                         [in] long aAccountID, //0 = no account
+																																												 [in] IRecurringEventRunContext* apRunContext,
+																																												 [out] BSTR * dropChildTable1Query,
+																																												 [out] BSTR * dropChildTable2Query,
+                                                                                         [out, retval] IMTSQLRowset** apRowset);
+
+  [hidden, id(1501), helpstring("method RemovePVRecords")] HRESULT RemovePVRecords([in] long aUsageIntervalID,
+																																									 [in] long aAccountID,
+																																									 [in] IRecurringEventRunContext * apRunContext);
+};
+
+
+// ----------------------------------------------------------------
+// Object:      IMTCalendar
+// Prog ID:     Metratech.MTCalendar.1
+// Description: meta data for a calendar
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(C984B628-C807-4EF7-8145-1C8F46603E9E),
+  dual,
+  helpstring("IMTCalendar Interface"),
+  pointer_default(unique)
+]
+interface IMTCalendar : IMTPCBase
+{
+  // unique (database) ID
+  [propget, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+  [propput, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([in] long newVal);
+  
+  // name
+  [propget, id(2), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+  [propput, id(2), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+  
+  // a description
+  [propget, id(3), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+  [propput, id(3), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+
+  // Timezone for this calendar
+  [propget, id(4), helpstring("property TimezoneOffset")] HRESULT TimezoneOffset([out, retval] long *pVal);
+  [propput, id(4), helpstring("property TimezoneOffset")] HRESULT TimezoneOffset([in] long newVal);
+  
+  // Timezone for this calendar
+  [propget, id(5), helpstring("property CombinedWeekend")] HRESULT CombinedWeekend([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(5), helpstring("property CombinedWeekend")] HRESULT CombinedWeekend([in] VARIANT_BOOL newVal);
+
+  // Gets a particular weekday by it's number
+  [id(6), helpstring("method GetWeekday")] HRESULT GetWeekday([in] long newVal, [out, retval] IMTCalendarWeekday* *apWeekday);
+
+  // Gets a particular weekday by it's number
+  [id(7), helpstring("method GetHoliday")] HRESULT GetHoliday([in] BSTR newVal, [out, retval] IMTCalendarHoliday* *apHoliday);
+
+  // Add the nth day of the week to this calendar
+  [id(8), helpstring("method CreateWeekday")] HRESULT CreateWeekday([in] long newVal, [out, retval] IMTCalendarWeekday* *apWeekday);
+
+  // Add the nth holiday to this calendar
+  [id(9), helpstring("method CreateHoliday")] HRESULT CreateHoliday([in] BSTR newVal, [out, retval] IMTCalendarHoliday* *apHoliday);
+
+  // Add the nth day of the week to this calendar
+  [id(10), helpstring("method RemoveWeekday")] HRESULT RemoveWeekday([in] long newVal);
+
+  // Add the nth holiday to this calendar
+  [id(11), helpstring("method RemoveHoliday")] HRESULT RemoveHoliday([in] BSTR newVal);
+
+  // Gets the collection of weekdays
+  [id(12), helpstring("method GetWeekdays")] HRESULT GetWeekdays([out, retval] IMTCollection* *apWeekdayColl);
+
+  // Gets the collection of holidays
+  [id(13), helpstring("method GetHolidays")] HRESULT GetHolidays([out, retval] IMTCollection* *apHolidayColl);
+
+  // Gets the collection of weekdays (inc. Sat and Sun), but if a day is missing, it is filled up with a pointer to the default weekday pr weekend
+  [id(14), helpstring("method GetWeekdayorDefault")] HRESULT GetWeekdayorDefault([in] long newVal, [out, retval] IMTCalendarWeekday* *apWeekday);
+
+  // validate calendar
+  [id(90), helpstring("method Validate")] HRESULT Validate([out, retval] VARIANT_BOOL* pVal);
+
+  // saves modifications to database
+  [id(100), helpstring("method Save")] HRESULT Save();
+};
+
+// ----------------------------------------------------------------
+// Object:      MTCalendarDay
+// Prog ID:     Metratech.MTCalendarDay.1
+// Description: Base class for CalendarWeekday and CalendarHoliday
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(B4166C19-BEE0-4FE2-A6D1-AB75A8824DCC),
+  dual,
+  helpstring("IMTCalendarDay Interface"),
+  pointer_default(unique)
+]
+interface IMTCalendarDay : IMTPCBase
+{
+  // get all (core and extended) properties of this object in a collection of MTProperty objects.
+  [propget, id(1), helpstring("property Properties")] HRESULT Properties([out, retval] IMTProperties * *pVal);
+
+  // unique (database) ID
+  [propget, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+  [propput, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([in] long newVal);
+
+  // default calendar code for this day
+  [propget, id(2), helpstring("property Code")] HRESULT Code([out, retval] long *pVal);
+  [propput, id(2), helpstring("property Code")] HRESULT Code([in] long newVal);
+  
+  // AddPeriod
+  [id(51), helpstring("method CreatePeriod")] HRESULT CreatePeriod([out, retval] IMTCalendarPeriod* *apCalPeriod);
+
+  // RemovePeriod
+  [id(52), helpstring("method RemovePeriod")] HRESULT RemovePeriod([in] long newVal);
+
+  // GetPeriods
+  [id(53), helpstring("method GetPeriods")] HRESULT GetPeriods([out, retval] IMTCollection* *pVal);
+
+  // Get Calendar Code as a String
+  [id(54), helpstring("method GetCodeAsString")] HRESULT GetCodeAsString([out, retval] BSTR* pVal);
+
+  // Validate pair of start and end hours against current collection of periods
+  [id(55), helpstring("method ValidatePeriodTimes")] HRESULT ValidatePeriodTimes([in] long startVal, [in] long endVal, [out, retval] VARIANT_BOOL* pVal);
+};
+
+
+// ----------------------------------------------------------------
+// Object:      MTCalendarHoliday
+// Prog ID:     Metratech.MTCalendarHoliday.1
+// Description:
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(726656FC-F1C7-4913-9BDE-C525DC97BF00),
+  dual,
+  helpstring("IMTCalendarHoliday Interface"),
+  pointer_default(unique)
+]
+interface IMTCalendarHoliday : IMTCalendarDay
+{
+
+  // Name
+  [propget, id(3), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+  [propput, id(3), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+
+  // Day of this holiday
+  [propget, id(4), helpstring("property Day")] HRESULT Day([out, retval] long *pVal);
+  [propput, id(4), helpstring("property Day")] HRESULT Day([in] long newVal);
+
+  // Week of the month
+  [propget, id(5), helpstring("property WeekofMonth")] HRESULT WeekofMonth([out, retval] long *pVal);
+  [propput, id(5), helpstring("property WeekofMonth")] HRESULT WeekofMonth([in] long newVal);
+  
+  // Month of holiday
+  [propget, id(6), helpstring("property Month")] HRESULT Month([out, retval] long *pVal);
+  [propput, id(6), helpstring("property Month")] HRESULT Month([in] long newVal);
+
+  // Year of holiday
+  [propget, id(7), helpstring("property Year")] HRESULT Year([out, retval] long *pVal);
+  [propput, id(7), helpstring("property Year")] HRESULT Year([in] long newVal);
+
+  // Put and Get date
+  [propget, id(8), helpstring("property Date")] HRESULT Date([out, retval] DATE *pVal);
+  [propput, id(8), helpstring("property Date")] HRESULT Date([in] DATE newVal);
+
+};
+
+// ----------------------------------------------------------------
+// Object:      IMTCalendarPeriod
+// Prog ID:     Metratech.MTCalendarPeriod.1
+// Description: time intervals that determine peak and off-peak codes for days
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(5772c0b1-b063-43ea-8e5c-66e9896595e6),
+  dual,
+  helpstring("IMTCalendarPeriod Interface"),
+  pointer_default(unique)
+]
+interface IMTCalendarPeriod : IMTPCBase
+{
+  // unique (database) ID
+  [propget, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+  [propput, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([in] long newVal);
+  
+  // calendar code determined by this period
+  [propget, id(2), helpstring("property Code")] HRESULT Code([out, retval] long *pVal);
+  [propput, id(2), helpstring("property Code")] HRESULT Code([in] long newVal); 
+
+  // start time of this period
+  [propget, id(3), helpstring("property StartTimeAsString")] HRESULT StartTimeAsString([out, retval] BSTR *pVal);
+  [propput, id(3), helpstring("property StartTimeAsString")] HRESULT StartTimeAsString([in] BSTR newVal); 
+
+  // end time of this period
+  [propget, id(4), helpstring("property EndTimeAsString")] HRESULT EndTimeAsString([out, retval] BSTR *pVal);
+  [propput, id(4), helpstring("property EndTimeAsString")] HRESULT EndTimeAsString([in] BSTR newVal); 
+
+  // start time of this period
+  [propget, id(5), helpstring("property StartTime")] HRESULT StartTime([out, retval] long *pVal);
+  [propput, id(5), helpstring("property StartTime")] HRESULT StartTime([in] long newVal); 
+
+  // end time of this period
+  [propget, id(6), helpstring("property EndTime")] HRESULT EndTime([out, retval] long *pVal);
+  [propput, id(6), helpstring("property EndTime")] HRESULT EndTime([in] long newVal);
+  
+    // Get Calendar Code as a String
+  [id(7), helpstring("method GetCodeAsString")] HRESULT GetCodeAsString([out, retval] BSTR* pVal);  
+
+}
+
+// ----------------------------------------------------------------
+// Object:      MTCalendarWeekday
+// Prog ID:     Metratech.MTCalendarWeekday.1
+// Description:
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(26C189F0-6F46-4D9E-9B43-04177FFD6334),
+  dual,
+  helpstring("IMTCalendarWeekday Interface"),
+  pointer_default(unique)
+]
+interface IMTCalendarWeekday : IMTCalendarDay
+{
+
+  // what weekday this object represents
+  [propget, id(3), helpstring("property DayofWeek")] HRESULT DayofWeek([out, retval] long *pVal);
+  [propput, id(3), helpstring("property DayofWeek")] HRESULT DayofWeek([in] long newVal);
+  
+  [id(4), helpstring("method GetDayofWeekAsString")] HRESULT GetDayofWeekAsString([out, retval] BSTR* pVal);
+};
+
+// ----------------------------------------------------------------
+// Object:      MTConditionMetaData
+// Prog ID:     Metratech.MTConditionMetaData.1
+// Description: describes a condition column in a RuleSet
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(0B13A3F6-14AD-4683-8C08-8AC5A9CAF4E3),
+  dual,
+  helpstring("IMTConditionMetaData Interface"),
+  pointer_default(unique)
+]
+interface IMTConditionMetaData : IMTPCBase
+{
+  // get all (core and extended) properties of this object in a collection of MTProperty objects.
+  [propget, id(1), helpstring("property Properties")] HRESULT Properties([out, retval] IMTProperties **pVal);
+
+  // name of property (in session)
+  [propget, id(DISPID_VALUE), helpstring("property PropertyName")] HRESULT PropertyName([out, retval] BSTR *pVal);
+  [propput, id(DISPID_VALUE), helpstring("property PropertyName")] HRESULT PropertyName([in] BSTR newVal);
+
+  // localized name, displayed to user
+  [propget, id(2), helpstring("property DisplayName")] HRESULT DisplayName([out, retval] BSTR *pVal);
+  [propput, id(2), helpstring("property DisplayName")] HRESULT DisplayName([in] BSTR newVal);
+
+  // column name in database table
+  [propget, id(3), helpstring("property ColumnName")] HRESULT ColumnName([out, retval] BSTR *pVal);
+  [propput, id(3), helpstring("property ColumnName")] HRESULT ColumnName([in] BSTR newVal);
+
+  // data type (an MSIX type)
+  [propget, id(4), helpstring("property DataType")] HRESULT DataType([out, retval] PropValType *pVal);
+  [propput, id(4), helpstring("property DataType")] HRESULT DataType([in] PropValType newVal);
+
+  // further specifies DataType, for string: max length in chars
+  [propget, id(5), helpstring("property Length")] HRESULT Length([out, retval] long *pVal);
+  [propput, id(5), helpstring("property Length")] HRESULT Length([in] long newVal);
+
+  // if DataType is enum, specificies the MetraTech enum space
+  [propget, id(6), helpstring("property EnumSpace")] HRESULT EnumSpace([out, retval] BSTR *pVal);
+  [propput, id(6), helpstring("property EnumSpace")] HRESULT EnumSpace([in] BSTR newVal);
+
+  // if DataType is enum, specificies the MetraTech enum type
+  [propget, id(7), helpstring("property EnumType")] HRESULT EnumType([out, retval] BSTR *pVal);
+  [propput, id(7), helpstring("property EnumType")] HRESULT EnumType([in] BSTR newVal);
+
+  // if true, each rule has an individual operator,
+  // if false, property 'Operator' specifies operator to be be applied to all rules
+  [propget, id(8), helpstring("property OperatorPerRule")] HRESULT OperatorPerRule([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(8), helpstring("property OperatorPerRule")] HRESULT OperatorPerRule([in] VARIANT_BOOL newVal);
+
+  // operator to be applied to all rules in column (only valid if OperatorPerRule is False)
+  [propget, id(9), helpstring("property Operator")] HRESULT Operator([out, retval] MTOperatorType *pVal);
+  [propput, id(9), helpstring("property Operator")] HRESULT Operator([in] MTOperatorType newVal);
+
+  // if true, display operator to user
+  [propget, id(10), helpstring("property DisplayOperator")] HRESULT DisplayOperator([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(10), helpstring("property DisplayOperator")] HRESULT DisplayOperator([in] VARIANT_BOOL newVal);
+
+  // if true, this column can be filtered
+  [propget, id(11), helpstring("property Filterable")] HRESULT Filterable([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(11), helpstring("property Filterable")] HRESULT Filterable([in] VARIANT_BOOL newVal);
+
+  // if true, value must be specified
+  [propget, id(12), helpstring("property Required")] HRESULT Required([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(12), helpstring("property Required")] HRESULT Required([in] VARIANT_BOOL newVal);
+
+  // Default value of condition
+  [propget, id(13), helpstring("property DefaultValue")] HRESULT DefaultValue([out, retval] VARIANT *pVal);
+  [propput, id(13), helpstring("property DefaultValue")] HRESULT DefaultValue([in] VARIANT newVal);
+
+};
+
+// ----------------------------------------------------------------
+// Object:      MTCounterPropertyDefinition
+// Prog ID:     Metratech.MTCounterPropertyDefinition.1
+// Description: defines a priceable item (e.g. discount) property that requires a counter 
+//
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(B82940F5-9676-4FF5-998C-F9E681E93030),
+  dual,
+  helpstring("IMTCounterPropertyDefinition Interface"),
+  pointer_default(unique)
+]
+interface IMTCounterPropertyDefinition : IMTPCBase
+{
+  // get all (core and extended) properties of this object in a collection of MTProperty objects.
+  [propget, id(1), helpstring("property Properties")] HRESULT Properties([out, retval] IMTProperties **pVal);
+
+  // unique (database) ID
+  [propget, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+  [propput, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([in] long newVal);
+  
+  // name of the counter property for counter mapping (e.g. "Qualifier1")
+  [propget, id(2), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+  [propput, id(2), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+  
+  // name of the service definition property this counter will be metered into
+  // during end-of-period processing. (e.g. "metratech.com/discount/qualifier1")
+  [propget, id(3), helpstring("property ServiceDefProperty")] HRESULT ServiceDefProperty([out, retval] BSTR *pVal);
+  [propput, id(3), helpstring("property ServiceDefProperty")] HRESULT ServiceDefProperty([in] BSTR newVal);
+  
+  // GUI-related: order of the counter in the list of counters
+  [propget, id(4), helpstring("property Order")] HRESULT Order([out, retval] long *pVal);
+  [propput, id(4), helpstring("property Order")] HRESULT Order([in] long newVal);
+
+  // GUI-related: name of the counter property (e.g. "Discount Qualifier")
+  [propget, id(5), helpstring("property DisplayName")] HRESULT DisplayName([out, retval] BSTR *pVal);
+  [propput, id(5), helpstring("property DisplayName")] HRESULT DisplayName([in] BSTR newVal);
+
+  // GUI-related: counter type name, that in most of the cases will be used for this property.
+  // (e.g. "SumOfOneProperty")
+  [propget, id(6), helpstring("property PreferredCounterTypeName")] HRESULT PreferredCounterTypeName([out, retval] BSTR *pVal);
+  [propput, id(6), helpstring("property PreferredCounterTypeName")] HRESULT PreferredCounterTypeName([in] BSTR newVal);
+
+  // DB id of a proceable item this CPD belongs to
+  [propget, id(7), helpstring("property PITypeID")] HRESULT PITypeID([out, retval] long *pVal);
+  [propput, id(7), helpstring("property PITypeID")] HRESULT PITypeID([in] long newVal);
+
+  // saves modifications to database
+  [id(100), helpstring("method Save")] HRESULT Save([out, retval]long* apDBID);
+
+  // internal use only
+  [hidden, id(500), helpstring("method Load")] HRESULT Load([in]long aDBID);
+};
+
+
+// ----------------------------------------------------------------
+// Object:      MTDiscount
+// Prog ID:     Metratech.MTDiscount.1
+// Description: a PriceableItem of kind Discount.
+//              A Line item on a bill that reduces the total amount.
+//              Modeled as a derived PriceableItem and therefore inherits all
+//              properties and methods from PriceableItem.
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(DDBD6E0D-9D16-4FA2-8323-EB065D326DEF),
+  dual,
+  helpstring("IMTDiscount Interface"),
+  pointer_default(unique)
+]
+interface IMTDiscount : IMTPriceableItem
+{
+  // returns the cycle for this discount
+  [propget, id(1001), helpstring("property Cycle")] HRESULT Cycle([out, retval] IMTPCCycle* *pVal);
+
+  //internal use only
+  [hidden, propget, id(1050), helpstring("property RemovedCounters")] HRESULT RemovedCounters([out, retval] IMTCollection* *pVal);
+
+  // undocumented, clients should use GetDistributionCounter()
+  [hidden, propget, id(1052), helpstring("property DistributionCPDID")] HRESULT DistributionCPDID([out, retval] long *pVal);
+  [hidden, propput, id(1052), helpstring("property DistributionCPDID")] HRESULT DistributionCPDID([in] long newVal);
+
+  // returns instance of the counter, associated with given property. Returns NULL, if no counter is associated yet.
+  [id(1100), helpstring("method GetCounter")] HRESULT GetCounter([in] long lCounterPropertyDefinitionID, [out, retval] IMTCounter** ppCounter);
+
+  // sets (or updates) instance of the counter, associated with given property.
+  [id(1101), helpstring("method SetCounter")] HRESULT SetCounter([in] long lCounterPropertyDefinitionID, [in] IMTCounter* pCounter);
+
+  // remove a counter
+  [id(1102), helpstring("method RemoveCounter")] HRESULT RemoveCounter(long lCounterPropertyDefinitionID);
+  
+  // return a rowset of all counters of this discount
+  [id(1103), helpstring("method GetCountersAsRowset")] HRESULT GetCountersAsRowset([out, retval]IMTRowSet** apRowset);
+
+  // returns the counter on which to base proportional distribution, 
+  // returns NULL if this is an unconditional discount
+  [id(1105), helpstring("method GetDistributionCounter")] HRESULT GetDistributionCounter([out, retval] IMTCounter** apCounter);
+
+  // Sets the counter on which to base proportional distribution
+  // Counter has to be part of the discount
+  [id(1106), helpstring("method SetDistributionCounter")] HRESULT SetDistributionCounter([in] IMTCounter* apCounter);
+};
+
+
+// ----------------------------------------------------------------
+// Object:      MTNonRecurringCharge
+// Prog ID:     Metratech.MTNonRecurringCharge.1
+// Description: a PriceableItem of kind NonRecurringCharge.
+//              Inherits all properties and methods from PriceableItem.
+//              A Non-Recurring Charge is a one time charge not based on usage.
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(53460CF4-E5CA-4FBB-9457-09FBD1B5A0FC),
+  dual,
+  helpstring("IMTNonRecurringCharge Interface"),
+  pointer_default(unique)
+]
+interface IMTNonRecurringCharge : IMTPriceableItem
+{
+  // event on which this charge should occur
+  [propget, id(1001), helpstring("property NonRecurringChargeEvent")] HRESULT NonRecurringChargeEvent([out, retval] MTNonRecurringEventType *pVal);
+  [propput, id(1001), helpstring("property NonRecurringChargeEvent")] HRESULT NonRecurringChargeEvent([in] MTNonRecurringEventType newVal);
+};
+
+// ----------------------------------------------------------------
+// Object:      MTParamTableDefinition
+// Prog ID:     Metratech.MTParamTableDefinition.1
+// Description: holds the meta data for an MTRuleSet
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(D61CF1B8-BCEB-4F07-8906-5F00FC0F03F5),
+  dual,
+  helpstring("IMTParamTableDefinition Interface"),
+  pointer_default(unique)
+]
+interface IMTParamTableDefinition : IMTPCBase
+{
+  // get all (core and extended) properties of this object in a collection of MTProperty objects.
+  [propget, id(1), helpstring("property Properties")] HRESULT Properties([out, retval] IMTProperties **pVal);
+
+  // unique (database) ID
+  [propget, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+  [propput, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([in] long newVal);
+  
+  // Fully qualified name
+  [propget, id(2), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+  [propput, id(2), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+  
+  // localized name shown to user
+  [propget, id(3), helpstring("property DisplayName")] HRESULT DisplayName([out, retval] BSTR *pVal);
+  [propput, id(3), helpstring("property DisplayName")] HRESULT DisplayName([in] BSTR newVal);
+  
+  // name of database table
+  [propget, id(4), helpstring("property DBTableName")] HRESULT DBTableName([out, retval] BSTR *pVal);
+  [propput, id(4), helpstring("property DBTableName")] HRESULT DBTableName([in] BSTR newVal);
+
+  // description displayed above all condition columns
+  [propget, id(5), helpstring("property ConditionHeader")] HRESULT ConditionHeader([out, retval] BSTR *pVal);
+  [propput, id(5), helpstring("property ConditionHeader")] HRESULT ConditionHeader([in] BSTR newVal);
+
+  // description displayed above all action columns
+  [propget, id(6), helpstring("property ActionHeader")] HRESULT ActionHeader([out, retval] BSTR *pVal);
+  [propput, id(6), helpstring("property ActionHeader")] HRESULT ActionHeader([in] BSTR newVal);
+
+  // URL that points to help for this parameter table
+  [propget, id(7), helpstring("property HelpURL")] HRESULT HelpURL([out, retval] BSTR *pVal);
+  [propput, id(7), helpstring("property HelpURL")] HRESULT HelpURL([in] BSTR newVal);
+  
+  // only used in parameter tables for aggregate charges:
+  // identifies the property that specifies the tiers
+  [propget, id(8), helpstring("property IndexedProperty")] HRESULT IndexedProperty([out, retval] BSTR *pVal);
+  [propput, id(8), helpstring("property IndexedProperty")] HRESULT IndexedProperty([in] BSTR newVal);
+
+  // meta data describing the condition columns
+  [propget, id(9), helpstring("property ConditionMetaData")] HRESULT ConditionMetaData([out, retval] IMTCollection * *pVal);
+
+  // meta data describing the action columns
+  [propget, id(10), helpstring("property ActionMetaData")] HRESULT ActionMetaData([out, retval] IMTCollection * *pVal);
+  
+  // saves modifications to database. Includes all condition and action meta data.
+  [id(100), helpstring("method Save")] HRESULT Save();
+
+  // create a new condition column.
+  [id(101), helpstring("method AddConditionMetaData")] HRESULT AddConditionMetaData([out, retval] IMTConditionMetaData * * pVal);
+
+  // create a new action column
+  [id(102), helpstring("method AddActionMetaData")] HRESULT AddActionMetaData([out, retval] IMTActionMetaData * * pVal);
+  
+  // create a new rate schedule in the parameter table with a given price list and priceable item template
+  // A subsequent MTRateSchedule.Save() will insert it into the database.
+  [id(103), helpstring("method CreateRateSchedule")] HRESULT CreateRateSchedule([in] long aPriceListID, [in] long aPrcItemTmplID, [out, retval] IMTRateSchedule * * apSchedule);
+
+  // return a rate schedule for this parameter table, given its ID
+  [id(104), helpstring("method GetRateSchedule")] HRESULT GetRateSchedule(long aScheduleID, [out, retval] IMTRateSchedule * * apSchedule);
+
+  // return a rowset of all ICB and non-ICB rate schedules in this parameter table
+  [id(105), helpstring("method GetRateSchedulesAsRowset")] HRESULT GetRateSchedulesAsRowset([in, optional] VARIANT aFilter, [in, optional] VARIANT aIncludeHidden, [out, retval]IMTRowSet** apRowset);
+
+  // return a rowset of all non-ICB rate schedules in this parameter table
+  [id(106), helpstring("method GetNonICBRateSchedulesAsRowset")] HRESULT GetNonICBRateSchedulesAsRowset([in, optional] VARIANT aFilter, [out, retval]IMTRowSet** apRowset);
+
+  // return a rowset of all rate schedules in this parameter table for a given price list 
+  [id(107), helpstring("method GetRateSchedulesByPriceListAsRowset")] HRESULT GetRateSchedulesByPriceListAsRowset(long aPricelistID, long aPITemplate, [out, retval]IMTRowSet** apRowset);
+
+  // return a rowset of all ICB and non-ICB rateschedules for a particular priceable item type
+  [id(108), helpstring("method GetRateSchedulesByPriceableItemTypeAsRowset")] HRESULT GetRateSchedulesByPriceableItemTypeAsRowset([in] long aPriceableItemID, [out, retval]IMTRowSet** apRowset);
+
+  // return a rowset of all non-ICB rate schedules in this parameter table
+  [id(109), helpstring("method GetNonICBRateSchedulesByPriceableItemTypeAsRowset")] HRESULT GetNonICBRateSchedulesByPriceableItemTypeAsRowset([in] long aPriceableItemID, [out, retval]IMTRowSet** apRowset);
+
+  // Remove a rateschedule
+  [id(110), helpstring("method RemoveRateSchedule")] HRESULT RemoveRateSchedule([in] long aRateScheduleID);
+
+};
+
+
+// ----------------------------------------------------------------
+// Object:      MTPCAccount
+// Prog ID:     Metratech.MTPCAccount.1
+// Description: product catalog view of an account.
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(72DCB00C-3992-4D6C-8FEF-617A899DD1DE),
+  dual,
+  helpstring("IMTPCAccount Interface"),
+  pointer_default(unique)
+]
+interface IMTPCAccount : IMTPCBase
+{
+  // unique account ID 
+  [propget, id(DISPID_VALUE), helpstring("property AccountID")] HRESULT AccountID([out, retval] long *pVal);
+  [propput, id(DISPID_VALUE), helpstring("property AccountID")] HRESULT AccountID([in] long newVal);
+
+  // returns the default pricelist associated with this account
+  [id(100), helpstring("method GetDefaultPriceList")] HRESULT GetDefaultPriceList([out, retval] IMTPriceList** pVal);
+  
+  // updates the default pricelist for this account
+  [id(101), helpstring("method SetDefaultPriceList")] HRESULT SetDefaultPriceList([in] IMTPriceList* newVal);
+
+  // subscribe this account to a product offering, effective at a given start date.
+  [id(102), helpstring("method Subscribe")] HRESULT Subscribe([in] long aprodOffID, [in] IMTPCTimeSpan* pEffDate,[out] VARIANT* pDateModified,[out,retval] IMTSubscription** ppSub);
+
+  // unsubscribe this account from a product offering (identified by its subscription), effective at a given date
+  [id(103), helpstring("method Unsubscribe")] HRESULT Unsubscribe([in] long aSubscrID,[in] VARIANT aEndDate,[in] MTPCDateType aEndType,[out,retval] VARIANT_BOOL* pDateModified);
+
+  // get a subscription of this account by its ID
+  [id(104), helpstring("method GetSubscription")] HRESULT GetSubscription([in] long sub_id,[out,retval] IMTSubscriptionBase** ppSub);
+  
+  // returns collection of IMTSubscriptions of this account's subscriptions effective now or in the future
+  // this method is DEPRACATED.
+  [id(106), helpstring("method GetActiveSubscriptions")] HRESULT GetActiveSubscriptions([out, retval] IMTCollection** ppCol);
+
+  // returns rowset of this account's subscriptions effective now or in the future
+  // this method is DEPRACATED.
+  [id(107), helpstring("method GetActiveSubscriptionsAsRowset")] HRESULT GetActiveSubscriptionsAsRowset([out, retval] IMTRowSet** ppRowset);
+
+  // returns collection of IMTSubscriptions of this account's subscriptions effective in the past.
+  // this method is DEPRACATED.
+  [id(108), helpstring("method GetInactivateSubscriptions")] HRESULT GetInactivateSubscriptions([out, retval] IMTCollection** ppCol);
+
+  // returns rowset of this account's subscriptions effective in the past
+  // this method is DEPRACATED.
+  [id(109), helpstring("method GetInactiveSubscriptionsAsRowset")] HRESULT GetInactiveSubscriptionsAsRowset([out, retval] IMTRowSet** ppRowset);
+
+  // returns product offerings that this account can subscribe to.
+  // Excludes product offerings that:
+  // - contain the same priceable item templates as actively subscibed ones
+  // - contain priceable items that require a cycle other than the account's billing cycle
+  // - contain pricelists of a different currency other than the account's currency
+  [id(110), helpstring("method GetSubscribableProductOfferings")] HRESULT GetSubscribableProductOfferings([in,optional] VARIANT aRefDate, [out, retval] IMTCollection** ppCol);
+  
+  // same as GetSubscribableProductOfferings, but returns a rowset and can also be filtered
+  [id(111), helpstring("method FindSubscribableProductOfferingsAsRowset")] HRESULT FindSubscribableProductOfferingsAsRowset([in, optional] VARIANT pFilter, [in,optional] VARIANT aRefDate, [out, retval] IMTRowSet** ppRowset);
+
+  // returns the subscription object for this account given a product offering
+  [id(112), helpstring("method GetSubscriptionByProductOffering")] HRESULT GetSubscriptionByProductOffering([in] long prodOffID,[out, retval] IMTSubscription** ppSub);
+
+  // returns a subscription object for this account given a priceable item type
+  [id(113), helpstring("method GetSubscriptionByPriceableItem")] HRESULT GetSubscriptionByPriceableItem([in] long aPrcItemID,[out, retval] IMTSubscription** ppSub);
+  
+  // returns rowset of all parameter tables used in all active subscriptions
+  [id(114), helpstring("method GetParamTablesAsRowset")] HRESULT GetParamTablesAsRowset([out, retval] IMTRowSet** ppRowset);
+
+  // undocumented, not yet implemented
+  [hidden, id(115), helpstring("method GetPossiblePriceLists")] HRESULT GetPossiblePriceLists([in] long aPrcItemID,[in] long paramTblID,[out, retval] IMTCollection** ppCol);
+
+  // returns true if the user is allowed to change their billing cycle.
+  // they're not allowed to if they're subscribed to any billing cycle aligned recurring charges or discounts.
+  [id(116), helpstring("method CanChangeBillingCycles")] HRESULT CanChangeBillingCycles([out, retval] VARIANT_BOOL * pCanChange);
+
+  // returns all of the subscriptions (even if they are in the past)
+  [id(117), helpstring("method GetSubscriptionsAsRowset")] HRESULT GetSubscriptionsAsRowset([out, retval] IMTRowSet** ppRowset);
+  
+  // returns all of the group subscriptions (even if they are in the past)
+  [id(118), helpstring("method GetGroupSubscriptionsAsRowset")] HRESULT GetGroupSubscriptionsAsRowset([out,retval] IMTRowSet** ppRowset);
+
+  // Returns the next billing date for this account, given a start date. Will resolve using account's billing cycle and intervals
+  [id(119), helpstring("method GetNextBillingIntervalEndDate")] HRESULT GetNextBillingIntervalEndDate([in] DATE datecheck, [out,retval] VARIANT *pVal);
+
+  // create a subscription of this account to a product offering, effective at a given start date.  do NOT save it though.
+  [id(120), helpstring("method CreateSubscription")] HRESULT CreateSubscription([in] long aprodOffID, [in] IMTPCTimeSpan* pEffDate, [out,retval] IMTSubscription** ppSub);
+
+  // returns the subscription object for this account given a product offering
+  [id(121), helpstring("method GetSubscriptionsByProductOffering")] HRESULT GetSubscriptionsByProductOffering([in] long prodOffID,[out, retval] IMTCollection** ppSubs);
+
+  // returns the subscription object for this account to any priceable item
+  [id(122), helpstring("method GetSubscriptionsByPriceableItem")] HRESULT GetSubscriptionsByPriceableItem([in] long aPrcItemID,[out, retval] IMTCollection** ppSubs);
+
+  // removes a subscription.  The system implements a configurable business rule
+  // to guard remove subscriptions in the past.
+  [id(500), helpstring("method RemoveSubscription")] HRESULT RemoveSubscription([in] long aSubscrID);
+
+	// returns all of the subscriptions (even if they are in the past)
+  [id(501), helpstring("method GetSubscriptions")] HRESULT GetSubscriptions([out, retval] IMTCollection** ppColl);
+  
+  // returns all of the group subscriptions (even if they are in the past)
+  [id(502), helpstring("method GetGroupSubscriptions")] HRESULT GetGroupSubscriptions([out,retval] IMTCollection** ppColl);
+
+
+};
+
+
+// ----------------------------------------------------------------
+// Object:      MTPCCycle
+// Prog ID:     Metratech.MTPCCycle.1
+// Description: a cycle, as used by discount, counter, aggregate rate
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(2F2BA83E-A887-4597-B7BD-5D1E01DB5759),
+  dual,
+  helpstring("IMTPCCycle Interface"),
+  pointer_default(unique)
+]
+interface IMTPCCycle : IMTPCBase
+{
+  // get all (core and extended) properties of this object in a collection of MTProperty objects.
+  [propget, id(1), helpstring("property Properties")] HRESULT Properties([out, retval] IMTProperties * *pVal);
+
+  // ID in t_usage_cycle, 0 for relative cycle
+  [propget, id(DISPID_VALUE), helpstring("property CycleID")] HRESULT CycleID([out, retval] long *pVal);
+  [propput, id(DISPID_VALUE), helpstring("property CycleID")] HRESULT CycleID([in] long newVal);
+  
+  // used for relative cycle, 0 for unconstrained relative cycle, otherwise:
+  // DAILY = 3, WEEKLY = 4, BIWEEKLY = 5, SEMIMONTHLY = 6, MONTHLY = 1, QUARTERLY = 7, ANNUALLY = 8, SEMIANNUALLY = 9
+  [propget, id(2), helpstring("property CycleTypeID")] HRESULT CycleTypeID([out, retval] long *pVal);
+  [propput, id(2), helpstring("property CycleTypeID")] HRESULT CycleTypeID([in] long newVal);
+  
+  // if true, cycle is relative to subscribers billing cycle
+	// OBSOLETE - use the Mode property instead
+  [propget, id(3), helpstring("property Relative")] HRESULT Relative([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(3), helpstring("property Relative")] HRESULT Relative([in] VARIANT_BOOL newVal);
+
+  // used for WEEKLY cycle: day cycle ends on:
+  // SUNDAY = 1, MONDAY = 2, TUESDAY = 3, WEDNESDAY = 4, THURSDAY = 5, FRIDAY = 6, SATURDAY = 7
+  [propget, id(4), helpstring("property EndDayOfWeek")] HRESULT EndDayOfWeek([out, retval] long *pVal);
+  [propput, id(4), helpstring("property EndDayOfWeek")] HRESULT EndDayOfWeek([in] long newVal);
+  
+  // used for SEMIMONTHLY or MONTHLY cycle: cycle ends on this day of month
+  [propget, id(5), helpstring("property EndDayOfMonth")] HRESULT EndDayOfMonth([out, retval] long *pVal);
+  [propput, id(5), helpstring("property EndDayOfMonth")] HRESULT EndDayOfMonth([in] long newVal);
+  
+  // used for for SEMIMONTHLY only: cycle ends on this day of month
+  [propget, id(6), helpstring("property EndDayOfMonth2")] HRESULT EndDayOfMonth2([out, retval] long *pVal);
+  [propput, id(6), helpstring("property EndDayOfMonth2")] HRESULT EndDayOfMonth2([in] long newVal);
+
+  // used for BIWEEKLY, QUARTERLY, SEMIANNUALLY, or ANNUALLY cycle: absolute day of month cycle starts
+  [propget, id(7), helpstring("property StartDay")] HRESULT StartDay([out, retval] long *pVal);
+  [propput, id(7), helpstring("property StartDay")] HRESULT StartDay([in] long newVal);
+
+  // used for BIWEEKLY, QUARTERLY, SEMIANNUALLY, or ANNUALLY cycle: absolute month cycle starts
+  [propget, id(8), helpstring("property StartMonth")] HRESULT StartMonth([out, retval] long *pVal);
+  [propput, id(8), helpstring("property StartMonth")] HRESULT StartMonth([in] long newVal);
+
+  // used for BIWEEKLY cycle: absolute year cycle starts
+  [propget, id(9), helpstring("property StartYear")] HRESULT StartYear([out, retval] long *pVal);
+  [propput, id(9), helpstring("property StartYear")] HRESULT StartYear([in] long newVal);
+
+  // returns the adapter used for date calculations (based on the cycle type).
+  // This is set when call to a Compute* method is made. 
+  [propget, id(10), helpstring("property AdapterProgID")] HRESULT AdapterProgID([out, retval] BSTR *pVal);
+
+  // returns a short english-only text description of the cycle type found in the database ("Weekly").
+  // This is set when call to a Compute* method is made. 
+  [propget, id(11), helpstring("property CycleTypeDescription")] HRESULT CycleTypeDescription([out, retval] BSTR *pVal);
+
+  // sets CycleID from properties (CycleTypeID is already set)
+  // If Relative is true, CycleID will be 0
+  // Meant to be called by owning object before saving MTPCCycle to database:
+  //  - call ComputeCycleIDFromProperties
+  //  - get CycleID and CycleTypeID and save it in DB
+  [id(100), helpstring("method ComputeCycleIDFromProperties")] HRESULT ComputeCycleIDFromProperties();
+
+  // sets all properties depending on CycleID and CycleTypeID
+  // If CycleID is 0, Relative will be set to true and all properties other than CycleTypeID to 0
+  // If CycleID is != 0, Relative will be set to false and all properties other than CycleTypeID computed
+  // Meant to be called by owning object when loading MTPCCycle from database:
+  //  - set CycleID and CycleTypeID
+  //  - call ComputePropertiesFromCycleID
+  [id(101), helpstring("method ComputePropertiesFromCycleID")] HRESULT ComputePropertiesFromCycleID();
+  
+  // if this is a relative MTPCCycle, then call
+  // this function to compute an absolute cycle based on this cycle's type
+  // and a given date (usually the effective date of a subscription).
+  // Returns a new non-relative (absolute) MTPCCycle
+  [id(102), helpstring("method CreateAbsoluteCycle")] HRESULT CreateAbsoluteCycle([in] DATE aReference, [out, retval] IMTPCCycle** );
+
+  // given two points in time, this method will compute how many intervals
+  // of this cycle occur between the two points (inclusive). If an interval is only
+  // partially contained between the two points it is also included.
+  // Returns a collection of MTPCTimeSpan objects
+  [id(103), helpstring("method GetTimeSpans")] HRESULT GetTimeSpans([in] DATE aStartDate,
+                                                                    [in] DATE aEndDate,
+                                                                    [out, retval] IMTCollection** apColl);
+
+  // given one point in time, this method will compute the time span
+  // that encloses the point in time based on the cycle.
+  [id(104), helpstring("method GetTimeSpan")] HRESULT GetTimeSpan([in] DATE aReference,
+                                                                  [out, retval] IMTPCTimeSpan** apTimeSpan);
+
+  // copy this cycle to another one
+  [id(105), helpstring("method CopyTo")] HRESULT CopyTo([in] IMTPCCycle* pTarget);
+
+  // returns true if cycles are the same
+  [id(106), helpstring("method Equals")] HRESULT Equals([in] IMTPCCycle* pOtherCycle, [out, retval]VARIANT_BOOL* apResult);
+
+  // return the cycle type description given a cycle type
+	[id(107), helpstring("method GetDescriptionFromCycleType")] HRESULT GetDescriptionFromCycleType([in] MTUsageCycleType aCycleType,[out,retval] BSTR* pCycleTypeDesc);
+
+  // determines the mode of the cycle.
+	// interpretation of CycleID and CycleTypeID should be driven from them mode
+	// NOTE: this property supercedes the Relative property allowing support for EBCR
+  [propget, id(108), helpstring("property Mode")] HRESULT Mode([out, retval] MTCycleMode *pVal);
+  [propput, id(108), helpstring("property Mode")] HRESULT Mode([in] MTCycleMode newVal);
+
+  // returns true if cycles mutually exclude each other
+  [id(109), helpstring("method IsMutuallyExclusive")] HRESULT IsMutuallyExclusive([in] IMTPCCycle* pOtherCycle,
+																																									[out, retval]VARIANT_BOOL* apResult);
+
+  // undocumented - deprecated, use Copy() instead
+  // Provides an nearly identical copy of this object.
+  // A Compute* method will need to be called on the clone to get
+  // values for the AdapterProgID and CycleTypeDescription properties
+  // Returns a new MTPCCycle object (the clone)
+  [hidden, id(500), helpstring("method Clone")] HRESULT Clone([out, retval] IMTPCCycle** apClone);
+
+};
+
+
+// ----------------------------------------------------------------
+// Object:      MTPCTimeSpan
+// Prog ID:     Metratech.MTPCTimeSpan.1
+// Description: used to specify a time range for effective dates.
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(95D9DAE2-62B2-4772-8743-44F537A34EA2),
+  dual,
+  helpstring("IMTPCTimeSpan Interface"),
+  pointer_default(unique)
+]
+interface IMTPCTimeSpan : IMTPCBase
+{
+  // get all (core and extended) properties of this object in a collection of MTProperty objects.
+  [propget, id(1), helpstring("property Properties")] HRESULT Properties([out, retval] IMTProperties **pVal);
+
+  // unique (database) ID
+  [propget, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+  [propput, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([in] long newVal);
+  
+  // type of start date
+  [propget, id(2), helpstring("property StartDateType")] HRESULT StartDateType([out, retval] MTPCDateType *pVal);
+  [propput, id(2), helpstring("property StartDateType")] HRESULT StartDateType([in] MTPCDateType newVal);
+  
+  // for ABSOLUTE start date type: the start date
+  // for NEXT_BILLING_PERIOD start date type: the date that determins the next billing period
+  [propget, id(3), helpstring("property StartDate")] HRESULT StartDate([out, retval] DATE *pVal);
+  [propput, id(3), helpstring("property StartDate")] HRESULT StartDate([in] DATE newVal);
+
+  // only for SUBSCRIPTION_RELATIVE start date type: number of days after start of subscription
+  [propget, id(4), helpstring("property StartOffset")] HRESULT StartOffset([out, retval] long *pVal);
+  [propput, id(4), helpstring("property StartOffset")] HRESULT StartOffset([in] long newVal);
+
+  // type of end date
+  [propget, id(5), helpstring("property EndDateType")] HRESULT EndDateType([out, retval] MTPCDateType *pVal);
+  [propput, id(5), helpstring("property EndDateType")] HRESULT EndDateType([in] MTPCDateType newVal);
+
+  // for ABSOLUTE end date type: the end date
+  // for NEXT_BILLING_PERIOD end date type: the date that determins the next billing period
+  [propget, id(6), helpstring("property EndDate")] HRESULT EndDate([out, retval] DATE *pVal);
+  [propput, id(6), helpstring("property EndDate")] HRESULT EndDate([in] DATE newVal);
+
+  // only for SUBSCRIPTION_RELATIVE end date type: number of days after start subscription
+  [propget, id(7), helpstring("property EndOffset")] HRESULT EndOffset([out, retval] long *pVal);
+  [propput, id(7), helpstring("property EndOffset")] HRESULT EndOffset([in] long newVal);
+
+  // set the start date to NULL (infinite), a NULL start date means since the beginning of time
+  [id(100), helpstring("method SetStartDateNull")] HRESULT SetStartDateNull();
+
+  // returns true if the start date is NULL (infinite)
+  [id(101), helpstring("method IsStartDateNull")] HRESULT IsStartDateNull([out, retval] VARIANT_BOOL* pVal);
+  
+  // set the end date to NULL (infinite), a NULL end date means until the of end time
+  [id(102), helpstring("method SetEndDateNull")] HRESULT SetEndDateNull();
+
+  // returns true if the end date is NULL (infinite)
+  [id(103), helpstring("method IsEndDateNull")] HRESULT IsEndDateNull([out, retval] VARIANT_BOOL* pVal);
+  
+  // returns true if the end date is before the start date
+  [id(104), helpstring("method IsEndBeforeStart")] HRESULT IsEndBeforeStart([out, retval] VARIANT_BOOL* pVal);
+  
+  // normalizes members and validates properties, on failure a user error will be raised
+  [id(105), helpstring("method Validate")] HRESULT Validate();
+  
+  // normalize all values (clear out not used properties, set type correctly)
+  [id(106), helpstring("method Normalize")] HRESULT Normalize();
+  
+  // internal use only
+  [hidden, id(500), helpstring("method Init")] HRESULT Init([in] MTPCDateType aStartDateTypeConstraint, [in] MTPCDateType aInitialStartDateType,
+                                                            [in] MTPCDateType aEndDateTypeConstraint,   [in] MTPCDateType aInitialEndDateType);
+};
+
+
+// ----------------------------------------------------------------
+// Object:      MTPriceableItem
+// Prog ID:     Metratech.MTPriceableItem.1
+// Description: Base class for MTUsageCharge, MTAggregateCharge,
+//              MTRecurringCharge, MTNonRecurringCharge, MTDiscount.
+//              Can be a "template" (standalone)
+//              or an "instance" (added to a product offering)
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(88293BB1-7A00-4D76-BF11-12C344DFD0C9),
+  dual,
+  helpstring("IMTPriceableItem Interface"),
+  pointer_default(unique)
+]
+interface IMTPriceableItem : IMTPCBase
+{
+  // get all (core and extended) properties of this object in a collection of MTProperty objects.
+  [propget, id(1), helpstring("property Properties")] HRESULT Properties([out, retval] IMTProperties** pVal);
+  
+  // unique (database) ID
+  [propget, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+  [propput, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([in] long newVal);
+  
+  // kind of priceable item, can be:
+  // PCENTITY_TYPE_USAGE = 10, PCENTITY_TYPE_AGGREGATE_CHARGE = 15,
+  // PCENTITY_TYPE_RECURRING = 20, PCENTITY_TYPE_NON_RECURRING = 30,
+  // PCENTITY_TYPE_DISCOUNT = 40
+  [propget, id(2), helpstring("property Kind")] HRESULT Kind([out, retval] MTPCEntityType *pVal);
+  [propput, id(2), helpstring("property Kind")] HRESULT Kind([in] MTPCEntityType newVal);
+
+  // unique internal name
+  [propget, id(3), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+  [propput, id(3), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+
+  // localizable name, shown to end user
+  [propget, id(4), helpstring("property DisplayName")] HRESULT DisplayName([out, retval] BSTR *pVal);
+  [propput, id(4), helpstring("property DisplayName")] HRESULT DisplayName([in] BSTR newVal);
+  [propget, id(121), helpstring("property DisplayNames")] HRESULT DisplayNames([out, retval] IDispatch **pVal);
+
+
+  // a description
+  [propget, id(5), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+  [propput, id(5), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+
+  // priceable item type object that is the base for this template or instance
+  [propget, id(6), helpstring("property PriceableItemType")] HRESULT PriceableItemType([out, retval] IMTPriceableItemType** pVal);
+  [hidden, propput, id(6), helpstring("property PriceableItemType")] HRESULT PriceableItemType([in] IMTPriceableItemType* newVal);
+
+  // undocumented, internal use only
+  [hidden, propget, id(7), helpstring("property CreateChildren")] HRESULT CreateChildren([out, retval] VARIANT_BOOL* pVal);
+  [hidden, propput, id(7), helpstring("property CreateChildren")] HRESULT CreateChildren([in] VARIANT_BOOL newVal);
+  
+  // undocumented, clients should use GetProductOffering()
+  // for templates: -1
+  // for instances: ID of product offering 
+  [hidden, propget, id(50), helpstring("property ProductOfferingID")] HRESULT ProductOfferingID([out, retval] long *pVal);
+  [hidden, propput, id(50), helpstring("property ProductOfferingID")] HRESULT ProductOfferingID([in] long newVal);
+
+  // undocumented, clients should use GetTemplate()
+  // for templates: -1
+  // for instances: ID of template that this instance is based on
+  [hidden, propget, id(51), helpstring("property TemplateID")] HRESULT TemplateID([out, retval] long *pVal);
+  [hidden, propput, id(51), helpstring("property TemplateID")] HRESULT TemplateID([in] long newVal);
+
+  // undocumented, clients should use GetParent()
+  [hidden, propget, id(52), helpstring("property ParentID")] HRESULT ParentID([out, retval] long *pVal);
+  [hidden, propput, id(52), helpstring("property ParentID")] HRESULT ParentID([in] long newVal);
+
+  // saves modifications to database
+  [id(100), helpstring("method Save")] HRESULT Save();
+
+  // returns true if this is a priceable item template, false if this is a priceable item instance
+  [id(101), helpstring("method IsTemplate")] HRESULT IsTemplate([out, retval] VARIANT_BOOL* apIsTemplate);
+
+  // for templates: returns NULL
+  // for instances: returns the template that this instance is based on
+  [id(102), helpstring("method GetTemplate")] HRESULT GetTemplate([out, retval] IMTPriceableItem** apPrcItemTemplate);
+  
+  // returns the parent template/instance if this is a child of a compound pricable item, or NULL if no parent
+  [id(103), helpstring("method GetParent")] HRESULT GetParent([out, retval] IMTPriceableItem** apParentPrcItem);
+
+  // returns any child templates/instances if this is a compound pricable item, or empty collection otherwise
+  [id(104), helpstring("method GetChildren")] HRESULT GetChildren([out, retval] IMTCollection** apColl);
+  
+  // same as GetChildren but returns a rowset
+  [id(105), helpstring("method GetChildrenAsRowset")] HRESULT GetChildrenAsRowset([out, retval] IMTRowSet** apRowset);
+  
+  // returns a child template/instance by its ID
+  [id(106), helpstring("method GetChild")] HRESULT GetChild([in]long aID, [out, retval]IMTPriceableItem** apPrcItem);
+
+  // for templates: error
+  // for instances: get the Non-ICB pricelist mapping object given a parameter table ID
+  // (an instance has exactly one Non-ICB pricelist mapping for each param table def of its priceable item type)
+  [id(107), helpstring("method GetPriceListMapping")] HRESULT GetPriceListMapping([in] long aParamTblDefID, [out, retval] IMTPriceListMapping** apPrcLstMap);
+
+  // for templates: error
+  // for instances: set a pricelist for a given parameter table ID
+  // To modify other properties of a price list mapping object (CanICB, or rate schedules) use GetPriceListMapping and manipulate the returned object
+  [id(108), helpstring("method SetPriceListMapping")] HRESULT SetPriceListMapping([in] long aParamTblDefID, [in] long aPrcLstID);
+
+  // returns a rowset of Non-ICB and ICB pricelist mappings
+  [id(109), helpstring("method GetPriceListMappingsAsRowset")] HRESULT GetPriceListMappingsAsRowset([out, retval] IMTRowSet** apRowset);
+
+  // returns a rowset of Non-ICB pricelist mappings
+  [id(110), helpstring("method GetNonICBPriceListMappingsAsRowset")] HRESULT GetNonICBPriceListMappingsAsRowset([out, retval] IMTRowSet** apRowset);
+
+  // copies this instance or template to another instance or template
+  [id(111), helpstring("method CopyTo")] HRESULT CopyTo([in] IMTPriceableItem* apTarget);
+
+  // if true, user can modify priceable item (e.g. remove it from the database)
+  [id(112), helpstring("method CanBeModified")] HRESULT CanBeModified([out, retval] VARIANT_BOOL *pVal);
+
+  // checks if this priceable item is completely configured.
+  // To be called before making product offering available
+  // Returns collection of error strings (emtpy collection if correctly configured)
+  [id(113), helpstring("method CheckConfiguration")]  HRESULT CheckConfiguration([out, retval] IMTCollection** apErrors);
+
+  // for templates: returns NULL
+  // for instances: returns the product offering that this instance is part of
+  [id(114), helpstring("method GetProductOffering")] HRESULT GetProductOffering([out, retval] IMTProductOffering** apProdOff);
+
+  // for templates: return new Adjustment template
+  // for instances: return new Adjustment instance
+  //[id(115), helpstring("method CreateAdjustment")] HRESULT CreateAdjustment([out,retval] IAdjustment** apAdjustment);
+  //TODO fix later to return real interface
+  [id(115), helpstring("method CreateAdjustment")] HRESULT CreateAdjustment([in]long aAjType, [out,retval] IDispatch** apAdjustment);
+  [id(116), helpstring("method GetAdjustments")] HRESULT GetAdjustments([out,retval] IMTCollection** apAdjustments);
+  [id(117), helpstring("method SetAdjustments")] HRESULT SetAdjustments([in] IMTCollection* newVal);
+  [id(118), helpstring("method RemoveAdjustment")] HRESULT RemoveAdjustment([in]long aAjID);
+  [id(119), helpstring("method RemoveAdjustmentOfType")] HRESULT RemoveAdjustmentOfType([in]long aAjTypeID);
+  // returns a rowset of adjustment types that can be added to the template
+  [id(120), helpstring("method GetAvailableAdjustmentTypesAsRowset")] HRESULT GetAvailableAdjustmentTypesAsRowset([out, retval] IMTRowSet** apRowset);
+
+  // internal use only
+  [hidden, id(500), helpstring("method SetTemplate")] HRESULT SetTemplate([in] IMTPriceableItem* apPrcItemTemplate);
+
+  // internal use only
+  // for templates: creates an instance based on this template
+  // for instances: ERROR
+  [hidden, id(501), helpstring("method CreateInstance")] HRESULT CreateInstance([out, retval] IMTPriceableItem** apPrcItemInstance);
+  
+  // internal use only
+  // for templates: returns all instances of this template
+  // for instances: ERROR
+  [id(502), helpstring("method GetInstances")] HRESULT GetInstances([out, retval]IMTCollection** apInstances);
+
+  [propget, id(503), helpstring("property DisplayDescriptions")] HRESULT DisplayDescriptions([out, retval] IDispatch **pVal);
+  
+};
+
+// ----------------------------------------------------------------
+// Object:      MTPriceableItemType
+// Prog ID:     Metratech.MTPriceableItemType.1
+// Description: Type of a priceable item. Created in MPM
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(78CE9994-7679-43EE-997F-610300A7421A),
+  dual,
+  helpstring("IMTPriceableItemType Interface"),
+  pointer_default(unique)
+]
+interface IMTPriceableItemType : IMTPCBase
+{
+  // get all (core and extended) properties of this object in a collection of MTProperty objects.
+  [propget, id(1), helpstring("property Properties")] HRESULT Properties([out, retval] IMTProperties** pVal);
+
+  // unique (database) ID
+  [propget, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+  [propput, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([in] long newVal);
+
+  // kind of priceable item, can be:
+  // PCENTITY_TYPE_USAGE = 10, PCENTITY_TYPE_AGGREGATE_CHARGE = 15,
+  // PCENTITY_TYPE_RECURRING = 20, PCENTITY_TYPE_NON_RECURRING = 30,
+  // PCENTITY_TYPE_DISCOUNT = 40
+  [propget, id(2), helpstring("property Kind")] HRESULT Kind([out, retval] MTPCEntityType *pVal);
+  [propput, id(2), helpstring("property Kind")] HRESULT Kind([in] MTPCEntityType newVal);
+
+  // unique name
+  [propget, id(3), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+  [propput, id(3), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+
+  // a description
+  [propget, id(4), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+  [propput, id(4), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+
+  // fully qualified name of the service definition
+  [propget, id(5), helpstring("property ServiceDefinition")] HRESULT ServiceDefinition([out, retval] BSTR *pVal);
+  [propput, id(5), helpstring("property ServiceDefinition")] HRESULT ServiceDefinition([in] BSTR newVal);
+
+  // fully qualified name of the product view
+  [propget, id(6), helpstring("property ProductView")] HRESULT ProductView([out, retval] BSTR *pVal);
+  [propput, id(6), helpstring("property ProductView")] HRESULT ProductView([in] BSTR newVal);
+
+  // ID of parent if this is a child of a compound type
+  // Setting the ParentID is an alternative to CreateChild() for configuring compound types
+  [propget, id(7), helpstring("property ParentID")] HRESULT ParentID([out, retval] long *pVal);
+  [propput, id(7), helpstring("property ParentID")] HRESULT ParentID([in] long newVal);
+
+  // for priceable item that have cycles: specifies whether the the priceable item's cycle type must be specified for relative cycles.
+  // example: a percentage discount does not have to be constrained to a particular billing cycle ("it doesn't matter what the billing cycle of the subscriber is")
+  //          a flat discount has to be constrained ("Subscriber must have monthly cycle to subscribe")
+  [propget, id(8), helpstring("property ConstrainSubscriberCycle")] HRESULT ConstrainSubscriberCycle([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(8), helpstring("property ConstrainSubscriberCycle")] HRESULT ConstrainSubscriberCycle([in] VARIANT_BOOL newVal);
+
+
+  // saves modifications to database
+  [id(100), helpstring("method Save")] HRESULT Save();
+
+  // create a priceable item type that is a child of this type.
+  // A subsequent Save() on the child will insert it into the database.
+  // Setting the ParentID is an alternative to CreateChild() for configuring compound types
+  [id(101), helpstring("method CreateChild")] HRESULT CreateChild([out, retval] IMTPriceableItemType** apChildType);
+
+  // removes a child priceable item type
+  [id(102), helpstring("method RemoveChild")] HRESULT RemoveChild([in] long aID);
+
+  // returns the parent type if this is a child of a compound type, or NULL if no parent
+  [id(103), helpstring("method GetParent")] HRESULT GetParent([out, retval] IMTPriceableItemType** apType);
+  
+  // returns any child types if this is a compound type, or empty collection otherwise
+  [id(104), helpstring("method GetChildren")] HRESULT GetChildren([out, retval] IMTCollection** apColl);
+
+  // returns a child type its ID
+  [id(105), helpstring("method GetChild")] HRESULT GetChild([in]long aID, [out, retval]IMTPriceableItemType** apType);
+
+  // adds a mapping from a parameter table definition to this type
+  [id(106), helpstring("method AddParamTableDefinition")] HRESULT AddParamTableDefinition([in] long aParamTblDefID);
+
+  // removes mapping from a parameter table definition to this type
+  [id(107), helpstring("method RemoveParamTableDefinition")] HRESULT RemoveParamTableDefinition([in] long aParamTblDefID);
+  
+  // get all parameter tables mapped to this type
+  [id(108), helpstring("method GetParamTableDefinitions")] HRESULT GetParamTableDefinitions([out, retval] IMTCollection** apColl);
+
+  // get rowset of all parameter tables mapped to this type
+  [id(109), helpstring("method GetParamTableDefinitionsAsRowset")] HRESULT GetParamTableDefinitionsAsRowset([out, retval]IMTRowSet** apRowset);
+
+  // create a priceable item template based on this type
+  // If this a compound type and aCreateChildren is true (or not provided), 
+  // child templates will be created recursively for all child types
+  // A subsequent Save() on the returned template will insert it into the database.
+  [id(110), helpstring("method CreateTemplate")] HRESULT CreateTemplate([in, optional]VARIANT aCreateChildren, [out, retval] IMTPriceableItem** apPrcItemTmpl);
+  
+  // remove a priceable item template by its ID
+  [id(111), helpstring("method RemoveTemplate")] HRESULT RemoveTemplate([in] long aID);
+  
+  // returns all priceable item templates based on this type
+  [id(112), helpstring("method GetTemplates")] HRESULT GetTemplates([out, retval]IMTCollection** apTemplates);
+
+  // create a counter property definition to for this type
+  // A subsequent Save() on the returned counter property definition will insert it into the database.
+  [id(113), helpstring("method CreateCounterPropertyDefinition")] HRESULT CreateCounterPropertyDefinition([out,retval]IMTCounterPropertyDefinition** apCPD);
+
+  // remove a counter property definition by its ID
+  [id(114), helpstring("method RemoveCounterPropertyDefinition")] HRESULT RemoveCounterPropertyDefinition([in]long aID);
+
+  // returns all counter property definitions for this type
+  [id(115), helpstring("method GetCounterPropertyDefinitions")] HRESULT GetCounterPropertyDefinitions([out, retval]IMTCollection** apColl);
+
+  // returns a rowset of all counter property definitions for this type
+  [id(116), helpstring("method FindCounterPropertyDefinitionsAsRowset")] HRESULT FindCounterPropertyDefinitionsAsRowset([in, optional]VARIANT aFilter, [out, retval]IMTRowSet** apRowset);
+
+  // returns any product offerings that contain priceable item instances of this priceable item type
+  // can be used for checking whether changes to this type affect any product offerings
+  [id(117), helpstring("method GetProductOfferings")] HRESULT GetProductOfferings([out, retval] IMTCollection** apProdOffs);
+
+  // add a charge to the priceable item type (e.g. setup charge, transport charge, ...)
+  [id(118), helpstring("method CreateCharge")] HRESULT CreateCharge([out, retval] IMTCharge** apCharge);
+
+  // removes a charge to the priceable item type (e.g. setup charge, transport charge, ...)
+  [id(119), helpstring("method RemoveCharge")] HRESULT RemoveCharge([in] long aChargeID);
+  
+  // get all the charges for the type (a collection of IMTCharge*).
+  [id(120), helpstring("method GetCharges")] HRESULT GetCharges([out, retval] IMTCollection** apColl);
+
+	// get the object that describes the product view.  Note funky name, don't want to collide with
+	// generated method for the ProductView BSTR property.
+  [id(122), helpstring("method GetProductViewObject")] HRESULT GetProductViewObject([out, retval] IProductView** apPV);	
+
+  [propget, id(123), helpstring("property AdjustmentTypes")] HRESULT AdjustmentTypes([out, retval] IMTCollection* *pVal);
+  [propput, id(123), helpstring("property AdjustmentTypes")] HRESULT AdjustmentTypes([in] IMTCollection* newVal);
+  //[id(124), helpstring("method CreateAdjustmentType")] HRESULT CreateAdjustmentType([out, retval] IAdjustmentType** apAdjustmentType);	
+  [id(124), helpstring("method CreateAdjustmentType")] HRESULT CreateAdjustmentType([out, retval] IDispatch** apAdjustmentType);	
+};
+
+// ----------------------------------------------------------------
+// Object:      MTPriceList
+// Prog ID:     Metratech.MTPriceList.1
+// Description: identifier used to select one set of rating parameters
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(9566ED20-111D-4D71-8C17-F4480EC7FE7A),
+  dual,
+  helpstring("IMTPriceList Interface"),
+  pointer_default(unique)
+]
+interface IMTPriceList : IMTPCBase
+{
+  // get all (core and extended) properties of this object in a collection of MTProperty objects.
+  [propget, id(1), helpstring("property Properties")] HRESULT Properties([out, retval] IMTProperties **pVal);
+
+  // unique (database) ID
+  [propget, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+  [propput, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([in] long newVal);
+
+  // name
+  [propget, id(2), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+  [propput, id(2), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+
+  // a description  
+  [propget, id(3), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+  [propput, id(3), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+  
+  // currency for all rates on this pricelist
+  [propget, id(4), helpstring("property CurrencyCode")] HRESULT CurrencyCode([out, retval] BSTR *pVal);
+  [propput, id(4), helpstring("property CurrencyCode")] HRESULT CurrencyCode([in] BSTR newVal);
+
+  // if true, this is a non-ICB pricelist
+  // if false, this is a ICB pricelist
+  [propget, id(5), helpstring("property Shareable")] HRESULT Shareable([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(5), helpstring("property Shareable")] HRESULT Shareable([in] VARIANT_BOOL newVal);
+
+  // 0 = ICB Price List
+  // 1 = Regular (Non-ICB) Price List
+	// 2 = Product Offering non-shared Price List
+  [propget, id(6), helpstring("property Type")] HRESULT Type([out, retval] MTPriceListType *pVal);
+  [propput, id(6), helpstring("property Type")] HRESULT Type([in] MTPriceListType newVal);
+
+  // saves modifications to database
+  [id(100), helpstring("method Save")] HRESULT Save();
+
+	// Get the number of rate schedules under this pricelist, for all parameter tables
+	[id(101), helpstring("method GetRateScheduleCount")] HRESULT GetRateScheduleCount([out, retval] long *pVal);
+
+	// If this price list is non-shared, get the product offering, otherwise return NULL
+	[id(102), helpstring("method GetOwnerProductOffering")] HRESULT GetOwnerProductOffering([out, retval] IMTProductOffering **pVal);
+};
+
+// ----------------------------------------------------------------
+// Object:      MTPriceListMapping
+// Prog ID:     Metratech.MTPriceListMapping.1
+// Description: Mapping between a PriceableItem instance, a ParameterTable and
+//              a PriceList. Used by product offerings (Non-ICB pricelist) and
+//              subscriptions (ICB pricelist).
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(11498072-FE8E-4EB4-AD4B-DBA444236E37),
+  dual,
+  helpstring("IMTPriceListMapping Interface"),
+  pointer_default(unique)
+]
+interface IMTPriceListMapping : IMTPCBase
+{
+  // get all (core and extended) properties of this object in a collection of MTProperty objects.
+  [propget, id(1), helpstring("property Properties")] HRESULT Properties([out, retval] IMTProperties **pVal);
+
+  // ID of priceable item instance associated with this mapping
+  [propget, id(2), helpstring("property PriceableItemID")] HRESULT PriceableItemID([out, retval] long *pVal);
+  [propput, id(2), helpstring("property PriceableItemID")] HRESULT PriceableItemID([in] long newVal);
+
+  // ID of parameter table definition associated with this mapping
+  [propget, id(3), helpstring("property ParamTableDefinitionID")] HRESULT ParamTableDefinitionID([out, retval] long *pVal);
+  [propput, id(3), helpstring("property ParamTableDefinitionID")] HRESULT ParamTableDefinitionID([in] long newVal);
+
+  // ID of price list associated with this mapping
+  [propget, id(4), helpstring("property PriceListID")] HRESULT PriceListID([out, retval] long *pVal);
+  [propput, id(4), helpstring("property PriceListID")] HRESULT PriceListID([in] long newVal);
+
+  // if true, there can be ICB price list mappings created for the priceable item / parameter table combination
+  [propget, id(5), helpstring("property CanICB")] HRESULT CanICB([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(5), helpstring("property CanICB")] HRESULT CanICB([in] VARIANT_BOOL newVal);
+  
+  // indicates the kind of pricelist mapping
+  [propget, id(6), helpstring("property MappingType")] HRESULT MappingType([out, retval] MTPriceListMappingType *pVal);
+  [propput, id(6), helpstring("property MappingType")] HRESULT MappingType([in] MTPriceListMappingType newVal);
+
+
+  // saves modifications to database
+  [id(100), helpstring("method Save")] HRESULT Save();
+  
+  // returns the  priceable item instance associated with this mapping
+  [id(101), helpstring("method GetPriceableItem")] HRESULT GetPriceableItem([out, retval] IMTPriceableItem * *pVal);
+  
+  // returns the parameter table definition associated with this mapping
+  [id(102), helpstring("method GetParameterTable")] HRESULT GetParameterTable([out, retval] IMTParamTableDefinition * *pVal);
+
+  // returns the price list associated with this mapping
+  [id(103), helpstring("method GetPriceList")] HRESULT GetPriceList([out, retval] IMTPriceList * *pVal);
+
+  // create a new rate schedule for this pricelist mapping
+  // (in the associated parameter table, for the asscoiated price list,
+  //   and the template of the associated priceable item instance)
+  // A subsequent MTRateSchedule.Save() will insert it into the database.
+  [id(104), helpstring("method CreateRateSchedule")] HRESULT CreateRateSchedule([out, retval] IMTRateSchedule * * apSchedule);
+  
+  // return a rowset of rate schedules for this price list mapping
+  // (using the associated parameter table, the asscoiated price list, and the template of the associated priceable item instance)
+  [id(105), helpstring("method FindRateSchedulesAsRowset")] HRESULT FindRateSchedulesAsRowset([in, optional]VARIANT aFilter, [out, retval]IMTRowSet** apRowset);
+};
+
+
+// ----------------------------------------------------------------
+// Object:      MTProductCatalog
+// Prog ID:     Metratech.MTProductCatalog.1
+// Description: Top level interface to the product catalog
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(4B2BCA76-DE38-402B-864E-E080D83F0210),
+  dual,
+  helpstring("IMTProductCatalog Interface"),
+  pointer_default(unique)
+]
+interface IMTProductCatalog : IMTPCBase
+{
+
+  //--- configuration methods ---
+  
+  // return meta data for a product catalog business object
+  [id(100), helpstring("method GetMetaData")] HRESULT GetMetaData([in] MTPCEntityType aEntityType, [out, retval] IMTPropertyMetaDataSet ** apMetaDataSet);
+
+  // get currently configued PL chaining
+  [id(101), helpstring("method GetPricelistChaining")] HRESULT GetPricelistChaining([out, retval]MTPC_PRICELIST_CHAIN_RULE* apChainRule);
+
+  // is this business rule currently enabled
+  [id(102), helpstring("method IsBusinessRuleEnabled")] HRESULT IsBusinessRuleEnabled([in]MTPC_BUSINESS_RULE aBusRule,[out, retval]VARIANT_BOOL* apEnabledFlag);
+
+  // sets the account ID of the session context
+  // MUST BE CALLED on each new product catalog object before calling any other method
+  [id(103), helpstring("method SetSessionContextAccountID")] HRESULT SetSessionContextAccountID([in]long aAccountID);
+  
+
+  //--- priceable item type methods ---
+  
+  // create a priceable item type
+  // a subsequent Save() on the returned type will insert it into the database
+  [id(200), helpstring("method CreatePriceableItemType")] HRESULT CreatePriceableItemType([out, retval] IMTPriceableItemType** apType);
+  
+  // return a priceable item type given its ID
+  [id(201), helpstring("method GetPriceableItemType")] HRESULT GetPriceableItemType([in] long aID, [out, retval] IMTPriceableItemType** apType);
+
+  // return a priceable item type given its name
+  [id(203), helpstring("method GetPriceableItemTypeByName")] HRESULT GetPriceableItemTypeByName([in] BSTR aName,[out,retval] IMTPriceableItemType** apType);
+  
+  // return all priceable item types
+  [id(204), helpstring("method GetPriceableItemTypes")] HRESULT GetPriceableItemTypes([in, optional] VARIANT aFilter, [out, retval] IMTCollection** apColl);
+  
+  // remove a priceable item type given its ID
+  // method will fail if there are priceable item templates for that type
+  [id(205), helpstring("method RemovePriceableItemType")] HRESULT RemovePriceableItemType([in] long aID);
+
+
+  //--- parameter table definition methods ---
+  
+  // return a parameter table definition given its ID
+  [id(300), helpstring("method GetParamTableDefinition")] HRESULT GetParamTableDefinition(long id, [out, retval] IMTParamTableDefinition * * table);
+
+  // return a parameter table definition given its name
+  [id(301), helpstring("method GetParamTableDefinitionByName")] HRESULT GetParamTableDefinitionByName(BSTR name, [out, retval] IMTParamTableDefinition * * table);
+
+
+  //---  calendar methods ---
+
+  // create a Calendar
+  // a subsequent Save() on the returned calendar will insert it into the database
+  [id(400), helpstring("method CreateCalendar")] HRESULT CreateCalendar([out, retval] IMTCalendar ** apCalendar);
+  
+  // return a calendar given its ID
+  [id(401), helpstring("method GetCalendar")] HRESULT GetCalendar([in] long aID, [out, retval] IMTCalendar ** apCalendar);
+
+  // return all calendars
+  [id(402), helpstring("method GetCalendarsAsRowset")] HRESULT GetCalendarsAsRowset([out, retval] IMTRowSet ** apRowset);
+
+  // return a calendar given its Name
+  [id(403), helpstring("method GetCalendarByName")] HRESULT GetCalendarByName([in] BSTR aName, [out, retval] IMTCalendar ** apCalendar);
+
+  //--- priceable item methods ---
+  
+  // return a priceable item template or instance given its ID
+  [id(500), helpstring("method GetPriceableItem")] HRESULT GetPriceableItem([in] long aID, [out, retval] IMTPriceableItem** apPrcItem);
+
+  // return a priceable item template given its name
+  [id(501), helpstring("method GetPriceableItemByName")] HRESULT GetPriceableItemByName([in] BSTR aName, [out, retval] IMTPriceableItem * * apPI);
+
+  // return a rowset of all priceable item templates
+  [id(502), helpstring("method FindPriceableItemsAsRowset")] HRESULT FindPriceableItemsAsRowset([in, optional] VARIANT aFilter, [out, retval] IMTRowSet** apRowset);
+  
+  // return all priceable item instances of a given kind
+  [id(503), helpstring("method GetPriceableItemInstancesByKind")] HRESULT GetPriceableItemInstancesByKind( [in] MTPCEntityType aKind, [out, retval] IMTCollection** apInstances);
+
+  // rate all aggregate charges for a usage interval
+  // waits for sessions to commit before returning
+  [id(504), helpstring("method RateAllAggregateCharges")] HRESULT RateAllAggregateCharges([in] long aUsageIntervalID,
+																																													[in] long aSessionSetSize);
+
+  // rate all aggregate charges for a usage interval and account
+  // waits for sessions to commit before returning
+  [id(505), helpstring("method RateAllAggregateChargesForAccount")] HRESULT RateAllAggregateChargesForAccount([in] long aUsageIntervalID, [in] long aAccountID);
+
+  // rate all aggregate charges for a usage interval and account
+  // does *NOT* wait for sessions to commit before returning
+  [id(506), helpstring("method RateAllAggregateChargesForAccountAsynch")] 
+    HRESULT RateAllAggregateChargesForAccountAsynch([in] long aUsageIntervalID, [in] long aAccountID);
+
+  //--- pricelist methods ---
+
+  // create a price list
+  // a subsequent Save() on the returned price list will insert it into the database
+  [id(600), helpstring("method CreatePriceList")] HRESULT CreatePriceList([out, retval] IMTPriceList * * apPriceList);
+  
+  // remove a pricelist (and all contained rate schedules) given its ID
+  [id(601), helpstring("method RemovePriceList")] HRESULT RemovePriceList([in] long id);
+
+  // return a pricelist given its ID
+  [id(602), helpstring("method GetPriceList")] HRESULT GetPriceList([in] long id, [out, retval] IMTPriceList * * apPriceList);
+
+  // return a pricelist given its name
+  [id(603), helpstring("method GetPriceListByName")] HRESULT GetPriceListByName([in] BSTR aName, [out, retval] IMTPriceList * * apPriceList);
+  
+  // return a rowset of all price lists
+  [id(604), helpstring("method FindPriceListsAsRowset")] HRESULT FindPriceListsAsRowset([in, optional] VARIANT aFilter, [out, retval] IMTRowSet** apRowset);
+
+  // return a rowset of all pricelist with an additional column 'rateschedules'
+  // column 'rateschedules' contains the number of rateschedules for that price list
+  // and passed in parameter table definition and priceable item template
+  [id(605), helpstring("method FindPriceListsForMappingAsRowset")] HRESULT FindPriceListsForMappingAsRowset([in] long aParamTblDefID, [in] long aPrcItemTmplID, [in, optional] VARIANT aFilter, [out, retval] IMTRowSet** apRowset);
+
+
+  //--- product offering methods ---
+
+  // create a product offering
+  // a subsequent Save() on the returned product offering will insert it into the database
+  [id(700), helpstring("method CreateProductOffering")] HRESULT CreateProductOffering([out, retval] IMTProductOffering** apProdOff);
+  
+  // remove a product offering given its ID
+  [id(701), helpstring("method RemoveProductOffering")] HRESULT RemoveProductOffering([in] long ID);
+  
+  // return a product offering given its ID
+  [id(702), helpstring("method GetProductOffering")] HRESULT GetProductOffering([in] long ID, [out, retval] IMTProductOffering**);
+
+  // return a product offering given its name
+  [id(703), helpstring("method GetProductOfferingByName")] HRESULT GetProductOfferingByName([in] BSTR aName, [out, retval] IMTProductOffering**);
+
+  // return a rowset of all product offerings
+  [id(704), helpstring("method FindProductOfferingsAsRowset")] HRESULT FindProductOfferingsAsRowset([in, optional] VARIANT aFilter, [out, retval] IMTRowSet** apRowset);
+  
+  // returns available product offerings
+  [id(705), helpstring("method FindAvailableProductOfferingsAsRowset")] HRESULT FindAvailableProductOfferingsAsRowset([in,optional] VARIANT aFilter,[in,optional] VARIANT RefDate,[out,retval] IMTSQLRowset** ppRowset);
+  
+  // returns available product offerings for a new group subscription (currency dependendent)
+  [id(706), helpstring("method FindAvailableProductOfferingsForGroupSubscriptionAsRowset")] HRESULT FindAvailableProductOfferingsForGroupSubscriptionAsRowset([in] long corpAccID, [in,optional] VARIANT aFilter, [in, optional] VARIANT RefDate, [out, retval] IMTSQLRowset** ppRowset);
+  //--- account methods ---
+  
+  // return a MTPCAccount given its ID
+  [id(800), helpstring("method GetAccount")] HRESULT GetAccount([in] long accountID,[out,retval] IMTPCAccount** ppAccount);
+
+  // move all subscribers from one product offering to another one an a given date
+  [id(801), helpstring("method BulkSubscriptionChange")] HRESULT BulkSubscriptionChange([in] long aOldPO_id,[in] long aNewPO_id,[in] VARIANT vtDate,[in] VARIANT_BOOL bNextBillingCycle);
+
+  //--- counters methods ---
+
+  // return a counter property definition given its ID
+  // Note: methods to create and remove counter property definition are on a priceable item type
+  [id(900), helpstring("method GetCounterPropertyDefinition")] HRESULT GetCounterPropertyDefinition([in]long aDBID, [out, retval]IMTCounterPropertyDefinition** apCPD);
+
+  // return a counter type given its ID
+  [id(901), helpstring("method GetCounterType")] HRESULT GetCounterType([in]long aDBID, [out, retval]IMTCounterType** apVal);
+
+  // return a counter type given its name
+  [id(902), helpstring("method GetCounterTypeByName")] HRESULT GetCounterTypeByName([in]BSTR aCounterTypeName, [out, retval]IMTCounterType** apVal);
+
+  // return all counter types
+  [id(903), helpstring("method GetCounterTypes")] HRESULT GetCounterTypes([out, retval]IMTCollection** apColl);
+
+  // create a counter for a given counter type
+  [id(904), helpstring("method CreateCounter")] HRESULT CreateCounter([in]long aTypeID, [out, retval]IMTCounter** apCounter);
+
+  // remove a counter given its ID
+  [id(905), helpstring("method RemoveCounter")] HRESULT RemoveCounter([in]long aCounterID);
+
+  // return a counter given its ID
+  [id(906), helpstring("method GetCounter")] HRESULT GetCounter([in]long aDBID, [out, retval]IMTCounter** apCounter);
+
+  // return a rowset of all counters
+  [id(907), helpstring("method FindCountersAsRowset")] HRESULT FindCountersAsRowset([in, optional]VARIANT aFilter, [out, retval]IMTRowSet** apRowset);
+
+  // return all counter of a given counter type
+  [id(908), helpstring("method GetCountersOfType")] HRESULT GetCountersOfType([in]long aTypeDBID, [out, retval]IMTCollection** apColl);
+  // Create a new group subscription  
+  [id(909), helpstring(" Create a new group subscription")] HRESULT CreateGroupSubscription([out, retval] IMTGroupSubscription** ppGroupSub);
+  // Get all group subscriptions as rowset
+  [id(910), helpstring("Get all group subscriptions as rowset")] HRESULT GetGroupSubscriptionsAsRowset([in] DATE RefDate,[in,optional] VARIANT aFilter,[out,retval] IMTSQLRowset** ppRowset);
+  // find a group subscription by name
+  [id(911), helpstring("find a group subscription by name")] HRESULT GetGroupSubscriptionByName([in] DATE RefDate,[in] BSTR name,[out,retval] IMTGroupSubscription** ppGroupSub);
+  // get a group subscription by ID
+  [id(912), helpstring("get a group subscription by ID")] HRESULT GetGroupSubscriptionByID([in] long aGroupSubID,[out,retval] IMTGroupSubscription** ppSub);
+  // all subscriptions in a corporate account
+  [id(913), helpstring("all subscriptions in a corporate account")] HRESULT GetGroupSubscriptionByCorporateAccount([in] long aCorporateAccount,[out,retval] IMTSQLRowset** ppRowset);
+  
+  // override product catalog business rule
+  [id(914), helpstring("method OverrideBusinessRule")] HRESULT OverrideBusinessRule([in] MTPC_BUSINESS_RULE aBusRule,[in] VARIANT_BOOL aVal);
+
+  // -- Subscription Methods --
+
+  // batch subscribe a number of accounts to a product offering
+	[id(915), helpstring("method SubscribeBatch")] HRESULT SubscribeBatch(
+  [in] long aProductOffering,
+  [in] IMTPCTimeSpan* pTimeSpan,
+  [in] IMTCollection* pCol,
+  [in] IMTProgress* pProgress,
+  [out] VARIANT_BOOL* pDateModified,
+  [in,optional] VARIANT transaction,
+  [out,retval] IMTRowSet** ppRowset);
+
+  [id(916), helpstring("method DeleteGroupSubscription")] HRESULT DeleteGroupSubscription([in] long aGroupID);
+
+  [id(5001), helpstring("method FindCounterParametersAsRowset")] HRESULT FindCounterParametersAsRowset([in]VARIANT aFilter, [out, retval]IMTRowSet** apRowset);
+  [id(5002), helpstring("method GetCounterParameter")] HRESULT GetCounterParameter([in]long aDBID, [out, retval]IMTCounterParameter** apParam);
+  //[id(5003), helpstring("method CreateAdjustmentType")] HRESULT CreateAdjustmentType([out,retval] IDispatch** apAdjustmentType);
+  //fix me later, import the right interface
+  //[id(5003), helpstring("method CreateAdjustmentType")] HRESULT CreateAdjustmentType([out,retval] IDispatch** apAdjustmentType);
+  // batch subscribe a number of accounts to group subscriptions
+	[id(5004), helpstring("method SubscribeToGroups")] HRESULT SubscribeToGroups(
+  [in] IMTCollection* pCol,
+  [in] IMTProgress* pProgress,
+  [out] VARIANT_BOOL* pDateModified,
+  [in,optional] VARIANT transaction,
+  [out,retval] IMTRowSet** ppRowset);
+	[id(5005), helpstring("method SubscribeAccounts")] HRESULT SubscribeAccounts(
+  [in] IMTCollection* pCol,
+  [in] IMTProgress* pProgress,
+  [out] VARIANT_BOOL* pDateModified,
+  [in,optional] VARIANT transaction,
+  [out,retval] IMTRowSet** ppRowset);
+
+  //--- undocumented ---
+
+  [hidden, id(5000), helpstring("method ClearCache")] HRESULT ClearCache();
+
+  
+};
+
+// ----------------------------------------------------------------
+// Object:      MTProductCatalogMetaData
+// Prog ID:     Metratech.MTProductCatalogMetaData.1
+// Description: holds all meta data of product catalog
+//              internal use only, not accessible by API
+//              undocumented
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(1457BCD1-42E3-4C52-A469-20C3480D4264),
+  dual,
+  helpstring("IMTProductCatalogMetaData Interface"),
+  pointer_default(unique)
+]
+interface IMTProductCatalogMetaData : IDispatch
+{
+  [id(1), helpstring("method GetPropertyMetaDataSet")] HRESULT GetPropertyMetaDataSet([in] MTPCEntityType aEntityType, [out, retval] IMTPropertyMetaDataSet** apMetaDataSet);
+  [id(2), helpstring("method GetAttributeMetaDataSet")] HRESULT GetAttributeMetaDataSet([out, retval] IMTAttributeMetaDataSet** apMetaDataSet);
+  [id(3), helpstring("method SetAttributeValue")] HRESULT SetAttributeValue([in] MTPCEntityType aEntityType, [in] BSTR aPropertyName, [in] BSTR aAttributeName, [in] BSTR aValue);
+  [id(4), helpstring("method Load")] HRESULT Load([in] VARIANT_BOOL aReturnErrors);
+};
+
+// ----------------------------------------------------------------
+// Object: MTProductOffering
+// Prog ID: Metratech.MTProductOffering.1
+// Description: Subscribable grouping of Priceable items.
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(0D1B1483-1EA4-4268-B73A-F8882F10966D),
+  dual,
+  helpstring("IMTProductOffering Interface"),
+  pointer_default(unique)
+]
+interface IMTProductOffering : IMTPCBase
+{
+  // get all (core and extended) properties of this object in a collection of MTProperty objects.
+  [propget, id(1), helpstring("property Properties")] HRESULT Properties([out, retval] IMTProperties **pVal);
+
+  // unique ID of this product offering
+  [propget, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+  [propput, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([in] long newVal);
+  
+  // internal unique name
+  [propget, id(2), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+  [propput, id(2), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+
+  // localizable name shown to the user
+  [propget, id(3), helpstring("property DisplayName")] HRESULT DisplayName([out, retval] BSTR *pVal);
+  [propput, id(3), helpstring("property DisplayName")] HRESULT DisplayName([in] BSTR newVal);
+  [propget, id(121), helpstring("property DisplayNames")] HRESULT DisplayNames([out, retval] IDispatch **pVal);
+  
+  // a description
+  [propget, id(4), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+  [propput, id(4), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+
+  // if true, users can self subscribe to this product offering.
+  [propget, id(5), helpstring("property SelfSubscribable")] HRESULT SelfSubscribable([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(5), helpstring("property SelfSubscribable")] HRESULT SelfSubscribable([in] VARIANT_BOOL newVal);
+
+  // if true, users can self unsubscribe to this product offering.
+  [propget, id(6), helpstring("property SelfUnsubscribable")] HRESULT SelfUnsubscribable([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(6), helpstring("property SelfUnsubscribable")] HRESULT SelfUnsubscribable([in] VARIANT_BOOL newVal);
+
+  // time span during which this product offering is effective
+  [propget, id(7), helpstring("property EffectiveDate")] HRESULT EffectiveDate([out, retval] IMTPCTimeSpan **pVal);
+
+  // time span durng which this product offering is available for subscription
+  [propget, id(8), helpstring("property AvailabilityDate")] HRESULT AvailabilityDate([out, retval] IMTPCTimeSpan **pVal);
+
+  // Id of this product offering own pricelist
+  [propget, id(9), helpstring("property NonSharedPriceListID")] HRESULT NonSharedPriceListID([out, retval] long *pVal);
+	[propput, id(9), helpstring("property NonSharedPriceListID")] HRESULT NonSharedPriceListID([in] long newVal);
+
+  // if true, this Product Offering will be hidden from the Rate Manager
+  [propget, id(10), helpstring("property Hidden")] HRESULT Hidden([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(10), helpstring("property Hidden")] HRESULT Hidden([in] VARIANT_BOOL newVal);
+
+  //Account types that are allowed to subscribe to this product offering. None means no restrictions.
+  [propget, id(11), helpstring("property SubscribableAccountTypes")] HRESULT SubscribableAccountTypes([out, retval] IMTCollection** pVal);
+	
+
+	// saves modifications to this PO to database.
+  [id(100), helpstring("method Save")] HRESULT Save();
+
+  // add a priceable item template (of any kind) to this PO.
+  // If this product offering has not yet been created, the priceable item is added in memory,
+  // and will added to the database when Save is called for this PO.
+  // If this product offering has already been created, the priceable item is added to the
+  // database immediately
+  // The priceable item instance is a "clone" of the template passed in.
+  // All properties are initially the same.
+  // Returns:     the new PriceableItem instance
+  [id(101), helpstring("method AddPriceableItem")] HRESULT AddPriceableItem([in] IMTPriceableItem* apPrcItemTmpl, [out, retval] IMTPriceableItem** apPrcItemInstance);
+  
+  // remove a priceable item instance (of any kind) from this PO
+  [id(102), helpstring("method RemovePriceableItem")] HRESULT RemovePriceableItem([in] long aPrcItemInstanceID);
+  
+  // get a priceable item of this PO by its ID
+  [id(103), helpstring("method GetPriceableItem")] HRESULT GetPriceableItem([in] long aPrcItemInstanceID, [out, retval] IMTPriceableItem** apPrcItemInstance);
+
+  // get a priceable item of this PO by its name
+  [id(108), helpstring("method GetPriceableItemByName")] HRESULT GetPriceableItemByName([in] BSTR aName, [out, retval] IMTPriceableItem** apPrcItemInstance);
+  
+  // get all priceable items of this PO
+  [id(104), helpstring("method GetPriceableItems")] HRESULT GetPriceableItems([out, retval] IMTCollection**);
+  
+  // returns a rowset of all priceable items of this PO
+  [id(105), helpstring("method GetPriceableItemsAsRowset")] HRESULT GetPriceableItemsAsRowset([out, retval] IMTRowSet**);
+
+  // if true, user can modify PO (e.g. remove priceable items)
+  // if optional errors argument is provided, reasons for modification failure will be returned as a collection of error strings
+  [id(106), helpstring("method CanBeModified")] HRESULT CanBeModified([out, optional] VARIANT* apErrors, [out, retval] VARIANT_BOOL *pVal);
+
+  // creates a copy of this product offering.
+  // Copy contains the same priceable items, but has empty dates.
+  // CreateCopy save the new product offering in the database with the new name.
+  [id(107), helpstring("method CreateCopy")] HRESULT CreateCopy([in] BSTR aNewName, [in, optional] VARIANT aNewCurrency, [out, retval] IMTProductOffering** apProdOff);
+
+  // checks if product offering is completely configured
+  // To be called before making product offering available
+  // Returns collection of error strings (emtpy collection correctly configured)
+  [id(109), helpstring("method CheckConfiguration")] HRESULT CheckConfiguration([out, retval] IMTCollection** apErrors);
+
+  // returns number of currently active subscriptions
+  [id(110), helpstring("method GetCountOfActiveSubscriptions")] HRESULT GetCountOfActiveSubscriptions([out, retval] long* apSubCount);
+
+  // returns the currency code of this product offering, or "" if not yet determined.
+  // The currency is determined by the currency of the price list used in the first price list mapping.
+  // All price list mappings within a product offering must use price lists of the same currency.
+  [id(111), helpstring("method GetCurrencyCode")] HRESULT GetCurrencyCode([out, retval] BSTR* apCurrency);
+
+  // returns true if the availability start date of this product offering has been set (to an non-empty value)
+  [id(112), helpstring("method HasAvailabilityDateBeenSet")] HRESULT HasAvailabilityDateBeenSet([out, retval] VARIANT_BOOL *apHasBeenSet);
+
+  // specifies how distribution needs to be configured for a subscription based on this product offering
+  [id(113), helpstring("method GetDistributionRequirement")] HRESULT GetDistributionRequirement([out, retval] MTDistributionRequirementType* apDistrReq);
+
+  // get the billing cycle that is contrained by one of the priceable item types
+  [id(114), helpstring("method GetConstrainedCycleType")] HRESULT GetConstrainedCycleType([out, retval] MTUsageCycleType* pCycleType);
+
+  // specifies if a cycle is required for the group subscription.  This is true if any of
+  // the priceable items are billing cycle relative or billing cycle constrained
+  [id(115), helpstring("method GroupSubscriptionRequiresCycle")] HRESULT GroupSubscriptionRequiresCycle([out,retval] VARIANT_BOOL *pVal);
+
+  // returns number of all subscriptions
+  [id(116), helpstring("method GetCountOfAllSubscriptions")] HRESULT GetCountOfAllSubscriptions([out, retval] long* apSubCount);
+
+  // get all priceable items of this PO that have a particular priceable item type
+  [id(117), helpstring("method GetPriceableItemsOfType")] HRESULT GetPriceableItemsOfType([in] long aPITypeID, [out, retval] IMTCollection** apInstances);
+
+	// Sets the in-memmory currency code - has no effect after the PO has been saved.
+	[id(118), helpstring("method SetCurrencyCode")] HRESULT SetCurrencyCode([in] BSTR aCurrency);
+
+  // returns number of all subscriptions
+	[id(119), helpstring("method GetCountOfPriceListMappings")] HRESULT GetCountOfPriceListMappings([in] MTPriceListMappingType aType, [out, retval] long* apCount);
+
+	// Get the PO's nonshared pricelist
+  [id(120), helpstring("method GetNonSharedPriceList")] HRESULT GetNonSharedPriceList([out, retval] IMTPriceList** apPriceList);
+
+  //internal use only - checks if cycle is valid for product offering
+  [hidden, id(500), helpstring("method CheckValidCycle")] HRESULT CheckValidCycle([in] IMTPCCycle* apCycle, [in] IMTPriceableItem* apInstanceToIgnore);
+
+  [id(501), helpstring("method AddSubscribableAccountType")] HRESULT AddSubscribableAccountType([in] int aTypeID);
+  [id(502), helpstring("method RemoveSubscribableAccountType")] HRESULT RemoveSubscribableAccountType([in] int aTypeID);
+  [id(503), helpstring("method GetSubscribableAccountTypesAsRowset")] HRESULT GetSubscribableAccountTypesAsRowset([out, retval] IMTRowSet** apRowset);
+  [propget, id(504), helpstring("property DisplayDescriptions")] HRESULT DisplayDescriptions([out, retval] IDispatch **pVal);
+};
+
+// ----------------------------------------------------------------
+// Object:      MTRateSchedule
+// Prog ID:     Metratech.MTRateSchedule.1
+// Description: A subset of all rules in a parameter table,
+//              identified by a price list and priceable item template.
+//              A RateSchedule has an effective dates.
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(35DA43EF-DD6E-4A1B-BBF4-B1D9198D17AF),
+  dual,
+  helpstring("IMTRateSchedule Interface"),
+  pointer_default(unique)
+]
+interface IMTRateSchedule : IMTPCBase
+{
+  // get all (core and extended) properties of this object in a collection of MTProperty objects.
+  [propget, id(1), helpstring("property Properties")] HRESULT Properties([out, retval] IMTProperties **pVal);
+
+  // unique (database) ID
+  [propget, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+  [propput, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([in] long newVal);
+  
+  // description of the rate schedule
+  [propget, id(2), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+  [propput, id(2), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+  
+  // ID of parameter table that this rate schedule is contained in
+  [propget, id(3), helpstring("property ParameterTableID")] HRESULT ParameterTableID([out, retval] long *pVal);
+  [propput, id(3), helpstring("property ParameterTableID")] HRESULT ParameterTableID([in] long newVal);
+
+  // ID of price list for this rate schedule
+  [propget, id(4), helpstring("property PriceListID")] HRESULT PriceListID([out, retval] long *pVal);
+  [propput, id(4), helpstring("property PriceListID")] HRESULT PriceListID([in] long newVal);
+
+  // ID of priceable item template for this rate schedule
+  [propget, id(5), helpstring("property TemplateID")] HRESULT TemplateID([out, retval] long *pVal);
+  [propput, id(5), helpstring("property TemplateID")] HRESULT TemplateID([in] long newVal);
+
+  // the time span for which this rate schedule is effective
+  [propget, id(6), helpstring("property EffectiveDate")] HRESULT EffectiveDate([out, retval] IMTPCTimeSpan * *pVal);
+  
+  // the collection of rules for this rate schedule
+  [propget, id(7), helpstring("property RuleSet")] HRESULT RuleSet([out, retval] IMTRuleSet * *pVal);
+  //[propget, id(9), helpstring("property RuleSetForDate")] HRESULT RuleSetForDate([in] DATE aDate, [out, retval] IMTRuleSet * *pVal);
+
+  // set and get the type of rate schedule
+  [propget, id(8), helpstring("property ScheduleType")] HRESULT ScheduleType([out, retval] MTPriceListMappingType *pVal);
+  [propput, id(8), helpstring("property ScheduleType")] HRESULT ScheduleType([in] MTPriceListMappingType newVal);
+
+  // save rate schedule properties only
+  [id(100), helpstring("method Save")] HRESULT Save();
+  
+  // save rules only
+  [id(101), helpstring("method SaveRules")] HRESULT SaveRules();
+  
+  //save both rate schedule and its rules
+  [id(102), helpstring("method SaveWithRules")] HRESULT SaveWithRules();
+  
+  // return the parameter table that this rate schedule is contained in
+  [id(103), helpstring("method GetParameterTable")] HRESULT GetParameterTable([out, retval] IMTParamTableDefinition * *pVal);
+  
+  // return the price list for this rate schedule
+  [id(104), helpstring("method GetPriceList")] HRESULT GetPriceList([out, retval] IMTPriceList * *pVal);
+
+  // returns a (not saved yet) copy of this rate schedule, including rates
+  [id(105), helpstring("method CreateCopy")] HRESULT CreateCopy([out, retval] IMTRateSchedule * *pVal);
+
+  // returns a rule set that was current for a given reference date
+  [id(106), helpstring("method GetDatedRuleSet")] HRESULT GetDatedRuleSet([in, optional] VARIANT aRefDate, [out, retval] IMTRuleSet * *pVal);
+
+};
+
+// ----------------------------------------------------------------
+// Object:      MTRecurringCharge
+// Prog ID:     Metratech.MTRecurringCharge.1
+// Description: a PriceableItem of kind RecurringCharge.
+//              Inherits all properties and methods from PriceableItem.
+//              A Recurring Charge is a charge that occurs more than once.
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(4829900B-900E-4B8E-8339-9C13861AB62E),
+  dual,
+  helpstring("IMTRecurringCharge Interface"),
+  pointer_default(unique)
+]
+interface IMTRecurringCharge : IMTPriceableItem
+{
+  // cycle that this recurring charge occurs at
+  [propget, id(1001), helpstring("property Cycle")] HRESULT Cycle([out, retval] IMTPCCycle* *pVal);
+
+  // if true charge occurs in advance, if false charge occurs in arrears
+  [propget, id(1002), helpstring("property ChargeInAdvance")] HRESULT ChargeInAdvance([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(1002), helpstring("property ChargeInAdvance")] HRESULT ChargeInAdvance([in] VARIANT_BOOL newVal);
+
+  // if true, proration will be used when user is subscribed
+  [propget, id(1003), helpstring("property ProrateOnActivation")] HRESULT ProrateOnActivation([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(1003), helpstring("property ProrateOnActivation")] HRESULT ProrateOnActivation([in] VARIANT_BOOL newVal);
+
+  // if true, proration will be used when user is unsubscribed
+  [propget, id(1004), helpstring("property ProrateOnDeactivation")] HRESULT ProrateOnDeactivation([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(1004), helpstring("property ProrateOnDeactivation")] HRESULT ProrateOnDeactivation([in] VARIANT_BOOL newVal);
+
+  // if true, proration will be used when rate changes (not used currently)
+  [propget, id(1005), helpstring("property ProrateOnRateChange")] HRESULT ProrateOnRateChange([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(1005), helpstring("property ProrateOnRateChange")] HRESULT ProrateOnRateChange([in] VARIANT_BOOL newVal);
+
+  // if true fixed length used for proration, if false actual length of cycle is used
+  // the values for the fixed length is specified per cycle type in t_usage_cycle_type_length
+  [propget, id(1006), helpstring("property FixedProrationLength")] HRESULT FixedProrationLength([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(1006), helpstring("property FixedProrationLength")] HRESULT FixedProrationLength([in] VARIANT_BOOL newVal);
+
+  // if true, then for group subscriptions charges will be paid for each participant in the subscription,
+	// otherwise a single charge will be generated for the "owner" of the group subscription.
+  [propget, id(1007), helpstring("property ChargePerParticipant")] HRESULT ChargePerParticipant([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(1007), helpstring("property ChargePerParticipant")] HRESULT ChargePerParticipant([in] VARIANT_BOOL newVal);
+
+  // if this is a unit dependent recurring charge, then this is name of the unit value
+  [propget, id(1008), helpstring("property UnitName")] HRESULT UnitName([out, retval] BSTR *pVal);
+  [propput, id(1008), helpstring("property UnitName")] HRESULT UnitName([in] BSTR newVal);
+
+  // if this is a unit dependent recurring charge, then is rated using tiered or tapered rates?
+  [propget, id(1009), helpstring("property RatingType")] HRESULT RatingType([out, retval] MTUDRCRatingType *pVal);
+  [propput, id(1009), helpstring("property RatingTYpe")] HRESULT RatingType([in] MTUDRCRatingType newVal);
+
+  // if this is a unit dependent recurring charge, configure optional integrality restriction. Default is unrestricted decimal.
+  [propget, id(1010), helpstring("property IntegerUnitValue")] HRESULT IntegerUnitValue([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(1010), helpstring("property IntegerUnitValue")] HRESULT IntegerUnitValue([in] VARIANT_BOOL newVal);
+
+  // if this is a unit dependent recurring charge, configure maximum for unit values.  Default is max decimal.
+  [propget, id(1011), helpstring("property MaxUnitValue")] HRESULT MaxUnitValue([out, retval] DECIMAL *pVal);
+  [propput, id(1011), helpstring("property MaxUnitValue")] HRESULT MaxUnitValue([in] DECIMAL newVal);
+
+  // if this is a unit dependent recurring charge, configure minimum for unit values. Default is min decimal.
+  [propget, id(1012), helpstring("property MinUnitValue")] HRESULT MinUnitValue([out, retval] DECIMAL *pVal);
+  [propput, id(1012), helpstring("property MinUnitValue")] HRESULT MinUnitValue([in] DECIMAL newVal);
+
+	// if this is a unit dependent recurring charge, configure an enumeration constraint.  Default is no enumeration constraint.
+	// Add an enumeration value to the collection.  Returns an error if one tries to add an enumeration that already exists.
+	[id(1013), helpstring("method AddUnitValueEnumeration")] HRESULT AddUnitValueEnumeration([in] DECIMAL newVal);
+	// Remove an enumeration value.  Returns an error is one tries to remove an enumeration value that doesn't exist.
+	[id(1014), helpstring("method RemoveUnitValueEnumeration")] HRESULT RemoveUnitValueEnumeration([in] DECIMAL newVal);
+	// Get the collection of configured enumerations.  Returns a collection of DECIMALs.
+	[id(1015), helpstring("method GetUnitValueEnumerations")] HRESULT GetUnitValueEnumerations([out, retval] IMTCollection **apEnums);
+
+	// Validate the unit value.  Throws an error if some of the constraints are not obeyed.
+	[id(1016), helpstring("method ValidateUnitValue")] HRESULT ValidateUnitValue([in] DECIMAL newVal);	
+
+  // The enumeration also needs to be exposed as a IDispatch property using a name that matches the PC metadata.
+	// The effect of this is the same as GetUnitValueEnumerations (probably should remove GetUnitValueEnumerations).
+  [propget, id(1017), helpstring("property UnitValueEnumeration")] HRESULT UnitValueEnumeration([out, retval] IMTCollection **apEnums);
+
+  // if this is a unit dependent recurring charge, then this is display name of the unit value
+  [propget, id(1018), helpstring("property UnitDisplayName")] HRESULT UnitDisplayName([out, retval] BSTR *pVal);
+  [propput, id(1018), helpstring("property UnitDisplayName")] HRESULT UnitDisplayName([in] BSTR newVal);
+  [propget, id(1019), helpstring("property UnitDisplayNames")] HRESULT UnitDisplayNames([out, retval] IDispatch **pVal);
+  // if true, proration will be used when user is subscribed
+  [propget, id(1020), helpstring("property ProrateInstantly")] HRESULT ProrateInstantly([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(1020), helpstring("property ProrateInstantly")] HRESULT ProrateInstantly([in] VARIANT_BOOL newVal);
+};
+
+[
+  object,
+  uuid(ebe62643-8788-49b5-b40c-a51e9acb450c),
+  dual,
+  helpstring("IMTSubscriptionBase Interface"),
+  pointer_default(unique)
+]
+
+interface IMTSubscriptionBase : IMTPCBase
+{
+  // unique (database) ID
+  /////////////////////////////////////////////////////////////////////////////////////
+  // properties
+  /////////////////////////////////////////////////////////////////////////////////////
+
+  // get all (core and extended) properties of this object in a collection of MTProperty objects.
+  [propget, id(1), helpstring("property Properties")] HRESULT Properties([out, retval] IMTProperties** pVal);
+
+  [propget, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+  [propput, id(DISPID_VALUE), helpstring("property ID")] HRESULT ID([in] long newVal);
+
+  // ID of the associated product offering
+  [propget, id(3), helpstring("property ProductOfferingID")] HRESULT ProductOfferingID([out, retval] long *pVal);
+  [propput, id(3), helpstring("property ProductOfferingID")] HRESULT ProductOfferingID([in] long newVal);
+
+  // the time span for which this subscription is effective
+  [propget, id(4), helpstring("property EffectiveDate")] HRESULT EffectiveDate([out, retval] IMTPCTimeSpan* *pVal);
+  [propput, id(4), helpstring("property EffectiveDate")] HRESULT EffectiveDate([in] IMTPCTimeSpan* newVal);
+
+
+  [propget, id(6), helpstring("Subscription Cycle")] HRESULT Cycle([out,retval] IMTPCCycle** pCycle);
+  [propput, id(6), helpstring("Subscription Cycle")] HRESULT Cycle([in] IMTPCCycle* pCycle);
+
+  [propget, id(7), helpstring("Subscription Unique Identifier")] HRESULT ExternalIdentifier([out,retval] BSTR* ppGUID);
+  [propput, id(7), helpstring("Subscription Unique Identifier")] HRESULT ExternalIdentifier([in] BSTR pGUID);
+
+	// Returns true if altering the subscriptions's start date
+	// could affect a derived EBCR cycle based charge
+  [propget, id(8), helpstring("property WarnOnEBCRStartDateChange")] HRESULT WarnOnEBCRStartDateChange([out, retval] VARIANT_BOOL *pVal);
+
+
+  /////////////////////////////////////////////////////////////////////////////////////
+  // methods
+  /////////////////////////////////////////////////////////////////////////////////////
+
+  // saves modifications to database
+  [id(100), helpstring("method Save")] HRESULT Save([out,retval] VARIANT_BOOL* pDateModified);
+
+  // returns the associated product offering
+  [id(101), helpstring("method GetProductOffering")] HRESULT GetProductOffering([out, retval] IMTProductOffering** ppProductOffering);
+
+  // returns a single ICB pricelist mapping for a given priceable item instance and parameter table, NULL if none exists
+  [id(103), helpstring("method GetICBPriceListMapping")] HRESULT GetICBPriceListMapping([in] long aPrcItemID,[in] long ParamTableID,[out, retval] IMTPriceListMapping** ppMapping);
+
+  // adds an ICB pricelist mapping for a given priceable item instance and parameter table
+  [id(104), helpstring("method SetICBPriceListMapping")] HRESULT SetICBPriceListMapping([in] long aPrcItemID,[in] long aParamTblID,[in] BSTR CurrencyCode);
+
+  [id(105), helpstring("method GetParamTablesAsRowset")] HRESULT GetParamTablesAsRowset([out,retval] IMTSQLRowset** ppRowset);
+
+  // Set the value for a unit dependent recurring charge instance 
+  [id(106), helpstring("method SetRecurringChargeUnitValue")] HRESULT SetRecurringChargeUnitValue([in] long aPrcItemID, [in] DECIMAL aUnitValue, [in] DATE aStartDate, [in] DATE aEndDate);
+
+  // Get the value for a unit dependent recurring charge instance 
+  [id(107), helpstring("method GetRecurringChargeUnitValue")] HRESULT GetRecurringChargeUnitValue([in] long aPrcItemID, [in] DATE aEffDate, [out,retval] DECIMAL* apUnitValue);
+
+  // Get the collection of values of all UDRC instances for all times
+	[id(108), helpstring("method GetRecurringChargeUnitValuesAsRowset")] HRESULT GetRecurringChargeUnitValuesAsRowset([out,retval] IMTRowSet* *apUnitValues);
+
+  // Get the collection of values of all UDRC instances for all times.  Get the values in the memory cache.b
+	[id(109), hidden, helpstring("method GetRecurringChargeUnitValuesFromMemoryAsRowset")] HRESULT GetRecurringChargeUnitValuesFromMemoryAsRowset([out,retval] IMTRowSet* *apUnitValues);
+
+  // deprecated - use property ProductOfferingID instead
+  [hidden, id(501), helpstring("method SetProductOffering")] HRESULT SetProductOffering([in] long aProductOfferingID);
+
+};
+
+
+// ----------------------------------------------------------------
+// Object:      MTGroupSubscription
+// Prog ID:     MTProductCatalog.MTGroupSubscription.1
+// Description: One ProductOffering subscribed to a group of accounts
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(D962AF0F-DCA7-47ED-A291-DD84F9913DAA),
+  dual,
+  helpstring("IMTSubscription Interface"),
+  pointer_default(unique)
+]
+interface IMTSubscription : IMTSubscriptionBase
+{
+
+  // ID of the associated account
+  [propget, id(1000), helpstring("property AccountID")] HRESULT AccountID([out, retval] long *pVal);
+  [propput, id(1000), helpstring("property AccountID")] HRESULT AccountID([in] long newVal);
+
+};
+
+// ----------------------------------------------------------------
+// Object:      MTSubscription
+// Prog ID:     Metratech.MTSubscription.1
+// Description: One ProductOffering subscribed to by an account.
+// ----------------------------------------------------------------
+
+[
+  object,
+  uuid(E3EB7C72-8435-414F-B570-1BA23407DCCF),
+  dual,
+  helpstring("IMTGroupSubscription Interface"),
+  pointer_default(unique)
+]
+interface IMTGroupSubscription : IMTSubscriptionBase
+{
+  // properties
+  [propget, id(1000), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+  [propput, id(1000), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+  [propget, id(1002), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+  [propput, id(1002), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+  [propget, id(1003), helpstring("property CorporateAccount")] HRESULT CorporateAccount([out, retval] long *pVal);
+  [propput, id(1003), helpstring("property CorporateAccount")] HRESULT CorporateAccount([in] long newVal);
+  [propget, id(1004), helpstring("property ProportionalDistribution")] HRESULT ProportionalDistribution([out, retval] VARIANT_BOOL *pVal);
+  [propput, id(1004), helpstring("property ProportionalDistribution")] HRESULT ProportionalDistribution([in] VARIANT_BOOL newVal);
+  [propget, id(1005), helpstring("property DistributionAccount")] HRESULT DistributionAccount([out, retval] long *pVal);
+  [propput, id(1005), helpstring("property DistributionAccount")] HRESULT DistributionAccount([in] long newVal);
+  [propget, id(1006), helpstring("property GroupID")] HRESULT GroupID([out, retval] long *pVal);
+  [propput, id(1006), helpstring("property GroupID")] HRESULT GroupID([in] long newVal);
+  [propput, id(1007), helpstring("property SupportGroupOps")] HRESULT SupportGroupOps([in] VARIANT_BOOL newVal);
+  [propget, id(1007), helpstring("property SupportGroupOps")] HRESULT SupportGroupOps([out, retval] VARIANT_BOOL* pVal);
+  [propput, id(1008), helpstring("property HasRecurringCharges")] HRESULT HasRecurringCharges([in] VARIANT_BOOL newVal);
+  [propget, id(1008), helpstring("property HasRecurringCharges")] HRESULT HasRecurringCharges([out, retval] VARIANT_BOOL* pVal);
+  [propput, id(1009), helpstring("property HasDiscounts")] HRESULT HasDiscounts([in] VARIANT_BOOL newVal);
+  [propget, id(1009), helpstring("property HasDiscounts")] HRESULT HasDiscounts([out, retval] VARIANT_BOOL* pVal);
+  [propput, id(1010), helpstring("property HasPersonalRates")] HRESULT HasPersonalRates([in] VARIANT_BOOL newVal);
+  [propget, id(1010), helpstring("property HasPersonalRates")] HRESULT HasPersonalRates([out, retval] VARIANT_BOOL* pVal);
+
+  // methods
+  [id(1050), helpstring("method MemberShipAtDate")] HRESULT MemberShipAtDate([in] DATE RefDate,
+  [out, retval] IMTGroupSubSlice** ppSlice);
+  [id(1051), helpstring("method MembershipNow")] HRESULT MembershipNow([out, retval] IMTGroupSubSlice** ppSlice);
+  [id(1052), helpstring("method MembershipAtSystemDate")] HRESULT MembershipAtSystemDate([in] DATE RefDate,[in] DATE SystemDate,[out, retval] IMTGroupSubSlice** ppSlice);
+  [id(1053), helpstring("method AddAccount")] HRESULT AddAccount([in] IMTGSubMember* pSubMember,[out,retval] VARIANT_BOOL* pDateModified);
+  [id(1054), helpstring("method AddAccountBatch")] HRESULT AddAccountBatch([in] IMTCollection* pCol,[in] IMTProgress* pProgress,
+  [out] VARIANT_BOOL* pDateModified,[in,optional] VARIANT transaction,[out,retval] IMTRowSet** ppRowset);
+  [id(1055), helpstring("method Membership")] HRESULT Membership([out, retval] IMTGroupSubSlice** ppSlice);
+  [id(1056), helpstring("method ModifyMembership")] HRESULT ModifyMembership([in] IMTGSubMember* pSubMember,[out,retval] VARIANT_BOOL* pDateModified);
+  [id(1057), helpstring("method ModifyMembershipBatch")] HRESULT ModifyMembershipBatch([in] IMTCollection* pCol,[in] IMTProgress* pProgress,[out] VARIANT_BOOL* pDateModified,[out,retval] IMTRowSet** ppRowset);
+  [id(1058), helpstring("method DeleteMember")] HRESULT DeleteMember([in] long aAccountID, [in, optional] VARIANT subStartDate);
+  [id(1059), helpstring("method DeleteMemberBatch")] HRESULT DeleteMemberBatch([in] IMTCollection* pCol,[in] IMTProgress* pProgress,[out,retval] IMTRowSet** ppRowset);
+  [id(1060), helpstring("method FindMember")] HRESULT FindMember([in] long aAccountID,[in] DATE RefDate,[out, retval] IMTGSubMember** ppMember);
+
+	// Get the account paying for a per-subscription recurring charge
+	[id(1061), helpstring("method GetChargeAccount")] HRESULT GetChargeAccount([in] long aPrcItemInstanceID, [in] DATE aEffDate, [out, retval] long *apAccountID);
+	// Set the account paying for a per-subscription recurring charge
+	[id(1062), helpstring("method SetChargeAccount")] HRESULT SetChargeAccount([in] long aPrcItemInstanceID, [in] long aAccountID, [in] DATE aStartDate, [in] DATE aEndDate);
+	// Get the list of per-subscription recurring charges with the charged account
+	[id(1063), helpstring("method GetRecurringChargeAccounts")] HRESULT GetRecurringChargeAccounts([in] DATE aEffDate, [out, retval] IMTSQLRowset **apAccounts);
+	// Set the account paying for all per-subscription recurring charges
+	[id(1064), helpstring("method SetRecurringChargeAccounts")] HRESULT SetRecurringChargeAccounts([in] long aAccountID, [in] DATE aStartDate, [in] DATE aEndDate);
+	// Get the list of per-subscription recurring charges with the charged account from the memory cache
+	[id(1065), hidden, helpstring("method GetRecurringChargeAccountsFromMemory")] HRESULT GetRecurringChargeAccountsFromMemory([out, retval] IMTRowSet **apAccounts);
+	// A sequenced delete of the membership record to the group subscription.  E.g. Remove all record of participation in a group
+  // subscription after 5/31/2003 23:59:59.  Note that the start date in the gsubmember objects in the collection is ignored.  The period of applicability
+  // of the delete is one second after the gsubmember end date to infinity.
+  [id(1066), helpstring("method UnsubscribeMemberBatch")] HRESULT UnsubscribeMemberBatch([in] IMTCollection* pCol,[in] IMTProgress* pProgress,[out,retval] IMTRowSet** ppRowset);
+  [id(1067), helpstring("method UnsubscribeMember")] HRESULT UnsubscribeMember([in] IMTGSubMember* pSubMember);
+
+	// Returns true if altering the member's start date
+	// could affect a derived EBCR cycle
+  [id(1068), helpstring("method WarnOnEBCRMemberStartDateChange")] 
+		HRESULT WarnOnEBCRMemberStartDateChange([in] IMTGSubMember* pSubMember, 
+																						[out, retval] VARIANT_BOOL *pVal);
+
+
+};
+
+// ----------------------------------------------------------------
+// Object:      MTGroupSubSlice
+// Prog ID:     MTProductCatalog.MTGroupSubSlice.1
+// Description: A view of all the accounts in the group subscription based on a
+// a reference date
+// ----------------------------------------------------------------
+
+[
+  object,
+  uuid(4F1646F9-F76A-4797-AAA7-A33A246E2A25),
+  dual,
+  helpstring("IMTGroupSubSlice Interface"),
+  pointer_default(unique)
+]
+interface IMTGroupSubSlice : IMTPCBase
+{
+  [id(1), hidden, helpstring("method Initialize")] HRESULT Initialize([in] DATE RefDate,
+  [in] long GroupSubID,
+  [in,optional] VARIANT SystemDate);
+  [propget, id(3), helpstring("property GroupMembers")] HRESULT GroupMembers([out, retval] IMTCollection* *pVal);
+  [propget, id(4), helpstring("property GroupMembersAsRowset")] HRESULT GroupMembersAsRowset([out, retval] IMTSQLRowset* *pVal);
+    [id(5), helpstring("method InitializeAllMembers")] HRESULT InitializeAllMembers([in] long GroupSubID);
+};
+
+// ----------------------------------------------------------------
+// Object:      MTGsubMember
+// Prog ID:     MTProductCatalog.MTGSubMember.1
+// Description: A snapshot of a users membership in a group subscription
+// ----------------------------------------------------------------
+
+[
+  object,
+  uuid(0CF0602C-0167-482D-B341-2A26260F082C),
+  dual,
+  helpstring("IMTGSubMember Interface"),
+  pointer_default(unique)
+]
+interface IMTGSubMember : IDispatch
+{
+    [propget, id(1), helpstring("property AccountID")] HRESULT AccountID([out, retval] long *pVal);
+    [propput, hidden, id(1), helpstring("property AccountID")] HRESULT AccountID([in] long newVal);
+    [propget, id(2), helpstring("property StartDate")] HRESULT StartDate([out, retval] DATE *pVal);
+    [propput, hidden, id(2), helpstring("property StartDate")] HRESULT StartDate([in] DATE newVal);
+    [propget, id(3), helpstring("property EndDate")] HRESULT EndDate([out, retval] DATE *pVal);
+    [propput, hidden, id(3), helpstring("property EndDate")] HRESULT EndDate([in] DATE newVal);
+    [propget, id(4), helpstring("property OldEndDate"), hidden] HRESULT OldEndDate([out, retval] DATE *pVal);
+    [propget, id(5), helpstring("property OldStartDate"), hidden] HRESULT OldStartDate([out, retval] DATE *pVal);
+    [propget, id(6), helpstring("property AccountName")] HRESULT AccountName([out, retval] BSTR *pVal);
+    [propput, hidden, id(6), helpstring("property AccountName")] HRESULT AccountName([in] BSTR newVal);
+
+    [propget, id(50), helpstring("property Properties")] HRESULT Properties([out, retval] IMTProperties** pVal);
+    [propget, id(51), helpstring("property EndDateNotSpecified")] HRESULT EndDateNotSpecified([out, retval] VARIANT_BOOL *pVal);
+    [id(52), helpstring("method NewDateRange")] HRESULT NewDateRange([in] DATE aNewStartDate,[in, optional] VARIANT aNewEndDate);
+    [propget, id(53), helpstring("property OldEndDateNotSpecified"), hidden] HRESULT OldEndDateNotSpecified([out, retval] VARIANT_BOOL *pVal);
+		[id(54), helpstring("method Validate")] HRESULT Validate();
+};
+
+// ----------------------------------------------------------------
+// Object:      MTUsageCharge
+// Prog ID:     Metratech.MTPriceableItem.1
+// Description: a PriceableItem of kind UsageCharge.
+//              Inherits all properties and methods from PriceableItem.
+//              A usage charge is a transaction sent from an external system.
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(1DE6DB31-B141-417F-B915-131A2AA927C7),
+  dual,
+  helpstring("IMTUsageCharge Interface"),
+  pointer_default(unique)
+]
+interface IMTUsageCharge : IMTPriceableItem
+{
+};
+
+// ----------------------------------------------------------------
+// Object:      MTCharge
+// Prog ID:     Metratech.MTCharge.1
+// Description: A Charge element of a priceable item.
+//              A charge element represents an atomic "price" for a rated
+//              priceable item.  Priceable items can have many charges
+//              though there is actually one amount per charge per rated
+//              record.  Example:  Audio Conference Connection (an MTPriceableItemType)
+//              has Setup Charge (an MTCharge), Transport Charge (an MTCharge),
+//              and Bridge Charge (an MTCharge)
+// ----------------------------------------------------------------
+	[
+		object,
+		uuid(E102AA06-6DBD-4540-A242-B1A85EE9CCB2),
+		dual,
+		helpstring("IMTCharge Interface"),
+		pointer_default(unique)
+	]
+	interface IMTCharge : IMTPCBase
+	{
+		[propget, id(1), helpstring("property SessionName")] HRESULT SessionName([out, retval] BSTR *pVal);
+		[propget, id(2), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		[propget, id(3), helpstring("property AmountName")] HRESULT AmountName([out, retval] BSTR *pVal);
+		[propget, id(4), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+		[propput, id(4), helpstring("property ID")] HRESULT ID([in] long newVal);
+		// DB id of a priceable item this charge belongs to
+		[propget, id(5), helpstring("property PITypeID")] HRESULT PITypeID([out, retval] long *pVal);
+		[propput, id(5), helpstring("property PITypeID")] HRESULT PITypeID([in] long newVal);
+		[propget, id(6), helpstring("property DisplayName")] HRESULT DisplayName([out, retval] BSTR *pVal);
+		[propput, id(6), helpstring("property DisplayName")] HRESULT DisplayName([in] BSTR newVal);
+    // saves modifications to database
+    [id(7), helpstring("method Save")] HRESULT Save([out, retval]long* apDBID);
+		// DB id of a IProductViewProperty in which the charge amount is stored
+		[propget, id(8), helpstring("property AmountPropertyID")] HRESULT AmountPropertyID([out, retval] long *pVal);
+		[propput, id(8), helpstring("property AmountPropertyID")] HRESULT AmountPropertyID([in] long newVal);
+
+    // add a charge property (e.g. feature code) to the charge (e.g. feature)
+    [id(9), helpstring("method CreateChargeProperty")] HRESULT CreateChargeProperty([out, retval] IMTChargeProperty** apChargeProperty);
+
+    // removes a charge property from the charge
+    [id(10), helpstring("method RemoveChargeProperty")] HRESULT RemoveChargeProperty([in] long aChargePropertyID);
+  
+    // get all the charge properties for the charge (a collection of IMTChargeProperty*).
+    [id(11), helpstring("method GetChargeProperties")] HRESULT GetChargeProperties([out, retval] IMTCollection** apColl);
+
+		// Get the product view property object for the amount
+		[id(12), helpstring("method GetAmountProperty")] HRESULT GetAmountProperty([out, retval] IProductViewProperty* *apPVProp);		
+	};
+  
+// ----------------------------------------------------------------
+// Object:      MTChargeProperty
+// Prog ID:     Metratech.MTChargeProperty.1
+// Description: A property of a charge.
+//              A charge element represents an atomic "price" for a rated
+//              priceable item.  Charges have a set of properties (that may be
+//              empty).  For example, the generic audio conference feature charge
+//              has "feature code" as a property.  Charge properties currently must
+//              have an underlying product view property.
+// ----------------------------------------------------------------
+	[
+		object,
+		uuid(3d14977c-e0aa-4917-9c70-aa7fd00ba760),
+		dual,
+		helpstring("IMTChargeProperty Interface"),
+		pointer_default(unique)
+	]
+	interface IMTChargeProperty : IMTPCBase
+	{
+		// DB id of the charge property
+		[propget, id(1), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+		[propput, id(1), helpstring("property ID")] HRESULT ID([in] long newVal);
+		// DB id of an IProductViewProperty in which the charge property is stored
+		[propget, id(2), helpstring("property ProductViewPropertyID")] HRESULT ProductViewPropertyID([out, retval] long *pVal);
+		[propput, id(2), helpstring("property ProductViewPropertyID")] HRESULT ProductViewPropertyID([in] long newVal);
+		// DB id of the charge to which the property belongs
+		[propget, id(3), helpstring("property ChargeID")] HRESULT ChargeID([out, retval] long *pVal);
+		[propput, id(3), helpstring("property ChargeID")] HRESULT ChargeID([in] long newVal);
+    // saves modifications to database
+    [id(4), helpstring("method Save")] HRESULT Save([out, retval]long* apDBID);
+		// Get the product view property object
+		[id(5), helpstring("method GetProductViewProperty")] HRESULT GetProductViewProperty([out, retval] IProductViewProperty* *apPVProp);		
+	};
+
+// ----------------------------------------------------------------
+// Object:      MTSubInfo
+// Prog ID:     MTProductCatalog.MTSubInfo.1
+// Description: Data for one subscription that is to be created.
+//              Generally used in a collection to insert multiple
+//              subscriptions in batch mode.
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(DE23F3F8-212C-4b92-93E9-6323401FA1F0),
+  dual,
+  helpstring("IMTSubInfo Interface"),
+  pointer_default(unique)
+]
+interface IMTSubInfo : IDispatch
+{
+    [propget, id(1),  helpstring("property AccountID")]           HRESULT AccountID          ([out, retval] long* pVal);
+    [propput, id(1),  helpstring("property AccountID")]           HRESULT AccountID          ([in] long newVal);
+
+    [propget, id(2),  helpstring("property CorporateAccountID")]  HRESULT CorporateAccountID ([out, retval] long* pVal);
+    [propput, id(2),  helpstring("property CorporateAccountID")]  HRESULT CorporateAccountID ([in] long newVal);
+
+    [propget, id(3),  helpstring("property SubsID")]              HRESULT SubsID             ([out, retval] long* pVal);
+    [propput, id(3),  helpstring("property SubsID")]              HRESULT SubsID             ([in] long newVal);
+
+    [propget, id(4),  helpstring("property SubsStartDate")]       HRESULT SubsStartDate      ([out, retval] DATE* pVal);
+    [propput, id(4),  helpstring("property SubsStartDate")]       HRESULT SubsStartDate      ([in] DATE newVal);
+
+    [propget, id(5),  helpstring("property SubsStartDateType")]   HRESULT SubsStartDateType  ([out, retval] MTPCDateType *pVal);
+    [propput, id(5),  helpstring("property SubsStartDateType")]   HRESULT SubsStartDateType  ([in] MTPCDateType newVal);
+
+    [propget, id(6),  helpstring("property SubsStartDateAsBSTR")] HRESULT SubsStartDateAsBSTR([out, retval] BSTR* pVal);
+    [propput, id(6),  helpstring("property SubsStartDateAsBSTR")] HRESULT SubsStartDateAsBSTR([in] BSTR newVal);
+
+    [propget, id(7),  helpstring("property SubsEndDate")]         HRESULT SubsEndDate        ([out, retval] DATE* pVal);
+    [propput, id(7),  helpstring("property SubsEndDate")]         HRESULT SubsEndDate        ([in] DATE newVal);
+
+    [propget, id(8),  helpstring("property SubsEndDateAsBSTR")]   HRESULT SubsEndDateAsBSTR  ([out, retval] BSTR* pVal);
+    [propput, id(8),  helpstring("property SubsEndDateAsBSTR")]   HRESULT SubsEndDateAsBSTR  ([in] BSTR newVal);
+
+    [propget, id(9),  helpstring("property SubsEndDateType")]     HRESULT SubsEndDateType    ([out, retval] MTPCDateType *pVal);
+    [propput, id(9),  helpstring("property SubsEndDateType")]     HRESULT SubsEndDateType    ([in] MTPCDateType newVal);
+
+    [propget, id(10), helpstring("property ProdOfferingID")]      HRESULT ProdOfferingID     ([out, retval] long* pVal);
+    [propput, id(10), helpstring("property ProdOfferingID")]      HRESULT ProdOfferingID     ([in] long newVal);
+
+    [propget, id(11), helpstring("property IsGroupSub")]          HRESULT IsGroupSub         ([out, retval] VARIANT_BOOL* pVal);
+
+    [propget, id(12), helpstring("property GroupSubID")]          HRESULT GroupSubID         ([out, retval] long* pVal);
+    [propput, id(12), helpstring("property GroupSubID")]          HRESULT GroupSubID         ([in] long newVal);
+
+    [id(50), helpstring("method GetAll")]              HRESULT GetAll             ([out] long* pAccountID,   [out] long* pCorporateAccountID,   [out] long* pSubsID,   [out] DATE* pSubsStartDate,   [out] MTPCDateType* pSubsStartDateType,   [out] DATE* pSubsEndDate,   [out] MTPCDateType* pSubsEndDateType,   [out] long* pProdOfferingID,   [out] VARIANT_BOOL* pIsGroupSub,   [out] long* pGroupSubID);
+    [id(51), helpstring("method GetAllWithBSTRDates")] HRESULT GetAllWithBSTRDates([out] long* pAccountID,   [out] long* pCorporateAccountID,   [out] long* pSubsID,   [out] BSTR* pSubsStartDate,   [out] MTPCDateType* pSubsStartDateType,   [out] BSTR* pSubsEndDate,   [out] MTPCDateType* pSubsEndDateType,   [out] long* pProdOfferingID,   [out] VARIANT_BOOL* pIsGroupSub,   [out] long* pGroupSubID);
+    [id(52), helpstring("method PutAll")]              HRESULT PutAll             ([in]  long  newAccountID, [in]  long  newCorporateAccountID, [in]  long  newSubsID, [in]  DATE  newSubsStartDate, [in]  MTPCDateType  newSubsStartDateType, [in]  DATE  newSubsEndDate, [in]  MTPCDateType  newSubsEndDateType, [in]  long  newProdOfferingID, [in]  VARIANT_BOOL  newIsGroupSub, [in]  long  newGroupSubID);
+		[id(53), helpstring("method PutAllWithBSTRDates")] HRESULT PutAllWithBSTRDates([in]  long  newAccountID, [in]  long  newCorporateAccountID, [in]  long  newSubsID, [in]  BSTR  newSubsStartDate, [in]  MTPCDateType  newSubsStartDateType, [in]  BSTR  newSubsEndDate, [in]  MTPCDateType  newSubsEndDateType, [in]  long  newProdOfferingID, [in]  VARIANT_BOOL  newIsGroupSub, [in]  long  newGroupSubID);
+};

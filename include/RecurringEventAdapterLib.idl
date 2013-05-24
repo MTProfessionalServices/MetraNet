@@ -1,0 +1,38 @@
+// RecurringEventAdapterLib.idl
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTDatExporter.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "IRecurringEventAdapter.idl";
+
+[
+	object,
+	uuid(94b5c369-23f2-44a7-8e8f-ed219965bc64),
+	dual,
+	helpstring("IMTDummy Interface"),
+	pointer_default(unique)
+]
+interface Dummy : IDispatch
+{
+};
+
+
+
+[
+	uuid(85f67806-d888-4814-96bf-bf77cf0bbe3a),
+	version(1.0),
+	helpstring("RecurringEventAdapter 1.0 Type Library")
+]
+library RECURRINGEVENTADAPTERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	interface IRecurringEventAdapter;
+   interface IRecurringEventAdapter2;
+	interface IRecurringEventRunContext;
+};

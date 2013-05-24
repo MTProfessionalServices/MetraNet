@@ -1,0 +1,186 @@
+/**************************************************************************
+* Copyright 1997-2002 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "Properties.idl";
+import "GenericCollectionInterfaces.idl";
+import "IMTProgress.idl";
+import "IMTAuth.idl";
+
+
+interface IMTAdjustmentType;
+interface IMTAdjustmentInstance;
+
+typedef [uuid(605a3613-2463-47bd-be83-f7e881b1c620), version(1.0)]
+enum {
+  ENGINE_MTSQL,
+  ENGINE_VBSCRIPT,
+  ENGINE_CSHARP,
+  ENGINE_PIPELINE
+} AdjustmentEngineEnum;
+
+
+typedef [uuid(081db419-1270-4b45-b43f-8abea2c4e164), version(1.0)]
+enum {
+  ADJUSTMENT_MINUTES,
+} MTAdjustmentTypeEnum;
+
+	[
+		object,
+		uuid(6BA50338-14FB-493F-979A-6C8FC66BB0F5),
+		dual,
+		helpstring("IMTAdjustmentTypeCol Interface"),
+		pointer_default(unique)
+	]
+	interface IMTAdjustmentCatalog : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize([in] IMTSessionContext* apCtx);
+		[id(2), helpstring("method GetType")] HRESULT GetType([in] long AdjustmentTypeID,[out,retval] IMTAdjustmentType** ppAdjustType);
+		[id(3), helpstring("method SynchronizeTypes")] HRESULT SynchronizeTypes();
+		[id(5), helpstring("method CreateAdjustmentInstance")] HRESULT CreateAdjustmentInstance([in] IMTCollectionEx* pSessionCol,
+      [in] long PriceableItemTemplate,
+      [out,retval] IMTCollectionEx** ppInstanceCol);
+		[id(6), helpstring("method GetAdjustmentTypes")] HRESULT GetAdjustmentTypes([in] long aPriceableItemType,[out,retval] IMTCollectionEx** ppCol);
+		[id(7), helpstring("method GetAdjustmentTypesFromPITemplate")] HRESULT GetAdjustmentTypesFromPITemplate([in] long aTemplate,[out,retval] IMTCollectionEx** ppCol);
+	};
+
+
+	[
+		object,
+		uuid(4A96807A-5193-40E0-93C7-31ED6D04D85E),
+		dual,
+		helpstring("IMTAdjustmentType Interface"),
+		pointer_default(unique)
+	]
+	interface IMTAdjustmentType : IDispatch
+	{
+    // properties
+		[propget, id(1), helpstring("property RequiredInputs")] HRESULT RequiredInputs([out, retval] IMTPropertyMetaDataSet **pVal);
+		[propget, id(2), helpstring("property ExpectedOutputs")] HRESULT ExpectedOutputs([out, retval] IMTPropertyMetaDataSet **pVal);
+		[propget, id(3), helpstring("property TemplateID")] HRESULT TemplateID([out, retval] long *pVal);
+		[propput, id(3), helpstring("property TemplateID")] HRESULT TemplateID([in] long newVal);
+		[propget, id(4), helpstring("property SupportsPreBill")] HRESULT SupportsPreBill([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(4), helpstring("property SupportsPreBill")] HRESULT SupportsPreBill([in] VARIANT_BOOL newVal);
+		[propget, id(5), helpstring("property SupportsPostBill")] HRESULT SupportsPostBill([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(5), helpstring("property SupportsPostBill")] HRESULT SupportsPostBill([in] VARIANT_BOOL newVal);
+		[propget, id(6), helpstring("property CalculationEngine")] HRESULT CalculationEngine([out, retval] BSTR *pVal);
+		[propput, id(6), helpstring("property CalculationEngine")] HRESULT CalculationEngine([in] BSTR newVal);
+		[propget, id(7), helpstring("property AdjustmentTable")] HRESULT AdjustmentTable([out, retval] BSTR *pVal);
+		[propput, id(7), helpstring("property AdjustmentTable")] HRESULT AdjustmentTable([in] BSTR pVal);
+		[propget, id(8), helpstring("property ProductViewTable")] HRESULT ProductViewTable([out, retval] BSTR *pVal);
+		[propput, id(8), helpstring("property ProductViewTable")] HRESULT ProductViewTable([in] BSTR pVal);
+		[propget, id(9), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+		[propput, id(9), helpstring("property ID")] HRESULT ID([in] long newVal);
+		[propget, id(10), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(10), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		[propget, id(11), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+		[propput, id(11), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+		[propget, id(12), helpstring("property PriceableItemTypeID")] HRESULT PriceableItemTypeID([out, retval] long *pVal);
+		[propput, id(12), helpstring("property PriceableItemTypeID")] HRESULT PriceableItemTypeID([in] long newVal);
+		[propget, id(13), helpstring("property AdjustmentFormula")] HRESULT AdjustmentFormula([out, retval] BSTR *pVal);
+		[propput, id(13), helpstring("property AdjustmentFormula")] HRESULT AdjustmentFormula([in] BSTR newVal);
+
+    // adjustment methods
+		[id(50), helpstring("method SetAdjustmentFormula")] HRESULT SetAdjustmentFormula([in] BSTR Formula);
+		[id(51), helpstring("method Calculate")] HRESULT Calculate([in] IMTCollection* pInstanceCol,
+        [in,optional] VARIANT ProgressObj,
+        [out,retval] IMTRowSet** ppApprovalItems);
+		[id(52), helpstring("method SaveAdjustments")] HRESULT SaveAdjustments([in] IMTCollection* pInstanceCol,[in,optional] VARIANT ProgressObj,[out,retval] IMTRowSet** ppErrors);
+
+    // meta data methods
+		[id(100), helpstring("method ToXML")] HRESULT ToXML([out,retval] BSTR* pXmlStr);
+		[id(101), helpstring("method FromXML")] HRESULT FromXML([in] BSTR aXmlStream);
+		[id(102), helpstring("method SaveToDB")] HRESULT SaveToDB();
+		[id(103), helpstring("method CreateInputProps")] HRESULT CreateInputProps([out,retval] IMTProperties** ppProps);
+		[id(104), helpstring("method CreateOutputProps")] HRESULT CreateOutputProps([out,retval] IMTProperties** ppProps);
+		[id(105), helpstring("method PopulateInstanceProps")] HRESULT PopulateInstanceProps([in] IMTCollectionEx* apInstanceCol);
+
+    // hidden methods
+		[id(200), hidden, helpstring("method Initialize")] HRESULT Initialize([in] IMTSessionContext* apCTX);
+
+	};
+	[
+		object,
+		uuid(8F68EB31-F322-4C2E-83F9-8D55CB68BCB0),
+		dual,
+		helpstring("IMTAdjustmentInstance Interface"),
+		pointer_default(unique)
+	]
+	interface IMTAdjustmentInstance : IDispatch
+	{
+		[propget, id(1), helpstring("property Amount")] HRESULT Amount([out, retval] VARIANT *pVal);
+		[propput, id(1), helpstring("property Amount")] HRESULT Amount([in] VARIANT newVal);
+		[propget, id(2), helpstring("property ReasonCode")] HRESULT ReasonCode([out, retval] VARIANT *pVal);
+		[propput, id(2), helpstring("property ReasonCode")] HRESULT ReasonCode([in] VARIANT newVal);
+		[propget, id(3), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+		[propget, id(4), helpstring("property Inputs")] HRESULT Inputs([out, retval] IMTProperties* *pVal);
+		[propput, id(4), helpstring("property Inputs")] HRESULT Inputs([in] IMTProperties* newVal);
+		[propget, id(6), helpstring("property FeatureCode")] HRESULT FeatureCode([out, retval] VARIANT *pVal);
+		[propput, id(6), helpstring("property FeatureCode")] HRESULT FeatureCode([in] VARIANT newVal);
+    [propget, id(7), helpstring("property SupportedAdjustmentTypes")] HRESULT SupportedAdjustmentTypes([out, retval] IMTCollectionEx* *pVal);
+		[propget, id(8), helpstring("property Outputs")] HRESULT Outputs([out, retval] IMTProperties* *pVal);
+		[propput, id(8), helpstring("property Outputs")] HRESULT Outputs([in] IMTProperties* newVal);
+
+
+    // read only properties
+		[propget, id(50), helpstring("property SourceRecordProps")] HRESULT SourceRecordProps([out, retval] IMTRowSet* *pVal);
+		[propget, id(51), helpstring("property SessionID")] HRESULT SessionID([out, retval] long *pVal);
+		[propget, id(52), helpstring("property UID")] HRESULT UID([out, retval] VARIANT *pVal);
+		[propget, id(53), helpstring("property AdjustmentStatus")] HRESULT AdjustmentStatus([out, retval] BSTR *pVal);
+		[propget, id(54), helpstring("property AdjustmentDate")] HRESULT AdjustmentDate([out, retval] VARIANT *pVal);
+		[propget, id(55), helpstring("property SourceInterval")] HRESULT SourceInterval([out, retval] long *pVal);
+		[propget, id(56), helpstring("property PayingAccount")] HRESULT PayingAccount([out, retval] long *pVal);
+		[propget, id(57), helpstring("property PayerAccount")] HRESULT PayerAccount([out, retval] long *pVal);
+		[propget, id(58), helpstring("property Currency")] HRESULT Currency([out, retval] BSTR *pVal);
+		[propget, id(59), helpstring("property PriceableItemInstance")] HRESULT PriceableItemInstance([out, retval] long *pVal);
+		[propget, id(60), helpstring("property PriceableItemTemplate")] HRESULT PriceableItemTemplate([out, retval] long *pVal);
+		[propget, id(61), helpstring("property AdjustedOutputProperties")] HRESULT AdjustedOutputProperties([out, retval] IMTProperties* *pVal);
+		[propget, id(62), helpstring("property PreBill")] HRESULT PreBill([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(63), helpstring("property PostBill")] HRESULT PostBill([out, retval] VARIANT_BOOL *pVal);
+
+    // methods
+    [id(100), hidden, helpstring("method Initialize")] HRESULT Initialize([in] IMTSessionContext* apCTX,[in] IMTSQLRowset* pRecordData);
+		[propget, id(101), helpstring("property InstanceID")] HRESULT InstanceID([out, retval] long *pVal);
+		[propput, id(101), helpstring("property InstanceID")] HRESULT InstanceID([in] long newVal);
+		[id(102), helpstring("method CalculateAmount")] HRESULT CalculateAmount();
+	};
+	[
+		object,
+		uuid(C897778B-4980-4438-99A2-FE62AA122293),
+		dual,
+		helpstring("IMTPriceableItemAdjustmentFramework Interface"),
+		pointer_default(unique)
+	]
+	interface IMTPriceableItemAdjustmentFramework : IDispatch
+	{
+    // properties
+		[propget, id(1), helpstring("property TableName")] HRESULT TableName([out, retval] BSTR *pVal);
+		[propget, id(2), helpstring("property AvailableInputs")] HRESULT AvailableInputs([out, retval] IMTProperties* *pVal);
+		[propget, id(3), helpstring("property AvailableOutputs")] HRESULT AvailableOutputs([out, retval] IMTProperties* *pVal);
+
+    // methods
+		[id(4), hidden, helpstring("method Initialize")] HRESULT Initialize([in] IMTSessionContext* apCTX,[in] IUnknown* apType);
+		[id(5), helpstring("method GetAdjustmentTypes")] HRESULT GetAdjustmentTypes([in] long aTemplateID,[out,retval] IMTCollectionEx** pCol);
+		[id(6), helpstring("method SyncronizeTable")] HRESULT SyncronizeTable();
+		[id(7), helpstring("method CreateAdjustmentType")] HRESULT CreateAdjustmentType([out,retval] IMTAdjustmentType** ppType);
+		[id(8), helpstring("method GetAllAdjustmentTypes")] HRESULT GetAllAdjustmentTypes([out,retval] IMTCollectionEx** ppCol);
+
+    // methods
+	};

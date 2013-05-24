@@ -1,0 +1,37 @@
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTConfig.idl";
+
+	[
+		object,
+		uuid(20021548-741F-11D2-80FC-006008C0E8B7),
+		dual,
+		helpstring("IMTConfigFile Interface"),
+		pointer_default(unique)
+	]
+	interface IMTConfigFile : IDispatch
+	{
+		[propget, id(1), helpstring("property ConfigData")] HRESULT ConfigData([out, retval] IMTConfigPropSet ** apVal);
+		[propput, id(1), helpstring("property ConfigData")] HRESULT ConfigData([in] IMTConfigPropSet* newVal);
+		[propget, id(2), helpstring("property EffectDate")] HRESULT EffectDate([out, retval] long *apVal);
+		[propput, id(2), helpstring("property EffectDate")] HRESULT EffectDate([in] long newVal);
+		[propget, id(3), helpstring("property ExpireDate")] HRESULT ExpireDate([out, retval] long *apVal);
+		[propput, id(3), helpstring("property ExpireDate")] HRESULT ExpireDate([in] long newVal);
+		[propget, id(4), helpstring("property DismissDate")] HRESULT DismissDate([out, retval] long *apVal);
+		[propput, id(4), helpstring("property DismissDate")] HRESULT DismissDate([in] long newVal);
+		[propget, id(5), helpstring("property LingerDate")] HRESULT LingerDate([out, retval] long *apVal);
+		[propput, id(5), helpstring("property LingerDate")] HRESULT LingerDate([in] long aNewVal);
+		[propget, id(6), helpstring("property MainConfigData")] HRESULT MainConfigData([out, retval] IMTConfigPropSet ** apVal);
+		[propput, id(6), helpstring("property MainConfigData")] HRESULT MainConfigData([in] IMTConfigPropSet * newVal);
+		[propget, id(7), helpstring("property ConfigFilename")] HRESULT ConfigFilename([out, retval] BSTR* apFilename);
+		[propput, id(7), helpstring("property ConfigFilename")] HRESULT ConfigFilename([in] BSTR aFilename);
+
+
+		[propget, id(8), helpstring("Get the effective date as VB Date")] HRESULT EffectDateAsVbDate([out, retval] VARIANT* vtDate);
+		[propget, id(9), helpstring("Get the Expiration date as a VB Date")] HRESULT ExpireDateAsVbDate([out, retval] VARIANT* vtDate);
+		[propget, id(10), helpstring("Get the Dismiss Date as a VB Date")] HRESULT DismissDateAsVbDate([out, retval] VARIANT* vtDate);
+		[propget, id(11), helpstring("Get the Linger date as a VB Date")] HRESULT LingerDateAsVbDate([out, retval] VARIANT* vtDate);
+	};

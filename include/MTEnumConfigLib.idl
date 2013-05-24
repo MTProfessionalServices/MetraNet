@@ -1,0 +1,100 @@
+/**************************************************************************
+* Copyright 1997-2000 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+* Created by: Boris Partensky
+* $Header$
+* 
+***************************************************************************/
+
+
+import "IMTEnumConfig.idl";
+
+
+[
+	uuid(3ADA8581-01C6-11D4-95A0-00B0D025B121),
+	version(1.0),
+	helpstring("Metratech EnumConfig 1.0 Type Library (Enumerated Types Support)")
+]
+library MTENUMCONFIGLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	
+// ----------------------------------------------------------------
+// Object:   	IEnumConfig
+// Prog ID:	Metratech.MTEnumConfig.1
+// Description:		Top level object that contains methods for:
+//					1. Reading existing enumerated types' collection, 
+//					2. Add new and update existing  EnumSpace objects (enumtype collections)
+//					Internal collections are created from a number of XML files,
+//					located under directory passed to Initialize() method.
+// ----------------------------------------------------------------
+
+
+	interface IEnumConfig;
+
+// ----------------------------------------------------------------
+// Object:   	IMTEnumSpaceCollection
+// Prog ID:	Metratech.MTEnumSpaceCollection.1
+// Description:  	
+// Object that holds a collection of MTEnumSpace objects
+// ----------------------------------------------------------------
+
+	interface IMTEnumSpaceCollection;
+	
+// ----------------------------------------------------------------
+// Object:   	IMTEnumSpace
+// Prog ID:	Metratech.MTEnumSpace.1
+// Description:  	
+// Object that holds an info about enum space (name+description) and a collection of MTEnumType objects
+// ----------------------------------------------------------------
+
+
+	interface IMTEnumSpace;
+// ----------------------------------------------------------------
+// Object:   	IMTEnumTypeCollection
+// Prog ID:	Metratech.MTEnumTypeCollection.1
+// Description:  	
+// Object that holds a collection of MTEnumType objects (member variable of this type belongs to MTEnumSpace object)
+// ----------------------------------------------------------------
+
+	interface IMTEnumTypeCollection;
+// ----------------------------------------------------------------
+// Object:   	IMTEnumType
+// Prog ID:	Metratech.MTEnumType.1
+// Description:  	
+// Object that holds an info about enum type (name+description) and a collection of MTEnumerator objects
+// ----------------------------------------------------------------
+
+	interface IMTEnumType;
+// ----------------------------------------------------------------
+// Object:   	IMTEnumeratorCollection
+// Prog ID:	Metratech.MTEnumeratorCollection.1
+// Description:  	
+// Object that holds a collection of MTEnumerator objects (member variable of this type belongs to MTEnumSpace object)
+// ----------------------------------------------------------------
+
+	interface IMTEnumeratorCollection;
+// ----------------------------------------------------------------
+// Object:   	IMTEnumerator
+// Prog ID:	Metratech.MTEnumerator.1
+// Description:  	
+//Object that holds an info about enumerator (name) and a collection of values(BSTRs)
+// ----------------------------------------------------------------
+
+	interface IMTEnumerator;
+	
+};

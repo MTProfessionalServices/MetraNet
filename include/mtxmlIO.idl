@@ -1,0 +1,40 @@
+
+// include standard IDL files
+import "oaidl.idl";
+import "ocidl.idl";
+import "MTConfigPropSet.idl";
+
+[
+	object,
+	uuid(3ca61f60-7a6c-11d3-a5e9-00c04f579c39),
+	dual,
+	helpstring("IMTxmlIO Interface"),
+	pointer_default(unique),
+]
+interface IMTxmlIO : IDispatch
+{
+
+	[id(1), helpstring("Read XML configurationset")]
+	HRESULT Read(
+	  [in] IMTConfigPropSet* pPropSet);
+
+	[id(2), helpstring("Write XML configurationset")]
+	HRESULT Write(
+	  [in] IMTConfigPropSet* pPropSet);
+
+	[id(3), helpstring("Read XML configurationset from file")]
+		HRESULT ReadFromFile(
+		  [in] BSTR pFileName);
+
+	[id(4), helpstring("Write XML configurationset to file")]
+		HRESULT WriteToFile(
+		  [in] BSTR pFileName);
+
+	[id(5), helpstring("Read XML configuration from host")]
+	HRESULT ReadFromHost([in] BSTR aHost,[in] BSTR aUser, [in] BSTR aPassword,[in] BSTR pFileName,[in] VARIANT_BOOL pSecure);
+	[id(6), helpstring("Write XML configuration to host")]
+	HRESULT WriteToHost([in] BSTR aHost,[in] BSTR aUser, [in] BSTR aPassword,[in] BSTR pFileName,[in] VARIANT_BOOL pSecure);
+
+};
+
+

@@ -1,0 +1,25 @@
+
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+
+    typedef [uuid(8c63eb00-392d-11d2-a1c5-006008c0e24a), version(1.0)]
+    enum {
+	PROP_TYPE_UNKNOWN = 0,
+	PROP_TYPE_DEFAULT = 1,
+	PROP_TYPE_INTEGER = 2,
+	PROP_TYPE_DOUBLE = 3,
+	PROP_TYPE_STRING = 4,
+	PROP_TYPE_DATETIME = 5,
+	PROP_TYPE_TIME = 6,
+	PROP_TYPE_BOOLEAN = 7,
+	PROP_TYPE_SET = 8,
+	PROP_TYPE_OPAQUE = 9,
+	PROP_TYPE_ENUM = 10,
+	PROP_TYPE_DECIMAL = 11,
+  PROP_TYPE_ASCII_STRING = 12,
+  PROP_TYPE_UNICODE_STRING = 13,
+  PROP_TYPE_BIGINTEGER = 14
+    } PropValType;

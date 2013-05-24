@@ -1,0 +1,89 @@
+// PropSet.idl : IDL source for PropSet.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (PropSet.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTConfigProp.idl";
+import "MTConfigPropSet.idl";
+
+[
+	object,
+	uuid(9ADCD81D-35FD-11D2-A1C4-006008C0E24A),
+	dual,
+	helpstring("IMTConfig Interface"),
+	pointer_default(unique)
+]
+interface IMTConfig : IDispatch
+{
+  
+  // Reads in the given configuration file
+  [id(1), helpstring("method ReadConfiguration")]
+	HRESULT ReadConfiguration(BSTR aFilename, [out]VARIANT_BOOL* apChecksumMatch,
+	[out,retval] IMTConfigPropSet * * apSet);
+
+  // Creates a new instance of a configuration property set with the given name
+  [id(2), helpstring("method NewConfiguration")]
+	HRESULT NewConfiguration(BSTR aName, [out,retval] IMTConfigPropSet * * apSet);
+
+  // Reads the product configuration from a remote host 
+  [id(3), helpstring("method ReadConfigurationFromHost")]
+	HRESULT ReadConfigurationFromHost(BSTR aHostName, BSTR aRelativePath,
+	VARIANT_BOOL aSecure, [out] VARIANT_BOOL* apChecksumMatch,
+	[out,retval] IMTConfigPropSet * * apSet);
+
+  // Reads the product configuration from a URL 
+  [id(4), helpstring("method ReadConfigurationFromURL")]
+	HRESULT ReadConfigurationFromURL(BSTR aURL, [out]VARIANT_BOOL* apChecksumMatch,
+	[out,retval] IMTConfigPropSet * * apSet);
+
+  // Reads the product configuration from a string buffer 
+  [id(5), helpstring("method ReadConfigurationFromString")]
+	HRESULT ReadConfigurationFromString(BSTR aConfigBuffer, 
+	[out]VARIANT_BOOL* apChecksumMatch, 
+	[out,retval] IMTConfigPropSet * * apSet);
+
+  // Gets the value of the AutoEnumConversion flag
+  [propget, id(6), helpstring("property AutoEnumConversion")]
+	HRESULT AutoEnumConversion([out, retval] VARIANT_BOOL * apConvert);
+  
+  // Sets the value of the AutoEnumConversion flag
+  [propput, id(6), helpstring("property AutoEnumConversion")]
+	HRESULT AutoEnumConversion([in] VARIANT_BOOL aConvert);
+
+  // Gets the username
+  [propget, id(7), helpstring("property Username")]
+	HRESULT Username([out, retval] BSTR * apConvert);
+  
+  // Sets the username 
+  [propput, id(7), helpstring("property Username")]
+	HRESULT Username([in] BSTR aConvert);
+
+  // Gets the password
+  [propget, id(8), helpstring("property Password")]
+	HRESULT Password([out, retval] BSTR * apConvert);
+ 
+  // Sets the password 
+  [propput, id(8), helpstring("property Password")]
+	HRESULT Password([in] BSTR aConvert);
+
+  // Gets the secure flag.
+  [propget, id(9), helpstring("property SecureFlag")]
+	HRESULT SecureFlag([out, retval] VARIANT_BOOL * apConvert);
+
+  // Sets the secure flag.
+  [propput, id(9), helpstring("property SecureFlag")]
+	HRESULT SecureFlag([in] VARIANT_BOOL aConvert);
+
+  // Gets the port 
+  [propget, id(10), helpstring("property Port")]
+	HRESULT Port([out, retval] int * apPort);
+
+  // Sets the port
+  [propput, id(10), helpstring("property Port")]
+	HRESULT Port([in] int aPort);
+};
+

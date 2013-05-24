@@ -1,0 +1,63 @@
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// definitions prototypes
+interface IMTServerAccessData;
+
+	[
+		object,
+		uuid(E347581F-2A5B-11D3-AE72-00C04F54FE3B),
+		dual,
+		helpstring("IMTServerAccessData Interface"),
+		pointer_default(unique)
+	]
+	interface IMTServerAccessData : IDispatch
+	{
+		[propget, id(1), helpstring("property ServerType")] HRESULT ServerType([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property ServerType")] HRESULT ServerType([in] BSTR newVal);
+		[propget, id(2), helpstring("property ServerName")] HRESULT ServerName([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property ServerName")] HRESULT ServerName([in] BSTR newVal);
+		[propget, id(3), helpstring("property NumRetries")] HRESULT NumRetries([out, retval] long *pVal);
+		[propput, id(3), helpstring("property NumRetries")] HRESULT NumRetries([in] long newVal);
+		[propget, id(4), helpstring("property Timeout")] HRESULT Timeout([out, retval] long *pVal);
+		[propput, id(4), helpstring("property Timeout")] HRESULT Timeout([in] long newVal);
+		[propget, id(5), helpstring("property Priority")] HRESULT Priority([out, retval] long *pVal);
+		[propput, id(5), helpstring("property Priority")] HRESULT Priority([in] long newVal);
+		[propget, id(6), helpstring("property Secure")] HRESULT Secure([out, retval] long *pVal);
+		[propput, id(6), helpstring("property Secure")] HRESULT Secure([in] long newVal);
+		[propget, id(7), helpstring("property PortNumber")] HRESULT PortNumber([out, retval] long *pVal);
+		[propput, id(7), helpstring("property PortNumber")] HRESULT PortNumber([in] long newVal);
+		[propget, id(8), helpstring("property UserName")] HRESULT UserName([out, retval] BSTR *pVal);
+		[propput, id(8), helpstring("property UserName")] HRESULT UserName([in] BSTR newVal);
+		[propget, id(9), helpstring("property Password")] HRESULT Password([out, retval] BSTR *pVal);
+		[propput, id(9), helpstring("property Password")] HRESULT Password([in] BSTR newVal);
+		[propget, id(10), helpstring("property DTCenabled")] HRESULT DTCenabled([out, retval] long *pVal);
+		[propput, id(10), helpstring("property DTCenabled")] HRESULT DTCenabled([in] long newVal);
+		[propget, id(11), helpstring("property DatabaseName")] HRESULT DatabaseName([out, retval] BSTR *pVal);
+		[propput, id(11), helpstring("property DatabaseName")] HRESULT DatabaseName([in] BSTR newVal);
+		[propget, id(12), helpstring("property DatabaseType")] HRESULT DatabaseType([out, retval] BSTR *pVal);
+		[propput, id(12), helpstring("property DatabaseType")] HRESULT DatabaseType([in] BSTR newVal);
+		[propget, id(13), helpstring("property DataSource")] HRESULT DataSource([out, retval] BSTR *pVal);
+		[propput, id(13), helpstring("property DataSource")] HRESULT DataSource([in] BSTR newVal);
+		[propget, id(14), helpstring("property DatabaseDriver")] HRESULT DatabaseDriver([out, retval] BSTR *pVal);
+		[propput, id(14), helpstring("property DatabaseDriver")] HRESULT DatabaseDriver([in] BSTR newVal);
+	};
+	[
+		object,
+		uuid(E3475820-2A5B-11D3-AE72-00C04F54FE3B),
+		dual,
+		helpstring("IMTServerAccessDataSet Interface"),
+		pointer_default(unique)
+	]
+	interface IMTServerAccessDataSet : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize();
+		[propget, id(3), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[id(5), helpstring("method FindByObject")] HRESULT FindAndReturnObject(BSTR ServerType, [out, retval] IMTServerAccessData **pVal);
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(long aIndex, [out, retval] VARIANT *pVal);
+		[id(6), helpstring("method InitializeFromLocation")] HRESULT InitializeFromLocation([in]BSTR aLocation);
+		[id(7), helpstring("method Return if object exists or NULL")] HRESULT FindAndReturnObjectIfExists(BSTR ServerType, [out, retval] IMTServerAccessData **pVal);
+	};

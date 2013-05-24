@@ -1,0 +1,334 @@
+/**************************************************************************
+ * @doc MTSESSION
+ *
+ * Copyright 1998 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ * Created by: Derek Young
+ * $Header$
+ *
+ * interface definition for sessions and sets
+ ***************************************************************************/
+
+// MTSession.idl : IDL source for MTSession.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTSession.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "rowsetinterfaces.idl";
+import "MTSessionSet.idl";
+import "MTNameID.idl";
+import "MTTransaction.idl";
+import "IMTCapabilities.idl";
+import "MTSessionPropType.idl";
+
+// ----------------------------------------------------------------
+// Object: MTSession
+// Prog ID: MetraPipeline.MTSession.1
+// Description: Interface to get and set properties of a session.
+// Enumeration Element Type: MTSessionProp
+// ----------------------------------------------------------------
+[
+	object,
+	uuid(C8757973-20E5-11D2-A1C1-006008C0E24A),
+	dual,
+	helpstring("IMTSession Interface"),
+	pointer_default(unique)
+]
+interface IMTSession : IDispatch
+{
+  // Set the value of a property as a long.
+  [helpstring("method SetLongProperty")]
+    HRESULT SetLongProperty(long propid, long propval);
+
+  // Get the long value of a property.
+  [helpstring("method GetLongProperty")]
+    HRESULT GetLongProperty(long propid, [out, retval] long * propval);
+
+  // Set the value of a property as a string.
+  [helpstring("method SetBSTRProperty")]
+    HRESULT SetBSTRProperty(long aPropId, BSTR aValue);
+
+  // Get the string value of a property.
+  [helpstring("method GetBSTRProperty")]
+    HRESULT GetBSTRProperty(long aPropId, [out, retval] BSTR * apValue);
+
+  // Set the value of a property as a string.
+  [helpstring("method SetStringProperty")]
+    HRESULT SetStringProperty(long aPropId, BSTR aValue);
+
+  // Get the string value of a property.
+  [helpstring("method GetStringProperty")]
+    HRESULT GetStringProperty(long aPropId, [out, retval] BSTR * apValue);
+
+  // Set the value of a property as a bool.
+  [helpstring("method SetBoolProperty")]
+    HRESULT SetBoolProperty(long aPropId, VARIANT_BOOL aVal);
+
+  // Get the boolean value of a property.
+  [helpstring("method GetBoolProperty")]
+    HRESULT GetBoolProperty(long propid, [out, retval] VARIANT_BOOL * apValue);
+
+  // Set the value of a property as a double.
+  [helpstring("method SetDoubleProperty")]
+    HRESULT SetDoubleProperty(long aPropId, double aValue);
+
+  // Get the double value of a property.
+  [helpstring("method GetDoubleProperty")]
+    HRESULT GetDoubleProperty(long aPropId, [out, retval] double * apValue);
+
+  // Set the value of a property as an OLE automation date.
+  [helpstring("method SetOLEDateProperty")]
+    HRESULT SetOLEDateProperty(long propid, DATE propval);
+
+  // Get the OLE automation DATE value of a property.
+  [helpstring("method GetOLEDateProperty")]
+    HRESULT GetOLEDateProperty(long propid, [out, retval] DATE * propval);
+
+  // Set the value of a property as a time of day.
+  [helpstring("method SetTimeProperty")]
+    HRESULT SetTimeProperty(long propid, long propval);
+
+  // Get the time of day value of a property.
+  [helpstring("method GetTimeProperty")]
+    HRESULT GetTimeProperty(long propid, [out, retval] long * propval);
+
+  // Set the value of a property as a date/time.
+  [helpstring("method SetDateTimeProperty")]
+    HRESULT SetDateTimeProperty(long propid, long propval);
+
+  // Get the date/time value of a property.
+  [helpstring("method GetDateTimeProperty")]
+    HRESULT GetDateTimeProperty(long propid, [out, retval] long * propval);
+
+  // Set the value of a property as an object reference
+  [helpstring("method SetObjectProperty")]
+    HRESULT SetObjectProperty(long propid, VARIANT propval);
+
+  // Get the value of a property as an object reference
+  [helpstring("method GetObjectProperty")]
+    HRESULT GetObjectProperty(long propid, [out, retval] VARIANT * propval);
+
+  // Set the value of a property as a long.
+  [helpstring("method SetLongLongProperty")]
+    HRESULT SetLongLongProperty(long propid, __int64 propval);
+
+  // Get the long value of a property.
+  [helpstring("method GetLongLongProperty")]
+    HRESULT GetLongLongProperty(long propid, [out, retval] __int64 * propval);
+
+  // Automation method, used for enumeration properties within the session.
+  [propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")]
+    HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+
+  // Return the Pipeline's internal session ID for this session object.  The
+  // session ID is the index of this session within shared memory, and is
+  // unrelated to the session's UID.
+  [propget, helpstring("property SessionID")]
+    HRESULT SessionID([out, retval] long *pVal);
+
+  // private/undocumented interface used by pipeline internals only
+  [helpstring("method AddSessionChildren")]
+    HRESULT AddSessionChildren([in] IMTSessionSet * apSet);
+
+  // Return a set containing all the children of this session.
+  [helpstring("method SessionChildren")]
+    HRESULT SessionChildren([out, retval] IMTSessionSet * * apSet);
+
+  // Return a session's service ID
+  [propget, helpstring("property ServiceID")]
+    HRESULT ServiceID([out, retval] long *pVal);
+
+  // Return a session's parent ID.  This is equivalent of the SessionID property
+  // of the parent session.
+  [propget, helpstring("property ParentID")]
+    HRESULT ParentID([out, retval] long * pVal);
+
+  // private/undocumented interface used by pipeline internals only
+  [propget, helpstring("property DatabaseID")]
+    HRESULT DatabaseID([out, retval] long * pVal);
+
+  // private/undocumented interface used by pipeline internals only
+  [propput, helpstring("property DatabaseID")]
+    HRESULT DatabaseID([in] long val);
+
+  // private/undocumented interface used by pipeline internals only
+  [helpstring("method IncreaseSharedRefCount")]
+    HRESULT IncreaseSharedRefCount([out, retval] long * apNewCount);
+
+  // private/undocumented interface used by pipeline internals only
+  [helpstring("method DecreaseSharedRefCount")]
+    HRESULT DecreaseSharedRefCount([out, retval] long * apNewCount);
+
+  // private/undocumented interface used by pipeline internals only
+  [helpstring("method DeleteForcefully")]
+    HRESULT DeleteForcefully();
+
+  // private/undocumented interface used by pipeline internals only
+  [helpstring("method MarkComplete")]
+    HRESULT MarkComplete([out, retval] VARIANT_BOOL * apParentReady);
+
+  // private/undocumented interface used by pipeline internals only
+  [helpstring("method MarkCompoundAsFailed")]
+    HRESULT MarkCompoundAsFailed();
+
+  // private/undocumented interface used by pipeline internals only
+  [propget, helpstring("property OutstandingChildren")]
+    HRESULT OutstandingChildren([out, retval] long * children);
+
+  // private/undocumented interface used by pipeline internals only
+  [helpstring("method Rollback")]
+    HRESULT Rollback();
+
+  // private/undocumented interface used by pipeline internals only
+  [propput, helpstring("property StartStage")]
+    HRESULT StartStage([in] long val);
+
+  // private/undocumented interface used by pipeline internals only
+  [propget, helpstring("property StartStage")]
+    HRESULT StartStage([out, retval] long *pVal);
+
+  // private/undocumented interface used by pipeline internals only
+  [propput, helpstring("method InTransitTo")]
+    HRESULT InTransitTo([in] long id);
+
+  // private/undocumented interface used by pipeline internals only
+  [propput, helpstring("method InProcessBy")]
+    HRESULT InProcessBy([in] long id);
+
+  // Return the session's Unique ID (UID), unencoded.  The UID is generated
+  // by the SDK and is unique across systems.
+midl_pragma warning( disable: 2039 )
+  [propget, helpstring("property UID")]
+    HRESULT UID([out] unsigned char uid[16]);
+midl_pragma warning( default: 2039 )
+
+  // Return the session's Unique ID (UID) base64 encoded into a string.
+  [propget, helpstring("property UIDAsString")]
+    HRESULT UIDAsString([out, retval] BSTR *pVal);
+
+  // private/undocumented interface used by pipeline internals only
+  [helpstring("method AddSessionDescendants")]
+    HRESULT AddSessionDescendants([in] IMTSessionSet * apSet);
+
+  // Return TRUE if the session is part of a compound session and has
+  // children.
+  [propget, helpstring("property IsParent")]
+    HRESULT IsParent([out, retval] VARIANT_BOOL * isparent);
+
+  // private/undocumented interface used by pipeline internals only
+  [propget, helpstring("property CompoundMarkedAsFailed")]
+    HRESULT CompoundMarkedAsFailed([out, retval] VARIANT_BOOL * failed);
+
+  // private/undocumented interface used by pipeline internals only
+  [helpstring("method AddEvents")]
+    HRESULT AddEvents([in] int events);
+
+  // private/undocumented interface used by pipeline internals only
+  [propget, helpstring("method Events")]
+    HRESULT Events([out, retval] int * events);
+
+  // Set the value of a property as an enum.
+  [helpstring("method SetEnumProperty")]
+    HRESULT SetEnumProperty(long propid, long propval);
+
+  // Get the enum value of a property.
+  [helpstring("method GetEnumProperty")]
+    HRESULT GetEnumProperty(long propid, [out, retval] long * propval);
+
+  // Set the value of a property as a DECIMAL.
+//midl_pragma warning( disable: 2039 )
+  [helpstring("method SetDecimalProperty")]
+    HRESULT SetDecimalProperty(long aPropId, VARIANT apValue);
+//midl_pragma warning( default: 2039 )
+
+  // Get the DECIMAL value of a property.
+//midl_pragma warning( disable: 2039 )
+  [helpstring("method GetDecimalProperty")]
+    HRESULT GetDecimalProperty(long aPropId, [out, retval] VARIANT * apValue);
+//midl_pragma warning( default: 2039 )
+
+  // Return true if the given property exists
+  [helpstring("method PropertyExists")]
+    HRESULT PropertyExists(long propid, MTSessionPropType type, [out, retval] VARIANT_BOOL * exists);
+
+  // DTC Support
+  
+  // Get the metering transaction, optionally creates it if it doesn't exist
+  [helpstring("method GetTransaction")]
+	  HRESULT GetTransaction(VARIANT_BOOL aCreate, [out, retval] IMTTransaction **xaction);
+
+  // Get a new or existing Rowset that is attached to the session and participates in the metering transaction
+  [helpstring("method GetRowset")]
+    HRESULT GetRowset([in] BSTR ConfigFile, [out, retval] IMTSQLRowset **pSQLRowset);
+
+  // undocumented, internal use only
+  [helpstring("method FinalizeTransaction")]
+    HRESULT FinalizeTransaction();
+
+	// Decrypt a property encrypted by the listener
+	[helpstring("method DecryptEncryptedProp")]
+	HRESULT DecryptEncryptedProp([in] long aPropID,[out, retval] BSTR* aStringProp);
+
+ 	// Encrypt a string property
+	[helpstring("method EncryptStringProp")]
+	HRESULT EncryptStringProp([in] long aPropID, BSTR aValue);
+
+	// Helper method that commits the pending transaction. S_OK is returned on case of success or
+	// if the transaction does not exist
+	[helpstring("method CommitPendingTransaction")]
+	HRESULT CommitPendingTransaction();
+
+	// returns the ID of this session's object owner
+  // private/undocumented interface used by pipeline internals only
+  [propget, helpstring("method ObjectOwnerID")]
+    HRESULT ObjectOwnerID([out, retval] int * id);
+
+	// set the ID of this session's object owner
+  // private/undocumented interface used by pipeline internals only
+  [propput, helpstring("method ObjectOwnerID")]
+    HRESULT ObjectOwnerID([in] long id);
+
+  // used by a plugin to mark a session (and its associated compound) in a batch as failed
+  [helpstring("method MarkAsFailed")]
+    HRESULT MarkAsFailed([in] BSTR aErrorMessage, [in, defaultvalue(-2147467259 /* E_FAIL */)] long aErrorCode);
+
+  // If session is part of an external transaction, returns transaction ID (aka cookie),
+  // otherwise returns empty string
+  [helpstring("method GetTransactionID")]
+    HRESULT GetTransactionID([out, retval] BSTR* apTransactionID);
+
+	//get session context associated with the session set
+	[propget, helpstring("property SessionContext")]
+    HRESULT SessionContext([out, retval] IMTSessionContext ** pctx);
+
+	// return true if there is a session context associated with the
+	// session
+	[propget, helpstring("property HoldsSessionContext")]
+    HRESULT HoldsSessionContext([out, retval] VARIANT_BOOL * apVal);
+
+  // Return the parent session's Unique ID (UID) base64 encoded into a string or null if this is a parent.
+  [propget, helpstring("property ParentUIDAsString")]
+    HRESULT ParentUIDAsString([out, retval] BSTR *pVal);
+
+    // Get the int64 value of a property as string.
+  [helpstring("method GetLongLongPropertyAsString")]
+    HRESULT GetLongLongPropertyAsString(long propid, [out, retval] BSTR * apValue);
+
+};

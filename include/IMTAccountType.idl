@@ -1,0 +1,74 @@
+/**************************************************************************
+* Copyright 1997-2002 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+***************************************************************************/
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "GenericCollectionInterfaces.idl";
+import "rowsetinterfaces.idl";
+
+	[
+		object,
+		uuid(CB57DAD5-2D45-4940-BEAF-199A3844CAE9),
+		dual,
+		helpstring("IMTAccountType Interface"),
+		pointer_default(unique)
+	]
+
+ 
+	interface IMTAccountType : IDispatch
+	{
+    [propget, id(1), helpstring("property CanBePayer")] HRESULT CanBePayer([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(2), helpstring("property CanSubscribe")] HRESULT CanSubscribe([out, retval] VARIANT_BOOL *pVal);
+    [propget, id(3), helpstring("property CanHaveSyntheticRoot")] HRESULT CanHaveSyntheticRoot([out, retval] VARIANT_BOOL *pVal);
+    [propget, id(4), helpstring("property CanParticipateInGSub")] HRESULT CanParticipateInGSub([out, retval] VARIANT_BOOL *pVal);
+    [propget, id(5), helpstring("property CanHaveTemplates")] HRESULT CanHaveTemplates([out, retval] VARIANT_BOOL *pVal);
+    [propget, id(6), helpstring("property IsVisibleInHierarchy")] HRESULT IsVisibleInHierarchy([out, retval] VARIANT_BOOL *pVal);
+    [propget, id(7), helpstring("property IsCorporate")] HRESULT IsCorporate([out, retval] VARIANT_BOOL *pVal);
+    [propget, id(8), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+    [propget, id(9), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+
+ 		[id(21), helpstring("method GetAllAccountViews")] HRESULT GetAllAccountViews([out, retval] IMTCollection** ppCol);
+		[id(22), helpstring("method GetAccountViewsAsRowset")] HRESULT GetAccountViewsAsRowset([out, retval] IMTSQLRowset ** ppAccountViews);
+ 		[id(23), helpstring("method GetServiceDefinitionsAsRowset")] HRESULT GetServiceDefinitionsAsRowset([out, retval] IMTSQLRowset ** ppServiceDefs);
+    [id(24), helpstring("method InitializeByName")] HRESULT InitializeByName([in] BSTR aName);
+    [id(25), helpstring("method InitializeByyID")] HRESULT InitializeByID([in] long aID);
+    [id(26), helpstring("method GetDescendentAccountTypesAsRowset")] HRESULT GetDescendentAccountTypesAsRowset([out, retval] IMTSQLRowset ** ppAccountViews);
+    [id(27), helpstring("method GetAllDescendentAccountTypesAsRowset")] HRESULT GetAllDescendentAccountTypesAsRowset([out, retval] IMTSQLRowset ** ppAccountTypes);
+    [id(28), helpstring("method GetMSIXProperties")] HRESULT GetMSIXProperties([out, retval] IDispatch** ppVal);
+    [id(29), helpstring("method GetCoreMSIXProperties")] HRESULT GetCoreMSIXProperties([out, retval] IDispatch** ppVal);
+    [id(30), helpstring("method GetDirectDescendentsWithOperationAsRowset")] HRESULT GetDirectDescendentsWithOperationAsRowset([in] BSTR operation, [out, retval] IMTSQLRowset** ppVal);
+	};
+
+[
+	uuid(59A819B5-37DE-4ff9-949E-B3DE7FFE1446),
+	version(1.0),
+	helpstring("Account Type Class Library")
+]
+library MTAccountTypeLib
+{
+
+	[
+		uuid(FDED94BA-C79E-43a4-92D6-65B16A6F2123),
+		helpstring("Account Type Class")
+	]
+	coclass AccountType
+	{
+		[default] interface IMTAccountType;
+	};
+
+};

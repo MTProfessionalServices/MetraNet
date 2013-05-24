@@ -1,0 +1,108 @@
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTConfigProp.idl";
+
+
+	[
+		object,
+		uuid(9ADCD818-35FD-11D2-A1C4-006008C0E24A),
+		dual,
+		helpstring("IMTConfigPropSet Interface"),
+		pointer_default(unique)
+	]
+	interface IMTConfigPropSet : IDispatch
+	{
+		
+		// Returns the next property in the set
+		[id(1), helpstring("method Next")] HRESULT Next([out,retval] IMTConfigProp * * aProp);
+
+		// Returns the previous property in the set
+		[id(2), helpstring("method Previous")] HRESULT Previous([out,retval] IMTConfigProp * * apProp);
+
+		// Resets the property set back to its original state
+		[id(3), helpstring("method Reset")] HRESULT Reset();
+
+        // Gets the next property with the given name 
+		[id(4), helpstring("method NextWithName")] HRESULT NextWithName(BSTR aName, [out,retval] IMTConfigProp * * apProp);
+
+		// Gets the next property of type long with the given name and returns its value
+		[id(5), helpstring("method NextLongWithName")] HRESULT NextLongWithName(BSTR aName, [out,retval] long * apVal);
+
+		// Gets the next property of type BSTR with the given name and returns its value
+		[id(6), helpstring("method NextStringWithName")] HRESULT NextStringWithName(BSTR aName, [out,retval] BSTR * apVal);
+
+		// Gets the next property of type VARIANT_BOOL with the given name and returns its value
+		[id(7), helpstring("method NextBoolWithName")] HRESULT NextBoolWithName(BSTR aName, [out,retval] VARIANT_BOOL * apVal);
+
+		// Gets the next property of type variant with the given name and returns its type and value.
+		[id(8), helpstring("method NextVariantWithName")] HRESULT NextVariantWithName([in]BSTR aName, [out] PropValType * apType, [out,retval] VARIANT * apVal);
+
+		// Gets the next property of type double with the given name and returns its value
+		[id(9), helpstring("method NextDoubleWithName")] HRESULT NextDoubleWithName([in]BSTR aName, [out,retval] double * apVal);
+
+		// Gets the next property set with the given name
+		[id(10), helpstring("method NextSetWithName")] HRESULT NextSetWithName(BSTR aName, [out,retval] IMTConfigPropSet * * apSet);
+
+		// Inserts a subset into the current property set
+		[id(11), helpstring("method InsertSet")] HRESULT InsertSet(BSTR aName, [out,retval] IMTConfigPropSet * * apNewSet);
+
+		// Creates and inserts a new property into the set immediately after the current property
+		[id(12), helpstring("method InsertProp")] HRESULT InsertProp(BSTR aName, PropValType aType, VARIANT aVal);
+		
+		// Adds an existing propset to a new propset recursively
+		[id(13), helpstring("method AddSubSet")] HRESULT AddSubSet([in] IMTConfigPropSet* apNewSet);
+
+		// Writes the given property set as XML to the given filename
+		[id(14), helpstring("method Write")] HRESULT Write(BSTR aFilename);
+		
+		// Writes the property set as XML to the given filename, with a checksum at the top of the file
+		[id(15), helpstring("method WriteWithChecksum")] HRESULT WriteWithChecksum([in]BSTR aFilename);
+
+		// Writes the property set as XML to a remote host
+		[id(16), helpstring("method WriteToHost")] HRESULT WriteToHost(BSTR aHostName, BSTR aRelativePath,
+									       BSTR aUsername, BSTR aPassword,
+									       VARIANT_BOOL aSecure, VARIANT_BOOL aChecksum);
+		
+		// Looks ahead and checks whether there is a property which matches the name and the type given
+		[id(17), helpstring("method NextMatches")] HRESULT NextMatches([in] BSTR aPropName, [in] PropValType aType, [out, retval] VARIANT_BOOL * apMatch);
+
+		// Writes the property set as XML to a buffer
+		[id(18), helpstring("method WriteToBuffer")] HRESULT WriteToBuffer([out,retval] BSTR * apVal);
+
+		// Gets the next property of type DATE with the given name and returns its value
+		[id(19), helpstring("method NextDateWithName")] HRESULT NextDateWithName(BSTR aName, [out,retval] DATE* pDate);
+
+		// Inserts the given property into the set immediately after the current property
+		[id(20), helpstring("method InsertConfigProp")] HRESULT InsertConfigProp([in] IMTConfigProp* pProp);
+		
+		// Gets the name of the property set
+		[id(21), propget, helpstring("property Name")] HRESULT Name([out, retval] BSTR* bName);
+
+		// Gets the XML attributes for the property set
+		[id(22), propget, helpstring("property AttribSet")] HRESULT AttribSet([out, retval] IMTConfigAttribSet** ppSet);
+
+		// Sets the XML attributes for the property set
+		[id(22), propput, helpstring("property AttribSet")] HRESULT AttribSet([in] IMTConfigAttribSet* pSet);
+
+		// Gets the DTD of the XML document, if it exists
+		[propget, id(23), helpstring("property DTD")] HRESULT DTD([out, retval] BSTR *pVal);
+
+		// Sets the DTD of the XML document
+		[propput, id(23), helpstring("property DTD")] HRESULT DTD([in] BSTR newVal);
+
+		// Gets the checksum of the property set
+		[propget, id(24), helpstring("property Checksum")] HRESULT Checksum([out, retval] BSTR* pChecksum);
+
+	        // Recalculates the checksum after a property set is modified
+		[id(25), helpstring("method ChecksumRefresh")] HRESULT ChecksumRefresh();
+
+		// Gets the next property of type decimal with the given name and returns its value
+		[id(26), helpstring("method NextDecimalWithName")] HRESULT NextDecimalWithName([in]BSTR aName, [out,retval] VARIANT * apVal);
+
+		// Gets the next property of type long with the given name and returns its value
+		[id(27), helpstring("method NextLongLongWithName")] HRESULT NextLongLongWithName(BSTR aName, [out,retval] __int64 * apVal);
+
+	};

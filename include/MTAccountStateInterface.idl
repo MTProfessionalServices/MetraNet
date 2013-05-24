@@ -1,0 +1,154 @@
+// MTAccountStateInterface.idl : IDL source for MTAccountStateInterface.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTAccountStateInterface.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "rowsetinterfaces.idl";
+import "IMTAuth.idl";
+
+// To generate a user defined account State, a COM object must implement the
+// IMTAccountStateInterface interface. The methods of this interface ar called 
+// at the appropriate times to export data from the product views.
+
+[
+	object,
+	uuid(59410275-2cbd-4687-bf61-9bc9a23dc75c),
+	dual,
+	helpstring("IMTAccountStateInterface Interface"),
+	pointer_default(unique)
+]
+interface IMTAccountStateInterface : IDispatch
+{
+  // --------------------------------------------------------------------------
+  // Initialize
+  // --------------------------------------------------------------------------
+  [id(1), helpstring("method Initialize")] HRESULT Initialize();
+
+	// -- number 2 taken out
+
+  // --------------------------------------------------------------------------
+  // Change state
+  // --------------------------------------------------------------------------
+  [id(3), helpstring("method ChangeState")] HRESULT ChangeState([in] IMTSessionContext* pCtx, [in] IMTSQLRowset* pRowset, [in] long lAccountID, [in] long lIntervalID, [in] BSTR statename, [in] DATE StartDate, [in] DATE EndDate);
+
+  // --------------------------------------------------------------------------
+  // 
+  // --------------------------------------------------------------------------
+  [id(4), helpstring("method CanApplyRecurringCharges")] HRESULT CanApplyRecurringCharges ([out,retval] VARIANT_BOOL* retval);
+
+  // --------------------------------------------------------------------------
+  // 
+  // --------------------------------------------------------------------------
+  [id(5), helpstring("method CanApplyNonRecurringCharges")] HRESULT CanApplyNonRecurringCharges ([out,retval] VARIANT_BOOL* retval);
+
+  // --------------------------------------------------------------------------
+  // 
+  // --------------------------------------------------------------------------
+  [id(6), helpstring("method CanApplyDiscounts")] HRESULT CanApplyDiscounts ([out,retval] VARIANT_BOOL* retval);
+
+  // --------------------------------------------------------------------------
+  // 
+  // ---------------------------------------------------------------------------
+  [id(7), helpstring("method CanRateUsage")] HRESULT CanRateUsage ([out,retval] VARIANT_BOOL* retval);
+
+  // --------------------------------------------------------------------------
+  // 
+  // --------------------------------------------------------------------------
+  [id(8), helpstring("method CanApplyCredits")] HRESULT CanApplyCredits ([out,retval] VARIANT_BOOL* retval);
+
+  // --------------------------------------------------------------------------
+  // 
+  // --------------------------------------------------------------------------
+  [id(9), helpstring("method CanAddCharges")] HRESULT CanAddCharges ([out,retval] VARIANT_BOOL* retval);
+
+  // --------------------------------------------------------------------------
+  // 
+  // --------------------------------------------------------------------------
+  [id(10), helpstring("method CanGenerateInvoices")] HRESULT CanGenerateInvoices ([out,retval] VARIANT_BOOL* retval);
+
+  // --------------------------------------------------------------------------
+  // 
+  // --------------------------------------------------------------------------
+  [id(11), helpstring("method CanLoginToMetraView")] HRESULT CanLoginToMetraView ([out,retval] VARIANT_BOOL* retval);
+
+  // --------------------------------------------------------------------------
+  // 
+  // --------------------------------------------------------------------------
+  [id(12), helpstring("method CanSubscribe")] HRESULT CanSubscribe ([out,retval] VARIANT_BOOL* retval);
+
+  // --------------------------------------------------------------------------
+  // 
+  // --------------------------------------------------------------------------
+  [id(13), helpstring("method CanChangeToPendingActiveApproval")] HRESULT CanChangeToPendingActiveApproval ([in] long lAccountID, [in] DATE StartDate);
+
+  // --------------------------------------------------------------------------
+  // 
+  // --------------------------------------------------------------------------
+  [id(14), helpstring("method CanChangeToActive")] HRESULT CanChangeToActive ([in] long lAccountID, [in] DATE StartDate);
+
+  // --------------------------------------------------------------------------
+  // 
+  // --------------------------------------------------------------------------
+  [id(15), helpstring("method CanChangeToSuspended")] HRESULT CanChangeToSuspended ([in] long lAccountID, [in] DATE StartDate);
+
+  // --------------------------------------------------------------------------
+  // 
+  // --------------------------------------------------------------------------
+  [id(16), helpstring("method CanChangeToPendingFinalBill")] HRESULT CanChangeToPendingFinalBill ([in] long lAccountID, [in] DATE StartDate);
+
+  // --------------------------------------------------------------------------
+  // 
+  // --------------------------------------------------------------------------
+  [id(17), helpstring("method CanChangeToClosed")] HRESULT CanChangeToClosed ([in] long lAccountID, [in] DATE StartDate);
+
+  // --------------------------------------------------------------------------
+  // 
+  // --------------------------------------------------------------------------
+  [id(18), helpstring("method CanChangeToArchived")] HRESULT CanChangeToArchived ([in] long lAccountID, [in] DATE StartDate);
+
+  // --------------------------------------------------------------------------
+  // useful properties on the interface
+  // --------------------------------------------------------------------------
+	[propget, id(19), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+	[propput, id(19), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+
+  // --------------------------------------------------------------------------
+  // 
+  // --------------------------------------------------------------------------
+  [id(20), helpstring("method CanDoSelfCare")] HRESULT CanDoSelfCare ([out,retval] VARIANT_BOOL* retval);
+
+  // --------------------------------------------------------------------------
+  // 
+  // --------------------------------------------------------------------------
+  [id(21), helpstring("method CanMoveAccount")] HRESULT CanMoveAccount ([out,retval] VARIANT_BOOL* retval);
+
+  // --------------------------------------------------------------------------
+  // 
+  // --------------------------------------------------------------------------
+  [id(22), helpstring("method CanBeVisibleInMAM")] HRESULT CanBeVisibleInMAM ([out,retval] VARIANT_BOOL* retval);
+
+  // --------------------------------------------------------------------------
+  // Change state
+  // --------------------------------------------------------------------------
+  [id(23), helpstring("method ReverseState")] HRESULT ReverseState([in] IMTSessionContext* pCtx, [in] IMTSQLRowset* pRowset, [in] long lAccountID, [in] long lIntervalID, [in] BSTR statename, [in] DATE StartDate, [in] DATE EndDate);
+
+};
+
+	[
+		object,
+		uuid(CEE793B5-390D-4144-B9D4-1AA366902D15),
+		dual,
+		helpstring("IMTAccountStateManager Interface"),
+		pointer_default(unique)
+	]
+	interface IMTAccountStateManager : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize([in] long AccountID, [in] BSTR StateName);
+		[id(2), helpstring("method GetStateObject")] HRESULT GetStateObject([out,retval] IMTAccountStateInterface** pVal);
+		[id(3), helpstring("method GetCurrentStateObject")] HRESULT GetCurrentStateObject([in] long lAccountID, [out,retval] IMTAccountStateInterface** pVal);
+	};
+
+

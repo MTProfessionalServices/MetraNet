@@ -1,0 +1,30 @@
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "MTDiscounter.idl";
+
+[
+	object,
+	uuid(b2e9a370-826e-11d3-a5e9-00c04f579c39),
+	dual,
+	helpstring("IMTDummy Interface"),
+	pointer_default(unique)
+]
+interface Dummy : IDispatch
+{
+};
+
+
+[
+	uuid(35cd36b0-7ce1-11d3-a5e9-00c04f579c39),
+	version(1.0),
+	helpstring("IMTDiscounter 1.0 Type Library")
+]
+library MTDiscounterLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	interface IMTDiscounter;
+	interface IMTDiscountConfig;
+};

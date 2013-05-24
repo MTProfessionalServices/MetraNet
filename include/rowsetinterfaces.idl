@@ -1,0 +1,442 @@
+/**************************************************************************
+* Copyright 1997-2000 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+* Created by: 
+* $Header$
+* 
+***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "RowsetType.idl";
+import "MTFilter.idl";
+import "MTTransaction.idl";
+
+	[
+		object,
+		uuid(119f07d0-9fa7-11d4-a651-00c04f579c39),
+		dual,
+		helpstring("IMTRowSet Interface"),
+		pointer_default(unique)
+	]
+
+	// NOTE::
+	// the interface IDs must start NOT conflict with the id's in the
+	// derived interface.  Therefore we start our IDs at my phone extension 
+
+	interface IMTRowSet: IDispatch 
+	{ 
+	// The MoveNext method moves to the next row in a populated rowset.
+	// ----------------------------------------------------------------
+			[id(1), helpstring("method MoveNext")] HRESULT MoveNext();
+	// ----------------------------------------------------------------
+	// The MoveFirst method moves to the first row in a populated rowset.
+	// ----------------------------------------------------------------
+			[id(2), helpstring("method MoveFirst")] HRESULT MoveFirst();
+	// ----------------------------------------------------------------
+	// The MoveLast method moves to the last row in a populated rowset.
+	// ----------------------------------------------------------------
+			[id(3), helpstring("method MoveLast")] HRESULT MoveLast();
+	// ----------------------------------------------------------------
+	// The Count property gets the number of columns in the rowset.
+	// ----------------------------------------------------------------
+			[propget, id(4), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+	// ----------------------------------------------------------------
+	// The Name property gets the name of the specified column.
+	// ----------------------------------------------------------------
+			[propget, id(5), helpstring("property Name")] HRESULT Name([in] VARIANT vtIndex, [out, retval] BSTR *pVal);
+	// ----------------------------------------------------------------
+	// The Value property gets the value of the specified column.
+	// ----------------------------------------------------------------
+			[propget, id(6), helpstring("property Value")] HRESULT Value([in] VARIANT vtIndex, [out, retval] VARIANT *pVal);
+	// ----------------------------------------------------------------
+	// The Type property gets the data type of the specified column,
+	// ----------------------------------------------------------------
+			[propget, id(7), helpstring("property Type")] HRESULT Type([in] VARIANT vtIndex, [out, retval] BSTR *pVal);
+	// ----------------------------------------------------------------
+	// The RecordCount property gets the number of records in the rowset.
+	// ----------------------------------------------------------------
+			[propget, id(8), helpstring("property RecordCount")] HRESULT RecordCount([out, retval] long *pVal);
+	// ----------------------------------------------------------------
+	// The EOF property returns the current status of the rowset cursor.
+	// ----------------------------------------------------------------
+			[propget, id(9), helpstring("property EOF")] HRESULT EOF([out, retval] VARIANT *pVal);
+		
+	// ----------------------------------------------------------------
+	// Sort the rowset
+	// ----------------------------------------------------------------
+		[id(10), helpstring("method Sort")] HRESULT Sort([in]BSTR aPropertyName, [in]MTSortOrder aSortOrder);
+
+	// ----------------------------------------------------------------
+	// The PageSize property gets the current page size.
+	// ----------------------------------------------------------------
+		[propget, id(11), helpstring("property PageSize")] HRESULT PageSize([out, retval] long *pVal);
+	// ----------------------------------------------------------------
+	// The PageSize property sets the page size.
+	// ----------------------------------------------------------------
+		[propput, id(11), helpstring("property PageSize")] HRESULT PageSize([in] long newVal);
+	// ----------------------------------------------------------------
+	// The PageCount property gets the number of pages in the rowset.
+	// ----------------------------------------------------------------
+		[propget, id(12), helpstring("property PageCount")] HRESULT PageCount([out, retval] long *pVal);
+	// ----------------------------------------------------------------
+	// The CurrentPage property gets the current page of the cursor.
+	// ----------------------------------------------------------------
+		[propget, id(13), helpstring("property CurrentPage")] HRESULT CurrentPage([out, retval] long *pVal);
+	// ----------------------------------------------------------------
+	// The CurrentPage property sets the current page of the cursor.
+	// ----------------------------------------------------------------
+		[propput, id(13), helpstring("property CurrentPage")] HRESULT CurrentPage([in] long newVal);
+
+	// ----------------------------------------------------------------
+	// Specify a datafilter for the current rowset
+	// ----------------------------------------------------------------
+		[propget,id(14), helpstring("property Filter")] HRESULT Filter([out,retval] IMTDataFilter** pFilter);
+		[propputref,id(14), helpstring("property Filter")] HRESULT Filter([in] IMTDataFilter* pFilter);
+	// ----------------------------------------------------------------
+	// reset the filter
+	// ----------------------------------------------------------------
+		[id(15), helpstring("method ResetFilter")] HRESULT ResetFilter();
+	// ----------------------------------------------------------------
+	// GetAvalue with no logging
+	// ----------------------------------------------------------------
+		[propget,id(16), helpstring("property ValueNoLog")] HRESULT ValueNoLog([in] VARIANT vtIndex, [out, retval] VARIANT *pVal);
+
+		[id(17), helpstring("method ApplyExistingFilter")] HRESULT ApplyExistingFilter();
+
+    [id(18), helpstring("method RemoveRow")] HRESULT RemoveRow();
+
+	};
+
+	[
+		object,
+		uuid(eb463020-9fae-11d4-a651-00c04f579c39),
+		dual,
+		helpstring("IMTRowSetExecute Interface"),
+		pointer_default(unique)
+	]
+
+	interface IMTRowSetExecute : IMTRowSet
+	{
+	// ----------------------------------------------------------------
+	// The Init method initializes the rowset with the configuration path passed.
+	// ----------------------------------------------------------------
+			[id(50), helpstring("method Init")] HRESULT Init([in] BSTR apConfigPath);
+	// ----------------------------------------------------------------
+	// The Clear method clears the current rowset.
+	// ----------------------------------------------------------------
+			[id(51), helpstring("method Clear")] HRESULT Clear();
+	// ----------------------------------------------------------------
+	// The SetQueryTag method sets the current query to create.
+	// ----------------------------------------------------------------
+			[id(52), helpstring("method SetQueryTag")] HRESULT SetQueryTag([in] BSTR apQueryTag);
+	// ----------------------------------------------------------------
+	// The AddParam method adds the parameter to the the current query.
+	// ----------------------------------------------------------------
+			[id(53), helpstring("method AddParam")] HRESULT AddParam([in] BSTR apParamTag, [in] VARIANT aParam, [in, optional] VARIANT aDontValidateString);
+	// ----------------------------------------------------------------
+	// The Execute method executes the current query.
+	// ----------------------------------------------------------------
+			[id(54), helpstring("method Execute")] HRESULT Execute();
+	// ----------------------------------------------------------------
+	// The ClearQuery method clears the current query..
+	// ----------------------------------------------------------------
+	[id(56), helpstring("method ClearQuery")] HRESULT ClearQuery();
+
+	[id(57), propget, helpstring("Populated recordset")] HRESULT PopulatedRecordSet([out,retval] IDispatch** pDisp);
+  [id(57), propput, helpstring("Populated recordset")] HRESULT PopulatedRecordSet([in] IDispatch* pDisp);
+
+	// ----------------------------------------------------------------
+	// SetQueryString method sets an raw SQL string
+	// ----------------------------------------------------------------
+	[id(58), helpstring("SetQueryString")] HRESULT SetQueryString([in] BSTR RawQuery);
+	[id(59), helpstring("GetQueryString")] HRESULT GetQueryString([out, retval] BSTR* apQuery);
+	[id(60), helpstring("GetRawQueryString")] HRESULT GetRawQueryString([in] VARIANT_BOOL FillInSystemDefaults, [out, retval] BSTR* apQuery);
+
+	// ----------------------------------------------------------------
+	// The AddParamIfFouns method adds the parameter to the the current query if it exists in the query
+	//	Returns VARIANT_TRUE if a parameter was found or VARIANT_FALSE otherwise
+	// ----------------------------------------------------------------
+	[id(61), helpstring("method AddParamIfFound")] HRESULT AddParamIfFound([in] BSTR apParamTag, [in] VARIANT aParam, 
+																								[in, optional] VARIANT aDontValidateString, [out, retval] VARIANT_BOOL* apFound);
+	
+	};
+
+	[
+		object,
+		uuid(2AE44E37-7FB1-11D2-B60A-00104B2B980B),
+		dual,
+		helpstring("IMTInMemRowset Interface"),
+		pointer_default(unique)
+	]
+// ----------------------------------------------------------------
+// Object:   	MTInMemRowset
+// Prog ID:		MTInMemRowset.MTInMemRowset.1
+// Description:  	The in-memory rowset allows for the creation of a rowset
+//  programmatically. The in-memory rowset contains tabular data, that is,
+//  one or more columns and one or more rows. The user needs to initialize the
+//  rowset by defining the columns of the rowst. Once the columns have been defined,
+//  data can be added to the rowset via the AddFieldData method and additional rows 
+//  may be added by the AddRow method.
+// ----------------------------------------------------------------
+	interface IMTInMemRowset : IMTRowSet
+	{
+// ----------------------------------------------------------------
+// The Init method initializes the in-memory rowset.
+// ----------------------------------------------------------------
+		[id(80), helpstring("method Init")] HRESULT Init();
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+// The AddColumnDefinition method adds a new column to the rowset definition.
+// ----------------------------------------------------------------
+		[id(81), helpstring("method AddColumnDefinition")] HRESULT AddColumnDefinition([in] BSTR apName, [in] BSTR apType);
+// ----------------------------------------------------------------
+// The ModifyColumnData modifies the data in the specified column.
+// ----------------------------------------------------------------
+		[id(82), helpstring("method ModifyColumnData")] HRESULT ModifyColumnData([in] BSTR apName, [in] VARIANT aValue);
+// ----------------------------------------------------------------
+// The AddColumnData adds the data in the specified column.
+// ----------------------------------------------------------------
+		[id(83), helpstring("method AddColumnData")] HRESULT AddColumnData([in] BSTR apName, [in] VARIANT aValue);
+// ----------------------------------------------------------------
+// The AddRow method adds a row to the rowset.
+// ----------------------------------------------------------------
+		[id(84), helpstring("method AddRow")] HRESULT AddRow();
+	};
+
+  [uuid(5d60ad93-622c-4f79-857b-cb1efbedb707), version(1.0)]
+  typedef enum {
+    RS_INPUT_PARAM = 0x00,
+    RS_OUTPUT_PARAM = 0x01,
+    RS_IN_OUT_PARAM = 0x02,
+    RS_RETVAL_PARAM = 0x03
+  } RSParameterDirection;
+
+  [uuid(ec922566-3593-4b42-806b-5121b6e38573), version(1.0)]
+  typedef enum {
+    RS_SMALL_INT = 0x00,
+    RS_INTEGER = 0x01,
+    RS_FLOAT = 0x02,
+    RS_DOUBLE = 0x03,
+    RS_VARCHAR = 0x04,
+    RS_VARBINARY = 0x05,
+    RS_DATE = 0x06,
+    RS_NULL = 0x07,
+    RS_DECIMAL = 0x08,
+    RS_W_VARCHAR = 0x09,
+	RS_BIGINT = 0x0A,
+  } RSParameterType;
+
+
+  [
+		object,
+		uuid(26C108F2-A645-11D2-B627-00104B2B980B),
+		dual,
+		helpstring("IMTSQLRowset Interface"),
+		pointer_default(unique)
+	]
+// ----------------------------------------------------------------
+// Object:   	MTSQLRowset
+// Prog ID:		MTSQLRowset.MTSQLRowset.1
+// Description:  	The sql rowset allows for the creation of a rowset
+//  from a query specified in a query file..  The user needs to initialize the
+//  rowset by specifying the relative configuration path to the query file. Once
+//  initialized, query's in the query file may be executed by setting the query
+//  tag, adding any parameters and executing the query..
+// ----------------------------------------------------------------
+  interface IMTSQLRowset : IMTRowSetExecute
+  {
+    // this method is here only to force a dependency on RSParameterDirection 
+    // and RSParameterType.
+    // Otherwise the enum is ignored when using #import on the tlb
+    [id(667), hidden, helpstring("method larry")] HRESULT larry(
+      [in] RSParameterDirection mo,
+      [in] RSParameterType curly);
+
+    // ----------------------------------------------------------------
+// The BeginTransaction method begins a local transaction.
+// ----------------------------------------------------------------
+		[id(108), helpstring("method BeginTransaction")] HRESULT BeginTransaction();
+// ----------------------------------------------------------------
+// The CommitTransaction method commits a local transaction.
+// ----------------------------------------------------------------
+		[id(109), helpstring("method CommitTransaction")] HRESULT CommitTransaction();
+// ----------------------------------------------------------------
+// The RollbackTransaction method rolls back a local transaction.
+// ----------------------------------------------------------------
+		[id(110), helpstring("method RollbackTransaction")] HRESULT RollbackTransaction();
+// ----------------------------------------------------------------
+// The UpdateConfigPath updates the config path to use for queries.
+// ----------------------------------------------------------------
+    [id(112), helpstring("method UpdateConfigPath")] HRESULT UpdateConfigPath([in] BSTR apConfigPath);
+// ----------------------------------------------------------------
+// The InitializeForStoredProc method initializes the object for a stored procedure.
+// ----------------------------------------------------------------
+    [id(113), helpstring("method InitializeForStoredProc")] HRESULT InitializeForStoredProc([in] BSTR apStoredProcName);
+// ----------------------------------------------------------------
+// The AddInputToStoredProc adds an input parameter to a stored procedure.
+// ----------------------------------------------------------------
+    [id(114), helpstring("method AddInputParameterToStoredProc")] HRESULT AddInputParameterToStoredProc([in] BSTR apParamName, [in] long aType, [in] long aDirection, [in] VARIANT aValue);
+// ----------------------------------------------------------------
+// The AddOutputToStoredProc adds an output parameter to a stored procedure.
+// ----------------------------------------------------------------
+    [id(115), helpstring("method AddOutputParameterToStoredProc")] HRESULT AddOutputParameterToStoredProc([in] BSTR apParamName, [in] long aType, [in] long aDirection);
+// ----------------------------------------------------------------
+// The ExecuteStoredProc executes the stored procedure.
+// ----------------------------------------------------------------
+    [id(116), helpstring("method ExecuteStoredProc")] HRESULT ExecuteStoredProc();
+// ----------------------------------------------------------------
+// The GetParameterFromStoredProc gets an output parameter from a stored procedure.
+// ----------------------------------------------------------------
+    [id(117), helpstring("method GetParameterFromStoredProc")] HRESULT GetParameterFromStoredProc([in] BSTR apParamName, [out,retval] VARIANT *apValue);
+// ----------------------------------------------------------------
+// The JoinDistributedTransaction method joins a distributed transaction.
+// ----------------------------------------------------------------
+		[id(120), helpstring("method JoinDistributedTransaction")] HRESULT JoinDistributedTransaction([in] IMTTransaction * apTransaction);
+// ----------------------------------------------------------------
+// The GetDBType gets the database type.
+// ----------------------------------------------------------------
+    [id(121), helpstring("method GetDBType")] HRESULT GetDBType([out,retval] BSTR *apDBType);
+// ----------------------------------------------------------------
+// The GetDistributedTransaction method joins a distributed transaction.
+// ----------------------------------------------------------------
+		[id(122), helpstring("method GetDistributedTransaction")] HRESULT GetDistributedTransaction([out, retval] IMTTransaction * * apTransaction);
+// ----------------------------------------------------------------
+// The AddColumnDefinition method adds a new column to the rowset definition.
+// ----------------------------------------------------------------
+		[id(123), helpstring("method AddColumnDefinition")] HRESULT AddColumnDefinition([in] BSTR apName, [in] BSTR apType, [in] int aLen);
+// ----------------------------------------------------------------
+// The ModifyColumnData modifies the data in the specified column.
+// ----------------------------------------------------------------
+		[id(124), helpstring("method ModifyColumnData")] HRESULT ModifyColumnData([in] BSTR apName, [in] VARIANT aValue);
+// ----------------------------------------------------------------
+// The AddColumnData adds the data in the specified column.
+// ----------------------------------------------------------------
+		[id(125), helpstring("method AddColumnData")] HRESULT AddColumnData([in] BSTR apName, [in] VARIANT aValue);
+// ----------------------------------------------------------------
+// The AddRow method adds a row to the rowset.
+// ----------------------------------------------------------------
+		[id(126), helpstring("method AddRow")] HRESULT AddRow();
+// ----------------------------------------------------------------
+// Initialize in a disconnected state
+// ----------------------------------------------------------------
+		[id(127), helpstring("method InitDisconnected")] HRESULT InitDisconnected();
+// ----------------------------------------------------------------
+// Open a disconnected rowset
+// ----------------------------------------------------------------
+		[id(128), helpstring("method OpenDisconnected")] HRESULT OpenDisconnected();
+// ----------------------------------------------------------------
+// add column definition by type
+// ----------------------------------------------------------------
+		[id(129), helpstring("method AddColumnDefinitionByType")] HRESULT AddColumnDefinitionByType([in] BSTR apName, [in] long apType, [in] int aLen);
+
+// ----------------------------------------------------------------
+// Execute and disconnect rowset
+// ----------------------------------------------------------------
+	[id(130), helpstring("method ExecuteDisconnected")] HRESULT ExecuteDisconnected();
+
+// ----------------------------------------------------------------
+// Save the record set to a file
+// ----------------------------------------------------------------
+  [id(131), helpstring("method SaveToFile")] HRESULT SaveToFile([in] BSTR aFileName,[in,optional] VARIANT StyleSheet);
+
+// ----------------------------------------------------------------
+// Save the record set to an XML string, 
+// optionally transforming it using a style sheet (passed in as IXMLDOMNode*)
+// ----------------------------------------------------------------
+  [id(132), helpstring("method SaveToXml")] HRESULT SaveToXml([in,optional] VARIANT apStyleSheetNode, [out,retval] BSTR* apXmlString);
+
+
+// ----------------------------------------------------------------
+// The Execute method executes the current query uses connected recordsets (unlike Execute).
+// ----------------------------------------------------------------
+	[id(133), helpstring("method ExecuteConnected")] HRESULT ExecuteConnected();
+
+// ----------------------------------------------------------------
+// Change DBName, re-initialize and connect the database context object.
+// ----------------------------------------------------------------	
+	[id(134), helpstring("method ChangeDBName")] HRESULT ChangeDbName([in] BSTR newDbName);
+	
+	};
+
+
+
+  typedef [uuid(cac23840-a112-11d4-a653-00c04f579c39), version(1.0)]
+  enum {
+		HTTP = 0,
+		HTTPS = 1
+  } XMLRowSet_ConnectionEnum;
+
+	[
+		object,
+		uuid(bc73d830-a06e-11d4-a652-00c04f579c39),
+		dual,
+		helpstring("IMTXmlRowset Interface"),
+		pointer_default(unique)
+	]
+
+// ----------------------------------------------------------------
+// Object:   	MTXMLRowset
+// Prog ID:		MTSQLRowset.MTSQLRowset.1
+// Description:  	The sql rowset allows for the creation of a rowset
+//  from a query specified in a query file..  The user needs to initialize the
+//  rowset by specifying the relative configuration path to the query file. Once
+//  initialized, query's in the query file may be executed by setting the query
+//  tag, adding any parameters and executing the query..
+// ---------------------------------------------
+
+interface IMTXMLRowset : IMTRowSetExecute
+{
+	// ----------------------------------------------------------------
+
+	// ----------------------------------------------------------------
+	[id(100), propget, helpstring("destination host")] HRESULT HostName([out, retval] BSTR* pHostName);
+	[id(100), propput, helpstring("destination host")] HRESULT HostName([in] BSTR aHostName);
+	// ----------------------------------------------------------------
+
+	// ----------------------------------------------------------------
+	[id(101), propget, helpstring("username for host")] HRESULT UserName([out, retval] BSTR* pHostName);
+	[id(101), propput, helpstring("username for host")] HRESULT UserName([in] BSTR aHostName);
+	// ----------------------------------------------------------------
+
+	// ----------------------------------------------------------------
+	[id(102), propget, helpstring("password for host")] HRESULT Password([out, retval] BSTR* pHostName);
+	[id(102), propput, helpstring("password for host")] HRESULT Password([in] BSTR aHostName);
+	// ----------------------------------------------------------------
+
+	// ----------------------------------------------------------------
+	[id(103), propget, helpstring("connection type")] HRESULT ConnectionType([out, retval] XMLRowSet_ConnectionEnum* aType);
+	[id(103), propput, helpstring("connection type")] HRESULT ConnectionType([in] XMLRowSet_ConnectionEnum aType);
+
+	// ----------------------------------------------------------------
+	[id(104), propget, helpstring("port number")] HRESULT PortNumber([out, retval] long* pPort);
+	[id(104), propput, helpstring("port number")] HRESULT PortNumber([in] long port);
+
+	// ----------------------------------------------------------------
+	[id(105), propget, helpstring("override URL request")] HRESULT OverRideConnectionString([out, retval] BSTR* aOverRideString);
+	[id(105), propput, helpstring("override URL request")] HRESULT OverRideConnectionString([in] BSTR aOverRideString);
+
+	[id(106), helpstring("Hydrate rowset from XML string")] HRESULT HydrateFromString([in] BSTR xmlStr);
+	[id(107), helpstring("Hydrate rowset from XML File")] HRESULT HydrateFromFile([in] BSTR filename);
+  [id(108), helpstring("Hydrate rowset from XML")] HRESULT HydrateFromXML([in] IDispatch* pDisp);
+
+  // ----------------------------------------------------------------
+	[id(109), propget, helpstring("timeout (in seconds, -1 means wait indefinitely)")] HRESULT Timeout([out, retval] long* pTimeout);
+	[id(109), propput, helpstring("timeout (in seconds, -1 means wait indefinitely)")] HRESULT Timeout([in] long aTimeout);
+
+};
+
+

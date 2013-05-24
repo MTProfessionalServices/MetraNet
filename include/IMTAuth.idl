@@ -1,0 +1,690 @@
+/**************************************************************************
+* Copyright 1997-2001 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+* Created by: Boris Partensky
+* 
+***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "GenericCollectionInterfaces.idl";
+import "rowsetinterfaces.idl";
+import "IMTRuleSet.idl";
+import "IMTProgress.idl";
+
+
+interface IMTRole;
+interface IMTPrincipalPolicy;
+interface IMTAtomicCapability;
+interface IMTCompositeCapability;
+interface IMTCompositeCapabilityType;
+interface IMTAtomicCapabilityType;
+interface IMTEnumTypeCapability;
+interface IMTDecimalCapability;
+interface IMTPathCapability;
+interface IMTSessionContext;
+interface IMTPathParameter;
+interface IMTStringCollectionCapability;
+
+// ----------------------------------------------------------------
+// Enum:        MTPrincipalPolicyType
+// Description: indicates type for Principal Policy. Two types are supported now:
+//							ACTIVE stores Roles and capabilities used during run-time access check
+//							DEFAULT is used ONLY on account principals. DEFAULT policy is applied as ACTIVE to
+//							 newly created children accounts
+typedef [uuid(7cc0d342-a59c-4449-93ac-88995a9a0779), version(1.0)]
+enum
+{
+	ACTIVE_POLICY = 0,
+	DEFAULT_POLICY = 1
+} MTPrincipalPolicyType;
+
+// ----------------------------------------------------------------
+// Enum:        MTSecurityPrincipalType
+// Description: Role or account
+
+typedef [uuid(3c801feb-40ab-4091-8839-ba3493c15111), version(1.0)]
+enum
+{
+	ROLE_PRINCIPAL = 0,
+	SUBSCRIBER_ACCOUNT_PRINCIPAL = 1,
+	CSR_ACCOUNT_PRINCIPAL = 2,
+	//remove???
+	FOLDER_ACCOUNT_PRINCIPAL = 3
+} MTSecurityPrincipalType;
+
+// ----------------------------------------------------------------
+// Enum:        MTHierarchyPathWildCard
+// Description: Used by PathCapability and indicates access level into hierarchy
+//							
+
+typedef [uuid(37f7abb0-eb73-4db1-a7c9-dab0a8b75b04), version(1.0)]
+enum
+{
+	SINGLE = 0,
+	DIRECT_DESCENDENTS = 1,
+	RECURSIVE = 2,
+} MTHierarchyPathWildCard;
+
+// ----------------------------------------------------------------
+// Enum:        MTAccessType
+// Description: Used by PathCapability and indicates access level into hierarchy
+//							
+
+typedef [uuid(13e63576-1579-4422-a390-b6975494f193), version(1.0)]
+enum
+{
+	READ_ACCESS = 0,
+	WRITE_ACCESS = 1,
+	UNSPECIFIED_ACCESS = 2
+} MTAccessType;
+
+	[
+		object,
+		uuid(C2AFAB41-9BAE-4941-A5BC-7C03306809E4),
+		dual,
+		helpstring("IMTCapability Interface"),
+		pointer_default(unique)
+	]
+	interface IMTCapability : IDispatch
+	{
+		//[id(1), helpstring("method Implies")] HRESULT Implies([in]IMTCapability* aCapability, [out, retval]VARIANT_BOOL* aResult);
+	};
+// ----------------------------------------------------------------
+// Object:      MTCompositeCapabilityBase
+// Prog ID:     Metratech.MTCompositeCapabilityBase.1
+// Description: Implements basic behaviour for concrete composite capabilities
+//							Normally all newly created concrete composite capabilities (created in any COM compliant
+//							language) will delegate all the calls in
+//							IMTCompositeCapability interface to an instance of the base.
+// ----------------------------------------------------------------
+	[
+		object,
+		uuid(78efd365-97e7-4e19-8c5a-ac5fbd01c8d5),
+		dual,
+		helpstring("IMTCompositeCapabilityBase Interface"),
+		pointer_default(unique)
+	]
+	/*
+		Below interface is internal and should not be documented
+	*/
+	interface IMTCompositeCapabilityBase : IDispatch
+	{
+		[id(1), helpstring("method Implies")] HRESULT Implies([in]IMTCompositeCapability* aThisPtr, [in]IMTCompositeCapability* aCapability, [in]VARIANT_BOOL aCheckparameters, [out, retval]VARIANT_BOOL* aResult);
+		[propget, id(2), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+		[propput, id(2), helpstring("property ID")] HRESULT ID([in] long newVal);
+		[id(3), helpstring("method AddAtomicCapability")] HRESULT AddAtomicCapability([in]IMTAtomicCapability* aAtomicCap);
+		[propget, id(4), helpstring("property AtomicCapabilities")] HRESULT AtomicCapabilities([out, retval] IMTCollection* *pVal);
+		[id(5), helpstring("method Save")] HRESULT Save([in]IMTCompositeCapability* aThisPtr, [in]IMTPrincipalPolicy* aPolicy);
+		//it needs to take thisPtr object because of the lazy loading mechanizm: Base may need the actual ID for the instance
+		//in order to load the type	
+		[id(6), helpstring("method GetCapabilityType")] HRESULT GetCapabilityType([in]IMTCompositeCapability* aThisPtr, [out, retval]IMTCompositeCapabilityType** aCapabilityType);
+		[id(7), helpstring("method SetCapabilityType")] HRESULT SetCapabilityType([in]IMTCompositeCapabilityType* aCapabilityType);
+		[id(8), helpstring("method Remove")] HRESULT Remove([in]IMTCompositeCapability* aThisPtr, [in]IMTPrincipalPolicy* aPolicy);
+		[id(9), helpstring("method GetAtomicCapabilityByName")] HRESULT GetAtomicCapabilityByName([in]IMTCompositeCapability* aThisPtr, [in]BSTR aAtomicName, [out, retval]IMTAtomicCapability** apCap);
+		[id(10), helpstring("method GetAtomicEnumCapability")] HRESULT GetAtomicEnumCapability([in]IMTCompositeCapability* aThisPtr,[out, retval]IMTEnumTypeCapability** apCap);
+		[id(11), helpstring("method GetAtomicDecimalCapability")] HRESULT GetAtomicDecimalCapability([in]IMTCompositeCapability* aThisPtr, [out, retval]IMTDecimalCapability** apCap);
+		[id(12), helpstring("method GetAtomicPathCapability")] HRESULT GetAtomicPathCapability([in]IMTCompositeCapability* aThisPtr, [out, retval]IMTPathCapability** apCap);
+		[id(13), helpstring("method FromXML"), hidden] HRESULT FromXML([in]IMTCompositeCapability* aThisPtr, [in]IDispatch* aDomNode);
+		[id(14), helpstring("method ToXML")] HRESULT ToXML([in]IMTCompositeCapability* aThisPtr, [out, retval]BSTR* apXmlString);
+		[id(15), helpstring("method ToString")] HRESULT ToString([in]IMTCompositeCapability* aThisPtr, [out, retval]BSTR* apDesc);
+		//ActorAccountID
+		[propget, id(17), helpstring("property ActorAccountID")] HRESULT ActorAccountID([out, retval] long *pVal);
+		[propput, id(17), helpstring("property ActorAccountID")] HRESULT ActorAccountID([in] long newVal);
+		[id(18), helpstring ("method GetAtomicCollectionCapability")] HRESULT GetAtomicCollectionCapability([in]IMTCompositeCapability *aThisPtr, [out, retval]IMTStringCollectionCapability **apCap);
+	};
+// ----------------------------------------------------------------
+// Object:      
+// Prog ID:     
+// Description: All concrete composite capability classes
+//				implement this interface
+// ----------------------------------------------------------------
+	[
+		object,
+		uuid(ACE7342B-9134-4597-8728-E8A842FADFF1),
+		dual,
+		helpstring("IMTCompositeCapability Interface"),
+		pointer_default(unique)
+	]
+	//represents composite capability instance
+	interface IMTCompositeCapability : IDispatch
+	{
+		//Returns TRUE if current capability instance implies passed in capability or FALSE otherwise.
+		[id(1), helpstring("method Implies")] HRESULT Implies([in]IMTCompositeCapability* aCapability, [in]VARIANT_BOOL aCheckparameters, [out, retval]VARIANT_BOOL* aResult);
+
+		//Database ID
+		[propget, id(2), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+		[propput, id(2), helpstring("property ID")] HRESULT ID([in] long newVal);
+
+		//internal
+		[id(3), hidden, helpstring("method AddAtomicCapability")] HRESULT AddAtomicCapability([in]IMTAtomicCapability* aAtomicCap);
+		//returns a collection of atomic capabilities that are a part of this composite capability
+		[propget, id(4), helpstring("property AtomicCapabilities")] HRESULT AtomicCapabilities([out, retval] IMTCollection* *pVal);
+		//perisists composite capability instance attached to specified principal policy to database
+		[id(5), helpstring("method Save")] HRESULT Save([in]IMTPrincipalPolicy* aPolicy);
+		//returns composite capability type
+		[propget, id(6), helpstring("property CapabilityType")] HRESULT CapabilityType([out, retval] IMTCompositeCapabilityType** pVal);
+		//internal
+		[propput, hidden, id(6), helpstring("property CapabilityType")] HRESULT CapabilityType([in] IMTCompositeCapabilityType* newVal);
+		//removes capabiltiy from security policy
+		[id(7), helpstring("method Remove")] HRESULT Remove([in]IMTPrincipalPolicy* aPolicy);
+		//returns a specific instance of atomic capability within this composite capability
+		[id(8), helpstring("method GetAtomicCapabilityByName")] HRESULT GetAtomicCapabilityByName([in]BSTR aAtomicName, [out, retval]IMTAtomicCapability** apCap);
+		//returns Atomic Enum capability attached to this composite capability, if there is one, or NULL
+		[id(9), helpstring("method GetAtomicEnumCapability")] HRESULT GetAtomicEnumCapability([out, retval]IMTEnumTypeCapability** apCap);
+		//returns Atomic Decimal capability attached to this composite capability, if there is one, or NULL
+		[id(10), helpstring("method GetAtomicDecimalCapability")] HRESULT GetAtomicDecimalCapability([out, retval]IMTDecimalCapability** apCap);
+		//returns Atomic Path capability attached to this composite capability, if there is one, or NULL
+		[id(11), helpstring("method GetAtomicPathCapability")] HRESULT GetAtomicPathCapability([out, retval]IMTPathCapability** apCap);
+		//deserializes composite capability instance from XML
+		[id(12), helpstring("method FromXML"), hidden] HRESULT FromXML([in]IDispatch* aDomNode);
+		//serializes composite capability instance to XML
+		[id(13), helpstring("method ToXML"), hidden] HRESULT ToXML([out, retval]BSTR* apXmlString);
+		//string representation of composite capability object
+		[id(14), helpstring("method ToString")] HRESULT ToString([out, retval]BSTR* apString);
+
+		//ActorAccountID
+		[propget, id(17), helpstring("property ActorAccountID")] HRESULT ActorAccountID([out, retval] long *pVal);
+		[propput, id(17), helpstring("property ActorAccountID")] HRESULT ActorAccountID([in] long newVal);
+		[id(18), helpstring("method GetAtomicCollectionCapability")] HRESULT GetAtomicCollectionCapability([out, retval]IMTStringCollectionCapability** apCap);
+	};
+// ----------------------------------------------------------------
+// Object:      
+// Prog ID:     
+// Description: All concrete atomic capability classes
+//				implement this interface
+// ----------------------------------------------------------------
+
+	[
+		object,
+		uuid(1C84D072-BC7F-46D8-A8DA-5B9E173A4DAF),
+		dual,
+		helpstring("IMTAtomicCapability Interface"),
+		pointer_default(unique)
+	]
+	/*
+		Below interface is internal and should not be documented
+	*/
+	interface IMTAtomicCapability : IDispatch
+	{
+		[id(1), helpstring("method Implies")] HRESULT Implies([in]IMTAtomicCapability* aCapability, [out, retval]VARIANT_BOOL* aResult);
+		[propget, id(2), helpstring("property CapabilityType")] HRESULT CapabilityType([out, retval] IMTAtomicCapabilityType* *pVal);
+		[propput, id(2), helpstring("property CapabilityType")] HRESULT CapabilityType([in] IMTAtomicCapabilityType* newVal);
+		[propget, id(3), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+		[propput, id(3), helpstring("property ID")] HRESULT ID([in] long newVal);
+		[propget, id(4), helpstring("property ParentID")] HRESULT ParentID([out, retval] long *pVal);
+		[propput, id(4), helpstring("property ParentID")] HRESULT ParentID([in] long newVal);
+		[id(5), helpstring("method Save")] HRESULT Save([in]IMTPrincipalPolicy* aPolicy);
+		[id(6), helpstring("method Remove"), hidden] HRESULT Remove([in]IMTPrincipalPolicy* aPolicy);
+		[id(7), helpstring("method InitParams"), hidden] HRESULT InitParams();
+		[id(8), helpstring("method ToString")] HRESULT ToString([out, retval]BSTR* apString);
+	};
+	[
+		object,
+		uuid(71D5BFE9-11CB-4977-A29D-F47CFFA23A8E),
+		dual,
+		helpstring("IMTPathCapability Interface"),
+		pointer_default(unique)
+	]
+	interface IMTPathCapability : IMTAtomicCapability
+	{
+		//sets path regular expression parameter
+		[id(11), helpstring("method SetParameter")] HRESULT SetParameter([in]BSTR aPath, [in]MTHierarchyPathWildCard aWildCard);
+		//gets path regular expression parameter
+		[id(12), helpstring("method GetParameter")] HRESULT GetParameter([out, retval] IMTPathParameter* *pVal);
+	};
+	
+	[
+		object,
+		uuid(39f18140-9d88-4873-a5ce-952a40014e25),
+		dual,
+		helpstring("IMTEnumTypeCapability Interface"),
+		pointer_default(unique)
+	]
+	interface IMTEnumTypeCapability : IMTAtomicCapability
+	{
+		//sets enumerated type capability parameter
+		[id(12), helpstring("method SetParameter")] HRESULT SetParameter([in]VARIANT aParam);
+		//gets enumerated type capability parameter
+		[id(13), helpstring("method GetParameter")] HRESULT GetParameter([out, retval]IMTSimpleCondition** apParam);
+		
+	};
+	[
+		object,
+		uuid(4811ABE8-590E-498F-8C2F-6F79C10F59D4),
+		dual,
+		helpstring("IMTDecimalCapability Interface"),
+		pointer_default(unique)
+	]
+	interface IMTDecimalCapability : IMTAtomicCapability
+	{
+		//sets decimal value parameter and operator
+		[id(12), helpstring("method SetParameter")] HRESULT SetParameter([in]VARIANT aParam, [in]MTOperatorType aOp);
+		//sets decimal value parameter and operator
+		[id(13), helpstring("method GetParameter")] HRESULT GetParameter([out, retval]IMTSimpleCondition** apParam);
+		
+	};
+	
+	[
+		object,
+		uuid(1CD10B9F-0FB1-44BD-AE35-4BC33C4C5667),
+		dual,
+		helpstring("IMTSecurityContext Interface"),
+		pointer_default(unique)
+	]
+	/*
+		Stores security context (roles and capabilities associated with an account)
+	*/
+	interface IMTSecurityContext : IDispatch
+	{
+		//checks if a caller has requested capability. Throws MT_ACCESS_DENIED if he doesn't
+		[id(1), helpstring("method CheckAccess")] HRESULT CheckAccess([in]IMTCompositeCapability* aCap);
+		//checks if a caller has requested capability without drilling into parameterized capabilities.
+		//This method is only used by personalization objects in MAM. Returns True or False
+		[id(2), helpstring("method CoarseHasAccess")] HRESULT CoarseHasAccess([in]IMTCompositeCapability* aCap, [out, retval]VARIANT_BOOL* apHasAccess);
+		//gets caller's account id
+		[propget, id(3), helpstring("property AccountID")] HRESULT AccountID([out, retval] long *pVal);
+		//internal
+		[propput, id(3), helpstring("property AccountID")] HRESULT AccountID([in] long newVal);
+		//checks if caller has specified role.
+		[id(4), helpstring("method IsInRole")] HRESULT IsInRole([in]BSTR aRoleName, [out, retval]VARIANT_BOOL* apResult);
+		//serializes security contect to XML
+		[id(5), helpstring("method ToXML")] HRESULT ToXML([out, retval]BSTR* apXMLString);
+		//deserializes security contect from XML
+		[id(6), helpstring("method FromXML")] HRESULT FromXML([in]BSTR aXMLString);
+		//Internal
+		[id(7), helpstring("method IsSuperUser")] HRESULT IsSuperUser([out, retval]VARIANT_BOOL* apRes);
+		//Internal
+		[id(8), helpstring("method GetCapabilitiesOfType")] HRESULT GetCapabilitiesOfType([in]BSTR aTypeName, [out, retval]IMTCollection** apColl);
+		//checks if a caller has requested capability. Returns true or false
+		[id(9), helpstring("method HasAccess")] HRESULT HasAccess([in]IMTCompositeCapability* aCap, [out, retval]VARIANT_BOOL* apHasAccess);
+		// LoggedInAs
+		[propget, id(10), helpstring("property LoggedInAs")] HRESULT LoggedInAs([out, retval] BSTR *pVal);
+		[propput, id(10), helpstring("property LoggedInAs")] HRESULT LoggedInAs([in] BSTR newVal);
+		// ApplicationName
+		[propget, id(11), helpstring("property ApplicationName")] HRESULT ApplicationName([out, retval] BSTR *pVal);
+		[propput, id(11), helpstring("property ApplicationName")] HRESULT ApplicationName([in] BSTR newVal);
+	};
+	[
+		object,
+		uuid(061761FA-C170-464B-A117-44F2079B3309),
+		dual,
+		helpstring("IMTLoginContext Interface"),
+		pointer_default(unique)
+	]
+	/*
+		manages authentication operations
+	*/
+	interface IMTLoginContext : IDispatch
+	{
+		//logs in the user by specified name, namespace and password. Returns session context
+		//associated with this user
+		[id(1), helpstring("method Login")] HRESULT Login([in]BSTR aAlias, [in]BSTR aNamespace, [in]BSTR aPassword, [out, retval]IMTSessionContext** aCtx);
+		//looks up anonymous user and logs him in. If no anonymous security policy is configured, empty
+		//security context is returned
+		[id(2), helpstring("method LoginAnonymous")] HRESULT LoginAnonymous([out, retval]IMTSessionContext** apCtx);
+		//Logs in user based on credentials encrypted in the ticket. Needs additional
+		//namespace parameter to make sure that the ticket is not spoofed, meaning that the user
+		//is trying to log in to the application the ticket was issued for
+		[id(3), helpstring("method LoginWithTicket")] HRESULT LoginWithTicket([in]BSTR aNameSpace, [in]BSTR aTicket, [out, retval]IMTSessionContext** apCtx);
+
+		// log in as the given account ID.  The caller must have the ability to impersonate other accounts.
+		[id(4), helpstring("method LoginAsAccount")] HRESULT LoginAsAccount([in] IMTSessionContext * apCurrentContext, [in] int aAccountID,
+																				[out, retval]IMTSessionContext** apCtx);
+		// log in as the given account ID.  The caller must have the ability to impersonate other accounts.
+		[id(5), helpstring("method LoginAsMPSAccount")] HRESULT LoginAsMPSAccount([in] IMTSessionContext * apCurrentContext, [in] BSTR aNamespace, [in] BSTR aUserName,
+																					[out, retval]IMTSessionContext** apCtx); 
+		// log in as the given account ID.  The caller must have the ability to impersonate other accounts.
+		[id(6), helpstring("method LoginAsAccountByName")] HRESULT LoginAsAccountByName([in] IMTSessionContext * apCurrentContext, [in] BSTR aNamespace, [in] BSTR aUserName,
+																						[out, retval]IMTSessionContext** apCtx);
+		[id(7), helpstring("method LoginWithAdditionalData")] HRESULT LoginWithAdditionalData([in]BSTR aAlias, [in]BSTR aNamespace, [in]BSTR aPassword, 
+																								[in]BSTR aLoggedInAs,[in]BSTR aApplicationName, [out, retval]IMTSessionContext** aCtx);
+
+		[id(8), helpstring("method LoginAsMPSAccountWithAdditionalData")] HRESULT LoginAsMPSAccountWithAdditionalData([in]IMTSessionContext * apCurrentContext, [in]BSTR aNamespace, 
+																							[in]BSTR aUserName, [in]BSTR aLoggedInAs, [in]BSTR aApplicationName,[out, retval] IMTSessionContext** apCtx);
+	};
+	
+	[
+		object,
+		uuid(5EB097AE-A168-4CFD-A9D7-8D6CE65D4321),
+		dual,
+		helpstring("IMTSecurityPrincipal Interface"),
+		pointer_default(unique)
+	]
+	/*
+		Represents a security principal: Role or Account
+
+	*/
+	interface IMTSecurityPrincipal : IDispatch
+	{
+		//Returns Active security policy associated with current principal
+		[id(1), helpstring("method GetActivePolicy")] HRESULT GetActivePolicy([in]IMTSessionContext* aCtx, [out, retval]IMTPrincipalPolicy** apPolicy);
+		//Returns Default security policy for a Folder, returns NULL for a regular account or for a role
+		[id(2), helpstring("method GetDefaultPolicy")] HRESULT GetDefaultPolicy([in]IMTSessionContext* aCtx, [out, retval]IMTPrincipalPolicy** apPolicy);
+		//returns a type of this principal: Account or Role
+		[propget, id(3), helpstring("property PrincipalType")] HRESULT PrincipalType([out, retval] MTSecurityPrincipalType *pVal);
+		//internal
+		[propput, id(3), helpstring("property PrincipalType")] HRESULT PrincipalType([in] MTSecurityPrincipalType newVal);
+		//returns database id
+		[propget, id(4), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+		//internal
+		[propput, id(4), helpstring("property ID")] HRESULT ID([in] long newVal);
+		//saves a principal to database
+		[id(5), helpstring("method Save")] HRESULT Save();
+		//deserializes a principal from XML
+		[id(6), helpstring("method FromXML")] HRESULT FromXML([in]IMTSessionContext* aCtx, [in]BSTR aXMLString);
+		//serializes a principal to XML
+		[id(7), helpstring("method ToXML")] HRESULT ToXML([out, retval]BSTR* apXmlString);
+		//returns a session context associated with this principal
+		[propget, id(8), helpstring("property SessionContext")] HRESULT SessionContext([out, retval] IMTSessionContext* *pVal);
+		//internal
+		[propput, id(8), helpstring("property SessionContext")] HRESULT SessionContext([in] IMTSessionContext* newVal);
+	};
+
+	[
+		object,
+		uuid(1312fbae-f161-4069-a5d0-16fc117b3ba2),
+		dual,
+		helpstring("IMTCapabilityType Interface"),
+		pointer_default(unique)
+	]
+	/*
+		Base interface for both composite and atomic capability types
+	*/
+
+
+	interface IMTCapabilityType : IDispatch
+	{
+		//database id
+		[propget, id(1), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+		[propput, id(1), helpstring("property ID")] HRESULT ID([in] long newVal);
+
+		//name
+		[propget, id(2), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		
+		//description
+		[propget, id(3), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+
+		//Program ID (class string)
+		[propget, id(4), helpstring("property ProgID")] HRESULT ProgID([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property ProgID")] HRESULT ProgID([in] BSTR newVal);
+
+		//GUI editor identifier
+		[propget, id(5), helpstring("property Editor")] HRESULT Editor([out, retval] BSTR *pVal);
+		[propput, id(5), helpstring("property Editor")] HRESULT Editor([in] BSTR newVal);
+
+		//save to database
+		[id(6), helpstring("method Save")] HRESULT Save();
+	
+	};
+	[
+		object,
+		uuid(4313BCE1-0544-4851-A2C1-0FB287FFA741),
+		dual,
+		helpstring("IMTAtomicCapabilityType Interface"),
+		pointer_default(unique)
+	]
+	/*
+		Represents atomic capability type. One composite capability type own 0 to many
+		atomic capability types.
+
+	*/
+	interface IMTAtomicCapabilityType : IMTCapabilityType
+	{
+		//returns an instance of specified capability type created from ProgID
+		[id(11), helpstring("method CreateInstance")] HRESULT CreateInstance([out, retval]IMTAtomicCapability** apNewInstance);
+		//description of association between atomic and composite capability type
+		[propget, id(12), helpstring("property CompositionDescription")] HRESULT CompositionDescription([out, retval] BSTR *pVal);
+		[propput, id(12), helpstring("property CompositionDescription")] HRESULT CompositionDescription([in] BSTR newVal);
+
+		//name of the parameter
+		[propget, id(13), helpstring("property ParameterName")] HRESULT ParameterName([out, retval] BSTR *pVal);
+		[propput, id(13), helpstring("property ParameterName")] HRESULT ParameterName([in] BSTR newVal);
+
+		//internal, unused
+		[propget, id(14), helpstring("property GUID")] HRESULT GUID([out, retval] BSTR *pVal);
+		[propput, id(14), helpstring("property GUID")] HRESULT GUID([in] BSTR newVal);
+	};
+	[
+		object,
+		uuid(873F64B4-2A38-4BBB-9235-4754FE0EF09F),
+		dual,
+		helpstring("IMTCompositeCapabilityType Interface"),
+		pointer_default(unique)
+	]
+	/*
+		Represents composite capability type. One composite capability type own 0 to many
+		atomic capability types.
+	*/
+	interface IMTCompositeCapabilityType : IMTCapabilityType
+	{
+		//internal, unused
+		[propget, id(12), helpstring("property GUID")] HRESULT GUID([out, retval] BSTR *pVal);
+		[propput, id(12), helpstring("property GUID")] HRESULT GUID([in] BSTR newVal);
+
+		//returns an instance of specified capability type created from ProgID
+		[id(13), helpstring("method CreateInstance")] HRESULT CreateInstance([out, retval]IMTCompositeCapability** apNewInstance);
+
+		//returns true if capability of this type can be assigned to a CSR, false otherwise
+		[propget, id(14), helpstring("property CSRAssignable")] HRESULT CSRAssignable([out, retval] VARIANT_BOOL *pVal);
+		//internal
+		[propput, id(14), helpstring("property CSRAssignable")] HRESULT CSRAssignable([in] VARIANT_BOOL newVal);
+		//returns true if capability of this type can be assigned to a Subscriber, false otherwise
+		[propget, id(15), helpstring("property SubscriberAssignable")] HRESULT SubscriberAssignable([out, retval] VARIANT_BOOL *pVal);
+		//internal
+		[propput, id(15), helpstring("property SubscriberAssignable")] HRESULT SubscriberAssignable([in] VARIANT_BOOL newVal);
+		//returns a number of atomic capabilties associated with this composite type
+		[propget, id(16), helpstring("property NumAtomic")] HRESULT NumAtomic([out, retval] long *pVal);
+		//hint to GUI editors. Returns true if a principal policy can have more then  one instance of this type
+		//attached to it, false otherwise
+		[propget, id(17), helpstring("property AllowMultipleInstances")] HRESULT AllowMultipleInstances([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(17), helpstring("property AllowMultipleInstances")] HRESULT AllowMultipleInstances([in] VARIANT_BOOL newVal);
+		//internal
+		[id(18), helpstring("method Init"), hidden] HRESULT Init([in]IMTSessionContext* aCtx, [in]long aTypeID);
+		//internal
+		[id(19), helpstring("method InitByInstanceID"), hidden] HRESULT InitByInstanceID([in]IMTSessionContext* aCtx, [in]long aInstanceID);
+		//internal
+		[id(20), helpstring("method AddAtomicCapabilityType")] HRESULT AddAtomicCapabilityType([in]IMTAtomicCapabilityType* apAtomicType);
+		//returns a collection of atomic capability types associated with this composite
+		[id(21), helpstring("method GetAtomicCapabilityTypes")] HRESULT GetAtomicCapabilityTypes([out, retval]IMTCollection** apAtomicTypes);
+		//returns true if this composite capability type has the same progid as aType
+		[id(22), helpstring("method Equals")] HRESULT Equals([in]IMTCompositeCapabilityType* aType, [out, retval]VARIANT_BOOL* apResult);
+		//a flag that indicates that an operation which is guarded by this capability also requires
+		//ManageAccountHierarchy capability (umbrella)
+		[propget, id(23), helpstring("property UmbrellaSensitive")] HRESULT UmbrellaSensitive([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(23), helpstring("property UmbrellaSensitive")] HRESULT UmbrellaSensitive([in] VARIANT_BOOL newVal);
+	};
+	[
+		object,
+		uuid(D4355FA5-F537-414A-ACFD-0CC767993A27),
+		dual,
+		helpstring("IMTPrincipalPolicy Interface"),
+		pointer_default(unique)
+	]
+	/*
+		internal
+	*/
+	interface IMTPrincipalPolicy : IDispatch
+	{
+		[propget, id(1), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		[propget, id(2), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+		[propput, id(3), helpstring("property Principal")] HRESULT Principal([in] IMTSecurityPrincipal* pVal);
+		[propget, id(3), helpstring("property Principal")] HRESULT Principal([out, retval] IMTSecurityPrincipal* *pVal);
+		[propget, id(4), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+		[propput, id(4), helpstring("property ID")] HRESULT ID([in] long newVal);
+		[id(5), helpstring("method GetActive")] HRESULT GetActive([in]IMTSessionContext* aCtx, [in]IMTSecurityPrincipal* aPrincipal, [out, retval]IMTPrincipalPolicy** apPolicy);
+		[id(6), helpstring("method GetDefault")] HRESULT GetDefault([in]IMTSessionContext* aCtx, [in]IMTSecurityPrincipal* aPrincipal, [out, retval]IMTPrincipalPolicy** apPolicy);
+		[id(7), helpstring("method GetAll")] HRESULT GetAll([in]IMTSessionContext* aCtx, [in]IMTSecurityPrincipal* aPrincipal, [out, retval]IMTCollection** apPolicy);
+		[propget, id(8), helpstring("property PolicyType")] HRESULT PolicyType([out, retval] MTPrincipalPolicyType *pVal);
+		[propput, id(8), helpstring("property PolicyType")] HRESULT PolicyType([in] MTPrincipalPolicyType newVal);
+		[id(9), helpstring("method AddCapability")] HRESULT AddCapability([in]IMTCompositeCapability* aCap);
+		[id(10), helpstring("method AddRole")] HRESULT AddRole([in]IMTRole* aRole);
+		[id(11), helpstring("method RemoveCapability")] HRESULT RemoveCapability([in]long aCapInstanceID);
+		[id(12), helpstring("method RemoveRole")] HRESULT RemoveRole([in]long aRoleID);
+		[id(13), helpstring("method RemoveCapabilitiesOfType")] HRESULT RemoveCapabilitiesOfType([in] long aTypeID);
+		[id(14), helpstring("method GetCapabilitiesAsRowset")] HRESULT GetCapabilitiesAsRowset([out, retval]IMTSQLRowset** apRowset);
+		[id(15), helpstring("method GetCapabilitiesOfType")] HRESULT GetCapabilitiesOfType([in]long aCapTypeID, [out, retval]IMTCollection** apCaps);
+		[id(16), helpstring("method GetRolesAsRowset")] HRESULT GetRolesAsRowset([out, retval]IMTSQLRowset** apRowset);
+		[id(17), helpstring("method IsPrincipalInRole")] HRESULT IsPrincipalInRole([in]BSTR aRoleName, [out, retval]VARIANT_BOOL* apResult);
+		[propget, id(18), helpstring("property Capabilities")] HRESULT Capabilities([out, retval] IMTCollection ** pVal);
+		[propget, id(19), helpstring("property Roles")] HRESULT Roles([out, retval] IMTCollection* *pVal);
+		[id(20), helpstring("method Save")] HRESULT Save();
+		[id(21), helpstring("method SaveCapabilities"), hidden] HRESULT SaveCapabilities();
+		[id(22), helpstring("method FromXML"), hidden] HRESULT FromXML([in]IMTSessionContext* aCtx, [in]IDispatch* aDomNode);
+		[id(23), helpstring("method ToXML")] HRESULT ToXML([out, retval]BSTR* apXmlString);
+		[id(24), helpstring("method RemoveAllRoles")] HRESULT RemoveAllRoles();
+		[id(25), helpstring("method RemoveAllCapabilities")] HRESULT RemoveAllCapabilities();
+		[id(26), helpstring("method RemoveCapabilityAt"), hidden] HRESULT RemoveCapabilityAt([in]long aCollectionPosition);
+	};
+	[
+		object,
+		uuid(1A892FD0-13F5-4FA3-BF87-D8E82DC49318),
+		dual,
+		helpstring("IMTRole Interface"),
+		pointer_default(unique)
+	]
+	interface IMTRole : IMTSecurityPrincipal
+	{
+		//name
+		[propget, id(11), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(11), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		//description
+		[propget, id(12), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+		[propput, id(12), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+		//returns true if capability of this type can be assigned to a CSR, false otherwise
+		[propget, id(13), helpstring("property CSRAssignable")] HRESULT CSRAssignable([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(13), helpstring("property CSRAssignable")] HRESULT CSRAssignable([in] VARIANT_BOOL newVal);
+		//returns true if capability of this type can be assigned to a Subscriber, false otherwise
+		[propget, id(14), helpstring("property SubscriberAssignable")] HRESULT SubscriberAssignable([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(14), helpstring("property SubscriberAssignable")] HRESULT SubscriberAssignable([in] VARIANT_BOOL newVal);
+		//inernal
+		[propget, id(15), helpstring("property GUID")] HRESULT GUID([out, retval] BSTR *pVal);
+		[propput, id(15), helpstring("property GUID")] HRESULT GUID([in] BSTR newVal);
+		//add a member tot this role
+		[id(16), helpstring("method AddMember")] HRESULT AddMember([in]IMTSessionContext* aCtx,[in]long aNewMember);
+		//bulkk add members operation
+		[id(17), helpstring("method AddMemberBatch")] HRESULT AddMemberBatch([in]IMTSessionContext* aCtx, [in]IMTCollection* apMembers, [in]IMTProgress* aProgress, [out, retval]IMTRowSet** apResultRs);
+		//returns all members as rowset
+		[id(18), helpstring("method GetMembersAsRowset")] HRESULT GetMembersAsRowset([in]IMTSessionContext* aCtx, [in]MTPrincipalPolicyType aPolicyType, [out, retval]IMTSQLRowset** apRowset);
+		//Does it have any members or not?
+		[id(19), helpstring("method HasMembers")] HRESULT HasMembers([in]IMTSessionContext* aCtx, [out, retval]VARIANT_BOOL* apRes);
+		//remove a member from this role
+		[id(20), helpstring("method RemoveMember")] HRESULT RemoveMember([in]IMTSessionContext* aCtx, [in]long aMemberID);
+		//internal
+		[id(21), helpstring("method SaveBase"), hidden] HRESULT SaveBase();
+	};
+
+	[
+		object,
+		uuid(9CC8A723-5EDA-4EFE-B6FA-35C053AD2696),
+		dual,
+		helpstring("IMTAtomicCapabilityBase Interface"),
+		pointer_default(unique)
+	]
+	/*
+		internal
+	*/
+	interface IMTAtomicCapabilityBase : IDispatch
+	{
+		[propget, id(1), helpstring("property ID")] HRESULT ID([out, retval] long *pVal);
+		[propput, id(1), helpstring("property ID")] HRESULT ID([in] long newVal);
+		[propget, id(2), helpstring("property ParentID")] HRESULT ParentID([out, retval] long *pVal);
+		[propput, id(2), helpstring("property ParentID")] HRESULT ParentID([in] long newVal);
+		[id(3), helpstring("method GetCapabilityType")] HRESULT GetCapabilityType([in]IMTAtomicCapability* thisPtr, [out, retval]IMTAtomicCapabilityType** apType);
+		[id(4), helpstring("method SetCapabilityType")] HRESULT SetCapabilityType([in]IMTAtomicCapabilityType*);
+		
+		//Save is called by every concrete atomic capability before saving parameters
+		[id(5), helpstring("method Save")] HRESULT Save([in]IMTAtomicCapability* apCap, [in]IMTPrincipalPolicy* apPolicy);
+		[id(6), helpstring("method Remove")] HRESULT Remove([in]IMTAtomicCapability* apThisPtr, [in]IMTPrincipalPolicy* aPolicy);
+	};
+	[
+		object,
+		uuid(F754C02E-FD81-449C-8340-AD9848F396DD),
+		dual,
+		helpstring("IMTPathParameter Interface"),
+		pointer_default(unique)
+	]
+	/*
+		represents a regular expression parameter which specifies a path in the hierarchy
+	*/
+	interface IMTPathParameter : IDispatch
+	{
+		//Path, representing position in the hierarchy. I.E. /metratech/engineering
+		[propget, id(1), helpstring("property Path")] HRESULT Path([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property Path")] HRESULT Path([in] BSTR newVal);
+		// None for current node, '*' for current node and direct descendents, '-' for current node
+		// and all nodes underneath.
+		[propget, id(2), helpstring("property WildCard")] HRESULT WildCard([out, retval] MTHierarchyPathWildCard *pVal);
+		[propput, id(2), helpstring("property WildCard")] HRESULT WildCard([in] MTHierarchyPathWildCard newVal);
+
+    //Returns the last node of the path
+		[propget, id(3), helpstring("property LeafNode")] HRESULT LeafNode([out, retval] BSTR *pVal);
+	};
+	
+// ----------------------------------------------------------------
+// Object:      MTSessionContext
+// Prog ID:     Metratech.MTSessionContext.1
+// Description: Context that holds information about the session
+//              in which an object is being used.
+// ----------------------------------------------------------------
+[
+	object,
+	uuid(84B4A174-456D-44A1-826E-686C6B218065),
+	dual,
+	helpstring("IMTSessionContext Interface"),
+	pointer_default(unique)
+]
+interface IMTSessionContext : IDispatch
+{
+	// the MetraTech internal account ID of the session's user.
+	[propget, id(1), helpstring("property AccountID")] HRESULT AccountID([out, retval] long *pVal);
+	[propput, id(1), helpstring("property AccountID")] HRESULT AccountID([in] long newVal);
+	//take IDispatch for now until we figure out how to import MTAuth without circular dependency
+	[propget, id(2), helpstring("property SecurityContext")] HRESULT SecurityContext([out, retval] IMTSecurityContext** pVal);
+	[propput, hidden, id(2), helpstring("property SecurityContext")] HRESULT SecurityContext([in] IMTSecurityContext* newVal);
+	//language id
+	[propget, id(3), helpstring("property LanguageID")] HRESULT LanguageID([out, retval] long *pVal);
+	[propput, id(3), helpstring("property LanguageID")] HRESULT LanguageID([in] long newVal);
+	//serialize session Context to XML
+	[id(4), helpstring("method ToXML")] HRESULT ToXML([out, retval]BSTR* apXMLString);
+	//deserialize session Context from XML
+	[id(5), helpstring("method FromXML")] HRESULT FromXML([in]BSTR aXMLString);
+	// LoggedInAs
+	[propget, id(6), helpstring("property LoggedInAs")] HRESULT LoggedInAs([out, retval] BSTR *pVal);
+	[propput, id(6), helpstring("property LoggedInAs")] HRESULT LoggedInAs([in] BSTR newVal);
+	// ApplicationName
+	[propget, id(7), helpstring("property ApplicationName")] HRESULT ApplicationName([out, retval] BSTR *pVal);
+	[propput, id(7), helpstring("property ApplicationName")] HRESULT ApplicationName([in] BSTR newVal);
+};
+
+[
+	object,	
+	uuid(a902aa48-833f-4fa6-83f2-d2d70938bdc2),
+	dual,
+	helpstring("IMTStringCollectionCapability Interface"),
+	pointer_default(unique)
+]
+interface IMTStringCollectionCapability : IMTAtomicCapability
+{
+	//sets enumerated type capability parameter
+	[id(12), helpstring("method SetParameter")] HRESULT SetParameter([in]IMTCollection *aParam);
+	//gets enumerated type capability parameter
+	[id(13), helpstring("method GetParameter")] HRESULT GetParameter([out, retval]IMTCollection** apParam);
+};

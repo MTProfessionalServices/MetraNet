@@ -1,0 +1,106 @@
+/**************************************************************************
+ * @doc MTPROCESSOR
+ *
+ * Copyright 1998 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ * Created by: Derek Young
+ * $Header$
+ *
+ * interface definition for processor stages.
+ ***************************************************************************/
+
+// include standard IDL files
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTSessionSet.idl";
+
+// configuration interface
+import "MTConfig.idl";
+
+/*
+ * @interface IMTPipelineProcessor |
+ * To be a pipeline plug-in, a COM object must implement the
+ * IMTPipelineProcessor interface.  The pipeline calls the methods
+ * of this interface at the appropriate times to process metered session data.
+ */
+[
+	object,
+	uuid(94001850-3170-11D2-A1C2-006008C0E24A),
+	dual,
+	helpstring("IMTPipelineProcessor Interface"),
+	pointer_default(unique)
+]
+interface IMTPipelineProcessor : IDispatch
+{
+	// @method HRESULT|IMTPipelineProcessor|Initialize|
+        // Initialize the processor, looking up any necessary property IDs.
+	// The processor can also use this time to do any other necessary initialization.
+        //
+        //  @parm IUnknown *|systemContext|
+        //   <i IMTSysContext> used to retrieve a <i IMTLog> object or <i IMTNameID> object.
+        //  @parm IMTConfigPropSet *|propSet|
+        //   Configuration of this plug-in
+        //
+	// @devnote This method can be called any number of times in order to
+	//  refresh the initialization of the processor.
+	[id(1), helpstring("Initialize processor")]
+	HRESULT Initialize(
+	  [in] IUnknown * systemContext,
+	  [in] IMTConfigPropSet * propSet,
+	  [in] long stageID, [in] long processorID, [in] int version);
+
+	// @method HRESULT|IMTPipelineProcessor|Shutdown|
+        // Shutdown the processor.  The processor can release any resources
+	// it no longer needs.
+	[id(2), helpstring("Shutdown processor")]
+	HRESULT Shutdown();
+
+        // Set this bit in order to indicate that the processor
+	// is free threaded and can operate on multiple sets of sessions
+	// at one time in different threads.
+	const long int MTPROC_FREETHREADED =	0x00000001;
+
+	// Set this bit in order to indicate that the processor
+	// examines properties, but doesn't modify or create any properties.
+	const long int MTPROC_PASSIVE =		0x00000002;
+
+	// Set this bit in order to indicate that the processor
+	// changes the next stage of sessions coming through the pipeline.
+	const long int MTPROC_STAGECHANGER =	0x00000004;
+
+	// @method HRESULT|IMTPipelineProcessor|ProcessorInfo|
+	// Return information about this processor.  Combine the flags
+	// listed above.
+	//
+	// @parm long *|info|
+	//  Combination of flags that describe the capabilities of the plug-in.
+	//
+	// @devnote This method is currently unused.  Your plug-in should
+	// return E_NOTIMPL
+	[id(3), helpstring("Return information about this processor")]
+	HRESULT ProcessorInfo([out,retval] long * info);
+
+	// @method HRESULT|IMTPipelineProcessor|ProcessSessions|
+	// The body of this method works with each of the sessions
+	// within the session set.
+	//
+	// @parm IMTSessionSet *|sessions|
+	//  Set of sessions that the plug in should process.
+	//
+	[id(4), helpstring("Process a set of sessions")]
+	HRESULT ProcessSessions([in] IMTSessionSet * sessions);
+};

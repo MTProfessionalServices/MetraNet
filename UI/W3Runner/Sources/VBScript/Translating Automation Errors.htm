@@ -1,0 +1,826 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0062)http://support.microsoft.com/support/kb/articles/Q186/0/63.ASP -->
+<HTML><HEAD><TITLE>INFO: Translating Automation Errors for VB/VBA (Long) (Q186063)</TITLE>
+<META http-equiv=CONTENT-Type content="text/html; charset=iso-8859-1">
+<META http-equiv=PICS-Label 
+content='(PICS-1.1 "http://www.rsac.org/ratingsv01.html" l gen true comment "RSACi North America Server" by "Inet@microsoft.com" for "http://support.microsoft.com" on "1998.02.17T12:28-0800" r (n 0 s 0 v 0 l 0))'>
+<META content=EN-US name=ms.locale>
+<META content="Support; KB Article" name=Category>
+<META content=Support name=Premium>
+<META 
+content="Support; KB; OffDev; kbVBSearch; kbOfficeSearch; kbAudDeveloper; kbZNotKeyword6; kbZNotKeyword2; kbOffice2000Search; kbVB500Search; kbVB600Search; kbOffice2000; kbOfficeXP; kbVBA500; kbVB500; kbVB600; kbOfficeXPSearch; kbVBASearch; kbZNotKeyword3; kbOfficeXPDevSearch; kbOffice2000DevSearch; " 
+name=KBArea>
+<META content=Q186063 name=KBID>
+<META content="INFO: Translating Automation Errors for VB/VBA (Long)" 
+name=KBTitle>
+<META 
+content="This article describes several methods you can use to obtain the message&#13;&#10;text for an error code. This article also contains a list of error codes&#13;&#10;and descriptions as found in Winerror.h." 
+name=Description>
+<META content=OffDev name=Product>
+<META content="May 21, 1998" name=KBCreate>
+<META content="May 4, 2001" name=KBModify>
+<META content="May 22, 1998" name=EditDate>
+<META content="" name=Question>
+<META content=":; WINDOWS:5.0,6.0" name=Versions>
+<META content="" name=Component>
+<META 
+content="kbVBSearch kbOfficeSearch kbAudDeveloper kbZNotKeyword6 kbZNotKeyword2 kbOffice2000Search kbVB500Search kbVB600Search kbOffice2000 kbOfficeXP kbVBA500 kbVB500 kbVB600 kbOfficeXPSearch kbVBASearch kbZNotKeyword3 kbOfficeXPDevSearch kbOffice2000DevSearch" 
+name=Technology>
+<META content="" name=Links>
+<META 
+content="kbinterop kbAPI kbAutomation kbVBp500 kbGrpDSO kbOffice2000 kbVBA500" 
+name=Keywords>
+<META content="" name=Platform>
+<META content="" name=Hardware>
+<META content="" name=SolutionType>
+<META content=kbinfo name=IssueType>
+<META content=artxref name=BoilerPlate>
+<META content="" name=ProducedView><LINK 
+href="INFO Translating Automation Errors for VB-VBA (Long) (Q186063)_files/style.css" 
+type=text/css rel=STYLESHEET>
+<META content="MSHTML 5.50.4522.1800" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff leftMargin=0 topMargin=0 rightMargin=0 MARGINWIDTH="0" 
+MARGINHEIGHT="0"><!-- Code replaced by GetParms -->
+<SCRIPT language=JavaScript>
+<!--//
+	var LNjsVal = "EN-US"
+	var SitejsVal = "GN"
+	var ServerjsVal = "support.microsoft.com"
+//-->
+</SCRIPT>
+
+<SCRIPT language=JavaScript 
+src="INFO Translating Automation Errors for VB-VBA (Long) (Q186063)_files/mnemonic.js"></SCRIPT>
+
+<SCRIPT language=JavaScript 
+src="INFO Translating Automation Errors for VB-VBA (Long) (Q186063)_files/kbsurvey.js"></SCRIPT>
+<!--TOOLBAR_START--><A name=TOP><A name=TOP></A><!-- Start: ToolBar V2.0--><!--TOOLBAR_EXEMPT-->
+<SCRIPT language=JavaScript 
+src="INFO Translating Automation Errors for VB-VBA (Long) (Q186063)_files/toolbar.js"></SCRIPT>
+
+<SCRIPT language=JavaScript 
+src="INFO Translating Automation Errors for VB-VBA (Long) (Q186063)_files/global.js"></SCRIPT>
+
+<SCRIPT language=JavaScript 
+src="INFO Translating Automation Errors for VB-VBA (Long) (Q186063)_files/EN-US_local.js"></SCRIPT>
+<!-- Start: ToolBar for down-level browsers--><SPAN id=TBDownLevelDiv>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ffffff border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width="100%" height=60 rowSpan=2><A 
+      href="http://support.microsoft.com/isapi/gosupport.asp?target=/directory/default.asp"><IMG 
+      alt="Microsoft Product Support Services" 
+      src="INFO Translating Automation Errors for VB-VBA (Long) (Q186063)_files/pss_EN-US.gif" 
+      border=0></A></TD>
+    <TD vAlign=top align=right height=20><IMG height=20 alt="" 
+      src="INFO Translating Automation Errors for VB-VBA (Long) (Q186063)_files/curve.gif" 
+      width=18 border=0></TD><!--Start Global Toolbar Section-->
+    <TD vAlign=center noWrap align=right bgColor=#000000 colSpan=2 
+      height=20><FONT face="Verdana, Arial" color=#ffffff 
+      size=1><B>&nbsp;&nbsp;<A style="COLOR: #ffffff; TEXT-DECORATION: none" 
+      target=_top 
+      href="http://support.microsoft.com/isapi/gomscom.asp?target=/products/"><FONT 
+      color=#ffffff>All Products</FONT></A>&nbsp;&nbsp;<FONT 
+      color=#ffffff>|</FONT> &nbsp;&nbsp;<A 
+      style="COLOR: #ffffff; TEXT-DECORATION: none" target=_top 
+      href="http://support.microsoft.com/isapi/gosupport.asp?target=/directory/default.asp?fr=0&amp;sd=gn"><FONT 
+      color=#ffffff>Support</FONT></A>&nbsp;&nbsp;<FONT color=#ffffff>|</FONT> 
+      &nbsp;&nbsp;<A style="COLOR: #ffffff; TEXT-DECORATION: none" target=_top 
+      href="http://support.microsoft.com/isapi/gosearch.asp?target=/"><FONT 
+      color=#ffffff>Search</FONT></A>&nbsp;&nbsp;<FONT color=#ffffff>|</FONT> 
+      &nbsp;&nbsp;<A style="COLOR: #ffffff; TEXT-DECORATION: none" target=_top 
+      href="http://support.microsoft.com/isapi/gomscom.asp?target=/"><FONT 
+      color=#ffffff>microsoft.com Home</FONT></A>&nbsp;&nbsp; </B></FONT></TD><!--End Global Toolbar Section--></TR>
+  <TR>
+    <TD vAlign=top width=19 height=40><IMG height=40 
+      src="INFO Translating Automation Errors for VB-VBA (Long) (Q186063)_files/1ptrans.gif" 
+      width=19 border=0></TD>
+    <TD vAlign=top noWrap align=right colSpan=2 height=40><A target=_top 
+      href="http://support.microsoft.com/isapi/gomscom.asp?target=/"><IMG 
+      height=40 alt=microsoft.com 
+      src="INFO Translating Automation Errors for VB-VBA (Long) (Q186063)_files/mslogo.gif" 
+      width=112 border=0></A></TD></TR><!-- Start: Black Line Spacer  -->
+  <TR>
+    <TD noWrap bgColor=#000000 colSpan=4 height=1></TD></TR><!-- End: Black Line Spacer -->
+  <TR><!-- Start: Local menus -->
+    <TD vAlign=center noWrap bgColor=#000000 colSpan=4 height=20><FONT 
+      face="Verdana, Arial" color=#ffffff size=1><B>&nbsp;&nbsp;<A title=Home 
+      style="COLOR: #ffffff; TEXT-DECORATION: none" target=_top 
+      href="http://support.microsoft.com/isapi/gosupport.asp?target=/directory/default.asp"><FONT 
+      color=#ffffff>Support Home</FONT></A>&nbsp;&nbsp;<FONT 
+      color=#ffffff>|</FONT> &nbsp;&nbsp;<A title="Find a Solution" 
+      style="COLOR: #ffffff; TEXT-DECORATION: none" target=_top 
+      href="http://support.microsoft.com/isapi/gosupport.asp?target=/directory/self.asp?ln=en-us&amp;sd=gn&amp;fr=0"><FONT 
+      color=#ffffff>Find a Solution</FONT></A>&nbsp;&nbsp;<FONT 
+      color=#ffffff>|</FONT> &nbsp;&nbsp;<A title="Request Support" 
+      style="COLOR: #ffffff; TEXT-DECORATION: none" target=_top 
+      href="http://support.microsoft.com/isapi/gosupport.asp?target=/directory/directory.asp?ln=en-us&amp;sd=gn&amp;fr=0"><FONT 
+      color=#ffffff>Request Support</FONT></A>&nbsp;&nbsp;<FONT 
+      color=#ffffff>|</FONT> &nbsp;&nbsp;<A 
+      title="Comprehensive support customized by customer type" 
+      style="COLOR: #ffffff; TEXT-DECORATION: none" target=_top 
+      href="http://support.microsoft.com/isapi/gosupport.asp?target=/directory/customer.asp?sd=gn&amp;fr=0"><FONT 
+      color=#ffffff>Custom Support</FONT></A>&nbsp;&nbsp;<FONT 
+      color=#ffffff>|</FONT> </B></FONT></TD><!-- End: Local menus --></TR><!-- Start: Black Line Spacer  -->
+  <TR>
+    <TD noWrap bgColor=#000000 colSpan=4 height=1></TD></TR><!-- End: Black Line Spacer --></TBODY></TABLE></SPAN><!-- End: ToolBar For down-level browsers-->
+<SCRIPT language=JavaScript>
+<!--// Hide from old browsers
+	var ToolBar_Supported = ToolBar_Supported;
+	if (ToolBar_Supported != null && ToolBar_Supported == true)
+	{
+		TBDownLevelDiv.style.display = "none";
+		drawToolbar();
+	}
+//-->
+</SCRIPT>
+<!-- End: ToolBar V2.0--><!--TOOLBAR_END--><!--TOOLBAR_END-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top>
+      <CENTER>
+      <TABLE cellSpacing=0 cellPadding=0 width="95%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top><FONT face="Verdana, Arial, Helvetica" size=2>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD>
+                  <H2>INFO: Translating Automation Errors for VB/VBA 
+                (Long)</H2></TD></TR></TBODY></TABLE>
+            <HR>
+            The information in this article applies to:<BR>
+            <UL>
+              <LI>Microsoft Office XP Developer 
+              <LI>Microsoft Office 2000 Developer 
+              <LI>Microsoft Visual Basic Learning Edition for Windows, versions 
+              5.0, 6.0 
+              <LI>Microsoft Visual Basic Professional Edition for Windows, 
+              versions 5.0, 6.0 
+              <LI>Microsoft Visual Basic Enterprise Edition for Windows, 
+              versions 5.0, 6.0 
+              <LI>Microsoft Visual Basic for Applications version 5.0</LI></UL>
+            <HR>
+            <BR>
+            <H2>SUMMARY</H2>
+            <P>This article describes several methods you can use to obtain the 
+            message text for an error code. This article also contains a list of 
+            error codes and descriptions as found in Winerror.h. 
+            <BR><BR><B>NOTE</B>: When errors are raised when working with the 
+            Automation in Visual Basic or with VBA (Visual Basic for 
+            Applications), the error does not always include the message text 
+            for the error. </P><BR>
+            <H2>MORE INFORMATION</H2>
+            <P>
+            <H3>Refer to Winerror.h</H3>When automating another application with 
+            Visual Basic or VBA, you may receive an error similar to the 
+            following: 
+            <BLOCKQUOTE>
+              <DIV class=ERRORMESSAGE>Run-time error '-2147418094 
+              (80010012)':<BR>Automation Error. </DIV></BLOCKQUOTE>The value 
+            -2147418094 corresponds to the decimal representation of the error 
+            code; 80010012 corresponds to the hexadecimal representation of the 
+            same code. This code is documented in the Microsoft Visual C++ 
+            header file Winerror.h. To locate the error code, search for the 
+            hexadecimal representation of the error code (that is, 80010012). 
+            The following is an excerpt from Winerror.h, which describes this 
+            error: <PRE class=CODESAMP>   // 
+   // MessageId: RPC_E_SERVER_DIED_DNE
+   // 
+   // MessageText:
+   // 
+   //  The callee (server [not server application]) is not available
+   //  and disappeared; all connections are invalid.  The call did not
+   //  execute.
+   // 
+   #define RPC_E_SERVER_DIED_DNE            _HRESULT_TYPEDEF_(0x80010012L) </PRE>Winerror.h 
+            is included with Microsoft Visual C++ and is also provided with the 
+            Microsoft Developer Network (MSDN) Library. <BR><BR><B>NOTE</B>: 
+            Automation errors that are specific to a server application are not 
+            listed in Winerror.h. If you do not find the error code in 
+            Winerror.h, check the documentation for the server application. 
+            Usually, with application-specific errors, the last 4 digits of the 
+            hexadecimal representation of the error code refer to the 
+            application specific error. 
+            <H3>Use FormatMessage</H3>You can use the FormatMessage API function 
+            to determine the message text associated with an automation error 
+            code. The sample function below illustrates how you can use 
+            FormatMessage to obtain the message text: <PRE class=CODESAMP>   Option Explicit
+
+   Const FORMAT_MESSAGE_FROM_SYSTEM = &amp;H1000
+
+   Private Declare Function FormatMessage Lib "kernel32" Alias _
+      "FormatMessageA" ( ByVal dwFlags As Long, lpSource As Long, _
+      ByVal dwMessageId As Long, ByVal dwLanguageId As Long, _
+      ByVal lpBuffer As String, ByVal nSize As Long, Arguments As Any) _
+      As Long
+
+   Private Function MessageText(lCode As Long) As String
+       Dim sRtrnCode As String
+       Dim lRet As Long
+
+       sRtrnCode = Space$(256)
+       lRet = FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, 0&amp;, lCode, 0&amp;, _
+                 sRtrnCode, 256&amp;, 0&amp;)
+       If lRet &gt;0 Then
+          MessageText = Left(sRtrnCode, lRet)
+       Else
+          MessageText = "Error not found."
+       End If
+
+   End Function </PRE>The next example illustrates how you can use 
+            this function with your automation code. In this example, Microsoft 
+            Excel is the server application. Referencing a workbook object once 
+            it is destroyed (or closed) generates the error. To illustrate how 
+            to use the MessageText function, this example purposely generates an 
+            automation error by referencing a workbook object after the workbook 
+            has been closed: <PRE class=CODESAMP>Dim xl As Object
+   Dim book As Object
+   Dim sMsg As String
+
+   Set xl = CreateObject("excel.application")
+   Set book = xl.workbooks.Add
+   book.Close False
+   On Error Resume Next
+   Debug.Print book.Name  '&lt;-Generates an automation error because the
+                          '  workbook referenced by the book object has
+                          '  been closed.
+
+   If Err.Number &lt;&gt;0 Then
+
+       sMsg = MessageText(Err.Number)
+       MsgBox "Automation Error " &amp; vbCr &amp; Err.Number &amp; _
+              " (" &amp; Hex(Err.Number) &amp; ")" &amp; vbCr &amp; sMsg
+
+   End If
+   On Error GoTo 0
+   Set xl = Nothing </PRE>Referencing the book object after the 
+            workbook is destroyed generates the run-time error -2147418094 
+            (80010012). This is the message text returned by FormatMessage for 
+            this particular error: 
+            <BLOCKQUOTE>
+              <DIV class=ERRORMESSAGE>The callee (server [not server 
+              application]) is not available and disappeared; all connections 
+              are invalid. The call did not execute. 
+            </DIV></BLOCKQUOTE><B>NOTE</B>: The FormatMessage function does not 
+            return errors that are specific to an application. 
+            <H3>Use "Error Lookup"</H3>Microsoft Visual C++ version 5.0 includes 
+            a utility called "Error Lookup" that provides the message text for 
+            error codes. <BR><BR>To use this utility, start Microsoft Visual C++ 
+            and click <B>Error Lookup</B> on the <B>Tools</B> menu. Type the 
+            error code and click <B>Lookup</B>. As an example, if you had 
+            received the previously described error, -2147418094 (80010012), you 
+            would type the following text in "Error Lookup" and then click 
+            <B>Lookup</B>: 
+            <BLOCKQUOTE>0x80010012 </BLOCKQUOTE>
+            <H3>Error List from WINERROR.H</H3>The following table describes the 
+            error codes contained in Winerror.h included with Microsoft Visual 
+            C++ version 5.0: <PRE class=FIXEDTEXT>  Automation   Automation
+  Error        Error
+  in Decimal   in Hex       Error Description
+
+-2147418113 (8000FFFF)    Catastrophic failure.
+-2147942413 (8007000D)    The Data is invalid.
+
+-2147467263 (80004001)    Not implemented.
+-2147024882 (8007000E)    Ran out of memory.
+-2147024809 (80070057)    One or more arguments are invalid.
+-2147467262 (80004002)    No such interface supported.
+-2147467261 (80004003)    Invalid pointer.
+-2147024890 (80070006)    Invalid handle.
+-2147467260 (80004004)    Operation aborted.
+-2147467259 (80004005)    Unspecified error.
+-2147024891 (80070005)    General access denied error.
+-2147483647 (80000001)    Not implemented.
+-2147483646 (80000002)    Ran out of memory.
+-2147483645 (80000003)    One or more arguments are invalid.
+-2147483644 (80000004)    No such interface supported.
+-2147483643 (80000005)    Invalid pointer.
+-2147483642 (80000006)    Invalid handle.
+-2147483641 (80000007)    Operation aborted.
+-2147483640 (80000008)    Unspecified error.
+-2147483639 (80000009)    General access denied error.
+-2147483638 (8000000A)    The data necessary to complete this operation
+                          not yet available.
+-2147467258 (80004006)    Thread local storage failure.
+-2147467257 (80004007)    Get shared memory allocator failure.
+-2147467256 (80004008)    Get memory allocator failure.
+-2147467255 (84009)       Unable to initialize class cache.
+-2147467254 (8400A)       Unable to initialize RPC services.
+-2147467253 (8000400B)    Cannot set thread local storage channel control.
+-2147467252 (8000400C)    Could not allocate thread local storage channel
+                          control.
+-2147467251 (8000400D)    The user supplied memory allocator is
+                          unacceptable.
+-2147467250 (8000400E)    The OLE service mutex already exists.
+-2147467249 (8000400F)    The OLE service file mapping already exists.
+-2147467248 (80004010)    Unable to map view of file for OLE service.
+-2147467247 (80004011)    Failure attempting to launch OLE service.
+-2147467246 (80004012)    There was an attempt to call CoInitialize a
+                          second time while single threaded.
+-2147467245 (80004013)    A Remote activation was necessary but was not
+                          allowed.
+-2147467244 (80004014)    A Remote activation was necessary but the server
+                          name provided was invalid.
+-2147467243 (80004015)    The class is configured to run as a security id
+                          different from the caller.
+-2147467242 (80004016)    Use of Ole1 services requiring DDE windows is
+                          disabled.
+-2147467241 (80004017)    A RunAs specification must be A RunAs 
+                          specification must be 
+                          &lt;domain name&gt;\&lt;user name&gt; or simply 
+                          &lt;user name&gt;.             
+-2147467240 (80004018)    The server process could not be started. The
+                          pathname may be incorrect.  
+-2147467239 (80004019)    The server process could not be started as the
+                          configured identity. The pathname may be
+                          incorrect or unavailable.  
+-2147467238 (8000401A)    The server process could not be started because
+                          the configured identity is incorrect. Check the
+                          username and password. 
+-2147467237 (8000401B)    The client is not allowed to launch this server. 
+-2147467236 (8000401C)    The service providing this server could not be
+                          started. 
+-2147467235 (8000401D)    This computer was unable to communicate with the
+                          computer providing the server. 
+-2147467234 (8000401E)    The server did not respond after being launched. 
+-2147467233 (8000401F)    The registration information for this server is
+                          inconsistent or incomplete. 
+-2147467232 (80004020)    The registration information for this interface
+                          is inconsistent or incomplete. 
+-2147467231 (80004021)    The operation attempted is not supported. 
+-2147221504 (80040000)    Invalid OLEVERB structure.
+-2147221503 (80040001)    Invalid advise flags.
+-2147221502 (80040002)    Can't enumerate any more, because the associated
+                          data is missing.
+-2147221501 (80040003)    This implementation doesn't take advises.
+-2147221500 (80040004)    There is no connection for this connection ID.
+-2147221499 (80040005)    Need to run the object to perform this operation.
+-2147221498 (80040006)    There is no cache to operate on.
+-2147221497 (80040007)    Uninitialized object.
+-2147221496 (80040008)    Linked object's source class has changed.
+-2147221495 (80040009)    Not able to get the moniker of the object.
+-2147221494 (8004000A)    Not able to bind to the source.
+-2147221493 (8004000B)    Object is static; operation not allowed.
+-2147221492 (8004000C)    User cancelled out of save dialog.
+-2147221491 (8004000D)    Invalid rectangle.
+-2147221490 (8004000E)    compobj.dll is too old for the ole2.dll
+                          initialized.
+-2147221489 (8004000F)    Invalid window handle.
+-2147221488 (80040010)    Object is not in any of the inplace active states.
+-2147221487 (80040011)    Not able to convert object.
+-2147221486 (80040012)    Not able to perform the operation because object
+                          is not given storage yet.
+-2147221404 (80040064)    Invalid FORMATETC structure.
+-2147221403 (80040065)    Invalid DVTARGETDEVICE structure.
+-2147221402 (80040066)    Invalid STDGMEDIUM structure.
+-2147221401 (80040067)    Invalid STATDATA structure.
+-2147221400 (80040068)    Invalid lindex.
+-2147221399 (80040069)    Invalid tymed.
+-2147221398 (8004006A)    Invalid clipboard format.
+-2147221397 (8004006B)    Invalid aspect(s).
+-2147221396 (8004006C)    tdSize parameter of the DVTARGETDEVICE structure
+                          is invalid.
+-2147221395 (8004006D)    Object doesn't support IViewObject interface.
+-2147221248 (80040100)    Trying to revoke a drop target that has not been
+                          registered.
+-2147221247 (80040101)    This window has already been registered as a drop
+                          target.
+-2147221246 (80040102)    Invalid window handle.
+-2147221232 (80040110)    Class does not support aggregation (or class
+                          object is remote).
+-2147221231 (80040111)    ClassFactory cannot supply requested class.
+-2147221184 (80040140)    Error drawing view.
+-2147221168 (80040150)    Could not read key from registry.
+-2147221167 (80040151)    Could not write key to registry.
+-2147221166 (80040152)    Could not find the key in the registry.
+-2147221165 (80040153)    Invalid value for registry.
+-2147221164 (80040154)    Class not registered.
+-2147221163 (80040155)    Interface not registered.
+-2147221136 (80040170)    Cache not updated.
+-2147221120 (80040180)    No verbs for OLE object.
+-2147221119 (80040181)    Invalid verb for OLE object.
+-2147221088 (800401A0)    Undo is not available.
+-2147221087 (800401A1)    Space for tools is not available.
+-2147221056 (800401C0)    OLESTREAM Get method failed.
+-2147221055 (800401C1)    OLESTREAM Put method failed.
+-2147221054 (800401C2)    Contents of the OLESTREAM not in correct format.
+-2147221053 (800401C3)    There was an error in a Windows GDI call while
+                          converting the bitmap to a DIB.
+-2147221052 (800401C4)    Contents of the IStorage not in correct format.
+-2147221051 (800401C5)    Contents of IStorage is missing one of the
+                          standard streams.
+-2147221050 (800401C6)    There was an error in a Windows GDI call while
+                          converting the DIB to a bitmap. 
+-2147221040 (800401D0)    OpenClipboard Failed.
+-2147221039 (800401D1)    EmptyClipboard Failed.
+-2147221038 (800401D2)    SetClipboard Failed.
+-2147221037 (800401D3)    Data on clipboard is invalid.
+-2147221036 (800401D4)    CloseClipboard Failed.
+-2147221024 (800401E0)    Moniker needs to be connected manually.
+-2147221023 (800401E1)    Operation exceeded deadline.
+-2147221022 (800401E2)    Moniker needs to be generic.
+-2147221021 (800401E3)    Operation unavailable.
+-2147221020 (800401E4)    Invalid syntax.
+-2147221019 (800401E5)    No object for moniker.
+-2147221018 (800401E6)    Bad extension for file.
+-2147221017 (800401E7)    Intermediate operation failed.
+-2147221016 (800401E8)    Moniker is not bindable.
+-2147221015 (800401E9)    Moniker is not bound.
+-2147221014 (800401EA)    Moniker cannot open file.
+-2147221013 (800401EB)    User input required for operation to succeed.
+-2147221012 (800401EC)    Moniker class has no inverse.
+-2147221011 (800401ED)    Moniker does not refer to storage.
+-2147221010 (800401EE)    No common prefix.
+-2147221009 (800401EF)    Moniker could not be enumerated.
+-2147221008 (800401F0)    CoInitialize has not been called. 
+-2147221007 (800401F1)    CoInitialize has already been called. 
+-2147221006 (800401F2)    Class of object cannot be determined.
+-2147221005 (800401F3)    Invalid class string.
+-2147221004 (800401F4)    Invalid interface string.
+-2147221003 (800401F5)    Application not found.
+-2147221002 (800401F6)    Application cannot be run more than once.
+-2147221001 (800401F7)    Some error in application program.
+-2147221000 (800401F8)    DLL for class not found.
+-2147220999 (800401F9)    Error in the DLL.
+-2147220998 (800401FA)    Wrong OS or OS version for application.
+-2147220997 (800401FB)    Object is not registered.
+-2147220996 (800401FC)    Object is already registered.
+-2147220995 (800401FD)    Object is not connected to server.
+-2147220994 (800401FE)    Application was launched but it didn't register a
+                          class factory.
+-2147220993 (800401FF)    Object has been released.
+-2146959359 (80080001)    Attempt to create a class object failed.
+-2146959358 (80080002)    OLE service could not bind object.
+-2146959357 (80080003)    RPC communication failed with OLE service.
+-2146959356 (80080004)    Bad path to object.
+-2146959355 (80080005)    Server execution failed.
+-2146959354 (80080006)    OLE service could not communicate with the object
+                          server.
+-2146959353 (80080007)    Moniker path could not be normalized.
+-2146959352 (80080008)    Object server is stopping when OLE service
+                          contacts it.
+-2146959351 (80080009)    An invalid root block pointer was specified.
+-2146959344 (80080010)    An allocation chain contained an invalid link
+                          pointer.
+-2146959343 (80080011)    The requested allocation size was too large.
+-2147352575 (80020001)    Unknown interface. 
+-2147352573 (80020003)    Member not found. 
+-2147352572 (80020004)    Parameter not found. 
+-2147352571 (80020005)    Type mismatch. 
+-2147352570 (80020006)    Unknown name.  
+-2147352569 (80020007)    No named arguments. 
+-2147352568 (80020008)    Bad variable type. 
+-2147352567 (80020009)    Exception occurred. 
+-2147352566 (8002000A)    Out of present range. 
+-2147352565 (8002000B)    Invalid index. 
+-2147352564 (8002000C)    Unknown language. 
+-2147352563 (8002000D)    Memory is locked. 
+-2147352562 (8002000E)    Invalid number of parameters. 
+-2147352561 (8002000F)    Parameter not optional. 
+-2147352560 (80020010)    Invalid callee. 
+-2147352559 (80020011)    Does not support a collection. 
+-2147319786 (80028016)    Buffer too small. 
+-2147319784 (80028018)    Old format or invalid type library. 
+-2147319783 (80028019)    Old format or invalid type library. 
+-2147319780 (8002801C)    Error accessing the OLE registry. 
+-2147319779 (8002801D)    Library not registered. 
+-2147319769 (80028027)    Bound to unknown type. 
+-2147319768 (80028028)    Qualified name disallowed. 
+-2147319767 (80028029)    Invalid forward reference, or reference to
+                          uncompiled type. 
+-2147319766 (8002802A)    Type mismatch. 
+-2147319765 (8002802B)    Element not found. 
+-2147319764 (8002802C)    Ambiguous name. 
+-2147319763 (8002802D)    Name already exists in the library. 
+-2147319762 (8002802E)    Unknown LCID. 
+-2147319761 (8002802F)    Function not defined in specified DLL. 
+-2147317571 (800288BD)    Wrong module kind for the operation. 
+-2147317563 (800288C5)    Size may not exceed 64K. 
+-2147317562 (800288C6)    Duplicate ID in inheritance hierarchy. 
+-2147317553 (800288CF)    Incorrect inheritance depth in standard OLE
+                          hmember. 
+-2147316576 (80028CA0)    Type mismatch. 
+-2147316575 (80028CA1)    Invalid number of arguments. 
+-2147316574 (80028CA2)    I/O Error. 
+-2147316573 (80028CA3)    Error creating unique tmp file. 
+-2147312566 (80029C4A)    Error loading type library/DLL. 
+-2147312509 (80029C83)    Inconsistent property functions. 
+-2147312508 (80029C84)    Circular dependency between types/modules. 
+-2147287039 (80030001)    Unable to perform requested operation. 
+-2147287038 (80030002)    %1 could not be found. 
+-2147287037 (80030003)    The path %1 could not be found. 
+-2147287036 (80030004)    There are insufficient resources to open another
+                          file. 
+-2147287035 (80030005)    Access Denied. 
+-2147287034 (80030006)    Attempted an operation on an invalid object. 
+-2147287032 (80030008)    There is insufficient memory available to
+                          complete operation. 
+-2147287031 (80030009)    Invalid pointer error. 
+-2147287022 (80030012)    There are no more entries to return. 
+-2147287021 (80030013)    Disk is write-protected. 
+-2147287015 (80030019)    An error occurred during a seek operation. 
+-2147287011 (8003001D)    A disk error occurred during a write operation. 
+-2147287010 (8003001E)    A disk error occurred during a read operation. 
+-2147287008 (80030020)    A share violation has occurred. 
+-2147287007 (80030021)    A lock violation has occurred. 
+-2147286960 (80030050)    %1 already exists. 
+-2147286953 (80030057)    Invalid parameter error. 
+-2147286928 (80030070)    There is insufficient disk space to complete
+                          operation. 
+-2147286800 (800300F0)    Illegal write of non-simple property to simple
+                          property set. 
+-2147286790 (800300FA)    An API call exited abnormally. 
+-2147286789 (800300FB)    The file %1 is not a valid compound file. 
+-2147286788 (800300FC)    The name %1 is not valid. 
+-2147286787 (800300FD)    An unexpected error occurred. 
+-2147286786 (800300FE)    That function is not implemented. 
+-2147286785 (800300FF)    Invalid flag error. 
+-2147286784 (80030100)    Attempted to use an object that is busy. 
+-2147286783 (80030101)    The storage has been changed since the last
+                          commit. 
+-2147286782 (80030102)    Attempted to use an object that has ceased to
+                          exist. 
+-2147286781 (80030103)    Can't save. 
+-2147286780 (80030104)    The compound file %1 was produced with an
+                          incompatible version of storage. 
+-2147286779 (80030105)    The compound file %1 was produced with a newer
+                          version of storage. 
+-2147286778 (80030106)    Share.exe or equivalent is required for
+                          operation. 
+-2147286777 (80030107)    Illegal operation called on non-file based
+                          storage. 
+-2147286776 (80030108)    Illegal operation called on object with extant
+                          marshallings. 
+-2147286775 (80030109)    The docfile has been corrupted. 
+-2147286768 (80030110)    OLE32.DLL has been loaded at the wrong address. 
+-2147286527 (80030201)    The file download was aborted abnormally. The
+                          file is incomplete. 
+-2147286526 (80030202)    The file download has been terminated. 
+-2147418111 (80010001)    Call was rejected by callee. 
+-2147418110 (80010002)    Call was canceled by the message filter. 
+-2147418109 (80010003)    The caller is dispatching an intertask
+                          SendMessage call and cannot call out via
+                          PostMessage. 
+-2147418108 (80010004)    The caller is dispatching an asynchronous call
+                          and cannot make an outgoing call on behalf of
+                          this call. 
+-2147418107 (80010005)    It is illegal to call out while inside message
+                          filter. 
+-2147418106 (80010006)    The connection terminated or is in a bogus state
+                          and cannot be used any more. Other connections
+                          are still valid. 
+-2147418105 (80010007)    The callee (server [not server application]) is
+                          not available and disappeared; all connections
+                          are invalid. The call may have executed. 
+-2147418104 (80010008)    The caller (client) disappeared while the callee
+                          (server) was processing a call. 
+-2147418103 (80010009)    The data packet with the marshalled parameter
+                          data is incorrect. 
+-2147418102 (8001000A)    The call was not transmitted properly; the
+                          message queue was full and was not emptied after
+                          yielding. 
+-2147418101 (8001000B)    The client (caller) cannot marshal the parameter
+                          data - low memory, etc. 
+-2147418100 (8001000C)    The client (caller) cannot unmarshal the return
+                          data - low memory, etc. 
+-2147418099 (8001000D)    The server (callee) cannot marshal the return
+                          data - low memory, etc. 
+-2147418098 (8001000E)    The server (callee) cannot unmarshal the
+                          parameter data - low memory, etc. 
+-2147418097 (8001000F)    Received data is invalid; could be server or
+                          client data. 
+-2147418096 (80010010)    A particular parameter is invalid and cannot be
+                          (un)marshalled. 
+-2147418095 (80010011)    There is no second outgoing call on same channel
+                          in DDE conversation. 
+-2147418094 (80010012)    The callee (server [not server application]) is
+                          not available and disappeared; all connections
+                          are invalid. The call did not execute. 
+-2147417856 (80010100)    System call failed. 
+-2147417855 (80010101)    Could not allocate some required resource
+                          (memory, events, ...) 
+-2147417854 (80010102)    Attempted to make calls on more than one thread
+                          in single threaded mode. 
+-2147417853 (80010103)    The requested interface is not registered on the
+                          server object. 
+-2147417852 (80010104)    RPC could not call the server or could not return
+                          the results of calling the server. 
+-2147417851 (80010105)    The server threw an exception. 
+-2147417850 (80010106)    Cannot change thread mode after it is set. 
+-2147417849 (80010107)    The method called does not exist on the server. 
+-2147417848 (80010108)    The object invoked has disconnected from its
+                          clients. 
+-2147417847 (80010109)    The object invoked chose not to process the call
+                          now. Try again later. 
+-2147417846 (8001010A)    The message filter indicated that the application
+                          is busy. 
+-2147417845 (8001010B)    The message filter rejected the call. 
+-2147417844 (8001010C)    A call control interfaces was called with invalid
+                          data. 
+-2147417843 (8001010D)    An outgoing call cannot be made since the
+                          application is dispatching an input-synchronous
+                          call. 
+-2147417842 (8001010E)    The application called an interface that was
+                          marshalled for a different thread. 
+-2147417841 (8001010F)    CoInitialize has not been called on the current
+                          thread. 
+-2147417840 (80010110)    The version of OLE on the client and server
+                          machines does not match. 
+-2147417839 (80010111)    OLE received a packet with an invalid header. 
+-2147417838 (80010112)    OLE received a packet with an invalid extension. 
+-2147417837 (80010113)    The requested object or interface does not exist. 
+-2147417836 (80010114)    The requested object does not exist. 
+-2147417835 (80010115)    OLE has sent a request and is waiting for a
+                          reply. 
+-2147417834 (80010116)    OLE is waiting before retrying a request. 
+-2147417833 (80010117)    Call context cannot be accessed after call
+                          completed. 
+-2147417832 (80010118)    Impersonate on unsecured calls is not supported. 
+-2147417831 (80010119)    Security must be initialized before any
+                          interfaces are marshalled or unmarshalled. It
+                          cannot be changed once initialized. 
+-2147417830 (8001011A)    No security packages are installed on this
+                          machine or the user is not logged on or there are
+                          no compatible security packages between the
+                          client and server. 
+-2147417829 (8001011B)    Access is denied. 
+-2147417828 (8001011C)    Remote calls are not allowed for this process. 
+-2147417827 (8001011D)    The marshalled interface data packet (OBJREF) has
+                          an invalid or unknown format. 
+-2147352577 (8001FFFF)    An internal error occurred. 
+-2146893823 (80090001)    Bad UID. 
+-2146893822 (80090002)    Bad Hash. 
+-2146893821 (80090003)    Bad Key. 
+-2146893820 (80090004)    Bad Length. 
+-2146893819 (80090005)    Bad Data. 
+-2146893818 (80090006)    Invalid Signature. 
+-2146893817 (80090007)    Bad Version of provider. 
+-2146893816 (80090008)    Invalid algorithm specified. 
+-2146893815 (80090009)    Invalid flags specified. 
+-2146893814 (8009000A)    Invalid type specified. 
+-2146893813 (8009000B)    Key not valid for use in specified state. 
+-2146893812 (8009000C)    Hash not valid for use in specified state. 
+-2146893811 (8009000D)    Key does not exist.  
+-2146893810 (8009000E)    Insufficient memory available for the operation. 
+-2146893809 (8009000F)    Object already exists. 
+-2146893808 (80090010)    Access denied. 
+-2146893807 (80090011)    Object was not found. 
+
+-2146893806 (80090012)    Data already encrypted. 
+-2146893805 (80090013)    Invalid provider specified. 
+-2146893804 (80090014)    Invalid provider type specified. 
+-2146893803 (80090015)    Provider's public key is invalid. 
+-2146893802 (80090016)    Keyset does not exist. 
+-2146893801 (80090017)    Provider type not defined. 
+-2146893800 (80090018)    Provider type as registered is invalid. 
+-2146893799 (80090019)    The keyset is not defined. 
+-2146893798 (8009001A)    Keyset as registered is invalid. 
+-2146893797 (8009001B)    Provider type does not match registered value. 
+-2146893796 (8009001C)    The digital signature file is corrupt. 
+-2146893795 (8009001D)    Provider DLL failed to initialize correctly. 
+-2146893794 (8009001E)    Provider DLL could not be found. 
+-2146893793 (8009001F)    The Keyset parameter is invalid. 
+-2146893792 (80090020)    An internal error occurred. 
+-2146893791 (80090021)    A base error occurred. 
+-2146762751 (800B0001)    The specified trust provider is not known on this
+                          system. 
+-2146762750 (800B0002)    The trust verification action specified is not
+                          supported by the specified trust provider. 
+-2146762749 (800B0003)    The form specified for the subject is not one
+                          supported or known by the specified trust
+                          provider. 
+-2146762748 (800B0004)    The subject is not trusted for the specified
+                          action. 
+-2146762747 (800B0005)    Error due to problem in ASN.1 encoding process. 
+-2146762746 (800B0006)    Error due to problem in ASN.1 decoding process. 
+-2146762745 (800B0007)    Reading / writing Extensions where Attributes are
+                          appropriate, and visa versa. 
+-2146762744 (800B0008)    Unspecified cryptographic failure. 
+-2146762743 (800B0009)    The size of the data could not be determined. 
+-2146762742 (800B000A)    The size of the indefinite-sized data could not
+                          be determined. 
+-2146762741 (800B000B)    This object does not read and write self-sizing
+                          data.  
+-2146762496 (800B0100)    No signature was present in the subject. 
+-2146762495 (800B0101)    A required certificate is not within its validity
+                          period. 
+-2146762494 (800B0102)    The validity periods of the certification chain
+                          do not nest correctly.
+-2146762493 (800B0103)    A certificate that can only be used as an
+                          end-entity is being used as a CA or visa versa.
+-2146762492 (800B0104)    A path length constraint in the certification
+                          chain has been violated.
+-2146762491 (800B0105)    An extension of unknown type that is labeled
+                          'critical' is present in a certificate.
+-2146762490 (800B0106)    A certificate is being used for a purpose other
+                          than that for which it is permitted.
+-2146762489 (800B0107)    A parent of a given certificate in fact did not
+                          issue that child certificate.
+-2146762488 (800B0108)    A certificate is missing or has an empty value
+                          for an important field, such as a subject or
+                          issuer name.
+-2146762487 (800B0109)    A certification chain processed correctly, but
+                          terminated in a root certificate which isn't
+                          trusted by the trust provider.
+-2146762486 (800B010A)    A chain of certs didn't chain as they should in a
+                          certain application of chaining. </PRE>
+            <P></P><BR>
+            <H2>REFERENCES</H2>
+            <P>For additional information about this topic in Office 97 or 
+            Office 2000, click the article number below to view the article in 
+            the Microsoft Knowledge Base: 
+            <BLOCKQUOTE><A class=LINK 
+              href="http://support.microsoft.com/support/kb/articles/Q253/2/35.ASP">Q253235</A> 
+              FILE: OFFAUTMN.EXE Discusses Office 97 and 2000 Automation and 
+              Provides Sample Code </BLOCKQUOTE>For more information, please see 
+            these Web sites:<BR><BR>
+            <BLOCKQUOTE><A class=LINK target=_top 
+              href="http://support.microsoft.com/support/officedev/automation.asp">Automating 
+              Office 97 and Office 2000</A><BR><BR><A class=LINK target=_top 
+              href="http://support.microsoft.com/support/officedev/FaqVBOffice.asp">Frequently 
+              Asked Questions about Microsoft Office Automation Using Visual 
+              Basic </A></BLOCKQUOTE>
+            <P></P>
+            <P>Additional query words: </P></FONT><FONT 
+            face="Verdana, Arial, Helvetica" size=1>
+            <P>Keywords : kbinterop kbAPI kbAutomation kbVBp500 kbGrpDSO 
+            kbOffice2000 kbVBA500 <BR>Issue type : kbinfo <BR>Technology : 
+            kbVBSearch kbOfficeSearch kbAudDeveloper kbZNotKeyword6 
+            kbZNotKeyword2 kbOffice2000Search kbVB500Search kbVB600Search 
+            kbOffice2000 kbOfficeXP kbVBA500 kbVB500 kbVB600 kbOfficeXPSearch 
+            kbVBASearch kbZNotKeyword3 kbOfficeXPDevSearch kbOffice2000DevSearch 
+            </P><!--CONVLEGACY DELIMITER--></FONT></TD></TR></TBODY></TABLE>
+      <P>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <CENTER><BR><FONT face="Verdana, Arial, Helvetica" size=1>Last 
+            Reviewed: May 4, 2001<BR><A title="Copyright Notice" 
+            href="http://support.microsoft.com/isapi/gosupport.asp?target=/support/misc/cpyright.asp">© 
+            2001 Microsoft Corporation. All rights reserved. Terms of Use.</A> 
+            &nbsp;<A title=Disability/accessibility target=_top 
+            href="http://support.microsoft.com/isapi/gomscom.asp?target=/enable/telecomm.htm">Disability/accessibility</A> 
+            &nbsp;<A title="Privacy Policy" target=_top 
+            href="http://support.microsoft.com/isapi/gomscom.asp?target=/info/privacy.htm">Privacy 
+            Policy</A><BR>
+            <P><BR></FONT></CENTER></P></TD></TR></TBODY></TABLE></P></CENTER></TD>
+    <TD vAlign=top width=1 bgColor=#003399><IMG height="100%" 
+      src="W:\Sources\VBScript\INFO Translating Automation Errors for VB-VBA (Long) (Q186063)_files\1ptrans(1).gif" 
+      width=1 border=0></TD>
+    <TD vAlign=top width=135>
+      <CENTER>
+      <TABLE cellSpacing=0 cellPadding=0 width="90%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top><FONT face="Verdana, Arial, Helvetica" size=1><BR>
+            <P>Article ID: Q186063</P>
+            <P><B>Last Reviewed:</B><BR>May 4, 2001 </P>
+            <P><A title="Send this article to a friend" 
+            href="mailto:?subject=Microsoft Knowledge Base Article - Q186063&amp;body=This article pointer was forwarded to you from the Microsoft Online Support site. http://support.microsoft.com/support/kb/articles/Q186/0/63.ASP"><IMG 
+            height=10 
+            src="INFO Translating Automation Errors for VB-VBA (Long) (Q186063)_files/icoEmail.gif" 
+            width=18 align=absMiddle border=0>Send to a friend</A><BR><BR>
+            <P>Provided by<BR><A target=_top 
+            href="http://support.microsoft.com/directory/default.asp">Microsoft 
+            Product Support Services</A> 
+            <P>
+            <HR>
+
+            <FORM name=VOTED onsubmit="return votingsubmit();" 
+            action=/support/contentvoting/voting_idc.asp method=post><INPUT 
+            type=hidden value=Q186063 name=KBID> <INPUT type=hidden 
+            value="Support; KB; OffDev" name=PROD> <INPUT type=hidden 
+            value="Support; KB; OffDev" name=KBAREA> <INPUT type=hidden 
+            value=support.microsoft.com name=SRV> <INPUT type=hidden 
+            value=/support/kb/articles/Q186/0/63.ASP name=URL> Did the 
+            information in this article help answer your question? 
+            <P><INPUT type=radio value=1 name=VOTE>Yes<BR><INPUT type=radio 
+            value=2 name=VOTE>No<BR><INPUT type=radio value=3 name=VOTE>Did not 
+            apply 
+            <P>Please provide additional comments about this 
+            information.<BR>(255 character max) <BR><BR><TEXTAREA id=COMMENTS style="FONT-WEIGHT: normal; FONT-SIZE: xx-small; LINE-HEIGHT: normal; FONT-STYLE: normal; FONT-VARIANT: normal" name=COMMENTS rows=5 wrap=virtual cols=17 MAXLENGTH="255"></TEXTAREA> 
+            <BR>
+            <CENTER><INPUT type=image height=32 alt=Submit width=88 
+            src="INFO Translating Automation Errors for VB-VBA (Long) (Q186063)_files/votesubmit.gif" 
+            border=0> </CENTER>
+            <SCRIPT language=JavaScript>
+<!--//
+function votingsubmit()
+{
+	if((document.VOTED.VOTE[0].checked == false) && (document.VOTED.VOTE[1].checked == false) && (document.VOTED.VOTE[2].checked == false)){
+		alert("Please choose a voting option.");
+		return false;}
+	if(document.VOTED.COMMENTS.value.length > 255){
+		alert("Your comment has exceeded the 255 character limit.\nPlease reduce the number of characters in your comment.");
+		document.forms[0].COMMENTS.focus();
+		return false;}
+	else return true;
+}
+//-->
+</SCRIPT>
+            </FORM>
+            <P></P></FONT></TD></TR></TBODY></TABLE></CENTER></TD></TR></TBODY></TABLE></BODY></HTML>

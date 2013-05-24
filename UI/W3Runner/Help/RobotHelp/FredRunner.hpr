@@ -1,0 +1,41 @@
+[Special Files]
+HHP File=W:\Help\RobotHelp\FredRunner.hhp
+Table Of Content File=W:\Help\RobotHelp\FredRunner.hhc
+Merged Index File=W:\Help\RobotHelp\FredRunner_merged$.hhk
+See Also Index File=W:\Help\RobotHelp\FredRunner.hha
+Avenue File=W:\Help\RobotHelp\FredRunner.brs
+Topic Props File=W:\Help\RobotHelp\FredRunner.trs
+List Folder File=W:\Help\RobotHelp\Tmp29449.lst
+[Project Settings]
+Default Topic=W:\Help\RobotHelp\Introduction_To_The_Instroduction.htm
+Build Tags=NEWTAG1
+[BAGGAGE]
+Style Sheet File0=W:\Help\RobotHelp\default.css
+Image File0=W:\Help\RobotHelp\WatchWindow.gif
+[MPJ Single Source Target:WebHelp]
+Enable prompt after generating=1
+ResultFileName=WebHelp\FredRunner.htm
+[Print Documentation]
+m_strOrgDstName=W:\Help\RobotHelp\PrintDoc\FredRunner.doc
+m_bOrgViewByTitle=0
+m_cOrgRefCssItem.m_RefType=1
+m_cOrgRefCssItem.m_strCssPathName=
+m_nOrgRefCssMode=0
+m_bOrgTocLevelOrder=1
+m_bOrgTocLevelOneBooks=0
+m_bOrgCreateToc=1
+m_bOrgTocByHeading=1
+m_bOrgIndexEntities=1
+m_bOrgCreateIndex=1
+m_bOrgCreateGlossaryPage=1
+m_bOrgLeaveGlossaryDef=1
+m_nOrgTextColor=1
+m_bOrgEmbeddedGraphics=0
+m_bOrgNoGraphics=0
+m_bOrgNoGraphicsInTitle=0
+m_bOrgCreatePageNumber=1
+m_bOrgPageBreak=1
+m_bOrgPageBreak2=1
+m_cOrgPage.Name=Letter
+m_cOrgPage.Param=1,12240,15840,1800,1440,1800,1440,0,0,0,0
+m_bOrgStyleOverride=1

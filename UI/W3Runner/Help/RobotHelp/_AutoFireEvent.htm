@@ -1,0 +1,61 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>W3RunnerControl.AutoFireEvent</TITLE>
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css">
+ <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   AutoFireEvent</H1>
+  <ADDRESS CLASS="VbSample">
+   Public Property Get AutoFireEvent() As Boolean</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Public Property Let AutoFireEvent(v As Boolean)</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   Get or set if W3Runner should fire some missing JavaScript events. We 
+   have noticed that the Microsoft&reg; WebBrowser control (OCX) does 
+   not raise the following events when the following properties are set programmatically:</P>
+  <UL>
+   <LI CLASS="mvd-P">
+   <P>
+    Combox, event OnChange() when the property Value is set.<BR>
+    <LI CLASS="mvd-P">Radio Button, event OnClick() when the property 
+    Value is set.<BR>
+    <LI CLASS="mvd-P">Check Box, event OnClick when the property Value is set.</P>
+   </UL>
+  <P>
+   To compensate this problem, if the property AutoFireEvent is TRUE 
+   then W3Runner raises the event. The default value of the property 
+   AutoFireEvent is TRUE.<BR>
+   This only matters if you are using in your application the JavaScript 
+   ComboBox OnChange event or JavaScript Radio Button or CheckBox 
+   OnClick event. It is possible to cancel this behavior and raise the 
+   event yourself, as seen in the sample below.<BR>
+   </P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Remark:</SPAN><BR>
+   Microsoft&reg; Internet Explorer 5.0 does not support this method, 
+   therefore the missing JavaScript event cannot be fired.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   Page.AutoFireEvent = FALSE</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;MyCheckBox&quot;,&quot;CheckBox&quot;).Value = vbChecked</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;MyCheckBox&quot;,&quot;CheckBox&quot;).FireEvent &quot;OnClick&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.AutoFireEvent = TRUE</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN></P>
+  <P>
+   <A HREF="_WaitForDownLoad.htm">FireEvent</A><BR>
+   <A HREF="_WaitForDownLoad.htm">WaitForDownLoad</A>
+ </BODY>
+</HTML>

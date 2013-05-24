@@ -1,0 +1,64 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>W3Runner MsgBox</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   MsgBox</H1>
+  <P>
+   Public Function MsgBox(ByVal strMessage As String, Optional strTitle 
+   As String) As Boolean</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   Displays the message and the title in a message box. The message box 
+   will close automatically after a few seconds if nobody presses OK. 
+   The default time out value is 20 second.<BR>
+   The value can be set in the option dialog or with the property W3Runner.MsgBoxTimeOut.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Parameters:</SPAN></P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="1">
+    <TR>
+     <TD BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Part</SPAN></TD>
+     <TD WIDTH="17" BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Description</SPAN></TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-style : italic;font-weight : normal;">strMessage</SPAN></TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : normal;">The message to be displayed.</SPAN></TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-style : italic;font-weight : normal;">strTitle</SPAN></TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       The title of the message box</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   W3Runner.MsgBox &quot;Time=&quot; &amp; Now()</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN><BR>
+   </P>
+  <P>
+   <A HREF="_Trace.htm"><SPAN STYLE="font-style : normal;text-decoration :underline;">Trace</SPAN></A><BR>
+   <A HREF="__MsgBoxTimeOut.htm">MsgBoxTimeOut</A>
+ </BODY>
+</HTML>

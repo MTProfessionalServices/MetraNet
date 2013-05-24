@@ -1,0 +1,7 @@
+frmBlowfish = 37, 75, 597, 452, , 12, 30, 536, 634, C
+basBlfArrays = 44, 44, 411, 410, C
+basBlowfish = 132, 132, 499, 498, C
+basUnsignedWord = 0, 0, 414, 352, C
+basRadix64 = 88, 88, 455, 454, C
+basBlowfishFns = 176, 176, 523, 528, C
+basConvert = 66, 66, 513, 414, C

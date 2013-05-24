@@ -1,0 +1,614 @@
+/**************************************************************************
+ * @doc SDKPUB
+ *
+ * @module |
+ *
+ * The MetraTech Metering Software Development Kit COM idl file
+ *
+ * Copyright 1999 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ ***************************************************************************/
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MetraTechSDK.tlb) and marshalling code.
+
+midl_pragma warning( disable: 2366 )  // disable warning cannot assign a default value : username
+midl_pragma warning( disable: 2368 )  // disable warning error generating type library, ignored 
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "MTDataTypeLib.idl";
+import "GenericCollection.idl";
+
+
+
+// List of Interfaces In This File
+interface ISession;
+interface IMeter;
+interface IMeterConfig;
+interface ISessionSet;
+interface IBatch;
+
+// Enumerations
+
+	// DebugLogLevel
+   typedef [uuid(0cf2148a-e134-11d2-a238-00a0cc3ad9cd)]
+   enum {
+        MTC_LOG_NONE = 2,
+        MTC_LOG_INFO = 1,
+        MTC_LOG_DEBUG = 0
+    } DebugLogLevel;
+
+	// Protocol
+	typedef [uuid(1606a950-e134-11d2-a238-00a0cc3ad9cd)]
+	enum {
+        MSIX_PROTOCOL = 0
+    } Protocol;
+
+	// Local Mode
+   typedef [uuid(1f167962-e134-11d2-a238-00a0cc3ad9cd)]
+   enum {
+        MTC_LOCAL_MODE_NEVER = 0,
+		MTC_LOCAL_MODE_FAILOVER = 1,
+		MTC_LOCAL_MODE_ONLY = 2
+    } LocalMode;
+
+	// Available Port Numbers
+	typedef [uuid(2a2ba7be-e134-11d2-a238-00a0cc3ad9cd)]
+	enum {
+		DEFAULT_HTTP_PORT = 80,
+		DEFAULT_HTTPS_PORT = 443
+	} PortNumber;
+
+   [uuid(F35EB790-18D9-42b4-9F1F-EDE9FB26DD6B)]
+   typedef struct 
+   {
+	   [helpstring("Name")]
+	   BSTR name;
+
+	   [helpstring("Value")]
+	   BSTR value;
+
+      [helpstring("Type")]
+	   int type;
+   } PropertyData;
+
+// ----------------------------------------------------------------
+// Object: Session
+// Prog ID: MetraTechSDK.Session.1
+// Description: The MTMeterSession object holds the property values for a metered
+//              session.  Objects of this type are created by CreateSession.
+//              InitProperty should be called for each property value before
+//              Close is called to send the properties to the
+//              server.  SetProperty may be called to modify
+//              properties before the session is Closed, and
+//              GetProperty can be used to retrieve property values
+//              from the session.
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(5D80A7EF-D643-11D2-A233-00A0CC3AD9CD),
+  dual,
+  helpstring("ISession Interface"),
+  pointer_default(unique)
+]
+interface ISession : IDispatch
+{
+  // save the session on the server without committing it.
+  // NOT SUPPORTED: DO NOT USE
+  [id(1), helpstring("method Save")]
+  HRESULT Save();
+
+  // After each property has been initialized to the correct value,
+  // Close sends the session and its parents and children, when
+  // appropriate, to the metering server.  The session is marked
+  // complete by a call to Close and further modification is not
+  // allowed on the session object.  The metering server is allowed
+  // to begin processing a session after it has been closed.  When a
+  // session is closed, any parents of the session are saved but
+  // will still be modifiable.  Any children of the session will be
+  // closed and will not allow further modification.
+  [id(2), helpstring("method Close")]
+  HRESULT Close();
+
+  // Create a child of this session.  Any number of children
+  // can be created for a parent session.  Once Close
+  // has been called on a session, no more children can be created.
+  // Sessions that have been saved can still have more children
+  // added to them.
+  // When the child is deleted, it is removed from the parent.
+  // When a parent session is deleted, it deletes any children
+  // still connected to it.
+  [id(3), helpstring("method CreateChildSession")]
+  HRESULT CreateChildSession([in] BSTR ServiceName, [out, retval] ISession** chldSess);
+
+  // Initializes a session's property.
+  [id(4), helpstring("method InitProperty")]
+  HRESULT InitProperty([in] BSTR Name, [in] VARIANT Value);
+
+  // Sets a previously initilized session property.
+  [id(5), helpstring("method SetProperty")]
+  HRESULT SetProperty([in] BSTR Name, [in] VARIANT Value);
+
+  // Gets a property for the session.
+  [id(6), helpstring("method GetProperty")]
+  HRESULT GetProperty([in] BSTR name, [in, defaultvalue(1)] DataType Type, [out, retval] VARIANT * value);
+
+  // Obtains the SessionID.
+  [propget, id(7), helpstring("property SessionID")]
+  HRESULT SessionID([out, retval] BSTR *pVal);
+
+  // Obtains the Session's name.
+  [propget, id(8), helpstring("property Name")]
+  HRESULT Name([out, retval] BSTR *pVal);
+
+  // Obtains the Session's Reference ID.
+  [propget, id(9), helpstring("property ReferenceID")]
+  HRESULT ReferenceID([out, retval] BSTR *pVal);
+
+  // If synchronous metering has been enabled on this session, return true
+  [propget, id(10), helpstring("property RequestResponse")]
+  HRESULT RequestResponse([out, retval] VARIANT_BOOL *pVal);
+
+  // Enable or disable the use of synchronous metering.
+  [propput, id(10), helpstring("property RequestResponse")]
+  HRESULT RequestResponse([in] VARIANT_BOOL newVal);
+
+  // Obtains the session returned from the server when using synchronous metering.
+  // Set the RequestResponse flag to enable synchronous metering.
+  [propget, id(11), helpstring("property ResultSession")]
+  HRESULT ResultSession([out, retval] ISession **pResultSession);
+
+  // create the XML representation of this session set
+  [id(12), helpstring("method ToXML")]
+  HRESULT ToXML([out, retval] BSTR * xml);
+
+	// INTERNAL USE ONLY
+  [propput, hidden, id(14), helpstring("property _ID")]
+  HRESULT _ID([in] BSTR newVal);
+
+	// INTERNAL USE ONLY
+  [propput, hidden, id(15), helpstring("property _SetID")]
+  HRESULT _SetID([in] BSTR newVal);
+
+	// ErrorCode
+  [propget, id(16), helpstring("property ErrorCode")]
+  HRESULT ErrorCode([out,retval] long * pVal);
+  
+	// ErrorMessage
+  [propget, id(17), helpstring("property ErrorMessage")]
+  HRESULT ErrorMessage([out,retval] BSTR * pVal);
+
+    // Returns the list of Child sessions for the parent.
+  [id(18), helpstring("method GetChildSessions")]
+  HRESULT GetChildSessions([out, retval] IMTCollection** col);
+
+  // Initializes a session's property.
+  // [id(19), helpstring("method CreateSessionStream")]
+  // HRESULT CreateSessionStream([in] SAFEARRAY(BSTR) Names, [in] SAFEARRAY(VARIANT) Values);
+  [id(19), helpstring("method CreateSessionStream")]
+  HRESULT CreateSessionStream([in] SAFEARRAY(PropertyData) propertyDataArray);
+};
+
+// ----------------------------------------------------------------
+// Object: SessionSet
+// Prog ID: MetraTechSDK.SessionSet.1
+// Description: The MTMeterSessionSet object allows you to create and store
+// sessions together, and later submit them together, as a batch, to the
+// server. The client should use the CreateSession method to create and
+// add sessions to the collection, and the close method to submit all at
+// once
+// ----------------------------------------------------------------
+[
+  object,
+
+  uuid(393cfbdb-847b-41e7-a76e-2d8dc80aa097),
+  dual,
+  helpstring("ISessionSet Interface"),
+  pointer_default(unique)
+]
+interface ISessionSet : IDispatch
+{
+ 
+  // Submits the set to the server
+  [id(1), helpstring("method Close")]
+  HRESULT Close();
+
+  // Creates a MTMeterSession obj and adds it to the set
+  [id(2), helpstring("method CreateSession")]
+  HRESULT CreateSession([in] BSTR ServiceName, [out, retval] ISession** new_session);
+
+  // Obtains the SessionID
+  [propget, id(3), helpstring("property SessionSetID")]
+  HRESULT SessionSetID([out, retval] BSTR *pVal);
+
+  // Sets the Pipeline Transaction ID
+  [propput, id(4), helpstring("property TransactionID")]
+  HRESULT TransactionID([in] BSTR TransactionID);
+
+	// --------- 3.0 work -------------
+  // Sets the Session Context
+  [propput, id(5), helpstring("property SessionContext")]
+  HRESULT SessionContext([in] BSTR SessionContext);
+
+  // Sets the Username 
+  [propput, id(6), helpstring("property SessionContextUserName")]
+  HRESULT SessionContextUserName([in] BSTR SessionContextUserName);
+
+  // Sets the Password 
+  [propput, id(7), helpstring("property SessionContextPassword")]
+  HRESULT SessionContextPassword([in] BSTR SessionContextPassword);
+
+  // Sets the Namespace 
+  [propput, id(8), helpstring("property SessionContextNamespace")]
+  HRESULT SessionContextNamespace([in] BSTR SessionContextNamespace);
+
+  // create the XML representation of this session set
+  [id(9), helpstring("method ToXML")]
+  HRESULT ToXML([out, retval] BSTR * xml);
+
+	// INTERNAL USE ONLY
+  [propput, hidden, id(11), helpstring("property _SetID")]
+  HRESULT _SetID([in] BSTR newVal);
+
+  // Returns the list of MTMeterSession.
+  [id(12), helpstring("method GetSessions")]
+  HRESULT GetSessions([out, retval] IMTCollection** col);
+
+  // Sets the Listener Transaction ID - used to achieve a transactional send
+  [propput, id(13), helpstring("property ListenerTransactionID")]
+  HRESULT ListenerTransactionID([in] BSTR TransactionID);
+
+  // Set all the properties on the SessionSet. This helps to ensure
+  // that properties can be set in the right order on the underlying
+  // C++ object. 
+  [id(14), helpstring("method SetProperties")]
+  HRESULT SetProperties([in] BSTR listenerTransactionID, 
+                        [in] BSTR transactionID,
+                        [in] BSTR sessionContext,
+                        [in] BSTR sessionContextUserName,
+                        [in] BSTR sessionContextPassword,
+                        [in] BSTR sessionContextNamespace);
+
+  [id(15), helpstring("method GetSessionSetXmlStream")]
+  HRESULT GetSessionSetXmlStream([out, retval] BSTR * xml);
+
+};
+
+// ----------------------------------------------------------------
+// Object: Meter
+// Prog ID: MetraTechSDK.Meter.1
+// Description: The MTMeter object controls the rest of the metering library.  Each
+//              application using the library should have a MTMeter object that is
+//              used to generate Session objects.
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(5D80A7F1-D643-11D2-A233-00A0CC3AD9CD),
+  dual,
+  helpstring("IMeter Interface"),
+  pointer_default(unique)
+]
+interface IMeter : IDispatch
+{
+  // Initialize the meter object.  Must be called before any sessions are
+  // created.  Must be matched with a call to Shutdown.
+  [id(1), helpstring("method Startup")]
+  HRESULT Startup();
+
+  // Free resources used by the meter object.
+  [id(2), helpstring("method Shutdown")]
+  HRESULT Shutdown();
+
+  // Create a new, empty session that can then be metered.
+  [id(3), helpstring("method CreateSession")]
+  HRESULT CreateSession([in] BSTR ServiceName, [out, retval] ISession ** pNewSession);
+
+  // NOT SUPPORTED: DO NOT USE
+  [hidden, id(4), helpstring("method PlaybackLocal")] HRESULT PlaybackLocal();
+
+  // NOT SUPPORTED: DO NOT USE
+  [propget, id(5), helpstring("property LogFilePath")]
+  HRESULT LogFilePath([out, retval] BSTR *pVal);
+
+  // NOT SUPPORTED: DO NOT USE
+  [hidden, propput, id(5), helpstring("property LogFilePath")] HRESULT LogFilePath([in] BSTR newVal);
+
+  // NOT SUPPORTED: DO NOT USE
+  [propget, id(6), helpstring("property LogLevel")]
+  HRESULT LogLevel([out, retval] DebugLogLevel *pVal);
+
+  // NOT SUPPORTED: DO NOT USE
+  [hidden, propput, id(6), helpstring("property LogLevel")] HRESULT LogLevel([in] DebugLogLevel newVal);
+
+  // NOT SUPPORTED: DO NOT USE
+  [propget, id(7), helpstring("property LocalCount")]
+  HRESULT LocalCount([out, retval] long *pVal);
+
+  // NOT SUPPORTED: DO NOT USE
+  [propget, id(8), helpstring("property LocalModePath")]
+  HRESULT LocalModePath([out, retval] BSTR *pVal);
+
+  // NOT SUPPORTED: DO NOT USE
+  [propput, id(8), helpstring("property LocalModePath")]
+  HRESULT LocalModePath([in] BSTR newVal);
+
+  // NOT SUPPORTED: DO NOT USE
+  [propget, id(9), helpstring("property LocalModeType")]
+  HRESULT LocalModeType([out, retval] LocalMode *pVal);
+
+  // NOT SUPPORTED: DO NOT USE
+  [hidden, propput, id(9), helpstring("property LocalModeType")] HRESULT LocalModeType([in] LocalMode newVal);
+
+  // NOT SUPPORTED: DO NOT USE
+  [propget, id(10), helpstring("property CompressionPath")]
+  HRESULT CompressionPath([out, retval] BSTR *pVal);
+
+  // NOT SUPPORTED: DO NOT USE
+  [hidden, propput, id(10), helpstring("property CompressionPath")] HRESULT CompressionPath([in] BSTR newVal);
+
+  // Return the timeout in seconds used when sending messages to the server.
+  [propget, id(11), helpstring("property HTTPTimeout")]
+  HRESULT HTTPTimeout([out, retval] long *pVal);
+
+  // Set the timeout in seconds used when sending messages to the server.
+  [propput, id(11), helpstring("property HTTPTimeout")]
+  HRESULT HTTPTimeout([in] long newVal);
+
+  // Return the number of retries used when sending messages to the server.
+  [propget, id(12), helpstring("property HTTPRetries")]
+  HRESULT HTTPRetries([out, retval] long *pVal);
+
+  // Set the number of retries used when sending messages to the server.
+  [propput, id(12), helpstring("property HTTPRetries")]
+  HRESULT HTTPRetries([in] long newVal);
+
+  // Return the name of the proxy server used for sending HTTP transactions.
+  [propget, id(13), helpstring("property HTTPProxyHostname")]
+  HRESULT HTTPProxyHostname([out, retval] BSTR *pVal);
+
+  // Set the name of the proxy server used for sending HTTP transactions.
+  [propput, id(13), helpstring("property HTTPProxyHostname")]
+  HRESULT HTTPProxyHostname([in] BSTR newVal);
+
+  // Gets the protocol used to communicate to the server.
+  [propget, id(14), helpstring("property MeterProtocol")]
+  HRESULT MeterProtocol([out, retval] Protocol *pVal);
+
+  // Sets the protocol used to communicate to the server.
+  // It is not required to set this property.  Currently only MSIX_PROTOCOL is
+  // supported.
+  [propput, id(14), helpstring("property MeterProtocol")]
+  HRESULT MeterProtocol([in] Protocol newVal);
+
+  // Add a new server to the list of server used for metering sessions.
+  // Connections to the servers are made in order of priority.
+  [id(15), helpstring("method AddServer")]
+  HRESULT AddServer([in] long priority, [in] BSTR serverName, [in] PortNumber Port, [in] BOOL Secure, [in, defaultvalue("")] VARIANT username, [in, defaultvalue("")] VARIANT password);
+  
+  // Sets the full path and file name for local mode recording of 
+  // sessions.
+  [id(16), helpstring("method MeterFile")]
+  HRESULT MeterFile([in] BSTR File);
+
+  // Sets the full path and file name for the meterstore. If specified
+  // the session keys are recorded to prevent duplicate processing
+  // WARNING: This is deprecated.  Use MeterStore (below) instead.
+  [propput, id(17), helpstring("property MeterJournal")]
+  HRESULT MeterJournal([in] BSTR newVal);
+
+  // Sets the full path and file name for the meterstore. If specified
+  // the session keys are recorded to prevent duplicate processing
+  [propput, id(18), helpstring("property MeterStore")]
+  HRESULT MeterStore([in] BSTR newVal);
+
+	[id(19), helpstring("method GenerateNewUID")]
+	HRESULT GenerateNewUID([out, retval] BSTR* newVal);
+
+  // Creates a new SessionSet COM object to allow
+  // batch submission of sessions to the server.
+  [id(20), helpstring("method CreateSessionSet")]
+  HRESULT CreateSessionSet([out, retval] ISessionSet ** pNewSessionSet);
+
+  // Creates a new Batch
+  // An object to store and control batch information
+  // Multiple sessionsets and sessions can participate on the same batch
+  [id(21), helpstring("method CreateBatch")]
+  HRESULT CreateBatch([out, retval] IBatch ** pNewBatch);
+
+  // Opens an existing batch
+  // An object to store and control batch information
+  // Multiple sessionsets and sessions can participate on the same batch
+  [id(22), helpstring("method OpenBatchByUID")]
+  HRESULT OpenBatchByUID([in] BSTR UID, [out, retval] IBatch ** pNewBatch);
+
+  // Opens an existing batch by passing in a NameSpace/Name
+  // An object to store and control batch information
+  // Multiple sessionsets and sessions can participate on the same batch
+  [id(23), helpstring("method OpenBatchByName")]
+  HRESULT OpenBatchByName([in] BSTR Name, [in] BSTR NameSpace, [in] BSTR SequenceNumber, [out, retval] IBatch ** pNewBatch);
+};
+
+// ----------------------------------------------------------------
+// Object: Batch
+// Prog ID: MetraTechSDK.Batch.1
+// Description: Object responsible for handling submission of sessions
+// as a batch
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(8b75bea6-5a3d-4193-a493-ffaef09e6e96),
+  dual,
+  helpstring("IBatch Interface"),
+  pointer_default(unique)
+]
+interface IBatch : IDispatch
+{
+	// This is the encoded version of the UID
+  [propget, id(1), helpstring("property UID")]
+  HRESULT UID([out, retval] BSTR *pVal);
+  
+	// This is the encoded version of the UID
+  [propget, id(2), helpstring("property Name")]
+  HRESULT Name([out, retval] BSTR *pVal);  
+  [propput, id(2), helpstring("property Name")]
+  HRESULT Name([in] BSTR newVal);
+
+	// This is the encoded version of the UID
+  [propget, id(3), helpstring("property NameSpace")]
+  HRESULT NameSpace([out, retval] BSTR *pVal);
+  [propput, id(3), helpstring("property NameSpace")]
+  HRESULT NameSpace([in] BSTR newVal);
+
+	[propget, id(4), helpstring("property Status")]
+  HRESULT Status([out, retval] BSTR *pVal);
+
+  [propget, id(5), helpstring("property CreationDate")]
+  HRESULT CreationDate([out, retval] DATE *pVal);
+
+  [propget, id(6), helpstring("property CompletionDate")]
+  HRESULT CompletionDate([out, retval] DATE *pVal);
+
+  [propget, id(7), helpstring("property Source")]
+  HRESULT Source([out, retval] BSTR *pVal);
+  [propput, id(7), helpstring("property Source")]
+  HRESULT Source([in] BSTR newVal);
+
+  [propget, id(8), helpstring("property SourceCreationDate")]
+  HRESULT SourceCreationDate([out, retval] DATE *pVal);
+  [propput, id(8), helpstring("property SourceCreationDate")]
+  HRESULT SourceCreationDate([in] DATE newVal);
+
+  [propget, id(10), helpstring("property CompletedCount")]
+  HRESULT CompletedCount([out, retval] long *pVal);
+
+  [propget, id(11), helpstring("property SequenceNumber")]
+  HRESULT SequenceNumber([out, retval] BSTR *pVal);
+  [propput, id(11), helpstring("property SequenceNumber")]
+  HRESULT SequenceNumber([in] BSTR newVal);
+
+  [propget, id(12), helpstring("property ExpectedCount")]
+  HRESULT ExpectedCount([out, retval] long *pVal);
+  [propput, id(12), helpstring("property ExpectedCount")]
+  HRESULT ExpectedCount([in] long newVal);
+
+  [propget, id(13), helpstring("property FailureCount")]
+  HRESULT FailureCount([out, retval] long *pVal);
+
+  // Creates a new SessionSet COM object
+  [id(30), helpstring("method CreateSessionSet")]
+  HRESULT CreateSessionSet([out, retval] ISessionSet ** pNewSessionSet);
+
+  // Create a new, empty session that can then be metered.
+  [id(31), helpstring("method CreateSession")]
+  HRESULT CreateSession([in] BSTR ServiceName, [out, retval] ISession ** pNewSession);
+
+	// Refresh properties from server
+  [id(32), helpstring("method Refresh")]
+  HRESULT Refresh();
+
+  // Update Batch in server with current object's properties
+  [id(33), helpstring("method Save")]
+  HRESULT Save();
+
+	[propget, id(104), helpstring("property Comment")]
+  HRESULT Comment([out, retval] BSTR *pVal);
+  [propput, id(104), helpstring("property Comment")]
+  HRESULT Comment([in] BSTR newVal);
+
+  [propget, id(106), helpstring("property MeteredCount")]
+  HRESULT MeteredCount([out, retval] long *pVal);
+  [propput, id(106), helpstring("property MeteredCount")]
+  HRESULT MeteredCount([in] long newVal);
+
+	// MarkAsFailed
+  [id(107), helpstring("method MarkAsFailed")]
+  HRESULT MarkAsFailed([in] BSTR Comments);
+
+	// MarkAsDismissed 
+  [id(108), helpstring("method MarkAsDismissed")]
+  HRESULT MarkAsDismissed([in] BSTR Comments);
+
+	// UpdateMeteredCount 
+  [id(109), helpstring("method UpdateMeteredCount")]
+  HRESULT UpdateMeteredCount();
+
+	// MarkAsCompleted 
+  [id(110), helpstring("method MarkAsCompleted")]
+  HRESULT MarkAsCompleted([in] BSTR Comments);
+
+	// MarkAsActive 
+  [id(111), helpstring("method MarkAsActive")]
+  HRESULT MarkAsActive([in] BSTR Comments);
+
+	// MarkAsBackout 
+  [id(112), helpstring("method MarkAsBackout")]
+  HRESULT MarkAsBackout([in] BSTR Comments);
+
+	// ProcessExceptions 
+  [id(113), helpstring("method ProcessExceptions")]
+  HRESULT ProcessExceptions();
+};
+
+
+[
+	uuid(5D80A7E3-D643-11D2-A233-00A0CC3AD9CD),
+	version(1.0),
+	helpstring("MetraTechSDK 1.0 Type Library")
+]
+
+library COMMeterLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(5D80A7F0-D643-11D2-A233-00A0CC3AD9CD),
+		helpstring("Session Class")
+	]
+	coclass Session
+	{
+		[default] interface ISession;
+	};
+
+	[
+		uuid(13a9e64d-b156-47ef-8acb-5341aea6b379),
+		helpstring("SessionSet Class")
+	]
+	coclass SessionSet
+	{
+		[default] interface ISessionSet;
+	};
+
+	[
+		uuid(5D80A7F2-D643-11D2-A233-00A0CC3AD9CD),
+		helpstring("Meter Class")
+	]
+	coclass Meter
+	{
+		[default] interface IMeter;
+	};
+	
+	[
+		uuid(3d6322ce-cfae-401c-aca8-641bfed5dca3),
+		helpstring("Batch Class")
+	]
+	coclass Batch
+	{
+		[default] interface IBatch;
+	}; 
+
+};

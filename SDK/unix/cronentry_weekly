@@ -1,0 +1,4 @@
+# Build mon-fri - No longer used (Fabricio Pettena)
+# 30 2 * * 1-5 ~/bin/BuildUnixSDK < ~/bin/build.config
+# From now on (3/5/01 )we will be building only on mondays (Fabricio Pettena) 
+30 2 * * 1 ~/bin/BuildUnixSDK < ~/bin/build.config

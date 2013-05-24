@@ -1,0 +1,8 @@
+// Dummy.cpp : Implementation of CDummy
+#include "StdAfx.h"
+#include "Progress.h"
+#include "Dummy.h"
+
+/////////////////////////////////////////////////////////////////////////////
+// CDummy
+

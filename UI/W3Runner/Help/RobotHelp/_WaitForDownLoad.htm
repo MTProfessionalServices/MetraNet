@@ -1,0 +1,73 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>Page WaitForDownLoad</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   WaitForDownLoad</H1>
+  <ADDRESS CLASS="VbSample">
+   Public Function WaitForDownLoad(</ADDRESS>
+  <BLOCKQUOTE>
+   <ADDRESS CLASS="VbSample">
+    Optional ByVal strURL As String, <BR>
+    Optional ByRef varTime As Variant</ADDRESS>
+   </BLOCKQUOTE>
+  <ADDRESS CLASS="VbSample">
+   ) As Boolean</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   Wait for the current URL to be fully downloaded.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Parameters:</SPAN></P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="1">
+    <TR>
+     <TD BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Part</SPAN></TD>
+     <TD WIDTH="50%" BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Description</SPAN></TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-style : italic;">strURL</SPAN></TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       The URL or piece of the URL to wait for. The case is ignored.</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-style : italic;">varTime</SPAN></TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       Return if defined the time it took to download and render the HTML page.</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Remark:</SPAN><BR>
+   You can set the time out with the property Page.DownLoadTimeOut or in 
+   the Options dialog.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   Page.URL = &quot;http://www.W3Runner.com/default.asp&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.WaitForDownLoad &#147;default.asp&#148;</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN><BR>
+   <BR>
+   <A HREF="_URL.htm">URL</A><BR>
+   <A HREF="_WaitForDownLoad.htm">WaitForDownLoad</A><BR>
+   <A HREF="_CancelScriptIfTimeOut.htm">CancelScriptIfTimeOut</A>
+ </BODY>
+</HTML>

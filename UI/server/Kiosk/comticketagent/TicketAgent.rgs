@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.TicketAgent.1 = s 'TicketAgent Class'
+	{
+		CLSID = s '{3C8AB5A3-C857-11D3-9516-00C04F579C6A}'
+	}
+	MetraTech.TicketAgent = s 'TicketAgent Class'
+	{
+		CLSID = s '{3C8AB5A3-C857-11D3-9516-00C04F579C6A}'
+		CurVer = s 'MetraTech.TicketAgent.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {3C8AB5A3-C857-11D3-9516-00C04F579C6A} = s 'TicketAgent Class'
+		{
+			ProgID = s 'MetraTech.TicketAgent.1'
+			VersionIndependentProgID = s 'MetraTech.TicketAgent'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{3C8AB596-C857-11D3-9516-00C04F579C6A}'
+		}
+	}
+}

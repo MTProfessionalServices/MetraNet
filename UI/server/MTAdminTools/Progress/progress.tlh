@@ -1,0 +1,96 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8447.0 (4d60875a).
+//
+// progress.tlh
+//
+// C++ source equivalent of Win32 type library progress.tlb
+// compiler-generated file created 06/07/00 at 10:36:19 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+namespace PROGRESSLib {
+
+//
+// Forward references and typedefs
+//
+
+struct /* coclass */ ProgressServer;
+struct __declspec(uuid("a055e69d-38c7-11d4-b9a1-00c04f043e86"))
+/* dual interface */ IProgressServer;
+struct /* coclass */ Dummy;
+struct __declspec(uuid("a055e6a4-38c7-11d4-b9a1-00c04f043e86"))
+/* dual interface */ IDummy;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(IProgressServer, __uuidof(IProgressServer));
+_COM_SMARTPTR_TYPEDEF(IDummy, __uuidof(IDummy));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("a055e69e-38c7-11d4-b9a1-00c04f043e86"))
+ProgressServer;
+    // [ default ] interface IProgressServer
+
+struct __declspec(uuid("a055e69d-38c7-11d4-b9a1-00c04f043e86"))
+IProgressServer : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT OnStartPage (
+        IUnknown * piUnk );
+    HRESULT OnEndPage ( );
+    HRESULT Start ( );
+    HRESULT Stop ( );
+    _bstr_t GetProgress ( );
+    HRESULT SetProgress (
+        _bstr_t bstrProgress );
+    HRESULT WriteResponse (
+        _bstr_t __MIDL_0015 );
+    HRESULT SetDelay (
+        int nDelay );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall raw_OnStartPage (
+        IUnknown * piUnk ) = 0;
+    virtual HRESULT __stdcall raw_OnEndPage ( ) = 0;
+    virtual HRESULT __stdcall raw_Start ( ) = 0;
+    virtual HRESULT __stdcall raw_Stop ( ) = 0;
+    virtual HRESULT __stdcall raw_GetProgress (
+        BSTR * pbstrProgress ) = 0;
+    virtual HRESULT __stdcall raw_SetProgress (
+        BSTR bstrProgress ) = 0;
+    virtual HRESULT __stdcall raw_WriteResponse (
+        BSTR __MIDL_0015 ) = 0;
+    virtual HRESULT __stdcall raw_SetDelay (
+        int nDelay ) = 0;
+};
+
+struct __declspec(uuid("a055e6a5-38c7-11d4-b9a1-00c04f043e86"))
+Dummy;
+    // [ default ] interface IDummy
+
+struct __declspec(uuid("a055e6a4-38c7-11d4-b9a1-00c04f043e86"))
+IDummy : IDispatch
+{};
+
+//
+// Wrapper method implementations
+//
+
+#include "progress.tli"
+
+} // namespace PROGRESSLib
+
+#pragma pack(pop)

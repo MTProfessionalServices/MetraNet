@@ -1,0 +1,67 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>W3Runner AppActivate</TITLE>
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css">
+ <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   AppActivate</H1>
+  <ADDRESS CLASS="VbSample">
+   Public Function AppActivate(ByVal strTitle As String, Optional 
+   booWait As Boolean = False) As Boolean</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN></P>
+  <P>
+   Activates an application window.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Parameters:</SPAN></P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="1">
+    <TR>
+     <TD WIDTH="50%" BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Part</SPAN></TD>
+     <TD WIDTH="50%" BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Description</SPAN></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-style : italic;">strTitle</SPAN></TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       String expression specifying the title in the title bar of the 
+       application window you want to activate. The Task ID returned by the 
+       W3Runner.Execute() parameter varAppId can be used in place of title 
+       to activate an application</TD>
+    </TR>
+    <TR>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-style : italic;">booWait</SPAN></TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       Boolean value specifying whether the calling application has the 
+       focus before activating another. If False (default), the specified 
+       application is immediately activated, even if the calling application 
+       does not have the focus. If True, the calling application waits until 
+       it has the focus, then activates the specified application.</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   <SPAN STYLE="font-weight : normal;">W3Runner.AppActivate &quot;Notepad&quot;</SPAN></ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN></P>
+  <P>
+   <A HREF="Screen_Execute.htm">W3Runner Execute</A>
+ </BODY>
+</HTML>

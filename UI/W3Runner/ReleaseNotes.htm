@@ -1,0 +1,245 @@
+<STYLE>
+.Text{
+  BORDER-BOTTOM : #3775AF solid 0px;
+  BORDER-LEFT : 0px solid #F5F5DC;
+  BORDER-RIGHT : #3775AF solid 0px;
+  BORDER-TOP : #F5F5DC solid 0px;
+  clipBottom : 0px;
+  clipLeft : 0px;
+  clipRight : 0px;
+  clipTop : 0px;
+  COLOR :#003399;
+  FONT-FAMILY : Verdana,Verdana ;
+  FONT-SIZE : 11px;
+  FONT-WEIGHT : none;
+  PADDING-BOTTOM : 0px;
+  PADDING-LEFT : 0px;
+  PADDING-RIGHT : 0px;
+  PADDING-TOP : 0px;
+  TEXT-ALIGN : left;
+}
+.HH{
+  BORDER-BOTTOM : #3775AF solid 0px;
+  BORDER-LEFT : 0px solid #F5F5DC;
+  BORDER-RIGHT : #3775AF solid 0px;
+  BORDER-TOP : #F5F5DC solid 0px;
+  clipBottom : 0px;
+  clipLeft : 0px;
+  clipRight : 0px;
+  clipTop : 0px;
+  COLOR :#003399;
+  FONT-FAMILY : Verdana;
+  FONT-WEIGHT : none;
+  PADDING-BOTTOM : 0px;
+  PADDING-LEFT : 0px;
+  PADDING-RIGHT : 0px;
+  PADDING-TOP : 0px;
+  TEXT-ALIGN : left;
+}
+</STYLE>
+
+<body Class='Text' bgcolor="white">
+
+<CENTER><H1 Class='HH'>W3Runner 2.0 Release Notes</H1></CENTER>
+
+<H2 Class='HH'><LI>Product Limitations</H2><UL>
+
+<H3 Class='HH'><LI>Frameset support</H3><HR SIZE=1>
+W3Runner does not support frameset which contain frames pointing to differents web sites.
+If you have to test such a case, access each page separately, if it makes
+sens in your context.
+
+W3Runner does not support FRAMESET, FRAME or IFRAME HTML Tag with no attribute name.
+
+<H3 Class='HH'><LI>Microsoft Internet Explorer 5.0</H3><HR SIZE=1>
+Some limitations apply with Microsoft Internet Explorer 5.0, please see the www.W3Runner.com
+home and FAQ page for more information.
+
+<H3 Class='HH'><LI>W3Runner HTML Object Scripting Interface</H3>
+<HR SIZE=1>
+This is the list of HTML objects directly supported from VBScript using the W3Runner Scripting
+Interface<br><br>
+<CENTER>
+  <TABLE  Class='Text'  Border=1 CELLPADDING="2" CELLSPACING="0">
+  <TR><TD><B>HTML Tag Name</TD><TD><B>W3Runner Type Name</TD><TD><B>Run Time</TD><TD><B>Record Time</TD><TD><B>Main methods or properties</TD></TR>
+  <TR><TD>&lt;TEXTAREA&gt;</TD><TD>TEXTBOX</TD><TD>Yes</TD><TD>Yes</TD>                 <TD>Text, SetFocus(), SendKeys()</TD></TR>
+  <TR><TD>&lt;INPUT Type=Text&gt;</TD><TD>TEXTBOX</TD><TD>Yes</TD><TD>Yes</TD>          <TD>Text, SetFocus(), SendKeys()</TD></TR>
+  <TR><TD>&lt;INPUT Type=Checkbox&gt;</TD><TD>CHECKBOX</TD><TD>Yes</TD><TD>Yes</TD>     <TD>Value, SetFocus()</TD></TR>
+  <TR><TD>&lt;INPUT Type=Hidden&gt;</TD><TD>HIDDEN</TD><TD>Yes</TD><TD>Yes</TD>         <TD>Value</TD></TR>
+  <TR><TD>&lt;INPUT Type=Submit&gt;</TD><TD>SUBMIT</TD><TD>Yes</TD><TD>Yes</TD>         <TD>Click(), SetFocus()</TD></TR>
+  <TR><TD>&lt;INPUT Type=Image&gt;</TD><TD>IMAGE</TD><TD>Yes</TD><TD>Yes</TD>           <TD>Click(), SetFocus()</TD></TR>
+  <TR><TD>&lt;SELECT&gt;</TD><TD>COMBOBOX</TD><TD>Yes</TD><TD>Yes</TD>                  <TD>Value, Text, SetFocus()</TD></TR>
+  <TR><TD>&lt;BUTTON&gt;</TD><TD>BUTTON</TD><TD>Yes</TD><TD>Yes</TD>                    <TD>Click(), SetFocus()</TD></TR>
+  <TR><TD>&lt;ANCHOR&gt;</TD><TD>ANCHOR</TD><TD>Yes</TD><TD>Yes</TD>                    <TD>Click(), SetFocus()</TD></TR>
+  <TR><TD>&lt;IMG&gt;</TD><TD>IMAGE</TD><TD>Yes</TD><TD>Yes</TD>                        <TD>Click(), SetFocus()</TD> </TR>
+  <TR><TD>&lt;TD&gt;</TD><TD>TABLECELL</TD><TD>Yes</TD><TD>Yes</TD>                     <TD>Text, Click(), SetFocus()</TD>  </TR>
+  <TR><TD>&lt;MAP&gt;</TD><TD>MAP</TD><TD>Yes</TD><TD><b>No</b></TD>                    <TD>SetFocus(), Item().Click()</TD> </TR>
+  <TR><TD>&lt;DIV&gt;</TD><TD>DIV</TD><TD>Yes</TD><TD>Yes</TD>                          <TD>Text, Click(), SetFocus()</TD></TR>
+  <TR><TD>&lt;OBJECT&gt;</TD><TD>OBJECT</TD><TD>Yes</TD><TD><b>No</b></TD>                          <TD>SetFocus(), ActiveX</TD></TR>
+
+  </TABLE>
+</CENTER>
+<BR>
+It is possible to turn on or off the record mode on the following tags &lt;DIV&gt;, &lt;TD&gt;,
+if they have no HTML attribute name.<BR>
+<BR>
+For more information about the methods and properties available see the Help file.<BR>
+<BR>
+Remember also that at run time, the property <b>Page.Controls()</b> can return more than these objects and
+the properties : <b>Page.WebBrowser, Page.HTMLDocument, Page.Controls().Ojbect</b> give you direct access
+from VBScript to the Internet Explorer HTML Object Model. See the help file for more information.
+<BR>
+See the FAQ page, key word 'scroll'.
+<BR>
+<H3 Class='HH'><LI>Record Mode</H3><HR SIZE=1>
+<UL>
+<H4><LI>Recording Objects Limit</H4>
+The record mode works only for the first<UL>
+<LI>128 &lt;TEXTAREA&gt;
+<LI>128 &lt;INPUT&gt;
+<LI>128 &lt;SELECT&gt;
+<LI>128 &lt;BUTTON&gt;
+<LI>128 &lt;ANCHOR&gt;
+<LI>128 &lt;IMG&gt;
+<LI>128 &lt;TD&gt;
+<LI>128 &lt;DIV&gt;
+</UL>
+in the page or in all the frames. It possible to specify a specific frame in the options dialog
+Record tab, to limit the number of objects.<BR>
+
+<b>There are not such a limitation at Run-Time.</b>
+
+<H4><LI>Not supported objects or features at record time Only</H4><UL>
+<LI>&lt;MAP&gt;
+<LI>JavaScript function Alert() and Confirm()
+<LI>Login dialog
+<LI>&lt;OBJECT&gt; (ActiveX and MacroMedia Flash ShowWave)
+</UL>
+<BR>
+<FONT color='navy'>
+<b>&lt;MAP&gt;, JavaScript function Alert(), Confirm(), Login Dialog and &lt;OBJECT&gt; are supported at Run-Time.</b>
+</FONT>
+</UL>
+
+<H3 Class='HH'><LI>ActiveX</H3><HR SIZE=1>
+W3Runner supports ActiveX control at run time but not at record time.
+The property Page.Controls().ActiveX returns the ActiveX COM Interface from the HTML page; from there
+you can call its subs, functions and properties.
+<FONT color='navy'>
+It might be necessary to add properties or functions to your ActiveX, to execute a full and reliable test.
+</FONT>
+For more information see the FAQ page, key word ActiveX.
+
+<H3 Class='HH'><LI>MacroMedia Flash ShowWave Control</H3><HR SIZE=1>
+W3Runner supports MacroMedia Flash ShowWave Control at run time but not at record time.
+The property Page.Controls().ActiveX returns Flash ShowWave the COM Interface from the HTML page; from there
+you can call its subs, functions and properties.
+For more information see the  Flash Demo in the welcome page and the W3Runner WebSite Help page.
+
+<H3 Class='HH'><LI>Java Applet</H3><HR SIZE=1>
+W3Runner does not support Java Applet.
+
+
+<H3 Class='HH'><LI>Page.Controls() Ambiguous Case</H3>
+<HR SIZE=1>
+If one HTML form contains the following HTML code :<BR>
+<UL><BR>
+&lt;INPUT  Name="State" Value="OK"&gt;&lt;!-- Oklahoma --&gt;<BR>
+&lt;BUTTON Name="OK" &gt;OK&lt;/BUTTON&gt;<BR>
+</UL>
+<BR>
+The property Page.Controls("OK","Button") will return the State object.
+This is actually the right behavior because a W3Runner BUTTON can be an &lt;INPUT&gt;
+or a &lt;BUTTON&gt;. The Look up method search first with the &lt;INPUT&gt; based on the
+attribute Name and then Value.<BR>
+To solve this case give the define the OK button this way :<BR>
+<UL><BR>
+&lt;BUTTON Name="butOK" &gt;OK&lt;/BUTTON&gt;<BR>
+</UL>
+<BR>
+<BR>
+
+<H3 Class='HH'><LI>Popup Window</H3><HR SIZE=1>
+W3Runner supports HTML pop up window, that is to say, the windows opened with the javascript code
+window.open(). The window size defined in the javascript window.open() is used by W3Runner.
+But if you resize the window in the OnLoad event, W3Runner will not catch the
+change and will not readjust the window size. The change will be ignored.<BR>
+To face this problem it possible to define a minimun width and height for the pop up windows. See properties
+Page.MinChildWindowWidth and Page.MinChildWindowHeight.<BR>
+The Dialogs Demo in the Welcome page contains a sample of pop up window usage.<BR>
+</UL>
+<BR>
+<H2 Class='HH'><LI>Record Mode</H2>
+<UL>
+<H3 Class='HH'><LI>Page.WaitForDownLoad() Generated</H3><HR SIZE=1>
+The record mode generates a function call Page.WaitForDownLoad() for all pages downloaded during
+the session. If you have two or more Page.WaitForDownLoad() in a row this code will not work at run time
+and you should only keep the line that wait for the page you really want, generally the last one.
+This case only happens when a click on a button or on an anchor loads or reloads more than one page,
+or when a frameset is loaded. In the case of a frameset wait only for the frameset to be downloaded
+not the frame pages.<BR>
+
+The record mode will comment the useless Page.WaitForDownLoad().<BR>
+<BR>
+<FONT Color='Navy'><B>You should double check the generated code.</B></FONT><BR>
+<BR>
+See the method Page.SlowMode() in the help and debug FAQ.
+
+<H3 Class='HH'><LI>Record only from frame</H3><HR SIZE=1>
+When the mode "Record only from frame" is activated the child frames are ignored as well.
+
+<H3 Class='HH'><LI>&lt;A&gt; contained in &lt;TD&gt;</H3><HR SIZE=1>
+When you click on an anchor contained in a table cell, W3Runner will generate both the Anchor.Click and
+the TableCell.Click. Generally you will delete the TableCell.Click.
+
+<H3 Class='HH'><LI>Mouse Move and &lt;MAP&gt; Tag</H3>
+<HR SIZE=1>
+To support the MouseMove feature on the HTML tag &lt;MAP&gt;, the HTML tag &lt;MAP&gt; and
+&lt;IMG&gt; must have a name.
+
+</UL>
+<H2 Class='HH'><LI>Known Bugs</H2>
+<UL>
+<H3 Class='HH'><LI>Record mode</H3>
+<HR SIZE=1>
+We have noticed that the record mode may sometimes, generate more than once the same line.
+Closing and opening W3Runner solve the problem.
+
+<H3 Class='HH'><LI>Record mode</H3>
+<HR SIZE=1>
+If you record user actions from more than 2 child windows in the same recording session, the index of the 
+property Page.Windows() may be not be right. You must manually fix it, so there will be no problem at run time.
+
+<H3 Class='HH'><LI>W3Runner.SendKeys</H3>
+<HR SIZE=1>
+The method Page.Controls().SendKeys() may sometimes not produce the expected result. You can use the method
+Page.Controls().SendChars(). See the help for more information.
+<br>
+
+<H3 Class='HH'><LI>Nested FrameSet</H3>
+<HR SIZE=1>
+The Mouse Move function is not accurate when an object (anchor, button,...) is contained
+in a frameset B that is contained in a frameset A.
+
+
+
+
+</UL>
+
+
+</UL>
+
+<H2 Class='HH'><LI>Support</H2>
+<UL>
+<H3 Class='HH'><LI>eMail</H3>
+<HR SIZE=1>
+W3Runner.com only supports the software through eMails (support@w3runner.com)
+and the web site help and FAQ pages.
+If you supply your Order Number, your eMail will be processed more rapidly.
+</UL>
+
+</UL>
+
+
+
+</BODY>

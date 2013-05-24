@@ -1,0 +1,24 @@
+HKCR
+{
+	COMSiteConfig.COMSiteConfig.1 = s 'COMSiteConfig Class'
+	{
+		CLSID = s '{BF5397A6-1AA5-11D2-B257-006008925549}'
+	}
+	COMSiteConfig.COMSiteConfig = s 'COMSiteConfig Class'
+	{
+		CurVer = s 'COMSiteConfig.COMSiteConfig.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {BF5397A6-1AA5-11D2-B257-006008925549} = s 'COMSiteConfig Class'
+		{
+			ProgID = s 'COMSiteConfig.COMSiteConfig.1'
+			VersionIndependentProgID = s 'COMSiteConfig.COMSiteConfig'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

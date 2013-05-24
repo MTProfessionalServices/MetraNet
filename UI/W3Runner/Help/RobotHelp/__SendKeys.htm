@@ -1,0 +1,127 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>W3RunnerControl.SendKeys</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   SendKeys</H1>
+  <ADDRESS CLASS="VbSample">
+   Public Function SendKeys(</ADDRESS>
+  <BLOCKQUOTE>
+   <ADDRESS CLASS="VbSample">
+    ByVal strKeys As String,<BR>
+    Optional booWait As Boolean = False,<BR>
+    Optional booNewProcess As Boolean = False,<BR>
+    Optional lngTimeToWait As Long = 1</ADDRESS>
+   </BLOCKQUOTE>
+  <ADDRESS CLASS="VbSample">
+   ) As Boolean</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   <SPAN STYLE="font-weight : normal;">Set the focus to the object and 
+   send the keys stroke. For more information about the keys stroke 
+   syntax see the the Mircrosoft SendKeys help at <A HREF="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/wsh/htm/wsMthSendKeys.asp" TARGET="Top">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/wsh/htm/wsMthSendKeys.asp</A></SPAN></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Parameters:</SPAN></P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="1">
+    <TR>
+     <TD BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Part</SPAN></TD>
+     <TD WIDTH="50%" BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Description</SPAN></TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       strKeys</TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       The keys strokes. Support the Visual Basic SendKeys syntax.</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       booWait</TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       Wait until the keys has been processed</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       booNewProcess</TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       If booNewProcess is TRUE, the keys stroke will be sent by another 
+       process. See the Special cases section.</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       lngTimeToWait</TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       Time to wait by the other process before sending the keys stroke.</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Special Cases.</SPAN><BR>
+   When a javascript function alert() or confirm() or a login dialog is 
+   called the VBScript Engine is stopped, therefore it is not possible 
+   to access the OK or CANCEL button and it is not possible to use the 
+   function W3Runner.SendKeys to send keys stroke. Therefore the method 
+   SendKeys support a mode that allow to send keys stroke from a 
+   W3Runner new process in a specific amount of time.</P>
+  <P>
+   In the following example the HTML button butClose will open an 
+   javascript confirm() message box, so we will send 4 seconds after the 
+   javascript message box has been opened an enter key to validate the operation.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">HTML Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   &lt;BUTTON<BR>
+   &nbsp; Name=&quot;butClose&quot;<BR>
+   &nbsp; OnClick=&quot;if(confirm(&quot;Close the 
+   dialog?&quot;))document.location = 'home.asp';&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &gt;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; Close dialog</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &lt;/BUTTON&gt;</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">VBScript Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSampleComment">
+   <SPAN STYLE="font-weight : normal;">&#145; This will send an Enter 
+   key in 4 seconds</SPAN></ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   W3Runner.SendKeys &quot;{ENTER}&quot;,,TRUE,4</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   ' Click on the button to open the Javascript message box,</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   ' that will call another asp page</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;butClose&quot;,&quot;Button&quot;).Click<BR>
+   Page.WaitForDownLoad &quot;.asp&quot;</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN></P>
+  <P>
+   See the On line demo.</P>
+  <P>
+   <SPAN STYLE="font-weight : normal;"><A HREF="Screen_SendKeys.htm">W3Runner.SendKeys</A></SPAN><BR>
+   <A HREF="__SendKeys.htm"><SPAN STYLE="font-weight : normal;">Page.Controls().SendKeys()</SPAN></A><BR>
+   <A HREF="__SendCHars.htm"><SPAN STYLE="font-weight : normal;">Page.Controls().SendChars()</SPAN></A><BR>
+ </BODY>
+</HTML>

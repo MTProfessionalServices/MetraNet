@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<editable>
+<editable_group>
+		<menu>Ruleset Configuration</menu>
+		<notes></notes>
+		
+		<value>
+		 <group_base>/RuleSetDefinition</group_base>
+		 <propname>Caption</propname>
+		 <description>Screen Caption</description>
+		</value>
+		<value>
+		 <group_base>/RuleSetDefinition</group_base>
+		 <propname>ConditionHeader</propname>
+		 <description>Conditions Header</description>
+		</value>
+		<value>
+		 <group_base>/RuleSetDefinition</group_base>
+		 <propname>ActionHeader</propname>
+		 <description>Actions Header</description>
+		</value>
+		<value>
+		 <group_base>/RuleSetDefinition</group_base>
+		 <propname>HelpFile</propname>
+		 <description>Help File</description>
+		</value>
+		<value>
+		 <group_base>/RuleSetDefinition</group_base>
+		 <propname>HelpID</propname>
+		 <description>Help ID</description>
+		</value>
+		<!--
+		<value>
+		 <group_base>/RuleSetDefinition</group_base>
+		 <propname>PeriodSplit</propname>
+		 <description>Use Calendar</description>
+     <select>
+      <option value="Y">Yes</option>
+      <option value="N">No</option>
+     </select>
+		</value>
+		-->
+	</editable_group>
+	
+ 	<editable_list>
+		<menu>Global Actions</menu>
+		<notes></notes>
+		
+		<add>true</add>
+		<list>/RuleSetDefinition/GlobalActions/Action</list>
+		<list_base>/RuleSetDefinition/GlobalActions</list_base>
+		
+		<value>
+		 <propname>Type</propname>
+		 <description>Column Type</description>
+		</value>
+		<value>
+		 <propname>prop_name</propname>
+		 <description>Property</description>
+		</value>
+		<value>
+		 <propname>ptype</propname>
+		 <description>Data Type</description>
+		</value>
+		<value>
+		 <propname>EnumSpace</propname>
+		 <description>EnumSpace</description>
+		</value>
+		<value>
+		 <propname>EnumType</propname>
+		 <description>EnumType</description>
+		</value>
+		<value>
+		 <propname>Header</propname>
+		 <description>Header</description>
+		</value>
+		<value>
+		 <propname>Editable</propname>
+		 <description>User Editable</description>
+		</value>
+		<value>
+		 <propname>Default</propname>
+		 <description>Default Value</description>
+		</value>
+
+ 	</editable_list>
+	
+ 	<editable_list>
+		<menu>Edit Conditions</menu>
+		<notes></notes>
+		
+		<add>true</add>
+		<list>/RuleSetDefinition/Conditions/Condition</list>
+		<list_base>/RuleSetDefinition/Conditions</list_base>
+		
+		<value>
+		 <propname>Type</propname>
+		 <description>Column Type</description>
+		</value>
+		<value>
+		 <propname>prop_name</propname>
+		 <description>Property</description>
+		</value>
+		<value>
+		 <propname>ptype</propname>
+		 <description>Data Type</description>
+		</value>
+		<value>
+		 <propname>EnumSpace</propname>
+		 <description>EnumSpace</description>
+		</value>
+		<value>
+		 <propname>EnumType</propname>
+		 <description>EnumType</description>
+		</value>
+		<value>
+		 <propname>Header</propname>
+		 <description>Header</description>
+		</value>
+		<value>
+		 <propname>operator</propname>
+		 <description>Operator</description>
+		</value>
+		<value>
+		 <propname>edit_operator</propname>
+		 <description>Operator Editable</description>
+		</value>
+		<value>
+		 <propname>display_operator</propname>
+		 <description>Display Operator</description>
+		</value>
+		<value>
+		 <propname>filter</propname>
+		 <description>Filterable</description>
+		</value>
+ </editable_list>
+ 
+ <editable_list>
+		<menu>Edit Actions</menu>
+		<notes></notes>
+		
+		<add>true</add>
+		<list>/RuleSetDefinition/Actions/Action</list>
+		<list_base>/RuleSetDefinition/Actions</list_base>
+		
+		<value>
+		 <propname>Type</propname>
+		 <description>Column Type</description>
+		</value>
+		<value>
+		 <propname>prop_name</propname>
+		 <description>Property</description>
+		</value>
+		<value>
+		 <propname>ptype</propname>
+		 <description>Data Type</description>
+		</value>
+		<value>
+		 <propname>EnumSpace</propname>
+		 <description>EnumSpace</description>
+		</value>
+		<value>
+		 <propname>EnumType</propname>
+		 <description>EnumType</description>
+		</value>
+		<value>
+		 <propname>Header</propname>
+		 <description>Header</description>
+		</value>
+		<value>
+		 <propname>Editable</propname>
+		 <description>User Editable</description>
+		</value>
+		<value>
+		 <propname>Default</propname>
+		 <description>Default Value</description>
+		</value>
+ </editable_list>
+</editable>

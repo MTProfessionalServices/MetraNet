@@ -1,0 +1,46 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>W3Runner CancelScript</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   CancelScript</H1>
+  <ADDRESS CLASS="VbSample">
+   Public Property Get CancelScript() As Boolean</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Public Property Let CancelScript(v As Boolean)</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN></P>
+  <P>
+   Get or set if the user asked to cancel the script by pressing the 
+   stop icon in the toolbar. In the test script file, you should insert 
+   at the end of each loop the following code so it is possible to ask 
+   to cancel the test more rapidly.<BR>
+   </P>
+  <ADDRESS CLASS="VbSample">
+   If Page.CancelScript Then Exit function</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   For i=1 To lngNumber</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; Page.Controls(&quot;aEditCustomer&quot;,&quot;Anchor&quot;,&quot;menu&quot;).Click</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; Page.WaitForDownLoad &quot;EditCustomerDialog.asp&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PopulateAndAddCustomer</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; If W3Runner.CancelScript Then Exit For</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Next</ADDRESS>
+  <P>
+   <!-- $MVD$:spaceretainer() -->&nbsp;
+ </BODY>
+</HTML>

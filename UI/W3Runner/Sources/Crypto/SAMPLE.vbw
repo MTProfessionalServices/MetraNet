@@ -1,0 +1,13 @@
+frmBlowfishEx = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+basBlfArrays = 0, 0, 0, 0, C
+basBlowfish = 88, 88, 910, 529, 
+basBlowfishCBC = 0, 0, 0, 0, C
+basBlowfishFns = 0, 0, 0, 0, C
+basConvert = 132, 132, 954, 573, 
+basRadix64 = 0, 0, 0, 0, C
+basUnsignedWord = 0, 0, 0, 0, C
+basFileAPI = 0, 0, 0, 0, C
+Module1 = 138, 25, 960, 466, C
+basAPITimer = 0, 0, 0, 0, C
+basBlowfishFileFns = 0, 0, 0, 0, C
+CPoissonSuceur = 161, 22, 983, 463, 

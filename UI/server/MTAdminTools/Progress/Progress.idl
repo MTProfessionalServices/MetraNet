@@ -1,0 +1,66 @@
+// Progress.idl : IDL source for Progress.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (Progress.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(A055E69D-38C7-11D4-B9A1-00C04F043E86),
+		dual,
+		helpstring("IProgressServer Interface"),
+		pointer_default(unique)
+	]
+	interface IProgressServer : IDispatch
+	{
+		//Standard Server Side Component Methods
+		HRESULT OnStartPage([in] IUnknown* piUnk);
+		HRESULT OnEndPage();	
+		[id(1), helpstring("method Start")] HRESULT Start();
+		[id(2), helpstring("method Stop")] HRESULT Stop();
+		[id(3), helpstring("method GetProgress")] HRESULT GetProgress([out, retval]BSTR* pbstrProgress);
+		[id(4), helpstring("method SetProgress")] HRESULT SetProgress(BSTR bstrProgress);
+		[id(5), helpstring("method WriteResponse")] HRESULT WriteResponse(BSTR);
+		[propget, id(6), helpstring("property Delay")] HRESULT Delay([out, retval] long *pVal);
+		[propput, id(6), helpstring("property Delay")] HRESULT Delay([in] long newVal);
+	};
+	[
+		object,
+		uuid(A055E6A4-38C7-11D4-B9A1-00C04F043E86),
+		dual,
+		helpstring("IDummy Interface"),
+		pointer_default(unique)
+	]
+	interface IDummy : IDispatch
+	{
+	};
+
+[
+	uuid(A055E691-38C7-11D4-B9A1-00C04F043E86),
+	version(1.0),
+	helpstring("Progress 1.0 Type Library")
+]
+library PROGRESSLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(A055E69E-38C7-11D4-B9A1-00C04F043E86),
+		helpstring("ProgressServer Class")
+	]
+	coclass ProgressServer
+	{
+		[default] interface IProgressServer;
+	};
+	[
+		uuid(A055E6A5-38C7-11D4-B9A1-00C04F043E86),
+		helpstring("Dummy Class")
+	]
+	coclass Dummy
+	{
+		[default] interface IDummy;
+	};
+};

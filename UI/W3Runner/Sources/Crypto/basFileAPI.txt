@@ -1,0 +1,116 @@
+Attribute VB_Name = "basFileAPI"
+Option Explicit
+Option Base 0
+
+' basFileAPI: Wrapper functions to read and write files using Windows API fns
+
+'************************* COPYRIGHT NOTICE*************************
+' This code was originally written in Visual Basic by David Ireland
+' and is copyright (c) 2000-2 D.I. Management Services Pty Limited,
+' ARR.
+
+' You are free to use this code as part of your own applications
+' provided you keep this copyright notice intact.
+
+' This code may only be used as part of an application. It may
+' not be reproduced or distributed separately by any means without
+' the express written permission of the author.
+
+' David Ireland and DI Management Services Pty Limited make no
+' representations concerning either the merchantability of this
+' software or the suitability of this software for any particular
+' purpose. It is provided "as is" without express or implied
+' warranty of any kind.
+
+' Please forward comments or bug reports to <code@di-mgt.com.au>.
+' The latest version of this source code can be downloaded from
+' www.di-mgt.com.au/crypto.html.
+'****************** END OF COPYRIGHT NOTICE*************************
+
+
+Public Const INVALID_HANDLE_VALUE = -1
+Private Const GENERIC_WRITE = &H40000000
+Private Const GENERIC_READ = &H80000000
+Private Const FILE_ATTRIBUTE_NORMAL = &H80
+Private Const CREATE_NEW = 1
+Private Const CREATE_ALWAYS = 2
+Private Const OPEN_EXISTING = 3
+Private Const OPEN_ALWAYS = 4
+Private Const TRUNCATE_EXISTING = 5
+
+Declare Function ReadFile Lib "kernel32" (ByVal hFile As Long, _
+   lpBuffer As Any, ByVal nNumberOfBytesToRead As Long, _
+   lpNumberOfBytesRead As Long, ByVal lpOverlapped As Long) As Long
+
+Private Declare Function CloseHandle Lib "kernel32" ( _
+  ByVal hObject As Long) As Long
+
+Private Declare Function WriteFile Lib "kernel32" ( _
+  ByVal hFile As Long, lpBuffer As Any, _
+  ByVal nNumberOfBytesToWrite As Long, _
+  lpNumberOfBytesWritten As Long, ByVal lpOverlapped As Long) As Long
+
+Private Declare Function CreateFile Lib "kernel32" _
+  Alias "CreateFileA" (ByVal lpFileName As String, _
+  ByVal dwDesiredAccess As Long, ByVal dwShareMode As Long, _
+  ByVal lpSecurityAttributes As Long, _
+  ByVal dwCreationDisposition As Long, _
+  ByVal dwFlagsAndAttributes As Long, ByVal hTemplateFile As Long) _
+  As Long
+
+Declare Function FlushFileBuffers Lib "kernel32" ( _
+  ByVal hFile As Long) As Long
+
+Public Function ap_OpenFileReadOnly(sFileName As String) As Long
+' Wrapper around Windows API fn to open a file for read only
+' Returns INVALID_HANDLE_VALUE (-1) if it fails.
+   ap_OpenFileReadOnly = CreateFile(sFileName, GENERIC_READ, _
+                        0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0)
+End Function
+
+Public Function ap_OpenFileWrite(sFileName As String) As Long
+' Wrapper around Windows API fn to open a file for writing
+' Returns INVALID_HANDLE_VALUE (-1) if it fails.
+' Warning: Will overwrite existing file, if it exists
+   ap_OpenFileWrite = CreateFile(sFileName, GENERIC_WRITE, _
+                        0, 0, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0)
+End Function
+
+Public Function ap_CloseFile(fHandle As Long) As Boolean
+' Flush the file buffers to force writing of the data.
+    Dim fSuccess As Long
+    fSuccess = FlushFileBuffers(fHandle)
+    fSuccess = CloseHandle(fHandle)
+    ap_CloseFile = (fSuccess <> 0)
+End Function
+
+Public Function ap_PutByte(fHandle As Long, byt As Byte) As Boolean
+' Writes a single byte to an open file with handle <fHandle>
+' Returns True if successful; false if fails
+    Dim fSuccess As Long
+    Dim lBytesToWrite As Long
+    Dim lBytesWritten As Long
+    lBytesToWrite = 1
+    fSuccess = WriteFile(fHandle, byt, lBytesToWrite, lBytesWritten, 0)
+    'Check to see if successful writing the data
+    ap_PutByte = (fSuccess <> 0)
+End Function
+
+Public Function ap_GetBytes(fHandle As Long, aBytes() As Byte, _
+    lBytesToRead As Long) As Boolean
+' Reads n bytes from open file
+    Dim fSuccess As Long
+    Dim lBytesRead As Long
+    fSuccess = ReadFile(fHandle, aBytes(0), lBytesToRead, lBytesRead, 0)
+    ap_GetBytes = (fSuccess <> 0)
+End Function
+
+Public Function ap_PutBytes(fHandle As Long, aBytes() As Byte, _
+    lBytesToWrite As Long) As Boolean
+' Writes n bytes to open file
+    Dim fSuccess As Long
+    Dim lBytesWritten As Long
+    fSuccess = WriteFile(fHandle, aBytes(0), lBytesToWrite, lBytesWritten, 0)
+    ap_PutBytes = (fSuccess <> 0)
+End Function
+

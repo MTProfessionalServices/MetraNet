@@ -1,0 +1,334 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>Page Controls</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Controls</H1>
+  <ADDRESS CLASS="VbSample">
+   Public Property Get Controls(</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Optional ByVal strName As String,<BR>
+   Optional ByVal strType As String,<BR>
+   Optional ByVal strFrame As String,<BR>
+   Optional ByVal lngIndex As Long = 1,<BR>
+   Optional ByVal varValue As Variant,<BR>
+   Optional ByVal strHREF As String) As W3RunnerControl</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   Return the W3RunnerControl object that match the parameters.<BR>
+   Generally an HTML tag should have an attribute Name (or Id) which 
+   identify uniquely the object in the page and that should be used to 
+   look up the object. If the HTML Tag does not have any Name or Id 
+   attribute, W3Runner allow you to look up the object in a very 
+   powerfulll way, see Detailed look up method in the help page.<BR>
+   </P>
+  <P STYLE="text-align : center;" ALIGN=CENTER>
+   <SPAN STYLE="font-weight : bold;">The Record mode will alway generate 
+   the best way to look up an object.</SPAN></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Parameters:</SPAN></P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="1">
+    <TR>
+     <TD BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Part</SPAN></TD>
+     <TD WIDTH="50%" BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Description</SPAN></TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       strName</TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       Contains the name, the text or the file name of the object to return.</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       strType</TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       Can be the following values : <SPAN STYLE="font-weight : bold;">TextBox</SPAN> 
+       (HTML Tag &lt;INPUT Type=&#146;Text&#146;&gt; or &lt;TEXTAREA&gt;), <SPAN STYLE="font-weight : bold;">RadioButton</SPAN>,
+        <SPAN STYLE="font-weight : bold;">CheckBox</SPAN>, <SPAN STYLE="font-weight : bold;">Button</SPAN>,
+        <SPAN STYLE="font-weight : bold;">Input</SPAN>, <SPAN STYLE="font-weight : bold;">Submit</SPAN> 
+       (Special button),<BR>
+       <SPAN STYLE="font-weight : bold;">ComboBox, ListBox</SPAN>, <SPAN STYLE="font-weight : bold;">Image</SPAN>,
+        <SPAN STYLE="font-weight : bold;">Anchor</SPAN>, <SPAN STYLE="font-weight : bold;">TableCell</SPAN> 
+       (HTML Tag &lt;TD&gt;), <SPAN STYLE="font-weight : bold;">Div</SPAN> 
+       (HTML Div), and empty string. If strType is not defined then the 
+       function will try to look up the object based<BR>
+       on the name or the text only with the optional lngIndex or varValue parameters.</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       strFrame</TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       The name of the frame if the object is located in a frame. HTML 
+       object in a child window does not need frame name.</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       lngIndex</TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       When an object is defined more than once with the same name for 
+       instance, you can specify the index to locate the object. This is 
+       generally used to located images with the same file name or<BR>
+       button with the same name.</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       varValue</TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       When an object is an array it may have a HTML attributes value that 
+       makes it unique. This is how HTML Radio Button behave.</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       strHREF</TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       If few anchor &lt;A&gt; have the same name you can use the HREF.</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Remarks :</SPAN></P>
+  <UL>
+   <LI CLASS="mvd-P">
+   <P>
+    If the Mouve Move Cursor mode is on, this function will move the 
+    mouse cursor to center of the object returned. See the 
+    W3Runner.MoveMouseCursor property for more information.</P>
+   <LI CLASS="mvd-P">
+   <P>
+    If the Auto Focus mode is on, the focus will be set to object 
+    returned. See the Page.AutoFocus property for more information.</P>
+   </UL>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSampleComment">
+   &#145; Look up a text box</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;LastName&quot;,&quot;TextBox&quot;,&quot;main&quot;).Text
+    = &#147;Smith&#148;</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   &#145; Look up a button</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;OK&quot;,&quot;Button&quot;).Click</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   &#145; Look up a combo box</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;Country&quot;,&quot;ComboBox&quot;,&quot;main&quot;).Value
+    = &quot;ITALY&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   &#145; Look up a check box</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;TaxExempt&quot;,&quot;CheckBox&quot;,&quot;main&quot;).SetFocus</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   &#145; Look up a radio button</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;SubScriberType&quot;,&quot;RadioButton&quot;,&quot;main&quot;,,&quot;Gold&quot;).Value
+    = TRUE</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   &#145; Look up anchor based on the text</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;Add A New User&quot;,&quot;Anchor&quot;,&quot;main&quot;).Click</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   &#145; Look up an button with a non unic name</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;ButEdit&quot;,&quot;Button&quot;,,2).Click</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   &#145; Look up an image</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;Go.gif&quot;,&quot;Image&quot;,&quot;main&quot;).Click</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   &#145; Look up an anchor based on the name and the href</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;MyLink&quot;,&quot;Anchor&quot;,&quot;main&quot;,,,&quot;MyPage.asp?param=A&quot;).Click</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   &#145; Look up an anchor based on the href</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(,&quot;Anchor&quot;,&quot;main&quot;,,,&quot;MyPage.asp?param=B&quot;).Click</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   &#145; Look up a DIV</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;MyDiv1&quot;,&quot;Div&quot;).Click</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Detailed look up method :</SPAN></P>
+  <P>
+   If strType = &#147;TEXTBOX&#148; or &#147;COMBOBOX&#148; Then</P>
+  <UL>
+   <LI CLASS="mvd-P">
+   <P>
+    Lookup the object based on the name and optionaly with the index if defined.</P>
+   </UL>
+  <P>
+   If strType = &#147;RADIOBUTTON&#148; or &#147;CHECKBOX&#148; or 
+   &#147;SUBMIT&#148; or &#147;HIDDEN or &#147;INPUT&#148; Then</P>
+  <UL>
+   <LI CLASS="mvd-P">
+   <P>
+    Lookup the object based on the name and optionaly with the index or 
+    the value if defined. It is mandatory to specify the value to 
+    identify a specific RadioButton.</P>
+   <LI CLASS="mvd-P">
+   <P>
+    If the object is not found try to look up the object based on the 
+    value and with the optional parameter index if defined.</P>
+   </UL>
+  <P>
+   If strType = &#147;BUTTON&#148; Then</P>
+  <UL>
+   <LI CLASS="mvd-P">
+   <P>
+    Lookup the object based on the HTML Tag &lt;INPUT&gt;, the name and 
+    with the optional parameter index if defined.</P>
+   <LI CLASS="mvd-P">
+   <P>
+    If the object is not found try to lookup the object based on the HTML 
+    Tag &lt;INPUT&gt;, the HTML attribute value and with the optional 
+    parameter index if defined.</P>
+   <LI CLASS="mvd-P">
+   <P>
+    If the object is not found try to Lookup the object based on the HTML 
+    Tag &lt;BUTTON&gt;, the name and with the optional parameter index if defined.</P>
+   <LI CLASS="mvd-P">
+   <P>
+    If the object is not found try to look up the object based on the 
+    HTML Tag &lt;BUTTON&gt; the HTML attribute value and with the 
+    optional parameter index if defined.</P>
+   </UL>
+  <P>
+   If strType = &#147;IMAGE&#148; Then</P>
+  <UL>
+   <LI CLASS="mvd-P">
+   <P>
+    Lookup the object based on the HTML Tag &lt;IMG&gt;, the HTML 
+    attribute src and with the optional parameter index if defined. The 
+    parameter strName may contain the all image file name or just a part.</P>
+   <LI CLASS="mvd-P">
+   <P>
+    If the object is not found try to look up the object based on the 
+    HTML Tag &lt;IMG&gt;, the HTML attribute name and with the optional 
+    parameter index if defined.</P>
+   <LI CLASS="mvd-P">
+   <P>
+    If the object is not found try to look up the object based on the 
+    HTML Tag &lt;INPUT Type=&#146;Image&#146;&gt;, the HTML attribute 
+    name and with the optional parameter index if defined.</P>
+   </UL>
+  <P>
+   If strType = &#147;ANCHOR&#148; Then</P>
+  <UL>
+   <LI CLASS="mvd-P">
+   <P>
+    Look up the object based on the HTML Tag &lt;A&gt;, the text of the 
+    anchor and with the optional parameter index if defined. The 
+    parameter strName must contain the exact text, the space chars at the 
+    beginning and at the end are ignored.</P>
+   <LI CLASS="mvd-P">
+   <P>
+    If the object is not found try to look up the object based on the 
+    HTML attribute name and with the optional parameter index if defined.</P>
+   <LI CLASS="mvd-P">
+   <P>
+    If the object is not found try to look up the object based on the the 
+    HTML attribute HREF and with the optional parameter index if defined. 
+    You may only supply a piece of the HREF value.</P>
+   </UL>
+  <P>
+   If strType = &#147;TABLECELL&#148; OR &#147;TD&#148; Then</P>
+  <UL>
+   <LI CLASS="mvd-P">
+   <P>
+    Look up the object based on the HTML Tag &lt;TD&gt;, the text of the 
+    table cell and with the optional parameter index if defined. The 
+    parameter strName must contain the exact text, the space chars at the 
+    beginning and at the end are ignored.</P>
+   <LI CLASS="mvd-P">
+   <P>
+    If the object is not found try to look up the object based on the 
+    HTML Tag &lt;A&gt;, the HTML attribute name and with the optional 
+    parameter index if defined.</P>
+   </UL>
+  <P>
+   If strType = &#147;FRAME&#148; Then</P>
+  <UL>
+   <LI CLASS="mvd-P">
+   <P>
+    Look up the HTMLFrameElement based on the name. The search of the 
+    Frame object <SPAN STYLE="font-weight : bold;">is not</SPAN> 
+    recursive therefore the frame must be defined in the current frameset level.</P>
+   </UL>
+  <P>
+   If strType = &#147;HTMLWindow2&#148; Then</P>
+  <UL>
+   <LI CLASS="mvd-P">
+   <P>
+    Look up a frame based on the name but return the HTMLWindow2 
+    interface rather than the HTMLFrameElement interface. The search of 
+    the Frame object <SPAN STYLE="font-style : normal;font-weight : bold;">is</SPAN> recursive.</P>
+   </UL>
+  <P>
+   If strType = &#147;DIV&#148; Then</P>
+  <UL>
+   <LI CLASS="mvd-P">
+   <P>
+    Look up a DIV Tag based on the HTML attribute name..</P>
+   <LI CLASS="mvd-P">
+   <P>
+    If the object is not found try to look up the object based on its text.</P>
+   </UL>
+  <P>
+   If strType = &#147;&#148; Then</P>
+  <UL>
+   <LI CLASS="mvd-P">
+   <P>
+    Lookup the object based on the HTML attribute name and with the 
+    optional parameter index if defined.</P>
+   <LI CLASS="mvd-P">
+   <P>
+    If the object is not found look up the object based the text of the 
+    HTML Tag if available and with the optional parameter index if 
+    defined. The parameter strName must contain the exact text, the space 
+    chars at the beginning and at the end are ignored.</P>
+   <LI CLASS="mvd-P">
+   <P>
+    If the object is not found look up the object based on the HTML 
+    attribute href and with the optional parameter index if defined.</P>
+   <LI CLASS="mvd-P">
+   <P>
+    If the object is not found a message box error is open, the error 
+    message is also logged. Since the object is not found the Controls() 
+    property will return Nothing, which will raise en VBScript Run Time 
+    Error. The Script will be canceled.</P>
+   </UL>
+  <P>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN></P>
+  <P>
+   <A HREF="__GetHTMLObjectName.htm"><SPAN STYLE="font-weight : normal;">GetHTMLObjectName</SPAN></A><BR>
+   <SPAN STYLE="font-weight : normal;"><A HREF="_Exist.htm">Exist</A></SPAN>
+ </BODY>
+</HTML>

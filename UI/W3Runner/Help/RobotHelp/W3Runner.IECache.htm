@@ -1,0 +1,112 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>W3Runner.IECache</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   IECache</H1>
+  <ADDRESS CLASS="VbSample">
+   Public Property Get IECache() As CIECache</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   <SPAN STYLE="font-weight : normal;">Return the global instance of the 
+   object IECache. The COM Object CIECache allow to manipulate the 
+   Internet Explorer cache.</SPAN></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">CIECache Interface:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   CLAS<SPAN STYLE="font-weight : normal;">S CIECache</SPAN></ADDRESS>
+  <ADDRESS>
+   <SPAN STYLE="font-weight : normal;"><!-- $MVD$:spaceretainer() -->&nbsp;</SPAN></ADDRESS>
+  <BLOCKQUOTE>
+   <ADDRESS CLASS="VbSample">
+    Public Function Load() As BooleanPublic Property Get Item(vntKey As 
+    Variant) As CIECacheEntryPublic Function Remove(vntKey As Variant) As BooleanPublic
+     Property Get Count() As LongPublic Function Clear() As BooleanPublic 
+    Function Exist(ByVal vntKey As Variant) As BooleanPublic Function 
+    ToString() As StringPublic Function DeleteAll(</ADDRESS>
+   <BLOCKQUOTE>
+    <ADDRESS CLASS="VbSample">
+     Optional ByVal strWildCard As String, Optional ByVal booTrace As 
+     Boolean = True) As Boolean<BR>
+     Public Function DeleteFiles(<BR>
+     Optional ByVal strWildCard As String, Optional ByVal booTrace As 
+     Boolean = True) As Boolean<BR>
+     Public Function DeleteCookies(Optional ByVal strWildCard As String, 
+     Optional ByVal booTrace As Boolean = True) As Boolean</ADDRESS>
+    </BLOCKQUOTE>
+   </BLOCKQUOTE>
+  <ADDRESS CLASS="VbSample">
+   <SPAN STYLE="font-weight : normal;">END CLASS</SPAN></ADDRESS>
+  <ADDRESS>
+   <SPAN STYLE="font-weight : normal;"><!-- $MVD$:spaceretainer() -->&nbsp;</SPAN></ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">CIECacheEntry Interface:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   CLAS<SPAN STYLE="font-weight : normal;">S CIECacheEntry</SPAN></ADDRESS>
+  <ADDRESS>
+   <SPAN STYLE="font-weight : normal;"><!-- $MVD$:spaceretainer() -->&nbsp;</SPAN></ADDRESS>
+  <BLOCKQUOTE>
+   <ADDRESS CLASS="VbSample">
+    Public URL As StringPublic Function Delete(</ADDRESS>
+   <BLOCKQUOTE>
+    <ADDRESS CLASS="VbSample">
+     Optional ByVal strWildCard As String, Optional ByVal booTrace As 
+     Boolean = True) As Boolean</ADDRESS>
+    </BLOCKQUOTE>
+   <ADDRESS CLASS="VbSample">
+    Public Function ToString() As StringPublic Function IsCookie() As Boolean</ADDRESS>
+   </BLOCKQUOTE>
+  <ADDRESS CLASS="VbSample">
+   ENDCLAS<SPAN STYLE="font-weight : normal;">S</SPAN></ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : normal;"><!-- $MVD$:spaceretainer() -->&nbsp;</SPAN><BR>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSampleComment">
+   &nbsp; ' ' Download some page, then load the IE Cache and display all 
+   the file names. ' Then delete all and check that the cache is empty '</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; Page.URL = &quot;http://www.w3runner.com&quot; 
+   Page.WaitForDownLoad &quot;.asp&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   &nbsp; ' Load the cache</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   &nbsp; W3Runner.IECache.Load W3Runner.TRACE W3Runner.IECache.Count 
+   &amp; &quot; file(s) in the IE cache.&quot; ' Display the content of 
+   the cache</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+    For Each objIECacheEntry In W3Runner.IECache W3Runner.TRACE objIECacheEntry.URL 
+   Next</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+    ' How to delete one file ' The pattern matching used is based on the 
+   Visual Basic operator LIKE.</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+    W3Runner.IECache.DeleteAll &quot;http://www.w3runner.com/header.asp&quot; 
+   ' Delete all the file in the cache that contains the word w3runner in 
+   the </ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   &nbsp; ' path or the name. ' The pattern matching used is based on 
+   the Visual Basic operator LIKE.</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+    W3Runner.IECache.DeleteAll &quot;*w3runner*&quot;</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   &nbsp; ' We need to reload the cache at this point</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; W3Runner.IECache.Load 
+ </BODY>
+</HTML>

@@ -1,0 +1,29 @@
+#!/bin/csh -f
+
+set libdir = ${BUILD_ROOT}/lib/${BUILD_CONFIG}
+set rwlibdir = $1
+
+echo ${libdir}
+echo Using Rogue Wave library $2
+
+set libs = "${libdir}/libbase64.a ${libdir}/libmeterapi.a ${libdir}/libmsixapi.a  ${libdir}/libsdk_msg.a ${libdir}/libxml.a ${libdir}/libxmltok.a ${libdir}/liberrobj.a ${libdir}/libmsix.a ${libdir}/libmtlocalmode.a ${libdir}/libnetstream.a ${libdir}/libunixnet.a ${libdir}/libsdk_msg.a ${libdir}/libmtsdkutils.a ${libdir}/libxmlconfig.a ${rwlibdir}/lib$2.a ${libdir}/libfutil.a ${libdir}/libmtsha.a ${libdir}/libmtutil.a /usr/local/bsafe30/solar25/lib/libbsafe.a /usr/local/ssl/lib/libssl.a"
+
+#/usr/local/bsafe30/solar25/lib/libbsafe.a
+
+rm -f *.o
+
+rm -f objnames.out
+
+foreach lib ($libs)
+#  ar vxf $lib >>objnames.out
+  ar vx $lib >>objnames.out
+end
+
+cp ${libdir}/Templates.DB/*.o .
+cp /users/jiang/testlib/ssl/crypto/*.o .
+cp ../../Thirdparty/md5/md5_metratech.o .
+
+#ld -G  sun4os5/mtsdk.o *.o -o /export/home/billo/mt/Development/lib/sun4os5/libmtsdk.so -lnsl -lc
+
+CC -xar -o ${libdir}/libmtsdk.a *.o -DRWDEBUG 
+#CC -xar -o ${libdir}/test.a *.o -DRWDEBUG 

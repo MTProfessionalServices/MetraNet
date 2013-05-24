@@ -1,0 +1,9 @@
+frmBlowfishEx = 66, 66, 513, 414, C, 44, 44, 727, 628, C
+basBlfArrays = 0, 0, 0, 0, C
+basBlowfish = 88, 88, 505, 436, C
+basBlowfishCBC = 154, 154, 571, 502, C
+basBlowfishFns = 110, 110, 527, 458, C
+basConvert = 88, 88, 910, 529, C
+basRadix64 = 132, 132, 549, 480, C
+basUnsignedWord = 0, 0, 0, 0, C
+basFileAPI = 0, 0, 0, 0, C

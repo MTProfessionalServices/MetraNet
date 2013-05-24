@@ -1,0 +1,42 @@
+// MTUIPerfMon.idl : IDL source for MTUIPerfMon.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTUIPerfMon.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(853FE474-8E44-4A32-979D-887726C2C5C3),
+		dual,
+		helpstring("ITimerManager Interface"),
+		pointer_default(unique)
+	]
+	interface ITimerManager : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize([in] BSTR strAppID, [in] BSTR strDate);
+		[id(2), helpstring("method InitializeTimerXML")] HRESULT InitializeTimerXML([in] BSTR strSessionID, [out, retval] BSTR *strXML);
+		[id(3), helpstring("method StoreTimerXML")] HRESULT StoreTimerXML([in] BSTR strXML);
+		[id(4), helpstring("method WriteOutputXMLFile")] HRESULT WriteOutputXMLFile();
+	};
+
+[
+	uuid(2280A993-BBA9-4F46-B38B-A52A42E872E2),
+	version(1.0),
+	helpstring("MTUIPerfMon 1.0 Type Library")
+]
+library MTUIPERFMONLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(49880A34-D20D-477D-9287-67112F664C7C),
+		helpstring("TimerManager Class")
+	]
+	coclass TimerManager
+	{
+		[default] interface ITimerManager;
+	};
+};

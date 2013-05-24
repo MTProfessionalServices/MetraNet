@@ -1,0 +1,1 @@
+copy O:\Debug\Bin\W3Runner.dll

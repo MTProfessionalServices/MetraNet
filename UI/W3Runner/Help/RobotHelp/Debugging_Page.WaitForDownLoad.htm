@@ -1,0 +1,32 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>Debugging Page.WaitForDownLoad</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Debugging Page.WaitForDownLoad</H1>
+  <P>
+   When debugging the following code :</P>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;butAddCustomer&quot;,&quot;Anchor&quot;).Click</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.WaitForDownLoad &quot;AddCustomer.asp&quot;</ADDRESS>
+  <P>
+   You should use the F10 key twice in a row with no interruption, 
+   because if you execute the first line and wait, the page will be 
+   automatically downloaded and when you press F10 to execute the line 
+   Page.WaitForDownLoad() the method will time out because the page has 
+   already been downloaded.</P>
+  <P>
+   if you see that the page has already been downloaded you can skip the 
+   method Page.WaitForDownLoad() by using the Visual Studio debugger 
+   command Set Next Statment Ctrl+Shift+F10.
+ </BODY>
+</HTML>

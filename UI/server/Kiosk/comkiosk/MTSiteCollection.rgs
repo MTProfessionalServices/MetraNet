@@ -1,0 +1,26 @@
+HKCR
+{
+	COMKiosk.MTSiteCollection.1 = s 'MTSiteCollection Class'
+	{
+		CLSID = s '{D87E3D32-71FA-11D3-AE9C-00C04F54FE3B}'
+	}
+	COMKiosk.MTSiteCollection = s 'MTSiteCollection Class'
+	{
+		CLSID = s '{D87E3D32-71FA-11D3-AE9C-00C04F54FE3B}'
+		CurVer = s 'COMKiosk.MTSiteCollection.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {D87E3D32-71FA-11D3-AE9C-00C04F54FE3B} = s 'MTSiteCollection Class'
+		{
+			ProgID = s 'COMKiosk.MTSiteCollection.1'
+			VersionIndependentProgID = s 'COMKiosk.MTSiteCollection'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{535E93A3-0201-11D2-B24D-006008925549}'
+		}
+	}
+}

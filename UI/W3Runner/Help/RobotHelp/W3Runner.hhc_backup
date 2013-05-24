@@ -1,0 +1,701 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="SiteType" value="toc">
+  <param name="Image Width" value="16">
+  <param name="Window Styles" value="0xc00027">
+  <param name="ExWindow Styles" value="0x100">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Introduction">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Introduction">
+      <param name="Local" value="Introduction_To_The_Instroduction.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Programming Sample">
+      <param name="Local" value="Programming_Sample.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Architecture">
+      <param name="Local" value="Architecture.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="About the test script">
+      <param name="Local" value="_About_The_Script_Source.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Product Limitation">
+      <param name="Local" value="Product_Limitation.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Integration with other tools">
+      <param name="Local" value="_Integration_with_other_toos.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="On Line Help">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Microsoft On Line Help">
+      <param name="Local" value="MicrosoftOnLineHelp.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="W3Runner On Line Help">
+      <param name="Local" value="FredRunnerOnLineHelp.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script Recording">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Design Mode">
+      <param name="Local" value="__Design_Mode.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Watch Window">
+      <param name="Local" value="__Watch_Window.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Record Mode">
+      <param name="Local" value="__Recording.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Scripting Interfaces">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Introduction">
+      <param name="Local" value="Introduction_To_The_COM_Objects_Interfaces.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="The Page Object">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Controls">
+        <param name="Local" value="_Controls.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="DownLoadTimeOut">
+        <param name="Local" value="_DownLoadTimeOut.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Exist">
+        <param name="Local" value="_Exist.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="FindText">
+        <param name="Local" value="_FindText.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="URL">
+        <param name="Local" value="_URL.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="WaitForDownLoad">
+        <param name="Local" value="_WaitForDownLoad.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Windows">
+        <param name="Local" value="_Windows.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Advanced Methods and Properties">
+      </object>
+      <ul>
+        <li><object type="text/sitemap">
+          <param name="Name" value="AutoFireEvent">
+          <param name="Local" value="_AutoFireEvent.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="CloseWindow">
+          <param name="Local" value="Page_CloseWindow.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Form">
+          <param name="Local" value="_Form.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="GetHTMLObjectName">
+          <param name="Local" value="__GetHTMLObjectName.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="GetHTMLObjectProperty">
+          <param name="Local" value="__GetHTMLObjectProperty.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="HTMLDocument">
+          <param name="Local" value="_HTMLDoc.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="WebBrowser">
+          <param name="Local" value="_WebBrowser.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="WebBrowserHWND">
+          <param name="Local" value="WebBrowserHWND.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Post">
+          <param name="Local" value="_Post.htm">
+        </object>
+        </ul>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="The Control Object">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Introduction">
+        <param name="Local" value="Introduction_to_the_Control_Object.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="ActiveX">
+        <param name="Local" value="__ActiveX.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Attributes">
+        <param name="Local" value="__Attributes.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Click">
+        <param name="Local" value="__Click.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="FireEvent">
+        <param name="Local" value="__FireEvent.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="FindText">
+        <param name="Local" value="__FindText.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Name">
+        <param name="Local" value="__Name.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Object">
+        <param name="Local" value="__Object.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="SetFocus">
+        <param name="Local" value="__SetFocus.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Value ">
+        <param name="Local" value="__Value_.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="SecureText">
+        <param name="Local" value="__Secure_Text.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="SendKeys">
+        <param name="Local" value="__SendKeys.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Text">
+        <param name="Local" value="__Text.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Combox ListBox Control">
+      </object>
+      <ul>
+        <li><object type="text/sitemap">
+          <param name="Name" value="ListIndex">
+          <param name="Local" value="__ListIndex.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="ListCount">
+          <param name="Local" value="__ListCount.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="List">
+          <param name="Local" value="__List.htm">
+        </object>
+        </ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="MAP Control">
+      </object>
+      <ul>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Item">
+          <param name="Local" value="__Item.htm">
+        </object>
+        </ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Advanced Methods And Properties">
+      </object>
+      <ul>
+        <li><object type="text/sitemap">
+          <param name="Name" value="SendChars">
+          <param name="Local" value="__SendCHars.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="SecureText">
+          <param name="Local" value="__Secure_Text.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="SetMouse">
+          <param name="Local" value="__SetMouse.htm">
+        </object>
+        </ul>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="The W3Runner Object">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Arguments">
+        <param name="Local" value="Page_Argument.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="AutoFocus">
+        <param name="Local" value="AutoFocus.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="CancelScriptIfTimeOut">
+        <param name="Local" value="_CancelScriptIfTimeOut.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="CancelScript">
+        <param name="Local" value="_CancelScript.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="ClearCache">
+        <param name="Local" value="_ClearCache.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="ClipBoard">
+        <param name="Local" value="__ClipBoard.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="CommandLine">
+        <param name="Local" value="_CCommandLine.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="CurrentX">
+        <param name="Local" value="IERunner_CurrentX.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="CurrentY">
+        <param name="Local" value="IERunner_CurrentY.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="EnableDebugger">
+        <param name="Local" value="W3Runner_EnableDebugger.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Environ">
+        <param name="Local" value="_Environ.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Execute">
+        <param name="Local" value="Screen_Execute.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="ErrorCounter">
+        <param name="Local" value="_ErrorCounter.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Failed">
+        <param name="Local" value="_Failed.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="FullScreen">
+        <param name="Local" value="_FullScreen.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="IECache">
+        <param name="Local" value="W3Runner.IECache.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="MoveMouseCursor">
+        <param name="Local" value="_MoveMouseCursor.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="MsgBox">
+        <param name="Local" value="_MsgBox.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="MsgBoxTimeOut">
+        <param name="Local" value="__MsgBoxTimeOut.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Quit">
+        <param name="Local" value="__Quit.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Screen">
+        <param name="Local" value="__Screen.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="RecordHTTPProtocol ">
+        <param name="Local" value="Page_RecordHTTPProtocol_.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="SendChars">
+        <param name="Local" value="Screen_SendChar.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="SendKeys">
+        <param name="Local" value="Screen_SendKeys.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Sleep">
+        <param name="Local" value="Page_Sleep.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="SlowMode">
+        <param name="Local" value="_SlowMode.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="ScriptFileName">
+        <param name="Local" value="_ScriptFileName.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="ScriptFilePath">
+        <param name="Local" value="_ScriptFilePath.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Trace">
+        <param name="Local" value="_Trace.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="TraceEvent">
+        <param name="Local" value="__TraceEvent.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="SendMessage">
+        <param name="Local" value="Screen_SendMessage.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="VBScriptEngine">
+        <param name="Local" value="_VBScriptEngine.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Wait">
+        <param name="Local" value="Screen_Wait.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="WarningCounter">
+        <param name="Local" value="_WarningCounter.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Events">
+      </object>
+      <ul>
+        <li><object type="text/sitemap">
+          <param name="Name" value="W3Runner_OnTrace">
+          <param name="Local" value="__Page_OnTrace.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="W3Runner_OnError">
+          <param name="Local" value="Page_OnError.htm">
+        </object>
+        </ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="W3Runner.Screen">
+        <param name="Local" value="W3Runner.Screen.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="The HTTP Object">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Introduction">
+        <param name="Local" value="Introduction_To_The_HTTP_Object.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Constants">
+        <param name="Local" value="HTTP_Constants.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Data">
+        <param name="Local" value="Http_Data.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="DecodeUrl">
+        <param name="Local" value="HTT_DecodeUrl.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="EncodeUrl">
+        <param name="Local" value="http_EncodeUrl.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Execute">
+        <param name="Local" value="HTTP_Execute.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="OutputHeaders">
+        <param name="Local" value="HTTP_OutputHeader.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="InputHeaders">
+        <param name="Local" value="Http_InputHeaders.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Method">
+        <param name="Local" value="HTTP_Method.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="PassWord">
+        <param name="Local" value="HTTP_PassWord.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Parameters">
+        <param name="Local" value="HTTP_Parameters.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Port">
+        <param name="Local" value="HTTP_Port.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="ResponseBody">
+        <param name="Local" value="http_ResponseBody.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="ResponseText">
+        <param name="Local" value="Http_ResponseText.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Status">
+        <param name="Local" value="http_status.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="StatusText">
+        <param name="Local" value="HTTP_StatusText.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="StrConv">
+        <param name="Local" value="HTTP_StrConv.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="TextFile">
+        <param name="Local" value="HTTP_TextFile.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="TimeOut">
+        <param name="Local" value="HTTP_TimeOut.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="UserName">
+        <param name="Local" value="HTTP_Username.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="URL">
+        <param name="Local" value="HTTP_URL.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Base64">
+      </object>
+      <ul>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Encode">
+          <param name="Local" value="HTTP_Base64_Encode.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Decode">
+          <param name="Local" value="HTTP_Base64_DEcode.htm">
+        </object>
+        </ul>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="The Report Object">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Introduction">
+        <param name="Local" value="Report_Introduction.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="URL">
+        <param name="Local" value="Report.URL.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="WaitForDownLoad">
+        <param name="Local" value="Report.WaitForDownLoad.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="DownLoadTimeOut">
+        <param name="Local" value="Report.DownLoadTimeOut.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="HTMLDocument">
+        <param name="Local" value="Report.HTMLDocument.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Show">
+        <param name="Local" value="Report.Show.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Hide">
+        <param name="Local" value="Report.Hide.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Clear">
+        <param name="Local" value="Report.Clear.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="WriteLn">
+        <param name="Local" value="Report.WriteLn.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Utilities">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Introduction">
+        <param name="Local" value="Utilities_Introduction.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="The TextFile Object">
+        <param name="Local" value="The_TextFile_Object.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="The CVariantStack Object">
+        <param name="Local" value="The_CVariantStack_Object.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="The CVariables and CVariable objects">
+        <param name="Local" value="The_CVariables_object.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="The Visual Basic 6 Collection">
+        <param name="Local" value="Utitlities_The_Visual_Basic_6_Collection.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="The CIniFile Object">
+        <param name="Local" value="The_CIniFile_Object.htm">
+      </object>
+      </ul>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="How To Debug A Script">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Introduction">
+      <param name="Local" value="Introduction_how_to_debug.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Setting Break Points">
+      <param name="Local" value="Setting_Break_Points.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Executing in debug mode">
+      <param name="Local" value="Executing_in_debug_mode.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Opening a Debug Session with Visual Studio">
+      <param name="Local" value="Opening_a_Debug_Session_with_Visual_Studio.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Debugging Page.WaitForDownLoad">
+      <param name="Local" value="Debugging_Page.WaitForDownLoad.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Command Line Syntax">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Introduction">
+      <param name="Local" value="__Command_Line_Syntax.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Log File">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Introduction">
+      <param name="Local" value="Introduction_To_The_Log_Feature.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="W3Runner.vbs VBScript Library">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Introduction To The IERunner.vbs VBScript Library">
+      <param name="Local" value="Introduction_To_The_FredRunner.vbs_VBScript_Library.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="VBScript Library Functions">
+      <param name="Local" value="FredRunner.vbs_VBScript_Library_Functions.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Extensions">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Introduction">
+      <param name="Local" value="Introduction_To_The_Extensions.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="CSV File Extension ">
+      <param name="Local" value="CSV_File_Extension_.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Database Extension">
+      <param name="Local" value="CDB_Extension.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Random Data Generator Extension">
+      <param name="Local" value="Data_Genrator_Extension.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="FIFO Extension">
+      <param name="Local" value="FIFO_Extension.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Test Report Extension">
+      <param name="Local" value="Report_Extension.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Options Dialog">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="General Tab">
+      <param name="Local" value="General_Tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="VBScript Tab">
+      <param name="Local" value="VBScript_Tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Trace Tab">
+      <param name="Local" value="Trace_Tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Advanced Tuning Tab">
+      <param name="Local" value="Advanced_Tunig_Tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="JavaScript Tab">
+      <param name="Local" value="JavaScript_Tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Record Mode Tab">
+      <param name="Local" value="Record_Mode_Tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="External Tools Tab">
+      <param name="Local" value="External_Tools_Tab.htm">
+    </object>
+    </ul>
+</ul>
+</html>

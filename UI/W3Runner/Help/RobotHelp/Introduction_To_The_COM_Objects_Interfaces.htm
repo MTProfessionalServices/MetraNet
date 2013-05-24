@@ -1,0 +1,101 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>Introduction To The COM Objects Interfaces</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Introduction</H1>
+  <P>
+   There are 5 main COM objects available in the VBScript file.</P>
+  <UL>
+   <LI CLASS="mvd-P">
+   <P>
+    The global object<SPAN STYLE="font-style : italic;font-weight : bold;"> </SPAN><SPAN STYLE="font-style : normal;"><FONT COLOR="TEAL"><SPAN STYLE="font-weight : bold;">Page
+     As</SPAN></FONT></SPAN><SPAN STYLE="font-style : italic;"><FONT COLOR="TEAL"><SPAN STYLE="font-weight : bold;"> </SPAN></FONT></SPAN><SPAN STYLE="font-style : normal;"><FONT COLOR="TEAL"><SPAN STYLE="font-weight : bold;">W3RunnerPage</SPAN></FONT></SPAN><SPAN STYLE="font-style : italic;font-weight : bold;">,</SPAN> 
+    allows one to program the current HTML page or frames The property 
+    Page.Windows() returns a collection of W3RunnerPage.</P>
+   </UL>
+  <BLOCKQUOTE>
+   <BLOCKQUOTE>
+    <ADDRESS CLASS="VbSample">
+     Page.URL = &quot;http://localhost/myWebApp/default.asp&quot;</ADDRESS>
+    <ADDRESS CLASS="VbSample">
+     Page.WaitForDownLoad &quot;default.asp&quot;</ADDRESS>
+    <ADDRESS CLASS="VbSample">
+     Page.Controls(&quot;aFindProduct&quot;,&quot;Anchor&quot;).Click</ADDRESS>
+    </BLOCKQUOTE>
+   </BLOCKQUOTE>
+  <UL>
+   <LI CLASS="mvd-P">
+   <P>
+    <FONT COLOR="TEAL"><SPAN STYLE="font-weight : bold;">W3RunnerControl </SPAN></FONT>object
+     that can only be returned by the property Page.Controls().</P>
+   </UL>
+  <BLOCKQUOTE>
+   <BLOCKQUOTE>
+    <ADDRESS CLASS="VbSample">
+     Page.Controls(&quot;LastName&quot;,&quot;TextBox&quot;).Text = LAST_NAME</ADDRESS>
+    <ADDRESS CLASS="VbSample">
+     Page.Controls(&quot;OK&quot;,&quot;Button&quot;).Click<BR>
+     MsgBox TypeName(Page.Controls(&quot;LastName&quot;,&quot;TextBox&quot;))</ADDRESS>
+    </BLOCKQUOTE>
+   </BLOCKQUOTE>
+  <UL>
+   <LI CLASS="mvd-P">
+   <P>
+    <SPAN STYLE="font-style : normal;">The global </SPAN><SPAN STYLE="font-weight : bold;"><FONT COLOR="TEAL"><SPAN STYLE="font-style : normal;">W3Runner
+     As W3RunnerAppl</SPAN></FONT></SPAN><SPAN STYLE="font-style : normal;font-weight : bold;"><FONT COLOR="TEAL">lication</FONT></SPAN><SPAN STYLE="font-weight : bold;"><FONT COLOR="TEAL"><SPAN STYLE="font-style : normal;"> </SPAN></FONT></SPAN><SPAN STYLE="font-style : normal;">Object
+     expose some miscalleanous functions and properties related to the 
+    W3Runner application.</SPAN></P>
+   </UL>
+  <BLOCKQUOTE>
+   <BLOCKQUOTE>
+    <ADDRESS CLASS="VbSample">
+     W3Runner.MsgBox &quot;Hello&quot;</ADDRESS>
+    <ADDRESS CLASS="VbSample">
+     If W3Runner.FAILED(MyFunction(),&quot;MyFunction execution&quot;) 
+     Then Exit Function.</ADDRESS>
+    </BLOCKQUOTE>
+   </BLOCKQUOTE>
+  <UL>
+   <LI CLASS="mvd-P">
+   <P>
+    The golbal <FONT COLOR="TEAL"><SPAN STYLE="font-weight : bold;">HTTP 
+    As CHTTP</SPAN></FONT> object allows one to execute HTTP calls.</P>
+   </UL>
+  <BLOCKQUOTE>
+   <BLOCKQUOTE>
+    <ADDRESS CLASS="VbSample">
+     If Http.execute(&quot;GET&quot;,strURL,, strSource)=CHTTP_ERROR_OK Then</ADDRESS>
+    <ADDRESS CLASS="VbSample">
+     End If</ADDRESS>
+    </BLOCKQUOTE>
+   </BLOCKQUOTE>
+  <UL>
+   <LI CLASS="mvd-P">
+   <P>
+    <SPAN STYLE="font-style : normal;">The global </SPAN><SPAN STYLE="font-weight : bold;"><FONT COLOR="TEAL"><SPAN STYLE="font-style : normal;">Report
+     As W3RunnerReportBrowser </SPAN></FONT></SPAN><SPAN STYLE="font-style : normal;">Object
+     is an Internet Explorer Browser used to display report information.</SPAN></P>
+   </UL>
+  <BLOCKQUOTE>
+   <BLOCKQUOTE>
+    <ADDRESS CLASS="VbSample">
+     Report.URL = &quot;c:\temp\MyReport.htm&quot;</ADDRESS>
+    <ADDRESS CLASS="VbSample">
+     Report.WaitForDownLoad &quot;.htm&quot;</ADDRESS>
+    <ADDRESS CLASS="VbSample">
+     Report.Write &quot;&lt;B&gt;Hello&lt;/B&gt;&quot;</ADDRESS>
+    </BLOCKQUOTE>
+   </BLOCKQUOTE>
+  <P>
+   <!-- $MVD$:spaceretainer() -->&nbsp;
+ </BODY>
+</HTML>

@@ -1,0 +1,38 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>W3Runner SlowMode</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   SlowMode</H1>
+  <ADDRESS CLASS="VbSample">
+   Public Property Get SlowMode() As Long</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Public Property Let SlowMode(ByVal vNewValue As Long)</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   Get ot set the SlowMode. If the property value is different from 0. 
+   The property Page.Control() will wait for the SlowMode value amount 
+   of time before returning the object. The unit is milli-second.</P>
+  <P>
+   The goal of the property Page.SlowMode, is to slow down the script 
+   execution, so you can follow the execution. When the script is 
+   perfectly synchronized that is to say all the pages downloaded and 
+   all the Page.WaitForDownLoad() match perfectly you should not need to 
+   set the slowmode on any machine.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <P>
+   Page.SlowMode = 200<BR>
+   Page.SlowMode = 0</P>
+  <P>
+   <!-- $MVD$:spaceretainer() -->&nbsp;
+ </BODY>
+</HTML>

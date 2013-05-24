@@ -1,0 +1,111 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>W3RunnerControl.Command Line Syntax</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Introduction</H1>
+  <P>
+   It is possible to start a test from the command line. You can also 
+   include your own argument and read their values with the property Page.Argument().</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Reserved command line arguments 
+   name :</SPAN></P>
+  <P>
+   <TABLE CELLPADDING="0" CELLSPACING="0" BORDER="1">
+    <TR>
+     <TD BGCOLOR="SILVER" VALIGN=TOP NOWRAP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Reserved Arguments</SPAN></TD>
+     <TD BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Description</SPAN></TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       -File</TD>
+     <TD VALIGN=TOP>
+      <P>
+       The file to load</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       -Function</TD>
+     <TD VALIGN=TOP>
+      <P>
+       The function to execute.</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       -Left</TD>
+     <TD VALIGN=TOP>
+      <P>
+       The left position of the W3Runner main window.</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       -Top</TD>
+     <TD VALIGN=TOP>
+      <P>
+       The top position of the W3Runner main window.</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       -Width</TD>
+     <TD VALIGN=TOP>
+      <P>
+       The width position of the W3Runner main window.</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       -Height</TD>
+     <TD VALIGN=TOP>
+      <P>
+       The height position of the W3Runner main window.</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       -Fullscreen</TD>
+     <TD VALIGN=TOP>
+      <P>
+       The full screen mode.</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Syntax :</SPAN></P>
+  <P>
+   W3Runner.exe -file &quot;file-name&quot; -function function-name 
+   [-argument-name] -[argument-value]</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Command Line Sample:</SPAN></P>
+  <P>
+   W3Runner.exe -file &quot;c:\mytest\mytest.vbs&quot; -function my_test_function<BR>
+   W3Runner.exe -file &quot;c:\mytest\mytest.vbs&quot; -function 
+   my_test_function -MyArgument1 1<BR>
+   W3Runner.exe -file &quot;c:\mytest\mytest.vbs&quot; -function 
+   my_test_function -MyArgument2 &quot;Fred&quot;</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">VBScript Sample:</SPAN></P>
+  <P>
+   If Page.Argument(&quot;MyArgument1&quot;,0)=&quot;1&quot; Then<BR>
+   End If</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN><BR>
+   <BR>
+   <A HREF="Page_Argument.htm">Page.Argument()</A>
+ </BODY>
+</HTML>

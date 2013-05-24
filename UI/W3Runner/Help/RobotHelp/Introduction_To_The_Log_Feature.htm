@@ -1,0 +1,55 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>Introduction To The Log Feature</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Introduction</H1>
+  <P>
+   All messages displayed in the Trace and Script Info list view are 
+   stored in the file %TEMP%\W3Runner.log.csv. To support the CSV syntax 
+   the char ',' is replaced with the char ';'.<BR>
+   You can also send message information to the Trace listview and into 
+   the file using the method W3Runner.TRACE().<BR>
+   </P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Default Syntax:</SPAN></P>
+  <P>
+   Date Time , Line Type, The Message</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Performance Syntax:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   Date Time,[PERFORMANCE],Date,Time,Method,URL File Name,Full URL,Time 
+   waited for the page in ms</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   9/6/2001 9:01:12 PM,[METHOD],Page.Controls(&quot;&quot;aDemo1&quot;&quot;;&quot;&quot;Anchor&quot;&quot;;&quot;&quot;menu&quot;&quot;)</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   9/6/2001 9:01:12 PM,[METHOD],aDemo1.Click</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   9/6/2001 9:01:12 PM,[METHOD],Page.WaitForDownLoad &quot;&quot;MyDemo.asp&quot;&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   9/6/2001 9:12:51 PM,[PERFORMANCE],2001-09-06,21:12:51,Page.WaitForDownLoad,MyDemo.asp,http://MyApp/default.asp,2524</ADDRESS>
+  <P>
+   It is possible to load this file in a spread sheet or database and 
+   apply sorting and filtering. A Perfomance line provides more info, so 
+   it is possible to compute the average time for a specific page for a 
+   specific session. The only method monitored for performance is Page.WaitForDownLoad.</P>
+  <P>
+   The menu Debug -&gt; Trace -&gt; Clear clears the listviews but not 
+   the file. The menu Debug -&gt; Trace -&gt; View open the log file 
+   with the default log file viewer (See option dialog General tab).</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN></P>
+  <P>
+   <A HREF="_Trace.htm">W3Runner.Trace</A>
+ </BODY>
+</HTML>

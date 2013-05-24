@@ -1,0 +1,141 @@
+// comticketagent.idl : IDL source for comticketagent.dll
+/**************************************************************************
+* Copyright 1997-2000 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+* Created by: 
+* $Header$
+* 
+***************************************************************************/
+
+
+// ----------------------------------------------------------------
+// Object:   	TicketAgent
+// Prog ID:		MetraTech.TicketAgent.1
+// Description:  	This component is used to generate an MPS authentication
+//					ticket that can by a site that is embedding MPS to authenticate
+//					the subscriber.
+//					Additionally, the component has a method that can take a ticket 
+//					and return its properties.
+// ----------------------------------------------------------------
+
+// This file will be processed by the MIDL tool to
+// produce the type library (comticketagent.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(3C8AB5A2-C857-11D3-9516-00C04F579C6A),
+		dual,
+		helpstring("ITicketAgent Interface"),
+		pointer_default(unique)
+	]
+	interface ITicketAgent : IDispatch
+	{
+		// ----------------------------------------------------------------
+		// Description:   Creates an authentication ticket
+		// ----------------------------------------------------------------
+		[id(1), helpstring("method CreateTicket")] HRESULT CreateTicket([in] BSTR sNamespace,[in] BSTR sAccountIdentifier,[in] long lExpirationOffset, [out, retval] BSTR *pTicket);
+
+		// ----------------------------------------------------------------
+		// Description:   Sets the delimiter that the will be used to create the ticket
+		// ----------------------------------------------------------------
+		[propget, id(2), helpstring("property Delimiter")] HRESULT Delimiter([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Delimiter")] HRESULT Delimiter([in] BSTR newVal);
+
+		// ----------------------------------------------------------------
+		// Description:   Sets the encryption key that the will be used to create the ticket
+		// ----------------------------------------------------------------
+		[propget, id(3), helpstring("property Key")] HRESULT Key([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property Key")] HRESULT Key([in] BSTR newVal);
+
+		// ----------------------------------------------------------------
+		// Description:   Given a ticket, returns a component that contains the namespace and accountid from the ticket
+		// ----------------------------------------------------------------
+		[id(4), helpstring("method RetrieveTicketProperties")] HRESULT RetrieveTicketProperties([in] BSTR Ticket, [out, retval] LPDISPATCH *pInterface);
+
+		// ----------------------------------------------------------------
+		// Description:   Creates an authentication ticket with additionl data
+		// ----------------------------------------------------------------
+		[id(5), helpstring("method CreateTicketWithAdditionalData")] HRESULT CreateTicketWithAdditionalData([in] BSTR sNamespace,[in] BSTR sAccountIdentifier,[in] long lExpirationOffset, [in] BSTR sLoggedInAs,[in] BSTR sApplicationName, [out, retval] BSTR *pTicket);
+	};
+
+// ----------------------------------------------------------------
+// Object:   	Ticket
+// Prog ID:		MetraTech.Ticket.1
+// Description:  	This component is a simple container for the properties returned from the TicketAgent.RetrieveTicketProperties method
+// ----------------------------------------------------------------
+
+	[
+		object,
+		uuid(3348E995-03F4-11D4-951F-00C04F579C6A),
+		dual,
+		helpstring("ITicket Interface"),
+		pointer_default(unique)
+	]
+	interface ITicket : IDispatch
+	{
+		// ----------------------------------------------------------------
+		// Description:   Contains the namespace of the ticket
+		// ----------------------------------------------------------------
+		[propget, id(1), helpstring("property Namespace")] HRESULT Namespace([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property Namespace")] HRESULT Namespace([in] BSTR newVal);
+		// ----------------------------------------------------------------
+		// Description:   Contains the account identifier of the ticket
+		// ----------------------------------------------------------------
+		[propget, id(2), helpstring("property AccountIdentifier")] HRESULT AccountIdentifier([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property AccountIdentifier")] HRESULT AccountIdentifier([in] BSTR newVal);
+
+		// ----------------------------------------------------------------
+		// Description:   Contains the user name who was actualy logged in 
+		// ----------------------------------------------------------------
+		[propget, id(3), helpstring("property LoggedInAs")] HRESULT LoggedInAs([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property LoggedInAs")] HRESULT LoggedInAs([in] BSTR newVal);
+
+		// ----------------------------------------------------------------
+		// Description:   Contains the application name from which was logged
+		// ----------------------------------------------------------------
+		[propget, id(4), helpstring("property ApplicationName")] HRESULT ApplicationName([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property ApplicationName")] HRESULT ApplicationName([in] BSTR newVal);
+	};
+
+[
+	uuid(3C8AB596-C857-11D3-9516-00C04F579C6A),
+	version(1.0),
+	helpstring("comticketagent 1.0 Type Library")
+]
+library COMTICKETAGENTLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(3C8AB5A3-C857-11D3-9516-00C04F579C6A),
+		helpstring("TicketAgent Class")
+	]
+	coclass TicketAgent
+	{
+		[default] interface ITicketAgent;
+	};
+	[
+		uuid(3348E996-03F4-11D4-951F-00C04F579C6A),
+		helpstring("Ticket Class")
+	]
+	coclass Ticket
+	{
+		[default] interface ITicket;
+	};
+};

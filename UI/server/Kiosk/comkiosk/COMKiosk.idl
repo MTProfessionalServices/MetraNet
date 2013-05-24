@@ -1,0 +1,349 @@
+/**************************************************************************
+* Copyright 1997-2000 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+* Created by: 
+* $Header$
+* 
+***************************************************************************/
+
+// COMKIOSK.IDL : IDL source for COMKiosk.dll
+
+// This file will be processed by the MIDL tool to
+// produce the type library (COMKiosk.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+interface ICOMAccount;
+interface IMTProductCollection;
+interface IMTSiteCollection;
+
+	// ----------------------------------------------------------------
+	// Object:   	 COMKiosk
+	// Prog ID:		 COMVendorKiosk.COMVendorKiosk.1
+	// Description:  This object is used to create 
+	// ----------------------------------------------------------------
+	[
+		object,
+		uuid(8B72F9A8-09DA-11D2-B252-006008925549),
+		dual,
+		helpstring("ICOMKioskGate Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMKioskGate : IDispatch
+	{
+		[propget, id(1), helpstring("property URL")] HRESULT URL([out, retval] BSTR *pVal);
+		[id(2), helpstring("method Initialize")] HRESULT Initialize([in]BSTR providerName, [in] int port);
+	};
+	[
+		object,
+		uuid(8B72F9A9-09DA-11D2-B252-006008925549),
+		dual,
+		helpstring("ICOMVendorKiosk Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMVendorKiosk : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize(BSTR providerName, int port);
+		[id(2), helpstring("method GetUserConfig")] HRESULT GetUserConfig([in] LPDISPATCH pCredentials, [out,retval] LPDISPATCH* pInterface);
+		[id(3), helpstring("method GetSiteConfig")] HRESULT GetSiteConfig([in] BSTR languageCode, [out,retval] LPDISPATCH* pInterface);
+		[propget, id(4), helpstring("property AuthMethod")] HRESULT AuthMethod([out, retval] BSTR *pVal);
+		[id(5), helpstring("method GetTimezone")] HRESULT GetTimezone([in] BSTR langCode, [out, retval] LPDISPATCH *pInterface);
+		[id(6), helpstring("method IsAuthentic")] HRESULT IsAuthentic([in] LPDISPATCH pCredentials, [out,retval] VARIANT_BOOL* authValue);
+		// [id(7), helpstring("method UpdateCredentials")] HRESULT UpdateCredentials([in] LPDISPATCH pCredentials);
+		[id(8), helpstring("method AddUser")] HRESULT AddUser([in] LPDISPATCH pCredentials, 
+															  [in] long AccountStatus,
+															  [in] BSTR Language,
+															  [in] long TimezoneID, 
+															  [in] LPDISPATCH pRowset, 
+															  [out,retval] LPDISPATCH *pInterface);
+		[id(9), helpstring("method AddPresServerLogon")] HRESULT AddPresServerLogon([in] BSTR Logon, [in] BSTR Name_Space, [in] BSTR Password, [in] BSTR Language, [in] long AccountID);
+		[id(10), helpstring("method GetLanguageCollection")] HRESULT GetLanguageCollection([in] BSTR aLangCode, [out, retval] LPDISPATCH *pInterface);
+		[id(11), helpstring("method GetDefaultAuthenticationNamespace")] HRESULT GetDefaultAuthenticationNamespace([out, retval] BSTR *pVal);
+	};
+	[
+		object,
+		uuid(DEDD7BA3-15D1-11D2-B255-006008925549),
+		dual,
+		helpstring("ICOMUserConfig Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMUserConfig : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize();
+		[propget, id(2), helpstring("property LanguageCode")] HRESULT LanguageCode([out, retval] BSTR *pVal);
+		[id(3), helpstring("method GetValue")] HRESULT GetValue([in] BSTR tagName, [out,retval] BSTR* tagValue);
+		[id(4), helpstring("method SetValue")] HRESULT SetValue(BSTR aTagName, BSTR aTagValue);
+		[propget, id(5), helpstring("property AccountID")] HRESULT AccountID([out, retval] long *pVal);
+		[id(6), helpstring("method Add")] HRESULT Add([in] BSTR login, [in] BSTR name_space, [in] BSTR langauge, [in] long accID, [in] long TimezoneID, [in] LPDISPATCH pRowset);
+		[id(7), helpstring("method GetUserAccountInfo")] HRESULT GetUserAccountInfo([out, retval] LPDISPATCH *pInterface);
+		[id(8), helpstring("method GetConfigInfo")] HRESULT GetConfigInfo([in]BSTR login, [in] BSTR name_space);
+		[id(9), helpstring("method UpdateUserLanguage")] HRESULT UpdateUserLanguage([in] BSTR login, [in] BSTR name_space, [in] BSTR langauge);
+		[id(10), helpstring("method LoadDefaultUserConfiguration")] HRESULT LoadDefaultUserConfiguration([in] BSTR ExtensionName);
+		[id(11), helpstring("method Delete")] HRESULT Delete([in] BSTR login, [in] BSTR name_space, [in] BSTR langauge, [in] long accID, [in] long TimezoneID, [in] LPDISPATCH pRowset);
+	};
+	[
+		object,
+		uuid(8D697AC5-18EC-11D2-B255-006008925549),
+		dual,
+		helpstring("ICOMKioskAuth Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMKioskAuth : IDispatch
+	{
+		[id(1), helpstring("method IsAuthentic")] HRESULT IsAuthentic([in] LPDISPATCH pCredentials, [out, retval] VARIANT_BOOL* authValue);
+		[id(3), helpstring("method AddUser")] HRESULT AddUser([in] BSTR login, [in]BSTR pwd, [in]BSTR name_space, [in] LPDISPATCH pRowset);
+		[id(4), helpstring("method Initialize")] HRESULT Initialize();
+		[id(5), helpstring("method HashString")] HRESULT HashString([in] BSTR StringToBeHashed, [out,retval] BSTR* HashedString);
+	};
+	[
+		object,
+		uuid(BF5397A5-1AA5-11D2-B257-006008925549),
+		dual,
+		helpstring("ICOMSiteConfig Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMSiteConfig : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT GetConfigInfo([in] BSTR nameSpace, [in] BSTR languageCode);
+		[id(2), helpstring("method GetValue")] HRESULT GetValue([in] BSTR tagName, [out,retval] BSTR* tagValue);
+		[id(3), helpstring("method SetValue")] HRESULT SetValue(BSTR aTagName, BSTR aTagValue);
+	};
+	[
+		object,
+		uuid(4F4CB595-2ADB-11D2-B25A-006008925549),
+		dual,
+		helpstring("ICOMCredentials Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMCredentials : IDispatch
+	{
+		[propget, id(1), helpstring("property LoginID")] HRESULT LoginID([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property LoginID")] HRESULT LoginID([in] BSTR newVal);
+		[propget, id(2), helpstring("property Name_Space")] HRESULT Name_Space([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Name_Space")] HRESULT Name_Space([in] BSTR newVal);
+		[propget, id(3), helpstring("property Certificate")] HRESULT Certificate([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property Certificate")] HRESULT Certificate([in] BSTR newVal);
+		[propget, id(4), helpstring("property Pwd")] HRESULT Pwd([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property Pwd")] HRESULT Pwd([in] BSTR newVal);
+		[propget, id(5), helpstring("property Ticket")] HRESULT Ticket([out, retval] BSTR *pVal);
+		[propput, id(5), helpstring("property Ticket")] HRESULT Ticket([in] BSTR newVal);
+		[propget, id(6), helpstring("property LoggedInAs")] HRESULT LoggedInAs([out, retval] BSTR *pVal);
+		[propput, id(6), helpstring("property LoggedInAs")] HRESULT LoggedInAs([in] BSTR newVal);
+		[propget, id(7), helpstring("property ApplicationName")] HRESULT ApplicationName([out, retval] BSTR *pVal);
+		[propput, id(7), helpstring("property ApplicationName")] HRESULT ApplicationName([in] BSTR newVal);
+	};
+	[
+		object,
+		uuid(03CCC7C4-2E29-11D2-B25B-006008925549),
+		dual,
+		helpstring("ICOMAccountMapper Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMAccountMapper : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize();
+		[id(4), helpstring("method Add")] HRESULT Add([in] BSTR login, [in] BSTR name_space, [in] long iAccID, [in] LPDISPATCH pRowset);
+		[id(7), helpstring("method MapAccountIdentifier")] HRESULT MapAccountIdentifier([in] BSTR fromAccountIdentifier, [in] BSTR fromName_space, BSTR toName_space, [out] BSTR * pAccountIdentifier);
+		[id(8), helpstring("method Modify")] HRESULT Modify(int ActionType, BSTR LoginName,  BSTR NameSpace,  BSTR NewLoginName,  BSTR NewNameSpace, LPDISPATCH pRowset);
+	};
+	[
+		object,
+		uuid(B26FE191-23F8-11D3-AE6E-00C04F54FE3B),
+		dual,
+		helpstring("ICOMAccount Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMAccount : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize();
+		[id(2), helpstring("method Add")] HRESULT Add([in] long aAccountStatus, [in] LPDISPATCH pRowset, [out,retval] long* lAccID);
+		[propget, id(3), helpstring("property AccountID")] HRESULT AccountID([out, retval] long *pVal);
+		[propput, id(3), helpstring("property AccountID")] HRESULT AccountID([in] long newVal);
+		[propget, id(4), helpstring("property TariffName")] HRESULT TariffName([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property TariffName")] HRESULT TariffName([in] BSTR newVal);
+		[propget, id(5), helpstring("property GeoCode")] HRESULT GeoCode([out, retval] long *pVal);
+		[propput, id(5), helpstring("property GeoCode")] HRESULT GeoCode([in] long newVal);
+		[propget, id(6), helpstring("property TaxExempt")] HRESULT TaxExempt([out, retval] BSTR *pVal);
+		[propput, id(6), helpstring("property TaxExempt")] HRESULT TaxExempt([in] BSTR newVal);
+		[propget, id(7), helpstring("property TimezoneID")] HRESULT TimezoneID([out, retval] long *pVal);
+		[propput, id(7), helpstring("property TimezoneID")] HRESULT TimezoneID([in] long newVal);
+		[propget, id(8), helpstring("property TimezoneOffset")] HRESULT TimezoneOffset([out, retval] double *pVal);
+		[propput, id(8), helpstring("property TimezoneOffset")] HRESULT TimezoneOffset([in] double newVal);
+		[id(9), helpstring("method GetAccountInfo")] HRESULT GetAccountInfo([in] BSTR Login, [in] BSTR Name_Space);
+		[propget, id(10), helpstring("property PaymentMethod")] HRESULT PaymentMethod([out, retval] long *pVal);
+		[propput, id(10), helpstring("property PaymentMethod")] HRESULT PaymentMethod([in] long newVal);
+		[propget, id(11), helpstring("property StartDate")] HRESULT StartDate([out, retval] VARIANT *pVal);
+		[propput, id(11), helpstring("property StartDate")] HRESULT StartDate([in] VARIANT newVal);
+		[propget, id(12), helpstring("property EndDate")] HRESULT EndDate([out, retval] VARIANT *pVal);
+		[propput, id(12), helpstring("property EndDate")] HRESULT EndDate([in] VARIANT newVal);
+		
+		[propget, id(13), helpstring("property TariffID")] HRESULT TariffID([out, retval] long *pVal);
+		[propput, id(13), helpstring("property TariffID")] HRESULT TariffID([in] long newVal);
+		[propget, id(14), helpstring("property Currency")] HRESULT Currency([out, retval] BSTR *pVal);
+		[propput, id(14), helpstring("property Currency")] HRESULT Currency([in] BSTR newVal);
+		[id(15), helpstring("method GetAccountInfoForAccountID")] HRESULT GetAccountInfoForAccountID([in] long AccountID);
+		[id(16), helpstring("method IsActiveAccount")] HRESULT IsActiveAccount([out, retval] int* active_flag);
+		[id(17), helpstring("method Update")] HRESULT Update(BSTR Login, BSTR Namespace, VARIANT AccountEndDate, long AccountStatus);
+		[propget, id(18), helpstring("property AccountCycleID")] HRESULT AccountCycleID([out, retval] long *pVal);
+		[propput, id(18), helpstring("property AccountCycleID")] HRESULT AccountCycleID([in] long newVal);
+	};
+	[
+		object,
+		uuid(D87E3D31-71FA-11D3-AE9C-00C04F54FE3B),
+		dual,
+		helpstring("IMTSiteCollection Interface"),
+		pointer_default(unique)
+	]
+	interface IMTSiteCollection : IDispatch
+	{
+		[propget, id(1), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		[id(2), helpstring("method Add")] HRESULT Add(IMTProductCollection* pMTProductCollection);
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item([in] long aIndex, [out, retval] VARIANT *pVal);
+		[propget, id(4), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[propget, id(5), helpstring("property DefaultProduct")] HRESULT DefaultProduct([out, retval] BSTR *pVal);
+		[propput, id(5), helpstring("property DefaultProduct")] HRESULT DefaultProduct([in] BSTR newVal);
+	};
+	[
+		object,
+		uuid(D15F6001-71FB-11D3-AE9C-00C04F54FE3B),
+		dual,
+		helpstring("IMTProductCollection Interface"),
+		pointer_default(unique)
+	]
+	interface IMTProductCollection : IDispatch
+	{
+		[propget, id(1), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		[propget, id(2), helpstring("property Link")] HRESULT Link([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Link")] HRESULT Link([in] BSTR newVal);
+	};
+	[
+		object,
+		uuid(C0F54BE1-71FC-11D3-AE9C-00C04F54FE3B),
+		dual,
+		helpstring("IMTProductPageMap Interface"),
+		pointer_default(unique)
+	]
+	interface IMTProductPageMap : IDispatch
+	{
+		[id(1), helpstring("method Add")] HRESULT Add(IMTSiteCollection* pMTSiteCollection);
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(long aIndex, [out, retval] VARIANT *pVal);
+		[propget, id(3), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[id(5), helpstring("method Initialize")] HRESULT Initialize(BSTR aNameSpace);
+	};
+[
+	uuid(535E93A3-0201-11D2-B24D-006008925549),
+	version(1.0),
+	helpstring("COMKiosk 1.0 Type Library")
+]
+library COMKIOSKLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(535E93B5-0201-11D2-B24D-006008925549),
+		helpstring("COMKioskGate Class")
+	]
+	coclass COMKioskGate
+	{
+		[default] interface ICOMKioskGate;
+	};
+	[
+		uuid(85D3E896-05FC-11D2-B24E-006008925549),
+		helpstring("COMVendorKiosk Class")
+	]
+	coclass COMVendorKiosk
+	{
+		[default] interface ICOMVendorKiosk;
+	};
+	[
+		uuid(DEDD7BA4-15D1-11D2-B255-006008925549),
+		helpstring("COMUserConfig Class")
+	]
+	coclass COMUserConfig
+	{
+		[default] interface ICOMUserConfig;
+	};
+	[
+		uuid(8D697AC6-18EC-11D2-B255-006008925549),
+		helpstring("COMKioskAuth Class")
+	]
+	coclass COMKioskAuth
+	{
+		[default] interface ICOMKioskAuth;
+	};
+	[
+		uuid(BF5397A6-1AA5-11D2-B257-006008925549),
+		helpstring("COMSiteConfig Class")
+	]
+	coclass COMSiteConfig
+	{
+		[default] interface ICOMSiteConfig;
+	};
+	[
+		uuid(4F4CB596-2ADB-11D2-B25A-006008925549),
+		helpstring("COMCredentials Class")
+	]
+	coclass COMCredentials
+	{
+		[default] interface ICOMCredentials;
+	};
+	[
+		uuid(03CCC7C5-2E29-11D2-B25B-006008925549),
+		helpstring("COMAccountMapper Class")
+	]
+	coclass COMAccountMapper
+	{
+		[default] interface ICOMAccountMapper;
+	};
+	[
+		uuid(B26FE192-23F8-11D3-AE6E-00C04F54FE3B),
+		helpstring("COMAccount Class")
+	]
+	coclass COMAccount
+	{
+		[default] interface ICOMAccount;
+	};
+	[
+		uuid(D87E3D32-71FA-11D3-AE9C-00C04F54FE3B),
+		helpstring("MTSiteCollection Class")
+	]
+	coclass MTSiteCollection
+	{
+		[default] interface IMTSiteCollection;
+	};
+	[
+		uuid(D15F6002-71FB-11D3-AE9C-00C04F54FE3B),
+		helpstring("MTProductCollection Class")
+	]
+	coclass MTProductCollection
+	{
+		[default] interface IMTProductCollection;
+	};
+	[
+		uuid(C0F54BE2-71FC-11D3-AE9C-00C04F54FE3B),
+		helpstring("MTProductPageMap Class")
+	]
+	coclass MTProductPageMap
+	{
+		[default] interface IMTProductPageMap;
+	};
+};

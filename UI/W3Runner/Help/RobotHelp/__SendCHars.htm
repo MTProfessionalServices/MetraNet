@@ -1,0 +1,91 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>W3RunnerControl.SendChars</TITLE>
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css">
+ <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   SendChars</H1>
+  <ADDRESS CLASS="VbSample">
+   <SPAN STYLE="font-weight : normal;">Public Function SendChars(</SPAN></ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <SPAN STYLE="font-weight : normal;">ByVal strChars As String,</SPAN><BR>
+   <SPAN STYLE="font-weight : normal;">Optional ByVal lngLPARAM As Long 
+   = 0,</SPAN><BR>
+   <SPAN STYLE="font-weight : normal;">Optional ByVal booPost As Boolean 
+   = True</SPAN><BR>
+   <SPAN STYLE="font-weight : normal;">) As Boolean</SPAN></ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   <SPAN STYLE="font-weight : normal;">Send a string of chars to the 
+   current object. This method does not support any macro like the 
+   method SendKeys().</SPAN></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Remark:</SPAN><BR>
+   <SPAN STYLE="font-weight : normal;">We have noticed that the method 
+   SendKeys() may not alway product the expected result due to some 
+   conflict with JavaScript events. In this case the method SendChars() 
+   can be used.</SPAN></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Parameters:</SPAN></P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="1" FRAME="below" RULES="rows">
+    <TR>
+     <TD BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Part</SPAN></TD>
+     <TD WIDTH="17" BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Description</SPAN></TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-style : italic;font-weight : normal;">strChars</SPAN></TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       The chars to be sent.</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-style : italic;font-weight : normal;">lngLPARAM</SPAN></TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       The LPARAM value of the message.</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-style : italic;font-weight : normal;">booPost</SPAN></TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       If TRUE use the Windows API PostMessage instead of SendMessage.</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Remark:</SPAN><BR>
+   <SPAN STYLE="font-weight : normal;">This method use the Windows 
+   Message WM_CHAR to send each char. For the char TAB the Windows 
+   Message </SPAN>WM_KEYDOWN and WM_KEYUP are sent.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;LastName&quot;,&quot;TextBox&quot;).SendChars &quot;Smith&quot;</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN></P>
+  <P>
+   <A HREF="__SendKeys.htm">WebBrowser</A><BR>
+   <A HREF="__SendKeys.htm">SendKeys</A><BR>
+   SendMessage<BR>
+   </P>
+  <P>
+   <!-- $MVD$:spaceretainer() -->&nbsp;
+ </BODY>
+</HTML>

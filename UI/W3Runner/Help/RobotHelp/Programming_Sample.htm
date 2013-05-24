@@ -1,0 +1,62 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>Programming Sample</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Programming Sample</H1>
+  <P>
+
+<pre>
+<code><font  face="Fixedsys"><font color="#000080">PUBLIC FUNCTION MyDialogUnitTest</font><font color="#4040FF">() </font><font color="#008000">' As Boolean
+
+  </font><font color="#000080">Const TEXT_LAST_NAME                  </font><font color="#4040FF">= </font><font color="#0000C0">&quot;Runner&quot;
+  </font><font color="#000080">Const TEXT_FIRST_NAME                 </font><font color="#4040FF">= </font><font color="#0000C0">&quot;Freddy&quot;
+  </font><font color="#000080">Const TEXT_ACCOUNT_STATUS_CREATION_OK </font><font color="#4040FF">= </font><font color="#0000C0">&quot;OK&quot;
+  </font><font color="#000080">Const TEXT_COUNTRY                    </font><font color="#4040FF">= </font><font color="#0000C0">&quot;ITALY&quot;
+
+  </font><font color="#000080">Dim   booResult</font><font color="#4040FF">, </font><font color="#000080">lngSubscriberID</font><font color="#4040FF">, </font><font color="#000080">strSQL
+
+  MyDialogUnitTest </font><font color="#4040FF">= </font><font color="#000080">FALSE
+
+  Page</font><font color="#4040FF">.</font><font color="#000080">URL </font><font color="#4040FF">= </font><font color="#0000C0">&quot;http://localhost/MyApp/MyDialog.asp&quot;
+  </font><font color="#000080">Page</font><font color="#4040FF">.</font><font color="#000080">WaitForDownLoad </font><font color="#0000C0">&quot;MyDialog.asp&quot; </font><font color="#008000">' Wait for the file MyDialog.asp to be fully downloaded
+
+  </font><font color="#000080">Page</font><font color="#4040FF">.</font><font color="#000080">Controls</font><font color="#4040FF">(</font><font color="#0000C0">&quot;LastName&quot;</font><font color="#4040FF">).</font><font color="#000080">Text              </font><font color="#4040FF">= </font><font color="#000080">TEXT_LAST_NAME  </font><font color="#008000">' Simplified Syntax
+  </font><font color="#000080">Page</font><font color="#4040FF">.</font><font color="#000080">Controls</font><font color="#4040FF">(</font><font color="#0000C0">&quot;FirstName&quot;</font><font color="#4040FF">,</font><font color="#0000C0">&quot;TextBox&quot;</font><font color="#4040FF">).</font><font color="#000080">Text   </font><font color="#4040FF">= </font><font color="#000080">TEXT_FIRST_NAME </font><font color="#008000">' Standard syntax generated during the record mode.
+  </font><font color="#000080">Page</font><font color="#4040FF">.</font><font color="#000080">Controls</font><font color="#4040FF">(</font><font color="#0000C0">&quot;TaxExempt&quot;</font><font color="#4040FF">,</font><font color="#0000C0">&quot;CheckBox&quot;</font><font color="#4040FF">).</font><font color="#000080">Value </font><font color="#4040FF">= </font><font color="#000080">vbChecked
+  Page</font><font color="#4040FF">.</font><font color="#000080">Controls</font><font color="#4040FF">(</font><font color="#0000C0">&quot;Country&quot;</font><font color="#4040FF">).</font><font color="#000080">Value              </font><font color="#4040FF">= </font><font color="#000080">TEXT_COUNTRY
+
+  Page</font><font color="#4040FF">.</font><font color="#000080">Controls</font><font color="#4040FF">(</font><font color="#0000C0">&quot;SubScriberType&quot;</font><font color="#4040FF">,</font><font color="#0000C0">&quot;RadioButton&quot;</font><font color="#4040FF">,,,</font><font color="#0000C0">&quot;Gold&quot;</font><font color="#4040FF">).</font><font color="#000080">Value </font><font color="#4040FF">= </font><font color="#000080">TRUE
+
+  Page</font><font color="#4040FF">.</font><font color="#000080">Controls</font><font color="#4040FF">(</font><font color="#0000C0">&quot;OK&quot;</font><font color="#4040FF">).</font><font color="#000080">Click
+  Page</font><font color="#4040FF">.</font><font color="#000080">WaitForDownLoad </font><font color="#0000C0">&quot;.asp&quot; </font><font color="#008000">' Wait for next asp page to be fully downloaded
+
+  ' -- Check Point - Read the subscriber creation status value from the next page...
+  </font><font color="#000080">booResult </font><font color="#4040FF">= </font><font color="#000080">CBool</font><font color="#4040FF">(</font><font color="#000080">Page</font><font color="#4040FF">.</font><font color="#000080">Controls</font><font color="#4040FF">(</font><font color="#0000C0">&quot;SubscriberCreationStatus&quot;</font><font color="#4040FF">,</font><font color="#0000C0">&quot;Hidden&quot;</font><font color="#4040FF">).</font><font color="#000080">Value </font><font color="#4040FF">= </font><font color="#000080">TEXT_ACCOUNT_STATUS_CREATION_OK</font><font color="#4040FF">)
+  </font><font color="#000080">If Page</font><font color="#4040FF">.</font><font color="#000080">FAILED</font><font color="#4040FF">(</font><font color="#000080">booResult</font><font color="#4040FF">, </font><font color="#0000C0">&quot;Check Subscriber Creation Status&quot;</font><font color="#4040FF">) </font><font color="#000080">Then Exit Function
+
+  </font><font color="#008000">' -- Database Check Point - Check that the values were correctly written to the database
+  </font><font color="#000080">lngSubscriberID </font><font color="#4040FF">= </font><font color="#000080">Page</font><font color="#4040FF">.</font><font color="#000080">Controls</font><font color="#4040FF">(</font><font color="#0000C0">&quot;SubscriberID&quot;</font><font color="#4040FF">,</font><font color="#0000C0">&quot;Hidden&quot;</font><font color="#4040FF">).</font><font color="#000080">Value </font><font color="#008000">' Read the subscriber id from the next page
+  </font><font color="#000080">strSQL          </font><font color="#4040FF">= </font><font color="#0000C0">&quot;select * from tSubscriber where id=&quot; </font><font color="#4040FF">&amp; </font><font color="#000080">lngSubscriberID
+
+  If Page</font><font color="#4040FF">.</font><font color="#000080">FAILED</font><font color="#4040FF">(</font><font color="#000080">DB</font><font color="#4040FF">.</font><font color="#000080">CheckValue</font><font color="#4040FF">(</font><font color="#000080">strSQL</font><font color="#4040FF">,</font><font color="#0000C0">&quot;LastName&quot; </font><font color="#4040FF">) = </font><font color="#000080">TEXT_LAST_NAME </font><font color="#4040FF">, </font><font color="#0000C0">&quot;DB Checking Column LastName&quot; </font><font color="#4040FF">) </font><font color="#000080">Then Exit Function
+  If Page</font><font color="#4040FF">.</font><font color="#000080">FAILED</font><font color="#4040FF">(</font><font color="#000080">DB</font><font color="#4040FF">.</font><font color="#000080">CheckValue</font><font color="#4040FF">(</font><font color="#000080">strSQL</font><font color="#4040FF">,</font><font color="#0000C0">&quot;FirstName&quot;</font><font color="#4040FF">) = </font><font color="#000080">TEXT_FIRST_NAME</font><font color="#4040FF">, </font><font color="#0000C0">&quot;DB Checking Column FirstName&quot;</font><font color="#4040FF">) </font><font color="#000080">Then Exit Function
+
+  Page</font><font color="#4040FF">.</font><font color="#000080">Controls</font><font color="#4040FF">(</font><font color="#0000C0">&quot;OK&quot;</font><font color="#4040FF">).</font><font color="#000080">Click </font><font color="#008000">' Close the confirmation dialog
+  </font><font color="#000080">Page</font><font color="#4040FF">.</font><font color="#000080">WaitForDownLoad </font><font color="#0000C0">&quot;.asp&quot;
+
+  </font><font color="#000080">MyDialogUnitTest </font><font color="#4040FF">= </font><font color="#000080">TRUE </font><font color="#008000">' Dialog Unit Test Succeeds
+</font><font color="#000080">END FUNCTION
+
+</font></font>
+</code></pre>
+ </BODY>
+</HTML>

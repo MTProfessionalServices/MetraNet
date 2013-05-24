@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+ <!-- Generated 11/11/01 by Microsoft SOAP Toolkit WSDL File Generator, Version 1.02.813.0 --> 
+<definitions  name ='Customer'   targetNamespace = 'http://tempuri.org/wsdl/'
+  xmlns:wsdlns='http://tempuri.org/wsdl/' 
+  xmlns:typens='http://tempuri.org/type' 
+  xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+  xmlns:xsd='http://www.w3.org/2001/XMLSchema' 
+  xmlns:stk='http://schemas.microsoft.com/soap-toolkit/wsdl-extension'
+  xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+  <types>
+    <schema targetNamespace='http://tempuri.org/type'
+      xmlns='http://www.w3.org/2001/XMLSchema'
+      xmlns:SOAP-ENC='http://schemas.xmlsoap.org/soap/encoding/'
+      xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/'
+      elementFormDefault='qualified'>
+    </schema>
+  </types>
+  <message name='CCustomer.Add'>
+    <part name='strLastName' type='xsd:string'/>
+    <part name='strFirstName' type='xsd:string'/>
+    <part name='strMiddleName' type='xsd:string'/>
+    <part name='strOwner' type='xsd:string'/>
+    <part name='strAddress' type='xsd:string'/>
+    <part name='strCity' type='xsd:string'/>
+    <part name='strZipCode' type='xsd:string'/>
+    <part name='strState' type='xsd:string'/>
+    <part name='strType' type='xsd:string'/>
+    <part name='strCountry' type='xsd:string'/>
+    <part name='strEmail' type='xsd:string'/>
+    <part name='booTaxExempt' type='xsd:boolean'/>
+  </message>
+  <message name='CCustomer.AddResponse'>
+    <part name='Result' type='xsd:int'/>
+  </message>
+  <message name='CCustomer.RaiseError'>
+    <part name='lngError' type='xsd:int'/>
+    <part name='strMessage' type='xsd:string'/>
+  </message>
+  <message name='CCustomer.RaiseErrorResponse'>
+    <part name='Result' type='xsd:boolean'/>
+  </message>
+  <portType name='CCustomerSoapPort'>
+    <operation name='Add' parameterOrder='strLastName strFirstName strMiddleName strOwner strAddress strCity strZipCode strState strType strCountry strEmail booTaxExempt'>
+      <input message='wsdlns:CCustomer.Add' />
+      <output message='wsdlns:CCustomer.AddResponse' />
+    </operation>
+    <operation name='RaiseError' parameterOrder='lngError strMessage'>
+      <input message='wsdlns:CCustomer.RaiseError' />
+      <output message='wsdlns:CCustomer.RaiseErrorResponse' />
+    </operation>
+  </portType>
+  <binding name='CCustomerSoapBinding' type='wsdlns:CCustomerSoapPort' >
+    <stk:binding preferredEncoding='UTF-8'/>
+    <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http' />
+    <operation name='Add' >
+      <soap:operation soapAction='http://tempuri.org/action/CCustomer.Add' />
+      <input>
+        <soap:body use='encoded' namespace='http://tempuri.org/message/'
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </input>
+      <output>
+        <soap:body use='encoded' namespace='http://tempuri.org/message/'
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </output>
+    </operation>
+    <operation name='RaiseError' >
+      <soap:operation soapAction='http://tempuri.org/action/CCustomer.RaiseError' />
+      <input>
+        <soap:body use='encoded' namespace='http://tempuri.org/message/'
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </input>
+      <output>
+        <soap:body use='encoded' namespace='http://tempuri.org/message/'
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </output>
+    </operation>
+  </binding>
+  <service name='Customer' >
+    <port name='CCustomerSoapPort' binding='wsdlns:CCustomerSoapBinding' >
+      <soap:address location='http://66.31.61.166:81/IERunner/WebServices/WSDL/Server/Customer.asp' />
+    </port>
+  </service>
+</definitions>

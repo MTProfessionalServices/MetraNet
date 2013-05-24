@@ -1,0 +1,55 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>W3Runner CommandLine</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   CommandLine</H1>
+  <P>
+   Public Property Get CommandLine() As CCommandLine</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   Return the global instance of the CCommandLine object. The object 
+   allow to get the different token of the command line.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Interface:</SPAN></P>
+  <P>
+   CLASS CCommandLine</P>
+  <BLOCKQUOTE>
+   <P>
+    Public Property Get CommandString() As String<BR>
+    Public Property Get Item(ByVal vntKey As Long) As String<BR>
+    Public Property Get Count() As Long<BR>
+    Public Function Exist(ByVal vntKey As Variant) As Long<BR>
+    Public Function GetValue(ByVal vntKey As Variant, Optional ByVal 
+    vntDefaultValue As Variant) As Variant</P>
+   </BLOCKQUOTE>
+  <P>
+   END CLASS</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   Dim strS, i</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   For i = 1 to W3Runner.CommandLine.Count</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; strS = strS &amp; W3Runner.CommandLine.Item(i) &amp; &quot; &quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Next</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN></P>
+  <P>
+   <A HREF="Page_Argument.htm">Page.Argument</A>
+ </BODY>
+</HTML>

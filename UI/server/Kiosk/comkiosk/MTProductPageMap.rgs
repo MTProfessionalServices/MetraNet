@@ -1,0 +1,26 @@
+HKCR
+{
+	COMKiosk.MTProductPageMap.1 = s 'MTProductPageMap Class'
+	{
+		CLSID = s '{C0F54BE2-71FC-11D3-AE9C-00C04F54FE3B}'
+	}
+	COMKiosk.MTProductPageMap = s 'MTProductPageMap Class'
+	{
+		CLSID = s '{C0F54BE2-71FC-11D3-AE9C-00C04F54FE3B}'
+		CurVer = s 'COMKiosk.MTProductPageMap.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {C0F54BE2-71FC-11D3-AE9C-00C04F54FE3B} = s 'MTProductPageMap Class'
+		{
+			ProgID = s 'COMKiosk.MTProductPageMap.1'
+			VersionIndependentProgID = s 'COMKiosk.MTProductPageMap'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{535E93A3-0201-11D2-B24D-006008925549}'
+		}
+	}
+}

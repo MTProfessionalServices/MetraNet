@@ -1,0 +1,3 @@
+VBGROUP 5.0
+StartupProject=..\App\W3Monitor\W3Monitor.vbp
+Project=w3runnerdll.vbp

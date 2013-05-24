@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- files to be copied to SDK staging area -->
+<manifest>
+
+  <!-- binaries -->
+  <src path="bld/%%BUILDTYPE%%"> <!-- release or debug -->
+
+    <src path="bin">
+
+      <!-- COM DLLs (need to be in a separate folder) -->
+      <dst path="ComDlls">
+        <file name="COMMeter.dll"/>
+      </dst>
+
+      <!-- non-COM DLLs -->
+      <dst path="Bin">
+        <file name="mtsdk.dll"/>
+        <file name="sdk_msg.dll"/>
+        <file name="mtglobal_msg.dll"/>
+        <file name="xmlconfig.dll"/>
+      </dst>
+
+      <!-- sample executables -->
+      <dst path="Samples/CoreSDK">
+        <dst path="batch">
+          <file name="batch.exe"/>
+        </dst>
+        <dst path="compound">
+          <file name="compound.exe"/>
+        </dst>
+        <dst path="localmode">
+          <file name="localmodesample.exe"/>
+        </dst>
+        <dst path="simple">
+          <file name="simple.exe"/>
+        </dst>
+      </dst>
+    </src>
+
+    <!-- C++ SDK Library -->
+    <both path="lib">
+      <file name="mtsdk.lib"/>
+    </both>
+
+    <!-- SDK message header file -->
+    <both path="include">
+      <file name="sdk_msg.h"/>
+    </both>
+  </src>
+
+  <!-- C++ SDK Header -->
+  <src path="development/SDK/include">
+    <dst path="Include">
+      <file name="mtsdk.h"/>
+    </dst>
+  </src>
+
+  <!-- Java SDK Files -->
+  <src path="bld/Java">
+    <dst path="Java">
+      <file name="mtsdk.jar"/>
+    </dst>
+  </src>
+
+  <!-- SDK Sample Code -->
+  <src path="Development/SDK/samples">
+    <dst path="Samples/CoreSDK">
+      <both path="com">
+        <file name="*"/>
+      </both>
+      <both path="batch">
+        <file name="*"/>
+      </both>
+      <both path="compound">
+        <file name="*"/>
+      </both>
+      <both path="localmode">
+        <file name="*"/>
+      </both>
+      <both path="simple">
+        <file name="*"/>
+      </both>
+    </dst>
+  </src>
+
+  <!-- SDK Documentation -->
+  <src path="TechDoc/Published/MetraSDK">
+		<dir name="Doc"/>
+  </src>
+  <src path="bld/Java/doc">
+    <dst path="Doc/Java">
+      <file name="*"/>
+      <dir name="com"/>
+    </dst>
+  </src>
+
+  <!-- Microsoft Visual Studio .NET runtime DLLs -->
+  <src path="Development/Thirdparty/Microsoft/VisualStudio.NET/%%BUILDTYPE%%">
+    <dst path="Bin">
+      <file name="msvc*.dll"/>
+    </dst>
+  </src>
+</manifest>

@@ -1,0 +1,9 @@
+; comticketagent.def : Declares the module parameters.
+
+LIBRARY      "comticketagent.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

@@ -1,0 +1,26 @@
+HKCR
+{
+	MTProductCatalog.MTGSubMember.1 = s 'MTGSubMember Class'
+	{
+		CLSID = s '{DD821F5E-395A-4103-8AEE-0C74E5D1E545}'
+	}
+	MTProductCatalog.MTGSubMember = s 'MTGSubMember Class'
+	{
+		CLSID = s '{DD821F5E-395A-4103-8AEE-0C74E5D1E545}'
+		CurVer = s 'MTProductCatalog.MTGSubMember.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {DD821F5E-395A-4103-8AEE-0C74E5D1E545} = s 'MTGSubMember Class'
+		{
+			ProgID = s 'MTProductCatalog.MTGSubMember.1'
+			VersionIndependentProgID = s 'MTProductCatalog.MTGSubMember'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{39F610B0-42DB-4D96-ADB8-4BA15DCCC763}'
+		}
+	}
+}

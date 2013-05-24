@@ -1,0 +1,27 @@
+<xmlconfig>
+  <version ptype="INTEGER">1</version>
+  <!-- Test stage configuration -->
+  <stage>
+    <name>Test</name>
+    <startstage ptype="BOOLEAN">YES</startstage>
+    <finalstage ptype="BOOLEAN">NO</finalstage>
+    <nextstage>WriteProductView</nextstage>
+
+    <routefrom>
+      <queue>RoutingQueue</queue>
+    </routefrom>
+
+    <dependencies>
+      <dependson>view</dependson>
+      <dependson>product</dependson>
+      <dependson>tod</dependson>
+      <dependson>fixedrate</dependson>
+      <dependson>bozo</dependson>
+
+      <dependency>
+        <processor>account</processor>
+        <dependson>namespace</dependson>
+      </dependency>
+    </dependencies>
+  </stage>
+</xmlconfig>

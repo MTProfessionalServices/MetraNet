@@ -1,0 +1,183 @@
+'******************************************************************************
+'* @doc MTRatingScript.txt
+'*
+'* Copyright 1998 by MetraTech Corporation
+'* All rights reserved.
+'*
+'* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+'* NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+'* example, but not limitation, MetraTech Corporation MAKES NO
+'* REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+'* PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+'* DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS, 
+'* COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+'*
+'* Title to copyright in this software and any associated
+'* documentation shall at all times remain with MetraTech Corporation,
+'* and USER agrees to preserve the same. 
+'*
+'****************************************************************************
+
+' -------------- available symbols ---------------
+' MTLog
+' MTNameID
+' MTSystemContext
+'-------------------------------------------------
+
+'-- Symbol defination --
+Dim init_charge_prop_name
+Dim rate_prop_name
+Dim duration_prop_name
+Dim amount_prop_name
+
+'-- Main routine --
+
+
+'-- end of main routine --
+
+'------------------------------------------------------------------------
+'
+'	Configure - Processor initialization
+'
+'------------------------------------------------------------------------
+sub MTPipeline_Configure(ByVal ConfigPropSet)
+  Const ForReading = 1, ForWriting = 2, ForAppending = 3
+  Const TristateUseDefault = -2, TristateTrue = -1, TristateFalse = 0
+	Dim f, fs, ts
+  Set fs = MTPipeline.CreateObject("Scripting.FileSystemObject")
+  fs.CreateTextFile "e:\\build\\debug\\bin\\init.log"          
+	Set f = fs.GetFile("e:\\build\\debug\\bin\\init.log")
+	Set ts = f.OpenAsTextStream(ForWriting, TristateUseDefault)
+
+  ts.WriteLine "In subroutine Configure()"
+
+	'-------------------------------------------------------------------
+	Dim MTProp
+
+	MTLog.Init "logging", "[PlugIn]"
+	MTLog.LogString 1, "start Configuration log message"
+
+	set MTProp = ConfigPropSet.NextWithName("init_charge_prop_name")
+	init_charge_prop_name = MTProp.ValueAsString
+	Set MTProp = Nothing
+
+	Set MTProp = ConfigPropSet.NextWithName("rate_prop_name")
+	rate_prop_name = MTProp.ValueAsString
+	Set MTProp = Nothing
+
+	Set MTProp = ConfigPropSet.NextWithName("duration_prop_name")
+	duration_prop_name = MTProp.ValueAsString
+	Set MTProp = Nothing
+
+	Set MTProp = ConfigPropSet.NextWithName("amount_prop_name")
+	amount_prop_name = MTProp.ValueAsString
+	Set MTProp = Nothing
+	'-------------------------------------------------------------------
+
+  ts.Write "Leaving subroutine Configure()"
+  ts.Close
+
+end sub
+
+'------------------------------------------------------------------------
+'
+'	ProcessSession - Process single session
+'
+'------------------------------------------------------------------------
+sub MTPipeline_ProcessSession(ByVal Session)
+
+	Dim id
+	Dim pVal, initChargeVal, rateVal, durationVal, amountVal
+
+	pVal = 0
+	initChargeVal = 0
+	rateVal = 0
+	durationVal = 0
+	amountVal = 0
+
+	MTLog.LogString 1 "start ProcessSession log message"
+
+  Const ForReading = 1, ForWriting = 2, ForAppending = 3
+  Const TristateUseDefault = -2, TristateTrue = -1, TristateFalse = 0
+	Dim f, fs, ts
+  Set fs = MTPipeline.CreateObject("Scripting.FileSystemObject")
+  fs.CreateTextFile "e:\\build\\debug\\bin\\session.log"          
+	Set f = fs.GetFile("e:\\build\\debug\\bin\\session.log")
+	Set ts = f.OpenAsTextStream(ForWriting, TristateUseDefault)
+
+  ts.WriteLine "In subroutine ProcessSession()"
+
+	'-----------------------------------------------------
+
+	'-- Get initial charge value --
+	ts.Write init_charge_prop_name
+	id = MTNameID.GetNameID(init_charge_prop_name)
+	initChargeVal = Session.GetDoubleProperty(id)
+	ts.WriteLine initChargeVal
+
+	'-- Get rate value --
+	ts.Write rate_prop_name
+	id = MTNameID.GetNameID(rate_prop_name)
+	rateVal = Session.GetDoubleProperty(id)
+	ts.WriteLine rateVal
+
+	'-- Get call duration value --
+	ts.Write duration_prop_name
+	id = MTNameID.GetNameID(duration_prop_name)
+	durationVal = Session.GetLongProperty(id)
+	ts.WriteLine durationVal
+	
+	'-- Get result amount property id --
+	ts.Write amount_prop_name
+	id = MTNameID.GetNameID(amount_prop_name)
+	ts.WriteLine id
+
+	'-- Calculate the final amount --
+	amountVal = (durationVal * rateVal) + initChargeVal
+	ts.WriteLine amountVal
+
+	'-- Set the result into session object --
+	Session.SetDoubleProperty id, amountVal
+
+	'-- Double check the value in session
+	ts.Write amount_prop_name
+	pval = Session.GetDoubleProperty(id)
+	ts.WriteLine pval
+	'---------------------------------------------------
+  ts.Close
+
+end sub
+
+'------------------------------------------------------------------------
+'
+'	ProcessSessionSet - Process session set
+'
+'------------------------------------------------------------------------
+sub MTPipeline_ProcessSessionSet(ByVal SessionSet)
+
+  Const ForReading = 1, ForWriting = 2, ForAppending = 3
+  Const TristateUseDefault = -2, TristateTrue = -1, TristateFalse = 0
+	Dim f, fs, ts
+  Set fs = MTPipeline.CreateObject("Scripting.FileSystemObject")
+  fs.CreateTextFile "e:\\build\\debug\\bin\\sessionSet.log"          
+	Set f = fs.GetFile("e:\\build\\debug\\bin\\sessionSet.log")
+	Set ts = f.OpenAsTextStream(ForWriting, TristateUseDefault)
+
+  ts.WriteLine "In subroutine ProcessSessionSet()"
+	'----------------------------------------------------
+	Dim mysess
+
+	'-- Go through each session --
+	for each mysess in SessionSet
+		ts.writeLine "iterate"
+
+		ts.writeLine "calling ProcessSession()"
+		MTPipeline_ProcessSession mysess
+
+	next
+
+	'----------------------------------------------------
+	ts.WriteLine "Leaving ProcessSessionSet()"
+  ts.Close
+
+end sub

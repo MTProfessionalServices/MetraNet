@@ -1,0 +1,9 @@
+; Counter.def : Declares the module parameters.
+
+LIBRARY      "Counter.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

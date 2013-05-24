@@ -1,0 +1,9 @@
+; PipelineTransaction.def : Declares the module parameters.
+
+LIBRARY      "PipelineTransaction.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

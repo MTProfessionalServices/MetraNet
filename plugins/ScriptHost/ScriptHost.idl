@@ -1,0 +1,77 @@
+// ScriptHost.idl : IDL source for ScriptHost.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ScriptHost.tlb) and marshalling code.
+
+#include "MTScriptingDispids.h"
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTPipelineLib.idl";
+
+	[
+		object,
+		uuid(0D42494A-4372-11D2-80F6-006008C0E8B7),
+		dual,
+		helpstring("Dummy Interface"),
+		pointer_default(unique)
+	]
+	interface IDummy : IDispatch
+	{
+	};
+
+	[
+		uuid(0D424935-4372-11D2-80F6-006008C0E8B7),
+		version(1.0),
+		helpstring("ScriptHost 1.0 Type Library")
+	]
+
+library SCRIPTHOSTLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(0D42494B-4372-11D2-80F6-006008C0E8B7),
+		helpstring("ScriptHostProc Class")
+	]
+	coclass ScriptHostProc
+	{
+		[default] interface IMTPipelinePlugIn;
+	};
+
+	[ uuid(4DD4C730-4CA7-11d2-80F6-006008C0E8B7) ]
+	dispinterface IMTObject
+	{
+		properties:
+		// none
+
+		methods:
+		[id(1)] void SaySomething( BSTR bstrSomething );
+		[id(2)] LPDISPATCH CreateObject( BSTR bstrProgId );
+	};
+
+	[ uuid(4DD4C731-4CA7-11d2-80F6-006008C0E8B7) ]
+	dispinterface IMTEvents
+	{
+		properties:
+		//none
+
+		methods:
+			[id(DISPID_ONFIREEVENT)]void OnFireEvent( void );
+      [id(DISPID_CONFIGURE)] HRESULT Configure( [in]IMTConfigPropSet * propSet );
+      [id(DISPID_PROCESSSESSION)] HRESULT ProcessSession([in]IMTSession * session );
+      [id(DISPID_PROCESSSESSIONSET)] HRESULT ProcessSessionSet( [in]IMTSessionSet * sessionSet );
+	};
+
+	[ uuid(4DD4C732-4CA7-11d2-80F6-006008C0E8B7) ]
+	coclass MTScriptHost
+	{
+		[default] dispinterface IMTObject;
+		[default, source] interface IMTEvents;
+	};
+
+};
+

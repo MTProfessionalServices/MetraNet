@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTRuleSetReader.1 = s 'MTRuleSetReader Class'
+	{
+		CLSID = s '{9BC8ADF2-5F4E-4AD6-9EA3-B6D86DA94A27}'
+	}
+	MetraTech.MTRuleSetReader = s 'MTRuleSetReader Class'
+	{
+		CLSID = s '{9BC8ADF2-5F4E-4AD6-9EA3-B6D86DA94A27}'
+		CurVer = s 'MetraTech.MTRuleSetReader.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {9BC8ADF2-5F4E-4AD6-9EA3-B6D86DA94A27} = s 'MTRuleSetReader Class'
+		{
+			ProgID = s 'MetraTech.MTRuleSetReader.1'
+			VersionIndependentProgID = s 'MetraTech.MTRuleSetReader'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

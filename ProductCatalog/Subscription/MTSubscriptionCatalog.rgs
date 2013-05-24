@@ -1,0 +1,27 @@
+HKCR
+{
+	Metratech.MTSubscriptionCatalog.1 = s 'MTSubscriptionCatalog Class'
+	{
+		CLSID = s '{053A4684-080A-4E0C-B2ED-302B0AF68DA7}'
+	}
+	Metratech.MTSubscriptionCatalog = s 'MTSubscriptionCatalog Class'
+	{
+		CLSID = s '{053A4684-080A-4E0C-B2ED-302B0AF68DA7}'
+		CurVer = s 'Metratech.MTSubscriptionCatalog.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {053A4684-080A-4E0C-B2ED-302B0AF68DA7} = s 'MTSubscriptionCatalog Class'
+		{
+			ProgID = s 'Metratech.MTSubscriptionCatalog.1'
+			VersionIndependentProgID = s 'Metratech.MTSubscriptionCatalog'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{3C2E1039-B6CE-4029-83C1-3C66A0A1AB16}'
+		}
+	}
+}

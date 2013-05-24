@@ -1,0 +1,24 @@
+HKCR
+{
+	MetraPipeline.MTPipeline.1 = s 'MTPipeline Class'
+	{
+		CLSID = s '{6E1641C2-FA79-11D2-A1E8-006008C0E24A}'
+	}
+	MetraPipeline.MTPipeline = s 'MTPipeline Class'
+	{
+		CurVer = s 'MetraPipeline.MTPipeline.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {6E1641C2-FA79-11D2-A1E8-006008C0E24A} = s 'MTPipeline Class'
+		{
+			ProgID = s 'MetraPipeline.MTPipeline.1'
+			VersionIndependentProgID = s 'MetraPipeline.MTPipeline'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

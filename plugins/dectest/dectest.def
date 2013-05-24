@@ -1,0 +1,9 @@
+; Skeleton.def : Declares the module parameters.
+
+LIBRARY      "dectest.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

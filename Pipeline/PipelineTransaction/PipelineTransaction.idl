@@ -1,0 +1,52 @@
+// PipelineTransaction.idl : IDL source for PipelineTransaction.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (PipelineTransaction.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTTransaction.idl";
+import "MTWhereaboutsManager.idl";
+
+	[
+		object,
+		uuid(3B919810-8A03-11D2-A1CD-006008C0E24A),
+		dual,
+		helpstring("Dummy"),
+		pointer_default(unique)
+	]
+	interface IDummy : IDispatch
+	{
+	};
+
+[
+	uuid(54D992E1-93E1-11D4-AC60-00B0D04256F3),
+	version(1.0),
+	helpstring("PipelineTransaction 1.0 Type Library")
+]
+
+library PIPELINETRANSACTIONLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(54D992EE-93E1-11D4-AC60-00B0D04256F3),
+		helpstring("MTTransaction Class")
+	]
+	coclass CMTTransaction
+	{
+		[default] interface IMTTransaction;
+	};
+
+	[
+		uuid(AD37E61E-E817-466E-B366-DC7B7BC28AE0),
+		helpstring("MTWhereaboutsManager Class")
+	]
+	coclass CMTWhereaboutsManager
+	{
+		[default] interface IMTWhereaboutsManager;
+	};
+};

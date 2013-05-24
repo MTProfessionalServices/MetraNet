@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTCalendarReader.1 = s 'MTCalendarReader Class'
+	{
+		CLSID = s '{3805D77F-761A-4400-A7AF-0F7DB9D5F3CB}'
+	}
+	Metratech.MTCalendarReader = s 'MTCalendarReader Class'
+	{
+		CLSID = s '{3805D77F-761A-4400-A7AF-0F7DB9D5F3CB}'
+		CurVer = s 'Metratech.MTCalendarReader.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {3805D77F-761A-4400-A7AF-0F7DB9D5F3CB} = s 'MTCalendarReader Class'
+		{
+			ProgID = s 'Metratech.MTCalendarReader.1'
+			VersionIndependentProgID = s 'Metratech.MTCalendarReader'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

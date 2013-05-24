@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTChargeReader.1 = s 'MTChargeReader Class'
+	{
+		CLSID = s '{7D6DD04D-F22E-4B5B-AB0C-4778A426614E}'
+	}
+	Metratech.MTChargeReader = s 'MTChargeReader Class'
+	{
+		CLSID = s '{7D6DD04D-F22E-4B5B-AB0C-4778A426614E}'
+		CurVer = s 'Metratech.MTChargeReader.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {7D6DD04D-F22E-4B5B-AB0C-4778A426614E} = s 'MTChargeReader Class'
+		{
+			ProgID = s 'Metratech.MTChargeReader.1'
+			VersionIndependentProgID = s 'Metratech.MTChargeReader'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

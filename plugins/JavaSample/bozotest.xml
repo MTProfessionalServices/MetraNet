@@ -1,0 +1,17 @@
+<xmlconfig>
+
+  <session>
+    <ServiceID ptype="ID">metratech.com/TestService</ServiceID>
+
+    <inputs>
+      <DisconnectTime ptype="double">10</DisconnectTime>
+      <ConnectTime ptype="double">10</ConnectTime>
+      <CallDuration ptype="double">100</CallDuration>
+    </inputs>
+
+    <outputs>
+      <CallCost ptype="double">5</CallCost>
+    </outputs>
+
+  </session>
+</xmlconfig>

@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraPipeline.MTExecutionInfo.1 = s 'MTExecutionInfo Class'
+	{
+		CLSID = s '{CE4382F0-DE71-11D3-A3FE-00C04F484788}'
+	}
+	MetraPipeline.MTExecutionInfo = s 'MTExecutionInfo Class'
+	{
+		CLSID = s '{CE4382F0-DE71-11D3-A3FE-00C04F484788}'
+		CurVer = s 'MetraPipeline.MTExecutionInfo.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {CE4382F0-DE71-11D3-A3FE-00C04F484788} = s 'MTExecutionInfo Class'
+		{
+			ProgID = s 'MetraPipeline.MTExecutionInfo.1'
+			VersionIndependentProgID = s 'MetraPipeline.MTExecutionInfo'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{CE4382E3-DE71-11D3-A3FE-00C04F484788}'
+		}
+	}
+}

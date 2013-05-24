@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTPredicateWriter.1 = s 'MTPredicateWriter Class'
+	{
+		CLSID = s '{CD833669-4CB8-4888-91A3-57D5337EE677}'
+	}
+	Metratech.MTPredicateWriter = s 'MTPredicateWriter Class'
+	{
+		CLSID = s '{CD833669-4CB8-4888-91A3-57D5337EE677}'
+		CurVer = s 'Metratech.MTPredicateWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {CD833669-4CB8-4888-91A3-57D5337EE677} = s 'MTPredicateWriter Class'
+		{
+			ProgID = s 'Metratech.MTPredicateWriter.1'
+			VersionIndependentProgID = s 'Metratech.MTPredicateWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

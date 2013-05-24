@@ -1,0 +1,61 @@
+// Subscription.idl : IDL source for Subscription
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (Subscription.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "GenericCollectionInterfaces.idl";
+import "Rowset.idl";
+import "IMTProgress.idl";
+import "IMTPCBase.idl";
+
+[
+	object,
+	uuid(ED024C4F-E4AB-4A76-A7B1-CB4F7CAA749E),
+	dual,
+	nonextensible,
+	helpstring("IMTSubscriptionCatalog Interface"),
+	pointer_default(unique)
+]
+interface IMTSubscriptionCatalog : IDispatch{
+	[id(1), helpstring("method SubscribeToGroups")] HRESULT SubscribeToGroups(
+  [in] IMTCollection* pCol,
+  [in] IMTProgress* pProgress,
+  [in] VARIANT_BOOL bUnsubscribeConflicting,
+  [out] VARIANT_BOOL* pDateModified,
+  [in,optional] VARIANT transaction,
+  [out,retval] IMTRowSet** ppRowset);
+	[id(2), helpstring("method SubscribeAccounts")] HRESULT SubscribeAccounts(
+  [in] IMTCollection* pCol,
+  [in] IMTProgress* pProgress,
+  [in] VARIANT_BOOL bUnsubscribeConflicting,
+  [out] VARIANT_BOOL* pDateModified,
+  [in,optional] VARIANT transaction,
+  [out,retval] IMTRowSet** ppRowset);
+
+	// undocumented
+	[id(3), helpstring("method SetSessionContext")] HRESULT SetSessionContext([in] IMTSessionContext* apSessionContext);
+
+	// returns the session context in which a specific object has been created
+	[id(4), helpstring("method GetSessionContext")] HRESULT GetSessionContext([out, retval] IMTSessionContext** apSessionContext);
+};
+[
+	uuid(3C2E1039-B6CE-4029-83C1-3C66A0A1AB16),
+	version(1.0),
+	helpstring("Subscription 1.0 Type Library")
+]
+library SubscriptionLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(053A4684-080A-4E0C-B2ED-302B0AF68DA7),
+		helpstring("MTSubscriptionCatalog Class")
+	]
+	coclass MTSubscriptionCatalog
+	{
+		[default] interface IMTSubscriptionCatalog;
+	};
+};

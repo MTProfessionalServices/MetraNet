@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTCounterWriter.1 = s 'MTCounterWriter Class'
+	{
+		CLSID = s '{F821A165-1714-4FCA-8915-AD506CE188F3}'
+	}
+	Metratech.MTCounterWriter = s 'MTCounterWriter Class'
+	{
+		CLSID = s '{F821A165-1714-4FCA-8915-AD506CE188F3}'
+		CurVer = s 'Metratech.MTCounterWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F821A165-1714-4FCA-8915-AD506CE188F3} = s 'MTCounterWriter Class'
+		{
+			ProgID = s 'Metratech.MTCounterWriter.1'
+			VersionIndependentProgID = s 'Metratech.MTCounterWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

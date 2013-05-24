@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTPCAccount.1 = s 'MTPCAccount Class'
+	{
+		CLSID = s '{C625A0C5-6611-427B-B925-F76AB9C20CCF}'
+	}
+	Metratech.MTPCAccount = s 'MTPCAccount Class'
+	{
+		CLSID = s '{C625A0C5-6611-427B-B925-F76AB9C20CCF}'
+		CurVer = s 'Metratech.MTPCAccount.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {C625A0C5-6611-427B-B925-F76AB9C20CCF} = s 'MTPCAccount Class'
+		{
+			ProgID = s 'Metratech.MTPCAccount.1'
+			VersionIndependentProgID = s 'Metratech.MTPCAccount'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{39F610B0-42DB-4D96-ADB8-4BA15DCCC763}'
+		}
+	}
+}

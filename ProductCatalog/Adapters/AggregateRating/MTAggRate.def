@@ -1,0 +1,9 @@
+; MTAggRate.def : Declares the module parameters.
+
+LIBRARY      "MTAggRate.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

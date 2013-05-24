@@ -1,0 +1,9 @@
+; SessServer.def : Declares the module parameters.
+
+LIBRARY      "SessServer.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

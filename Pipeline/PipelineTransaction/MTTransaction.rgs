@@ -1,0 +1,26 @@
+HKCR
+{
+	PipelineTransaction.MTTransaction.1 = s 'MTTransaction Class'
+	{
+		CLSID = s '{54D992EE-93E1-11D4-AC60-00B0D04256F3}'
+	}
+	PipelineTransaction.MTTransaction = s 'MTTransaction Class'
+	{
+		CLSID = s '{54D992EE-93E1-11D4-AC60-00B0D04256F3}'
+		CurVer = s 'PipelineTransaction.MTTransaction.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {54D992EE-93E1-11D4-AC60-00B0D04256F3} = s 'MTTransaction Class'
+		{
+			ProgID = s 'PipelineTransaction.MTTransaction.1'
+			VersionIndependentProgID = s 'PipelineTransaction.MTTransaction'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{54D992E1-93E1-11D4-AC60-00B0D04256F3}'
+		}
+	}
+}

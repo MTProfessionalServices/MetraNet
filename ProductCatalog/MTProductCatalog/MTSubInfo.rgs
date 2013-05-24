@@ -1,0 +1,26 @@
+HKCR
+{
+	MTProductCatalog.MTSubInfo.1 = s 'MTSubInfo Class'
+	{
+		CLSID = s '{25FC1956-B5E4-4540-B21B-C7BE3C513941}'
+	}
+	MTProductCatalog.MTSubInfo = s 'MTSubInfo Class'
+	{
+		CLSID = s '{25FC1956-B5E4-4540-B21B-C7BE3C513941}'
+		CurVer = s 'MTProductCatalog.MTSubInfo.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {25FC1956-B5E4-4540-B21B-C7BE3C513941} = s 'MTSubInfo Class'
+		{
+			ProgID = s 'MTProductCatalog.MTSubInfo.1'
+			VersionIndependentProgID = s 'MTProductCatalog.MTSubInfo'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{39F610B0-42DB-4D96-ADB8-4BA15DCCC763}'
+		}
+	}
+}

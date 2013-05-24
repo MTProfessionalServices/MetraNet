@@ -1,0 +1,26 @@
+HKCR
+{
+	PipelineTransaction.MTWhereaboutsManager.1 = s 'MTWhereaboutsManager Class'
+	{
+		CLSID = s '{AD37E61E-E817-466E-B366-DC7B7BC28AE0}'
+	}
+	PipelineTransaction.MTWhereaboutsManager = s 'MTWhereaboutsManager Class'
+	{
+		CLSID = s '{AD37E61E-E817-466E-B366-DC7B7BC28AE0}'
+		CurVer = s 'PipelineTransaction.MTWhereaboutsManager.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {AD37E61E-E817-466E-B366-DC7B7BC28AE0} = s 'MTWhereaboutsManager Class'
+		{
+			ProgID = s 'PipelineTransaction.MTWhereaboutsManager.1'
+			VersionIndependentProgID = s 'PipelineTransaction.MTWhereaboutsManager'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{54D992E1-93E1-11D4-AC60-00B0D04256F3}'
+		}
+	}
+}

@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTRateScheduleWriter.1 = s 'MTRateScheduleWriter Class'
+	{
+		CLSID = s '{E6958248-6958-4B4B-AA9C-DA0C0992C4F1}'
+	}
+	MetraTech.MTRateScheduleWriter = s 'MTRateScheduleWriter Class'
+	{
+		CLSID = s '{E6958248-6958-4B4B-AA9C-DA0C0992C4F1}'
+		CurVer = s 'MetraTech.MTRateScheduleWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E6958248-6958-4B4B-AA9C-DA0C0992C4F1} = s 'MTRateScheduleWriter Class'
+		{
+			ProgID = s 'MetraTech.MTRateScheduleWriter.1'
+			VersionIndependentProgID = s 'MetraTech.MTRateScheduleWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

@@ -1,0 +1,11 @@
+
+LIBRARY      "AccountCreditPluginPS"
+
+DESCRIPTION  'Proxy/Stub DLL'
+
+EXPORTS
+	DllGetClassObject PRIVATE
+	DllCanUnloadNow PRIVATE
+	GetProxyDllInfo         @3	PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTCalendarDay.1 = s 'MTCalendarDay Class'
+	{
+		CLSID = s '{75D2EB1D-63D1-4131-94BC-3EE8316A9272}'
+	}
+	Metratech.MTCalendarDay = s 'MTCalendarDay Class'
+	{
+		CLSID = s '{75D2EB1D-63D1-4131-94BC-3EE8316A9272}'
+		CurVer = s 'Metratech.MTCalendarDay.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {75D2EB1D-63D1-4131-94BC-3EE8316A9272} = s 'MTCalendarDay Class'
+		{
+			ProgID = s 'Metratech.MTCalendarDay.1'
+			VersionIndependentProgID = s 'Metratech.MTCalendarDay'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{39F610B0-42DB-4D96-ADB8-4BA15DCCC763}'
+		}
+	}
+}

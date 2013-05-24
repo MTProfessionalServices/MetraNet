@@ -1,0 +1,1586 @@
+<xmlconfig>
+ 
+	<mtconfigdata>
+		<version ptype="INTEGER">1</version>
+		<!-- First processor configuration -->
+		<processor>
+			<name>Stage1</name>
+			<progid>MTPipeline.PropGenProcessor.1</progid>
+
+			<inputs>
+				<input>
+					<argument>duration</argument>
+					<property>CallDuration</property>
+				</input>
+			</inputs>
+
+			<outputs>
+				<output>
+					<argument>cost</argument>
+					<property>CallCost</property>
+				</output>
+			</outputs>
+
+			<!-- Processor specific configuration data -->
+			<configdata>
+
+				<default_actions>
+					<action>
+						<prop_name>Product_ID</prop_name>
+						<prop_value>DEFAULT_PRODUCT</prop_value>
+					</action>
+
+					<action>
+						<prop_name>Product_ID2</prop_name>
+						<prop_value>DEFAULT_PRODUCT2</prop_value>
+					</action>
+				</default_actions>
+
+				<constraint_set>
+					<actions> <!-- 1) Service_ID=A Intel_Flag=false Start_Time>6:00am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT1</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT21</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>A</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>equal</condition>
+						<prop_value ptype="BOOLEAN">false</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">6:00am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 2) Service_ID=A Intel_Flag!=false Start_Time<5:00pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT2</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT22</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>B</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">false</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>less_than</condition>
+						<prop_value ptype="TIME">5:00pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 3) Service_ID=F Intel_Flag=false Start_Time>4:00am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT3</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT23</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>F</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>equal</condition>
+						<prop_value ptype="BOOLEAN">false</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">4:00am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 4) Service_ID=G Intel_Flag!=true Start_Time>8:00am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT4</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT24</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>G</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">8:00am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 5) Service_ID=H Intel_Flag!=true Start_Time>9:00am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT5</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT25</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>H</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">9:00am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 6) Service_ID=I Intel_Flag!=true Start_Time>10:00am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT6</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT26</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>I</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">10:00am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 7) Service_ID=J Intel_Flag!=true Start_Time>10:30am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT7</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT27</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>J</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">10:30am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 8) Service_ID=K Intel_Flag=true Start_Time>11:00am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT8</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT28</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>K</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">11:00am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 9) Service_ID=L Intel_Flag!=true Start_Time>10:30am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT9</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT29</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>L</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">11:30am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 10) Service_ID=M Intel_Flag!=true Start_Time>1:00pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT10</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT210</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>M</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">1:00pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 11) Service_ID=N Intel_Flag!=true Start_Time>1:30pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT11</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT211</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>N</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">1:30pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 12) Service_ID=O Intel_Flag!=true Start_Time>2:00pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT12</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT212</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>O</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">2:00pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 13) Service_ID=P Intel_Flag!=true Start_Time>2:30pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT13</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT213</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>P</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">2:30pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 14) Service_ID=Q Intel_Flag!=true Start_Time>3:00pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT14</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT214</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>Q</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">3:00pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 15) Service_ID=R Intel_Flag!=true Start_Time>3:30pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT15</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT215</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>R</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">3:30pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 16) Service_ID=S Intel_Flag!=true Start_Time>3:00pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT16</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT216</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>S</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">3:00pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<!-- =============== second section ================= -->
+
+				<constraint_set>
+					<actions> <!-- 17) Service_ID=A Intel_Flag=false Start_Time>6:01am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT17</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT217</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AA</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>equal</condition>
+						<prop_value ptype="BOOLEAN">false</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">6:01am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 18) Service_ID=A Intel_Flag!=false Start_Time<5:02pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT18</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT218</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AB</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">false</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>less_than</condition>
+						<prop_value ptype="TIME">5:02pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 19) Service_ID=F Intel_Flag=false Start_Time>4:03am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT19</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT219</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AF</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>equal</condition>
+						<prop_value ptype="BOOLEAN">false</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">4:03am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 20) Service_ID=G Intel_Flag!=true Start_Time>8:04am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT20</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT220</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AG</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">8:04am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 21) Service_ID=H Intel_Flag!=true Start_Time>9:05am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT21</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT221</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AH</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">9:05am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 22) Service_ID=I Intel_Flag!=true Start_Time>10:06am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT22</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT222</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AI</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">10:06am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 23) Service_ID=J Intel_Flag!=true Start_Time>10:37am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT23</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT223</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AJ</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">10:37am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 24) Service_ID=K Intel_Flag=true Start_Time>11:08am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT24</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT224</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AK</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">11:08am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 25) Service_ID=L Intel_Flag!=true Start_Time>10:39am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT25</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT225</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AL</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">11:39am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 26) Service_ID=M Intel_Flag!=true Start_Time>1:10pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT26</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT226</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AM</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">1:10pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 27) Service_ID=N Intel_Flag!=true Start_Time>1:41pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT27</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT227</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AN</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">1:41pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 28) Service_ID=O Intel_Flag!=true Start_Time>2:12pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT28</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT228</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AO</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">2:12pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 29) Service_ID=P Intel_Flag!=true Start_Time>2:43pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT29</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT229</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AP</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">2:43pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 30) Service_ID=Q Intel_Flag!=true Start_Time>3:14pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT30</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT230</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AQ</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">3:14pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 31) Service_ID=R Intel_Flag!=true Start_Time>3:45pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT31</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT231</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AR</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">3:45pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 32) Service_ID=AS Intel_Flag!=true Start_Time>3:16pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT32</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT232</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AS</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">3:16pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<!-- ======================== third section ======================== -->
+
+				<constraint_set>
+					<actions> <!-- 33) Service_ID=A Intel_Flag=false Start_Time>6:01am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT33</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT233</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AAA</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>equal</condition>
+						<prop_value ptype="BOOLEAN">false</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">6:11am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 34) Service_ID=AAB Intel_Flag!=false Start_Time<5:02pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT34</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT234</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AAB</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">false</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>less_than</condition>
+						<prop_value ptype="TIME">5:12pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 35) Service_ID=AAF Intel_Flag=false Start_Time>4:03am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT35</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT235</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AAF</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>equal</condition>
+						<prop_value ptype="BOOLEAN">false</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">4:13am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 36) Service_ID=G Intel_Flag!=true Start_Time>8:04am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT36</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT236</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AAG</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">8:14am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 37) Service_ID=AAH Intel_Flag!=true Start_Time>9:15am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT37</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT237</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AAH</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">9:15am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 38) Service_ID=AAI Intel_Flag!=true Start_Time>10:16am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT38</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT238</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AAI</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">10:16am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 39) Service_ID=AAJ Intel_Flag!=true Start_Time>10:47am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT39</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT239</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AAJ</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">10:47am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 40) Service_ID=AAK Intel_Flag=true Start_Time>11:18am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT40</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT240</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AAK</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">11:18am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 41) Service_ID=AAL Intel_Flag!=true Start_Time>10:49am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT40</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT240</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AAL</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">11:49am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 41) Service_ID=AAM Intel_Flag!=true Start_Time>1:20pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT41</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT241</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AAM</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">1:20pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 42) Service_ID=AAN Intel_Flag!=true Start_Time>1:51pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT42</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT242</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AAN</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">1:51pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 43) Service_ID=AAO Intel_Flag!=true Start_Time>2:22pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT43</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT243</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AAO</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">2:22pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 44) Service_ID=AAP Intel_Flag!=true Start_Time>2:53pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT44</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT244</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AAP</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">2:53pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 45) Service_ID=AAQ Intel_Flag!=true Start_Time>3:24pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT45</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT245</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AAQ</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">3:24pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 46) Service_ID=AAR Intel_Flag!=true Start_Time>3:55pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT46</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT246</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AAR</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">3:55pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 47) Service_ID=AAS Intel_Flag!=true Start_Time>3:26pm -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value>PRODUCT47</prop_value>
+						</action>
+
+						<action>
+							<prop_name>Product_ID2</prop_name>
+							<prop_value>PRODUCT247</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AAS</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">3:26pm</prop_value>
+					</constraint>
+				</constraint_set>
+
+
+			</configdata>
+
+		</processor>
+
+	</mtconfigdata>
+
+</xmlconfig>

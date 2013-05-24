@@ -1,0 +1,55 @@
+// MTAggRate.idl : IDL source for MTAggRate.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTAggRate.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "IRecurringEventAdapter.idl";
+
+[
+	odl,
+	uuid(af55c38b-5c64-448a-a5d5-d512aa113f3a),
+	version(1.0),
+	dual,
+	oleautomation
+]
+interface IPMNAAggRateAdapter : IRecurringEventAdapter
+{
+
+  // rate all aggregate charges for a usage interval
+  // waits for sessions to commit before returning
+  [id(101), helpstring("method RateAllAggregateCharges")] 
+		HRESULT RateAllAggregateCharges([in] long aUsageIntervalID,
+																		[in] long aSessionSetSize);
+
+};
+
+
+[
+	uuid(da38c80f-e63e-4228-85f1-2b6746ddf6eb),
+	version(1.0),
+	helpstring("PMNAAggRate 1.0 Type Library")
+]
+library PMNAAGGRATELib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	
+	[
+		uuid(1789d0ce-6e2f-46db-b14d-1cfab85d4834),
+		helpstring("PMNAAggRateAdapter Class")
+	]
+	coclass PMNAAggRateAdapter
+	{
+		[default] interface IPMNAAggRateAdapter;
+//    [default] interface IRecurringEventAdapter;
+//    interface IPMNAAggRateAdapter;
+	};
+};
+
+
+//		interface IPMNAAggRateAdapter;

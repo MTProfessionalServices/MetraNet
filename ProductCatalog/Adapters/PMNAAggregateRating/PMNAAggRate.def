@@ -1,0 +1,9 @@
+; PMNAAggRate.def : Declares the module parameters.
+
+LIBRARY      "PMNAAggRate.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTPCTimeSpanWriter.1 = s 'MTPCTimeSpanWriter Class'
+	{
+		CLSID = s '{8389FDC7-9CC5-474A-95F7-B4F1CD62A46E}'
+	}
+	Metratech.MTPCTimeSpanWriter = s 'MTPCTimeSpanWriter Class'
+	{
+		CLSID = s '{8389FDC7-9CC5-474A-95F7-B4F1CD62A46E}'
+		CurVer = s 'Metratech.MTPCTimeSpanWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8389FDC7-9CC5-474A-95F7-B4F1CD62A46E} = s 'MTPCTimeSpanWriter Class'
+		{
+			ProgID = s 'Metratech.MTPCTimeSpanWriter.1'
+			VersionIndependentProgID = s 'Metratech.MTPCTimeSpanWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

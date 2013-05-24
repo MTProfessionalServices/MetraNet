@@ -1,0 +1,373 @@
+// PipelineControl.idl : IDL source for PipelineControl.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (PipelineControl.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTSession.idl";
+import "MTSessionServer.idl";
+import "GenericCollection.idl";
+import "MTTransaction.idl";
+import "IMTAuth.idl";
+
+interface IMTSessionFailures;
+
+
+// ----------------------------------------------------------------
+// Object: MTPipeline
+// Prog ID: MetraPipeline.MTPipeline.1
+// Description: General purpose Pipeline methods used to retrieve sessions,
+//              and change and receive settings.
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(6E1641C1-FA79-11D2-A1E8-006008C0E24A),
+  dual,
+  helpstring("IMTPipeline Interface"),
+  pointer_default(unique)
+]
+interface IMTPipeline : IDispatch
+{
+  // NOT IMPLEMENTED
+  // [id(1), helpstring("method GetFailedSessions")]
+  //HRESULT GetFailedSessions([out] IMTSessionSet * * apSet);
+
+  // NOT IMPLEMENTED
+  [propget, id(2), helpstring("property SessionFailures")]
+  HRESULT SessionFailures([out, retval] IMTSessionFailures * *pVal);
+
+	// Parse a session out of its XML representation.
+  [id(3), helpstring("property ExamineSession")]
+	HRESULT ExamineSession(BSTR xml,
+												 [out, retval] IMTSession * * session);
+
+  // Return an initialized session server object.
+  [propget, id(5), helpstring("property SessionServer")]
+  HRESULT SessionServer([out, retval] IMTSessionServer * * server);
+
+  // Generate an autosdk format file from any session object.
+  // This method can be used to edit and resubmit failed sessions.
+  [id(6), helpstring("method ExportSession")]
+  HRESULT ExportSession([in] IMTSession * session, [out, retval] BSTR * buffer);
+
+  // Returns the fully qualified configuration directory.  This method takes into
+  // account multi-instance configurations.
+  [propget, id(7), helpstring("property ConfigurationDirectory")]
+  HRESULT ConfigurationDirectory([out, retval] BSTR * dir);
+
+  // Returns true if the running system is setup as a multi-instance
+  // configuration.
+  [propget, id(8), helpstring("property IsMultiInstance")]
+  HRESULT IsMultiInstance([out, retval] VARIANT_BOOL * multi);
+
+  // Add an additional mapping between port number and instance name in the
+  // registry.  Used for multi-instance mode.
+  [id(9), helpstring("method AddPortMapping")]
+  HRESULT AddPortMapping([in] int port, [in] BSTR instance);
+
+  // Start using the instance name associated with the given port number.
+  // This changes the value returned from the ConfigurationDirectory property.
+  [id(10), helpstring("method MultiInstanceSetup")]
+  HRESULT MultiInstanceSetup(/*[in]*/ int port);
+
+  // Return the original MSIX representation of a single session out of
+	// a session set message, given the session set ID and session ID.
+  [id(11), helpstring("method GetMetered")]
+  HRESULT GetSessionSetMessage(BSTR aSessionSetID, BSTR sessionID,
+															 [out] BSTR * newUID,
+															 [out, retval] BSTR * message);
+
+  // Return the original MSIX message from routing queue journal for a session,
+  // given the session ID.
+  [id(12), helpstring("method GetLostMessage")]
+  HRESULT GetLostMessage(BSTR messageID, [out, retval] BSTR * message);
+
+	// calculate the list of "lost" sessions
+  [id(13), helpstring("method GetLostSessions")]
+  HRESULT GetLostSessions([out, retval] IMTCollection * * sessions);
+
+  // submit an XML message onto the resubmit queue.
+	// The first argument is the XML text of the message.
+	// The second argument is an optional MTTransaction object.
+  [id(14), helpstring("method SubmitMessage")]
+  HRESULT SubmitMessage(BSTR message, [in, optional] VARIANT txn);
+
+  // Login with a username password.  Login credentials are needed for
+	// some operations.
+  [id(15), helpstring("method Login")]
+  HRESULT Login(BSTR login, BSTR login_namespace, BSTR password);
+
+  // Returns true if the given session or session set contains any properties
+	// that require encryption.
+  [id(16), helpstring("method RequiresEncryption")]
+  HRESULT RequiresEncryption(BSTR message, [out, retval] VARIANT_BOOL * encrypt);
+
+  // Pass in a session context that has already been created by a login call.
+  // Login credentials are needed for some operations.
+  [propput, id(17), helpstring("property SessionContext")]
+  HRESULT SessionContext(IMTSessionContext * apSessionContext);
+
+	// Parse a session set out of its XML representation.
+  [id(18), helpstring("property ExamineSessions")]
+	HRESULT ExamineSessions(BSTR xml,
+												 [out, retval] IMTSessionSet * * session);
+};
+
+// ----------------------------------------------------------------
+// Object: MTSessionError
+// Prog ID: MetraPipeline.MTSessionError.1
+// Description: An object holding all details about a session that
+//              failed in the Pipeline.
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(6E1641C4-FA79-11D2-A1E8-006008C0E24A),
+  dual,
+  helpstring("IMTSessionError Interface"),
+  pointer_default(unique)
+]
+interface IMTSessionError : IDispatch
+{
+  // Return the line number of this error.
+  [propget, id(1), helpstring("property LineNumber")]
+  HRESULT LineNumber([out, retval] int *pVal);
+
+  // Set the line number of this error.
+  [propput, id(1), helpstring("property LineNumber")]
+  HRESULT LineNumber([in] int newVal);
+
+  // Return the error code.
+  [propget, id(2), helpstring("property ErrorCode")]
+  HRESULT ErrorCode([out, retval] DWORD *pVal);
+
+  // Set the error code.
+  [propput, id(2), helpstring("property ErrorCode")]
+  HRESULT ErrorCode([in] DWORD newVal);
+
+  // Return the session ID, base64 encoded.  The ID returned is
+  // the ID of the session within a compound that failed.
+  [propget, id(3), helpstring("property SessionID")]
+  HRESULT SessionID([out, retval] BSTR *pVal);
+
+  // Set the session ID, base64 encoded.  The ID set is
+  // the ID of the session within a compound that failed.
+  [propput, id(3), helpstring("property SessionID")]
+  HRESULT SessionID([in] BSTR newVal);
+
+  // Return the error message for the error that caused this
+  // session to fail.  This is not the translation of the error code.
+  // This error message provides additional error information.
+  [propget, id(4), helpstring("property ErrorMessage")]
+  HRESULT ErrorMessage([out, retval] BSTR *pVal);
+
+  // Set the error message.  This is not the translation of the error code.
+  // This error message provides additional error information.
+  [propput, id(4), helpstring("property ErrorMessage")]
+  HRESULT ErrorMessage([in] BSTR newVal);
+
+  // Return the name of the stage where the session failed.
+  [propget, id(5), helpstring("property StageName")]
+  HRESULT StageName([out, retval] BSTR *pVal);
+
+  // Set the name of the stage where the session failed.
+  [propput, id(5), helpstring("property StageName")]
+  HRESULT StageName([in] BSTR newVal);
+
+  // Return the name of the plug-in where the session failed.
+  [propget, id(6), helpstring("property PlugInName")]
+  HRESULT PlugInName([out, retval] BSTR *pVal);
+
+  // Set the name of the plug-in where the session failed.
+  [propput, id(6), helpstring("property PlugInName")]
+  HRESULT PlugInName([in] BSTR newVal);
+
+  // Return the name of the module where the session failed.  The
+  // module is usually the filename of the source file where
+  // the error was generated.
+  [propget, id(7), helpstring("property ModuleName")]
+  HRESULT ModuleName([out, retval] BSTR *pVal);
+
+  // Set the name of the module where the session failed.  The
+  // module is usually the filename of the source file where
+  // the error was generated.
+  [propput, id(7), helpstring("property ModuleName")]
+  HRESULT ModuleName([in] BSTR newVal);
+
+  // Return the name of the procedure where the session failed.
+  [propget, id(8), helpstring("property ProcedureName")]
+  HRESULT ProcedureName([out, retval] BSTR *pVal);
+
+  // Set the name of the procedure where the session failed.
+  [propput, id(8), helpstring("property ProcedureName")]
+  HRESULT ProcedureName([in] BSTR newVal);
+
+  // Return the IP address of the machine that metered the
+  // failed session.
+  [propget, id(9), helpstring("property IPAddress")]
+  HRESULT IPAddress([out, retval] BSTR *pVal);
+
+  // Return the time the session failed.
+  [propget, id(10), helpstring("property FailureTime")]
+  HRESULT FailureTime([out, retval] DATE *pVal);
+
+  // Return the time the session was metered.
+  [propget, id(11), helpstring("property MeteredTime")]
+  HRESULT MeteredTime([out, retval] DATE *pVal);
+
+  // Return the ID of the root of the session if a compound session.
+  // Otherwise, return the session ID of the failed session.
+  [propget, id(12), helpstring("property RootSessionID")]
+  HRESULT RootSessionID([out, retval] BSTR *pVal);
+
+  // Set the ID of the root of the session if a compound session.
+  // Otherwise, set the session ID of the failed session.
+  [propput, id(12), helpstring("property RootSessionID")]
+  HRESULT RootSessionID([in] BSTR newVal);
+
+  // Set the session set ID of the session.
+  [propput, id(13), helpstring("property SessionSetID")]
+  HRESULT SessionSetID([in] BSTR newVal);
+
+  // Get the session set ID of the session.
+  [propget, id(13), helpstring("property SessionSetID")]
+  HRESULT SessionSetID([out,retval] BSTR * newVal);
+
+  // Return the XML message representation of the session.
+	// uses the saved XML message if it exists, otherwise the original is used
+  [propget, id(14), helpstring("property XMLMessage")]
+  HRESULT XMLMessage([out, retval] BSTR *pVal);
+
+  // set the XML message representation of the session
+  [propput, id(14), helpstring("property XMLMessage")]
+  HRESULT XMLMessage([in] BSTR newVal);
+
+  // Return the original XML message representation of the session.
+  [propget, id(15), helpstring("property XMLMessage")]
+  HRESULT OriginalXMLMessage([out, retval] BSTR *pVal);
+
+  // set the original XML message representation of the session
+  [propput, id(15), helpstring("property XMLMessage")]
+  HRESULT OriginalXMLMessage([in] BSTR newVal);
+
+  // retrieve a parsed version of the session.
+	// uses the saved XML message if it exists, otherwise the original is used
+  [propget, id(16), helpstring("property Session")]
+  HRESULT Session([out, retval] IMTSession * * session);
+
+	// saves an XML message representation to disk
+  [id(17), helpstring("method SaveXMLMessage")]
+  HRESULT SaveXMLMessage([in] BSTR xml, [in] IMTCollection * childrenToDelete);
+
+  // returns TRUE if a saved XML message exists
+  [propget, id(18), helpstring("property HasSavedXMLMessage")]
+  HRESULT HasSavedXMLMessage([out, retval] VARIANT_BOOL * saved);
+
+	// permanently removes a saved XML message from disk
+  [id(19), helpstring("method DeleteSavedXMLMessage")]
+  HRESULT DeleteSavedXMLMessage();
+
+	// initialize the object from a raw byte stream
+  [id(20), helpstring("method InitFromStream")]
+  HRESULT InitFromStream(SAFEARRAY(BYTE) message);
+};
+
+// ----------------------------------------------------------------
+// Object: MTSessionFailures
+// Prog ID: MetraPipeline.MTSessionFailures.1
+// Description: An object holding a collection of all failed sessions.
+//              This object also allows sessions to be restarted or abandoned.
+// Enumeration Element Type: MTSessionError
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(6E1641C6-FA79-11D2-A1E8-006008C0E24A),
+  dual,
+  helpstring("IMTSessionFailures Interface"),
+  pointer_default(unique)
+]
+interface IMTSessionFailures : IDispatch
+{
+  // Resubmit a failed session, without any modification, back into the pipeline.
+  // The session is taken from the routing queue journal and placed back on the
+  // routing queue.
+  [id(1), helpstring("method ResubmitSession")]
+  HRESULT ResubmitSession(BSTR sessionID);
+
+  // Permanently delete a failed session.  No record of the session will remain
+  // on the system.
+  [id(2), helpstring("method AbandonSession")]
+  HRESULT AbandonSession(BSTR sessionID, [in, optional] VARIANT txn);
+
+  // Retrieve the list of failed sessions again.  Enumeration over this
+  // object will then have the current list of failed sessions.
+  [id(3), helpstring("method Refresh")]
+  HRESULT Refresh();
+
+  // Resubmit a session marked as lost by the auditor.  The session
+  // is retrieved from the routing queue journal and placed back on the
+  // routing queue.
+  [id(4), helpstring("method ResubmitLostSession")]
+  HRESULT ResubmitLostSession(BSTR sessionID);
+
+  // automation methods
+  [propget, id(5), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+  [propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(VARIANT aIndex, [out, retval] VARIANT *pVal);
+
+  [propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+
+  // Permanently delete a failed session.  No record of the session will remain
+  // on the system.  No error needs to exist for the session to be deleted.
+  [id(6), helpstring("method AbandonLostSession")]
+  HRESULT AbandonLostSession(BSTR sessionID);
+
+  // Login with a username password.  Login credentials are needed for
+	// some operations.
+  [id(7), helpstring("method Login")]
+  HRESULT Login(BSTR login, BSTR login_namespace, BSTR password);
+
+  // Pass in a session context that has already been created by a login call.
+  // Login credentials are needed for some operations.
+  [propput, id(8), helpstring("property SessionContext")]
+  HRESULT SessionContext(IMTSessionContext * apSessionContext);
+};
+
+[
+	uuid(6E1641B4-FA79-11D2-A1E8-006008C0E24A),
+	version(1.0),
+	helpstring("PipelineControl 1.0 Type Library")
+]
+library PIPELINECONTROLLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	interface IMTTransaction;
+
+	[
+		uuid(6E1641C2-FA79-11D2-A1E8-006008C0E24A),
+		helpstring("MTPipeline Class")
+	]
+	coclass MTPipeline
+	{
+		[default] interface IMTPipeline;
+	};
+	[
+		uuid(6E1641C5-FA79-11D2-A1E8-006008C0E24A),
+		helpstring("MTSessionError Class")
+	]
+	coclass MTSessionError
+	{
+		[default] interface IMTSessionError;
+	};
+	[
+		uuid(6E1641C7-FA79-11D2-A1E8-006008C0E24A),
+		helpstring("MTSessionFailures Class")
+	]
+	coclass MTSessionFailures
+	{
+		[default] interface IMTSessionFailures;
+	};
+};

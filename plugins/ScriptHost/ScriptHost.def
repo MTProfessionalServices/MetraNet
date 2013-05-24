@@ -1,0 +1,9 @@
+; ScriptHost.def : Declares the module parameters.
+
+LIBRARY      "ScriptHost.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTUDChargeGenerator.1 = s 'MTUDChargeGenerator Class'
+	{
+		CLSID = s '{D5F8EC2E-0829-453C-9A26-4AF9829D0136}'
+	}
+	Metratech.MTUDChargeGenerator = s 'MTUDChargeGenerator Class'
+	{
+		CLSID = s '{D5F8EC2E-0829-453C-9A26-4AF9829D0136}'
+		CurVer = s 'Metratech.MTUDChargeGenerator.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {D5F8EC2E-0829-453C-9A26-4AF9829D0136} = s 'MTUDChargeGenerator Class'
+		{
+			ProgID = s 'Metratech.MTUDChargeGenerator.1'
+			VersionIndependentProgID = s 'Metratech.MTUDChargeGenerator'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{3C2BCCDF-8488-4367-A598-3F03440021A6}'
+		}
+	}
+}

@@ -1,0 +1,28 @@
+# ----------------------------------------------------------------------------
+# Makefile for Java Plugin Sample: MTBozoPlugin.java
+# by Blount
+#
+# Use gnu make
+#
+# make -f javamake
+# 
+# ----------------------------------------------------------------------------
+
+##
+## Note: You will want to make your own CLSID.  Don't use this one.
+##
+CLSID = 9c6babc0-f9e8-11d3-a2ca-006008c0e24a
+FILE = MTBozoPlugin
+
+JVCATTR = jvc.exe -nologo -x- -nomessage
+
+DESTDIR = c:\winnt\java\trustlib\
+
+SRCS = $(addsuffix .java, $(FILE))
+OBJS = $(addprefix $(DESTDIR), $(addsuffix .class, $(FILE)))
+
+all: $(OBJS)
+
+%.class: %.java
+	$(JVCATTR) -d $(DESTDIR) $<
+	javareg /register /class:MTBozoPlugin /clsid:{$(CLSID)} /progid:MetraPipeline.$(FILE).1

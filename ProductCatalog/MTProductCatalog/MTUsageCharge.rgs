@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTUsageCharge.1 = s 'MTUsageCharge Class'
+	{
+		CLSID = s '{2C5E102B-A59A-4D64-B337-560BAE0C97DA}'
+	}
+	Metratech.MTUsageCharge = s 'MTUsageCharge Class'
+	{
+		CLSID = s '{2C5E102B-A59A-4D64-B337-560BAE0C97DA}'
+		CurVer = s 'Metratech.MTUsageCharge.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {2C5E102B-A59A-4D64-B337-560BAE0C97DA} = s 'MTUsageCharge Class'
+		{
+			ProgID = s 'Metratech.MTUsageCharge.1'
+			VersionIndependentProgID = s 'Metratech.MTUsageCharge'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{39F610B0-42DB-4D96-ADB8-4BA15DCCC763}'
+		}
+	}
+}

@@ -1,0 +1,9 @@
+; PCConfig.def : Declares the module parameters.
+
+LIBRARY      "PCConfig.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

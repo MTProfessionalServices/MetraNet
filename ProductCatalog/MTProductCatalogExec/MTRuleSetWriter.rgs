@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTRuleSetWriter.1 = s 'MTRuleSetWriter Class'
+	{
+		CLSID = s '{B035C112-98D2-4E5C-9CC7-5728CE92913E}'
+	}
+	MetraTech.MTRuleSetWriter = s 'MTRuleSetWriter Class'
+	{
+		CLSID = s '{B035C112-98D2-4E5C-9CC7-5728CE92913E}'
+		CurVer = s 'MetraTech.MTRuleSetWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B035C112-98D2-4E5C-9CC7-5728CE92913E} = s 'MTRuleSetWriter Class'
+		{
+			ProgID = s 'MetraTech.MTRuleSetWriter.1'
+			VersionIndependentProgID = s 'MetraTech.MTRuleSetWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

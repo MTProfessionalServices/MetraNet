@@ -1,0 +1,24 @@
+HKCR
+{
+	MetraPipeline.MTSessionFailures.1 = s 'MTSessionFailures Class'
+	{
+		CLSID = s '{6E1641C7-FA79-11D2-A1E8-006008C0E24A}'
+	}
+	MetraPipeline.MTSessionFailures = s 'MTSessionFailures Class'
+	{
+		CurVer = s 'MetraPipeline.MTSessionFailures.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {6E1641C7-FA79-11D2-A1E8-006008C0E24A} = s 'MTSessionFailures Class'
+		{
+			ProgID = s 'MetraPipeline.MTSessionFailures.1'
+			VersionIndependentProgID = s 'MetraPipeline.MTSessionFailures'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

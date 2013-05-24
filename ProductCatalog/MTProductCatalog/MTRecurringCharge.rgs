@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTRecurringCharge.1 = s 'MTRecurringCharge Class'
+	{
+		CLSID = s '{56767D64-44BB-4883-81A1-606D8462B1FC}'
+	}
+	Metratech.MTRecurringCharge = s 'MTRecurringCharge Class'
+	{
+		CLSID = s '{56767D64-44BB-4883-81A1-606D8462B1FC}'
+		CurVer = s 'Metratech.MTRecurringCharge.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {56767D64-44BB-4883-81A1-606D8462B1FC} = s 'MTRecurringCharge Class'
+		{
+			ProgID = s 'Metratech.MTRecurringCharge.1'
+			VersionIndependentProgID = s 'Metratech.MTRecurringCharge'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{39F610B0-42DB-4D96-ADB8-4BA15DCCC763}'
+		}
+	}
+}

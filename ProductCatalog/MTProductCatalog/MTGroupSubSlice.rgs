@@ -1,0 +1,26 @@
+HKCR
+{
+	MTProductCatalog.MTGroupSubSlice.1 = s 'MTGroupSubSlice Class'
+	{
+		CLSID = s '{21757ABA-9E4E-4043-84A4-75048F7EFD98}'
+	}
+	MTProductCatalog.MTGroupSubSlice = s 'MTGroupSubSlice Class'
+	{
+		CLSID = s '{21757ABA-9E4E-4043-84A4-75048F7EFD98}'
+		CurVer = s 'MTProductCatalog.MTGroupSubSlice.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {21757ABA-9E4E-4043-84A4-75048F7EFD98} = s 'MTGroupSubSlice Class'
+		{
+			ProgID = s 'MTProductCatalog.MTGroupSubSlice.1'
+			VersionIndependentProgID = s 'MTProductCatalog.MTGroupSubSlice'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{39F610B0-42DB-4D96-ADB8-4BA15DCCC763}'
+		}
+	}
+}

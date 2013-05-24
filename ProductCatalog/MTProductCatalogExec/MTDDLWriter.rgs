@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTDDLWriter.1 = s 'MTDDLWriter Class'
+	{
+		CLSID = s '{7D68F2C3-05C8-408B-911C-619403988237}'
+	}
+	Metratech.MTDDLWriter = s 'MTDDLWriter Class'
+	{
+		CLSID = s '{7D68F2C3-05C8-408B-911C-619403988237}'
+		CurVer = s 'Metratech.MTDDLWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {7D68F2C3-05C8-408B-911C-619403988237} = s 'MTDDLWriter Class'
+		{
+			ProgID = s 'Metratech.MTDDLWriter.1'
+			VersionIndependentProgID = s 'Metratech.MTDDLWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

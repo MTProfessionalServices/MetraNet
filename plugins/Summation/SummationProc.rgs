@@ -1,0 +1,24 @@
+HKCR
+{
+	MetraPipeline.SummationProc.1 = s 'SummationProc Class'
+	{
+		CLSID = s '{8FE534D3-B851-11D2-8110-006008C0E8B7}'
+	}
+	MetraPipeline.SummationProc = s 'SummationProc Class'
+	{
+		CurVer = s 'MetraPipeline.SummationProc.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8FE534D3-B851-11D2-8110-006008C0E8B7} = s 'SummationProc Class'
+		{
+			ProgID = s 'MetraPipeline.SummationProc.1'
+			VersionIndependentProgID = s 'MetraPipeline.SummationProc'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

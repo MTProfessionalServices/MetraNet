@@ -1,0 +1,151 @@
+<xmlconfig>
+	<mtconfigdata>
+		<version ptype="INTEGER">1</version>
+		<!-- First processor configuration -->
+		<processor>
+			<name>Stage1</name>
+			<progid>MTPipeline.PropGenProcessor.1</progid>
+
+			<inputs>
+				<input>
+					<argument>duration</argument>
+					<property>CallDuration</property>
+				</input>
+			</inputs>
+
+			<outputs>
+				<output>
+					<argument>cost</argument>
+					<property>CallCost</property>
+				</output>
+			</outputs>
+
+			<!-- Processor specific configuration data -->
+			<configdata>
+				<default_actions>  <!-- if no constraint set satifies this is the default value -->
+					<action>
+						<prop_name>Product_ID</prop_name>
+						<prop_source_name>MyProductIDDef</prop_source_name>
+						<prop_source_type>DATETIME</prop_source_type>
+					</action>
+				</default_actions>
+
+				<constraint_set>
+					<actions> <!-- 1) Service_ID=A Intel_Flag=false Start_Time>4:00am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_source_name>MyProductID</prop_source_name>
+							<prop_source_type>DATETIME</prop_source_type>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_source_name>MyServiceID</prop_source_name>
+						<prop_source_type>STRING</prop_source_type>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>equal</condition>
+						<prop_source_name>MyIntelFlag</prop_source_name>
+						<prop_source_type>BOOLEAN</prop_source_type>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_source_name>MyStartTime</prop_source_name>
+						<prop_source_type>TIME</prop_source_type>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 2) Service_ID=A Intel_Flag!=false Start_Time>5:00am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value ptype="DATETIME">2000-03-11T22:57:40Z</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>A</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>not_equal</condition>
+						<prop_value ptype="BOOLEAN">false</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">5:00am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 3) Service_ID=F Intel_Flag=true Start_Time>6:00am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value ptype="DATETIME">2000-03-12T22:57:40Z</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>F</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>equal</condition>
+						<prop_value ptype="BOOLEAN">true</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">6:00am</prop_value>
+					</constraint>
+				</constraint_set>
+
+				<constraint_set>
+					<actions> <!-- 4) Service_ID=F Intel_Flag=false Start_Time>7:00am -->
+						<action>
+							<prop_name>Product_ID</prop_name>
+							<prop_value ptype="DATETIME">2000-03-13T22:57:40Z</prop_value>
+						</action>
+					</actions>
+
+					<constraint>
+						<prop_name>Service_ID</prop_name>
+						<condition>equal</condition>
+						<prop_value>AAS</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Intel_Flag</prop_name>
+						<condition>equal</condition>
+						<prop_value ptype="BOOLEAN">false</prop_value>
+					</constraint>
+
+					<constraint>
+						<prop_name>Start_Time</prop_name>
+						<condition>great_than</condition>
+						<prop_value ptype="TIME">7:00am</prop_value>
+					</constraint>
+				</constraint_set>
+
+			</configdata>
+
+		</processor>
+
+	</mtconfigdata>
+
+</xmlconfig>

@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTNonRecurringChargeWriter.1 = s 'MTNonRecurringChargeWriter Class'
+	{
+		CLSID = s '{86F7FC2F-19EB-41C9-A2DF-5660D1B71706}'
+	}
+	Metratech.MTNonRecurringChargeWriter = s 'MTNonRecurringChargeWriter Class'
+	{
+		CLSID = s '{86F7FC2F-19EB-41C9-A2DF-5660D1B71706}'
+		CurVer = s 'Metratech.MTNonRecurringChargeWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {86F7FC2F-19EB-41C9-A2DF-5660D1B71706} = s 'MTNonRecurringChargeWriter Class'
+		{
+			ProgID = s 'Metratech.MTNonRecurringChargeWriter.1'
+			VersionIndependentProgID = s 'Metratech.MTNonRecurringChargeWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

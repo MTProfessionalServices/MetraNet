@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTAggregateChargeWriter.1 = s 'MTAggregateChargeWriter Class'
+	{
+		CLSID = s '{64f264fe-140e-4f1c-8a7a-4f379efaa5db}'
+	}
+	Metratech.MTAggregateChargeWriter = s 'MTAggregateChargeWriter Class'
+	{
+		CLSID = s '{64f264fe-140e-4f1c-8a7a-4f379efaa5db}'
+		CurVer = s 'Metratech.MTAggregateChargeWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {64f264fe-140e-4f1c-8a7a-4f379efaa5db} = s 'MTAggregateChargeWriter Class'
+		{
+			ProgID = s 'Metratech.MTAggregateChargeWriter.1'
+			VersionIndependentProgID = s 'Metratech.MTAggregateChargeWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

@@ -1,0 +1,13 @@
+Microsoft Visual Studio Solution File, Format Version 1.00
+Project("{66355F20-A65B-11D0-BFB5-00A0C91EBFA0}") = "JavaPlugin", "JavaPlugin.vjp", "{1E2D9100-627C-11D4-95C9-00B0D025B121}"
+EndProject
+Global
+	GlobalSection(LocalDeployment) = postSolution
+		StartupProject = {1E2D9100-627C-11D4-95C9-00B0D025B121}
+	EndGlobalSection
+	GlobalSection(BuildOrder) = postSolution
+		0 = {1E2D9100-627C-11D4-95C9-00B0D025B121}
+	EndGlobalSection
+	GlobalSection(DeploymentRoot) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.ARPropagationConfigState.1 = s 'ARPropagationConfigState Class'
+	{
+		CLSID = s '{E9255615-3E83-42F2-AE97-602DB8198B03}'
+	}
+	MetraTech.ARPropagationConfigState = s 'ARPropagationConfigState Class'
+	{
+		CLSID = s '{E9255615-3E83-42F2-AE97-602DB8198B03}'
+		CurVer = s 'MetraTech.ARPropagationConfigState.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E9255615-3E83-42F2-AE97-602DB8198B03} = s 'ARPropagationConfigState Class'
+		{
+			ProgID = s 'MetraTech.ARPropagationConfigState.1'
+			VersionIndependentProgID = s 'MetraTech.ARPropagationConfigState'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{C7267995-A2B4-4342-BD07-399AE6431BDE}'
+		}
+	}
+}

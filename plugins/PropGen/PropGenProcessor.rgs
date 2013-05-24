@@ -1,0 +1,24 @@
+HKCR
+{
+	MTPipeline.PropGenProcessor.1 = s 'PropGenProcessor Class'
+	{
+		CLSID = s '{BD498482-37A4-11D2-80EE-006008C0E8B7}'
+	}
+	MTPipeline.PropGenProcessor = s 'PropGenProcessor Class'
+	{
+		CurVer = s 'MTPipeline.PropGenProcessor.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {BD498482-37A4-11D2-80EE-006008C0E8B7} = s 'PropGenProcessor Class'
+		{
+			ProgID = s 'MTPipeline.PropGenProcessor.1'
+			VersionIndependentProgID = s 'MTPipeline.PropGenProcessor'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

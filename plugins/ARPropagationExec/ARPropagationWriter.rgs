@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.ARPropagationWriter.1 = s 'ARPropagationWriter Class'
+	{
+		CLSID = s '{67AA2ABA-6E79-40C5-9F41-41D70FC082EE}'
+	}
+	MetraTech.ARPropagationWriter = s 'ARPropagationWriter Class'
+	{
+		CLSID = s '{67AA2ABA-6E79-40C5-9F41-41D70FC082EE}'
+		CurVer = s 'MetraTech.ARPropagationWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {67AA2ABA-6E79-40C5-9F41-41D70FC082EE} = s 'ARPropagationWriter Class'
+		{
+			ProgID = s 'MetraTech.ARPropagationWriter.1'
+			VersionIndependentProgID = s 'MetraTech.ARPropagationWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{C7267995-A2B4-4342-BD07-399AE6431BDE}'
+		}
+	}
+}

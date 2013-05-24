@@ -1,0 +1,9 @@
+; Subscription.def : Declares the module parameters.
+
+LIBRARY      "Subscription.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE

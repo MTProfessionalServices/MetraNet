@@ -1,0 +1,9 @@
+
+LIBRARY "pperf"
+
+EXPORTS
+    OpenPerfData        @1
+    CollectPerfData     @2
+    ClosePerfData       @3
+    RegisterPerfCounter @4
+    UnregisterPerfCounter @5

@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTCounterMapReader.1 = s 'MTCounterMapReader Class'
+	{
+		CLSID = s '{C0A2970D-4E3A-4777-AE2B-50D5FA70B1A2}'
+	}
+	Metratech.MTCounterMapReader = s 'MTCounterMapReader Class'
+	{
+		CLSID = s '{C0A2970D-4E3A-4777-AE2B-50D5FA70B1A2}'
+		CurVer = s 'Metratech.MTCounterMapReader.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {C0A2970D-4E3A-4777-AE2B-50D5FA70B1A2} = s 'MTCounterMapReader Class'
+		{
+			ProgID = s 'Metratech.MTCounterMapReader.1'
+			VersionIndependentProgID = s 'Metratech.MTCounterMapReader'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

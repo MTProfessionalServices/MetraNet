@@ -1,0 +1,24 @@
+HKCR
+{
+	MetraPipeline.MTSystemContext.1 = s 'MTSystemContext Class'
+	{
+		CLSID = s '{333AA8A0-3EAF-11D2-A1C5-006008C0E24A}'
+	}
+	MetraPipeline.MTSystemContext = s 'MTSystemContext Class'
+	{
+		CurVer = s 'MetraPipeline.MTSystemContext.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {333AA8A0-3EAF-11D2-A1C5-006008C0E24A} = s 'MTSystemContext Class'
+		{
+			ProgID = s 'MetraPipeline.MTSystemContext.1'
+			VersionIndependentProgID = s 'MetraPipeline.MTSystemContext'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

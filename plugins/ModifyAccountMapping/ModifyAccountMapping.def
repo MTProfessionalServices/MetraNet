@@ -1,0 +1,9 @@
+; ModifyAccountMapping.def : Declares the module parameters.
+
+LIBRARY      "ModifyAccountMapping.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

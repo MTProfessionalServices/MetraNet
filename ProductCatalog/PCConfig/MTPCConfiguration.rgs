@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTPCConfiguration.1 = s 'MTPCConfiguration Class'
+	{
+		CLSID = s '{6346CB06-224B-4284-B6F7-7CF7F4508B1F}'
+	}
+	Metratech.MTPCConfiguration = s 'MTPCConfiguration Class'
+	{
+		CLSID = s '{6346CB06-224B-4284-B6F7-7CF7F4508B1F}'
+		CurVer = s 'Metratech.MTPCConfiguration.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {6346CB06-224B-4284-B6F7-7CF7F4508B1F} = s 'MTPCConfiguration Class'
+		{
+			ProgID = s 'Metratech.MTPCConfiguration.1'
+			VersionIndependentProgID = s 'Metratech.MTPCConfiguration'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{A4175A41-AF24-4F1E-B408-00CF83690549}'
+		}
+	}
+}

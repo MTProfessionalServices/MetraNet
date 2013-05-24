@@ -1,0 +1,24 @@
+HKCR
+{
+	MetraPipeline.TimeOfDay.1 = s 'TimeOfDay Class'
+	{
+		CLSID = s '{0172F652-6F79-11D2-A1CC-006008C0E24A}'
+	}
+	MetraPipeline.TimeOfDay = s 'TimeOfDay Class'
+	{
+		CurVer = s 'MetraPipeline.TimeOfDay.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {0172F652-6F79-11D2-A1CC-006008C0E24A} = s 'TimeOfDay Class'
+		{
+			ProgID = s 'MetraPipeline.TimeOfDay.1'
+			VersionIndependentProgID = s 'MetraPipeline.TimeOfDay'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

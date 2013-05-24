@@ -1,0 +1,60 @@
+How to Make a Java Plugin
+by blount 4/27/00
+
+** WARNING ** WARNING ** WARNING ** WARNING ** WARNING ** WARNING **
+
+    This isn't *real* Java--it's Microsoft fake-ass Java.  The
+    Microsoft VM does not implement the Java 2 spec.
+
+** WARNING ** WARNING ** WARNING ** WARNING ** WARNING ** WARNING **
+
+You need two things from Microsoft: The JVM, and the Java SDK.  I did
+my development and testing with Version 5.0 Build 3240 of the JVM, and
+version 4.0 of the SDK.  Find both at www.microsoft.com/java.
+Download and install.  Be sure to install the JVM first.  You might
+want to try building a sample or two in the JDK to ensure it works.
+
+You do not need to install Visual J++.
+
+There are two relevant directories:
+
+   \src\plugins\JavaFramework
+   \src\plugins\JavaSample
+
+Neither of these are in the build system yet--this must be done by
+hand.  If java plugins become a popular facility, I'm sure it will get
+integrated.
+
+Manual Build:
+
+Be sure you have a running version of the system up.
+
+Once you've installed the JVM and SDK, go to
+\src\plugins\JavaFramework and do a "make -f javamake".  This creates
+and compiles a bunch of Java classes from our IDL files, and builds a
+base class that your Java plugin will derive from.  You'll see a lot
+of files in \winnt\java\trustlib.
+
+Now go to \src\plugins\JavaSample and "make -f javamake" again.  This
+will build MTBozoPlugin (the sample) and register it as a COM object.
+
+You'll find a few sample config files in the \src\plugins\JavaSample
+directory--these are:
+
+    bozo.xml
+    bozotest.xml
+    stage.xml
+
+Bozo.xml identifies the progid assigned to MTBozoPlugin.  Copy
+bozo.xml and bozotest.xml into:
+
+    \src\config\pipeline\Test
+
+Also, either copy stage.xml or modify your stage.xml to use bozo.
+
+Finally, fire up the stage and see if it works.  You should see it
+logging its configuration and autotest attempts into c:\temp\mtlog.
+
+Have fun!  Questions to Blount.
+
+Alan

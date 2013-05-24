@@ -1,0 +1,26 @@
+HKCR
+{
+	Mertatech.PriceableItem.1 = s 'MTPriceableItem Class'
+	{
+		CLSID = s '{327BBA09-C010-4332-B922-71108BCED68F}'
+	}
+	Mertatech.PriceableItem = s 'MTPriceableItem Class'
+	{
+		CLSID = s '{327BBA09-C010-4332-B922-71108BCED68F}'
+		CurVer = s 'Mertatech.PriceableItem.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {327BBA09-C010-4332-B922-71108BCED68F} = s 'MTPriceableItem Class'
+		{
+			ProgID = s 'Mertatech.PriceableItem.1'
+			VersionIndependentProgID = s 'Mertatech.PriceableItem'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{FD989129-805F-4351-B5AC-773732368586}'
+		}
+	}
+}

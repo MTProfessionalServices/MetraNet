@@ -1,0 +1,9 @@
+; ExecutionInfo.def : Declares the module parameters.
+
+LIBRARY      "ExecutionInfo.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

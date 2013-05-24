@@ -1,0 +1,9 @@
+; AccountCreation.def : Declares the module parameters.
+
+LIBRARY      "AccountCreation.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

@@ -1,0 +1,9 @@
+; RecurringChargeProration.def : Declares the module parameters.
+
+LIBRARY      "RecurringChargeProration.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

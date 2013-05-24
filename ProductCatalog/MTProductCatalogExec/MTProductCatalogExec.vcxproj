@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{c0cf733a-9c78-4810-9d98-0569bd775c39}</ProjectGuid>
+    <RootNamespace>MTProductCatalogExec</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>True</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>False</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(MTOUTDIR)\$(Configuration)\Bin\</OutDir>
+    <GenerateManifest>false</GenerateManifest>
+	<LinkIncremental>false</LinkIncremental>
+    <IntDir>$(MTOUTDIR)\$(Configuration)\ProductCatalog\MTProductCatalogExec\</IntDir>
+    <CustomBuildBeforeTargets>ClCompile</CustomBuildBeforeTargets>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <CLCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ROOTDIR)\SDK\include;$(ROOTDIR)\ProductCatalog\PCConfig;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\PCConfig;$(ROOTDIR)\Shared\Collection;$(MTOUTDIR)\$(CONFIGURATION)\Shared\Collection;$(MTOUTDIR)\$(CONFIGURATION)\Core\Configuration\RCD;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\PCConfig;$(ROOTDIR)\Core\DataAccess\QueryAdapter;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\QueryAdapter;$(ROOTDIR)\Shared\Auditing\MTAuditEvents;$(MTOUTDIR)\$(CONFIGURATION)\Shared\Auditing\MTAuditEvents;$(ROOTDIR)\Shared\Auditing\MTAuditDBWriter;$(MTOUTDIR)\$(CONFIGURATION)\Shared\Auditing\MTAuditDBWriter;$(ROOTDIR)\Account\MTYAAC;$(MTOUTDIR)\$(CONFIGURATION)\Account\MTYAAC;$(ROOTDIR)\Core\MTProgressExec;$(MTOUTDIR)\$(CONFIGURATION)\Core\MTProgressExec;$(ROOTDIR)\DBServices\DBObjects\COMDBObjects;$(MTOUTDIR)\$(CONFIGURATION)\DBServices\DBObjects\COMDBObjects;$(ROOTDIR)\Shared\ProductView\MTProductView;$(MTOUTDIR)\$(CONFIGURATION)\Shared\ProductView\MTProductView;$(ROOTDIR)\Shared\ProductView\MTProductViewExec;$(MTOUTDIR)\$(CONFIGURATION)\Shared\ProductView\MTProductViewExec;$(ROOTDIR)\ProductCatalog\Counter;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\Counter;$(ROOTDIR)\Account\MTAccountStates;$(MTOUTDIR)\$(CONFIGURATION)\Account\MTAccountStates;$(ROOTDIR)\Shared\MetraTime;$(MTOUTDIR)\$(CONFIGURATION)\Shared\MetraTime;$(ROOTDIR)\Pipeline\SessServer\SessServerBase;$(ROOTDIR)\Pipeline\include;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;$(ROOTDIR)\ProductCatalog\MTProductCatalogExec;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\MTProductCatalogExec;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;RWDEBUG;WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_WIN32_WINNT=0x501;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;UNICODE;_UNICODE;_USRDLL;</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
+      <DisableSpecificWarnings>4995;4335;</DisableSpecificWarnings>
+      <StringPooling>true</StringPooling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalOptions>/bigobj /c /MDd /Zm200</AdditionalOptions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)stdafx.pch</PrecompiledHeaderOutputFile>
+    </CLCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>kernel32.lib;user32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;comsvcs.lib;</AdditionalDependencies>
+      <EnableUAC>false</EnableUAC>
+      <ProfileGuidedDatabase>
+      </ProfileGuidedDatabase>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalLibraryDirectories>$(MTOUTDIR)\$(Configuration)\lib;</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4070 /ignore:4217 /ignore:4199 /ignore:4098  /subsystem:windows</AdditionalOptions>
+      <ImportLibrary>$(MTOUTDIR)\$(Configuration)\lib\MTProductCatalogExec.lib</ImportLibrary>
+      <ModuleDefinitionFile>$(ROOTDIR)\ProductCatalog\MTProductCatalogExec\MTProductCatalogExec.def</ModuleDefinitionFile>
+      <RegisterOutput>true</RegisterOutput>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>s:\build\tools\MakeTreeVersion;$(ROOTDIR)\SDK\include;$(ROOTDIR)\ProductCatalog\PCConfig;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\PCConfig;$(ROOTDIR)\Shared\Collection;$(MTOUTDIR)\$(CONFIGURATION)\Shared\Collection;$(MTOUTDIR)\$(CONFIGURATION)\Core\Configuration\RCD;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\PCConfig;$(ROOTDIR)\Core\DataAccess\QueryAdapter;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\QueryAdapter;$(ROOTDIR)\Shared\Auditing\MTAuditEvents;$(MTOUTDIR)\$(CONFIGURATION)\Shared\Auditing\MTAuditEvents;$(ROOTDIR)\Shared\Auditing\MTAuditDBWriter;$(MTOUTDIR)\$(CONFIGURATION)\Shared\Auditing\MTAuditDBWriter;$(ROOTDIR)\Account\MTYAAC;$(MTOUTDIR)\$(CONFIGURATION)\Account\MTYAAC;$(ROOTDIR)\Core\MTProgressExec;$(MTOUTDIR)\$(CONFIGURATION)\Core\MTProgressExec;$(ROOTDIR)\DBServices\DBObjects\COMDBObjects;$(MTOUTDIR)\$(CONFIGURATION)\DBServices\DBObjects\COMDBObjects;$(ROOTDIR)\Shared\ProductView\MTProductView;$(MTOUTDIR)\$(CONFIGURATION)\Shared\ProductView\MTProductView;$(ROOTDIR)\Shared\ProductView\MTProductViewExec;$(MTOUTDIR)\$(CONFIGURATION)\Shared\ProductView\MTProductViewExec;$(ROOTDIR)\ProductCatalog\Counter;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\Counter;$(ROOTDIR)\Account\MTAccountStates;$(MTOUTDIR)\$(CONFIGURATION)\Account\MTAccountStates;$(ROOTDIR)\Shared\MetraTime;$(MTOUTDIR)\$(CONFIGURATION)\Shared\MetraTime;$(ROOTDIR)\Pipeline\SessServer\SessServerBase;$(ROOTDIR)\Pipeline\include;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;$(ROOTDIR)\ProductCatalog\MTProductCatalogExec;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\MTProductCatalogExec;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG</PreprocessorDefinitions>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Post-Build Event</Message>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Message>Generate derived RC file</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Command>bash s:\build\tools\GenerateDerivedRc.bash MTProductCatalogExec_version.h $(ROOTDIR)\ProductCatalog\MTProductCatalogExec\MTProductCatalogExec.rc &gt; $(IntDir)\MTProductCatalogExec_derived.rc</Command>
+      <Outputs>$(IntDir)\MTProductCatalogExec_derived.rc</Outputs>
+      <Inputs>MTProductCatalogExec_version.h;s:\build\tools\MakeTreeVersion\template.rc</Inputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(MTOUTDIR)\$(Configuration)\Bin\</OutDir>
+    <GenerateManifest>false</GenerateManifest>
+    <IntDir>$(MTOUTDIR)\$(Configuration)\ProductCatalog\MTProductCatalogExec\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <CustomBuildBeforeTargets>ClCompile</CustomBuildBeforeTargets>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <CLCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>$(ROOTDIR)\SDK\include;$(ROOTDIR)\ProductCatalog\PCConfig;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\PCConfig;$(ROOTDIR)\Shared\Collection;$(MTOUTDIR)\$(CONFIGURATION)\Shared\Collection;$(MTOUTDIR)\$(CONFIGURATION)\Core\Configuration\RCD;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\PCConfig;$(ROOTDIR)\Core\DataAccess\QueryAdapter;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\QueryAdapter;$(ROOTDIR)\Shared\Auditing\MTAuditEvents;$(MTOUTDIR)\$(CONFIGURATION)\Shared\Auditing\MTAuditEvents;$(ROOTDIR)\Shared\Auditing\MTAuditDBWriter;$(MTOUTDIR)\$(CONFIGURATION)\Shared\Auditing\MTAuditDBWriter;$(ROOTDIR)\Account\MTYAAC;$(MTOUTDIR)\$(CONFIGURATION)\Account\MTYAAC;$(ROOTDIR)\Core\MTProgressExec;$(MTOUTDIR)\$(CONFIGURATION)\Core\MTProgressExec;$(ROOTDIR)\DBServices\DBObjects\COMDBObjects;$(MTOUTDIR)\$(CONFIGURATION)\DBServices\DBObjects\COMDBObjects;$(ROOTDIR)\Shared\ProductView\MTProductView;$(MTOUTDIR)\$(CONFIGURATION)\Shared\ProductView\MTProductView;$(ROOTDIR)\Shared\ProductView\MTProductViewExec;$(MTOUTDIR)\$(CONFIGURATION)\Shared\ProductView\MTProductViewExec;$(ROOTDIR)\ProductCatalog\Counter;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\Counter;$(ROOTDIR)\Account\MTAccountStates;$(MTOUTDIR)\$(CONFIGURATION)\Account\MTAccountStates;$(ROOTDIR)\Shared\MetraTime;$(MTOUTDIR)\$(CONFIGURATION)\Shared\MetraTime;$(ROOTDIR)\Pipeline\SessServer\SessServerBase;$(ROOTDIR)\Pipeline\include;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;$(ROOTDIR)\ProductCatalog\MTProductCatalogExec;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\MTProductCatalogExec;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_WIN32_WINNT=0x501;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;UNICODE;_UNICODE;</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
+      <DisableSpecificWarnings>4995;4335;</DisableSpecificWarnings>
+      <StringPooling>true</StringPooling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalOptions>/bigobj /c /Zm200</AdditionalOptions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)stdafx.pch</PrecompiledHeaderOutputFile>
+    </CLCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <MapExports>true</MapExports>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>kernel32.lib;user32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;comsvcs.lib;</AdditionalDependencies>
+      <EnableUAC>false</EnableUAC>
+      <ProfileGuidedDatabase>
+      </ProfileGuidedDatabase>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalOptions>/ignore:4070 /ignore:4217 /ignore:4199 /ignore:4098  /subsystem:windows</AdditionalOptions>
+      <AdditionalLibraryDirectories>$(MTOUTDIR)\$(Configuration)\lib;</AdditionalLibraryDirectories>
+      <ImportLibrary>$(MTOUTDIR)\$(Configuration)\lib\MTProductCatalogExec.lib</ImportLibrary>
+      <ModuleDefinitionFile>$(ROOTDIR)\ProductCatalog\MTProductCatalogExec\MTProductCatalogExec.def</ModuleDefinitionFile>
+      <RegisterOutput>true</RegisterOutput>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>s:\build\tools\MakeTreeVersion;$(ROOTDIR)\SDK\include;$(ROOTDIR)\ProductCatalog\PCConfig;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\PCConfig;$(ROOTDIR)\Shared\Collection;$(MTOUTDIR)\$(CONFIGURATION)\Shared\Collection;$(MTOUTDIR)\$(CONFIGURATION)\Core\Configuration\RCD;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\PCConfig;$(ROOTDIR)\Core\DataAccess\QueryAdapter;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\QueryAdapter;$(ROOTDIR)\Shared\Auditing\MTAuditEvents;$(MTOUTDIR)\$(CONFIGURATION)\Shared\Auditing\MTAuditEvents;$(ROOTDIR)\Shared\Auditing\MTAuditDBWriter;$(MTOUTDIR)\$(CONFIGURATION)\Shared\Auditing\MTAuditDBWriter;$(ROOTDIR)\Account\MTYAAC;$(MTOUTDIR)\$(CONFIGURATION)\Account\MTYAAC;$(ROOTDIR)\Core\MTProgressExec;$(MTOUTDIR)\$(CONFIGURATION)\Core\MTProgressExec;$(ROOTDIR)\DBServices\DBObjects\COMDBObjects;$(MTOUTDIR)\$(CONFIGURATION)\DBServices\DBObjects\COMDBObjects;$(ROOTDIR)\Shared\ProductView\MTProductView;$(MTOUTDIR)\$(CONFIGURATION)\Shared\ProductView\MTProductView;$(ROOTDIR)\Shared\ProductView\MTProductViewExec;$(MTOUTDIR)\$(CONFIGURATION)\Shared\ProductView\MTProductViewExec;$(ROOTDIR)\ProductCatalog\Counter;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\Counter;$(ROOTDIR)\Account\MTAccountStates;$(MTOUTDIR)\$(CONFIGURATION)\Account\MTAccountStates;$(ROOTDIR)\Shared\MetraTime;$(MTOUTDIR)\$(CONFIGURATION)\Shared\MetraTime;$(ROOTDIR)\Pipeline\SessServer\SessServerBase;$(ROOTDIR)\Pipeline\include;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;$(ROOTDIR)\ProductCatalog\MTProductCatalogExec;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\MTProductCatalogExec;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG</PreprocessorDefinitions>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Post-Build Event</Message>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Message>Generate derived RC file</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Command>bash s:\build\tools\GenerateDerivedRc.bash MTProductCatalogExec_version.h $(ROOTDIR)\ProductCatalog\MTProductCatalogExec\MTProductCatalogExec.rc &gt; $(IntDir)\MTProductCatalogExec_derived.rc</Command>
+      <Outputs>$(IntDir)\MTProductCatalogExec_derived.rc</Outputs>
+      <Inputs>MTProductCatalogExec_version.h;s:\build\tools\MakeTreeVersion\template.rc</Inputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ResourceCompile Include="$(IntDir)\MTProductCatalogExec_derived.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <CLCompile Include="..\..\build\stdafx.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <AdditionalIncludeDirectories>$(ROOTDIR)\ProductCatalog\MTProductCatalogExec;$(ROOTDIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </CLCompile>
+    <ClCompile Include="MTAccountReader.cpp" />
+    <ClCompile Include="MTAccountWriter.cpp" />
+    <ClCompile Include="MTAggregateChargeReader.cpp" />
+    <ClCompile Include="MTAggregateChargeWriter.cpp" />
+    <ClCompile Include="MTAttributeMetaDataSetReader.cpp" />
+    <ClCompile Include="MTBasePropsWriter.cpp" />
+    <ClCompile Include="MTCalendarReader.cpp" />
+    <ClCompile Include="MTCalendarWriter.cpp" />
+    <ClCompile Include="MTChargePropertyReader.cpp" />
+    <ClCompile Include="MTChargePropertyWriter.cpp" />
+    <ClCompile Include="MTChargeReader.cpp" />
+    <ClCompile Include="MTChargeWriter.cpp" />
+    <ClCompile Include="MTCounterMapReader.cpp" />
+    <ClCompile Include="MTCounterMapWriter.cpp" />
+    <ClCompile Include="MTCounterParamReader.cpp" />
+    <ClCompile Include="MTCounterParamWriter.cpp" />
+    <ClCompile Include="MTCounterPropertyDefinitionReader.cpp" />
+    <ClCompile Include="MTCounterPropertyDefinitionWriter.cpp" />
+    <ClCompile Include="MTCounterReader.cpp" />
+    <ClCompile Include="MTCounterTypeReader.cpp" />
+    <ClCompile Include="MTCounterTypeWriter.cpp" />
+    <ClCompile Include="MTCounterViewReader.cpp" />
+    <ClCompile Include="MTCounterWriter.cpp" />
+    <ClCompile Include="MTDDLWriter.cpp" />
+    <ClCompile Include="MTDiscountReader.cpp" />
+    <ClCompile Include="MTDiscountWriter.cpp" />
+    <ClCompile Include="MTExtendedPropWriter.cpp" />
+    <ClCompile Include="MTNonRecurringChargeReader.cpp" />
+    <ClCompile Include="MTNonRecurringChargeWriter.cpp" />
+    <ClCompile Include="MTParamTableDefinitionReader.cpp" />
+    <ClCompile Include="MTParamTableDefinitionWriter.cpp" />
+    <ClCompile Include="MTPCTimeSpanWriter.cpp" />
+    <ClCompile Include="MTPredicateWriter.cpp" />
+    <ClCompile Include="MTPriceableItemReader.cpp" />
+    <ClCompile Include="MTPriceableItemTypeReader.cpp" />
+    <ClCompile Include="MTPriceableItemTypeWriter.cpp" />
+    <ClCompile Include="MTPriceableItemWriter.cpp" />
+    <ClCompile Include="MTPriceListMappingReader.cpp" />
+    <ClCompile Include="MTPriceListMappingWriter.cpp" />
+    <ClCompile Include="MTPriceListReader.cpp" />
+    <ClCompile Include="MTPriceListWriter.cpp" />
+    <ClCompile Include="MTProductCatalogExec.cpp" />
+    <ClCompile Include="MTProductOfferingReader.cpp" />
+    <ClCompile Include="MTProductOfferingWriter.cpp" />
+    <ClCompile Include="MTProductViewWriter.cpp" />
+    <ClCompile Include="MTPropertyMetaDataSetReader.cpp" />
+    <ClCompile Include="MTRateScheduleReader.cpp" />
+    <ClCompile Include="MTRateScheduleWriter.cpp" />
+    <ClCompile Include="MTRecurringChargeReader.cpp" />
+    <ClCompile Include="MTRecurringChargeWriter.cpp" />
+    <ClCompile Include="MTRuleSetReader.cpp" />
+    <ClCompile Include="MTRuleSetWriter.cpp" />
+    <ClCompile Include="MTSubscriptionReader.cpp" />
+    <ClCompile Include="MTSubscriptionWriter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClNoDependencies Include="$(MTOUTDIR)\$(CONFIGURATION)\bin\MTProductCatalog.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\batchhelper\mtbatchhelper.vcxproj">
+      <Project>{ad650402-e50f-44ea-9308-2a5f3dc11500}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\CodeLookup\CodeLookup\CodeLookup.vcxproj">
+      <Project>{d3f00285-fa7a-4e49-9c23-21b5c8bd7eae}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\ConfigReaders\configreaders.vcxproj">
+      <Project>{ce2eb0bc-3139-4d19-94dd-031b0543eda1}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\ConvertDefault\convertdefault.vcxproj">
+      <Project>{5df44acc-720a-4701-8388-902b8e6b5488}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\DataAccess\DBAccess\dbaccess.vcxproj">
+      <Project>{b2b0c583-f529-482f-a5f8-e22e92f23aae}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\DataAccess\MTODBC\MTODBC.vcxproj">
+      <Project>{d6090d12-0c9a-4f21-a85e-5dbf81b383fa}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\error\error.vcxproj">
+      <Project>{3e843aea-c148-4997-bb48-9bfc4e6bbd39}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Logger\NTLogger\ntlogger.vcxproj">
+      <Project>{92e32330-a430-487f-b064-b1aeef883081}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\msix\msix.vcxproj">
+      <Project>{c5cf7747-d6f0-4daf-aa9f-e83b2b12e13e}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\mtcomerr\mtcomerr.vcxproj">
+      <Project>{fc230fdb-5c05-45be-a5ae-e6db137061e7}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\MTDecimalVal\mtdecimalval.vcxproj">
+      <Project>{2497fdc3-d1c6-4f65-8401-977f2f3b708c}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\mtdec\mtdec.vcxproj">
+      <Project>{140b2a6e-da49-40b5-8961-830a57f7673c}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\MTSL\mtsl.vcxproj">
+      <Project>{67933836-cc95-497e-8f16-91e0ebdb04b1}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\MTUtil\mtutil.vcxproj">
+      <Project>{238eb1f4-b29e-4ed1-980e-3b5355c3cf3f}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\xmlconfig\xmlconfig.vcxproj">
+      <Project>{e53c0039-6166-4198-ae89-4fed7a1bcdab}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\xml\xml.vcxproj">
+      <Project>{98e5c212-cc4c-45c0-b2cd-7ebf0772c2f3}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech\Accounts\Type\MetraTech.Accounts.Type.csproj">
+      <Project>{debe5ba3-a559-4de7-adc8-0df5df9dd846}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech\Adjustments\MetraTech.Adjustments.csproj">
+      <Project>{86e49020-c430-454d-a403-825f19587e1e}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech\DataAccess\MetraTech.DataAccess.csproj">
+      <Project>{1b40f4e4-8ddc-43e0-be45-959bee94422f}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech\Localization\MetraTech.Localization.csproj">
+      <Project>{93e49651-902e-4707-9908-5b41ac753a36}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech\Pipeline\MetraTech.Pipeline.csproj">
+      <Project>{a5b6d6a0-c62e-481f-bf26-d005b1573934}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech\Product\Hooks\DynamicTableUpdate\MetraTech.Product.Hooks.DynamicTableUpdate.csproj">
+      <Project>{317d4d5d-dc4a-4cd5-8f0a-053f63593770}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech\Product\Hooks\InsertProdProperties\MetraTech.Product.Hooks.InsertProdProperties.csproj">
+      <Project>{e3607c36-5266-49b8-a92a-90384cc06ba9}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Pipeline\SessServer\SessServerBase\SessServerBase.vcxproj">
+      <Project>{ded7c833-945c-4722-9921-e928c5ab930f}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\DynamicTable\dynamictable.vcxproj">
+      <Project>{5eafef6a-7e7f-4af2-9748-e6838c5b86bf}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\msixdefcollection\msixdefcollection.vcxproj">
+      <Project>{bc92c584-78fc-4843-a7e2-4fcc7627ba23}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\ProductView\ProductView\ProductView.vcxproj">
+      <Project>{8310dca6-03d6-4443-9af8-b1b178d568d9}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtendedProp\extendedprop.vcxproj">
+      <Project>{e4a7701c-fa5a-44b4-b6c9-62cabd3ebbed}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\ParamTable\paramtable.vcxproj">
+      <Project>{09c9c0c3-e926-4238-ae5d-4493574a0d74}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\PCCache\PCCache.vcxproj">
+      <Project>{20112f2d-2d04-4da4-ac99-9f4d9842939f}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\RSCache\rscache.vcxproj">
+      <Project>{1d0f5d6a-d851-442e-8318-a28d32303f5e}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

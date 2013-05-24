@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTCounterPropertyDefinitionWriter.1 = s 'MTCounterPropertyDefinitionWriter Class'
+	{
+		CLSID = s '{8319B89C-72DB-4E5D-AF63-AACE578DF0D3}'
+	}
+	Metratech.MTCounterPropertyDefinitionWriter = s 'MTCounterPropertyDefinitionWriter Class'
+	{
+		CLSID = s '{8319B89C-72DB-4E5D-AF63-AACE578DF0D3}'
+		CurVer = s 'Metratech.MTCounterPropertyDefinitionWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8319B89C-72DB-4E5D-AF63-AACE578DF0D3} = s 'MTCounterPropertyDefinitionWriter Class'
+		{
+			ProgID = s 'Metratech.MTCounterPropertyDefinitionWriter.1'
+			VersionIndependentProgID = s 'Metratech.MTCounterPropertyDefinitionWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

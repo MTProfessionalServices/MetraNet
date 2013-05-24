@@ -1,0 +1,181 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "1 TYPELIB ""MTProductCatalogExec.tlb""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION MT_FILEVERSION
+ PRODUCTVERSION MT_PRODUCTVERSION
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", MT_COMPANYNAME_STR
+            VALUE "FileDescription", MT_USERDEFINE_DESCRIPTION
+            VALUE "FileVersion", MT_FILEVERSION_STR
+            VALUE "InternalName", MT_USERDEFINE_INTERNALNAME
+            VALUE "LegalCopyright", MT_COPYRIGHT_STR
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OLESelfRegister", "\0"
+            VALUE "OriginalFilename", MT_USERDEFINEORIGFILENAME
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", MT_USERDEFINEPRODUCTNAME
+            VALUE "ProductVersion", MT_PRODUCTVERSION_STR
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_MTPRODUCTOFFERINGREADER REGISTRY DISCARDABLE    "MTProductOfferingReader.rgs"
+IDR_MTPRODUCTOFFERINGWRITER REGISTRY DISCARDABLE    "MTProductOfferingWriter.rgs"
+IDR_MTPRICEABLEITEMREADER REGISTRY DISCARDABLE    "MTPriceableItemReader.rgs"
+IDR_MTCOUNTERTYPEREADER REGISTRY DISCARDABLE    "MTCounterTypeReader.rgs"
+IDR_MTCOUNTERREADER     REGISTRY DISCARDABLE    "MTCounterReader.rgs"
+IDR_MTCOUNTERWRITER     REGISTRY DISCARDABLE    "MTCounterWriter.rgs"
+IDR_MTCOUNTERPARAMREADER REGISTRY DISCARDABLE    "MTCounterParamReader.rgs"
+IDR_MTPARAMTABLEDEFINITIONREADER REGISTRY DISCARDABLE    "MTParamTableDefinitionReader.rgs"
+IDR_MTPCTIMESPANWRITER  REGISTRY DISCARDABLE    "MTPCTimeSpanWriter.rgs"
+IDR_MTPRICEABLEITEMTYPEREADER REGISTRY DISCARDABLE    "MTPriceableItemTypeReader.rgs"
+IDR_MTPRICEABLEITEMTYPEWRITER REGISTRY DISCARDABLE    "MTPriceableItemTypeWriter.rgs"
+IDR_MTRATESCHEDULEWRITER REGISTRY DISCARDABLE    "MTRateScheduleWriter.rgs"
+IDR_MTRULESETWRITER     REGISTRY DISCARDABLE    "MTRuleSetWriter.rgs"
+IDR_MTPRICEABLEITEMWRITER REGISTRY DISCARDABLE    "MTPriceableItemWriter.rgs"
+IDR_MTRATESCHEDULEREADER REGISTRY DISCARDABLE    "MTRateScheduleReader.rgs"
+IDR_MTRULESETREADER     REGISTRY DISCARDABLE    "MTRuleSetReader.rgs"
+IDR_MTPRICELISTREADER   REGISTRY DISCARDABLE    "MTPriceListReader.rgs"
+IDR_MTPRICELISTWRITER   REGISTRY DISCARDABLE    "MTPriceListWriter.rgs"
+IDR_MTDISCOUNTREADER    REGISTRY DISCARDABLE    "MTDiscountReader.rgs"
+IDR_MTDISCOUNTWRITER    REGISTRY DISCARDABLE    "MTDiscountWriter.rgs"
+IDR_MTACCOUNTREADER     REGISTRY DISCARDABLE    "MTAccountReader.rgs"
+IDR_MTACCOUNTWRITER     REGISTRY DISCARDABLE    "MTAccountWriter.rgs"
+IDR_MTCOUNTERVIEWREADER REGISTRY DISCARDABLE    "MTCounterViewReader.rgs"
+IDR_MTPRICELISTMAPPINGREADER REGISTRY DISCARDABLE    "MTPriceListMappingReader.rgs"
+IDR_MTSUBSCRIPTIONREADER REGISTRY DISCARDABLE    "MTSubscriptionReader.rgs"
+IDR_MTSUBSCRIPTIONWRITER REGISTRY DISCARDABLE    "MTSubscriptionWriter.rgs"
+IDR_MTPROPERTYMETADATASETREADER REGISTRY DISCARDABLE    "MTPropertyMetaDataSetReader.rgs"
+IDR_MTNONRECURRINGCHARGEREADER REGISTRY DISCARDABLE    "MTNonRecurringChargeReader.rgs"
+IDR_MTNONRECURRINGCHARGEWRITER REGISTRY DISCARDABLE    "MTNonRecurringChargeWriter.rgs"
+IDR_MTPRICELISTMAPPINGWRITER REGISTRY DISCARDABLE    "MTPriceListMappingWriter.rgs"
+IDR_MTCOUNTERPROPERTYDEFINITIONWRITER REGISTRY DISCARDABLE    "MTCounterPropertyDefinitionWriter.rgs"
+IDR_MTCOUNTERPROPERTYDEFINITIONREADER REGISTRY DISCARDABLE    "MTCounterPropertyDefinitionReader.rgs"
+IDR_MTATTRIBUTEMETADATASETREADER REGISTRY DISCARDABLE    "MTAttributeMetaDataSetReader.rgs"
+IDR_MTRECURRINGCHARGEREADER REGISTRY DISCARDABLE    "MTRecurringChargeReader.rgs"
+IDR_MTRECURRINGCHARGEWRITER REGISTRY DISCARDABLE    "MTRecurringChargeWriter.rgs"
+IDR_MTCOUNTERMAPREADER  REGISTRY DISCARDABLE    "MTCounterMapReader.rgs"
+IDR_MTCOUNTERMAPWRITER  REGISTRY DISCARDABLE    "MTCounterMapWriter.rgs"
+IDR_MTCOUNTERTYPEWRITER REGISTRY DISCARDABLE    "MTCounterTypeWriter.rgs"
+IDR_MTBASEPROPSWRITER   REGISTRY DISCARDABLE    "MTBasePropsWriter.rgs"
+IDR_MTAGGREGATECHARGEREADER REGISTRY DISCARDABLE    "MTAggregateChargeReader.rgs"
+IDR_MTAGGREGATECHARGEWRITER REGISTRY DISCARDABLE    "MTAggregateChargeWriter.rgs"
+IDR_MTEXTENDEDPROPWRITER REGISTRY DISCARDABLE    "MTExtendedPropWriter.rgs"
+IDR_MTCALENDARREADER    REGISTRY DISCARDABLE    "MTCalendarReader.rgs"
+IDR_MTCALENDARWRITER    REGISTRY DISCARDABLE    "MTCalendarWriter.rgs"
+IDR_MTPARAMTABLEDEFINITIONWRITER REGISTRY DISCARDABLE    "MTParamTableDefinitionWriter.rgs"
+IDR_MTPRODUCTVIEWWRITER REGISTRY DISCARDABLE    "MTProductViewWriter.rgs"
+IDR_MTDDLWRITER         REGISTRY DISCARDABLE    "MTDDLWriter.rgs"
+IDR_MTCHARGEREADER      REGISTRY DISCARDABLE    "MTChargeReader.rgs"
+IDR_MTCHARGEWRITER      REGISTRY DISCARDABLE    "MTChargeWriter.rgs"
+IDR_MTPREDICATEWRITER   REGISTRY DISCARDABLE    "MTPredicateWriter.rgs"
+IDR_MTCHARGEPROPERTYWRITER REGISTRY DISCARDABLE    "MTChargePropertyWriter.rgs"
+IDR_MTCHARGEPROPERTYREADER REGISTRY DISCARDABLE    "MTChargePropertyReader.rgs"
+IDR_MTCOUNTERPARAMWRITER REGISTRY DISCARDABLE    "MTCounterParamWriter.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PROJNAME            "MTProductCatalogExec"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "MTProductCatalogExec.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,130 @@
+'******************************************************************************
+'* @doc MTRatingScript.txt
+'*
+'* Copyright 1998 by MetraTech Corporation
+'* All rights reserved.
+'*
+'* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+'* NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+'* example, but not limitation, MetraTech Corporation MAKES NO
+'* REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+'* PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+'* DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS, 
+'* COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+'*
+'* Title to copyright in this software and any associated
+'* documentation shall at all times remain with MetraTech Corporation,
+'* and USER agrees to preserve the same. 
+'*
+'****************************************************************************
+
+' -------------- available symbols ---------------
+' MTLog
+' MTNameID
+' MTSystemContext
+'-------------------------------------------------
+
+'-- Symbol defination --
+Dim init_charge_prop_name
+Dim rate_prop_name
+Dim duration_prop_name
+Dim amount_prop_name
+
+'-- Main routine --
+
+init = 12 + 34 '-- just for demo purposes
+
+'-- end of main routine --
+
+'------------------------------------------------------------------------
+'
+'	Configure - PlugIn initialization
+'
+'------------------------------------------------------------------------
+sub MTPipeline_Configure(ByVal ConfigPropSet)
+
+	Dim MTProp
+
+	MTLog.Init "logging", "[PlugIn]"
+	MTLog.LogString 5, "start Configuration in script"
+	Set MTProp = ConfigPropSet.NextWithName("init_charge_prop_name")
+	init_charge_prop_name = MTProp.ValueAsString
+	Set MTProp = Nothing
+
+	Set MTProp = ConfigPropSet.NextWithName("rate_prop_name")
+	rate_prop_name = MTProp.ValueAsString
+	Set MTProp = Nothing
+
+	Set MTProp = ConfigPropSet.NextWithName("duration_prop_name")
+	duration_prop_name = MTProp.ValueAsString
+	Set MTProp = Nothing
+
+	Set MTProp = ConfigPropSet.NextWithName("amount_prop_name")
+	amount_prop_name = MTProp.ValueAsString
+	Set MTProp = Nothing
+
+end sub
+
+'------------------------------------------------------------------------
+'
+'	ProcessSession - Process single session
+'
+'------------------------------------------------------------------------
+sub MTPipeline_ProcessSession(ByVal Session)
+
+	Dim id
+	Dim initChargeVal, rateVal, durationVal, amountVal
+	Dim name, log
+
+	initChargeVal = 0
+	rateVal = 0
+	durationVal = 0
+	amountVal = 0
+
+	MTLog.LogString 5, "start process session here"
+	Set log = MTSystemContext.GetLog()
+
+	log.LogString 5, "start process session here again"
+
+	Set name = MTSystemContext.GetNameID()
+
+	'-- Get initial charge value --
+	id = name.GetNameID(init_charge_prop_name)
+	initChargeVal = Session.GetDoubleProperty(id)
+
+	'-- Get rate value --
+	id = MTNameID.GetNameID(rate_prop_name)
+	rateVal = Session.GetDoubleProperty(id)
+
+	'-- Get call duration value --
+	id = MTNameID.GetNameID(duration_prop_name)
+	durationVal = Session.GetLongProperty(id)
+	
+	'-- Get result amount property id --
+	id = MTNameID.GetNameID(amount_prop_name)
+
+	'-- Calculate the final amount --
+	amountVal = (durationVal * rateVal) + initChargeVal
+
+	'-- Set the result into session object --
+	Session.SetDoubleProperty id, amountVal
+
+end sub
+
+'------------------------------------------------------------------------
+'
+'	ProcessSessionSet - Process session set
+'
+'------------------------------------------------------------------------
+sub MTPipeline_ProcessSessionSet(ByVal SessionSet)
+
+	Dim mysess
+
+	'-- Go through each session --
+	for each mysess in SessionSet
+
+		MTPipeline_ProcessSession mysess
+
+	next
+
+end sub

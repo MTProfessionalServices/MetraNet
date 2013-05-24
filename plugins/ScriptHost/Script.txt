@@ -1,0 +1,157 @@
+Dim theConnection
+Dim RS
+Dim ps
+Dim propName, propValue
+Dim MTprop
+
+Set theConnection = MTPipeline.CreateObject("ADODB.Connection")
+
+theConnection.Open "AdvWorks"
+set RS = theConnection.Execute("Select * from orders")
+RS.MoveFirst
+OpenTextStream ("e:\\build\\debug\\bin\\test1.txt")
+
+'-------------------- end of main script -------------------------------
+
+Sub OpenTextStream(ByVal fileName)
+  Const ForReading = 1, ForWriting = 2, ForAppending = 3
+  Const TristateUseDefault = -2, TristateTrue = -1, TristateFalse = 0
+  Dim fs, f, s, ts
+  Set fs = MTPipeline.CreateObject("Scripting.FileSystemObject")
+  fs.CreateTextFile fileName            'Create a file
+  Set f = fs.GetFile(fileName)
+  Set ts = f.OpenAsTextStream(ForWriting, TristateUseDefault)
+
+	ts.WriteLine "Output data from ADODB.Connection: AdvWorks"
+
+	while NOT RS.EOF
+		ts.WriteLine RS("ShipName").Value
+		RS.MoveNext
+	wend
+
+	ts.WriteLine "Done"
+	set RS = Nothing
+  ts.Close
+
+  'Set ts = f.OpenAsTextStream(ForReading, TristateUseDefault)
+  's = ts.ReadLine
+  'MsgBox s
+  'ts.Close
+End Sub
+
+
+sub MTPipeline_OnFireEvent(ByVal FileName)
+  Const ForReading = 1, ForWriting = 2, ForAppending = 3
+  Const TristateUseDefault = -2, TristateTrue = -1, TristateFalse = 0
+	Dim f, fs, ts
+  Set fs = MTPipeline.CreateObject("Scripting.FileSystemObject")
+  fs.CreateTextFile FileName          
+	Set f = fs.GetFile(FileName)
+	Set ts = f.OpenAsTextStream(ForWriting, TristateUseFileNameDefault)
+  ts.WriteLine "In subroutine OnInitEvent()"
+  ts.Close
+end sub
+
+'-------------------------------------------------------------------
+
+sub MTPipeline_OnInitialize(ByVal ConfigPropSet)
+  Const ForReading = 1, ForWriting = 2, ForAppending = 3
+  Const TristateUseDefault = -2, TristateTrue = -1, TristateFalse = 0
+	Dim f, fs, ts
+  Set fs = MTPipeline.CreateObject("Scripting.FileSystemObject")
+  fs.CreateTextFile "e:\\build\\debug\\bin\\test3.txt"          
+	Set f = fs.GetFile("e:\\build\\debug\\bin\\test3.txt")
+	Set ts = f.OpenAsTextStream(ForWriting, TristateUseDefault)
+
+  ts.WriteLine "In subroutine OnInitialize()"
+
+	set MTprop = ConfigPropSet.NextWithName("prop_name")
+	propName = MTprop.ValueAsString
+	ts.write " <prop_name> "
+	ts.writeLine propName
+
+	Set prop = Nothing
+
+	Set MTprop = ConfigPropSet.NextWithName("prop_value")
+	propValue = MTprop.ValueAsString
+	ts.write " <prop_value> "
+	ts.writeLine propValue
+
+  ts.WriteLine "Leaving subroutine OnInitialize()"
+  ts.Close
+
+end sub
+
+sub MTPipeline_OnProcSession(ByVal Session)
+
+  Const ForReading = 1, ForWriting = 2, ForAppending = 3
+  Const TristateUseDefault = -2, TristateTrue = -1, TristateFalse = 0
+	Dim f, fs, ts
+  Set fs = MTPipeline.CreateObject("Scripting.FileSystemObject")
+  fs.CreateTextFile "e:\\build\\debug\\bin\\test2.txt"          
+	Set f = fs.GetFile("e:\\build\\debug\\bin\\test2.txt")
+	Set ts = f.OpenAsTextStream(ForWriting, TristateUseDefault)
+
+  ts.WriteLine "In subroutine OnProcSession()"
+
+	ts.Write " Account_ID: "
+	id = MTSystemContext.GetNameID("Account_ID")
+	pval = Session.GetBSTRProperty(id)
+	ts.WriteLine pval
+
+	ts.Write " IP_Address: "
+	id = MTSystemContext.GetNameID("IP_Address")
+	pval = Session.GetBSTRProperty(id)
+	ts.WriteLine pval
+
+	ts.Write " Start_Time: "
+	id = MTSystemContext.GetNameID("Start_Time")
+	pval = Session.GetLongProperty(id)
+	ts.WriteLine pval
+
+	
+	ts.Write " Product_ID<id>: "
+	id = MTSystemContext.GetNameID(propName)
+	ts.WriteLine id
+
+	Session.SetBSTRProperty id, propValue
+
+	id = MTSystemContext.GetNameID("Start_Time")
+	Session.SetLongProperty id, 120
+
+	ts.Write " Start_Time<new>: "
+	pval = Session.GetLongProperty(id)
+	ts.WriteLine pval
+
+  ts.WriteLine "Leaving subroutine OnProcSession()"
+  ts.Close
+
+end sub
+
+'--------------------- process session Set -------------------------
+sub MTPipeline_OnProcSessionSet(ByVal SessionSet)
+
+  Const ForReading = 1, ForWriting = 2, ForAppending = 3
+  Const TristateUseDefault = -2, TristateTrue = -1, TristateFalse = 0
+	Dim f, fs, ts
+  Set fs = MTPipeline.CreateObject("Scripting.FileSystemObject")
+  fs.CreateTextFile "e:\\build\\debug\\bin\\test4.txt"          
+	Set f = fs.GetFile("e:\\build\\debug\\bin\\test4.txt")
+	Set ts = f.OpenAsTextStream(ForWriting, TristateUseDefault)
+
+  ts.WriteLine "In subroutine OnProcSessionSet()"
+
+	Dim mysess
+	for each mysess in SessionSet
+		ts.writeLine "iterate"
+
+		ts.writeLine "calling OnProcSession()"
+		MTPipeline_OnProcSession mysess
+
+	next
+
+	ts.WriteLine "Leaving OnProcSessionSet()"
+  ts.Close
+
+end sub
+

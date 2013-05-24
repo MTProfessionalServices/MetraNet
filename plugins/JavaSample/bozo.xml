@@ -1,0 +1,47 @@
+<xmlconfig>
+
+  <mtconfigdata>
+
+
+    <version ptype="INTEGER">1</version>
+    <!-- First processor configuration -->
+    <processor>
+      <name>bozo</name>
+      <progid>MetraPipeline.MTBozoPlugin</progid>
+
+      <!-- auto tests to run -->
+      <autotest>
+        <file>BozoTest.xml</file>
+      </autotest>
+
+      <inputs>
+        <input>
+          <argument>disconnecttime</argument>
+          <property>DisconnectTime</property>
+        </input>
+          <input>
+          <argument>connecttime</argument>
+          <property>ConnectTime</property>
+        </input>
+        <input>
+          <argument>callduration</argument>
+          <property>CallDuration</property>
+        </input>
+      </inputs>
+
+      <outputs>
+        <output>
+          <argument>callcost</argument>
+          <property>CallCost</property>
+        </output>
+      </outputs>
+
+      <!-- Processor specific configuration data -->
+      <configdata>
+        <AccountName>Linda Loo</AccountName>
+        <Description>Lota trouble</Description>
+      </configdata>
+
+    </processor>
+  </mtconfigdata>
+</xmlconfig>

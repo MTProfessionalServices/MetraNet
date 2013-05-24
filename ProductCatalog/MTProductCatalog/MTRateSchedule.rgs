@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTRateSchedule.1 = s 'MTRateSchedule Class'
+	{
+		CLSID = s '{CDBB8764-D923-42EB-9CAD-A23D32CFA6D2}'
+	}
+	Metratech.MTRateSchedule = s 'MTRateSchedule Class'
+	{
+		CLSID = s '{CDBB8764-D923-42EB-9CAD-A23D32CFA6D2}'
+		CurVer = s 'Metratech.MTRateSchedule.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {CDBB8764-D923-42EB-9CAD-A23D32CFA6D2} = s 'MTRateSchedule Class'
+		{
+			ProgID = s 'Metratech.MTRateSchedule.1'
+			VersionIndependentProgID = s 'Metratech.MTRateSchedule'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{39F610B0-42DB-4D96-ADB8-4BA15DCCC763}'
+		}
+	}
+}

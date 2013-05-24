@@ -1,0 +1,148 @@
+Object: IMTAccountReference
+4/24/2001:
+- ***NAME CHANGE*** to MTPCAccount
+- not usable yet
+
+Object: IMTActionMetaData
+4/24/2001:
+- DataType property is not a PropValType enum, not a string
+- EnumSpace and EnumType properties were added as strings
+
+Object: IMTAttribute
+4/24/2001:
+- not usable yet
+
+Object: IMTAttributeMetaData
+4/24/2001:
+- not usable yet
+
+Object: IMTAttributes
+4/24/2001:
+- not usable yet
+
+Object: IMTConditionMetaData
+4/24/2001:
+- DataType is now a PropValType enum, not a string
+- EnumSpace and EnumType properties were added as strings
+
+Object: IMTCounter
+4/24/2001:
+
+Object: IMTCounterParameter
+4/24/2001:
+
+Object: IMTCounterType
+4/24/2001:
+
+Object: IMTCycle
+4/24/2001:
+- ***NAME CHANGE*** to MTPCCyle
+- not usable yet
+
+Object: IMTDiscount
+4/24/2001:
+- not usable yet
+
+
+Object: IMTNonRecurringCharge
+4/24/2001:
+- not usable yet
+
+Object: IMTParamTableDefinition
+4/24/2001:
+- Added methods to add to internal collections.  Please do not get the collection and add to it!  do something like this:
+     set action = table.AddActionMetaData
+     action.Name = "Test1"
+  see dyoung for questions.
+
+     HRESULT AddConditionMetaData([out, retval] IMTConditionMetaData * * pVal);
+     HRESULT AddActionMetaData([out, retval] IMTActionMetaData * * pVal);
+
+- Added DBTableName property
+- GetRateSchedulesAsRowset is not implemented
+- GetRateSchedule is not implemented
+
+Object: IMTPriceableItem
+4/24/2001:
+- properties work for usage charge
+- NEW PriceableItemType property (use it to access ServiceDefinition and ProductView)
+  PriceableItemType property does not work fully yet (db schema uncertainty)
+- Save works
+
+Object: IMTPriceableItemType
+4/24/2001:
+- NEW OBJECT
+- properties work
+- Save works
+- CreateTemplate works
+
+Object: IMTPriceList
+4/24/2001:
+- not usable yet
+
+Object: IMTPriceListMapping
+4/24/2001:
+- not usable yet
+
+Object: IMTProductCatalog
+4/24/2001:
+- GetParamTableDefinitionByName works
+- GetParamTableDefinition works
+- GetProductOffering works
+- CreateProductOffering works
+- RemoveProductOffering works
+- creation/removal of priceable item templates has changed:
+  now use PriceableItemType to create/remove PI templates
+- CreatePriceableItemType works
+- GetPriceableItemType works
+- GetPriceableItem works
+
+Object: IMTProductOffering
+4/24/2001:
+- properties work
+- nested time spans work
+- Save works
+
+Object: IMTProperties
+4/24/2001:
+- works (except for Remove/Clear/Exist/ToString)
+
+Object: IMTProperty
+4/24/2001:
+- works
+- new EnumSpace/EnumType properties
+
+Object: IMTPropertyMetaData
+4/24/2001:
+- works
+- new EnumSpace/EnumType properties
+
+Object: IMTPropertyMetaDataSet
+4/24/2001:
+- NEW object
+- collection interface works
+
+Object: IMTRateSchedule
+4/24/2001:
+
+Object: IMTRecurringCharge
+4/24/2001:
+- not usable yet
+
+Object: IMTSubscription
+4/24/2001:
+- not usable yet
+
+Object: IMTTimeSpan
+4/24/2001:
+- ***NAME CHANGE*** to MTPCTimeSpan
+- enum type MTDateType is now called MTPCDateType (values remained the same)
+- object works
+
+Object: IMTUsageCharge
+4/24/2001:
+- see IMTPriceableItem
+
+Object: ITest
+4/24/2001:
+Not part of the real object model (in prototype only)

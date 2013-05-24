@@ -1,0 +1,9 @@
+; BatchSubscription.def : Declares the module parameters.
+
+LIBRARY      "BatchSubscription.dll"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

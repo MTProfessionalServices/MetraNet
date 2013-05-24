@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTCounterMapWriter.1 = s 'MTCounterMapWriter Class'
+	{
+		CLSID = s '{612ED44A-90C0-41B7-81AB-3B6BA6108E4F}'
+	}
+	Metratech.MTCounterMapWriter = s 'MTCounterMapWriter Class'
+	{
+		CLSID = s '{612ED44A-90C0-41B7-81AB-3B6BA6108E4F}'
+		CurVer = s 'Metratech.MTCounterMapWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {612ED44A-90C0-41B7-81AB-3B6BA6108E4F} = s 'MTCounterMapWriter Class'
+		{
+			ProgID = s 'Metratech.MTCounterMapWriter.1'
+			VersionIndependentProgID = s 'Metratech.MTCounterMapWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

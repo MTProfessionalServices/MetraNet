@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTPCTimeSpan.1 = s 'MTPCTimeSpan Class'
+	{
+		CLSID = s '{7DD4AA3E-B3A1-49D3-BD24-FA01CF97B2F4}'
+	}
+	Metratech.MTPCTimeSpan = s 'MTPCTimeSpan Class'
+	{
+		CLSID = s '{7DD4AA3E-B3A1-49D3-BD24-FA01CF97B2F4}'
+		CurVer = s 'Metratech.MTPCTimeSpan.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {7DD4AA3E-B3A1-49D3-BD24-FA01CF97B2F4} = s 'MTPCTimeSpan Class'
+		{
+			ProgID = s 'Metratech.MTPCTimeSpan.1'
+			VersionIndependentProgID = s 'Metratech.MTPCTimeSpan'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{39F610B0-42DB-4D96-ADB8-4BA15DCCC763}'
+		}
+	}
+}

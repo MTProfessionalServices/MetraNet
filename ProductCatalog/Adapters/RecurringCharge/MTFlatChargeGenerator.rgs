@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTFlatChargeGenerator.1 = s 'MTFlatChargeGenerator Class'
+	{
+		CLSID = s '{E95A124B-D521-4747-B5E1-6922000C3CF2}'
+	}
+	Metratech.MTFlatChargeGenerator = s 'MTFlatChargeGenerator Class'
+	{
+		CLSID = s '{E95A124B-D521-4747-B5E1-6922000C3CF2}'
+		CurVer = s 'Metratech.MTFlatChargeGenerator.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E95A124B-D521-4747-B5E1-6922000C3CF2} = s 'MTFlatChargeGenerator Class'
+		{
+			ProgID = s 'Metratech.MTFlatChargeGenerator.1'
+			VersionIndependentProgID = s 'Metratech.MTFlatChargeGenerator'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{3C2BCCDF-8488-4367-A598-3F03440021A6}'
+		}
+	}
+}

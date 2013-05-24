@@ -1,0 +1,92 @@
+// SessServer.idl : IDL source for SessServer.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (SessServer.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+
+import "MTSession.idl";
+import "MTSessionProp.idl";
+import "MTSessionServer.idl";
+import "MTSessionSet.idl";
+import "MTObjectOwner.idl";
+
+	[
+		object,
+		uuid(5C8ADFF5-437E-11D2-A1C7-006008C0E24A),
+		dual,
+		helpstring("Dummy interface"),
+		pointer_default(unique)
+	]
+	interface IDummy : IDispatch
+	{
+	};
+
+[
+	uuid(5C8ADFE6-437E-11D2-A1C7-006008C0E24A),
+	version(1.0),
+	helpstring("SessServer 1.0 Type Library")
+]
+library SESSSERVERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(C8757976-20E5-11D2-A1C1-006008C0E24A),
+		helpstring("MTSessionServer Class")
+	]
+	coclass MTSessionServer
+	{
+		[default] interface IMTSessionServer;
+	};
+
+	[
+		uuid(C8757974-20E5-11D2-A1C1-006008C0E24A),
+		helpstring("MTSession Class")
+	]
+	coclass MTSession
+	{
+		[default] interface IMTSession;
+	};
+
+	[
+		uuid(5C8ADFF8-437E-11D2-A1C7-006008C0E24A),
+		helpstring("MTSessionSet Class")
+	]
+	coclass MTSessionSet
+	{
+		[default] interface IMTSessionSet;
+	};
+
+	[
+		uuid(5C8ADFFA-437E-11D2-A1C7-006008C0E24A),
+		helpstring("MTVariantSessionEnum Class")
+	]
+	coclass MTVariantSessionEnum
+	{
+		[default] interface IEnumVARIANT;
+	};
+
+	[
+		uuid(8cd0780b-84cc-4128-ae48-abb7f0d14fbd),
+		helpstring("MTSessionProp Class")
+	]
+	coclass MTSessionProp
+	{
+		[default] interface IMTSessionProp;
+	};
+
+	[
+		uuid(E3369E34-BF63-4118-B2BA-4D005C35632B),
+		helpstring("MTObjectOwner Class")
+	]
+	coclass MTObjectOwner
+	{
+		[default] interface IMTObjectOwner;
+	};
+
+};

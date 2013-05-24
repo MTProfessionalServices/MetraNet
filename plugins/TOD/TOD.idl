@@ -1,0 +1,43 @@
+// TOD.idl : IDL source for TOD.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (TOD.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// import the definition of IMTPipelineProcessor
+import "MTPipelineLib.idl";
+
+	[
+		object,
+		uuid(0172F651-6F79-11D2-A1CC-006008C0E24A),
+		dual,
+		helpstring("ITimeOfDay Interface"),
+		pointer_default(unique)
+	]
+	interface ITimeOfDay : IDispatch
+	{
+	};
+[
+	uuid(0172F644-6F79-11D2-A1CC-006008C0E24A),
+	version(1.0),
+	helpstring("TOD 1.0 Type Library")
+]
+library TODLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(0172F652-6F79-11D2-A1CC-006008C0E24A),
+		helpstring("TimeOfDay Class")
+	]
+	coclass TimeOfDay
+	{
+		//[default] interface ITimeOfDay;
+		// the TimeOfDay class must implement the IMTPipelineProcessor Interface
+		[default] interface IMTPipelinePlugIn;
+	};
+};

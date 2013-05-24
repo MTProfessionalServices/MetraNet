@@ -1,0 +1,1352 @@
+/**************************************************************************
+* Copyright 1997-2001 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+* $Header: c:\mainline\development\ProductCatalog\MTProductCatalogExec\MTProductCatalogExec.idl, 135, 11/13/2002 6:09:20 PM, Fabricio Pettena$
+* 
+***************************************************************************/
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTProductCatalogExec.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "MTProductCatalog.idl";
+import "IMTUsageCycle.idl";
+import "MTFilter.idl";
+import "IMTYAAC.idl";
+import "IMTAccountType.idl";
+//import "Collection.idl";
+//import "Counter.idl";
+
+midl_pragma warning( disable: 2400 )  // disable warning for oleautomation, optional parameters should be VARIANT or VARIANT
+
+// ----------------------------------------------------------------
+// Object:      MTProductOfferingReader
+// Prog ID:     Metratech.MTProductOfferingReader.1
+// Description: COM+ executant object that executes database reads
+//              for a MTProductOffering
+// Deployment:  Transaction SUPPORTED
+// ----------------------------------------------------------------
+[
+    object,
+    uuid(62A44BDF-EF92-4330-88C1-942CFC3CAEF3),
+    dual,
+    helpstring("IMTProductOfferingReader Interface"),
+    pointer_default(unique)
+]
+interface IMTProductOfferingReader : IDispatch
+{
+  [id(1), helpstring("method Find")] HRESULT Find([in] IMTSessionContext* apCtxt, [in] long ID, [out, retval] IMTProductOffering**);
+  [id(2), helpstring("method FindByName")] HRESULT FindByName([in] IMTSessionContext* apCtxt, [in] BSTR aName, [out, retval] IMTProductOffering** apProdOff);
+  [id(3), helpstring("method FindAsRowset")] HRESULT FindAsRowset([in] IMTSessionContext* apCtxt, [in, optional] VARIANT aFilter, [out, retval] IMTSQLRowset** apRowset);
+  [id(4), helpstring("method FindSubscribablePoByAccID")] HRESULT FindSubscribablePoByAccID([in] IMTSessionContext* apCtxt, [in] long accID, [in, optional] VARIANT aRefDate, [out, retval] IMTSQLRowset** ppRowset);
+  [id(5), helpstring("method FindSubscribablePoByAccIDasCollection")] HRESULT FindSubscribablePoByAccIDasCollection([in] IMTSessionContext* apCtxt, [in] long accID, [in, optional] VARIANT aRefDate, [out, retval] IMTCollection** ppCol);
+  [id(6), helpstring("method HasPriceableItemTemplate")] HRESULT HasPriceableItemTemplate([in] IMTSessionContext* apCtxt, [in] long aProdOffID, [in] long aPrcItemTmplID, [out, retval] VARIANT_BOOL* apHasTmpl);
+  [id(7), helpstring("method GetCurrencyCode")] HRESULT GetCurrencyCode([in] IMTSessionContext* apCtxt, [in] long aProdOffID, [out, retval] BSTR* apCurrency);
+  [id(8), helpstring("method FindForPrcItemType")] HRESULT FindForPrcItemType([in] IMTSessionContext* apCtxt, [in] long aPrcItemTypeID, [out, retval] IMTCollection** apProdOffs);
+  [id(9), helpstring("method FindAvailableProductOfferingsAsRowset")] HRESULT FindAvailableProductOfferingsAsRowset([in] IMTSessionContext* apCTX,[in,optional] VARIANT aFilter,[in,optional] VARIANT aRefDate,[out,retval] IMTSQLRowset** ppRowset);
+  [id(10), helpstring("method GetConstrainedCycleType")] HRESULT GetConstrainedCycleType([in] IMTSessionContext* apCTX,[in] long poID,[out, retval] MTUsageCycleType* pCycleType);
+  [id(11), helpstring("method FindAvailableProductOfferingsForGroupSubscriptionAsRowset")] HRESULT FindAvailableProductOfferingsForGroupSubscriptionAsRowset([in] IMTSessionContext* apCTX, [in] long corpAccID, [in, optional] VARIANT aFilter, [in, optional] VARIANT aRefDate, [out, retval] IMTSQLRowset** ppRowset);
+  [id(12), helpstring("method FindWithNonSharedPriceList")] HRESULT FindWithNonSharedPriceList([in] IMTSessionContext* apCTX, [in] long pricelistID, [out, retval] IMTProductOffering** pProductOffering);
+  [id(13), helpstring("method FindRecurringChargeWithUnitName")] HRESULT FindRecurringChargeWithUnitName([in] IMTSessionContext* apCTX, [in] long aProdOffID, [in] BSTR aUnitName, [out, retval] BSTR * apChargeName);
+  [id(14), helpstring("method GetNumberOfCycleRelativePrcItems")] HRESULT GetNumberOfCycleRelativePrcItems([in] IMTSessionContext* apCTX, [in] long poID, [out] long * apNumDiscounts, [out] long * apNumAggregates, [out] long * apNumRecurringCharges);
+  [id(15), helpstring("method GetDiscountDistribution")] HRESULT GetDiscountDistribution([in] IMTSessionContext* apCTX, [in] long poID, [out] long * apNumDistributedDiscounts, [out] long * apNumUndistributedDiscounts);
+  [id(16), helpstring("method GetSubscribableAccountTypesAsRowset")] HRESULT GetSubscribableAccountTypesAsRowset([in] IMTSessionContext* apCtxt, [in] long aPOID, [out, retval] IMTSQLRowset** apCTX);
+
+};
+
+// ----------------------------------------------------------------
+// Object:      MTProductOfferingWriter
+// Prog ID:     Metratech.MTProductOfferingWriter.1
+// Description: COM+ executant object that executes database writes
+//              for a MTProductOffering
+// Deployment:  Transaction REQUIRED
+// ----------------------------------------------------------------
+[
+  object,
+  uuid(2BF2D74B-E71D-4A7E-81E8-FA171EEFF118),
+  dual,
+  helpstring("IMTProductOfferingWriter Interface"),
+  pointer_default(unique)
+]
+interface IMTProductOfferingWriter : IDispatch
+{
+  [id(1), helpstring("method Create")] HRESULT Create([in] IMTSessionContext* apCtxt, [in] IMTProductOffering* apProdOff, [out, retval] long* apID);
+  [id(2), helpstring("method Update")] HRESULT Update([in] IMTSessionContext* apCtxt, [in] IMTProductOffering* apProdOff);
+  [id(3), helpstring("method Remove")] HRESULT Remove([in] IMTSessionContext* apCtxt, [in] long aID);
+  [id(4), helpstring("method AddSubscribableAccountType")] HRESULT AddSubscribableAccountType
+    ([in] IMTSessionContext* apCtxt, [in] long aPOID, [in]IMTAccountType* aType);
+  [id(5), helpstring("method RemoveSubscribableAccountType")] HRESULT RemoveSubscribableAccountType
+    ([in] IMTSessionContext* apCtxt, [in] long aPOID, [in]IMTAccountType* aType);
+  [id(6), helpstring("method RemoveSubscribableAccountTypes")] HRESULT RemoveSubscribableAccountTypes
+    ([in] IMTSessionContext* apCtxt, [in] long aPOID);
+  [id(7), helpstring("method CheckConfigurationIfSettingAvailabilityDate")] HRESULT CheckConfigurationIfSettingAvailabilityDate
+    ([in] IMTProductOffering* apProdOff);
+};
+  [
+    object,
+    uuid(B5F8B306-1077-4AA3-9139-A334D58CB351),
+    dual,
+    helpstring("IMTPriceableItemReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTPriceableItemReader : IDispatch
+  {
+    [id(1), helpstring("method Find")] HRESULT Find([in] IMTSessionContext* apCtxt, [in] long aID, [out, retval] IMTPriceableItem** apPrcItem);
+    [id(2), helpstring("method FindTemplateByName")] HRESULT FindTemplateByName([in] IMTSessionContext* apCtxt, [in] BSTR aName, [out, retval] IMTPriceableItem ** apPI);
+    [id(12), helpstring("method FindInstanceByName")] HRESULT FindInstanceByName([in] IMTSessionContext* apCtxt, [in] BSTR aName, [in] long aProductOfferingID, [out, retval] IMTPriceableItem ** apPrcItem);
+    [id(13), helpstring("method FindInstancesOfTemplate")] HRESULT FindInstancesOfTemplate([in] IMTSessionContext* apCtxt, [in]long aPITemplateID, [out, retval]IMTCollection** apInstances);
+    [id(3), helpstring("method FindTemplatesAsRowset")] HRESULT FindTemplatesAsRowset([in] IMTSessionContext* apCtxt, [in, optional] VARIANT aFilter, [out,retval] IMTSQLRowset** apRowset);
+    [id(4), helpstring("method FindInstances")] HRESULT FindInstances([in] IMTSessionContext* apCtxt, [in] long aProdOffID, [out, retval] IMTCollection** apPrcItemInstances);
+    [id(5), helpstring("method FindInstancesAsRowset")] HRESULT FindInstancesAsRowset([in] IMTSessionContext* apCtxt, [in] long aProdOffID, [out, retval] IMTSQLRowset **apRowset);
+    [id(6), helpstring("method FindPriceListMappingsAsRowset")] HRESULT FindPriceListMappingsAsRowset([in] IMTSessionContext* apCtxt, [in] long aPrcItemInstanceID, [in] VARIANT_BOOL aIncludeICB, [out, retval] IMTSQLRowset **apRowset);
+    [id(7), helpstring("method FindChildTemplates")] HRESULT FindChildTemplates([in] IMTSessionContext* apCtxt, [in] long aPrcItemTmplID, [out, retval] IMTCollection** apChildTemplates);
+    [id(8), helpstring("method FindChildTemplatesAsRowset")] HRESULT FindChildTemplatesAsRowset([in] IMTSessionContext* apCtxt, [in] long aPrcItemTmplID, [out, retval] IMTSQLRowset **apRowset);
+    [id(9), helpstring("method FindChildInstances")] HRESULT FindChildInstances([in] IMTSessionContext* apCtxt, [in] long aPrcItemInstID, [out, retval] IMTCollection** apChildInstances);
+    [id(10), helpstring("method FindChildInstancesAsRowset")] HRESULT FindChildInstancesAsRowset([in] IMTSessionContext* apCtxt, [in] long aPrcItemInstID, [out, retval] IMTSQLRowset **apRowset);
+    [id(11), helpstring("method FindChild")] HRESULT FindChild([in] IMTSessionContext* apCtxt, [in] long aParentID, [in] long aChildID, [out, retval] IMTPriceableItem** apPrcItem);
+    [id(14), helpstring("method FindInstancesOfType")] HRESULT FindInstancesOfType([in] IMTSessionContext* apCtxt, [in] long aProdOffID, [in] long aPITypeID, [out, retval] IMTCollection** apPrcItemInstances);
+    [id(15), helpstring("method FindTemplateByInstanceAsRowset")] HRESULT FindTemplateByInstanceAsRowset([in] IMTSessionContext* apCtxt, [in] long aPrcItemInstID, [out, retval] IMTSQLRowset **apRowset);
+  };
+  [
+    object,
+    uuid(07A0B99B-14E5-4662-82DC-4355000E8AA0),
+    dual,
+    helpstring("IMTCounterTypeReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTCounterTypeReader : IDispatch
+  {
+    [id(1), helpstring("method GetAllTypes")] HRESULT GetAllTypes([in] IMTSessionContext* apCtxt, [out, retval]IMTCollection** apTypes);
+    [id(2), helpstring("method Find")] HRESULT Find([in] IMTSessionContext* apCtxt, [in]long aDBID, [out, retval]IMTCounterType** apType);
+    [id(3), helpstring("method FindByName")] HRESULT FindByName([in] IMTSessionContext* apCtxt, [in]BSTR aName, [out, retval]IMTCounterType** apType);
+  };
+  [
+    object,
+    uuid(09FF19E5-F8AD-4EE2-AD81-C0F816CF4FB6),
+    dual,
+    helpstring("IMTCounterReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTCounterReader : IDispatch
+  {
+    [id(1), helpstring("method Find")] HRESULT Find([in] IMTSessionContext* apCtxt, [in]long aDBID, [out, retval]IMTCounter** apCounter);
+    [id(2), helpstring("method FindAsRowset")] HRESULT FindAsRowset([in] IMTSessionContext* apCtxt, [in, optional]VARIANT aFilter, [out, retval]IMTSQLRowset** apRowset);
+    [id(3), helpstring("method FindOfType")] HRESULT FindOfType([in] IMTSessionContext* apCtxt, [in]long aDBTypeID, [out, retval]IMTCollection** apCounter);
+  };
+  [
+    object,
+    uuid(FCD4A6D0-ADAB-4340-942E-C06408CDF65E),
+    dual,
+    helpstring("IMTCounterWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTCounterWriter : IDispatch
+  {
+    [id(1), helpstring("method Create")] HRESULT Create([in] IMTSessionContext* apCtxt, [in]IMTCounter* apCounter, [out, retval]long* apDBID);
+    [id(2), helpstring("method Remove")] HRESULT Remove([in] IMTSessionContext* apCtxt, [in]long aDBID);
+    [id(3), helpstring("method Update")] HRESULT Update([in] IMTSessionContext* apCtxt, [in]IMTCounter* apCounter);
+	[id(4), helpstring("method CreateParameterMapping")] HRESULT CreateParameterMapping([in]IMTSessionContext* apCtx, [in]long aCounterID, [in]IMTCounterParameter* apParam);
+  };
+  [
+    object,
+    uuid(C53DFBB4-A755-4C87-A230-853DC479D7F3),
+    dual,
+    helpstring("IMTCounterParamReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTCounterParamReader : IDispatch
+  {
+    [id(1), helpstring("method FindParameterTypes")] HRESULT FindParameterTypes([in] IMTSessionContext* apCtxt,  [in]IMTCounter* aCounter, [out, retval]IMTCollection** apParamTypes);
+    [id(2), helpstring("method FindParameters")] HRESULT FindParameters([in] IMTSessionContext* apCtxt, [in]IMTCounter* aCounter, [out, retval]IMTCollection** apParameters);
+	[id(3), helpstring("method FindSharedAsRowset")] HRESULT FindSharedAsRowset([in]IMTSessionContext* aCtx, [in]VARIANT aDataFilter, [out, retval]IMTSQLRowset** apRowset);
+	[id(4), helpstring("method Find")] HRESULT Find([in]IMTSessionContext* aCtx, [in]long aDBID, [out, retval]IMTCounterParameter** apParam);
+  };
+  [
+    object,
+    uuid(E18A4D3C-C50C-46CD-AB3F-AC875A694D74),
+    dual,
+    helpstring("IMTParamTableDefinitionReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTParamTableDefinitionReader : IDispatch
+  {
+    [id(1), helpstring("method FindByName")] HRESULT FindByName([in] IMTSessionContext* apCtxt, [in] BSTR name, [out, retval] IMTParamTableDefinition * * def);
+    [id(2), helpstring("method FindByID")] HRESULT FindByID([in] IMTSessionContext* apCtxt, [in] long id, [out, retval] IMTParamTableDefinition * * table);
+    [id(3), helpstring("method FindAsRowset")] HRESULT FindAsRowset([in] IMTSessionContext* apCtxt, [out, retval] IMTSQLRowset **apRowset);
+    [id(4), helpstring("method LoadSecondaryData")] HRESULT LoadSecondaryData([in] IMTSessionContext* apCtxt, [in] IMTParamTableDefinition * apParamTblDef);
+  };
+
+  [
+    object,
+    uuid(8FD0CCD3-BF04-4850-AD3B-B71E064B4244),
+    dual,
+    helpstring("IMTParamTableDefinitionWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTParamTableDefinitionWriter : IDispatch
+  {
+    [id(1), helpstring("method Create")] HRESULT Create([in] IMTSessionContext* apCtxt, [in] IMTParamTableDefinition* apParamTblDef, [out, retval] long* apID);
+    [id(2), helpstring("method Update")] HRESULT Update([in] IMTSessionContext* apCtxt, [in] IMTParamTableDefinition* apParamTblDef);
+    [id(3), helpstring("method Remove")] HRESULT Remove([in] IMTSessionContext* apCtxt, [in] long aParamTblDefID);
+  };
+
+  [
+    object,
+    uuid(E1E8CED8-2BD5-4C38-B187-026308C17DC3),
+    dual,
+    helpstring("IMTPCTimeSpanWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTPCTimeSpanWriter : IDispatch
+  {
+    [id(1), helpstring("method Create")] HRESULT Create([in] IMTSessionContext* apCtxt, [in] IMTPCTimeSpan* apTimeSpan, [out, retval] long* apID);
+    [id(2), helpstring("method Update")] HRESULT Update([in] IMTSessionContext* apCtxt, [in] IMTPCTimeSpan* apTimeSpan);
+    [id(3), helpstring("method Remove")] HRESULT Remove([in] IMTSessionContext* apCtxt, [in] long aID);
+    [id(4), helpstring("method PropagateEndDateChange")] HRESULT PropagateEndDateChange([in] IMTSessionContext* apCtxt, [in] long aProdOffID, [in] IMTPCTimeSpan* apTimeSpan);
+  };
+  [
+    object,
+    uuid(7FBE3DC6-0106-4526-AF57-B453ED7EE4CC),
+    dual,
+    helpstring("IMTPriceableItemTypeReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTPriceableItemTypeReader : IDispatch
+  {
+    [id(1), helpstring("method Find")] HRESULT Find([in] IMTSessionContext* apCtxt, [in] long ID, [out, retval] IMTPriceableItemType**);
+    [id(2), helpstring("method FindParamTableDefinitions")] HRESULT FindParamTableDefinitions([in] IMTSessionContext* apCtxt, [in] long aID, [out, retval] IMTCollection** apParamTblDefs);
+    [id(3), helpstring("method FindByName")] HRESULT FindByName([in] IMTSessionContext* apCtxt, [in] BSTR aName, [out, retval] IMTPriceableItemType * * apPI);
+    [id(4), helpstring("method FindChildren")] HRESULT FindChildren([in] IMTSessionContext* apCtxt, [in] long aPrcItemTypeID, [out, retval] IMTCollection** apChildTypes);
+    [id(5), helpstring("method FindAll")] HRESULT FindByFilter([in] IMTSessionContext* apCtxt, [in, optional] VARIANT aFilter, [out, retval] IMTCollection **apColl);
+    [id(6), helpstring("method FindParamTableDefinitionsAsRowset")] HRESULT FindParamTableDefinitionsAsRowset([in] IMTSessionContext* apCtxt, [in] long aPrcItemTypeID, [out, retval] IMTSQLRowset** apRowset);
+    [id(7), helpstring("method FindTemplates")] HRESULT FindTemplates([in] IMTSessionContext* apCtxt, [in]long aPITypeDBID, [out, retval]IMTCollection** apColl);
+    [id(8), helpstring("method FindInstancesByKind")] HRESULT FindInstancesByKind([in] IMTSessionContext* apCtxt, [in]MTPCEntityType aKind, [out, retval] IMTCollection** apInstances);
+    [id(9), helpstring("method FindTemplatesByKind")] HRESULT FindTemplatesByKind([in] IMTSessionContext* apCtxt, [in]MTPCEntityType aKind, [out, retval] IMTCollection** apTemplates);
+		[id(10), helpstring("method FindCharges")] HRESULT FindCharges([in] IMTSessionContext* apCtxt, [in] long aPrcItemTypeID, [out, retval] IMTCollection** apCharges);
+  };
+  [
+    object,
+    uuid(753A4756-716D-4CB4-84B6-A36D1639ED39),
+    dual,
+    helpstring("IMTPriceableItemTypeWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTPriceableItemTypeWriter : IDispatch
+  {
+    [id(1), helpstring("method Create")] HRESULT Create([in] IMTSessionContext* apCtxt, [in] IMTPriceableItemType* apType, [out, retval] long* apID);
+    [id(2), helpstring("method Update")] HRESULT Update([in] IMTSessionContext* apCtxt, [in] IMTPriceableItemType* apType);
+    [id(3), helpstring("method Remove")] HRESULT Remove([in] IMTSessionContext* apCtxt, [in] long aID);
+    [id(4), helpstring("method AddParamTableDefinition")] HRESULT AddParamTableDefinition([in] IMTSessionContext* apCtxt, [in] long aPrcItemTypeID, [in] long aParamTblDefID);
+    [id(5), helpstring("method RemoveParamTableDefinition")] HRESULT RemoveParamTableDefinition([in] IMTSessionContext* apCtxt, [in] long aPrcItemTypeID, [in] long aParamTblDefID);
+		[id(6), helpstring("method AddCharge")] HRESULT AddCharge([in] IMTSessionContext *apCtxt, [in] long aPrcItemTypeID, [in] long aChargeID);
+		[id(7), helpstring("method RemoveCharge")] HRESULT RemoveCharge([in] IMTSessionContext* apCtxt, [in] long aPrcItemTypeID, [in] long aChargeID);
+  };
+  [
+    object,
+    uuid(DA37E741-1978-4EB9-80E4-FDBFA5082A43),
+    dual,
+    helpstring("IMTRateScheduleWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTRateScheduleWriter : IDispatch
+  {
+    [id(1), helpstring("method Create")] HRESULT Create([in] IMTSessionContext* apCtxt, [in] IMTRateSchedule * schedule, [in] VARIANT_BOOL aSaveRules, [out, retval] long * id);
+    [id(2), helpstring("method Update")] HRESULT Update([in] IMTSessionContext* apCtxt, [in] IMTRateSchedule * apSchedule, [in] VARIANT_BOOL aSaveRateSchedule, [in] VARIANT_BOOL aSaveRules );
+		[id(3), helpstring("method Remove")] HRESULT Remove([in] IMTSessionContext* apCtxt, [in] long aRateScheduleID);
+  };
+  [
+    object,
+    uuid(47D6C3C3-0EF8-4945-A637-10C5A05293B3),
+    dual,
+    helpstring("IMTRuleSetWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTRuleSetWriter : IDispatch
+  {
+    [id(1), helpstring("method CreateWithID")] HRESULT CreateWithID([in] IMTSessionContext* apCtxt, [in] long aRSID, IMTParamTableDefinition * apParamTable, IMTRuleSet * apRules);
+    [id(2), helpstring("method UpdateWithID")] HRESULT UpdateWithID([in] IMTSessionContext* apCtxt, [in] long aRSID, IMTParamTableDefinition * apParamTable, IMTRuleSet * apRules);
+  };
+  [
+    object,
+    uuid(D35269C7-C47E-468B-9D86-A4E75F4C775C),
+    dual,
+    helpstring("IMTPriceableItemWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTPriceableItemWriter : IDispatch
+  {
+    [id(1), helpstring("method CreateTemplate")] HRESULT CreateTemplate([in] IMTSessionContext* apCtxt, [in] IMTPriceableItem* apPrcItemTmpl, [out, retval] long* apID);
+    [id(2), helpstring("method CreateInstance")] HRESULT CreateInstance([in] IMTSessionContext* apCtxt, [in] long aProdOffID, [in] IMTPriceableItem *apPrcItemInst, [out, retval] long *apPrcItemInstID);
+    [id(3), helpstring("method Update")] HRESULT Update([in] IMTSessionContext* apCtxt, [in] IMTPriceableItem* apPrcItem);
+    [id(4), helpstring("method Remove")] HRESULT Remove([in] IMTSessionContext* apCtxt, [in] long aID);
+    [id(5), helpstring("method SetPriceListMapping")] HRESULT SetPriceListMapping([in] IMTSessionContext* apCtxt, [in] long aPrcItemInstanceID, [in] long aParamTblDefID, [in] long aPrcLstID);
+  };
+  [
+    object,
+    uuid(73265D40-E5B2-4651-AEBB-0ADCFA94D9DE),
+    dual,
+    helpstring("IMTRateScheduleReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTRateScheduleReader : IDispatch
+  {
+    [id(1), helpstring("method FindAsRowset")] HRESULT FindAsRowset([in] IMTSessionContext* apCtxt, [in, optional] VARIANT aFilter, [out, retval] IMTSQLRowset** apRowset);
+    [id(2), helpstring("method Find")] HRESULT Find([in] IMTSessionContext* apCtxt, [in] long ID, [out, retval] IMTRateSchedule * * apSchedule);
+    [id(3), helpstring("method FindForPriceListMappingAsRowset")] HRESULT FindForPriceListMappingAsRowset([in] IMTSessionContext* apCtxt, IMTPriceListMapping * apMapping, [in, optional] VARIANT aFilter, [out, retval]IMTSQLRowset** apRowset);
+    [id(4), helpstring("method FindForParamTableAsRowset")] HRESULT FindForParamTableAsRowset([in] IMTSessionContext* apCtxt, [in] long aParamTblDefID, [in] VARIANT_BOOL aIncludeICB, [in] VARIANT_BOOL aIncludeHidden, [in, optional] VARIANT aFilter, [out, retval] IMTSQLRowset** apRowset);
+    [id(5), helpstring("method FindForParamTablePriceListAsRowset")] HRESULT FindForParamTablePriceListAsRowset([in] IMTSessionContext* apCtxt, [in] long aParamTblDefID, [in] long aPrcListID, [in] long aPITemplate, [out, retval] IMTSQLRowset** apRowset);
+		[id(6), helpstring("method FindForParamTablePriceableItemTypeAsRowset")] HRESULT FindForParamTablePriceableItemTypeAsRowset([in] IMTSessionContext* apCtxt, [in] long aParamTblDefID, [in] long aPriceableItemTypeID, [in] VARIANT_BOOL aIncludeICB, [out, retval] IMTSQLRowset** apRowset);
+		[id(7), helpstring("method GetCountByPriceList")] HRESULT GetCountByPriceList([in] IMTSessionContext* apCtxt, [in] long aPriceListID, [out, retval] long *pCount);
+  };
+  
+  [
+    object,
+    uuid(CDF5F5B5-A912-477A-AAAE-5101773BB46D),
+    dual,
+    helpstring("IMTRuleSetReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTRuleSetReader : IDispatch
+  {
+    [id(1), helpstring("method FindWithID")]
+    HRESULT FindWithID([in] IMTSessionContext* apCtxt,
+           [in] long aRateSchedID, 
+           [in] IMTParamTableDefinition * apParamTable,
+           [in] IMTRuleSet * apRuleSet,
+           [in, optional] VARIANT aRefDate);
+    [id(2), helpstring("method CreateRuleSet")] HRESULT CreateRuleSet([in] IMTSessionContext* apCtxt, [out, retval] IMTRuleSet * * apRuleset);
+  };
+  [
+    object,
+    uuid(DB311966-A49B-41E1-805D-7524CCD6662C),
+    dual,
+    helpstring("IMTPriceListReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTPriceListReader : IDispatch
+  {
+    [id(1), helpstring("method Find")] HRESULT Find([in] IMTSessionContext* apCtxt, [in]long aID, [out, retval] IMTPriceList * * apPriceList);
+    [id(2), helpstring("method FindByName")] HRESULT FindByName([in] IMTSessionContext* apCtxt, [in]BSTR aName, [out, retval] IMTPriceList * * apPriceList);
+    [id(3), helpstring("method FindAsRowset")] HRESULT FindAsRowset([in] IMTSessionContext* apCtxt, [in] long aParamTblDefID, [in] long aPrcItemTmplID, [in, optional] VARIANT aFilter, [out, retval] IMTSQLRowset** apRowset);
+    [id(4), helpstring("method FindByAccountID")] HRESULT FindByAccountID([in] IMTSessionContext* apCtxt, [in] long accountID,[out, retval] IMTPriceList** ppVal);
+  };
+  [
+    object,
+    uuid(2B4ED02F-6CB0-4362-9ED2-CE13FF863398),
+    dual,
+    helpstring("IMTPriceListWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTPriceListWriter : IDispatch
+  {
+    [id(1), helpstring("method Create")] HRESULT Create([in] IMTSessionContext* apCtxt, [in]IMTPriceList * apList, [out, retval] long * apID);
+    [id(2), helpstring("method Update")] HRESULT Update([in] IMTSessionContext* apCtxt, [in]IMTPriceList * apList);
+    [id(3), helpstring("method Remove")] HRESULT Remove([in] IMTSessionContext* apCtxt, [in]long aID);
+  };
+  [
+    object,
+    uuid(AEFE888B-0586-449F-A1F6-E4F54C5B83E6),
+    dual,
+    helpstring("IMTCounterViewReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTCounterViewReader : IDispatch
+  {
+    [id(1), helpstring("method ViewExists")] HRESULT ViewExists([in] IMTSessionContext* apCtxt, [in]BSTR aViewName, [out, retval]VARIANT_BOOL* abFlag);
+  };
+  [
+    object,
+    uuid(0A5E7618-7B8D-46AA-92C3-97DBE8C707AF),
+    dual,
+    helpstring("IMTDiscountReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTDiscountReader : IDispatch
+  {
+    [id(1), helpstring("method FindCountersAsRowset")] HRESULT FindCountersAsRowset([in] IMTSessionContext* apCtxt,
+                                                                                    [in]long aDiscountDBID,
+                                                                                    [out, retval]IMTSQLRowset** apRowset);
+
+    [id(2), helpstring("method PopulateDiscountProperties")] HRESULT PopulateDiscountProperties([in] IMTSessionContext* apCtxt,
+                                                                                                [in] IMTDiscount* piDiscount);
+  };
+  [
+    object,
+    uuid(85130209-40E1-4CBF-A05A-ED9E0CE2A51E),
+    dual,
+    helpstring("IMTDiscountWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTDiscountWriter : IDispatch
+  {
+    [id(1), helpstring("method AddCounterMap")] HRESULT AddCounterMap([in] IMTSessionContext* apCtxt, [in]long aDiscountDBID, [in]long aCounterDBID, [in] BSTR aDescriptor);
+    [id(2), helpstring("method RemoveCounterMap")] HRESULT RemoveCounterMap([in] IMTSessionContext* apCtxt, [in]long aDiscountDBID, [in]long aCounterDBID, [in] BSTR aDescriptor);
+    [id(3), helpstring("method CreateDiscountProperties")] HRESULT CreateDiscountProperties([in] IMTSessionContext* apCtxt, [in] IMTDiscount *apDiscount);
+    [id(4), helpstring("method UpdateDiscountProperties")] HRESULT UpdateDiscountProperties([in] IMTSessionContext* apCtxt, [in] IMTDiscount *apDiscount);
+    [id(5), helpstring("method RemoveDiscountProperties")] HRESULT RemoveDiscountProperties([in] IMTSessionContext* apCtxt, [in] long aID);
+  };
+
+  [
+    object,
+    uuid(F654558F-6C4B-405A-99FC-A572DCAECCFB),
+    dual,
+    helpstring("IMTAccountReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTAccountReader : IDispatch
+  {
+    [id(1), helpstring("method GetDefaultPriceList")] HRESULT GetDefaultPriceList([in] IMTSessionContext* apCtxt, [in] long accountID,[out, retval] IMTPriceList** ppVal);
+		[id(2), helpstring("method GetNextBillingIntervalEndDate")] HRESULT GetNextBillingIntervalEndDate([in] IMTSessionContext* apCtxt, [in] long accountID, [in] DATE datecheck, [out, retval] VARIANT *pVal);
+  };
+  [
+    object,
+    uuid(6B6196A0-5683-4655-8261-25F67815B839),
+    dual,
+    helpstring("IMTAccountWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTAccountWriter : IDispatch
+  {
+    [id(1), helpstring("method UpdateDefaultPricelist")] HRESULT UpdateDefaultPricelist([in] IMTSessionContext* apCtxt, [in] long accountID,[in] long PriceListID);
+    [id(2), helpstring("method UpdateICBPriceList")] HRESULT UpdateICBPriceList([in] IMTSessionContext* apCtxt, [in] long accountID,[in] long PriceListID);
+  };
+
+  [
+    object,
+    uuid(342B9C75-B750-490C-AC5F-E848D628ED59),
+    dual,
+    helpstring("IMTPriceListMappingReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTPriceListMappingReader : IDispatch
+  {
+    [id(1), helpstring("method FindByInstance")] HRESULT FindByInstance([in] IMTSessionContext* apCtxt, [in] long aPrcItemInstID, [in] long aParamTblDefID, [out, retval] IMTPriceListMapping** apPrcLstMap);
+    [id(2), helpstring("method FindICB_ByInstance")] HRESULT FindICB_ByInstance([in] IMTSessionContext* apCtxt, [in] long aPrcItemInstID,[in] long aParamTblDefID,[in] long id_sub,[out, retval] IMTPriceListMapping** ppMapping);
+    [id(3), helpstring("method GetCountOfTypeByPO")] HRESULT GetCountOfTypeByPO([in] IMTSessionContext* apCtxt, [in] long aProductOfferingID, [in] long aNonSharedPLID, [in] MTPriceListMappingType aType, [out, retval] long * apCount);
+  };
+  [
+    object,
+    uuid(5BC91DD8-793E-424E-9656-5ED0F146893C),
+    dual,
+    helpstring("IMTSubscriptionReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTSubscriptionReader : IDispatch
+  {
+    [id(1), helpstring("method GetActiveSubscriptionsByAccID")] HRESULT GetActiveSubscriptionsByAccID([in] IMTSessionContext* apCtxt, [in] long accountID,[out, retval] IMTSQLRowset** ppRowset);
+    [id(2), helpstring("method GetInActiveSubscriptionsByAccID")] HRESULT GetInActiveSubscriptionsByAccID([in] IMTSessionContext* apCtxt, [in] long accountID,[out, retval] IMTSQLRowset** ppRowset);
+    [id(3), helpstring("method GetActiveSubscriptionsByAccIDAsCollection")] 
+    HRESULT GetActiveSubscriptionsByAccIDAsCollection([in] IMTSessionContext* apCtxt, [in] long accountID,[out, retval] IMTCollection** ppCol);
+    [id(4), helpstring("method GetInActiveSubscriptionsByAccIDAsCollection")]
+    HRESULT GetInActiveSubscriptionsByAccIDAsCollection([in] IMTSessionContext* apCtxt, [in] long accountID,[out, retval] IMTCollection** ppCol);
+    [id(5), helpstring("method GetSubParamTables")] HRESULT GetSubParamTables([in] IMTSessionContext* apCtxt, [in] long accountID,[out, retval] IMTSQLRowset** ppRowset);
+    [id(6), helpstring("method GetSubscriptionsByPO")] HRESULT GetSubscriptionsByPO([in] IMTSessionContext* apCtxt, [in] long accountID,[in] long PO_ID,[out, retval] IMTSubscription** ppSub);
+    [id(7), helpstring("method GetSubscriptionByPIType")] HRESULT GetSubscriptionByPIType([in] IMTSessionContext* apCtxt, [in] long accountID,[in] long pi_type_id,[out, retval] IMTSubscription** ppSub);
+    [id(8), helpstring("method GetSubscriptionByID")] HRESULT GetSubscriptionByID([in] IMTSessionContext* apCtxt, [in] long sub_id,[out,retval] IMTSubscriptionBase** ppSub);
+    [id(9), helpstring("method GetCountOfActiveSubscriptionsByPO")] HRESULT GetCountOfActiveSubscriptionsByPO([in] IMTSessionContext* apCtxt, [in] long aProdOffID, [out, retval] long* apSubCount);
+    [id(10), helpstring("method SubscriberCanChangeBillingCycles")] HRESULT SubscriberCanChangeBillingCycles([in] IMTSessionContext* apCtxt, [in] long accountID, [out, retval] VARIANT_BOOL * pCanChange);
+    [id(11), helpstring("method GetGroupSubscriptionsAsRowset")] HRESULT GetGroupSubscriptionsAsRowset([in] IMTSessionContext* apCtxt,[in] DATE RefDate,[in] VARIANT aFilter,[out,retval] IMTSQLRowset** ppRowset);
+    [id(12), helpstring("method GetGroupSubscriptionMembers")] HRESULT GetGroupSubscriptionMembers([in] IMTSessionContext *apSession,[in] DATE RefDate,[in] long aGroupSubId,[in,optional] DATE aSystemDate,[out, retval] IMTGroupSubSlice** ppSlice);
+    [id(13), helpstring("method GetGroupSubscriptionByName")] HRESULT GetGroupSubscriptionByName([in] IMTSessionContext* apSession,[in] DATE RefDate,[in] BSTR name,[out,retval] IMTGroupSubscription** ppGroupSub);
+    [id(14), helpstring("method GetGroupSubscriptionByCorporateAccount")] HRESULT GetGroupSubscriptionByCorporateAccount([in] long aCorporateAccount,[out, retval] IMTSQLRowset** ppRowset);
+    [id(15), helpstring("method GetGroupSubscriptionByID")] HRESULT GetGroupSubscriptionByID([in] IMTSessionContext* apSession,[in] long aGroupSubID,[out,retval] IMTGroupSubscription** ppGroupSub);
+    [id(16), helpstring("method FindMember")] HRESULT FindMember([in] IMTSessionContext* pCtx,[in] long aAccountID,[in] long gSubID,[in] DATE RefDate,[out,retval] IMTGSubMember** ppMember);
+    [id(17), helpstring("method GetSubParamTablesAsRowset")] HRESULT GetSubParamTablesAsRowset([in] IMTSessionContext* apCTX,[in] long aSubID,[out,retval] IMTSQLRowset** ppRowset);
+    [id(18), helpstring("method GetAccountSubscriptionsAsRowset")] HRESULT GetAccountSubscriptionsAsRowset([in] IMTSessionContext* apCTX,[in] long aAccountID,[out,retval] IMTRowSet** ppRowset);
+    [id(19), helpstring("method GetAccountGroupSubscriptionsAsRowset")] HRESULT GetAccountGroupSubscriptionsAsRowset([in] IMTSessionContext* apCTX,[in] long aAccountID,[out,retval] IMTRowSet** ppRowset);
+    [id(20), helpstring("method GetCountOfSubscribersWithCycleConflicts")] HRESULT GetCountOfSubscribersWithCycleConflicts([in] IMTSessionContext* apCtxt, [in] long aProdOffID, [in] IMTPCCycle* apCycle, [out, retval] long *apSubCount);
+    [id(21), helpstring("method GetGroupSubscriptionsWithCycleConflictsAsRowset")] HRESULT GetGroupSubscriptionsWithCycleConflictsAsRowset([in] IMTSessionContext* apCtxt, [in] long aProdOffID, [in] long aCycleTypeID, [out, retval] IMTSQLRowset **apRowset);
+		[id(22), helpstring("method GetCountOfAllSubscriptionsByPO")] HRESULT GetCountOfAllSubscriptionsByPO([in] IMTSessionContext* apCtxt, [in] long aProdOffID, [out, retval] long* apSubCount);
+		[id(23), helpstring("method GetChargeAccount")] HRESULT GetChargeAccount([in] IMTSessionContext* apCtxt, [in] long aGroupSubID, [in] long aPrcItemInstanceID, [in] DATE aEffDate, [out, retval] long* apAccountID);
+		[id(24), helpstring("method GetRecurringChargeAccountsAsRowset")] HRESULT GetRecurringChargeAccountsAsRowset([in] IMTSessionContext* apCtxt, [in] long aGroupSubID, [in] DATE aEffDate, [out, retval] IMTSQLRowset** ppRowset);
+		[id(25), helpstring("method GetPerSubscriptionChargesAsRowset")] HRESULT GetPerSubscriptionChargesAsRowset([in] IMTSessionContext* apCtxt, [in] long aPOID, [out, retval] IMTSQLRowset** ppRowset);
+		[id(26), helpstring("method GetUnitValue")] HRESULT GetUnitValue([in] IMTSessionContext* apCtxt, [in] long aGroupSubID, [in] long aPIInstID, [in] DATE aEffDate, [out, retval] DECIMAL* apValue);
+		[id(27), helpstring("method GetUnitValuesAsRowset")] HRESULT GetUnitValuesAsRowset([in] IMTSessionContext* apCtxt, [in] long aGroupSubID, [out, retval] IMTSQLRowset** ppRowset);
+		[id(28), helpstring("method GetUnitValuesForChargeAsRowset")] HRESULT GetUnitValuesForChargeAsRowset([in] IMTSessionContext* apCtxt, [in] long aGroupSubID, [in] long aPIInstID, [out, retval] IMTSQLRowset** ppRowset);
+    [id(29), helpstring("method GetSubscriptionsByPOAsCollection")] HRESULT GetSubscriptionsByPOAsCollection([in] IMTSessionContext* apCtxt, [in] long accountID,[in] long PO_ID,[out, retval] IMTCollection** ppSubs);
+    [id(30), helpstring("method GetSubscriptionsByPIAsCollection")] HRESULT GetSubscriptionsByPIAsCollection([in] IMTSessionContext* apCtxt, [in] long accountID,[in] long PI_ID,[out, retval] IMTCollection** ppSubs);
+		[id(31), helpstring("method GetAccountSubscriptions")] HRESULT GetAccountSubscriptions([in] IMTSessionContext* apCTX,[in] long aAccountID,[out,retval] IMTCollection** ppColl);
+		[id(32), helpstring("method GetAccountGroupSubscriptions")] HRESULT GetAccountGroupSubscriptions([in] IMTSessionContext* apCTX,[in] long aAccountID,[out,retval] IMTCollection** ppColl);
+		[propget, id(33), helpstring("property WarnOnEBCRStartDateChange")] HRESULT WarnOnEBCRStartDateChange([in] long subID, [out, retval] VARIANT_BOOL *pVal);
+		[id(34), helpstring("method WarnOnEBCRMemberStartDateChange")]
+			HRESULT WarnOnEBCRMemberStartDateChange([in] long subID, [in] long accountID, [out, retval] VARIANT_BOOL *pVal);
+ 		[id(35), helpstring("method GetAvailableGroupSubscriptionByCorporateAccount")]
+			HRESULT GetAvailableGroupSubscriptionByCorporateAccount([in] IMTSessionContext* apCtxt, [in]IMTYAAC* apYAAC, [out,retval] IMTSQLRowset** ppRowset);
+  };
+  [
+    object,
+    uuid(B01732C7-96B5-4BA0-902A-97295FC23B92),
+    dual,
+    helpstring("IMTSubscriptionWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTSubscriptionWriter : IDispatch
+  {
+    [id(1), helpstring("method AddICBPriceListMapping")] HRESULT AddICBPriceListMapping([in] IMTSessionContext* apCtxt, [in] long aPrcItemID,[in] long aParamTblID,[in] IMTSubscriptionBase * pSub);
+    [id(2), helpstring("method RemoveICBPRicelistMapping")] HRESULT RemoveICBMapping([in] IMTSessionContext* apCtxt, [in] long aPI_ID, [in] long aPtdID,[in] IMTSubscriptionBase * pSub);
+    [id(3), helpstring("method SaveNew")] HRESULT SaveNew([in] IMTSessionContext* apCtxt, [in] IMTSubscription* pSub, [out,retval] VARIANT_BOOL* pDateModified);
+    [id(4), helpstring("method UpdateExisting")] HRESULT UpdateExisting([in] IMTSessionContext* apCtxt, [in] IMTSubscription* pSub,[out,retval] VARIANT_BOOL* pDateModified);
+    [id(5), helpstring("method BulkSubscriptionChange")] HRESULT BulkSubscriptionChange([in] IMTSessionContext* apCtxt, [in] long aOldPO_id,[in] long aNewPO_id,[in] VARIANT vtDate,[in] VARIANT_BOOL bNextBillingCycle);
+    [id(6), helpstring("method SaveNewGroupSub")] HRESULT SaveNewGroupSub([in] IMTSessionContext* apCtx, [in] IMTGroupSubscription* pGroupSub,[out,retval] VARIANT_BOOL* pDateModified);
+    [id(7), helpstring("method AddAccountToGroupSub")] HRESULT AddAccountToGroupSub([in] IMTSessionContext* apCtx,[in] IMTGroupSubscription* pGroupSub,[in] IMTGSubMember* pGsubMember,[out,retval] VARIANT_BOOL* pDateModified);
+    [id(8), helpstring("method UpdateGroupSub")] HRESULT UpdateGroupSub([in] IMTSessionContext* apCtx,[in] IMTGroupSubscription* pGroupSub,[out,retval] VARIANT_BOOL* pDateModified);
+    [id(9), helpstring("method ModifyMembership")] HRESULT ModifyMembership([in] IMTSessionContext* apCtx,[in] IMTGroupSubscription* pGroupSub,[in] IMTGSubMember* pSubMember,[out,retval] VARIANT_BOOL* pDateModified);
+    [id(10), helpstring("method ModifyMembershipBatch")] HRESULT ModifyMembershipBatch([in] IMTSessionContext* apCtx,[in] IMTGroupSubscription* pGroupSub,[in] IMTCollection* pCol,[in] IMTProgress* pProgress,[out] VARIANT_BOOL* pDateModified,[out,retval] IMTRowSet** ppRowset);
+    [id(11), helpstring("method DeleteMember")] HRESULT DeleteMember([in] IMTSessionContext* apCtx,[in] IMTGroupSubscription* pGroupSub,[in] long aAccountID, [in, optional] VARIANT subStartDate);
+    [id(12), helpstring("method DeleteMemberBatch")] HRESULT DeleteMemberBatch([in] IMTSessionContext* apCtx,[in] IMTGroupSubscription* pGroupSub,[in] IMTCollection* pCol,[in] IMTProgress* pProgress,[out,retval] IMTRowSet** ppRowset);
+    [id(13), helpstring("method AddAccountToGroupSubBatch")] HRESULT AddAccountToGroupSubBatch(
+    [in] IMTSessionContext* apCtx,
+    [in] IMTGroupSubscription* pGroupSub,
+    [in] IMTCollection* pCol,
+    [in] IMTProgress* pProgress,
+    [out] VARIANT_BOOL* pDateModified,
+    [in] IMTSQLRowset* errorRs);
+    [id(14), helpstring("method DeleteSubscription")] HRESULT DeleteSubscription([in] IMTSessionContext* apCTX, [in] IMTSubscriptionBase* pSubBase);
+    [id(15), helpstring("method SubscribeBatch")] HRESULT SubscribeBatch([in] IMTSessionContext* apCtx,[in] long aProductID,[in] IMTPCTimeSpan* pTimeSpan,[in] IMTCollection* pCol,[in] IMTProgress* pProgress,[out] VARIANT_BOOL* pDateModified,[in] IMTSQLRowset* errorRs);
+		[id(16), helpstring("method SetChargeAccount")] HRESULT SetChargeAccount([in] IMTSessionContext* apCtx, [in] IMTGroupSubscription* pGroupSub, [in] long aPrcItemInstanceID, [in] long aAccountID, [in] DATE aStartDate, [in] DATE aEndDate);
+		[id(17), helpstring("method SetRecurringChargeAccounts")] HRESULT SetRecurringChargeAccounts([in] IMTSessionContext* apCtx, [in] IMTGroupSubscription* pGroupSub, [in] long aAccountID, [in] DATE aStartDate, [in] DATE aEndDate);
+		[id(18), helpstring("method SetUnitValue")] HRESULT SetUnitValue([in] IMTSessionContext* apCtx, [in] IMTSubscriptionBase* pSub, [in] long aPrcItemInstanceID, [in] DECIMAL aUnitValue, [in] DATE aStartDate, [in] DATE aEndDate);
+		[id(19), helpstring("method UpdateUnitValue")] HRESULT UpdateUnitValue([in] IMTSessionContext* apCtx, [in] IMTSubscriptionBase* pSub, [in] long aPrcItemInstanceID, [in] DECIMAL aUnitValue, [in] DATE aStartDate, [in] DATE aEndDate);
+		[id(20), helpstring("method DeleteUnitValue")] HRESULT DeleteUnitValue([in] IMTSessionContext* apCtx, [in] IMTSubscriptionBase* pSub, [in] long aPrcItemInstanceID, [in] DATE aStartDate, [in] DATE aEndDate);
+    [id(21), helpstring("method DeleteGroupSubscription")] HRESULT DeleteGroupSubscription([in] IMTSessionContext *apCTX, [in] IMTSubscriptionBase *pSubBase);
+    [id(22), helpstring("method UnsubscribeMemberBatch")] HRESULT UnsubscribeMemberBatch([in] IMTSessionContext* apCtx,[in] IMTGroupSubscription* pGroupSub,[in] IMTCollection* pCol,[in] IMTProgress* pProgress,[in] IMTSQLRowset* errorRs);
+    [id(23), helpstring("method AddAccountToGroupSubBatch2")] HRESULT AddAccountToGroupSubBatch2(
+    [in] IMTSessionContext* apCtx,
+    [in] IMTGroupSubscription* pGroupSub,
+    [in] IMTCollection* pCol,
+    [in] IMTProgress* pProgress,
+    [out] VARIANT_BOOL* pDateModified,
+    [in] IMTSQLRowset* errorRs);
+    [id(24), helpstring("method SubscribeToGroups")] HRESULT SubscribeToGroups(
+    [in] IMTSessionContext* apCtx,
+    [in] IMTCollection* pCol,
+    [in] IMTProgress* pProgress,
+    [out] VARIANT_BOOL* pDateModified,
+    [in] IMTSQLRowset* errorRs);
+    [id(25), helpstring("method SubscribeAccounts")] HRESULT SubscribeAccounts(
+    [in] IMTSessionContext* apCtx,
+    [in] IMTCollection* pCol,
+    [in] IMTProgress* pProgress,
+    [out] VARIANT_BOOL* pDateModified,
+    [in] IMTSQLRowset* errorRs);
+		[id(26), helpstring("method FinalizeUnitValue")] HRESULT FinalizeUnitValue([in] IMTSessionContext* apCtx, [in] IMTSubscriptionBase* pSub);
+  };
+  [
+    object,
+    uuid(75E291C6-AD16-4321-90E4-23087430A5D9),
+    dual,
+    helpstring("IMTNonRecurringChargeReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTNonRecurringChargeReader : IDispatch
+  {
+    [id(1), helpstring("method PopulateNRCProperties")] HRESULT PopulateNRCProperties([in] IMTSessionContext* apCtxt, [in] IMTNonRecurringCharge* piNRC);
+  };
+  [
+    object,
+    uuid(40D8D931-FDBE-45C8-89C1-8CBDF3DE7E04),
+    dual,
+    helpstring("IMTNonRecurringChargeWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTNonRecurringChargeWriter : IDispatch
+  {
+    [id(1), helpstring("method CreateProperties")] HRESULT CreateProperties([in] IMTSessionContext* apCtxt, [in] IMTNonRecurringCharge* apNRC);
+    [id(2), helpstring("method UpdateProperties")] HRESULT UpdateProperties([in] IMTSessionContext* apCtxt, [in] IMTNonRecurringCharge* apNRC);
+    [id(3), helpstring("method RemoveProperties")] HRESULT RemoveProperties([in] IMTSessionContext* apCtxt, [in] long lDBID);
+  };
+
+  [
+    object,
+    uuid(D98C41B0-E919-4931-BF0D-5B4D6E57754D),
+    dual,
+    helpstring("IMTPropertyMetaDataSetReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTPropertyMetaDataSetReader : IDispatch
+  {
+    
+    [id(1), helpstring("method GetAll")] HRESULT GetAll([out,retval] IMTPropertyMetaDataSet ** pVal);
+    [id(2), helpstring("method Find")] HRESULT Find([in] MTPCEntityType aType, [in] IMTAttributeMetaDataSet* apSet, [in] VARIANT_BOOL aReturnErrors, [out,retval] IMTPropertyMetaDataSet ** pVal);
+    [id(3), helpstring("method LoadAttributeValues")] HRESULT LoadAttributeValues([in] IMTProductCatalogMetaData* apMetadata);
+  };
+  [
+    object,
+    uuid(3F51CB88-95FC-471E-81B0-E0B5646B0655),
+    dual,
+    helpstring("IMTPriceListMappingWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTPriceListMappingWriter : IDispatch
+  {
+    [id(1), helpstring("method Update")] HRESULT Update([in] IMTSessionContext* apCtxt, [in] IMTPriceListMapping* apPrcLstMap);
+  };
+  [
+    object,
+    uuid(19DC946F-55A7-4A42-9EC7-6C5C70B91417),
+    dual,
+    helpstring("IMTCounterPropertyDefinitionReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTCounterPropertyDefinitionReader : IDispatch
+  {
+    [id(1), helpstring("method Find")] HRESULT Find([in] IMTSessionContext* apCtxt, [in]long aDBID, [out, retval] IMTCounterPropertyDefinition** apDef);
+    [id(2), helpstring("method FindByPIType")] HRESULT FindByPIType([in] IMTSessionContext* apCtxt, [in]long aPITypeDBID, [out, retval] IMTCollection** apColl);
+    [id(3), helpstring("method FindAsRowset")] HRESULT FindAsRowset([in] IMTSessionContext* apCtxt, [in]VARIANT aFilter, [out, retval]IMTSQLRowset** apRowset);
+    
+  };
+  [
+    object,
+    uuid(F8118A1B-6F81-41A2-B4BA-11217F2C75E1),
+    dual,
+    helpstring("IMTCounterPropertyDefinitionWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTCounterPropertyDefinitionWriter : IDispatch
+  {
+    [id(1), helpstring("method Create")] HRESULT Create([in] IMTSessionContext* apCtxt, [in]IMTCounterPropertyDefinition* apCPD,  [out, retval]long* aDBID);
+    [id(2), helpstring("method Update")] HRESULT Update([in] IMTSessionContext* apCtxt, [in]IMTCounterPropertyDefinition* apCPD);
+    [id(3), helpstring("method Remove")] HRESULT Remove([in] IMTSessionContext* apCtxt, [in]long aDBID);
+  };
+  [
+    object,
+    uuid(B068948E-21A2-47A5-8CE8-049AF4910ABA),
+    dual,
+    helpstring("IMTAttributeMetaDataSetReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTAttributeMetaDataSetReader : IDispatch
+  {
+    [id(1), helpstring("method Load")] HRESULT Load([out, retval] IMTAttributeMetaDataSet ** ppSet);
+  };
+  [
+    object,
+    uuid(BD3BA4A8-C676-4191-BCD8-5C4D7A23917A),
+    dual,
+    helpstring("IMTRecurringChargeReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTRecurringChargeReader : IDispatch
+  {
+    [id(1), helpstring("method PopulateProperties")] HRESULT PopulateProperties([in] IMTSessionContext* apCtxt, [in] IMTRecurringCharge* apRC);
+  };
+  [
+    object,
+    uuid(E6A3E0B5-7E68-41A7-97B0-B8F5633AA336),
+    dual,
+    helpstring("IMTRecurringChargeWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTRecurringChargeWriter : IDispatch
+  {
+    [id(1), helpstring("method CreateProperties")] HRESULT CreateProperties([in] IMTSessionContext* apCtxt, [in] IMTRecurringCharge* apRC);
+    [id(2), helpstring("method UpdateProperties")] HRESULT UpdateProperties([in] IMTSessionContext* apCtxt, [in] IMTRecurringCharge* apRC);
+    [id(3), helpstring("method RemoveProperties")] HRESULT RemoveProperties([in] IMTSessionContext* apCtxt, [in] long lDBID);
+  };
+  [
+    object,
+    uuid(62C29F59-35F2-420D-9542-38332F92A7C9),
+    dual,
+    helpstring("IMTCounterMapReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTCounterMapReader : IDispatch
+  {
+    [id(1), helpstring("method GetPIMappingsAsRowset")] HRESULT GetPIMappingsAsRowset([in] IMTSessionContext* apCtxt, [in]long aPIDBID, [out, retval]IMTSQLRowset** apRowset);
+    [id(2), helpstring("method GetExtendedPIMappingsAsRowset")] HRESULT GetExtendedPIMappingsAsRowset([in] IMTSessionContext* apCtxt, [in]long aPIDBID, [in]long aPITypeID, [out, retval]IMTSQLRowset** apRowset);
+  };
+  [
+    object,
+    uuid(69CAD433-1C7F-4128-B9B7-2662E65FCC12),
+    dual,
+    helpstring("IMTCounterMapWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTCounterMapWriter : IDispatch
+  {
+    [id(1), helpstring("method AddMapping")] HRESULT AddMapping([in] IMTSessionContext* apCtxt, [in]long aCounterDBID, [in]long aPIDBID, [in]long aCPDDBID);
+    [id(2), helpstring("method RemoveMapping")] HRESULT RemoveMapping([in] IMTSessionContext* apCtxt, [in]long aPIDBID, [in]long aCounterDBID);
+    [id(3), helpstring("method RemoveMappingByPIDBID")] HRESULT RemoveMappingByPIDBID([in] IMTSessionContext* apCtxt, [in] long aPIDBID);
+  };
+
+  [
+    object,
+    uuid(E178BD92-49E8-43E1-9A10-DB6F1BD2EA60),
+    dual,
+    helpstring("IMTCounterTypeWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTCounterTypeWriter : IDispatch
+  {
+    [id(1), helpstring("method Create")] HRESULT Create([in] IMTSessionContext* apCtxt, [in]IMTCounterType* apCounterType, [out, retval]long* apDBID);
+    [id(2), helpstring("method Update")] HRESULT Update([in] IMTSessionContext* apCtxt, [in]IMTCounterType* apCounterType);
+    [id(3), helpstring("method Remove")] HRESULT Remove([in] IMTSessionContext* apCtxt, [in]long aDBID);
+  };
+  [
+    object,
+    uuid(294E5AAA-02F5-46F2-ADFF-A8F1479527BC),
+    dual,
+    helpstring("IMTBasePropsWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTBasePropsWriter : IDispatch
+  {
+    [id(1), helpstring("method Create")] HRESULT Create([in] IMTSessionContext* apCtxt, [in] long aKind, [in] BSTR aName, [in] BSTR aDescription, [out, retval] long* apID);
+    [id(2), helpstring("method CreateWithDisplayName")] HRESULT CreateWithDisplayName([in] IMTSessionContext* apCtxt, [in] long aKind, [in] BSTR aName, [in] BSTR aDescription, [in] BSTR aDisplayName, [out, retval] long* apID);
+    [id(3), helpstring("method Update")] HRESULT Update([in] IMTSessionContext* apCtxt, [in] BSTR aName, [in] BSTR aDescription, [in] long apID);
+    [id(4), helpstring("method UpdateWithDisplayName")] HRESULT UpdateWithDisplayName([in] IMTSessionContext* apCtxt, [in] BSTR aName, [in] BSTR aDescription, [in] BSTR aDisplayName, [in] long apID);
+    [id(5), helpstring("method Delete")] HRESULT Delete([in] IMTSessionContext* apCtxt, [in] long apID);
+  };
+
+  [
+    object,
+    uuid(f09c37af-0025-4e59-8747-b60dbc2e51cd),
+    dual,
+    helpstring("IMTAggregateChargeReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTAggregateChargeReader : IDispatch
+  {
+    [id(1), helpstring("method Populate")] HRESULT Populate([in] IMTSessionContext* apCtxt, [in] IMTAggregateCharge* apAggCharge);
+    [id(2), helpstring("method FindCountersAsRowset")] HRESULT FindCountersAsRowset([in] IMTSessionContext* apCtxt, [in]long aID, [out, retval]IMTSQLRowset** apRowset);
+  };
+  [
+    object,
+    uuid(cb67cf79-1aa6-4984-a3ac-18f8cc7c8910),
+    dual,
+    helpstring("IMTAggregateChargeWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTAggregateChargeWriter : IDispatch
+  {
+    [id(1), helpstring("method Create")] HRESULT Create([in] IMTSessionContext* apCtxt, [in] IMTAggregateCharge * apAggCharge);
+    [id(2), helpstring("method Update")] HRESULT Update([in] IMTSessionContext* apCtxt, [in] IMTAggregateCharge * apAggCharge);
+    [id(3), helpstring("method Remove")] HRESULT Remove([in] IMTSessionContext* apCtxt, [in] long aID);
+  };
+
+  
+  [
+    object,
+    uuid(000A6125-5A16-4544-A695-94CE7C9F3A58),
+    dual,
+    helpstring("IMTExtendedPropWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTExtendedPropWriter : IDispatch
+  {
+    [id(1), helpstring("method UpdateExtendedPropTable")] HRESULT UpsertExtendedPropertyTable([in] IMTSessionContext* apCtxt, [in] BSTR tableName,[in] BSTR aUpdateList,[in] BSTR aInsertList,[in] BSTR aColumnList,[in] long aID);
+    [id(2), helpstring("method PropagateProperties")] HRESULT PropagateProperties([in] IMTSessionContext* apCtxt, [in] BSTR tableName,[in] BSTR aUpdateList,[in] BSTR aInsertList,[in] BSTR aColumnList,[in] long aTemplateID);
+    [id(3), helpstring("method RemoveFromExtendedPropertyTable")] HRESULT RemoveFromExtendedPropertyTable([in] IMTSessionContext* apCtxt, [in]BSTR aTableName, long aID);
+  };
+
+  [
+    object,
+    uuid(44DD5DCD-C26C-4F62-8299-99173867017A),
+    dual,
+    helpstring("IMTCalendarReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTCalendarReader : IDispatch
+  {
+    [id(1), helpstring("method GetCalendarsAsRowset")] HRESULT GetCalendarsAsRowset([in] IMTSessionContext* apCtxt, [out, retval] IMTSQLRowset ** apRowset);
+    [id(2), helpstring("method GetCalendar")] HRESULT GetCalendar([in] IMTSessionContext* apCtxt, [in] long aID, [out, retval] IMTCalendar ** apCalendar);
+    [id(3), helpstring("method GetCalendarByName")] HRESULT GetCalendarByName([in] IMTSessionContext* apCtxt, [in] BSTR aName, [out, retval] IMTCalendar ** apCalendar);
+  };
+  [
+    object,
+    uuid(2AD7F8EF-010C-4272-8619-4F6F035A302F),
+    dual,
+    helpstring("IMTCalendarWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTCalendarWriter : IDispatch
+  {
+    [id(1), helpstring("method Save")] HRESULT Save([in] IMTSessionContext* apCtxt, [in] IMTCalendar * apCalendar);
+  };
+  [
+    object,
+    uuid(E1ACA83D-772A-4138-A2EA-93B0CC3DB661),
+    dual,
+    helpstring("IMTProductViewWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTProductViewWriter : IDispatch
+  {
+    [id(1), helpstring("method RemoveProductViewRecords")] 
+      HRESULT RemoveProductViewRecords([in] IMTSessionContext* apCtxt, 
+                                       [in]BSTR aPVTable,
+                                       [in] long aPITemplateID,
+                                       [in] long aIntervalID,
+                                       [in] long aViewID);
+    [id(2), helpstring("method RemoveProductViewRecordsForAccount")]
+      HRESULT RemoveProductViewRecordsForAccount([in] IMTSessionContext* apCtxt, 
+                                                 [in]BSTR aPVTable,
+                                                 [in]long aPITemplateID,
+                                                 [in] long aIntervalID,
+                                                 [in] long aViewID,
+                                                 [in] long aAccountID);
+    [id(3), helpstring("method RemoveProductViewRecordsForService")] 
+      HRESULT RemoveProductViewRecordsForService([in] IMTSessionContext* apCtxt, 
+                                                 [in]BSTR aPVTable,
+                                                 [in] long aPITemplateID,
+                                                 [in] long aIntervalID,
+                                                 [in] long aViewID,
+                                                 [in] long aSvcID);
+    [id(4), helpstring("method RemoveProductViewRecordsForServiceForAccount")] 
+      HRESULT RemoveProductViewRecordsForServiceForAccount([in] IMTSessionContext* apCtxt, 
+                                                           [in]BSTR aPVTable,
+                                                           [in] long aPITemplateID,
+                                                           [in] long aIntervalID,
+                                                           [in] long aViewID,
+                                                           [in] long aSvcID,
+                                                           [in] long aAccountID);
+  };
+  [
+    object,
+    uuid(B1B78D71-D2E8-4BC2-948D-C2868FD62FEA),
+    dual,
+    helpstring("IMTDDLWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTDDLWriter : IDispatch
+  {
+    [id(1), helpstring("method SyncParameterTables")] HRESULT SyncParameterTables([in] IMTSessionContext* apCtxt);
+    [id(2), helpstring("method SyncExtendedPropertyTables")] HRESULT SyncExtendedPropertyTables([in] IMTSessionContext* apCtxt);
+    [id(3), helpstring("method CreateView")] HRESULT CreateView([in] IMTSessionContext* apCtxt, [in]BSTR aFromProductView,[out, retval]BSTR* apViewName);
+    [id(4), helpstring("method Remove")] HRESULT RemoveView([in] IMTSessionContext* apCtxt, [in]BSTR aPVName);
+    [id(5), helpstring("method CreateUsageView")] HRESULT CreateUsageView([in] IMTSessionContext* apCtxt, [out, retval]BSTR* apViewName);
+    [id(6), helpstring("method CreateAllViews")] HRESULT CreateAllViews([in] IMTSessionContext* apCtxt);
+		[id(7), helpstring("method SyncAdjustmentTables")] HRESULT SyncAdjustmentTables([in] IMTSessionContext* apCtxt);
+    [id(8), helpstring("method ExecuteStatement")] HRESULT ExecuteStatement([in]BSTR aQuery, [in, optional]VARIANT aQueryDir, [out, retval]IMTSQLRowset **ppRowset);
+  };
+	[
+		object,
+		uuid(4E2EFF3E-C84B-4BAC-8446-FBB01823D582),
+		dual,
+		helpstring("IMTChargeReader Interface"),
+		pointer_default(unique)
+	]
+	interface IMTChargeReader : IDispatch
+	{
+		[id(1), helpstring("method Load")] HRESULT Load([in] IMTSessionContext* apCtxt, [in] IMTSQLRowset* apRowset, [out, retval] IMTCharge** apCharge);
+		[id(2), helpstring("method Find")] HRESULT Find([in] IMTSessionContext* apCtxt, [in] long aChargeID, [out, retval] IMTCharge** apCharge);
+		[id(3), helpstring("method FindChargeProperties")] HRESULT FindChargeProperties([in] IMTSessionContext* apCtxt, [in] long aChargeID, [out, retval] IMTCollection** apChargeProperties);
+	};
+	[
+		object,
+		uuid(62E00B10-8AD5-498A-A731-AA720D723DCC),
+		dual,
+		helpstring("IMTChargeWriter Interface"),
+		pointer_default(unique)
+	]
+	interface IMTChargeWriter : IDispatch
+	{
+    [id(1), helpstring("method Create")] HRESULT Create([in] IMTSessionContext* apCtxt, [in] IMTCharge* apCharge, [out, retval] long* apID);
+    [id(2), helpstring("method Update")] HRESULT Update([in] IMTSessionContext* apCtxt, [in] IMTCharge* apCharge);
+    [id(3), helpstring("method Remove")] HRESULT Remove([in] IMTSessionContext* apCtxt, [in] long aID);
+	};
+	[
+		object,
+		uuid(E0FE7498-6647-4A57-9E53-D0264ED178E5),
+		dual,
+		helpstring("IMTPredicateWriter Interface"),
+		pointer_default(unique)
+	]
+	interface IMTPredicateWriter : IDispatch
+	{
+		[id(1), helpstring("method Create")] HRESULT Create([in]IMTSessionContext* aCtx, [in]IMTCounterParameterPredicate* aPredicate, [out, retval]long* apID);
+	};
+	[
+		object,
+		uuid(C1E1E557-9D23-4414-A463-3929BB2753B8),
+		dual,
+		helpstring("IMTChargePropertyWriter Interface"),
+		pointer_default(unique)
+	]
+	interface IMTChargePropertyWriter : IDispatch
+	{
+    [id(1), helpstring("method Create")] HRESULT Create([in] IMTSessionContext* apCtxt, [in] IMTChargeProperty* apChargeProperty, [out, retval] long* apID);
+    [id(2), helpstring("method Update")] HRESULT Update([in] IMTSessionContext* apCtxt, [in] IMTChargeProperty* apChargeProperty);
+    [id(3), helpstring("method Remove")] HRESULT Remove([in] IMTSessionContext* apCtxt, [in] long aID);
+	};
+	[
+		object,
+		uuid(153586C8-B8ED-47E7-960A-085F8FA6D290),
+		dual,
+		helpstring("IMTChargePropertyReader Interface"),
+		pointer_default(unique)
+	]
+	interface IMTChargePropertyReader : IDispatch
+	{
+		[id(1), helpstring("method Load")] HRESULT Load([in] IMTSessionContext* apCtxt, [in] IMTSQLRowset* apRowset, [out, retval] IMTChargeProperty** apChargeProperty);
+		[id(2), helpstring("method Find")] HRESULT Find([in] IMTSessionContext* apCtxt, [in] long aChargeID, [out, retval] IMTChargeProperty** apChargeProperty);
+	};
+	[
+		object,
+		uuid(2FACDA39-52F7-419A-816A-A632367A5783),
+		dual,
+		helpstring("IMTCounterParamWriter Interface"),
+		pointer_default(unique)
+	]
+	interface IMTCounterParamWriter : IDispatch
+	{
+		[id(1), helpstring("method Create")] HRESULT Create([in] IMTSessionContext* apCtxt, [in]long aCounterParam,  [in]IMTCounterParameter* apParam,  [out, retval]long* aDBID);
+		[id(2), helpstring("method Update")] HRESULT Update([in] IMTSessionContext* apCtxt, [in]IMTCounterParameter* apParam);
+		[id(3), helpstring("method Remove")] HRESULT Remove([in] IMTSessionContext* apCtxt, [in]IMTCounterParameter* apParam);
+	};
+	
+[
+    uuid(4E66C84F-ED22-4955-803B-26FEB4851E62),
+    version(1.0),
+    helpstring("MTProductCatalogExec 1.0 Type Library")
+]
+
+library MTPRODUCTCATALOGEXECLib
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+
+    [
+        uuid(3A2E4857-0AFE-4A85-9CA0-D92DE889ACA1),
+        helpstring("MTProductOfferingReader Class")
+    ]
+    coclass MTProductOfferingReader
+    {
+        [default] interface IMTProductOfferingReader;
+    };
+  [
+    uuid(F6D0F836-15E6-4C01-B92C-13FE8A7AC148),
+    helpstring("MTProductOfferingWriter Class")
+  ]
+  coclass MTProductOfferingWriter
+  {
+    [default] interface IMTProductOfferingWriter;
+  };
+  [
+    uuid(1D415C1B-E213-43E6-AC61-BDF57F55FA64),
+    helpstring("MTPriceableItemReader Class")
+  ]
+  coclass MTPriceableItemReader
+  {
+    [default] interface IMTPriceableItemReader;
+  };
+  [
+    uuid(4F403087-DC7F-4B2C-82CC-0738B8A813D1),
+    helpstring("MTCounterTypeReader Class")
+  ]
+  coclass MTCounterTypeReader
+  {
+    [default] interface IMTCounterTypeReader;
+  };
+  [
+    uuid(0661E9AC-44F7-4455-873A-A90C899667E2),
+    helpstring("MTCounterReader Class")
+  ]
+  coclass MTCounterReader
+  {
+    [default] interface IMTCounterReader;
+  };
+  [
+    uuid(F821A165-1714-4FCA-8915-AD506CE188F3),
+    helpstring("MTCounterWriter Class")
+  ]
+  coclass MTCounterWriter
+  {
+    [default] interface IMTCounterWriter;
+  };
+  [
+    uuid(4AAC559D-D72E-4152-9C6A-06EA684190D0),
+    helpstring("MTCounterParamReader Class")
+  ]
+  coclass MTCounterParamReader
+  {
+    [default] interface IMTCounterParamReader;
+  };
+  [
+    uuid(4979D40B-E3F6-4DB0-8ABC-8C2988BE7E77),
+    helpstring("MTParamTableDefinitionReader Class")
+  ]
+  coclass MTParamTableDefinitionReader
+  {
+    [default] interface IMTParamTableDefinitionReader;
+  };
+  [
+    uuid(8389FDC7-9CC5-474A-95F7-B4F1CD62A46E),
+    helpstring("MTPCTimeSpanWriter Class")
+  ]
+  coclass MTPCTimeSpanWriter
+  {
+    [default] interface IMTPCTimeSpanWriter;
+  };
+  [
+    uuid(891E8C4F-8FF2-48D7-96DE-862FA2E3AFB8),
+    helpstring("MTPriceableItemTypeReader Class")
+  ]
+  coclass MTPriceableItemTypeReader
+  {
+    [default] interface IMTPriceableItemTypeReader;
+  };
+  [
+    uuid(A1AF719B-DA7E-43DC-A8CB-A34F56B9A863),
+    helpstring("MTPriceableItemTypeWriter Class")
+  ]
+  coclass MTPriceableItemTypeWriter
+  {
+    [default] interface IMTPriceableItemTypeWriter;
+  };
+  [
+    uuid(E6958248-6958-4B4B-AA9C-DA0C0992C4F1),
+    helpstring("MTRateScheduleWriter Class")
+  ]
+  coclass MTRateScheduleWriter
+  {
+    [default] interface IMTRateScheduleWriter;
+  };
+  [
+    uuid(B035C112-98D2-4E5C-9CC7-5728CE92913E),
+    helpstring("MTRuleSetWriter Class")
+  ]
+  coclass MTRuleSetWriter
+  {
+    [default] interface IMTRuleSetWriter;
+  };
+  [
+    uuid(4EC7CC29-2B4A-4096-AF69-3BC8F75E21B8),
+    helpstring("MTPriceableItemWriter Class")
+  ]
+  coclass MTPriceableItemWriter
+  {
+    [default] interface IMTPriceableItemWriter;
+  };
+  [
+    uuid(DB1166C0-7D69-4A07-B8BE-781753D298FD),
+    helpstring("MTRateScheduleReader Class")
+  ]
+  coclass MTRateScheduleReader
+  {
+    [default] interface IMTRateScheduleReader;
+  };
+  [
+    uuid(ED9E3F5E-3FE7-43D3-9076-21C0D6DEAB4A),
+    helpstring("MTCounterViewReader Class")
+  ]
+  coclass MTCounterViewReader
+  {
+    [default] interface IMTCounterViewReader;
+  };
+
+  [
+    uuid(9BC8ADF2-5F4E-4AD6-9EA3-B6D86DA94A27),
+    helpstring("MTRuleSetReader Class")
+  ]
+  coclass MTRuleSetReader
+  {
+    [default] interface IMTRuleSetReader;
+  };
+  [
+    uuid(CA127A9E-4472-4341-822C-00A0DD703787),
+    helpstring("MTPriceListReader Class")
+  ]
+  coclass MTPriceListReader
+  {
+    [default] interface IMTPriceListReader;
+  };
+  [
+    uuid(90148C3B-8028-4996-A427-CD414E82603F),
+    helpstring("MTPriceListWriter Class")
+  ]
+  coclass MTPriceListWriter
+  {
+    [default] interface IMTPriceListWriter;
+  };
+  [
+    uuid(5C2E9575-5EE3-4976-8C02-792F62743ECD),
+    helpstring("MTDiscountReader Class")
+  ]
+  coclass MTDiscountReader
+  {
+    [default] interface IMTDiscountReader;
+  };
+  
+  [
+    uuid(83D491FD-8543-42E0-87A4-623AE817C54B),
+    helpstring("MTDiscountWriter Class")
+  ]
+  coclass MTDiscountWriter
+  {
+    [default] interface IMTDiscountWriter;
+  };
+  [
+    uuid(F777694B-66D2-465D-9BDF-AD9475BF8832),
+    helpstring("MTAccountReader Class")
+  ]
+  coclass MTAccountReader
+  {
+    [default] interface IMTAccountReader;
+  };
+  [
+    uuid(6C644215-D321-45B3-8C75-F0C7EF7EC2A3),
+    helpstring("MTAccountWriter Class")
+  ]
+  coclass MTAccountWriter
+  {
+    [default] interface IMTAccountWriter;
+  };
+  [
+    uuid(5E1CC848-0F01-43BA-B911-5558BA6FCE8F),
+    helpstring("MTPriceListMappingReader Class")
+  ]
+  coclass MTPriceListMappingReader
+  {
+    [default] interface IMTPriceListMappingReader;
+  };
+
+  [
+    uuid(59236B10-ADB2-4B47-ABD3-D83D160562D2),
+    helpstring("MTSubscriptionReader Class")
+  ]
+  coclass MTSubscriptionReader
+  {
+    [default] interface IMTSubscriptionReader;
+  };
+  [
+    uuid(905783AB-090F-4C11-9D61-4B241CAE173B),
+    helpstring("MTSubscriptionWriter Class")
+  ]
+  coclass MTSubscriptionWriter
+  {
+    [default] interface IMTSubscriptionWriter;
+  };
+  [
+    uuid(118C61D9-654B-4FED-B3FC-E3BA458F2D38),
+    helpstring("MTNonRecurringChargeReader Class")
+  ]
+  coclass MTNonRecurringChargeReader
+  {
+    [default] interface IMTNonRecurringChargeReader;
+  };
+  [
+    uuid(86F7FC2F-19EB-41C9-A2DF-5660D1B71706),
+    helpstring("MTNonRecurringChargeWriter Class")
+  ]
+  coclass MTNonRecurringChargeWriter
+  {
+    [default] interface IMTNonRecurringChargeWriter;
+  };
+  [
+    uuid(7EDA51C2-DB3B-4FD0-9431-DA59F5D3F00F),
+    helpstring("MTPropertyMetaDataSetReader Class")
+  ]
+  coclass MTPropertyMetaDataSetReader
+  {
+    [default] interface IMTPropertyMetaDataSetReader;
+  };
+  [
+    uuid(53DD4A83-A4D3-409E-A3C6-7E47FA06D6AA),
+    helpstring("MTPriceListMappingWriter Class")
+  ]
+  coclass MTPriceListMappingWriter
+  {
+    [default] interface IMTPriceListMappingWriter;
+  };
+  [
+    uuid(6A3CD297-98A3-48AC-8BDB-A4607993774E),
+    helpstring("MTCounterPropertyDefinitionReader Class")
+  ]
+  coclass MTCounterPropertyDefinitionReader
+  {
+    [default] interface IMTCounterPropertyDefinitionReader;
+  };
+  [
+    uuid(8319B89C-72DB-4E5D-AF63-AACE578DF0D3),
+    helpstring("MTCounterPropertyDefinitionWriter Class")
+  ]
+  coclass MTCounterPropertyDefinitionWriter
+  {
+    [default] interface IMTCounterPropertyDefinitionWriter;
+  };
+  [
+    uuid(E67AAAA8-BBD3-460A-9893-A6DB5CFD95C4),
+    helpstring("MTAttributeMetaDataSetReader Class")
+  ]
+  coclass MTAttributeMetaDataSetReader
+  {
+    [default] interface IMTAttributeMetaDataSetReader;
+  };
+  [
+    uuid(97CAFE22-1F2D-4FE4-BDF5-6198A672054A),
+    helpstring("MTRecurringChargeReader Class")
+  ]
+  coclass MTRecurringChargeReader
+  {
+    [default] interface IMTRecurringChargeReader;
+  };
+  [
+    uuid(0FCFED89-9D1F-47BD-ADBB-31BEDB56F7D6),
+    helpstring("MTRecurringChargeWriter Class")
+  ]
+  coclass MTRecurringChargeWriter
+  {
+    [default] interface IMTRecurringChargeWriter;
+  };
+  [
+    uuid(C0A2970D-4E3A-4777-AE2B-50D5FA70B1A2),
+    helpstring("MTCounterMapReader Class")
+  ]
+  coclass MTCounterMapReader
+  {
+    [default] interface IMTCounterMapReader;
+  };
+  [
+    uuid(612ED44A-90C0-41B7-81AB-3B6BA6108E4F),
+    helpstring("MTCounterMapWriter Class")
+  ]
+  coclass MTCounterMapWriter
+  {
+    [default] interface IMTCounterMapWriter;
+  };
+  [
+    uuid(48846241-BB65-4EA9-A492-7ECA73B3B5FC),
+    helpstring("MTCounterTypeWriter Class")
+  ]
+  coclass MTCounterTypeWriter
+  {
+    [default] interface IMTCounterTypeWriter;
+  };
+  [
+    uuid(B94142AA-4808-4ED7-948F-415FCB40D67E),
+    helpstring("MTBasePropsWriter Class")
+  ]
+  coclass MTBasePropsWriter
+  {
+    [default] interface IMTBasePropsWriter;
+  };
+  [
+    uuid(28f11209-bd37-44a6-9b8e-9f1cdbfe388d),
+    helpstring("MTAggregateChargeReader Class")
+  ]
+  coclass MTAggregateChargeReader
+  {
+    [default] interface IMTAggregateChargeReader;
+  };
+  [
+    uuid(64f264fe-140e-4f1c-8a7a-4f379efaa5db),
+    helpstring("MTAggregateChargeWriter Class")
+  ]
+  coclass MTAggregateChargeWriter
+  {
+    [default] interface IMTAggregateChargeWriter;
+  };
+
+  [
+    uuid(5F50473F-1C99-4B90-BE79-745EEB2BE134),
+    helpstring("MTExtendedPropWriter Class")
+  ]
+  coclass MTExtendedPropWriter
+  {
+    [default] interface IMTExtendedPropWriter;
+  };
+  [
+    uuid(3805D77F-761A-4400-A7AF-0F7DB9D5F3CB),
+    helpstring("MTCalendarReader Class")
+  ]
+  coclass MTCalendarReader
+  {
+    [default] interface IMTCalendarReader;
+  };
+  [
+    uuid(A0447D1F-7A6C-4280-AB65-57F4B6996DD7),
+    helpstring("MTCalendarWriter Class")
+  ]
+  coclass MTCalendarWriter
+  {
+    [default] interface IMTCalendarWriter;
+  };
+  [
+    uuid(C3DF4923-37AC-4C35-9398-5AAADC9F5700),
+    helpstring("MTParamTableDefinitionWriter Class")
+  ]
+  coclass MTParamTableDefinitionWriter
+  {
+    [default] interface IMTParamTableDefinitionWriter;
+  };
+  [
+    uuid(7A230B32-CC78-4f98-B278-B199DDC94147),
+    helpstring("MTPCProductViewWriter Class")
+  ]
+  coclass MTProductViewWriter
+  {
+    [default] interface IMTProductViewWriter;
+  };
+  [
+    uuid(7D68F2C3-05C8-408B-911C-619403988237),
+    helpstring("MTDDLWriter Class")
+  ]
+  coclass MTDDLWriter
+  {
+    [default] interface IMTDDLWriter;
+  };
+	[
+		uuid(7D6DD04D-F22E-4B5B-AB0C-4778A426614E),
+		helpstring("MTChargeReader Class")
+	]
+	coclass MTChargeReader
+	{
+		[default] interface IMTChargeReader;
+	};
+	[
+		uuid(EA146CD9-9248-4C1C-A5FD-641092F7E06A),
+		helpstring("MTChargeWriter Class")
+	]
+	coclass MTChargeWriter
+	{
+		[default] interface IMTChargeWriter;
+	};
+	[
+		uuid(CD833669-4CB8-4888-91A3-57D5337EE677),
+		helpstring("MTPredicateWriter Class")
+	]
+	coclass MTPredicateWriter
+	{
+		[default] interface IMTPredicateWriter;
+	};
+	[
+		uuid(E885C46F-D86C-4D4E-88FD-8A9078C54E42),
+		helpstring("MTChargePropertyWriter Class")
+	]
+	coclass MTChargePropertyWriter
+	{
+		[default] interface IMTChargePropertyWriter;
+	};
+	[
+		uuid(40385407-FAD4-4A5C-BCB7-0718034A896D),
+		helpstring("MTChargePropertyReader Class")
+	]
+	coclass MTChargePropertyReader
+	{
+		[default] interface IMTChargePropertyReader;
+	};
+	[
+		uuid(B690CA9D-2142-4512-A34E-9F530F3A0953),
+		helpstring("MTCounterParamWriter Class")
+	]
+	coclass MTCounterParamWriter
+	{
+		[default] interface IMTCounterParamWriter;
+	};
+
+};

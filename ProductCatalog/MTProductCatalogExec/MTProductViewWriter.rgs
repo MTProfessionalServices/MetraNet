@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTPCProductViewWriter.1 = s 'MTPCProductViewWriter Class'
+	{
+		CLSID = s '{7A230B32-CC78-4f98-B278-B199DDC94147}'
+	}
+	Metratech.MTPCProductViewWriter = s 'MTPCProductViewWriter Class'
+	{
+		CLSID = s '{7A230B32-CC78-4f98-B278-B199DDC94147}'
+		CurVer = s 'Metratech.MTPCProductViewWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {7A230B32-CC78-4f98-B278-B199DDC94147} = s 'MTPCProductViewWriter Class'
+		{
+			ProgID = s 'Metratech.MTPCProductViewWriter.1'
+			VersionIndependentProgID = s 'Metratech.MTPCProductViewWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

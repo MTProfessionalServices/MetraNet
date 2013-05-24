@@ -1,0 +1,168 @@
+<PACKAGE><JOB Id="TestID" Debug="TRUE">
+
+<SCRIPT language="VBScript">
+
+Option explicit
+
+const OPERATOR_TYPE_NONE = 0
+const OPERATOR_TYPE_LIKE = 1
+const OPERATOR_TYPE_LIKE_W = 2
+const OPERATOR_TYPE_EQUAL = 3
+const OPERATOR_TYPE_NOT_EQUAL = 4
+const OPERATOR_TYPE_GREATER = 5
+const OPERATOR_TYPE_GREATER_EQUAL = 6
+const OPERATOR_TYPE_LESS = 7
+const OPERATOR_TYPE_LESS_EQUAL = 8
+
+
+const PCENTITY_TYPE_USAGE               = 10
+Const PCENTITY_TYPE_AGGREGATE_CHARGE    = 15
+Const PCENTITY_TYPE_RECURRING           = 20
+Const PCENTITY_TYPE_NON_RECURRING       = 30
+Const PCENTITY_TYPE_DISCOUNT            = 40
+Const PCENTITY_TYPE_PRODUCT_OFFERING    = 100
+Const PCENTITY_TYPE_PRICE_LIST_MAP      = 110
+Const PCENTITY_TYPE_SUBSCRIPTION        = 120
+Const PCENTITY_TYPE_RATE_SCHEDULE       = 130
+Const PCENTITY_TYPE_PARAM_TABLE_DEF     = 140
+Const PCENTITY_TYPE_PRICE_LIST          = 150
+Const PCENTITY_TYPE_TIME_SPAN           = 160
+Const PCENTITY_TYPE_COUNTER             = 170
+Const PCENTITY_TYPE_COUNTER_META_DATA   = 180
+Const PCENTITY_TYPE_COUNTER_PARAM       = 190
+Const PCENTITY_TYPE_CONDITION_META_DATA = 200
+Const PCENTITY_TYPE_ACTION_META_DATA    = 210
+Const PCENTITY_TYPE_CYCLE               = 220
+Const PCENTITY_TYPE_COUNTER_PROPERTY_DEF= 230
+Const PCENTITY_TYPE_CALENDAR            = 240
+
+
+
+Sub DumpPITypes
+    Dim pidump
+    Set pidump = CreateObject("DumpPC.PITypes")
+
+    Dim mtconfig
+    Set mtconfig = CreateObject("MetraTech.MTConfig.1")
+    dim propset
+    Set propset = mtconfig.NewConfiguration("xmlconfig")
+
+    Dim noFilter
+    pidump.Dump propset, noFilter
+
+    Dim buffer
+    buffer = propset.WriteToBuffer
+    wscript.echo buffer
+End Sub
+
+Sub DumpPITemplates
+    Dim templatedump
+    Set templatedump = CreateObject("DumpPC.PITemplates")
+
+    Dim mtconfig
+    Set mtconfig = CreateObject("MetraTech.MTConfig.1")
+    dim propset
+    Set propset = mtconfig.NewConfiguration("xmlconfig")
+
+'    Dim filter
+'    Set filter = CreateObject("MTSQLRowset.MTDataFilter")
+ '   filter.Add "Kind", OPERATOR_TYPE_EQUAL, PCENTITY_TYPE_USAGE
+
+    templatedump.Dump propset
+
+    Dim buffer
+    buffer = propset.WriteToBuffer
+    wscript.echo buffer
+End Sub
+
+
+Sub DumpProductOfferings
+    Dim podump
+    Set podump = CreateObject("DumpPC.ProductOfferings")
+
+    Dim mtconfig
+    Set mtconfig = CreateObject("MetraTech.MTConfig.1")
+    dim propset
+    Set propset = mtconfig.NewConfiguration("xmlconfig")
+
+'    Dim filter
+'    Set filter = CreateObject("MTSQLRowset.MTDataFilter")
+ '   filter.Add "Kind", OPERATOR_TYPE_EQUAL, PCENTITY_TYPE_USAGE
+
+    podump.Dump propset
+
+    Dim buffer
+    buffer = propset.WriteToBuffer
+    wscript.echo buffer
+End Sub
+
+Sub DumpPricelists
+    Dim pldump
+    Set pldump = CreateObject("DumpPC.Pricelists")
+
+    Dim mtconfig
+    Set mtconfig = CreateObject("MetraTech.MTConfig.1")
+    dim propset
+    Set propset = mtconfig.NewConfiguration("xmlconfig")
+
+'    Dim filter
+'    Set filter = CreateObject("MTSQLRowset.MTDataFilter")
+ '   filter.Add "Kind", OPERATOR_TYPE_EQUAL, PCENTITY_TYPE_USAGE
+
+    pldump.Dump propset
+
+    Dim buffer
+    buffer = propset.WriteToBuffer
+    wscript.echo buffer
+End Sub
+
+Sub DumpCounterTypes
+    Dim counterdump
+    Set counterdump = CreateObject("DumpPC.Counters")
+
+    Dim mtconfig
+    Set mtconfig = CreateObject("MetraTech.MTConfig.1")
+    dim propset
+    Set propset = mtconfig.NewConfiguration("xmlconfig")
+
+'    Dim filter
+'    Set filter = CreateObject("MTSQLRowset.MTDataFilter")
+ '   filter.Add "Kind", OPERATOR_TYPE_EQUAL, PCENTITY_TYPE_USAGE
+
+    counterdump.DumpTypes propset
+
+    Dim buffer
+    buffer = propset.WriteToBuffer
+    wscript.echo buffer
+End Sub
+
+Sub DumpCounters
+    Dim counterdump
+    Set counterdump = CreateObject("DumpPC.Counters")
+
+    Dim mtconfig
+    Set mtconfig = CreateObject("MetraTech.MTConfig.1")
+    dim propset
+    Set propset = mtconfig.NewConfiguration("xmlconfig")
+
+'    Dim filter
+'    Set filter = CreateObject("MTSQLRowset.MTDataFilter")
+ '   filter.Add "Kind", OPERATOR_TYPE_EQUAL, PCENTITY_TYPE_USAGE
+
+    counterdump.DumpCounters propset
+
+    Dim buffer
+    buffer = propset.WriteToBuffer
+    wscript.echo buffer
+End Sub
+
+
+
+'DumpPITemplates
+'DumpProductOfferings
+'DumpPITypes
+'DumpPricelists
+'DumpCounterTypes
+DumpCounters
+
+</SCRIPT></JOB></PACKAGE>

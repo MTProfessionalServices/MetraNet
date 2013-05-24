@@ -1,0 +1,86 @@
+// MTSubscriptionExec.idl : IDL source for MTSubscriptionExec
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTSubscriptionExec.tlb) and marshalling code.
+
+#include "mtxattr.h"
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "GenericCollectionInterfaces.idl";
+import "Rowset.idl";
+import "IMTProgress.idl";
+import "IMTAuth.idl";
+
+[
+	object,
+	uuid(E46BE740-B120-415F-A46E-0A635C96ABDE),
+	dual,
+	nonextensible,
+	helpstring("IMTSubscriptionCatalogWriter Interface"),
+	pointer_default(unique)
+]
+interface IMTSubscriptionCatalogWriter : IDispatch{
+    [id(1), helpstring("method SubscribeToGroups")] HRESULT SubscribeToGroups(
+    [in] IMTSessionContext* apCtx,
+    [in] IMTCollection* pCol,
+    [in] IMTProgress* pProgress,
+    [in] VARIANT_BOOL bUnsubscribeConflicting,
+    [out] VARIANT_BOOL* pDateModified,
+    [in] IMTSQLRowset* errorRs);
+    [id(2), helpstring("method SubscribeAccounts")] HRESULT SubscribeAccounts(
+    [in] IMTSessionContext* apCtx,
+    [in] IMTCollection* pCol,
+    [in] IMTProgress* pProgress,
+    [in] VARIANT_BOOL bUnsubscribeConflicting,
+    [out] VARIANT_BOOL* pDateModified,
+    [in] IMTSQLRowset* errorRs);
+    [id(3), helpstring("method UnsubscribeFromConflictingToGroup")] HRESULT UnsubscribeFromConflictingToGroup(
+    [in] IMTSessionContext* apCtx,
+    [in] IMTCollection* pCol,
+    [in] IMTProgress* pProgress,
+    [in] IMTSQLRowset* errorRs);
+    [id(4), helpstring("method UnsubscribeFromConflictingToIndividual")] HRESULT UnsubscribeFromConflictingToIndividual(
+    [in] IMTSessionContext* apCtx,
+    [in] IMTCollection* pCol,
+    [in] IMTProgress* pProgress,
+    [in] IMTSQLRowset* errorRs);
+};
+[
+	object,
+	uuid(7A7FECA1-A1E2-4031-9BCB-1514A41BAA00),
+	dual,
+	nonextensible,
+	helpstring("IMTSubscriptionCatalogReader Interface"),
+	pointer_default(unique)
+]
+interface IMTSubscriptionCatalogReader : IDispatch{
+};
+[
+	uuid(97846D11-99EA-4E97-8EBE-D67E53C68A3E),
+	version(1.0),
+	helpstring("MTSubscriptionExec 1.0 Type Library")
+]
+library MTSubscriptionExecLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(E4B73331-F4EE-4E43-BA55-7C1D76790D10),
+		custom(TLBATTR_TRANS_REQUIRED,0),
+		helpstring("MTSubscriptionCatalogWriter Class")
+	]
+	coclass MTSubscriptionCatalogWriter
+	{
+		[default] interface IMTSubscriptionCatalogWriter;
+	};
+	[
+		uuid(FC50DC69-3A13-4754-A5D1-ADCFDE064AFC),
+		custom(TLBATTR_TRANS_SUPPORTED,0),
+		helpstring("MTSubscriptionCatalogReader Class")
+	]
+	coclass MTSubscriptionCatalogReader
+	{
+		[default] interface IMTSubscriptionCatalogReader;
+	};
+};

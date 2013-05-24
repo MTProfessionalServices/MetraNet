@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTPropertyMetaDataSetReader.1 = s 'MTPropertyMetaDataSetReader Class'
+	{
+		CLSID = s '{7EDA51C2-DB3B-4FD0-9431-DA59F5D3F00F}'
+	}
+	Metratech.MTPropertyMetaDataSetReader = s 'MTPropertyMetaDataSetReader Class'
+	{
+		CLSID = s '{7EDA51C2-DB3B-4FD0-9431-DA59F5D3F00F}'
+		CurVer = s 'Metratech.MTPropertyMetaDataSetReader.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {7EDA51C2-DB3B-4FD0-9431-DA59F5D3F00F} = s 'MTPropertyMetaDataSetReader Class'
+		{
+			ProgID = s 'Metratech.MTPropertyMetaDataSetReader.1'
+			VersionIndependentProgID = s 'Metratech.MTPropertyMetaDataSetReader'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

@@ -1,0 +1,9 @@
+; Summation.def : Declares the module parameters.
+
+LIBRARY      "Summation.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

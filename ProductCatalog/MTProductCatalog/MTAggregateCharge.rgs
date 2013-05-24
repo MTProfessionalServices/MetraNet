@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTAggregateCharge.1 = s 'MTAggregateCharge Class'
+	{
+		CLSID = s '{9C09FC2B-20C5-4492-842C-AF2C0FB6B409}'
+	}
+	Metratech.MTAggregateCharge = s 'MTAggregateCharge Class'
+	{
+		CLSID = s '{9C09FC2B-20C5-4492-842C-AF2C0FB6B409}'
+		CurVer = s 'Metratech.MTAggregateCharge.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {9C09FC2B-20C5-4492-842C-AF2C0FB6B409} = s 'MTAggregateCharge Class'
+		{
+			ProgID = s 'Metratech.MTAggregateCharge.1'
+			VersionIndependentProgID = s 'Metratech.MTAggregateCharge'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{39F610B0-42DB-4D96-ADB8-4BA15DCCC763}'
+		}
+	}
+}

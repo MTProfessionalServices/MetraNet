@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTRecurringChargeAdapter.1 = s 'MTRecurringChargeAdapter Class'
+	{
+		CLSID = s '{0100E51F-24F7-4158-A1AB-4121906028E2}'
+	}
+	Metratech.MTRecurringChargeAdapter = s 'MTRecurringChargeAdapter Class'
+	{
+		CLSID = s '{0100E51F-24F7-4158-A1AB-4121906028E2}'
+		CurVer = s 'Metratech.MTRecurringChargeAdapter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {0100E51F-24F7-4158-A1AB-4121906028E2} = s 'MTRecurringChargeAdapter Class'
+		{
+			ProgID = s 'Metratech.MTRecurringChargeAdapter.1'
+			VersionIndependentProgID = s 'Metratech.MTRecurringChargeAdapter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{3C2BCCDF-8488-4367-A598-3F03440021A6}'
+		}
+	}
+}

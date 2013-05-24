@@ -1,0 +1,24 @@
+HKCR
+{
+	MetraPipeline.MTSession.1 = s 'MTSession Class'
+	{
+		CLSID = s '{C8757974-20E5-11D2-A1C1-006008C0E24A}'
+	}
+	MetraPipeline.MTSession = s 'MTSession Class'
+	{
+		CurVer = s 'MetraPipeline.MTSession.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {C8757974-20E5-11D2-A1C1-006008C0E24A} = s 'MTSession Class'
+		{
+			ProgID = s 'MetraPipeline.MTSession.1'
+			VersionIndependentProgID = s 'MetraPipeline.MTSession'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

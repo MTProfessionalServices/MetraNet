@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTCounterParamReader.1 = s 'MTCounterParamReader Class'
+	{
+		CLSID = s '{4AAC559D-D72E-4152-9C6A-06EA684190D0}'
+	}
+	Metratech.MTCounterParamReader = s 'MTCounterParamReader Class'
+	{
+		CLSID = s '{4AAC559D-D72E-4152-9C6A-06EA684190D0}'
+		CurVer = s 'Metratech.MTCounterParamReader.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {4AAC559D-D72E-4152-9C6A-06EA684190D0} = s 'MTCounterParamReader Class'
+		{
+			ProgID = s 'Metratech.MTCounterParamReader.1'
+			VersionIndependentProgID = s 'Metratech.MTCounterParamReader'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

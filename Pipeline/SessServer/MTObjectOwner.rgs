@@ -1,0 +1,24 @@
+HKCR
+{
+	MetraPipeline.MTObjectOwner.1 = s 'MTObjectOwner Class'
+	{
+		CLSID = s '{E3369E34-BF63-4118-B2BA-4D005C35632B}'
+	}
+	MetraPipeline.MTSession = s 'MTSession Class'
+	{
+		CurVer = s 'MetraPipeline.MTSession.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E3369E34-BF63-4118-B2BA-4D005C35632B} = s 'MTObjectOwner Class'
+		{
+			ProgID = s 'MetraPipeline.MTObjectOwner.1'
+			VersionIndependentProgID = s 'MetraPipeline.MTObjectOwner'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

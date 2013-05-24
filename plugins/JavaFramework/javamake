@@ -1,0 +1,31 @@
+# ----------------------------------------------------------------------------
+# Makefile for Java Plugin Framework
+# by Blount
+#
+# Use gnu make
+#
+# make -f javamake
+# 
+# ----------------------------------------------------------------------------
+
+JVCATTR = jvc.exe -nologo -x- -nomessage
+FILES = MTPipelineJavaPlugin
+
+DESTDIR = c:\winnt\java\trustlib\
+
+SRCS = $(addsuffix .java, $(FILES))
+OBJS = $(addprefix $(DESTDIR), $(addsuffix .class, $(FILES)))
+
+
+all: $(OBJS)
+
+jfiles.lst: f:\out\debug\include\MTPipelineLib.tlb
+	jactivex /d . /l jfiles.lst /javatlb f:\out\debug\include\MTPipelineLib.tlb
+	$(JVCATTR) -d $(DESTDIR) @jfiles.lst
+
+%.class: %.java jfiles.lst
+	$(JVCATTR) -d $(DESTDIR) $<
+
+clean:
+	del jfiles.lst
+

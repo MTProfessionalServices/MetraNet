@@ -1,0 +1,48 @@
+<xmlconfig>
+ <version ptype="INTEGER">1</version>
+ <!-- First processor configuration -->
+ <processor>
+  <name>Stage1</name>
+  <progid>MTPipeline.MTScriptPlugin.1</progid>
+
+  <inputs>
+    <input>
+      <argument>duration</argument>
+      <property>CallDuration</property>
+    </input>
+  </inputs>
+
+  <outputs>
+    <output>
+      <argument>cost</argument>
+      <property>CallCost</property>
+    </output>
+  </outputs>
+
+  <!-- Processor specific configuration data -->
+  <configdata>
+
+		<script_source>e:\development\pipeline\ScriptHost\MTRatingScriptSum.txt</script_source>
+		<script_type>VBScript</script_type>
+		<process_session_set>Y</process_session_set>
+
+		<script_configdata>
+
+			<init_charge_prop_name>Init_Charge</init_charge_prop_name>
+			<rate_prop_name>PerByte</rate_prop_name>
+			<duration_prop_name>TotalBytes</duration_prop_name>
+			<amount_prop_name>Amount</amount_prop_name>
+			<elapsed_time_prop_name>elapsedtime</elapsed_time_prop_name>
+
+			<rated_service_ID>7</rated_service_ID>
+
+			<sum_amount_service_ID>6</sum_amount_service_ID>
+
+			<sum_elapsed_time_service_ID>3</sum_elapsed_time_service_ID>
+
+		</script_configdata>
+
+  </configdata>
+
+ </processor>
+</xmlconfig>

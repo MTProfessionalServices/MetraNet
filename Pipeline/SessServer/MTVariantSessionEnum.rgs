@@ -1,0 +1,24 @@
+HKCR
+{
+	MetraPipeline.MTVariantSessionEnum.1 = s 'MTVariantSessionEnum Class'
+	{
+		CLSID = s '{5C8ADFFA-437E-11D2-A1C7-006008C0E24A}'
+	}
+	MetraPipeline.MTVariantSessionEnum = s 'MTVariantSessionEnum Class'
+	{
+		CurVer = s 'MetraPipeline.MTVariantSessionEnum.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {5C8ADFFA-437E-11D2-A1C7-006008C0E24A} = s 'MTVariantSessionEnum Class'
+		{
+			ProgID = s 'MetraPipeline.MTVariantSessionEnum.1'
+			VersionIndependentProgID = s 'MetraPipeline.MTVariantSessionEnum'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

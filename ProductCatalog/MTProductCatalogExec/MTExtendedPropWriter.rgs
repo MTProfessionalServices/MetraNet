@@ -1,0 +1,26 @@
+HKCR
+{
+	MTProductCatalogExec.MTExtendedPropWriter.1 = s 'MTExtendedPropWriter Class'
+	{
+		CLSID = s '{5F50473F-1C99-4B90-BE79-745EEB2BE134}'
+	}
+	MTProductCatalogExec.MTExtendedPropWriter = s 'MTExtendedPropWriter Class'
+	{
+		CLSID = s '{5F50473F-1C99-4B90-BE79-745EEB2BE134}'
+		CurVer = s 'Metratech.MTExtendedPropWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {5F50473F-1C99-4B90-BE79-745EEB2BE134} = s 'MTExtendedPropWriter Class'
+		{
+			ProgID = s 'MTProductCatalogExec.MTExtendedPropWriter.1'
+			VersionIndependentProgID = s 'Metratech.MTExtendedPropWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

@@ -1,0 +1,55 @@
+// ARPropagationExec.idl : IDL source for ARPropagationExec.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ARPropagationExec.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "MTPipelineLib.idl";
+
+	[
+		object,
+		uuid(B05C99BC-35E7-4DC9-BAE0-C32E712570C3),
+		dual,
+		helpstring("IARPropagationConfigState Interface"),
+		pointer_default(unique)
+	]
+	interface IARPropagationConfigState : IDispatch
+	{
+		[propget, id(1), helpstring("property Method")] HRESULT Method([out, retval] long *pVal);
+		[propput, id(1), helpstring("property Method")] HRESULT Method([in] long newVal);
+		[propget, id(2), helpstring("property ARConfigState")] HRESULT ARConfigState([out, retval] VARIANT *pVal);
+		[propput, id(2), helpstring("property ARConfigState")] HRESULT ARConfigState([in] VARIANT newVal);
+		[id(3), helpstring("method Configure")] HRESULT Configure([in] IDispatch * aSystemContext, [in] IMTConfigPropSet * aPropSet);
+		[id(4), helpstring("method SessionsToXmlDoc")] HRESULT SessionsToXmlDoc([in] IMTSessionSet * aSessions, [out, retval] BSTR* aXmlDoc);
+		[id(5), helpstring("method SessionsToExternalARXmlDoc")] HRESULT SessionsToExternalARXmlDoc([in] IMTSessionSet * aSessions,[in] BSTR aExternalNamespace, [out, retval] BSTR* aXmlDoc);
+	};
+
+[
+	uuid(C7267995-A2B4-4342-BD07-399AE6431BDE),
+	version(1.0),
+	helpstring("ARPropagationExec 1.0 Type Library")
+]
+library ARPROPAGATIONEXECLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(67AA2ABA-6E79-40C5-9F41-41D70FC082EE),
+		helpstring("ARPropagationWriter Class")
+	]
+	coclass ARPropagationWriter
+	{
+		[default] interface IMTPipelineExecutant;
+	};
+	[
+		uuid(E9255615-3E83-42F2-AE97-602DB8198B03),
+		helpstring("ARPropagationConfigState Class")
+	]
+	coclass ARPropagationConfigState
+	{
+		[default] interface IARPropagationConfigState;
+	};
+};

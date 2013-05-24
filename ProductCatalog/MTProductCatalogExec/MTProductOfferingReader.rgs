@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTProductOfferingReader.1 = s 'MTProductOfferingReader Class'
+	{
+		CLSID = s '{3A2E4857-0AFE-4A85-9CA0-D92DE889ACA1}'
+	}
+	Metratech.MTProductOfferingReader = s 'MTProductOfferingReader Class'
+	{
+		CLSID = s '{3A2E4857-0AFE-4A85-9CA0-D92DE889ACA1}'
+		CurVer = s 'Metratech.MTProductOfferingReader.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {3A2E4857-0AFE-4A85-9CA0-D92DE889ACA1} = s 'MTProductOfferingReader Class'
+		{
+			ProgID = s 'Metratech.MTProductOfferingReader.1'
+			VersionIndependentProgID = s 'Metratech.MTProductOfferingReader'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

@@ -1,0 +1,24 @@
+HKCR
+{
+	MetraPipeline.MTLog.1 = s 'MTLog Class'
+	{
+		CLSID = s '{372CB790-3EAF-11D2-A1C5-006008C0E24A}'
+	}
+	MetraPipeline.MTLog = s 'MTLog Class'
+	{
+		CurVer = s 'MetraPipeline.MTLog.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {372CB790-3EAF-11D2-A1C5-006008C0E24A} = s 'MTLog Class'
+		{
+			ProgID = s 'MetraPipeline.MTLog.1'
+			VersionIndependentProgID = s 'MetraPipeline.MTLog'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

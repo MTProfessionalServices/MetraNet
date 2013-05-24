@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTBasePropsWriter.1 = s 'MTBasePropsWriter Class'
+	{
+		CLSID = s '{B94142AA-4808-4ED7-948F-415FCB40D67E}'
+	}
+	Metratech.MTBasePropsWriter = s 'MTBasePropsWriter Class'
+	{
+		CLSID = s '{B94142AA-4808-4ED7-948F-415FCB40D67E}'
+		CurVer = s 'Metratech.MTBasePropsWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B94142AA-4808-4ED7-948F-415FCB40D67E} = s 'MTBasePropsWriter Class'
+		{
+			ProgID = s 'Metratech.MTBasePropsWriter.1'
+			VersionIndependentProgID = s 'Metratech.MTBasePropsWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

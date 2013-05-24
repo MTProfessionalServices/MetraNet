@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTPriceListReader.1 = s 'MTPriceListReader Class'
+	{
+		CLSID = s '{CA127A9E-4472-4341-822C-00A0DD703787}'
+	}
+	MetraTech.MTPriceListReader = s 'MTPriceListReader Class'
+	{
+		CLSID = s '{CA127A9E-4472-4341-822C-00A0DD703787}'
+		CurVer = s 'MetraTech.MTPriceListReader.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {CA127A9E-4472-4341-822C-00A0DD703787} = s 'MTPriceListReader Class'
+		{
+			ProgID = s 'MetraTech.MTPriceListReader.1'
+			VersionIndependentProgID = s 'MetraTech.MTPriceListReader'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

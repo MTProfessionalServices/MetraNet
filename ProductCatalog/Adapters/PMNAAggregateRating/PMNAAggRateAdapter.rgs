@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.PMNAAggRateAdapter.1 = s 'PMNAAggRateAdapter Class'
+	{
+		CLSID = s '{1789d0ce-6e2f-46db-b14d-1cfab85d4834}'
+	}
+	Metratech.PMNAAggRateAdapter = s 'PMNAAggRateAdapter Class'
+	{
+		CLSID = s '{1789d0ce-6e2f-46db-b14d-1cfab85d4834}'
+		CurVer = s 'Metratech.PMNAAggRateAdapter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1789d0ce-6e2f-46db-b14d-1cfab85d4834} = s 'PMNAAggRateAdapter Class'
+		{
+			ProgID = s 'Metratech.PMNAAggRateAdapter.1'
+			VersionIndependentProgID = s 'Metratech.PMNAAggRateAdapter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{da38c80f-e63e-4228-85f1-2b6746ddf6eb}'
+		}
+	}
+}

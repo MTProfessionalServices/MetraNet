@@ -1,0 +1,74 @@
+// RecurringChargeAdapter.idl : IDL source for RecurringChargeAdapter.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (RecurringChargeAdapter.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "rowsetinterfaces.idl";
+
+// import the usage cycle 
+import "IRecurringEventAdapter.idl";
+	[
+		object,
+		uuid(72EE87E4-2FD8-46F6-B735-33ED3C78A6FB),
+		dual,
+		helpstring("IMTRecurringChargeAdapter Interface"),
+		pointer_default(unique)
+	]
+	interface IMTRecurringChargeAdapter : IDispatch
+	{
+	};
+
+[
+	object,
+	uuid(B4E9B97D-321D-4A41-905D-1B3BD0E96721),
+	dual,
+	nonextensible,
+	helpstring("IMTChargeGenerator Interface"),
+	pointer_default(unique)
+]
+interface IMTChargeGenerator : IDispatch{
+	[id(1), helpstring("method GetArrearsCharges")] HRESULT GetArrearsCharges([in] long aPITypeID, [in] long aIntervalID, [in] long aBillingGroupID, [in] long aRunID, [in] BSTR aConfigPath, [out,retval] IMTSQLRowset** apCharges);
+	[id(2), helpstring("method GetAdvanceCharges")] HRESULT GetAdvanceCharges([in] long aPITypeID, [in] long aIntervalID, [in] long aBillingGroupID, [in] long aRunID, [in] BSTR aConfigPath, [out,retval] IMTSQLRowset** apCharges);
+	[id(3), helpstring("method GetArrearsChargesScript")] HRESULT GetArrearsChargesScript([in] long aPITypeID, [in] long aIntervalID, [in] long aBillingGroupID, [in] long aRunID, [in] BSTR aConfigPath, [out,retval] BSTR * apScript);
+	[id(4), helpstring("method GetAdvanceChargesScript")] HRESULT GetAdvanceChargesScript([in] long aPITypeID, [in] long aIntervalID, [in] long aBillingGroupID, [in] long aRunID, [in] BSTR aConfigPath, [out,retval] BSTR * apScript);
+};
+[
+	uuid(3C2BCCDF-8488-4367-A598-3F03440021A6),
+	version(1.0),
+	helpstring("RecurringChargeAdapter 1.0 Type Library")
+]
+library RECURRINGCHARGEADAPTERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(0100E51F-24F7-4158-A1AB-4121906028E2),
+		helpstring("MTRecurringChargeAdapter Class")
+	]
+	coclass MTRecurringChargeAdapter
+	{
+		// must implement the IMTDataExporter interface
+		interface IRecurringEventAdapter;
+	};
+	[
+		uuid(E95A124B-D521-4747-B5E1-6922000C3CF2),
+		helpstring("MTFlatChargeGenerator Class")
+	]
+	coclass MTFlatChargeGenerator
+	{
+		[default] interface IMTChargeGenerator;
+	};
+	[
+		uuid(D5F8EC2E-0829-453C-9A26-4AF9829D0136),
+		helpstring("MTUDChargeGenerator Class")
+	]
+	coclass MTUDChargeGenerator
+	{
+		[default] interface IMTChargeGenerator;
+	};
+};

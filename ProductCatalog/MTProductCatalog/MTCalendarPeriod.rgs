@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTCalendarPeriod.1 = s 'MTCalendarPeriod Class'
+	{
+		CLSID = s '{2c031c1b-671c-4df0-9cd4-f170fb1aaea9}'
+	}
+	Metratech.MTCalendarPeriod = s 'MTCalendarPeriod Class'
+	{
+		CLSID = s '{2c031c1b-671c-4df0-9cd4-f170fb1aaea9}'
+		CurVer = s 'Metratech.MTCalendarPeriod.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {2c031c1b-671c-4df0-9cd4-f170fb1aaea9} = s 'MTCalendarPeriod Class'
+		{
+			ProgID = s 'Metratech.MTCalendarPeriod.1'
+			VersionIndependentProgID = s 'Metratech.MTCalendarPeriod'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{39F610B0-42DB-4D96-ADB8-4BA15DCCC763}'
+		}
+	}
+}

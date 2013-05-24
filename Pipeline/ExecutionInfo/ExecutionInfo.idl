@@ -1,0 +1,44 @@
+// ExecutionInfo.idl : IDL source for ExecutionInfo.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ExecutionInfo.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTExecutionInfo.idl";
+
+
+	[
+		object,
+		uuid(B465AA70-EA45-11D3-A3FE-00C04F484788),
+		dual,
+		helpstring("Dummy interface"),
+		pointer_default(unique)
+	]
+	interface IDummy : IDispatch
+	{
+	};
+
+
+
+[
+	uuid(CE4382E3-DE71-11D3-A3FE-00C04F484788),
+	version(1.0),
+	helpstring("ExecutionInfo 1.0 Type Library")
+]
+library EXECUTIONINFOLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(CE4382F0-DE71-11D3-A3FE-00C04F484788),
+		helpstring("MTExecutionInfo Class")
+	]
+	coclass MTExecutionInfo
+	{
+		[default] interface IMTExecutionInfo;
+	};
+};

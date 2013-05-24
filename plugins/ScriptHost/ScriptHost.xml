@@ -1,0 +1,39 @@
+<xmlconfig>
+ <version ptype="INTEGER">1</version>
+ <!-- First processor configuration -->
+ <processor>
+  <name>Stage1</name>
+  <progid>MTPipeline.ScriptHostProc.1</progid>
+
+  <inputs>
+    <input>
+      <argument>duration</argument>
+      <property>CallDuration</property>
+    </input>
+  </inputs>
+
+  <outputs>
+    <output>
+      <argument>cost</argument>
+      <property>CallCost</property>
+    </output>
+  </outputs>
+
+  <!-- Processor specific configuration data -->
+  <configdata>
+
+		<script_source>e:\development\pipeline\ScriptHost\Script.txt</script_source>
+		<script_type>VBScript</script_type>
+		<process_session_set>N</process_session_set>
+
+		<script_configdata>
+
+			<prop_name>Product_ID</prop_name>
+			<prop_value>NEW_PRODUCT</prop_value>
+
+		</script_configdata>
+
+  </configdata>
+
+ </processor>
+</xmlconfig>

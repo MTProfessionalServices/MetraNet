@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTParamTableDefinitionWriter.1 = s 'MTParamTableDefinitionWriter Class'
+	{
+		CLSID = s '{C3DF4923-37AC-4C35-9398-5AAADC9F5700}'
+	}
+	Metratech.MTParamTableDefinitionWriter = s 'MTParamTableDefinitionWriter Class'
+	{
+		CLSID = s '{C3DF4923-37AC-4C35-9398-5AAADC9F5700}'
+		CurVer = s 'Metratech.MTParamTableDefinitionWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {C3DF4923-37AC-4C35-9398-5AAADC9F5700} = s 'MTParamTableDefinitionWriter Class'
+		{
+			ProgID = s 'Metratech.MTParamTableDefinitionWriter.1'
+			VersionIndependentProgID = s 'Metratech.MTParamTableDefinitionWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

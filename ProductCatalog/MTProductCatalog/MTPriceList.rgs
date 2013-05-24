@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTPriceList.1 = s 'MTPriceList Class'
+	{
+		CLSID = s '{FDC6EFA5-D765-478A-AE94-EA53409A2750}'
+	}
+	Metratech.MTPriceList = s 'MTPriceList Class'
+	{
+		CLSID = s '{FDC6EFA5-D765-478A-AE94-EA53409A2750}'
+		CurVer = s 'Metratech.MTPriceList.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {FDC6EFA5-D765-478A-AE94-EA53409A2750} = s 'MTPriceList Class'
+		{
+			ProgID = s 'Metratech.MTPriceList.1'
+			VersionIndependentProgID = s 'Metratech.MTPriceList'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{39F610B0-42DB-4D96-ADB8-4BA15DCCC763}'
+		}
+	}
+}

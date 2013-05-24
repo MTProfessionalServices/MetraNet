@@ -1,0 +1,67 @@
+// SysContext.idl : IDL source for SysContext.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (SysContext.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTSystemContext.idl";
+//import "MTNameID.idl";
+import "MTLog.idl";
+
+	[
+		object,
+		uuid(69d1c690-5ee4-11d2-a1c9-006008c0e24a),
+		dual,
+		helpstring("IDummy Interface"),
+		pointer_default(unique)
+	]
+	interface IDummy : IDispatch
+	{
+	};
+
+[
+	uuid(7b106340-5ee4-11d2-a1c9-006008c0e24a),
+	version(1.0),
+	helpstring("SysContext 1.0 Type Library")
+]
+library SYSCONTEXTLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//interface IMTNameID;
+
+	[
+		uuid(333AA8A0-3EAF-11D2-A1C5-006008C0E24A),
+		helpstring("MTSystemContext Class")
+	]
+	coclass MTSystemContext
+	{
+		//[default] interface IMTLog;
+		[default] interface IMTSystemContext;
+	};
+
+	[
+		uuid(372CB790-3EAF-11D2-A1C5-006008C0E24A),
+		helpstring("MTLog Class")
+	]
+	coclass MTLog
+	{
+		[default] interface IMTLog;
+	};
+
+
+#if 0
+	[
+		uuid(3B2F9590-3EAF-11D2-A1C5-006008C0E24A),
+		helpstring("MTNameID Class")
+	]
+	coclass MTNameID
+	{
+		[default] interface IMTNameID;
+	};
+#endif
+};

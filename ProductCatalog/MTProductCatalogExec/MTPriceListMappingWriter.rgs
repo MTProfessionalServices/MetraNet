@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTPriceListMappingWriter.1 = s 'MTPriceListMappingWriter Class'
+	{
+		CLSID = s '{53DD4A83-A4D3-409E-A3C6-7E47FA06D6AA}'
+	}
+	Metratech.MTPriceListMappingWriter = s 'MTPriceListMappingWriter Class'
+	{
+		CLSID = s '{53DD4A83-A4D3-409E-A3C6-7E47FA06D6AA}'
+		CurVer = s 'Metratech.MTPriceListMappingWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {53DD4A83-A4D3-409E-A3C6-7E47FA06D6AA} = s 'MTPriceListMappingWriter Class'
+		{
+			ProgID = s 'Metratech.MTPriceListMappingWriter.1'
+			VersionIndependentProgID = s 'Metratech.MTPriceListMappingWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4E66C84F-ED22-4955-803B-26FEB4851E62}'
+		}
+	}
+}

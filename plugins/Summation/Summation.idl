@@ -1,0 +1,63 @@
+/**************************************************************************
+ * @doc
+ *
+ * Copyright 1997-2000 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ *
+ * Created by: Chen He
+ *
+ * $Header$
+ ***************************************************************************/
+// Summation.idl : IDL source for Summation.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (Summation.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTPipelinePlugIn.idl";
+
+	[
+		object,
+		uuid(8FE534D2-B851-11D2-8110-006008C0E8B7),
+		dual,
+		helpstring("Dummy Interface"),
+		pointer_default(unique)
+	]
+	interface IDummy : IDispatch
+	{
+	};
+[
+	uuid(8FE534C5-B851-11D2-8110-006008C0E8B7),
+	version(1.0),
+	helpstring("Summation 1.0 Type Library")
+]
+library SUMMATIONLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(8FE534D3-B851-11D2-8110-006008C0E8B7),
+		helpstring("SummationProc Class")
+	]
+	coclass SummationProc
+	{
+		[default] interface IMTPipelinePlugIn;
+	};
+};

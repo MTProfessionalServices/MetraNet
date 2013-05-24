@@ -1,0 +1,190 @@
+'******************************************************************************
+'* @doc MTRatingScript.txt
+'*
+'* Copyright 1998 by MetraTech Corporation
+'* All rights reserved.
+'*
+'* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+'* NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+'* example, but not limitation, MetraTech Corporation MAKES NO
+'* REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+'* PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+'* DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS, 
+'* COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+'*
+'* Title to copyright in this software and any associated
+'* documentation shall at all times remain with MetraTech Corporation,
+'* and USER agrees to preserve the same. 
+'*
+'****************************************************************************
+
+'-- Symbol defination --
+Dim init_charge_prop_name
+Dim rate_prop_name
+Dim duration_prop_name
+Dim amount_prop_name
+Dim elapsed_time_prop_name
+Dim	rated_service_ID
+Dim	sum_amount_service_ID
+Dim	sum_elapsed_time_service_ID
+
+'-- Main routine --
+
+
+'-- end of main routine --
+
+'------------------------------------------------------------------------
+'
+'	OnIntialize - Processor initialization
+'
+'------------------------------------------------------------------------
+sub MTPipeline_OnInitialize(ByVal ConfigPropSet)
+
+	Dim MTProp
+
+	set MTProp = ConfigPropSet.NextWithName("init_charge_prop_name")
+	init_charge_prop_name = MTProp.ValueAsString
+	Set MTProp = Nothing
+
+	Set MTProp = ConfigPropSet.NextWithName("rate_prop_name")
+	rate_prop_name = MTProp.ValueAsString
+	Set MTProp = Nothing
+
+	Set MTProp = ConfigPropSet.NextWithName("duration_prop_name")
+	duration_prop_name = MTProp.ValueAsString
+	Set MTProp = Nothing
+
+	Set MTProp = ConfigPropSet.NextWithName("amount_prop_name")
+	amount_prop_name = MTProp.ValueAsString
+	Set MTProp = Nothing
+
+	Set MTProp = ConfigPropSet.NextWithName("elapsed_time_prop_name")
+	elapsed_time_prop_name = MTProp.ValueAsString
+	Set MTProp = Nothing
+
+	Set MTProp = ConfigPropSet.NextWithName("rated_service_ID")
+	rated_service_ID = MTProp.ValueAsString
+	Set MTProp = Nothing
+
+	Set MTProp = ConfigPropSet.NextWithName("sum_amount_service_ID")
+	sum_amount_service_ID = MTProp.ValueAsString
+	Set MTProp = Nothing
+
+	Set MTProp = ConfigPropSet.NextWithName("sum_elapsed_time_service_id")
+	sum_elapsed_time_service_ID = MTProp.ValueAsString
+	Set MTProp = Nothing
+end sub
+
+'------------------------------------------------------------------------
+'
+'	OnProcSession - Process single session
+'
+'------------------------------------------------------------------------
+sub MTPipeline_OnProcSession(ByVal Session)
+
+	Dim id
+	Dim initChargeVal, rateVal, durationVal, amountVal
+	Dim sessSet
+
+	initChargeVal = 0
+	rateVal = 0
+	durationVal = 0
+	amountVal = 0
+
+	if Session.ServiceID = rated_service_ID then
+
+		'-- Get initial charge value --
+		'id = MTSystemContext.GetNameID(init_charge_prop_name)
+		'initChargeVal = Session.GetDoubleProperty(id)
+
+		'-- Get rate value --
+		id = MTSystemContext.GetNameID(rate_prop_name)
+		rateVal = Session.GetDoubleProperty(id)
+
+		'-- Get call duration value --
+		id = MTSystemContext.GetNameID(duration_prop_name)
+		durationVal = Session.GetLongProperty(id)
+
+		'-- Get result amount property id --
+		id = MTSystemContext.GetNameID(amount_prop_name)
+
+		'-- Calculate the final amount --
+		amountVal = (durationVal * rateVal) + initChargeVal
+
+		'-- Set the result into session object --
+		Session.SetDoubleProperty id, amountVal
+
+	elseif Session.ServiceID = sum_amount_service_ID then
+
+		set sessSet = Session.SessionChildren
+		totalVal = SumAmount(sessSet)
+		'-- Get result amount property id --
+		id = MTSystemContext.GetNameID(amount_prop_name)
+		Session.SetDoubleProperty id, totalVal
+
+	elseif Session.ServiceID = sum_elapsed_time_service_ID then
+
+		set sessSet = Session.SessionChildren
+		totalVal = SumETime(sessSet)
+		'-- Get result amount property id --
+		id = MTSystemContext.GetNameID(elapsed_time_prop_name)
+		Session.SetDoubleProperty id, totalVal
+
+	end if
+
+end sub
+
+'------------------------------------------------------------------------
+'
+'	OnProcSessionSet - Process session set
+'
+'------------------------------------------------------------------------
+sub MTPipeline_OnProcSessionSet(ByVal sessionSet)
+
+	Dim mysess
+
+	'-- Go through each session --
+	for each mysess in sessionSet
+
+		MTPipeline_OnProcSession mysess
+
+	next
+
+end sub
+
+'------------------------ customized routines ---------------------------
+Function SumAmount(ByVal SessionSet)
+	Dim result
+	Dim mysess
+	Dim lId
+
+	result = 0
+
+	lId = MTSystemContext.GetNameID(amount_prop_name)
+	'-- Go through each session --
+	for each mysess in SessionSet
+
+		result = result + mysess.GetLongProperty(lId)
+
+	next
+
+	SumAmount = result
+end Function
+
+Function SumETime(ByVal SessionSet)
+	Dim result
+	Dim mysess
+	Dim lId
+
+	result = 0
+
+	lId = MTSystemContext.GetNameID(elapsed_time_prop_name)
+	'-- Go through each session --
+	for each mysess in SessionSet
+
+		result = result + mysess.GetLongProperty(lId)
+
+	next
+
+	SumETime = result
+end Function

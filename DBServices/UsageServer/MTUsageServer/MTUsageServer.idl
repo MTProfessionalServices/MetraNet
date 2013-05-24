@@ -1,0 +1,272 @@
+// MTUsageServer.idl : IDL source for MTUsageServer.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTUsageServer.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "rowsetinterfaces.idl";
+
+typedef enum 
+{
+  __EVENT_BEGIN = -1, // begin guard
+  EVENT_PERIOD_BEGIN = 0,
+  EVENT_PERIOD_SOFT_CLOSE = 1,
+  EVENT_PERIOD_HARD_CLOSE = 2,
+  EVENT_PERIOD_ALL = 3,
+  __EVENT_END = 4, // end guard
+} MTRecurringEvent ;
+
+typedef enum 
+{
+  __INTERVAL_STATE_BEGIN = -1, // begin guard
+  INTERVAL_STATE_NEW = 0,
+  INTERVAL_STATE_OPEN = 1,
+  INTERVAL_STATE_PENDING_SOFT_CLOSE = 2,
+  INTERVAL_STATE_SOFT_CLOSE = 3,
+  INTERVAL_STATE_PENDING_HARD_CLOSE = 4,
+  INTERVAL_STATE_HARD_CLOSE = 5,
+  __INTERVAL_STATE_END = 6, // end guard
+} MTUsageIntervalState ;
+
+interface ICOMUsageCyclePropertyColl ;
+
+	[
+		object,
+		uuid(E54B8B2A-A953-11D2-B629-00104B2B980B),
+		dual,
+		helpstring("ICOMUsageInterval Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMUsageInterval : IDispatch
+	{
+		[propget, id(1), helpstring("property Exists")] HRESULT Exists([out, retval] VARIANT *pVal);
+		[id(2), helpstring("method Create")] HRESULT Create();
+		[id(3), helpstring("method AddAccount")] HRESULT AddAccount([in] long aAccountID);
+		[id(4), helpstring("method Init")] HRESULT Init([in] BSTR apStartDate, [in] BSTR apEndDate);
+		[propget, id(5), helpstring("property AccountExists")] HRESULT AccountExists([in] long aAccountID, [out, retval] VARIANT *pVal);
+	};
+	[
+		object,
+		uuid(E54B8B2B-A953-11D2-B629-00104B2B980B),
+		dual,
+		helpstring("ICOMUsageIntervalColl Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMUsageIntervalColl : IMTRowSet
+	{
+		[id(50), helpstring("method Init")] HRESULT Init([in] BSTR aStatus);
+		[propget, id(51), helpstring("property Status")] HRESULT Status([out, retval] BSTR *pVal);
+		[propput, id(51), helpstring("property Status")] HRESULT Status([in] BSTR newVal);
+		[id(52), helpstring("method GetAccountUsageMap")] HRESULT GetAccountUsageMap([out,retval] LPDISPATCH *pAccountUsageMap);
+		[propget, id(53), helpstring("method Expired")] HRESULT Expired([in] VARIANT aDate, [out,retval] VARIANT *pVal);
+		[id(54), helpstring("method InitByStateAndPeriodType")] HRESULT InitByStateAndPeriodType([in] BSTR aState, [in] BSTR aPeriodType);
+		[propget, id(55), helpstring("method Closed")] HRESULT Closed([in] VARIANT aDate, [out,retval] VARIANT *pVal);
+		[id(56), helpstring("method ExportByTimePeriod")] HRESULT ExportByTimePeriod([in] BSTR aExportMethod, [in] VARIANT aStartDate, [in] VARIANT aEndDate);
+	};
+	[
+		object,
+		uuid(E54B8B2C-A953-11D2-B629-00104B2B980B),
+		dual,
+		helpstring("ICOMAccountUsageMap Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMAccountUsageMap : IMTRowSet
+	{
+		[propget, id(50), helpstring("property Status")] HRESULT Status([out, retval] BSTR *pVal);
+		[propput, id(50), helpstring("property Status")] HRESULT Status([in] BSTR newVal);
+		[id(51), helpstring("method InitByAccountID")] HRESULT InitByAccountID([in] long aAccountID);
+		[id(52), helpstring("method InitByIntervalID")] HRESULT InitByIntervalID([in] long aIntervalID);
+	};
+	[
+		object,
+		uuid(E54B8B2D-A953-11D2-B629-00104B2B980B),
+		dual,
+		helpstring("ICOMUsageCycle Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMUsageCycle : IDispatch
+	{
+		[id(1), helpstring("method Init")] HRESULT Init([in] long aCycleType, [in] ICOMUsageCyclePropertyColl *apPropColl);
+		[id(2), helpstring("method AddAccount")] HRESULT AddAccount([in] BSTR apStartDate, [in] BSTR apEndDate, [in] long aAccountID, [in] LPDISPATCH pRowset);
+		[id(3), helpstring("method CreateInterval")] HRESULT CreateInterval([in] BSTR apStartDate, [in] BSTR apEndDate);
+		[id(4), helpstring("method UpdateAccount")] HRESULT UpdateAccount([in] BSTR apStartDate, [in] BSTR apEndDate, [in] long aAccountID, [in] VARIANT aDate);
+	};
+	[
+		object,
+		uuid(E54B8B2E-A953-11D2-B629-00104B2B980B),
+		dual,
+		helpstring("ICOMUsageCycleTypes Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMUsageCycleTypes : IMTRowSet
+	{
+		[id(50), helpstring("method AddAccount")] HRESULT AddAccount([in] long AccountID, [in] ICOMUsageCyclePropertyColl *apPropColl, [in] LPDISPATCH pRowset);
+		[id(51), helpstring("method Init")] HRESULT Init();
+		[id(52), helpstring("method UpdateAccount")] HRESULT UpdateAccount([in] long AccountID, [in] ICOMUsageCyclePropertyColl *apPropColl);
+		[id(53), helpstring("method AccountNeedsUpdate")]
+		HRESULT AccountNeedsUpdate([in] long AccountID,
+					   [in] ICOMUsageCyclePropertyColl *apPropColl,
+					   [out, retval] VARIANT_BOOL * apNeedsUpdate);
+	};
+	[
+		object,
+		uuid(E54B8B2F-A953-11D2-B629-00104B2B980B),
+		dual,
+		helpstring("ICOMUsageServer Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMUsageServer : IDispatch
+	{
+		[id(1), helpstring("method GetUsageIntervals")] HRESULT GetUsageIntervals([in] BSTR aStatus, [out,retval] LPDISPATCH *apUsageIntervals);
+		[id(3), helpstring("method GetUsageCycles")] HRESULT GetUsageCycles([out,retval] LPDISPATCH *apUsageCycles);
+		[id(4), helpstring("method GetUsageCycleTypes")] HRESULT GetUsageCycleTypes([out,retval] LPDISPATCH *apUsageCycleTypes);
+		[id(5), helpstring("method GetAccountUsageMap")] HRESULT GetAccountUsageMap([in] long aAccountID, [out,retval] LPDISPATCH *apAccountUsageMap);
+		[id(6), helpstring("method DoRecurringEvents")] HRESULT DoRecurringEvent([in] BSTR aUsageCyclePeriodType, [in] MTRecurringEvent aEvent);
+    [id(7), helpstring("method RerunRecurringEvent")] HRESULT RerunRecurringEvent([in] long aRunID, [in] VARIANT_BOOL aFullRun);
+    [id(8), helpstring("method AddPCIntervals")] HRESULT AddPCIntervals([in] DATE aStart, [in] DATE aEnd);
+		[id(9), helpstring("method SetUsageIntervalState")] HRESULT SetUsageIntervalState([in] long aIntervalID, [in] MTUsageIntervalState aNewState);
+		[id(10), helpstring("method InvokeAdapterForInterval")] HRESULT InvokeAdapterForInterval(BSTR aProgId, BSTR aDisplayName, long aIntervalID, BSTR aConfigFile);
+	};
+	[
+		object,
+		uuid(5CB5FC93-EA06-11D2-B652-00104B2B980B),
+		dual,
+		helpstring("ICOMUsageCycleColl Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMUsageCycleColl : IMTRowSet
+	{
+		[id(50), helpstring("method Init")] HRESULT Init();
+		[id(51), helpstring("method CreateInterval")] HRESULT CreateInterval([in] VARIANT aDate);
+	};
+	[
+		object,
+		uuid(8C900333-7E82-11D4-9E61-00C04F46EB1E),
+		dual,
+		helpstring("ICOMUsageCyclePropertyColl Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMUsageCyclePropertyColl : IDispatch
+	{
+		[id(1), helpstring("method AddProperty")] HRESULT AddProperty([in] BSTR aName, [in]VARIANT aValue);
+    [id(2), helpstring("method GetProperty")] HRESULT GetProperty([in] BSTR aName, [out,retval]VARIANT *apValue);
+    [id(3), helpstring("method ModifyProperty")] HRESULT ModifyProperty([in] BSTR aName, [in]VARIANT aValue);
+	};
+	[
+		object,
+		uuid(2EB6EA73-9809-4A60-B50E-3276FBF00F62),
+		dual,
+		helpstring("IMTUsageServerMaintenance Interface"),
+		pointer_default(unique)
+	]
+	interface IMTUsageServerMaintenance : IDispatch
+	{
+		[id(1), helpstring("method RunRecurringEvents")] HRESULT RunRecurringEvents();
+		[id(3), helpstring("method CloseIntervals")] HRESULT CloseIntervals([in] VARIANT aExpirationDate, [in] int aSoftGracePeriod, [in] int aHardGracePeriod );
+		[id(4), helpstring("method RunSpecificRecurringEvent")] HRESULT RunSpecificRecurringEvent([in] MTRecurringEvent aEvent);
+	};
+	[
+		object,
+		uuid(1483C118-5EAC-4E6D-9313-E5566E4D2E5D),
+		dual,
+		helpstring("IMTEventRunStatus Interface"),
+		pointer_default(unique)
+	]
+	interface IMTEventRunStatus : IDispatch
+	{
+		[id(1), helpstring("method Start")] HRESULT Start([in] long aIntervalId, [in] BSTR aName, [in] BSTR aProgId, [in] BSTR aConfigFile, [out, retval] long * apRunId);
+		[id(2), helpstring("method End")] HRESULT End([in] long aRunId, [in] long aStatus, [in] BSTR aStatusMessage);
+	};
+[
+	uuid(E54B8B1B-A953-11D2-B629-00104B2B980B),
+	version(1.0),
+	helpstring("MTUsageServer 1.0 Type Library")
+]
+library MTUSAGESERVERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(040A3612-465D-11D2-B5FB-00104B2B980B),
+		helpstring("COMUsageInterval Class")
+	]
+	coclass COMUsageInterval
+	{
+		[default] interface ICOMUsageInterval;
+	};
+	[
+		uuid(AE2B61D4-A569-11D2-B625-00104B2B980B),
+		helpstring("COMUsageIntervalColl Class")
+	]
+	coclass COMUsageIntervalColl
+	{
+		[default] interface ICOMUsageIntervalColl;
+	};
+	[
+		uuid(2AE44E08-7FB1-11D2-B60A-00104B2B980B),
+		helpstring("COMAccountUsageMap Class")
+	]
+	coclass COMAccountUsageMap
+	{
+		[default] interface ICOMAccountUsageMap;
+	};
+	[
+		uuid(237A5741-A63B-11D2-B627-00104B2B980B),
+		helpstring("COMUsageCycle Class")
+	]
+	coclass COMUsageCycle
+	{
+		[default] interface ICOMUsageCycle;
+	};
+	[
+		uuid(E54B8B08-A953-11D2-B629-00104B2B980B),
+		helpstring("COMUsageCycleTypes Class")
+	]
+	coclass COMUsageCycleTypes
+	{
+		[default] interface ICOMUsageCycleTypes;
+	};
+	[
+		uuid(E54B8B00-A953-11D2-B629-00104B2B980B),
+		helpstring("COMUsageServer Class")
+	]
+	coclass COMUsageServer
+	{
+		[default] interface ICOMUsageServer;
+	};
+	[
+		uuid(5CB5FC94-EA06-11D2-B652-00104B2B980B),
+		helpstring("COMUsageCycleColl Class")
+	]
+	coclass COMUsageCycleColl
+	{
+		[default] interface ICOMUsageCycleColl;
+	};
+	[
+		uuid(8C900334-7E82-11D4-9E61-00C04F46EB1E),
+		helpstring("COMUsageCyclePropertyColl Class")
+	]
+	coclass COMUsageCyclePropertyColl
+	{
+		[default] interface ICOMUsageCyclePropertyColl;
+	};
+	[
+		uuid(08ECB9D6-0CE5-41F0-BFE4-99E75566FA01),
+		helpstring("MTUsageServerMaintenance Class")
+	]
+	coclass MTUsageServerMaintenance
+	{
+		[default] interface IMTUsageServerMaintenance;
+	};
+	[
+		uuid(778EC3BC-F969-4ED7-AAB0-CB3EEF8EAD4D),
+		helpstring("MTEventRunStatus Class")
+	]
+	coclass MTEventRunStatus
+	{
+		[default] interface IMTEventRunStatus;
+	};
+};

@@ -1,0 +1,94 @@
+// ModuleReader.idl : IDL source for ModuleReader.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ModuleReader.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTConfig.idl";
+import "PropValType.idl";
+
+// forward declarations
+interface IMTModuleDescriptor;
+
+	[
+		object,
+		uuid(7166B50E-EC2E-11D2-A596-00C04F579C39),
+		dual,
+		helpstring("IMTModule Interface"),
+		pointer_default(unique)
+	]
+	interface IMTModule : IDispatch
+	{
+		[propget, id(1), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property Name")] HRESULT Name([in] BSTR Val);
+		[propget, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[id(3), helpstring("method GetSubModule")] HRESULT GetSubModule([in] BSTR aName, [out, retval] IMTModule** ppSubMod);
+		[propget, id(4), helpstring("property ConfigFile")] HRESULT ConfigFile([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property ConfigFile")] HRESULT ConfigFile([in] BSTR pVal);
+		[propget, id(5), helpstring("property ModuleSpecificInfo")] HRESULT ModuleSpecificInfo([out, retval] IMTConfigPropSet** pPropset);
+		[propput, id(5), helpstring("property ModuleSpecificInfo")] HRESULT ModuleSpecificInfo([in] IMTConfigPropSet* pPropset);
+		[id(6), helpstring("method Read")] HRESULT Read();
+		[id(7), helpstring("method ReadSet")] HRESULT ReadSet([in] IMTConfigPropSet* pSet);
+		[id(8), helpstring("method Write")] HRESULT Write();
+		[id(9), helpstring("method WriteSet")] HRESULT WriteSet([in] IMTConfigPropSet* pSet);
+		[propput, id(10), helpstring("property ModDescriptor")] HRESULT ModDescriptor([in] IMTModuleDescriptor* newVal);
+		[id(11), helpstring("method GetSubModuleByIndex")] HRESULT GetSubModuleByIndex([in] long aIndex,[out,retval] IMTModule** ppMod);
+		[propget, id(12), helpstring("property ModuleDataFileName")] HRESULT ModuleDataFileName([out, retval] BSTR *pVal);
+		[propput, id(12), helpstring("property ModuleDataFileName")] HRESULT ModuleDataFileName([in] BSTR newVal);
+		[propget, id(13), helpstring("property RemoteHost")] HRESULT RemoteHost([out, retval] BSTR* pVal);
+		[propput, id(13), helpstring("property RemoteHost")] HRESULT RemoteHost([in] BSTR newVal);
+		[propget, id(14), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[propget, id(15), helpstring("property ModuleDataPath")] HRESULT ModuleDataPath([out, retval] BSTR* pVal);
+		[propput, id(15), helpstring("property ModuleDataPath")] HRESULT ModuleDataPath([in] BSTR newVal);
+		[propget, id(16), helpstring("property AbsolutePath")] HRESULT AbsolutePath([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(16), helpstring("property AbsolutePath")] HRESULT AbsolutePath([in] VARIANT_BOOL newVal);
+		[id(17), helpstring("method RemoveAllSubModules")] HRESULT RemoveAllSubModules();
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item([in] long aIndex, [out, retval] VARIANT *pVal);
+	};
+	[
+		object,
+		uuid(7166B510-EC2E-11D2-A596-00C04F579C39),
+		dual,
+		helpstring("IMTSubModule Interface"),
+		pointer_default(unique)
+	]
+	interface IMTModuleDescriptor : IDispatch
+	{
+		[id(3), helpstring("method IsSubDir")] HRESULT IsSubDir([out] VARIANT_BOOL* pBool);
+		[propget, id(5), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(5), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		[propget, id(6), helpstring("property OrgType")] HRESULT OrgType([out, retval] BSTR *pVal);
+		[propput, id(6), helpstring("property OrgType")] HRESULT OrgType([in] BSTR newVal);
+		[propget, id(7), helpstring("property ModConfigInfo")] HRESULT ModConfigInfo([out, retval] IMTModule** pVal);
+		[propput, id(7), helpstring("property ModConfigInfo")] HRESULT ModConfigInfo([in] IMTModule* newVal);
+	};
+[
+	uuid(7166B501-EC2E-11D2-A596-00C04F579C39),
+	version(1.0),
+	helpstring("ModuleReader 1.0 Type Library")
+]
+library MODULEREADERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(7166B50F-EC2E-11D2-A596-00C04F579C39),
+		helpstring("MTModule Class")
+	]
+	coclass MTModule
+	{
+		[default] interface IMTModule;
+	};
+	[
+		uuid(7166B511-EC2E-11D2-A596-00C04F579C39),
+		helpstring("MTSubModule Class")
+	]
+	coclass MTModuleDescriptor
+	{
+		[default] interface IMTModuleDescriptor;
+	};
+};

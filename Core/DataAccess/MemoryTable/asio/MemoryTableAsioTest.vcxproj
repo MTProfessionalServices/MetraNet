@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{bd8d8255-f56a-4850-a2f4-9dad2d5aa801}</ProjectGuid>
+    <RootNamespace>MemoryTableAsioTest</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>True</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>False</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(MTOUTDIR)\$(Configuration)\Bin\</OutDir>
+    <GenerateManifest>false</GenerateManifest>
+	<LinkIncremental>false</LinkIncremental>
+    <IntDir>$(MTOUTDIR)\$(Configuration)\Core\DataAccess\MemoryTable\asio\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <CLCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ROOTDIR)\Core\DataAccess\MemoryTable\asio\..;$(ROOTDIR)\Core\DataAccess\MTODBC;$(ROOTDIR)\Core\Configuration\MTEnumConfig;$(MTOUTDIR)\$(CONFIGURATION)\Core\Configuration\MTEnumConfig;$(ROOTDIR)\Thirdparty\asio-0.3.7\include;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1\boost;$(ROOTDIR)\Shared\MetraTime;$(MTOUTDIR)\$(CONFIGURATION)\Shared\MetraTime;$(ROOTDIR)\Core\DataAccess\MemoryTable\asio;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\MemoryTable\asio;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;RWDEBUG;WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_WIN32_WINNT=0x501;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;;UNICODE;_UNICODE;</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
+      <DisableSpecificWarnings>4995;4335;</DisableSpecificWarnings>
+      <StringPooling>true</StringPooling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalOptions>/bigobj /c /MDd </AdditionalOptions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+    </CLCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>kernel32.lib;user32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;libboost_serialization-vc100-mt-gd-1_43.lib;libboost_date_time-vc100-mt-gd-1_43.lib;libboost_filesystem-vc100-mt-gd-1_43.lib;libboost_regex-vc100-mt-gd-1_43.lib;libboost_wserialization-vc100-mt-gd-1_43.lib;libboost_test_exec_monitor-vc100-mt-gd-1_43.lib;libboost_unit_test_framework-vc100-mt-gd-1_43.lib;libboost_system-vc100-mt-gd-1_43.lib;</AdditionalDependencies>
+      <EnableUAC>false</EnableUAC>
+      <ProfileGuidedDatabase>
+      </ProfileGuidedDatabase>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalOptions>/subsystem:console </AdditionalOptions>
+      <AdditionalLibraryDirectories>$(MTOUTDIR)\$(Configuration)\lib;</AdditionalLibraryDirectories>
+      <LargeAddressAware>true</LargeAddressAware>
+    </Link>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(MTOUTDIR)\$(Configuration)\Bin\</OutDir>
+    <GenerateManifest>false</GenerateManifest>
+    <IntDir>$(MTOUTDIR)\$(Configuration)\Core\DataAccess\MemoryTable\asio\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <CLCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>$(ROOTDIR)\Core\DataAccess\MemoryTable\asio\..;$(ROOTDIR)\Core\DataAccess\MTODBC;$(ROOTDIR)\Core\Configuration\MTEnumConfig;$(MTOUTDIR)\$(CONFIGURATION)\Core\Configuration\MTEnumConfig;$(ROOTDIR)\Thirdparty\asio-0.3.7\include;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1\boost;$(ROOTDIR)\Shared\MetraTime;$(MTOUTDIR)\$(CONFIGURATION)\Shared\MetraTime;$(ROOTDIR)\Core\DataAccess\MemoryTable\asio;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\MemoryTable\asio;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_WIN32_WINNT=0x501;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;UNICODE;_UNICODE;</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
+      <DisableSpecificWarnings>4995;4335;</DisableSpecificWarnings>
+      <StringPooling>true</StringPooling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalOptions>/bigobj /c </AdditionalOptions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+    </CLCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <MapExports>true</MapExports>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>kernel32.lib;user32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;libboost_serialization-vc100-mt-1_43.lib;libboost_date_time-vc100-mt-1_43.lib;libboost_filesystem-vc100-mt-1_43.lib;libboost_regex-vc100-mt-1_43.lib;libboost_wserialization-vc100-mt-1_43.lib;libboost_test_exec_monitor-vc100-mt-1_43.lib;libboost_unit_test_framework-vc100-mt-1_43.lib;libboost_system-vc100-mt-1_43.lib;</AdditionalDependencies>
+      <EnableUAC>false</EnableUAC>
+      <ProfileGuidedDatabase>
+      </ProfileGuidedDatabase>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalOptions>/subsystem:console </AdditionalOptions>
+      <AdditionalLibraryDirectories>$(MTOUTDIR)\$(Configuration)\lib;</AdditionalLibraryDirectories>
+      <LargeAddressAware>true</LargeAddressAware>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="test.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\ConfigReaders\configreaders.vcxproj">
+      <Project>{ce2eb0bc-3139-4d19-94dd-031b0543eda1}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\error\error.vcxproj">
+      <Project>{3e843aea-c148-4997-bb48-9bfc4e6bbd39}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Logger\NTLogger\ntlogger.vcxproj">
+      <Project>{92e32330-a430-487f-b064-b1aeef883081}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\MTSL\mtsl.vcxproj">
+      <Project>{67933836-cc95-497e-8f16-91e0ebdb04b1}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\MemoryTable.vcxproj">
+      <Project>{5dbb9fe2-014f-4a60-86d3-5c3471daacc5}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

@@ -1,0 +1,101 @@
+/**************************************************************************
+* Copyright 1997-2000 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+* Created by: 
+* $Header$
+* 
+***************************************************************************/
+// Email.idl : IDL source for Email.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (Email.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "EmailMessage.idl";
+	[
+		object,
+		uuid(E6262D8A-E54C-11D3-99E7-00C04F6DC482),
+		dual,
+		helpstring("IMTEmail Interface"),
+		pointer_default(unique)
+	]
+
+// ----------------------------------------------------------------
+// Object: Email Generator
+// Prog ID: Email.MTEmail.1
+// Description: Provides methods to send an email via the MS-CDONTS
+//				email object.  The email can be based on an XML
+//				format template.  Support is provided for variable value
+//				subsitution in the Message Body and the Message Subject.
+//				Each of the following can be set in the template or
+//				defined programmatically:  To, From, CC, BCC, Subject
+//				Priority, Message Format (MIME, text), Message Body
+//				Format (HTML, plain), Message Body.
+//				Inherently supports UNICODE.
+// ----------------------------------------------------------------
+	interface IMTEmail : IDispatch
+	{
+		//Send the email message 
+		[id(1), helpstring("method Send")] HRESULT Send();
+
+		//Initialize the email generator object
+		[id(2), helpstring("method init")] HRESULT init([in] IMTEmailMessage * apEmailMessage);
+		
+		//Attach a file
+		[id(3), helpstring("method AttachFile")] HRESULT AttachFile([in] BSTR apfilename);
+		
+		//Attach HTML
+		[id(4), helpstring("method AttachURL")] HRESULT AttachURL([in] BSTR  apSource, BSTR apContentLocation);
+		
+		//Set the name of the template file
+		[propput, id(5), helpstring("property TemplateFileName")] HRESULT TemplateFileName([in] BSTR newVal);
+	
+		//Set the name of the template (contained within the template file)
+		[propput, id(6), helpstring("property TemplateName")] HRESULT TemplateName([in] BSTR newVal);
+	
+		//Choose the template language to use
+		[propput, id(7), helpstring("property TemplateLanguage")] HRESULT TemplateLanguage([in] BSTR newVal);
+	
+	
+		//Substitute a value for a variable in the Subject & Body
+		[id(8), helpstring("method AddParam")] HRESULT AddParam([in] BSTR Name, [in] BSTR Value);
+	
+	
+		//Load the defined XML template and parse
+		[id(9), helpstring("method LoadTemplate")] HRESULT LoadTemplate();
+	};
+
+[
+	uuid(E6262D7E-E54C-11D3-99E7-00C04F6DC482),
+	version(1.0),
+	helpstring("Email 1.0 Type Library")
+]
+library EMAILLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(E6262D8B-E54C-11D3-99E7-00C04F6DC482),
+		helpstring("MTEmail Class")
+	]
+	coclass MTEmail
+	{
+		[default] interface IMTEmail;
+	};
+};

@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{b2b0c583-f529-482f-a5f8-e22e92f23aae}</ProjectGuid>
+    <RootNamespace>dbaccess</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>True</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>False</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(MTOUTDIR)\$(Configuration)\Bin\</OutDir>
+    <GenerateManifest>false</GenerateManifest>
+	<LinkIncremental>false</LinkIncremental>
+    <IntDir>$(MTOUTDIR)\$(Configuration)\Core\DataAccess\DBAccess\</IntDir>
+    <CustomBuildBeforeTargets>ClCompile</CustomBuildBeforeTargets>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <CLCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\QueryAdapter;$(ROOTDIR)\Core\DataAccess\QueryAdapter;$(ROOTDIR)\Core\Configuration\RCD;$(MTOUTDIR)\$(CONFIGURATION)\Core\Configuration\RCD;$(ROOTDIR)\Utils\SetExTrans;$(MTOUTDIR)\$(CONFIGURATION)\Utils\SetExTrans;$(ROOTDIR)\MetraTech\Debug\Transaction;$(MTOUTDIR)\$(CONFIGURATION)\MetraTech\Debug\Transaction;$(ROOTDIR)\Core\DataAccess\DBAccess;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\DBAccess;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;RWDEBUG;WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_WIN32_WINNT=0x501;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;UNICODE;_UNICODE;</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
+      <DisableSpecificWarnings>4995;4335;</DisableSpecificWarnings>
+      <StringPooling>true</StringPooling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalOptions>/bigobj /c /MDd /GR</AdditionalOptions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+    </CLCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>kernel32.lib;user32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;version.lib;odbc32.lib;xolehlp.lib;</AdditionalDependencies>
+      <EnableUAC>false</EnableUAC>
+      <ProfileGuidedDatabase>
+      </ProfileGuidedDatabase>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalLibraryDirectories>$(MTOUTDIR)\$(Configuration)\lib;</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4070 /ignore:4217 /ignore:4199 /ignore:4098  /subsystem:windows</AdditionalOptions>
+      <ImportLibrary>$(MTOUTDIR)\$(Configuration)\lib\dbaccess.lib</ImportLibrary>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>s:\build\tools\MakeTreeVersion;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\QueryAdapter;$(ROOTDIR)\Core\DataAccess\QueryAdapter;$(ROOTDIR)\Core\Configuration\RCD;$(MTOUTDIR)\$(CONFIGURATION)\Core\Configuration\RCD;$(ROOTDIR)\Utils\SetExTrans;$(MTOUTDIR)\$(CONFIGURATION)\Utils\SetExTrans;$(ROOTDIR)\MetraTech\Debug\Transaction;$(MTOUTDIR)\$(CONFIGURATION)\MetraTech\Debug\Transaction;$(ROOTDIR)\Core\DataAccess\DBAccess;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\DBAccess;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG</PreprocessorDefinitions>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Post-Build Event</Message>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Message>Generate derived RC file</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Command>bash s:\build\tools\GenerateDerivedRc.bash dbaccess_version.h $(ROOTDIR)\build\tools\MakeTreeVersion\template.rc &gt; $(IntDir)\dbaccess_derived.rc</Command>
+      <Outputs>$(IntDir)\dbaccess_derived.rc</Outputs>
+      <Inputs>dbaccess_version.h;s:\build\tools\MakeTreeVersion\template.rc</Inputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(MTOUTDIR)\$(Configuration)\Bin\</OutDir>
+    <GenerateManifest>false</GenerateManifest>
+    <IntDir>$(MTOUTDIR)\$(Configuration)\Core\DataAccess\DBAccess\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <CustomBuildBeforeTargets>ClCompile</CustomBuildBeforeTargets>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <CLCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\QueryAdapter;$(ROOTDIR)\Core\DataAccess\QueryAdapter;$(ROOTDIR)\Core\Configuration\RCD;$(MTOUTDIR)\$(CONFIGURATION)\Core\Configuration\RCD;$(ROOTDIR)\Utils\SetExTrans;$(MTOUTDIR)\$(CONFIGURATION)\Utils\SetExTrans;$(ROOTDIR)\MetraTech\Debug\Transaction;$(MTOUTDIR)\$(CONFIGURATION)\MetraTech\Debug\Transaction;$(ROOTDIR)\Core\DataAccess\DBAccess;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\DBAccess;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_WIN32_WINNT=0x501;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;UNICODE;_UNICODE;</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
+      <DisableSpecificWarnings>4995;4335;</DisableSpecificWarnings>
+      <StringPooling>true</StringPooling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalOptions>/bigobj /c /GR</AdditionalOptions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+    </CLCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <MapExports>true</MapExports>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>kernel32.lib;user32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;version.lib;odbc32.lib;xolehlp.lib;</AdditionalDependencies>
+      <EnableUAC>false</EnableUAC>
+      <ProfileGuidedDatabase>
+      </ProfileGuidedDatabase>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalOptions>/ignore:4070 /ignore:4217 /ignore:4199 /ignore:4098  /subsystem:windows</AdditionalOptions>
+      <AdditionalLibraryDirectories>$(MTOUTDIR)\$(Configuration)\lib;</AdditionalLibraryDirectories>
+      <ImportLibrary>$(MTOUTDIR)\$(Configuration)\lib\dbaccess.lib</ImportLibrary>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>s:\build\tools\MakeTreeVersion;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\QueryAdapter;$(ROOTDIR)\Core\DataAccess\QueryAdapter;$(ROOTDIR)\Core\Configuration\RCD;$(MTOUTDIR)\$(CONFIGURATION)\Core\Configuration\RCD;$(ROOTDIR)\Utils\SetExTrans;$(MTOUTDIR)\$(CONFIGURATION)\Utils\SetExTrans;$(ROOTDIR)\MetraTech\Debug\Transaction;$(MTOUTDIR)\$(CONFIGURATION)\MetraTech\Debug\Transaction;$(ROOTDIR)\Core\DataAccess\DBAccess;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\DBAccess;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG</PreprocessorDefinitions>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Post-Build Event</Message>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Message>Generate derived RC file</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Command>bash s:\build\tools\GenerateDerivedRc.bash dbaccess_version.h $(ROOTDIR)\build\tools\MakeTreeVersion\template.rc &gt; $(IntDir)\dbaccess_derived.rc</Command>
+      <Outputs>$(IntDir)\dbaccess_derived.rc</Outputs>
+      <Inputs>dbaccess_version.h;s:\build\tools\MakeTreeVersion\template.rc</Inputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ResourceCompile Include="$(IntDir)\dbaccess_derived.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ADODBContext.cpp" />
+    <ClCompile Include="adoutil.cpp" />
+    <ClCompile Include="cpool.cpp" />
+    <ClCompile Include="DBAccess.cpp" />
+    <ClCompile Include="DBInMemRowset.cpp" />
+    <ClCompile Include="DBRowsetFields.cpp" />
+    <ClCompile Include="DBSQLRowset.cpp" />
+    <ClCompile Include="OLEDBContext.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\MetraTech\Debug\Transaction\MetraTech.Debug.Transaction.csproj">
+      <Project>{0c97b9bc-e1a2-4b79-936e-a49c3590a8fd}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\base64\base64.vcxproj">
+      <Project>{b06f16d9-8d10-44da-92e6-8daa38b375c8}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ConfigReaders\configreaders.vcxproj">
+      <Project>{ce2eb0bc-3139-4d19-94dd-031b0543eda1}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\error\error.vcxproj">
+      <Project>{3e843aea-c148-4997-bb48-9bfc4e6bbd39}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Logger\NTLogger\ntlogger.vcxproj">
+      <Project>{92e32330-a430-487f-b064-b1aeef883081}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mtcomerr\mtcomerr.vcxproj">
+      <Project>{fc230fdb-5c05-45be-a5ae-e6db137061e7}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MTSL\mtsl.vcxproj">
+      <Project>{67933836-cc95-497e-8f16-91e0ebdb04b1}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MTUtil\mtutil.vcxproj">
+      <Project>{238eb1f4-b29e-4ed1-980e-3b5355c3cf3f}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

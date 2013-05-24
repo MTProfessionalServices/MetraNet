@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>MetraTech Domain Model  Display Name</Title>
+		<Author>Ted Weiler - MetraTech</Author>
+		<Description>Adds a ...DisplayName property for domain model properties</Description>
+		<SnippetTypes>
+			<SnippetType>Expansion</SnippetType>
+		</SnippetTypes>
+      <Shortcut>dispProp</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>PropertyName</ID>
+          <Default>Property</Default>
+          <ToolTip>This is the name of the property being defined</ToolTip>
+        </Literal>
+        <Literal>
+          <ID>ResourceIdBase</ID>
+          <Default></Default>
+          <ToolTip>This is the namespace base of the resource ID</ToolTip>
+        </Literal>
+		  <Literal>
+			  <ID>DefaultValue</ID>
+			  <Default></Default>
+			  <ToolTip>This is the default localized value</ToolTip>
+		  </Literal>
+		  <Literal>
+			  <ID>LocaleSpace</ID>
+			  <Default></Default>
+			  <ToolTip>This is the localization space of the resource</ToolTip>
+		  </Literal>
+		  <Literal>
+			  <ID>Extension</ID>
+			  <Default></Default>
+			  <ToolTip>This is the namespace base of the resource ID</ToolTip>
+		  </Literal>
+      </Declarations>
+      <Code Language="CSharp">
+      <![CDATA[#region $PropertyName$ Display Name
+    [MTPropertyLocalizationAttribute(ResourceId = "$ResourceIdBase$.$PropertyName$",
+                                   DefaultValue = "$DefaultValue$",
+                                   MTLocalizationId = "$LocaleSpace$/$PropertyName$",
+                                     Extension = "$Extension$",
+                                     LocaleSpace = "$LocaleSpace$")]
+    public string $PropertyName$DisplayName
+    {
+      get
+      {
+        return ResourceManager.GetString("$ResourceIdBase$.$PropertyName$");
+      }
+    }
+    #endregion
+    ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

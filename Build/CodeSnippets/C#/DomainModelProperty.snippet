@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>MetraTech Domain Model Property</Title>
+		<Author>Ted Weiler - MetraTech</Author>
+		<Description>Creates a new domain model property</Description>
+		<SnippetTypes>
+			<SnippetType>Expansion</SnippetType>
+		</SnippetTypes>
+      <Shortcut>domprop</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>PropertyName</ID>
+          <Default>Property</Default>
+          <ToolTip>This is the name of the property being defined</ToolTip>
+        </Literal>
+        <Literal>
+          <ID>PropertyType</ID>
+          <Default></Default>
+          <ToolTip>This is the type of the property being defined</ToolTip>
+        </Literal>
+        <Literal>
+          <ID>Description</ID>
+          <Default></Default>
+          <ToolTip>This is the description of the property being defined</ToolTip>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp">
+      <![CDATA[#region $PropertyName$
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool is$PropertyName$Dirty = false;
+    private $PropertyType$ m_$PropertyName$;
+    [MTDataMember(Description = "$Description$", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public $PropertyType$ $PropertyName$
+    {
+      get { return m_$PropertyName$; }
+      set
+      {
+          m_$PropertyName$ = value;
+          is$PropertyName$Dirty = true;
+      }
+    }
+	[ScriptIgnore]
+    public bool Is$PropertyName$Dirty
+    {
+      get { return is$PropertyName$Dirty; }
+    }
+    #endregion]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

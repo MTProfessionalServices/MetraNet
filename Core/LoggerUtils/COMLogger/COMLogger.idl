@@ -1,0 +1,71 @@
+/**************************************************************************
+* Copyright 1997-2000 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+* Created by: 
+* $Header$
+* 
+***************************************************************************/
+// COMLogger.idl : IDL source for COMLogger.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (COMLogger.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "LoggerEnums.h";
+
+	[
+		object,
+		uuid(D491B5DD-8609-11D2-B60B-00104B2B980B),
+		dual,
+		helpstring("ILogger Interface"),
+		pointer_default(unique)
+	]
+// ----------------------------------------------------------------
+// Object:   	Logger
+// Prog ID:		MTLogger.MTLogger.1
+// Description:  	The Logger allows for the logging of messages to the 
+//  MetraTech log file and the Windows NT Event Log.
+// ----------------------------------------------------------------
+	interface ILogger : IDispatch
+	{
+// The Init method initializes the Logger with the relative configuration path passed.
+		[id(1), helpstring("method Init")] HRESULT Init([in] BSTR apConfigPath, [in] BSTR apAppTag);
+// The LogThis method logs the message at the appropriate log level to the MetraTech log.
+		[id(2), helpstring("method LogThis")] HRESULT LogThis([in] MTLogLevel aLogLevel, [in] BSTR apData);
+// The LogEvent method logs the message to the Windows NT Event log.
+		[id(3), helpstring("method LogEvent")] HRESULT LogEvent([in] BSTR apData);
+	};
+[
+	uuid(D491B5D0-8609-11D2-B60B-00104B2B980B),
+	version(1.0),
+	helpstring("COMLogger 1.0 Type Library")
+]
+library COMLOGGERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(5E920BB5-C27E-11D1-B5B3-00104B2B980B),
+		helpstring("Logger Class")
+	]
+	coclass Logger
+	{
+		[default] interface ILogger;
+	};
+};

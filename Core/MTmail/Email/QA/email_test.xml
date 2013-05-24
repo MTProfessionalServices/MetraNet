@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Template File for MTEmailGenerator Email Generation Object 	-->
+<!-- Author:  Noah Cushing 						-->
+<!-- Note:  This file is used for testing.				-->
+
+
+<xmlconfig>
+	<template>
+  		<name>sample</name>
+  		<language>english</language>
+
+	  	<default_headers>		
+			<def_bodyformat ptype="INTEGER"></def_bodyformat> 
+   
+			<def_to>mefimov@metratech.com</def_to> 
+			<def_from>mefimov@metratech.com</def_from>
+			<def_subject>Test Template</def_subject>
+
+    			<def_cc></def_cc>               
+   
+   	 		<def_importance ptype="INTEGER"></def_importance>
+    			<def_mailformat ptype="INTEGER">0</def_mailformat> 
+    			<def_bcc></def_bcc>               
+	  	</default_headers>
+
+		<message_body>
+  		<![CDATA[
+Dear <b>%%VICTIM%%</b><br><br>
+
+Our records have shown that you are past due on your payment of <i>%%AMOUNT%%</i>.  Please remit this
+payment or we will be forced to send <h4>%%THUG%%</h4> to assist with collection.<br><br>
+
+%%VICTIM%% we appreciate your business, and look forward to minimal debt-related violence in the future.<br><br>
+
+Sincerely,<br>
+<i>%%SENDER%%</i><br>
+Accounts Payable<br>
+Vinny the Loan Shark, Inc.
+]]>
+		</message_body>
+
+		<name>next_sample</name>
+  		<language>english</language>
+
+	  	<default_headers>		
+			<def_bodyformat ptype="INTEGER"></def_bodyformat> 
+   
+			<def_to>mefimov@metratech.com</def_to> 
+			<def_from>mefimov@metratech.com</def_from>
+			<def_subject>Test Template</def_subject>
+
+    			<def_cc></def_cc>               
+   
+   	 		<def_importance ptype="INTEGER"></def_importance>
+    			<def_mailformat ptype="INTEGER">0</def_mailformat> 
+    			<def_bcc></def_bcc>               
+	  	</default_headers>
+
+		<message_body>
+  		<![CDATA[Dear <b>%%VICTIM%%</b><br><br>
+
+Our records have shown that you are past due on your payment of <i>%%AMOUNT%%</i>.  Please remit this
+payment or we will be forced to send <h4>%%THUG%%</h4> to assist with collection.<br><br>
+
+%%VICTIM%% we appreciate your business, and look forward to minimal debt-related violence in the future.<br><br>
+
+Sincerely,<br>
+<i>%%SENDER%%</i><br>
+Accounts Payable<br>
+Vinny the Loan Shark, Inc.]]>
+		</message_body>
+		<language>chinese</language>
+
+	  	<default_headers>		
+			<def_bodyformat ptype="INTEGER">0</def_bodyformat> 
+   
+			<def_to>mefimov@metratech.com</def_to> 
+			<def_from>mefimov@metratech.com</def_from>
+			<def_subject>直播电话会议</def_subject>
+
+    			<def_cc></def_cc>               
+   
+   	 		<def_importance ptype="INTEGER"></def_importance>
+    			<def_mailformat ptype="INTEGER">0</def_mailformat> 
+    			<def_bcc></def_bcc>               
+	  	</default_headers>
+
+		<message_body>
+		<![CDATA[
+Hello:  Here is some text:  直播电话会议  More text!!!  More:  設定展示   Less: 在本周期內未找到交易 
+		]]>
+		</message_body>
+	</template>
+</xmlconfig>

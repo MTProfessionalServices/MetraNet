@@ -1,0 +1,24 @@
+HKCR
+{
+	COMUsageServer.COMUsageServer.1 = s 'COMUsageServer Class'
+	{
+		CLSID = s '{E54B8B00-A953-11D2-B629-00104B2B980B}'
+	}
+	COMUsageServer.COMUsageServer = s 'COMUsageServer Class'
+	{
+		CurVer = s 'COMUsageServer.COMUsageServer.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E54B8B00-A953-11D2-B629-00104B2B980B} = s 'COMUsageServer Class'
+		{
+			ProgID = s 'COMUsageServer.COMUsageServer.1'
+			VersionIndependentProgID = s 'COMUsageServer.COMUsageServer'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

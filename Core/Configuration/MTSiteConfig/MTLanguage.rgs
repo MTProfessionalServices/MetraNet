@@ -1,0 +1,24 @@
+HKCR
+{
+	MTLanguage.MTLanguage.1 = s 'MTLanguage Class'
+	{
+		CLSID = s '{FA2F64F8-FD78-11D2-B663-00104B2B980B}'
+	}
+	MTLanguage.MTLanguage = s 'MTLanguage Class'
+	{
+		CurVer = s 'MTLanguage.MTLanguage.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {FA2F64F8-FD78-11D2-B663-00104B2B980B} = s 'MTLanguage Class'
+		{
+			ProgID = s 'MTLanguage.MTLanguage.1'
+			VersionIndependentProgID = s 'MTLanguage.MTLanguage'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

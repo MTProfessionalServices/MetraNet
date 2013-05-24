@@ -1,0 +1,55 @@
+// EmailMessage.idl : IDL source for EmailMessage.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (EmailMessage.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(CA3C5EBD-E548-11D3-99E7-00C04F6DC482),
+		dual,
+		helpstring("IMTEmailMessage Interface"),
+		pointer_default(unique)
+	]
+	interface IMTEmailMessage : IDispatch
+	{
+		[propput, id(1), helpstring("property MessageBody")] HRESULT MessageBody([in] BSTR newVal);
+		[propput, id(2), helpstring("property MessageTo")] HRESULT MessageTo([in] BSTR newVal);
+		[propput, id(3), helpstring("property MessageFrom")] HRESULT MessageFrom([in] BSTR newVal);
+		[propput, id(4), helpstring("property MessageCC")] HRESULT MessageCC([in] BSTR newVal);
+		[propput, id(5), helpstring("property MessageSubject")] HRESULT MessageSubject([in] BSTR newVal);
+		[propget, id(6), helpstring("property Body")] HRESULT Body([out, retval] BSTR *pVal);
+		[propget, id(7), helpstring("property CC")] HRESULT CC([out, retval] BSTR *pVal);
+		[propget, id(8), helpstring("property From")] HRESULT From([out, retval] BSTR *pVal);
+		[propget, id(9), helpstring("property Subject")] HRESULT Subject([out, retval] BSTR *pVal);
+		[propget, id(10), helpstring("property To")] HRESULT To([out, retval] BSTR *pVal);
+		[propput, id(11), helpstring("property MessageBcc")] HRESULT MessageBcc([in] BSTR newVal);
+		[propget, id(12), helpstring("property Bcc")] HRESULT Bcc([out, retval] BSTR *pVal);
+		[propput, id(13), helpstring("property MessageBodyFormat")] HRESULT MessageBodyFormat([in] long newVal);
+		[propget, id(14), helpstring("property BodyFormat")] HRESULT BodyFormat([out, retval] long *pVal);
+		[propput, id(15), helpstring("property MessageImportance")] HRESULT MessageImportance([in] long newVal);
+		[propget, id(16), helpstring("property Importance")] HRESULT Importance([out, retval] long *pVal);
+		[propput, id(17), helpstring("property MessageMailFormat")] HRESULT MessageMailFormat([in] long newVal);
+		[propget, id(18), helpstring("property MailFormat")] HRESULT MailFormat([out, retval] long *pVal);
+	};
+[
+	uuid(CA3C5EB1-E548-11D3-99E7-00C04F6DC482),
+	version(1.0),
+	helpstring("EmailMessage 1.0 Type Library")
+]
+library EMAILMESSAGELib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(3C967C1E-E4B7-11D3-99E7-00C04F6DC482),
+		helpstring("MTEmailMessage Class")
+	]
+	coclass MTEmailMessage
+	{
+		[default] interface IMTEmailMessage;
+	};
+};

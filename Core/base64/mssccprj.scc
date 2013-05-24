@@ -1,0 +1,7 @@
+SCC = This is a Source Code Control file
+
+[base64.mak]
+SCC_Project_Name = "$/NewDevTree/Core/base64", PCCAAAAA
+
+[nt.mak]
+SCC_Project_Name = "$/NewDevTree/Core/base64", PCCAAAAA

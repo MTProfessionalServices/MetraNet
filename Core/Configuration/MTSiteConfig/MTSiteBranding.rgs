@@ -1,0 +1,24 @@
+HKCR
+{
+	MTSiteBranding.MTSiteBranding.1 = s 'MTSiteBranding Class'
+	{
+		CLSID = s '{04793351-F7F1-11D2-B660-00104B2B980B}'
+	}
+	MTSiteBranding.MTSiteBranding = s 'MTSiteBranding Class'
+	{
+		CurVer = s 'MTSiteBranding.MTSiteBranding.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {04793351-F7F1-11D2-B660-00104B2B980B} = s 'MTSiteBranding Class'
+		{
+			ProgID = s 'MTSiteBranding.MTSiteBranding.1'
+			VersionIndependentProgID = s 'MTSiteBranding.MTSiteBranding'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

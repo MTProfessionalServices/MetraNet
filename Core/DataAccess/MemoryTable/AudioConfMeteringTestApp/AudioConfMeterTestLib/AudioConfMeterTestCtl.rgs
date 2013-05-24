@@ -1,0 +1,25 @@
+HKCR
+{
+	AudioConfMeterTestLib.AudioConfMeterT.1 = s 'AudioConfMeterTestCtl Class'
+	{
+		CLSID = s '{499B421C-AD33-4870-894F-96AE42757B03}'
+	}
+	AudioConfMeterTestLib.AudioConfMeterTes = s 'AudioConfMeterTestCtl Class'
+	{
+		CLSID = s '{499B421C-AD33-4870-894F-96AE42757B03}'
+		CurVer = s 'AudioConfMeterTestLib.AudioConfMeterT.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {499B421C-AD33-4870-894F-96AE42757B03} = s 'AudioConfMeterTestCtl Class'
+		{
+			ProgID = s 'AudioConfMeterTestLib.AudioConfMeterT.1'
+			VersionIndependentProgID = s 'AudioConfMeterTestLib.AudioConfMeterTes'
+			InprocServer32 = s '%MODULE%'
+			{
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{BB153799-6AC4-471C-9BD6-AB35AAA52010}'
+		}
+	}
+}

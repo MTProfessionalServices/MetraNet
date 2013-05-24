@@ -1,0 +1,24 @@
+HKCR
+{
+	MTLogger.MTLogger.1 = s 'MTLogger Class'
+	{
+		CLSID = s '{5E920BB5-C27E-11D1-B5B3-00104B2B980B}'
+	}
+	MTLogger.MTLogger = s 'MTLogger Class'
+	{
+		CurVer = s 'MTLogger.MTLogger.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {5E920BB5-C27E-11D1-B5B3-00104B2B980B} = s 'MTLogger Class'
+		{
+			ProgID = s 'MTLogger.MTLogger.1'
+			VersionIndependentProgID = s 'MTLogger.MTLogger'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'free'
+			}
+		}
+	}
+}

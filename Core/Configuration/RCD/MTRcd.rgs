@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.Rcd.1 = s 'MTRcd Class'
+	{
+		CLSID = s '{97961659-6E37-11D4-A642-00C04F579C39}'
+	}
+	MetraTech.Rcd = s 'MTRcd Class'
+	{
+		CLSID = s '{97961659-6E37-11D4-A642-00C04F579C39}'
+		CurVer = s 'MetraTech.Rcd.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {97961659-6E37-11D4-A642-00C04F579C39} = s 'MTRcd Class'
+		{
+			ProgID = s 'MetraTech.Rcd.1'
+			VersionIndependentProgID = s 'MetraTech.Rcd'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+			'TypeLib' = s '{9796164C-6E37-11D4-A642-00C04F579C39}'
+		}
+	}
+}

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+#temp script used to copy changes
+
+pushd ~/SDK_STL
+for i in `cat /users/rsg/changes.log`
+do
+cp ~/SDK_STL/$i ~/export/$i
+done
+popd
+

@@ -1,0 +1,24 @@
+HKCR
+{
+	COMAccountUsageMap.COMAccountUsageMap.1 = s 'COMAccountUsageMap Class'
+	{
+		CLSID = s '{2AE44E08-7FB1-11D2-B60A-00104B2B980B}'
+	}
+	COMAccountUsageMap.COMAccountUsageMap = s 'COMAccountUsageMap Class'
+	{
+		CurVer = s 'COMAccountUsageMap.COMAccountUsageMap.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {2AE44E08-7FB1-11D2-B60A-00104B2B980B} = s 'COMAccountUsageMap Class'
+		{
+			ProgID = s 'COMAccountUsageMap.COMAccountUsageMap.1'
+			VersionIndependentProgID = s 'COMAccountUsageMap.COMAccountUsageMap'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

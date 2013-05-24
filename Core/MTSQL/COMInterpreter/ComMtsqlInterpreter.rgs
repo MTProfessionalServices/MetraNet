@@ -1,0 +1,25 @@
+HKCR
+{
+	COMInterpreter.ComMtsqlInterpreter.1 = s 'ComMtsqlInterpreter Class'
+	{
+		CLSID = s '{B30EFBFE-0DF5-4632-AB14-21DAEA4446E0}'
+	}
+	COMInterpreter.ComMtsqlInterpreter = s 'ComMtsqlInterpreter Class'
+	{
+		CLSID = s '{B30EFBFE-0DF5-4632-AB14-21DAEA4446E0}'
+		CurVer = s 'COMInterpreter.ComMtsqlInterpreter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B30EFBFE-0DF5-4632-AB14-21DAEA4446E0} = s 'ComMtsqlInterpreter Class'
+		{
+			ProgID = s 'COMInterpreter.ComMtsqlInterpreter.1'
+			VersionIndependentProgID = s 'COMInterpreter.ComMtsqlInterpreter'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{290D6B81-7B57-4750-ACF9-608549FB2417}'
+		}
+	}
+}

@@ -1,0 +1,9 @@
+; MTRuleSet.def : Declares the module parameters.
+
+LIBRARY      "MTRuleSet.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

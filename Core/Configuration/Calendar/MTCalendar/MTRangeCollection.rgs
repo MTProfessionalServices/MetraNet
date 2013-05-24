@@ -1,0 +1,24 @@
+HKCR
+{
+	MTRangeCollection.MTRangeCollection.1 = s 'MTRangeCollection Class'
+	{
+		CLSID = s '{BF96D678-F42A-11D2-AE56-00C04F54FE3B}'
+	}
+	MTRangeCollection.MTRangeCollection = s 'MTRangeCollection Class'
+	{
+		CurVer = s 'MTRangeCollection.MTRangeCollection.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {BF96D678-F42A-11D2-AE56-00C04F54FE3B} = s 'MTRangeCollection Class'
+		{
+			ProgID = s 'MTRangeCollection.MTRangeCollection.1'
+			VersionIndependentProgID = s 'MTRangeCollection.MTRangeCollection'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

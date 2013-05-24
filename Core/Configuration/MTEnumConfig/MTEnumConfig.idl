@@ -1,0 +1,97 @@
+// MTEnumConfig.idl : IDL source for MTEnumConfig.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTEnumConfig.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "IMTEnumConfig.idl";
+
+
+
+
+/*9cc05cb0-4081-11d4-95c0-00b0d025b121*/
+	[
+		object,
+		uuid(9cc05cb0-4081-11d4-95c0-00b0d025b121),
+		dual,
+		helpstring("Dummy interface"),
+		pointer_default(unique)
+	]
+	interface IDummy : IDispatch
+	{
+	};
+
+[
+	uuid(7faa59d0-408f-11d4-95c0-00b0d025b121),
+	version(1.0),
+	helpstring("MT EnumConfig 1.0 Type Library (Enumerated Types Support)")
+]
+library MTENUMCONFIGLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(3ADA858E-01C6-11D4-95A0-00B0D025B121),
+		helpstring("EnumConfig Class")
+	]
+	coclass EnumConfig
+	{
+		[default] interface IEnumConfig;
+	};
+
+	[
+		uuid(3ADA85A0-01C6-11D4-95A0-00B0D025B121),
+		helpstring("MTEnumType Class")
+	]
+	coclass MTEnumType
+	{
+		[default] interface IMTEnumType;
+	};
+	[
+		uuid(BDF32816-027D-11D4-95A0-00B0D025B121),
+		helpstring("MTEnumerator Class")
+	]
+	coclass MTEnumerator
+	{
+		[default] interface IMTEnumerator;
+	};
+	[
+		uuid(68870842-03F4-11D4-95A0-00B0D025B121),
+		helpstring("MTEnumeratorCollection Class")
+	]
+	coclass MTEnumeratorCollection
+	{
+		[default] interface IMTEnumeratorCollection;
+	};
+	[
+		uuid(BC3E00F2-0665-11D4-95A1-00B0D025B121),
+		helpstring("MTEnumTypeCollection Class")
+	]
+	coclass MTEnumTypeCollection
+	{
+		[default] interface IMTEnumTypeCollection;
+	};
+	[
+		uuid(BC3E00F9-0665-11D4-95A1-00B0D025B121),
+		helpstring("MTEnumSpace Class")
+	]
+	coclass MTEnumSpace
+	{
+		[default] interface IMTEnumSpace;
+	};
+	[
+		uuid(7F834F74-067C-11D4-95A1-00B0D025B121),
+		helpstring("MTEnumSpaceCollection Class")
+	]
+	coclass MTEnumSpaceCollection
+	{
+		[default] interface IMTEnumSpaceCollection;
+	};
+};
+
+
+

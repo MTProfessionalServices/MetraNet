@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTEnumType.1 = s 'MTEnumType Class'
+	{
+		CLSID = s '{3ADA85A0-01C6-11D4-95A0-00B0D025B121}'
+	}
+	Metratech.MTEnumType = s 'MTEnumType Class'
+	{
+		CLSID = s '{3ADA85A0-01C6-11D4-95A0-00B0D025B121}'
+		CurVer = s 'Metratech.MTEnumType.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {3ADA85A0-01C6-11D4-95A0-00B0D025B121} = s 'MTEnumType Class'
+		{
+			ProgID = s 'Metratech.MTEnumType.1'
+			VersionIndependentProgID = s 'Metratech.MTEnumType.1'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+			'TypeLib' = s '{3ADA8581-01C6-11D4-95A0-00B0D025B121}'
+		}
+	}
+}

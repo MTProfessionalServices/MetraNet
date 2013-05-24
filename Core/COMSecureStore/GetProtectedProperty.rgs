@@ -1,0 +1,26 @@
+HKCR
+{
+	COMSecureStore.GetProtectedProperty.1 = s 'GetProtectedProperty Class'
+	{
+		CLSID = s '{E6B4633D-1853-11D4-A70A-00C04F58C76E}'
+	}
+	COMSecureStore.GetProtectedProperty = s 'GetProtectedProperty Class'
+	{
+		CLSID = s '{E6B4633D-1853-11D4-A70A-00C04F58C76E}'
+		CurVer = s 'COMSecureStore.GetProtectedProperty.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E6B4633D-1853-11D4-A70A-00C04F58C76E} = s 'GetProtectedProperty Class'
+		{
+			ProgID = s 'COMSecureStore.GetProtectedProperty.1'
+			VersionIndependentProgID = s 'COMSecureStore.GetProtectedProperty'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{E6B46330-1853-11D4-A70A-00C04F58C76E}'
+		}
+	}
+}

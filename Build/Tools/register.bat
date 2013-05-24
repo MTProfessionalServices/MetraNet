@@ -1,0 +1,1 @@
+for %%i in (*.dll) do mtregsvr32 %%i

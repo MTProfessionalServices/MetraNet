@@ -1,0 +1,24 @@
+HKCR
+{
+	MetraTech.MTQueryAdapter.1 = s 'MTQueryAdapter Class'
+	{
+		CLSID = s '{7B3D26AE-7D7C-11D2-B60A-00104B2B980B}'
+	}
+	MetraTech.MTQueryAdapter = s 'MTQueryAdapter Class'
+	{
+		CurVer = s 'MetraTech.MTQueryAdapter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {7B3D26AE-7D7C-11D2-B60A-00104B2B980B} = s 'MTQueryAdapter Class'
+		{
+			ProgID = s 'MetraTech.MTQueryAdapter.1'
+			VersionIndependentProgID = s 'MetraTech.MTQueryAdapter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+		}
+	}
+}

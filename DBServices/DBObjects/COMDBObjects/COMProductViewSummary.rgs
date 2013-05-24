@@ -1,0 +1,24 @@
+HKCR
+{
+	MetraTech.COMProductViewSummary.1 = s 'COMProductViewSummary Class'
+	{
+		CLSID = s '{1CCFC1B8-35CC-11D2-B5F5-00104B2B980B}'
+	}
+	MetraTech.COMProductViewSummary = s 'COMProductViewSummary Class'
+	{
+		CurVer = s 'MetraTech.COMProductViewSummary.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1CCFC1B8-35CC-11D2-B5F5-00104B2B980B} = s 'COMProductViewSummary Class'
+		{
+			ProgID = s 'MetraTech.COMProductViewSummary.1'
+			VersionIndependentProgID = s 'MetraTech.COMProductViewSummary'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

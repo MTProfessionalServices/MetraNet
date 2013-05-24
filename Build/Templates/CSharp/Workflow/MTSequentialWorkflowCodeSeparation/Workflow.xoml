@@ -1,0 +1,2 @@
+﻿<ns0:MTSequentialWorkflowActivity x:Class="$rootnamespace$.$safeitemname$" x:Name="$safeitemname$" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:MetraTech.ActivityServices.Activities;Assembly=MetraTech.ActivityServices.Activities, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75">
+</ns0:MTSequentialWorkflowActivity>

@@ -1,0 +1,24 @@
+HKCR
+{
+	MTUserCalendar.MTUserCalendar.1 = s 'MTUserCalendar Class'
+	{
+		CLSID = s '{BF96D67A-F42A-11D2-AE56-00C04F54FE3B}'
+	}
+	MTUserCalendar.MTUserCalendar = s 'MTUserCalendar Class'
+	{
+		CurVer = s 'MTUserCalendar.MTUserCalendar.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {BF96D67A-F42A-11D2-AE56-00C04F54FE3B} = s 'MTUserCalendar Class'
+		{
+			ProgID = s 'MTUserCalendar.MTUserCalendar.1'
+			VersionIndependentProgID = s 'MTUserCalendar.MTUserCalendar'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

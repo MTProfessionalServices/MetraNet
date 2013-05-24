@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://eng/xsl/BuildConfig.xsl"?>
+<buildconfig>
+   <description>Version-specific build configuration</description>
+
+  <constant name="STAGING_ARGS">
+    <value>VERSION=%%VERSION%% LABEL=%%LABEL%% THIRDPARTY=%%THIRDPARTY%%</value>
+  </constant>
+
+  <task name="debug-stage">
+    <description>Create staging area for debug install</description>
+    <cmdstr>nmake -f S:\Install\Scripts\staging.mak DEBUG=1 INSTALLRELDIR=P:\Staging\Debug %%STAGING_ARGS%%</cmdstr>
+  </task>
+  <task name="release-stage">
+    <description>Create staging area for release install</description>
+    <cmdstr>nmake -f S:\Install\Scripts\staging.mak DEBUG=0 INSTALLRELDIR=P:\Staging\Release %%STAGING_ARGS%%</cmdstr>
+  </task>
+</buildconfig>

@@ -1,0 +1,27 @@
+HKCR
+{
+	Metratech.LocaleConfig.1 = s 'LocaleConfig Class'
+	{
+		CLSID = s '{DC672715-0FF7-11D4-95A9-00B0D025B121}'
+	}
+	Metratech.LocaleConfig = s 'LocaleConfig Class'
+	{
+		CLSID = s '{DC672715-0FF7-11D4-95A9-00B0D025B121}'
+		CurVer = s 'Metratech.LocaleConfig.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {DC672715-0FF7-11D4-95A9-00B0D025B121} = s 'LocaleConfig Class'
+		{
+			ProgID = s 'Metratech.LocaleConfig.1'
+			VersionIndependentProgID = s 'Metratech.LocaleConfig'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{DF8AD4B1-0F32-11D4-95A5-00B0D025B121}'
+		}
+	}
+}
+

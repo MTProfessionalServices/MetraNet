@@ -1,0 +1,24 @@
+HKCR
+{
+	MTRegion.MTRegion.1 = s 'MTRegion Class'
+	{
+		CLSID = s '{52F73300-F686-11D2-AA26-00105A2A148D}'
+	}
+	MTRegion.MTRegion = s 'MTRegion Class'
+	{
+		CurVer = s 'MTRegion.MTRegion.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {52F73300-F686-11D2-AA26-00105A2A148D} = s 'MTRegion Class'
+		{
+			ProgID = s 'MTRegion.MTRegion.1'
+			VersionIndependentProgID = s 'MTRegion.MTRegion'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

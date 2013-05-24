@@ -1,0 +1,107 @@
+// BillingCycleConfig.idl : IDL source for BillingCycleConfig.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (BillingCycleConfig.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(EDBD9B45-8E6E-11D4-9141-00B0D02B57B9),
+		dual,
+		helpstring("IMTTimePoint Interface"),
+		pointer_default(unique)
+	]
+	interface IMTTimePoint : IDispatch
+	{
+		[propget, id(1), helpstring("property Month")] HRESULT Month([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property Month")] HRESULT Month([in] BSTR newVal);
+		[propget, id(2), helpstring("property Day")] HRESULT Day([out, retval] long *pVal);
+		[propput, id(2), helpstring("property Day")] HRESULT Day([in] long newVal);
+		[propget, id(3), helpstring("property NamedDay")] HRESULT NamedDay([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property NamedDay")] HRESULT NamedDay([in] BSTR newVal);
+		[propget, id(4), helpstring("property SecondDay")] HRESULT SecondDay([out, retval] long *pVal);
+		[propput, id(4), helpstring("property SecondDay")] HRESULT SecondDay([in] long newVal);
+		[propget, id(5), helpstring("property Year")] HRESULT Year([out, retval] long *pVal);
+		[propput, id(5), helpstring("property Year")] HRESULT Year([in] long newVal);
+		[propget, id(6), helpstring("property Label")] HRESULT Label([out, retval] BSTR *pVal);
+		[propput, id(6), helpstring("property Label")] HRESULT Label([in] BSTR newVal);
+		[propget, id(7), helpstring("property MonthIndex")] HRESULT MonthIndex([out, retval] long *pVal);
+		[propput, id(7), helpstring("property MonthIndex")] HRESULT MonthIndex([in] long newVal);
+	};
+
+	[
+		object,
+		uuid(EDBD9B43-8E6E-11D4-9141-00B0D02B57B9),
+		dual,
+		helpstring("IMTBillingCycle Interface"),
+		pointer_default(unique)
+	]
+	interface IMTBillingCycle : IDispatch
+	{
+		[propget, id(1), helpstring("property CycleType")] HRESULT CycleType([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property CycleType")] HRESULT CycleType([in] BSTR newVal);
+		[propget, id(2), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[id(3), helpstring("method Add")] HRESULT Add([in] IMTTimePoint* apTimePoint);
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(long aIndex, [out, retval] VARIANT *pVal);
+
+		[id(4), helpstring("method CalculateClosestInterval")] HRESULT CalculateClosestInterval([in]  IMTTimePoint* apTimePoint,
+																																														[in]  VARIANT  apToday,
+																																														[out] VARIANT* apStartDate,
+																																														[out] VARIANT* apEndDate);
+	};
+
+  [
+		object,
+		uuid(EDBD9B41-8E6E-11D4-9141-00B0D02B57B9),
+		dual,
+		helpstring("IMTBillingCycleConfig Interface"),
+		pointer_default(unique)
+	]
+	interface IMTBillingCycleConfig : IDispatch
+	{
+		[id(1), helpstring("method Init")] HRESULT Init();
+		[propget, id(2), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[id(3), helpstring("method Add")] HRESULT Add([in] IMTBillingCycle* apBillingCycle);
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(long aIndex, [out, retval] VARIANT *pVal);
+
+	};
+
+[
+	uuid(EDBD9B33-8E6E-11D4-9141-00B0D02B57B9),
+	version(1.0),
+	helpstring("BillingCycleConfig 1.0 Type Library")
+]
+library BILLINGCYCLECONFIGLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(EDBD9B42-8E6E-11D4-9141-00B0D02B57B9),
+		helpstring("MTBillingCycleConfig Class")
+	]
+	coclass MTBillingCycleConfig
+	{
+		[default] interface IMTBillingCycleConfig;
+	};
+	[
+		uuid(EDBD9B44-8E6E-11D4-9141-00B0D02B57B9),
+		helpstring("MTBillingCycle Class")
+	]
+	coclass MTBillingCycle
+	{
+		[default] interface IMTBillingCycle;
+	};
+	[
+		uuid(EDBD9B46-8E6E-11D4-9141-00B0D02B57B9),
+		helpstring("MTTimePoint Class")
+	]
+	coclass MTTimePoint
+	{
+		[default] interface IMTTimePoint;
+	};
+};

@@ -1,0 +1,24 @@
+HKCR
+{
+	PhoneNumberParser.PhoneNumberParser.1 = s 'PhoneNumberParser Class'
+	{
+		CLSID = s '{52F732F5-F686-11D2-AA26-00105A2A148D}'
+	}
+	PhoneNumberParser.PhoneNumberParser = s 'PhoneNumberParser Class'
+	{
+		CurVer = s 'PhoneNumberParser.PhoneNumberParser.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {52F732F5-F686-11D2-AA26-00105A2A148D} = s 'PhoneNumberParser Class'
+		{
+			ProgID = s 'PhoneNumberParser.PhoneNumberParser.1'
+			VersionIndependentProgID = s 'PhoneNumberParser.PhoneNumberParser'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

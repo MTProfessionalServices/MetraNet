@@ -1,0 +1,26 @@
+HKCR
+{
+	COMDBObjects.MTFilter.1 = s 'MTFilter Class'
+	{
+		CLSID = s '{97E26C14-696B-11D4-9E5C-00C04F46EB1E}'
+	}
+	COMDBObjects.MTFilter = s 'MTFilter Class'
+	{
+		CLSID = s '{97E26C14-696B-11D4-9E5C-00C04F46EB1E}'
+		CurVer = s 'COMDBObjects.MTFilter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {97E26C14-696B-11D4-9E5C-00C04F46EB1E} = s 'MTFilter Class'
+		{
+			ProgID = s 'COMDBObjects.MTFilter.1'
+			VersionIndependentProgID = s 'COMDBObjects.MTFilter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{0119D8C7-307D-11D2-B5F5-00104B2B980B}'
+		}
+	}
+}

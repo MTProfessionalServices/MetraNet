@@ -1,0 +1,182 @@
+/**************************************************************************
+ * MTDecimalOps
+ *
+ * Copyright 1997-2000 by MetraTech Corp.
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ * Created by: Derek Young
+ *
+ * $Date$
+ * $Author$
+ * $Revision$
+ ***************************************************************************/
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTDecimalOps.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// ----------------------------------------------------------------
+// Object: MTDecimalOps
+// Prog ID: MTDecimalOps.MTDecimalOps.1
+// Description: Object that provides methods to create decimal values
+//              and perform mathematical operations with them.
+// ----------------------------------------------------------------
+	[
+		object,
+		uuid(B357A8BF-B048-11D4-91CF-00B0D02B5777),
+		dual,
+		helpstring("IMTDecimalOps Interface"),
+		pointer_default(unique)
+	]
+	interface IMTDecimalOps : IDispatch
+	{
+	  // return the sum of the the arguments
+	  [id(1), helpstring("method Add")] HRESULT Add([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] VARIANT * pResult);
+
+	  // return the difference of the arguments
+	  [id(2), helpstring("method Subtract")] HRESULT Subtract([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] VARIANT* pResult);
+
+	  // return the product of the arguments
+	  [id(3), helpstring("method Multiply")] HRESULT Multiply([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] VARIANT * pResult);
+
+	  // return the first argument divided by the second
+	  [id(4), helpstring("method Divide")] HRESULT Divide([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] VARIANT * pResult);
+
+	  // return the absolute value of the argument
+	  // NOT IMPLEMENTED
+	  [id(5), helpstring("method Abs")] HRESULT Abs([in] VARIANT Value, [out, retval] VARIANT * pResult);
+
+	  // returns the integer portion of the argument.
+	  // If the value of the variant is negative, then the first negative integer
+	  // greater than or equal to the variant is returned.
+	  [id(6), helpstring("method Fix")] HRESULT Fix([in] VARIANT Value, [out, retval] VARIANT * pResult);
+
+	  // returns the integer portion of the argument.
+	  // If argument is negative, then the first negative integer less than or
+	  // equal to the argument is returned.
+	  [id(7), helpstring("method Int")] HRESULT Int([in] VARIANT Value, [out, retval] VARIANT * pResult);
+
+	  // returns the logical negative of the argument.
+	  [id(8), helpstring("method Negate")] HRESULT Negate([in] VARIANT Value, [out, retval] VARIANT * pResult);
+
+	  // rounds the argument to the given number of decimal places
+	  [id(9), helpstring("method Round")] HRESULT Round([in] VARIANT Value, [in] int iDecimals, [out, retval] VARIANT * pResult);
+
+	  // Compares the two arguments
+	  [id(10), helpstring("method Compare")] HRESULT Compare([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] long * pResult);
+
+	  // Create a decimal value out of the argument
+	  [id(11), helpstring("method Create")] HRESULT Create([in] VARIANT Value, [out, retval] VARIANT * pResult);
+
+	  // returns true if the two arguments are equal
+	  [id(12), helpstring("method EQ")] HRESULT EQ([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] VARIANT_BOOL * pResult);
+
+	  // returns true if the two values are not equal
+	  [id(13), helpstring("method NE")] HRESULT NE([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] VARIANT_BOOL * pResult);
+
+	  // returns true if the first argument is less than the second
+	  [id(14), helpstring("method LT")] HRESULT LT([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] VARIANT_BOOL * pResult);
+
+	  // returns true if the first argument is less than or equal to the second
+	  [id(15), helpstring("method LE")] HRESULT LE([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] VARIANT_BOOL * pResult);
+
+	  // returns true if the first argument is greater than the second
+	  [id(16), helpstring("method GT")] HRESULT GT([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] VARIANT_BOOL * pResult);
+
+	  // returns true if the first argument is greater than or equal to the second
+	  [id(17), helpstring("method GE")] HRESULT GE([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] VARIANT_BOOL * pResult);
+	};
+
+// ----------------------------------------------------------------
+// Object: MTBigIntegerOps
+// Prog ID: MTBigIntegerOps.MTBigIntegerOps.1
+// Description: Object that provides methods to create 64-bit integer values
+//              and perform mathematical operations with them.
+// ----------------------------------------------------------------
+	[
+		object,
+		uuid(a96f7adf-6fc6-4fab-80ea-3877cfa90966),
+		dual,
+		helpstring("IMTBigIntegerOps Interface"),
+		pointer_default(unique)
+	]
+	interface IMTBigIntegerOps : IDispatch
+	{
+	  // return the sum of the the arguments
+	  [id(1), helpstring("method Add")] HRESULT Add([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] VARIANT * pResult);
+
+	  // return the difference of the arguments
+	  [id(2), helpstring("method Subtract")] HRESULT Subtract([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] VARIANT* pResult);
+
+	  // return the product of the arguments
+	  [id(3), helpstring("method Multiply")] HRESULT Multiply([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] VARIANT * pResult);
+
+	  // return the first argument divided by the second
+	  [id(4), helpstring("method Divide")] HRESULT Divide([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] VARIANT * pResult);
+
+	  // Compares the two arguments
+	  [id(5), helpstring("method Compare")] HRESULT Compare([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] long * pResult);
+
+	  // Create a decimal value out of the argument
+	  [id(6), helpstring("method Create")] HRESULT Create([in] VARIANT Value, [out, retval] VARIANT * pResult);
+
+	  // returns true if the two arguments are equal
+	  [id(7), helpstring("method EQ")] HRESULT EQ([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] VARIANT_BOOL * pResult);
+
+	  // returns true if the two values are not equal
+	  [id(8), helpstring("method NE")] HRESULT NE([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] VARIANT_BOOL * pResult);
+
+	  // returns true if the first argument is less than the second
+	  [id(9), helpstring("method LT")] HRESULT LT([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] VARIANT_BOOL * pResult);
+
+	  // returns true if the first argument is less than or equal to the second
+	  [id(10), helpstring("method LE")] HRESULT LE([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] VARIANT_BOOL * pResult);
+
+	  // returns true if the first argument is greater than the second
+	  [id(11), helpstring("method GT")] HRESULT GT([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] VARIANT_BOOL * pResult);
+
+	  // returns true if the first argument is greater than or equal to the second
+	  [id(12), helpstring("method GE")] HRESULT GE([in] VARIANT Val1, [in] VARIANT Val2, [out, retval] VARIANT_BOOL * pResult);
+	};
+
+[
+	uuid(B357A8B3-B048-11D4-91CF-00B0D02B5777),
+	version(1.0),
+	helpstring("MTDecimalOps 1.0 Type Library")
+]
+library MTDECIMALOPSLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(B357A8C0-B048-11D4-91CF-00B0D02B5777),
+		helpstring("MTDecimalOps Class")
+	]
+	coclass MTDecimalOps
+	{
+		[default] interface IMTDecimalOps;
+	};
+	[
+		uuid(cba436f0-82b8-41d4-9654-1d85d35a91b1),
+		helpstring("MTBigIntegerOps Class")
+	]
+	coclass MTBigIntegerOps
+	{
+		[default] interface IMTBigIntegerOps;
+	};
+};

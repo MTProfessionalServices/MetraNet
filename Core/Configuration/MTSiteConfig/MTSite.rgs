@@ -1,0 +1,24 @@
+HKCR
+{
+	MTSite.MTSite.1 = s 'MTSite Class'
+	{
+		CLSID = s '{1E23E15A-F8F4-11D2-B660-00104B2B980B}'
+	}
+	MTSite.MTSite = s 'MTSite Class'
+	{
+		CurVer = s 'MTSite.MTSite.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1E23E15A-F8F4-11D2-B660-00104B2B980B} = s 'MTSite Class'
+		{
+			ProgID = s 'MTSite.MTSite.1'
+			VersionIndependentProgID = s 'MTSite.MTSite'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+HKCR
+{
+	MTEnumRegions.MTEnumRegions.1 = s 'MTEnumRegions Class'
+	{
+		CLSID = s '{52F73302-F686-11D2-AA26-00105A2A148D}'
+	}
+	MTEnumRegions.MTEnumRegions = s 'MTEnumRegions Class'
+	{
+		CurVer = s 'MTEnumRegions.MTEnumRegions.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {52F73302-F686-11D2-AA26-00105A2A148D} = s 'MTEnumRegions Class'
+		{
+			ProgID = s 'MTEnumRegions.MTEnumRegions.1'
+			VersionIndependentProgID = s 'MTEnumRegions.MTEnumRegions'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

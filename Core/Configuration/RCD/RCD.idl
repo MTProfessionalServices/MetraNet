@@ -1,0 +1,124 @@
+/**************************************************************************
+* Copyright 1997-2000 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+* $Header$
+* 
+***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "MTHook.idl";
+
+	interface IMTRcdFileList;
+
+	// ----------------------------------------------------------------
+	// Interface: IMTRcd
+	// Description: The RCD returns a list of files from the extension folder
+	// based on the specified query.  It also has the ability to execute hooks
+	// when files change the match the query in RegisterCallBack()
+	// ----------------------------------------------------------------
+
+	[
+		object,
+		uuid(97961658-6E37-11D4-A642-00C04F579C39),
+		dual,
+		helpstring("IMTRcd Interface"),
+		pointer_default(unique)
+	]
+	interface IMTRcd : IDispatch
+	{	
+		// Gets the extensiondir
+		[propget, id(1), helpstring("Get the Extension directory")] HRESULT ExtensionDir([out, retval] BSTR *pVal);
+		// sets the extensiondir.  This property is hidden because users 
+		// should not change the extensions directory!
+		[hidden, propput, id(1), helpstring("Set the extension directory")] HRESULT ExtensionDir([in] BSTR newVal);
+		// Initializes the RcD
+		[id(2), hidden, helpstring("This method is replaced by final construct")] HRESULT Init();
+		//Returns a RCDFileList pointer based on the query
+		[id(3), helpstring("Runs a query on the extensions folder and returns a list of matches")] 
+			HRESULT RunQuery([in] BSTR query, [in] VARIANT_BOOL bRecurse, [out,retval] IMTRcdFileList** ppFileList);
+		// registers a callback based on the query
+		[id(4), 
+			helpstring("Registers a Callback that is fired when a file matching the query changes. The pHook argument must be a IMTHook pointer")] 
+			HRESULT RegisterCallBack([in] BSTR query,[in] IUnknown* pHook,[in] VARIANT vHookArg);
+		// Gets a list of extensions as a IMTRcdFileList
+		[propget, id(5), helpstring("returns the list of extensions on the system")] HRESULT ExtensionList([out, retval] IMTRcdFileList* *pVal);
+		[id(6), helpstring("method RunQueryInAlternateFolder")] HRESULT RunQueryInAlternateFolder([in] BSTR query, [in] VARIANT_BOOL bRecurse, [in] BSTR AlternateFolder,[out,retval] IMTRcdFileList** ppFileList);
+		[propget, id(7), helpstring("returns the list of extensions with a full path")] HRESULT ExtensionListWithPath([out, retval] IMTRcdFileList* *pVal);
+		[propget, id(8), helpstring("the MetraTech installation directory")] HRESULT InstallDir([out, retval] BSTR *pVal);
+		[propget, id(9), helpstring("property ConfigDir")] HRESULT ConfigDir([out, retval] BSTR *pVal);
+		[propget, id(10), helpstring("property ErrorMessage")] HRESULT ErrorMessage([in] VARIANT aErrorCode, [out, retval] BSTR *pVal);
+		[id(11), helpstring("method AddErrorResourceLibrary")] HRESULT AddErrorResourceLibrary([in] BSTR filename);
+		[propget, id(12), helpstring("property ErrorAsLong")] HRESULT ErrorAsLong([in] VARIANT aErrorCode, [out, retval] LONG *pVal);
+		[id(13), helpstring("method GetUTCDate")] HRESULT GetUTCDate([out,retval] DATE* pRetVal);
+		[id(14), helpstring("method GetMinDate")] HRESULT GetMinDate([out, retval] DATE* pRetVal);
+		[id(15), helpstring("method GetMaxDate")] HRESULT GetMaxDate([out, retval] DATE* pRetVal);
+
+		// Gets the name of the extension by parsing the given path/filename
+		// Failure will occur if the path is not contained in the extension directory
+		[id(16), helpstring("method GetExtensionFromPath")] HRESULT GetExtensionFromPath([in] BSTR path, [out, retval] BSTR* pExtension);
+
+	};
+	[
+		object,
+		uuid(9796165A-6E37-11D4-A642-00C04F579C39),
+		dual,
+		helpstring("IMTRcdFileList Interface"),
+		pointer_default(unique)
+	]
+	// ----------------------------------------------------------------
+	// Interface: IMTRcdFileList
+	// Description: Contains a list of files return by the RCD.
+	// ----------------------------------------------------------------
+	interface IMTRcdFileList : IDispatch
+	{
+		// get the count of files
+		[propget, id(1), helpstring("Returns the count")] HRESULT Count([out, retval] long *pVal);
+		// get the item at an index
+		[propget, id(DISPID_VALUE), helpstring("Get the Item by index")] HRESULT Item([in] long aIndex, [out, retval] VARIANT *pVal);
+		// add a file to the container
+		[id(3), helpstring("Add a file to the container")] HRESULT AddFile([in] BSTR newVal);
+		// return an enumerator
+		[propget, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+	};
+
+[
+	uuid(9796164C-6E37-11D4-A642-00C04F579C39),
+	version(1.0),
+	helpstring("MetraTech Runtime Configuration Dispenser Type Library")
+]
+library RCDLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(97961659-6E37-11D4-A642-00C04F579C39),
+		helpstring("MTRcd Class")
+	]
+	coclass MTRcd
+	{
+		[default] interface IMTRcd;
+	};
+	[
+		uuid(9796165B-6E37-11D4-A642-00C04F579C39),
+		helpstring("MTRcdFileList Class")
+	]
+	coclass MTRcdFileList
+	{
+		[default] interface IMTRcdFileList;
+	};
+};

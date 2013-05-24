@@ -1,0 +1,26 @@
+HKCR
+{
+	COMDBObjects.COMDiscountView.1 = s 'COMDiscountView Class'
+	{
+		CLSID = s '{DA6FA7C4-823C-11D3-9DB5-00C04F46EB1E}'
+	}
+	COMDBObjects.COMDiscountView = s 'COMDiscountView Class'
+	{
+		CLSID = s '{DA6FA7C4-823C-11D3-9DB5-00C04F46EB1E}'
+		CurVer = s 'COMDBObjects.COMDiscountView.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {DA6FA7C4-823C-11D3-9DB5-00C04F46EB1E} = s 'COMDiscountView Class'
+		{
+			ProgID = s 'COMDBObjects.COMDiscountView.1'
+			VersionIndependentProgID = s 'COMDBObjects.COMDiscountView'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{0119D8C7-307D-11D2-B5F5-00104B2B980B}'
+		}
+	}
+}

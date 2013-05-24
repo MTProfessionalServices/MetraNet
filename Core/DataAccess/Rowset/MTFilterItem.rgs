@@ -1,0 +1,25 @@
+HKCR
+{
+	MTSQLRowset.MTFilterItem.1 = s 'MTFilterItem Class'
+	{
+		CLSID = s '{E9C17D8F-B880-43FC-9021-A08382A23AFB}'
+	}
+	MTSQLRowset.MTFilterItem = s 'MTFilterItem Class'
+	{
+		CLSID = s '{E9C17D8F-B880-43FC-9021-A08382A23AFB}'
+		CurVer = s 'MTSQLRowset.MTFilterItem.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E9C17D8F-B880-43FC-9021-A08382A23AFB} = s 'MTFilterItem Class'
+		{
+			ProgID = s 'MTSQLRowset.MTFilterItem.1'
+			VersionIndependentProgID = s 'MTSQLRowset.MTFilterItem'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+		}
+	}
+}

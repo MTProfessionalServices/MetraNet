@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.MTLocalizedEntry.1.1 = s 'MTLocalizedEntry Class'
+	{
+		CLSID = s '{19821924-106D-11D4-95A9-00B0D025B121}'
+	}
+	Metratech.MTLocalizedEntry.1 = s 'MTLocalizedEntry Class'
+	{
+		CLSID = s '{19821924-106D-11D4-95A9-00B0D025B121}'
+		CurVer = s 'Metratech.MTLocalizedEntry.1.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {19821924-106D-11D4-95A9-00B0D025B121} = s 'MTLocalizedEntry Class'
+		{
+			ProgID = s 'Metratech.MTLocalizedEntry.1.1'
+			VersionIndependentProgID = s 'Metratech.MTLocalizedEntry.1'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{DF8AD4B1-0F32-11D4-95A5-00B0D025B121}'
+		}
+	}
+}

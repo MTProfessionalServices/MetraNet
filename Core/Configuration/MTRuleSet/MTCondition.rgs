@@ -1,0 +1,24 @@
+HKCR
+{
+	MTCondition.MTCondition.1 = s 'MTCondition Class'
+	{
+		CLSID = s '{CD730A36-D8B8-11D2-A1DE-006008C0E24A}'
+	}
+	MTCondition.MTCondition = s 'MTCondition Class'
+	{
+		CurVer = s 'MTCondition.MTCondition.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {CD730A36-D8B8-11D2-A1DE-006008C0E24A} = s 'MTCondition Class'
+		{
+			ProgID = s 'MTCondition.MTCondition.1'
+			VersionIndependentProgID = s 'MTCondition.MTCondition'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+		}
+	}
+}

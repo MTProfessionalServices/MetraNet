@@ -1,0 +1,24 @@
+HKCR
+{
+	MTRule.MTRule.1 = s 'MTRule Class'
+	{
+		CLSID = s '{CD730A34-D8B8-11D2-A1DE-006008C0E24A}'
+	}
+	MTRule.MTRule = s 'MTRule Class'
+	{
+		CurVer = s 'MTRule.MTRule.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {CD730A34-D8B8-11D2-A1DE-006008C0E24A} = s 'MTRule Class'
+		{
+			ProgID = s 'MTRule.MTRule.1'
+			VersionIndependentProgID = s 'MTRule.MTRule'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+		}
+	}
+}

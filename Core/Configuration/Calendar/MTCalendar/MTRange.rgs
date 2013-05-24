@@ -1,0 +1,24 @@
+HKCR
+{
+	MTRange.MTRange.1 = s 'MTRange Class'
+	{
+		CLSID = s '{BF96D674-F42A-11D2-AE56-00C04F54FE3B}'
+	}
+	MTRange.MTRange = s 'MTRange Class'
+	{
+		CurVer = s 'MTRange.MTRange.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {BF96D674-F42A-11D2-AE56-00C04F54FE3B} = s 'MTRange Class'
+		{
+			ProgID = s 'MTRange.MTRange.1'
+			VersionIndependentProgID = s 'MTRange.MTRange'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

@@ -1,0 +1,26 @@
+HKCR
+{
+	EmailMessage.MTEmailMessage.1 = s 'MTEmailMessage Class'
+	{
+		CLSID = s '{3C967C1E-E4B7-11D3-99E7-00C04F6DC482}'
+	}
+	EmailMessage.MTEmailMessage = s 'MTEmailMessage Class'
+	{
+		CLSID = s '{3C967C1E-E4B7-11D3-99E7-00C04F6DC482}'
+		CurVer = s 'EmailMessage.MTEmailMessage.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {3C967C1E-E4B7-11D3-99E7-00C04F6DC482} = s 'MTEmailMessage Class'
+		{
+			ProgID = s 'EmailMessage.MTEmailMessage.1'
+			VersionIndependentProgID = s 'EmailMessage.MTEmailMessage'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{CA3C5EB1-E548-11D3-99E7-00C04F6DC482}'
+		}
+	}
+}

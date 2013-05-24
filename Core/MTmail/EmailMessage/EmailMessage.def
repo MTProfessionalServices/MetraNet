@@ -1,0 +1,9 @@
+; EmailMessage.def : Declares the module parameters.
+
+LIBRARY      "EmailMessage.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

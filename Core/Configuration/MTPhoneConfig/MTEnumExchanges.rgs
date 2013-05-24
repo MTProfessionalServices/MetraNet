@@ -1,0 +1,24 @@
+HKCR
+{
+	MTEnumExchanges.MTEnumExchanges.1 = s 'MTEnumExchanges Class'
+	{
+		CLSID = s '{70B97088-0947-11D3-AA2D-00105A2A148D}'
+	}
+	MTEnumExchanges.MTEnumExchanges = s 'MTEnumExchanges Class'
+	{
+		CurVer = s 'MTEnumExchanges.MTEnumExchanges.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {70B97088-0947-11D3-AA2D-00105A2A148D} = s 'MTEnumExchanges Class'
+		{
+			ProgID = s 'MTEnumExchanges.MTEnumExchanges.1'
+			VersionIndependentProgID = s 'MTEnumExchanges.MTEnumExchanges'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

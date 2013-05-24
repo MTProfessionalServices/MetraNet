@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTEventRunStatus.1 = s 'MTEventRunStatus Class'
+	{
+		CLSID = s '{778EC3BC-F969-4ED7-AAB0-CB3EEF8EAD4D}'
+	}
+	MetraTech.MTEventRunStatus = s 'MTEventRunStatus Class'
+	{
+		CLSID = s '{778EC3BC-F969-4ED7-AAB0-CB3EEF8EAD4D}'
+		CurVer = s 'MetraTech.MTEventRunStatus.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {778EC3BC-F969-4ED7-AAB0-CB3EEF8EAD4D} = s 'MTEventRunStatus Class'
+		{
+			ProgID = s 'MetraTech.MTEventRunStatus.1'
+			VersionIndependentProgID = s 'MetraTech.MTEventRunStatus'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{E54B8B1B-A953-11D2-B629-00104B2B980B}'
+		}
+	}
+}

@@ -1,0 +1,108 @@
+{
+    "dirs": [
+        "F:\\Builds\\MetraNet"
+    ],
+    "ResultsPath": "C:\\Documents and Settings\\Administrator\\Desktop\\Build Cleaner Results",
+    "SourcePath1": "F:\\Builds\\MetraNet",
+    "SourcePath2": "C:\\ICE.6.8.0-Development\\Source",
+    "GenerateReports": true,
+    "AutoFix": false,
+    "IsBuildMachine": true,
+    "checkRepairs": {
+        "OrphanFiles": {
+            "name": "OrphanFiles",
+            "doCheck": false,
+            "doRepair": true
+        },
+        "BaseInter": {
+            "name": "BaseInter",
+            "doCheck": false,
+            "doRepair": false
+        },
+        "JunkFiles": {
+            "name": "JunkFiles",
+            "doCheck": true,
+            "doRepair": true
+        },
+        "DuplicateDLLs": {
+            "name": "DuplicateDLLs",
+            "doCheck": false,
+            "doRepair": true
+        },
+        "CustomBuildStep": {
+            "name": "CustomBuildStep",
+            "doCheck": false,
+            "doRepair": false
+        },
+        "C++ Linker": {
+            "name": "C++ Linker",
+            "doCheck": false,
+            "doRepair": false
+        },
+        ".NET Framework": {
+            "name": ".NET Framework",
+            "doCheck": false,
+            "doRepair": false
+        },
+        "FileReference": {
+            "name": "FileReference",
+            "doCheck": true,
+            "doRepair": true
+        },
+        "ProjectName": {
+            "name": "ProjectName",
+            "doCheck": false,
+            "doRepair": true
+        },
+        "Reference": {
+            "name": "Reference",
+            "doCheck": false,
+            "doRepair": true
+        },
+        "AssemblyInfo": {
+            "name": "AssemblyInfo",
+            "doCheck": false,
+            "doRepair": true
+        },
+        "OutDir": {
+            "name": "OutDir",
+            "doCheck": false,
+            "doRepair": false
+        },
+        "PostBuild": {
+            "name": "PostBuild",
+            "doCheck": false,
+            "doRepair": false
+        },
+        "OutputPath": {
+            "name": "OutputPath",
+            "doCheck": false,
+            "doRepair": false
+        },
+        "Platform": {
+            "name": "Platform",
+            "doCheck": false,
+            "doRepair": false
+        },
+        "DebugType": {
+            "name": "DebugType",
+            "doCheck": false,
+            "doRepair": false
+        },
+        "TargetFramework": {
+            "name": "TargetFramework",
+            "doCheck": false,
+            "doRepair": false
+        },
+        "UnitTests": {
+            "name": "UnitTests",
+            "doCheck": false,
+            "doRepair": false
+        },
+        "EncryptedPasswords": {
+            "name": "EncryptedPasswords",
+            "doCheck": true,
+            "doRepair": true
+        }
+    }
+}

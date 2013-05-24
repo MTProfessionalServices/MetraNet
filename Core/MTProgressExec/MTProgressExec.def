@@ -1,0 +1,9 @@
+; MTProgressExec.def : Declares the module parameters.
+
+LIBRARY      "MTProgressExec.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

@@ -1,0 +1,9 @@
+; ModuleReader.def : Declares the module parameters.
+
+LIBRARY      "ModuleReader.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

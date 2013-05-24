@@ -1,0 +1,24 @@
+CREATE PROCEDURE foo @param1 INTEGER @param2 INTEGER OUTPUT
+AS
+SET @param1 = (@param2 + @param2)/3;
+PRINT CAST(@param1 AS VARCHAR);
+-- Comment #1
+SET @param1 =  +88 - -90;
+-- Comment #2
+SET @param2 = 89 * 8900;
+PRINT 'foo' + 'bar';
+PRINT 'foo' + 'bar' + 'baz';
+-- 'sadfasdfasdf' + 'kklsdf' LIKE '%sdf';
+DECLARE @myvariable VARCHAR;
+SET @myvariable = 'asdfasdfasdf';
+PRINT CASE @myvariable
+	WHEN 'bar'+ 'bat'  THEN 'foobarbat' 
+	WHEN 'baz' THEN 'foo' + 'baz'
+	ELSE 'else'
+END;
+PRINT CAST(8.9 AS VARCHAR);
+PRINT 'appendto' + CAST(990 + CAST('990' AS INTEGER) AS VARCHAR);
+DECLARE @sfdasdf DECIMAL;
+SET @sfdasdf = 8.9 + 9. + 10.123 + 11.000;
+-- Test some method calls
+--SET @sdfasdfasdf = substr(2, 8) + goo() + baz(bar(7, 9+78), NOT gob(today, yesterday, tomorrow));

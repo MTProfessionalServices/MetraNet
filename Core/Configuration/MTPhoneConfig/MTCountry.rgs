@@ -1,0 +1,24 @@
+HKCR
+{
+	MTCountry.MTCountry.1 = s 'MTCountry Class'
+	{
+		CLSID = s '{52F732FC-F686-11D2-AA26-00105A2A148D}'
+	}
+	MTCountry.MTCountry = s 'MTCountry Class'
+	{
+		CurVer = s 'MTCountry.MTCountry.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {52F732FC-F686-11D2-AA26-00105A2A148D} = s 'MTCountry Class'
+		{
+			ProgID = s 'MTCountry.MTCountry.1'
+			VersionIndependentProgID = s 'MTCountry.MTCountry'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

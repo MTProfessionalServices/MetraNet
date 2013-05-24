@@ -1,0 +1,24 @@
+HKCR
+{
+	MTEnumPhoneDevices.MTEnumPhoneDevices.1 = s 'MTEnumPhoneDevices Class'
+	{
+		CLSID = s '{52F732FA-F686-11D2-AA26-00105A2A148D}'
+	}
+	MTEnumPhoneDevices.MTEnumPhoneDevices = s 'MTEnumPhoneDevices Class'
+	{
+		CurVer = s 'MTEnumPhoneDevices.MTEnumPhoneDevices.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {52F732FA-F686-11D2-AA26-00105A2A148D} = s 'MTEnumPhoneDevices Class'
+		{
+			ProgID = s 'MTEnumPhoneDevices.MTEnumPhoneDevices.1'
+			VersionIndependentProgID = s 'MTEnumPhoneDevices.MTEnumPhoneDevices'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

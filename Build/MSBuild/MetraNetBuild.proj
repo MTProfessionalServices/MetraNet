@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="All">
+
+	<Import Project="$(MSBuildProjectDirectory)\properties\build.properties" />
+  <Import Project="$(MSBuildExtensionsPath)\ExtensionPack\4.0\MSBuild.ExtensionPack.tasks"/>
+
+  <UsingTask TaskName="Link" AssemblyName="Microsoft.Build.CppTasks.Win32, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <UsingTask TaskName="MIDL" AssemblyName="Microsoft.Build.CppTasks.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
+  
+  <PropertyGroup>
+    <BuildPath Condition="'$(BuildPath)'==''">$(MSBuildProjectDirectory)</BuildPath>
+    <TasksPath Condition="'$(TasksPath)'==''">$(BuildPath)\bin\Debug</TasksPath>
+    <MyTargets Condition="'$(MyTargets)'==''">Build</MyTargets>
+    <ProjectPath Condition="'$(ProjectPath)'==''">$(ROOTDIR)\**</ProjectPath>
+      <StopOnFirstError Condition="'$(StopOnFirstError)'==''">true</StopOnFirstError>
+  </PropertyGroup>
+
+  <!-- Item Group Definitions -->
+  <ItemGroup>
+    <CopySourceDLLs 
+        Include="
+            $(ROOTDIR)\ThirdParty\SqlParser\*.dll;
+            $(ROOTDIR)\ThirdParty\Microsoft\MVC\*.dll;
+            $(ROOTDIR)\Thirdparty\agsXMPP\agsXMPP.dll;
+            $(ROOTDIR)\Thirdparty\icu\bin\icudt38.dll;
+            $(ROOTDIR)\Thirdparty\icu\bin\icuin38.dll;
+            $(ROOTDIR)\Thirdparty\icu\bin\icuio38.dll;
+            $(ROOTDIR)\Thirdparty\icu\bin\icule38.dll;
+            $(ROOTDIR)\Thirdparty\icu\bin\iculx38.dll;
+            $(ROOTDIR)\Thirdparty\icu\bin\icutu38.dll;
+            $(ROOTDIR)\Thirdparty\icu\bin\icuuc38.dll;
+            $(ROOTDIR)\Thirdparty\MPICH2\lib\mpich2.dll;
+            $(ROOTDIR)\Thirdparty\MPICH2\lib\mpich2ssm.dll;
+            $(ROOTDIR)\Thirdparty\MPICH2\lib\mpich2shm.dll;
+            $(ROOTDIR)\Thirdparty\MPICH2\lib\mpich2mpi.dll;
+            $(ROOTDIR)\Thirdparty\RSA\kmclient.dll;
+            $(ROOTDIR)\Thirdparty\RSA\RsaKmc.dll;
+            $(ROOTDIR)\Thirdparty\Selenium\selenium-server.jar;
+			$(ROOTDIR)\Thirdparty\Selenium\ThoughtWorks.Selenium.Core.dll;
+			$(ROOTDIR)\Thirdparty\Selenium\Newtonsoft.Json.dll;
+			$(ROOTDIR)\Thirdparty\Selenium\Ionic.Zip.dll;
+			$(ROOTDIR)\Thirdparty\signio\PFPro.dll;
+            $(ROOTDIR)\Thirdparty\sqldmo\sqldmodotnet.dll;
+            $(ROOTDIR)\Thirdparty\StringTemplate\net-2.0\StringTemplate.dll;
+            $(ROOTDIR)\Thirdparty\StringTemplate\net-2.0\antlr.runtime.dll;
+            $(ROOTDIR)\Thirdparty\BusinessEntity\*.dll;
+            $(ROOTDIR)\Thirdparty\Crystal\*.dll;
+            $(ROOTDIR)\Thirdparty\MetraTechSecurityFramework\*.dll;
+            $(ROOTDIR)\Thirdparty\MetraTechSecurityFramework\DotNet\Microsoft\Bin\*.dll;
+			$(ROOTDIR)\Thirdparty\MetraTechSecurityFramework\DotNet\EnterpriseLibrary\*.dll;
+			$(ROOTDIR)\Thirdparty\MetraTechSecurityFramework\DotNet\EnterpriseLibrary\*.pdb;
+			$(ROOTDIR)\Thirdparty\MetraTechSecurityFramework\DotNet\EnterpriseLibrary\*.xml;
+			$(ROOTDIR)\Thirdparty\MetraTechSecurityFramework\DotNet\SQLite\*.dll;	
+			$(ROOTDIR)\Thirdparty\MetraTechSecurityFramework\DotNet\SQLite\*.xml;
+			$(ROOTDIR)\Thirdparty\MetraTechSecurityFramework\DotNet\SQLite\Designer\*.dll;
+            $(ROOTDIR)\Thirdparty\Microsoft\Atlas\*.dll;
+            $(ROOTDIR)\Thirdparty\Microsoft\GreatPlains\GP10\*.dll;
+            $(ROOTDIR)\Thirdparty\Microsoft\PrimaryInteropAssemblies\*.dll;
+            $(ROOTDIR)\Thirdparty\Microsoft\Win2K3\*.dll;
+            $(ROOTDIR)\Thirdparty\Oracle\ODPNET\*.dll;
+            $(ROOTDIR)\Thirdparty\PDH\pdh.dll;
+			$(ROOTDIR)\Thirdparty\DataExportFramework\*.dll;
+			$(ROOTDIR)\ThirdParty\NLog\*.dll;
+			$(ROOTDIR)\ThirdParty\EZTax\EZTaxNET\9.0_2.0FrameWork\*.dll;
+			$(ROOTDIR)\Thirdparty\NGenerics\NGenerics.dll;
+			$(ROOTDIR)\Thirdparty\RaptorDB\RaptorDB.dll;
+			$(ROOTDIR)\Thirdparty\ShellLink\ShellLink.exe;
+			$(ROOTDIR)\Thirdparty\FakeItEasy\FakeItEasy.dll;
+			$(ROOTDIR)\Thirdparty\Castle\*.dll;
+        " />
+  </ItemGroup>
+
+  <ItemGroup>
+    <CopySourceDLLsVersionDependent Include="$(ROOTDIR)\Thirdparty\tcmalloc\Debug\libtcmalloc_minimal-debug.dll">
+      <Version>Debug</Version>
+      <DestinationName>libtcmalloc_minimal-debug.dll</DestinationName>
+    </CopySourceDLLsVersionDependent>
+    <CopySourceDLLsVersionDependent Include="$(ROOTDIR)\Thirdparty\zlib\zlib-debug.dll">
+      <Version>Debug</Version>
+      <DestinationName>zlib.dll</DestinationName>
+    </CopySourceDLLsVersionDependent>
+
+    <CopySourceDLLsVersionDependent Include="$(ROOTDIR)\Thirdparty\tcmalloc\Release\libtcmalloc_minimal.dll">
+      <Version>Release</Version>
+      <DestinationName>libtcmalloc_minimal.dll</DestinationName>
+    </CopySourceDLLsVersionDependent>
+    <CopySourceDLLsVersionDependent Include="$(ROOTDIR)\Thirdparty\zlib\zlib-release.dll">
+      <Version>Release</Version>
+      <DestinationName>zlib.dll</DestinationName>
+    </CopySourceDLLsVersionDependent>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <CopySourceLibs Include="          
+          $(ROOTDIR)\Thirdparty\icu\lib\icudt.lib;
+          $(ROOTDIR)\Thirdparty\icu\lib\icuin.lib;
+          $(ROOTDIR)\Thirdparty\icu\lib\icuio.lib;
+          $(ROOTDIR)\Thirdparty\icu\lib\icule.lib;
+          $(ROOTDIR)\Thirdparty\icu\lib\iculx.lib;
+          $(ROOTDIR)\Thirdparty\icu\lib\icutu.lib;
+          $(ROOTDIR)\Thirdparty\icu\lib\icuuc.lib;
+          $(ROOTDIR)\Thirdparty\lzo\lzo.lib;
+          $(ROOTDIR)\Thirdparty\MPICH2\lib\mpi.lib;
+          $(ROOTDIR)\Thirdparty\Oracle\OCI\lib\oci.lib;
+          $(ROOTDIR)\Thirdparty\signio\PFPro.lib;
+    " />
+  </ItemGroup>
+
+  <ItemGroup>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_test_exec_monitor-vc100-mt-gd-1_43.lib">
+      <Version>Debug</Version>
+      <DestinationName>libboost_test_exec_monitor-vc100-mt-gd-1_43.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_unit_test_framework-vc100-mt-gd-1_43.lib">
+      <Version>Debug</Version>
+      <DestinationName>libboost_unit_test_framework-vc100-mt-gd-1_43.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_wserialization-vc100-mt-gd-1_43.lib">
+      <Version>Debug</Version>
+      <DestinationName>libboost_wserialization-vc100-mt-gd-1_43.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_serialization-vc100-mt-gd-1_43.lib">
+      <Version>Debug</Version>
+      <DestinationName>libboost_serialization-vc100-mt-gd-1_43.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_regex-vc100-mt-gd-1_43.lib">
+      <Version>Debug</Version>
+      <DestinationName>libboost_regex-vc100-mt-gd-1_43.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_thread-vc100-mt-gd-1_43.lib">
+      <Version>Debug</Version>
+      <DestinationName>libboost_thread-vc100-mt-gd-1_43.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_filesystem-vc100-mt-gd-1_43.lib">
+      <Version>Debug</Version>
+      <DestinationName>libboost_filesystem-vc100-mt-gd-1_43.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_program_options-vc100-mt-gd-1_43.lib">
+      <Version>Debug</Version>
+      <DestinationName>libboost_program_options-vc100-mt-gd-1_43.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_system-vc100-mt-gd-1_43.lib">
+      <Version>Debug</Version>
+      <DestinationName>libboost_system-vc100-mt-gd-1_43.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_date_time-vc100-mt-gd-1_43.lib">
+      <Version>Debug</Version>
+      <DestinationName>libboost_date_time-vc100-mt-gd-1_43.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\tcmalloc\Debug\libtcmalloc_minimal-debug.lib">
+      <Version>Debug</Version>
+      <DestinationName>libtcmalloc_minimal-debug.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\zlib\zlib-debug.lib">
+      <Version>Debug</Version>
+      <DestinationName>zlib.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_test_exec_monitor-vc100-mt-1_43.lib">
+      <Version>Release</Version>
+      <DestinationName>libboost_test_exec_monitor-vc100-mt-1_43.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_unit_test_framework-vc100-mt-1_43.lib">
+      <Version>Release</Version>
+      <DestinationName>libboost_unit_test_framework-vc100-mt-1_43.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_wserialization-vc100-mt-1_43.lib">
+      <Version>Release</Version>
+      <DestinationName>libboost_wserialization-vc100-mt-1_43.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_serialization-vc100-mt-1_43.lib">
+      <Version>Release</Version>
+      <DestinationName>libboost_serialization-vc100-mt-1_43.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_regex-vc100-mt-1_43.lib">
+      <Version>Release</Version>
+      <DestinationName>libboost_regex-vc100-mt-1_43.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_thread-vc100-mt-1_43.lib">
+      <Version>Release</Version>
+      <DestinationName>libboost_thread-vc100-mt-1_43.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_filesystem-vc100-mt-1_43.lib">
+      <Version>Release</Version>
+      <DestinationName>libboost_filesystem-vc100-mt-1_43.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_program_options-vc100-mt-1_43.lib">
+      <Version>Release</Version>
+      <DestinationName>libboost_program_options-vc100-mt-1_43.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_system-vc100-mt-1_43.lib">
+      <Version>Release</Version>
+      <DestinationName>libboost_system-vc100-mt-1_43.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_date_time-vc100-mt-1_43.lib">
+      <Version>Release</Version>
+      <DestinationName>libboost_date_time-vc100-mt-1_43.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\tcmalloc\Release\libtcmalloc_minimal.lib">
+      <Version>Release</Version>
+      <DestinationName>libtcmalloc_minimal.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+    <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\zlib\zlib-release.lib">
+      <Version>Release</Version>
+      <DestinationName>zlib.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+  </ItemGroup>
+
+  <ItemGroup>
+    <MCFiles Include="
+              $(ROOTDIR)\msg\NTFacilities.mc0;
+              $(ROOTDIR)\msg\mtglobal_language.mc1;
+              $(ROOTDIR)\msg\core_err.mc1;
+	            $(ROOTDIR)\msg\db_err.mc1;
+	            $(ROOTDIR)\msg\kiosk_err.mc1;
+	            $(ROOTDIR)\msg\pipe_err.mc1;
+	            $(ROOTDIR)\msg\sdk.mc1;
+	            $(ROOTDIR)\msg\mtldap_err.mc1;
+	            $(ROOTDIR)\msg\creditcardaccount_err.mc1;
+	            $(ROOTDIR)\msg\mtaccount_err.mc1;
+	            $(ROOTDIR)\msg\accountcreditrequest_err.mc1;
+	            $(ROOTDIR)\msg\MTRemoteLoggerService.mc1;
+	            $(ROOTDIR)\msg\mtenumconfig_err.mc1;
+	            $(ROOTDIR)\msg\ps_rts.mc1;
+	            $(ROOTDIR)\msg\paymentserver_err.mc1;
+	            $(ROOTDIR)\msg\accountmapper_err.mc1;
+	            $(ROOTDIR)\msg\accountcredit_err.mc1;
+	            $(ROOTDIR)\msg\mtpc_err.mc1;
+	            $(ROOTDIR)\msg\mtreportconfig_err.mc1;
+	            $(ROOTDIR)\msg\mtpc_user_err.mc1;
+	            $(ROOTDIR)\msg\mtauth_err.mc1;
+	            $(ROOTDIR)\msg\mtlocaleconfig_err.mc1;
+	            $(ROOTDIR)\msg\AccHierarchies_err.mc1;
+	            $(ROOTDIR)\msg\mtaccountstates_err.mc1;
+	            $(ROOTDIR)\msg\mtar_err.mc1;
+	            $(ROOTDIR)\msg\mtbatch_err.mc1;
+	            $(ROOTDIR)\msg\ServiceEndpoints_err.mc1;
+             ">
+        <MCFileName>$(MTOUTDIR)\$(config)\msg\mtglobal_msg.mc</MCFileName>
+        <RCFileName>$(MTOUTDIR)\$(config)\msg\mtglobal_msg.rc</RCFileName>
+        <ResFileName>$(MTOUTDIR)\$(config)\msg\mtglobal_msg.res</ResFileName>
+        <LibFileName>$(MTOUTDIR)\$(config)\lib\mtglobal_msg.lib</LibFileName>
+        <DllFileName>$(MTOUTDIR)\$(config)\bin\mtglobal_msg.dll</DllFileName>
+        <PdbFileName>$(MTOUTDIR)\$(config)\bin\mtglobal_msg.Pdb</PdbFileName>
+    </MCFiles>
+    <MCFiles Include="
+             $(ROOTDIR)\msg\NTFacilities.mc0;
+             $(ROOTDIR)\msg\sdkmsg_language.mc1;
+             $(ROOTDIR)\msg\sdk.mc1;
+            ">
+      <MCFileName>$(MTOUTDIR)\$(config)\msg\sdk_msg.mc</MCFileName>
+      <RCFileName>$(MTOUTDIR)\$(config)\msg\sdk_msg.rc</RCFileName>
+      <ResFileName>$(MTOUTDIR)\$(config)\msg\sdk_msg.res</ResFileName>
+      <LibFileName>$(MTOUTDIR)\$(config)\lib\sdk_msg.lib</LibFileName>
+      <DllFileName>$(MTOUTDIR)\$(config)\bin\sdk_msg.dll</DllFileName>
+      <PdbFileName>$(MTOUTDIR)\$(config)\bin\sdk_msg.pdb</PdbFileName>
+    </MCFiles>
+    <MCFiles Include="
+              $(ROOTDIR)\msg\NTFacilities.mc0;
+              $(ROOTDIR)\msg\lstall_language.mc1;
+              $(ROOTDIR)\msg\listener.mc1;
+             ">
+      <MCFileName>$(MTOUTDIR)\$(config)\msg\listener_msg.mc</MCFileName>
+      <RCFileName>$(MTOUTDIR)\$(config)\msg\listener_msg.rc</RCFileName>
+      <ResFileName>$(MTOUTDIR)\$(config)\msg\listener_msg.res</ResFileName>
+      <LibFileName>$(MTOUTDIR)\$(config)\lib\listener_msg.lib</LibFileName>
+      <DllFileName>$(MTOUTDIR)\$(config)\bin\listener_msg.dll</DllFileName>
+      <PdbFileName>$(MTOUTDIR)\$(config)\bin\listener_msg.pdb</PdbFileName>
+    </MCFiles>
+  </ItemGroup>
+
+  <ItemGroup>
+    <SpecialIDLFiles Include="$(ROOTDIR)\include\MTARInterfaceLib.idl" >
+      <MIDLDefines Condition="'$(config)'=='Debug'">_DEBUG</MIDLDefines>
+      <MIDLDefines Condition="'$(config)'=='Release'">NDEBUG</MIDLDefines>
+    </SpecialIDLFiles>
+    <SpecialIDLFiles Include="$(ROOTDIR)\include\MTAuthLib.idl" >
+      <MIDLDefines Condition="'$(config)'=='Debug'">_DEBUG</MIDLDefines>
+      <MIDLDefines Condition="'$(config)'=='Release'">NDEBUG</MIDLDefines>
+    </SpecialIDLFiles>
+    <SpecialIDLFiles Include="$(ROOTDIR)\include\MTConfigLib.idl" >
+      <MIDLDefines Condition="'$(config)'=='Debug'">_DEBUG</MIDLDefines>
+      <MIDLDefines Condition="'$(config)'=='Release'">NDEBUG</MIDLDefines>
+    </SpecialIDLFiles>
+    <SpecialIDLFiles Include="$(ROOTDIR)\include\MTEnumConfigLib.idl" >
+      <MIDLDefines Condition="'$(config)'=='Debug'">_DEBUG</MIDLDefines>
+      <MIDLDefines Condition="'$(config)'=='Release'">NDEBUG</MIDLDefines>
+    </SpecialIDLFiles>
+    <SpecialIDLFiles Include="$(ROOTDIR)\include\MTLDAPLib.idl" >
+      <MIDLDefines Condition="'$(config)'=='Debug'">_DEBUG</MIDLDefines>
+      <MIDLDefines Condition="'$(config)'=='Release'">NDEBUG</MIDLDefines>
+    </SpecialIDLFiles>
+    <SpecialIDLFiles Include="$(ROOTDIR)\include\RowsetEnums.idl" >
+      <MIDLDefines Condition="'$(config)'=='Debug'">_DEBUG</MIDLDefines>
+      <MIDLDefines Condition="'$(config)'=='Release'">NDEBUG</MIDLDefines>
+    </SpecialIDLFiles>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <IDLFiles Include="$(ROOTDIR)\**\*.idl" Exclude="@(SpecialIDLFiles)">
+      <MIDLDefines Condition="'$(config)'=='Debug'">_DEBUG</MIDLDefines>
+      <MIDLDefines Condition="'$(config)'=='Release'">NDEBUG</MIDLDefines>
+    </IDLFiles>
+  </ItemGroup>
+
+  <ItemGroup>
+    <MIDLIncludeDirs Include="$(ROOTDIR)\include" />
+    <MIDLIncludeDirs Include="$(ROOTDIR)\Core\DataAccess\Rowset" />
+    <MIDLIncludeDirs Include="@(IDLFiles ->'%(RootDir)%(Directory)')" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SecurityFramework 
+      Include="$(ROOTDIR)\MetraTech\SecurityFramework\**\*.csproj"
+      Exclude="$(ROOTDIR)\MetraTech\SecurityFramework\Tests\**\*.csproj">
+    </SecurityFramework>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Logging
+      Include="$(ROOTDIR)\Core\Configuration\PropSet\PropSet.vcxproj;
+			   $(ROOTDIR)\Pipeline\SysContext\SysContext.vcxproj;
+			   $(ROOTDIR)\Core\Configuration\RCD\RCD.vcxproj">
+    </Logging>
+  </ItemGroup>
+    
+ <ItemGroup>
+    <TestProjects Include="$(ProjectPath)\*.Test.csproj;
+						   $(ROOTDIR)\MetraTech\FunctionalTests\MetraTech.FunctionalTests.csproj"
+				  Exclude="$(ROOTDIR)\MetraTech\Test\MetraTech.Test.csproj">
+		<AdditionalProperties>Architecture=x86</AdditionalProperties>
+		<!-- Exclusion: MetraTech.Test.csproj - is not a Unit Test project. Still named with '*.Test.csproj' pattern -->
+    </TestProjects>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <MetraTechProjects Include="$(ProjectPath)\*.vcxproj" Exclude="$(ROOTDIR)\include\include.vcxproj">
+      <AdditionalProperties>Architecture=x86</AdditionalProperties>
+    </MetraTechProjects>
+    <MetraTechProjects Include="$(ProjectPath)\*.csproj" 
+                       Exclude="$(ProjectPath)\*.Test.csproj;
+                                $(ROOTDIR)\MetraTech\FunctionalTests\MetraTech.FunctionalTests.csproj;
+								$(ROOTDIR)\PrototypeCode\**\*.csproj;
+                                $(ROOTDIR)\SDK\samples\COM\**\*.csproj;
+                                $(ROOTDIR)\MetraTech\SecurityFramework\**\*.csproj;
+                                $(ROOTDIR)\Thirdparty\NUnit224\samples\**\*.csproj;
+                                $(ROOTDIR)\Thirdparty\NUnit224\src\nunit-console\nunit-console_VS2005.csproj;
+                                $(ROOTDIR)\Thirdparty\NUnit224\src\nunit-gui\**\*.csproj;
+                                $(ROOTDIR)\Thirdparty\NUnit224\src\NUnitExtensions\core\nunit.core.extensions.dll.csproj;
+                                $(ROOTDIR)\Thirdparty\NUnit224\src\NUnitExtensions\core\nunit.core.extensions.dll_VS2005.csproj;
+                                $(ROOTDIR)\Thirdparty\NUnit224\src\NUnitExtensions\tests\**\*.csproj;
+                                $(ROOTDIR)\Thirdparty\NUnit224\src\NUnitFramework\core\nunit.core.dll.csproj;
+                                $(ROOTDIR)\Thirdparty\NUnit224\src\NUnitFramework\core\nunit.core.dll_VS2005.csproj;
+                                $(ROOTDIR)\Thirdparty\NUnit224\src\NUnitFramework\framework\nunit.framework.dll.csproj;
+                                $(ROOTDIR)\Thirdparty\NUnit224\src\NUnitFramework\framework\nunit.framework.dll_VS2005.csproj;
+                                $(ROOTDIR)\Thirdparty\NUnit224\src\NUnitFramework\tests\**\*.csproj;
+                                $(ROOTDIR)\Thirdparty\NUnit224\src\NUnitTestServer\**\*.csproj;
+                                $(ROOTDIR)\Thirdparty\NUnit224\src\UiKit\**\*.csproj;
+                                $(ROOTDIR)\Thirdparty\NUnit224\src\util\nunit.util.dll.csproj;
+                                $(ROOTDIR)\Thirdparty\NUnit224\src\util\nunit.util.dll_VS2005.csproj;
+                                $(ROOTDIR)\Thirdparty\Selenium\**\*.csproj">
+    </MetraTechProjects>
+	
+	<!-- Exclusion: MetraTech.Test.csproj - is not a Unit Test project. Still named with '*.Test.csproj' pattern -->
+    <MetraTechProjects Include="$(ROOTDIR)\MetraTech\Test\MetraTech.Test.csproj" />
+  </ItemGroup>
+  
+ <ItemGroup>
+    <MetraTechCsProjects Include="$(ProjectPath)\MetraTech\**\*.vcxproj"
+						 Exclude="$(ROOTDIR)\include\include.vcxproj;
+								  $(ROOTDIR)\Core\Configuration\PropSet\PropSet.vcxproj;
+								  $(ROOTDIR)\Pipeline\SysContext\SysContext.vcxproj;
+								  $(ROOTDIR)\Core\Configuration\RCD\RCD.vcxproj">
+      <AdditionalProperties>Architecture=x86</AdditionalProperties>
+    </MetraTechCsProjects>
+  </ItemGroup>
+
+  <ItemGroup>
+    <VBProjects Include="$(ROOTDIR)\AR\MTGreatPlainsExec\MTGreatPlainsExec.vbp;
+                          $(ROOTDIR)\Core\Configuration\XmlTranslator\XmlTranslator.vbp;
+                          $(ROOTDIR)\DBServices\Reporting\MTGetConfigDir\MTGetRegValue.vbp;
+                          $(ROOTDIR)\Hooks\VBPlugInDebugger\VBPlugInDebugger.vbp;
+                          $(ROOTDIR)\UI\server\MTAdminTools\Logging\Logging.vbp;
+                          $(ROOTDIR)\MetraTech\UsageServer\Adapters\MTVBAdapter\MTVBAdapter.vbp;
+                          $(ROOTDIR)\MTAuth\MTAuthCapabilitiesVB\MTAuthCapabilitiesVB.vbp;
+                          $(ROOTDIR)\plugins\VBSubscribeExec\VBSubscribeExec.vbp;
+                          $(ROOTDIR)\plugins\VBTest\VBTest.vbp;
+                          $(ROOTDIR)\ProductCatalog\DumpPC\DumpPC.vbp;
+                          $(ROOTDIR)\Shared\MTVBlib\MTVBLib.vbp;
+                          $(ROOTDIR)\Shared\ProductCatalogImportExport\Sources\MTPCImportExportDll\MTPCImportExportExec.vbp;
+                          $(ROOTDIR)\UI\server\CSR\SubscriberAccountInfo\MTSubscriberAccount.vbp;
+                          $(ROOTDIR)\UI\server\MTAdminTools\EditEnum\AdminEnumEdit.vbp;
+                          $(ROOTDIR)\UI\server\MTAdminTools\MTConfigHelper\MTConfigHelper.vbp;
+                          $(ROOTDIR)\UI\server\MTAdminTools\MTFleXML\MTFleXML.vbp;
+                          $(ROOTDIR)\UI\server\MTAdminTools\MTNetUser\MTNetUser.vbp;
+                          $(ROOTDIR)\UI\server\MTAdminTools\MTServiceWizard\MTServiceWizard.vbp;
+                          $(ROOTDIR)\UI\server\MTAdminTools\MTVersion\MTVersion.vbp;
+                          $(ROOTDIR)\UI\server\MTAdminTools\NavBar\MTAdminNavbar.vbp;
+                          $(ROOTDIR)\UI\server\MTAdminTools\ServiceMonitor\ServiceMonitor.vbp;
+                          $(ROOTDIR)\UI\server\MTPaymentServerHelper\MTPaymentServerHelper.vbp;
+                          $(ROOTDIR)\UI\server\MTScriptTimer\MTScriptTimer.vbp;
+                          $(ROOTDIR)\UI\server\TabularRulesetReader\MTTabRulesetReader.vbp;
+                          $(ROOTDIR)\UI\server\ViewAllRates\viewallrates.vbp;
+                          $(ROOTDIR)\Utils\ComPlusWrapper\ComPlusWrapper.vbp;
+                          $(ROOTDIR)\Utils\ExtensionTools\ExtensionTools.vbp;
+                          $(ROOTDIR)\Shared\MSIXHandler\MTMSIX.vbp;
+                          $(ROOTDIR)\UI\server\HierarchyHelper\MTHierarchyHelper.vbp;
+                          $(ROOTDIR)\UI\server\MAM\MAM\MTMAM.vbp;
+                          " >
+          <ProjectType>DLL</ProjectType>
+      <OutDir>$(MTOUTDIR)\$(config)\Bin</OutDir>
+      </VBProjects>
+      <VBProjects Include="$(ROOTDIR)\SDK\samples\COM\COMSimple.vbp;
+                            $(ROOTDIR)\Shared\ProductCatalogImportExport\Sources\PCImportExport\PCImportExport.vbp;
+                            $(ROOTDIR)\Utils\ExtensionBuilder\ExtensionBuilder.vbp;
+                            $(ROOTDIR)\Utils\MSIX2SQL\msix2sql.vbp;
+                            $(ROOTDIR)\Utils\QuickConfig\QuickConfig.vbp;" >
+        <ProjectType>EXE</ProjectType>
+        <OutDir>$(MTOUTDIR)\$(config)\Bin</OutDir>
+      </VBProjects>
+  </ItemGroup>
+
+  <!-- Specific Build Step Definitions -->
+  <Target Name="MakeDirectories">
+    <!-- Create base directories-->
+    <MakeDir Directories="$(MTOUTDIR)\$(config);$(MTOUTDIR)\$(config)\Bin;$(MTOUTDIR)\$(config)\Lib;$(MTOUTDIR)\$(config)\Msg;$(MTOUTDIR)\$(config)\Include"
+              ContinueOnError="true" />
+  </Target>
+
+  <Target Name="CopySourceDLLs" Inputs="@(CopySourceDLLs)" Outputs ="@(CopySourceDLLs -> '$(MTOUTDIR)\$(Config)\Bin\%(FileName)%(Extension)')">
+    <!-- Copy Thirdparty DLLs without dependency on build type -->
+    <Copy SourceFiles="@(CopySourceDLLs)" DestinationFiles="@(CopySourceDLLs -> '$(MTOUTDIR)\$(Config)\Bin\%(FileName)%(Extension)')"/>
+  </Target>
+
+  <Target Name="CopyVersionDependentSourceDLLs" Inputs="@(CopySourceDLLsVersionDependent)"
+          Outputs="@(CopySourceDLLsVersionDependent -> '$(MTOUTDIR)\$(Version)\Bin\%(DestinationName)')" >
+    <!-- Copy Thirdparty DLLs for specified version -->
+    <Copy Condition="'%(CopySourceDLLsVersionDependent.Version)' == '$(config)'"
+          SourceFiles="@(CopySourceDLLsVersionDependent)"
+          DestinationFiles="@(CopySourceDLLsVersionDependent -> '$(MTOUTDIR)\$(Version)\Bin\%(DestinationName)')"
+    />
+  </Target>
+
+  <Target Name="CopySourceLibs" Inputs="@(CopySourceLibs)" Outputs="@(CopySourceLibs -> '$(MTOUTDIR)\$(config)\Lib\%(FileName)%(Extension)')">
+    <!-- Copy Thirdparty Libs without dependency on build type -->
+    <Copy SourceFiles="@(CopySourceLibs)" DestinationFiles="@(CopySourceLibs -> '$(MTOUTDIR)\$(config)\Lib\%(FileName)%(Extension)')" />
+  </Target>
+
+  <Target Name="CopyVersionDependentSourceLibs" Inputs ="@(CopySourceLibsVersionDependent)"
+          Outputs="@(CopySourceLibsVersionDependent -> '$(MTOUTDIR)\%(Version)\Lib\%(DestinationName)')" >
+    <!-- Copy Thirdparty Libs for specified build -->
+    <Copy Condition="'%(CopySourceLibsVersionDependent.Version)' == '$(config)'"
+          SourceFiles="@(CopySourceLibsVersionDependent)"
+          DestinationFiles="@(CopySourceLibsVersionDependent -> '$(MTOUTDIR)\$(config)\Lib\%(DestinationName)')"
+    />
+  </Target>
+
+  <Target Name="CleanupMCFiles" >
+    <Message Text="Deleting MC File: %(MCFiles.MCFileName)" />
+    <Delete Files="%(MCFiles.MCFileName)" />
+  </Target>
+  
+  <!-- Concatenate all the .mc1 files into the appropriate .mc file to prepare for building -->
+  <Target Name="BuildMCFiles" DependsOnTargets="CleanupMCFiles" Inputs="@(MCFiles)" Outputs="%(MCFileName)">
+    <Exec Command="echo y| type %(MCFiles.Identity) >> %(MCFiles.MCFileName)"/>
+   
+  </Target>
+
+  <Target Name="CompileMessageMCFiles" Inputs="%(MCFiles.MCFileName)" Outputs="%(MCFiles.RCFileName)">
+    <ItemGroup>
+      <MCParam Include="HeaderOutput">
+        <Value>/h</Value>
+      </MCParam>
+      <MCParam Include="HeaderOutputPath">
+        <Value>$(MTOUTDIR)\$(config)\include</Value>
+      </MCParam>
+      <MCParam Include="RCOutput">
+        <Value>/r</Value>
+      </MCParam>
+      <MCParam Include="RCOutputPath">
+        <Value>$(MTOUTDIR)\$(config)\msg</Value>
+      </MCParam>
+      <MCParam Include="CustomerBitSetting">
+        <Value>/c</Value>
+      </MCParam>
+      <MCParam Include="MCFile">
+        <Value>%(MCFiles.MCFileName)</Value>
+      </MCParam>
+    </ItemGroup>
+    
+    <MSBuild.ExtensionPack.Framework.GenericTool 
+        Executable="mc.exe" 
+        Parameters="@(MCParam)"
+        SuccessExitCodes="0;1" 
+        WarningExitCodes="2;4" 
+        ErrorExitCodes="8;16"
+        />
+  </Target>
+
+  <Target Name="CompileMessageRCFiles" Inputs="%(MCFiles.RCFileName)" Outputs="%(MCFiles.ResFileName)">
+    <ItemGroup>
+      <RCParam Include="LanguageFlag">
+        <Value>/l</Value>
+      </RCParam>
+      <RCParam Include="LanguageValue">
+        <Value>0x409</Value>
+      </RCParam>
+      <RCParam Include="ResFileFlag">
+        <Value>/fo</Value>
+      </RCParam>
+      <RCParam Include="ResFilePath">
+        <Value>%(MCFiles.ResFileName)</Value>
+      </RCParam>
+      <RCParam Include="RCFile">
+        <Value>%(MCFiles.RCFileName)</Value>
+      </RCParam>
+    </ItemGroup>
+
+    <MSBuild.ExtensionPack.Framework.GenericTool
+        Executable="rc.exe"
+        Parameters="@(RCParam)"
+        SuccessExitCodes="0;1"
+        WarningExitCodes="2;4"
+        ErrorExitCodes="8;16"
+        />
+  </Target>
+
+  <Target Name="LinkMessageResourceDLLs" Inputs="%(MCFiles.ResFileName)" Outputs="%(MCFiles.DllFileName)" >
+    
+    <Link ProgramDatabaseFile="%(MCFiles.PdbFileName)"
+          OutputFile="%(MCFiles.DllFileName)"
+          LinkIncremental="false"
+          SubSystem="windows"
+          LinkDLL="true"
+          NoEntryPoint="true"
+          TargetMachine="MachineX86"
+          AdditionalOptions="/implib:%(MCFiles.LibFileName)"
+          Sources="%(MCFiles.ResFileName)" />
+
+  </Target>
+
+  <Target Name="BuildTlbs"
+          Inputs="@(IDLFiles);@(SpecialIDLFiles)"
+          Outputs="@(IDLFiles -> '$(MTOUTDIR)\$(config)\include\%(FileName).h');@(SpecialIDLFiles -> '$(MTOUTDIR)\$(config)\include\%(FileName).tlb')" >
+
+    <ItemGroup>
+      <CombinedIDLFiles Include="@(IDLFiles)" />
+      <CombinedIDLFiles Include="@(SpecialIDLFiles)" />
+    </ItemGroup>
+
+    <RemoveDuplicates Inputs="@(MIDLIncludeDirs)">
+      <Output TaskParameter="Filtered" ItemName="FilteredMIDLIncludeDirs"/>
+    </RemoveDuplicates>
+    
+    <MIDL Source="%(CombinedIDLFiles.Identity)"
+          GenerateStublessProxies="true"
+          OutputDirectory="$(MTOUTDIR)\$(config)\include"
+          AdditionalIncludeDirectories="S:\\include;@(FilteredMIDLIncludeDirs)"
+          PreprocessorDefinitions="%(CombinedIDLFiles.MIDLDefines)"/>
+  </Target>
+
+  <Target Name="DiscoverTLBs">
+    <ItemGroup>
+      <TLBFiles Include="@(IDLFiles -> '$(MTOUTDIR)\$(config)\include\%(FileName).tlb')" />
+      <TLBFiles Include="@(SpecialIDLFiles -> '$(MTOUTDIR)\$(config)\include\%(FileName).tlb')" />
+    </ItemGroup>
+  </Target>
+  
+  <Target Name="RegisterTlbs" Inputs="%(TLBFiles.Identity)" Outputs="@(TLBFiles -> '$(ROOTDIR)\$(filename).doesnotexist')" DependsOnTargets="DiscoverTLBs">
+
+    <Message Text="Registering TLB: %(TLBFiles.Identity)" />
+
+    <ItemGroup>
+      <RegTLIBParams Include="TLBFile" Condition="Exists(%(TLBFiles.Identity))">
+        <Value>%(TLBFiles.Identity)</Value>
+      </RegTLIBParams>
+    </ItemGroup>
+    <MSBuild.ExtensionPack.Framework.GenericTool 
+            Condition="Exists(%(TLBFiles.Identity))"
+            Executable="regtlibv12.exe"
+            Parameters="@(RegTLIBParams)"
+            SuccessExitCodes="0;1"
+            WarningExitCodes="2;4;5"
+            ErrorExitCodes="8;16"
+        />
+  </Target>
+
+
+  <Target Name="BuildInteropAssemblies" Inputs="%(TLBFiles.Identity)" Outputs="@(TLBFiles -> '$(MTOUTDIR)\$(config)\bin\%(filename).interop.dll')">
+    <ItemGroup>
+      <TlbImpParams Include="Silent">
+        <Value>/silent</Value>
+      </TlbImpParams>
+      <TlbImpParams Include="InputName">
+        <Value>%(TLBFiles.Identity)</Value>
+      </TlbImpParams>
+      <TlbImpParams Include="OutputName">
+        <Value>/out:@(TLBFiles -> '$(MTOUTDIR)\$(config)\bin\%(filename).interop.dll')</Value>
+      </TlbImpParams>
+      <TlbImpParams Include="KeyFile">
+        <Value>/keyfile:$(ROOTDIR)\build\keys\MetraTech.snk</Value>
+      </TlbImpParams>
+      <TlbImpParams Include="AssemblyVersion">
+        <Value>/asmversion:$(AssemblyVersion)</Value>
+      </TlbImpParams>
+      <TlbImpParams Include="Namespace">
+        <Value>/namespace:@(TLBFiles -> 'MetraTech.Interop.%(FileName)')</Value>
+      </TlbImpParams>
+      <TlbImpParams Include="MachineType">
+        <Value>/machine:X86</Value>
+      </TlbImpParams>
+    </ItemGroup>
+	
+    <MSBuild.ExtensionPack.Framework.GenericTool
+            Condition="Exists(%(TLBFiles.Identity))"
+            Executable="tlbimp.exe"
+            Parameters="@(TlbImpParams)"
+            SuccessExitCodes="0;1"
+            WarningExitCodes="2;4"
+            ErrorExitCodes="8;16"
+        />
+  </Target>
+
+  <Target Name="SFBuild">
+    <Message Text="Building Security Framework" Importance="high"/>
+    
+     <!-- default build target for MetraNet project -->
+    <!-- Build all the projects -->
+    <MSBuild Projects="@(SecurityFramework);@(Logging)"
+				Targets="$(MyTargets)"
+				Properties="Configuration=$(config)"
+				StopOnFirstFailure="$(StopOnFirstError)"
+				RebaseOutputs="true" 
+        BuildInParallel="true" />
+    
+    <!-- Display the output from the custom task -->
+		<Message Text="$(TaskResult)"  Importance="high" />
+
+	</Target>
+
+  <Target Name="Build">
+    <Message Text="Target: $(MyTargets)" Importance="high"/>
+    
+     <!-- default build target for MetraNet project -->
+    <!-- Build all the projects -->
+    <MSBuild Projects="@(MetraTechProjects)"
+				Targets="$(MyTargets)"
+				Properties="Configuration=$(config)"
+				StopOnFirstFailure="$(StopOnFirstError)"
+				RebaseOutputs="true" 
+        BuildInParallel="true" />
+    
+    <!-- Display the output from the custom task -->
+		<Message Text="$(TaskResult)"  Importance="high" />
+
+	</Target>
+	
+  <Target Name="BuildTests">
+    <Message Text="Compiling Test Projects..." Importance="high"/>
+	
+    <!-- Build all test projects -->
+    <MSBuild Projects="@(TestProjects)"
+				Targets="$(MyTargets)"
+				Properties="Configuration=$(config)"
+				StopOnFirstFailure="$(StopOnFirstError)"
+				RebaseOutputs="true" 
+				BuildInParallel="true"
+				/>
+    
+	<Message Text="$(TaskResult)"  Importance="high" /> 
+  </Target>
+	
+	  <Target Name="BuildCsharp">
+    <Message Text="Target: $(MyTargets)" Importance="high"/>
+    
+     <!-- default build target for MetraNet project -->
+    <!-- Build all the projects -->
+    <MSBuild Projects="@(MetraTechCsProjects)"
+				Targets="$(MyTargets)"
+				Properties="Configuration=$(config)"
+				StopOnFirstFailure="$(StopOnFirstError)"
+				RebaseOutputs="true" 
+        BuildInParallel="true" />
+    
+    <!-- Display the output from the custom task -->
+		<Message Text="$(TaskResult)"  Importance="high" />
+
+	</Target>
+
+  <Target Name="BuildVBProjects" Inputs="@(VBProjects)" Outputs="@(VBProjects-> '$(MTOUTDIR)\$(Config)\Bin\%(FileName).%(ProjectType)')">
+    <MSBuild.ExtensionPack.VisualStudio.VB6 TaskAction="Build" Projects="@(VBProjects)" />
+  </Target>
+
+	<Target Name = "MetraNetUI">  
+      <Message Text="Building MetraNet UI..." Importance="high"/>
+     
+      <AspNetCompiler
+              VirtualPath = "MetraNet" 
+              PhysicalPath = "$(ROOTDIR)\MetraTech\UI\MetraNet"
+              TargetPath = "$(ROOTDIR)\MetraTech\UI\PreCompiled\MetraNet"
+              Force = "true"
+              Debug = "true"
+              Updateable = "true"/>
+   
+     <GenerateResource
+      Sources="$(RMPDIR)\config\Localization\Global\GlobalResources.resx;
+	           $(RMPDIR)\config\Localization\Global\GlobalResources.en-GB.resx;
+               $(RMPDIR)\config\Localization\Global\GlobalResources.de.resx;
+               $(RMPDIR)\config\Localization\Global\GlobalResources.es.resx;
+               $(RMPDIR)\config\Localization\Global\GlobalResources.fr.resx;
+               $(RMPDIR)\config\Localization\Global\GlobalResources.it.resx;
+               $(RMPDIR)\config\Localization\Global\GlobalResources.ja.resx;"
+      OutputResources="">   
+    </GenerateResource>
+  </Target>
+        
+  <Target Name = "MetraViewUI">  
+      <Message Text="Building MetraView UI..." Importance="high"/>
+     
+      <AspNetCompiler
+              VirtualPath = "MetraView" 
+              PhysicalPath = "$(RMPDIR)\extensions\metraview\sites\metraview"
+              TargetPath = "$(ROOTDIR)\MetraTech\UI\PreCompiled\MetraView"
+              Force = "true"
+              Debug = "true"
+              Updateable = "true"/>
+  </Target>
+  
+  <Target Name="Refresh">
+    <Exec Command="CALL $(ROOTDIR)\build\tools\refreshws.bat" />
+  </Target>
+
+  <ItemGroup>
+    <TlbImpInputFile Include="C:\Windows\SysWow64\TLBINF32.DLL" />
+    <TlbImpInputFile2 Include="C:\WINDOWS\system32\TLBINF32.DLL" />
+    <TlbImpOutputFile Include="$(MTOUTDIR)\$(config)\bin\Interop.TLI.dll" />
+  </ItemGroup>
+  <Target Name="PerformTlbImp" Inputs="@(TlbImpInputFile)" Outputs="@(TlbImpOutputFile)">
+    <Exec Condition="Exists('C:\Windows\SysWow64\TLBINF32.DLL')" Command="tlbimp.exe @(TlbImpInputFile) /silent /namespace:TLI /machine:X86 /out:@(TlbImpOutputFile) /sysarray /transform:DispRet" />
+    <Exec Condition="Exists('C:\WINDOWS\system32\TLBINF32.DLL')" Command="tlbimp.exe @(TlbImpInputFile2) /silent /namespace:TLI /machine:X86 /out:@(TlbImpOutputFile) /sysarray /transform:DispRet" />
+  </Target>
+  
+  <!-- High Level Build Operations -->
+  <!-- Removed Copyfiles target from Incremental as part cleanup effort. SZ 07/19/12 -->
+  <Target Name="Incremental" DependsOnTargets="BuildSources;UI" />
+  <Target Name="All" DependsOnTargets="CopyFiles;BuildRuntimeMessages;BuildIDLs;BuildSources;UI" />
+  <Target Name="CopyFiles" DependsOnTargets="MakeDirectories;CopySourceDLLs;CopyVersionDependentSourceDLLs;CopySourceLibs;CopyVersionDependentSourceLibs" />
+  <Target Name="BuildRuntimeMessages" DependsOnTargets="MakeDirectories;BuildMCFiles;CompileMessageMCFiles;CompileMessageRCFiles;LinkMessageResourceDLLs" />
+  <Target Name="BuildIDLs" DependsOnTargets="MakeDirectories;BuildTlbs;RegisterTlbs;BuildInteropAssemblies" />
+  <Target Name="BuildSources" DependsOnTargets="MakeDirectories;SFBuild;PerformTlbImp;Build;BuildVBProjects" />
+  <!--<Target Name="BuildSources" DependsOnTargets="MakeDirectories;SFBuild;Build;BuildVBProjects" />-->
+  <Target Name="UI" DependsOnTargets="Refresh;MetraNetUI;MetraViewUI" />
+  <!--High Level Build Operations for Build Machines />-->
+  <Target Name="MNAll" DependsOnTargets="CopyFiles;BuildRuntimeMessages;BuildIDLs;BuildSources;MNUI" />
+  <Target Name="MNIncremental" DependsOnTargets="CopyFiles;BuildSources;MNUI" />
+  <Target Name="MNUI" DependsOnTargets="Refresh;MetraNetUI;MetraViewUI" />
+
+
+</Project>

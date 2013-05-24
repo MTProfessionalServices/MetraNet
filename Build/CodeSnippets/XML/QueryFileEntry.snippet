@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>MetraTech Query File Entry</Title>
+			<Author>Ted Weiler - MetraTech</Author>
+			<Description>Sets up a new query in a query file</Description>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+			<Shortcut>query</Shortcut>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>QueryTag</ID>
+					<Default>Property</Default>
+					<ToolTip>This is the name of the query being defined</ToolTip>
+				</Literal>
+			</Declarations>
+			<Code Language="XML">
+				<![CDATA[<query>
+	<query_tag>$QueryTag$</query_tag>
+	<query_string>
+	</query_string>
+				<num_params></num_params>
+				</query>]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

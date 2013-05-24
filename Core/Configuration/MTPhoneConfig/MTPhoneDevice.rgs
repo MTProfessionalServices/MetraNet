@@ -1,0 +1,24 @@
+HKCR
+{
+	MTPhoneDevice.MTPhoneDevice.1 = s 'MTPhoneDevice Class'
+	{
+		CLSID = s '{52F732F7-F686-11D2-AA26-00105A2A148D}'
+	}
+	MTPhoneDevice.MTPhoneDevice = s 'MTPhoneDevice Class'
+	{
+		CurVer = s 'MTPhoneDevice.MTPhoneDevice.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {52F732F7-F686-11D2-AA26-00105A2A148D} = s 'MTPhoneDevice Class'
+		{
+			ProgID = s 'MTPhoneDevice.MTPhoneDevice.1'
+			VersionIndependentProgID = s 'MTPhoneDevice.MTPhoneDevice'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

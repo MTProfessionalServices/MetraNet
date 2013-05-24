@@ -1,0 +1,7 @@
+SCC = This is a Source Code Control file
+
+[msix.mak]
+SCC_Project_Name = "$/NewDevTree/Core/msix", SCCAAAAA
+
+[nt.mak]
+SCC_Project_Name = "$/NewDevTree/Core/msix", SCCAAAAA

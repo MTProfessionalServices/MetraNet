@@ -1,0 +1,236 @@
+// QueryAdapter.idl : IDL source for QueryAdapter.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (QueryAdapter.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	[
+		object,
+		uuid(E54B8B19-A953-11D2-B629-00104B2B980B),
+		dual,
+		helpstring("IMTQueryAdapter Interface"),
+		pointer_default(unique)
+	]
+// ----------------------------------------------------------------
+// Object:   	IMTQueryAdapter
+// Prog ID:		MetraTech.MTQueryAdapter.1
+// Description: The query adapter allows for the creation of 
+// queries that reside in query files. The queries are comprised of
+// two parts the query tag and the query string. The query tag 
+// identifies the query and must be unique within the query file. 
+// The query string may be parameterized with parameters of the form
+// %%PARAMTER%% where PARAMETER is the name of the parameter. 
+// Parameter must be enclosed in %%.
+// ----------------------------------------------------------------
+
+	interface IMTQueryAdapter : IDispatch
+	{
+// ----------------------------------------------------------------
+// The Init method initializes the query adapter with the relative configuration path to the query file.
+// ----------------------------------------------------------------
+    [id(1), helpstring("method Init")] HRESULT Init([in] BSTR apConfigPath);
+// ----------------------------------------------------------------
+// The SetQueryTag method sets the query tag to use for query generation
+// ----------------------------------------------------------------
+		[id(2), helpstring("method SetQueryTag")] HRESULT SetQueryTag([in] BSTR apQueryTag);
+// ----------------------------------------------------------------
+// The ClearQuery method clears the query tag.
+// ----------------------------------------------------------------
+		[id(3), helpstring("method ClearQuery")] HRESULT ClearQuery();
+// ----------------------------------------------------------------
+// The AddParam method adds a parameter to the currently set query tag.
+// ----------------------------------------------------------------
+		[id(4), helpstring("method AddParam")] HRESULT AddParam([in] BSTR apParamTag, [in] VARIANT aParam, [in, optional] VARIANT aDontValidateString);
+// ----------------------------------------------------------------
+// The GetQuery method gets the generated query string.
+// ----------------------------------------------------------------
+		[id(5), helpstring("method GetQuery")] HRESULT GetQuery([out, retval] BSTR *apQuery);
+
+// ----------------------------------------------------------------
+// SetRawSQLQuery spefies a Raw SQL query.  While this bypasses most of the queryadapter 
+// functionality, it is useful for higher level objects
+// ----------------------------------------------------------------
+		[id(15), helpstring("method SetRawSQLQuery")] HRESULT SetRawSQLQuery([in] BSTR apQuery);
+
+// ----------------------------------------------------------------
+// The GetUserName method gets the database username from the dbaccess.xml file.
+// ----------------------------------------------------------------
+		[id(6), helpstring("method GetUserName")] HRESULT GetUserName([out,retval] BSTR *apUserName);
+// ----------------------------------------------------------------
+// The GetPassword method gets the database password from the dbaccess.xml file.
+// ----------------------------------------------------------------
+		[id(7), helpstring("method GetPassword")] HRESULT GetPassword([out,retval] BSTR *apPassword);
+// ----------------------------------------------------------------
+// The GetDBName method gets the database name from the dbaccess.xml file.
+// ----------------------------------------------------------------
+		[id(8), helpstring("method GetDBName")] HRESULT GetDBName([out,retval] BSTR *apDBName);
+// ----------------------------------------------------------------
+// The GetLogicalServerName method gets the logical server name from the dbaccess.xml file.
+// ----------------------------------------------------------------
+		[id(24), helpstring("method GetLogicalServerName")] HRESULT GetLogicalServerName([out,retval] BSTR *apServerName);
+// ----------------------------------------------------------------
+// The GetServerName method gets the server name from the dbaccess.xml file.
+// ----------------------------------------------------------------
+		[id(9), helpstring("method GetServerName")] HRESULT GetServerName([out,retval] BSTR *apServerName);
+// ----------------------------------------------------------------
+// The GetAccessType method gets the database access type from the dbaccess.xml file.
+// ----------------------------------------------------------------
+    [id(10), helpstring("method GetAccessType")] HRESULT GetAccessType([out,retval] BSTR *apAccessType);
+// ----------------------------------------------------------------
+// The GetDBType method gets the database type from the dbaccess.xml file.
+// ----------------------------------------------------------------
+    [id(11), helpstring("method GetDBType")] HRESULT GetDBType([out,retval] BSTR *apDBType);
+// ----------------------------------------------------------------
+// The GetProvider method gets the provider name from the dbaccess.xml file.
+// ----------------------------------------------------------------
+    [id(12), helpstring("method GetProvider")] HRESULT GetProvider([out,retval] BSTR *apProvider);
+// ----------------------------------------------------------------
+// The GetTimeout method gets the timeout value from the dbaccess.xml file.
+// ----------------------------------------------------------------
+    [id(13), helpstring("method GetTimeout")] HRESULT GetTimeout([out,retval] long *apTimeout);
+// ----------------------------------------------------------------
+// The GetDataSource method gets the datasource from the dbaccess.xml file.
+// ----------------------------------------------------------------
+    [id(14), helpstring("method GetDataSource")] HRESULT GetDataSource([out,retval] BSTR *apDataSource);
+// ----------------------------------------------------------------
+// The GetDBDriver method gets the database driver
+// ----------------------------------------------------------------
+    [id(16), helpstring("method GetDBDriver")] HRESULT GetDBDriver([out,retval] BSTR *apDBDriver);
+
+// ----------------------------------------------------------------
+// This method makes it possible to get the query string even if all
+// the properties aren't filled in.
+// ----------------------------------------------------------------
+		[id(17), helpstring("method GetRawSQLQuery")] HRESULT GetRawSQLQuery(VARIANT_BOOL FillInSystemDefaults, [out, retval] BSTR * apQuery);
+
+// ----------------------------------------------------------------
+// Returns an associated query hinter if it exists.
+// ----------------------------------------------------------------
+		[id(18), helpstring("method GetHinter")] HRESULT GetHinter([out, retval] IDispatch** apHinter);
+
+// ----------------------------------------------------------------
+// Returns the query tag currently associated with the adapter
+// ----------------------------------------------------------------
+		[id(19), helpstring("method GetQueryTag")] HRESULT GetQueryTag([out, retval] BSTR * apQueryTag);
+
+		[id(20), helpstring("method AddParamIfFound")] HRESULT AddParamIfFound([in] BSTR apParamTag, [in] VARIANT aParam, [in, optional] VARIANT aDontValidateString, [out, retval]VARIANT_BOOL* apFound);
+
+    [id(21), helpstring("method IsOracle")] HRESULT IsOracle([out,retval] VARIANT_BOOL *apIsOracle);
+
+    [id(22), helpstring("method IsSqlServer")] HRESULT IsSqlServer([out,retval] VARIANT_BOOL *apIsSqlServer);
+
+// ----------------------------------------------------------------
+// Returns proper dot notation for the dataase type in use
+// ----------------------------------------------------------------
+    [id(23), helpstring("method GetSchemaDots")] HRESULT GetSchemaDots([out, retval] BSTR * apSchemaDots);
+
+	};
+
+	[
+		object,
+		uuid(2F71DEB3-D026-11D2-B645-00104B2B980B),
+		dual,
+		helpstring("IMTQueryCache Interface"),
+		pointer_default(unique)
+	]
+// ----------------------------------------------------------------
+// Object:   	IMTQueryCache
+// Prog ID:		MTQueryCache.MTQueryCache.1
+// Description: The query cache reads and stores the query files for 
+// the query adapter. The query cache is a singleton that many query
+// adapter's may use to access the same query file. The query files 
+// are read once and stored in a cache.
+// ----------------------------------------------------------------
+	interface IMTQueryCache : IDispatch
+	{
+// ----------------------------------------------------------------
+// The Init method initializes the query cache with the relative configuration path to the query file.
+// ----------------------------------------------------------------
+		[id(1), helpstring("method Init")] HRESULT Init([in] BSTR apConfigPath);
+// ----------------------------------------------------------------
+// The GetQueryString method gets the query string as it exists in the configuration file.
+// ----------------------------------------------------------------
+		[id(2), helpstring("method GetQueryString")] HRESULT GetQueryString([in] BSTR apConfigPath, [in] BSTR apQueryTag, [out, retval] BSTR *apQueryString);
+// ----------------------------------------------------------------
+// The GetUserName method gets the database username from the dbaccess.xml file.
+// ----------------------------------------------------------------
+		[id(3), helpstring("method GetUserName")] HRESULT GetUserName([in] BSTR apConfigPath, [out,retval] BSTR *apUserName);
+// ----------------------------------------------------------------
+// The GetPassword method gets the database password from the dbaccess.xml file.
+// ----------------------------------------------------------------
+		[id(4), helpstring("method GetPassword")] HRESULT GetPassword([in] BSTR apConfigPath, [out,retval] BSTR *apPassword);
+// ----------------------------------------------------------------
+// The GetDBName method gets the database name from the dbaccess.xml file.
+// ----------------------------------------------------------------
+		[id(5), helpstring("method GetDBName")] HRESULT GetDBName([in] BSTR apConfigPath, [out,retval] BSTR *apDBName);
+// ----------------------------------------------------------------
+// The GetServerName method gets the server name from the dbaccess.xml file.
+// ----------------------------------------------------------------
+		[id(6), helpstring("method GetServerName")] HRESULT GetServerName([in] BSTR apConfigPath, [out,retval] BSTR *apServerName);
+// ----------------------------------------------------------------
+// The GetLogicalServerName method gets the logical server name from the dbaccess.xml file.
+// ----------------------------------------------------------------
+		[id(15), helpstring("method GetLogicalServerName")] HRESULT GetLogicalServerName([in] BSTR apConfigPath, [out,retval] BSTR *apServerName);
+// ----------------------------------------------------------------
+// The GetAccessType method gets the database access type from the dbaccess.xml file.
+// ----------------------------------------------------------------
+    [id(7), helpstring("method GetAccessType")] HRESULT GetAccessType([in] BSTR apConfigPath, [out,retval] BSTR *apAccessType);
+// ----------------------------------------------------------------
+// The GetDBType method gets the database type from the dbaccess.xml file.
+// ----------------------------------------------------------------
+    [id(8), helpstring("method GetDBType")] HRESULT GetDBType([in] BSTR apConfigPath, [out,retval] BSTR *apDBType);
+// ----------------------------------------------------------------
+// The GetProvider method gets the provider from the dbaccess.xml file.
+// ----------------------------------------------------------------
+    [id(9), helpstring("method GetProvider")] HRESULT GetProvider([in] BSTR apConfigPath, [out,retval] BSTR *apProvider);
+// ----------------------------------------------------------------
+// The GetTimeout method gets the timeout value from the dbaccess.xml file.
+// ----------------------------------------------------------------
+    [id(10), helpstring("method GetTimeout")] HRESULT GetTimeout([in] BSTR apConfigPath, [out,retval] long *apTimeout);
+// ----------------------------------------------------------------
+// The GetDataSource method gets the datasource from the dbaccess.xml file.
+// ----------------------------------------------------------------
+    [id(11), helpstring("method GetDataSource")] HRESULT GetDataSource([in] BSTR apConfigPath, [out,retval] BSTR *apDataSource);
+// ----------------------------------------------------------------
+// The GetDBDriver method gets the database driver
+// ----------------------------------------------------------------
+    [id(12), helpstring("method GetDBDriver")] HRESULT GetDBDriver([in] BSTR apConfigPath, [out,retval] BSTR *apDBDriver);
+// ----------------------------------------------------------------
+// The RefreshConfiguration forces the cache to be refreshed
+// ----------------------------------------------------------------
+    [id(13), helpstring("method RefreshConfiguration")] HRESULT RefreshConfiguration([in] VARIANT_BOOL ImmediateReload, [out, retval] long *pVal);
+// ----------------------------------------------------------------
+// Returns the compiled hinter associated with the given query (if any).
+// ----------------------------------------------------------------
+		[id(14), helpstring("method GetHinter")] HRESULT GetHinter([in] BSTR apConfigPath, [in] BSTR apQueryTag, [out, retval] IDispatch** apHinter);
+	};
+[
+	uuid(E54B8B0C-A953-11D2-B629-00104B2B980B),
+	version(1.0),
+	helpstring("QueryAdapter 1.0 Type Library")
+]
+library QUERYADAPTERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(7B3D26AE-7D7C-11D2-B60A-00104B2B980B),
+		helpstring("MTQueryAdapter Class")
+	]
+	coclass MTQueryAdapter
+	{
+		[default] interface IMTQueryAdapter;
+	};
+	[
+		uuid(2F71DEB4-D026-11D2-B645-00104B2B980B),
+		helpstring("MTQueryCache Class")
+	]
+	coclass MTQueryCache
+	{
+		[default] interface IMTQueryCache;
+	};
+};

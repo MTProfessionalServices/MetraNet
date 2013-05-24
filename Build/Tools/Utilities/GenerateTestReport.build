@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Generate Smoke Test Results Report" default="build" basedir=".">
+	<!-- these properties should never change for legacy smoke tests -->
+	<property name="Product"         value="MetraNet" />
+	<property name="ResultSource"    value="C:\Tests Database\Result.csv" />
+	<property name="Path"            value="C:\Tests Database" />
+	<property name="Hostname"        value="${string::to-upper(dns::get-host-name())}" />
+	<!-- hardcode db type for now, someday this should come from someplace else -->
+	<property name="DBType"          value="MSSQL" />
+	<property name="AutoTestFolder"    value="D:\TestSystem\AutoTestController" />
+	<property name="TestSystemFolder"    value="D:\TestSystem" />
+	
+	<!-- primary target, depends on all other targets -->
+	<target name="build" depends="init,count-tests,count-sessions,count-passes,count-failures,generate-html-failure-report,generate-summary,sendmail" />
+	
+	<!-- init empties -->
+	<property name="t_count" value="0" />
+	<property name="s_count" value="0" />
+	<property name="f_count" value="0" />
+	<property name="p_count" value="0" />
+	
+	<target name="init">		
+		<!-- read application information from the windows registry -->
+		<property name="reg_path" value="SOFTWARE\Wow6432Node\MetraTech" />
+		<trycatch>
+			<try>
+				<readregistry property="szTest" key="${reg_path}\install\InstallDir" hive="LocalMachine" failonerror="true" />
+			</try>
+			<catch>
+				<fail>
+					[ E R R O R ]
+						The registry path ${reg_path}\install\InstallDir was not found.
+						Are you sure that MetraNet is installed??
+				</fail>
+			</catch>
+		</trycatch>
+		
+		<readregistry property="InstallDir"  key="SOFTWARE\Wow6432Node\MetraTech\install\InstallDir" hive="LocalMachine" />
+		<readregistry property="Version"     key="SOFTWARE\Wow6432Node\MetraTech\MetraNet\Version"   hive="LocalMachine" />
+		<readregistry property="BuildNumber" key="SOFTWARE\Wow6432Node\MetraTech\MetraNet\Build"     hive="LocalMachine" />
+		
+		<echo level="Info">
+			[ ${string::to-upper(Product)} WINDOWS REGISTRY SETTINGS ]
+			Install Directory:    ${InstallDir}
+			Version:              ${Version}
+			Build Number:         ${BuildNumber}
+		</echo>
+	</target>
+	
+	<target name="count-tests">
+		<echo>Counting number of tests executed ...</echo>		
+		<foreach item="Line" in="${ResultSource}" property="line">
+			<do>
+				<if test="${string::contains(line,'.TEST')}">
+					<property name="t_count" value="${int::parse(t_count)+1}" />					
+				</if>
+			</do>
+		</foreach>			
+	</target>
+	<target name="count-sessions">
+		<echo>Counting number of test sessions ...</echo>
+		<foreach item="Line" in="${ResultSource}" property="line">
+			<do>
+				<if test="${string::contains(line,'.SESSION')}">
+					<property name="s_count" value="${int::parse(s_count)+1}" />					
+				</if>
+			</do>
+		</foreach>		
+	</target>
+	<target name="count-passes">
+		<echo>Getting pass count ...</echo>
+		<foreach item="Line" in="${ResultSource}" property="line">
+			<do>
+				<if test="${string::contains(line,'.TEST') and string::contains(line,'[SUCC')}">
+					<property name="p_count" value="${int::parse(p_count)+1}" />					
+				</if>
+			</do>
+		</foreach>		
+	</target>
+	<target name="count-failures">
+		<echo>Getting failure count ...</echo>
+		<foreach item="Line" in="${ResultSource}" property="line">
+			<do>
+				<if test="${string::contains(line,'.TEST') and string::contains(line,'[FAIL')}">
+					<property name="f_count" value="${int::parse(f_count)+1}" />						
+				</if>
+			</do>
+		</foreach>				
+	</target>
+	<target name="generate-html-failure-report">
+		<property name="html-file" value="result.html" />
+		<if test="${file::exists(html-file)}">
+			<delete file="${html-file}" failonerror="true" verbose="true" />
+		</if>
+		<property name="html-summary" value="&lt;strong style=&quot;font-size:22;&quot;&gt;${t_count} tests executed, ${p_count} passed, and ${f_count} tests failed.&lt;/strong&gt;&lt;BR&gt;&lt;BR&gt;" />
+		<property name="html-header" value="&lt;html&gt;&lt;head&gt;&lt;STYLE&gt;BODY{font-family:calibri;size:9;}th{background-color:#000; color:#FFF;}td{background-color:#FFFFCC;}&lt;/STYLE&gt;&lt;title&gt;MetraNet ${Version}.${BuildNumber} for ${DBType} database smoketest results&lt;/title&gt;&lt;/head&gt;&lt;body&gt;" />
+		<property name="html-table" value="&lt;table border=&quot;1&quot; bordercolor=&quot;#000&quot; cellpadding=&quot;1&quot; cellspacing=&quot;3&quot;&gt;" />
+		<property name="html-table-header" value="&lt;th&gt;Test&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;" />
+						
+		<script language="C#" prefix="build">
+			<code><![CDATA[
+			public static void ScriptMain(Project project)
+				{ using(StreamWriter sw = new StreamWriter(project.Properties["html-file"],true))	{
+				sw.Write(project.Properties["html-header"]);}}]]></code>
+		</script>
+		<script language="C#" prefix="build">
+			<code><![CDATA[
+			public static void ScriptMain(Project project)
+				{ using(StreamWriter sw = new StreamWriter(project.Properties["html-file"],true))	{
+				sw.Write(project.Properties["html-summary"]);}}]]></code>
+		</script>
+		<script language="C#" prefix="build">
+			<code><![CDATA[
+			public static void ScriptMain(Project project)
+				{ using(StreamWriter sw = new StreamWriter(project.Properties["html-file"],true))	{
+				sw.Write(project.Properties["html-table"]);}}]]></code>
+		</script>
+		<script language="C#" prefix="build">
+			<code><![CDATA[
+			public static void ScriptMain(Project project)
+				{ using(StreamWriter sw = new StreamWriter(project.Properties["html-file"],true))	{
+				sw.Write(project.Properties["html-table-header"]);}}]]></code>
+		</script>
+		<echo>Building failure list ...</echo>
+		<foreach item="Line" in="${ResultSource}" property="line">
+			<do>
+				<if test="${string::contains(line,'.TEST') and string::contains(line,'[FAIL')}">					
+					<!-- test -->
+					<property name="element1-index" value="${string::index-of(line,',')}" />
+					<property name="element1" value="${string::substring(line,0,int::parse(element1-index))}" />
+					<!-- FAILED -->
+					<property name="split" value="${string::substring(line,int::parse(element1-index)+1,string::get-length(line)-int::parse(element1-index)-1)}" />
+					<property name="element2-index" value="${string::index-of(split,',')}" />
+					<property name="element2" value="${string::substring(split,0,int::parse(element2-index))}" />
+					<!-- reason -->
+					<trycatch>
+						<try>
+							<property name="splat" value="${string::substring(split,int::parse(element2-index)+1,string::get-length(split)-int::parse(element2-index)-1)}" />
+							<property name="element3-index" value="${string::index-of(splat,',')}" />
+							<property name="element3" value="${string::substring(splat,0,int::parse(element3-index))}" />
+						</try>
+						<catch>
+							<echo message="In catch on ${element1}" />
+							<property name="element3" value="${line}" />
+						</catch>
+					</trycatch>
+					<!-- clean up strings -->
+					<property name="element1" value="${string::replace(element1,'&quot;','')}" />
+					<property name="element2" value="${string::replace(element2,'&quot;','')}" />
+					<property name="element2" value="${string::replace(element2,'[','')}" />
+					<property name="element2" value="${string::replace(element2,']','')}" />
+					<property name="element3" value="${string::replace(element3,'&quot;','')}" />
+					<!-- html rows -->
+					<property name="html-table-row" value="&lt;tr&gt;&lt;td&gt;${element1}&lt;/td&gt;&lt;td&gt;${element2}&lt;/td&gt;&lt;td&gt;${element3}&lt;/td&gt;&lt;/tr&gt;" />
+					<property name="html-footer" value="&lt;/body&gt;&lt;/html&gt;" />
+					<script language="C#" prefix="build">
+					<code><![CDATA[
+						public static void ScriptMain(Project project)
+							{ using(StreamWriter sw = new StreamWriter(project.Properties["html-file"],true))	{
+							sw.Write(project.Properties["html-table-row"]);}}]]></code>
+					</script>
+				</if>				
+			</do>
+		</foreach>				
+		<script language="C#" prefix="build">
+			<code><![CDATA[
+			public static void ScriptMain(Project project)
+				{ using(StreamWriter sw = new StreamWriter(project.Properties["html-file"],true))	{
+				sw.Write(project.Properties["html-footer"]);}}]]></code>
+		</script>		
+	</target>
+		
+	<target name="generate-summary">
+		<if test="${int::parse(f_count) > 0}">
+			<property name="summary" value="${t_count} tests executed, ${p_count} passed, and ${f_count} tests failed." />
+			<echo>
+				${summary}
+			</echo>					
+		</if>
+		<if test="${int::parse(f_count) == 0 and int::parse(t_count) == int::parse(p_count)}">
+			<property name="summary" value="All ${t_count} tests passed." />
+			<echo>
+				${summary}
+			</echo>
+		</if>
+	</target>
+	
+	<target name="sendmail" depends="init">
+		<!-- make zip file of results -->
+		<property name="ZipFile" value="${Product}_${Version}.${BuildNumber}_${DBType}-Results.zip" />
+		<property name="MTLogFile" value="${InstallDir}\MTLog.txt" />
+		
+		<!-- get Branch info from AutoTest temp folder. -->
+		<call target="GetFile" />
+		
+		<!-- Commented out for fture use. SZ -->
+		<!--<xmlpeek file="${AutoTestFolder}\_GlobalProperties.xml" xpath="/AutoTests/mnVersionPath" property="MNPath" />
+		<property name="PathIndex" value="${string::last-index-of(MNPath, '/')}"/>
+		<property name="PathLength" value="${string::get-length(MNPath)}"/>
+		<property name="SVNBranch" value="${string::substring(MNPath,string::last-index-of(MNPath, '/')+1,string::get-length(MNPath) - string::last-index-of(MNPath, '/')-1)}"/>-->
+		
+		<copy 
+			file="${MTLogFile}"
+			tofile="MTLog.txt"/>
+
+		<zip zipfile="${ZipFile}"
+				comment="Smoke test results for ${Product} Branch ${SVNBranch} version ${Version} build ${BuildNumber} for ${DBType} - ${datetime::now()}"
+				failonerror="false"
+				verbose="true">
+				<fileset basedir="${Path}">
+					<include name="Result.csv" />
+					<include name="Result2.csv" />
+					<include name="test.log" />
+					<include name="MTLog.txt" />
+				</fileset>
+		</zip>
+		<!-- send email -->
+		<mail 
+			from="buildmaster@metratech.com" 
+			tolist="builds@metratech.com" 
+			subject="Branch ${SVNBranch} ${Hostname} results: ${Product} ${Version}.${BuildNumber} for ${DBType} database smoke test results"		
+			format="Html"
+			mailhost="mail.metratech.com">			
+			<files>
+				<include name="result.html" />
+			</files>
+			<attachments>
+				<include name="${ZipFile}" />
+			</attachments>
+        </mail>
+	</target>
+	
+	<target name="GetFile"> 
+     <echo message="Retrieving file contents"/> 
+     <property name="file.contents" value="0" />
+	 <!-- the target filename -->
+		<property name="TempFile" value="${TestSystemFolder}\Temp\mailsubject.txt" />
+		<if test="${file::exists(TempFile)}">
+			<echo level="Info">[${datetime::now()}]: Found existing file ${TempFile}, loading ...</echo>
+			 <loadfile file="${TempFile}" property="file.contents" /> 
+			<property name="file.contents" value="${string::trim(file.contents)}" />
+			<property name="SVNBranch" value="${string::substring(file.contents,0,string::index-of(file.contents, ',')+1)}"/>
+		
+		</if>
+     
+     <echo message="contents of Branch Temp file is  ${file.contents}"/>
+	 <echo message="Branch Name is  ${SVNBranch}"/> 	
+   </target> 
+	
+</project>

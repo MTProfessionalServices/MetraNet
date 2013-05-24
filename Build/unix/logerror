@@ -1,0 +1,12 @@
+#!/bin/sh
+# This script takes a command as a parameter
+# and executes it, while redirecting stderr
+# to stdout and that to readstderr.log
+
+#if [ -z $1 ]
+#then
+#    less readstderr.log
+#else
+    $1 > readstderr.log 2>&1
+    less readstderr.log
+#fi

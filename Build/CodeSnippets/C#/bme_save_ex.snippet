@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>bme_save_ex</Title>
+      <Author>MetraTech Corporation</Author>
+      <Description>Code snippet for MetraTech Exception Handling</Description>
+      <HelpUrl />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+      <Shortcut>bme_save_ex</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>message</ID>
+          <Type />
+          <ToolTip>message</ToolTip>
+          <Default>message</Default>
+          <Function />
+        </Literal>
+        <Literal Editable="true">
+          <ID>bk</ID>
+          <Type />
+          <ToolTip>Business Key Variable</ToolTip>
+          <Default>bk</Default>
+          <Function />
+        </Literal>
+        <Literal Editable="true">
+          <ID>expression</ID>
+          <Type />
+          <ToolTip>Exception type</ToolTip>
+          <Default />
+          <Function>SimpleTypeName(global::System.Exception)</Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Kind="" Delimiter="$">
+				<![CDATA[try
+      {
+        $selected$
+      }
+      catch (SaveDataException sde)
+      {
+        mLogger.LogException(String.Format("A save data exception occurred $message$ {0}.", $bk$), sde);
+        throw new MASBasicException("A save date exception occurred $message$."); ;
+      }
+      catch (OptimisticConcurrencyException oce)
+      {
+        mLogger.LogException(String.Format("An optimistic concurrency exception occurred $message$ {0}.", $bk$), oce);
+        throw new MASBasicException("An optimistic concurrency exception occurred $message$."); ;
+      }
+      catch (Exception e)
+      {
+        mLogger.LogException("An unknown error occurred.", e);
+        throw new MASBasicException("An unknown error occurred");
+      }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

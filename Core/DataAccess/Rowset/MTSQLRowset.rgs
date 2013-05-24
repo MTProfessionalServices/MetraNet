@@ -1,0 +1,25 @@
+HKCR
+{
+	MTSQLRowset.MTSQLRowset.1 = s 'MTSQLRowset Class'
+	{
+		CLSID = s '{26C108F3-A645-11D2-B627-00104B2B980B}'
+	}
+	MTSQLRowset.MTSQLRowset = s 'MTSQLRowset Class'
+	{
+		CurVer = s 'MTSQLRowset.MTSQLRowset.1'
+		CLSID = s '{26C108F3-A645-11D2-B627-00104B2B980B}'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {26C108F3-A645-11D2-B627-00104B2B980B} = s 'MTSQLRowset Class'
+		{
+			ProgID = s 'MTSQLRowset.MTSQLRowset.1'
+			VersionIndependentProgID = s 'MTSQLRowset.MTSQLRowset'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+		}
+	}
+}

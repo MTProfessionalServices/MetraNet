@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.RcdFileList.1 = s 'MTRcdFileList Class'
+	{
+		CLSID = s '{9796165B-6E37-11D4-A642-00C04F579C39}'
+	}
+	MetraTech.RcdFileList = s 'MTRcdFileList Class'
+	{
+		CLSID = s '{9796165B-6E37-11D4-A642-00C04F579C39}'
+		CurVer = s 'MetraTech.RcdFileList.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {9796165B-6E37-11D4-A642-00C04F579C39} = s 'MTRcdFileList Class'
+		{
+			ProgID = s 'MetraTech.RcdFileList.1'
+			VersionIndependentProgID = s 'MetraTech.RcdFileList'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+			'TypeLib' = s '{9796164C-6E37-11D4-A642-00C04F579C39}'
+		}
+	}
+}

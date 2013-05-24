@@ -1,0 +1,64 @@
+// PropSet.idl : IDL source for PropSet.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (PropSet.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTConfig.idl";
+
+	[
+		object,
+		uuid(3B919810-8A03-11D2-A1CD-006008C0E24A),
+		dual,
+		helpstring("Dummy"),
+		pointer_default(unique)
+	]
+	interface IDummy : IDispatch
+	{
+	};
+[
+	uuid(47EB2F00-8A03-11D2-A1CD-006008C0E24A),
+	version(1.0),
+	helpstring("PropSet 1.0 Type Library")
+]
+library MTConfigPROPSETLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(9ADCD819-35FD-11D2-A1C4-006008C0E24A),
+		helpstring("MTConfigPropSet Class")
+	]
+	coclass MTConfigPropSet
+	{
+		[default] interface IMTConfigPropSet;
+	};
+	[
+		uuid(9ADCD806-35FD-11D2-A1C4-006008C0E24A),
+		helpstring("MTConfigProp Class")
+	]
+	coclass MTConfigProp
+	{
+		[default] interface IMTConfigProp;
+	};
+	[
+		uuid(9ADCD81E-35FD-11D2-A1C4-006008C0E24A),
+		helpstring("MTConfig Class")
+	]
+	coclass MTConfig
+	{
+		[default] interface IMTConfig;
+	};
+	[
+		uuid(88E54E76-B325-11D3-A604-00C04F579C39),
+		helpstring("MTConfigAttribSet Class")
+	]
+	coclass MTConfigAttribSet
+	{
+		[default] interface IMTConfigAttribSet;
+	};
+};

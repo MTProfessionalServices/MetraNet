@@ -1,0 +1,26 @@
+HKCR
+{
+	MTDecimalOps.MTDecimalOps.1 = s 'MTDecimalOps Class'
+	{
+		CLSID = s '{B357A8C0-B048-11D4-91CF-00B0D02B5777}'
+	}
+	MTDecimalOps.MTDecimalOps = s 'MTDecimalOps Class'
+	{
+		CLSID = s '{B357A8C0-B048-11D4-91CF-00B0D02B5777}'
+		CurVer = s 'MTDecimalOps.MTDecimalOps.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B357A8C0-B048-11D4-91CF-00B0D02B5777} = s 'MTDecimalOps Class'
+		{
+			ProgID = s 'MTDecimalOps.MTDecimalOps.1'
+			VersionIndependentProgID = s 'MTDecimalOps.MTDecimalOps'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B357A8B3-B048-11D4-91CF-00B0D02B5777}'
+		}
+	}
+}

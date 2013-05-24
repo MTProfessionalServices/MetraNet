@@ -1,0 +1,166 @@
+/**************************************************************************
+* Copyright 1997-2000 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+* Created by: Boris Partensky
+* $Header$
+* 
+***************************************************************************/
+
+// MTLocaleConfig.idl : IDL source for MTLocaleConfig.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTLocaleConfig.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "MTConfigPropSet.idl";
+
+interface IMTLocalizedEntry;
+interface IMTLocalizedCollection;
+	
+// ----------------------------------------------------------------
+// Object:		MTLocaleConfig
+// Prog ID:		Metratech.MTLocaleConfig.1
+// Description: MTLocaleConfig object is used to:
+//				1.	Hold a collection of LocalizedEntry objects, created
+//					from XML files, located under directory passed to Initialize() Method.
+//					LocaleFileList.xml file has to exist under this directory and 
+//					it has to contain entries for all localization files. LocaleFileList.xml -
+//					"master file" can be n - deep, that means that it may also contain
+//					 entries for other master files. When Load or LoadLanguage methods are called,
+//					 master file is found, recursively processed, and internal 
+//					 collections are created;
+//				2.	Create new localized entries and write them out to XML files.
+//
+// ----------------------------------------------------------------
+	
+	
+	[
+		object,
+		uuid(DC672714-0FF7-11D4-95A9-00B0D025B121),
+		dual,
+		helpstring("ILocaleConfig Interface"),
+		pointer_default(unique)
+	]
+	interface ILocaleConfig : IDispatch
+	{
+
+		//Add a new localized entry to collection
+		[id(1), helpstring("method Localize")] HRESULT Localize([in] BSTR name_space, [in] BSTR lang_code, [in] BSTR fqn, [in] BSTR value, [in, optional] VARIANT aExtension);
+		//Write a collection out to XML files
+		[id(2), helpstring("method Write")] HRESULT Write();
+		//Creates internal collections for given Locale space and language code
+		[id(3), helpstring("method Load")] HRESULT Load(BSTR name_space, BSTR lang_code);
+		//returns a localized string for given FQN and language code
+		[id(4), helpstring("method GetLocalizedString")] HRESULT GetLocalizedString( [in] BSTR fqn,[in] BSTR lang_code,  [out, retval] BSTR* str);
+		//Updates existing localized entry with new localized string
+		[id(5), helpstring("method SetLocalizedString")] HRESULT SetLocalizedString(BSTR fqn, BSTR lang_code, BSTR newval);
+		//Clears internal collections
+		[id(6), helpstring("method Clear")] HRESULT Clear();
+		//Sets directory and/or host name where master file is located
+		[id(7), helpstring("method Initialize")] HRESULT Initialize([in, optional]VARIANT root_dir, [in, optional]VARIANT host_name);
+		//Number of localized entries in the collection
+		[propget, id(8), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		//Creates internal collections for given language code
+		[id(9), helpstring("method LoadLanguage")] HRESULT LoadLanguage(BSTR lang_code);
+		//INTERNAL USE ONLY
+		[hidden, id(10), helpstring("method ReadConfiguration")] HRESULT ReadConfiguration([in] BSTR file, [out, retval] IMTConfigPropSet** pPropSet);
+		//INTERNAL USE ONLY
+		[hidden, id(11), helpstring("method WriteConfiguration")] HRESULT WriteConfiguration([in] BSTR file, [out, retval] IMTConfigPropSet** pPropSet);
+		//Sets full master file path and/or host name where master file is located
+		[id(12), helpstring("method InitializeWithFileName")] HRESULT InitializeWithFileName([in] BSTR filename, [in] BSTR host_name);
+		//returns MTLocalizedCollection object
+		[propget, id(13), helpstring("property LocalizedCollection")] HRESULT LocalizedCollection([out, retval] IMTLocalizedCollection* *pVal);
+
+
+	};
+// ----------------------------------------------------------------
+// Object:		MTLocalizedCollection
+// Prog ID:		Metratech.MTLocalizedCollection.1
+// Description: An object holding the collection of all localized entries
+// Enumeration Element Type: MTLocalizedEntry
+// ----------------------------------------------------------------
+	[
+		object,
+		uuid(19821921-106D-11D4-95A9-00B0D025B121),
+		dual,
+		helpstring("IMTLocalizedCollection Interface"),
+		pointer_default(unique)
+	]
+	interface IMTLocalizedCollection : IDispatch
+	{
+		
+		//Get and Put Language Code
+		//[propget, id(1), helpstring("property LanguageCode")] HRESULT LanguageCode([out, retval] BSTR *pVal);
+		//[propput, id(1), helpstring("property LanguageCode")] HRESULT LanguageCode([in] BSTR newVal);
+		//Add New Entry to Collection
+		[id(2), helpstring("method Add")] HRESULT Add(BSTR aExtension, BSTR aNamespace, BSTR aLangCode, BSTR aFQN, BSTR aValue);
+		//NOT DIRECTLY USED (for ... each ... in VB support)
+		//[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		//Number entries in collection
+		[propget, id(3), helpstring("property Size")] HRESULT Size([out, retval] long *pVal);
+		//Number entries in collection
+		[propget, id(4), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		//Clear collection
+		[id(5), helpstring("method Clear")] HRESULT Clear();
+		//Returns localized entry for given FQN and language code
+		[id(6), helpstring("method Find")] HRESULT Find(BSTR fqn, BSTR lang, BSTR* val);
+		//Set iterator to collection begin
+		[id(7), helpstring("method Begin")] HRESULT Begin();
+		//next element in collection
+		[id(9), helpstring("method Next")] HRESULT Next();
+		//hit collection end ?
+		[id(10), helpstring("method End")] HRESULT End([out, retval] int* true_false);
+
+		[id(11), helpstring("method GetFQN")] HRESULT GetFQN([out, retval] BSTR* aFQN);
+		[id(12), helpstring("method GetLanguageCode")] HRESULT GetLanguageCode([out, retval] BSTR* aLangCode);
+		[id(13), helpstring("method GetLocalizedString")] HRESULT GetLocalizedString([out, retval] BSTR* aValue);
+		[id(14), helpstring("method GetExtension")] HRESULT GetExtension([out, retval] BSTR* aValue);
+		[id(15), helpstring("method GetNamespace")] HRESULT GetNamespace([out, retval] BSTR* aValue);
+
+		//Return collection item for specified index
+		//[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(long aIndex, [out, retval] VARIANT *pVal);
+
+	};
+
+[
+	uuid(DF8AD4B1-0F32-11D4-95A5-00B0D025B121),
+	version(1.0),
+	helpstring("MTLocaleConfig 1.0 Type Library")
+]
+library MTLOCALECONFIGLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(DC672715-0FF7-11D4-95A9-00B0D025B121),
+		helpstring("LocaleConfig Class")
+	]
+	coclass LocaleConfig
+	{
+		[default] interface ILocaleConfig;
+	};
+	[
+		uuid(19821922-106D-11D4-95A9-00B0D025B121),
+		helpstring("MTLocalizedCollection Class")
+	]
+	coclass MTLocalizedCollection
+	{
+		[default] interface IMTLocalizedCollection;
+	};
+};

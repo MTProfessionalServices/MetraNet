@@ -1,0 +1,92 @@
+// MTRuleSet.idl : IDL source for MTRuleSet.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTRuleSet.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "PropValType.idl";
+import "MTConfigPropSet.idl";
+
+import "IMTRuleSet.idl";
+
+	[
+		object,
+		uuid(3E3D9923-7F27-42C2-9337-3ABB9BA66571),
+		dual,
+		helpstring("Dummy interface"),
+		pointer_default(unique)
+	]
+	interface IDummy : IDispatch
+	{
+	};
+
+[
+	uuid(CD730A24-D8B8-11D2-A1DE-006008C0E24A),
+	version(1.0),
+	helpstring("MTRuleSet 1.0 Type Library")
+]
+library MTRULESETLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(CD730A32-D8B8-11D2-A1DE-006008C0E24A),
+		helpstring("MTRuleSet Class")
+	]
+	coclass MTRuleSet
+	{
+		[default] interface IMTRuleSet;
+	};
+	[
+		uuid(CD730A34-D8B8-11D2-A1DE-006008C0E24A),
+		helpstring("MTRule Class")
+	]
+	coclass MTRule
+	{
+		[default] interface IMTRule;
+	};
+	[
+		uuid(CD730A36-D8B8-11D2-A1DE-006008C0E24A),
+		helpstring("MTCondition Class")
+	]
+	coclass MTCondition
+	{
+		[default] interface IMTCondition;
+	};
+	[
+		uuid(CD730A39-D8B8-11D2-A1DE-006008C0E24A),
+		helpstring("MTAssignmentAction Class")
+	]
+	coclass MTAssignmentAction
+	{
+		[default] interface IMTAssignmentAction;
+	};
+	[
+		uuid(CD730A3B-D8B8-11D2-A1DE-006008C0E24A),
+		helpstring("MTSimpleCondition Class")
+	]
+	coclass MTSimpleCondition
+	{
+		[default] interface IMTSimpleCondition;
+	};
+	[
+		uuid(CD730A3D-D8B8-11D2-A1DE-006008C0E24A),
+		helpstring("MTConditionSet Class")
+	]
+	coclass MTConditionSet
+	{
+		[default] interface IMTConditionSet;
+	};
+	[
+		uuid(CD730A3F-D8B8-11D2-A1DE-006008C0E24A),
+		helpstring("MTActionSet Class")
+	]
+	coclass MTActionSet
+	{
+		[default] interface IMTActionSet;
+	};
+};

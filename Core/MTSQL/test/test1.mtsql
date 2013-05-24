@@ -1,0 +1,16 @@
+CREATE PROCEDURE foo @param1 INTEGER @param2 INTEGER @param3 INTEGER
+AS
+DECLARE @a INTEGER;
+DECLARE @b INTEGER;
+DECLARE @intcol INTEGER;
+DECLARE @deccol DECIMAL;
+DECLARE @dblcol DOUBLE;
+DECLARE @strcol VARCHAR;
+DECLARE @dtcol VARCHAR;
+
+SET @b = @param1;
+SET @a = @b;
+SET @param2 = 2 * @a;
+SET @b = 123;
+SELECT intcol, deccol, dblcol, strcol, dtcol INTO @intcol, @deccol, @dblcol, @strcol, @dtcol FROM testmtsql WHERE intcol = @param3;
+PRINT upper('intcol = ') + CAST(@intcol AS VARCHAR) + '; deccol = ' + CAST(@deccol AS VARCHAR) + '; dblcol = ' + CAST(@dblcol AS VARCHAR) + '; strcol = ' + @strcol + '; substr of strcol = ' + upper(substr(@strcol, 1, 1)) + '; dtcol = ' + CAST(@dtcol AS VARCHAR);

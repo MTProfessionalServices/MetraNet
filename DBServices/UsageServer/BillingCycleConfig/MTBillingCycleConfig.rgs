@@ -1,0 +1,26 @@
+HKCR
+{
+	BillingCycleConfig.MTBillingCycleConfig.1 = s 'MTBillingCycleConfig Class'
+	{
+		CLSID = s '{EDBD9B42-8E6E-11D4-9141-00B0D02B57B9}'
+	}
+	BillingCycleConfig.MTBillingCycleConfig = s 'MTBillingCycleConfig Class'
+	{
+		CLSID = s '{EDBD9B42-8E6E-11D4-9141-00B0D02B57B9}'
+		CurVer = s 'BillingCycleConfig.MTBillingCycleConfig.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {EDBD9B42-8E6E-11D4-9141-00B0D02B57B9} = s 'MTBillingCycleConfig Class'
+		{
+			ProgID = s 'BillingCycleConfig.MTBillingCycleConfig.1'
+			VersionIndependentProgID = s 'BillingCycleConfig.MTBillingCycleConfig'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+			'TypeLib' = s '{EDBD9B33-8E6E-11D4-9141-00B0D02B57B9}'
+		}
+	}
+}

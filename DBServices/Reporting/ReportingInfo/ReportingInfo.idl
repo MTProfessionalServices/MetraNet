@@ -1,0 +1,84 @@
+// ReportingInfo.idl : IDL source for ReportingInfo.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ReportingInfo.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(2B7024CB-5EF1-11D3-9DAF-00C04F46EB1E),
+		dual,
+		helpstring("IMTEnumTypeInfo Interface"),
+		pointer_default(unique)
+	]
+	interface IMTEnumTypeInfo : IDispatch
+	{
+		[id(1), helpstring("method Add")] HRESULT Add();
+		[id(2), helpstring("method Remove")] HRESULT Remove();
+		[id(3), helpstring("method Create")] HRESULT Create();
+    [id(4), helpstring("method Drop")] HRESULT Drop();
+	};
+	[
+		object,
+		uuid(2B7024CD-5EF1-11D3-9DAF-00C04F46EB1E),
+		dual,
+		helpstring("IMTContactInfo Interface"),
+		pointer_default(unique)
+	]
+	interface IMTContactInfo : IDispatch
+	{
+		[id(1), helpstring("method Add")] HRESULT Add();
+		[id(2), helpstring("method Remove")] HRESULT Remove();
+		[id(3), helpstring("method Create")] HRESULT Create();
+    [id(4), helpstring("method Drop")] HRESULT Drop();
+	};
+	[
+		object,
+		uuid(2B7024CF-5EF1-11D3-9DAF-00C04F46EB1E),
+		dual,
+		helpstring("IMTReportingView Interface"),
+		pointer_default(unique)
+	]
+	interface IMTReportingView : IDispatch
+	{
+		[id(1), helpstring("method Add")] HRESULT Add();
+		[id(2), helpstring("method Remove")] HRESULT Remove();
+	};
+
+[
+	uuid(2B7024BF-5EF1-11D3-9DAF-00C04F46EB1E),
+	version(1.0),
+	helpstring("ReportingInfo 1.0 Type Library")
+]
+library REPORTINGINFOLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(2B7024CC-5EF1-11D3-9DAF-00C04F46EB1E),
+		helpstring("MTEnumTypeInfo Class")
+	]
+	coclass MTEnumTypeInfo
+	{
+		[default] interface IMTEnumTypeInfo;
+	};
+	[
+		uuid(2B7024CE-5EF1-11D3-9DAF-00C04F46EB1E),
+		helpstring("MTContactInfo Class")
+	]
+	coclass MTContactInfo
+	{
+		[default] interface IMTContactInfo;
+	};
+	[
+		uuid(2B7024D0-5EF1-11D3-9DAF-00C04F46EB1E),
+		helpstring("MTReportingView Class")
+	]
+	coclass MTReportingView
+	{
+		[default] interface IMTReportingView;
+	};
+};

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+BUILD_ROOT=/space/mef/sdk/DEVELOPMENT
+BUILD_CONFIG=sun4os5
+#BUILD_VERBOSE=yes
+
+export BUILD_ROOT
+export BUILD_CONFIG
+#export BUILD_VERBOSE
+
+make $@ | tee output.log

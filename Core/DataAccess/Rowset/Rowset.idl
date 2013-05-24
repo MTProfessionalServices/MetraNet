@@ -1,0 +1,93 @@
+/**************************************************************************
+* Copyright 1997-2000 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+* Created by: 
+* $Header$
+* 
+***************************************************************************/
+// Rowset.idl : IDL source for Rowset.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (Rowset.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "rowsetinterfaces.idl";
+
+[
+	object,
+	uuid(f648b60a-a22b-404e-8472-54d99aa3c10c),
+	dual,
+	helpstring("IMTDummy Interface"),
+	pointer_default(unique)
+]
+interface IRowsetDummy : IDispatch
+{
+};
+
+[
+	uuid(2AE44E29-7FB1-11D2-B60A-00104B2B980B),
+	version(1.0),
+	helpstring("Rowset 1.0 Type Library")
+]
+library ROWSETLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(2C11260E-846E-11D2-B60A-00104B2B980B),
+		helpstring("MTInMemRowset Class")
+	]
+	coclass MTInMemRowset
+	{
+		[default] interface IMTInMemRowset;
+	};
+	[
+		uuid(26C108F3-A645-11D2-B627-00104B2B980B),
+		helpstring("MTSQLRowset Class")
+	]
+	coclass MTSQLRowset
+	{
+		[default] interface IMTSQLRowset;
+	};
+	[
+		uuid(3C3C81B7-A06C-11D4-A652-00C04F579C39),
+		helpstring("MTXMLRowset Class")
+	]
+	coclass MTXMLRowset
+	{
+		[default] interface IMTXMLRowset;
+	};
+		[
+		uuid(6FF8D097-8F14-4E48-B89A-758BEBF48D27),
+		helpstring("MTDataFilter Class")
+	]
+	coclass MTDataFilter
+	{
+		[default] interface IMTDataFilter;
+	};
+	[
+		uuid(E9C17D8F-B880-43FC-9021-A08382A23AFB),
+		helpstring("MTFilterItem Class")
+	]
+	coclass MTFilterItem
+	{
+		[default] interface IMTFilterItem;
+	};
+
+};

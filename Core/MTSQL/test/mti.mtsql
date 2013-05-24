@@ -1,0 +1,9 @@
+CREATE PROCEDURE mti @duration INTEGER @mti INTEGER @rounded_duration DECIMAL
+AS
+DECLARE @timeMod INTEGER;
+DECLARE @timeDiv INTEGER;
+SET @timeMod = @duration % @mti;
+SET @timeDiv = @duration / @mti;
+SET @timeDiv = CASE WHEN @timeMod > 0 OR @timeDiv = 0 THEN @timeDiv + 1 ELSE @timeDiv END;
+SET @rounded_duration = (CAST(@timeDiv AS DECIMAL) * CAST(@mti AS DECIMAL))/ 60.0;
+PRINT '@rounded_duration =' + CAST(@rounded_duration AS VARCHAR);

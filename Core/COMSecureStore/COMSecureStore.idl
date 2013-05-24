@@ -1,0 +1,110 @@
+/**************************************************************************
+* Copyright 1997-2000 by MetraTech Corp.
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+* Created by: 
+* $Header: COMSecureStore.idl, 3, 11/10/2000 12:35:08 PM, Carl Shimer$
+* 
+***************************************************************************/
+
+//
+// COMSecureStore.idl : IDL source for COMSecureStore.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (COMSecureStore.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(E6B4633C-1853-11D4-A70A-00C04F58C76E),
+		dual,
+		helpstring("IGetProtectedProperty Interface"),
+		pointer_default(unique)
+	]
+
+  // ----------------------------------------------------------------
+  // Object:      COMSecureStore	
+  // Prog ID:		  COMSecureStore.GetProtectedProperty.1
+  // Description: The purpose of this object is to retrieve an encrypted 
+  //              property stored in a configuration file on disk. The
+  //              implementation limits each instance of this object to
+  //              retrieving a single property.
+  //
+  //              Below is an example that demonstrates the format of the
+  //              configuration file. The file may contain multiple 
+  //              data sets. 
+  //               
+  //              The addkey command line tool inserts base64 encoded data 
+  //              into the value tag for a property specified in the name tag. 
+  //
+  //              <xmlconfig>
+  //                <dataset>
+  //                  <name>ticketagent</name>
+  //                  <value>ticketagent</value>
+  //                </dataset>
+  //              </xmlconfig>
+  // ----------------------------------------------------------------
+
+	interface IGetProtectedProperty : IDispatch
+	{
+    //
+    // This method initializes the cryptographic service and reads the property
+    // from file. sEntity is a system resource using encryption. For example,
+    // since the TicketAgent runs within the context of IIS, this value is listener.
+    // sFilename is the name of the configuration file. The format of this parameter
+    // is a pathname relative to the MetraTech config directory. For example,
+    // ServerAccess\protectedpropertylist.xml. sName is the property to retrieve.
+    //
+		[id(1), helpstring("method Initialize")] 
+    HRESULT Initialize([in] BSTR sEntity, [in] BSTR sFilename, [in] BSTR sName);
+
+    //
+    // This method returns the plaintext to the caller.
+    //
+		[id(2), helpstring("method GetValue")] 
+    HRESULT GetValue([out, retval] BSTR *pValue);
+
+		[id(3), helpstring("encrypts a string")]
+		HRESULT EncryptString([in] BSTR src,[out,retval] BSTR* pVal);
+
+		[id(4), helpstring("decrypts a string")]
+		HRESULT DecryptString([in] BSTR src,[out,retval] BSTR* pVal);
+
+		[id(5), helpstring("method InitializeWithContainer")] 
+    HRESULT InitializeWithContainer([in] BSTR sContainer, [in] BSTR sEntity, [in] BSTR sFilename, [in] BSTR sName);
+		
+	};
+
+[
+	uuid(E6B46330-1853-11D4-A70A-00C04F58C76E),
+	version(1.0),
+	helpstring("COMSecureStore 1.0 Type Library")
+]
+library COMSECURESTORELib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(E6B4633D-1853-11D4-A70A-00C04F58C76E),
+		helpstring("GetProtectedProperty Class")
+	]
+	coclass GetProtectedProperty
+	{
+		[default] interface IGetProtectedProperty;
+	};
+};

@@ -1,0 +1,24 @@
+HKCR
+{
+	MTUserProfile.MTUserProfile.1 = s 'MTUserProfile Class'
+	{
+		CLSID = s '{330D0C28-1EBF-11D3-B672-00104B2B980B}'
+	}
+	MTUserProfile.MTUserProfile = s 'MTUserProfile Class'
+	{
+		CurVer = s 'MTUserProfile.MTUserProfile.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {330D0C28-1EBF-11D3-B672-00104B2B980B} = s 'MTUserProfile Class'
+		{
+			ProgID = s 'MTUserProfile.MTUserProfile.1'
+			VersionIndependentProgID = s 'MTUserProfile.MTUserProfile'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

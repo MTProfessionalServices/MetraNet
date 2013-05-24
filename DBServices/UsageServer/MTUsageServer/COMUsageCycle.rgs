@@ -1,0 +1,24 @@
+HKCR
+{
+	COMUsageCycle.COMUsageCycle.1 = s 'COMUsageCycle Class'
+	{
+		CLSID = s '{237A5741-A63B-11D2-B627-00104B2B980B}'
+	}
+	COMUsageCycle.COMUsageCycle = s 'COMUsageCycle Class'
+	{
+		CurVer = s 'COMUsageCycle.COMUsageCycle.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {237A5741-A63B-11D2-B627-00104B2B980B} = s 'COMUsageCycle Class'
+		{
+			ProgID = s 'COMUsageCycle.COMUsageCycle.1'
+			VersionIndependentProgID = s 'COMUsageCycle.COMUsageCycle'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

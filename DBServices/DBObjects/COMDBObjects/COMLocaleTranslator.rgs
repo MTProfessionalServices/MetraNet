@@ -1,0 +1,24 @@
+HKCR
+{
+	MetraTech.COMLocaleTranslator.1 = s 'COMLocaleTranslator Class'
+	{
+		CLSID = s '{1CCFC1BC-35CC-11D2-B5F5-00104B2B980B}'
+	}
+	MetraTech.COMLocaleTranslator = s 'COMLocaleTranslator Class'
+	{
+		CurVer = s 'MetraTech.COMLocaleTranslator.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1CCFC1BC-35CC-11D2-B5F5-00104B2B980B} = s 'COMLocaleTranslator Class'
+		{
+			ProgID = s 'MetraTech.COMLocaleTranslator.1'
+			VersionIndependentProgID = s 'MetraTech.COMLocaleTranslator'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

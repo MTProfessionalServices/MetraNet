@@ -1,0 +1,39 @@
+// COMInterpreter.idl : IDL source for COMInterpreter.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (COMInterpreter.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(1869AF0C-F5B2-44E3-AC69-F34CE67BB517),
+	
+		helpstring("IComMtsqlInterpreter Interface"),
+		pointer_default(unique)
+	]
+	interface IComMtsqlInterpreter : IUnknown
+	{
+	};
+
+[
+	uuid(290D6B81-7B57-4750-ACF9-608549FB2417),
+	version(1.0),
+	helpstring("COMInterpreter 1.0 Type Library")
+]
+library COMINTERPRETERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(B30EFBFE-0DF5-4632-AB14-21DAEA4446E0),
+		helpstring("ComMtsqlInterpreter Class")
+	]
+	coclass ComMtsqlInterpreter
+	{
+		[default] interface IComMtsqlInterpreter;
+		interface IDispatch;
+	};
+};

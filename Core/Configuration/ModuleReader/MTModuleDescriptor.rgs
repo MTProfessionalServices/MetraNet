@@ -1,0 +1,24 @@
+HKCR
+{
+	IMTModuleDescriptor.IMTModuleDescriptor.1 = s 'IMTModuleDescriptor Class'
+	{
+		CLSID = s '{7166B511-EC2E-11D2-A596-00C04F579C39}'
+	}
+	IMTModuleDescriptor.IMTModuleDescriptor = s 'IMTModuleDescriptor Class'
+	{
+		CurVer = s 'IMTModuleDescriptor.IMTModuleDescriptor.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {7166B511-EC2E-11D2-A596-00C04F579C39} = s 'IMTModuleDescriptor Class'
+		{
+			ProgID = s 'IMTModuleDescriptor.IMTModuleDescriptor.1'
+			VersionIndependentProgID = s 'IMTModuleDescriptor.IMTModuleDescriptor'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+		}
+	}
+}

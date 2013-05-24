@@ -1,0 +1,24 @@
+HKCR
+{
+	COMDataAccessor.COMDataAccessor.1 = s 'COMDataAccessor Class'
+	{
+		CLSID = s '{0119D8D5-307D-11D2-B5F5-00104B2B980B}'
+	}
+	COMDataAccessor.COMDataAccessor = s 'COMDataAccessor Class'
+	{
+		CurVer = s 'COMDataAccessor.COMDataAccessor.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {0119D8D5-307D-11D2-B5F5-00104B2B980B} = s 'COMDataAccessor Class'
+		{
+			ProgID = s 'COMDataAccessor.COMDataAccessor.1'
+			VersionIndependentProgID = s 'COMDataAccessor.COMDataAccessor'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

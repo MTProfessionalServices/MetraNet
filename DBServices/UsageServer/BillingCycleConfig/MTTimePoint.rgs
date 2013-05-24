@@ -1,0 +1,26 @@
+HKCR
+{
+	BillingCycleConfig.MTTimePoint.1 = s 'MTTimePoint Class'
+	{
+		CLSID = s '{EDBD9B46-8E6E-11D4-9141-00B0D02B57B9}'
+	}
+	BillingCycleConfig.MTTimePoint = s 'MTTimePoint Class'
+	{
+		CLSID = s '{EDBD9B46-8E6E-11D4-9141-00B0D02B57B9}'
+		CurVer = s 'BillingCycleConfig.MTTimePoint.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {EDBD9B46-8E6E-11D4-9141-00B0D02B57B9} = s 'MTTimePoint Class'
+		{
+			ProgID = s 'BillingCycleConfig.MTTimePoint.1'
+			VersionIndependentProgID = s 'BillingCycleConfig.MTTimePoint'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+			'TypeLib' = s '{EDBD9B33-8E6E-11D4-9141-00B0D02B57B9}'
+		}
+	}
+}

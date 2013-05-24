@@ -1,0 +1,86 @@
+// MTDataExporter.idl : IDL source for MTDataExporter.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTDatExporter.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// To generate a user defined data exporter, a COM object must implement the
+// IMTDataExporter interface. The methods of this interface ar called 
+// at the appropriate times to export data from the product views.
+
+[
+	object,
+	uuid(5884B0B7-AAF2-11D2-B629-00104B2B980B),
+	dual,
+	helpstring("IMTDataExporter Interface"),
+	pointer_default(unique)
+]
+
+
+// ----------------------------------------------------------------
+// Object:   	IMTDataExporter
+// Prog ID:		
+// Description:  	The data exporter interface is a generic interface 
+//  that can be implemented to export data from the MetraTech system.
+//  The Initialize method initializes the data export adapter and is
+//  invoked once at the beginning of the data export. The ExportData
+//  method is invoked one or more times depending on how many accounts
+//  the data is being exported for. The ExportComplete method is 
+//  invoked once to finish up the data export.
+// ----------------------------------------------------------------
+interface IMTDataExporter : IDispatch
+{
+// The ExportData method allows for the exporting of usage data. 
+	[id(1), helpstring("method ExportData")] HRESULT ExportData([in] LPDISPATCH pDispatch);
+// The Initialize method initializes the data export adapter.
+  [id(2), helpstring("method Initialize")] HRESULT Initialize([in] BSTR aConfigFilename);
+// The ExportComplete method allows for the cleanup of the data export process.
+  [id(3), helpstring("method ExportComplete")] HRESULT ExportComplete();
+};
+
+
+[
+	object,
+	uuid(17360633-4de4-4d58-b7bd-afc61bd5f8a2),
+	dual,
+	helpstring("IMTDataExporter2 Interface"),
+	pointer_default(unique)
+]
+
+// ----------------------------------------------------------------
+// Object:   	IMTDataExporter2
+// Prog ID:		
+// Description:
+// 	This is the newest version of the data exporter
+//  interface. It is fully compatable with the old interface and improves
+//  upon adapter performance by allowing the adapter to be called only
+//  once per interval. If an adapter should be executed once per
+//  interval, it should implement the PerInterval property to return TRUE.
+//  No additional configuration in the recurring_events.xml file is necessary.
+//  The following methods are called for a per interval adapter:
+//     1) Initialize
+//     2) Execute (called exactly once)
+//     3) ExportComplete
+// ----------------------------------------------------------------
+interface IMTDataExporter2 : IDispatch
+{
+
+  // The ExportData method allows for the exporting of usage data (per account). 
+  [id(1), helpstring("method ExportData")] HRESULT ExportData([in] LPDISPATCH pDispatch);
+
+  // The Initialize method initializes the data export adapter.
+  [id(2), helpstring("method Initialize")] HRESULT Initialize([in] BSTR aConfigFilename);
+
+  // The ExportComplete method allows for the cleanup of the data export process.
+  [id(3), helpstring("method ExportComplete")] HRESULT ExportComplete();
+
+  //The Execute method takes an interval ID and does processing. It is called once per interval.
+  [id(4), helpstring("method Execute")] HRESULT Execute([in] long aIntervalID);
+  
+  //This property determines if the adapter is per interval (uses Execute) or not (uses Export
+  [propget, id(5), helpstring("property PerInterval")] HRESULT PerInterval([out, retval] VARIANT_BOOL *pVal);
+
+};

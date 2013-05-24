@@ -1,0 +1,26 @@
+HKCR
+{
+	MTUsageServer.COMUsageCyclePropertyColl.1 = s 'COMUsageCyclePropertyColl Class'
+	{
+		CLSID = s '{8C900334-7E82-11D4-9E61-00C04F46EB1E}'
+	}
+	MTUsageServer.COMUsageCyclePropertyColl = s 'COMUsageCyclePropertyColl Class'
+	{
+		CLSID = s '{8C900334-7E82-11D4-9E61-00C04F46EB1E}'
+		CurVer = s 'MTUsageServer.COMUsageCyclePropertyColl.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8C900334-7E82-11D4-9E61-00C04F46EB1E} = s 'COMUsageCyclePropertyColl Class'
+		{
+			ProgID = s 'MTUsageServer.COMUsageCyclePropertyColl.1'
+			VersionIndependentProgID = s 'MTUsageServer.COMUsageCyclePropertyColl'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{E54B8B1B-A953-11D2-B629-00104B2B980B}'
+		}
+	}
+}

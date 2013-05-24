@@ -1,0 +1,46 @@
+// AudioConfMeterTestLib.idl : IDL source for AudioConfMeterTestLib
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (AudioConfMeterTestLib.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(A7E4DCC0-A3FB-419F-80C9-C368E5263197),
+	dual,
+	helpstring("IAudioConfMeterTestCtl Interface"),
+	pointer_default(unique)
+]
+interface IAudioConfMeterTestCtl : IDispatch{
+  [id(1), helpstring("method SetSessionSetSize")] HRESULT SetSessionSetSize([in] ULONG sessionSetSize);
+  [id(2), helpstring("method SetCallCount")] HRESULT SetCallCount([in] ULONG callCount);
+  [id(3), helpstring("method SetConnsPerCall")] HRESULT SetConnsPerCall([in] ULONG connsPerCall, [in] VARIANT_BOOL randomizeConnsPerCall);
+  [id(4), helpstring("method SetFeaturesPerCall")] HRESULT SetFeaturesPerCall([in] ULONG featuresPerCall, [in] VARIANT_BOOL randomizeFeaturesPerCall);
+  [id(5), helpstring("method SetNumberOfAccounts")] HRESULT SetNumberOfAccounts([in] ULONG numberOfAccounts, [in] BSTR offeringName);
+  [id(6), helpstring("method LimitAccountRange")] HRESULT SetAccountRange([in] LONG startingAccountId, [in] LONG endingAccountId);
+  [id(7), helpstring("method ClearAccountRange")] HRESULT ClearAccountRange(void);
+  [id(8), helpstring("method IncludeUnsubscribedAccounts")] HRESULT IncludeUnsubscribedAccounts();
+  [id(9), helpstring("method ClearUnsubscribedAccounts")] HRESULT ClearUnsubscribedAccounts(void);
+  [id(10), helpstring("method SetCallDateRange")] HRESULT SetCallDateRange([in] BSTR startDate, [in] BSTR endDate);
+  [id(11), helpstring("method GenerateTestData")] HRESULT GenerateTestData(void);
+};
+[
+	uuid(BB153799-6AC4-471C-9BD6-AB35AAA52010),
+	version(1.0),
+	helpstring("AudioConfMeterTestLib 1.0 Type Library")
+]
+library AudioConfMeterTestLibLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(499B421C-AD33-4870-894F-96AE42757B03),
+		helpstring("AudioConfMeterTestCtl Class")
+	]
+	coclass AudioConfMeterTestCtl
+	{
+		[default] interface IAudioConfMeterTestCtl;
+	};
+};

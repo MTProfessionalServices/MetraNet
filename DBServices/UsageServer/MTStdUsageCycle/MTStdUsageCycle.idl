@@ -1,0 +1,116 @@
+// MTStdUsageCycle.idl : IDL source for MTStdUsageCycle.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTStdUsageCycle.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// import the usage cycle 
+import "MTUsageCycle.idl";
+
+	[
+		object,
+		uuid(6cf6d807-935f-4223-8e21-4c2e37b5d733),
+		dual,
+		helpstring("IDummy Interface"),
+		pointer_default(unique)
+	]
+	interface IDummy : IDispatch
+	{
+	};
+
+
+[
+	uuid(14B36C73-5D72-11D4-9E57-00C04F46EB1E),
+	version(1.0),
+	helpstring("MTStdUsageCycle 1.0 Type Library")
+]
+library MTSTDUSAGECYCLELib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(14B36C80-5D72-11D4-9E57-00C04F46EB1E),
+		helpstring("MTStdMonthly Class")
+	]
+	coclass MTStdMonthly
+	{
+		// must implement the IMTUsageCycle interface
+		[default] interface IMTUsageCycle;
+	};
+	[
+		uuid(14B36C82-5D72-11D4-9E57-00C04F46EB1E),
+		helpstring("MTStdOnDemand Class")
+	]
+	coclass MTStdOnDemand
+	{
+		// must implement the IMTUsageCycle interface
+		[default] interface IMTUsageCycle;
+	};
+	[
+		uuid(14B36C84-5D72-11D4-9E57-00C04F46EB1E),
+		helpstring("MTStdDaily Class")
+	]
+	coclass MTStdDaily
+	{
+		// must implement the IMTUsageCycle interface
+		[default] interface IMTUsageCycle;
+	};
+	[
+		uuid(A361CEA8-9B87-11D4-9E69-00C04F46EB1E),
+		helpstring("MTStdWeekly Class")
+	]
+	coclass MTStdWeekly
+	{
+		// must implement the IMTUsageCycle interface
+		[default] interface IMTUsageCycle;
+	};
+	[
+		uuid(A361CEAA-9B87-11D4-9E69-00C04F46EB1E),
+		helpstring("MTStdBiWeekly Class")
+	]
+	coclass MTStdBiWeekly
+	{
+		// must implement the IMTUsageCycle interface
+		[default] interface IMTUsageCycle;
+	};
+	[
+		uuid(A361CEAC-9B87-11D4-9E69-00C04F46EB1E),
+		helpstring("MTStdSemiMonthly Class")
+	]
+	coclass MTStdSemiMonthly
+	{
+		// must implement the IMTUsageCycle interface
+		[default] interface IMTUsageCycle;
+	};
+	[
+		uuid(A361CEAE-9B87-11D4-9E69-00C04F46EB1E),
+		helpstring("MTStdQuarterly Class")
+	]
+	coclass MTStdQuarterly
+	{
+		// must implement the IMTUsageCycle interface
+		[default] interface IMTUsageCycle;
+	};
+	[
+		uuid(A361CEB0-9B87-11D4-9E69-00C04F46EB1E),
+		helpstring("MTStdAnnually Class")
+	]
+	coclass MTStdAnnually
+	{
+		// must implement the IMTUsageCycle interface
+		[default] interface IMTUsageCycle;
+	};
+  	[
+		uuid(2E7AE2CF-B8F8-454A-90E2-28E5D6D1FA6D),
+		helpstring("MTStdSemiAnnually Class")
+	]
+	coclass MTStdSemiAnnually
+	{
+		// must implement the IMTUsageCycle interface
+		[default] interface IMTUsageCycle;
+	};
+};

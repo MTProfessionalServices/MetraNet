@@ -1,0 +1,26 @@
+HKCR
+{
+	ReportingInfo.MTEnumTypeInfo.1 = s 'MTEnumTypeInfo Class'
+	{
+		CLSID = s '{2B7024CC-5EF1-11D3-9DAF-00C04F46EB1E}'
+	}
+	ReportingInfo.MTEnumTypeInfo = s 'MTEnumTypeInfo Class'
+	{
+		CLSID = s '{2B7024CC-5EF1-11D3-9DAF-00C04F46EB1E}'
+		CurVer = s 'ReportingInfo.MTEnumTypeInfo.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {2B7024CC-5EF1-11D3-9DAF-00C04F46EB1E} = s 'MTEnumTypeInfo Class'
+		{
+			ProgID = s 'ReportingInfo.MTEnumTypeInfo.1'
+			VersionIndependentProgID = s 'ReportingInfo.MTEnumTypeInfo'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{2B7024BF-5EF1-11D3-9DAF-00C04F46EB1E}'
+		}
+	}
+}

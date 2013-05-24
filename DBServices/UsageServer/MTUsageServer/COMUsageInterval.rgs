@@ -1,0 +1,24 @@
+HKCR
+{
+	COMUsageInterval.COMUsageInterval.1 = s 'COMUsageInterval Class'
+	{
+		CLSID = s '{040A3612-465D-11D2-B5FB-00104B2B980B}'
+	}
+	COMUsageInterval.COMUsageInterval = s 'COMUsageInterval Class'
+	{
+		CurVer = s 'COMUsageInterval.COMUsageInterval.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {040A3612-465D-11D2-B5FB-00104B2B980B} = s 'COMUsageInterval Class'
+		{
+			ProgID = s 'COMUsageInterval.COMUsageInterval.1'
+			VersionIndependentProgID = s 'COMUsageInterval.COMUsageInterval'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+HKCR
+{
+	MTModule.MTModule.1 = s 'MTModule Class'
+	{
+		CLSID = s '{7166B50F-EC2E-11D2-A596-00C04F579C39}'
+	}
+	MTModule.MTModule = s 'MTModule Class'
+	{
+		CurVer = s 'MTModule.MTModule.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {7166B50F-EC2E-11D2-A596-00C04F579C39} = s 'MTModule Class'
+		{
+			ProgID = s 'MTModule.MTModule.1'
+			VersionIndependentProgID = s 'MTModule.MTModule'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+		}
+	}
+}

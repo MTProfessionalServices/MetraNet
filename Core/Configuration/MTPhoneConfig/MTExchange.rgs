@@ -1,0 +1,24 @@
+HKCR
+{
+	MTExchange.MTExchange.1 = s 'MTExchange Class'
+	{
+		CLSID = s '{70B97086-0947-11D3-AA2D-00105A2A148D}'
+	}
+	MTExchange.MTExchange = s 'MTExchange Class'
+	{
+		CurVer = s 'MTExchange.MTExchange.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {70B97086-0947-11D3-AA2D-00105A2A148D} = s 'MTExchange Class'
+		{
+			ProgID = s 'MTExchange.MTExchange.1'
+			VersionIndependentProgID = s 'MTExchange.MTExchange'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

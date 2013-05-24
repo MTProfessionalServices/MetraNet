@@ -1,0 +1,24 @@
+HKCR
+{
+	COMUsageIntervalColl.COMUsageIntervalColl.1 = s 'COMUsageIntervalColl Class'
+	{
+		CLSID = s '{AE2B61D4-A569-11D2-B625-00104B2B980B}'
+	}
+	COMUsageIntervalColl.COMUsageIntervalColl = s 'COMUsageIntervalColl Class'
+	{
+		CurVer = s 'COMUsageIntervalColl.COMUsageIntervalColl.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {AE2B61D4-A569-11D2-B625-00104B2B980B} = s 'COMUsageIntervalColl Class'
+		{
+			ProgID = s 'COMUsageIntervalColl.COMUsageIntervalColl.1'
+			VersionIndependentProgID = s 'COMUsageIntervalColl.COMUsageIntervalColl'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

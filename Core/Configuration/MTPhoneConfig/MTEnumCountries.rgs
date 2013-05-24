@@ -1,0 +1,24 @@
+HKCR
+{
+	MTEnumCountries.MTEnumCountries.1 = s 'MTEnumCountries Class'
+	{
+		CLSID = s '{52F732FE-F686-11D2-AA26-00105A2A148D}'
+	}
+	MTEnumCountries.MTEnumCountries = s 'MTEnumCountries Class'
+	{
+		CurVer = s 'MTEnumCountries.MTEnumCountries.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {52F732FE-F686-11D2-AA26-00105A2A148D} = s 'MTEnumCountries Class'
+		{
+			ProgID = s 'MTEnumCountries.MTEnumCountries.1'
+			VersionIndependentProgID = s 'MTEnumCountries.MTEnumCountries'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

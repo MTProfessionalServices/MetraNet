@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.DataAccessorUtil.1 = s 'COMDataAccessorUtil Class'
+	{
+		CLSID = s '{87ED89B7-AE07-4533-953D-6A2F6076E21E}'
+	}
+	MetraTech.DataAccessorUtil = s 'COMDataAccessorUtil Class'
+	{
+		CLSID = s '{87ED89B7-AE07-4533-953D-6A2F6076E21E}'
+		CurVer = s 'MetraTech.DataAccessorUtil.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {87ED89B7-AE07-4533-953D-6A2F6076E21E} = s 'COMDataAccessorUtil Class'
+		{
+			ProgID = s 'MetraTech.DataAccessorUtil.1'
+			VersionIndependentProgID = s 'MetraTech.DataAccessorUtil'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{0119D8C7-307D-11D2-B5F5-00104B2B980B}'
+		}
+	}
+}

@@ -1,0 +1,9 @@
+; Email.def : Declares the module parameters.
+
+LIBRARY      "Email.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

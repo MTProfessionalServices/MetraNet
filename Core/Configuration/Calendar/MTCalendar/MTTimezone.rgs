@@ -1,0 +1,26 @@
+HKCR
+{
+	MTCalendar.MTTimezone.1 = s 'MTTimezone Class'
+	{
+		CLSID = s '{BA7165C3-1D32-11D3-AE6C-00C04F54FE3B}'
+	}
+	MTCalendar.MTTimezone = s 'MTTimezone Class'
+	{
+		CLSID = s '{BA7165C3-1D32-11D3-AE6C-00C04F54FE3B}'
+		CurVer = s 'MTCalendar.MTTimezone.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {BA7165C3-1D32-11D3-AE6C-00C04F54FE3B} = s 'MTTimezone Class'
+		{
+			ProgID = s 'MTCalendar.MTTimezone.1'
+			VersionIndependentProgID = s 'MTCalendar.MTTimezone'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{576DFAD5-F341-11D2-AE56-00C04F54FE3B}'
+		}
+	}
+}

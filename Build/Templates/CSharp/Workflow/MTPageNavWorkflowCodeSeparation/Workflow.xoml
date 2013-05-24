@@ -1,0 +1,7 @@
+﻿<ns0:MTStateMachineWorkflowActivity InitialStateName="stateActivity1" x:Class="$rootnamespace$.$safeitemname$" x:Name="$safeitemname$" DynamicUpdateCondition="{x:Null}" CompletedStateName="{x:Null}" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:MetraTech.ActivityServices.Activities;Assembly=MetraTech.ActivityServices.Activities, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75">
+	<StateActivity x:Name="stateActivity1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow" />
+	<EventDrivenActivity x:Name="SetStateEventHandler" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow">
+		<ns0:MTHandleEventActivity EventName="SetStateEvent" x:Name="mtHandleEventActivity12" />
+		<ns0:MTSetPageStateActivity x:Name="mtSetPageStateActivity1" StateGuid="{ActivityBind $safeitemname$,Path=PageStateGuid}" />
+	</EventDrivenActivity>
+</ns0:MTStateMachineWorkflowActivity>

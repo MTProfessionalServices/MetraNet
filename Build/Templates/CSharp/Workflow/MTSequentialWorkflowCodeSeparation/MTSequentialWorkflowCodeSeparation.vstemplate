@@ -1,0 +1,36 @@
+﻿<VSTemplate Version="2.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>MetraTech Sequential Workflow (Code Separation)</Name>
+    <Description>A template to create Sequential workflows for MetraNet</Description>
+    <Icon Package="{8E0E5EE7-27CC-4f7a-8E4B-EC9C02F10233}" ID="104" />
+    <ProjectType>CSharp</ProjectType>
+    <DefaultName>Workflow</DefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+      <Reference>
+        <Assembly>System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>System.Drawing.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>System.Xml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>System.Workflow.ComponentModel, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>MetraTech.ActivityServices.Activities, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75</Assembly>
+      </Reference>
+    </References>
+    <ProjectItem ReplaceParameters="true" TargetFileName="$fileinputname$.xoml" SubType="Component">Workflow.xoml</ProjectItem>
+    <ProjectItem ReplaceParameters="true" TargetFileName="$fileinputname$.xoml.cs">Workflow.xoml.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

@@ -1,0 +1,24 @@
+HKCR
+{
+	MTQueryCache.MTQueryCache.1 = s 'MTQueryCache Class'
+	{
+		CLSID = s '{2F71DEB4-D026-11D2-B645-00104B2B980B}'
+	}
+	MTQueryCache.MTQueryCache = s 'MTQueryCache Class'
+	{
+		CurVer = s 'MTQueryCache.MTQueryCache.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {2F71DEB4-D026-11D2-B645-00104B2B980B} = s 'MTQueryCache Class'
+		{
+			ProgID = s 'MTQueryCache.MTQueryCache.1'
+			VersionIndependentProgID = s 'MTQueryCache.MTQueryCache'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+		}
+	}
+}

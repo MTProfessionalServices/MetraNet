@@ -1,0 +1,294 @@
+// PhoneLookup.idl : IDL source for PhoneLookup.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (PhoneLookup.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	[
+		object,
+		uuid(52F732F4-F686-11D2-AA26-00105A2A148D),
+		dual,
+		helpstring("IPhoneNumberParser Interface"),
+		pointer_default(unique)
+	]
+
+ 
+	interface IPhoneNumberParser : IDispatch
+	{
+		typedef enum {
+                Proximity_Unknown,		
+                Proximity_Local,
+                Proximity_National,
+                Proximity_International,
+		} Proximity;
+
+		[propget, id(1), helpstring("property OriginatorCountryName")] HRESULT OriginatorCountryName([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property OriginatorCountryName")] HRESULT OriginatorCountryName([in] BSTR newVal);
+		[propget, id(2), helpstring("property OriginatorLineAccessCode")] HRESULT OriginatorLineAccessCode([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property OriginatorLineAccessCode")] HRESULT OriginatorLineAccessCode([in] BSTR newVal);
+		[propget, id(3), helpstring("property OriginatorNationalCode")] HRESULT OriginatorNationalCode([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property OriginatorNationalCode")] HRESULT OriginatorNationalCode([in] BSTR newVal);
+		[propget, id(4), helpstring("property DialedNumber")] HRESULT DialedNumber([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property DialedNumber")] HRESULT DialedNumber([in] BSTR newVal);
+		[propget, id(5), helpstring("property CountryCode")] HRESULT CountryCode([out, retval] BSTR *pVal);
+		[propget, id(6), helpstring("property NationalCode")] HRESULT NationalCode([out, retval] BSTR *pVal);
+		[propget, id(7), helpstring("property LocalNumber")] HRESULT LocalNumber([out, retval] BSTR *pVal);
+		[propget, id(8), helpstring("property CountryName")] HRESULT CountryName([out, retval] BSTR *pVal);
+		[propget, id(9), helpstring("property RegionDescription")] HRESULT RegionDescription([out, retval] BSTR *pVal);
+		[propget, id(10), helpstring("property LocalityDescription")] HRESULT LocalityDescription([out, retval] BSTR *pVal);
+		[propget, id(11), helpstring("property CanonicalFormat")] HRESULT CanonicalFormat([out, retval] BSTR *pVal);
+//		[propget, id(12), helpstring("property Proximity")] HRESULT Proximity([out, retval] Proximity *pVal);
+		[id(13), helpstring("method Initialize")] HRESULT Initialize([in] BSTR bstrDeviceFile, [in] BSTR bstrCountryFile);
+		[propget, id(14), helpstring("property Bridges")] HRESULT Bridges([out, retval] IDispatch **pVal);
+		[propput, id(14), helpstring("property Bridges")] HRESULT Bridges([in] IDispatch * newVal);
+		[propget, id(15), helpstring("property Countries")] HRESULT Countries([out, retval] LPDISPATCH *pVal);
+		[propput, id(15), helpstring("property Countries")] HRESULT Countries([in] LPDISPATCH newVal);
+		[id(16), helpstring("method GetRegionsByCountryName")] HRESULT GetRegionsByCountryName([in]BSTR bstrCountryName, [out,retval]LPDISPATCH * pRegions);
+		[id(17), helpstring("method Read")] HRESULT Read([in] BSTR bstrHostName, [in] BSTR bstrPath, [in] BSTR bstrFileName);
+		[id(18), helpstring("method Write")] HRESULT Write();
+		[propget, id(19), helpstring("property International")] HRESULT International([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(20), helpstring("property TollFree")] HRESULT TollFree([out, retval] BOOL *pVal);
+		[id(21), helpstring("method SetEffectiveDevice")] HRESULT SetEffectiveDevice([in] BSTR bstrDeviceName);
+		[propget, id(22), helpstring("property LocalityCode")] HRESULT LocalityCode([out, retval] BSTR *pVal);
+	};
+	[
+		object,
+		uuid(52F732F6-F686-11D2-AA26-00105A2A148D),
+		dual,
+		helpstring("IMTPhoneDevice Interface"),
+		pointer_default(unique)
+	]
+	interface IMTPhoneDevice : IDispatch
+	{
+		[propget, id(1), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		[propget, id(2), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+		[propget, id(3), helpstring("property LineAccessCode")] HRESULT LineAccessCode([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property LineAccessCode")] HRESULT LineAccessCode([in] BSTR newVal);
+		[propget, id(4), helpstring("property CountryName")] HRESULT CountryName([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property CountryName")] HRESULT CountryName([in] BSTR newVal);
+		[propget, id(5), helpstring("property NationalDestinationCode")] HRESULT NationalDestinationCode([out, retval] BSTR *pVal);
+		[propput, id(5), helpstring("property NationalDestinationCode")] HRESULT NationalDestinationCode([in] BSTR newVal);
+	};
+	[
+		object,
+		uuid(52F732F9-F686-11D2-AA26-00105A2A148D),
+		dual,
+		helpstring("IMTEnumPhoneDevices Interface"),
+		pointer_default(unique)
+	]
+	interface IMTEnumPhoneDevices : IDispatch
+	{
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[id(2), helpstring("method Add")] HRESULT Add(IMTPhoneDevice * pDevice);
+		[propget, id(3), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[id(4), helpstring("method Init")] HRESULT InitFromPropSet ([in]IDispatch * pPropSet);
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(long aIndex, [out, retval] LPDISPATCH *pVal);
+		[id(6), helpstring("method Read")] HRESULT Read ([in]BSTR bStrHostName, [in]BSTR bStrFileName);
+		[id(7), helpstring("method Write")] HRESULT Write();
+		[id(8), helpstring("method Remove")] HRESULT Remove([in] long Index);
+		[id(9), helpstring("method FindDeviceByName")] HRESULT FindDeviceByName([in] BSTR bstrName, [out]LPDISPATCH *lpDev);
+	  [id(10), helpstring("method ReadFromDatabase")] HRESULT ReadFromDatabase();
+
+	};
+	[
+		object,
+		uuid(52F732FB-F686-11D2-AA26-00105A2A148D),
+		dual,
+		helpstring("IMTCountry Interface"),
+		pointer_default(unique)
+	]
+	interface IMTCountry : IDispatch
+	{
+		[propget, id(1), helpstring("property CountryCode")] HRESULT CountryCode([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property CountryCode")] HRESULT CountryCode([in] BSTR newVal);
+		[propget, id(2), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		[propget, id(3), helpstring("property InternationalAccessCode")] HRESULT InternationalAccessCode([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property InternationalAccessCode")] HRESULT InternationalAccessCode([in] BSTR newVal);
+		[propget, id(4), helpstring("property NationalAccessCode")] HRESULT NationalAccessCode([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property NationalAccessCode")] HRESULT NationalAccessCode([in] BSTR newVal);
+		[propget, id(5), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+		[propput, id(5), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+		[propget, id(6), helpstring("property NationalCodeTable")] HRESULT NationalCodeTable([out, retval] BSTR *pVal);
+		[propput, id(6), helpstring("property NationalCodeTable")] HRESULT NationalCodeTable([in] BSTR newVal);
+		[propget, id(7), helpstring("property Primary")] HRESULT Primary([out, retval] BOOL *pVal);
+		[propput, id(7), helpstring("property Primary")] HRESULT Primary([in] BOOL newVal);
+	};
+	[
+		object,
+		uuid(52F732FD-F686-11D2-AA26-00105A2A148D),
+		dual,
+		helpstring("IMTEnumCountries Interface"),
+		pointer_default(unique)
+	]
+	interface IMTEnumCountries : IDispatch
+	{
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[id(2), helpstring("method Add")] HRESULT Add(IMTCountry * pItem);
+		[propget, id(3), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[id(4), helpstring("method Init")] HRESULT InitFromPropSet ([in]IDispatch * pPropSet);
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(long aIndex, [out, retval] LPDISPATCH *pVal);
+		[id(6), helpstring("method Read")] HRESULT Read ([in]BSTR bstrHostName, [in]BSTR bStrFileName);
+		[id(7), helpstring("method FindByCountryName")] HRESULT FindByCountryName([in]BSTR CountryName, [out,retval] long * Idx);
+		[id(8), helpstring("method GetCountryCodeOwner")] HRESULT GetCountryCodeOwner([in]BSTR bstrCountryCode, [out,retval] IMTCountry ** pCountry);
+		[id(9), helpstring("method ReadFromDatabase")] HRESULT ReadFromDatabase();
+	};
+	[
+		object,
+		uuid(52F732FF-F686-11D2-AA26-00105A2A148D),
+		dual,
+		helpstring("IMTRegion Interface"),
+		pointer_default(unique)
+	]
+	interface IMTRegion : IDispatch
+	{
+		[propget, id(1), helpstring("property DestinationCode")] HRESULT DestinationCode([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property DestinationCode")] HRESULT DestinationCode([in] BSTR newVal);
+		[propget, id(2), helpstring("property CountryName")] HRESULT CountryName([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property CountryName")] HRESULT CountryName([in] BSTR newVal);
+		[propget, id(3), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+		[propget, id(4), helpstring("property LocalCodeTable")] HRESULT LocalCodeTable([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property LocalCodeTable")] HRESULT LocalCodeTable([in] BSTR newVal);
+		[propget, id(5), helpstring("property International")] HRESULT International([out, retval] BOOL *pVal);
+		[propput, id(5), helpstring("property International")] HRESULT International([in] BOOL newVal);
+		[propget, id(6), helpstring("property TollFree")] HRESULT TollFree([out, retval] BOOL *pVal);
+		[propput, id(6), helpstring("property TollFree")] HRESULT TollFree([in] BOOL newVal);
+	};
+	[
+		object,
+		uuid(52F73301-F686-11D2-AA26-00105A2A148D),
+		dual,
+		helpstring("IMTEnumRegions Interface"),
+		pointer_default(unique)
+	]
+	interface IMTEnumRegions : IDispatch
+	{
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[id(2), helpstring("method Add")] HRESULT Add(IMTRegion * pItem);
+		[propget, id(3), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[id(4), helpstring("method Init")] HRESULT InitFromPropSet ([in]IDispatch * pPropSet);
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(long aIndex, [out, retval] LPDISPATCH *pVal);
+		[id(6), helpstring("method Read")] HRESULT Read ([in]BSTR bStrHostName, [in]BSTR bStrFileName);
+		[id(7), helpstring("method ReadFromDatabase")] HRESULT ReadFromDatabase([in]BSTR bstrCountry);
+
+	};
+	[
+		object,
+		uuid(70B97085-0947-11D3-AA2D-00105A2A148D),
+		dual,
+		helpstring("IMTExchange Interface"),
+		pointer_default(unique)
+	]
+	interface IMTExchange : IDispatch
+	{
+		[propget, id(1), helpstring("property Code")] HRESULT Code([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property Code")] HRESULT Code([in] BSTR newVal);
+		[propget, id(2), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+
+	};
+	[
+		object,
+		uuid(70B97087-0947-11D3-AA2D-00105A2A148D),
+		dual,
+		helpstring("IMTEnumExchanges Interface"),
+		pointer_default(unique)
+	]
+	interface IMTEnumExchanges : IDispatch
+	{
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[id(2), helpstring("method Add")] HRESULT Add(IMTExchange * pItem);
+		[propget, id(3), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[id(4), helpstring("method Init")] HRESULT InitFromPropSet ([in]IDispatch * pPropSet);
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(long aIndex, [out, retval] LPDISPATCH *pVal);
+		[id(6), helpstring("method Read")] HRESULT Read ([in]BSTR bStrHostName, [in]BSTR bStrFileName);
+	};
+[
+	uuid(52F732E7-F686-11D2-AA26-00105A2A148D),
+	version(1.0),
+	helpstring("PhoneLookup 1.0 Type Library")
+]
+library PHONELOOKUPLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(52F732F5-F686-11D2-AA26-00105A2A148D),
+		helpstring("PhoneNumberParser Class")
+	]
+	coclass PhoneNumberParser
+	{
+		[default] interface IPhoneNumberParser;
+	};
+	[
+		uuid(52F732F7-F686-11D2-AA26-00105A2A148D),
+		helpstring("MTPhoneDevice Class")
+	]
+	coclass MTPhoneDevice
+	{
+		[default] interface IMTPhoneDevice;
+	};
+	[
+		uuid(52F732FA-F686-11D2-AA26-00105A2A148D),
+		helpstring("MTEnumPhoneDevices Class")
+	]
+	coclass MTEnumPhoneDevices
+	{
+		[default] interface IMTEnumPhoneDevices;
+	};
+	[
+		uuid(52F732FC-F686-11D2-AA26-00105A2A148D),
+		helpstring("MTCountry Class")
+	]
+	coclass MTCountry
+	{
+		[default] interface IMTCountry;
+	};
+	[
+		uuid(52F732FE-F686-11D2-AA26-00105A2A148D),
+		helpstring("MTEnumCountries Class")
+	]
+	coclass MTEnumCountries
+	{
+		[default] interface IMTEnumCountries;
+	};
+	[
+		uuid(52F73300-F686-11D2-AA26-00105A2A148D),
+		helpstring("MTRegion Class")
+	]
+	coclass MTRegion
+	{
+		[default] interface IMTRegion;
+	};
+	[
+		uuid(52F73302-F686-11D2-AA26-00105A2A148D),
+		helpstring("MTEnumRegions Class")
+	]
+	coclass MTEnumRegions
+	{
+		[default] interface IMTEnumRegions;
+	};
+	[
+		uuid(70B97086-0947-11D3-AA2D-00105A2A148D),
+		helpstring("MTExchange Class")
+	]
+	coclass MTExchange
+	{
+		[default] interface IMTExchange;
+	};
+	[
+		uuid(70B97088-0947-11D3-AA2D-00105A2A148D),
+		helpstring("MTEnumExchanges Class")
+	]
+	coclass MTEnumExchanges
+	{
+		[default] interface IMTEnumExchanges;
+	};
+};

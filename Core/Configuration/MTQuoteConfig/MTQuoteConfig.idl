@@ -1,0 +1,50 @@
+// MTQuoteConfig.idl : IDL source for MTQuoteConfig.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTQuoteConfig.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(685CE9CF-2985-11D3-AA33-00105A2A148D),
+		dual,
+		helpstring("IMTQuote Interface"),
+		pointer_default(unique)
+	]
+	interface IMTQuote : IDispatch
+	{
+		[id(1), helpstring("method Read")] HRESULT Read([in]BSTR bstrHost, [in]BSTR bstrRelativePath, [in]BSTR bstrFile);
+		[id(2), helpstring("method Write")] HRESULT Write();
+		[propget, id(3), helpstring("property MinAmount")] HRESULT MinAmount([out, retval] double *pVal);
+		[propput, id(3), helpstring("property MinAmount")] HRESULT MinAmount([in] double newVal);
+		[propget, id(4), helpstring("property FlatAmount")] HRESULT FlatAmount([out, retval] double *pVal);
+		[propput, id(4), helpstring("property FlatAmount")] HRESULT FlatAmount([in] double newVal);
+		[propget, id(5), helpstring("property PerMinuteAmount")] HRESULT PerMinuteAmount([out, retval] double *pVal);
+		[propput, id(5), helpstring("property PerMinuteAmount")] HRESULT PerMinuteAmount([in] double newVal);
+		[propget, id(6), helpstring("property ApplyMinimum")] HRESULT ApplyMinimum([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(6), helpstring("property ApplyMinimum")] HRESULT ApplyMinimum([in] VARIANT_BOOL newVal);
+		[propget, id(7), helpstring("property ChargeType")] HRESULT ChargeType([out, retval] BSTR *pVal);
+		[propput, id(7), helpstring("property ChargeType")] HRESULT ChargeType([in] BSTR newVal);
+	};
+
+[
+	uuid(685CE9C1-2985-11D3-AA33-00105A2A148D),
+	version(1.0),
+	helpstring("MTQuoteConfig 1.0 Type Library")
+]
+library MTQUOTECONFIGLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(685CE9D0-2985-11D3-AA33-00105A2A148D),
+		helpstring("MTQuote Class")
+	]
+	coclass MTQuote
+	{
+		[default] interface IMTQuote;
+	};
+};

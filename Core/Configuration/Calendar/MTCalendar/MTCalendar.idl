@@ -1,0 +1,176 @@
+// MTCalendar.idl : IDL source for MTCalendar.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTCalendar.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "MTConfig.idl";
+
+// definitions prototypes
+interface IMTRangeCollection;
+interface IMTTimezone;
+
+	[
+		object,
+		uuid(EE109727-F37C-11D2-AE56-00C04F54FE3B),
+		dual,
+		helpstring("IMTCalendarDate Interface"),
+		pointer_default(unique)
+	]
+	interface IMTCalendarDate : IDispatch
+	{
+		[propget, id(1), helpstring("property Date")] HRESULT Date([out, retval] DATE *pVal);
+		[propput, id(1), helpstring("property Date")] HRESULT Date([in] DATE newVal);
+		[propget, id(2), helpstring("property Notes")] HRESULT Notes([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Notes")] HRESULT Notes([in] BSTR newVal);
+		[id(4), helpstring("method Add")] HRESULT Add(DATE aDate, BSTR aNotes);
+		[propget, id(5), helpstring("property RangeCollection")] HRESULT RangeCollection([out, retval] IMTRangeCollection** pVal);
+		[propput, id(5), helpstring("property RangeCollection")] HRESULT RangeCollection([in] IMTRangeCollection* newVal);
+		[id(6), helpstring("method WriteSet")] HRESULT WriteSet(IMTConfigPropSet* apPropSet);
+		[id(7), helpstring("method WriteDateSet")] HRESULT WriteDateSet(IMTConfigPropSet* apPropSet);
+	};
+	[
+		object,
+		uuid(BF96D673-F42A-11D2-AE56-00C04F54FE3B),
+		dual,
+		helpstring("IMTRange Interface"),
+		pointer_default(unique)
+	]
+	interface IMTRange : IDispatch
+	{
+		[propget, id(1), helpstring("property Code")] HRESULT Code([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property Code")] HRESULT Code([in] BSTR newVal);
+		[propget, id(2), helpstring("property StartTime")] HRESULT StartTime([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property StartTime")] HRESULT StartTime([in] BSTR newVal);
+		[propget, id(3), helpstring("property EndTime")] HRESULT EndTime([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property EndTime")] HRESULT EndTime([in] BSTR newVal);
+		[id(4), helpstring("method Add")] HRESULT Add(BSTR Code, BSTR StartTime, BSTR EndTime);
+		[id(5), helpstring("method WriteSet")] HRESULT WriteSet(IMTConfigPropSet* apPropSet);
+	};
+	[
+		object,
+		uuid(BF96D677-F42A-11D2-AE56-00C04F54FE3B),
+		dual,
+		helpstring("IMTRangeCollection Interface"),
+		pointer_default(unique)
+	]
+	interface IMTRangeCollection : IDispatch
+	{
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[propget, id(3), helpstring("property Code")] HRESULT Code([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property Code")] HRESULT Code([in] BSTR newVal);
+		[propget, id(4), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[id(5), helpstring("method Add")] HRESULT Add(IMTRange* pRange);
+		[id(6), helpstring("method WriteSet")] HRESULT WriteSet(IMTConfigPropSet* apPropSet);
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(long aIndex, [out, retval] VARIANT *pVal);
+	};
+	[
+		object,
+		uuid(BF96D679-F42A-11D2-AE56-00C04F54FE3B),
+		dual,
+		helpstring("IMTUserCalendar Interface"),
+		pointer_default(unique)
+	]
+	interface IMTUserCalendar : IDispatch
+	{
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[propget, id(5), helpstring("property Monday")] HRESULT Monday([out, retval] IMTRangeCollection* *pVal);
+		[propput, id(5), helpstring("property Monday")] HRESULT Monday([in] IMTRangeCollection* newVal);
+		[propget, id(6), helpstring("property Tuesday")] HRESULT Tuesday([out, retval] IMTRangeCollection* *pVal);
+		[propput, id(6), helpstring("property Tuesday")] HRESULT Tuesday([in] IMTRangeCollection* newVal);
+		[propget, id(7), helpstring("property Wednesday")] HRESULT Wednesday([out, retval] IMTRangeCollection* *pVal);
+		[propput, id(7), helpstring("property Wednesday")] HRESULT Wednesday([in] IMTRangeCollection* newVal);
+		[propget, id(8), helpstring("property Thursday")] HRESULT Thursday([out, retval] IMTRangeCollection* *pVal);
+		[propput, id(8), helpstring("property Thursday")] HRESULT Thursday([in] IMTRangeCollection* newVal);
+		[propget, id(9), helpstring("property Friday")] HRESULT Friday([out, retval] IMTRangeCollection* *pVal);
+		[propput, id(9), helpstring("property Friday")] HRESULT Friday([in] IMTRangeCollection* newVal);
+		[propget, id(10), helpstring("property Saturday")] HRESULT Saturday([out, retval] IMTRangeCollection* *pVal);
+		[propput, id(10), helpstring("property Saturday")] HRESULT Saturday([in] IMTRangeCollection* newVal);
+		[propget, id(11), helpstring("property Sunday")] HRESULT Sunday([out, retval] IMTRangeCollection* *pVal);
+		[propput, id(11), helpstring("property Sunday")] HRESULT Sunday([in] IMTRangeCollection* newVal);
+		[propget, id(12), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(long aIndex, [out, retval] VARIANT *pVal);
+		[id(14), helpstring("method Add")] HRESULT Add(IMTCalendarDate* pDate);
+		[id(15), helpstring("method Remove")] HRESULT Remove(DATE aDate);
+		[propget, id(16), helpstring("property DefaultWeekday")] HRESULT DefaultWeekday([out, retval] IMTRangeCollection* *pVal);
+		[propput, id(16), helpstring("property DefaultWeekday")] HRESULT DefaultWeekday([in] IMTRangeCollection* newVal);
+		[id(17), helpstring("method Read")] HRESULT Read([in] BSTR aRelativePath, [in] BSTR aFileName);
+		[id(19), helpstring("method Write")] HRESULT Write([in] BSTR aRelativePath, [in] BSTR aFileName);
+		[propget, id(21), helpstring("property DefaultWeekend")] HRESULT DefaultWeekend([out, retval] IMTRangeCollection* *pVal);
+		[propput, id(21), helpstring("property DefaultWeekend")] HRESULT DefaultWeekend([in] IMTRangeCollection* newVal);
+		[id(22), helpstring("method Initialize")] HRESULT Initialize(BSTR aHostName);
+		[id(23), helpstring("method ReadFromHost")] HRESULT ReadFromHost([in] BSTR aHostName, [in] BSTR aRelativePath, [in] BSTR aFileName);
+		[id(24), helpstring("method WriteToHost")] HRESULT WriteToHost([in] BSTR aHostName, [in] BSTR aRelativePath, [in] BSTR aFileName);
+		[propget, id(25), helpstring("property Timezone")] HRESULT Timezone([out, retval] IMTTimezone** pVal);
+		[propput, id(25), helpstring("property Timezone")] HRESULT Timezone([in] IMTTimezone* newVal);
+		[id(26), helpstring("method GMTToLocalTime")] HRESULT GMTToLocalTime([in] VARIANT aGMTDatetime, [in] long aMTZoneCode, [out, retval] VARIANT* pLocalDatetime);
+		[id(27), helpstring("method LocalTimeToGMT")] HRESULT LocalTimeToGMT([in] VARIANT aLocalDatetime, [in] long aMTZoneCode, [out, retval] VARIANT* pGMTDatetime);
+
+	};
+	[
+		object,
+		uuid(435A2511-204C-11D3-AE6D-00C04F54FE3B),
+		dual,
+		helpstring("IMTTimezone Interface"),
+		pointer_default(unique)
+	]
+	interface IMTTimezone : IDispatch
+	{
+		[propget, id(1), helpstring("property TimezoneOffset")] HRESULT TimezoneOffset([out, retval] double *pVal);
+		[propput, id(1), helpstring("property TimezoneOffset")] HRESULT TimezoneOffset([in] double newVal);
+		[propget, id(2), helpstring("property TimezoneID")] HRESULT TimezoneID([out, retval] long *pVal);
+		[propput, id(2), helpstring("property TimezoneID")] HRESULT TimezoneID([in] long newVal);
+	};
+[
+	uuid(576DFAD5-F341-11D2-AE56-00C04F54FE3B),
+	version(1.0),
+	helpstring("MTCalendar 1.0 Type Library")
+]
+library MTCALENDARLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(EE109728-F37C-11D2-AE56-00C04F54FE3B),
+		helpstring("MTCalendarDate Class")
+	]
+	coclass MTCalendarDate
+	{
+		[default] interface IMTCalendarDate;
+	};
+	[
+		uuid(BF96D674-F42A-11D2-AE56-00C04F54FE3B),
+		helpstring("MTRange Class")
+	]
+	coclass MTRange
+	{
+		[default] interface IMTRange;
+	};
+	[
+		uuid(BF96D678-F42A-11D2-AE56-00C04F54FE3B),
+		helpstring("MTRangeCollection Class")
+	]
+	coclass MTRangeCollection
+	{
+		[default] interface IMTRangeCollection;
+	};
+	[
+		uuid(BF96D67A-F42A-11D2-AE56-00C04F54FE3B),
+		helpstring("MTUserCalendar Class")
+	]
+	coclass MTUserCalendar
+	{
+		[default] interface IMTUserCalendar;
+	};
+	[
+		uuid(435A2512-204C-11D3-AE6D-00C04F54FE3B),
+		helpstring("MTTimezone Class")
+	]
+	coclass MTTimezone
+	{
+		[default] interface IMTTimezone;
+	};
+};

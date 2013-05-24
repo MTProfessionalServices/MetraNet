@@ -1,0 +1,26 @@
+HKCR
+{
+	MTQuoteConfig.MTQuote.1 = s 'MTQuote Class'
+	{
+		CLSID = s '{685CE9D0-2985-11D3-AA33-00105A2A148D}'
+	}
+	MTQuoteConfig.MTQuote = s 'MTQuote Class'
+	{
+		CLSID = s '{685CE9D0-2985-11D3-AA33-00105A2A148D}'
+		CurVer = s 'MTQuoteConfig.MTQuote.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {685CE9D0-2985-11D3-AA33-00105A2A148D} = s 'MTQuote Class'
+		{
+			ProgID = s 'MTQuoteConfig.MTQuote.1'
+			VersionIndependentProgID = s 'MTQuoteConfig.MTQuote'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{685CE9C1-2985-11D3-AA33-00105A2A148D}'
+		}
+	}
+}

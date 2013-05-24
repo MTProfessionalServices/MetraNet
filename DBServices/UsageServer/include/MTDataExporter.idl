@@ -1,0 +1,37 @@
+// MTDataExporter.idl : IDL source for MTDataExporter.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTDatExporter.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "IMTDataExporter.idl";
+
+[
+	object,
+	uuid(345A7C40-E59C-11D4-A43A-00C04F484788),
+	dual,
+	helpstring("IMTDummy Interface"),
+	pointer_default(unique)
+]
+interface Dummy : IDispatch
+{
+};
+
+
+
+[
+	uuid(EBDEC2F3-7381-4A4F-9FDB-C5F794270E56),
+	version(1.0),
+	helpstring("MTDataExporter 1.0 Type Library")
+]
+library MTDATAEXPORTERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	interface IMTDataExporter;
+	interface IMTDataExporter2;
+};

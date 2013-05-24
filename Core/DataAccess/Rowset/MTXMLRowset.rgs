@@ -1,0 +1,26 @@
+HKCR
+{
+	Rowset.XMLRowset.1 = s 'MTXMLRowset Class'
+	{
+		CLSID = s '{3C3C81B7-A06C-11D4-A652-00C04F579C39}'
+	}
+	Rowset.XMLRowset = s 'MTXMLRowset Class'
+	{
+		CLSID = s '{3C3C81B7-A06C-11D4-A652-00C04F579C39}'
+		CurVer = s 'Rowset.XMLRowset.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {3C3C81B7-A06C-11D4-A652-00C04F579C39} = s 'MTXMLRowset Class'
+		{
+			ProgID = s 'Rowset.XMLRowset.1'
+			VersionIndependentProgID = s 'Rowset.XMLRowset'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+			'TypeLib' = s '{2AE44E29-7FB1-11D2-B60A-00104B2B980B}'
+		}
+	}
+}

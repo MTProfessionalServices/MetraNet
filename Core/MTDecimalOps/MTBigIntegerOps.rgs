@@ -1,0 +1,26 @@
+HKCR
+{
+	MTDecimalOps.MTBigIntegerOps.1 = s 'MTBigIntegerOps Class'
+	{
+		CLSID = s '{cba436f0-82b8-41d4-9654-1d85d35a91b1}'
+	}
+	MTDecimalOps.MTBigIntegerOps = s 'MTBigIntegerOps Class'
+	{
+		CLSID = s '{cba436f0-82b8-41d4-9654-1d85d35a91b1}'
+		CurVer = s 'MTDecimalOps.MTBigIntegerOps.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {cba436f0-82b8-41d4-9654-1d85d35a91b1} = s 'MTBigIntegerOps Class'
+		{
+			ProgID = s 'MTDecimalOps.MTBigIntegerOps.1'
+			VersionIndependentProgID = s 'MTDecimalOps.MTBigIntegerOps'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{cba436f0-82b8-41d4-9654-1d85d35a91b1}'
+		}
+	}
+}

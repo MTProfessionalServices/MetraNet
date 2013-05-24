@@ -1,0 +1,197 @@
+/**************************************************************************
+* Copyright 1997-2000 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+* Created by: Boris Partensky
+* $Header$
+* 
+***************************************************************************/
+
+// MTEnumeratorCollection.cpp : Implementation of CMTEnumeratorCollection
+#include "StdAfx.h"
+#include "MTEnumConfig.h"
+#include "MTEnumeratorCollection.h"
+
+HRESULT CMTEnumeratorCollection::FinalConstruct()
+{
+	return CoCreateFreeThreadedMarshaler(
+		GetControllingUnknown(), &m_pUnkMarshaler.p);
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// CMTEnumeratorCollection
+
+// ----------------------------------------------------------------
+// Arguments:     
+// Return Value:  
+// Raised Errors:
+// Description:  AUTO GENERATED
+// ----------------------------------------------------------------
+
+STDMETHODIMP CMTEnumeratorCollection::InterfaceSupportsErrorInfo(REFIID riid)
+{
+	static const IID* arr[] = 
+	{
+		&IID_IMTEnumeratorCollection
+	};
+	for (int i=0; i < sizeof(arr) / sizeof(arr[0]); i++)
+	{
+		if (InlineIsEqualGUID(*arr[i],riid))
+			return S_OK;
+	}
+	return S_FALSE;
+}
+
+
+CMTEnumeratorCollection::~CMTEnumeratorCollection()
+{
+	mEnumeratorSet.clear();
+}
+
+
+// ----------------------------------------------------------------
+// Arguments:     
+// Return Value:  
+// Raised Errors:
+// Description:  INTERNAL USE ONLY
+// ----------------------------------------------------------------
+
+STDMETHODIMP CMTEnumeratorCollection::get__NewEnum(LPUNKNOWN * pVal)
+{
+    HRESULT hr = S_OK;
+
+	typedef CComObject<CComEnum<IEnumVARIANT, 
+	  &IID_IEnumVARIANT, VARIANT, _Copy<VARIANT> > > enumvar;
+
+	enumvar* pEnumVar = new enumvar;
+	ASSERT (pEnumVar);
+	int size = mEnumeratorSet.size();
+
+	// Note: end pointer has to be one past the end of the list
+	if (size == 0)
+	{
+		hr = pEnumVar->Init(NULL,
+							NULL, 
+							NULL, 
+							AtlFlagCopy);
+	}
+	else
+	{
+		hr = pEnumVar->Init(&mEnumeratorSet[0], 
+							&mEnumeratorSet[size - 1] + 1, 
+							NULL, 
+							AtlFlagCopy);
+	}
+
+	if (SUCCEEDED(hr))
+		hr = pEnumVar->QueryInterface(IID_IEnumVARIANT, (void**)pVal);
+
+	if (FAILED(hr))
+		delete pEnumVar;
+
+	return hr;
+}
+
+// ----------------------------------------------------------------
+// Name:     			Add
+// Arguments:     
+// Return Value:  
+// Raised Errors:
+// Description:		INTERNAL USE ONLY
+// ----------------------------------------------------------------
+
+STDMETHODIMP CMTEnumeratorCollection::Add(::IMTEnumerator * pEnum)
+{
+	HRESULT hr = S_OK;
+	LPDISPATCH lpDisp = NULL;
+
+	hr = pEnum->QueryInterface(IID_IDispatch, (void**)&lpDisp);
+	
+	if (FAILED(hr))
+	{
+		return hr;
+	}
+
+	// create a variant
+	//CComVariant var(lpDisp);
+	CComVariant var;
+	var.vt = VT_DISPATCH;
+	var.pdispVal = lpDisp;
+
+	//	CComVariant var = pEnum;
+	mEnumeratorSet.push_back(var);
+	return hr;
+
+}
+
+// ----------------------------------------------------------------
+// Name:     			get_Size
+// Arguments:     
+// Return Value:  long* val - collection size
+// Raised Errors:
+// Description:  Returns number of enumerators in the collection
+// ----------------------------------------------------------------
+
+STDMETHODIMP CMTEnumeratorCollection::get_Size(long * pSize)
+{
+	*pSize = (long)mEnumeratorSet.size();
+	return S_OK;
+}
+
+// ----------------------------------------------------------------
+// Name:     			get_Count
+// Arguments:     
+// Return Value:  long* val - collection size
+// Raised Errors:
+// Description:		Same as get_Size
+// ----------------------------------------------------------------
+
+STDMETHODIMP CMTEnumeratorCollection::get_Count(long * pVal)
+{
+	if (!pVal)
+		return E_POINTER;
+
+	*pVal = (long)mEnumeratorSet.size();
+
+	return S_OK;
+}
+
+// ----------------------------------------------------------------
+// Name:     			get_Item
+// Arguments:     long aIndex			-		index
+// Return Value:  VARIANT* pVal		-		MTEnumerator
+// Raised Errors:
+// Description:  returns MTEnumerator object at a specified index
+// ----------------------------------------------------------------
+
+STDMETHODIMP CMTEnumeratorCollection::get_Item(long aIndex, VARIANT * pVal)
+{
+	if (pVal == NULL)
+		return E_POINTER;
+
+	//VariantInit(pVal);
+	pVal->vt = VT_UNKNOWN;
+	//pVal->vt = VT_DISPATCH;
+	pVal->punkVal = NULL;
+
+	if ((aIndex < 1) || (aIndex > (long) mEnumeratorSet.size()))
+		return E_INVALIDARG;
+
+	::VariantClear(pVal);
+	::VariantCopy(pVal, &mEnumeratorSet.at(aIndex - 1));
+	//pVal->punkVal->Release();
+	return S_OK;
+}
+

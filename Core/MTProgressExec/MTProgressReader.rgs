@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTProgressReader.1 = s 'MTProgressReader Class'
+	{
+		CLSID = s '{8738E7E4-3199-458C-B317-D8900DE1ECFF}'
+	}
+	MetraTech.MTProgressReader = s 'MTProgressReader Class'
+	{
+		CLSID = s '{8738E7E4-3199-458C-B317-D8900DE1ECFF}'
+		CurVer = s 'MetraTech.MTProgressReader.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8738E7E4-3199-458C-B317-D8900DE1ECFF} = s 'MTProgressReader Class'
+		{
+			ProgID = s 'MetraTech.MTProgressReader.1'
+			VersionIndependentProgID = s 'MetraTech.MTProgressReader'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{920CD6B4-DF62-4E3E-A1A3-54565A74FE7D}'
+		}
+	}
+}

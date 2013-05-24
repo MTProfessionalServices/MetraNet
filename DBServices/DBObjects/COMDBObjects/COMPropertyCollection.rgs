@@ -1,0 +1,24 @@
+HKCR
+{
+	MetraTech.COMPropertyCollection.1 = s 'COMPropertyCollection Class'
+	{
+		CLSID = s '{AEA6A4E4-4DB6-11D2-B5FD-00104B2B980B}'
+	}
+	MetraTech.COMPropertyCollection = s 'COMPropertyCollection Class'
+	{
+		CurVer = s 'MetraTech.COMPropertyCollection.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {AEA6A4E4-4DB6-11D2-B5FD-00104B2B980B} = s 'COMPropertyCollection Class'
+		{
+			ProgID = s 'MetraTech.COMPropertyCollection.1'
+			VersionIndependentProgID = s 'MetraTech.COMPropertyCollection'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

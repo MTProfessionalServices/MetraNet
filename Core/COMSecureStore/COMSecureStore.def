@@ -1,0 +1,9 @@
+; COMSecureStore.def : Declares the module parameters.
+
+LIBRARY      "COMSecureStore.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

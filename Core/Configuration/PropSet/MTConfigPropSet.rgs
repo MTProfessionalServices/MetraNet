@@ -1,0 +1,24 @@
+HKCR
+{
+	MTConfigPropSet.MTConfigPropSet.1 = s 'MTConfigPropSet Class'
+	{
+		CLSID = s '{9ADCD819-35FD-11D2-A1C4-006008C0E24A}'
+	}
+	MTConfigPropSet.MTConfigPropSet = s 'MTConfigPropSet Class'
+	{
+		CurVer = s 'MTConfigPropSet.MTConfigPropSet.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {9ADCD819-35FD-11D2-A1C4-006008C0E24A} = s 'MTConfigPropSet Class'
+		{
+			ProgID = s 'MTConfigPropSet.MTConfigPropSet.1'
+			VersionIndependentProgID = s 'MTConfigPropSet.MTConfigPropSet'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+		}
+	}
+}

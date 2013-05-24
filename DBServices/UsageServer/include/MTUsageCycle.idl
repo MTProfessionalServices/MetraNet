@@ -1,0 +1,52 @@
+// MTUsageCycle.idl : IDL source for MTUsageCycle.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTUsageCycle.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// To generate a user defined usage cycle, a COM object must implement the
+// IMTUsageCycle interface. The usage server calls the methods of this interface
+// at the appropriate times to add accounts and create usage intervals.
+import "MTUsageServer.idl";
+
+[
+	object,
+	uuid(6AC76EDE-EF06-4B44-8E47-246D39534ABF),
+	dual,
+	helpstring("IMTUsageCycle Interface"),
+	pointer_default(unique)
+]
+interface IMTUsageCycle : IDispatch
+{
+	[id(1), helpstring("method AddAccount")] 
+		HRESULT AddAccount([in] long aAccountID, [in] ICOMUsageCyclePropertyColl *apUCPropColl, 
+											 [in] long aUsageCycleTypeID, [in] LPDISPATCH pRowset);
+	[id(2), helpstring("method CreateInterval")] 
+		HRESULT CreateInterval([in] VARIANT aDate, [in] ICOMUsageCyclePropertyColl *apUCPropColl, 
+													 [in] long aUsageCycleTypeID);
+	[id(3), helpstring("method UpdateAccount")] 
+		HRESULT UpdateAccount([in] long aAccountID, [in] ICOMUsageCyclePropertyColl *apUCPropColl, 
+													[in] long aUsageCycleTypeID, [in] VARIANT aDate);
+
+	[id(4), helpstring("method ComputeStartAndEndDate")] 
+		HRESULT ComputeStartAndEndDate([in] DATE aReferenceDate,
+																	 [in] ICOMUsageCyclePropertyColl* apProperties,
+																	 [out] DATE* arStartDate,
+																	 [out] DATE* arEndDate);
+	
+};
+[
+	uuid(237A5733-A63B-11D2-B627-00104B2B980B),
+	version(1.0),
+	helpstring("MTUsageCycle 1.0 Type Library")
+]
+library MTUSAGECYCLELib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	interface IMTUsageCycle ;
+};

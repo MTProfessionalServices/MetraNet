@@ -1,0 +1,24 @@
+HKCR
+{
+	MTActionSet.MTActionSet.1 = s 'MTActionSet Class'
+	{
+		CLSID = s '{CD730A3F-D8B8-11D2-A1DE-006008C0E24A}'
+	}
+	MTActionSet.MTActionSet = s 'MTActionSet Class'
+	{
+		CurVer = s 'MTActionSet.MTActionSet.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {CD730A3F-D8B8-11D2-A1DE-006008C0E24A} = s 'MTActionSet Class'
+		{
+			ProgID = s 'MTActionSet.MTActionSet.1'
+			VersionIndependentProgID = s 'MTActionSet.MTActionSet'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+		}
+	}
+}

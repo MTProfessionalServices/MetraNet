@@ -1,0 +1,161 @@
+// MTSiteConfig.idl : IDL source for MTSiteConfig.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTSiteConfig.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	[
+		object,
+		uuid(04793350-F7F1-11D2-B660-00104B2B980B),
+		dual,
+		helpstring("IMTSiteBranding Interface"),
+		pointer_default(unique)
+	]
+	interface IMTSiteBranding : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize([in] BSTR aHostName, [in] BSTR aRelativePath, [in] BSTR aRelativeFile, [in] BSTR aProviderName, [in] BSTR aLanguage);
+		[id(2), helpstring("method GetValue")] HRESULT GetValue([in] BSTR apTagName, [out, retval] BSTR *apTagValue);
+		[id(3), helpstring("method SetValue")] HRESULT SetValue([in] BSTR aTagName, [in] BSTR aTagValue);
+		[id(4), helpstring("method CommitChanges")] HRESULT CommitChanges();
+	};
+	[
+		object,
+		uuid(04793354-F7F1-11D2-B660-00104B2B980B),
+		dual,
+		helpstring("IMTSiteList Interface"),
+		pointer_default(unique)
+	]
+	interface IMTSiteList : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize([in] BSTR aHostName, [in] BSTR aRelativePath, [in] BSTR aRelativeFile);
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[propget, id(2), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[id(3), helpstring("method Add")] HRESULT Add([in] BSTR aName, [in] BSTR aProviderName, [in] BSTR aRelativeURL, [in] VARIANT_BOOL aNewSiteFlag);
+		[id(4), helpstring("method CommitChanges")] HRESULT CommitChanges();
+		[id(5), helpstring("method Remove")] HRESULT Remove([in] BSTR aName, [in] BSTR aProviderName, [in] BSTR aRelativeURL);
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(long aIndex, [out, retval] VARIANT *pVal);
+	};
+	[
+		object,
+		uuid(1E23E159-F8F4-11D2-B660-00104B2B980B),
+		dual,
+		helpstring("IMTSite Interface"),
+		pointer_default(unique)
+	]
+	interface IMTSite : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize([in] BSTR aName, [in] BSTR aProviderName, [in] BSTR aRelativeURL, [in] VARIANT_BOOL aNewSiteFlag);
+		[propget, id(2), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		[propget, id(3), helpstring("property ProviderName")] HRESULT ProviderName([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property ProviderName")] HRESULT ProviderName([in] BSTR newVal);
+		[propget, id(4), helpstring("property RelativeURL")] HRESULT RelativeURL([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property RelativeURL")] HRESULT RelativeURL([in] BSTR newVal);
+		[propget, id(5), helpstring("property NewSite")] HRESULT NewSite([out, retval] VARIANT_BOOL *pVal);
+	};
+	[
+		object,
+		uuid(FA2F64F5-FD78-11D2-B663-00104B2B980B),
+		dual,
+		helpstring("IMTLanguageList Interface"),
+		pointer_default(unique)
+	]
+	interface IMTLanguageList : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize([in] BSTR aHostName, [in] BSTR aRelativePath, [in] BSTR aRelativeFile);
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[propget, id(2), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[id(3), helpstring("method Add")] HRESULT Add([in] BSTR aName, [in] BSTR aDescription);
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(long aIndex, [out, retval] VARIANT *pVal);
+	};
+	[
+		object,
+		uuid(FA2F64F7-FD78-11D2-B663-00104B2B980B),
+		dual,
+		helpstring("IMTLanguage Interface"),
+		pointer_default(unique)
+	]
+	interface IMTLanguage : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize([in] BSTR aName, [in] BSTR aDescription);
+		[propget, id(2), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		[propget, id(3), helpstring("property ProviderName")] HRESULT Description([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property ProviderName")] HRESULT Description([in] BSTR newVal);
+	};
+	[
+		object,
+		uuid(330D0C27-1EBF-11D3-B672-00104B2B980B),
+		dual,
+		helpstring("IMTUserProfile Interface"),
+		pointer_default(unique)
+	]
+	interface IMTUserProfile : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize([in] BSTR aHostName, [in] BSTR aRelativePath, [in] BSTR aRelativeFile);
+		[id(2), helpstring("method GetValue")] HRESULT GetValue([in] BSTR apTagName, [out, retval] BSTR *apTagValue);
+		[id(3), helpstring("method SetValue")] HRESULT SetValue([in] BSTR aTagName, [in] BSTR aTagValue);
+		[id(4), helpstring("method CommitChanges")] HRESULT CommitChanges();
+	};
+[
+	uuid(04793343-F7F1-11D2-B660-00104B2B980B),
+	version(1.0),
+	helpstring("MTSiteConfig 1.0 Type Library")
+]
+library MTSITECONFIGLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(04793351-F7F1-11D2-B660-00104B2B980B),
+		helpstring("MTSiteBranding Class")
+	]
+	coclass MTSiteBranding
+	{
+		[default] interface IMTSiteBranding;
+	};
+	[
+		uuid(04793355-F7F1-11D2-B660-00104B2B980B),
+		helpstring("MTSiteList Class")
+	]
+	coclass MTSiteList
+	{
+		[default] interface IMTSiteList;
+	};
+	[
+		uuid(1E23E15A-F8F4-11D2-B660-00104B2B980B),
+		helpstring("MTSite Class")
+	]
+	coclass MTSite
+	{
+		[default] interface IMTSite;
+	};
+	[
+		uuid(FA2F64F6-FD78-11D2-B663-00104B2B980B),
+		helpstring("MTLanguageList Class")
+	]
+	coclass MTLanguageList
+	{
+		[default] interface IMTLanguageList;
+	};
+	[
+		uuid(FA2F64F8-FD78-11D2-B663-00104B2B980B),
+		helpstring("MTLanguage Class")
+	]
+	coclass MTLanguage
+	{
+		[default] interface IMTLanguage;
+	};
+	[
+		uuid(330D0C28-1EBF-11D3-B672-00104B2B980B),
+		helpstring("MTUserProfile Class")
+	]
+	coclass MTUserProfile
+	{
+		[default] interface IMTUserProfile;
+	};
+};

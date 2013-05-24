@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IgnoreList>
+  <Ignore>
+    <Check>(.*)(\\ICE\\Runtime\\SourceTemplates_C#)(.*)</Check>
+    <Description>ICE Code Generation Template</Description>
+  </Ignore>
+  <Ignore>
+    <Check>(.*)(\\Entity\\Temp)(.*)</Check>
+    <Description>BME Temporary Code Generation Folder</Description>
+  </Ignore>
+  <Ignore>
+    <Check>(.*)(\\BusinessEntity\\Interface\\Temp)(.*)</Check>
+    <Description>BME Temporary Code Generation Folder</Description>
+  </Ignore>
+  <Ignore>
+    <Check>(.*)(\\PrototypeCode)(.*)</Check>
+    <Description>MetraNet Prototype Code has legacy projects</Description>
+  </Ignore>
+  <Ignore>
+    <Check>(.*)(\\Samples\\Code)(.*)</Check>
+    <Description>MetraNet Samples are built stand alone</Description>
+  </Ignore>
+  <Ignore>
+    <Check>(.*)(\\RMP\\config\\BusinessEntity)(.*)</Check>
+    <Description>BME Code Generation Templates</Description>
+  </Ignore>
+  <Ignore>
+    <Check>(.*)(\\Tests Database)(.*)</Check>
+    <Description>MetraNet Tests Database has legacy projects</Description>
+  </Ignore>
+  <Ignore>
+    <Check>(.*)(\\UnitTests)(.*)</Check>
+    <Description>MetraNet Unit Tests Database has duplicate projects</Description>
+  </Ignore>
+  <Ignore>
+    <Check>(.*)(\\Thirdparty\\xerces-c-3.1.1)(.*)</Check>
+    <Description>Thirdparty Xerces has issues that won't pass</Description>
+  </Ignore>
+  <Ignore>
+    <Check>(.*)(\\ICE\\Source\\ThirdParty\\OfficeIntegration\\OfficeIntegration)(.*)</Check>
+    <Description>ICE OfficeIntegration is pre-built; existing project is outdated</Description>
+  </Ignore>
+  <Ignore>
+    <Check>(?i)([a-z]:\\Install)(.*)</Check>
+    <Description>Build Server Generated Output Into Source Tree</Description>
+  </Ignore>
+  <Ignore>
+    <Check>(?i)([a-z]:\\Install2)(.*)</Check>
+    <Description>Build Server Generated Output Into Source Tree</Description>
+  </Ignore>
+  <Ignore>
+    <Check>(?i)([a-z]:\\BuildLogs)(.*)</Check>
+    <Description>Build Server Generated Output Into Source Tree</Description>
+  </Ignore>
+  <Ignore>
+    <Check>(?i)([a-z]:\\00trunk)(.*)</Check>
+    <Description>Build Server Generated Output Into Source Tree</Description>
+  </Ignore>
+  <Ignore>
+    <Check>(?i)([a-z]:\\MTTestDriver)(.*)</Check>
+    <Description>Build Server Generated Output Into Source Tree</Description>
+  </Ignore>
+  <Ignore>
+    <Check>(?i)([a-z]:\\Staging)(.*)</Check>
+    <Description>Build Server Generated Output Into Source Tree</Description>
+  </Ignore>
+  <Ignore>
+    <Check>(?i)([a-z]:\\StagingOrig)(.*)</Check>
+    <Description>Build Server Generated Output Into Source Tree</Description>
+  </Ignore>
+  <Ignore>
+    <Check>(?i)([a-z]:\\output)(.*)</Check>
+    <Description>Build Server Generated Output Into Source Tree</Description>
+  </Ignore>
+</IgnoreList>

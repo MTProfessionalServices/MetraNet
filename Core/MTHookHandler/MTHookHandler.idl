@@ -1,0 +1,43 @@
+// MTHookHandler.idl : IDL source for MTHookHandler.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTHookHandler.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+
+import "HookHandler.idl";
+
+
+	[
+		object,
+		uuid(C7100090-EA51-11D3-A3FE-00C04F484788),
+		dual,
+		helpstring("Dummy interface"),
+		pointer_default(unique)
+	]
+	interface IDummy : IDispatch
+	{
+	};
+
+[
+	uuid(3A58B7C7-00DA-11D3-A59C-00C04F579C39),
+	version(1.0),
+	helpstring("MTHookHandler 1.0 Type Library")
+]
+library MTHOOKHANDLERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(3A58B7D5-00DA-11D3-A59C-00C04F579C39),
+		helpstring("MTHookHandler Class")
+	]
+	coclass MTHookHandler
+	{
+		[default] interface IMTHookHandler;
+	};
+};

@@ -1,0 +1,26 @@
+HKCR
+{
+	MTStdOnDemand.MTStdOnDemand.1 = s 'MTStdOnDemand Class'
+	{
+		CLSID = s '{14B36C82-5D72-11D4-9E57-00C04F46EB1E}'
+	}
+	MTStdOnDemand.MTStdOnDemand = s 'MTStdOnDemand Class'
+	{
+		CLSID = s '{14B36C82-5D72-11D4-9E57-00C04F46EB1E}'
+		CurVer = s 'MTStdOnDemand.MTStdOnDemand.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {14B36C82-5D72-11D4-9E57-00C04F46EB1E} = s 'MTStdOnDemand Class'
+		{
+			ProgID = s 'MTStdOnDemand.MTStdOnDemand.1'
+			VersionIndependentProgID = s 'MTStdOnDemand.MTStdOnDemand'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{14B36C73-5D72-11D4-9E57-00C04F46EB1E}'
+		}
+	}
+}

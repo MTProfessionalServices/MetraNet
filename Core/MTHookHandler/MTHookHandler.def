@@ -1,0 +1,9 @@
+; MTHookHandler.def : Declares the module parameters.
+
+LIBRARY      "MTHookHandler.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

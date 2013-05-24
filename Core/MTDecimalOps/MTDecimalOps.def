@@ -1,0 +1,9 @@
+; MTDecimalOps.def : Declares the module parameters.
+
+LIBRARY      "MTDecimalOps.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

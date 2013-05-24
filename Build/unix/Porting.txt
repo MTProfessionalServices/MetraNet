@@ -1,0 +1,92 @@
+
+Stuff done to port:
+
+- added this directory Build/unix with makefile fragments
+
+- errobj.h string->string.h 
+
+- many templates missing allocator: map vector deque
+
+- General SUN compiler problems: 
+      no default template args allowed. use MT_TPL_* macros
+
+      for function templates, must pass class param in the arg list.
+
+      in enums, don't end list with a comma. (warning only)
+
+      Don't do this (it crashes the SUNPRO CC compiler):
+	list<Connection *>::iterator entrylist;
+      Instead do this:
+	typedef list<MT_TPL_ARGS(Connection *)> entrylist;
+	entrylist::iterator it;
+
+
+- implemented unixnet.  Simple HTTP connection stuff.
+
+- st.csh is a little wrapper script for the starteam command
+  interface. 
+
+- in demo.cpp and mcidemo.cpp, need to typedef the list template
+  to use the iterator. like this:
+
+  typedef list<MT_TPL_ARGS(BroadcastEntry *)> entrylist;
+
+- Made emulation functions for InitializeCriticalSection, etc. for
+  unix.  These are base on solaris thread package.  May need to add or
+  change for other unixes.
+
+- when using ostream_withassign (and istream_withassign) you MUST
+  initialize to NULL, else the destructor will crash.  (see solaris
+  man page)
+
+Open Questions
+--------------
+- NOTE: MetraTech HTTP server doesn't return content length!  Bad!
+
+- unixnet implementation currently does not change any TCP socket
+  defaults for timeouts.  Usually, it's not a good idea to mess with
+  them.
+ 
+
+How to build RW.
+----------------
+
+12 = multithread release static
+15 = multi debug static
+
+#to initialize a config:
+/opt/rwspm/scripts/rwenv "rwbuild -m -z   -t12
+-f/opt/rwspm/scripts/platform/sunpro.in
+-i/opt/rwstd/workspaces/SOLARIS25/SUNPRO42/12s /opt/rwstd/parts/std0123u/source"
+
+# to clean after hacking stdcomp.h
+rwspm -c -a -p /opt/rwstd/workspaces/SOLARIS25/SUNPRO42/12s
+
+# to rebuild only (no resetup)
+
+/opt/rwspm/scripts/rwenv "rwbuild -m -z -t12 -i/opt/rwstd/workspaces/SOLARIS25/SUNPRO42/12s /opt/rwstd/parts/std0123u/source"
+
+If you install rwstd to anyplace other than /opt/rwstd, you will have
+to hack the makefiles to tell them where to get the lib and includes.
+
+How to build MT SDK for unix.
+-----------------------------
+
+setenv BUILD_ROOT abssolute_path_to Development directory.
+setenv BUILD_CONFIG sun4os5
+
+make sure cc and CC from /opt/SUNWspro/bin are in your path.
+make sure GNU make is in your path before sun make.
+
+cd $BUILD_ROOT
+make
+
+
+
+
+
+
+
+
+
+

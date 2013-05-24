@@ -1,0 +1,26 @@
+HKCR
+{
+	ReportingInfo.MTContactInfo.1 = s 'MTContactInfo Class'
+	{
+		CLSID = s '{2B7024CE-5EF1-11D3-9DAF-00C04F46EB1E}'
+	}
+	ReportingInfo.MTContactInfo = s 'MTContactInfo Class'
+	{
+		CLSID = s '{2B7024CE-5EF1-11D3-9DAF-00C04F46EB1E}'
+		CurVer = s 'ReportingInfo.MTContactInfo.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {2B7024CE-5EF1-11D3-9DAF-00C04F46EB1E} = s 'MTContactInfo Class'
+		{
+			ProgID = s 'ReportingInfo.MTContactInfo.1'
+			VersionIndependentProgID = s 'ReportingInfo.MTContactInfo'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{2B7024BF-5EF1-11D3-9DAF-00C04F46EB1E}'
+		}
+	}
+}

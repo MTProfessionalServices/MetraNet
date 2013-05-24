@@ -1,0 +1,50 @@
+%{
+#include "MSIXHash.h"
+%}
+struct MSIXHashEntry;
+%%
+beginsession, MSIX_Session
+beginsessionrs, MSIX_BeginSessionRS
+bs, MSIX_Session
+bsrs, MSIX_BeginSessionRS
+c, MSIX_Session_Commit
+code, MSIX_Code
+commit, MSIX_Session_Commit
+commitsession, MSIX_CommitSession
+commitsessionrs, MSIX_CommitSessionRS
+cs, MSIX_CommitSession
+csrs, MSIX_CommitSessionRS
+dn, MSIX_Dn
+en, MSIX_Message_Entity
+entity, MSIX_Message_Entity
+f, MSIX_Session_Feedback
+feedback, MSIX_Session_Feedback
+i, MSIX_Session_Insert
+insert, MSIX_Session_Insert
+message, MSIX_Message
+ms, MSIX_Message
+msix, MSIX_Msix
+p, MSIX_Session_Prop
+parentid, MSIX_Session_ParentId
+pid, MSIX_Session_ParentId
+properties, MSIX_Session_Props
+property, MSIX_Session_Prop
+ps, MSIX_Session_Props
+sessionstatus, MSIX_SessionStatus
+sessstat, MSIX_SessionStatus
+stat, MSIX_Status
+status, MSIX_Status
+time, MSIX_Message_Timestamp
+timestamp, MSIX_Message_Timestamp
+transactionid, MSIX_Message_TransactionID
+txn, MSIX_Message_TransactionID
+uid, MSIX_Uid
+v, MSIX_Message_Version
+value, MSIX_Session_Value
+version, MSIX_Message_Version
+%%
+
+const struct MSIXHashEntry * MSIXTagHash::FindTag(const char *str, unsigned int len)
+{
+	return MSIXTagHashInternal::in_word_set(str, len);
+}

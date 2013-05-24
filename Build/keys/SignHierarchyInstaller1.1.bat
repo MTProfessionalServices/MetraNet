@@ -1,0 +1,1 @@
+signtool sign /f %ROOTDIR%\build\keys\MetraTech.pfx /p MetraTech1 /t http://timestamp.verisign.com/scripts/timstamp.dll /v %RMPDIR%\ui\mam\default\dialog\HierarchyInstall_1.1.msi

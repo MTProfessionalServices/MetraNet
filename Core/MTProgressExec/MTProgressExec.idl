@@ -1,0 +1,54 @@
+/**************************************************************************
+* Copyright 1997-2002 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "IMTProgress.idl";
+
+
+[
+	object,
+	uuid(8a6769bf-f3fc-4bc3-80e4-8ba53da1cd16),
+	dual,
+	helpstring("Dummy interface"),
+	pointer_default(unique)
+]
+interface IDummy : IDispatch
+{
+};
+
+
+[
+	uuid(920CD6B4-DF62-4E3E-A1A3-54565A74FE7D),
+	version(1.0),
+	helpstring("MTProgressExec 1.0 Type Library")
+]
+library MTPROGRESSEXECLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(8738E7E4-3199-458C-B317-D8900DE1ECFF),
+		helpstring("CMTProgressReader Class")
+	]
+	coclass MTProgressReader
+	{
+		[default] interface IMTProgress;
+	};
+};

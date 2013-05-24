@@ -1,0 +1,1 @@
+for /F %%f in ('dir /s /b %ROOTDIR%\packages\manifest.xml') do cscript.exe %ROOTDIR%\build\tools\GeneratePackage.vbs %%f

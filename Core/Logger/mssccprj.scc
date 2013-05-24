@@ -1,0 +1,4 @@
+SCC = This is a Source Code Control file
+
+[nt.mak]
+SCC_Project_Name = "$/NewDevTree/Core/Logger", DBCAAAAA

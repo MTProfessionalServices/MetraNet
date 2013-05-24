@@ -1,0 +1,24 @@
+HKCR
+{
+	MTCalendarDate.MTCalendarDate.1 = s 'MTCalendarDate Class'
+	{
+		CLSID = s '{EE109728-F37C-11D2-AE56-00C04F54FE3B}'
+	}
+	MTCalendarDate.MTCalendarDate = s 'MTCalendarDate Class'
+	{
+		CurVer = s 'MTCalendarDate.MTCalendarDate.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {EE109728-F37C-11D2-AE56-00C04F54FE3B} = s 'MTCalendarDate Class'
+		{
+			ProgID = s 'MTCalendarDate.MTCalendarDate.1'
+			VersionIndependentProgID = s 'MTCalendarDate.MTCalendarDate'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

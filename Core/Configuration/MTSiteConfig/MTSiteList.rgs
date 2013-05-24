@@ -1,0 +1,24 @@
+HKCR
+{
+	MTSiteList.MTSiteList.1 = s 'MTSiteList Class'
+	{
+		CLSID = s '{04793355-F7F1-11D2-B660-00104B2B980B}'
+	}
+	MTSiteList.MTSiteList = s 'MTSiteList Class'
+	{
+		CurVer = s 'MTSiteList.MTSiteList.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {04793355-F7F1-11D2-B660-00104B2B980B} = s 'MTSiteList Class'
+		{
+			ProgID = s 'MTSiteList.MTSiteList.1'
+			VersionIndependentProgID = s 'MTSiteList.MTSiteList'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

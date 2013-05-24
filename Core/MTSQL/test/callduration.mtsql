@@ -1,0 +1,10 @@
+CREATE PROCEDURE callDuration @RawActualDuration INTEGER @ActualDuration DECIMAL
+AS
+DECLARE @nonFractionalDuration INTEGER;
+SET @nonFractionalDuration = @RawActualDuration/60;
+SET @ActualDuration = CAST(@RawActualDuration AS DECIMAL)/60.0;
+DECLARE @fraction DECIMAL;
+SET @fraction = @ActualDuration - CAST(@nonFractionalDuration AS DECIMAL);
+SET @ActualDuration = CASE WHEN @fraction > 0.0 THEN CAST(@nonFractionalDuration AS DECIMAL) + @fraction*0.6 ELSE @ActualDuration END;
+PRINT '@ActualDuration = ' + CAST(@ActualDuration AS VARCHAR);
+

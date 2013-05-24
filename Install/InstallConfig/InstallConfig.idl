@@ -1,0 +1,66 @@
+// InstallConfig.idl : IDL source for InstallConfig.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (InstallConfig.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(FA757849-6DCD-4756-B8AA-E14189D2A1B9),
+		dual,
+		helpstring("IInstallConfigObj Interface"),
+		pointer_default(unique)
+	]
+	interface IInstallConfigObj : IDispatch
+	{
+		[id(1), helpstring("method AddSystemEnvironmentPath")] HRESULT AddSystemEnvironmentPath([in] BSTR bstrAppPath);
+		[id(2), helpstring("method DeleteSystemEnvironmentPath")] HRESULT DeleteSystemEnvironmentPath( [in] BSTR bstrAppPath);
+		[id(3), helpstring("method InitializeDBOperations_SQL")] HRESULT InitializeDBOperations_SQL( 
+							[in] BSTR bstrAdminID, [in] BSTR bstrAdminPwd, [in] BSTR bstrDBName, 
+							[in] BSTR bstrDBMSHost, [in] BSTR bstrUserID, [in] BSTR bstrUserPwd, 
+							[in] BSTR bstrDataDeviceName, [in] BSTR bstrDataDevicePath, 
+							[in] INT nDataDeviceSize, [in] BSTR bstrLogDeviceName, [in] BSTR bstrLogDevicePath, 
+							[in] INT nLogDeviceSize, [in] BSTR bstrDataBackupPath, [in] BSTR bstrLogBackupPath, 
+							[in] INT nTimeout, [in] INT IsStaging);
+		[id(4), helpstring("method InitializeDBOperations_Oracle")] HRESULT InitializeDBOperations_Oracle( 
+							[in] BSTR bstrAdminID, [in] BSTR bstrAdminPwd, [in] BSTR bstrTblSpaceName, 
+							[in] BSTR bstrDSN, [in] BSTR bstrUserID, [in] BSTR bstrUserPwd, 
+							[in] INT nTimeout);
+		[id(5), helpstring("method InstallCoreDBSchema")] HRESULT InstallCoreDBSchema();
+		[id(6), helpstring("method InstallDatabase")] HRESULT InstallDatabase();
+		[id(7), helpstring("method InstallDBDescriptionTable")] HRESULT InstallDBDescriptionTable();
+		[id(8), helpstring("method AddDBAccount")] HRESULT AddDBAccount([in] BSTR bstrAccountName, [in] BSTR bstrPassword, 
+							[in] BSTR bstNameSpace, [in] BSTR bstrLanguage, [in] LONG nDayOfMonth,
+							[in] BSTR bstrAccountType);
+		[id(9), helpstring("method AddDBAccountWithCycle")] HRESULT AddDBAccountWithCycle([in] BSTR bstrAccountName, [in] BSTR bstrPassword, 
+							[in] BSTR bstNameSpace, [in] BSTR bstrLanguage, [in] LONG nDayOfMonth, [in] BSTR bstrUCT);
+		[id(10), helpstring("method AddDBAccountMappings")] HRESULT AddDBAccountMappings([in] BSTR bstrAccountName, [in] BSTR bstrNameSpace, [in] LONG nAccountID);
+		[id(11), helpstring("method InstallDBExtensionTables")] HRESULT InstallDBExtensionTables([in] BSTR bstrPath, [in] BSTR bstrConfigFile);
+		[id(12), helpstring("method UninstallDBExtensionTables")] HRESULT UninstallDBExtensionTables([in] BSTR bstrPath, [in] BSTR bstrConfigFile);
+		[id(13), helpstring("method UninstallDatabase")] HRESULT UninstallDatabase();
+		[id(14), helpstring("method EncryptDBAccessKeys")] HRESULT EncryptDBAccessKeys();
+		[id(15), helpstring("method StopService")] HRESULT StopService([in] BSTR ServiceName);
+		[id(16), helpstring("method InstallDatabase_WithoutDropDB")] HRESULT InstallDatabase_WithoutDropDB();
+	};
+
+[
+	uuid(1ECC157C-8482-469F-BF46-5870D2DB28F3),
+	version(1.0),
+	helpstring("InstallConfig 1.0 Type Library")
+]
+library INSTALLCONFIGLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(D2D56DE6-7DCE-4563-B325-A568F97DABFA),
+		helpstring("InstallConfigObj Class")
+	]
+	coclass InstallConfigObj
+	{
+		[default] interface IInstallConfigObj;
+	};
+};

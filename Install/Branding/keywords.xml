@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keyword name="MT_PRODUCT_NAME">
+    <default_value>MetraNet</default_value>
+    <value>MetraNet</value>
+  </keyword>
+  <keyword name="MT_MPM_APP_NAME">
+    <default_value>MetraConfig</default_value>
+    <value>MetraConfig</value>
+  </keyword>
+  <keyword name="MT_MOM_APP_NAME">
+    <default_value>MetraControl</default_value>
+    <value>MetraControl</value>
+  </keyword>
+  <keyword name="MT_MCM_APP_NAME">
+    <default_value>MetraOffer</default_value>
+    <value>MetraOffer</value>
+  </keyword>
+  <keyword name="MT_MAM_APP_NAME">
+    <default_value>MetraCare</default_value>
+    <value>MetraCare</value>
+  </keyword>
+  <keyword name="MT_MPS_APP_NAME">
+    <default_value>MetraView</default_value>
+    <value>MetraView</value>
+  </keyword>
+  <keyword name="MT_PS_APP_NAME">
+    <default_value>MetraPay</default_value>
+    <value>MetraPay</value>
+  </keyword>
+</keywords>

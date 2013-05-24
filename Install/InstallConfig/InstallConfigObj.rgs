@@ -1,0 +1,26 @@
+HKCR
+{
+	InstallConfig.InstallConfigObj.1 = s 'InstallConfigObj Class'
+	{
+		CLSID = s '{D2D56DE6-7DCE-4563-B325-A568F97DABFA}'
+	}
+	InstallConfig.InstallConfigObj = s 'InstallConfigObj Class'
+	{
+		CLSID = s '{D2D56DE6-7DCE-4563-B325-A568F97DABFA}'
+		CurVer = s 'InstallConfig.InstallConfigObj.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {D2D56DE6-7DCE-4563-B325-A568F97DABFA} = s 'InstallConfigObj Class'
+		{
+			ProgID = s 'InstallConfig.InstallConfigObj.1'
+			VersionIndependentProgID = s 'InstallConfig.InstallConfigObj'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{1ECC157C-8482-469F-BF46-5870D2DB28F3}'
+		}
+	}
+}

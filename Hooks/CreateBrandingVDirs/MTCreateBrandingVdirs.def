@@ -1,0 +1,9 @@
+; MTCreateBrandingVdirs.def : Declares the module parameters.
+
+LIBRARY      "MTCreateBrandingVdirs.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

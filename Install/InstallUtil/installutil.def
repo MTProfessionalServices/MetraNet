@@ -1,0 +1,40 @@
+; Installutil.def : Declares the module parameters.
+
+;LIBRARY      "Installutil.DLL"
+
+EXPORTS
+	AddSystemEnvironmentPath						@1 
+	AddAccount								@2 
+	AddAccountMappings							@3	 
+	CreateIISVdir								@4 
+	SetIISVdirPerms								@5 
+	DeleteIISVdir								@6 
+	SetIISvDirBasicAuth							@7 
+	RegisterComServer							@8 
+	ServiceStart								@9 
+	ServiceStop								@10 
+	GetListOfSQLServers							@11 
+	PerformChecksumOnFiles							@12
+	CreateBuckets								@13	
+	LogInstallMsg								@14 
+	ModifyLogFile								@15	
+	InstallService								@16 
+	UninstallDB								@28
+	RemoveService								@29
+	ReleaseResources							@30
+	InstallExtensionTables							@33
+	UnInstallExtensionTables						@34
+	UnRegisterComServer							@35
+	InstallOracle								@36
+	UninstallOracle								@37
+	ComputeChecksumOnFile							@38
+	InstallDB								@39
+	InstallDescriptionTable @40
+	RegisterTypeLibrary						@41
+	UnregisterRegisterTypeLibrary	@42
+	GetCurrentUnixTime						@43
+	EncryptString									@47
+	InstallDbaccessKeys						@48
+	DecryptString									@49
+	AddAccountWithCycle								@50
+

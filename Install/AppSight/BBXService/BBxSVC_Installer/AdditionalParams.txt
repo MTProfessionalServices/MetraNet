@@ -1,0 +1,7 @@
+SERVERNAME=**N_A**
+RunBBXAfterSetup=0
+BBxServiceManual=1
+CommunTypeHTTPServer=0
+CommunTypeHTTPClient=1
+CommunTypeDCOM=1
+DefaultCommunType=DCOM

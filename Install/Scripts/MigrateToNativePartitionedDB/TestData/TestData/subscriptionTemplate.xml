@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmlconfig>
+     <creationdate>12/10/2012 12:50:52 PM</creationdate>
+     <computername>68SQL</computername>
+     <username>Administrator</username>
+     <pcimportexportversion>5.0.0</pcimportexportversion>
+     <rmpversion></rmpversion>
+     <rmpishierarchyrestrictedoperations>True</rmpishierarchyrestrictedoperations>
+     <subscriptions>
+          <subscription name="Localized Audio Conference Product Offering USD">
+               <property name="accountID">123</property>
+               <pctimespan name="EffectiveDate">
+                    <property name="EndDate">4/1/2020 11:59:59 PM</property>
+                    <property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+                    <property name="EndOffset">0</property>
+                    <property name="ID">-1</property>
+                    <property name="StartDate">MMDDYYYY</property>
+                    <property name="StartDateType">4<!-- PCDATE_TYPE_NULL --></property>
+                    <property name="StartOffset">0</property>
+               </pctimespan>
+               <property name="ExternalIdentifier">{E19867AC-DA35-4D72-9A89-6C1CEDD97013}</property>
+               <property name="id_sub">291958155</property>
+               <property name="po">342</property>
+               <username>demo</username>
+               <namespace>mt</namespace>
+               <icbs>
+                    <icbs_child>
+                    </icbs_child>
+               </icbs>
+               <udrcs>
+               </udrcs>
+               <charvalues>
+               </charvalues>
+          </subscription>
+		  </subscriptions>
+     <integrity>
+          <parametertables>
+          </parametertables>
+     </integrity>
+</xmlconfig>

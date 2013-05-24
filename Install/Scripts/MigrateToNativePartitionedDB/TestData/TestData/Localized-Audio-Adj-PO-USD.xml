@@ -1,0 +1,3990 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xmlconfig>
+	<creationdate>3/18/2004 1:26:03 PM</creationdate>
+	<computername>QACORAL</computername>
+	<username>regina</username>
+	<pcimportexportversion>3.7.0</pcimportexportversion>
+	<rmpversion></rmpversion>
+	<rmpishierarchyrestrictedoperations>True</rmpishierarchyrestrictedoperations>
+	<productofferings>
+		<productoffering name="Localized Audio Conference Product Offering USD">
+			<displaynames>
+				<language name="JP">可聴周波協議プロダクト提供</language>
+				<language name="FR">Offre Audio De Produit De Communication</language>
+				<language name="IT">Offerta Audio Del Prodotto Di Comunicazione</language>
+				<language name="DE">Audioconferencing-Produkt-Antrag</language>
+				<language name="US">Localized Audio Conference Product Offering USD</language>
+			</displaynames>
+			<currency>USD</currency>
+			<pctimespan name="AvailabilityDate">
+				<property name="EndDate">4/1/2020 11:59:59 PM</property>
+				<property name="EndDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+				<property name="EndOffset">0</property>
+				<property name="ID">592</property>
+				<property name="StartDate">4/1/2001</property>
+				<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+				<property name="StartOffset">0</property>
+			</pctimespan>
+			<property name="Description">Audioconf Product Offering Localized</property>
+			<property name="DisplayName">Audio Conferencing Product Offering-Localized</property>
+			<pctimespan name="EffectiveDate">
+				<property name="EndDate">4/1/2020 11:59:59 PM</property>
+				<property name="EndDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+				<property name="EndOffset">0</property>
+				<property name="ID">590</property>
+				<property name="StartDate">4/1/2001</property>
+				<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+				<property name="StartOffset">0</property>
+			</pctimespan>
+			<property name="ExternalInformationURL">
+			</property>
+			<property name="glcode">
+			</property>
+			<property name="Hidden">0</property>
+			<property name="ID">593</property>
+			<property name="InternalInformationURL">
+			</property>
+			<property name="NonSharedPriceListID">591</property>
+			<property name="SelfSubscribable">-1</property>
+			<property name="SelfUnsubscribable">0</property>
+			<exportpriceableiteminstanceonly>False</exportpriceableiteminstanceonly>
+			<!-- PriceAbleItems Template used by product offering Japanese Audio Conferencing Product Offering -->
+			<priceableitemtemplates>
+				<!-- PriceAbleItem Template kind PCENTITY_TYPE_AGGREGATE_CHARGE or PCENTITY_TYPE_USAGE are never imported. PriceAbleItemTemplate=AudioConfCall -->
+				<!-- PriceAbleItem Template kind PCENTITY_TYPE_AGGREGATE_CHARGE or PCENTITY_TYPE_USAGE are never imported. PriceAbleItemTemplate=AudioConfConn -->
+				<!-- PriceAbleItem Template kind PCENTITY_TYPE_AGGREGATE_CHARGE or PCENTITY_TYPE_USAGE are never imported. PriceAbleItemTemplate=AudioConfFeature -->
+				<discount name="Daily Flat Rate Audio Conferencing Discount 2/25/2004 3:00:09 PM">
+					<pccycle name="Cycle">
+						<property name="AdapterProgID">MTStdUsageCycle.MTStdDaily.1</property>
+						<property name="CycleID">2</property>
+						<property name="CycleTypeDescription">Daily</property>
+						<property name="CycleTypeID">3<!-- DAILY_CYCLE --></property>
+						<property name="EndDayOfMonth">0</property>
+						<property name="EndDayOfMonth2">0</property>
+						<property name="EndDayOfWeek">0</property>
+						<property name="Mode">0</property>
+						<property name="StartDay">0</property>
+						<property name="StartMonth">0</property>
+						<property name="StartYear">0</property>
+					</pccycle>
+					<property name="Description">Daily Flat Rate Audio Conferencing Discount</property>
+					<property name="DisplayName">゛･゜ｳ゙掟゜ミﾅべン - 0</property>
+					<property name="DistributionCPDID">-1</property>
+					<property name="glcode">
+					</property>
+					<property name="ID">594</property>
+					<property name="Kind">40</property>
+					<property name="ParentID">-1</property>
+					<priceableitemtype name="Flat Discount">
+						<property name="ConstrainSubscriberCycle">0</property>
+						<property name="Description">Flat discount based on 1 qualifier</property>
+						<property name="ID">152</property>
+						<property name="Kind">40</property>
+						<property name="ParentID">-1</property>
+						<property name="ProductView">metratech.com/flatdiscount</property>
+						<property name="ServiceDefinition">metratech.com/flatdiscount</property>
+					</priceableitemtype>
+					<property name="ProductOfferingID">-1</property>
+					<property name="TemplateID">-1</property>
+					<displaynames>
+						<language name="JP"></language>
+						<language name="FR"></language>
+						<language name="IT"></language>
+						<language name="DE"></language>
+						<language name="US">゛･゜ｳ゙掟゜ミﾅべン - 0</language>
+					</displaynames>
+					<counters>
+						<counter name="AudioConfUsage">
+							<property name="Description">Usage for audioconfcall + Bridge Charge for audio conf connection</property>
+							<property name="ID">595</property>
+							<property name="TypeID">51</property>
+							<countertypename>SumOfTwoProperties</countertypename>
+							<counterpropertydefinition name="Qualifier">
+								<property name="DisplayName">Counter used to qualify for discount</property>
+								<property name="ID">153</property>
+								<property name="Order">0</property>
+								<property name="PITypeID">152</property>
+								<property name="PreferredCounterTypeName">SumOfOneProperty</property>
+								<property name="ServiceDefProperty">c_FlatRateQualifier</property>
+							</counterpropertydefinition>
+							<counterparameters>
+								<counterparameter name="A">
+									<property name="DBType">0</property>
+									<property name="ID">596</property>
+									<property name="Kind">0</property>
+									<property name="ProductViewColumnName">amount</property>
+									<property name="ProductViewName">metratech.com/audioconfcall</property>
+									<property name="ProductViewPropertyName">amount</property>
+									<property name="ProductViewTableName">t_pv_audioconfcall</property>
+									<property name="ReadOnly">0</property>
+									<property name="Value">metratech.com/audioconfcall/amount</property>
+								</counterparameter>
+								<counterparameter name="B">
+									<property name="DBType">0</property>
+									<property name="ID">597</property>
+									<property name="Kind">0</property>
+									<property name="ProductViewColumnName">c_BridgeAmount</property>
+									<property name="ProductViewName">metratech.com/audioconfconnection</property>
+									<property name="ProductViewPropertyName">BridgeAmount</property>
+									<property name="ProductViewTableName">t_pv_audioconfconnection</property>
+									<property name="ReadOnly">0</property>
+									<property name="Value">metratech.com/audioconfconnection/BridgeAmount</property>
+								</counterparameter>
+							</counterparameters>
+						</counter>
+					</counters>
+					<adjustments type="Template">
+					</adjustments>
+				</discount>
+				<discount name="Flat Discount On audio conf call usage and CancelCharges (avoid double count) 2/25/2004 3:00:09 PM">
+					<pccycle name="Cycle">
+						<property name="AdapterProgID">MTStdUsageCycle.MTStdDaily.1</property>
+						<property name="CycleID">2</property>
+						<property name="CycleTypeDescription">Daily</property>
+						<property name="CycleTypeID">3<!-- DAILY_CYCLE --></property>
+						<property name="EndDayOfMonth">0</property>
+						<property name="EndDayOfMonth2">0</property>
+						<property name="EndDayOfWeek">0</property>
+						<property name="Mode">0</property>
+						<property name="StartDay">0</property>
+						<property name="StartMonth">0</property>
+						<property name="StartYear">0</property>
+					</pccycle>
+					<property name="Description">Daily Flat Rate Audio Conferencing Discount1</property>
+					<property name="DisplayName">ミ゜キゞゞ完ﾘゞじ呄ふ ぜ圖 - 1</property>
+					<property name="DistributionCPDID">-1</property>
+					<property name="glcode">
+					</property>
+					<property name="ID">598</property>
+					<property name="Kind">40</property>
+					<property name="ParentID">-1</property>
+					<priceableitemtype name="Flat Discount">
+						<property name="ConstrainSubscriberCycle">0</property>
+						<property name="Description">Flat discount based on 1 qualifier</property>
+						<property name="ID">152</property>
+						<property name="Kind">40</property>
+						<property name="ParentID">-1</property>
+						<property name="ProductView">metratech.com/flatdiscount</property>
+						<property name="ServiceDefinition">metratech.com/flatdiscount</property>
+					</priceableitemtype>
+					<property name="ProductOfferingID">-1</property>
+					<property name="TemplateID">-1</property>
+					<displaynames>
+						<language name="JP"></language>
+						<language name="FR"></language>
+						<language name="IT"></language>
+						<language name="DE"></language>
+						<language name="US">ミ゜キゞゞ完ﾘゞじ呄ふ ぜ圖 - 1</language>
+					</displaynames>
+					<counters>
+						<counter name="AudioConfUsage">
+							<property name="Description">Usage for audioconfcall + Bridge Charge for audio conf connection</property>
+							<property name="ID">599</property>
+							<property name="TypeID">51</property>
+							<countertypename>SumOfTwoProperties</countertypename>
+							<counterpropertydefinition name="Qualifier">
+								<property name="DisplayName">Counter used to qualify for discount</property>
+								<property name="ID">153</property>
+								<property name="Order">0</property>
+								<property name="PITypeID">152</property>
+								<property name="PreferredCounterTypeName">SumOfOneProperty</property>
+								<property name="ServiceDefProperty">c_FlatRateQualifier</property>
+							</counterpropertydefinition>
+							<counterparameters>
+								<counterparameter name="A">
+									<property name="DBType">0</property>
+									<property name="ID">600</property>
+									<property name="Kind">0</property>
+									<property name="ProductViewColumnName">amount</property>
+									<property name="ProductViewName">metratech.com/audioconfcall</property>
+									<property name="ProductViewPropertyName">amount</property>
+									<property name="ProductViewTableName">t_pv_audioconfcall</property>
+									<property name="ReadOnly">0</property>
+									<property name="Value">metratech.com/audioconfcall/amount</property>
+								</counterparameter>
+								<counterparameter name="B">
+									<property name="DBType">0</property>
+									<property name="ID">601</property>
+									<property name="Kind">0</property>
+									<property name="ProductViewColumnName">c_CancelCharges</property>
+									<property name="ProductViewName">metratech.com/audioconfcall</property>
+									<property name="ProductViewPropertyName">CancelCharges</property>
+									<property name="ProductViewTableName">t_pv_audioconfcall</property>
+									<property name="ReadOnly">0</property>
+									<property name="Value">metratech.com/audioconfcall/CancelCharges</property>
+								</counterparameter>
+							</counterparameters>
+						</counter>
+					</counters>
+					<adjustments type="Template">
+					</adjustments>
+				</discount>
+				<discount name="Flat Discount On audio conf call usage 2/25/2004 3:00:09 PM">
+					<pccycle name="Cycle">
+						<property name="AdapterProgID">MTStdUsageCycle.MTStdDaily.1</property>
+						<property name="CycleID">2</property>
+						<property name="CycleTypeDescription">Daily</property>
+						<property name="CycleTypeID">3<!-- DAILY_CYCLE --></property>
+						<property name="EndDayOfMonth">0</property>
+						<property name="EndDayOfMonth2">0</property>
+						<property name="EndDayOfWeek">0</property>
+						<property name="Mode">0</property>
+						<property name="StartDay">0</property>
+						<property name="StartMonth">0</property>
+						<property name="StartYear">0</property>
+					</pccycle>
+					<property name="Description">Daily Flat Rate Audio Conferencing Discount2</property>
+					<property name="DisplayName">ゞキォｬタポそカご ﾊィ窟珍 - 2</property>
+					<property name="DistributionCPDID">-1</property>
+					<property name="glcode">
+					</property>
+					<property name="ID">602</property>
+					<property name="Kind">40</property>
+					<property name="ParentID">-1</property>
+					<priceableitemtype name="Flat Discount">
+						<property name="ConstrainSubscriberCycle">0</property>
+						<property name="Description">Flat discount based on 1 qualifier</property>
+						<property name="ID">152</property>
+						<property name="Kind">40</property>
+						<property name="ParentID">-1</property>
+						<property name="ProductView">metratech.com/flatdiscount</property>
+						<property name="ServiceDefinition">metratech.com/flatdiscount</property>
+					</priceableitemtype>
+					<property name="ProductOfferingID">-1</property>
+					<property name="TemplateID">-1</property>
+					<displaynames>
+						<language name="JP"></language>
+						<language name="FR"></language>
+						<language name="IT"></language>
+						<language name="DE"></language>
+						<language name="US">ゞキォｬタポそカご ﾊィ窟珍 - 2</language>
+					</displaynames>
+					<counters>
+						<counter name="AudioConfUsage">
+							<property name="Description">Usage for audioconfcall + Bridge Charge for audio conf connection</property>
+							<property name="ID">603</property>
+							<property name="TypeID">49</property>
+							<countertypename>SumOfOneProperty</countertypename>
+							<counterpropertydefinition name="Qualifier">
+								<property name="DisplayName">Counter used to qualify for discount</property>
+								<property name="ID">153</property>
+								<property name="Order">0</property>
+								<property name="PITypeID">152</property>
+								<property name="PreferredCounterTypeName">SumOfOneProperty</property>
+								<property name="ServiceDefProperty">c_FlatRateQualifier</property>
+							</counterpropertydefinition>
+							<counterparameters>
+								<counterparameter name="A">
+									<property name="DBType">0</property>
+									<property name="ID">604</property>
+									<property name="Kind">0</property>
+									<property name="ProductViewColumnName">amount</property>
+									<property name="ProductViewName">metratech.com/audioconfcall</property>
+									<property name="ProductViewPropertyName">amount</property>
+									<property name="ProductViewTableName">t_pv_audioconfcall</property>
+									<property name="ReadOnly">0</property>
+									<property name="Value">metratech.com/audioconfcall/amount</property>
+								</counterparameter>
+							</counterparameters>
+						</counter>
+					</counters>
+					<adjustments type="Template">
+					</adjustments>
+				</discount>
+				<discount name="Daily Flat Rate AudioConf Unconditional Discount 2/25/2004 3:00:09 PM">
+					<pccycle name="Cycle">
+						<property name="AdapterProgID">MTStdUsageCycle.MTStdDaily.1</property>
+						<property name="CycleID">2</property>
+						<property name="CycleTypeDescription">Daily</property>
+						<property name="CycleTypeID">3<!-- DAILY_CYCLE --></property>
+						<property name="EndDayOfMonth">0</property>
+						<property name="EndDayOfMonth2">0</property>
+						<property name="EndDayOfWeek">0</property>
+						<property name="Mode">0</property>
+						<property name="StartDay">0</property>
+						<property name="StartMonth">0</property>
+						<property name="StartYear">0</property>
+					</pccycle>
+					<property name="Description">Daily Flat Rate AudioConf Unconditional Discount</property>
+					<property name="DisplayName">僉掊ｴ羞ｧ秕聰ガ驎ﾖ</property>
+					<property name="DistributionCPDID">-1</property>
+					<property name="glcode">
+					</property>
+					<property name="ID">605</property>
+					<property name="Kind">40</property>
+					<property name="ParentID">-1</property>
+					<priceableitemtype name="Flat Unconditional Discount">
+						<property name="ConstrainSubscriberCycle">0</property>
+						<property name="Description">Flat discount based on 0 qualifiers (always applied)</property>
+						<property name="ID">170</property>
+						<property name="Kind">40</property>
+						<property name="ParentID">-1</property>
+						<property name="ProductView">metratech.com/flatdiscount_nocond</property>
+						<property name="ServiceDefinition">metratech.com/flatdiscount_nocond</property>
+					</priceableitemtype>
+					<property name="ProductOfferingID">-1</property>
+					<property name="TemplateID">-1</property>
+					<displaynames>
+						<language name="JP"></language>
+						<language name="FR"></language>
+						<language name="IT"></language>
+						<language name="DE"></language>
+						<language name="US">僉掊ｴ羞ｧ秕聰ガ驎ﾖ</language>
+					</displaynames>
+					<counters>
+					</counters>
+					<adjustments type="Template">
+					</adjustments>
+				</discount>
+				<discount name="Daily  Percent Discount 2/25/2004 3:00:09 PM">
+					<pccycle name="Cycle">
+						<property name="AdapterProgID">MTStdUsageCycle.MTStdDaily.1</property>
+						<property name="CycleID">2</property>
+						<property name="CycleTypeDescription">Daily</property>
+						<property name="CycleTypeID">3<!-- DAILY_CYCLE --></property>
+						<property name="EndDayOfMonth">0</property>
+						<property name="EndDayOfMonth2">0</property>
+						<property name="EndDayOfWeek">0</property>
+						<property name="Mode">0</property>
+						<property name="StartDay">0</property>
+						<property name="StartMonth">0</property>
+						<property name="StartYear">0</property>
+					</pccycle>
+					<property name="Description">Daily Percent Discount</property>
+					<property name="DisplayName">ぺセ欂拊セ 味睱掛ざ鍗</property>
+					<property name="DistributionCPDID">-1</property>
+					<property name="glcode">
+					</property>
+					<property name="ID">606</property>
+					<property name="Kind">40</property>
+					<property name="ParentID">-1</property>
+					<priceableitemtype name="Percent Discount">
+						<property name="ConstrainSubscriberCycle">0</property>
+						<property name="Description">Percent discount based on one qualifier and calculated against one target</property>
+						<property name="ID">171</property>
+						<property name="Kind">40</property>
+						<property name="ParentID">-1</property>
+						<property name="ProductView">metratech.com/percentdiscount</property>
+						<property name="ServiceDefinition">metratech.com/percentdiscount</property>
+					</priceableitemtype>
+					<property name="ProductOfferingID">-1</property>
+					<property name="TemplateID">-1</property>
+					<displaynames>
+						<language name="JP"></language>
+						<language name="FR"></language>
+						<language name="IT"></language>
+						<language name="DE"></language>
+						<language name="US">ぺセ欂拊セ 味睱掛ざ鍗</language>
+					</displaynames>
+					<counters>
+						<counter name="AudioConfFeatureSetupChargeQualifier">
+							<property name="Description">Total usage for test service</property>
+							<property name="ID">607</property>
+							<property name="TypeID">49</property>
+							<countertypename>SumOfOneProperty</countertypename>
+							<counterpropertydefinition name="Qualifier">
+								<property name="DisplayName">Counter used to qualify for discount</property>
+								<property name="ID">172</property>
+								<property name="Order">0</property>
+								<property name="PITypeID">171</property>
+								<property name="PreferredCounterTypeName">SumOfOneProperty</property>
+								<property name="ServiceDefProperty">c_Qualifier</property>
+							</counterpropertydefinition>
+							<counterparameters>
+								<counterparameter name="A">
+									<property name="DBType">0</property>
+									<property name="ID">608</property>
+									<property name="Kind">0</property>
+									<property name="ProductViewColumnName">c_SetupCharge</property>
+									<property name="ProductViewName">metratech.com/audioconffeature</property>
+									<property name="ProductViewPropertyName">SetupCharge</property>
+									<property name="ProductViewTableName">t_pv_audioconffeature</property>
+									<property name="ReadOnly">0</property>
+									<property name="Value">metratech.com/audioconffeature/SetupCharge</property>
+								</counterparameter>
+							</counterparameters>
+						</counter>
+						<counter name="AudioConfCallAmountTarget">
+							<property name="Description">Total usage for test service</property>
+							<property name="ID">609</property>
+							<property name="TypeID">49</property>
+							<countertypename>SumOfOneProperty</countertypename>
+							<counterpropertydefinition name="Target">
+								<property name="DisplayName">Counter used to distribute discount</property>
+								<property name="ID">173</property>
+								<property name="Order">0</property>
+								<property name="PITypeID">171</property>
+								<property name="PreferredCounterTypeName">SumOfOneProperty</property>
+								<property name="ServiceDefProperty">c_Target</property>
+							</counterpropertydefinition>
+							<counterparameters>
+								<counterparameter name="A">
+									<property name="DBType">0</property>
+									<property name="ID">610</property>
+									<property name="Kind">0</property>
+									<property name="ProductViewColumnName">amount</property>
+									<property name="ProductViewName">metratech.com/audioconfcall</property>
+									<property name="ProductViewPropertyName">amount</property>
+									<property name="ProductViewTableName">t_pv_audioconfcall</property>
+									<property name="ReadOnly">0</property>
+									<property name="Value">metratech.com/audioconfcall/amount</property>
+								</counterparameter>
+							</counterparameters>
+						</counter>
+					</counters>
+					<adjustments type="Template">
+					</adjustments>
+				</discount>
+			</priceableitemtemplates>
+			<!-- PriceLists used by product offering Japanese Audio Conferencing Product Offering -->
+			<pricelists>
+				<pricelist name="AudioConf product offering pricelist 2/25/2004 3:00:09 PM">
+					<property name="CurrencyCode">USD</property>
+					<property name="Description">price list for the audio conferencing product offering</property>
+					<property name="ID">611</property>
+					<property name="Type">1</property>
+				</pricelist>
+			</pricelists>
+			<!-- Calendar used by product offering Japanese Audio Conferencing Product Offering -->
+			<calendars>
+				<calendar name="AudioConf Setup Calendar">
+					<id>612</id>
+					<description>Calendar created by AudioConf Setup test script</description>
+					<name>AudioConf Setup Calendar</name>
+					<collection name="Holidays">
+						<calendarholiday name="Christmas">
+							<property name="Day">25</property>
+							<property name="ID">22</property>
+							<property name="Month">12</property>
+							<property name="WeekofMonth">7</property>
+							<property name="Year">2001</property>
+							<codefqn>METRATECH.COM/CALENDAR/CALENDARCODE/HOLIDAY</codefqn>
+							<calendarperiods>
+								<calendarperiod>
+									<id>8</id>
+									<code>1</code>
+									<codefqn>METRATECH.COM/CALENDAR/CALENDARCODE/OFF-PEAK</codefqn>
+									<starttime>72000</starttime>
+									<endtime>86399</endtime>
+								</calendarperiod>
+							</calendarperiods>
+						</calendarholiday>
+					</collection>
+					<collection name="WeekDays">
+						<calendarweekday name="7">
+							<property name="DayofWeek">7</property>
+							<property name="ID">13</property>
+							<codefqn>METRATECH.COM/CALENDAR/CALENDARCODE/OFF-PEAK</codefqn>
+						</calendarweekday>
+						<calendarweekday name="8">
+							<property name="DayofWeek">8</property>
+							<property name="ID">14</property>
+							<codefqn>METRATECH.COM/CALENDAR/CALENDARCODE/WEEKEND</codefqn>
+						</calendarweekday>
+						<calendarweekday name="1">
+							<property name="DayofWeek">1</property>
+							<property name="ID">15</property>
+							<codefqn>METRATECH.COM/CALENDAR/CALENDARCODE/OFF-PEAK</codefqn>
+							<calendarperiods>
+								<calendarperiod>
+									<id>3</id>
+									<code>0</code>
+									<codefqn>METRATECH.COM/CALENDAR/CALENDARCODE/PEAK</codefqn>
+									<starttime>28800</starttime>
+									<endtime>64800</endtime>
+								</calendarperiod>
+							</calendarperiods>
+						</calendarweekday>
+						<calendarweekday name="2">
+							<property name="DayofWeek">2</property>
+							<property name="ID">16</property>
+							<codefqn>METRATECH.COM/CALENDAR/CALENDARCODE/OFF-PEAK</codefqn>
+							<calendarperiods>
+								<calendarperiod>
+									<id>4</id>
+									<code>0</code>
+									<codefqn>METRATECH.COM/CALENDAR/CALENDARCODE/PEAK</codefqn>
+									<starttime>28800</starttime>
+									<endtime>64800</endtime>
+								</calendarperiod>
+							</calendarperiods>
+						</calendarweekday>
+						<calendarweekday name="3">
+							<property name="DayofWeek">3</property>
+							<property name="ID">17</property>
+							<codefqn>METRATECH.COM/CALENDAR/CALENDARCODE/OFF-PEAK</codefqn>
+							<calendarperiods>
+								<calendarperiod>
+									<id>5</id>
+									<code>0</code>
+									<codefqn>METRATECH.COM/CALENDAR/CALENDARCODE/PEAK</codefqn>
+									<starttime>28800</starttime>
+									<endtime>64800</endtime>
+								</calendarperiod>
+							</calendarperiods>
+						</calendarweekday>
+						<calendarweekday name="4">
+							<property name="DayofWeek">4</property>
+							<property name="ID">18</property>
+							<codefqn>METRATECH.COM/CALENDAR/CALENDARCODE/OFF-PEAK</codefqn>
+							<calendarperiods>
+								<calendarperiod>
+									<id>6</id>
+									<code>0</code>
+									<codefqn>METRATECH.COM/CALENDAR/CALENDARCODE/PEAK</codefqn>
+									<starttime>28800</starttime>
+									<endtime>64800</endtime>
+								</calendarperiod>
+							</calendarperiods>
+						</calendarweekday>
+						<calendarweekday name="5">
+							<property name="DayofWeek">5</property>
+							<property name="ID">19</property>
+							<codefqn>METRATECH.COM/CALENDAR/CALENDARCODE/OFF-PEAK</codefqn>
+							<calendarperiods>
+								<calendarperiod>
+									<id>7</id>
+									<code>0</code>
+									<codefqn>METRATECH.COM/CALENDAR/CALENDARCODE/PEAK</codefqn>
+									<starttime>28800</starttime>
+									<endtime>64800</endtime>
+								</calendarperiod>
+							</calendarperiods>
+						</calendarweekday>
+						<calendarweekday name="0">
+							<property name="DayofWeek">0</property>
+							<property name="ID">20</property>
+							<codefqn>METRATECH.COM/CALENDAR/CALENDARCODE/PEAK</codefqn>
+						</calendarweekday>
+						<calendarweekday name="6">
+							<property name="DayofWeek">6</property>
+							<property name="ID">21</property>
+							<codefqn>METRATECH.COM/CALENDAR/CALENDARCODE/PEAK</codefqn>
+						</calendarweekday>
+					</collection>
+				</calendar>
+			</calendars>
+			<!-- RateSchedules used by product offering Japanese Audio Conferencing Product Offering -->
+			<rateschedules>
+				<rateschedule name="AudioConfCall|metratech.com/cancelapplic|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Cancellation Charge Applicability</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">613</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">614</property>
+					<property name="ParameterTableID">12</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">92</property>
+					<priceableitemname>AudioConfCall</priceableitemname>
+					<parametertablename>metratech.com/cancelapplic</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>1</defaultactionscount>
+					<rulesetcount>3</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>CancelApplicBool</prop_name>
+      <prop_value ptype="BOOL">FALSE</prop_value>
+    </action>
+  </default_actions>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>CancelApplicBool</prop_name>
+        <prop_value ptype="BOOL">TRUE</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Standard</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>not_equals</condition>
+      <prop_value ptype="INTEGER">0</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Notice</prop_name>
+      <condition>greater_than</condition>
+      <prop_value ptype="INTEGER">24</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>CancelApplicBool</prop_name>
+        <prop_value ptype="BOOL">TRUE</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Standard</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>not_equals</condition>
+      <prop_value ptype="INTEGER">0</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Notice</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">24</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>CancelApplicBool</prop_name>
+        <prop_value ptype="BOOL">FALSE</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>not_equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Standard</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>not_equals</condition>
+      <prop_value ptype="INTEGER">0</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Notice</prop_name>
+      <condition>not_equals</condition>
+      <prop_value ptype="INTEGER">0</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfCall|metratech.com/cancelrate|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Cancellation Charge Rate</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">615</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">616</property>
+					<property name="ParameterTableID">13</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">92</property>
+					<priceableitemname>AudioConfCall</priceableitemname>
+					<parametertablename>metratech.com/cancelrate</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>3</defaultactionscount>
+					<rulesetcount>4</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>CancelChargeType</prop_name>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ChargeType" ptype="ENUM">Fixed</prop_value>
+    </action>
+    <action>
+      <prop_name>CancelMaxCharge</prop_name>
+      <prop_value ptype="DECIMAL">0</prop_value>
+    </action>
+    <action>
+      <prop_name>CancelRate</prop_name>
+      <prop_value ptype="DECIMAL">0</prop_value>
+    </action>
+  </default_actions>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>CancelChargeType</prop_name>
+        <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ChargeType" ptype="ENUM">Fixed</prop_value>
+      </action>
+      <action>
+        <prop_name>CancelMaxCharge</prop_name>
+        <prop_value ptype="DECIMAL">10</prop_value>
+      </action>
+      <action>
+        <prop_name>CancelRate</prop_name>
+        <prop_value ptype="DECIMAL">10</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Standard</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">5</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledDuration</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">5</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Notice</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">24</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>CancelChargeType</prop_name>
+        <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ChargeType" ptype="ENUM">PerPort</prop_value>
+      </action>
+      <action>
+        <prop_name>CancelMaxCharge</prop_name>
+        <prop_value ptype="DECIMAL">500</prop_value>
+      </action>
+      <action>
+        <prop_name>CancelRate</prop_name>
+        <prop_value ptype="DECIMAL">0.5</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Premiere</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">10</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledDuration</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">4</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Notice</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">24</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>CancelChargeType</prop_name>
+        <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ChargeType" ptype="ENUM">Fixed</prop_value>
+      </action>
+      <action>
+        <prop_name>CancelRate</prop_name>
+        <prop_value ptype="DECIMAL">12</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Automated</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">200</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledDuration</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">5</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Notice</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">24</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>CancelChargeType</prop_name>
+        <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ChargeType" ptype="ENUM">Fixed</prop_value>
+      </action>
+      <action>
+        <prop_name>CancelRate</prop_name>
+        <prop_value ptype="DECIMAL">5</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Standard</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>not_equals</condition>
+      <prop_value ptype="INTEGER">0</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledDuration</prop_name>
+      <condition>greater_than</condition>
+      <prop_value ptype="INTEGER">0</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Notice</prop_name>
+      <condition>greater_than</condition>
+      <prop_value ptype="INTEGER">24</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfCall|metratech.com/minapplic|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Minimum Charge Applicability</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">617</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">618</property>
+					<property name="ParameterTableID">21</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">92</property>
+					<priceableitemname>AudioConfCall</priceableitemname>
+					<parametertablename>metratech.com/minapplic</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>1</defaultactionscount>
+					<rulesetcount>0</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>ConfChargeMinimumApplicBool</prop_name>
+      <prop_value ptype="BOOL">TRUE</prop_value>
+    </action>
+  </default_actions>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfCall|metratech.com/mincharge|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Minimum Charge</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">619</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">620</property>
+					<property name="ParameterTableID">22</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">92</property>
+					<priceableitemname>AudioConfCall</priceableitemname>
+					<parametertablename>metratech.com/mincharge</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>1</defaultactionscount>
+					<rulesetcount>1</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>ConfChargeMinimum</prop_name>
+      <prop_value ptype="DECIMAL">0</prop_value>
+    </action>
+  </default_actions>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>ConfChargeMinimum</prop_name>
+        <prop_value ptype="DECIMAL">120</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ConfChargeMinimumApplicBool</prop_name>
+      <condition>equals</condition>
+      <prop_value ptype="BOOL">TRUE</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfCall|metratech.com/overusedportapplic|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Overused Port Charge Applicability</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">621</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">622</property>
+					<property name="ParameterTableID">23</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">92</property>
+					<priceableitemname>AudioConfCall</priceableitemname>
+					<parametertablename>metratech.com/overusedportapplic</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>1</defaultactionscount>
+					<rulesetcount>5</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>OverusedPortApplicBool</prop_name>
+      <prop_value ptype="BOOL">FALSE</prop_value>
+    </action>
+  </default_actions>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>OverusedPortApplicBool</prop_name>
+        <prop_value ptype="BOOL">TRUE</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>Notice</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">48</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>OverusedPortApplicBool</prop_name>
+        <prop_value ptype="BOOL">TRUE</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Executive</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>OverusedPortApplicBool</prop_name>
+        <prop_value ptype="BOOL">TRUE</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>greater_equal</condition>
+      <prop_value ptype="INTEGER">500</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>not_equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Standard</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>OverusedPortApplicBool</prop_name>
+        <prop_value ptype="BOOL">TRUE</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Executive</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Notice</prop_name>
+      <condition>greater_than</condition>
+      <prop_value ptype="INTEGER">24</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>OverusedPortApplicBool</prop_name>
+        <prop_value ptype="BOOL">FALSE</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>not_equals</condition>
+      <prop_value ptype="INTEGER">0</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>not_equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Standard</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfCall|metratech.com/overusedportdef|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Overused Port Charge Algorithm definition</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">623</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">624</property>
+					<property name="ParameterTableID">24</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">92</property>
+					<priceableitemname>AudioConfCall</priceableitemname>
+					<parametertablename>metratech.com/overusedportdef</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>5</defaultactionscount>
+					<rulesetcount>0</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>OverusedPortChargeDef</prop_name>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="PortChargeDef" ptype="ENUM">Simple</prop_value>
+    </action>
+    <action>
+      <prop_name>OverusedThresholdFree</prop_name>
+      <prop_value ptype="INTEGER">0</prop_value>
+    </action>
+    <action>
+      <prop_name>OverusedPortDelta</prop_name>
+      <prop_value ptype="INTEGER">0</prop_value>
+    </action>
+    <action>
+      <prop_name>OverusedAdvancedPercentage</prop_name>
+      <prop_value ptype="INTEGER">0</prop_value>
+    </action>
+    <action>
+      <prop_name>OverusedExcludeRoles</prop_name>
+      <prop_value ptype="BOOL">FALSE</prop_value>
+    </action>
+  </default_actions>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfCall|metratech.com/overusedportrate|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Overused Port Charge Rate</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">625</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">626</property>
+					<property name="ParameterTableID">25</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">92</property>
+					<priceableitemname>AudioConfCall</priceableitemname>
+					<parametertablename>metratech.com/overusedportrate</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>2</defaultactionscount>
+					<rulesetcount>4</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>OverusedChargeType</prop_name>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ChargeType" ptype="ENUM">PerPort</prop_value>
+    </action>
+    <action>
+      <prop_name>OverusedPortRate</prop_name>
+      <prop_value ptype="DECIMAL">0</prop_value>
+    </action>
+  </default_actions>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>OverusedChargeType</prop_name>
+        <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ChargeType" ptype="ENUM">PerPort</prop_value>
+      </action>
+      <action>
+        <prop_name>OverusedPortRate</prop_name>
+        <prop_value ptype="DECIMAL">1</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Standard</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>NumOverusedPorts</prop_name>
+      <condition>greater_than</condition>
+      <prop_value ptype="INTEGER">15</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>greater_than</condition>
+      <prop_value ptype="INTEGER">0</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>OverusedChargeType</prop_name>
+        <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ChargeType" ptype="ENUM">Fixed</prop_value>
+      </action>
+      <action>
+        <prop_name>OverusedPortRate</prop_name>
+        <prop_value ptype="DECIMAL">10</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Standard</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>NumOverusedPorts</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">200</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">150</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>OverusedChargeType</prop_name>
+        <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ChargeType" ptype="ENUM">PerPort</prop_value>
+      </action>
+      <action>
+        <prop_name>OverusedPortRate</prop_name>
+        <prop_value ptype="DECIMAL">0.5</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Premiere</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>NumOverusedPorts</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">200</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>greater_than</condition>
+      <prop_value ptype="INTEGER">200</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>OverusedChargeType</prop_name>
+        <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ChargeType" ptype="ENUM">Fixed</prop_value>
+      </action>
+      <action>
+        <prop_name>OverusedPortRate</prop_name>
+        <prop_value ptype="DECIMAL">12</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Automated</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>NumOverusedPorts</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">200</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>greater_than</condition>
+      <prop_value ptype="INTEGER">200</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfCall|metratech.com/reservationapplic|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Reservation Charge Applicability</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">627</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">628</property>
+					<property name="ParameterTableID">26</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">92</property>
+					<priceableitemname>AudioConfCall</priceableitemname>
+					<parametertablename>metratech.com/reservationapplic</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>1</defaultactionscount>
+					<rulesetcount>2</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>ReserveApplicBool</prop_name>
+      <prop_value ptype="BOOL">FALSE</prop_value>
+    </action>
+  </default_actions>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>ReserveApplicBool</prop_name>
+        <prop_value ptype="BOOL">TRUE</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Standard</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">200</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ActualNumConnections</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">200</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>NumUnusedPorts</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">200</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Notice</prop_name>
+      <condition>greater_than</condition>
+      <prop_value ptype="INTEGER">24</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>ReserveApplicBool</prop_name>
+        <prop_value ptype="BOOL">TRUE</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>not_equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Standard</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>not_equals</condition>
+      <prop_value ptype="INTEGER">0</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ActualNumConnections</prop_name>
+      <condition>not_equals</condition>
+      <prop_value ptype="INTEGER">0</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>NumUnusedPorts</prop_name>
+      <condition>not_equals</condition>
+      <prop_value ptype="INTEGER">0</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Notice</prop_name>
+      <condition>not_equals</condition>
+      <prop_value ptype="INTEGER">0</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfCall|metratech.com/reserverate|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Reservation Charge Rate</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">629</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">630</property>
+					<property name="ParameterTableID">27</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">92</property>
+					<priceableitemname>AudioConfCall</priceableitemname>
+					<parametertablename>metratech.com/reserverate</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>2</defaultactionscount>
+					<rulesetcount>2</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>ReserveChargeType</prop_name>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ChargeType" ptype="ENUM">Fixed</prop_value>
+    </action>
+    <action>
+      <prop_name>ReserveRate</prop_name>
+      <prop_value ptype="DECIMAL">0</prop_value>
+    </action>
+  </default_actions>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>ReserveChargeType</prop_name>
+        <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ChargeType" ptype="ENUM">Fixed</prop_value>
+      </action>
+      <action>
+        <prop_name>ReserveRate</prop_name>
+        <prop_value ptype="DECIMAL">10</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Standard</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">150</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>ReserveChargeType</prop_name>
+        <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ChargeType" ptype="ENUM">PerPort</prop_value>
+      </action>
+      <action>
+        <prop_name>ReserveRate</prop_name>
+        <prop_value ptype="DECIMAL">0.5</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Executive</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>not_equals</condition>
+      <prop_value ptype="INTEGER">0</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfCall|metratech.com/unusedportapplic|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Underused Port Charge Applicability</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">631</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">632</property>
+					<property name="ParameterTableID">30</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">92</property>
+					<priceableitemname>AudioConfCall</priceableitemname>
+					<parametertablename>metratech.com/unusedportapplic</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>1</defaultactionscount>
+					<rulesetcount>6</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>UnusedPortApplicBool</prop_name>
+      <prop_value ptype="BOOL">FALSE</prop_value>
+    </action>
+  </default_actions>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>UnusedPortApplicBool</prop_name>
+        <prop_value ptype="BOOL">TRUE</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>Notice</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">48</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>UnusedPortApplicBool</prop_name>
+        <prop_value ptype="BOOL">TRUE</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Basic</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>UnusedPortApplicBool</prop_name>
+        <prop_value ptype="BOOL">TRUE</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>greater_equal</condition>
+      <prop_value ptype="INTEGER">500</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>not_equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Standard</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>UnusedPortApplicBool</prop_name>
+        <prop_value ptype="BOOL">TRUE</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Automated</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>UnusedPortApplicBool</prop_name>
+        <prop_value ptype="BOOL">TRUE</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Premiere</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>UnusedPortApplicBool</prop_name>
+        <prop_value ptype="BOOL">TRUE</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Executive</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfCall|metratech.com/unusedportdef|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Underused Port Charge Algorithm definition</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">633</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">634</property>
+					<property name="ParameterTableID">31</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">92</property>
+					<priceableitemname>AudioConfCall</priceableitemname>
+					<parametertablename>metratech.com/unusedportdef</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>5</defaultactionscount>
+					<rulesetcount>0</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>UnusedPortChargeDef</prop_name>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="PortChargeDef" ptype="ENUM">Simple</prop_value>
+    </action>
+    <action>
+      <prop_name>UnusedThresholdFree</prop_name>
+      <prop_value ptype="INTEGER">0</prop_value>
+    </action>
+    <action>
+      <prop_name>UnusedPortDelta</prop_name>
+      <prop_value ptype="INTEGER">0</prop_value>
+    </action>
+    <action>
+      <prop_name>UnusedAdvancedPercentage</prop_name>
+      <prop_value ptype="INTEGER">0</prop_value>
+    </action>
+    <action>
+      <prop_name>UnusedExcludeRoles</prop_name>
+      <prop_value ptype="BOOL">FALSE</prop_value>
+    </action>
+  </default_actions>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfCall|metratech.com/unusedportrate|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Unused Port Charge Rate</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">635</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">636</property>
+					<property name="ParameterTableID">32</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">92</property>
+					<priceableitemname>AudioConfCall</priceableitemname>
+					<parametertablename>metratech.com/unusedportrate</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>2</defaultactionscount>
+					<rulesetcount>4</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>UnusedChargeType</prop_name>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ChargeType" ptype="ENUM">Fixed</prop_value>
+    </action>
+    <action>
+      <prop_name>UnusedPortRate</prop_name>
+      <prop_value ptype="DECIMAL">0</prop_value>
+    </action>
+  </default_actions>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>UnusedChargeType</prop_name>
+        <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ChargeType" ptype="ENUM">Fixed</prop_value>
+      </action>
+      <action>
+        <prop_name>UnusedPortRate</prop_name>
+        <prop_value ptype="DECIMAL">10</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Standard</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>NumUnusedPorts</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">50</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">50</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>UnusedChargeType</prop_name>
+        <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ChargeType" ptype="ENUM">PerPort</prop_value>
+      </action>
+      <action>
+        <prop_name>UnusedPortRate</prop_name>
+        <prop_value ptype="DECIMAL">0.5</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Premiere</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>NumUnusedPorts</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">200</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>greater_than</condition>
+      <prop_value ptype="INTEGER">200</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>UnusedChargeType</prop_name>
+        <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ChargeType" ptype="ENUM">Fixed</prop_value>
+      </action>
+      <action>
+        <prop_name>UnusedPortRate</prop_name>
+        <prop_value ptype="DECIMAL">12</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Automated</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>NumUnusedPorts</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">5</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>greater_than</condition>
+      <prop_value ptype="INTEGER">200</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>UnusedChargeType</prop_name>
+        <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ChargeType" ptype="ENUM">PerPort</prop_value>
+      </action>
+      <action>
+        <prop_name>UnusedPortRate</prop_name>
+        <prop_value ptype="DECIMAL">1</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>ServiceLevel</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfcommon" enumtype="ServiceLevel" ptype="ENUM">Standard</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>NumUnusedPorts</prop_name>
+      <condition>less_than</condition>
+      <prop_value ptype="INTEGER">50</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>ScheduledConnections</prop_name>
+      <condition>greater_than</condition>
+      <prop_value ptype="INTEGER">50</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfConn|metratech.com/basetransportrate|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Base 		Transport Charges Rates</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">637</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">638</property>
+					<property name="ParameterTableID">10</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">116</property>
+					<priceableitemname>AudioConfConn</priceableitemname>
+					<parametertablename>metratech.com/basetransportrate</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>4</defaultactionscount>
+					<rulesetcount>2</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>BaseTransportRate</prop_name>
+      <prop_value ptype="DECIMAL">0.75</prop_value>
+    </action>
+    <action>
+      <prop_name>BaseTransportSetupCharge</prop_name>
+      <prop_value ptype="DECIMAL">50</prop_value>
+    </action>
+    <action>
+      <prop_name>BaseTransportMinCharge</prop_name>
+      <prop_value ptype="DECIMAL">10</prop_value>
+    </action>
+    <action>
+      <prop_name>TransportMinUOM</prop_name>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="UOM" ptype="ENUM">USD</prop_value>
+    </action>
+  </default_actions>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>BaseTransportRate</prop_name>
+        <prop_value ptype="DECIMAL">0.45</prop_value>
+      </action>
+      <action>
+        <prop_name>BaseTransportSetupCharge</prop_name>
+        <prop_value ptype="DECIMAL">10</prop_value>
+      </action>
+      <action>
+        <prop_name>BaseTransportMinCharge</prop_name>
+        <prop_value ptype="DECIMAL">5</prop_value>
+      </action>
+      <action>
+        <prop_name>TransportMinUOM</prop_name>
+        <prop_value enumspace="metratech.com/audioconfconnection" enumtype="UOM" ptype="ENUM">USD</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>CallType</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="CallType" ptype="ENUM">Dial-In</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Mode</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="Mode" ptype="ENUM">Direct-Dialed</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Transport</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="Transport" ptype="ENUM">Toll</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>BaseTransportRate</prop_name>
+        <prop_value ptype="DECIMAL">0.2</prop_value>
+      </action>
+      <action>
+        <prop_name>BaseTransportSetupCharge</prop_name>
+        <prop_value ptype="DECIMAL">10</prop_value>
+      </action>
+      <action>
+        <prop_name>BaseTransportMinCharge</prop_name>
+        <prop_value ptype="DECIMAL">5</prop_value>
+      </action>
+      <action>
+        <prop_name>TransportMinUOM</prop_name>
+        <prop_value enumspace="metratech.com/audioconfconnection" enumtype="UOM" ptype="ENUM">USD</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>CallType</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="CallType" ptype="ENUM">Dial-In</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Mode</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="Mode" ptype="ENUM">Direct-Dialed</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Transport</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="Transport" ptype="ENUM">Toll-Free</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfConn|metratech.com/bridgerate|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Bridge Charges Rates</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">639</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">640</property>
+					<property name="ParameterTableID">11</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">116</property>
+					<priceableitemname>AudioConfConn</priceableitemname>
+					<parametertablename>metratech.com/bridgerate</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>4</defaultactionscount>
+					<rulesetcount>6</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>BridgeRate</prop_name>
+      <prop_value ptype="DECIMAL">0.5</prop_value>
+    </action>
+    <action>
+      <prop_name>BridgeSetupCharge</prop_name>
+      <prop_value ptype="DECIMAL">10</prop_value>
+    </action>
+    <action>
+      <prop_name>BridgeMinCharge</prop_name>
+      <prop_value ptype="DECIMAL">5</prop_value>
+    </action>
+    <action>
+      <prop_name>BridgeMinUOM</prop_name>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="UOM" ptype="ENUM">USD</prop_value>
+    </action>
+  </default_actions>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>BridgeRate</prop_name>
+        <prop_value ptype="DECIMAL">0.5</prop_value>
+      </action>
+      <action>
+        <prop_name>BridgeSetupCharge</prop_name>
+        <prop_value ptype="DECIMAL">10</prop_value>
+      </action>
+      <action>
+        <prop_name>BridgeMinCharge</prop_name>
+        <prop_value ptype="DECIMAL">5</prop_value>
+      </action>
+      <action>
+        <prop_name>BridgeMinUOM</prop_name>
+        <prop_value enumspace="metratech.com/audioconfconnection" enumtype="UOM" ptype="ENUM">USD</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>CalendarCode</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/calendar" enumtype="CalendarCode" ptype="ENUM">Peak</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Mode</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="UserRole" ptype="ENUM">Moderator</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>BridgeRate</prop_name>
+        <prop_value ptype="DECIMAL">0.1</prop_value>
+      </action>
+      <action>
+        <prop_name>BridgeSetupCharge</prop_name>
+        <prop_value ptype="DECIMAL">2</prop_value>
+      </action>
+      <action>
+        <prop_name>BridgeMinCharge</prop_name>
+        <prop_value ptype="DECIMAL">5</prop_value>
+      </action>
+      <action>
+        <prop_name>BridgeMinUOM</prop_name>
+        <prop_value enumspace="metratech.com/audioconfconnection" enumtype="UOM" ptype="ENUM">USD</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>CalendarCode</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/calendar" enumtype="CalendarCode" ptype="ENUM">Peak</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>BridgeRate</prop_name>
+        <prop_value ptype="DECIMAL">0.09</prop_value>
+      </action>
+      <action>
+        <prop_name>BridgeSetupCharge</prop_name>
+        <prop_value ptype="DECIMAL">0</prop_value>
+      </action>
+      <action>
+        <prop_name>BridgeMinCharge</prop_name>
+        <prop_value ptype="DECIMAL">0</prop_value>
+      </action>
+      <action>
+        <prop_name>BridgeMinUOM</prop_name>
+        <prop_value enumspace="metratech.com/audioconfconnection" enumtype="UOM" ptype="ENUM">USD</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>CalendarCode</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/calendar" enumtype="CalendarCode" ptype="ENUM">Off-Peak</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Mode</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="UserRole" ptype="ENUM">Moderator</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>BridgeRate</prop_name>
+        <prop_value ptype="DECIMAL">0.2</prop_value>
+      </action>
+      <action>
+        <prop_name>BridgeSetupCharge</prop_name>
+        <prop_value ptype="DECIMAL">1</prop_value>
+      </action>
+      <action>
+        <prop_name>BridgeMinCharge</prop_name>
+        <prop_value ptype="DECIMAL">1.5</prop_value>
+      </action>
+      <action>
+        <prop_name>BridgeMinUOM</prop_name>
+        <prop_value enumspace="metratech.com/audioconfconnection" enumtype="UOM" ptype="ENUM">USD</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>CalendarCode</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/calendar" enumtype="CalendarCode" ptype="ENUM">Off-Peak</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Mode</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="UserRole" ptype="ENUM">Moderator</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>BridgeRate</prop_name>
+        <prop_value ptype="DECIMAL">0.2</prop_value>
+      </action>
+      <action>
+        <prop_name>BridgeSetupCharge</prop_name>
+        <prop_value ptype="DECIMAL">1</prop_value>
+      </action>
+      <action>
+        <prop_name>BridgeMinCharge</prop_name>
+        <prop_value ptype="DECIMAL">1.5</prop_value>
+      </action>
+      <action>
+        <prop_name>BridgeMinUOM</prop_name>
+        <prop_value enumspace="metratech.com/audioconfconnection" enumtype="UOM" ptype="ENUM">USD</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>CalendarCode</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/calendar" enumtype="CalendarCode" ptype="ENUM">Off-Peak</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Mode</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="UserRole" ptype="ENUM">Moderator</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>BridgeRate</prop_name>
+        <prop_value ptype="DECIMAL">0.2</prop_value>
+      </action>
+      <action>
+        <prop_name>BridgeSetupCharge</prop_name>
+        <prop_value ptype="DECIMAL">1</prop_value>
+      </action>
+      <action>
+        <prop_name>BridgeMinCharge</prop_name>
+        <prop_value ptype="DECIMAL">1.5</prop_value>
+      </action>
+      <action>
+        <prop_name>BridgeMinUOM</prop_name>
+        <prop_value enumspace="metratech.com/audioconfconnection" enumtype="UOM" ptype="ENUM">USD</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>CalendarCode</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/calendar" enumtype="CalendarCode" ptype="ENUM">Off-Peak</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Mode</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="UserRole" ptype="ENUM">Moderator</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfConn|metratech.com/globalactions|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Global Actions for AudioConfConn charges</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">641</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">642</property>
+					<property name="ParameterTableID">16</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">116</property>
+					<priceableitemname>AudioConfConn</priceableitemname>
+					<parametertablename>metratech.com/globalactions</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>4</defaultactionscount>
+					<rulesetcount>0</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>DomesticMTI</prop_name>
+      <prop_value ptype="INTEGER">60</prop_value>
+    </action>
+    <action>
+      <prop_name>IntlMTI</prop_name>
+      <prop_value ptype="INTEGER">60</prop_value>
+    </action>
+    <action>
+      <prop_name>BridgeMTI</prop_name>
+      <prop_value ptype="INTEGER">60</prop_value>
+    </action>
+    <action>
+      <prop_name>Precision</prop_name>
+      <prop_value ptype="INTEGER">2</prop_value>
+    </action>
+  </default_actions>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfConn|metratech.com/includedrole|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Included Role</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">643</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">644</property>
+					<property name="ParameterTableID">17</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">116</property>
+					<priceableitemname>AudioConfConn</priceableitemname>
+					<parametertablename>metratech.com/includedrole</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>2</defaultactionscount>
+					<rulesetcount>4</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>IncludedRole</prop_name>
+      <prop_value ptype="INTEGER">0</prop_value>
+    </action>
+    <action>
+      <prop_name>ConferenceConnection</prop_name>
+      <prop_value ptype="INTEGER">1</prop_value>
+    </action>
+  </default_actions>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>IncludedRole</prop_name>
+        <prop_value ptype="INTEGER">0</prop_value>
+      </action>
+      <action>
+        <prop_name>ConferenceConnection</prop_name>
+        <prop_value ptype="INTEGER">1</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>UserRole</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="UserRole" ptype="ENUM">Participant</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>IncludedRole</prop_name>
+        <prop_value ptype="INTEGER">1</prop_value>
+      </action>
+      <action>
+        <prop_name>ConferenceConnection</prop_name>
+        <prop_value ptype="INTEGER">1</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>UserRole</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="UserRole" ptype="ENUM">Operator</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>IncludedRole</prop_name>
+        <prop_value ptype="INTEGER">1</prop_value>
+      </action>
+      <action>
+        <prop_name>ConferenceConnection</prop_name>
+        <prop_value ptype="INTEGER">1</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>UserRole</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="UserRole" ptype="ENUM">CSR</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>IncludedRole</prop_name>
+        <prop_value ptype="INTEGER">2</prop_value>
+      </action>
+      <action>
+        <prop_name>ConferenceConnection</prop_name>
+        <prop_value ptype="INTEGER">1</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>UserRole</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="UserRole" ptype="ENUM">Translator</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfConn|metratech.com/intlrate|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Internation Charges Rates</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">645</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">646</property>
+					<property name="ParameterTableID">18</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">116</property>
+					<priceableitemname>AudioConfConn</priceableitemname>
+					<parametertablename>metratech.com/intlrate</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>1</defaultactionscount>
+					<rulesetcount>4</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>IntlRate</prop_name>
+      <prop_value ptype="DECIMAL">0</prop_value>
+    </action>
+  </default_actions>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>IntlRate</prop_name>
+        <prop_value ptype="DECIMAL">0.3</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>CallType</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="CallType" ptype="ENUM">Dial-In</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Mode</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="Mode" ptype="ENUM">Collect</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Transport</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="Transport" ptype="ENUM">International</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>CountryName</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="Global" enumtype="CountryName" ptype="ENUM">Spain</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>IntlRate</prop_name>
+        <prop_value ptype="DECIMAL">0.3</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>CallType</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="CallType" ptype="ENUM">Dial-Out</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Mode</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="Mode" ptype="ENUM">Operator-Assisted</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Transport</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="Transport" ptype="ENUM">International</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>CountryName</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="Global" enumtype="CountryName" ptype="ENUM">Mexico</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>IntlRate</prop_name>
+        <prop_value ptype="DECIMAL">0.3</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>CallType</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="CallType" ptype="ENUM">Dial-Out</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Mode</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="Mode" ptype="ENUM">Originator</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Transport</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="Transport" ptype="ENUM">International</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>CountryName</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="Global" enumtype="CountryName" ptype="ENUM">Mexico</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>IntlRate</prop_name>
+        <prop_value ptype="DECIMAL">0.35</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>CallType</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="CallType" ptype="ENUM">Dial-Out</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Mode</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="Mode" ptype="ENUM">Operator-Assisted</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Transport</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="Transport" ptype="ENUM">International</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>CountryName</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="Global" enumtype="CountryName" ptype="ENUM">Spain</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfConn|metratech.com/ldrate|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Long Distance Charges Rates</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">647</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">648</property>
+					<property name="ParameterTableID">19</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">116</property>
+					<priceableitemname>AudioConfConn</priceableitemname>
+					<parametertablename>metratech.com/ldrate</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>1</defaultactionscount>
+					<rulesetcount>2</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>LDRate</prop_name>
+      <prop_value ptype="DECIMAL">0</prop_value>
+    </action>
+  </default_actions>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>LDRate</prop_name>
+        <prop_value ptype="DECIMAL">0.1</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>CallType</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="CallType" ptype="ENUM">Dial-In</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Mode</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="Mode" ptype="ENUM">Collect</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Transport</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="Transport" ptype="ENUM">LongDistance</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Destination</prop_name>
+      <condition>equals</condition>
+      <prop_value>Montreal</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>LDRate</prop_name>
+        <prop_value ptype="DECIMAL">0.1</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>CallType</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="CallType" ptype="ENUM">Dial-In</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Mode</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="Mode" ptype="ENUM">Collect</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Transport</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="Transport" ptype="ENUM">LongDistance</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>Destination</prop_name>
+      <condition>equals</condition>
+      <prop_value>Toronto</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfConn|metratech.com/tollfreerate|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Toll-Free Charges Rates</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">649</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">650</property>
+					<property name="ParameterTableID">29</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">116</property>
+					<priceableitemname>AudioConfConn</priceableitemname>
+					<parametertablename>metratech.com/tollfreerate</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>1</defaultactionscount>
+					<rulesetcount>2</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>TollFreeRate</prop_name>
+      <prop_value ptype="DECIMAL">0</prop_value>
+    </action>
+  </default_actions>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>TollFreeRate</prop_name>
+        <prop_value ptype="DECIMAL">0.3</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>CallType</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="CallType" ptype="ENUM">Dial-In</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>DNISDigits</prop_name>
+      <condition>equals</condition>
+      <prop_value>5449</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>CountryName</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="Global" enumtype="CountryName" ptype="ENUM">France</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>TollFreeRate</prop_name>
+        <prop_value ptype="DECIMAL">0.3</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>CallType</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/audioconfconnection" enumtype="CallType" ptype="ENUM">Dial-In</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>DNISDigits</prop_name>
+      <condition>equals</condition>
+      <prop_value>4499</prop_value>
+    </constraint>
+    <constraint>
+      <prop_name>CountryName</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="Global" enumtype="CountryName" ptype="ENUM">Japan</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfConn|metratech.com/calendar|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Calendar Selection (Rates)</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">651</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">652</property>
+					<property name="ParameterTableID">33</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">116</property>
+					<priceableitemname>AudioConfConn</priceableitemname>
+					<parametertablename>metratech.com/calendar</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>1</defaultactionscount>
+					<rulesetcount>0</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>calendar_id</prop_name>
+      <prop_value ptype="INTEGER">|AudioConf Setup Calendar|</prop_value>
+    </action>
+  </default_actions>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfFeature|metratech.com/featuresetupcharge|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Audio Conferencing Feature Seup Charges</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">653</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">654</property>
+					<property name="ParameterTableID">15</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">148</property>
+					<priceableitemname>AudioConfFeature</priceableitemname>
+					<parametertablename>metratech.com/featuresetupcharge</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>0</defaultactionscount>
+					<rulesetcount>6</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>SetupCharge</prop_name>
+        <prop_value ptype="DECIMAL">5</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>FeatureType</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/AudioconfFeature" enumtype="FeatureType" ptype="ENUM">PlaybackSetup</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>SetupCharge</prop_name>
+        <prop_value ptype="DECIMAL">7</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>FeatureType</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/AudioconfFeature" enumtype="FeatureType" ptype="ENUM">QA</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>SetupCharge</prop_name>
+        <prop_value ptype="DECIMAL">3</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>FeatureType</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/AudioconfFeature" enumtype="FeatureType" ptype="ENUM">Polling</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>SetupCharge</prop_name>
+        <prop_value ptype="DECIMAL">9</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>FeatureType</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/AudioconfFeature" enumtype="FeatureType" ptype="ENUM">Record</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>SetupCharge</prop_name>
+        <prop_value ptype="DECIMAL">5</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>FeatureType</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/AudioconfFeature" enumtype="FeatureType" ptype="ENUM">TapesOriginals</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>SetupCharge</prop_name>
+        <prop_value ptype="DECIMAL">5</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>FeatureType</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/AudioconfFeature" enumtype="FeatureType" ptype="ENUM">TapesCopies</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfFeature|metratech.com/metricfeaturerate|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Metric Based Feature Rates</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">655</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">656</property>
+					<property name="ParameterTableID">20</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">148</property>
+					<priceableitemname>AudioConfFeature</priceableitemname>
+					<parametertablename>metratech.com/metricfeaturerate</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>1</defaultactionscount>
+					<rulesetcount>2</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>PerQuantityRate</prop_name>
+      <prop_value ptype="DECIMAL">0</prop_value>
+    </action>
+  </default_actions>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>PerQuantityRate</prop_name>
+        <prop_value ptype="DECIMAL">5</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>FeatureType</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/AudioconfFeature" enumtype="FeatureType" ptype="ENUM">TapesOriginals</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>PerQuantityRate</prop_name>
+        <prop_value ptype="DECIMAL">2</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>FeatureType</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/AudioconfFeature" enumtype="FeatureType" ptype="ENUM">TapesCopies</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="AudioConfFeature|metratech.com/timefeaturerate|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Time Based Feature Rates</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">657</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">658</property>
+					<property name="ParameterTableID">28</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">148</property>
+					<priceableitemname>AudioConfFeature</priceableitemname>
+					<parametertablename>metratech.com/timefeaturerate</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>5</defaultactionscount>
+					<rulesetcount>1</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>Round</prop_name>
+      <prop_value enumspace="metratech.com/AudioconfCommon" enumtype="RoundMethod" ptype="ENUM">CEILING</prop_value>
+    </action>
+    <action>
+      <prop_name>MTI</prop_name>
+      <prop_value ptype="INTEGER">1</prop_value>
+    </action>
+    <action>
+      <prop_name>MTIUOM</prop_name>
+      <prop_value enumspace="metratech.com/AudioconfFeature" enumtype="FeatureUOM" ptype="ENUM">Days</prop_value>
+    </action>
+    <action>
+      <prop_name>TimeBasedRate</prop_name>
+      <prop_value ptype="DECIMAL">0</prop_value>
+    </action>
+    <action>
+      <prop_name>TimeBasedRateUOM</prop_name>
+      <prop_value enumspace="metratech.com/AudioconfFeature" enumtype="FeatureUOM" ptype="ENUM">Days</prop_value>
+    </action>
+  </default_actions>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>Round</prop_name>
+        <prop_value enumspace="metratech.com/AudioconfCommon" enumtype="RoundMethod" ptype="ENUM">CEILING</prop_value>
+      </action>
+      <action>
+        <prop_name>MTI</prop_name>
+        <prop_value ptype="INTEGER">1</prop_value>
+      </action>
+      <action>
+        <prop_name>MTIUOM</prop_name>
+        <prop_value enumspace="metratech.com/AudioconfFeature" enumtype="FeatureUOM" ptype="ENUM">Days</prop_value>
+      </action>
+      <action>
+        <prop_name>TimeBasedRate</prop_name>
+        <prop_value ptype="DECIMAL">25</prop_value>
+      </action>
+      <action>
+        <prop_name>TimeBasedRateUOM</prop_name>
+        <prop_value enumspace="metratech.com/AudioconfFeature" enumtype="FeatureUOM" ptype="ENUM">Days</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>FeatureType</prop_name>
+      <condition>equals</condition>
+      <prop_value enumspace="metratech.com/AudioconfFeature" enumtype="FeatureType" ptype="ENUM">TapesOriginals</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="Daily Flat Rate Audio Conferencing Discount 2/25/2004 3:00:09 PM|metratech.com/flatdiscount|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Flat Discount Rate</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">659</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">660</property>
+					<property name="ParameterTableID">34</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">594</property>
+					<priceableitemname>Daily Flat Rate Audio Conferencing Discount 2/25/2004 3:00:09 PM</priceableitemname>
+					<parametertablename>metratech.com/flatdiscount</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>0</defaultactionscount>
+					<rulesetcount>3</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>FlatDiscountAmount</prop_name>
+        <prop_value ptype="DECIMAL">19.95</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>FlatRateQualifier</prop_name>
+      <condition>greater_than</condition>
+      <prop_value ptype="DECIMAL">100</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>FlatDiscountAmount</prop_name>
+        <prop_value ptype="DECIMAL">9.95</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>FlatRateQualifier</prop_name>
+      <condition>greater_than</condition>
+      <prop_value ptype="DECIMAL">50</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>FlatDiscountAmount</prop_name>
+        <prop_value ptype="DECIMAL">0</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>FlatRateQualifier</prop_name>
+      <condition>greater_equal</condition>
+      <prop_value ptype="DECIMAL">0</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="Flat Discount On audio conf call usage and CancelCharges (avoid double count) 2/25/2004 3:00:09 PM|metratech.com/flatdiscount|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Flat Discount 1 Rate</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">661</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">662</property>
+					<property name="ParameterTableID">34</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">598</property>
+					<priceableitemname>Flat Discount On audio conf call usage and CancelCharges (avoid double count) 2/25/2004 3:00:09 PM</priceableitemname>
+					<parametertablename>metratech.com/flatdiscount</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>0</defaultactionscount>
+					<rulesetcount>3</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>FlatDiscountAmount</prop_name>
+        <prop_value ptype="DECIMAL">19.95</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>FlatRateQualifier</prop_name>
+      <condition>greater_than</condition>
+      <prop_value ptype="DECIMAL">100</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>FlatDiscountAmount</prop_name>
+        <prop_value ptype="DECIMAL">9.95</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>FlatRateQualifier</prop_name>
+      <condition>greater_than</condition>
+      <prop_value ptype="DECIMAL">50</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>FlatDiscountAmount</prop_name>
+        <prop_value ptype="DECIMAL">0</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>FlatRateQualifier</prop_name>
+      <condition>greater_equal</condition>
+      <prop_value ptype="DECIMAL">0</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="Flat Discount On audio conf call usage 2/25/2004 3:00:09 PM|metratech.com/flatdiscount|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Flat Discount 2 Rate</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">663</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">664</property>
+					<property name="ParameterTableID">34</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">602</property>
+					<priceableitemname>Flat Discount On audio conf call usage 2/25/2004 3:00:09 PM</priceableitemname>
+					<parametertablename>metratech.com/flatdiscount</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>0</defaultactionscount>
+					<rulesetcount>3</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>FlatDiscountAmount</prop_name>
+        <prop_value ptype="DECIMAL">19.95</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>FlatRateQualifier</prop_name>
+      <condition>greater_than</condition>
+      <prop_value ptype="DECIMAL">100</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>FlatDiscountAmount</prop_name>
+        <prop_value ptype="DECIMAL">9.95</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>FlatRateQualifier</prop_name>
+      <condition>greater_than</condition>
+      <prop_value ptype="DECIMAL">50</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>FlatDiscountAmount</prop_name>
+        <prop_value ptype="DECIMAL">0</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>FlatRateQualifier</prop_name>
+      <condition>greater_equal</condition>
+      <prop_value ptype="DECIMAL">0</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="Daily Flat Rate AudioConf Unconditional Discount 2/25/2004 3:00:09 PM|metratech.com/flatdiscount_nocond|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Flat Unconditional Discount Rate</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">665</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">666</property>
+					<property name="ParameterTableID">35</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">605</property>
+					<priceableitemname>Daily Flat Rate AudioConf Unconditional Discount 2/25/2004 3:00:09 PM</priceableitemname>
+					<parametertablename>metratech.com/flatdiscount_nocond</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>1</defaultactionscount>
+					<rulesetcount>0</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <default_actions>
+    <action>
+      <prop_name>FlatUncondDiscountAmount</prop_name>
+      <prop_value ptype="DECIMAL">9.95</prop_value>
+    </action>
+  </default_actions>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+				<rateschedule name="Daily  Percent Discount 2/25/2004 3:00:09 PM|metratech.com/percentdiscount|AudioConf product offering pricelist 2/25/2004 3:00:09 PM|4/2/2001|1|0|12:00:00 AM|4|0">
+					<property name="Description">Percent Discount Rate</property>
+					<pctimespan name="EffectiveDate">
+						<property name="EndDate">12:00:00 AM</property>
+						<property name="EndDateType">4<!-- PCDATE_TYPE_NULL --></property>
+						<property name="EndOffset">0</property>
+						<property name="ID">667</property>
+						<property name="StartDate">4/2/2001</property>
+						<property name="StartDateType">1<!-- PCDATE_TYPE_ABSOLUTE --></property>
+						<property name="StartOffset">0</property>
+					</pctimespan>
+					<property name="ID">668</property>
+					<property name="ParameterTableID">38</property>
+					<property name="PriceListID">611</property>
+					<property name="TemplateID">606</property>
+					<priceableitemname>Daily  Percent Discount 2/25/2004 3:00:09 PM</priceableitemname>
+					<parametertablename>metratech.com/percentdiscount</parametertablename>
+					<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+					<defaultactionscount>0</defaultactionscount>
+					<rulesetcount>3</rulesetcount>
+					<ruleset>
+						<![CDATA[
+
+
+<configdata>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>DiscountPercent</prop_name>
+        <prop_value ptype="DECIMAL">10</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>qualifier</prop_name>
+      <condition>greater_than</condition>
+      <prop_value ptype="DECIMAL">100</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>DiscountPercent</prop_name>
+        <prop_value ptype="DECIMAL">5</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>qualifier</prop_name>
+      <condition>greater_than</condition>
+      <prop_value ptype="DECIMAL">5</prop_value>
+    </constraint>
+  </constraint_set>
+  <constraint_set>
+    <actions>
+      <action>
+        <prop_name>DiscountPercent</prop_name>
+        <prop_value ptype="DECIMAL">0</prop_value>
+      </action>
+    </actions>
+    <constraint>
+      <prop_name>qualifier</prop_name>
+      <condition>greater_equal</condition>
+      <prop_value ptype="DECIMAL">0</prop_value>
+    </constraint>
+  </constraint_set>
+</configdata>
+]]>
+					</ruleset>
+				</rateschedule>
+			</rateschedules>
+			<!-- product offering Japanese Audio Conferencing Product Offering description -->
+			<priceableiteminstances>
+				<usagecharge name="AudioConfCall">
+					<property name="Description">Parent Priceable Item for Audioconferencing</property>
+					<property name="DisplayName">AudioConfCall-Localized</property>
+					<property name="glcode">
+					</property>
+					<property name="ID">669</property>
+					<property name="Kind">10</property>
+					<property name="ParentID">-1</property>
+					<priceableitemtype name="AudioConfCall">
+						<property name="ConstrainSubscriberCycle">-1</property>
+						<property name="Description">Parent Priceable Item for Audioconferencing reference implementation</property>
+						<property name="ID">61</property>
+						<property name="Kind">10</property>
+						<property name="ParentID">-1</property>
+						<property name="ProductView">metratech.com/audioconfcall</property>
+						<property name="ServiceDefinition">metratech.com/audioconfcall</property>
+					</priceableitemtype>
+					<property name="ProductOfferingID">593</property>
+					<property name="TemplateID">92</property>
+					<displaynames>
+						<language name="JP">可聴周波協議呼出し</language>
+						<language name="FR">Appel Audio De Communication</language>
+						<language name="IT">Chiamata Audio Di Comunicazione</language>
+						<language name="DE">Audioconferencing-Anruf</language>
+						<language name="US">AudioConfCall-Localized</language>
+					</displaynames>
+					<pricelistmappings>
+						<pricelistmapping name="AudioConfCall:metratech.com/cancelapplic">
+							<property name="CanICB">0</property>
+							<property name="ParamTableDefinitionID">12</property>
+							<property name="PriceableItemID">669</property>
+							<property name="PriceListID">611</property>
+							<paramtabledefinitionname>metratech.com/cancelapplic</paramtabledefinitionname>
+							<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+						</pricelistmapping>
+						<pricelistmapping name="AudioConfCall:metratech.com/cancelrate">
+							<property name="CanICB">0</property>
+							<property name="ParamTableDefinitionID">13</property>
+							<property name="PriceableItemID">669</property>
+							<property name="PriceListID">611</property>
+							<paramtabledefinitionname>metratech.com/cancelrate</paramtabledefinitionname>
+							<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+						</pricelistmapping>
+						<pricelistmapping name="AudioConfCall:metratech.com/minapplic">
+							<property name="CanICB">0</property>
+							<property name="ParamTableDefinitionID">21</property>
+							<property name="PriceableItemID">669</property>
+							<property name="PriceListID">611</property>
+							<paramtabledefinitionname>metratech.com/minapplic</paramtabledefinitionname>
+							<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+						</pricelistmapping>
+						<pricelistmapping name="AudioConfCall:metratech.com/mincharge">
+							<property name="CanICB">0</property>
+							<property name="ParamTableDefinitionID">22</property>
+							<property name="PriceableItemID">669</property>
+							<property name="PriceListID">611</property>
+							<paramtabledefinitionname>metratech.com/mincharge</paramtabledefinitionname>
+							<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+						</pricelistmapping>
+						<pricelistmapping name="AudioConfCall:metratech.com/overusedportapplic">
+							<property name="CanICB">0</property>
+							<property name="ParamTableDefinitionID">23</property>
+							<property name="PriceableItemID">669</property>
+							<property name="PriceListID">611</property>
+							<paramtabledefinitionname>metratech.com/overusedportapplic</paramtabledefinitionname>
+							<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+						</pricelistmapping>
+						<pricelistmapping name="AudioConfCall:metratech.com/overusedportdef">
+							<property name="CanICB">0</property>
+							<property name="ParamTableDefinitionID">24</property>
+							<property name="PriceableItemID">669</property>
+							<property name="PriceListID">611</property>
+							<paramtabledefinitionname>metratech.com/overusedportdef</paramtabledefinitionname>
+							<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+						</pricelistmapping>
+						<pricelistmapping name="AudioConfCall:metratech.com/overusedportrate">
+							<property name="CanICB">0</property>
+							<property name="ParamTableDefinitionID">25</property>
+							<property name="PriceableItemID">669</property>
+							<property name="PriceListID">611</property>
+							<paramtabledefinitionname>metratech.com/overusedportrate</paramtabledefinitionname>
+							<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+						</pricelistmapping>
+						<pricelistmapping name="AudioConfCall:metratech.com/reservationapplic">
+							<property name="CanICB">0</property>
+							<property name="ParamTableDefinitionID">26</property>
+							<property name="PriceableItemID">669</property>
+							<property name="PriceListID">611</property>
+							<paramtabledefinitionname>metratech.com/reservationapplic</paramtabledefinitionname>
+							<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+						</pricelistmapping>
+						<pricelistmapping name="AudioConfCall:metratech.com/reserverate">
+							<property name="CanICB">0</property>
+							<property name="ParamTableDefinitionID">27</property>
+							<property name="PriceableItemID">669</property>
+							<property name="PriceListID">611</property>
+							<paramtabledefinitionname>metratech.com/reserverate</paramtabledefinitionname>
+							<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+						</pricelistmapping>
+						<pricelistmapping name="AudioConfCall:metratech.com/unusedportapplic">
+							<property name="CanICB">0</property>
+							<property name="ParamTableDefinitionID">30</property>
+							<property name="PriceableItemID">669</property>
+							<property name="PriceListID">611</property>
+							<paramtabledefinitionname>metratech.com/unusedportapplic</paramtabledefinitionname>
+							<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+						</pricelistmapping>
+						<pricelistmapping name="AudioConfCall:metratech.com/unusedportdef">
+							<property name="CanICB">0</property>
+							<property name="ParamTableDefinitionID">31</property>
+							<property name="PriceableItemID">669</property>
+							<property name="PriceListID">611</property>
+							<paramtabledefinitionname>metratech.com/unusedportdef</paramtabledefinitionname>
+							<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+						</pricelistmapping>
+						<pricelistmapping name="AudioConfCall:metratech.com/unusedportrate">
+							<property name="CanICB">0</property>
+							<property name="ParamTableDefinitionID">32</property>
+							<property name="PriceableItemID">669</property>
+							<property name="PriceListID">611</property>
+							<paramtabledefinitionname>metratech.com/unusedportrate</paramtabledefinitionname>
+							<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+						</pricelistmapping>
+					</pricelistmappings>
+					<adjustments type="Instance">
+						<adjustment name="CallFlatAdjustment">
+							<adjustmenttype name="CallFlatAdjustment">
+								<property name="Description">Audio Conference Call Flat Adjustment</property>
+								<property name="DisplayName">Audio Conference Call Flat Adjustment Display</property>
+								<property name="ID">62</property>
+								<property name="Kind">0</property>
+								<property name="SupportsBulk">0</property>
+							</adjustmenttype>
+							<property name="Description">Audio Conference Call Flat Adjustment</property>
+							<property name="DisplayName">Audio Conference Call Flat Adjustment Display</property>
+							<property name="GUID">0xABCD</property>
+							<property name="ID">670</property>
+							<displaynames>
+								<language name="JP">可聴周波会議呼出の平らな調節</language>
+								<language name="FR">Ajustement Plat Audio De Conférence téléphonique</language>
+								<language name="IT">Registrazione Piana Di Chiamata Di Congresso Audio</language>
+								<language name="DE">Fernsprechkonferenz-Anruf-Flache Justage</language>
+								<language name="US">Audio Conference Call Flat Adjustment</language>
+							</displaynames>
+						</adjustment>
+						<adjustment name="CallPercentAdjustment">
+							<adjustmenttype name="CallPercentAdjustment">
+								<property name="Description">Audio Conference Call Percentage Adjustment</property>
+								<property name="DisplayName">Audio Conference Call Percentage Adjustment Display</property>
+								<property name="ID">72</property>
+								<property name="Kind">0</property>
+								<property name="SupportsBulk">0</property>
+							</adjustmenttype>
+							<property name="Description">Audio Conference Call Percentage Adjustment</property>
+							<property name="DisplayName">Audio Conference Call Percentage Adjustment Display</property>
+							<property name="GUID">0xABCD</property>
+							<property name="ID">671</property>
+							<displaynames>
+								<language name="JP">可聴周波会議呼出のパーセントの調節</language>
+								<language name="FR">Ajustement Audio De Pourcentage De Conférence téléphonique</language>
+								<language name="IT">Registrazione Di Percentuale Di Chiamata Di Congresso Audio</language>
+								<language name="DE">Fernsprechkonferenz-Anruf-Prozentsatz-Justage</language>
+								<language name="US">Audio Conference Call Percentage Adjustment</language>
+							</displaynames>
+						</adjustment>
+						<adjustment name="CallRebillAdjustment">
+							<adjustmenttype name="CallRebillAdjustment">
+								<property name="Description">Audio Conference Call record 100 percent adjustment based on prebill adjusted amount.</property>
+								<property name="DisplayName">Audio Conference Call record 100 percent adjustment based on prebill adjusted amount.</property>
+								<property name="ID">82</property>
+								<property name="Kind">0</property>
+								<property name="SupportsBulk">0</property>
+							</adjustmenttype>
+							<property name="Description">Audio Conference Call record 100 percent adjustment based on prebill adjusted amount.</property>
+							<property name="DisplayName">Audio Conference Call record 100 percent adjustment based on prebill adjusted amount.</property>
+							<property name="GUID">0xABCD</property>
+							<property name="ID">672</property>
+							<displaynames>
+								<language name="JP">可聴周波会議呼出の記録はprebill に基づく100 つのパーセントの調節量を調節した。</language>
+								<language name="FR">Le disque audio de conférence téléphonique 100 ajustements de pour cent basés sur le prebill a ajusté la quantité.</language>
+								<language name="IT">L'annotazione di chiamata di congresso audio 100 registrazioni di per cento basate su prebill ha registrato l'importo.</language>
+								<language name="DE">Fernsprechkonferenz-Anrufaufzeichnung 100 Prozentjustage, die auf prebill basierte, justierte Menge</language>
+								<language name="US">Audio Conference Call record 100 percent adjustment based on prebill adjusted amount</language>
+							</displaynames>
+						</adjustment>
+					</adjustments>
+					<children>
+						<priceableiteminstances>
+							<usagecharge name="AudioConfConn">
+								<property name="Description">AudioConfCall child Priceable Item for Audioconferencing reference implementation</property>
+								<property name="DisplayName">AudioConfConn-Localized</property>
+								<property name="glcode">
+								</property>
+								<property name="ID">673</property>
+								<property name="Kind">10</property>
+								<property name="ParentID">669</property>
+								<priceableitemtype name="AudioConfConn">
+									<property name="ConstrainSubscriberCycle">-1</property>
+									<property name="Description">AudioConfCall child Priceable Item for Audioconferencing reference implementation</property>
+									<property name="ID">96</property>
+									<property name="Kind">10</property>
+									<property name="ParentID">61</property>
+									<property name="ProductView">metratech.com/audioconfconnection</property>
+									<property name="ServiceDefinition">metratech.com/audioconfconnection</property>
+								</priceableitemtype>
+								<property name="ProductOfferingID">593</property>
+								<property name="TemplateID">116</property>
+								<displaynames>
+									<language name="JP">可聴周波協議の関係</language>
+									<language name="FR">Raccordement Audio De Communication</language>
+									<language name="IT">Collegamento Audio Di Comunicazione</language>
+									<language name="DE">Audioconferencing-Anschluß</language>
+									<language name="US">AudioConfConn-Localized</language>
+								</displaynames>
+								<pricelistmappings>
+									<pricelistmapping name="AudioConfConn:metratech.com/basetransportrate">
+										<property name="CanICB">0</property>
+										<property name="ParamTableDefinitionID">10</property>
+										<property name="PriceableItemID">673</property>
+										<property name="PriceListID">611</property>
+										<paramtabledefinitionname>metratech.com/basetransportrate</paramtabledefinitionname>
+										<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+									</pricelistmapping>
+									<pricelistmapping name="AudioConfConn:metratech.com/bridgerate">
+										<property name="CanICB">0</property>
+										<property name="ParamTableDefinitionID">11</property>
+										<property name="PriceableItemID">673</property>
+										<property name="PriceListID">611</property>
+										<paramtabledefinitionname>metratech.com/bridgerate</paramtabledefinitionname>
+										<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+									</pricelistmapping>
+									<pricelistmapping name="AudioConfConn:metratech.com/globalactions">
+										<property name="CanICB">0</property>
+										<property name="ParamTableDefinitionID">16</property>
+										<property name="PriceableItemID">673</property>
+										<property name="PriceListID">611</property>
+										<paramtabledefinitionname>metratech.com/globalactions</paramtabledefinitionname>
+										<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+									</pricelistmapping>
+									<pricelistmapping name="AudioConfConn:metratech.com/includedrole">
+										<property name="CanICB">0</property>
+										<property name="ParamTableDefinitionID">17</property>
+										<property name="PriceableItemID">673</property>
+										<property name="PriceListID">611</property>
+										<paramtabledefinitionname>metratech.com/includedrole</paramtabledefinitionname>
+										<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+									</pricelistmapping>
+									<pricelistmapping name="AudioConfConn:metratech.com/intlrate">
+										<property name="CanICB">0</property>
+										<property name="ParamTableDefinitionID">18</property>
+										<property name="PriceableItemID">673</property>
+										<property name="PriceListID">611</property>
+										<paramtabledefinitionname>metratech.com/intlrate</paramtabledefinitionname>
+										<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+									</pricelistmapping>
+									<pricelistmapping name="AudioConfConn:metratech.com/ldrate">
+										<property name="CanICB">0</property>
+										<property name="ParamTableDefinitionID">19</property>
+										<property name="PriceableItemID">673</property>
+										<property name="PriceListID">611</property>
+										<paramtabledefinitionname>metratech.com/ldrate</paramtabledefinitionname>
+										<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+									</pricelistmapping>
+									<pricelistmapping name="AudioConfConn:metratech.com/tollfreerate">
+										<property name="CanICB">0</property>
+										<property name="ParamTableDefinitionID">29</property>
+										<property name="PriceableItemID">673</property>
+										<property name="PriceListID">611</property>
+										<paramtabledefinitionname>metratech.com/tollfreerate</paramtabledefinitionname>
+										<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+									</pricelistmapping>
+									<pricelistmapping name="AudioConfConn:metratech.com/calendar">
+										<property name="CanICB">0</property>
+										<property name="ParamTableDefinitionID">33</property>
+										<property name="PriceableItemID">673</property>
+										<property name="PriceListID">611</property>
+										<paramtabledefinitionname>metratech.com/calendar</paramtabledefinitionname>
+										<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+									</pricelistmapping>
+								</pricelistmappings>
+								<adjustments type="Instance">
+									<adjustment name="ConnectionMinutesAdjustment">
+										<adjustmenttype name="ConnectionMinutesAdjustment">
+											<property name="Description">Audio Conference Connection Minutes Adjustment</property>
+											<property name="DisplayName">Audio Conference Connection Minutes Adjustment</property>
+											<property name="ID">97</property>
+											<property name="Kind">0</property>
+											<property name="SupportsBulk">0</property>
+										</adjustmenttype>
+										<property name="Description">Audio Conference Connection Minutes Adjustment</property>
+										<property name="DisplayName">Audio Conference Connection Minutes Adjustment</property>
+										<property name="GUID">0xABCD</property>
+										<property name="ID">674</property>
+										<displaynames>
+											<language name="JP">可聴周波会議の関係は調節の時間を精密に計る</language>
+											<language name="FR">Le Raccordement De Conférence Audio Minute L'Ajustement</language>
+											<language name="IT">Il Collegamento Di Congresso Audio Redige La Registrazione</language>
+											<language name="DE">Fernsprechkonferenz-Anschluß Setzt Justage Auf</language>
+											<language name="US">Audio Conference Connection Minutes Adjustment</language>
+										</displaynames>
+									</adjustment>
+									<adjustment name="ConnectionFlatAdjustment">
+										<adjustmenttype name="ConnectionFlatAdjustment">
+											<property name="Description">Audio Conference Connection Flat Adjustment</property>
+											<property name="DisplayName">Audio Conference Connection Flat Adjustment</property>
+											<property name="ID">102</property>
+											<property name="Kind">0</property>
+											<property name="SupportsBulk">0</property>
+										</adjustmenttype>
+										<property name="Description">Audio Conference Connection Flat Adjustment</property>
+										<property name="DisplayName">Audio Conference Connection Flat Adjustment</property>
+										<property name="GUID">0xABCD</property>
+										<property name="ID">675</property>
+										<displaynames>
+											<language name="JP">可聴周波会議の関係の平らな調節</language>
+											<language name="FR">Ajustement Plat De Raccordement De Conférence Audio</language>
+											<language name="IT">Registrazione Piana Del Collegamento Di Congresso Audio</language>
+											<language name="DE">Fernsprechkonferenz-Anschluß-Flache Justage</language>
+											<language name="US">Audio Conference Connection Flat Adjustment</language>
+										</displaynames>
+									</adjustment>
+									<adjustment name="ConnectionPercentAdjustment">
+										<adjustmenttype name="ConnectionPercentAdjustment">
+											<property name="Description">Audio Conference Connection Percent Adjustment</property>
+											<property name="DisplayName">Audio Conference Connection Percent Adjustment</property>
+											<property name="ID">108</property>
+											<property name="Kind">0</property>
+											<property name="SupportsBulk">0</property>
+										</adjustmenttype>
+										<property name="Description">Audio Conference Connection Percent Adjustment</property>
+										<property name="DisplayName">Audio Conference Connection Percent Adjustment</property>
+										<property name="GUID">0xABCD</property>
+										<property name="ID">676</property>
+										<displaynames>
+											<language name="JP">可聴周波会議の関係のパーセントの調節</language>
+											<language name="FR">Ajustement De Pour cent De Raccordement De Conférence Audio</language>
+											<language name="IT">Registrazione Di Percento Del Collegamento Di Congresso Audio</language>
+											<language name="DE">Fernsprechkonferenz-Anschluß-Prozent-Justage</language>
+											<language name="US">Audio Conference Connection Percent Adjustment</language>
+										</displaynames>
+									</adjustment>
+								</adjustments>
+							</usagecharge>
+							<usagecharge name="AudioConfFeature">
+								<property name="Description">Feature Child Priceable</property>
+								<property name="DisplayName">AudioConfFeature-Localized</property>
+								<property name="glcode">
+								</property>
+								<property name="ID">677</property>
+								<property name="Kind">10</property>
+								<property name="ParentID">669</property>
+								<priceableitemtype name="AudioConfFeature">
+									<property name="ConstrainSubscriberCycle">-1</property>
+									<property name="Description">Feature Child Priceable Item for Audioconferencing reference implementation</property>
+									<property name="ID">120</property>
+									<property name="Kind">10</property>
+									<property name="ParentID">61</property>
+									<property name="ProductView">metratech.com/audioconffeature</property>
+									<property name="ServiceDefinition">metratech.com/audioconffeature</property>
+								</priceableitemtype>
+								<property name="ProductOfferingID">593</property>
+								<property name="TemplateID">148</property>
+								<displaynames>
+									<language name="JP">可聴周波協議の特徴</language>
+									<language name="FR">Dispositif Audio De Communication</language>
+									<language name="IT">Caratteristica Audio Di Comunicazione</language>
+									<language name="DE">Audioconferencing-Eigenschaft</language>
+									<language name="US">AudioConfFeature-Localized</language>
+								</displaynames>
+								<pricelistmappings>
+									<pricelistmapping name="AudioConfFeature:metratech.com/featuresetupcharge">
+										<property name="CanICB">0</property>
+										<property name="ParamTableDefinitionID">15</property>
+										<property name="PriceableItemID">677</property>
+										<property name="PriceListID">611</property>
+										<paramtabledefinitionname>metratech.com/featuresetupcharge</paramtabledefinitionname>
+										<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+									</pricelistmapping>
+									<pricelistmapping name="AudioConfFeature:metratech.com/metricfeaturerate">
+										<property name="CanICB">0</property>
+										<property name="ParamTableDefinitionID">20</property>
+										<property name="PriceableItemID">677</property>
+										<property name="PriceListID">611</property>
+										<paramtabledefinitionname>metratech.com/metricfeaturerate</paramtabledefinitionname>
+										<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+									</pricelistmapping>
+									<pricelistmapping name="AudioConfFeature:metratech.com/timefeaturerate">
+										<property name="CanICB">0</property>
+										<property name="ParamTableDefinitionID">28</property>
+										<property name="PriceableItemID">677</property>
+										<property name="PriceListID">611</property>
+										<paramtabledefinitionname>metratech.com/timefeaturerate</paramtabledefinitionname>
+										<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+									</pricelistmapping>
+								</pricelistmappings>
+								<adjustments type="Instance">
+									<adjustment name="FeatureFlatAdjustment">
+										<adjustmenttype name="FeatureFlatAdjustment">
+											<property name="Description">Audio Conference Feature Flat Adjustment</property>
+											<property name="DisplayName">Audio Conference Feature Flat Adjustment</property>
+											<property name="ID">121</property>
+											<property name="Kind">0</property>
+											<property name="SupportsBulk">0</property>
+										</adjustmenttype>
+										<property name="Description">Audio Conference Feature Flat Adjustment</property>
+										<property name="DisplayName">Audio Conference Feature Flat Adjustment</property>
+										<property name="GUID">0xABCD</property>
+										<property name="ID">678</property>
+										<displaynames>
+											<language name="JP">可聴周波会議の特徴の平らな調節</language>
+											<language name="FR">Ajustement Plat De Dispositif De Conférence Audio</language>
+											<language name="IT">Registrazione Piana Della Caratteristica Di Congresso Audio</language>
+											<language name="DE">Fernsprechkonferenz-Eigenschaft Flache Justage</language>
+											<language name="US">Audio Conference Feature Flat Adjustment</language>
+										</displaynames>
+									</adjustment>
+									<adjustment name="FeaturePercentAdjustment">
+										<adjustmenttype name="FeaturePercentAdjustment">
+											<property name="Description">Audio Conference Feature Percent Adjustment</property>
+											<property name="DisplayName">Audio Conference Feature Percent Adjustment</property>
+											<property name="ID">129</property>
+											<property name="Kind">0</property>
+											<property name="SupportsBulk">0</property>
+										</adjustmenttype>
+										<property name="Description">Audio Conference Feature Percent Adjustment</property>
+										<property name="DisplayName">Audio Conference Feature Percent Adjustment</property>
+										<property name="GUID">0xABCD</property>
+										<property name="ID">679</property>
+										<displaynames>
+											<language name="JP">可聴周波会議の特徴のパーセントの調節</language>
+											<language name="FR">Ajustement De Pour cent De Dispositif De Conférence Audio</language>
+											<language name="IT">Registrazione Di Percento Della Caratteristica Di Congresso Audio</language>
+											<language name="DE">Fernsprechkonferenz-Eigenschaft Prozent-Justage</language>
+											<language name="US">Audio Conference Feature Percent Adjustment</language>
+										</displaynames>
+									</adjustment>
+									<adjustment name="RecordFeatureFlatAdjustment">
+										<adjustmenttype name="RecordFeatureFlatAdjustment">
+											<property name="Description">Audio Conference Record Feature Flat Adjustment</property>
+											<property name="DisplayName">Audio Conference Record Feature Flat Adjustment</property>
+											<property name="ID">137</property>
+											<property name="Kind">0</property>
+											<property name="SupportsBulk">0</property>
+										</adjustmenttype>
+										<property name="Description">Audio Conference Record Feature Flat Adjustment</property>
+										<property name="DisplayName">Audio Conference Record Feature Flat Adjustment</property>
+										<property name="GUID">0xABCD</property>
+										<property name="ID">680</property>
+										<displaynames>
+											<language name="JP">可聴周波会議の記録特徴の平らな調節</language>
+											<language name="FR">Ajustement Plat De Dispositif De Disque De Conférence Audio</language>
+											<language name="IT">Registrazione Piana Della Caratteristica Dell'Annotazione Di Congresso Audio</language>
+											<language name="DE">Fernsprechkonferenz-Aufzeichnung Eigenschaft Flache Justage</language>
+											<language name="US">Audio Conference Record Feature Flat Adjustment</language>
+										</displaynames>
+									</adjustment>
+								</adjustments>
+							</usagecharge>
+						</priceableiteminstances>
+					</children>
+				</usagecharge>
+				<discount name="Daily Flat Rate Audio Conferencing Discount 2/25/2004 3:00:09 PM">
+					<pccycle name="Cycle">
+						<property name="AdapterProgID">MTStdUsageCycle.MTStdDaily.1</property>
+						<property name="CycleID">2</property>
+						<property name="CycleTypeDescription">Daily</property>
+						<property name="CycleTypeID">3<!-- DAILY_CYCLE --></property>
+						<property name="EndDayOfMonth">0</property>
+						<property name="EndDayOfMonth2">0</property>
+						<property name="EndDayOfWeek">0</property>
+						<property name="Mode">0</property>
+						<property name="StartDay">0</property>
+						<property name="StartMonth">0</property>
+						<property name="StartYear">0</property>
+					</pccycle>
+					<property name="Description">Daily Flat Rate Audio Conferencing Discount</property>
+					<property name="DisplayName">Daily Flat Rate Audio Conferencing Discount-Localized</property>
+					<property name="DistributionCPDID">-1</property>
+					<property name="glcode">
+					</property>
+					<property name="ID">681</property>
+					<property name="Kind">40</property>
+					<property name="ParentID">-1</property>
+					<priceableitemtype name="Flat Discount">
+						<property name="ConstrainSubscriberCycle">0</property>
+						<property name="Description">Flat discount based on 1 qualifier</property>
+						<property name="ID">152</property>
+						<property name="Kind">40</property>
+						<property name="ParentID">-1</property>
+						<property name="ProductView">metratech.com/flatdiscount</property>
+						<property name="ServiceDefinition">metratech.com/flatdiscount</property>
+					</priceableitemtype>
+					<property name="ProductOfferingID">593</property>
+					<property name="TemplateID">594</property>
+					<displaynames>
+						<language name="JP">毎日の均一料金の可聴周波協議の割引</language>
+						<language name="FR">Escompte Audio Quotidien De Communication De Taux Forfaitaire</language>
+						<language name="IT">Sconto Audio Quotidiano Di Comunicazione Di Aliquota forfettaria</language>
+						<language name="DE">Täglicher Pauschalpreisaudioconferencing-Diskont</language>
+						<language name="US">Daily Flat Rate Audio Conferencing Discount-Localized</language>
+					</displaynames>
+					<pricelistmappings>
+						<pricelistmapping name="Daily Flat Rate Audio Conferencing Discount 2/25/2004 3:00:09 PM:metratech.com/flatdiscount">
+							<property name="CanICB">0</property>
+							<property name="ParamTableDefinitionID">34</property>
+							<property name="PriceableItemID">681</property>
+							<property name="PriceListID">611</property>
+							<paramtabledefinitionname>metratech.com/flatdiscount</paramtabledefinitionname>
+							<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+						</pricelistmapping>
+					</pricelistmappings>
+					<adjustments type="Instance">
+					</adjustments>
+				</discount>
+				<discount name="Flat Discount On audio conf call usage and CancelCharges (avoid double count) 2/25/2004 3:00:09 PM">
+					<pccycle name="Cycle">
+						<property name="AdapterProgID">MTStdUsageCycle.MTStdDaily.1</property>
+						<property name="CycleID">2</property>
+						<property name="CycleTypeDescription">Daily</property>
+						<property name="CycleTypeID">3<!-- DAILY_CYCLE --></property>
+						<property name="EndDayOfMonth">0</property>
+						<property name="EndDayOfMonth2">0</property>
+						<property name="EndDayOfWeek">0</property>
+						<property name="Mode">0</property>
+						<property name="StartDay">0</property>
+						<property name="StartMonth">0</property>
+						<property name="StartYear">0</property>
+					</pccycle>
+					<property name="Description">Daily Flat Rate Audio Conferencing Discount1</property>
+					<property name="DisplayName">Daily Flat Rate Audio Conferencing Discount1-Localized</property>
+					<property name="DistributionCPDID">-1</property>
+					<property name="glcode">
+					</property>
+					<property name="ID">682</property>
+					<property name="Kind">40</property>
+					<property name="ParentID">-1</property>
+					<priceableitemtype name="Flat Discount">
+						<property name="ConstrainSubscriberCycle">0</property>
+						<property name="Description">Flat discount based on 1 qualifier</property>
+						<property name="ID">152</property>
+						<property name="Kind">40</property>
+						<property name="ParentID">-1</property>
+						<property name="ProductView">metratech.com/flatdiscount</property>
+						<property name="ServiceDefinition">metratech.com/flatdiscount</property>
+					</priceableitemtype>
+					<property name="ProductOfferingID">593</property>
+					<property name="TemplateID">598</property>
+					<displaynames>
+						<language name="JP">毎日の均一料金の可聴周波協議の割引1</language>
+						<language name="FR">Escompte Audio Quotidien 1 De Communication De Taux Forfaitaire</language>
+						<language name="IT">Sconto Audio Quotidiano 1 Di Comunicazione Di Aliquota forfettaria</language>
+						<language name="DE">Täglicher Pauschalpreisaudioconferencing-Diskont 1</language>
+						<language name="US">Daily Flat Rate Audio Conferencing Discount1-Localized</language>
+					</displaynames>
+					<pricelistmappings>
+						<pricelistmapping name="Flat Discount On audio conf call usage and CancelCharges (avoid double count) 2/25/2004 3:00:09 PM:metratech.com/flatdiscount">
+							<property name="CanICB">0</property>
+							<property name="ParamTableDefinitionID">34</property>
+							<property name="PriceableItemID">682</property>
+							<property name="PriceListID">611</property>
+							<paramtabledefinitionname>metratech.com/flatdiscount</paramtabledefinitionname>
+							<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+						</pricelistmapping>
+					</pricelistmappings>
+					<adjustments type="Instance">
+					</adjustments>
+				</discount>
+				<discount name="Flat Discount On audio conf call usage 2/25/2004 3:00:09 PM">
+					<pccycle name="Cycle">
+						<property name="AdapterProgID">MTStdUsageCycle.MTStdDaily.1</property>
+						<property name="CycleID">2</property>
+						<property name="CycleTypeDescription">Daily</property>
+						<property name="CycleTypeID">3<!-- DAILY_CYCLE --></property>
+						<property name="EndDayOfMonth">0</property>
+						<property name="EndDayOfMonth2">0</property>
+						<property name="EndDayOfWeek">0</property>
+						<property name="Mode">0</property>
+						<property name="StartDay">0</property>
+						<property name="StartMonth">0</property>
+						<property name="StartYear">0</property>
+					</pccycle>
+					<property name="Description">Daily Flat Rate Audio Conferencing Discount2</property>
+					<property name="DisplayName">Daily Flat Rate Audio Conferencing Discount 2-Localized</property>
+					<property name="DistributionCPDID">-1</property>
+					<property name="glcode">
+					</property>
+					<property name="ID">683</property>
+					<property name="Kind">40</property>
+					<property name="ParentID">-1</property>
+					<priceableitemtype name="Flat Discount">
+						<property name="ConstrainSubscriberCycle">0</property>
+						<property name="Description">Flat discount based on 1 qualifier</property>
+						<property name="ID">152</property>
+						<property name="Kind">40</property>
+						<property name="ParentID">-1</property>
+						<property name="ProductView">metratech.com/flatdiscount</property>
+						<property name="ServiceDefinition">metratech.com/flatdiscount</property>
+					</priceableitemtype>
+					<property name="ProductOfferingID">593</property>
+					<property name="TemplateID">602</property>
+					<displaynames>
+						<language name="JP">毎日の均一料金の可聴周波協議の割引2</language>
+						<language name="FR">Escompte Audio Quotidien 2 De Communication De Taux Forfaitaire</language>
+						<language name="IT">Sconto Audio Quotidiano 2 Di Comunicazione Di Aliquota forfettaria</language>
+						<language name="DE">Täglicher Pauschalpreisaudioconferencing-Diskont 2</language>
+						<language name="US">Daily Flat Rate Audio Conferencing Discount 2-Localized</language>
+					</displaynames>
+					<pricelistmappings>
+						<pricelistmapping name="Flat Discount On audio conf call usage 2/25/2004 3:00:09 PM:metratech.com/flatdiscount">
+							<property name="CanICB">0</property>
+							<property name="ParamTableDefinitionID">34</property>
+							<property name="PriceableItemID">683</property>
+							<property name="PriceListID">611</property>
+							<paramtabledefinitionname>metratech.com/flatdiscount</paramtabledefinitionname>
+							<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+						</pricelistmapping>
+					</pricelistmappings>
+					<adjustments type="Instance">
+					</adjustments>
+				</discount>
+				<discount name="Daily Flat Rate AudioConf Unconditional Discount 2/25/2004 3:00:09 PM">
+					<pccycle name="Cycle">
+						<property name="AdapterProgID">MTStdUsageCycle.MTStdDaily.1</property>
+						<property name="CycleID">2</property>
+						<property name="CycleTypeDescription">Daily</property>
+						<property name="CycleTypeID">3<!-- DAILY_CYCLE --></property>
+						<property name="EndDayOfMonth">0</property>
+						<property name="EndDayOfMonth2">0</property>
+						<property name="EndDayOfWeek">0</property>
+						<property name="Mode">0</property>
+						<property name="StartDay">0</property>
+						<property name="StartMonth">0</property>
+						<property name="StartYear">0</property>
+					</pccycle>
+					<property name="Description">Daily Flat Rate Audio Conferencing Unconditional Discount</property>
+					<property name="DisplayName">Daily Flat Rate Audio Conferencing Unconditional Discount-Localized</property>
+					<property name="DistributionCPDID">-1</property>
+					<property name="glcode">
+					</property>
+					<property name="ID">684</property>
+					<property name="Kind">40</property>
+					<property name="ParentID">-1</property>
+					<priceableitemtype name="Flat Unconditional Discount">
+						<property name="ConstrainSubscriberCycle">0</property>
+						<property name="Description">Flat discount based on 0 qualifiers (always applied)</property>
+						<property name="ID">170</property>
+						<property name="Kind">40</property>
+						<property name="ParentID">-1</property>
+						<property name="ProductView">metratech.com/flatdiscount_nocond</property>
+						<property name="ServiceDefinition">metratech.com/flatdiscount_nocond</property>
+					</priceableitemtype>
+					<property name="ProductOfferingID">593</property>
+					<property name="TemplateID">605</property>
+					<displaynames>
+						<language name="JP">毎日の均一料金の可聴周波協議の無条件割引</language>
+						<language name="FR">Escompte Sans conditions De Communication Audio Quotidienne De Taux Forfaitaire</language>
+						<language name="IT">Sconto Incondizionato Di Comunicazione Audio Quotidiana Di Aliquota forfettaria</language>
+						<language name="DE">Täglicher Pauschalpreisaudioconferencing-Unbedingter Diskont</language>
+						<language name="US">Daily Flat Rate Audio Conferencing Unconditional Discount-Localized</language>
+					</displaynames>
+					<pricelistmappings>
+						<pricelistmapping name="Daily Flat Rate AudioConf Unconditional Discount 2/25/2004 3:00:09 PM:metratech.com/flatdiscount_nocond">
+							<property name="CanICB">0</property>
+							<property name="ParamTableDefinitionID">35</property>
+							<property name="PriceableItemID">684</property>
+							<property name="PriceListID">611</property>
+							<paramtabledefinitionname>metratech.com/flatdiscount_nocond</paramtabledefinitionname>
+							<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+						</pricelistmapping>
+					</pricelistmappings>
+					<adjustments type="Instance">
+					</adjustments>
+				</discount>
+				<discount name="Daily  Percent Discount 2/25/2004 3:00:09 PM">
+					<pccycle name="Cycle">
+						<property name="AdapterProgID">MTStdUsageCycle.MTStdDaily.1</property>
+						<property name="CycleID">2</property>
+						<property name="CycleTypeDescription">Daily</property>
+						<property name="CycleTypeID">3<!-- DAILY_CYCLE --></property>
+						<property name="EndDayOfMonth">0</property>
+						<property name="EndDayOfMonth2">0</property>
+						<property name="EndDayOfWeek">0</property>
+						<property name="Mode">0</property>
+						<property name="StartDay">0</property>
+						<property name="StartMonth">0</property>
+						<property name="StartYear">0</property>
+					</pccycle>
+					<property name="Description">Daily Percent Discount</property>
+					<property name="DisplayName">Daily Percent Discount-Localized</property>
+					<property name="DistributionCPDID">-1</property>
+					<property name="glcode">
+					</property>
+					<property name="ID">685</property>
+					<property name="Kind">40</property>
+					<property name="ParentID">-1</property>
+					<priceableitemtype name="Percent Discount">
+						<property name="ConstrainSubscriberCycle">0</property>
+						<property name="Description">Percent discount based on one qualifier and calculated against one target</property>
+						<property name="ID">171</property>
+						<property name="Kind">40</property>
+						<property name="ParentID">-1</property>
+						<property name="ProductView">metratech.com/percentdiscount</property>
+						<property name="ServiceDefinition">metratech.com/percentdiscount</property>
+					</priceableitemtype>
+					<property name="ProductOfferingID">593</property>
+					<property name="TemplateID">606</property>
+					<displaynames>
+						<language name="JP">毎日のパーセントの割引</language>
+						<language name="FR">Escompte Quotidien De Pour cent</language>
+						<language name="IT">Sconto Quotidiano Di Percento</language>
+						<language name="DE">Täglicher Prozent-Diskont</language>
+						<language name="US">Daily Percent Discount-Localized</language>
+					</displaynames>
+					<pricelistmappings>
+						<pricelistmapping name="Daily  Percent Discount 2/25/2004 3:00:09 PM:metratech.com/percentdiscount">
+							<property name="CanICB">0</property>
+							<property name="ParamTableDefinitionID">38</property>
+							<property name="PriceableItemID">685</property>
+							<property name="PriceListID">611</property>
+							<paramtabledefinitionname>metratech.com/percentdiscount</paramtabledefinitionname>
+							<pricelistname>AudioConf product offering pricelist 2/25/2004 3:00:09 PM</pricelistname>
+						</pricelistmapping>
+					</pricelistmappings>
+					<adjustments type="Instance">
+					</adjustments>
+				</discount>
+			</priceableiteminstances>
+		</productoffering>
+	</productofferings>
+	<integrity>
+		<parametertables>
+			<parametertable name="metratech.com/cancelapplic">
+				<checksum>974f76eed689e2a21e9fa7a9b3be9b1b</checksum>
+				<id>12</id>
+			</parametertable>
+			<parametertable name="metratech.com/cancelrate">
+				<checksum>4e50bc9c5b7c5ecf119f76d29c443e3a</checksum>
+				<id>13</id>
+			</parametertable>
+			<parametertable name="metratech.com/minapplic">
+				<checksum>62bd973f96ec21ba2d97911f4420f3ed</checksum>
+				<id>21</id>
+			</parametertable>
+			<parametertable name="metratech.com/mincharge">
+				<checksum>0a7634844b2aa5fbee7189789f7bbd3d</checksum>
+				<id>22</id>
+			</parametertable>
+			<parametertable name="metratech.com/overusedportapplic">
+				<checksum>31a94d487aa3064de414b4776610326a</checksum>
+				<id>23</id>
+			</parametertable>
+			<parametertable name="metratech.com/overusedportdef">
+				<checksum>004ff7e2c98b5799b8ebee43839d91cd</checksum>
+				<id>24</id>
+			</parametertable>
+			<parametertable name="metratech.com/overusedportrate">
+				<checksum>781df481f70df430ea4353d699f1a821</checksum>
+				<id>25</id>
+			</parametertable>
+			<parametertable name="metratech.com/reservationapplic">
+				<checksum>05a24e6a8ed6c07d140928c1f360bcca</checksum>
+				<id>26</id>
+			</parametertable>
+			<parametertable name="metratech.com/reserverate">
+				<checksum>8f798a4198378aca0708ecbce1f18bdb</checksum>
+				<id>27</id>
+			</parametertable>
+			<parametertable name="metratech.com/unusedportapplic">
+				<checksum>1230212d24b078c2c46d40aef27d1b09</checksum>
+				<id>30</id>
+			</parametertable>
+			<parametertable name="metratech.com/unusedportdef">
+				<checksum>804b5a512e2479bc8d58eb018b53a5fa</checksum>
+				<id>31</id>
+			</parametertable>
+			<parametertable name="metratech.com/unusedportrate">
+				<checksum>ed2c47f69e3a32e24ad953753abf162a</checksum>
+				<id>32</id>
+			</parametertable>
+			<parametertable name="metratech.com/basetransportrate">
+				<checksum>302912e3351c321710eb152da9c2c463</checksum>
+				<id>10</id>
+			</parametertable>
+			<parametertable name="metratech.com/bridgerate">
+				<checksum>7e187752f6673f7aab4dfc11866d00e7</checksum>
+				<id>11</id>
+			</parametertable>
+			<parametertable name="metratech.com/globalactions">
+				<checksum>c6410c5275f78859c904964943ae856e</checksum>
+				<id>16</id>
+			</parametertable>
+			<parametertable name="metratech.com/includedrole">
+				<checksum>3af6ecdbf39e20e2d7e154c7a54b01c0</checksum>
+				<id>17</id>
+			</parametertable>
+			<parametertable name="metratech.com/intlrate">
+				<checksum>1a4e9983e1d52414a70f65da296aad1d</checksum>
+				<id>18</id>
+			</parametertable>
+			<parametertable name="metratech.com/ldrate">
+				<checksum>d2903986fc31efe38637080e17f9ba44</checksum>
+				<id>19</id>
+			</parametertable>
+			<parametertable name="metratech.com/tollfreerate">
+				<checksum>29ee53dc72f7c0beac00f93358852498</checksum>
+				<id>29</id>
+			</parametertable>
+			<parametertable name="metratech.com/calendar">
+				<checksum>80206a78c0abfe80a1c87487ac7065ac</checksum>
+				<id>33</id>
+			</parametertable>
+			<parametertable name="metratech.com/featuresetupcharge">
+				<checksum>5ecbba7371ea05a8e0c5e51c6b7b790d</checksum>
+				<id>15</id>
+			</parametertable>
+			<parametertable name="metratech.com/metricfeaturerate">
+				<checksum>1f5401bd9464f3eefc13358d776557db</checksum>
+				<id>20</id>
+			</parametertable>
+			<parametertable name="metratech.com/timefeaturerate">
+				<checksum>3fe81504d544658e26f1798f6cde121a</checksum>
+				<id>28</id>
+			</parametertable>
+			<parametertable name="metratech.com/flatdiscount">
+				<checksum>376a352e020f83e7053e4f43bb8039a3</checksum>
+				<id>34</id>
+			</parametertable>
+			<parametertable name="metratech.com/flatdiscount_nocond">
+				<checksum>8317eebaaaf06c07728b98aff357eb3d</checksum>
+				<id>35</id>
+			</parametertable>
+			<parametertable name="metratech.com/percentdiscount">
+				<checksum>bdc1d551f4952e690ee4adc920a3809b</checksum>
+				<id>38</id>
+			</parametertable>
+		</parametertables>
+	</integrity>
+</xmlconfig>

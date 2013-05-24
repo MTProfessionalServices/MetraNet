@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{60db7f76-28c1-4ef3-8406-26c2c6c8c7b9}</ProjectGuid>
+    <RootNamespace>DeployProductView</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>True</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>False</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(MTOUTDIR)\$(Configuration)\Bin\</OutDir>
+    <GenerateManifest>false</GenerateManifest>
+	<LinkIncremental>false</LinkIncremental>
+    <IntDir>$(MTOUTDIR)\$(Configuration)\Hooks\DeployProductView\</IntDir>
+    <CustomBuildBeforeTargets>ClCompile</CustomBuildBeforeTargets>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <CLCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(MTOUTDIR)\$(CONFIGURATION)\Hooks\DeployProductView\..\..\skeleton;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(MTOUTDIR)\$(CONFIGURATION)\Shared\NameID;$(ROOTDIR)\Shared\NameID;$(MTOUTDIR)\$(CONFIGURATION)\Core\Configuration\RCD;$(ROOTDIR)\Core\DataAccess\Rowset;$(ROOTDIR)\Hooks\DeployProductView;$(MTOUTDIR)\$(CONFIGURATION)\Hooks\DeployProductView;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;RWDEBUG;WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_WIN32_WINNT=0x501;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;UNICODE;_UNICODE;</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
+      <DisableSpecificWarnings>4995;4335;</DisableSpecificWarnings>
+      <StringPooling>true</StringPooling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalOptions>/bigobj /c /MDd </AdditionalOptions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+    </CLCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>kernel32.lib;user32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;</AdditionalDependencies>
+      <EnableUAC>false</EnableUAC>
+      <ProfileGuidedDatabase>
+      </ProfileGuidedDatabase>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalLibraryDirectories>$(MTOUTDIR)\$(Configuration)\lib;</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4070 /ignore:4217 /ignore:4199 /ignore:4098  /subsystem:windows</AdditionalOptions>
+      <ImportLibrary>$(MTOUTDIR)\$(Configuration)\lib\DeployProductView.lib</ImportLibrary>
+      <ModuleDefinitionFile>$(ROOTDIR)\Hooks\DeployProductView\DeployProductView.def</ModuleDefinitionFile>
+      <RegisterOutput>true</RegisterOutput>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>s:\build\tools\MakeTreeVersion;$(MTOUTDIR)\$(CONFIGURATION)\Hooks\DeployProductView\..\..\skeleton;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(MTOUTDIR)\$(CONFIGURATION)\Shared\NameID;$(ROOTDIR)\Shared\NameID;$(MTOUTDIR)\$(CONFIGURATION)\Core\Configuration\RCD;$(ROOTDIR)\Core\DataAccess\Rowset;$(ROOTDIR)\Hooks\DeployProductView;$(MTOUTDIR)\$(CONFIGURATION)\Hooks\DeployProductView;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG</PreprocessorDefinitions>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Post-Build Event</Message>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Message>Generate derived RC file</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Command>bash s:\build\tools\GenerateDerivedRc.bash DeployProductView_version.h $(ROOTDIR)\build\tools\MakeTreeVersion\template.rc &gt; $(IntDir)\DeployProductView_derived.rc</Command>
+      <Outputs>$(IntDir)\DeployProductView_derived.rc</Outputs>
+      <Inputs>DeployProductView_version.h;s:\build\tools\MakeTreeVersion\template.rc</Inputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(MTOUTDIR)\$(Configuration)\Bin\</OutDir>
+    <GenerateManifest>false</GenerateManifest>
+    <IntDir>$(MTOUTDIR)\$(Configuration)\Hooks\DeployProductView\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <CustomBuildBeforeTargets>ClCompile</CustomBuildBeforeTargets>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <CLCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>$(MTOUTDIR)\$(CONFIGURATION)\Hooks\DeployProductView\..\..\skeleton;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(MTOUTDIR)\$(CONFIGURATION)\Shared\NameID;$(ROOTDIR)\Shared\NameID;$(MTOUTDIR)\$(CONFIGURATION)\Core\Configuration\RCD;$(ROOTDIR)\Core\DataAccess\Rowset;$(ROOTDIR)\Hooks\DeployProductView;$(MTOUTDIR)\$(CONFIGURATION)\Hooks\DeployProductView;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_WIN32_WINNT=0x501;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;UNICODE;_UNICODE;</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
+      <DisableSpecificWarnings>4995;4335;</DisableSpecificWarnings>
+      <StringPooling>true</StringPooling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalOptions>/bigobj /c </AdditionalOptions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+    </CLCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <MapExports>true</MapExports>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>kernel32.lib;user32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;</AdditionalDependencies>
+      <EnableUAC>false</EnableUAC>
+      <ProfileGuidedDatabase>
+      </ProfileGuidedDatabase>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalOptions>/ignore:4070 /ignore:4217 /ignore:4199 /ignore:4098  /subsystem:windows</AdditionalOptions>
+      <AdditionalLibraryDirectories>$(MTOUTDIR)\$(Configuration)\lib;</AdditionalLibraryDirectories>
+      <ImportLibrary>$(MTOUTDIR)\$(Configuration)\lib\DeployProductView.lib</ImportLibrary>
+      <ModuleDefinitionFile>$(ROOTDIR)\Hooks\DeployProductView\DeployProductView.def</ModuleDefinitionFile>
+      <RegisterOutput>true</RegisterOutput>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>s:\build\tools\MakeTreeVersion;$(MTOUTDIR)\$(CONFIGURATION)\Hooks\DeployProductView\..\..\skeleton;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(MTOUTDIR)\$(CONFIGURATION)\Shared\NameID;$(ROOTDIR)\Shared\NameID;$(MTOUTDIR)\$(CONFIGURATION)\Core\Configuration\RCD;$(ROOTDIR)\Core\DataAccess\Rowset;$(ROOTDIR)\Hooks\DeployProductView;$(MTOUTDIR)\$(CONFIGURATION)\Hooks\DeployProductView;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG</PreprocessorDefinitions>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Post-Build Event</Message>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Message>Generate derived RC file</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Command>bash s:\build\tools\GenerateDerivedRc.bash DeployProductView_version.h $(ROOTDIR)\build\tools\MakeTreeVersion\template.rc &gt; $(IntDir)\DeployProductView_derived.rc</Command>
+      <Outputs>$(IntDir)\DeployProductView_derived.rc</Outputs>
+      <Inputs>DeployProductView_version.h;s:\build\tools\MakeTreeVersion\template.rc</Inputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ResourceCompile Include="$(IntDir)\DeployProductView_derived.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DeployProductView.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\base64\base64.vcxproj">
+      <Project>{b06f16d9-8d10-44da-92e6-8daa38b375c8}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\CodeLookup\CodeLookup\CodeLookup.vcxproj">
+      <Project>{d3f00285-fa7a-4e49-9c23-21b5c8bd7eae}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\ConfigReaders\configreaders.vcxproj">
+      <Project>{ce2eb0bc-3139-4d19-94dd-031b0543eda1}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\DataAccess\DBAccess\dbaccess.vcxproj">
+      <Project>{b2b0c583-f529-482f-a5f8-e22e92f23aae}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\DataAccess\MTODBC\MTODBC.vcxproj">
+      <Project>{d6090d12-0c9a-4f21-a85e-5dbf81b383fa}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\error\error.vcxproj">
+      <Project>{3e843aea-c148-4997-bb48-9bfc4e6bbd39}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Logger\NTLogger\ntlogger.vcxproj">
+      <Project>{92e32330-a430-487f-b064-b1aeef883081}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\msix\msix.vcxproj">
+      <Project>{c5cf7747-d6f0-4daf-aa9f-e83b2b12e13e}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\mtcomerr\mtcomerr.vcxproj">
+      <Project>{fc230fdb-5c05-45be-a5ae-e6db137061e7}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\MTDecimalVal\mtdecimalval.vcxproj">
+      <Project>{2497fdc3-d1c6-4f65-8401-977f2f3b708c}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\mtdec\mtdec.vcxproj">
+      <Project>{140b2a6e-da49-40b5-8961-830a57f7673c}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\MTSL\mtsl.vcxproj">
+      <Project>{67933836-cc95-497e-8f16-91e0ebdb04b1}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\MTUtil\mtutil.vcxproj">
+      <Project>{238eb1f4-b29e-4ed1-980e-3b5355c3cf3f}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\xml\xml.vcxproj">
+      <Project>{98e5c212-cc4c-45c0-b2cd-7ebf0772c2f3}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DBServices\DBObjects\DBObjects\dbobjects.vcxproj">
+      <Project>{a371c3df-fce0-4699-9429-e211c52a340b}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech\Product\Hooks\DynamicTableUpdate\MetraTech.Product.Hooks.DynamicTableUpdate.csproj">
+      <Project>{317d4d5d-dc4a-4cd5-8f0a-053f63593770}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Pipeline\sharedsess\sharedsess.vcxproj">
+      <Project>{bc41162a-e77a-4221-a13d-5231df55bf36}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\DynamicTable\dynamictable.vcxproj">
+      <Project>{5eafef6a-7e7f-4af2-9748-e6838c5b86bf}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\msixdefcollection\msixdefcollection.vcxproj">
+      <Project>{bc92c584-78fc-4843-a7e2-4fcc7627ba23}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\perflog\perflog.vcxproj">
+      <Project>{034475d2-e6ea-4e10-ac27-de6a538872cb}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\ProductView\ProductViewOps\ProductViewOps.vcxproj">
+      <Project>{99b2f3d5-11e3-4e20-8959-56ec903741de}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\ProductView\ProductView\ProductView.vcxproj">
+      <Project>{8310dca6-03d6-4443-9af8-b1b178d568d9}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\propids\propids.vcxproj">
+      <Project>{059c9b1d-9b09-498a-8589-ae45ee842d73}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\Skeleton\skeleton.vcxproj">
+      <Project>{162be905-b8bd-4e37-af0b-584606263086}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

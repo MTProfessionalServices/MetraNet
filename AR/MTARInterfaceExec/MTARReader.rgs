@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTARReader.1 = s 'MTARReader Class'
+	{
+		CLSID = s '{1E04C7F2-EB69-4762-90FD-3DD23C0FAC2A}'
+	}
+	MetraTech.MTARReader = s 'MTARReader Class'
+	{
+		CLSID = s '{1E04C7F2-EB69-4762-90FD-3DD23C0FAC2A}'
+		CurVer = s 'MetraTech.MTARReader.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1E04C7F2-EB69-4762-90FD-3DD23C0FAC2A} = s 'MTARReader Class'
+		{
+			ProgID = s 'MetraTech.MTARReader.1'
+			VersionIndependentProgID = s 'MetraTech.MTARReader'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{CCA512C9-A58B-45CF-85DE-BBAF74C15EAE}'
+		}
+	}
+}

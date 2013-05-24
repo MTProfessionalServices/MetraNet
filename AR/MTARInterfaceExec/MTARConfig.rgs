@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTARConfig.1 = s 'MTARConfig Class'
+	{
+		CLSID = s '{BC9A711D-B8C6-4422-A35D-20894A6203B8}'
+	}
+	MetraTech.MTARConfig = s 'MTARConfig Class'
+	{
+		CLSID = s '{BC9A711D-B8C6-4422-A35D-20894A6203B8}'
+		CurVer = s 'MetraTech.MTARConfig.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {BC9A711D-B8C6-4422-A35D-20894A6203B8} = s 'MTARConfig Class'
+		{
+			ProgID = s 'MetraTech.MTARConfig.1'
+			VersionIndependentProgID = s 'MetraTech.MTARConfig'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{CCA512C9-A58B-45CF-85DE-BBAF74C15EAE}'
+		}
+	}
+}

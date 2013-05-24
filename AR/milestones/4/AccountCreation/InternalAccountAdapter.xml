@@ -1,0 +1,76 @@
+<xmlconfig>
+  <mtsysconfigdata>
+    <effective_date ptype="DATETIME">1998-11-19T00:00:00Z</effective_date>
+    <timeout ptype="INTEGER">30</timeout>
+    <configfiletype>CONFIG_DATA</configfiletype>
+  </mtsysconfigdata>
+
+  <mtconfigdata>
+
+ <version ptype="INTEGER">1</version>
+ <!-- First processor configuration -->
+ <processor>
+  <name>InternalAccountAdapter</name>
+  <progid>MetraPipeline.InternalAccountAdapter.1</progid>
+  <description>
+  Used for adding account into the t_av_internal table.  This table is an
+  account view.
+  </description>
+
+  <inputs>
+    <input type="LONG" internal_name="accountID">_AccountID</input>
+    <input type="STRING" internal_name="actiontype">actiontype</input>
+    <input type="LONG" internal_name="accounttype">accounttype</input>
+    <input type="LONG" internal_name="tariffID">tariffID</input>
+    <input type="STRING" internal_name="taxexempt">taxexempt</input>
+    <input type="LONG" internal_name="timezoneID">timezoneID</input>
+    <input type="LONG" internal_name="geocode">geocode</input>
+    <input type="LONG" internal_name="paymentmethod">paymentmethod</input>
+    <input type="LONG" internal_name="operation">operation</input>
+    <input type="STRING" internal_name="accountcreated">accountcreated</input>
+    <input type="STRING" internal_name="transactioncookie">transactioncookie</input>
+    <input type="STRING" internal_name="StatusReason">StatusReason</input>
+    <input type="STRING" internal_name="defaultaccountpricelist">pricelist</input>
+    <input type="STRING" internal_name="currency">currency</input>
+    <input type="BOOLEAN" internal_name="billable">billable</input>
+    <input type="BOOLEAN" internal_name="folder">folder</input>
+  </inputs>
+
+  <outputs>
+  </outputs>
+
+  <!-- Processor specific configuration data -->
+  <configdata>
+    <_accountID>_AccountID</_accountID>
+    <actiontype>actiontype</actiontype>
+    <accounttype>accounttype</accounttype>
+    <tariffID>tariffID</tariffID>
+    <taxexempt>taxexempt</taxexempt>
+    <timezoneID>timezoneID</timezoneID>
+    <geocode>geocode</geocode>
+    <paymentmethod>paymentmethod</paymentmethod>
+    <operation>operation</operation>
+    <accountcreated>accountcreated</accountcreated>
+    <transactioncookie>transactioncookie</transactioncookie>
+    <username>username</username>
+    <name_space>name_space</name_space>
+    <AccountStatus>AccountStatus</AccountStatus>
+    <SecurityQuestion>SecurityQuestion</SecurityQuestion>
+    <InvoiceMethod>InvoiceMethod</InvoiceMethod>
+    <UsageCycleType>UsageCycleType</UsageCycleType>
+    <Language>Language</Language>
+		<StatusReasonOther>StatusReasonOther</StatusReasonOther>
+		<SecurityAnswer>SecurityAnswer</SecurityAnswer>
+		<TaxExemptID>TaxExemptID</TaxExemptID>
+		<StatusReason>StatusReason</StatusReason>
+		<defaultaccountpricelist>pricelist</defaultaccountpricelist>
+		<currency>currency</currency>
+		<billable>billable</billable>
+		<folder>folder</folder>
+  </configdata>
+
+ </processor>
+
+  </mtconfigdata>
+
+</xmlconfig>

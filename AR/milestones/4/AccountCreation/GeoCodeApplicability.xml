@@ -1,0 +1,79 @@
+<xmlconfig>
+
+  <mtsysconfigdata>
+    <effective_date ptype="DATETIME">1999-05-28T00:00:00Z</effective_date>
+    <timeout ptype="INTEGER">30</timeout>
+    <configfiletype>CONFIG_DATA</configfiletype>
+  </mtsysconfigdata>
+
+  <mtconfigdata>
+
+
+ <version ptype="INTEGER">1</version>
+ <!-- First processor configuration -->
+ <processor>
+  <name>GeoCodeApplicability</name>
+  <progid>MTPipeline.PropGenProcessor.1</progid>
+  <description>
+  This is a ruleset plug-in used to determine geocode applicability.
+  Geocode is applicable only for US and if the account type is BillTo.  
+  </description>
+
+  <inputs>
+    <input type="BOOLEAN" internal_name="ApplyGeoCode">ApplyGeoCode</input>
+  </inputs>
+
+  <outputs>
+    <output type="ENUM" enumspace="metratech.com/AccountCreation" enumtype="AccountType" internal_name="accounttype">accounttype</output>
+    <output type="STRING" internal_name="country">country</output>
+  </outputs>
+
+  <!-- Processor specific configuration data -->
+  <configdata>
+
+    <default_actions>
+      <action>
+        <prop_name>ApplyGeoCode</prop_name>
+        <prop_value ptype="BOOL">TRUE</prop_value>
+      </action>
+    </default_actions>
+
+    <!-- rule 1 -->
+    <constraint_set>
+      <actions>
+        <action>
+          <prop_name>ApplyGeoCode</prop_name>
+          <prop_value ptype="BOOL">FALSE</prop_value>
+        </action>
+      </actions>
+
+      <!-- 2 here stands for ShipTo account type -->
+      <constraint>
+        <prop_name>accounttype</prop_name>
+        <condition>equal</condition>
+        <prop_value ptype="ENUM" enumspace="metratech.com/AccountCreation" enumtype="AccountType">2</prop_value>
+      </constraint>
+    </constraint_set>
+
+    <!-- rule 2 -->
+    <constraint_set>
+      <actions>
+        <action>
+          <prop_name>ApplyGeoCode</prop_name>
+          <prop_value ptype="BOOL">FALSE</prop_value>
+        </action>
+      </actions>
+
+      <!-- if country not equal to USA or US -->
+      <constraint>
+        <prop_name>country</prop_name>
+        <condition>not_equal</condition>
+        <prop_value ptype="ENUM" enumspace="Global" enumtype="CountryName">208</prop_value>
+      </constraint>
+
+    </constraint_set>
+  </configdata>
+ </processor>
+
+  </mtconfigdata>
+</xmlconfig>

@@ -1,0 +1,16 @@
+<xmlconfig>
+
+  <session>
+   <ServiceName>metratech.com/TestService</ServiceName>
+   <inputs>
+    <AccountName>jed</AccountName>
+    <Description>Call</Description>
+    <Units ptype="DOUBLE">100</Units>
+    <Time ptype="DATETIME">2002-11-05T01:01:01Z</Time>
+   </inputs>
+   <outputs>
+    <_Amount ptype="DOUBLE">10</_Amount>
+   </outputs>
+  </session>
+
+</xmlconfig>

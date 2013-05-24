@@ -1,0 +1,26 @@
+HKCR
+{
+	MTHierarchyReports.SliceLexer.1 = s 'SliceLexer Class'
+	{
+		CLSID = s '{DD2EE40E-7F2A-4434-8E6B-1D95795B933C}'
+	}
+	MTHierarchyReports.SliceLexer = s 'SliceLexer Class'
+	{
+		CLSID = s '{DD2EE40E-7F2A-4434-8E6B-1D95795B933C}'
+		CurVer = s 'MTHierarchyReports.SliceLexer.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {DD2EE40E-7F2A-4434-8E6B-1D95795B933C} = s 'SliceLexer Class'
+		{
+			ProgID = s 'MTHierarchyReports.SliceLexer.1'
+			VersionIndependentProgID = s 'MTHierarchyReports.SliceLexer'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4A622901-311F-483D-99EF-E77FF304DC03}'
+		}
+	}
+}

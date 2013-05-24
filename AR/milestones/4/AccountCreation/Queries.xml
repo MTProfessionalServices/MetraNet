@@ -1,0 +1,26 @@
+<queryfile>
+	<mtsysconfigdata>
+		<effective_date ptype="DATETIME">1998-11-1T00:00:00Z</effective_date>
+    	<timeout ptype="INTEGER">30</timeout>
+		<configfiletype>CONFIG_DATA</configfiletype>
+	</mtsysconfigdata>
+
+	<mtconfigdata>
+		<filename>MTPresServer.xml</filename>
+		<major>1.0</major>
+		<minor>1.0</minor>
+
+		<!-- Account Mapper object related stuff -->
+		<!-- =================================== -->
+		<query>
+			<query_tag>__UPDATE_GEOCODE__</query_tag>
+			<query_string>
+			     update t_av_internal set c_geocode = %%GEOCODE%% where 
+			     id_acc = %%ACCOUNT_ID%% 
+			</query_string>
+			<num_params>2</num_params>
+		</query>
+
+	</mtconfigdata>
+</queryfile>
+

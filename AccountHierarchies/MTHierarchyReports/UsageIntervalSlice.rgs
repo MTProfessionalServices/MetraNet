@@ -1,0 +1,26 @@
+HKCR
+{
+	MTHierarchyReports.UsageIntervalSlice.1 = s 'UsageIntervalSlice Class'
+	{
+		CLSID = s '{7369BF83-9BBC-4321-9F67-67EA89798D8F}'
+	}
+	MTHierarchyReports.UsageIntervalSlice = s 'UsageIntervalSlice Class'
+	{
+		CLSID = s '{7369BF83-9BBC-4321-9F67-67EA89798D8F}'
+		CurVer = s 'MTHierarchyReports.UsageIntervalSlice.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {7369BF83-9BBC-4321-9F67-67EA89798D8F} = s 'UsageIntervalSlice Class'
+		{
+			ProgID = s 'MTHierarchyReports.UsageIntervalSlice.1'
+			VersionIndependentProgID = s 'MTHierarchyReports.UsageIntervalSlice'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4A622901-311F-483D-99EF-E77FF304DC03}'
+		}
+	}
+}

@@ -1,0 +1,26 @@
+HKCR
+{
+	MTHierarchyReports.HierarchyReportLevel.1 = s 'HierarchyReportLevel Class'
+	{
+		CLSID = s '{BCBF6A02-CFE2-4910-BCDE-4ACB05B2C2E1}'
+	}
+	MTHierarchyReports.HierarchyReportLevel = s 'HierarchyReportLevel Class'
+	{
+		CLSID = s '{BCBF6A02-CFE2-4910-BCDE-4ACB05B2C2E1}'
+		CurVer = s 'MTHierarchyReports.HierarchyReportLevel.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {BCBF6A02-CFE2-4910-BCDE-4ACB05B2C2E1} = s 'HierarchyReportLevel Class'
+		{
+			ProgID = s 'MTHierarchyReports.HierarchyReportLevel.1'
+			VersionIndependentProgID = s 'MTHierarchyReports.HierarchyReportLevel'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{4A622901-311F-483D-99EF-E77FF304DC03}'
+		}
+	}
+}

@@ -1,0 +1,17 @@
+<xmlconfig>
+
+  <session>
+   <ServiceID ptype="ID">metratech.com/accountcreation</ServiceID>
+
+   <inputs>
+    <!-- create account -->
+    <country>US</country>
+    <accounttype ptype="INTEGER">2</accounttype>
+   </inputs>
+
+   <outputs>
+    <ApplyGeoCode ptype="BOOL">FALSE</ApplyGeoCode>
+   </outputs>
+  </session>
+
+</xmlconfig>

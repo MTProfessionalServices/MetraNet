@@ -1,0 +1,153 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "1 TYPELIB ""MTHierarchyReports.tlb""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION MT_FILEVERSION
+ PRODUCTVERSION MT_PRODUCTVERSION
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+         BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", MT_COMPANYNAME_STR
+            VALUE "FileDescription", MT_USERDEFINE_DESCRIPTION
+            VALUE "FileVersion", MT_FILEVERSION_STR
+            VALUE "InternalName", MT_USERDEFINE_INTERNALNAME
+            VALUE "LegalCopyright", MT_COPYRIGHT_STR
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OLESelfRegister", "\0"
+            VALUE "OriginalFilename", MT_USERDEFINEORIGFILENAME
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", MT_USERDEFINEPRODUCTNAME
+            VALUE "ProductVersion", MT_PRODUCTVERSION_STR
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_REPORTMANAGER       REGISTRY                "ReportManager.rgs"
+IDR_MPSRENDERINFO       REGISTRY                "MPSRenderInfo.rgs"
+IDR_HIERARCHYREPORTLEVEL REGISTRY                "HierarchyReportLevel.rgs"
+IDR_MPSREPORTINFO       REGISTRY                "MPSReportInfo.rgs"
+IDR_PAYERSLICE          REGISTRY                "PayerSlice.rgs"
+IDR_PAYEESLICE          REGISTRY                "PayeeSlice.rgs"
+IDR_PAYERANDPAYEESLICE  REGISTRY                "PayerAndPayeeSlice.rgs"
+IDR_USAGEINTERVALSLICE  REGISTRY                "UsageIntervalSlice.rgs"
+IDR_DATERANGESLICE      REGISTRY                "DateRangeSlice.rgs"
+IDR_USAGEDETAILQUERY    REGISTRY                "UsageDetailQuery.rgs"
+IDR_SESSIONSLICE        REGISTRY                "SessionSlice.rgs"
+IDR_SESSIONCHILDRENSLICE REGISTRY                "SessionChildrenSlice.rgs"
+IDR_PRICEABLEITEMINSTANCESLICE REGISTRY                "PriceableItemInstanceSlice.rgs"
+IDR_PRICEABLEITEMTEMPLATESLICE REGISTRY                "PriceableItemTemplateSlice.rgs"
+IDR_USAGESUMMARYQUERY   REGISTRY                "UsageSummaryQuery.rgs"
+IDR_SLICEFACTORY        REGISTRY                "SliceFactory.rgs"
+IDR_DESCENDENTPAYEESLICE REGISTRY                "DescendentPayeeSlice.rgs"
+IDR_ROOTSESSIONSLICE    REGISTRY                "RootSessionSlice.rgs"
+IDR_INTERSECTIONTIMESLICE REGISTRY                "IntersectionTimeSlice.rgs"
+IDR_SLICELEXER          REGISTRY                "SliceLexer.rgs"
+IDR_REPORTHELPER        REGISTRY                "ReportHelper.rgs"
+IDR_QUERYPARAMS         REGISTRY                "QueryParams.rgs"
+IDR_PRODUCTVIEWSLICE    REGISTRY                "ProductViewSlice.rgs"
+IDR_PRODUCTVIEWALLUSAGESLICE REGISTRY                "ProductViewAllUsageSlice.rgs"
+IDR_PAYERANDPAYEEANDENDPOINTSLICE REGISTRY                "PayerAndPayeeAndEndpointSlice.rgs"
+IDR_PAYEEANDENDPOINTSLICE REGISTRY                "PayeeAndEndpointSlice.rgs"
+IDR_PRICEABLEITEMTEMPLATEWITHINSTANCESLICE REGISTRY                "PriceableItemTemplateWithInstanceSlice.rgs"
+IDR_ALLSESSIONSLICE    REGISTRY                "AllSessionSlice.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_PROJNAME            "MTHierarchyReports"
+    IDS_MPSREPORTINFO_DESC  "MPSReportInfo Class"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "MTHierarchyReports.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

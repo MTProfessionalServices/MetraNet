@@ -1,0 +1,26 @@
+HKCR
+{
+	MTHierarchyReports.PriceableItemInstanceSlice.1 = s 'PriceableItemInstanceSlice Class'
+	{
+		CLSID = s '{771F18F4-F050-4120-89BC-4D98098CD239}'
+	}
+	MTHierarchyReports.PriceableItemInstanceSlice = s 'PriceableItemInstanceSlice Class'
+	{
+		CLSID = s '{771F18F4-F050-4120-89BC-4D98098CD239}'
+		CurVer = s 'MTHierarchyReports.PriceableItemInstanceSlice.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {771F18F4-F050-4120-89BC-4D98098CD239} = s 'PriceableItemInstanceSlice Class'
+		{
+			ProgID = s 'MTHierarchyReports.PriceableItemInstanceSlice.1'
+			VersionIndependentProgID = s 'MTHierarchyReports.PriceableItemInstanceSlice'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4A622901-311F-483D-99EF-E77FF304DC03}'
+		}
+	}
+}

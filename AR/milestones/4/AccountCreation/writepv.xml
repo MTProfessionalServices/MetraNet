@@ -1,0 +1,28 @@
+<xmlconfig>
+  <mtconfigdata>
+
+ <version ptype="INTEGER">1</version>
+ <!-- Configuration to write product view data -->
+ <processor>
+  <name>writepv</name>
+  <progid>MetraPipeline.WriteProductView.1</progid>
+
+
+<!--
+  <inputs>
+  </inputs>
+
+  <outputs>
+  </outputs>
+-->
+
+  <!-- Processor specific configuration data -->
+  <configdata>
+      <!-- NOTE: not used -->
+      <argument>duration</argument>
+  </configdata>
+
+ </processor>
+
+ </mtconfigdata>
+</xmlconfig>

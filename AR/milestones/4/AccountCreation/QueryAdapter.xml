@@ -1,0 +1,5 @@
+<queryadapter>
+	<adapter_config>
+		<query_file>Queries.xml</query_file>
+	</adapter_config>
+</queryadapter>

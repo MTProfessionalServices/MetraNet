@@ -1,0 +1,46 @@
+<xmlconfig>
+
+  <mtsysconfigdata>
+    <effective_date ptype="DATETIME">1998-11-19T00:00:00Z</effective_date>
+    <timeout ptype="INTEGER">30</timeout>
+    <configfiletype>CONFIG_DATA</configfiletype>
+  </mtsysconfigdata>
+
+  <mtconfigdata>
+
+
+ <version ptype="INTEGER">1</version>
+ <!-- First processor configuration -->
+ <processor>
+  <name>viewproduct</name>
+  <progid>MTPipeline.PropGenProcessor.1</progid>
+
+  <inputs>
+    <input>
+    </input>
+  </inputs>
+
+  <outputs>
+    <output>
+    </output>
+  </outputs>
+
+  <!-- Processor specific configuration data -->
+  <configdata>
+	<default_actions>
+		<action>
+			<prop_name>_ProductViewID</prop_name>
+			<prop_value ptype="ID">metratech.com/audit</prop_value>
+		</action>
+		<action>
+			<prop_name>_ProductID</prop_name>
+			<prop_value ptype="ID">metratech.com/audit</prop_value>
+		</action>
+	</default_actions>
+  </configdata>
+
+ </processor>
+
+ </mtconfigdata>
+
+</xmlconfig>

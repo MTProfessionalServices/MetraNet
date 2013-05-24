@@ -1,0 +1,41 @@
+<xmlconfig>
+  <mtsysconfigdata>
+    <effective_date ptype="DATETIME">1998-11-19T00:00:00Z</effective_date>
+    <timeout ptype="INTEGER">30</timeout>
+    <configfiletype>CONFIG_DATA</configfiletype>
+  </mtsysconfigdata>
+
+  <mtconfigdata>
+
+ <version ptype="INTEGER">1</version>
+ <!-- First processor configuration -->
+ <processor>
+  <name>GeoCodeUpdater</name>
+  <progid>MetraPipeline.GeoCodeUpdater.1</progid>
+  <description>
+  Used to update the geocode column in the t_av_internal table. 
+  </description>
+
+  <inputs>
+    <input type="LONG" internal_name="geocode">geocode</input>
+    <input type="LONG" internal_name="accountID">_accountID</input>
+    <input type="STRING" internal_name="accounttype">accounttype</input>
+    <input type="STRING" internal_name="actiontype">actiontype</input>
+  </inputs>
+
+  <outputs>
+  </outputs>
+
+  <!-- Processor specific configuration data -->
+  <configdata>
+    <geocode>geocode</geocode>
+    <accountID>_AccountID</accountID>
+    <accounttype>accounttype</accounttype>
+    <actiontype>actiontype</actiontype>
+  </configdata>
+
+ </processor>
+
+  </mtconfigdata>
+
+</xmlconfig>

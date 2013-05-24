@@ -1,0 +1,123 @@
+<xmlconfig>
+  <mtsysconfigdata>
+    <effective_date ptype="DATETIME">1998-11-19T00:00:00Z</effective_date>
+    <timeout ptype="INTEGER">30</timeout>
+    <configfiletype>CONFIG_DATA</configfiletype>
+  </mtsysconfigdata>
+
+  <mtconfigdata>
+
+    <version ptype="INTEGER">1</version>
+
+    <processor>
+      <name>ARPropagation</name>
+      <progid>MetraPipeline.ComPlusPlugin</progid>
+      <description>Propagate account properties to AR</description>
+
+      <inputs>
+      </inputs>
+
+      <outputs>
+      </outputs>
+
+      <condition>
+       <![CDATA[
+             CREATE PROCEDURE condition @_ExecutePlugin BOOLEAN @billable BOOLEAN
+        AS
+          SET @_ExecutePlugin = @billable
+        ]]>
+      </condition>
+
+
+      <configdata>
+        <ExecutantProgid>MetraTech.ARPropagationWriter</ExecutantProgid>
+   
+        <!-- Executant specific configuration data -->
+        <ExecutantConfigdata>
+          <Method>CreateOrUpdateAccounts</Method>
+          <ARDocument>CreateOrUpdateAccount.xml</ARDocument>
+          <Properties>
+            <Property>
+              <PropertyName>username</PropertyName>
+              <NodeName>ExtAccountID</NodeName>
+              <Type>string</Type>
+            </Property>
+            <Property>
+              <PropertyName>concatname</PropertyName>
+              <NodeName>AccountName</NodeName>
+              <Type>string</Type>
+            </Property>
+            <Property>
+              <PropertyName>concatname</PropertyName>
+              <NodeName>ContactName</NodeName>
+              <Type>string</Type>
+            </Property>
+            <Property>
+              <PropertyName>address1</PropertyName>
+              <NodeName>Address1</NodeName>
+              <Type>string</Type>
+            </Property>
+            <Property>
+              <PropertyName>address2</PropertyName>
+              <NodeName>Address2</NodeName>
+              <Type>string</Type>
+            </Property>
+            <Property>
+              <PropertyName>city</PropertyName>
+              <NodeName>City</NodeName>
+              <Type>string</Type>
+            </Property>
+            <Property>
+              <PropertyName>state</PropertyName>
+              <NodeName>State</NodeName>
+              <Type>string</Type>
+            </Property>
+            <Property>
+              <PropertyName>zip</PropertyName>
+              <NodeName>Zip</NodeName>
+              <Type>string</Type>
+            </Property>
+            <Property>
+              <PropertyName>country</PropertyName>
+              <NodeName>Country</NodeName>
+              <Type>enum</Type>
+            </Property>
+            <Property>
+              <PropertyName>phonenumber</PropertyName>
+              <NodeName>PhoneNumber</NodeName>
+              <Type>string</Type>
+            </Property>
+            <Property>
+              <PropertyName>facsimiletelephonenumber</PropertyName>
+              <NodeName>FaxNumber</NodeName>
+              <Type>string</Type>
+            </Property>
+            <Property>
+              <PropertyName>email</PropertyName>
+              <NodeName>EMail</NodeName>
+              <Type>string</Type>
+            </Property>
+            <Property>
+              <PropertyName>currency</PropertyName>
+              <NodeName>Currency</NodeName>
+              <Type>string</Type>
+            </Property>
+            <Property>
+              <PropertyName>country</PropertyName>
+              <NodeName>TerritoryID</NodeName>
+              <Type>enum</Type>
+            </Property>
+<!--
+            <Property>
+              <PropertyName>SalesPersonID</PropertyName>
+              <NodeName>SalesPersonID</NodeName>
+              <Type>string</Type>
+            </Property>
+-->
+          </Properties>
+        </ExecutantConfigdata>
+      </configdata>
+
+    </processor>
+  </mtconfigdata>
+</xmlconfig>

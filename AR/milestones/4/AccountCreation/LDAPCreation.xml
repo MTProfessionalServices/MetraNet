@@ -1,0 +1,79 @@
+<xmlconfig>
+  <mtsysconfigdata>
+    <effective_date ptype="DATETIME">1998-11-19T00:00:00Z</effective_date>
+    <timeout ptype="INTEGER">30</timeout>
+    <configfiletype>CONFIG_DATA</configfiletype>
+  </mtsysconfigdata>
+
+  <mtconfigdata>
+
+ <version ptype="INTEGER">1</version>
+ <!-- First processor configuration -->
+ <processor>
+  <name>LDAPCreation</name>
+  <progid>MetraPipeline.LDAPCreation.1</progid>
+  <description>
+  Used for creating entries into the LDAP server. 
+  </description>
+
+  <inputs>
+    <input type="STRING" internal_name="actiontype">actiontype</input>
+    <input type="STRING" internal_name="firstname">firstname</input>
+    <input type="STRING" internal_name="lastname">lastname</input>
+    <input type="STRING" internal_name="email">email</input>
+    <input type="STRING" internal_name="phonenumber">phonenumber</input>
+    <input type="LONG" internal_name="contacttype">contacttype</input>
+    <input type="LONG" internal_name="accountID">_accountID</input>
+    <input type="LONG" internal_name="tariffID">tariffID</input>
+    <!-- input type="LONG" internal_name="geocode">geocode</input -->
+    <input type="STRING" internal_name="taxexempt">taxexempt</input>
+    <input type="LONG" internal_name="timezoneID">timezoneID</input>
+    <input type="DOUBLE" internal_name="timezoneoffset">timezoneoffset</input>
+    <input type="STRING" internal_name="company">company</input>
+    <input type="STRING" internal_name="address1">address1</input>
+    <input type="STRING" internal_name="address2">address2</input>
+    <input type="STRING" internal_name="address3">address3</input>
+    <input type="STRING" internal_name="city">city</input>
+    <input type="STRING" internal_name="state">state</input>
+    <input type="STRING" internal_name="zip">zip</input>
+    <input type="STRING" internal_name="country">country</input>
+    <input type="STRING" internal_name="facsimiletelephonenumber">facsimiletelephonenumber</input>
+    <input type="STRING" internal_name="middleinitial">middleinitial</input>
+    <input type="LONG" internal_name="operation">operation</input>
+  </inputs>
+
+  <outputs>
+  </outputs>
+
+  <!-- Processor specific configuration data -->
+  <configdata>
+    <actiontype>actiontype</actiontype>
+    <firstname>firstname</firstname>
+    <lastname>lastname</lastname>
+    <email>email</email>
+    <phonenumber>phonenumber</phonenumber>
+    <contacttype>contacttype</contacttype>
+    <accountID>_AccountID</accountID>
+    <tariffID>tariffID</tariffID>
+    <!-- geocode>geocode</geocode -->
+    <taxexempt>taxexempt</taxexempt>
+    <timezoneID>timezoneID</timezoneID>
+    <timezoneoffset>timezoneoffset</timezoneoffset>
+    <company>company</company>
+    <address1>address1</address1>
+    <address2>address2</address2>
+    <address3>address3</address3>
+    <city>city</city>
+    <state>state</state>
+    <zip>zip</zip>
+    <country>country</country>
+    <facsimiletelephonenumber>facsimiletelephonenumber</facsimiletelephonenumber>
+    <middleinitial>middleinitial</middleinitial>
+    <operation>operation</operation>
+  </configdata>
+
+ </processor>
+
+  </mtconfigdata>
+
+</xmlconfig>

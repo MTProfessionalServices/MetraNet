@@ -1,0 +1,10 @@
+<xmlconfig>
+  <SetSize ptype="INTEGER">2</SetSize>
+  
+  <!-- for debug only, can be ommitted, defaults to true -->
+  <ExportInvoices ptype="BOOLEAN">true</ExportInvoices>
+  
+  <CheckBalances ptype="BOOLEAN">true</CheckBalances>
+
+
+</xmlconfig>

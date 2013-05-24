@@ -1,0 +1,163 @@
+<xmlconfig>
+<!--
+  <billing_period uct = "Daily">
+    <soft_close_events>
+      <group>
+      <adapter_set>
+        <adapter>Metratech.MTARPaymentAdapter.1</adapter>
+        <adapter_name>AR Payment Export</adapter_name>
+        <config_file>UsageServer\Adapters\MTARPaymentAdapter.xml</config_file>
+        <description>Export payments to AR</description>
+      </adapter_set>
+      </group>
+    </soft_close_events>
+  </billing_period>
+-->
+
+  <billing_period uct = "Default">
+    <soft_close_events>
+
+<!-- !!
+      <group>
+        <adapter_set>
+          <adapter>Metratech.MTRecurringChargeAdapter.1</adapter>
+          <adapter_name>Recurring Charge Adapter</adapter_name>
+          <config_file></config_file>
+          <description>MetraTech standard adapter to generate recurring charges from the product catalog for this interval.</description>
+        </adapter_set>
+
+        <adapter_set>
+          <adapter>Metratech.MTNonRecurringChargeAdapter.1</adapter>
+          <adapter_name>NonRecurring Charge Adapter</adapter_name>
+          <config_file></config_file>
+          <description>MetraTech standard adapter to generate non-recurring charges from the product catalog. This adapter checks to see when it was last run and will generate the appropriate subscription and unsubscription charges for each day since it was last run up until the current date. This adapter will act on all intervals and executing it a second time on the same date will have no effect.</description>
+        </adapter_set>
+      </group>
+
+      <group>
+        <adapter_set>
+          <adapter>Metratech.MTAggRateAdapter.1</adapter>
+          <adapter_name>Aggregate Charge Adapter</adapter_name>
+          <config_file></config_file>
+          <description>MetraTech standard adapter to process aggregate rating for aggregate rated priceable items for this interval. This is accomplished by remetering usage date for these priceable items for this interval to the second pass service along with the appropriate aggregate counters.</description>
+        </adapter_set>
+      </group>
+
+
+      <group>
+        <adapter_set>
+          <adapter>Metratech.MTDiscountAdapter.1</adapter>
+          <adapter_name>Discount Adapter</adapter_name>
+          <config_file>UsageServer\Adapters\Discounts.xml</config_file>
+          <description>MetraTech standard adapter to process discounts from the product catalog.</description>
+        </adapter_set>
+      </group>
+!! -->
+
+<!--      
+      <group>
+        <adapter_set>
+          <adapter>Metratech.MTChangeAccountState.1</adapter>
+          <adapter_name>Generic Change Account State Adapter</adapter_name>
+          <config_file></config_file>
+          <description>
+          <![CDATA[This adapter is responsible for changing states of accounts from closed to pending final bill and Closed to Archived.  The rules are:<BR>
+Closed To Pending Final Bill: This operation gets triggered when there is usage that comes in as either late usage or as part of a straggler to an account that is in closed state.   End of period processing detects this and changes the account state to Pending Final Bill.<BR>
+Closed To Archived: This transition happens when an account has aged x number of months (configurable) after being Closed.  End of period processing detects that changes the account state to Archived.
+          ]]>
+          </description>
+        </adapter_set>
+      </group>
+-->
+
+      <group>
+        <!-- Invoices -->
+        <adapter_set>
+          <adapter>Metratech.MTInvoiceAdapter.1</adapter>
+          <adapter_name>Invoice Adapter</adapter_name>
+          <config_file>UsageServer\Adapters\ConfigInvoice.xml</config_file>
+          <description>MetraTech standard adapter for generating invoice numbers.</description>
+        </adapter_set>
+      </group>
+
+      <group>
+        <!-- AR Invoice Export -->
+        <adapter_set>
+          <adapter>Metratech.MTARInvoiceAdapter.1</adapter>
+          <adapter_name>AR Invoice Export</adapter_name>
+          <config_file>UsageServer\Adapters\MTARInvoiceAdapter.xml</config_file>
+          <description>Export invoices to AR</description>
+        </adapter_set>
+      </group>
+
+    </soft_close_events>
+
+    <hard_close_events>
+      <group>
+        <adapter_set>
+          <adapter>Metratech.MTChangeAccountStateFromPFBToClosed.1</adapter>
+          <adapter_name>Change Account State Adapter From PFB To Closed</adapter_name>
+          <config_file></config_file>
+          <description>This adapter will 'Close' accounts that are 'Pending Final Bill' once the final invoice has been sent. It should only be run during the 'Hard Close'.</description>
+        </adapter_set>
+      </group>
+    </hard_close_events>
+  </billing_period>
+
+  <billing_period uct = "Daily">
+    <soft_close_events>
+      <group>
+        <adapter_set>
+          <adapter>Metratech.MTDummyAdapter.1</adapter>
+          <adapter_name>MetraTech Dummy Adapter For Testing</adapter_name>
+          <config_file>Daily Period</config_file>
+        </adapter_set>
+      </group>
+    </soft_close_events>
+  </billing_period>
+
+  <billing_period uct = "Monthly">
+    <soft_close_events>
+      <group>
+        <adapter_set>
+          <adapter>Metratech.MTDummyAdapter.1</adapter>
+          <adapter_name>MetraTech Dummy Adapter For Testing</adapter_name>
+          <config_file>Monthly Period</config_file>
+          <description>Rudi was here</description>
+        </adapter_set>
+      </group>
+    </soft_close_events>
+  </billing_period>
+
+  <billing_period uct = "Quarterly">
+    <soft_close_events>
+      <group>
+        <adapter_set>
+          <adapter>Metratech.MTDummyAdapter.1</adapter>
+          <adapter_name>MetraTech Dummy Adapter For Testing</adapter_name>
+          <config_file>Quarterly Period</config_file>
+        </adapter_set>
+      </group>
+    </soft_close_events>
+  </billing_period>
+-->  
+  
+<!--
+  TO BE FIXED LATER
+	It is envisioned that in the future, it may be required to fix this as
+  part of a job that gets run daily 
+
+  <billing_period uct = "Daily">
+    <soft_close_events>
+      <group>
+        <adapter_set>
+          <adapter>Metratech.MTChangeAccountState.1</adapter>
+          <adapter_name>Generic Change Account State Adapter</adapter_name>
+          <config_file></config_file>
+        </adapter_set>
+      </group>
+    </soft_close_events>
+  </billing_period uct = "Daily">
+-->
+
+</xmlconfig>

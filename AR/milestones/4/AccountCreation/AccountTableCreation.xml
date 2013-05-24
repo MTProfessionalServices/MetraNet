@@ -1,0 +1,109 @@
+<xmlconfig>
+  <mtsysconfigdata>
+    <effective_date ptype="DATETIME">1998-11-19T00:00:00Z</effective_date>
+    <timeout ptype="INTEGER">30</timeout>
+    <configfiletype>CONFIG_DATA</configfiletype>
+  </mtsysconfigdata>
+
+  <mtconfigdata>
+
+ <version ptype="INTEGER">1</version>
+ <!-- First processor configuration -->
+ <processor>
+  <name>AccountTableCreation</name>
+  <progid>MetraPipeline.AccountTableCreation.1</progid>
+  <description>
+  Used for creating accounts in the MetraTech system.  Data is stored in all
+  the account tables.  AccountID is set as a property coming out of this
+  plug-in.
+  </description>
+
+  <inputs>
+    <input type="ENUM" internal_name="actiontype">actiontype</input>
+    <input type="STRING" internal_name="username">username</input>
+    <input type="STRING" internal_name="password">password</input>
+    <input type="STRING" internal_name="name_space">name_space</input>
+    <input type="STRING" internal_name="language">language</input>
+    <input type="LONG" internal_name="dayofmonth">dayofmonth</input>
+    <input type="ENUM" internal_name="accounttype">accounttype</input>
+    <input type="ENUM" internal_name="contacttype">contacttype</input>
+    <input type="ENUM" internal_name="tariffID">tariffID</input>
+    <input type="STRING" internal_name="tariffname">tariffname</input>
+    <input type="LONG" internal_name="geocode">geocode</input>
+    <input type="BOOLEAN" internal_name="taxexempt">taxexempt</input>
+    <input type="ENUM" internal_name="timezoneID">timezoneID</input>
+    <input type="DOUBLE" internal_name="timezoneoffset">timezoneoffset</input>
+    <input type="ENUM" internal_name="usagecycletype">usagecycletype</input>
+    <input type="DATETIME" internal_name="accountstartdate">accountstartdate</input>
+    <input type="DATETIME" internal_name="accountenddate">accountenddate</input>
+    <input type="ENUM" internal_name="operation">operation</input>
+    <input type="STRING" internal_name="tariffname">TariffName</input>
+    <input type="STRING" internal_name="transactioncookie">transactioncookie</input>
+    <input type="ENUM" internal_name="accountstatus">accountstatus</input>
+    <input type="ENUM" internal_name="dayofweek">dayofweek</input>
+    <input type="LONG" internal_name="firstdayofmonth">firstdayofmonth</input>
+    <input type="LONG" internal_name="seconddayofmonth">seconddayofmonth</input>
+    <input type="LONG" internal_name="startday">startday</input>
+    <input type="ENUM" internal_name="startmonth">startmonth</input>
+    <input type="LONG" internal_name="startyear">startyear</input>
+    <input type="BOOLEAN" internal_name="folder">folder</input>
+    <input type="BOOLEAN" internal_name="ApplyDefaultSecurityPolicy">ApplyDefaultSecurityPolicy</input>
+    <input type="STRING" internal_name="currency">currency</input>
+    
+  </inputs>
+
+  <outputs>
+    <output type="LONG" internal_name="accountID">_AccountID</output>
+  </outputs>
+
+  <!-- Processor specific configuration data -->
+  <configdata>
+    <actiontype>actiontype</actiontype>
+    <username>username</username>
+    <password>password_</password>
+    <name_space>name_space</name_space>
+    <language>language</language>
+    <dayofmonth>dayofmonth</dayofmonth>
+    <accounttype>accounttype</accounttype>
+    <contacttype>contacttype</contacttype>
+    <tariffID>tariffID</tariffID>
+    <tariffname>tariffname</tariffname>
+    <geocode>geocode</geocode>
+    <taxexempt>taxexempt</taxexempt>
+    <timezoneID>timezoneID</timezoneID>
+    <timezoneoffset>timezoneoffset</timezoneoffset>
+    <accountID>_AccountID</accountID>
+    <usagecycletype>usagecycletype</usagecycletype>
+    <accountstartdate>accountstartdate</accountstartdate>
+    <accountenddate>accountenddate</accountenddate>
+    <operation>operation</operation>
+    <transactioncookie>transactioncookie</transactioncookie>
+    <accountstatus>accountstatus</accountstatus>
+    <dayofweek>dayofweek</dayofweek>
+    <firstdayofmonth>firstdayofmonth</firstdayofmonth>
+    <seconddayofmonth>seconddayofmonth</seconddayofmonth>
+    <startday>startday</startday>
+    <startmonth>startmonth</startmonth>
+    <startyear>startyear</startyear>
+    <startyear>startyear</startyear>
+    <billable>billable</billable>
+    <PayerAccountID>payerID</PayerAccountID>
+    <PayerLoginName>PayerAccount</PayerLoginName>
+    <PayerNamespace>PayerAccountNS</PayerNamespace>
+    <PayerStart>payment_startdate</PayerStart>
+    <PayerEnd>payment_enddate</PayerEnd>
+    <AncestorID>ancestorAccountID</AncestorID>
+    <Ancestorlogin>ancestorAccount</Ancestorlogin>
+    <AncestorNameSpace>ancestorAccountNS</AncestorNameSpace>
+    <AncestorStart>hierarchy_startdate</AncestorStart>
+    <AncestorEnd>hierarchy_enddate</AncestorEnd>
+    <folder>folder</folder>
+    <ApplyDefaultSecurityPolicy>ApplyDefaultSecurityPolicy</ApplyDefaultSecurityPolicy>
+    <currency>currency</currency>
+  </configdata>
+
+ </processor>
+
+  </mtconfigdata>
+
+</xmlconfig>

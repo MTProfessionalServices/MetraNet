@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTARWriter.1 = s 'MTARWriter Class'
+	{
+		CLSID = s '{83A3064B-F07D-4BEA-B6BA-EDF252ED2B0E}'
+	}
+	MetraTech.MTARWriter = s 'MTARWriter Class'
+	{
+		CLSID = s '{83A3064B-F07D-4BEA-B6BA-EDF252ED2B0E}'
+		CurVer = s 'MetraTech.MTARWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {83A3064B-F07D-4BEA-B6BA-EDF252ED2B0E} = s 'MTARWriter Class'
+		{
+			ProgID = s 'MetraTech.MTARWriter.1'
+			VersionIndependentProgID = s 'MetraTech.MTARWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{CCA512C9-A58B-45CF-85DE-BBAF74C15EAE}'
+		}
+	}
+}

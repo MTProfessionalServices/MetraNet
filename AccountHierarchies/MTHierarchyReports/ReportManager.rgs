@@ -1,0 +1,26 @@
+HKCR
+{
+	MTHierarchyReports.ReportManager.1 = s 'ReportManager Class'
+	{
+		CLSID = s '{5E728360-AA11-43A9-896C-9654D2C7E011}'
+	}
+	MTHierarchyReports.ReportManager = s 'ReportManager Class'
+	{
+		CLSID = s '{5E728360-AA11-43A9-896C-9654D2C7E011}'
+		CurVer = s 'MTHierarchyReports.ReportManager.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {5E728360-AA11-43A9-896C-9654D2C7E011} = s 'ReportManager Class'
+		{
+			ProgID = s 'MTHierarchyReports.ReportManager.1'
+			VersionIndependentProgID = s 'MTHierarchyReports.ReportManager'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4A622901-311F-483D-99EF-E77FF304DC03}'
+		}
+	}
+}

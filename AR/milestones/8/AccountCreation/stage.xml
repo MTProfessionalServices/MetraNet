@@ -1,0 +1,43 @@
+<xmlconfig>
+ <version ptype="INTEGER">1</version>
+
+ <stage>
+  <name>AccountCreation</name>
+  <startstage ptype="BOOLEAN">YES</startstage>
+  <finalstage ptype="BOOLEAN">YES</finalstage>
+
+  <dependencies>
+   <dependson>audit</dependson>
+   <dependson>SetSubscriberID</dependson>
+   <dependson>viewproduct</dependson>
+   <dependson>SetAuditProperties</dependson>
+
+   <dependency>
+     <processor>ARPropagation</processor>
+     <dependson>ConcatName</dependson>
+   </dependency>
+
+   <dependency>
+     <processor>ConcatName</processor>
+     <dependson>audit</dependson>
+   </dependency>
+
+   <dependency>
+     <processor>audit</processor>
+     <dependson>SetSubscriberID</dependson>
+     <dependson>viewproduct</dependson>
+     <dependson>SetAuditProperties</dependson>
+   </dependency>
+
+   <dependency>
+     <processor>SetAuditProperties</processor>
+     <dependson>PopulateExtensions</dependson>
+   </dependency>
+
+   <dependency>
+     <processor>PopulateExtensions</processor>
+     <dependson>AccountTableCreation</dependson>
+   </dependency>
+  </dependencies>
+ </stage>
+</xmlconfig>

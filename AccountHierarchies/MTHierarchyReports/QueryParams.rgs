@@ -1,0 +1,26 @@
+HKCR
+{
+	MTHierarchyReports.QueryParams.1 = s 'QueryParams Class'
+	{
+		CLSID = s '{ED39ED30-0D13-4c26-9FC4-1EA4C96E08ED}'
+	}
+	MTHierarchyReports.QueryParams = s 'QueryParams Class'
+	{
+		CLSID = s '{ED39ED30-0D13-4c26-9FC4-1EA4C96E08ED}'
+		CurVer = s 'MTHierarchyReports.QueryParams.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {ED39ED30-0D13-4c26-9FC4-1EA4C96E08ED} = s 'QueryParams Class'
+		{
+			ProgID = s 'MTHierarchyReports.QueryParams.1'
+			VersionIndependentProgID = s 'MTHierarchyReports.QueryParams'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4A622901-311F-483D-99EF-E77FF304DC03}'
+		}
+	}
+}

@@ -1,0 +1,38 @@
+<xmlconfig>
+  <mtsysconfigdata>
+    <effective_date ptype="DATETIME">1990-03-19T23:12:22Z</effective_date>
+    <timeout ptype="INTEGER">30</timeout>
+    <configfiletype>CONFIG_DATA</configfiletype>
+  </mtsysconfigdata>
+  <mtconfigdata>
+    <version ptype="INTEGER">1</version>
+    <processor>
+      <name>SetSubscriberID</name>
+      <progid>MTPipeline.MTSubStr.1</progid>
+	  <description>Overrides the _Timestamp property with the ConnectTime.</description>
+
+	  <inputs>
+		<input type="DATETIME" internal_name="SourceProp">ConnectTime</input>
+	  </inputs>
+
+	  <outputs>
+		<output type="DATETIME" internal_name="DestProp">_Timestamp</output>
+	  </outputs>
+
+      <!-- Set the starttime to the recorded start time of the conference,
+           Not the metered time.  -->
+
+	    <configdata>
+        
+        <AssignProps>
+          <AssignProp>
+            <SourceProp>_AccountID</SourceProp>
+            <!-- The actual contents of the type tag are irelevant, but we need the ptype! -->
+            <type ptype="INTEGER">0</type>
+            <DestProp>subscriberaccountID</DestProp>
+          </AssignProp>
+        </AssignProps>
+      </configdata>
+    </processor>
+  </mtconfigdata>
+</xmlconfig>

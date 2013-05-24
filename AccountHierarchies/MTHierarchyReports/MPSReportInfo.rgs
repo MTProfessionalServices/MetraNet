@@ -1,0 +1,26 @@
+HKCR
+{
+	MTHierarchyReports.MPSReportInfo.1 = s 'MPSReportInfo Class'
+	{
+		CLSID = s '{E96956B6-64DD-4F00-9DB1-DC9B775B6A29}'
+	}
+	MTHierarchyReports.MPSReportInfo = s 'MPSReportInfo Class'
+	{
+		CLSID = s '{E96956B6-64DD-4F00-9DB1-DC9B775B6A29}'
+		CurVer = s 'MTHierarchyReports.MPSReportInfo.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E96956B6-64DD-4F00-9DB1-DC9B775B6A29} = s 'MPSReportInfo Class'
+		{
+			ProgID = s 'MTHierarchyReports.MPSReportInfo.1'
+			VersionIndependentProgID = s 'MTHierarchyReports.MPSReportInfo'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{4A622901-311F-483D-99EF-E77FF304DC03}'
+		}
+	}
+}

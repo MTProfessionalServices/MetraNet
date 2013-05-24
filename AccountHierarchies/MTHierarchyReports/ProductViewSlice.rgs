@@ -1,0 +1,26 @@
+HKCR
+{
+	MTHierarchyReports.ProductViewSlice.1 = s 'ProductViewSlice Class'
+	{
+		CLSID = s '{F51E1F68-011E-4730-B7CB-9E0DAFFCD9AB}'
+	}
+	MTHierarchyReports.ProductViewSlice = s 'ProductViewSlice Class'
+	{
+		CLSID = s '{F51E1F68-011E-4730-B7CB-9E0DAFFCD9AB}'
+		CurVer = s 'MTHierarchyReports.ProductViewSlice.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F51E1F68-011E-4730-B7CB-9E0DAFFCD9AB} = s 'ProductViewSlice Class'
+		{
+			ProgID = s 'MTHierarchyReports.ProductViewSlice.1'
+			VersionIndependentProgID = s 'MTHierarchyReports.ProductViewSlice'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4A622901-311F-483D-99EF-E77FF304DC03}'
+		}
+	}
+}

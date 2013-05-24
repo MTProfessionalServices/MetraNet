@@ -1,0 +1,26 @@
+HKCR
+{
+	MTHierarchyReports.UsageSummaryQuery.1 = s 'UsageSummaryQuery Class'
+	{
+		CLSID = s '{213FD01B-7E8F-4805-8A6C-6FBF0D4A5262}'
+	}
+	MTHierarchyReports.UsageSummaryQuery = s 'UsageSummaryQuery Class'
+	{
+		CLSID = s '{213FD01B-7E8F-4805-8A6C-6FBF0D4A5262}'
+		CurVer = s 'MTHierarchyReports.UsageSummaryQuery.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {213FD01B-7E8F-4805-8A6C-6FBF0D4A5262} = s 'UsageSummaryQuery Class'
+		{
+			ProgID = s 'MTHierarchyReports.UsageSummaryQuery.1'
+			VersionIndependentProgID = s 'MTHierarchyReports.UsageSummaryQuery'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4A622901-311F-483D-99EF-E77FF304DC03}'
+		}
+	}
+}

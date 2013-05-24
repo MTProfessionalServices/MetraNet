@@ -1,0 +1,41 @@
+<xmlconfig>
+  <mtconfigdata>
+
+ <version ptype="INTEGER">1</version>
+ <!-- Configuration to write product view data -->
+ <processor>
+		<name>EventTrigger</name>
+		<progid>MetraPipeline.MTSignalNTEvent.1</progid>
+
+<!--
+		<inputs>
+		</inputs>
+-->
+
+<!--
+		<outputs>
+		</outputs>
+-->
+
+  <!-- Processor specific configuration data -->
+		<configdata>
+      <!-- Can be NTEvent, NTMutex, or NTSemaphore -->
+			<syncronization_type>NTSemaphore</syncronization_type>
+
+      <!-- if this flag is false, will fail if the attempt to open the sync object fails -->
+			<OpenOnCreateFailure ptype="BOOLEAN">true</OpenOnCreateFailure>
+
+      <!-- Name of syncronization object -->
+      <syncronization_name>Metratech/RecurringCharge</syncronization_name>
+
+      <!-- Possible actions: Lock, UnLock, Reset, Set, Pulse, Release
+           Note: Not all of these actions make sense with all syncronization types!
+      -->
+      <synchronization_action>Release</synchronization_action>
+
+		</configdata>
+
+ </processor>
+
+ </mtconfigdata>
+</xmlconfig>

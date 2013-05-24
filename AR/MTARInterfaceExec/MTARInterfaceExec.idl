@@ -1,0 +1,54 @@
+// MTARInterfaceExec.idl : IDL source for MTARInterfaceExec.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTARInterfaceExec.tlb) and marshalling code.
+
+import "IMTARInterface.idl";
+
+[
+	object,
+	uuid(9C374ECC-5284-4bf6-AEDB-D5FA6D797FB2),
+	dual,
+	helpstring("Dummy interface"),
+	pointer_default(unique)
+]
+interface IDummy : IDispatch
+{
+};
+
+[
+	uuid(CCA512C9-A58B-45CF-85DE-BBAF74C15EAE),
+	version(1.0),
+	helpstring("MTARInterfaceExec 1.0 Type Library")
+]
+library MTARINTERFACEEXECLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(BC9A711D-B8C6-4422-A35D-20894A6203B8),
+		helpstring("MTARConfig Class")
+	]
+	coclass MTARConfig
+	{
+		[default] interface IMTARConfig;
+	};
+	[
+		uuid(83A3064B-F07D-4BEA-B6BA-EDF252ED2B0E),
+		helpstring("MTARWriter Class")
+	]
+	coclass MTARWriter
+	{
+		[default] interface IMTARWriter;
+	};
+	[
+		uuid(1E04C7F2-EB69-4762-90FD-3DD23C0FAC2A),
+		helpstring("MTARReader Class")
+	]
+	coclass MTARReader
+	{
+		[default] interface IMTARReader;
+	};
+};

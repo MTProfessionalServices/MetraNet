@@ -1,0 +1,26 @@
+HKCR
+{
+	MTHierarchyReports.PayeeSlice.1 = s 'PayeeSlice Class'
+	{
+		CLSID = s '{B2C82D41-E41E-4D8B-8E02-8A118A641568}'
+	}
+	MTHierarchyReports.PayeeSlice = s 'PayeeSlice Class'
+	{
+		CLSID = s '{B2C82D41-E41E-4D8B-8E02-8A118A641568}'
+		CurVer = s 'MTHierarchyReports.PayeeSlice.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B2C82D41-E41E-4D8B-8E02-8A118A641568} = s 'PayeeSlice Class'
+		{
+			ProgID = s 'MTHierarchyReports.PayeeSlice.1'
+			VersionIndependentProgID = s 'MTHierarchyReports.PayeeSlice'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4A622901-311F-483D-99EF-E77FF304DC03}'
+		}
+	}
+}

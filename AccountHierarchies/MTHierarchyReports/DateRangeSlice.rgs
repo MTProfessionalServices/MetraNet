@@ -1,0 +1,26 @@
+HKCR
+{
+	MTHierarchyReports.DateRangeSlice.1 = s 'DateRangeSlice Class'
+	{
+		CLSID = s '{8C16E0B8-B1C6-49A6-89E8-CC1C0FADCD9F}'
+	}
+	MTHierarchyReports.DateRangeSlice = s 'DateRangeSlice Class'
+	{
+		CLSID = s '{8C16E0B8-B1C6-49A6-89E8-CC1C0FADCD9F}'
+		CurVer = s 'MTHierarchyReports.DateRangeSlice.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8C16E0B8-B1C6-49A6-89E8-CC1C0FADCD9F} = s 'DateRangeSlice Class'
+		{
+			ProgID = s 'MTHierarchyReports.DateRangeSlice.1'
+			VersionIndependentProgID = s 'MTHierarchyReports.DateRangeSlice'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4A622901-311F-483D-99EF-E77FF304DC03}'
+		}
+	}
+}

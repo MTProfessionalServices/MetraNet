@@ -1,0 +1,26 @@
+HKCR
+{
+	MTHierarchyReports.IntersectionTimeSlice.1 = s 'IntersectionTimeSlice Class'
+	{
+		CLSID = s '{AF652F1A-BD26-4F4A-8635-9895EC992D60}'
+	}
+	MTHierarchyReports.IntersectionTimeSlice = s 'IntersectionTimeSlice Class'
+	{
+		CLSID = s '{AF652F1A-BD26-4F4A-8635-9895EC992D60}'
+		CurVer = s 'MTHierarchyReports.IntersectionTimeSlice.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {AF652F1A-BD26-4F4A-8635-9895EC992D60} = s 'IntersectionTimeSlice Class'
+		{
+			ProgID = s 'MTHierarchyReports.IntersectionTimeSlice.1'
+			VersionIndependentProgID = s 'MTHierarchyReports.IntersectionTimeSlice'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4A622901-311F-483D-99EF-E77FF304DC03}'
+		}
+	}
+}

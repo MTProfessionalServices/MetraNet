@@ -1,0 +1,56 @@
+<xmlconfig>
+ <version ptype="INTEGER">1</version>
+ <!-- Test stage configuration -->
+
+ <stage>
+  <name>AccountCreation</name>
+  <startstage ptype="BOOLEAN">YES</startstage>
+  <finalstage ptype="BOOLEAN">YES</finalstage>
+
+  <dependencies>
+   <dependson>audit</dependson>
+   <dependson>SetSubscriberID</dependson>
+   <dependson>viewproduct</dependson>
+   <dependson>SetAuditProperties</dependson>
+
+  <dependency>
+    <processor>Provision</processor>
+    <dependson>ARPropagation</dependson>
+  </dependency>
+
+  <dependency>
+    <processor>ARPropagation</processor>
+    <dependson>ConcatName</dependson>
+  </dependency>
+
+  <dependency>
+    <processor>ConcatName</processor>
+    <dependson>audit</dependson>
+  </dependency>
+
+  <dependency>
+    <processor>audit</processor>
+    <dependson>SetSubscriberID</dependson>
+    <dependson>viewproduct</dependson>
+    <dependson>SetAuditProperties</dependson>
+  </dependency>
+
+  <dependency>
+    <processor>SetAuditProperties</processor>
+    <dependson>LDAPCreation</dependson>
+  </dependency>
+
+  <dependency>
+    <processor>LDAPCreation</processor>
+    <dependson>InternalAccountAdapter</dependson>
+  </dependency>
+
+  <dependency>
+    <processor>InternalAccountAdapter</processor>
+    <dependson>AccountTableCreation</dependson>
+  </dependency>
+
+  </dependencies>
+
+ </stage>
+</xmlconfig>

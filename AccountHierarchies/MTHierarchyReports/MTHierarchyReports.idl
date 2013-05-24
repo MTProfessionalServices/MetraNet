@@ -1,0 +1,892 @@
+/**************************************************************************
+* Copyright 1997-2002 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "COMDBObjects.idl";
+import "IMTAuth.idl";
+import "IMTYAAC.idl";
+import "GenericCollectionInterfaces.idl";
+import "MTProductCatalog.idl";
+
+//forward declarations
+interface IMPSRenderInfo;
+interface IMPSReportInfo;
+interface IHierarchyReportLevel;
+interface IReportManager;
+interface IReportHelper;
+interface IQueryParams;  
+interface IViewSlice;
+interface ITimeSlice;
+interface IDateRangeSlice;
+interface IUsageIntervalSlice;
+interface IAccountSlice;
+interface ISingleProductSlice;
+interface ISliceLexer;
+
+	//Enums
+  [helpstring("Report Type Enum"),
+	 uuid(154d1f48-9fa9-4859-b0e8-46ebfb00c296), version(1.0)]
+	typedef enum
+	{
+		REPORT_TYPE_BILL = 0,
+		REPORT_TYPE_STATIC_REPORT = 1,
+		REPORT_TYPE_INTERACTIVE_REPORT = 2
+	} MPS_REPORT_TYPE;
+
+	[helpstring("Description Type"),
+	 uuid(29f73b6d-8728-4ca2-b892-f9b9c347ba07), version(1.0)]
+	typedef enum
+	{
+		DESCRIPTION_TYPE_GLOBAL = 0,		//MPS global variable, i.e. ag_description type
+		DESCRIPTION_TYPE_FQN = 1
+	} MPS_DESC_TYPE;
+	
+  [helpstring("Restriction Type"),
+		uuid(d22c55e8-adfc-4019-9cd8-1524c8e7166d), version(1.0)]
+	typedef enum
+	{
+		RESTRICTION_ALWAYS = 0,			//Report Always available, 1 Restriction = YES will override all others
+		RESTRICTION_NEVER = 1,			//Report Never available
+		NOT_RESTRICTED = 2,				//Report not restricted
+		RESTRICTION_EXCLUSIVE = 3		//Report only available if condition met, even if another met condition = YES		
+	} MPS_RESTRICTION;
+
+	[helpstring("View Type Enum"),
+		uuid(ee7d56d7-a361-4fed-80f3-33ce2115e9de), version(1.0)]
+	typedef enum
+	{
+		VIEW_TYPE_BY_FOLDER = 0,
+		VIEW_TYPE_BY_PRODUCT = 1,
+		VIEW_TYPE_BOTH = 2
+	} MPS_VIEW_TYPE;
+
+  [helpstring("Display Method Enum"),
+	 uuid(80beece1-38a1-495a-8c9a-8d498079d0dd), version(1.0)]
+	typedef enum
+	{
+		DISPLAY_METHOD_XSL = 0,
+		DISPLAY_METHOD_GENERIC_ASP = 1,
+		DISPLAY_METHOD_CUSTOM_ASP = 2, 
+		DISPLAY_METHOD_CUSTOM_FUNCTION = 3,
+    DISPLAY_METHOD_OBJECT_REPORT = 4
+	} MPS_DISPLAY_METHOD;
+
+	[
+		object,
+		uuid(633708FC-EC92-40E6-B07F-658F077857F4),
+		dual,
+		helpstring("IMPSRenderInfo Interface"),
+		pointer_default(unique)
+	]
+	interface IMPSRenderInfo : IDispatch
+	{
+		[propget, id(1), helpstring("property IntervalID")] HRESULT IntervalID([out, retval] int *pVal);
+		[propput, id(1), helpstring("property IntervalID")] HRESULT IntervalID([in] int newVal);
+		[propget, id(2), helpstring("property LanguageCode")] HRESULT LanguageCode([out, retval] int *pVal);
+		[propput, id(2), helpstring("property LanguageCode")] HRESULT LanguageCode([in] int newVal);
+		[propget, id(3), helpstring("property ViewType")] HRESULT ViewType([out, retval] MPS_VIEW_TYPE *pVal);
+		[propput, id(3), helpstring("property ViewType")] HRESULT ViewType([in] MPS_VIEW_TYPE newVal);
+		[propget, id(4), helpstring("property UseInterval")] HRESULT UseInterval([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(4), helpstring("property UseInterval")] HRESULT UseInterval([in] VARIANT_BOOL newVal);
+		[propget, id(5), helpstring("property StartDate")] HRESULT StartDate([out, retval] BSTR *pVal);
+		[propput, id(5), helpstring("property StartDate")] HRESULT StartDate([in] BSTR newVal);
+		[propget, id(6), helpstring("property EndDate")] HRESULT EndDate([out, retval] BSTR *pVal);
+		[propput, id(6), helpstring("property EndDate")] HRESULT EndDate([in] BSTR newVal);
+		[propget, id(7), helpstring("property TimeSlice")] HRESULT TimeSlice([out, retval] ITimeSlice* *pVal);
+		[propputref, id(7), helpstring("property TimeSlice")] HRESULT TimeSlice([in] ITimeSlice* newVal);
+		[propget, id(8), helpstring("property AccountID")] HRESULT AccountID([out, retval] long *lngAccounID);
+		[propput, id(8), helpstring("property AccountID")] HRESULT AccountID([in] long newVal);
+		[propget, id(9), helpstring("property Estimate")] HRESULT Estimate([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(9), helpstring("property Estimate")] HRESULT Estimate([in] VARIANT_BOOL newVal);
+	};
+
+	[
+		object,
+		uuid(3E452A6D-611B-46C0-BECC-31AE1A8D1AA7),
+		dual,
+		helpstring("IHierarchyReportLevel Interface"),
+		pointer_default(unique)
+	]
+
+	interface IHierarchyReportLevel : IDispatch
+	{
+		[id(1), helpstring("method GetPropertyName")] HRESULT GetPropertyName([in] int intIndex, [out, retval] VARIANT *pval);
+		[id(2), helpstring("method GetPropertyValue")] HRESULT GetPropertyValue([in] VARIANT strPropName, [out, retval] VARIANT * pVal);
+		[id(3), helpstring("method GetChildLevel")] HRESULT GetChildLevel([in] int intIndex, [out, retval] IHierarchyReportLevel **pChildLevel);
+		[id(4), helpstring("method GetReportLevelAsXML")] HRESULT GetReportLevelAsXML([in] VARIANT_BOOL bRecurse, [out, retval] BSTR *pVal);
+		[propget, id(5), helpstring("property NumProperties")] HRESULT NumProperties([out, retval] long *pVal);
+		[propget, id(6), helpstring("property NumChildren")] HRESULT NumChildren([out, retval] long *pVal);
+		[id(7), helpstring("method InitByFolderReport")] HRESULT InitByFolderReport([in] int intAccountId, [in] int intPayerId, [in] IDateRangeSlice *pAccountEffDate, [in] ITimeSlice *pTimeSlice, [in] int intLanguageCode, [in] VARIANT_BOOL bPayerReport, [in] VARIANT_BOOL bSecondPass);
+		[id(8), helpstring("method InitByProductReport")] HRESULT InitByProductReport([in] int intPayerId, [in] ITimeSlice *pTimeSlice, [in] int intLanguageCode, [in] VARIANT_BOOL bPayerReport, [in] VARIANT_BOOL bSecondPass);
+		[id(9), helpstring("method Init")] HRESULT Init([in] IMPSRenderInfo* pRenderInfo, [in] IMPSReportInfo* pReportInfo);
+		[propget, id(10), helpstring("property ExternalID")] HRESULT ExternalID([out, retval] BSTR *pVal);
+		[propput, id(10), helpstring("property ExternalID")] HRESULT ExternalID([in] BSTR newVal);
+		//[id(11), helpstring("method InitByFolderServiceEndpointReport")] HRESULT InitByFolderServiceEndpointReport([in] int intAccountId, [in] int intServiceEndpointId, [in] int intPayerId, [in] ITimeSlice *pTimeSlice, [in] int intLanguageCode, [in] VARIANT_BOOL bPayerReport, [in] VARIANT_BOOL bSecondPass);
+	};
+	[
+		object,
+		uuid(012D5A1E-8095-43C9-A87B-FBD8CDBA456D),
+		dual,
+		helpstring("IReportManager Interface"),
+		pointer_default(unique)
+	]
+	interface IReportManager : IDispatch
+	{
+		[id(1), helpstring("method GetReportTopLevel")] HRESULT GetReportTopLevel([in] long lngReportIndex, [in] IMPSRenderInfo *pRenderInfo, [out, retval] IHierarchyReportLevel **pReportTopLevel);
+		[id(2), helpstring("method GetReportAsXML")] HRESULT GetReportAsXML([in] long lngReportIndex, [in] IMPSRenderInfo *pRenderInfo, [out, retval] BSTR *strXML);
+		[id(3), helpstring("method GetAvailableReportList")] HRESULT GetAvailableReportList([in] IMTYAAC *pYAAC, [out, retval] IMTCollection **collReports);
+		[id(4), helpstring("method Initialize")] HRESULT Initialize([in] BSTR strReportConfigPath);
+		[id(5), helpstring("method GetReportHelper")] HRESULT GetReportHelper([in] IMTYAAC *pYAAC, [in] long lngLanguageID, [out,retval] IReportHelper **pReportsHelper);
+	};
+	[
+		object,
+		uuid(EE1DF148-06D1-4875-A02C-0F766ABF0A19),
+		dual,
+		helpstring("IMPSReportInfo Interface"),
+		pointer_default(unique)
+	]
+	interface IMPSReportInfo : IDispatch
+	{
+		[propget, id(1), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		[propget, id(2), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+		[propget, id(3), helpstring("property Type")] HRESULT Type([out, retval] MPS_REPORT_TYPE *pVal);
+		[propput, id(3), helpstring("property Type")] HRESULT Type([in] MPS_REPORT_TYPE newVal);
+		[propget, id(4), helpstring("property ViewType")] HRESULT ViewType([out, retval] MPS_VIEW_TYPE *pVal);
+		[propput, id(4), helpstring("property ViewType")] HRESULT ViewType([in] MPS_VIEW_TYPE newVal);
+		[propget, id(5), helpstring("property RestrictionBillable")] HRESULT RestrictionBillable([out, retval] MPS_RESTRICTION *pVal);
+		[propput, id(5), helpstring("property RestrictionBillable")] HRESULT RestrictionBillable([in] MPS_RESTRICTION newVal);
+		[propget, id(6), helpstring("property RestrictionFolderAccount")] HRESULT RestrictionFolderAccount([out, retval] MPS_RESTRICTION *pVal);
+		[propput, id(6), helpstring("property RestrictionFolderAccount")] HRESULT RestrictionFolderAccount([in] MPS_RESTRICTION newVal);
+		[propget, id(7), helpstring("property Restricted")] HRESULT Restricted([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(7), helpstring("property Restricted")] HRESULT Restricted([in] VARIANT_BOOL newVal);
+		[propget, id(8), helpstring("property DisplayMethod")] HRESULT DisplayMethod([out, retval] MPS_DISPLAY_METHOD *pVal);
+		[propput, id(8), helpstring("property DisplayMethod")] HRESULT DisplayMethod([in] MPS_DISPLAY_METHOD newVal);
+		[propget, id(9), helpstring("property DisplayData")] HRESULT DisplayData([out, retval] BSTR *pVal);
+		[propput, id(9), helpstring("property DisplayData")] HRESULT DisplayData([in] BSTR newVal);
+		[propget, id(10), helpstring("property RestrictionOwnedFolders")] HRESULT RestrictionOwnedFolders([out, retval] MPS_RESTRICTION *pVal);
+		[propput, id(10), helpstring("property RestrictionOwnedFolders")] HRESULT RestrictionOwnedFolders([in] MPS_RESTRICTION newVal);	
+		[propget, id(11), helpstring("property RestrictionBillableOwnedFolders")] HRESULT RestrictionBillableOwnedFolders([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(11), helpstring("property RestrictionBillableOwnedFolders")] HRESULT RestrictionBillableOwnedFolders([in] VARIANT_BOOL newVal);
+		[propget, id(12), helpstring("property Index")] HRESULT Index([out, retval] long *pVal);
+		[propput, id(12), helpstring("property Index")] HRESULT Index([in] long newVal);
+		[propget, id(13), helpstring("property AccountIDOverride")] HRESULT AccountIDOverride([out, retval] long *pVal);
+		[propput, id(13), helpstring("property AccountIDOverride")] HRESULT AccountIDOverride([in] long newVal);
+		[propput, id(14), helpstring("property RestrictionIndependentAccount")] HRESULT RestrictionIndependentAccount([in] VARIANT_BOOL newVal);
+		[propget, id(14), helpstring("property RestrictionIndependentAccount")] HRESULT RestrictionIndependentAccount([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(15), helpstring("property InlineAdjustments")] HRESULT InlineAdjustments([in] VARIANT_BOOL newVal);
+		[propget, id(15), helpstring("property InlineAdjustments")] HRESULT InlineAdjustments([out, retval] VARIANT_BOOL *pVal);
+    [propput, id(16), helpstring("property InteractiveReport")] HRESULT InteractiveReport([in] VARIANT_BOOL newVal);
+		[propget, id(16), helpstring("property InteractiveReport")] HRESULT InteractiveReport([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(17), helpstring("property InlineVATTaxes")] HRESULT InlineVATTaxes([in] VARIANT_BOOL newVal);
+		[propget, id(17), helpstring("property InlineVATTaxes")] HRESULT InlineVATTaxes([out, retval] VARIANT_BOOL *pVal);
+		
+	};
+	[
+		object,
+		uuid(b1dc6a97-3408-4ae3-8b7c-516c638df95e),
+		dual,
+		helpstring("IViewSlice Interface"),
+		pointer_default(unique)
+	]
+	interface IViewSlice : IDispatch
+	{
+		[id(1), helpstring("method GenerateQueryPredicate")] HRESULT GenerateQueryPredicate([out, retval] BSTR *pVal);
+		[id(2), helpstring("method ToString")] HRESULT ToString([out, retval] BSTR *pval);
+		[id(3), helpstring("method FromString")] HRESULT FromString([in] ISliceLexer* pval);
+		[id(4), helpstring("method Equals")] HRESULT Equals([in] IViewSlice* apSlice, [out, retval] VARIANT_BOOL *pVal);
+		[id(5), helpstring("method Clone")] HRESULT Clone([out, retval] IViewSlice* *pVal);
+	  [id(500), helpstring("method ToStringUnencrypted")] HRESULT ToStringUnencrypted([out, retval] BSTR *pval);
+  };
+	[
+		object,
+		uuid(8485c848-b48c-4369-bd68-f6895d93a436),
+		dual,
+		helpstring("IAccountSlice Interface"),
+		pointer_default(unique)
+	]
+	interface IAccountSlice : IViewSlice
+	{
+		[id(6), helpstring("method GenerateFromClause")] HRESULT GenerateFromClause([out, retval] BSTR *pVal);
+	};
+	[
+		object,
+		uuid(F3A0AC02-7788-412D-9F96-00E7E6AD1417),
+		dual,
+		helpstring("IPayerSlice Interface"),
+		pointer_default(unique)
+	]
+	interface IPayerSlice : IAccountSlice
+	{
+		[propget, id(7), helpstring("property PayerID")] HRESULT PayerID([out, retval] long *pVal);
+		[propput, id(7), helpstring("property PayerID")] HRESULT PayerID([in] long newVal);
+	};
+	[
+		object,
+		uuid(4244EF1D-9C4A-438D-8416-703FA95F4FEB),
+		dual,
+		helpstring("IPayeeSlice Interface"),
+		pointer_default(unique)
+	]
+	interface IPayeeSlice : IAccountSlice
+	{
+		[propget, id(7), helpstring("property PayeeID")] HRESULT PayeeID([out, retval] long *pVal);
+		[propput, id(7), helpstring("property PayeeID")] HRESULT PayeeID([in] long newVal);
+	};
+	[
+		object,
+		uuid(3BD17AEE-38B7-47FA-AE83-6770F8D70064),
+		dual,
+		helpstring("IPayerAndPayeeSlice Interface"),
+		pointer_default(unique)
+	]
+	interface IPayerAndPayeeSlice : IAccountSlice
+	{
+		[propget, id(7), helpstring("property PayerID")] HRESULT PayerID([out, retval] long *pVal);
+		[propput, id(7), helpstring("property PayerID")] HRESULT PayerID([in] long newVal);
+		[propget, id(8), helpstring("property PayeeID")] HRESULT PayeeID([out, retval] long *pVal);
+		[propput, id(8), helpstring("property PayeeID")] HRESULT PayeeID([in] long newVal);
+	};
+	[
+		object,
+		uuid(12964cfb-4faf-4371-9933-4a0173e81524),
+		dual,
+		helpstring("ITimeSlice Interface"),
+		pointer_default(unique)
+	]
+	interface ITimeSlice : IViewSlice
+	{
+		[id(6), helpstring("method GetTimeSpan")] HRESULT GetTimeSpan([out] DATE *pMinTime, [out] DATE *pMaxTime);
+	};
+	[
+		object,
+		uuid(88C61292-DDDF-48A9-897E-D9BE62EDDAC5),
+		dual,
+		helpstring("IUsageIntervalSlice Interface"),
+		pointer_default(unique)
+	]
+	interface IUsageIntervalSlice : ITimeSlice
+	{
+		[propget, id(8), helpstring("property IntervalID")] HRESULT IntervalID([out, retval] long *pVal);
+		[propput, id(8), helpstring("property IntervalID")] HRESULT IntervalID([in] long newVal);
+	};
+	[
+		object,
+		uuid(426E8CEA-E105-4A78-941D-6905CBF24393),
+		dual,
+		helpstring("IDateRangeSlice Interface"),
+		pointer_default(unique)
+	]
+	interface IDateRangeSlice : ITimeSlice
+	{
+		[propget, id(8), helpstring("property Begin")] HRESULT Begin([out, retval] DATE *pVal);
+		[propput, id(8), helpstring("property Begin")] HRESULT Begin([in] DATE newVal);
+		[propget, id(9), helpstring("property End")] HRESULT End([out, retval] DATE *pVal);
+		[propput, id(9), helpstring("property End")] HRESULT End([in] DATE newVal);
+		[propput, id(10), helpstring("property IntervalID")] HRESULT IntervalID([in] long newVal);
+	};
+	[
+		object,
+		uuid(5B90BA91-437B-4192-A9AE-8E0EA2165F55),
+		dual,
+		helpstring("IIntersectionTimeSlice Interface"),
+		pointer_default(unique)
+	]
+	interface IIntersectionTimeSlice : ITimeSlice
+	{
+		[propget, id(8), helpstring("property LHS")] HRESULT LHS([out, retval] ITimeSlice* *pVal);
+		[propputref, id(8), helpstring("property LHS")] HRESULT LHS([in] ITimeSlice* newVal);
+		[propget, id(9), helpstring("property RHS")] HRESULT RHS([out, retval] ITimeSlice* *pVal);
+		[propputref, id(9), helpstring("property RHS")] HRESULT RHS([in] ITimeSlice* newVal);
+	};
+
+	[
+		object,
+		uuid(F79810EA-A2CD-4AE8-88C3-74D7C526FFDE),
+		dual,
+		helpstring("IUsageDetailQuery Interface"),
+		pointer_default(unique)
+	]
+	interface IUsageDetailQuery : IDispatch
+	{
+		[propget, id(1), helpstring("property TimeSlice")] HRESULT TimeSlice([out, retval] IViewSlice* *pVal);
+		[propputref, id(1), helpstring("property TimeSlice")] HRESULT TimeSlice([in] IViewSlice* newVal);
+		[propget, id(2), helpstring("property AccountSlice")] HRESULT AccountSlice([out, retval] IAccountSlice* *pVal);
+		[propputref, id(2), helpstring("property AccountSlice")] HRESULT AccountSlice([in] IAccountSlice* newVal);
+    [id(3), helpstring("method GenerateQueryString")] HRESULT GenerateQueryString([in] long aLocaleID, [in] IQueryParams* pQueryParams, [out, retval] BSTR *pQuery);
+    [id(4), helpstring("method GenerateQueryStringFinder")] HRESULT GenerateQueryStringFinder([in] long aLocaleID, [in] ITimeSlice* pTimeSlice, [in] IAccountSlice* pAccountSlice, [in] ISingleProductSlice* pProductSlice, [in] IViewSlice* pSessionSlice, [in] BSTR aExtension, [out, retval] BSTR *pQuery);
+    //helper method that is used by adjustment reporting objects
+    [id(5), helpstring("method GenerateAdjustmentQueryString")] HRESULT GenerateAdjustmentQueryString([in] long aLocaleID, [in] ITimeSlice* pTimeSlice, [in] IAccountSlice* pAccountSlice, [in] ISingleProductSlice* pProductSlice, [in] IViewSlice* pSessionSlice, [in] BSTR aExtension, [out, retval] BSTR *pQuery);
+		// Get "base class" details of adjustments.  These go across product/adjustment types.
+    [id(6), helpstring("method GenerateBaseAdjustmentQueryString")] HRESULT GenerateBaseAdjustmentQueryString([in] long aLocaleID, [in] ITimeSlice* pTimeSlice, [in] IAccountSlice* pAccountSlice, [in] IViewSlice* pSessionSlice, [in] BSTR aExtension, [in] VARIANT_BOOL aIsPostbill, [out, retval] BSTR *pQuery);
+    //below 2 properties are used to determine which amount should be displayed in MPS
+    //The rules of determination are as follow:
+    //1. If InteractiveReport property is set to true, then we always display PostbillAdjustedAmount
+    //Otherwise (Looking at Online bill), if InlineAdjustments property is set to true, then we display PrebillAdjustedAmount
+    //Otherwise, display AmountWithTax
+    [propput, id(100), helpstring("property InlineAdjustments")] HRESULT InlineAdjustments([in] VARIANT_BOOL newVal);
+		[propget, id(100), helpstring("property InlineAdjustments")] HRESULT InlineAdjustments([out, retval] VARIANT_BOOL *pVal);
+    [propput, id(101), helpstring("property InteractiveReport")] HRESULT InteractiveReport([in] VARIANT_BOOL newVal);
+		[propget, id(101), helpstring("property InteractiveReport")] HRESULT InteractiveReport([out, retval] VARIANT_BOOL *pVal);
+
+		[propput, id(102), helpstring("property InlineVATTaxes")] HRESULT InlineVATTaxes([in] VARIANT_BOOL newVal);
+		[propget, id(102), helpstring("property InlineVATTaxes")] HRESULT InlineVATTaxes([out, retval] VARIANT_BOOL *pVal);
+		
+	};
+	[
+		object,
+		uuid(a1cfeaf0-0e6b-40ad-9035-f06ebb110258),
+		dual,
+		helpstring("ISingleProductSlice Interface"),
+		pointer_default(unique)
+	]
+	interface ISingleProductSlice : IViewSlice
+	{
+		[propget, id(201), helpstring("property ProductView")] HRESULT ProductView([out, retval] IProductView* *pVal);
+		[propget, id(202), helpstring("property DisplayName")] HRESULT DisplayName([in] ICOMLocaleTranslator *apLocale, [out, retval] BSTR * pVal);
+    //Add additional predicates for search functionality
+    [id(203), helpstring("method AddProductViewPropertyPredicate")] HRESULT AddProductViewPropertyPredicate([in] IProductViewProperty* aPVProperty, [in]VARIANT aPropertyValue);
+	};
+	[
+		object,
+		uuid(D78ABA78-11A4-4C48-96AB-CD1CBF7FE616),
+		dual,
+		helpstring("ISessionSlice Interface"),
+		pointer_default(unique)
+	]
+	interface ISessionSlice : IViewSlice
+	{
+		[propget, id(6), helpstring("property SessionID")] HRESULT SessionID([out, retval] __int64 *pVal);
+		[propput, id(6), helpstring("property SessionID")] HRESULT SessionID([in] __int64 newVal);
+		[id(7), helpstring("method CreateChildSlice")] HRESULT CreateChildSlice([out, retval] IViewSlice* *pVal);
+	};
+	[
+		object,
+		uuid(5FA28243-D15E-45E9-9A42-0190AE7C956D),
+		dual,
+		helpstring("ISessionChildrenSlice Interface"),
+		pointer_default(unique)
+	]
+	interface ISessionChildrenSlice : IViewSlice
+	{
+		[propget, id(6), helpstring("property ParentID")] HRESULT ParentID([out, retval] __int64 *pVal);
+		[propput, id(6), helpstring("property ParentID")] HRESULT ParentID([in] __int64 newVal);
+	};
+	[
+		object,
+		uuid(91CB4959-3C6A-4C41-856A-96BBEA18246E),
+		dual,
+		helpstring("IRootSessionSlice Interface"),
+		pointer_default(unique)
+	]
+	interface IRootSessionSlice : IViewSlice
+	{
+	};
+	[
+		object,
+		uuid(ED3B9625-A4AB-4032-9846-947CA6187A3B),
+		dual,
+		helpstring("IAllSessionSlice Interface"),
+		pointer_default(unique)
+	]
+	interface IAllSessionSlice : IViewSlice
+	{
+	};
+	[
+		object,
+		uuid(631DA0C3-9F84-4CE9-8136-0E5986F10098),
+		dual,
+		helpstring("IPriceableItemInstanceSlice Interface"),
+		pointer_default(unique)
+	]
+	interface IPriceableItemInstanceSlice : ISingleProductSlice
+	{
+		[propget, id(8), helpstring("property InstanceID")] HRESULT InstanceID([out, retval] long *pVal);
+		[propput, id(8), helpstring("property InstanceID")] HRESULT InstanceID([in] long newVal);
+		[propget, id(9), helpstring("property ViewID")] HRESULT ViewID([out, retval] long *pVal);
+		[propput, id(9), helpstring("property ViewID")] HRESULT ViewID([in] long newVal);
+	};
+	[
+		object,
+		uuid(4070C911-9E48-4FDA-B46B-8BED1312B6C4),
+		dual,
+		helpstring("IPriceableItemTemplateSlice Interface"),
+		pointer_default(unique)
+	]
+	interface IPriceableItemTemplateSlice : ISingleProductSlice
+	{
+		[propget, id(8), helpstring("property TemplateID")] HRESULT TemplateID([out, retval] long *pVal);
+		[propput, id(8), helpstring("property TemplateID")] HRESULT TemplateID([in] long newVal);
+		[propget, id(9), helpstring("property ViewID")] HRESULT ViewID([out, retval] long *pVal);
+		[propput, id(9), helpstring("property ViewID")] HRESULT ViewID([in] long newVal);
+	};
+  [
+		object,
+		uuid(5f6aab90-3f89-45e8-abc2-68b777d52381),
+		dual,
+		helpstring("IPriceableItemTemplateWithInstanceSlice Interface"),
+		pointer_default(unique)
+	]
+	interface IPriceableItemTemplateWithInstanceSlice : ISingleProductSlice
+	{
+		[propget, id(8), helpstring("property TemplateID")] HRESULT TemplateID([out, retval] long *pVal);
+		[propput, id(8), helpstring("property TemplateID")] HRESULT TemplateID([in] long newVal);
+		[propget, id(9), helpstring("property ViewID")] HRESULT ViewID([out, retval] long *pVal);
+		[propput, id(9), helpstring("property ViewID")] HRESULT ViewID([in] long newVal);
+	};
+	[
+		object,
+		uuid(00F99BC5-1D48-49FC-A01A-30AD27F838F2),
+		dual,
+		helpstring("IProductViewSlice Interface"),
+		pointer_default(unique)
+	]
+	interface IProductViewSlice : ISingleProductSlice
+	{
+		[propget, id(8), helpstring("property ViewID")] HRESULT ViewID([out, retval] long *pVal);
+		[propput, id(8), helpstring("property ViewID")] HRESULT ViewID([in] long newVal);
+	};
+	[
+		object,
+		uuid(2B55B6AA-DE57-4FB4-93B7-11765F68FA33),
+		dual,
+		helpstring("IUsageSummaryQuery Interface"),
+		pointer_default(unique)
+	]
+	interface IUsageSummaryQuery : IDispatch
+	{
+		[id(1), helpstring("method GenerateQueryString")] HRESULT GenerateQueryString([in] long aLocaleID, [in] ITimeSlice* pTimeSlice, [in] IAccountSlice* pAccountSlice, [in] IViewSlice* pSessionSlice, [in] VARIANT_BOOL bUseDatamart, [out, retval] BSTR *pQuery);
+
+    [propput, id(100), helpstring("property InlineAdjustments")] HRESULT InlineAdjustments([in] VARIANT_BOOL newVal);
+		[propget, id(100), helpstring("property InlineAdjustments")] HRESULT InlineAdjustments([out, retval] VARIANT_BOOL *pVal);
+    [propput, id(101), helpstring("property InteractiveReport")] HRESULT InteractiveReport([in] VARIANT_BOOL newVal);
+		[propget, id(101), helpstring("property InteractiveReport")] HRESULT InteractiveReport([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(102), helpstring("property InlineVATTaxes")] HRESULT InlineVATTaxes([in] VARIANT_BOOL newVal);
+		[propget, id(102), helpstring("property InlineVATTaxes")] HRESULT InlineVATTaxes([out, retval] VARIANT_BOOL *pVal);
+	};
+	[
+		object,
+		uuid(C14B2172-489F-4F4D-963B-1B1B0531458A),
+		dual,
+		helpstring("ISliceFactory Interface"),
+		pointer_default(unique)
+	]
+	interface ISliceFactory : IDispatch
+	{
+		[id(1), helpstring("method FromString")] HRESULT FromString([in] BSTR aStr, [out, retval] IViewSlice* *apSlice);
+		[id(2), helpstring("method GetSlice")] HRESULT GetSlice([in] ISliceLexer* apLexer, [out, retval] IViewSlice* *apSlice);
+	};
+	[
+		object,
+		uuid(31A4D977-48BF-49DB-9395-931762493056),
+		dual,
+		helpstring("IDescendentPayeeSlice Interface"),
+		pointer_default(unique)
+	]
+	interface IDescendentPayeeSlice : IAccountSlice
+	{
+		[propget, id(7), helpstring("property AncestorID")] HRESULT AncestorID([out, retval] long *pVal);
+		[propput, id(7), helpstring("property AncestorID")] HRESULT AncestorID([in] long newVal);
+		[propget, id(8), helpstring("property Begin")] HRESULT Begin([out, retval] DATE *pVal);
+		[propput, id(8), helpstring("property Begin")] HRESULT Begin([in] DATE newVal);
+		[propget, id(9), helpstring("property End")] HRESULT End([out, retval] DATE *pVal);
+		[propput, id(9), helpstring("property End")] HRESULT End([in] DATE newVal);
+	};
+	[
+		object,
+		uuid(A1F10E2F-5334-42E1-B02C-24F3440FED5C),
+		dual,
+		helpstring("ISliceLexer Interface"),
+		pointer_default(unique)
+	]
+	interface ISliceLexer : IDispatch
+	{
+		[id(1), helpstring("method GetNextToken")] HRESULT GetNextToken([out, retval] BSTR *apToken);
+		[id(2), helpstring("method LookAhead")] HRESULT LookAhead([out, retval] BSTR *apToken);
+		[id(3), helpstring("method Init")] HRESULT Init([in] BSTR aStr);
+	};
+	[
+		object,
+		uuid(A0EC8899-6B6E-4927-9B0D-0D0F8B0DD1DA),
+		dual,
+		helpstring("IReportHelper Interface"),
+		pointer_default(unique)
+	]
+	interface IReportHelper : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize([in] IMTYAAC *pYAAC, [in] long lngLanguageID, [in] IMTCollection *pAvailableReports);
+		[id(2), helpstring("method GetAvailableReports")] HRESULT GetAvailableReports([in] short sReportType, [out, retval] IMTCollection **collAvailableReports);
+		[id(3), helpstring("method GetIntervalTimeSlice")] HRESULT GetIntervalTimeSlice([in] long lngIntervalID, [out, retval] ITimeSlice **pTimeSlice);
+		[id(4), helpstring("method GetDateRangeTimeSlice")] HRESULT GetDateRangeTimeSlice([in] DATE dateStart, [in] DATE dateEnd, [out, retval] ITimeSlice **pTimeSlice);
+		[id(5), helpstring("method InitializeReport")] HRESULT InitializeReport([in] ITimeSlice *pTimeSlice, [in] short sViewType, [in] VARIANT_BOOL bShowSecondPass, [in] VARIANT_BOOL bEstimate);
+		[id(6), helpstring("method GetCacheXML")] HRESULT GetCacheXML([out, retval] BSTR *pstrXML);
+		[propget, id(7), helpstring("property ReportIndex")] HRESULT ReportIndex([out, retval] long *pVal);
+		[propput, id(7), helpstring("property ReportIndex")] HRESULT ReportIndex([in] long lngIndex);
+		[propget, id(8), helpstring("property ViewType")] HRESULT ViewType([out, retval] short *pVal);
+		[id(9), helpstring("method ShowReportLevel")] HRESULT ShowReportLevel([in] BSTR strLevelID);
+		[id(10), helpstring("method HideReportLevel")] HRESULT HideReportLevel(BSTR strLevelID);
+		[propget, id(11), helpstring("property TimeSlice")] HRESULT TimeSlice([out, retval] ITimeSlice  **pVal);
+		[propget, id(12), helpstring("property AccountID")] HRESULT AccountID([out, retval] long *pVal);
+		[propget, id(14), helpstring("property ReportInfo")] HRESULT ReportInfo([out, retval] IMPSReportInfo * *pVal);
+		[id(15), helpstring("method GetReportWithIndex")] HRESULT GetReportWithIndex([in] long lngReportIndex, [out, retval] IMPSReportInfo **pReport);
+		[id(16), helpstring("method GetCombinedTimeSlice")] HRESULT GetCombinedTimeSlice([in] ITimeSlice *pTimeSliceIn, [out, retval] ITimeSlice **pTimeSliceOut);
+		[id(17), helpstring("method GetUsageSummary")] HRESULT GetUsageSummary([in] IViewSlice *pViewSlice, [in] IAccountSlice *pAccountSlice, [in] ITimeSlice *pTimeSlice, [out, retval] IMTSQLRowset **pRowset);
+		[id(38), helpstring("method GetUsageSummary2")] HRESULT GetUsageSummary2([in] IViewSlice *pViewSlice, [in] IAccountSlice *pAccountSlice, [in] ITimeSlice *pTimeSlice, [in] VARIANT_BOOL bUseDatamart, [out, retval] IMTSQLRowset **pRowset);
+    [id(18), helpstring("method GetUsageDetail")] HRESULT GetUsageDetail([in] ISingleProductSlice *pProductSlice, [in] IViewSlice *pViewSlice, [in] IAccountSlice *pAccountSlice, [in] ITimeSlice *pTimeSlice, [in] BSTR aExtension, [out, retval] IMTSQLRowset **pRowset);
+    [id(36), helpstring("method GetUsageDetail2")] HRESULT GetUsageDetail2([in] IQueryParams *pQueryParams, [out, retval] IMTSQLRowset **pRowset);
+    [id(19), helpstring("method GetReportAsXML")] HRESULT GetReportAsXML([out, retval] BSTR *pstrXML);
+		[id(20), helpstring("method GetReportLevelAsXML")] HRESULT GetReportLevelAsXML([in] BSTR strLevel, [out, retval] BSTR *pstrXML);
+		[id(21), helpstring("method GetDateRangeTimeSliceFromInterval")] HRESULT GetDateRangeTimeSliceFromInterval([in] long lngIntervalID, [out, retval] ITimeSlice **pTimeSlice);
+		[propget, id(22), helpstring("property HasAggregateCharges")] HRESULT HasAggregateCharges([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(23), helpstring("property IsEstimate")] HRESULT IsEstimate([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(24), helpstring("property ShowSecondPass")] HRESULT ShowSecondPass([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(25), helpstring("property DefaultIntervalID")] HRESULT DefaultIntervalID([out, retval] long *pVal);
+		[propget, id(26), helpstring("property DefaultStartDate")] HRESULT DefaultStartDate([out, retval] DATE *pVal);
+		[propget, id(27), helpstring("property DefaultEndDate")] HRESULT DefaultEndDate([out, retval] DATE *pVal);
+		[id(28), helpstring("GetPostBillAdjustmentDetail")] HRESULT GetPostBillAdjustmentDetail([in] long intervalid, [in] long accountid, [out, retval] IMTSQLRowset **pRowset);
+    [id(29), helpstring("GetPreBillAdjustmentDetail")] HRESULT GetPreBillAdjustmentDetail([in] long intervalid, [in] long accountid, [out, retval] IMTSQLRowset **pRowset);
+    [id(30), helpstring("method GetAdjustmentDetail")] HRESULT GetAdjustmentDetail([in] ISingleProductSlice *pProductSlice, [in] IViewSlice *pViewSlice, [in] IAccountSlice *pAccountSlice, [in] ITimeSlice *pTimeSlice, [in] BSTR aExtension, [out, retval] IMTSQLRowset **pRowset);
+    [id(31), helpstring("method GetBaseAdjustmentDetail")] HRESULT GetBaseAdjustmentDetail([in] IViewSlice *pSessionSlice, [in] IAccountSlice *pAccountSlice, [in] ITimeSlice *pTimeSlice, [in] BSTR aExtension, [in] VARIANT_BOOL aIsPostBill, [out, retval] IMTSQLRowset **pRowset);
+    //below 2 properties are used to determine which amount should be displayed in MPS
+    //The rules of determination are as follow:
+    //1. If InteractiveReport property is set to true, then we always display PostbillAdjustedAmount
+    //Otherwise (Looking at Online bill), if InlineAdjustments property is set to true, then we display PrebillAdjustedAmount
+    //Otherwise, display AmountWithTax
+    [propput, id(32), helpstring("property InlineAdjustments")] HRESULT InlineAdjustments([in] VARIANT_BOOL newVal);
+		[propget, id(32), helpstring("property InlineAdjustments")] HRESULT InlineAdjustments([out, retval] VARIANT_BOOL *pVal);
+    [propput, id(33), helpstring("property InteractiveReport")] HRESULT InteractiveReport([in] VARIANT_BOOL newVal);
+		[propget, id(33), helpstring("property InteractiveReport")] HRESULT InteractiveReport([out, retval] VARIANT_BOOL *pVal);
+    [propput, id(100), helpstring("property InlineVATTaxes")] HRESULT InlineVATTaxes([in] VARIANT_BOOL newVal);
+		[propget, id(100), helpstring("property InlineVATTaxes")] HRESULT InlineVATTaxes([out, retval] VARIANT_BOOL *pVal);
+		[id(34), helpstring("method GetTransactionDetail")] HRESULT GetTransactionDetail([in] ISingleProductSlice *pProductSlice, [in] IViewSlice *pViewSlice, [in] IAccountSlice *pAccountSlice, [in] ITimeSlice *pTimeSlice, [in] BSTR aExtension, [out, retval] IMTSQLRowset **pRowset);
+		[id(39), helpstring("method GetTransactionDetail2")] HRESULT GetTransactionDetail2([in] ISingleProductSlice *pProductSlice, [in] IViewSlice *pViewSlice, [in] IAccountSlice *pAccountSlice, [in] ITimeSlice *pTimeSlice, [in] BSTR aExtension, [out, retval] IMTSQLRowset **pRowset);
+		[id(35), helpstring("method ClearUsageDetailCache")] HRESULT ClearUsageDetailCache();
+		[id(37), helpstring("method CreateDetailSlice")] HRESULT CreateDetailSlice([in] IMTSQLRowset * pRowset, [out, retval] IViewSlice* *pVal);
+    // Caution: id numbers not in order
+	};
+	
+	[
+		object,
+		uuid(3996CC95-5A6C-4d6a-AB6E-A77C18C0ACCC),
+		dual,
+		helpstring("IQueryParams Interface"),
+		pointer_default(unique)
+	]
+	interface IQueryParams : IDispatch
+	{
+    // Default value of 0 means all rows will be returned.
+		[propget, id(1), helpstring("property TopRows - Get maximum rows that a query will return")] HRESULT TopRows([out, retval] long *lVal);
+    [propput, id(1), helpstring("property TopRows - Set maximum rows that a query will return")] HRESULT TopRows([in] long lVal);
+
+		[propget, id(2), helpstring("property SingleProductSlice")] HRESULT SingleProductSlice([out, retval] ISingleProductSlice **pProductSlice);
+    [propput, id(2), helpstring("property SingleProductSlice")] HRESULT SingleProductSlice([in] ISingleProductSlice *pProductSlice);
+
+		[propget, id(3), helpstring("property SessionSlice")] HRESULT SessionSlice([out, retval] IViewSlice **pSessionSlice);
+    [propput, id(3), helpstring("property SessionSlice")] HRESULT SessionSlice([in] IViewSlice *pSessionSlice);
+
+		[propget, id(4), helpstring("property AccountSlice")] HRESULT AccountSlice([out, retval] IAccountSlice **pAccountSlice);
+    [propput, id(4), helpstring("property AccountSlice")] HRESULT AccountSlice([in] IAccountSlice *pAccountSlice);
+
+		[propget, id(5), helpstring("property TimeSlice")] HRESULT TimeSlice([out, retval] ITimeSlice **pTimeSlice);
+    [propput, id(5), helpstring("property TimeSlice")] HRESULT TimeSlice([in] ITimeSlice *pTimeSlice);
+
+		[propget, id(6), helpstring("property Extension")] HRESULT Extension([out, retval] BSTR *pbstrExtension);
+    [propput, id(6), helpstring("property Extension")] HRESULT Extension([in] BSTR bstrExtension);
+	};
+[
+	object,
+	uuid(4E1D6A44-31AF-4189-B071-D403989A7FFF),
+	dual,
+	nonextensible,
+	helpstring("IProductViewAllUsageSlice Interface"),
+	pointer_default(unique)
+]
+interface IProductViewAllUsageSlice : IProductViewSlice{
+};
+[
+	object,
+	uuid(3103EDEB-FC75-479D-9B77-2706B0D35537),
+	dual,
+	nonextensible,
+	helpstring("IPayerAndPayeeAndEndpointSlice Interface"),
+	pointer_default(unique)
+]
+interface IPayerAndPayeeAndEndpointSlice : IAccountSlice {
+	[propget, id(7), helpstring("property PayeeID")] HRESULT PayeeID([out, retval] long* pVal);
+	[propput, id(7), helpstring("property PayeeID")] HRESULT PayeeID([in] long newVal);
+	[propget, id(8), helpstring("property PayerID")] HRESULT PayerID([out, retval] long* pVal);
+	[propput, id(8), helpstring("property PayerID")] HRESULT PayerID([in] long newVal);
+	//[propget, id(9), helpstring("property ServiceEndpointID")] HRESULT ServiceEndpointID([out, retval] long* pVal);
+	//[propput, id(9), helpstring("property ServiceEndpointID")] HRESULT ServiceEndpointID([in] long newVal);
+};
+[
+	object,
+	uuid(4B3CEC08-30CB-4CBE-9EAA-8A02DDA007C9),
+	dual,
+	nonextensible,
+	helpstring("IPayeeAndEndpointSlice Interface"),
+	pointer_default(unique)
+]
+interface IPayeeAndEndpointSlice : IAccountSlice {
+	[propget, id(7), helpstring("property PayeeID")] HRESULT PayeeID([out, retval] long* pVal);
+	[propput, id(7), helpstring("property PayeeID")] HRESULT PayeeID([in] long newVal);
+	//[propget, id(8), helpstring("property ServiceEndpointID")] HRESULT ServiceEndpointID([out, retval] long* pVal);
+	//[propput, id(8), helpstring("property ServiceEndpointID")] HRESULT ServiceEndpointID([in] long newVal);
+};
+[
+	uuid(4A622901-311F-483D-99EF-E77FF304DC03),
+	version(1.0),
+	helpstring("MTHierarchyReports 1.0 Type Library")
+]
+library MTHIERARCHYREPORTSLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(5E728360-AA11-43A9-896C-9654D2C7E011),
+		helpstring("ReportManager Class")
+	]
+	coclass ReportManager
+	{
+		[default] interface IReportManager;
+	};
+	[
+		uuid(65A26237-1018-4F2A-AF09-8891A8D46C83),
+		helpstring("MPSRenderInfo Class")
+	]
+	coclass MPSRenderInfo
+	{
+		[default] interface IMPSRenderInfo;
+	};
+	[
+		uuid(BCBF6A02-CFE2-4910-BCDE-4ACB05B2C2E1),
+		helpstring("HierarchyReportLevel Class")
+	]
+	coclass HierarchyReportLevel
+	{
+		[default] interface IHierarchyReportLevel;
+	};
+
+	[
+		uuid(E96956B6-64DD-4F00-9DB1-DC9B775B6A29),
+		helpstring("MPSReportInfo Class")
+	]
+	coclass MPSReportInfo
+	{
+		[default] interface IMPSReportInfo;
+	};
+	[
+		uuid(D7560504-B60D-4102-B626-DC4B36CE064E),
+		helpstring("PayerSlice Class")
+	]
+	coclass PayerSlice
+	{
+		[default] interface IPayerSlice;
+	};
+	[
+		uuid(B2C82D41-E41E-4D8B-8E02-8A118A641568),
+		helpstring("PayeeSlice Class")
+	]
+	coclass PayeeSlice
+	{
+		[default] interface IPayeeSlice;
+	};
+	[
+		uuid(037A6B45-D8B1-4424-8C4B-09C487518663),
+		helpstring("PayerAndPayeeSlice Class")
+	]
+	coclass PayerAndPayeeSlice
+	{
+		[default] interface IPayerAndPayeeSlice;
+	};
+	[
+		uuid(7369BF83-9BBC-4321-9F67-67EA89798D8F),
+		helpstring("UsageIntervalSlice Class")
+	]
+	coclass UsageIntervalSlice
+	{
+		[default] interface IUsageIntervalSlice;
+	};
+	[
+		uuid(8C16E0B8-B1C6-49A6-89E8-CC1C0FADCD9F),
+		helpstring("DateRangeSlice Class")
+	]
+	coclass DateRangeSlice
+	{
+		[default] interface IDateRangeSlice;
+	};
+	[
+		uuid(DDED56DC-40F4-45A6-9124-D566F260D508),
+		helpstring("UsageDetailQuery Class")
+	]
+	coclass UsageDetailQuery
+	{
+		[default] interface IUsageDetailQuery;
+	};
+	[
+		uuid(62D04D0C-95EB-40EB-BA3F-BF6F592F0205),
+		helpstring("SessionSlice Class")
+	]
+	coclass SessionSlice
+	{
+		[default] interface ISessionSlice;
+	};
+	[
+		uuid(7E3F146C-8689-4328-8605-39CE91C2851A),
+		helpstring("SessionChildrenSlice Class")
+	]
+	coclass SessionChildrenSlice
+	{
+		[default] interface ISessionChildrenSlice;
+	};
+	[
+		uuid(771F18F4-F050-4120-89BC-4D98098CD239),
+		helpstring("PriceableItemInstanceSlice Class")
+	]
+	coclass PriceableItemInstanceSlice
+	{
+		[default] interface IPriceableItemInstanceSlice;
+	};
+	[
+		uuid(2F8CC995-BB9B-4D9B-A2E0-D20E251DD7D3),
+		helpstring("PriceableItemTemplateSlice Class")
+	]
+	coclass PriceableItemTemplateSlice
+	{
+		[default] interface IPriceableItemTemplateSlice;
+	};
+  [
+		uuid(ad0722ca-5c38-4639-923d-edaf1db649c5),
+		helpstring("PriceableItemTemplateWithInstanceSlice Class")
+	]
+	coclass PriceableItemTemplateWithInstanceSlice
+	{
+		[default] interface IPriceableItemTemplateWithInstanceSlice;
+	};
+	[
+		uuid(213FD01B-7E8F-4805-8A6C-6FBF0D4A5262),
+		helpstring("UsageSummaryQuery Class")
+	]
+	coclass UsageSummaryQuery
+	{
+		[default] interface IUsageSummaryQuery;
+	};
+	[
+		uuid(3B830A7A-E155-420A-805E-0BE6C31F96AB),
+		helpstring("SliceFactory Class")
+	]
+	coclass SliceFactory
+	{
+		[default] interface ISliceFactory;
+	};
+	[
+		uuid(201E4B6C-C5D0-4ADF-9D2E-AFAACE37A73E),
+		helpstring("DescendentPayeeSlice Class")
+	]
+	coclass DescendentPayeeSlice
+	{
+		[default] interface IDescendentPayeeSlice;
+	};
+	[
+		uuid(DF0332EB-9402-4733-B364-93700E6219E7),
+		helpstring("RootSessionSlice Class")
+	]
+	coclass RootSessionSlice
+	{
+		[default] interface IRootSessionSlice;
+	};
+	[
+		uuid(676FCF4E-6CC3-4C21-BBC4-AB41A3C3DFF3),
+		helpstring("AllSessionSlice Class")
+	]
+	coclass AllSessionSlice
+	{
+		[default] interface IAllSessionSlice;
+	};
+	[
+		uuid(AF652F1A-BD26-4F4A-8635-9895EC992D60),
+		helpstring("IntersectionTimeSlice Class")
+	]
+	coclass IntersectionTimeSlice
+	{
+		[default] interface IIntersectionTimeSlice;
+	};
+	[
+		uuid(DD2EE40E-7F2A-4434-8E6B-1D95795B933C),
+		helpstring("SliceLexer Class")
+	]
+	coclass SliceLexer
+	{
+		[default] interface ISliceLexer;
+	};
+	
+	[
+		uuid(F022547E-F0EE-44F4-AF9A-C91B0AC38F66),
+		helpstring("ReportHelper Class")
+	]
+	coclass ReportHelper
+	{
+		[default] interface IReportHelper;
+	};
+
+	[
+		uuid(ED39ED30-0D13-4c26-9FC4-1EA4C96E08ED),
+		helpstring("QueryParams Class")
+	]
+	coclass QueryParams
+	{
+		[default] interface IQueryParams;
+	};
+
+	[
+		uuid(F51E1F68-011E-4730-B7CB-9E0DAFFCD9AB),
+		helpstring("ProductViewSlice Class")
+	]
+	coclass ProductViewSlice
+	{
+		[default] interface IProductViewSlice;
+	};
+	[
+		uuid(B899BE71-D6B1-4943-B578-B79EA32833A3),
+		helpstring("ProductViewAllUsageSlice Class")
+	]
+	coclass ProductViewAllUsageSlice
+	{
+		[default] interface IProductViewAllUsageSlice;
+	};
+	[
+		uuid(E5AF1AF1-0C44-4492-84F2-795691E0C297),
+		helpstring("PayerAndPayeeAndEndpointSlice Class")
+	]
+	coclass PayerAndPayeeAndEndpointSlice
+	{
+		[default] interface IPayerAndPayeeAndEndpointSlice;
+	};
+	[
+		uuid(61A43A19-9AA6-4655-8992-2EA4EFF97C11),
+		helpstring("PayeeAndEndpointSlice Class")
+	]
+	coclass PayeeAndEndpointSlice
+	{
+		[default] interface IPayeeAndEndpointSlice;
+	};
+};

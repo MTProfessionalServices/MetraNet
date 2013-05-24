@@ -1,0 +1,26 @@
+HKCR
+{
+	MTHierarchyReports.PriceableItemTemplateSlice.1 = s 'PriceableItemTemplateSlice Class'
+	{
+		CLSID = s '{2F8CC995-BB9B-4D9B-A2E0-D20E251DD7D3}'
+	}
+	MTHierarchyReports.PriceableItemTemplateSlice = s 'PriceableItemTemplateSlice Class'
+	{
+		CLSID = s '{2F8CC995-BB9B-4D9B-A2E0-D20E251DD7D3}'
+		CurVer = s 'MTHierarchyReports.PriceableItemTemplateSlice.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {2F8CC995-BB9B-4D9B-A2E0-D20E251DD7D3} = s 'PriceableItemTemplateSlice Class'
+		{
+			ProgID = s 'MTHierarchyReports.PriceableItemTemplateSlice.1'
+			VersionIndependentProgID = s 'MTHierarchyReports.PriceableItemTemplateSlice'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{4A622901-311F-483D-99EF-E77FF304DC03}'
+		}
+	}
+}

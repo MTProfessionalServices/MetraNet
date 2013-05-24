@@ -1,0 +1,24 @@
+HKCR
+{
+	COMUserConfig.COMUserConfig.1 = s 'COMUserConfig Class'
+	{
+		CLSID = s '{DEDD7BA4-15D1-11D2-B255-006008925549}'
+	}
+	COMUserConfig.COMUserConfig = s 'COMUserConfig Class'
+	{
+		CurVer = s 'COMUserConfig.COMUserConfig.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {DEDD7BA4-15D1-11D2-B255-006008925549} = s 'COMUserConfig Class'
+		{
+			ProgID = s 'COMUserConfig.COMUserConfig.1'
+			VersionIndependentProgID = s 'COMUserConfig.COMUserConfig'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

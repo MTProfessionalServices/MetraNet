@@ -1,0 +1,61 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8447.0 (4d60875a).
+//
+// progress.tli
+//
+// Wrapper implementations for Win32 type library progress.tlb
+// compiler-generated file created 06/07/00 at 10:36:19 - DO NOT EDIT!
+
+#pragma once
+
+//
+// interface IProgressServer wrapper method implementations
+//
+
+inline HRESULT IProgressServer::OnStartPage ( IUnknown * piUnk ) {
+    HRESULT _hr = raw_OnStartPage(piUnk);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IProgressServer::OnEndPage ( ) {
+    HRESULT _hr = raw_OnEndPage();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IProgressServer::Start ( ) {
+    HRESULT _hr = raw_Start();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IProgressServer::Stop ( ) {
+    HRESULT _hr = raw_Stop();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _bstr_t IProgressServer::GetProgress ( ) {
+    BSTR _result;
+    HRESULT _hr = raw_GetProgress(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline HRESULT IProgressServer::SetProgress ( _bstr_t bstrProgress ) {
+    HRESULT _hr = raw_SetProgress(bstrProgress);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IProgressServer::WriteResponse ( _bstr_t __MIDL_0015 ) {
+    HRESULT _hr = raw_WriteResponse(__MIDL_0015);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IProgressServer::SetDelay ( int nDelay ) {
+    HRESULT _hr = raw_SetDelay(nDelay);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}

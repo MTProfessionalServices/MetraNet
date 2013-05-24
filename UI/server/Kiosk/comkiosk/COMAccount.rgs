@@ -1,0 +1,26 @@
+HKCR
+{
+	COMKiosk.COMAccount.1 = s 'COMAccount Class'
+	{
+		CLSID = s '{B26FE192-23F8-11D3-AE6E-00C04F54FE3B}'
+	}
+	COMKiosk.COMAccount = s 'COMAccount Class'
+	{
+		CLSID = s '{B26FE192-23F8-11D3-AE6E-00C04F54FE3B}'
+		CurVer = s 'COMKiosk.COMAccount.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B26FE192-23F8-11D3-AE6E-00C04F54FE3B} = s 'COMAccount Class'
+		{
+			ProgID = s 'COMKiosk.COMAccount.1'
+			VersionIndependentProgID = s 'COMKiosk.COMAccount'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{535E93A3-0201-11D2-B24D-006008925549}'
+		}
+	}
+}

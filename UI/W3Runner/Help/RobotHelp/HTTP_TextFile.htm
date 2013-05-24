@@ -1,0 +1,60 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>HTTP TextFile</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   TextFile</H1>
+  <ADDRESS CLASS="VbSample">
+   Public Property Get TextFile() As Boolean</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <SPAN STYLE="font-weight : normal;">Public Property Let 
+   TextFile(vNewValue As </SPAN>Boolean<SPAN STYLE="font-weight : normal;">)
+    As </SPAN>Boolean</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   <SPAN STYLE="font-weight : normal;">Define if the content of the call 
+   is a text file. A text content is defined with the header 
+   Content-Time:text/xxxxxxx. Some file like .CSV or .VBS are text file 
+   but their content-type is set to </SPAN>application/octet-stream.<BR>
+   By setting the property to TRUE the execute method will convert the 
+   content from a byte array to a string.</P>
+  <P>
+   For mode goto the FAQ page and search on the key word : StrConv.<BR>
+   <BR>
+   </P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN><BR>
+   </P>
+  <P>
+   Dim varData</P>
+  <ADDRESS CLASS="VbSample">
+   Http.Method = &quot;Get&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Http.URL = &quot;http://www.myServer.com/data.csv&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Http.TextFile = TRUE<BR>
+   If Http.Execute(,,,varData) = CHTTP_ERROR_OK Then</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; MsgBox varData</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Else</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; W3Runner.TRACE &quot;HTTP Error &quot; &amp; Http.Status &amp; 
+   &quot; &quot; &amp; Http.StatusText &amp; &quot; URL=&quot; &amp; 
+   strURL, w3rERROR</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   End If</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <P>
+   <!-- $MVD$:spaceretainer() -->&nbsp;
+ </BODY>
+</HTML>

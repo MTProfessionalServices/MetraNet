@@ -1,0 +1,41 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>HTTP Data</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Data</H1>
+  <ADDRESS CLASS="VbSample">
+   Public Property Get Data() As String</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Public Property Let Data(vNewValue As String) As String</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   Get or set the default data to be sent with the HTTP call.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; Http.Method = &quot;POST&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; HTTP.Url = &quot;http://&quot; &amp; LOCAL_HOST &amp; &quot;/SOAP/MTSoapListener.asmx&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; Http.Data = strSoap</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; HTTP.InputHeaders.Add &quot;Content-Type&quot;,&quot;txt/xml&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; HTTP.InputHeaders.Add &quot;Content-Length&quot;,len(strSoap)</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; If HTTP.Execute(,,,strResponse)=CHTTP_ERROR_OK Then</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; End If
+ </BODY>
+</HTML>

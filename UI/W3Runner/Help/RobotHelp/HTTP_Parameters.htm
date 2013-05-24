@@ -1,0 +1,53 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>HTTP Parameters</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Parameters</H1>
+  <ADDRESS CLASS="VbSample">
+   Public Property Get Parameters() As</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   <SPAN STYLE="font-weight : normal;">Return a collection of CVariable. 
+   This class is used to stored the parameters name and value.</SPAN></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   HTTP.URL = &quot;http://1.2.3.4/webservices/WebService.HTTP Demo.asp&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   HTTP.Method = &quot;Post&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   HTTP.Parameters.Add &quot;Operation&quot; , &quot;Add&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   HTTP.Parameters.Add &quot;Param1&quot; , 1</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   HTTP.Parameters.Add &quot;Param2&quot; , 2</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   If HTTP.Execute()=CHTTP_ERROR_OK Then</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; strResultVars = Split(HTTP.ResponseText,&quot;,&quot;)</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; m_objReport.AddMessage &quot;Result=&quot; &amp; strResultVars(2)</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Else</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; W3Runner.TRACE &quot;HTTP call failed &quot; &amp; HTTP.Status 
+   &amp; &quot; &quot; &amp; HTTP.StatusText</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   End If</ADDRESS>
+  <P>
+   <!-- $MVD$:spaceretainer() -->&nbsp;
+ </BODY>
+</HTML>

@@ -1,0 +1,32 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>AutoFocus</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   AutoFocus</H1>
+  <ADDRESS CLASS="VbSample">
+   Public Property Get AutoFocus() As Boolean<BR>
+   Public Property Let AutoFocus(ByVal vNewValue As Boolean)</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   Get or set if W3Runner should set the focus to each object looked up 
+   with the method Page.Controls()</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   W3Runner.AutoFocus = TRUE<BR>
+   Page.Controls(&quot;MyCheckBox&quot;,&quot;CheckBox&quot;).Value = vbChecked</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN></P>
+  <P>
+   <A HREF="_Controls.htm">Page.Controls</A>
+ </BODY>
+</HTML>

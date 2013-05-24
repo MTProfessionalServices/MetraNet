@@ -1,0 +1,26 @@
+HKCR
+{
+	Progress.Dummy.1 = s 'Dummy Class'
+	{
+		CLSID = s '{A055E6A5-38C7-11D4-B9A1-00C04F043E86}'
+	}
+	Progress.Dummy = s 'Dummy Class'
+	{
+		CLSID = s '{A055E6A5-38C7-11D4-B9A1-00C04F043E86}'
+		CurVer = s 'Progress.Dummy.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {A055E6A5-38C7-11D4-B9A1-00C04F043E86} = s 'Dummy Class'
+		{
+			ProgID = s 'Progress.Dummy.1'
+			VersionIndependentProgID = s 'Progress.Dummy'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{A055E691-38C7-11D4-B9A1-00C04F043E86}'
+		}
+	}
+}

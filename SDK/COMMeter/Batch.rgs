@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTechSDK.Batch.1 = s 'Batch Class'
+	{
+		CLSID = s '{3d6322ce-cfae-401c-aca8-641bfed5dca3}'
+	}
+	MetraTechSDK.Batch = s 'Batch Class'
+	{
+		CLSID = s '{3d6322ce-cfae-401c-aca8-641bfed5dca3}'
+		CurVer = s 'MetraTechSDK.Batch.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {3d6322ce-cfae-401c-aca8-641bfed5dca3} = s 'Batch Class'
+		{
+			ProgID = s 'MetraTechSDK.Batch.1'
+			VersionIndependentProgID = s 'MetraTechSDK.Batch'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{5D80A7E3-D643-11D2-A233-00A0CC3AD9CD}'
+		}
+	}
+}

@@ -1,0 +1,64 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>HTTP Port</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Port</H1>
+  <ADDRESS CLASS="VbSample">
+   Public Property Get Port() As Long</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Public Property Let Port(ByVal vNewValue As Long)</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   Get or set the port to redirect the HTTP protocol. This property 
+   allow ine to redirect the HTTP protocol to a specific port so the 
+   HTTP protocol can be traced with a specific tool.<BR>
+   <FONT COLOR="BLUE"><SPAN STYLE="font-weight : bold;">This property 
+   also affects the property Page.URL and function Page.Post()</SPAN></FONT></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   strURL = &quot;http://www.mydotcom.com/default.htm&quot;<BR>
+   Http.UserName = &quot;Rene1&quot;<BR>
+   Http.PassWord = &quot;RTR%^!323jUIA&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   If Http.Execute(&quot;GET&quot;,strURL,,varText,,DOWNLOAD_TIME_OUT) = 
+   CHTTP_ERROR_OK Then</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   End If</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;<BR>
+   </ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   HTTP.Port = 82</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.URL = &quot;http://Localhost/default.asp&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   ' The 2 previous lines behave like : Page.URL = &quot;http://Localhost:82/default.asp&quot;</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   HTTP.Port = 8080<BR>
+   Page.URL = &quot;http://Localhost:81/default.asp&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   ' The 2 previous lines behave like : Page.URL = &quot;http://Localhost:8080/default.asp&quot;</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <P>
+   See Also:</P>
+  <P>
+   <A HREF="_URL.htm">Page.URL</A>
+ </BODY>
+</HTML>

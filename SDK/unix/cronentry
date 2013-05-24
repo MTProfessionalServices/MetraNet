@@ -1,0 +1,2 @@
+# Build mon-fri
+30 2 * * 1-5 ~/bin/BuildUnixSDK < ~/bin/build.config

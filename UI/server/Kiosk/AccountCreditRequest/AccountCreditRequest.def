@@ -1,0 +1,9 @@
+; AccountCreditRequest.def : Declares the module parameters.
+
+LIBRARY      "AccountCreditRequest.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

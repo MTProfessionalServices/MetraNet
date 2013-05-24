@@ -1,0 +1,122 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>The TextFile Object</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   The TextFile Object</H1>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   The class CTextFile export utility function to manipulate file. A 
+   Default instance is returned by the property W3Runner.TextFile</P>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   ' Public Enum CTEXTFILE_OPEN_MODE</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST CTEXTFILE_OPEN_MODE_OPEN_MODE_READ = 1</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST CTEXTFILE_OPEN_MODE_OPEN_MODE_WRITE = 2</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST CTEXTFILE_OPEN_MODE_OPEN_MODE_APPEND = 4</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST CTEXTFILE_OPEN_MODE_OPEN_MODE_EXCUSIVE = 8</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST CTEXTFILE_OPEN_MODE_OPEN_MODE_READWRITE = 16</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   CLASS CTextFile<BR>
+   </ADDRESS>
+  <BLOCKQUOTE>
+   <ADDRESS CLASS="VbSample">
+    <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Function DeleteFile(ByVal strFileName As String) As Boolean</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Function DirExists(ByVal strDirName As String) As Boolean</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Function ExistFile(ByVal strFileName As String) As Boolean</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Function FileCopy(ByVal sourceFileName As String, ByVal 
+    destFileName As String) As Boolean</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Function GetFileName(ByVal strFileName As String, Optional 
+    ByVal strCharSeparator As String = &quot;\&quot;) As String</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Function GetFileExtension(ByVal strFileName As String) As String</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Function GetPathFromFileName(ByVal strFileName As String, 
+    Optional ByVal strSeparator As String = &quot;\&quot;) As String</ADDRESS>
+   <ADDRESS>
+    <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Function GetFilesList(ByVal strPath As String, ByVal 
+    strWildCard As String, ByRef objFiles As Variant) As Boolean</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Function GetFoldersList(ByVal strPath As String, ByVal 
+    strWildCard As String, objFolders As CVariables) As Boolean</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Function LogFile(ByVal strFileName As String, ByVal strMessage 
+    As String, Optional booCreate As Boolean = False) As Boolean</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Function LoadFile(ByVal strFileName As String) As String</ADDRESS>
+   <ADDRESS>
+    <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Function RenameFile(ByVal strOldFileName As String, ByVal 
+    strNewFileName As String) As Integer</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+   <ADDRESS CLASS="VbSampleComment">
+    ' For file reading or writing line by line</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Function OpenFile(ByVal strFileName As String, Optional 
+    eOpenMode As CTEXTFILE_OPEN_MODE = 
+    CTEXTFILE_OPEN_MODE.OPEN_MODE_READ) As Boolean</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Function CloseFile() As Boolean</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Property Get EOF() As Boolean</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Function ReadLn() As String</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Function WriteLn(ByVal strS As String) As Boolean</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Property Get LinesRead() As Long</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Property Get LinesWritten() As Long</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Property Get Length() As Long</ADDRESS>
+   </BLOCKQUOTE>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   END CLASS</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   Dim strTmpFileName</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   strTmpFileName = W3Runner.Environ(&quot;TEMP&quot;) &amp; &quot;\My<SPAN STYLE="font-weight : bold;">TmpFile.Txt&quot;</SPAN></ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   W3Runner.LogFile strTmpFileName,strData, TRUE
+ </BODY>
+</HTML>

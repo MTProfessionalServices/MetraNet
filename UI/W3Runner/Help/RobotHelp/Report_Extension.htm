@@ -1,0 +1,198 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <!-- $MVD$:fontset("Untitled Font Set 2","Verdana","Arial") -->
+  <TITLE>Report Extension</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css">
+ <STYLE TYPE="text/css"><!--
+   .Text { font-family : "Verdana", "Arial";
+           font-weight : none;
+           font-size : 9.0pt;
+           background-color : white;
+           text-align : left;
+           color : black;
+           padding : 0.0px;}
+   .Title { font-family : "Verdana", "Arial";
+            font-weight : bold;
+            font-size : 9.0pt;
+            background-color : white;
+            text-align : left;
+            color : black;
+            padding : 0.0px;}
+   -->
+ </STYLE>
+ </HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Test Report Extension</H1>
+  <P>
+   CTestReport - A VBScript class which extend the possibilities of the 
+   W3Runner Report object.<BR>
+   <BR>
+   <SPAN STYLE="font-weight : bold;">Interface :</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   CLASS CTestReport</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC FUNCTION Initialize(strTitle)</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC FUNCTION Summary()</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC PROPERTY LET OutPutFolder(v)</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC PROPERTY GET OutPutFolder()</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC PROPERTY GET FileName()</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC FUNCTION Save()</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC FUNCTION WriteHTMLTable(lngCellPerRow,arrayValues)</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC FUNCTION Show()</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC FUNCTION Hide()</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC FUNCTION Write(s)</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC FUNCTION WriteLn(s)</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC FUNCTION Clear()</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   END CLASS</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample :</SPAN><BR>
+   </P>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC FUNCTION Main()</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; Dim objReport</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; Include W3Runner.Environ(w3rW3RUNNER_PATH) &amp; &quot;\Extensions\CTestReport.vbs&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; Set objReport = New CTestReport</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   &nbsp; ' Initialize the report. The report title is the script file name</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; objReport.Initialize Empty</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; If MyFunction() Then</ADDRESS>
+  <BLOCKQUOTE>
+   <BLOCKQUOTE>
+    <ADDRESS CLASS="VbSample">
+     objReport.WriteLn &quot;MyFunction() SUCCEEDED&quot;</ADDRESS>
+    </BLOCKQUOTE>
+   </BLOCKQUOTE>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; Else</ADDRESS>
+  <BLOCKQUOTE>
+   <BLOCKQUOTE>
+    <ADDRESS CLASS="VbSample">
+     objReport.WriteLn &quot;MyFunction() FAILED&quot;</ADDRESS>
+    <ADDRESS CLASS="VbSample">
+     Exit Function</ADDRESS>
+    </BLOCKQUOTE>
+   </BLOCKQUOTE>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; End If</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   &nbsp; ' Force the report to be generated and loaded by W3Runner, 
+   this is optional</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; objReport.Summary</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   &nbsp; ' Save the report to a local file.</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; objReport.Save</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   END FUNCTION</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Output :</SPAN></P>
+  <P STYLE="text-align : left;" ALIGN=LEFT>
+   <FONT COLOR="BLACK"><SPAN STYLE="font-weight : bold;font-size : 20.0pt;">MyScriptTest.vbs</SPAN></FONT></P>
+  <P STYLE="text-align : center;" ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <P>
+   <SPAN STYLE="font-weight : normal;">MyFunction() SUCCEEDED</SPAN></P>
+  <P STYLE="text-align : center;" ALIGN=CENTER>
+   <HR ALIGN=CENTER WIDTH="100%" SIZE="2">
+   </P>
+  <P STYLE="text-align : left;" ALIGN=LEFT>
+   <SPAN STYLE="font-weight : bold;">Summary:</SPAN></P>
+  <ADDRESS>
+   <TABLE CELLPADDING="0" CELLSPACING="0" BORDER="1">
+    <TR>
+     <TD VALIGN=CENTER CLASS="Text">
+      <P>
+       &nbsp;Error(s)&nbsp;:&nbsp;</TD>
+     <TD VALIGN=CENTER CLASS="Text">
+      <P>
+       &nbsp;0&nbsp;</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=CENTER CLASS="Text">
+      <P>
+       &nbsp;Warning(s)&nbsp;:&nbsp;</TD>
+     <TD VALIGN=CENTER CLASS="Text">
+      <P>
+       &nbsp;0&nbsp;</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=CENTER CLASS="Text">
+      <P>
+       &nbsp;Start Time&nbsp;:&nbsp;</TD>
+     <TD VALIGN=CENTER CLASS="Text">
+      <P>
+       &nbsp;10/29/2001 2:40:13 PM&nbsp;</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=CENTER CLASS="Text">
+      <P>
+       &nbsp;End Time&nbsp;:&nbsp;</TD>
+     <TD VALIGN=CENTER CLASS="Text">
+      <P>
+       &nbsp;10/29/2001 2:40:29 PM&nbsp;</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=CENTER CLASS="Text">
+      <P>
+       &nbsp;Computer&nbsp;:&nbsp;</TD>
+     <TD VALIGN=CENTER CLASS="Text">
+      <P>
+       &nbsp;MyComputer</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=CENTER CLASS="Text">
+      <P>
+       &nbsp;User&nbsp;:&nbsp;</TD>
+     <TD VALIGN=CENTER CLASS="Text">
+      <P>
+       &nbsp;FSmith</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=CENTER CLASS="Text">
+      <P>
+       &nbsp;Application Messages&nbsp;:&nbsp;</TD>
+     <TD VALIGN=CENTER CLASS="Text">
+      <P>
+       &nbsp;Test Initialization succeeded.<BR>
+       &nbsp;Test succeeded.</TD>
+    </TR>
+   </TABLE>
+ </BODY>
+</HTML>

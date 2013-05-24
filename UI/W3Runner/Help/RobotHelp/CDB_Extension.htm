@@ -1,0 +1,53 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>CDB Extension</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Database Extension</H1>
+  <P>
+   This class supplies a quick and simple access to a SQL Server through 
+   ADO. By default, the class will connect to a Microsoft SQL Server, 
+   but you can also connect to another ADO compatible database by 
+   setting yourself the connection string. All the ADO Recordset 
+   returned are deconnected.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN><BR>
+   </P>
+  <P>
+   <SPAN STYLE="font-weight : normal;">The Welcome Page contains some samples.</SPAN></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Interface:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   CLASS CDB</ADDRESS>
+  <BLOCKQUOTE>
+   <ADDRESS CLASS="VbSample">
+    Public Connection, DefaultTimeOut, Command</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Server, Database, Login, PassWord, ConnectionString</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    PUBLIC FUNCTION OpenDB()</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    PUBLIC FUNCTION CloseDB()</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    PUBLIC FUNCTION GetConnectionString()</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    PUBLIC FUNCTION NewRecordset()</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    PUBLIC FUNCTION SqlRun(strSQL, OptionalRecordSet) ' As Variant</ADDRESS>
+   </BLOCKQUOTE>
+  <ADDRESS CLASS="VbSample">
+   END CLASS</ADDRESS>
+  <P>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</P>
+  <P>
+   <!-- $MVD$:spaceretainer() -->&nbsp;
+ </BODY>
+</HTML>

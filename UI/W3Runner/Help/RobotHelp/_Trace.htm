@@ -1,0 +1,129 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>W3Runner Trace</TITLE>
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css">
+ <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Trace</H1>
+  <ADDRESS CLASS="VbSample">
+   Public Function TRACE(ByVal strMessage As String,Optional ByVal eMode 
+   As eW3RunnerTraceMode = w3rINFO) As Boolean</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST w3rINFO = 1</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST w3rERROR = 2</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST w3rWARNING = 4</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST w3rSQL = 8</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST w3rURL_DOWNLOADED = 16</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST w3rMEMORY = 32</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST w3rDEBUG = 64</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST w3rINTERNAL = 128</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST w3rMETHOD = 256</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST w3rJAVASCRIPT = 512</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST w3rSUCCESS = 1024</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST w3rCLEAR_TRACE = 2048</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST w3rPERFORMANCE = 4096</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   Displays the string in the Trace list view and logs the string in the 
+   file %TEMP%\W3Runner.log.csv. To log an error it is advised to use 
+   the method W3Runner.FAILED(). The following trace mode are reserved 
+   for W3Runner :</P>
+  <UL>
+   <LI CLASS="mvd-P">
+   <P>
+    w3rURL_DOWNLOADED</P>
+   <LI CLASS="mvd-P">
+   <P>
+    w3rINTERNAL</P>
+   <LI CLASS="mvd-P">
+   <P>
+    w3rMETHOD</P>
+   <LI CLASS="mvd-P">
+   <P>
+    w3rJAVASCRIPT</P>
+   <LI CLASS="mvd-P">
+   <P>
+    w3rPERFORMANCE</P>
+   </UL>
+  <P>
+   For more information see the chapter Log File.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Parameters:</SPAN></P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="1">
+    <TR>
+     <TD BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Part</SPAN></TD>
+     <TD WIDTH="50%" BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Description</SPAN></TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       strMessage</TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       Message to be displayed in the Trace list view and logged in the log file.</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       eMode</TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       Trace type</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSampleComment">
+   ' Trace an info message</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   W3Runner.Trace &quot;CRM Application Testing Starting At &quot; &amp; Now()</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   ' Trace an warning</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   W3Runner.Trace &quot;German translation not found&quot;, w3rWARNING</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   ' Trace an error</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   W3Runner.Trace &quot;Customer creation failed&quot;, w3rERROR</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Log File Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   9/19/2001 4:21:05 PM,[INFO],CSR Application Testing Starting At 
+   9/19/2001 4:21:05 PM</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   9/19/2001 4:21:05 PM,[WARNING],German translation not found</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   9/19/2001 4:21:05 PM,[ERROR],Customer creation failed</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN><BR>
+   <BR>
+   <A HREF="_Failed.htm">Failed</A><BR>
+   <A HREF="Trace_Tab.htm">Trace Tab</A>
+ </BODY>
+</HTML>

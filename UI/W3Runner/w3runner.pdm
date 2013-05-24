@@ -1,0 +1,335 @@
+[Root]
+Most Recent Package=Standard Setup Package 1
+
+
+[Package|Standard Setup Package 1|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=w:\Install\Setup
+
+[Package|Standard Setup Package 1|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Standard Setup Package 1|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Standard Setup Package 1|Files Found]
+W3Runner.dll=O:\debug\bin\W3Runner.dll
+MTVBLib.dll=O:\debug\bin\MTVBLib.dll
+
+[Package|Standard Setup Package 1|Files Released]
+W3Runner.tips.txt=
+License.txt=
+kernel.DLL=
+W3Runner.cwebload.vbs=
+W3Runner.CHI=
+demosoccer.vbs=
+cstack.vbs=
+ccomobjectunittest.vbs=
+cinifile.vbs=
+cxmlgenerator.vbs=
+curlhelper.vbs=
+cwebload.vbs=
+
+[Package|Standard Setup Package 1|Missing Dependency Information]
+D:\MetraTech\BuildOut\debug\bin\W3Runner.dll=
+C:\WINNT\SYSTEM32\msscript.ocx=
+O:\debug\bin\MTVBLib.dll=
+C:\Program Files\W3Runner\W3Runner.dll=
+O:\debug\bin\W3Runner.dll=
+C:\WINNT\SYSTEM32\psapi.dll=
+C:\WINNT\SYSTEM32\shlwapi.dll=
+H:\Dvt\Tool\debug\bin\W3Runner.dll=
+G:\WINNT\system32\msscript.ocx=
+H:\Dvt\Tool\MTVBLib.dll=
+G:\WINNT\system32\mshtml.tlb=
+G:\WINNT\system32\psapi.dll=
+G:\WINNT\system32\shlwapi.dll=
+G:\WINNT\system32\W3Runner.dll=
+G:\Program Files\W3Runner\MTVBLib.dll=
+C:\WINNT\SYSTEM32\MTVBLib.dll=
+G:\Program Files\W3Runner\W3Runner.dll=
+C:\Program Files\W3Runner\MTVBLib.dll=
+D:\MetraTech\BuildOut\debug\bin\MTVBLib.dll=
+C:\WINNT\SYSTEM32\wininet.dll=
+W:\Install\eSellerate ActiveX Control\esc.dll=
+G:\WINNT\system32\msxml3.dll=
+O:\debug\bin\W3RunnerRT.exe=
+
+[Package|Standard Setup Package 1|Out-of-Date Dependency Information]
+G:\WINNT\system32\tabctl32.ocx=
+C:\WINNT\SYSTEM32\tabctl32.ocx=
+
+[Package|Standard Setup Package 1|Files Added]
+w:\install\w3runner.ini=
+w:\w3runner.vbs=
+w:\w3runner.welcome.htm=
+w:\help\w3runner.chm=
+w:\extensions\ccsvfile.vbs=
+w:\web\demo\maindemo.vbs=
+w:\install\releasenotes.htm=
+w:\web\demo\yahoo.car.vbs=
+o:\debug\bin\w3runner.dll=
+w:\extensions\cdb.vbs=
+w:\extensions\cfifo.vbs=
+w:\extensions\howtouseextensionfromvbscript.vbs=
+w:\extensions\howtouseacollection.vbs=
+w:\extensions\cdemolib.vbs=
+w:\extensions\crandomdatagenerator.vbs=
+w:\install\esellerate activex control\esc.dll=
+w:\extensions\ctestreport.vbs=
+w:\extensions\cmssoapsdktest.vbs=
+w:\extensions\chttpsoaptest.vbs=
+w:\install\w3runner.url.history.txt=
+o:\debug\bin\w3runnerrt.exe=
+w:\extensions\clogfile.vbs=
+w:\extensions\ccomobjectunittest.vbs=
+
+[Package|Standard Setup Package 1|Files Removed]
+c:\winnt\system32\shlwapi.dll=
+c:\winnt\system32\psapi.dll=
+g:\winnt\system32\psapi.dll=
+g:\winnt\system32\shlwapi.dll=
+g:\winnt\system32\mshtml.tlb=
+g:\winnt\hh.exe=
+g:\winnt\system32\hhctrl.ocx=
+g:\winnt\system32\itircl.dll=
+g:\winnt\system32\itss.dll=
+g:\winnt\system32\wininet.dll=
+c:\winnt\system32\hh.exe=
+c:\winnt\system32\hhctrl.ocx=
+c:\winnt\system32\itircl.dll=
+c:\winnt\system32\itss.dll=
+c:\winnt\system32\wininet.dll=
+w:\web\demo\demosoccer.vbs=
+w:\web\demo\yahoo.car.vbs=
+w:\extensions\curlhelper.vbs=
+c:\winnt\hh.exe=
+w:\web\demo\maindemo.vbs=
+g:\winnt\system32\mswinsck.ocx=
+
+[Package|Standard Setup Package 1|Files In Project]
+w:\Install\W3Runner.ini=Yes
+w:\W3Runner.vbs=Yes
+w:\W3Runner.Welcome.htm=Yes
+w:\help\W3Runner.chm=Yes
+w:\Extensions\CCSVFile.vbs=Yes
+w:\Web\Demo\MainDemo.vbs=No
+W:\Install\ReleaseNotes.htm=Yes
+W:\Web\Demo\Yahoo.Car.vbs=No
+O:\debug\bin\W3Runner.dll=Yes
+W:\Extensions\CDB.vbs=Yes
+W:\Extensions\CFIFO.vbs=Yes
+W:\Extensions\HowToUseExtensionFromVBScript.vbs=Yes
+W:\Extensions\HowToUseACollection.vbs=Yes
+W:\Extensions\CDemoLib.vbs=Yes
+W:\Extensions\CRandomDataGenerator.vbs=Yes
+W:\Install\eSellerate ActiveX Control\esc.dll=Yes
+W:\Extensions\CTestReport.vbs=Yes
+W:\Extensions\CMSSoapSDKTest.vbs=Yes
+W:\Extensions\chttpsoapTest.vbs=Yes
+W:\Install\W3Runner.URL.History.txt=Yes
+O:\debug\bin\W3RunnerRT.exe=Yes
+G:\WINNT\system32\MSVBVM60.DLL=Yes
+G:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=Yes
+G:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=Yes
+G:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=Yes
+G:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=Yes
+G:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+G:\WINNT\system32\shlwapi.dll=No
+G:\WINNT\system32\psapi.dll=No
+G:\WINNT\system32\wininet.dll=No
+G:\WINNT\system32\hhctrl.ocx=No
+G:\WINNT\system32\itss.dll=No
+G:\WINNT\system32\itircl.dll=No
+G:\WINNT\hh.exe=No
+G:\WINNT\system32\mshtml.tlb=No
+G:\WINNT\system32\msscript.ocx=Yes
+G:\WINNT\system32\comdlg32.ocx=Yes
+G:\WINNT\system32\mscomctl.ocx=Yes
+G:\WINNT\system32\tabctl32.ocx=Yes
+G:\WINNT\system32\MSWINSCK.OCX=No
+G:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+G:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+G:\WINNT\system32\VB6STKIT.DLL=Yes
+G:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+O:\debug\bin\W3Runner.exe=Yes
+W:\Extensions\CLogFile.vbs=Yes
+W:\Extensions\CCOMObjectUnitTest.vbs=Yes
+
+[Package|Standard Setup Package 1|Configure Registry Files]
+Applicable=No
+
+[Package|Standard Setup Package 1|Configure Remote Servers]
+Applicable=No
+
+[Package|Standard Setup Package 1|Install Locations]
+D:\MetraTech\BuildOut\debug\bin\W3Runner.exe=$(AppPath)
+C:\WINNT\SYSTEM32\MSVBVM60.DLL=$(WinSysPathSysFile)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+O:\debug\bin\MTVBLib.dll=$(AppPath)
+C:\WINNT\SYSTEM32\msscript.ocx=$(WinSysPath)
+D:\MetraTech\BuildOut\debug\bin\W3Runner.dll=$(AppPath)
+C:\WINNT\SYSTEM32\COMDLG32.OCX=$(WinSysPath)
+C:\WINNT\SYSTEM32\mscomctl.ocx=$(WinSysPath)
+C:\WINNT\SYSTEM32\TABCTL32.OCX=$(WinSysPath)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINNT\SYSTEM32\VB6STKIT.DLL=$(WinSysPathSysFile)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+w:\Install\W3Runner.ini=$(AppPath)
+w:\W3Runner.Tips.txt=$(AppPath)
+w:\W3Runner.vbs=$(AppPath)
+w:\W3Runner.Welcome.htm=$(AppPath)
+w:\help\W3Runner.chm=$(AppPath)\help
+C:\Program Files\W3Runner\W3Runner.dll=$(WinSysPath)
+w:\Extensions\CCSVFile.vbs=$(AppPath)\Extensions
+w:\Extensions\W3Runner.CWebLoad.vbs=$(AppPath)\Extensions
+O:\debug\bin\W3Runner.dll=$(AppPath)
+w:\W3Runner.exe=$(AppPath)
+w:\Web\Demo\MainDemo.vbs=$(AppPath)\Demo\W3RunnerDemo
+O:\debug\bin\W3Runner.exe=$(AppPath)
+G:\WINNT\system32\MSVBVM60.DLL=$(WinSysPathSysFile)
+G:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+G:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+G:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+G:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+G:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+H:\Dvt\Tool\MTVBLib.dll=$(AppPath)
+G:\WINNT\system32\msscript.ocx=$(WinSysPath)
+H:\Dvt\Tool\debug\bin\W3Runner.dll=$(AppPath)
+G:\WINNT\system32\comdlg32.ocx=$(WinSysPath)
+G:\WINNT\system32\MSCOMCTL.OCX=$(WinSysPath)
+G:\WINNT\system32\tabctl32.ocx=$(WinSysPath)
+G:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+G:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+G:\WINNT\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+G:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+G:\Program Files\W3Runner\MTVBLib.dll=$(AppPath)
+G:\WINNT\system32\W3Runner.dll=$(AppPath)
+C:\WINNT\SYSTEM32\MTVBLib.dll=$(AppPath)
+W:\Install\ReleaseNotes.htm=$(AppPath)
+W:\Web\Demo\DemoSoccer.vbs=$(AppPath)\Demo\W3RunnerDemo
+W:\Web\Demo\Yahoo.Car.vbs=$(AppPath)\Demo\W3RunnerDemo
+G:\Program Files\W3Runner\W3Runner.dll=$(WinSysPath)
+W:\Install\setup.source\License.txt=$(AppPath)
+W:\Extensions\CStack.vbs=$(AppPath)\Extensions
+C:\Program Files\W3Runner\MTVBLib.dll=$(WinSysPath)
+D:\MetraTech\BuildOut\debug\bin\MTVBLib.dll=$(AppPath)
+G:\WINNT\system32\wininet.dll=$(WinSysPath)
+G:\WINNT\system32\hhctrl.ocx=$(WinSysPath)
+G:\WINNT\system32\itss.dll=$(WinSysPath)
+G:\WINNT\system32\itircl.dll=$(WinSysPath)
+G:\WINNT\hh.exe=$(WinSysPath)
+W:\Extensions\CDB.vbs=$(AppPath)\Extensions
+W:\Extensions\CFIFO.vbs=$(AppPath)\Extensions
+W:\Extensions\HowToUseExtensionFromVBScript.vbs=$(AppPath)\Extensions
+W:\Extensions\HowToUseACollection.vbs=$(AppPath)\Extensions
+W:\Extensions\CIniFile.vbs=$(AppPath)\Extensions
+W:\Extensions\CURLHelper.vbs=$(AppPath)\Extensions
+W:\Extensions\CDemoLib.vbs=$(AppPath)\Extensions
+W:\Extensions\CRandomDataGenerator.vbs=$(AppPath)\Extensions
+W:\Install\eSellerate ActiveX Control\esc.dll=$(AppPath)
+W:\Extensions\CTestReport.vbs=$(AppPath)\Extensions
+W:\Extensions\CMSSoapSDKTest.vbs=$(AppPath)\Extensions
+W:\Extensions\chttpsoapTest.vbs=$(AppPath)\Extensions
+G:\WINNT\system32\msxml3.dll=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\WINNT\hh.exe=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+W:\Install\W3Runner.URL.History.txt=$(AppPath)
+W:\Extensions\CCOMObjectUnitTest.vbs=$(AppPath)\Extensions
+W:\Extensions\CWebload.vbs=$(AppPath)\Extensions
+O:\debug\bin\W3RunnerRT.exe=$(AppPath)
+C:\WINNT\system32\MSWINSCK.OCX=$(WinSysPath)
+C:\WINNT\system32\MSCHRT20.OCX=$(WinSysPath)
+G:\WINNT\system32\MSWINSCK.OCX=$(WinSysPath)
+G:\WINNT\system32\MSCHRT20.OCX=$(WinSysPath)
+C:\MetraTech\BuildOut\debug\bin\W3Runner.exe=$(AppPath)
+H:\Dvt\Tool\debug\bin\W3Runner.exe=$(AppPath)
+W:\Extensions\CXMLGenerator.vbs=$(AppPath)\Extensions
+W:\Extensions\CLogFile.vbs=$(AppPath)\Extensions
+
+[Package|Standard Setup Package 1|Configure Shared Files]
+Applicable=Yes
+D:\MetraTech\BuildOut\debug\bin\W3Runner.exe=No
+O:\debug\bin\MTVBLib.dll=No
+D:\MetraTech\BuildOut\debug\bin\W3Runner.dll=No
+w:\Install\W3Runner.ini=No
+w:\W3Runner.Tips.txt=No
+w:\W3Runner.vbs=No
+w:\W3Runner.Welcome.htm=No
+w:\help\W3Runner.chm=No
+w:\Extensions\CCSVFile.vbs=No
+w:\Extensions\W3Runner.CWebLoad.vbs=No
+w:\W3Runner.exe=No
+w:\Web\Demo\MainDemo.vbs=No
+O:\debug\bin\W3Runner.exe=No
+H:\Dvt\Tool\MTVBLib.dll=No
+H:\Dvt\Tool\debug\bin\W3Runner.dll=No
+G:\Program Files\W3Runner\MTVBLib.dll=No
+G:\WINNT\system32\W3Runner.dll=No
+C:\WINNT\SYSTEM32\MTVBLib.dll=No
+O:\debug\bin\W3Runner.dll=No
+W:\Install\ReleaseNotes.htm=No
+W:\Web\Demo\DemoSoccer.vbs=No
+W:\Web\Demo\Yahoo.Car.vbs=No
+W:\Install\setup.source\License.txt=No
+W:\Extensions\CStack.vbs=No
+D:\MetraTech\BuildOut\debug\bin\MTVBLib.dll=Yes
+W:\Extensions\CDB.vbs=No
+W:\Extensions\CFIFO.vbs=No
+W:\Extensions\HowToUseExtensionFromVBScript.vbs=No
+W:\Extensions\HowToUseACollection.vbs=No
+W:\Extensions\CIniFile.vbs=No
+W:\Extensions\CURLHelper.vbs=No
+W:\Extensions\CDemoLib.vbs=No
+W:\Extensions\CRandomDataGenerator.vbs=No
+W:\Install\eSellerate ActiveX Control\esc.dll=No
+W:\Extensions\CTestReport.vbs=No
+W:\Extensions\CMSSoapSDKTest.vbs=No
+W:\Extensions\chttpsoapTest.vbs=No
+W:\Install\W3Runner.URL.History.txt=No
+W:\Extensions\CCOMObjectUnitTest.vbs=No
+W:\Extensions\CWebload.vbs=No
+O:\debug\bin\W3RunnerRT.exe=No
+C:\MetraTech\BuildOut\debug\bin\W3Runner.exe=No
+H:\Dvt\Tool\debug\bin\W3Runner.exe=No
+W:\Extensions\CXMLGenerator.vbs=No
+W:\Extensions\CLogFile.vbs=No
+
+[Package|Standard Setup Package 1|Distribution]
+Type=single
+Size=
+Title=W3Runner 2.0.3
+
+[Package|Standard Setup Package 1|Package]
+PackageFolder=w:\Install\Setup
+ProjectFolder=W:
+ServerSideCab=
+File1=w:\Install\Setup\setup.exe
+File2=w:\Install\Setup\Setup.Lst
+File3=w:\Install\Setup\W3Runner.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+[Package|Standard Setup Package 1|IconGroups]
+Group0=W3Runner
+PrivateGroup0=-1
+Parent0=$(Programs)
+
+[Package|Standard Setup Package 1|W3Runner]
+Icon1=W3Runner.exe
+Title1=W3Runner
+StartIn1=$(AppPath)
+Key1=Icon1

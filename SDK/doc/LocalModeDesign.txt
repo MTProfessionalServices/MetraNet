@@ -1,0 +1,153 @@
+Local Mode Design Documentation
+-------------------------------
+03-aug-1998
+
+billo
+
+Purpose
+-------
+
+There are two main points to local mode.  First, the SDK programmer
+needs the ability to "store up" metered information and periodically
+burst it out to the server.  This is desirable when intermittent
+network connectivity is more practical or economical than continuous
+connectivity. 
+
+Second, during periods where the metering server might be unavailable,
+the SDK must provide the ability to log session locally, for later
+upload to the server (when it is available).
+
+Goals
+-----
+
+The major goals of this design are: Simplicity; Scalability;
+Portability; Robustness.
+
+1. Simplicity: to keep the design simple, and ostensibly less buggy,
+   Local Mode is to be explicitly available as an option to the SDK
+   user.  The SDK end-programmer, knowing the environmental conditions
+   of the application much better than the MetraTech programmers,
+   decides and specifies explicitly when to activate local mode, and
+   then later when to playback local records to send to a server.
+
+2. Scalability: each top-level session is written as a single file.
+   This pushes size issues to the file system, which better be able to
+   handle huge numbers of files.  Given this statement, it is
+   inadvisable to specify local mode recording to a lame file system
+   like FAT.  NTFS or an unix FS is recommended.
+
+3. Portability: the SDK must be potentially ported to many platforms,
+   therefore simple ANSI stdio functions are to be used for all I/O.
+   Furthermore, simple C/C++ data structures in most cases are used to
+   avoid compiler problems (as opposed to such features as templates).
+   Also, a high-level file system wrapper library is provided for such
+   operations as directory searching and file copying.
+
+4. Robustness: the local mode feature is generally thread safe.  In
+   the case of file I/O, a portable mutex interface is used to
+   synchronize generation of session records.  Session records are
+   made unique with a second/millisecond/random number
+   triple-longword.
+ 
+   File records are built up as a transaction is recorded, and only
+   when completed successfully is the file record moved to a "pending"
+   directory area.  In this way, only files in the pending area can be
+   safely considered correct and complete.
+
+   To further aid against corruption of data, each session record is
+   created with a 160-bit message digest using the SHA message digest
+   algorithm.  Before any file is played back to a server for
+   permanent storage, the message integrity is checked by comparing
+   the hash in the file to one computed after reading the file data.
+
+
+Details
+-------
+
+1. To insulate the feature of local mode from changes in the
+   underlying implementation of the MSIX protocol, or from the
+   addition of other metering protocols, the local mode recording is
+   essentially a macro-record of the API calls which affect session
+   creation.  These include, and are limited to: CreateSession,
+   CreateChildSession, InitProperty (in all flavors), SetProperty (in
+   all flavors), Save Session, Close Session.
+
+   The recording is all done at the generic base class NetMeterAPI, so
+   any subclass (like MSIXNetMeterAPI) added automatically picks up
+   local mode recording capability.
+
+2. Several calls are added to the publically defined APIs.
+   MTMeterConfig gets methods to activate local mode recording, and to
+   specify where on the filesystem local mode records are recorded. 
+
+   MTMeter gets two methods: CountLocal() to tell the SDK
+   end-programmer how many, if any, local records are waiting to be 
+   uploaded.  PlaybackLocal() is used to actually send those records
+   to the server.
+
+3. Internally, NetMeterAPI maintains a state variable to prevent a
+   recursive death spiral.  The major states can be that local mode is
+   totally ignored; local mode recording mode, where no server
+   connections are to be attempted; and local mode playback mode where
+   no local mode recording can occur.
+
+4. nearly all changes related to local mode recording are in the files
+   sdkcon.h and sdkcon.cpp
+
+Core Capabilities added
+-----------------------
+
+1. A new module has been added to Core called futil.  This is a
+   portable file management API, which includes a semantic wrapper for
+   reading directories.  Generally directory reading APIs on NT and
+   Unix are semantically incompatible.   Also included are file
+   copying and removal routines.
+
+2. A class module called MTSHA is a wrapper around the SSLeay
+   public-domain algorithm for the Secure Hash Algorithm.  If this
+   implementation of the algorithm is to be shipped, SSLeay has a
+   credit-clause:
+
+/* Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)
+ * All rights reserved.
+ *
+ * This library is free for commercial and non-commercial use as long as
+ * the following conditions are aheared to.  The following conditions
+ * apply to all code found in this distribution, be it the RC4, RSA,
+ * lhash, DES, etc., code; not just the SSL code.  The SSL documentation
+ * included with this distribution is covered by the same copyright terms
+ * except that the holder is Tim Hudson (tjh@cryptsoft.com).
+
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 3. All advertising materials mentioning features or use of this software
+ *    must display the following acknowledgement:
+ *    "This product includes cryptographic software written by
+ *     Eric Young (eay@cryptsoft.com)"
+ *    The word 'cryptographic' can be left out if the rouines from the library
+ *    being used are not cryptographic related :-).
+ * 4. If you include any Windows specific code (or a derivative thereof) from 
+ *    the apps directory (application code) you must include an acknowledgement:
+ *    "This product includes software written by Tim Hudson (tjh@cryptsoft.com)"
+ * THIS SOFTWARE IS PROVIDED BY ERIC YOUNG ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ * 
+ * The licence and distribution terms for any publically available version or
+ * derivative of this code cannot be changed.  i.e. this code cannot simply be
+ * copied and put under another distribution licence
+ * [including the GNU Public Licence.]

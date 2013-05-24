@@ -1,0 +1,59 @@
+#!/bin/sh
+
+##
+## Checks the Unix SDK out of StarTeam
+##
+## Heavily hacked from older build scripts by Robert G. & blount
+##
+
+ROOT_DIR=$1
+BRANCH=$2
+LABEL=$3
+
+if [ -z $ROOT_DIR -o -z $BRANCH ]
+then
+  echo "Usage: $0 <root dir> <branch> [<label>]"
+  exit 1
+fi
+
+BUILD_ROOT=$ROOT_DIR/$BRANCH; export BUILD_ROOT
+
+# Get files from StarTeam. Make sure that BuildUnixSDK sets BUILD_ROOT, or copy it here.
+mkdir $BUILD_ROOT
+rm -rf $BUILD_ROOT/*
+
+# These variables help a lot in readability.
+# st_costr is the check out string.
+# st_flags are any additional flags.
+st_costr="build:istari@starteam:1024/MetraTech/$BRANCH/Source"
+if [ -z $LABEL ]
+then
+    st_flags="-is -rp "$BUILD_ROOT" -eol on -o -nologo"
+else
+    st_flags="-is -rp "$BUILD_ROOT" -eol on -o -nologo -vl $LABEL"
+fi
+
+printf "Getting files from StarTeam:\\n"
+st_dirs="Build/unix Core/error Core/base64 Core/xml Core/msix"
+st_dirs="$st_dirs Core/netstream Core/unixnet Core/futil Core/sha Core/compress"
+st_dirs="$st_dirs Core/MTUtil Core/xmlconfig Core/ConfigReaders Core/MTDecimalVal"
+st_dirs="$st_dirs include Msg Thirdparty/xmltok"
+st_dirs="$st_dirs Thirdparty/md5 SDK Utils/threadtest"
+
+for i in $st_dirs
+do
+    echo stcmd co -p "$st_costr/$i" $st_flags
+    stcmd co -p "$st_costr/$i" $st_flags
+done
+
+printf "Finished StarTeam checkout.\\n"
+
+exit 0
+
+
+
+
+
+
+
+

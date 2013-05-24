@@ -1,0 +1,4735 @@
+
+(object Petal
+    version    	42
+    _written   	"Microsoft Visual Modeler 2.0.8139"
+    charSet    	0)
+
+(object Design "Logical View"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    defaults   	(object defaults
+	rightMargin 	0.250000
+	leftMargin 	0.250000
+	topMargin  	0.250000
+	bottomMargin 	0.500000
+	pageOverlap 	0.250000
+	clipIconLabels 	TRUE
+	autoResize 	TRUE
+	snapToGrid 	TRUE
+	gridX      	16
+	gridY      	16
+	defaultFont 	(object Font
+	    size       	9
+	    face       	"Tahoma"
+	    bold       	FALSE
+	    italics    	FALSE
+	    underline  	FALSE
+	    strike     	FALSE
+	    color      	0
+	    default_color 	TRUE)
+	showMessageNum 	3
+	showClassOfObject 	TRUE
+	notation   	"Unified")
+    root_usecase_package 	(object Class_Category "Use Case View"
+	quid       	"39AD43D602D0"
+	exportControl 	"Public"
+	global     	TRUE
+	logical_models 	(list unit_reference_list)
+	logical_presentations 	(list unit_reference_list
+	    (object UseCaseDiagram "Main"
+		quid       	"39AD43D70244"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))))
+    root_category 	(object Class_Category "Logical View"
+	quid       	"39AD43D602CF"
+	exportControl 	"Public"
+	global     	TRUE
+	subsystem  	"Component View"
+	quidu      	"39AD43D602D1"
+	logical_models 	(list unit_reference_list
+	    (object Class_Category "User Services"
+		attributes 	(list Attribute_Set
+		    (object Attribute
+			tool       	"VisualBasic"
+			name       	"TierPackage"
+			value      	"User Services"))
+		quid       	"39AD43D70257"
+		documentation 	"User services provide the visual interface for presenting information and gathering data in an application. The user services connect the user with the application and request the business and/or data services needed by the user to execute business tasks."
+		visible_categories 	(list visibility_relationship_list
+		    (object Visibility_Relationship
+			attributes 	(list Attribute_Set
+			    (object Attribute
+				tool       	"VisualBasic"
+				name       	"TierPackage"
+				value      	"Business Services"))
+			quid       	"39AD43D7025D"
+			supplier   	"Logical View::Business Services"
+			quidu      	"39AD43D70259")
+		    (object Visibility_Relationship
+			attributes 	(list Attribute_Set
+			    (object Attribute
+				tool       	"VisualBasic"
+				name       	"TierPackage"
+				value      	"Data Services"))
+			quid       	"39AD43D7025E"
+			supplier   	"Logical View::Data Services"
+			quidu      	"39AD43D7025B"))
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list)
+		logical_presentations 	(list unit_reference_list
+		    (object ClassDiagram "Package Overview"
+			quid       	"39AD43D70258"
+			title      	"Package Overview"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list))))
+	    (object Class_Category "Business Services"
+		attributes 	(list Attribute_Set
+		    (object Attribute
+			tool       	"VisualBasic"
+			name       	"TierPackage"
+			value      	"Business Services"))
+		quid       	"39AD43D70259"
+		documentation 	"Business services respond to requests from the user (or other business services) in order to execute a business task. They accomplish this by requesting the data services needed and applying formal procedures and business rules to the relevant data. This protocol insulates the user from direct interaction with the database. Because business rules tend to change more frequently than the specific business tasks they support, they are ideal candidates for encapsulating in components that are physically separate from the application logic itself."
+		visible_categories 	(list visibility_relationship_list
+		    (object Visibility_Relationship
+			attributes 	(list Attribute_Set
+			    (object Attribute
+				tool       	"VisualBasic"
+				name       	"TierPackage"
+				value      	"User Services"))
+			quid       	"39AD43D7025F"
+			supplier   	"Logical View::User Services"
+			quidu      	"39AD43D70257")
+		    (object Visibility_Relationship
+			attributes 	(list Attribute_Set
+			    (object Attribute
+				tool       	"VisualBasic"
+				name       	"TierPackage"
+				value      	"Data Services"))
+			quid       	"39AD43D70260"
+			supplier   	"Logical View::Data Services"
+			quidu      	"39AD43D7025B"))
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list
+		    (object Class "ConditionData"
+			attributes 	(list Attribute_Set
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"Creatable"
+				value      	("CreatableSet" 219))
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"OptionExplicit"
+				value      	TRUE))
+			quid       	"39AD43FD0202"
+			documentation 	
+|----------------------------------------------------------------------------
+| Copyright 1998-2000 by MetraTech Corporation
+| All rights reserved.
+|
+| THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+| NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+| example, but not limitation, MetraTech Corporation MAKES NO
+| REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+| PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+| DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+| COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+|
+| Title to copyright in this software and any associated
+| documentation shall at all times remain with MetraTech Corporation,
+| and USER agrees to preserve the same.
+|
+| $Workfile: MTAdminConfigSetHandler.cls$
+| $Date: 5/22/00 11:23:05 AM$
+| $Author: David Wood$
+| $Revision: 6$
+|
+|
+|----------------------------------------------------------------------------
+			
+			stereotype 	"Class Module"
+			operations 	(list Operations
+			    (object Operation "ColumnType"
+				quid       	"39BE92A1001E"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "ColumnType"
+				quid       	"39BE92A103A3"
+				documentation 	
+|----------------------------------------------------------------------------
+| PROPERTIES
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: ColumnType
+|   Description:  Get and Let - the type (metered, synthetic, label, etc...)
+|the operator
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "DisplayName"
+				quid       	"39BE92A201BA"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "DisplayName"
+				quid       	"39BE92A30161"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: DisplayName
+|   Description:  Get and Let - The display name for the action
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "EnumSpace"
+				quid       	"39BE92A30374"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "EnumSpace"
+				quid       	"39BE92A40344"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: EnumSpace
+|   Description:  Get and Let - The EnumSpace, if the PType is enum
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "EnumType"
+				quid       	"39BE92A50178"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "EnumType"
+				quid       	"39BE92A60170"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: EnumType
+|   Description: Get and Let - The EnumType, if the PType is Enum
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "EnumValues"
+				quid       	"39BE92A603A1"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: EnumValues
+|   Description:  Get property - returns the collection of enum values
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"Collection"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "EnumStrings"
+				quid       	"39BE92A701FD"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: EnumStrings
+|   Description:  Get property - returns the collection of enum strings
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"Collection"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Filterable"
+				quid       	"39BE92A80064"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"Boolean"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Filterable"
+				quid       	"39BE92A9008E"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Filterable
+|   Description: Get and Let - A flag to indicate whether the condition can be
+|                           used to filter.
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"Boolean"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "PropertyName"
+				quid       	"39BE92A902F1"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "PropertyName"
+				quid       	"39BE92AA0356"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: PropertyName
+|   Description:  Get and Let - The property name of the action
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "PType"
+				quid       	"39BE92AB01E5"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "PType"
+				quid       	"39BE92AC027D"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: PType
+|   Description:  Get and Let - The PType of the property
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Operator"
+				quid       	"39BE92AD0116"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Operator"
+				quid       	"39BE92AE01D5"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Operator
+|   Description:  Get and Let - The conditional operator to use
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "DisplayOperator"
+				quid       	"39BE92AF008C"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "DisplayOperator"
+				quid       	"39BE92B00160"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: DisplayOperator
+|   Description:  Get and Set - indicates if and where the operator should
+|appear
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "EditOperator"
+				quid       	"39BE92B10017"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"Boolean"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "EditOperator"
+				quid       	"39BE92B2011D"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: EditOperator
+|   Description:  Get and Let - A flag to indicate whether the user can choose
+|the operator
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"Boolean"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Class_Initialize"
+				quid       	"39BE92B203DA"
+				documentation 	
+|----------------------------------------------------------------------------
+| METHODS - INITIALIZE & TERMINATE
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: Class_Initialize
+|   Description:  The intialize for the class.  No actions at this time
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				concurrency 	"Sequential"
+				opExportControl 	"Private"
+				uid        	0)
+			    (object Operation "Class_Terminate"
+				quid       	"39BE92B30205"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Class_Terminate
+|   Description:  The terminate for the class.
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				concurrency 	"Sequential"
+				opExportControl 	"Private"
+				uid        	0)
+			    (object Operation "SetEnumValues"
+				quid       	"39BE92B40039"
+				documentation 	
+|----------------------------------------------------------------------------
+| METHODS - Public
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: SetEnumValues
+|   Description:  Sets the Enum values collection based on the enumspace and
+|                   enum type stored in the object.  Stores the values and text in the
+|                   two collections of strings
+|   Parameters: icstrLocale - the language to use to load
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "Optional ByVal icstrLocale"
+					type       	"String"
+					initv      	
+|"US"
+					))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "LoadFromPropSet"
+				quid       	"39BE92B403E7"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: LoadFromPropSet
+|   Description:  Loads a the conditions from a propset into the object
+|               Works in conjuction with SaveToPropSet
+|   Parameters: iobjPropSet - the propset to use to populate the collection
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "ByVal iobjPropSet"
+					type       	"MTConfigPropSet"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "SaveToPropSet"
+				quid       	"39BE92B503A2"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: SaveToPropSet
+|   Description:  Save a set of conditions from the object into a propset
+|               Works in conjuction with LoadFromPropSet
+|   Parameters: iobjPropSet - the propset to use to save the collection
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "ByVal iobjPropSet"
+					type       	"MTConfigPropSet"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0))
+			class_attributes 	(list class_attribute_list
+			    (object ClassAttribute "mlngClassDebugID"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE929A0140"
+				documentation 	"local variable to hold the serialized class ID that was created in Class_Initialize"
+				type       	"Long")
+			    (object ClassAttribute "mstrColumnType"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE929A032B"
+				type       	"String")
+			    (object ClassAttribute "mstrDisplayName"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE929B011A"
+				type       	"String")
+			    (object ClassAttribute "mstrEnumSpace"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE929B0319"
+				type       	"String")
+			    (object ClassAttribute "mcolEnumValues"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE929C011B"
+				type       	"Collection")
+			    (object ClassAttribute "mcolEnumStrings"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE929C0306"
+				type       	"Collection")
+			    (object ClassAttribute "mstrEnumType"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE929D00FF"
+				type       	"String")
+			    (object ClassAttribute "mbolFilterable"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE929D031B"
+				type       	"Boolean")
+			    (object ClassAttribute "mstrPropertyName"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE929E0132"
+				documentation 	"Private mlngIndex               As Long             'The index of the property (what order it appears)"
+				type       	"String")
+			    (object ClassAttribute "mstrPType"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE929E033B"
+				type       	"String")
+			    (object ClassAttribute "mstrOperator"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE929F0166"
+				type       	"String")
+			    (object ClassAttribute "mstrDisplayOperator"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE929F03A1"
+				type       	"String")
+			    (object ClassAttribute "mbolEditOperator"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92A001D5"
+				type       	"Boolean"))
+			module     	"Component View::MTTabRulesetReader"
+			quidu      	"39AD43FD01A8"
+			language   	"Visual Basic")
+		    (object Class "ActionData"
+			attributes 	(list Attribute_Set
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"Creatable"
+				value      	("CreatableSet" 219))
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"OptionExplicit"
+				value      	TRUE))
+			quid       	"39AD43FD02D4"
+			documentation 	
+|----------------------------------------------------------------------------
+| Copyright 1998-2000 by MetraTech Corporation
+| All rights reserved.
+|
+| THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+| NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+| example, but not limitation, MetraTech Corporation MAKES NO
+| REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+| PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+| DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+| COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+|
+| Title to copyright in this software and any associated
+| documentation shall at all times remain with MetraTech Corporation,
+| and USER agrees to preserve the same.
+|
+| $Workfile: MTAdminConfigSetHandler.cls$
+| $Date: 5/22/00 11:23:05 AM$
+| $Author: David Wood$
+| $Revision: 6$
+|
+|
+|----------------------------------------------------------------------------
+			
+			stereotype 	"Class Module"
+			operations 	(list Operations
+			    (object Operation "ColumnType"
+				quid       	"39BE92B902C2"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "ColumnType"
+				quid       	"39BE92BA018D"
+				documentation 	
+|----------------------------------------------------------------------------
+| PROPERTIES
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: ColumnType
+|   Description:  Get and Let - the type (metered, synthetic, label, etc...)
+|the operator
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "DefaultValue"
+				quid       	"39BE92BA0309"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"Variant"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "DefaultValue"
+				quid       	"39BE92BB01F2"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: DefaultValue
+|   Description:  Get and Let - The default value for the action - assumes that
+|                   the underlying Variant type is a simple data type
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"Variant"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "DisplayName"
+				quid       	"39BE92BB0397"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "DisplayName"
+				quid       	"39BE92BC029E"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: DisplayName
+|   Description:  Get and Let - The display name for the action
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Editable"
+				quid       	"39BE92BD0064"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"Boolean"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Editable"
+				quid       	"39BE92BD0386"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Editable
+|   Description:  Get and Let - Flag to indicate whether the property is editable
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"Boolean"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "EnumSpace"
+				quid       	"39BE92BE016A"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "EnumSpace"
+				quid       	"39BE92BF00C1"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: EnumSpace
+|   Description:  Get and Let - The EnumSpace, if the PType is enum
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "EnumType"
+				quid       	"39BE92BF02A2"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "EnumType"
+				quid       	"39BE92C0022B"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: EnumType
+|   Description: Get and Let - The EnumType, if the PType is Enum
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "EnumValues"
+				quid       	"39BE92C1002E"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: EnumValues
+|   Description:  Get property - returns the collection of enum values
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"Collection"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "EnumStrings"
+				quid       	"39BE92C10223"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: EnumStrings
+|   Description:  Get property - returns the collection of enum strings
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"Collection"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "PropertyName"
+				quid       	"39BE92C20044"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "PropertyName"
+				quid       	"39BE92C30009"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: PropertyName
+|   Description:  Get and Let - The property name of the action
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "PType"
+				quid       	"39BE92C30226"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "PType"
+				quid       	"39BE92C40213"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: PType
+|   Description:  Get and Let - The PType of the property
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Class_Initialize"
+				quid       	"39BE92C50052"
+				documentation 	
+|----------------------------------------------------------------------------
+| METHODS - INITIALIZE & TERMINATE
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: Class_Initialize
+|   Description:  The intialize for the class.  No actions at this time
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				concurrency 	"Sequential"
+				opExportControl 	"Private"
+				uid        	0)
+			    (object Operation "Class_Terminate"
+				quid       	"39BE92C501F7"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Class_Terminate
+|   Description:  The terminate for the class.
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				concurrency 	"Sequential"
+				opExportControl 	"Private"
+				uid        	0)
+			    (object Operation "SetEnumValues"
+				quid       	"39BE92C503A5"
+				documentation 	
+|----------------------------------------------------------------------------
+| METHODS - Public
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: SetEnumValues
+|   Description:  Sets the Enum values collection based on the enumspace and
+|                   enum type stored in the object.  Stores the values and text in the
+|                   two collections of strings
+|               icstrLocale - the language to use to load
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "Optional ByVal icstrLocale"
+					type       	"String"
+					initv      	
+|"US"
+					))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "LoadFromPropSet"
+				quid       	"39BE92C602A2"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: LoadFromPropSet
+|   Description:  Loads a set of actions from a propset into the object
+|               Works in conjuction with SaveToPropSet
+|   Parameters: iobjPropSet - the propset to use to populate the collection
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "ByVal iobjPropSet"
+					type       	"MTConfigPropSet"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "SaveToPropSet"
+				quid       	"39BE92C701BD"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: SaveToPropSet
+|   Description:  Save a set of actions from the object into a propset
+|               Works in conjuction with LoadFromPropSet
+|   Parameters: iobjPropSet - the propset to use to save the collection
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "ByVal iobjPropSet"
+					type       	"MTConfigPropSet"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0))
+			class_attributes 	(list class_attribute_list
+			    (object ClassAttribute "mvarDefaultValue"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39AD60D2010B"
+				type       	"Variant")
+			    (object ClassAttribute "mstrDisplayName"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39AD60D202C4"
+				type       	"String")
+			    (object ClassAttribute "mbolEditable"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39AD60D30094"
+				type       	"Boolean")
+			    (object ClassAttribute "mstrEnumSpace"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39AD60D30243"
+				type       	"String")
+			    (object ClassAttribute "mcolEnumValues"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39AD60D4001D"
+				type       	"Collection")
+			    (object ClassAttribute "mstrEnumType"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39AD60D401F4"
+				type       	"String")
+			    (object ClassAttribute "mstrPropertyName"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39AD60D403B7"
+				documentation 	"Private mlngIndex               As Long             'The index of the property (what order it appears)"
+				type       	"String")
+			    (object ClassAttribute "mlngClassDebugID"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92B80053"
+				documentation 	"local variable to hold the serialized class ID that was created in Class_Initialize"
+				type       	"Long")
+			    (object ClassAttribute "mstrColumnType"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92B801C6"
+				type       	"String")
+			    (object ClassAttribute "mcolEnumStrings"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92B8037E"
+				type       	"Collection")
+			    (object ClassAttribute "mstrPType"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92B90145"
+				type       	"String"))
+			module     	"Component View::MTTabRulesetReader"
+			quidu      	"39AD43FD01A8"
+			language   	"Visual Basic")
+		    (object Class "RulesetHandler"
+			attributes 	(list Attribute_Set
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"Creatable"
+				value      	("CreatableSet" 219))
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"GenerateInitialization"
+				value      	TRUE)
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"GenerateTermination"
+				value      	TRUE)
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"OptionExplicit"
+				value      	TRUE))
+			quid       	"39AD44A70224"
+			documentation 	
+|----------------------------------------------------------------------------
+| Copyright 1998-2000 by MetraTech Corporation
+| All rights reserved.
+|
+| THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+| NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+| example, but not limitation, MetraTech Corporation MAKES NO
+| REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+| PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+| DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+| COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+|
+| Title to copyright in this software and any associated
+| documentation shall at all times remain with MetraTech Corporation,
+| and USER agrees to preserve the same.
+|
+| $Workfile: MTAdminConfigSetHandler.cls$
+| $Date: 5/22/00 11:23:05 AM$
+| $Author: David Wood$
+| $Revision: 6$
+|
+|
+|----------------------------------------------------------------------------
+			
+			stereotype 	"Class Module"
+			operations 	(list Operations
+			    (object Operation "ActionDatas"
+				quid       	"39BE92CD039D"
+				documentation 	
+|----------------------------------------------------------------------------
+| PROPERTIES
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: ActionDatas
+|   Description:  Get - A collection of ActionData items that are required
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"ActionDatas"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "ActionsHeader"
+				quid       	"39BE92CE00FF"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "ActionsHeader"
+				quid       	"39BE92CE036C"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: ActionsHeader
+|   Description:  Get and Let - the Header for the Actions
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "GlobalActionDatas"
+				quid       	"39BE92CF00E3"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: GlobalActionDatas
+|   Description:  Get - A collection of ActionData items that are required
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"ActionDatas"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Caption"
+				quid       	"39BE92CF024B"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Caption"
+				quid       	"39BE92D00116"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Caption
+|   Description:  Get - the caption for the ruleset screen
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "ConditionDatas"
+				quid       	"39BE92D00293"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: ConditionDatas
+|   Description:  Get - A collection of ConditionData items that are required
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"ConditionDatas"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "ConditionsHeader"
+				quid       	"39BE92D10027"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "ConditionsHeader"
+				quid       	"39BE92D1030C"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: ConditionsHeader
+|   Description:  Get - the Header for the Conditions
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "FilterConditions"
+				quid       	"39BE92D200B5"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: FilterConditions
+|   Description:  Get - A collection of FilterCondition items
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"FilterConditions"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "HelpFile"
+				quid       	"39BE92D2026D"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "HelpFile"
+				quid       	"39BE92D30193"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: HelpFile
+|   Description:  Get - the name of the help file to use
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "HelpID"
+				quid       	"39BE92D3035F"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "HelpID"
+				quid       	"39BE92D402A2"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: HelpID
+|   Description:  Get - the ID for the help file - currently in String format for maximum flexibility
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "PlugIn"
+				quid       	"39BE92D50091"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "PlugIn"
+				quid       	"39BE92D503E4"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: PlugIn
+|   Description:  Get - the name of the plugin
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "RuleSet"
+				quid       	"39BE92D601DD"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: RuleSet
+|   Description:  Get - the MTRuleSet object that contains the real ruleset
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"MTRuleSet"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "ServiceDefinition"
+				quid       	"39BE92D603C8"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal Value"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "ServiceDefinition"
+				quid       	"39BE92D70379"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: ServiceDefinition
+|   Description:  Get - name of the service definition where this plugin resides
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "TestOperatorFullValues"
+				quid       	"39BE92D80190"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: TestOperatorFullValues
+|   Description:  Get - A collection of all the Test operator values
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"Collection"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "TestOperatorFullText"
+				quid       	"39BE92D8038E"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: TestOperatorFullText
+|   Description:  Get - A collection of all the Test operator text
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"Collection"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "TestOperatorPartialValues"
+				quid       	"39BE92D901C3"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: TestOperatorPartialValues
+|   Description:  Get - A collection of some of the Test operator values
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"Collection"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "TestOperatorPartialText"
+				quid       	"39BE92DA0016"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: TestOperatorPartialText
+|   Description:  Get - A collection of some of the Test operator text
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"Collection"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Class_Initialize"
+				quid       	"39BE92DA023D"
+				documentation 	
+|----------------------------------------------------------------------------
+| METHODS - INITIALIZE & TERMINATE
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: Class_Initialize
+|   Description:  The intialize for the class.  No actions at this time
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				concurrency 	"Sequential"
+				opExportControl 	"Private"
+				uid        	0)
+			    (object Operation "Class_Terminate"
+				quid       	"39BE92DA03CD"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Class_Terminate
+|   Description:  The terminate for the class.
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				concurrency 	"Sequential"
+				opExportControl 	"Private"
+				uid        	0)
+			    (object Operation "GetNewCollection"
+				quid       	"39BE92DB0180"
+				documentation 	
+|----------------------------------------------------------------------------
+| METHODS - PUBLIC
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: GetNewCollection
+|   Description:  Just returns an empty collection object.  Useful because you
+|                   can't create an instance of a Collection in ASP
+|   Parameters:   none
+|   Return Value: a new collection
+|-----------------------------------------------------------------------------
+				
+				result     	"Collection"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Initialize"
+				quid       	"39BE92DB02A2"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Initialize
+|   Description:  Method used to start up the class.  Takes the meta file it
+|                   needs as input and readies the class for use
+|   Parameters: icstrMetaFile - the path and name of the metafile to use
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "ByVal icstrMetaFile"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "LoadEnums"
+				quid       	"39BE92DC01BE"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: LoadEnums
+|   Description:  Method used to start up the class.  Takes the meta file it
+|                   needs as input and readies the class for use
+|   Parameters: icstrMetaFile - the path and name of the metafile to use
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "Optional ByVal icstrLanguage"
+					type       	"String"
+					initv      	
+|"US"
+					))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Save"
+				quid       	"39BE92DD00C5"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Save
+|   Description:  Saves all the settings back into the file.  Goes through
+|                   all the action and condition data to save
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "Optional ByVal icstrFile"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "RaiseUninitializedErr"
+				quid       	"39BE92DD03D2"
+				documentation 	
+|----------------------------------------------------------------------------
+| METHODS - PRIVATE
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: Initialize
+|   Description:  Method used to start up the class.  Takes the meta file it
+|                   needs as input and readies the class for use
+|   Parameters: icstrMetaFile - the path and name of the metafile to use
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				concurrency 	"Sequential"
+				opExportControl 	"Private"
+				uid        	0))
+			class_attributes 	(list class_attribute_list
+			    (object ClassAttribute "mlngClassDebugID"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92C9018E"
+				documentation 	"local variable to hold the serialized class ID that was created in Class_Initialize"
+				type       	"Long")
+			    (object ClassAttribute "mstrActionsHeader"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92C902ED"
+				type       	"String")
+			    (object ClassAttribute "mstrCaption"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92CA0013"
+				type       	"String")
+			    (object ClassAttribute "mstrConditionsHeader"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92CA0149"
+				type       	"String")
+			    (object ClassAttribute "mstrHelpFile"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92CA0294"
+				type       	"String")
+			    (object ClassAttribute "mstrHelpID"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92CA03B6"
+				type       	"String")
+			    (object ClassAttribute "mcolTestOperatorFullValues"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92CB00FB"
+				type       	"Collection")
+			    (object ClassAttribute "mcolTestOperatorFullText"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92CB0231"
+				type       	"Collection")
+			    (object ClassAttribute "mcolTestOperatorPartialValues"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92CB037C"
+				type       	"Collection")
+			    (object ClassAttribute "mcolTestOperatorPartialText"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92CC00CA"
+				type       	"Collection")
+			    (object ClassAttribute "mstrPlugin"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92CC020B"
+				type       	"String")
+			    (object ClassAttribute "mstrServiceDef"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92CC034B"
+				type       	"String")
+			    (object ClassAttribute "mstrFileName"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92CD00A4"
+				type       	"String")
+			    (object ClassAttribute "mbolInitialized"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92CD023E"
+				type       	"Boolean"))
+			module     	"Component View::MTTabRulesetReader"
+			quidu      	"39AD43FD01A8"
+			language   	"Visual Basic")
+		    (object Class "ActionDatas"
+			attributes 	(list Attribute_Set
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"Creatable"
+				value      	("CreatableSet" 213))
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"OptionExplicit"
+				value      	TRUE))
+			quid       	"39BE92E00051"
+			documentation 	
+|----------------------------------------------------------------------------
+| Copyright 1998-2000 by MetraTech Corporation
+| All rights reserved.
+|
+| THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+| NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+| example, but not limitation, MetraTech Corporation MAKES NO
+| REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+| PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+| DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+| COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+|
+| Title to copyright in this software and any associated
+| documentation shall at all times remain with MetraTech Corporation,
+| and USER agrees to preserve the same.
+|
+| $Workfile: MTAdminConfigSetHandler.cls$
+| $Date: 5/22/00 11:23:05 AM$
+| $Author: David Wood$
+| $Revision: 6$
+|
+|
+|----------------------------------------------------------------------------
+			
+			stereotype 	"Class Module"
+			used_nodes 	(list uses_relationship_list
+			    (object Uses_Relationship
+				quid       	"39BE9403015E"
+				supplier   	"Logical View::Business Services::ActionData"
+				quidu      	"39AD43FD02D4"))
+			operations 	(list Operations
+			    (object Operation "Item"
+				quid       	"39BE92E001FF"
+				documentation 	
+|----------------------------------------------------------------------------
+| PROPERTIES
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: Item
+|   Description:  Get - The default property for the object.  Returns an
+|                   item from the collection.  Note that this collection is
+|                   set up to only work with indexes, not keys
+|   Parameters: iclngIndex - the index into the collection to retrieve
+|   Return Value: The ActionData object at that index
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal iclngIndex"
+					type       	"Long"))
+				result     	"ActionData"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Count"
+				quid       	"39BE92E00340"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Count
+|   Description:  Get - Retrieves the number of elements in the collection
+|   Parameters: none
+|   Return Value: The number of elements
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"Long"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "NewEnum"
+				quid       	"39BE92E10016"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: NewEnum
+|   Description:  Get - this property allows you to enumerate this collection
+|                   with the For...Each syntax
+|   Parameters: none
+|   Return Value:
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"IUnknown"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Class_Initialize"
+				quid       	"39BE92E100DE"
+				documentation 	
+|----------------------------------------------------------------------------
+| METHODS - INITIALIZE & TERMINATE
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: Class_Initialize
+|   Description:  The intialize for the class.  Creates a new collection
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				concurrency 	"Sequential"
+				opExportControl 	"Private"
+				uid        	0)
+			    (object Operation "Class_Terminate"
+				quid       	"39BE92E1016B"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Class_Terminate
+|   Description:  The Terminate for the class.  destroys collection when this class is terminated
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				concurrency 	"Sequential"
+				opExportControl 	"Private"
+				uid        	0)
+			    (object Operation "Add"
+				quid       	"39BE92E101ED"
+				documentation 	
+|----------------------------------------------------------------------------
+| METHODS - Public
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: Add
+|   Description:  Adds an ActionData object to the collection.  Takes an optional
+|               parameter to specify the location of the new item.  Note that this
+|               collection does not support keys!!!
+|   Parameters: icobjActionData - the object to add to the collection
+|               iclngLocation - the location to add the item
+|   Return Value: The ActionData object that was added
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "icobjActionData"
+					type       	"ActionData")
+				    (object Parameter "Optional iclngLocation"
+					type       	"Long"
+					initv      	"-1"))
+				result     	"ActionData"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "LoadFromPropSet"
+				quid       	"39BE92E103E2"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: LoadFromPropSet
+|   Description:  Loads a collection of actions from the propset passed in
+|               Calls LoadFromPropSet for each Action.
+|               Works in conjuction with SaveToPropSet
+|   Parameters: iobjPropSet - the propset to use to populate the collection
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "ByVal iobjPropSet"
+					type       	"MTConfigPropSet"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "MoveItemDown"
+				quid       	"39BE92E2013A"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: MoveItemDown
+|   Description:  Moves an item in the collection down in the order.  Checks
+|               to see if the index is valid first
+|   Parameters: iclngIndex - the index of the item to move
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "ByVal iclngIndex"
+					type       	"Long"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "MoveItemUp"
+				quid       	"39BE92E20284"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: MoveItemUp
+|   Description:  Moves an item in the collection up in the order.  Checks
+|               to see if the index is valid first
+|   Parameters: iclngIndex - the index of the item to move
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "ByVal iclngIndex"
+					type       	"Long"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Remove"
+				quid       	"39BE92E203D9"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Remove
+|   Description:  Removes an item from the collection.  Note that this method
+|               does not support keys, only indexes!!
+|   Parameters: iclngIndex - the index of the item to move
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "ByVal iclngIndex"
+					type       	"Long"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "SaveToPropSet"
+				quid       	"39BE92E30159"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: SaveToPropSet
+|   Description:  Save a collection of actions to the propset passed in
+|               Calls SaveToPropSet for each Action.
+|               Works in conjuction with LoadFromPropSet
+|   Parameters: iobjPropSet - the propset to use to save the collection
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "ByVal iobjPropSet"
+					type       	"MTConfigPropSet"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "SetItem"
+				quid       	"39BE92E302B8"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: SetItem
+|   Description:  Sets an item in the list.  Since collections can't switch out
+|               items, you need to add and remove the item
+|   Parameters: iobjPropSet - the propset to use to save the collection
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "iobjAction"
+					type       	"ActionData")
+				    (object Parameter "ByVal iclngIndex"
+					type       	"Long"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0))
+			class_attributes 	(list class_attribute_list
+			    (object ClassAttribute "mcolList"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92E0017D"
+				type       	"Collection"))
+			module     	"Component View::MTTabRulesetReader"
+			quidu      	"39AD43FD01A8"
+			language   	"Visual Basic")
+		    (object Class "ConditionDatas"
+			attributes 	(list Attribute_Set
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"Creatable"
+				value      	("CreatableSet" 213))
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"OptionExplicit"
+				value      	TRUE))
+			quid       	"39BE92E40346"
+			documentation 	
+|----------------------------------------------------------------------------
+| Copyright 1998-2000 by MetraTech Corporation
+| All rights reserved.
+|
+| THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+| NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+| example, but not limitation, MetraTech Corporation MAKES NO
+| REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+| PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+| DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+| COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+|
+| Title to copyright in this software and any associated
+| documentation shall at all times remain with MetraTech Corporation,
+| and USER agrees to preserve the same.
+|
+| $Workfile: MTAdminConfigSetHandler.cls$
+| $Date: 5/22/00 11:23:05 AM$
+| $Author: David Wood$
+| $Revision: 6$
+|
+|
+|----------------------------------------------------------------------------
+			
+			stereotype 	"Class Module"
+			used_nodes 	(list uses_relationship_list
+			    (object Uses_Relationship
+				quid       	"39BE940600CC"
+				supplier   	"Logical View::Business Services::ConditionData"
+				quidu      	"39AD43FD0202"))
+			operations 	(list Operations
+			    (object Operation "Item"
+				quid       	"39BE92E5017A"
+				documentation 	
+|----------------------------------------------------------------------------
+| PROPERTIES
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: Item
+|   Description:  Get - The default property for the object.  Returns an
+|                   item from the collection.  Note that this collection is
+|                   set up to only work with indexes, not keys
+|   Parameters: iclngIndex - the index into the collection to retrieve
+|   Return Value: The ActionData object at that index
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal iclngIndex"
+					type       	"Long"))
+				result     	"ConditionData"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Count"
+				quid       	"39BE92E502D9"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Count
+|   Description:  Get - Retrieves the number of elements in the collection
+|   Parameters: none
+|   Return Value: The number of elements
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"Long"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "NewEnum"
+				quid       	"39BE92E503B5"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: NewEnum
+|   Description:  Get - this property allows you to enumerate this collection
+|                   with the For...Each syntax
+|   Parameters: none
+|   Return Value:
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"IUnknown"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Class_Initialize"
+				quid       	"39BE92E600A0"
+				documentation 	
+|----------------------------------------------------------------------------
+| METHODS - INITIALIZE & TERMINATE
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: Class_Initialize
+|   Description:  The intialize for the class.  Creates a new collection
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				concurrency 	"Sequential"
+				opExportControl 	"Private"
+				uid        	0)
+			    (object Operation "Class_Terminate"
+				quid       	"39BE92E60122"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Class_Terminate
+|   Description:  The Terminate for the class.  destroys collection when this class is terminated
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				concurrency 	"Sequential"
+				opExportControl 	"Private"
+				uid        	0)
+			    (object Operation "Add"
+				quid       	"39BE92E601B8"
+				documentation 	
+|----------------------------------------------------------------------------
+| METHODS - Public
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: Add
+|   Description:  Adds an ActionData object to the collection.  Takes an optional
+|               parameter to specify the location of the new item.  Note that this
+|               collection does not support keys!!!
+|   Parameters: icobjActionData - the object to add to the collection
+|               iclngLocation - the location to add the item
+|   Return Value: The ActionData object that was added
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "icobjConditionData"
+					type       	"ConditionData")
+				    (object Parameter "Optional iclngLocation"
+					type       	"Long"
+					initv      	"-1"))
+				result     	"ConditionData"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "LoadFromPropSet"
+				quid       	"39BE92E603C1"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: LoadFromPropSet
+|   Description:  Loads a collection of conditions from the propset passed in
+|               Calls LoadFromPropSet for each condition.
+|               Works in conjuction with SaveToPropSet
+|   Parameters: iobjPropSet - the propset to use to populate the collection
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "ByVal iobjPropSet"
+					type       	"MTConfigPropSet"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "MoveItemDown"
+				quid       	"39BE92E70123"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: MoveItemDown
+|   Description:  Moves an item in the collection down in the order.  Checks
+|               to see if the index is valid first
+|   Parameters: iclngIndex - the index of the item to move
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "ByVal iclngIndex"
+					type       	"Long"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "MoveItemUp"
+				quid       	"39BE92E70282"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: MoveItemUp
+|   Description:  Moves an item in the collection up in the order.  Checks
+|               to see if the index is valid first
+|   Parameters: iclngIndex - the index of the item to move
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "ByVal iclngIndex"
+					type       	"Long"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Remove"
+				quid       	"39BE92E8000C"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Remove
+|   Description:  Removes an item from the collection.  Note that this method
+|               does not support keys, only indexes!!
+|   Parameters: iclngIndex - the index of the item to move
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "ByVal iclngIndex"
+					type       	"Long"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "SaveToPropSet"
+				quid       	"39BE92E80175"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: SaveToPropSet
+|   Description:  Save a collection of conditions to the propset passed in
+|               Calls SaveToPropSet for each condition.
+|               Works in conjuction with LoadFromPropSet
+|   Parameters: iobjPropSet - the propset to use to save the collection
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "ByVal iobjPropSet"
+					type       	"MTConfigPropSet"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "SetItem"
+				quid       	"39BE92E802F1"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: SetItem
+|   Description:  Sets an item in the list.  Since collections can't switch out
+|               items, you need to add and remove the item
+|   Parameters: iobjPropSet - the propset to use to save the collection
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "iobjCondition"
+					type       	"ConditionData")
+				    (object Parameter "ByVal iclngIndex"
+					type       	"Long"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0))
+			class_attributes 	(list class_attribute_list
+			    (object ClassAttribute "mlngClassDebugID"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92E5004E"
+				documentation 	"local variable to hold the serialized class ID that was created in Class_Initialize"
+				type       	"Long")
+			    (object ClassAttribute "mcolList"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92E500E4"
+				type       	"Collection"))
+			module     	"Component View::MTTabRulesetReader"
+			quidu      	"39AD43FD01A8"
+			language   	"Visual Basic")
+		    (object Class "FilterCondition"
+			attributes 	(list Attribute_Set
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"Creatable"
+				value      	("CreatableSet" 219))
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"OptionExplicit"
+				value      	TRUE))
+			quid       	"39BE92EB0075"
+			documentation 	
+|----------------------------------------------------------------------------
+| Copyright 1998-2000 by MetraTech Corporation
+| All rights reserved.
+|
+| THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+| NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+| example, but not limitation, MetraTech Corporation MAKES NO
+| REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+| PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+| DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+| COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+|
+| Title to copyright in this software and any associated
+| documentation shall at all times remain with MetraTech Corporation,
+| and USER agrees to preserve the same.
+|
+| $Workfile: MTAdminConfigSetHandler.cls$
+| $Date: 5/22/00 11:23:05 AM$
+| $Author: David Wood$
+| $Revision: 6$
+|
+|
+|----------------------------------------------------------------------------
+			
+			stereotype 	"Class Module"
+			operations 	(list Operations
+			    (object Operation "DisplayName"
+				quid       	"39BE92EB0350"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal vNewValue"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "DisplayName"
+				quid       	"39BE92EC009E"
+				documentation 	
+|----------------------------------------------------------------------------
+| PROPERTIES
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: DisplayName
+|   Description:  Get and Set - The string to display for this condition name
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "DisplayValue"
+				quid       	"39BE92EC0152"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal vNewValue"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "DisplayValue"
+				quid       	"39BE92EC02A7"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: DisplayValue
+|   Description:  Get and Set - The string to display for the value
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "DisplayTest"
+				quid       	"39BE92EC0365"
+				stereotype 	"Let"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal vNewValue"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "DisplayTest"
+				quid       	"39BE92ED00F0"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: DisplayTest
+|   Description:  Get and Set - The string to display for the test operator
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Condition"
+				quid       	"39BE92ED01CC"
+				stereotype 	"Set"
+				parameters 	(list Parameters
+				    (object Parameter "ByVal vNewValue"
+					type       	"MTSimpleCondition"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Condition"
+				quid       	"39BE92ED038F"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Condition
+|   Description:  Get and Set - The actual Condition object
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"MTSimpleCondition"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Class_Initialize"
+				quid       	"39BE92EE008D"
+				documentation 	
+|----------------------------------------------------------------------------
+| METHODS - INITIALIZE & TERMINATE
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: Class_Initialize
+|   Description:  The intialize for the class.  No actions at this time
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				concurrency 	"Sequential"
+				opExportControl 	"Private"
+				uid        	0)
+			    (object Operation "Class_Terminate"
+				quid       	"39BE92EE012D"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Class_Terminate
+|   Description:  The terminate for the class.
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				concurrency 	"Sequential"
+				opExportControl 	"Private"
+				uid        	0))
+			class_attributes 	(list class_attribute_list
+			    (object ClassAttribute "mlngClassDebugID"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92EB0115"
+				documentation 	"local variable to hold the serialized class ID that was created in Class_Initialize"
+				type       	"Long")
+			    (object ClassAttribute "mstrDisplayName"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92EB018D"
+				type       	"String")
+			    (object ClassAttribute "mstrDisplayValue"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92EB020F"
+				type       	"String")
+			    (object ClassAttribute "mstrDisplayTest"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92EB029B"
+				type       	"String"))
+			module     	"Component View::MTTabRulesetReader"
+			quidu      	"39AD43FD01A8"
+			language   	"Visual Basic")
+		    (object Class "FilterConditions"
+			attributes 	(list Attribute_Set
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"Creatable"
+				value      	("CreatableSet" 219))
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"OptionExplicit"
+				value      	TRUE))
+			quid       	"39BE92EE032C"
+			documentation 	
+|----------------------------------------------------------------------------
+| Copyright 1998-2000 by MetraTech Corporation
+| All rights reserved.
+|
+| THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+| NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+| example, but not limitation, MetraTech Corporation MAKES NO
+| REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+| PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+| DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+| COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+|
+| Title to copyright in this software and any associated
+| documentation shall at all times remain with MetraTech Corporation,
+| and USER agrees to preserve the same.
+|
+| $Workfile: MTAdminConfigSetHandler.cls$
+| $Date: 5/22/00 11:23:05 AM$
+| $Author: David Wood$
+| $Revision: 6$
+|
+|
+|----------------------------------------------------------------------------
+			
+			stereotype 	"Class Module"
+			used_nodes 	(list uses_relationship_list
+			    (object Uses_Relationship
+				quid       	"39BE93FB0260"
+				supplier   	"Logical View::Business Services::FilterCondition"
+				quidu      	"39BE92EB0075"))
+			operations 	(list Operations
+			    (object Operation "Item"
+				quid       	"39BE92EF0143"
+				documentation 	
+|----------------------------------------------------------------------------
+| PROPERTIES
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: Item
+|   Description:  Get - The default property for the object.  R
+|                   used when referencing an element in the collection
+|                   vntIndexKey contains either the Index or Key to the collection,
+|                   this is why it is declared as a Variant
+|                   Syntax: Set foo = x.Item(xyz) or Set foo = x.Item(5)
+|   Parameters: vntIndexKey - the index or key into the collection to retrieve
+|   Return Value: The FilterCondition object at that index
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				parameters 	(list Parameters
+				    (object Parameter "vntIndexKey"
+					type       	"Variant"))
+				result     	"FilterCondition"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Count"
+				quid       	"39BE92EF028D"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Count
+|   Description:  Get - Retrieves the number of elements in the collection
+|   Parameters: none
+|   Return Value: The number of elements
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"Long"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "NewEnum"
+				quid       	"39BE92EF034B"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: NewEnum
+|   Description:  NewEnum - this property allows you to enumerate this collection
+|                   with the For...Each syntax
+|   Parameters: none
+|   Return Value:
+|-----------------------------------------------------------------------------
+				
+				stereotype 	"Get"
+				result     	"IUnknown"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Class_Initialize"
+				quid       	"39BE92F00022"
+				documentation 	
+|----------------------------------------------------------------------------
+| METHODS - INITIALIZE & TERMINATE
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: Class_Initialize
+|   Description:  The intialize for the class.  Creates a new collection
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				concurrency 	"Sequential"
+				opExportControl 	"Private"
+				uid        	0)
+			    (object Operation "Class_Terminate"
+				quid       	"39BE92F0009A"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Class_Terminate
+|   Description:  The Terminate for the class.  destroys collection when this class is terminated
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				concurrency 	"Sequential"
+				opExportControl 	"Private"
+				uid        	0)
+			    (object Operation "Add"
+				quid       	"39BE92F0011C"
+				documentation 	
+|----------------------------------------------------------------------------
+| METHODS - Public
+|----------------------------------------------------------------------------
+|----------------------------------------------------------------------------
+|   Name: Add
+|   Description:  Adds an FilterCondition object to the collection.  Takes an optional
+|               parameter to specify the key for the new item.
+|   Parameters: icobjFilter - the object to add to the collection
+|               sKey - the key for the new item
+|   Return Value: The FilterCondition object that was added
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "icobjFilter"
+					type       	"FilterCondition")
+				    (object Parameter "Optional sKey"
+					type       	"String"))
+				result     	"FilterCondition"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Clear"
+				quid       	"39BE92F002FD"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Clear
+|   Description:  Clears all items from the collection (creates a new collection)
+|   Parameters: none
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Remove"
+				quid       	"39BE92F0036B"
+				documentation 	
+|----------------------------------------------------------------------------
+|   Name: Remove
+|   Description:  Removes an item from the collection.
+|                   used when removing an element from the collection
+|                   vntIndexKey contains either the Index or Key, which is why
+|                   it is declared as a Variant
+|                   Syntax: x.Remove(xyz)
+|   Parameters: vntIndexKey - the index or key of the item to remove
+|   Return Value: none
+|-----------------------------------------------------------------------------
+				
+				parameters 	(list Parameters
+				    (object Parameter "vntIndexKey"
+					type       	"Variant"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0))
+			class_attributes 	(list class_attribute_list
+			    (object ClassAttribute "mlngClassDebugID"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92EF0034"
+				documentation 	"local variable to hold the serialized class ID that was created in Class_Initialize"
+				type       	"Long")
+			    (object ClassAttribute "mcolList"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39BE92EF00B6"
+				type       	"Collection"))
+			module     	"Component View::MTTabRulesetReader"
+			quidu      	"39AD43FD01A8"
+			language   	"Visual Basic")
+		    (object Association "$UNNAMED$0"
+			quid       	"39BE92C9029D"
+			roles      	(list role_list
+			    (object Role "$UNNAMED$1"
+				quid       	"39BE92C9029E"
+				supplier   	"Logical View::Business Services::RulesetHandler"
+				quidu      	"39AD44A70224")
+			    (object Role "mcolActionDatas"
+				quid       	"39BE92C902B1"
+				label      	"mcolActionDatas"
+				supplier   	"Logical View::Business Services::ActionDatas"
+				quidu      	"39BE92E00051"
+				exportControl 	"Private"
+				is_navigable 	TRUE)))
+		    (object Association "$UNNAMED$2"
+			quid       	"39BE92C902BB"
+			roles      	(list role_list
+			    (object Role "$UNNAMED$3"
+				quid       	"39BE92C902BC"
+				supplier   	"Logical View::Business Services::RulesetHandler"
+				quidu      	"39AD44A70224")
+			    (object Role "mcolGlobalActionDatas"
+				quid       	"39BE92C902CF"
+				label      	"mcolGlobalActionDatas"
+				supplier   	"Logical View::Business Services::ActionDatas"
+				quidu      	"39BE92E00051"
+				exportControl 	"Private"
+				is_navigable 	TRUE)))
+		    (object Association "$UNNAMED$4"
+			quid       	"39BE92CA0121"
+			roles      	(list role_list
+			    (object Role "$UNNAMED$5"
+				quid       	"39BE92CA0122"
+				supplier   	"Logical View::Business Services::RulesetHandler"
+				quidu      	"39AD44A70224")
+			    (object Role "mcolConditionDatas"
+				quid       	"39BE92CA013F"
+				label      	"mcolConditionDatas"
+				supplier   	"Logical View::Business Services::ConditionDatas"
+				quidu      	"39BE92E40346"
+				exportControl 	"Private"
+				is_navigable 	TRUE)))
+		    (object Association "$UNNAMED$6"
+			quid       	"39BE92CA026C"
+			roles      	(list role_list
+			    (object Role "$UNNAMED$7"
+				quid       	"39BE92CA026D"
+				supplier   	"Logical View::Business Services::RulesetHandler"
+				quidu      	"39AD44A70224")
+			    (object Role "mcolFilterConditions"
+				quid       	"39BE92CA0280"
+				label      	"mcolFilterConditions"
+				supplier   	"Logical View::Business Services::FilterConditions"
+				quidu      	"39BE92EE032C"
+				exportControl 	"Private"
+				is_navigable 	TRUE)))
+		    (object Association "$UNNAMED$8"
+			quid       	"39BE92CD0202"
+			roles      	(list role_list
+			    (object Role "$UNNAMED$9"
+				quid       	"39BE92CD0203"
+				supplier   	"Logical View::Business Services::RulesetHandler"
+				quidu      	"39AD44A70224")
+			    (object Role "mobjRuleSet"
+				quid       	"39BE92CD0220"
+				label      	"mobjRuleSet"
+				supplier   	"::MTRULESETLib::MTRuleSet"
+				quidu      	"39AD43FF0115"
+				exportControl 	"Private"
+				is_navigable 	TRUE)))
+		    (object Association "$UNNAMED$10"
+			quid       	"39BE92EB0332"
+			roles      	(list role_list
+			    (object Role "$UNNAMED$11"
+				quid       	"39BE92EB0333"
+				supplier   	"Logical View::Business Services::FilterCondition"
+				quidu      	"39BE92EB0075")
+			    (object Role "mobjRSCondition"
+				quid       	"39BE92EB033C"
+				label      	"mobjRSCondition"
+				supplier   	"::MTRULESETLib::MTSimpleCondition"
+				quidu      	"39AD440801B8"
+				exportControl 	"Private"
+				is_navigable 	TRUE))))
+		logical_presentations 	(list unit_reference_list
+		    (object ClassDiagram "Package Overview"
+			quid       	"39AD43D7025A"
+			title      	"Package Overview"
+			zoom       	95
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	321
+			items      	(list diagram_item_list
+			    (object ClassView "Class" "Logical View::Business Services::ConditionData" @1
+				ShowCompartmentStereotypes 	TRUE
+				IncludeAttribute 	TRUE
+				IncludeOperation 	TRUE
+				ShowOperationSignature 	TRUE
+				location   	(4080, 4064)
+				label      	(object ItemLabel
+				    Parent_View 	@1
+				    location   	(3555, 3147)
+				    nlines     	1
+				    max_width  	1050
+				    justify    	0
+				    label      	"ConditionData")
+				stereotype 	(object ItemLabel
+				    Parent_View 	@1
+				    location   	(3555, 3108)
+				    anchor     	10
+				    nlines     	1
+				    max_width  	1050
+				    justify    	0
+				    label      	"<<Class Module>>")
+				icon_style 	"Icon"
+				quidu      	"39AD43FD0202"
+				compartment 	(object Compartment
+				    Parent_View 	@1
+				    location   	(3555, 3196)
+				    icon_style 	"Icon"
+				    anchor     	2
+				    nlines     	41
+				    max_width  	915)
+				width      	1068
+				height     	1930
+				annotation 	8
+				autoResize 	TRUE)
+			    (object ClassView "Class" "Logical View::Business Services::ActionData" @2
+				ShowCompartmentStereotypes 	TRUE
+				IncludeAttribute 	TRUE
+				IncludeOperation 	TRUE
+				ShowOperationSignature 	TRUE
+				location   	(4016, 1872)
+				label      	(object ItemLabel
+				    Parent_View 	@2
+				    location   	(3492, 1087)
+				    nlines     	1
+				    max_width  	1048
+				    justify    	0
+				    label      	"ActionData")
+				stereotype 	(object ItemLabel
+				    Parent_View 	@2
+				    location   	(3492, 1048)
+				    anchor     	10
+				    nlines     	1
+				    max_width  	1048
+				    justify    	0
+				    label      	"<<Class Module>>")
+				icon_style 	"Icon"
+				quidu      	"39AD43FD02D4"
+				compartment 	(object Compartment
+				    Parent_View 	@2
+				    location   	(3492, 1136)
+				    icon_style 	"Icon"
+				    anchor     	2
+				    nlines     	35
+				    max_width  	915)
+				width      	1066
+				height     	1666
+				annotation 	8
+				autoResize 	TRUE)
+			    (object ClassView "Class" "Logical View::Business Services::ActionDatas" @3
+				ShowCompartmentStereotypes 	TRUE
+				IncludeAttribute 	TRUE
+				IncludeOperation 	TRUE
+				ShowOperationSignature 	TRUE
+				location   	(2288, 1952)
+				label      	(object ItemLabel
+				    Parent_View 	@3
+				    location   	(1551, 1636)
+				    nlines     	1
+				    max_width  	1474
+				    justify    	0
+				    label      	"ActionDatas")
+				stereotype 	(object ItemLabel
+				    Parent_View 	@3
+				    location   	(1551, 1592)
+				    anchor     	10
+				    nlines     	1
+				    max_width  	1474
+				    justify    	0
+				    label      	"<<Class Module>>")
+				icon_style 	"Icon"
+				quidu      	"39BE92E00051"
+				compartment 	(object Compartment
+				    Parent_View 	@3
+				    location   	(1551, 1690)
+				    icon_style 	"Icon"
+				    anchor     	2
+				    nlines     	14
+				    max_width  	1293)
+				width      	1492
+				height     	742
+				annotation 	8
+				autoResize 	TRUE)
+			    (object ClassView "Class" "Logical View::Business Services::ConditionDatas" @4
+				ShowCompartmentStereotypes 	TRUE
+				IncludeAttribute 	TRUE
+				IncludeOperation 	TRUE
+				ShowOperationSignature 	TRUE
+				location   	(2224, 3552)
+				label      	(object ItemLabel
+				    Parent_View 	@4
+				    location   	(1412, 3207)
+				    nlines     	1
+				    max_width  	1624
+				    justify    	0
+				    label      	"ConditionDatas")
+				stereotype 	(object ItemLabel
+				    Parent_View 	@4
+				    location   	(1412, 3168)
+				    anchor     	10
+				    nlines     	1
+				    max_width  	1624
+				    justify    	0
+				    label      	"<<Class Module>>")
+				icon_style 	"Icon"
+				quidu      	"39BE92E40346"
+				compartment 	(object Compartment
+				    Parent_View 	@4
+				    location   	(1412, 3256)
+				    icon_style 	"Icon"
+				    anchor     	2
+				    nlines     	15
+				    max_width  	1441)
+				width      	1642
+				height     	786
+				annotation 	8
+				autoResize 	TRUE)
+			    (object ClassView "Class" "Logical View::Business Services::FilterCondition" @5
+				ShowCompartmentStereotypes 	TRUE
+				IncludeAttribute 	TRUE
+				IncludeOperation 	TRUE
+				ShowOperationSignature 	TRUE
+				location   	(4048, 432)
+				label      	(object ItemLabel
+				    Parent_View 	@5
+				    location   	(3508, 87)
+				    nlines     	1
+				    max_width  	1080
+				    justify    	0
+				    label      	"FilterCondition")
+				stereotype 	(object ItemLabel
+				    Parent_View 	@5
+				    location   	(3508, 48)
+				    anchor     	10
+				    nlines     	1
+				    max_width  	1080
+				    justify    	0
+				    label      	"<<Class Module>>")
+				icon_style 	"Icon"
+				quidu      	"39BE92EB0075"
+				compartment 	(object Compartment
+				    Parent_View 	@5
+				    location   	(3508, 136)
+				    icon_style 	"Icon"
+				    anchor     	2
+				    nlines     	15
+				    max_width  	948)
+				width      	1098
+				height     	786
+				annotation 	8
+				autoResize 	TRUE)
+			    (object ClassView "Class" "Logical View::Business Services::RulesetHandler" @6
+				ShowCompartmentStereotypes 	TRUE
+				IncludeAttribute 	TRUE
+				IncludeOperation 	TRUE
+				ShowOperationSignature 	TRUE
+				location   	(576, 1808)
+				label      	(object ItemLabel
+				    Parent_View 	@6
+				    location   	(58, 803)
+				    nlines     	1
+				    max_width  	1036
+				    justify    	0
+				    label      	"RulesetHandler")
+				stereotype 	(object ItemLabel
+				    Parent_View 	@6
+				    location   	(58, 764)
+				    anchor     	10
+				    nlines     	1
+				    max_width  	1036
+				    justify    	0
+				    label      	"<<Class Module>>")
+				icon_style 	"Icon"
+				quidu      	"39AD44A70224"
+				compartment 	(object Compartment
+				    Parent_View 	@6
+				    location   	(58, 852)
+				    icon_style 	"Icon"
+				    anchor     	2
+				    nlines     	45
+				    max_width  	915)
+				width      	1054
+				height     	2106
+				annotation 	8
+				autoResize 	TRUE)
+			    (object AssociationViewNew "$UNNAMED$0" @7
+				location   	(1322, 1870)
+				stereotype 	TRUE
+				quidu      	"39BE92C9029D"
+				roleview_list 	(list RoleViews
+				    (object RoleView "mcolActionDatas" @8
+					Parent_View 	@7
+					location   	(-118, 1582)
+					label      	(object SegLabel @9
+					    Parent_View 	@8
+					    location   	(1494, 1927)
+					    anchor     	1
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	300
+					    justify    	0
+					    label      	"-mcolActionDatas"
+					    pctDist    	0.800000
+					    height     	42
+					    orientation 	1)
+					stereotype 	TRUE
+					quidu      	"39BE92C902B1"
+					client     	@7
+					supplier   	@3
+					line_style 	0)
+				    (object RoleView "$UNNAMED$1" @10
+					Parent_View 	@7
+					location   	(-118, 1582)
+					label      	(object SegLabel @11
+					    Parent_View 	@10
+					    location   	(1144, 1897)
+					    hidden     	TRUE
+					    anchor     	1
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	450
+					    justify    	0
+					    label      	""
+					    pctDist    	0.800000
+					    height     	42
+					    orientation 	0)
+					stereotype 	TRUE
+					quidu      	"39BE92C9029E"
+					client     	@7
+					supplier   	@6
+					line_style 	0)))
+			    (object AssociationViewNew "$UNNAMED$2" @12
+				location   	(1322, 1870)
+				stereotype 	TRUE
+				quidu      	"39BE92C902BB"
+				roleview_list 	(list RoleViews
+				    (object RoleView "mcolGlobalActionDatas" @13
+					Parent_View 	@12
+					location   	(-118, 1582)
+					label      	(object SegLabel @14
+					    Parent_View 	@13
+					    location   	(1494, 1927)
+					    anchor     	1
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	396
+					    justify    	0
+					    label      	"-mcolGlobalActionDatas"
+					    pctDist    	0.800000
+					    height     	42
+					    orientation 	1)
+					stereotype 	TRUE
+					quidu      	"39BE92C902CF"
+					client     	@12
+					supplier   	@3
+					line_style 	0)
+				    (object RoleView "$UNNAMED$3" @15
+					Parent_View 	@12
+					location   	(-118, 1582)
+					label      	(object SegLabel @16
+					    Parent_View 	@15
+					    location   	(1144, 1897)
+					    hidden     	TRUE
+					    anchor     	1
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	450
+					    justify    	0
+					    label      	""
+					    pctDist    	0.800000
+					    height     	42
+					    orientation 	0)
+					stereotype 	TRUE
+					quidu      	"39BE92C902BC"
+					client     	@12
+					supplier   	@6
+					line_style 	0)))
+			    (object AssociationViewNew "$UNNAMED$4" @17
+				location   	(1477, 2762)
+				stereotype 	TRUE
+				quidu      	"39BE92CA0121"
+				roleview_list 	(list RoleViews
+				    (object RoleView "mcolConditionDatas" @18
+					Parent_View 	@17
+					location   	(37, 2474)
+					label      	(object SegLabel @19
+					    Parent_View 	@18
+					    location   	(1748, 3108)
+					    anchor     	1
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	348
+					    justify    	0
+					    label      	"-mcolConditionDatas"
+					    pctDist    	0.800000
+					    height     	42
+					    orientation 	1)
+					stereotype 	TRUE
+					quidu      	"39BE92CA013F"
+					client     	@17
+					supplier   	@4
+					line_style 	0)
+				    (object RoleView "$UNNAMED$5" @20
+					Parent_View 	@17
+					location   	(37, 2474)
+					label      	(object SegLabel @21
+					    Parent_View 	@20
+					    location   	(1148, 2474)
+					    hidden     	TRUE
+					    anchor     	1
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	450
+					    justify    	0
+					    label      	""
+					    pctDist    	0.800000
+					    height     	42
+					    orientation 	0)
+					stereotype 	TRUE
+					quidu      	"39BE92CA0122"
+					client     	@17
+					supplier   	@6
+					line_style 	0)))
+			    (object ClassView "Class" "Logical View::Business Services::FilterConditions" @22
+				ShowCompartmentStereotypes 	TRUE
+				IncludeAttribute 	TRUE
+				IncludeOperation 	TRUE
+				ShowOperationSignature 	TRUE
+				location   	(2352, 480)
+				label      	(object ItemLabel
+				    Parent_View 	@22
+				    location   	(1721, 223)
+				    nlines     	1
+				    max_width  	1262
+				    justify    	0
+				    label      	"FilterConditions")
+				stereotype 	(object ItemLabel
+				    Parent_View 	@22
+				    location   	(1721, 184)
+				    anchor     	10
+				    nlines     	1
+				    max_width  	1262
+				    justify    	0
+				    label      	"<<Class Module>>")
+				icon_style 	"Icon"
+				quidu      	"39BE92EE032C"
+				compartment 	(object Compartment
+				    Parent_View 	@22
+				    location   	(1721, 272)
+				    icon_style 	"Icon"
+				    anchor     	2
+				    nlines     	11
+				    max_width  	1132)
+				width      	1280
+				height     	610
+				annotation 	8
+				autoResize 	TRUE)
+			    (object AssociationViewNew "$UNNAMED$6" @23
+				location   	(1522, 1099)
+				stereotype 	TRUE
+				quidu      	"39BE92CA026C"
+				roleview_list 	(list RoleViews
+				    (object RoleView "mcolFilterConditions" @24
+					Parent_View 	@23
+					location   	(82, 811)
+					label      	(object SegLabel @25
+					    Parent_View 	@24
+					    location   	(1882, 883)
+					    anchor     	1
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	348
+					    justify    	0
+					    label      	"-mcolFilterConditions"
+					    pctDist    	0.800000
+					    height     	42
+					    orientation 	1)
+					stereotype 	TRUE
+					quidu      	"39BE92CA0280"
+					client     	@23
+					supplier   	@22
+					line_style 	0)
+				    (object RoleView "$UNNAMED$7" @26
+					Parent_View 	@23
+					location   	(82, 811)
+					label      	(object SegLabel @27
+					    Parent_View 	@26
+					    location   	(1213, 1384)
+					    hidden     	TRUE
+					    anchor     	1
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	450
+					    justify    	0
+					    label      	""
+					    pctDist    	0.800000
+					    height     	42
+					    orientation 	0)
+					stereotype 	TRUE
+					quidu      	"39BE92CA026D"
+					client     	@23
+					supplier   	@6
+					line_style 	0)))
+			    (object UsesView "" @28
+				stereotype 	TRUE
+				quidu      	"39BE93FB0260"
+				client     	@22
+				supplier   	@5
+				line_style 	0)
+			    (object UsesView "" @29
+				stereotype 	TRUE
+				quidu      	"39BE9403015E"
+				client     	@3
+				supplier   	@2
+				line_style 	0)
+			    (object UsesView "" @30
+				stereotype 	TRUE
+				quidu      	"39BE940600CC"
+				client     	@4
+				supplier   	@1
+				line_style 	0)))))
+	    (object Class_Category "Data Services"
+		attributes 	(list Attribute_Set
+		    (object Attribute
+			tool       	"VisualBasic"
+			name       	"TierPackage"
+			value      	"Data Services"))
+		quid       	"39AD43D7025B"
+		documentation 	"Data services maintain, access, and update data. They also manage and satisfy requests to manipulate data that are initiated by business services. Separating data services allows the data structure and access mechanisms to be maintained, modified, or, if necessary, even re-architected without affecting business or user services."
+		visible_categories 	(list visibility_relationship_list
+		    (object Visibility_Relationship
+			attributes 	(list Attribute_Set
+			    (object Attribute
+				tool       	"VisualBasic"
+				name       	"TierPackage"
+				value      	"User Services"))
+			quid       	"39AD43D70261"
+			supplier   	"Logical View::User Services"
+			quidu      	"39AD43D70257")
+		    (object Visibility_Relationship
+			attributes 	(list Attribute_Set
+			    (object Attribute
+				tool       	"VisualBasic"
+				name       	"TierPackage"
+				value      	"Data Services"))
+			quid       	"39AD43D70262"
+			supplier   	"Logical View::Business Services"
+			quidu      	"39AD43D70259"))
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list
+		    (object Class_Utility "modEnumTypeReader"
+			attributes 	(list Attribute_Set
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"OptionExplicit"
+				value      	TRUE))
+			quid       	"39BE92E90357"
+			stereotype 	"Module"
+			operations 	(list Operations
+			    (object Operation "LoadLocalizedEnumTypeData"
+				quid       	"39BE92EA000F"
+				documentation 	
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------
+| FUNCTION      : LoadEnumTypeData
+| PARAMETERS    :
+| DESCRIPTION   :
+| RETURN        :
+				
+				parameters 	(list Parameters
+				    (object Parameter "ByVal icstrLanguage"
+					type       	"String")
+				    (object Parameter "ByVal icstrNameSpace"
+					type       	"String")
+				    (object Parameter "ByVal icstrEnumTypeName"
+					type       	"String")
+				    (object Parameter "ByRef ocolstrValues"
+					type       	"Collection")
+				    (object Parameter "ByRef ocolstrText"
+					type       	"Collection"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0))
+			module     	"Component View::MTTabRulesetReader"
+			quidu      	"39AD43FD01A8"
+			language   	"Visual Basic"))
+		logical_presentations 	(list unit_reference_list
+		    (object ClassDiagram "Package Overview"
+			quid       	"39AD43D7025C"
+			title      	"Package Overview"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list
+			    (object ClassView "ClassUtility" "Logical View::Data Services::modEnumTypeReader" @31
+				ShowCompartmentStereotypes 	TRUE
+				IncludeAttribute 	TRUE
+				IncludeOperation 	TRUE
+				ShowOperationSignature 	TRUE
+				location   	(272, 128)
+				label      	(object ItemLabel
+				    Parent_View 	@31
+				    location   	(65, 127)
+				    nlines     	1
+				    max_width  	414
+				    justify    	0
+				    label      	"modEnumTypeReader")
+				stereotype 	(object ItemLabel
+				    Parent_View 	@31
+				    location   	(65, 83)
+				    anchor     	10
+				    nlines     	1
+				    max_width  	414
+				    justify    	0
+				    label      	"<<Module>>")
+				icon_style 	"Icon"
+				quidu      	"39BE92E90357"
+				compartment 	(object Compartment
+				    Parent_View 	@31
+				    location   	(65, 181)
+				    icon_style 	"Icon"
+				    anchor     	2
+				    nlines     	2
+				    max_width  	30)
+				width      	432
+				height     	112
+				annotation 	8
+				autoResize 	TRUE)))))
+	    (object Class_Category "Unassigned"
+		quid       	"39AD60E40049"
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list
+		    (object Class_Utility "modClassIDGenerator"
+			attributes 	(list Attribute_Set
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"OptionExplicit"
+				value      	FALSE))
+			quid       	"39AD60E4004B"
+			stereotype 	"Module"
+			operations 	(list Operations
+			    (object Operation "GetNextClassDebugID"
+				quid       	"39AD60E400B7"
+				result     	"Long"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0))
+			module     	"Component View::MTTabRulesetReader"
+			quidu      	"39AD43FD01A8"
+			language   	"Visual Basic")
+		    (object Class_Utility "modErrorHandling"
+			attributes 	(list Attribute_Set
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"OptionExplicit"
+				value      	FALSE))
+			quid       	"39AD60E400FD"
+			stereotype 	"Module"
+			operations 	(list Operations
+			    (object Operation "GetErrorTextFromResource"
+				quid       	"39AD60E401BB"
+				documentation 	
+| This function will retrieve an error description from a resource
+| file (.RES).  The ErrorNum is the index of the string
+| in the resource file.  Called by RaiseError
+				
+				parameters 	(list Parameters
+				    (object Parameter "ErrorNum"
+					type       	"Long"))
+				result     	"String"
+				concurrency 	"Sequential"
+				opExportControl 	"Private"
+				uid        	0)
+			    (object Operation "RaiseError"
+				quid       	"39AD60E401ED"
+				documentation 	
+|There are a number of methods for retrieving the error
+|message.  The following method uses a resource file to
+|retrieve strings indexed by the error number you are
+|raising.
+				
+				parameters 	(list Parameters
+				    (object Parameter "ErrorNumber"
+					type       	"Long")
+				    (object Parameter "Source"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0))
+			class_attributes 	(list class_attribute_list
+			    (object ClassAttribute "MyObjectError1"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"IsConst"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39AD60E4014D"
+				documentation 	
+| Define your custom errors here.  Be sure to use numbers
+| greater than 512, to avoid conflicts with OLE error numbers.
+				
+				initv      	"1000"
+				exportControl 	"Public")
+			    (object ClassAttribute "MyObjectError2"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"IsConst"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39AD60E4016B"
+				initv      	"1010"
+				exportControl 	"Public")
+			    (object ClassAttribute "MyObjectErrorN"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"IsConst"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39AD60E40189"
+				initv      	"1234"
+				exportControl 	"Public")
+			    (object ClassAttribute "MyUnhandledError"
+				attributes 	(list Attribute_Set
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"IsConst"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateDataMember"
+					value      	TRUE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateGetOperation"
+					value      	FALSE)
+				    (object Attribute
+					tool       	"Visual Basic"
+					name       	"GenerateSetOperation"
+					value      	FALSE))
+				quid       	"39AD60E4019D"
+				initv      	"9999"
+				exportControl 	"Public"))
+			module     	"Component View::MTTabRulesetReader"
+			quidu      	"39AD43FD01A8"
+			language   	"Visual Basic"))
+		logical_presentations 	(list unit_reference_list
+		    (object ClassDiagram "Package Overview"
+			quid       	"39AD60E4004A"
+			title      	"Package Overview"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list
+			    (object ClassView "ClassUtility" "Logical View::Unassigned::modClassIDGenerator" @32
+				ShowCompartmentStereotypes 	TRUE
+				IncludeAttribute 	TRUE
+				IncludeOperation 	TRUE
+				ShowOperationSignature 	TRUE
+				location   	(272, 128)
+				label      	(object ItemLabel
+				    Parent_View 	@32
+				    location   	(74, 127)
+				    nlines     	1
+				    max_width  	396
+				    justify    	0
+				    label      	"modClassIDGenerator")
+				stereotype 	(object ItemLabel
+				    Parent_View 	@32
+				    location   	(74, 83)
+				    anchor     	10
+				    nlines     	1
+				    max_width  	396
+				    justify    	0
+				    label      	"<<Module>>")
+				icon_style 	"Icon"
+				quidu      	"39AD60E4004B"
+				width      	414
+				height     	112
+				annotation 	8
+				autoResize 	TRUE)
+			    (object ClassView "ClassUtility" "Logical View::Unassigned::modErrorHandling" @33
+				ShowCompartmentStereotypes 	TRUE
+				IncludeAttribute 	TRUE
+				IncludeOperation 	TRUE
+				ShowOperationSignature 	TRUE
+				location   	(272, 480)
+				label      	(object ItemLabel
+				    Parent_View 	@33
+				    location   	(108, 479)
+				    nlines     	1
+				    max_width  	328
+				    justify    	0
+				    label      	"modErrorHandling")
+				stereotype 	(object ItemLabel
+				    Parent_View 	@33
+				    location   	(108, 435)
+				    anchor     	10
+				    nlines     	1
+				    max_width  	328
+				    justify    	0
+				    label      	"<<Module>>")
+				icon_style 	"Icon"
+				quidu      	"39AD60E400FD"
+				compartment 	(object Compartment
+				    Parent_View 	@33
+				    location   	(108, 533)
+				    icon_style 	"Icon"
+				    anchor     	2
+				    nlines     	7
+				    max_width  	30)
+				width      	346
+				height     	112
+				annotation 	8
+				autoResize 	TRUE))))))
+	logical_presentations 	(list unit_reference_list
+	    (object Tier_Diagram "Three-Tiered Service Model"
+		quid       	"39AD43D70263"
+		title      	"Three-Tiered Service Model"
+		documentation 	"A three-tiered architectural approach separates the various components of a client/server system into three tiers of services. The user services, business and other middle tier services, and data services are the logical tiers that collaborate in an application"
+		zoom       	80
+		max_height 	28350
+		max_width  	21600
+		origin_x   	1650
+		origin_y   	1617
+		items      	(list diagram_item_list
+		    (object TierView "User Services" @34
+			label      	(object ItemLabel
+			    Parent_View 	@34
+			    location   	(6, 6)
+			    nlines     	2
+			    max_width  	-12
+			    justify    	0
+			    label      	"User Services")
+			icon_style 	"Icon"
+			hidden     	TRUE
+			quidu      	"39AD43D70257"
+			width      	300
+			height     	180)
+		    (object TierView "Business Services" @35
+			location   	(600, 0)
+			label      	(object ItemLabel
+			    Parent_View 	@35
+			    location   	(606, 6)
+			    nlines     	2
+			    max_width  	-12
+			    justify    	0
+			    label      	"Business Services")
+			icon_style 	"Icon"
+			hidden     	TRUE
+			quidu      	"39AD43D70259"
+			width      	300
+			height     	180)
+		    (object TierView "Data Services" @36
+			location   	(5039, 0)
+			label      	(object ItemLabel
+			    Parent_View 	@36
+			    location   	(5045, 6)
+			    nlines     	2
+			    max_width  	-12
+			    justify    	0
+			    label      	"Data Services")
+			icon_style 	"Icon"
+			hidden     	TRUE
+			quidu      	"39AD43D7025B"
+			width      	300
+			height     	180)
+		    (object ClassView "Class" "Logical View::Business Services::ConditionData" @37
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			ShowOperationSignature 	TRUE
+			location   	(4416, 3584)
+			label      	(object ItemLabel
+			    Parent_View 	@37
+			    location   	(3901, 2694)
+			    nlines     	1
+			    max_width  	1030
+			    justify    	0
+			    label      	"ConditionData")
+			stereotype 	(object ItemLabel
+			    Parent_View 	@37
+			    location   	(3901, 2651)
+			    anchor     	10
+			    nlines     	1
+			    max_width  	1030
+			    justify    	0
+			    label      	"<<Class Module>>")
+			icon_style 	"Icon"
+			quidu      	"39AD43FD0202"
+			compartment 	(object Compartment
+			    Parent_View 	@37
+			    location   	(3901, 2747)
+			    icon_style 	"Icon"
+			    anchor     	2
+			    nlines     	41
+			    max_width  	1027)
+			width      	1048
+			height     	1886
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::Business Services::ActionData" @38
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			ShowOperationSignature 	TRUE
+			location   	(4416, 1712)
+			label      	(object ItemLabel
+			    Parent_View 	@38
+			    location   	(3901, 951)
+			    nlines     	1
+			    max_width  	1030
+			    justify    	0
+			    label      	"ActionData")
+			stereotype 	(object ItemLabel
+			    Parent_View 	@38
+			    location   	(3901, 908)
+			    anchor     	10
+			    nlines     	1
+			    max_width  	1030
+			    justify    	0
+			    label      	"<<Class Module>>")
+			icon_style 	"Icon"
+			quidu      	"39AD43FD02D4"
+			compartment 	(object Compartment
+			    Parent_View 	@38
+			    location   	(3901, 1004)
+			    icon_style 	"Icon"
+			    anchor     	2
+			    nlines     	35
+			    max_width  	1027)
+			width      	1048
+			height     	1628
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::Business Services::ActionDatas" @39
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			ShowOperationSignature 	TRUE
+			location   	(2848, 1616)
+			label      	(object ItemLabel
+			    Parent_View 	@39
+			    location   	(2148, 1306)
+			    nlines     	1
+			    max_width  	1400
+			    justify    	0
+			    label      	"ActionDatas")
+			stereotype 	(object ItemLabel
+			    Parent_View 	@39
+			    location   	(2148, 1263)
+			    anchor     	10
+			    nlines     	1
+			    max_width  	1400
+			    justify    	0
+			    label      	"<<Class Module>>")
+			icon_style 	"Icon"
+			quidu      	"39BE92E00051"
+			compartment 	(object Compartment
+			    Parent_View 	@39
+			    location   	(2148, 1359)
+			    icon_style 	"Icon"
+			    anchor     	2
+			    nlines     	14
+			    max_width  	1398)
+			width      	1418
+			height     	726
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::Business Services::ConditionDatas" @40
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			ShowOperationSignature 	TRUE
+			location   	(2864, 2832)
+			label      	(object ItemLabel
+			    Parent_View 	@40
+			    location   	(2088, 2500)
+			    nlines     	1
+			    max_width  	1552
+			    justify    	0
+			    label      	"ConditionDatas")
+			stereotype 	(object ItemLabel
+			    Parent_View 	@40
+			    location   	(2088, 2457)
+			    anchor     	10
+			    nlines     	1
+			    max_width  	1552
+			    justify    	0
+			    label      	"<<Class Module>>")
+			icon_style 	"Icon"
+			quidu      	"39BE92E40346"
+			compartment 	(object Compartment
+			    Parent_View 	@40
+			    location   	(2088, 2553)
+			    icon_style 	"Icon"
+			    anchor     	2
+			    nlines     	15
+			    max_width  	1550)
+			width      	1570
+			height     	770
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "ClassUtility" "Logical View::Data Services::modEnumTypeReader" @41
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			ShowOperationSignature 	TRUE
+			location   	(6700, 336)
+			label      	(object ItemLabel
+			    Parent_View 	@41
+			    location   	(5108, 284)
+			    nlines     	1
+			    max_width  	3184
+			    justify    	0
+			    label      	"modEnumTypeReader")
+			stereotype 	(object ItemLabel
+			    Parent_View 	@41
+			    location   	(5108, 241)
+			    anchor     	10
+			    nlines     	1
+			    max_width  	3184
+			    justify    	0
+			    label      	"<<Module>>")
+			icon_style 	"Icon"
+			quidu      	"39BE92E90357"
+			compartment 	(object Compartment
+			    Parent_View 	@41
+			    location   	(5108, 337)
+			    icon_style 	"Icon"
+			    anchor     	2
+			    nlines     	2
+			    max_width  	3182)
+			width      	3202
+			height     	210
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::Business Services::FilterCondition" @42
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			ShowOperationSignature 	TRUE
+			location   	(4432, 416)
+			label      	(object ItemLabel
+			    Parent_View 	@42
+			    location   	(3894, 85)
+			    nlines     	1
+			    max_width  	1076
+			    justify    	0
+			    label      	"FilterCondition")
+			stereotype 	(object ItemLabel
+			    Parent_View 	@42
+			    location   	(3894, 42)
+			    anchor     	10
+			    nlines     	1
+			    max_width  	1076
+			    justify    	0
+			    label      	"<<Class Module>>")
+			icon_style 	"Icon"
+			quidu      	"39BE92EB0075"
+			compartment 	(object Compartment
+			    Parent_View 	@42
+			    location   	(3894, 138)
+			    icon_style 	"Icon"
+			    anchor     	2
+			    nlines     	15
+			    max_width  	1074)
+			width      	1094
+			height     	768
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::Business Services::RulesetHandler" @43
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			ShowOperationSignature 	TRUE
+			location   	(1168, 1680)
+			label      	(object ItemLabel
+			    Parent_View 	@43
+			    location   	(663, 704)
+			    nlines     	1
+			    max_width  	1010
+			    justify    	0
+			    label      	"RulesetHandler")
+			stereotype 	(object ItemLabel
+			    Parent_View 	@43
+			    location   	(663, 661)
+			    anchor     	10
+			    nlines     	1
+			    max_width  	1010
+			    justify    	0
+			    label      	"<<Class Module>>")
+			icon_style 	"Icon"
+			quidu      	"39AD44A70224"
+			compartment 	(object Compartment
+			    Parent_View 	@43
+			    location   	(663, 757)
+			    icon_style 	"Icon"
+			    anchor     	2
+			    nlines     	45
+			    max_width  	1007)
+			width      	1028
+			height     	2058
+			annotation 	8
+			autoResize 	TRUE)
+		    (object AssociationViewNew "$UNNAMED$0" @44
+			location   	(1910, 1651)
+			stereotype 	TRUE
+			quidu      	"39BE92C9029D"
+			roleview_list 	(list RoleViews
+			    (object RoleView "mcolActionDatas" @45
+				Parent_View 	@44
+				location   	(662, 227)
+				label      	(object SegLabel @46
+				    Parent_View 	@45
+				    location   	(1921, 1594)
+				    anchor     	1
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	300
+				    justify    	0
+				    label      	"-mcolActionDatas"
+				    pctDist    	0.055482
+				    height     	58
+				    orientation 	0)
+				stereotype 	TRUE
+				quidu      	"39BE92C902B1"
+				client     	@44
+				supplier   	@39
+				line_style 	0)
+			    (object RoleView "$UNNAMED$1" @47
+				Parent_View 	@44
+				location   	(662, 227)
+				label      	(object SegLabel @48
+				    Parent_View 	@47
+				    location   	(1731, 1700)
+				    hidden     	TRUE
+				    anchor     	1
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	""
+				    pctDist    	0.800000
+				    height     	42
+				    orientation 	0)
+				stereotype 	TRUE
+				quidu      	"39BE92C9029E"
+				client     	@44
+				supplier   	@43
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$2" @49
+			location   	(1910, 1651)
+			stereotype 	TRUE
+			quidu      	"39BE92C902BB"
+			roleview_list 	(list RoleViews
+			    (object RoleView "mcolGlobalActionDatas" @50
+				Parent_View 	@49
+				location   	(662, 227)
+				label      	(object SegLabel @51
+				    Parent_View 	@50
+				    location   	(1915, 1716)
+				    anchor     	1
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	396
+				    justify    	0
+				    label      	"-mcolGlobalActionDatas"
+				    pctDist    	0.012274
+				    height     	65
+				    orientation 	1)
+				stereotype 	TRUE
+				quidu      	"39BE92C902CF"
+				client     	@49
+				supplier   	@39
+				line_style 	0)
+			    (object RoleView "$UNNAMED$3" @52
+				Parent_View 	@49
+				location   	(662, 227)
+				label      	(object SegLabel @53
+				    Parent_View 	@52
+				    location   	(1731, 1700)
+				    hidden     	TRUE
+				    anchor     	1
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	""
+				    pctDist    	0.800000
+				    height     	42
+				    orientation 	0)
+				stereotype 	TRUE
+				quidu      	"39BE92C902BC"
+				client     	@49
+				supplier   	@43
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$4" @54
+			location   	(1989, 2237)
+			stereotype 	TRUE
+			quidu      	"39BE92CA0121"
+			roleview_list 	(list RoleViews
+			    (object RoleView "mcolConditionDatas" @55
+				Parent_View 	@54
+				location   	(741, 813)
+				label      	(object SegLabel @56
+				    Parent_View 	@55
+				    location   	(2009, 2378)
+				    anchor     	1
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	348
+				    justify    	0
+				    label      	"-mcolConditionDatas"
+				    pctDist    	0.258230
+				    height     	107
+				    orientation 	1)
+				stereotype 	TRUE
+				quidu      	"39BE92CA013F"
+				client     	@54
+				supplier   	@40
+				line_style 	0)
+			    (object RoleView "$UNNAMED$5" @57
+				Parent_View 	@54
+				location   	(741, 813)
+				label      	(object SegLabel @58
+				    Parent_View 	@57
+				    location   	(1768, 2037)
+				    hidden     	TRUE
+				    anchor     	1
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	""
+				    pctDist    	0.800000
+				    height     	42
+				    orientation 	1)
+				stereotype 	TRUE
+				quidu      	"39BE92CA0122"
+				client     	@54
+				supplier   	@43
+				line_style 	0)))
+		    (object ClassView "Class" "Logical View::Business Services::FilterConditions" @59
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			ShowOperationSignature 	TRUE
+			location   	(2976, 464)
+			label      	(object ItemLabel
+			    Parent_View 	@59
+			    location   	(2356, 193)
+			    nlines     	1
+			    max_width  	1240
+			    justify    	0
+			    label      	"FilterConditions")
+			stereotype 	(object ItemLabel
+			    Parent_View 	@59
+			    location   	(2356, 150)
+			    anchor     	10
+			    nlines     	1
+			    max_width  	1240
+			    justify    	0
+			    label      	"<<Class Module>>")
+			icon_style 	"Icon"
+			quidu      	"39BE92EE032C"
+			compartment 	(object Compartment
+			    Parent_View 	@59
+			    location   	(2356, 246)
+			    icon_style 	"Icon"
+			    anchor     	2
+			    nlines     	11
+			    max_width  	1230)
+			width      	1258
+			height     	648
+			annotation 	8
+			autoResize 	TRUE)
+		    (object AssociationViewNew "$UNNAMED$6" @60
+			location   	(2087, 1060)
+			stereotype 	TRUE
+			quidu      	"39BE92CA026C"
+			roleview_list 	(list RoleViews
+			    (object RoleView "mcolFilterConditions" @61
+				Parent_View 	@60
+				location   	(839, -364)
+				label      	(object SegLabel @62
+				    Parent_View 	@61
+				    location   	(2035, 968)
+				    anchor     	1
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	348
+				    justify    	0
+				    label      	"-mcolFilterConditions"
+				    pctDist    	0.016381
+				    height     	106
+				    orientation 	0)
+				stereotype 	TRUE
+				quidu      	"39BE92CA0280"
+				client     	@60
+				supplier   	@59
+				line_style 	0)
+			    (object RoleView "$UNNAMED$7" @63
+				Parent_View 	@60
+				location   	(839, -364)
+				label      	(object SegLabel @64
+				    Parent_View 	@63
+				    location   	(1742, 1244)
+				    hidden     	TRUE
+				    anchor     	1
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	""
+				    pctDist    	0.800000
+				    height     	42
+				    orientation 	1)
+				stereotype 	TRUE
+				quidu      	"39BE92CA026D"
+				client     	@60
+				supplier   	@43
+				line_style 	0)))
+		    (object UsesView "" @65
+			stereotype 	TRUE
+			quidu      	"39BE93FB0260"
+			client     	@59
+			supplier   	@42
+			line_style 	0)
+		    (object UsesView "" @66
+			stereotype 	TRUE
+			quidu      	"39BE9403015E"
+			client     	@39
+			supplier   	@38
+			line_style 	0)
+		    (object UsesView "" @67
+			stereotype 	TRUE
+			quidu      	"39BE940600CC"
+			client     	@40
+			supplier   	@37
+			line_style 	0)))))
+    root_subsystem 	(object SubSystem "Component View"
+	quid       	"39AD43D602D1"
+	physical_models 	(list unit_reference_list
+	    (object module "MTTabRulesetReader" "NotAModuleType" "NotAModulePart"
+		attributes 	(list Attribute_Set
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"ProjectFile"
+			value      	"E:\\src\\development\\UI\\server\\TabularRulesetReader\\MTTabRulesetReader.vbp"))
+		quid       	"39AD43FD01A8"
+		documentation 	"MetraTech Tabular Ruleset Reader"
+		stereotype 	"ActiveX DLL"
+		language   	"Visual Basic"))
+	physical_presentations 	(list unit_reference_list
+	    (object Module_Diagram "Main"
+		quid       	"39AD43D70243"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object ModView "Component View::MTTabRulesetReader" "NotAModuleType" "NotAModulePart" @68
+			location   	(288, 256)
+			label      	(object ItemLabel
+			    Parent_View 	@68
+			    location   	(204, 278)
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	317
+			    label      	"MTTabRulesetReader")
+			stereotype 	(object ItemLabel
+			    Parent_View 	@68
+			    location   	(204, 208)
+			    anchor     	10
+			    anchor_loc 	3
+			    nlines     	1
+			    max_width  	317
+			    label      	"<<ActiveX DLL>>")
+			icon       	"ActiveX DLL"
+			icon_style 	"Icon"
+			quidu      	"39AD43FD01A8"
+			width      	572
+			autoResize 	TRUE
+			width      	572
+			height     	162)))))
+    process_structure 	(object Processes
+	quid       	"39AD43D602D2"
+	ProcsNDevs 	(list
+	    (object Process_Diagram "Deployment View"
+		quid       	"39AD43D602D4"
+		title      	"Deployment View"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))))
+    properties 	(object Properties
+	attributes 	(list Attribute_Set
+	    (object Attribute
+		tool       	"Repository"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"SourceSafe"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"TypeLibImporter"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"VC++"
+		name       	"propertyId"
+		value      	"809135966")
+	    (object Attribute
+		tool       	"VC++"
+		name       	"default__Class"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"VC++"
+			name       	"Generate"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"VC++"
+			name       	"HeaderFile"
+			value      	"AUTO GENERATE")))
+	    (object Attribute
+		tool       	"VC++"
+		name       	"default__Operation"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"VC++"
+			name       	"OperationIsConst"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"VC++"
+			name       	"OperationKindSet"
+			value      	(list Attribute_Set
+			    (object Attribute
+				tool       	"VC++"
+				name       	"Non-virtual"
+				value      	200)
+			    (object Attribute
+				tool       	"VC++"
+				name       	"Abstract"
+				value      	201)
+			    (object Attribute
+				tool       	"VC++"
+				name       	"Virtual"
+				value      	202)))
+		    (object Attribute
+			tool       	"VC++"
+			name       	"OperationKind"
+			value      	("OperationKindSet" 200))))
+	    (object Attribute
+		tool       	"VC++"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"VJ++"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"Visual Basic"
+		name       	"propertyId"
+		value      	"783606378")
+	    (object Attribute
+		tool       	"Visual Basic"
+		name       	"default__Class"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"CreatableSet"
+			value      	(list Attribute_Set
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"Private"
+				value      	221)
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"PublicNotCreatable"
+				value      	213)
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"SingleUse"
+				value      	214)
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"GlobalSingleUse"
+				value      	215)
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"MultiUse"
+				value      	219)
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"GlobalMultiUse"
+				value      	220)))
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"OptionBase"
+			value      	"0")
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"OptionExplicit"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"OptionCompare"
+			value      	("CompareSet" 202))
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"Creatable"
+			value      	("CreatableSet" 221))
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"GenerateInitialization"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"GenerateTermination"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"CollectionClass"
+			value      	"Collection")
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"CompareSet"
+			value      	(list Attribute_Set
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"None"
+				value      	202)
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"Binary"
+				value      	203)
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"Text"
+				value      	204)))))
+	    (object Attribute
+		tool       	"Visual Basic"
+		name       	"default__Operation"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"OperationName"
+			value      	"$operation")
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"LibraryName"
+			value      	"")
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"AliasName"
+			value      	"")
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"IsStatic"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"EntryCode"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"ExitCode"
+			value      	(value Text ""))))
+	    (object Attribute
+		tool       	"Visual Basic"
+		name       	"default__Attribute"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"IsConst"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"New"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"WithEvents"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"Subscript"
+			value      	"")
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"NameIfUnlabeled"
+			value      	"the$supplier")
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"GenerateDataMember"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"DataMemberName"
+			value      	"$relationship")
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"GenerateGetOperation"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"GenerateSetOperation"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"GenerateLetOperation"
+			value      	FALSE)))
+	    (object Attribute
+		tool       	"Visual Basic"
+		name       	"default__Role"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"New"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"WithEvents"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"Subscript"
+			value      	"")
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"NameIfUnlabeled"
+			value      	"the$supplier")
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"GenerateDataMember"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"DataMemberName"
+			value      	"$relationship")
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"GenerateGetOperation"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"GenerateSetOperation"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"GenerateLetOperation"
+			value      	FALSE)))
+	    (object Attribute
+		tool       	"Visual Basic"
+		name       	"default__Inherit"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"ImplementsDelegation"
+			value      	TRUE)))
+	    (object Attribute
+		tool       	"Visual Basic"
+		name       	"default__Module-Spec"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"ProjectFile"
+			value      	"")))
+	    (object Attribute
+		tool       	"Visual Basic"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"VisualStudio"
+		name       	"HiddenTool"
+		value      	FALSE))
+	quid       	"39AD43D602D3"))

@@ -1,0 +1,26 @@
+HKCR
+{
+	MTUIPerfMon.TimerManager.1 = s 'TimerManager Class'
+	{
+		CLSID = s '{49880A34-D20D-477D-9287-67112F664C7C}'
+	}
+	MTUIPerfMon.TimerManager = s 'TimerManager Class'
+	{
+		CLSID = s '{49880A34-D20D-477D-9287-67112F664C7C}'
+		CurVer = s 'MTUIPerfMon.TimerManager.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {49880A34-D20D-477D-9287-67112F664C7C} = s 'TimerManager Class'
+		{
+			ProgID = s 'MTUIPerfMon.TimerManager.1'
+			VersionIndependentProgID = s 'MTUIPerfMon.TimerManager'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{2280A993-BBA9-4F46-B38B-A52A42E872E2}'
+		}
+	}
+}

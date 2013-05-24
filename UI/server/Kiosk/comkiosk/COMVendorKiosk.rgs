@@ -1,0 +1,24 @@
+HKCR
+{
+	COMVendorKiosk.COMVendorKiosk.1 = s 'COMVendorKiosk Class'
+	{
+		CLSID = s '{85D3E896-05FC-11D2-B24E-006008925549}'
+	}
+	COMVendorKiosk.COMVendorKiosk = s 'COMVendorKiosk Class'
+	{
+		CurVer = s 'COMVendorKiosk.COMVendorKiosk.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {85D3E896-05FC-11D2-B24E-006008925549} = s 'COMVendorKiosk Class'
+		{
+			ProgID = s 'COMVendorKiosk.COMVendorKiosk.1'
+			VersionIndependentProgID = s 'COMVendorKiosk.COMVendorKiosk'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

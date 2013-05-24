@@ -1,0 +1,65 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>About The Script Source</TITLE>
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css">
+ <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   About the test script</H1>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Public Methods</SPAN><BR>
+   A W3Runner VBScript file must contains at least one public function 
+   which will be called from the W3Runner User Interface. The first 
+   public function available can be executed by pressing the F5 key or 
+   the Run icon in the tools bar. The other public functions can be 
+   executed through the menu Run -&gt; Functions.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Classes and constants</SPAN><BR>
+   A W3Runner script can contain VBScript constants, subs, functions and 
+   classes definitions.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">W3Runner.vbs VBScript standard include</SPAN><BR>
+   W3Runner supplies some built-in constants and functions which are 
+   loaded from the file W3Runner.vbs located in the install folder. The 
+   file is documented in the section W3Runner.vbs VBScript Library, 
+   later in this document.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">How to Include Files</SPAN><BR>
+   The global function <SPAN STYLE="font-style : italic;font-weight : bold;">Include()</SPAN> 
+   includes one file at the end of the main script file. All the 
+   constants, subs, functions and classes become available. Once 
+   included, the file is also available in the debugger.<BR>
+   You cannot include a file twice.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Debugging.</SPAN><BR>
+   See chapter How to debug a script.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   Include Page.ScriptFilePath &amp; &quot;\Test.Lib.vbs&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Include W3Runner.Environ(&quot;VBSCRIPT_TEST_LIB&quot;) &amp; &quot;\Test.Lib.vbs&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Include &quot;C:\MyVBScriptLib\Test.Lib.vbs&quot;</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Private Function IncludeALL()</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <BLOCKQUOTE>
+   <ADDRESS CLASS="VbSample">
+    Include W3Runner.Environ(&quot;VBSCRIPT_TEST_LIB&quot;) &amp; &quot;\MyLib.vbs&quot;</ADDRESS>
+   </BLOCKQUOTE>
+  <ADDRESS CLASS="VbSample">
+   End function</ADDRESS>
+  <P>
+   <!-- $MVD$:spaceretainer() -->&nbsp;
+ </BODY>
+</HTML>

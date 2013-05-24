@@ -1,0 +1,76 @@
+// AccountCredit.idl : IDL source for AccountCredit.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (AccountCredit.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(D1D996CE-F1FC-11D3-9597-00B0D025B121),
+		dual,
+		helpstring("IMTAccountCredit Interface"),
+		pointer_default(unique)
+	]
+	interface IMTAccountCredit : IDispatch
+	{
+		[propget, id(2), helpstring("property RequestID")] HRESULT RequestID([out, retval] long *pVal);
+		[propput, id(2), helpstring("property RequestID")] HRESULT RequestID([in] long newVal);
+		[propget, id(3), helpstring("property ContentionSessionID")] HRESULT ContentionSessionID([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property ContentionSessionID")] HRESULT ContentionSessionID([in] BSTR newVal);
+		[propget, id(4), helpstring("property _AccountID")] HRESULT _AccountID([out, retval] long *pVal);
+		[propput, id(4), helpstring("property _AccountID")] HRESULT _AccountID([in] long newVal);
+		[propget, id(5), helpstring("property _Amount")] HRESULT _Amount([out, retval] VARIANT *pVal);
+		[propput, id(5), helpstring("property _Amount")] HRESULT _Amount([in] VARIANT newVal);
+		[propget, id(6), helpstring("property _Currency")] HRESULT _Currency([out, retval] BSTR *pVal);
+		[propput, id(6), helpstring("property _Currency")] HRESULT _Currency([in] BSTR newVal);
+		[propget, id(7), helpstring("property EmailNotification")] HRESULT EmailNotification([out, retval] BOOL *pVal);
+		[propput, id(7), helpstring("property EmailNotification")] HRESULT EmailNotification([in] BOOL newVal);
+		[propget, id(8), helpstring("property EmailAddress")] HRESULT EmailAddress([out, retval] BSTR *pVal);
+		[propput, id(8), helpstring("property EmailAddress")] HRESULT EmailAddress([in] BSTR newVal);
+		[propget, id(9), helpstring("property EmailText")] HRESULT EmailText([out, retval] BSTR *pVal);
+		[propput, id(9), helpstring("property EmailText")] HRESULT EmailText([in] BSTR newVal);
+		[propget, id(10), helpstring("property Issuer")] HRESULT Issuer([out, retval] BSTR *pVal);
+		[propput, id(10), helpstring("property Issuer")] HRESULT Issuer([in] BSTR newVal);
+		[propget, id(11), helpstring("property Reason")] HRESULT Reason([out, retval] BSTR *pVal);
+		[propput, id(11), helpstring("property Reason")] HRESULT Reason([in] BSTR newVal);
+		[propget, id(12), helpstring("property Other")] HRESULT Other([out, retval] BSTR *pVal);
+		[propput, id(12), helpstring("property Other")] HRESULT Other([in] BSTR newVal);
+		[propget, id(13), helpstring("property InvoiceComment")] HRESULT InvoiceComment([out, retval] BSTR *pVal);
+		[propput, id(13), helpstring("property InvoiceComment")] HRESULT InvoiceComment([in] BSTR newVal);
+		[propget, id(14), helpstring("property InternalComment")] HRESULT InternalComment([out, retval] BSTR *pVal);
+		[propput, id(14), helpstring("property InternalComment")] HRESULT InternalComment([in] BSTR newVal);
+		[propget, id(15), helpstring("property AccountingCode")] HRESULT AccountingCode([out, retval] BSTR *pVal);
+		[propput, id(15), helpstring("property AccountingCode")] HRESULT AccountingCode([in] BSTR newVal);
+		[id(16), helpstring("method Initialize")] HRESULT Initialize();
+		[id(17), helpstring("method Submit")] HRESULT Submit();
+		[propget, id(18), helpstring("property Status")] HRESULT Status([out, retval] BSTR *pVal);
+		[propput, id(18), helpstring("property Status")] HRESULT Status([in] BSTR newVal);
+		[propget, id(19), helpstring("property AutoCredit")] HRESULT AutoCredit([out, retval] BSTR *pVal);
+		[propput, id(19), helpstring("property AutoCredit")] HRESULT AutoCredit([in] BSTR newVal);
+		[propget, id(20), helpstring("property RequestAmount")] HRESULT RequestAmount([out, retval] VARIANT *pVal);
+		[propput, id(20), helpstring("property RequestAmount")] HRESULT RequestAmount([in] VARIANT newVal);
+		[propget, id(21), helpstring("property CreditAmount")] HRESULT CreditAmount([out, retval] VARIANT *pVal);
+		[propput, id(21), helpstring("property CreditAmount")] HRESULT CreditAmount([in] VARIANT newVal);
+	};
+
+[
+	uuid(D1D996C1-F1FC-11D3-9597-00B0D025B121),
+	version(1.0),
+	helpstring("AccountCredit 1.0 Type Library")
+]
+library ACCOUNTCREDITLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(D1D996CF-F1FC-11D3-9597-00B0D025B121),
+		helpstring("MTAccountCredit Class")
+	]
+	coclass MTAccountCredit
+	{
+		[default] interface IMTAccountCredit;
+	};
+};

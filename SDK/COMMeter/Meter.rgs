@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTechSDK.Meter.1 = s 'Meter Class'
+	{
+		CLSID = s '{5D80A7F2-D643-11D2-A233-00A0CC3AD9CD}'
+	}
+	MetraTechSDK.Meter = s 'Meter Class'
+	{
+		CLSID = s '{5D80A7F2-D643-11D2-A233-00A0CC3AD9CD}'
+		CurVer = s 'MetraTechSDK.Meter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {5D80A7F2-D643-11D2-A233-00A0CC3AD9CD} = s 'Meter Class'
+		{
+			ProgID = s 'MetraTechSDK.Meter.1'
+			VersionIndependentProgID = s 'MetraTechSDK.Meter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{5D80A7E3-D643-11D2-A233-00A0CC3AD9CD}'
+		}
+	}
+}

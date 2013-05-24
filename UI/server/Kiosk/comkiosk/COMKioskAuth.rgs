@@ -1,0 +1,24 @@
+HKCR
+{
+	COMKioskAuth.COMKioskAuth.1 = s 'COMKioskAuth Class'
+	{
+		CLSID = s '{8D697AC6-18EC-11D2-B255-006008925549}'
+	}
+	COMKioskAuth.COMKioskAuth = s 'COMKioskAuth Class'
+	{
+		CurVer = s 'COMKioskAuth.COMKioskAuth.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8D697AC6-18EC-11D2-B255-006008925549} = s 'COMKioskAuth Class'
+		{
+			ProgID = s 'COMKioskAuth.COMKioskAuth.1'
+			VersionIndependentProgID = s 'COMKioskAuth.COMKioskAuth'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

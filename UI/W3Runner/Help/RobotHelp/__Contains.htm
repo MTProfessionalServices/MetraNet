@@ -1,0 +1,81 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>W3RunnerControl.Contains</TITLE>
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css">
+ <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Contains</H1>
+  <ADDRESS CLASS="VbSample">
+   Public Function Contains(</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   ByVal strValue As String,<BR>
+   Optional strContainsCompareMode As String = &quot;Text&quot;<BR>
+   ) As Long</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   Return the index position of a string in the combox box string list. 
+   If the string is not found the return value is -1.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Parameters:</SPAN></P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="1">
+    <TR>
+     <TD BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Part</SPAN></TD>
+     <TD WIDTH="50%" BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Description</SPAN></TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       strValue</TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       The value to search.</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       strContainsCompareMode</TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       Define if the compare is based on the HTML attribute text or value.</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   Page.URL = &quot;http://www.mymail.com&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.WaitForDownLoad &quot;login&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   If 
+   Page.Controls(&quot;Domain&quot;,&quot;ComboBox&quot;).Contains(&quot;mymail.com&quot;)&lt;&gt;-1
+    Then</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; Msgbox &quot;Found&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Else</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; Msgbox &quot;Not Found&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   End If</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;"><A HREF="__List.htm">List</A></SPAN></P>
+  <P>
+   <!-- $MVD$:spaceretainer() -->&nbsp;
+ </BODY>
+</HTML>

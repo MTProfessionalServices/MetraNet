@@ -1,0 +1,35 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>Helper.HelpeSendMessage</TITLE>
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css">
+ <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   SendMessage</H1>
+  <P>
+   Public Function SendMessage(ByVal hwnd As Long, ByVal wMsg As Long, 
+   ByVal wParam As Long, ByVal lParam As Long) As Long</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN></P>
+  <P>
+   <SPAN STYLE="font-weight : normal;">Windows API SendMessage(). To 
+   send a Windows message to the Web Browser you must use the property 
+   Page.WebBrowserHWND. See the Microsoft help for more information.</SPAN></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   Page.Helper.SendMessage <SPAN STYLE="font-weight : normal;">Page.WebBrowserHWND,</SPAN>WM_LBUTTONDOWN,67687</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN></P>
+  <P>
+   <SPAN STYLE="font-weight : normal;">&nbsp;<A HREF="WebBrowserHWND.htm">WebBrowserHWND</A></SPAN>
+ </BODY>
+</HTML>

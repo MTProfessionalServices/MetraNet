@@ -1,0 +1,13 @@
+Microsoft Visual Studio Solution File, Format Version 1.00
+Project("{66355F20-A65B-11D0-BFB5-00A0C91EBFA0}") = "JavaSDK", "JavaSDK.vjp", "{8E253BF1-8557-4BD0-ABD7-466CD89D1517}"
+EndProject
+Global
+	GlobalSection(LocalDeployment) = postSolution
+		StartupProject = {8E253BF1-8557-4BD0-ABD7-466CD89D1517}
+	EndGlobalSection
+	GlobalSection(BuildOrder) = postSolution
+		0 = {8E253BF1-8557-4BD0-ABD7-466CD89D1517}
+	EndGlobalSection
+	GlobalSection(DeploymentRoot) = postSolution
+	EndGlobalSection
+EndGlobal

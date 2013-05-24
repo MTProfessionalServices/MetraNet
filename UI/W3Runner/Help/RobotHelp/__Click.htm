@@ -1,0 +1,134 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>W3RunnerControl.Click</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Click</H1>
+  <ADDRESS CLASS="VbSample">
+   Public Sub Click(</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Optional ByVal X As Long,</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Optional ByVal Y As Long,</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Optional eFlag As w3rITEM_CLICK_FLAG = w3rITEM_CLICK_FLAG_LEFT_CLICK 
+   + w3rITEM_CLICK_FLAG_WM_MOUSE_DOWN + w3rITEM_CLICK_FLAG_WM_MOUSE_UP<BR>
+   )</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST w3rITEM_CLICK_FLAG_ABSOLUTE = 1</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST w3rITEM_CLICK_FLAG_RIGHT_CLICK = 2</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST w3rITEM_CLICK_FLAG_LEFT_CLICK = 4</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST w3rITEM_CLICK_FLAG_CURRENT_POSITION = 8</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST w3rITEM_CLICK_FLAG_WM_MOUSE_DOWN = 16</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC CONST w3rITEM_CLICK_FLAG_WM_MOUSE_UP = 32</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   Simulates a click on the object. If the JavaScript event OnClick() or 
+   OnChange() are defined for the HTML object, the event will be raised. 
+   In most of the cases you do not need to specify a value for the 
+   optional parameters.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Parameters:</SPAN></P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="1">
+    <TR>
+     <TD BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Part</SPAN></TD>
+     <TD WIDTH="50%" BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Description</SPAN></TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       x</TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       The x position where the click should occur on the current object.</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       y</TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       The y position where the click should occur on the current object.</TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : normal;">eFlag</SPAN></TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       The flag is only used if the X and Y parameters are defined.<BR>
+       If the flag w3rITEM_CLICK_FLAG_ABSOLUTE is set the click is sent at 
+       the absolute X,Y position based on the the web browser control.<BR>
+       If the flag w3rITEM_CLICK_FLAG_CURRENT_POSITION is set the parameters 
+       X,Y are set with the current mouse position. See sample below.</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;buttonOK&quot;,&quot;Button&quot;).Click</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;Next Page&quot;,&quot;Anchor&quot;).Click</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   ' Click on an image with a specific position</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;buyFlights&quot;,&quot;Image&quot;).Click 11,11</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   ' Simulate a Left Click on a button</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;MyButton&quot;,&quot;Button&quot;).SetFocus</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;MyButton&quot;,&quot;Button&quot;).Click 
+   ,,w3rITEM_CLICK_FLAG_CURRENT_POSITION+w3rITEM_CLICK_FLAG_WM_MOUSE_DOWN
+    + w3rITEM_CLICK_FLAG_WM_MOUSE_UP</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Remark:</SPAN><BR>
+   <BR>
+   By default when the method click is executed from an HTML &lt;INPUT 
+   Type='Image' Name='butlogin'&gt; the position of the click is passed 
+   in the query string this way as 0,0 :</P>
+  <ADDRESS CLASS="VbSample">
+   butLogin.x=0&amp;butLogin.y=0</ADDRESS>
+  <P>
+   You can specify a special x and y value if the application requires 
+   it, by setting the optional parameters x and y. In this case W3Runner 
+   uses the SendMessage Windows Api to simulate a click. The Windows 
+   Message WM_LBUTTONDOWN and WM_LBUTTONUP are sent to the Internet 
+   Explorer window class &quot;Internet Explorer_Server&quot;. X and Y 
+   define the position in the image, before sending the message W3Runner 
+   converts the values relatively to the Web Browser. If the flag 
+   w3rITEM_CLICK_FLAG_ABSOLUTE is set the convertion is not done.<BR>
+   <BR>
+   If you set the parameters X and Y and the Image is not visible the 
+   click will be ignored. Before the click you can set the focus to the 
+   object to force it to be visible.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also :</SPAN></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;"><A HREF="__FireEvent.htm">FireEvent</A></SPAN>
+ </BODY>
+</HTML>

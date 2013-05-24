@@ -1,0 +1,71 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>W3RunnerControl.ActiveX</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   ActiveX</H1>
+  <P>
+   Public Property Get ActiveX() As Variant</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN></P>
+  <P>
+   Return the COM instance of an ActiveX. In the case of a MacroMedia 
+   Flash object the property return the ShockWave Flash Interface.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   Page.URL = &quot;W:\Test\ActiveX\Test.htm&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.WaitForDownLoad &quot;.htm&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Dim objAXFormLogin</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Set objAXFormLogin = Page.Controls(&quot;ActiveXLogOn&quot;).ActiveX</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   ' Accessing the ActiveX Control Interface</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   objAXFormLogin.TxtLogin.Text = &quot;fsmith&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   objAXFormLogin.TxtPassWord.SecureText = &quot;MDEyOS0zMjQwMzE1MjM1NEUzMDQ1NzMxMzcxMTU&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   objAXFormLogin.CmdOK.Value = TRUE ' Visual Basic way to raise the 
+   click event</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.WaitForDownload &quot;Test.ok.htm&quot;</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.URL = &quot;W:\Test\Flash\MyFlashPage.htm&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.WaitForDownLoad &quot;.htm&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Set objFlash = Page.Controls(&quot;MyFlash&quot;).ActiveX<BR>
+   objFlash.SetVariable &quot;myVar&quot;,&quot;OK&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   objFlash.Play</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Do While objFlash.IsPlaying</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; W3Runner.Wait 1</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Loop</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN></P>
+  <P>
+   <A HREF="__GetHTMLObjectName.htm">Page.GetHTMLObjectName</A>
+ </BODY>
+</HTML>

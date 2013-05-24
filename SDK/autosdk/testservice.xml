@@ -1,0 +1,25 @@
+<xmlconfig>
+
+  <session>
+   <ServiceName>metratech.com/TestService</ServiceName>
+   <inputs>
+    <_AccountID ptype="INTEGER">123</_AccountID>
+    <Description>This is a test</Description>
+    <_Amount ptype="DOUBLE">1.99</_Amount>
+    <_Currency>USD</_Currency>
+    <Time ptype="DATETIME">1998-10-13T18:54:39Z</Time>
+   </inputs>
+  </session>
+
+  <session>
+   <ServiceName>metratech.com/TestService</ServiceName>
+   <inputs>
+    <_AccountID ptype="INTEGER">123</_AccountID>
+    <Description>Does this work?</Description>
+    <_Amount ptype="DOUBLE">1313</_Amount>
+    <_Currency>USD</_Currency>
+    <Time ptype="DATETIME">1998-10-13T18:54:39Z</Time>
+   </inputs>
+  </session>
+
+</xmlconfig>

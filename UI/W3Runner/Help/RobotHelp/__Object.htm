@@ -1,0 +1,42 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>W3RunnerControl.Object</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Object</H1>
+  <P>
+   Public Property Get Object() As Object</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN></P>
+  <P>
+   Return a reference of the Microsoft Internet Explorer object. For 
+   more information see the Microsoft online help.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSampleComment">
+   ' The type is W3RunnerControl</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   MsgBox TypeName(Page.Controls(&quot;FirstName&quot;,&quot;TextBox&quot;))</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   ' The type is HTMLInputElement</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   MsgBox TypeName(Page.Controls(&quot;FirstName&quot;,&quot;TextBox&quot;).Object)</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;<BR>
+   </ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;MyBody&quot;,,&quot;main&quot;).Object.doScroll &quot;pagedown&quot;</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;"><A HREF="__GetHTMLObjectProperty.htm">Page.GetHTMLObjectProperty</A></SPAN>
+ </BODY>
+</HTML>

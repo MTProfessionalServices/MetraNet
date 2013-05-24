@@ -1,0 +1,26 @@
+HKCR
+{
+	Progress.ProgressServer.1 = s 'ProgressServer Class'
+	{
+		CLSID = s '{A055E69E-38C7-11D4-B9A1-00C04F043E86}'
+	}
+	Progress.ProgressServer = s 'ProgressServer Class'
+	{
+		CLSID = s '{A055E69E-38C7-11D4-B9A1-00C04F043E86}'
+		CurVer = s 'Progress.ProgressServer.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {A055E69E-38C7-11D4-B9A1-00C04F043E86} = s 'ProgressServer Class'
+		{
+			ProgID = s 'Progress.ProgressServer.1'
+			VersionIndependentProgID = s 'Progress.ProgressServer'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{A055E691-38C7-11D4-B9A1-00C04F043E86}'
+		}
+	}
+}

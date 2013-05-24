@@ -1,0 +1,41 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>W3Runner MoveMouseCursor</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   MoveMouseCursor</H1>
+  <P>
+   Public Property Get MoveMouseCursor() As Boolean<BR>
+   Public Property Let MoveMouseCursor(ByVal vNewValue As Boolean)</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   Get or set if W3Runner must move the mouse during the script 
+   execution. The property can also be set in the options dialog tab general.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSampleComment">
+   ' Make sure that we do not move the cursor when we click on a div</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Dim booMoveMouseCursor</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   booMoveMouseCursor = W3Runner.MoveMouseCursor</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   W3Runner.MoveMouseCursor = FALSE</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Page.Controls(&quot;MyDiv1&quot;,&quot;Div&quot;).Click</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   W3Runner.MoveMouseCursor = booMoveMouseCursor</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN></P>
+  <P>
+   <A HREF="General_Tab.htm">General Tab</A>
+ </BODY>
+</HTML>

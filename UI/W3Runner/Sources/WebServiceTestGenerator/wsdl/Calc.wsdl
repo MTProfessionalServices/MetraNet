@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<definitions  name ='Calc'   targetNamespace = 'http://tempuri.org/wsdl/'
+  xmlns:wsdlns='http://tempuri.org/wsdl/' 
+  xmlns:typens='http://tempuri.org/type' 
+  xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+  xmlns:xsd='http://www.w3.org/2001/XMLSchema' 
+  xmlns:stk='http://schemas.microsoft.com/soap-toolkit/wsdl-extension'
+  xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+  <types>
+    <schema targetNamespace='http://tempuri.org/type'
+      xmlns='http://www.w3.org/2001/XMLSchema'
+      xmlns:SOAP-ENC='http://schemas.xmlsoap.org/soap/encoding/'
+      xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/'>
+    </schema>
+  </types>
+  <message name='Calc.Add'>
+    <part name='A' type='xsd:double'/>
+    <part name='B' type='xsd:double'/>
+  </message>
+  <message name='Calc.AddResponse'>
+    <part name='Result' type='xsd:double'/>
+  </message>
+  <message name='Calc.Subtract'>
+    <part name='A' type='xsd:double'/>
+    <part name='B' type='xsd:double'/>
+  </message>
+  <message name='Calc.SubtractResponse'>
+    <part name='Result' type='xsd:double'/>
+  </message>
+  <message name='Calc.Multiply'>
+    <part name='A' type='xsd:double'/>
+    <part name='B' type='xsd:double'/>
+  </message>
+  <message name='Calc.MultiplyResponse'>
+    <part name='Result' type='xsd:double'/>
+  </message>
+  <message name='Calc.Divide'>
+    <part name='A' type='xsd:double'/>
+    <part name='B' type='xsd:double'/>
+  </message>
+  <message name='Calc.DivideResponse'>
+    <part name='Result' type='xsd:double'/>
+  </message>
+  <portType name='CalcSoapPort'>
+    <operation name='Add' parameterOrder='A B'>
+      <input message='wsdlns:Calc.Add' />
+      <output message='wsdlns:Calc.AddResponse' />
+    </operation>
+    <operation name='Subtract' parameterOrder='A B'>
+      <input message='wsdlns:Calc.Subtract' />
+      <output message='wsdlns:Calc.SubtractResponse' />
+    </operation>
+    <operation name='Multiply' parameterOrder='A B'>
+      <input message='wsdlns:Calc.Multiply' />
+      <output message='wsdlns:Calc.MultiplyResponse' />
+    </operation>
+    <operation name='Divide' parameterOrder='A B'>
+      <input message='wsdlns:Calc.Divide' />
+      <output message='wsdlns:Calc.DivideResponse' />
+    </operation>
+  </portType>
+  <binding name='CalcSoapBinding' type='wsdlns:CalcSoapPort' >
+    <stk:binding preferredEncoding='UTF-8'/>
+    <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http' />
+    <operation name='Add' >
+      <soap:operation soapAction='http://tempuri.org/action/Calc.Add' />
+      <input>
+        <soap:body use='encoded' namespace='http://tempuri.org/message/'
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </input>
+      <output>
+        <soap:body use='encoded' namespace='http://tempuri.org/message/'
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </output>
+    </operation>
+    <operation name='Subtract' >
+      <soap:operation soapAction='http://tempuri.org/action/Calc.Subtract' />
+      <input>
+        <soap:body use='encoded' namespace='http://tempuri.org/message/'
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </input>
+      <output>
+        <soap:body use='encoded' namespace='http://tempuri.org/message/'
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </output>
+    </operation>
+    <operation name='Multiply' >
+      <soap:operation soapAction='http://tempuri.org/action/Calc.Multiply' />
+      <input>
+        <soap:body use='encoded' namespace='http://tempuri.org/message/'
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </input>
+      <output>
+        <soap:body use='encoded' namespace='http://tempuri.org/message/'
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </output>
+    </operation>
+    <operation name='Divide' >
+      <soap:operation soapAction='http://tempuri.org/action/Calc.Divide' />
+      <input>
+        <soap:body use='encoded' namespace='http://tempuri.org/message/'
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </input>
+      <output>
+        <soap:body use='encoded' namespace='http://tempuri.org/message/'
+    encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </output>
+    </operation>
+  </binding>
+  <service name='Calc' >
+    <port name='CalcSoapPort' binding='wsdlns:CalcSoapBinding' >
+      <soap:address location='http://66.31.61.166:81/IERunner/WebServices/WSDL/Server/Calc.asp' />
+    </port>
+  </service>
+</definitions>

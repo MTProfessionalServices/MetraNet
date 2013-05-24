@@ -1,0 +1,89 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>CSV File Extension </TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   CSV File Extension</H1>
+  <P>
+   The extension CCSVFile allow to read or write a CSV File, in a Object 
+   Oriented way. This extension is very usefull to write data-driven test.<BR>
+   <BR>
+   </P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN><BR>
+   </P>
+  <P>
+   <SPAN STYLE="font-weight : normal;">The Welcome Page and the 
+   extension file itself contains some samples.</SPAN></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Interface:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   CLASS CCSVFile</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; Public Line</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; Public RowIndex</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; Public Separator</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; Public FileName</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; Public SupportColumnName</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC FUNCTION OpenFile(ByVal strFileName) ' As Boolean</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC FUNCTION Create(ByVal strFileName) ' As Boolean</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC FUNCTION Append(ByVal strFileName) ' As Boolean</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC FUNCTION CloseFile() ' As Boolean</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC FUNCTION DeleteFile(strFileName) ' As Boolean</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC FUNCTION ReadLn() ' As String</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC PROPERTY GET Count() ' As Long</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC FUNCTION AddRow(lngMaxColumns) ' As Boolean</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC PROPERTY GET Values(ByVal varKey)</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC PROPERTY LET Values(ByVal varKey,ByVal varValue)</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC PROPERTY GET EOF() ' As Boolean</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC FUNCTION LookUp(strFileName, varKey, varValue)</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC PROPERTY GET ColumnNameCSV()</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; PUBLIC PROPERTY LET ColumnNameCSV(v)</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   END CLASS</ADDRESS>
+  <P>
+   <!-- $MVD$:spaceretainer() -->&nbsp;
+ </BODY>
+</HTML>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xmlconfig>
+  <mtsysconfigdata>
+    <effective_date ptype="DATETIME">2000-09-11T14:55:04Z</effective_date>
+    <timeout ptype="INTEGER">30</timeout>
+    <configfiletype>CONFIG_DATA</configfiletype>
+  </mtsysconfigdata>
+  <mtconfigdata>
+    <version ptype="INTEGER">1</version>
+    <processor>
+      <name>rate</name>
+      <progid>MTPipeline.PropGenProcessor.1</progid>
+      <inputs>
+        <input>
+          <argument>duration</argument>
+          <property>CallDuration</property>
+        </input>
+      </inputs>
+      <outputs>
+        <output>
+          <argument>cost</argument>
+          <property>CallCost</property>
+        </output>
+      </outputs>
+      <configdata>
+        <default_actions>
+          <action>
+            <prop_name>rate</prop_name>
+            <prop_value ptype="DOUBLE">1.000000</prop_value>
+          </action>
+          <action>
+            <prop_name>mincharge</prop_name>
+            <prop_value ptype="DOUBLE">2.000000</prop_value>
+          </action>
+          <action>
+            <prop_name>MinUOM</prop_name>
+            <prop_value>Holiday</prop_value>
+          </action>
+        </default_actions>
+        <constraint_set>
+          <actions>
+            <action>
+              <prop_name>rate</prop_name>
+              <prop_value ptype="DOUBLE">0.100000</prop_value>
+            </action>
+            <action>
+              <prop_name>mincharge</prop_name>
+              <prop_value ptype="DOUBLE">0.000000</prop_value>
+            </action>
+            <action>
+              <prop_name>MinUOM</prop_name>
+              <prop_value>Holiday</prop_value>
+            </action>
+            <action>
+              <prop_name>MTI</prop_name>
+              <prop_value>Peak</prop_value>
+            </action>
+            <action>
+              <prop_name>OtherGlobal</prop_name>
+              <prop_value ptype="DOUBLE">0.900000</prop_value>
+            </action>
+          </actions>
+          <constraint>
+            <prop_name>calltype</prop_name>
+            <condition>equals</condition>
+            <prop_value>Dial-In</prop_value>
+          </constraint>
+        </constraint_set>
+        <constraint_set>
+          <actions>
+            <action>
+              <prop_name>rate</prop_name>
+              <prop_value ptype="DOUBLE">0.500000</prop_value>
+            </action>
+            <action>
+              <prop_name>mincharge</prop_name>
+              <prop_value ptype="DOUBLE">5.000000</prop_value>
+            </action>
+            <action>
+              <prop_name>MinUOM</prop_name>
+              <prop_value>Holiday</prop_value>
+            </action>
+            <action>
+              <prop_name>MTI</prop_name>
+              <prop_value>Peak</prop_value>
+            </action>
+            <action>
+              <prop_name>OtherGlobal</prop_name>
+              <prop_value ptype="DOUBLE">0.900000</prop_value>
+            </action>
+          </actions>
+          <constraint>
+            <prop_name>Tariff</prop_name>
+            <condition>equals</condition>
+            <prop_value>Default3</prop_value>
+          </constraint>
+          <constraint>
+            <prop_name>Calendar</prop_name>
+            <condition>equals</condition>
+            <prop_value>Tuesday</prop_value>
+          </constraint>
+          <constraint>
+            <prop_name>calltype</prop_name>
+            <condition>equals</condition>
+            <prop_value>Dial-In</prop_value>
+          </constraint>
+          <constraint>
+            <prop_name>ServiceLevel</prop_name>
+            <condition>equals</condition>
+            <prop_value>1</prop_value>
+          </constraint>
+          <constraint>
+            <prop_name>DoubleTest</prop_name>
+            <condition>less_equal</condition>
+            <prop_value ptype="DOUBLE">6.000000</prop_value>
+          </constraint>
+        </constraint_set>
+      </configdata>
+    </processor>
+  </mtconfigdata>
+</xmlconfig>

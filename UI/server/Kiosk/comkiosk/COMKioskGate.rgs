@@ -1,0 +1,24 @@
+HKCR
+{
+	COMKioskGate.COMKioskGate.1 = s 'COMKioskGate Class'
+	{
+		CLSID = s '{535E93B5-0201-11D2-B24D-006008925549}'
+	}
+	COMKioskGate.COMKioskGate = s 'COMKioskGate Class'
+	{
+		CurVer = s 'COMKioskGate.COMKioskGate.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {535E93B5-0201-11D2-B24D-006008925549} = s 'COMKioskGate Class'
+		{
+			ProgID = s 'COMKioskGate.COMKioskGate.1'
+			VersionIndependentProgID = s 'COMKioskGate.COMKioskGate'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

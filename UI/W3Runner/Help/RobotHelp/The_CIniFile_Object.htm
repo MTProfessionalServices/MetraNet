@@ -1,0 +1,76 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>The CIniFile Object</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   The CIniFile Object</H1>
+  <ADDRESS CLASS="VbSample">
+   CLASS CIniFile</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <BLOCKQUOTE>
+   <ADDRESS CLASS="VbSample">
+    Public Function Initialize(ByVal strFileName As String) As Boolean</ADDRESS>
+   <ADDRESS>
+    <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Property Get Section() As String</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Property Let Section(ByVal vNewValue As String)</ADDRESS>
+   <ADDRESS>
+    <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Property Get Value(ByVal strProperty As String, Optional ByVal 
+    strDefaultValue As String) As String</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Property Let Value(ByVal strProperty As String, Optional ByVal 
+    strDefaultValue As String, ByVal vNewValue As String)</ADDRESS>
+   <ADDRESS>
+    <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Function Clear() As Boolean</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Property Get FileName() As String</ADDRESS>
+   </BLOCKQUOTE>
+  <ADDRESS CLASS="VbSample">
+   END CLASS</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   Dim objIniFile</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Set objIniFile = CreateObject(CIniFile)</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   objIniFile.Initialize W3Runner.Environ(&quot;TEMP&quot;) &amp; &quot;\TestConfiguration.Ini&quot;</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   If objIniFile.Value(&quot;TestCustomerCreation&quot;) = 
+   &quot;True&quot; Then</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; Call TestCustomerCreation()</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; objIniFile.Value(&quot;TestCustomerCreationLastExecution&quot;)
+    = Now()</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   End If</ADDRESS>
+  <P>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</P>
+  <P>
+   <!-- $MVD$:spaceretainer() -->&nbsp;
+ </BODY>
+</HTML>

@@ -1,0 +1,54 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>HTTP Headers</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   OutputHeaders</H1>
+  <ADDRESS CLASS="VbSample">
+   Public Property Get Headers(ByVal strHeaderName As String) As String</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   <SPAN STYLE="font-weight : normal;">Return an HTTP header value.</SPAN></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Parameters:</SPAN></P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="1">
+    <TR>
+     <TD WIDTH="50%" BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Part</SPAN></TD>
+     <TD WIDTH="50%" BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Description</SPAN></TD>
+    </TR>
+    <TR>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-style : italic;font-weight : normal;text-decoration : none;">strHeaderName</SPAN></TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       The name of the HTTP header.</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   If Http.Execute(&quot;GET&quot;,strURL,,varText) = CHTTP_ERROR_OK Then</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; Msgbox Http.Headers(&quot;Content-Type&quot;)</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Else</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   End If</ADDRESS>
+  <P>
+   <!-- $MVD$:spaceretainer() -->&nbsp;
+ </BODY>
+</HTML>

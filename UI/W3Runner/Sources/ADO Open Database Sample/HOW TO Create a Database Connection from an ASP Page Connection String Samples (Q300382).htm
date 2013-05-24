@@ -1,0 +1,277 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0056)http://www.nextmill.net/support/databaseconnections.html -->
+<HTML><HEAD><TITLE>HOW TO: Create a Database Connection from an ASP Page: Connection String Samples (Q300382)</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2600.0" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff leftMargin=0 topMargin=0 rightMargin=0><BR></FONT>
+<META http-equiv=PICS-Label 
+content='(PICS-1.1 "http://www.rsac.org/ratingsv01.html" l gen true comment "RSACi North America Server" by "Inet@microsoft.com" for "http://support.microsoft.com" on "1998.02.17T12:28-0800" r (n 0 s 0 v 0 l 0))'>
+<META content=EN-US name=ms.locale>
+<META content="Support; KB Article" name=Category>
+<META content=Support name=Premium>
+<META content="Support; KB; iis; kbiisSearch; " name=KBArea></META>
+<META content=Q300382 name=KBID>
+<META 
+content="HOW TO: Create a Database Connection from an ASP Page: Connection String Samples" 
+name=KBTitle>
+<META 
+content="There are many ways to connect to a database. This step-by-step article provides sample connection strings for various types of databases and database connections." 
+name=Description>
+<META content=iis name=Product>
+<META content="May 29, 2001" name=KBCreate>
+<META content="November 2, 2001" name=KBModify>
+<META content="October 8, 2001" name=EditDate>
+<META content="" name=Question>
+<META content=:5.0 name=Versions>
+<META content="" name=Component>
+<META content=kbiisSearch name=Technology>
+<META content="" name=Links>
+<META content="kbAudDeveloper kbHOWTOmaster" name=Keywords>
+<META content="" name=Platform>
+<META content="" name=Hardware>
+<META content="" name=SolutionType>
+<META content=kbhowto name=IssueType>
+<META content=OutsideRef name=BoilerPlate>
+<META content="" name=ProducedView><LINK href="/support/include/style.css" 
+type=text/css rel=STYLESHEET><!-- Code replaced by GetParms -->
+<SCRIPT language=JavaScript>
+<!--//
+	var LNjsVal = "EN-US"
+	var SitejsVal = "TECH"
+	var ServerjsVal = "support.microsoft.com"
+//-->
+</SCRIPT>
+
+<SCRIPT language=JavaScript src=""></SCRIPT>
+
+<SCRIPT language=JavaScript src=""></SCRIPT>
+<!--TOOLBAR_START--><A name=TOP>
+<SCRIPT language=JavaScript src=""></SCRIPT>
+<!--TOOLBAR_END-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top>
+      <CENTER>
+      <TABLE cellSpacing=0 cellPadding=0 width="95%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top><FONT face="Verdana, Arial, Helvetica" size=2>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD>
+                  <H2>HOW TO: Create a Database Connection from an ASP Page: 
+                  Connection String Samples</H2></TD></TR></TBODY></TABLE>
+            <HR>
+            The information in this article applies to:<BR>
+            <UL>
+              <LI>Microsoft Internet Information Services 
+              version&nbsp;&nbsp;5.0, used with:
+              <UL>
+                <LI>the operating system: Microsoft Windows 2000</LI></UL></LI></UL>
+            <HR>
+            <A class=LINK name=toc></A>
+            <H2>IN THIS TASK</H2>
+            <UL>
+              <LI><A class=LINK 
+              href="http://www.nextmill.net/support/databaseconnections.html#1" 
+              target=_top>SUMMARY</A> 
+              <BLOCKQUOTE>
+                <LI><A class=LINK 
+                href="http://www.nextmill.net/support/databaseconnections.html#2" 
+                target=_top>Requirements</A> 
+                <LI><A class=LINK 
+                href="http://www.nextmill.net/support/databaseconnections.html#3" 
+                target=_top>Sample Database Connection Strings</A> 
+                <BLOCKQUOTE>
+                  <LI><A class=LINK 
+                  href="http://www.nextmill.net/support/databaseconnections.html#4" 
+                  target=_top>Microsoft Access</A> 
+                  <LI><A class=LINK 
+                  href="http://www.nextmill.net/support/databaseconnections.html#5" 
+                  target=_top>Microsoft SQL Server</A> 
+                  <LI><A class=LINK 
+                  href="http://www.nextmill.net/support/databaseconnections.html#6" 
+                  target=_top>Microsoft Visual FoxPro</A> 
+                  <LI><A class=LINK 
+                  href="http://www.nextmill.net/support/databaseconnections.html#7" 
+                  target=_top>Oracle</A> </LI></BLOCKQUOTE></LI></BLOCKQUOTE>
+              <LI><A class=LINK 
+              href="http://www.nextmill.net/support/databaseconnections.html#8" 
+              target=_top>REFERENCES</A> </LI></UL><A class=LINK name=1></A><BR>
+            <H2>SUMMARY</H2>
+            <P>There are many ways to connect to a database. This step-by-step 
+            article provides sample connection strings for various types of 
+            databases and database connections.<BR><BR><A 
+            href="http://www.nextmill.net/support/databaseconnections.html#toc" 
+            name=bottom>back to the top</A> <A class=LINK name=2></A>
+            <H3>Requirements</H3>The following are the requirements for 
+            connecting to a database: 
+            <UL>
+              <LI>Active Server Pages (ASP) enabled Internet Information 
+              Services (IIS) version 5.0 Web server with Microsoft Data Access 
+              Components (MDAC) version 2.5 or 2.6 (with a Jet database 
+              engine)<BR><BR>
+              <LI>Connectivity to a local or remote database<BR><BR>
+              <LI>ASP enabled Microsoft Internet Explorer version 5.0 or later 
+              <BR><BR></LI></UL><A 
+            href="http://www.nextmill.net/support/databaseconnections.html#toc" 
+            name=bottom>back to the top</A> <A class=LINK name=3></A>
+            <H3>Sample Database Connection Strings</H3>These examples are for 
+            demonstration purposes only. You must paste this code in your ASP 
+            code to make a connection to the specified database. Note that you 
+            must change elements such as database name, server name, database 
+            location, Data Source Name (DSN), and so on.<BR><BR><A 
+            href="http://www.nextmill.net/support/databaseconnections.html#toc" 
+            name=bottom>back to the top</A> <A class=LINK name=4></A>
+            <H4>Microsoft Access</H4>Without DSN <PRE class=CODESAMP>&lt;%
+Set Cnn = Server.CreateObject("ADODB.Connection")
+Cnn.open "DRIVER={Microsoft Access Driver (*.mdb)};DBQ=c:\mydatabase.mdb"
+%&gt; </PRE>OLE DB <PRE class=CODESAMP>&lt;%
+Set Cnn = Server.CreateObject("ADODB.Connection")
+Cnn.open "PROVIDER=MICROSOFT.JET.OLEDB.4.0;DATA SOURCE=c:\mydatabase.mdb"
+%&gt; </PRE>File DSN <PRE class=CODESAMP>&lt;% Set Cnn = Server.CreateObject("ADODB.Connection")
+Cnn.open "FILEDSN=ADSN"
+%&gt; </PRE>With DSN and no User ID/Password <PRE class=CODESAMP>&lt;%
+Set Conn = Server.CreateObject("ADODB.Connection")
+Conn.open "DSNname"
+%&gt; </PRE>With DSN and User ID/Password <PRE class=CODESAMP>&lt;%
+Set Conn = Server.CreateObject("ADODB.Connection")
+Conn.open "DSNname","username","password"
+%&gt; </PRE>Without DSN, using a physical path as a reference <PRE class=CODESAMP>&lt;%
+Set Conn = Server.CreateObject("ADODB.Connection")
+DSNtest="DRIVER={Microsoft Access Driver (*.mdb)}; "
+DSNtest=dsntest &amp; "DBQ=c:\mydatabase.mdb"
+Conn.Open DSNtest
+%&gt; </PRE>Without DSN, using Server.MapPath<BR><BR><B>NOTE</B>: 
+            Server.MapPath is the path from the Web server root. By default, 
+            this is C:\Inetpub\Wwwroot. <PRE class=CODESAMP>&lt;%
+Set Conn = Server.CreateObject("ADODB.Connection")
+DSNtest="DRIVER={Microsoft Access Driver (*.mdb)}; "
+DSNtest=dsntest &amp; "DBQ=" &amp; Server.MapPath("/databases/mydatabase.mdb")
+Conn.Open DSNtest
+%&gt; </PRE><A 
+            href="http://www.nextmill.net/support/databaseconnections.html#toc" 
+            name=bottom>back to the top</A> <A class=LINK name=5></A>
+            <H4>Microsoft SQL Server</H4>OLE DB <PRE class=CODESAMP>&lt;%
+Set cnn = Server.CreateObject("ADODB.Connection")
+cnn.open "PROVIDER=SQLOLEDB;DATA SOURCE=sqlservername;UID=username;PWD=password;DATABASE=mydatabase "
+%&gt; </PRE>With DSN <PRE class=CODESAMP>&lt;%
+Set Conn = Server.CreateObject("ADODB.Connection")
+Conn.open "DSN=MyDSN;UID=user;PWD=password;DATABASE=mydatabase"
+%&gt; </PRE>Without DSN <PRE class=CODESAMP>&lt;%
+Set Conn = Server.CreateObject("ADODB.Connection")
+DSNtest="DRIVER={SQL Server};SERVER=ServerName;UID=USER;PWD=password;DATABASE=mydatabase"
+Conn.open DSNtest
+%&gt; </PRE><A 
+            href="http://www.nextmill.net/support/databaseconnections.html#toc" 
+            name=bottom>back to the top</A> <A class=LINK name=6></A>
+            <H4>Microsoft Visual FoxPro</H4>Without DSN <PRE class=CODESAMP>&lt;%
+Set Conn = Server.CreateObject("ADODB.Connection")
+ConnStr= "Driver=Microsoft Visual Foxpro Driver; UID=userID;SourceType=DBC;SourceDB=C:\databases\mydatabase.dbc"
+Conn.Open ConnStr
+%&gt; </PRE><A 
+            href="http://www.nextmill.net/support/databaseconnections.html#toc" 
+            name=bottom>back to the top</A> <A class=LINK name=7></A>
+            <H4>Oracle</H4>ODBC with DSN <PRE class=CODESAMP>&lt;%
+Set Conn = Server.CreateObject("ADODB.Connection")
+Conn.cursorlocation=adUseClient&nbsp;&nbsp;&nbsp;
+' requires use of adovbs.inc; numeric value is 3
+Conn.open "DSN=test;UID=name;PWD=pass"
+%&gt; </PRE>OLE DB <PRE class=CODESAMP>&lt;%
+Set Conn = Server.CreateObject("ADODB.Connection")
+Conn.cursorlocation=adUseClient&nbsp;&nbsp;&nbsp;
+' requires use of adovbs.inc; numeric value is 3
+DSNTest="Provider=MSDAORA.1;Password=pass;User ID=name;Data Source=data.world"
+Conn.open DSNtest
+%&gt; </PRE><A 
+            href="http://www.nextmill.net/support/databaseconnections.html#toc" 
+            name=bottom>back to the top</A> <A class=LINK name=8></A>
+            <H2>REFERENCES</H2>For more information on data types, data 
+            connections, or MDAC components, see the following Microsoft Web 
+            site: 
+            <BLOCKQUOTE><A class=LINK href="http://www.microsoft.com/data" 
+              target=_top>http://www.microsoft.com/data</A></BLOCKQUOTE><A 
+            href="http://www.nextmill.net/support/databaseconnections.html#toc" 
+            name=bottom>back to the top</A> 
+            <P></P>
+            <P>Additional query words: </P></FONT><FONT 
+            face="Verdana, Arial, Helvetica" size=1>
+            <P>Keywords&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 
+            kbAudDeveloper kbHOWTOmaster <BR>Issue 
+            type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: kbhowto 
+            <BR>Technology&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 
+            kbiisSearch 
+      </P><!--CONVLEGACY DELIMITER--></FONT></TD></TR></TBODY></TABLE>
+      <P>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <CENTER><BR><FONT face="Verdana, Arial, Helvetica" size=1>Last 
+            Reviewed: November 2, 2001<BR><A title="Copyright Notice" 
+            href="http://www.nextmill.net/isapi/gosupport.asp?target=/support/misc/cpyright.asp">© 
+            2001 Microsoft Corporation. All rights reserved. Terms of Use.</A> 
+            &nbsp;<A title=Disability/accessibility 
+            href="http://www.nextmill.net/isapi/gomscom.asp?target=/enable/telecomm.htm" 
+            target=_top>Disability/accessibility</A> &nbsp;<A 
+            title="Privacy Policy" 
+            href="http://www.nextmill.net/isapi/gomscom.asp?target=/info/privacy.htm" 
+            target=_top>Privacy Policy</A><BR>
+            <P><BR></FONT></CENTER></P></TD></TR></TBODY></TABLE></P></CENTER></TD>
+    <TD vAlign=top width=1 bgColor=#003399><IMG height="100%" src="" width=1 
+      border=0></TD>
+    <TD vAlign=top width=135>
+      <CENTER>
+      <TABLE cellSpacing=0 cellPadding=0 width="90%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top><FONT face="Verdana, Arial, Helvetica" size=1><BR>
+            <P>Article ID: Q300382</P>
+            <P><B>Last Reviewed:</B><BR>November 2, 2001 </P>
+            <P><A title="Send this article to a friend" 
+            href="mailto:?subject=Microsoft Knowledge Base Article - q300382&amp;body=This article pointer was forwarded to you from the Microsoft Online Support site. http://support.microsoft.com/support/kb/articles/q300/3/82.asp"><IMG 
+            height=10 src="" width=18 align=absMiddle border=0>Send to a 
+            friend</A><BR><BR>
+            <P>Provided by<BR><A 
+            href="http://www.nextmill.net/directory/default.asp" 
+            target=_top>Microsoft Product Support Services</A> 
+            <P>
+            <HR>
+
+            <FORM name=VOTED onsubmit="return votingsubmit();" 
+            action=/support/contentvoting/voting_idc.asp method=post><INPUT 
+            type=hidden value=Q300382 name=KBID> <INPUT type=hidden 
+            value="Support; KB; iis" name=PROD> <INPUT type=hidden 
+            value="Support; KB; iis" name=KBAREA> <INPUT type=hidden 
+            value=support.microsoft.com name=SRV> <INPUT type=hidden 
+            value=/support/kb/articles/q300/3/82.asp name=URL> Did the 
+            information in this article help answer your question? 
+            <P><INPUT type=radio value=1 name=VOTE>Yes<BR><INPUT type=radio 
+            value=2 name=VOTE>No<BR><INPUT type=radio value=3 name=VOTE>Did not 
+            apply 
+            <P>Please provide additional comments about this 
+            information.<BR>(255 character max) <BR><BR><TEXTAREA id=COMMENTS style="FONT-WEIGHT: normal; FONT-SIZE: xx-small; LINE-HEIGHT: normal; FONT-STYLE: normal; FONT-VARIANT: normal" name=COMMENTS rows=5 wrap=virtual cols=17 MAXLENGTH="255"></TEXTAREA> 
+            <BR>
+            <CENTER><INPUT type=image height=32 alt=Submit width=120 
+            src="HOW TO Create a Database Connection from an ASP Page Connection String Samples (Q300382)_files/nextmill_logo.gif" 
+            border=0> </CENTER>
+            <SCRIPT language=JavaScript>
+<!--//
+function votingsubmit()
+{
+	if((document.VOTED.VOTE[0].checked == false) && (document.VOTED.VOTE[1].checked == false) && (document.VOTED.VOTE[2].checked == false)){
+		alert("Please choose a voting option.");
+		return false;}
+	if(document.VOTED.COMMENTS.value.length > 255){
+		alert("Your comment has exceeded the 255 character limit.\nPlease reduce the number of characters in your comment.");
+		document.forms[0].COMMENTS.focus();
+		return false;}
+	else return true;
+}
+//-->
+</SCRIPT>
+            </FORM>
+            <P></P></FONT></TD></TR></TBODY></TABLE></CENTER></TD></TR></TBODY></TABLE><FONT 
+face="Courier, MS Sans Serif"><BR></FONT></A></BODY></HTML>

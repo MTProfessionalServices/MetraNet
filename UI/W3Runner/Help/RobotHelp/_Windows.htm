@@ -1,0 +1,48 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>Page Windows</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Windows</H1>
+  <ADDRESS CLASS="VbSample">
+   Public Property Get Windows() As W3RunnerPages</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   <SPAN STYLE="font-weight : normal;">Return a collection of 
+   W3RunnerPage object that match the HTML pop up window open. Generally 
+   a new HTML pop up window is open with the JavaScript window.open().</SPAN><BR>
+   <BR>
+   <SPAN STYLE="font-weight : normal;">The collection exposes the 
+   following method :</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   <SPAN STYLE="font-weight : normal;">Public Property Get Item(ByVal </SPAN><SPAN STYLE="font-style : italic;font-weight : bold;">lngIndex</SPAN><SPAN STYLE="font-weight : normal;"> 
+   As Long) As W3RunnerPage</SPAN></ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <SPAN STYLE="font-weight : normal;">Public Property Get Count() As Long</SPAN></ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <SPAN STYLE="font-weight : normal;">Public Function Exist(ByVal 
+   vntKey As Variant) As Boolean</SPAN></ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Remarks:</SPAN><BR>
+   The Item method support only long key, there is no name set to a pop 
+   up window.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   Page.Windows(1).Controls(&quot;LastName&quot;,&quot;TextBox&quot;).Text
+    =&quot;OK&quot;</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN><BR>
+   </P>
+  <P>
+   <!-- $MVD$:spaceretainer() -->&nbsp;
+ </BODY>
+</HTML>

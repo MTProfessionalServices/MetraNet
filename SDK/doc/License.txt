@@ -1,0 +1,109 @@
+LICENSE AGREEMENT FOR METRATECH SOFTWARE
+
+IMPORTANT -- CAREFULLY READ THIS LICENSING AGREEMENT 
+BEFORE INSTALLING ANY METRATECH SOFTWARE. BY DOWNLOADING, 
+INSTALLING AND/OR USING THIS SOFTWARE, YOU ACKNOWLEDGE 
+YOUR ACCEPTANCE TO THE TERMS AND CONDITIONS OF THE 
+FOLLOWING LICENSE. IF YOU DO NOT AGREE TO ALL OF THE TERMS 
+AND CONDITIONS STATED BELOW, DO NOT INSTALL THE SOFTWARE. 
+
+1.  Software License. Subject to your compliance with the terms of this 
+Agreement, MetraTech Corp.  ("MetraTech") grants to you a personal, 
+non-exclusive and non-transferable right to install and use the Metering
+SDK software (the "Software"). You may integrate your existing application
+programs (collectively referred to hereafter as "Programs") with MetraTech's
+server products using the Software, including any libraries and source code
+provided for such purpose. The Software shall be used solely to create or
+enable Programs to communicate with MetraTech's server products. If you are
+a licensed, registered user of this Software, you may use, reproduce, give
+away, or sell any Program, in executable form only, without additional license
+or fees, subject to all of the terms and conditions of this Agreement. In
+consideration for this License, you agree to include MetraTech's standard
+brand identifier on such Programs, related advertising and marketing materials. 
+
+2.  Redistributable Components. The Software includes certain examples 
+("Redistributables") in a source code format which may be included in your 
+Programs. If you are a licensed, registered user of this Software, you may
+reproduce and distribute exact copies of the Redistributables without additional
+license or fees. Copies of Redistributables may only be distributed with and
+for the sole purpose of executing Programs permitted under this Agreement. 
+Under no circumstances may any copies of Redistributables be distributed 
+separately. You may not reproduce or distribute the Software in whole or 
+any component thereof without the prior written approval of MetraTech. 
+
+3.  Software Update. From time to time, MetraTech may make modifications, 
+enhancements, updates or upgrades of the Software ("Updates") available to 
+you, either through its web site or other means. All such Updates shall be 
+deemed to constitute "Software", and shall be subject to all restrictions 
+and terms contained in this Agreement. 
+
+4.  Representations. You represent that the Software and all Programs will 
+be used for lawful purposes only. You further represent that the use of the 
+Software and Programs will be consistent with standard business practices 
+and will not cause harmful or wrongful use of MetraTech's network operations. 
+You agree to remain solely responsible to anyone receiving your Programs for 
+support, service, upgrades, technical support or other assistance, and such 
+recipients will have no right to contact MetraTech for such services or 
+assistance. 
+
+5.  Ownership. The Software (including all text, screen displays and code) 
+and all rights therein, including copyright and patent rights, are owned 
+by MetraTech or its suppliers. You will obtain no rights in the Software 
+itself other than the license described above. You must not modify, reverse 
+engineer, decompile, or disassemble the Software, except as expressly permitted
+by applicable laws. You must not obscure, delete, or alter any identification 
+or proprietary notification or legend contained on or in the Software or 
+its documentation or packaging. You agree to reproduce all copyright and other proprietary notices on all copies of the Software and documentation. You may 
+not remove or alter any MetraTech copyright, trademark or other proprietary 
+rights notice contained in any portion of MetraTech libraries, source code, 
+Redistributables or other files that bear such a notice. 
+
+6.  No Warranty. THE SOFTWARE IS BEING PROVIDED TO YOU 
+"AS IS" AND "AS AVAILABLE." METRATECH MAKES NO WARRANTY 
+WHATSOEVER, EXPRESS OR IMPLIED, WITH THE RESPECT TO THE 
+SOFTWARE OR REFERENCE SERVERS, INCLUDING ANY IMPLIED 
+WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+PURPOSE, NONINFRINGEMENT OR TITLE, OR ANY WARRANTY THAT 
+THE SOFTWARE WILL OPERATE IN AN UNINTERRUPTED, ERROR-FREE 
+OR SECURE MANNER. TO THE MAXIMUM EXTENT PERMITTED BY 
+APPLICABLE LAW, YOU RELEASE METRATECH AND ITS SUPPLIERS 
+FROM ANY AND ALL LIABILITY ARISING FROM THE SOFTWARE, 
+INCLUDING WITHOUT LIMITATION DIRECT, INDIRECT CONSEQUENTIAL 
+AND EXEMPLARY DAMAGES FROM INJURY, LOSS OF PROFITS, 
+BUSINESS INTERRUPTION, OR ANY OTHER PECUNIARY LOSS, EVEN 
+IF METRATECH HAS BEEN INFORMED OF THE POSSIBILITY OF SUCH 
+DAMAGES. 
+
+7.  Indemnification. Except for third-party infringement claims regarding the 
+Software, you hereby agree to indemnify, defend and hold harmless MetraTech 
+and its directors, officers, employees and agents from any expenses or 
+losses arising from any claims that any part of the Programs, products or 
+services offered or provided by you infringes the copyright or other 
+intellectual property rights of any third party or violates any applicable 
+law or regulation. 
+
+8.  Relationship of the Parties. No agency, partnership, joint venture, or 
+employment is created as a result of this Agreement and you do not have 
+any authority of any kind to bind MetraTech  in any respect whatsoever. 
+You are not authorized to bind MetraTech or waive any conditions of this 
+Agreement without MetraTech's express written consent. 
+
+9.  Term. This Agreement will remain in effect until terminated. You may 
+terminate this Agreement at any time by destroying the Software and all 
+copies or returning the same to MetraTech. MetraTech may terminate this 
+Agreement at any time upon notice to you. The Agreement will be terminated 
+immediately and automatically if you violate any provision of this Agreement. 
+
+10.  Export Restrictions. The Software contains 40 bit data encryption. You 
+shall not reexport or transfer, whether directly or indirectly, the Software 
+or any Redistributables to anyone outside of the United States of America 
+without first obtaining a license from the Untied States Department of Commerce
+or any other agency or department of the United States Government, as required. 
+
+11.  General. The Agreement, your rights and obligations, and all actions 
+contemplated by this Agreement shall be governed by the laws of the United 
+States of America and the Commonwealth of Massachusetts, as if the Agreement 
+was a contract wholly entered into and wholly performed within the Commonwealth
+of Massachusetts. If any provision in this Agreement is invalid or 
+unenforceable under applicable law, the remaining provisions will continue 
+in full force and effect.

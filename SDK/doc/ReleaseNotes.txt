@@ -1,0 +1,62 @@
+Release Notes for MetraTech SDK V2.1
+Version 1
+April 15, 2000
+
+1. New Features 
+
+2. Known Functional Constraints
+
+New Features
+
+COM Support for Metering SDK
+
+The MetraTech Metering SDK is now available as a set of COM objects. 
+
+Support for Local Mode
+
+The Metering SDK contains support for local mode processing.  Client applications can instruct the SDK to route metered sessions to a local file that can be replayed and metered later. 
+
+UNIX Version of Metering SDK
+
+Version 2.1 of Metering SDK is available in a UNIX version that is compatible with Sun Solaris 2.5.
+
+SSL Metering
+
+SSL metering is now enabled under UNIX.
+
+Failover Metering
+
+Failover metering is now enabled under UNIX.
+
+Multiple Sessions
+
+Multiple sessions metering is now enabled under UNIX.
+
+Data Importing SDK
+
+Data Importing SDK is available with this release.  Data Importing SDK allows you to perform some basic mediation of data before sending it to the metering server.  For more information, see the Data Importing SDK User's Guide.
+
+
+Known Functional Constraints 
+
+Compound Sessions Not Totaling Correctly
+
+The Test Service, which is the service that SDK uses by default, cannot calculate the bill for compound sessions.  The individual connections are placed in the database correctly, along with their properly metered individual contributions to the bill, but the total is not calculated at this time.  Instead, the total is displayed as zero. 
+Atomic (simple) sessions are billed correctly.
+
+Sample Programs Incompatible with Service Definitions
+
+The version 2.1 metering sample programs are incompatible with Service Definitions shipped with version 1.0 of the Pipeline Sever.  Make manual changes to the version 1.0 Pipeline configuration before using these samples.
+
+Logical Record Detection
+
+This feature will be implemented in a future release.  Once implemented, logical record detection will allow you to identify records by type.
+
+Record Filtering
+
+This feature will be implemented in a future release.  Once implemented, record filtering will allow you to exclude certain records from processing.
+
+Sample Programs
+
+The version 2.1 metering sample programs are incompatible with Service Definitions shipped with version 1.0 of the Pipeline Sever.  Make manual changes to the version 1.0 Pipeline configuration before using these samples.
+

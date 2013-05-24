@@ -1,0 +1,49 @@
+ %% PLEASE DO NOT MODIFY OR DELETE THIS FILE! %% 
+ %% This file contains information about the installation of an application. %% 
+ %% It will be used to automatically remove all application components from your computer if you choose to do so. %% 
+
+
+NOTE: Beginning of the bootstrapper section
+
+*** ERROR: Unable to create a directory named 'G:'
+*** DURING THIS ACTION: CreateDir: "G:"
+
+CONFIG: Title: "IERunner 2.0"
+
+ACTION: RegKey: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion", "SharedDLLs"
+
+ACTION: SystemFile: "G:\WINNT\SYSTEM32\VB6STKIT.DLL"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "G:\WINNT\SYSTEM32\COMCAT.DLL"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "G:\WINNT\SYSTEM32\STDOLE2.TLB"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "G:\WINNT\SYSTEM32\ASYCFILT.DLL"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "G:\WINNT\SYSTEM32\OLEPRO32.DLL"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "G:\WINNT\SYSTEM32\OLEAUT32.DLL"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "G:\WINNT\SYSTEM32\MSVBVM60.DLL"
+(File currently on disk was already up to date)
+
+ACTION: DllSelfRegister: "G:\WINNT\SYSTEM32\COMCAT.DLL"
+
+ACTION: TLBRegister: "G:\WINNT\SYSTEM32\STDOLE2.TLB"
+
+ACTION: DllSelfRegister: "G:\WINNT\SYSTEM32\OLEPRO32.DLL"
+
+ACTION: DllSelfRegister: "G:\WINNT\SYSTEM32\OLEAUT32.DLL"
+
+ACTION: DllSelfRegister: "G:\WINNT\SYSTEM32\MSVBVM60.DLL"
+
+NOTE: End of the bootstrapper section
+
+NOTE: Now spawning the main Setup program 'Setup1.exe'....
+

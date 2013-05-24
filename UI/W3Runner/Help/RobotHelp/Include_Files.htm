@@ -1,0 +1,41 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>Include Files</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Include Files</H1>
+  <P>
+   <SPAN STYLE="font-weight : bold;">W3Runner.vbs VBScript standard script.</SPAN></P>
+  <P>
+   W3Runner includes some VBScript built-in const, classes and 
+   functions that are loaded from the file W3Runner.vbs located in the 
+   install folder. The file is documented in the section W3Runner.vbs 
+   VBScript Library, later in this document.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">About re-using VBScript libraries</SPAN></P>
+  <P>
+   The function Include() includes the file at the end of the main 
+   script file, so all the const, classes and function become available. 
+   Once included the file is also available in the debugger.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   Include Page.ScriptFilePath &amp; &quot;\Test.Lib.vbs&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Include W3Runner.Environ(&quot;VBSCRIPT_TEST_LIB&quot;) &amp; &quot;\Test.Lib.vbs&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Include &quot;C:\MyVBScriptLib\Test.Lib.vbs&quot;</ADDRESS>
+  <P>
+   A W3Runner VBScript can contains VBScript const, class definitions.</P>
+  <P>
+   <!-- $MVD$:spaceretainer() -->&nbsp;
+ </BODY>
+</HTML>

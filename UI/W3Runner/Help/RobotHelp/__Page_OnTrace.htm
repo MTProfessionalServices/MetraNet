@@ -1,0 +1,88 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>W3Runner Page_OnTrace</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   W3Runner_OnTrace</H1>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC SUB W3Runner_OnTrace(ByVal eTraceType, ByVal strMessage)</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   END SUB</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   If the function W3Runner_OnTrace is implemented and set, W3Runner 
+   will call this event each time a message is traced .</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Parameters:</SPAN></P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="1">
+    <TR>
+     <TD BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Part</SPAN></TD>
+     <TD WIDTH="50%" BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Description</SPAN></TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-style : italic;">strMessage</SPAN></TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       Contains the message that was logged in the log file and displayed in 
+       the Trace listview.</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN><BR>
+   <BR>
+   </P>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC SUB Main()</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; W3Runner.TraceEvent = &quot;W3Runner_OnTrace&quot;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; ...</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   END FUNCTION</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   &nbsp;' Log all the error in a special file</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   PUBLIC SUB W3Runner_OnTrace(ByVal eTraceType, ByVal strMessage)</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; If eTraceType=w3rERROR Then</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; &nbsp; W3Runner.TextFile.LogFile 
+   W3Runner.Environ(&quot;TEMP&quot;) &amp; 
+   &quot;\W3Runner_OnTrace.log&quot;,eTraceType &amp; &quot;,&quot; &amp;
+    strMessage</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   &nbsp; End If</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   END SUB</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN></P>
+  <P>
+   <A HREF="__TraceEvent.htm">Page.TraceEvent</A><BR>
+   <A HREF="Page_OnError.htm">Page_OnError</A></P>
+  <P>
+   <!-- $MVD$:spaceretainer() -->&nbsp;
+ </BODY>
+</HTML>

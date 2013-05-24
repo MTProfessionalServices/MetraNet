@@ -1,0 +1,92 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>W3RunnerControl.GetHTMLObjectName</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   GetHTMLObjectName</H1>
+  <P>
+   Public Function GetHTMLObjectName(ByVal obj As Object) As String</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   Return the name of an object following the method W3Runner uses 
+   during the record mode.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Parameters:</SPAN></P>
+  <P>
+   <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="1">
+    <TR>
+     <TD BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Part</SPAN></TD>
+     <TD WIDTH="50%" BGCOLOR="SILVER" VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-weight : bold;">Description</SPAN></TD>
+    </TR>
+    <TR>
+     <TD VALIGN=TOP>
+      <P>
+       <SPAN STYLE="font-style : italic;">obj</SPAN></TD>
+     <TD WIDTH="50%" VALIGN=TOP>
+      <P>
+       A Microsoft Internet Explorer HTML Object (HTMLInputElement, HTMLButtonElement).</TD>
+    </TR>
+   </TABLE></P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Name Look up method:</SPAN></P>
+  <P>
+   To find the name of an HTML object W3Runner use :</P>
+  <UL>
+   <LI CLASS="mvd-P">
+   <P>
+    The HTML attribute Name, if not available use</P>
+   <LI CLASS="mvd-P">
+   <P>
+    The HTML attribute Id, if not available use</P>
+   <LI CLASS="mvd-P">
+   <P>
+    The HTML attribute Alt, if not available use</P>
+   <LI CLASS="mvd-P">
+   <P>
+    If the HTML tag is an &lt;HTMLObjectElement&gt; use the HTML 
+    attribute Code or ClassID</P>
+   <LI CLASS="mvd-P">
+   <P>
+    If the HTML tag is an &lt;IMG&gt; use the HTML attribute Src , file 
+    name only (no path)</P>
+   <LI CLASS="mvd-P">
+   <P>
+    If the HTML tag is an &lt;INPUT&gt; use the HTML attribute Value</P>
+   <LI CLASS="mvd-P">
+   <P>
+    If the HTML tag is an &lt;BUTTON&gt; use the HTML InnerText</P>
+   <LI CLASS="mvd-P">
+   <P>
+    If the HTML tag is an &lt;A&gt;, &lt;TD&gt; or a &lt;DIV&gt; use the 
+    full InnerText of the object. Spaces at the beginning and at the end 
+    are ignored.</P>
+   <LI CLASS="mvd-P">
+   <P>
+    Else return an empty string</P>
+   </UL>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   Dim objIEHTMLObjectTextBox</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Set objIEHTMLObjectTextBox = Page.Controls(&quot;LastName&quot;,&quot;TextBox&quot;).Object</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   MsgBox Page.GetHTMLObjectName(objIEHTMLObjectTextBox)</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN></P>
+  <P>
+   <A HREF="_Controls.htm"><SPAN STYLE="font-style : normal;text-decoration :underline;">Page.Controls</SPAN></A>
+ </BODY>
+</HTML>

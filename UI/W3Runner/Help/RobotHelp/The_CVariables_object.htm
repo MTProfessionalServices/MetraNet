@@ -1,0 +1,131 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>The CVariables object</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   The CVariables and CVariable objects</H1>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   The CVariable implement the following properties : Name, Value, 
+   Caption. The class CVariables is just a collection of CVariable.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   CLASS CVariable</ADDRESS>
+  <ADDRESS>
+   |</ADDRESS>
+  <BLOCKQUOTE>
+   <ADDRESS CLASS="VbSample">
+    Public Property Get Name() As String</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Property Let Name(ByVal vNewValue As String)</ADDRESS>
+   <ADDRESS>
+    <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Property Get Value() As Variant</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Property Let Value(ByVal vNewValue As Variant)</ADDRESS>
+   </BLOCKQUOTE>
+  <ADDRESS CLASS="VbSampleComment">
+   &nbsp; ' object Support</ADDRESS>
+  <BLOCKQUOTE>
+   <ADDRESS CLASS="VbSample">
+    Public Property Set Value(ByVal vNewValue As Variant)</ADDRESS>
+   <ADDRESS>
+    <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Property Get VbType() As Variant</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Property Let VbType(ByVal vNewValue As Variant)</ADDRESS>
+   <ADDRESS>
+    <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Property Get Caption() As Variant</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Property Let Caption(ByVal vNewValue As Variant)</ADDRESS>
+   <ADDRESS>
+    <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Property Get Tag() As String</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    <SPAN STYLE="font-weight : normal;">Public Property Let Tag(ByVal 
+    vNewValue As String)</SPAN></ADDRESS>
+   </BLOCKQUOTE>
+  <ADDRESS CLASS="VbSample">
+   END CLASS</ADDRESS>
+  <P>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</P>
+  <ADDRESS CLASS="VbSample">
+   CLASS CVariables</ADDRESS>
+  <ADDRESS>
+   <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+  <BLOCKQUOTE>
+   <ADDRESS CLASS="VbSample">
+    Public Sub Clear()</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Sub Remove(vntKey As Variant)</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Function Add( _</ADDRESS>
+   <BLOCKQUOTE>
+    <BLOCKQUOTE>
+     <ADDRESS CLASS="VbSample">
+      ByVal strName As String, _<BR>
+      Optional ByVal varValue As Variant, _</ADDRESS>
+     <ADDRESS CLASS="VbSample">
+      Optional ByVal varType As Variant, _</ADDRESS>
+     <ADDRESS CLASS="VbSample">
+      Optional ByVal strProgId As String, _</ADDRESS>
+     <ADDRESS CLASS="VbSample">
+      Optional varCaption As Variant, _</ADDRESS>
+     <ADDRESS CLASS="VbSample">
+      Optional varTag As Variant _</ADDRESS>
+     </BLOCKQUOTE>
+    <ADDRESS CLASS="VbSample">
+     ) As CVariable</ADDRESS>
+    <ADDRESS>
+     <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+    </BLOCKQUOTE>
+   <ADDRESS CLASS="VbSample">
+    Public Property Get Item(vntKey As Variant) As CVariable</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Property Get Count() As Long</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Property Get Exist(vntKey As Variant) As Boolean</ADDRESS>
+   <ADDRESS>
+    <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Function ToString( _</ADDRESS>
+   <BLOCKQUOTE>
+    <ADDRESS CLASS="VbSample">
+     Optional booEnter As Boolean = True, _<BR>
+     Optional strSeparator As String = &quot;;&quot;, _<BR>
+     Optional strDCote As String = &quot;&quot;&quot;&quot;, _<BR>
+     Optional booIncludeType As Boolean = True_</ADDRESS>
+    </BLOCKQUOTE>
+   <ADDRESS CLASS="VbSample">
+    ) As String</ADDRESS>
+   <ADDRESS>
+    <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Function CopyTo(objVariablesDestination As CVariables) As Boolean</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    <!-- $MVD$:spaceretainer() -->&nbsp;</ADDRESS>
+   <ADDRESS CLASS="VbSample">
+    Public Property Get ItemByValue(vntValue As Variant) As CVariable</ADDRESS>
+   </BLOCKQUOTE>
+  <ADDRESS CLASS="VbSample">
+   END CLASS</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   <!-- $MVD$:spaceretainer() -->&nbsp;
+ </BODY>
+</HTML>

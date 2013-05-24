@@ -1,0 +1,26 @@
+HKCR
+{
+	AccountCredit.MTAccountCredit.1 = s 'MTAccountCredit Class'
+	{
+		CLSID = s '{D1D996CF-F1FC-11D3-9597-00B0D025B121}'
+	}
+	AccountCredit.MTAccountCredit = s 'MTAccountCredit Class'
+	{
+		CLSID = s '{D1D996CF-F1FC-11D3-9597-00B0D025B121}'
+		CurVer = s 'AccountCredit.MTAccountCredit.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {D1D996CF-F1FC-11D3-9597-00B0D025B121} = s 'MTAccountCredit Class'
+		{
+			ProgID = s 'AccountCredit.MTAccountCredit.1'
+			VersionIndependentProgID = s 'AccountCredit.MTAccountCredit'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{D1D996C1-F1FC-11D3-9597-00B0D025B121}'
+		}
+	}
+}

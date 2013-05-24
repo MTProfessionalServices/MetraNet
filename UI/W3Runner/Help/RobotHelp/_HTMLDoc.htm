@@ -1,0 +1,40 @@
+<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:fontset("Arial","Arial") -->
+  <!-- $MVD$:fontset("Courier New","Courier New") -->
+  <TITLE>Page HTMLDoc</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="default.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   HTMLDocument</H1>
+  <ADDRESS CLASS="VbSample">
+   Public Property Get HTMLDocument() As HTMLDocument</ADDRESS>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Description:</SPAN><BR>
+   Return the Microsoft Internet Explorer HTMLDocument object of the 
+   current Page. For more information see the Microsoft on line help.</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">Sample:</SPAN></P>
+  <ADDRESS CLASS="VbSample">
+   Dim objHTMDoc</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   ' Main Page</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Set objHTMDoc = Page.HTMLDocument</ADDRESS>
+  <ADDRESS CLASS="VbSampleComment">
+   ' Pop Up Page</ADDRESS>
+  <ADDRESS CLASS="VbSample">
+   Set objHTMDoc = Page.Windows(1).HTMLDocument</ADDRESS>
+  <P>
+   &nbsp;</P>
+  <P>
+   <SPAN STYLE="font-weight : bold;">See Also:</SPAN><BR>
+   <BR>
+   <A HREF="_WebBrowser.htm">WebBrowser</A>
+ </BODY>
+</HTML>

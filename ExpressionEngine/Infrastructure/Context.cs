@@ -106,7 +106,7 @@ namespace MetraTech.ExpressionEngine
 
         public Dictionary<string, PageLayout> PageLayouts { get { return _pageLayouts; } }
         private Dictionary<string, PageLayout> _pageLayouts = new Dictionary<string, PageLayout>(StringComparer.InvariantCultureIgnoreCase);
-                    
+        
         #endregion
 
         #region Properties that are updated by UpdateContext()
@@ -438,6 +438,15 @@ namespace MetraTech.ExpressionEngine
 
         //    return properties;
         //}
+
+        /// <summary>
+        /// Returns context metadata.
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
+        public ContextMetadata GetMetadata()
+        {
+          return new ContextMetadata(this);
+        }
         #endregion
 
         #region PropertyBags

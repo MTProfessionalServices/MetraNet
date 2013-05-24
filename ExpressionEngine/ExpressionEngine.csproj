@@ -63,6 +63,7 @@
     <Compile Include="Infrastructure\ComponentLinkCollection.cs" />
     <Compile Include="Infrastructure\ComponentLink.cs" />
     <Compile Include="Infrastructure\Enumerations\ScopeType.cs" />
+    <Compile Include="Infrastructure\ContextMetadata.cs" />
     <Compile Include="Infrastructure\Enumerations\ComponentType.cs" />
     <Compile Include="Enums\EnumManager.cs" />
     <Compile Include="Infrastructure\GlobalComponentCollection.cs" />

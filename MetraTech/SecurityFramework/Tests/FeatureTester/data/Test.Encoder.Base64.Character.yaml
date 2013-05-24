@@ -1,0 +1,24 @@
+#
+# TEST BASE64 ENCODER
+# Test one character encoding
+#
+# NOTE:
+# Enclosing strings in double quotes allows you to use escapings to represent ASCII and Unicode characters.
+# " and \ in payload need to be escaped!!!
+#
+
+---
+id: 1
+message: Less Than character BASE64 encoding
+payload: "<"
+expect:  "PA=="
+---
+id: 2
+message: Greater Than character BASE64 encoding
+payload: ">"
+expect:  "Pg=="
+---
+id: 3
+message: Ampersand character BASE64 encoding
+payload: "&"
+expect:  "Jg=="

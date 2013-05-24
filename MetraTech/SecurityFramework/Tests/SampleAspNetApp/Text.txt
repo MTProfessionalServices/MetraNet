@@ -1,0 +1,1 @@
+﻿text";document.write("<img src='http://www.overclockers.ru/images/logo.gif'/>");var t ="

@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D5FA3D3B-0457-4602-924A-371793668FD3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetraTech.BusinessEntity.DataAccess</RootNamespace>
+    <AssemblyName>MetraTech.BusinessEntity.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\..\build\keys\MetraTech.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <Platform Condition="'$(Platform)'==''">x86</Platform>
+    <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\BusinessEntity\DataAccess\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\BusinessEntity\DataAccess\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\log4net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Build" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NHibernate.Validator">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\NHibernate.Validator.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NHibernate">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\NHibernate.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NHibernate.LambdaExtensions">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\NHibernate.LambdaExtensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Castle.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LinFu.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\LinFu.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Castle.Windsor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Castle.MicroKernel">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Castle.MicroKernel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TextTemplating">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Microsoft.VisualStudio.TextTemplating.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Oracle.DataAccess">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Oracle.DataAccess.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="QuickGraph">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\QuickGraph.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="QuickGraph.Graphviz">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\QuickGraph.Graphviz.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Build.Engine" />
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Build.Tasks" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\build\VersionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="AdjustmentBase.cs" />
+    <Compile Include="Common\AppDomainHelper.cs" />
+    <Compile Include="Common\CodeGeneratorUtil.cs" />
+    <Compile Include="Common\ColumnNameGenerator.cs" />
+    <Compile Include="Common\EntityHistoryGenerator.cs" />
+    <Compile Include="Common\EntityGenerator.cs" />
+    <Compile Include="Common\EntityInterfaceGenerator.cs" />
+    <Compile Include="Common\EnumUtil.cs" />
+    <Compile Include="Common\FileHelper.cs" />
+    <Compile Include="Common\SqlCommands.cs" />
+    <Compile Include="Common\TableNameGenerator.cs" />
+    <Compile Include="Common\TemplateProcessor.cs" />
+    <Compile Include="Common\TypeLoader.cs" />
+    <Compile Include="Exception\UniqueKeyViolationException.cs" />
+    <Compile Include="Exception\SynchronizationException.cs" />
+    <Compile Include="Exception\OptimisticConcurrencyException.cs" />
+    <Compile Include="Exception\DeleteDataException.cs" />
+    <Compile Include="Exception\UniquePropertyException.cs" />
+    <Compile Include="Exception\SaveDataException.cs" />
+    <Compile Include="Exception\LoadDataException.cs" />
+    <Compile Include="Exception\MissingRequiredPropertyException.cs" />
+    <Compile Include="Exception\InvalidPropertyTypeException.cs" />
+    <Compile Include="Exception\DataAccessException.cs" />
+    <Compile Include="Exception\MetadataException.cs" />
+    <Compile Include="Metadata\Association.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\BaseBmeObject.cs" />
+    <Compile Include="Metadata\BaseObjectEqualityComparer.cs" />
+    <Compile Include="Metadata\BasicAssociation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\BusinessKey.cs" />
+    <Compile Include="Metadata\BusinessKeyAttribute.cs" />
+    <Compile Include="Metadata\CollectionAssociation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\CompoundEntity.cs" />
+    <Compile Include="Metadata\DerivedEntity.cs" />
+    <Compile Include="Metadata\EnumEntry.cs" />
+    <Compile Include="Metadata\DataObject.cs" />
+    <Compile Include="Metadata\EntityGroupData.cs" />
+    <Compile Include="Metadata\EntityInstance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\ExtensionBase.cs" />
+    <Compile Include="Metadata\ExtensionData.cs" />
+    <Compile Include="Metadata\Graph\BaseGraph.cs" />
+    <Compile Include="Metadata\Graph\BaseEdge.cs" />
+    <Compile Include="Metadata\Graph\BuildGraph.cs" />
+    <Compile Include="Metadata\Graph\AssemblyNode.cs" />
+    <Compile Include="Metadata\Graph\DependsOnEdge.cs" />
+    <Compile Include="Metadata\Graph\DotEngine.cs" />
+    <Compile Include="Metadata\Graph\GraphRenderer.cs" />
+    <Compile Include="Metadata\Graph\DependencyData.cs" />
+    <Compile Include="Metadata\Graph\EntityGraph.cs" />
+    <Compile Include="Metadata\Graph\InheritanceGraph.cs" />
+    <Compile Include="Metadata\Graph\RelationshipEdge.cs" />
+    <Compile Include="Metadata\Graph\EntityNode.cs" />
+    <Compile Include="Metadata\Graph\SubClassEdge.cs" />
+    <Compile Include="Metadata\HistoryEntity.cs" />
+    <Compile Include="Metadata\IBusinessKey.cs" />
+    <Compile Include="Metadata\IDataObject.cs" />
+    <Compile Include="Metadata\IDataObjectWithTypedId.cs" />
+    <Compile Include="Metadata\InheritanceData.cs" />
+    <Compile Include="Metadata\InternalRelationshipData.cs" />
+    <Compile Include="Metadata\LegacyObject.cs" />
+    <Compile Include="Metadata\PropertyInstance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\RelationshipData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\RelationshipEntity.cs" />
+    <Compile Include="Metadata\MetaAttribute.cs" />
+    <Compile Include="Metadata\RelatedEntity.cs" />
+    <Compile Include="Metadata\Entity.cs" />
+    <Compile Include="Metadata\HbmMappingWrapper.cs" />
+    <Compile Include="Metadata\MetadataAccess.cs" />
+    <Compile Include="Metadata\Metadata.cs" />
+    <Compile Include="Metadata\Relationship.cs" />
+    <Compile Include="Metadata\Property.cs" />
+    <Compile Include="Metadata\EnumType.cs" />
+    <Compile Include="Metadata\Namespace.cs" />
+    <Compile Include="Metadata\RelationshipEnd.cs" />
+    <Compile Include="Metadata\SelfRelationshipEntity.cs" />
+    <Compile Include="Metadata\ValueObject.cs" />
+    <Compile Include="Persistence\BaseHistory.cs" />
+    <Compile Include="Persistence\ConnectionInfo.cs" />
+    <Compile Include="Persistence\MultiData.cs" />
+    <Compile Include="Persistence\OracleGuidCriteria.cs" />
+    <Compile Include="Persistence\Events\SaveOrUpdateEventListener.cs" />
+    <Compile Include="Persistence\ICompound.cs" />
+    <Compile Include="Persistence\EnumFilterCriteria.cs" />
+    <Compile Include="Persistence\IRecordHistory.cs" />
+    <Compile Include="Persistence\NHibernateSessionExtension.cs" />
+    <Compile Include="Persistence\NHibernateConfig.cs" />
+    <Compile Include="Persistence\Events\PostDeleteEventListener.cs" />
+    <Compile Include="Persistence\Events\PreDeleteEventListener.cs" />
+    <Compile Include="Persistence\Events\PreLoadEventListener.cs" />
+    <Compile Include="Persistence\IStandardRepository.cs" />
+    <Compile Include="Persistence\MTOracleDataClientDriver.cs" />
+    <Compile Include="Persistence\RuntimeMetadata.cs" />
+    <Compile Include="Persistence\Events\BaseEventListener.cs" />
+    <Compile Include="Persistence\Events\PreInsertEventListener.cs" />
+    <Compile Include="Persistence\Events\PostLoadEventListener.cs" />
+    <Compile Include="Persistence\Events\PostInsertEventListener.cs" />
+    <Compile Include="Persistence\Events\PreUpdateEventListener.cs" />
+    <Compile Include="Persistence\Events\InternalProperty.cs" />
+    <Compile Include="Persistence\Events\PostUpdateEventListener.cs" />
+    <Compile Include="Persistence\RemoteRepositoryAccess.cs" />
+    <Compile Include="Persistence\EntityGroup.cs" />
+    <Compile Include="Persistence\MetadataRepository.cs" />
+    <Compile Include="Persistence\RepositoryAccess.cs" />
+    <Compile Include="Persistence\StandardRepository.cs" />
+    <Compile Include="Persistence\Sync\ComputedPropertySync.cs" />
+    <Compile Include="Metadata\EntityChangeSet.cs" />
+    <Compile Include="Persistence\Sync\SyncData.cs" />
+    <Compile Include="Persistence\Sync\SyncManager.cs" />
+    <Compile Include="Persistence\UnitOfWorkScope.cs" />
+    <Compile Include="Rule\BusinessRule.cs" />
+    <Compile Include="Rule\ComputedProperty.cs" />
+    <Compile Include="Rule\IComputedProperty.cs" />
+    <Compile Include="Rule\IBusinessRule.cs" />
+    <Compile Include="Rule\Logic.cs" />
+    <Compile Include="Rule\RuleConfig.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\MetraTech\Security\Crypto\MetraTech.Security.Crypto.csproj">
+      <Project>{3ee96bfd-837b-4fd1-a33d-69dfaa0d22cf}</Project>
+      <Name>MetraTech.Security.Crypto</Name>
+      <Private>False</Private>
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ActivityServices\Common\MetraTech.ActivityServices.Common.csproj">
+      <Project>{E80F2D42-759F-4B7D-95C6-D04C1500569F}</Project>
+      <Name>MetraTech.ActivityServices.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Basic\MetraTech.Basic.csproj">
+      <Project>{B0909156-962B-4C97-AB1C-4073E3DA6DC1}</Project>
+      <Name>MetraTech.Basic %28MetraTech.Basic\MetraTech.Basic%29</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DataAccess\MetraTech.DataAccess.csproj">
+      <Project>{1B40F4E4-8DDC-43E0-BE45-959BEE94422F}</Project>
+      <Name>MetraTech.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Debug\Diagnostics\MetraTech.Debug.Diagnostics.csproj">
+      <Project>{DFD0BE07-801F-4535-B742-FED22E50FA0E}</Project>
+      <Name>MetraTech.Debug.Diagnostics %28MetraTech.Debug.Diagnostics\MetraTech.Debug.Diagnostics%29</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainModel\Common\MetraTech.DomainModel.Common.csproj">
+      <Project>{E21F8EE1-FA01-465E-B651-A21CC2E1D6AA}</Project>
+      <Name>MetraTech.DomainModel.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainModel\Enums\MetraTech.DomainModel.Enums.csproj">
+      <Project>{C36E2EB0-9715-48BB-81F4-6228C917E071}</Project>
+      <Name>MetraTech.DomainModel.Enums</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech.Common.csproj">
+      <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
+      <Name>MetraTech.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Common.Entity\Core.Common.Entity.csproj">
+      <Project>{672871AA-62B1-428A-AA0B-320E0BF316C9}</Project>
+      <Name>Core.Common.Entity</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\MetraTech.BusinessEntity.Core.csproj">
+      <Project>{B24AE6DC-D760-4835-80FE-53BF024AC59A}</Project>
+      <Name>MetraTech.BusinessEntity.Core</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <Platform Condition="'$(Platform)'==''">x86</Platform>
+    <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,46 @@
+<SubsystemProperties Signature="" IsRuntimeApiEnabled="true" IsRuntimeApiPublic="true" IsControlApiEnabled="true" IsControlApiPublic="true">
+	<Engines>
+		<Engine Id="BasicInt.V1" IsDefault="true" RealType="MetraTech.SecurityFramework.Core.Validator.BasicIntValidatorEngine, MetraTech.SecurityFramework"
+			  Min="0" Max="2000" DoFormatAutoDetect="true" ExpectHexFormat="false" />
+		<Engine Id="BasicInt.Hex" IsDefault="false" RealType="MetraTech.SecurityFramework.Core.Validator.BasicIntValidatorEngine, MetraTech.SecurityFramework"
+			  Min="0" Max="2000" DoFormatAutoDetect="false" ExpectHexFormat="true" />
+		<Engine Id="BasicInt.Dec" IsDefault="false" RealType="MetraTech.SecurityFramework.Core.Validator.BasicIntValidatorEngine, MetraTech.SecurityFramework"
+			  Min="0" Max="2000" DoFormatAutoDetect="false" ExpectHexFormat="false" />
+		<Engine Id="BasicLongint.V1" IsDefault="true" RealType="MetraTech.SecurityFramework.Core.Validator.BasicLongValidatorEngine, MetraTech.SecurityFramework"
+			  DoFormatAutoDetect="true" ExpectHexFormat="false" />
+		<Engine Id="BasicLongint.Hex" IsDefault="false" RealType="MetraTech.SecurityFramework.Core.Validator.BasicLongValidatorEngine, MetraTech.SecurityFramework"
+			 Min="0" Max="2000" DoFormatAutoDetect="false" ExpectHexFormat="true" />
+		<Engine Id="BasicLongint.Dec" IsDefault="false" RealType="MetraTech.SecurityFramework.Core.Validator.BasicLongValidatorEngine, MetraTech.SecurityFramework"
+			  Min="0" Max="2000" DoFormatAutoDetect="false" ExpectHexFormat="false" />
+		<Engine Id="BasicString.V1" IsDefault="false" RealType="MetraTech.SecurityFramework.Core.Validator.BasicStringValidatorEngine, MetraTech.SecurityFramework"
+			  MinLength="5" MaxLength="20" TrimInput="false" />
+		<Engine Id="BasicString.Def" IsDefault="true" RealType="MetraTech.SecurityFramework.Core.Validator.BasicStringValidatorEngine, MetraTech.SecurityFramework"
+			  MinLength="0" MaxLength="2000" CharSet="&lt;&gt;&amp;" BlackList="true" TrimInput="false" />
+		<Engine Id="PatternString.Test" IsDefault="false" RealType="MetraTech.SecurityFramework.Core.Validator.PatternStringValidatorEngine, MetraTech.SecurityFramework">
+			<PatternParams>
+				<item Exclude="false" Pattern="[0-9]"/>
+				<item Exclude="true" Pattern="a-z"/>
+			</PatternParams>
+		</Engine>
+		<Engine Id="PatternString.JSFunction" IsDefault="false" RealType="MetraTech.SecurityFramework.Core.Validator.PatternStringValidatorEngine, MetraTech.SecurityFramework">
+			<PatternParams>
+				<item Exclude="true" Pattern="^\W|[^\w\.]|\W$"/>
+			</PatternParams>
+		</Engine>
+		<Engine Id="PatternString.AlphaNumericCommaDelimited" IsDefault="false" RealType="MetraTech.SecurityFramework.Core.Validator.PatternStringValidatorEngine, MetraTech.SecurityFramework">
+			<PatternParams>
+				<item Exclude="true" Pattern="^(\d+(\,)?)*$"/>
+			</PatternParams>
+		</Engine>
+		<Engine Id="BasicDouble.V1" IsDefault="true" RealType="MetraTech.SecurityFramework.Core.Validator.BasicDoubleValidatorEngine, MetraTech.SecurityFramework" />
+		<Engine Id="BasicDouble.Limited" IsDefault="false" RealType="MetraTech.SecurityFramework.Core.Validator.BasicDoubleValidatorEngine, MetraTech.SecurityFramework"
+			  Min="-2000" Max="2000" />
+		<Engine Id="CreditCardString.V1" IsDefault="true" RealType="MetraTech.SecurityFramework.Core.Validator.CcnStringValidatorEngine, MetraTech.SecurityFramework" />
+		<Engine Id="HexString.V1" IsDefault="true" RealType="MetraTech.SecurityFramework.Core.Validator.HexStringValidatorEngine, MetraTech.SecurityFramework" />
+		<Engine Id="PrintableString.V1" IsDefault="true" RealType="MetraTech.SecurityFramework.Core.Validator.PrintableStringValidatorEngine, MetraTech.SecurityFramework" TrimInput="false" />
+		<Engine Id="PrintableString.Trim" IsDefault="false" RealType="MetraTech.SecurityFramework.Core.Validator.PrintableStringValidatorEngine, MetraTech.SecurityFramework" TrimInput="true" />
+		<Engine Id="DateString.V1" IsDefault="true" RealType="MetraTech.SecurityFramework.Core.Validator.DateStringValidatorEngine, MetraTech.SecurityFramework" />
+		<Engine Id="Base64String.V1" IsDefault="true" RealType="MetraTech.SecurityFramework.Core.Validator.Base64StringValidatorEngine, MetraTech.SecurityFramework" DoDecode="true" />
+		<Engine Id="Base64String.NoDecode" IsDefault="false" RealType="MetraTech.SecurityFramework.Core.Validator.Base64StringValidatorEngine, MetraTech.SecurityFramework" DoDecode="false" />
+	</Engines>
+</SubsystemProperties>

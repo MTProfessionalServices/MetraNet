@@ -1,0 +1,159 @@
+#
+# TEST HTML ENTITIES DECODER
+# Test one character decoding
+#
+# NOTE:
+# Enclosing strings in double quotes allows you to use escapings to represent ASCII and Unicode characters.
+# " and \ in payload need to be escaped!!!
+#
+
+---
+id: 1
+message: Less Than character HTML entities decoding
+payload: "&lt;"
+expect:  "<"
+---
+id: 2
+message: Greater Than character HTML entities decoding
+payload: "&gt;"
+expect:  ">"
+---
+id: 3
+message: Ampersand character HTML entities decoding
+payload: "&amp;"
+expect:  "&"
+---
+id: 4
+Message:  Colon character HTML entities decoding
+payload: "&colon;"
+expect: ":"
+---
+id: 5
+Message:  Left bracket character HTML entities decoding
+payload: "&lsqb;"
+expect: "["
+---
+id: 6
+Message:  Right bracket character HTML entities decoding
+payload: "&rsqb;"
+expect: "]"
+---
+id: 7
+Message:  Number sign character HTML entities decoding
+payload: "&num;"
+expect: "#"
+---
+id: 8
+Message:  Question mark character HTML entities decoding
+payload: "&quest;"
+expect: "?"
+---
+id: 9
+Message:  Left bracket character HTML entities decoding
+payload: "&lpar;"
+expect: "("
+---
+id: 10
+Message:  Right bracket character HTML entities decoding
+payload: "&rpar;"
+expect: ")"
+---
+id: 11
+Message:  Equal character HTML entities decoding
+payload: "&equals;"
+expect: "="
+---
+id: 12
+Message:  At character HTML entities decoding
+payload: "&commat;"
+expect: "@"
+---
+id: 13
+Message:  Semicolon character HTML entities decoding
+payload: "&semi;"
+expect: ";"
+---
+id: 14
+Message:  Asterisk character HTML entities decoding
+payload: "&ast;"
+expect: "*"
+---
+id: 15
+Message:  Exclamation mark character HTML entities decoding
+payload: "&excl;"
+expect: "!"
+---
+id: 16
+Message:  Tilde character HTML entities decoding
+payload: "&tilde;"
+expect: "~"
+---
+id: 17
+Message: Grave accent character HTML entities decoding
+payload: "&grave;"
+expect: "`"
+---
+id: 18
+Message:  Dot character HTML entities decoding
+payload: "&period;"
+expect: "."
+---
+id: 19
+Message:  Percentage character HTML entities decoding
+payload: "&percnt;"
+expect: "%"
+---
+id: 20
+Message:  Backslash character HTML entities decoding
+payload: "&bsol;"
+expect: "\\"
+---
+id: 21
+Message:  Vertical bar character HTML entities decoding
+payload: "&verbar;"
+expect: "|"
+---
+id: 22
+Message:  Comma character HTML entities decoding
+payload: "&comma;"
+expect: ","
+---
+id: 23
+Message:  Comma character HTML entities decoding. 
+payload: "&COMMA;"
+expect: ","
+---
+id: 24
+Message:  Comma character HTML entities decoding. 
+payload: "&Comma;"
+expect: ","
+---
+id: 25
+Message:  Comma character HTML entities decoding. 
+payload: "&CoMmA;"
+expect: ","
+---
+id: 26
+message: character HTML entities decoding
+payload: "&ti lde;"
+expect:  "&ti lde;"
+---
+Id: 27
+Message:  Uppercase letters “az” character HTML entities decoding
+payload: "az"
+expect: "az"
+---
+Id: 28
+Message:  Š character HTML entities decoding
+payload: "Š" 
+expect: "Š"
+---
+Id: 29
+Message: Error?
+payload: "&blank"
+expect: "&blank"
+---
+Id: 30
+Message: Error?
+payload: "&blanks;"
+expect: "&blanks;"

@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.FileService", "MetraTech.FileService.csproj", "{655E7BFD-6BAE-4263-B0EE-EF0FD19F2806}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Basic", "..\..\Basic\MetraTech.Basic.csproj", "{B0909156-962B-4C97-AB1C-4073E3DA6DC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.BusinessEntity.Core", "..\..\BusinessEntity\Core\MetraTech.BusinessEntity.Core.csproj", "{B24AE6DC-D760-4835-80FE-53BF024AC59A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.ActivityServices.Common", "..\..\ActivityServices\Common\MetraTech.ActivityServices.Common.csproj", "{E80F2D42-759F-4B7D-95C6-D04C1500569F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.BusinessEntity.DataAccess", "..\..\BusinessEntity\DataAccess\MetraTech.BusinessEntity.DataAccess.csproj", "{D5FA3D3B-0457-4602-924A-371793668FD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Security.DPAPI", "..\..\Security\DPAPI\MetraTech.Security.DPAPI.csproj", "{6E3647DD-E2B4-49D7-B876-BB0CA6308659}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Security.Crypto", "..\..\Security\Crypto\MetraTech.Security.Crypto.csproj", "{3EE96BFD-837B-4FD1-A33D-69DFAA0D22CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Debug.Diagnostics", "..\..\Debug\Diagnostics\MetraTech.Debug.Diagnostics.csproj", "{DFD0BE07-801F-4535-B742-FED22E50FA0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Common", "..\..\MetraTech.Common.csproj", "{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.DomainModel.Common", "..\..\DomainModel\Common\MetraTech.DomainModel.Common.csproj", "{E21F8EE1-FA01-465E-B651-A21CC2E1D6AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.DomainModel.Enums", "..\..\DomainModel\Enums\MetraTech.DomainModel.Enums.csproj", "{C36E2EB0-9715-48BB-81F4-6228C917E071}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{655E7BFD-6BAE-4263-B0EE-EF0FD19F2806}.Debug|x86.ActiveCfg = Debug|x86
+		{655E7BFD-6BAE-4263-B0EE-EF0FD19F2806}.Debug|x86.Build.0 = Debug|x86
+		{655E7BFD-6BAE-4263-B0EE-EF0FD19F2806}.Release|x86.ActiveCfg = Release|x86
+		{655E7BFD-6BAE-4263-B0EE-EF0FD19F2806}.Release|x86.Build.0 = Release|x86
+		{B0909156-962B-4C97-AB1C-4073E3DA6DC1}.Debug|x86.ActiveCfg = Debug|x86
+		{B0909156-962B-4C97-AB1C-4073E3DA6DC1}.Debug|x86.Build.0 = Debug|x86
+		{B0909156-962B-4C97-AB1C-4073E3DA6DC1}.Release|x86.ActiveCfg = Release|x86
+		{B0909156-962B-4C97-AB1C-4073E3DA6DC1}.Release|x86.Build.0 = Release|x86
+		{B24AE6DC-D760-4835-80FE-53BF024AC59A}.Debug|x86.ActiveCfg = Debug|x86
+		{B24AE6DC-D760-4835-80FE-53BF024AC59A}.Debug|x86.Build.0 = Debug|x86
+		{B24AE6DC-D760-4835-80FE-53BF024AC59A}.Release|x86.ActiveCfg = Release|x86
+		{B24AE6DC-D760-4835-80FE-53BF024AC59A}.Release|x86.Build.0 = Release|x86
+		{E80F2D42-759F-4B7D-95C6-D04C1500569F}.Debug|x86.ActiveCfg = Debug|x86
+		{E80F2D42-759F-4B7D-95C6-D04C1500569F}.Debug|x86.Build.0 = Debug|x86
+		{E80F2D42-759F-4B7D-95C6-D04C1500569F}.Release|x86.ActiveCfg = Release|x86
+		{E80F2D42-759F-4B7D-95C6-D04C1500569F}.Release|x86.Build.0 = Release|x86
+		{D5FA3D3B-0457-4602-924A-371793668FD3}.Debug|x86.ActiveCfg = Debug|x86
+		{D5FA3D3B-0457-4602-924A-371793668FD3}.Debug|x86.Build.0 = Debug|x86
+		{D5FA3D3B-0457-4602-924A-371793668FD3}.Release|x86.ActiveCfg = Release|x86
+		{D5FA3D3B-0457-4602-924A-371793668FD3}.Release|x86.Build.0 = Release|x86
+		{6E3647DD-E2B4-49D7-B876-BB0CA6308659}.Debug|x86.ActiveCfg = Debug|x86
+		{6E3647DD-E2B4-49D7-B876-BB0CA6308659}.Debug|x86.Build.0 = Debug|x86
+		{6E3647DD-E2B4-49D7-B876-BB0CA6308659}.Release|x86.ActiveCfg = Release|x86
+		{6E3647DD-E2B4-49D7-B876-BB0CA6308659}.Release|x86.Build.0 = Release|x86
+		{3EE96BFD-837B-4FD1-A33D-69DFAA0D22CF}.Debug|x86.ActiveCfg = Debug|x86
+		{3EE96BFD-837B-4FD1-A33D-69DFAA0D22CF}.Debug|x86.Build.0 = Debug|x86
+		{3EE96BFD-837B-4FD1-A33D-69DFAA0D22CF}.Release|x86.ActiveCfg = Release|x86
+		{3EE96BFD-837B-4FD1-A33D-69DFAA0D22CF}.Release|x86.Build.0 = Release|x86
+		{DFD0BE07-801F-4535-B742-FED22E50FA0E}.Debug|x86.ActiveCfg = Debug|x86
+		{DFD0BE07-801F-4535-B742-FED22E50FA0E}.Debug|x86.Build.0 = Debug|x86
+		{DFD0BE07-801F-4535-B742-FED22E50FA0E}.Release|x86.ActiveCfg = Release|x86
+		{DFD0BE07-801F-4535-B742-FED22E50FA0E}.Release|x86.Build.0 = Release|x86
+		{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}.Debug|x86.ActiveCfg = Debug|x86
+		{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}.Debug|x86.Build.0 = Debug|x86
+		{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}.Release|x86.ActiveCfg = Release|x86
+		{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}.Release|x86.Build.0 = Release|x86
+		{E21F8EE1-FA01-465E-B651-A21CC2E1D6AA}.Debug|x86.ActiveCfg = Debug|x86
+		{E21F8EE1-FA01-465E-B651-A21CC2E1D6AA}.Debug|x86.Build.0 = Debug|x86
+		{E21F8EE1-FA01-465E-B651-A21CC2E1D6AA}.Release|x86.ActiveCfg = Release|x86
+		{E21F8EE1-FA01-465E-B651-A21CC2E1D6AA}.Release|x86.Build.0 = Release|x86
+		{C36E2EB0-9715-48BB-81F4-6228C917E071}.Debug|x86.ActiveCfg = Debug|x86
+		{C36E2EB0-9715-48BB-81F4-6228C917E071}.Debug|x86.Build.0 = Debug|x86
+		{C36E2EB0-9715-48BB-81F4-6228C917E071}.Release|x86.ActiveCfg = Release|x86
+		{C36E2EB0-9715-48BB-81F4-6228C917E071}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

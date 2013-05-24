@@ -1,0 +1,13 @@
+/* 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Metanga Web Application - Reporting Sector
+Internet Explorer-specific styles
+Author: Above The Fold, LLC - http://www.abovethefolddesign.com
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+/* IE All */
+body {
+	overflow: auto; /* Undo body overflow-y */
+}
+
+/* End */

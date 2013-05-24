@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1364A70F-FE41-4A31-9E76-40379836D63B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetraTech.DomainModel.CodeGenerator</RootNamespace>
+    <AssemblyName>MetraTech.DomainModel.CodeGenerator</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\..\build\keys\MetraTech.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>http://localhost/MetraTech.DomainModel.CodeGenerator/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <Platform Condition="'$(Platform)'==''">x86</Platform>
+    <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\DomainModel\CodeGenerator\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\DomainModel\CodeGenerator\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="RCD.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\RCD.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="SysContext.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\SysContext.interop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Basic\MetraTech.Basic.csproj">
+      <Project>{B0909156-962B-4C97-AB1C-4073E3DA6DC1}</Project>
+      <Name>MetraTech.Basic %28MetraTech.Basic\MetraTech.Basic%29</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech.Common.csproj">
+      <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
+      <Name>MetraTech.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\MetraTech.DomainModel.Common.csproj">
+      <Project>{E21F8EE1-FA01-465E-B651-A21CC2E1D6AA}</Project>
+      <Name>MetraTech.DomainModel.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Enums\MetraTech.DomainModel.Enums.csproj">
+      <Project>{C36E2EB0-9715-48BB-81F4-6228C917E071}</Project>
+      <Name>MetraTech.DomainModel.Enums</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\build\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\build\VersionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="AccountGenerator.cs" />
+    <Compile Include="AppDomainHelper.cs" />
+    <Compile Include="BaseCodeGenerator.cs" />
+    <Compile Include="AccountFileData.cs" />
+    <Compile Include="CounterGenerator.cs" />
+    <Compile Include="ExtendedPropertyData.cs" />
+    <Compile Include="PriceableItemGenerator.cs" />
+    <Compile Include="ProductViewGenerator.cs" />
+    <Compile Include="RateEntryGenerator.cs" />
+    <Compile Include="CodeGeneratorProxy.cs" />
+    <Compile Include="ServiceDefGenerator.cs" />
+    <Compile Include="ViewFileData.cs" />
+    <Compile Include="LocalizationFileData.cs" />
+    <Compile Include="EnumFileData.cs" />
+    <Compile Include="DomainModelConfig.cs" />
+    <Compile Include="FileData.cs" />
+    <Compile Include="ProductOfferingGenerator.cs" />
+    <Compile Include="EnumGenerator.cs" />
+    <Compile Include="KeyRes.Designer.cs">
+      <DependentUpon>KeyRes.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourceData.cs" />
+    <Compile Include="ResourceGenerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\build\keys\MetraTech.snk">
+      <Link>MetraTech.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="KeyRes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>KeyRes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <PreBuildEvent>IF NOT EXIST $(ProjectDir)build\keys MKDIR $(ProjectDir)build\keys
+copy S:\MetraTech\..\build\keys\MetraTech.snk $(ProjectDir)build\keys\MetraTech.snk</PreBuildEvent>
+    <Platform Condition="'$(Platform)'==''">x86</Platform>
+    <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
+  </PropertyGroup>
+</Project>

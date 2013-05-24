@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Client side logging for your Ajax app. with Google Gears</title>
+<link rel="stylesheet" type="text/css" href="sample.css">
+</head>
+
+<body>
+<h1>Client side logging for your Ajax app. with Google Gears</h1>
+
+This page uses Google Gears if available to store client side logs.  If Google Gears is not available it will still log using the console which is viewable in FireBug, but not persistent.
+
+
+<form onsubmit="handleSubmit(); return false;">
+  <b>Manual log:</b>&nbsp;<br>
+
+  <table>
+    <tr>
+      <td valign="middle"><input type="text" id="submitValue"
+        style="width:20em;"></td>
+      <td valign="middle"><input type="submit" value="OK"></td>
+    </tr>
+  </table>
+</form>
+
+<p><b>Display Log:</b>
+<p><span id="display_log">&nbsp;</span>
+
+<p><i>This page uses Google Gears to log messages to your local disk.</i>
+
+<!-- ====================================== -->
+
+<script type="text/javascript"  src="gears_init.js"></script>
+<script type="text/javascript"  src="glogger.js"></script>
+<script>
+
+function handleSubmit() {
+  if (!google.gears.factory || !db) {
+    return;
+  }
+
+  var elm = document.getElementById('submitValue');
+  var phrase = elm.value;
+
+  // Log to Google Gears client side database
+  log("INFO", phrase);
+  
+  // Update the UI.
+  elm.value = '';
+  displayLog();
+}
+
+</script>
+</body>
+</html>

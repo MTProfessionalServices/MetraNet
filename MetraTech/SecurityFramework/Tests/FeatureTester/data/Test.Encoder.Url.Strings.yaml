@@ -1,0 +1,64 @@
+#
+# TEST URL ENCODER
+# Test string encoding
+#
+# NOTE:
+# Enclosing strings in double quotes allows you to use escapings to represent ASCII and Unicode characters.
+# " and \ in payload need to be escaped!!!
+#
+
+---
+id: 1
+message: Script tag string URL encoding
+payload: "<script>"
+expect:  "%3cscript%3e"
+---
+id: 2
+message: Simple XSS test string URL encoding
+payload: "<script>alert('hi')</script>"
+expect:  "%3cscript%3ealert%28%27hi%27%29%3c%2fscript%3e"
+---
+id: 3
+message: test string HTML encoding
+payload: "';!--\"Blabla>=&{()}"
+expect:  "%27%3b%21--%22Blabla%3e%3d%26%7b%28%29%7d"
+---
+id: 4
+message: test string HTML encoding
+payload: "&#173;"
+expect:  "%26%23173%3b"
+---
+id: 5
+message: test string HTML encoding
+payload: "+ADwA-script+AD4A-alert('hacked+ACEA-')+ADwA-/script+AD4A-"
+expect:  "%2bADwA-script%2bAD4A-alert%28%27hacked%2bACEA-%27%29%2bADwA-%2fscript%2bAD4A-"
+---
+id: 6
+message: Double hyphen precedes character URL encoding
+payload: "--"
+expect: "--"
+---
+id: 7
+message: Slash and asterisk character URL encoding
+payload: "/*"
+expect: "%2f%2a"
+---
+id: 8
+message: Asterisk and slash character URL encoding
+payload: "*/"
+expect: "%2a%2f"
+---
+id: 9
+message: Characters URL encoding
+payload: "»back"
+expect: "%c2%bbback"
+---
+id: 10
+message: Character URL encoding. If you want to include a whitespace #character as part of the string, you'll need to double the whitespace.
+payload: "» back"
+expect: "%c2%bb%20back"
+---
+id: 11
+message: Less than and greater than characters URL encoding. If you want to #include a whitespace character as part of the string, you'll need to double the whitespace.
+payload: "< >"
+expect: "%3c%20%3e"

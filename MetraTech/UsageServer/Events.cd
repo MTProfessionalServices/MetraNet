@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="FullSignature">
+  <Class Name="MetraTech.UsageServer.HaltProcessingCallback">
+    <Position X="3.5" Y="10" Width="2" />
+    <Compartments>
+      <Compartment Name="Private" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgEAAAAAAAQAAAAAAAAAAAI=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.UsageServer.RecurringEventManager">
+    <Position X="6.25" Y="6.25" Width="11" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>SAAASABAAgAI4ABiDYBNAUAEAIZAC0BMuIEAgBrgDAU=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.UsageServer.RecurringEvent" BaseTypeListCollapsed="true">
+    <Position X="13" Y="0.5" Width="4" />
+    <Compartments>
+      <Compartment Name="Internal" Collapsed="true" />
+      <Compartment Name="Private" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Type" Type="MetraTech.UsageServer.RecurringEventType" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.75" Y="4.622" />
+        <Point X="13.75" Y="4.938" />
+        <Point X="12.25" Y="4.938" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>FKYAFCAQAACkIBCEiCAAiZRAEEAAAGAAAQoAAQSKSIA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Type" />
+      <Property Name="BillingGroupSupport" />
+      <Property Name="Reversibility" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MetraTech.UsageServer.RecurringEventSchedule" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="0.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Private" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAEgAAAABIAAAABAIAAAQgAAAAAACE=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Type" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MetraTech.UsageServer.RecurringEventInstanceFilter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="5.5" Width="2.25" />
+    <NestedTypes>
+      <Class Name="MetraTech.UsageServer.RecurringEventInstanceFilter.Enumerator" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Events.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>IQCAgAgAAhiQgBAAAIAAAxZiAIyKACAAAAAQBEAoALA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MetraTech.UsageServer.RecurringEventRunFilter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="9" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAHAAABEAAAQADAAAIAAAAAgAAAAAAAAAIAAAAAAAAQ=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MetraTech.UsageServer.RecurringEventFilter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="12.25" Width="2" />
+    <Compartments>
+      <Compartment Name="Private" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="MetraTech.UsageServer.RecurringEventFilter.Enumerator" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Events.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ACQAAAAAAAAAABAAAIAAABSAAAACwAAAAAgAAAAgEAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Struct Name="MetraTech.UsageServer.RecurringEventDependency">
+    <Position X="3.5" Y="6.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="MetraTech.UsageServer.IRecurringEventSchedule">
+    <Position X="4.5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQgAAAAAACA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Type" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="MetraTech.UsageServer.IRecurringEvent">
+    <Position X="10.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACAAEAAAAACgAAAAACAAAQQAAAAAACAAAQAAAQAIAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Type" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="MetraTech.UsageServer.IRecurringEventFilter" Collapsed="true">
+    <Position X="17.75" Y="12.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAIAAAAQAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MetraTech.UsageServer.IRecurringEventInstanceFilter">
+    <Position X="0.5" Y="0.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AACAgAAAABAAAAAAAIAAAQRgAIiAACAAAAAABEAAAJA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MetraTech.UsageServer.IRecurringEventRunFilter" Collapsed="true">
+    <Position X="3.5" Y="8" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAFAAAAEAAAAACAAAIAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="MetraTech.UsageServer.RecurringEventType">
+    <Position X="10" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAiAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MetraTech.UsageServer.RecurringEventScheduleType">
+    <Position X="6.25" Y="3.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAABAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MetraTech.UsageServer.RecurringEventInstanceStatus">
+    <Position X="17.75" Y="6.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAIAAAAAAAAAAAAIABAAAgQAAIA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MetraTech.UsageServer.RecurringEventAction">
+    <Position X="18" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MetraTech.UsageServer.RecurringEventDependencyType">
+    <Position X="18" Y="4" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MetraTech.UsageServer.RecurringEventDependencyStatus">
+    <Position X="17.75" Y="9.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAQAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MetraTech.UsageServer.RecurringEventRunStatus">
+    <Position X="17.75" Y="11" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAABAAAIA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MetraTech.UsageServer.BillingGroupSupportType">
+    <Position X="19" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAEAAAAAAAAAAAEA=</HashCode>
+      <FileName>Adapters.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MetraTech.UsageServer.ReverseMode">
+    <Position X="19" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAEAAA=</HashCode>
+      <FileName>Adapters.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

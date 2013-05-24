@@ -1,0 +1,34 @@
+HKCR
+{
+VertexATLWrapper.Ve.1 = s 'VertexCtrl Class'
+	{
+		CLSID = s '{0E6FCBAD-34CB-438B-A2C1-EFA071A3B7EA}'
+	}
+	VertexATLWrapper.Vert = s 'VertexCtrl Class'
+	{
+		CLSID = s '{0E6FCBAD-34CB-438B-A2C1-EFA071A3B7EA}'
+		CurVer = s 'VertexATLWrapper.Ve.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {0E6FCBAD-34CB-438B-A2C1-EFA071A3B7EA} = s 'VertexCtrl Class'
+		{
+			ProgID = s 'VertexATLWrapper.Ve.1'
+			VersionIndependentProgID = s 'VertexATLWrapper.Vert'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Single'
+			}
+			val AppID = s '%APPID%'
+			ForceRemove 'Control'
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, 103'
+			'MiscStatus' = s '0'
+			{
+			    '1' = s '%OLEMISC%'
+			}
+			'TypeLib' = s '{49A39A4B-7022-42B2-A0DE-C7B4ABFAA00D}'
+			'Version' = s '1.0'
+		}
+	}
+}

@@ -1,0 +1,51 @@
+﻿/**************************************************************************
+* Copyright 1997-2010 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+* Authors: 
+*
+* Anatoliy Lokshin <alokshin@metratech.com>
+*
+* 
+***************************************************************************/
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using MetraTech.SecurityFramework.Core.Common.Configuration;
+
+namespace MetraTech.SecurityFramework.Core.Common
+{
+    /// <summary>
+    /// Provides an access to the configured execution context provider.
+    /// </summary>
+    internal static class ExecutionContextFactory
+    {
+        /// <summary>
+        /// Gets an instants of the execution context created on the basis of the configuration.
+        /// </summary>
+        public static IExecutionContext Context
+        {
+            get
+            {
+                Type contextType = Type.GetType(SecurityFrameworkSettings.Current.ExecutionContextTypeName, true);
+                IExecutionContext result = (IExecutionContext)Activator.CreateInstance(contextType);
+
+                return result;
+            }
+        }
+    }
+}

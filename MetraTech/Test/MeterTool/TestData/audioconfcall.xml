@@ -1,0 +1,806 @@
+<sessions>
+  <session>
+    <name>metratech.com/audioconfcall</name>
+    <description>The parent of an audioconference.  This service definition typically has
+                             children of type metratech.com/audioconfconnection.</description>
+    <min_sessions>1</min_sessions>
+    <max_sessions>1</max_sessions>
+    <properties>
+      <property>
+        <name>ConferenceID</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>ConferenceID</property_string>
+        <property_string_random>True</property_string_random>
+        <length>15</length>
+        <description>The conference identifier from an external system</description>
+        <required>Y</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>Payer</name>
+        <msix_type>string</msix_type>
+        <value_type>plugin</value_type>
+        <property_string_random>True</property_string_random>
+        <length>255</length>
+        <description>The external account identifier for the person or organization that pays for the conference call.</description>
+        <required>Y</required>
+        <plugin>MetraTech.Test.MeterTool.Plugins.SubscriberLoginNames</plugin>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>AccountingCode</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>GL99A</property_string>
+        <property_string_random>True</property_string_random>
+        <length>10</length>
+        <description>The code of the accounting method used for conference call calculations.</description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>ConferenceName</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>Expo Meeting
+Design Meeting</property_string>
+        <property_string_random>True</property_string_random>
+        <length>30</length>
+        <description>The conference name.</description>
+        <required>Y</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>ConferenceSubject</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>Tradeshow meeting with partners</property_string>
+        <property_string_random>True</property_string_random>
+        <length>50</length>
+        <description>A description of the conference.</description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>OrganizationName</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>MetraTech Corp.</property_string>
+        <property_string_random>True</property_string_random>
+        <length>30</length>
+        <description>The name of the organization sponsoring the conference call.</description>
+        <required>Y</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>SpecialInfo</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>Auto start</property_string>
+        <property_string_random>True</property_string_random>
+        <length>30</length>
+        <description>Any additional information related to the conference entered by the Operator</description>
+        <required>Y</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>SchedulerComments</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>Second conference for tradeshow</property_string>
+        <property_string_random>True</property_string_random>
+        <length>128</length>
+        <description>Comments the scheduler of the conference call wants to include.</description>
+        <required>Y</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>ScheduledConnections</name>
+        <msix_type>int32</msix_type>
+        <value_type>value_range</value_type>
+        <property_string_random>True</property_string_random>
+        <description>The number of connections scheduled for the conference call.
+                                     The value is used to determine the applicability and amount of unused and overused port charges.</description>
+        <required>Y</required>
+        <min_value>5</min_value>
+        <max_value>10</max_value>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>ScheduledStartTime</name>
+        <msix_type>timestamp</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>[metratime]</property_string>
+        <property_string_random>True</property_string_random>
+        <description>The date and time the conference was scheduled to start.</description>
+        <required>Y</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>ScheduledTimeGMTOffset</name>
+        <msix_type>decimal</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>5</property_string>
+        <property_string_random>True</property_string_random>
+        <description>The offset from (GMT).</description>
+        <required>Y</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>ScheduledDuration</name>
+        <msix_type>int32</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>60
+90
+120</property_string>
+        <property_string_random>True</property_string_random>
+        <description>The number of minutes the conference call is scheduled to last.</description>
+        <required>Y</required>
+        <min_value>60</min_value>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>CancelledFlag</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>N
+Y
+N
+N
+N</property_string>
+        <property_string_random>True</property_string_random>
+        <length>1</length>
+        <description>Whether the conference is canceled. (N if not canceled, Y if canceled.)</description>
+        <required>Y</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>CancellationTime</name>
+        <msix_type>timestamp</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>[metratime]</property_string>
+        <property_string_random>True</property_string_random>
+        <description>Time the conference was cancelled</description>
+        <required>Y</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>ServiceLevel</name>
+        <msix_type>enum</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>Basic
+Standard
+Executive
+Premiere
+Automated</property_string>
+        <property_string_random>True</property_string_random>
+        <description>
+      The type of service requested by the initiator of the conference.
+	    This is used to determine conference rating. Using the Platform Manager application,
+      you can configure the service levels.
+    </description>
+        <required>Y</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>TerminationReason</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>normal
+bad connection
+connection lost</property_string>
+        <property_string_random>True</property_string_random>
+        <length>30</length>
+        <description>The reason the conference was terminated.</description>
+        <required>Y</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>SystemName</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>Bridge1
+Bridge2
+Bridge3</property_string>
+        <property_string_random>True</property_string_random>
+        <length>22</length>
+        <description>The name of the bridge on which the conference ran. This is used to determine where the bridge
+	                              is located for optional rating of international dial-out conferences.</description>
+        <required>Y</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>SalesPersonID</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>SalesGuy</property_string>
+        <property_string_random>True</property_string_random>
+        <length>10</length>
+        <description>The identifier for the sales person who sold the conference.</description>
+        <required>N</required>
+        <plugin>MetraTech.Test.MeterTool.Plugins.GetUsername</plugin>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>OperatorID</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>opid</property_string>
+        <property_string_random>False</property_string_random>
+        <length>10</length>
+        <description>The identifier for the Operator attending the conference.</description>
+        <required>N</required>
+        <plugin>MetraTech.Test.MeterTool.Plugins.GetUsername</plugin>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+    </properties>
+    <sessions>
+      <session>
+        <name>metratech.com/audioconfconnection</name>
+        <description>Child of an audioconference.  There is one child of this type for each
+                             connection, or leg, of the conference.</description>
+        <min_sessions>5</min_sessions>
+        <max_sessions>5</max_sessions>
+        <properties>
+          <property>
+            <name>ConferenceID</name>
+            <msix_type>string</msix_type>
+            <value_type>prop_equals</value_type>
+            <property_string_random>True</property_string_random>
+            <length>15</length>
+            <description>The conference identifier from an external system.</description>
+            <required>Y</required>
+            <prop_equals>parent.ConferenceID</prop_equals>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>Payer</name>
+            <msix_type>string</msix_type>
+            <value_type>prop_equals</value_type>
+            <property_string_random>True</property_string_random>
+            <length>18</length>
+            <description>The external account identifier for the person or organization that pays for the conference call.</description>
+            <required>N</required>
+            <prop_equals>parent.Payer</prop_equals>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>UserBilled</name>
+            <msix_type>string</msix_type>
+            <value_type>property_string</value_type>
+            <property_string>Y
+Y
+Y
+N</property_string>
+            <property_string_random>True</property_string_random>
+            <length>1</length>
+            <description>Whether the conference participants are billed individually for the conference. (Y for billed, N for not billed)</description>
+            <required>Y</required>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>UserName</name>
+            <msix_type>string</msix_type>
+            <value_type>plugin</value_type>
+            <property_string_random>True</property_string_random>
+            <length>30</length>
+            <description>The name of the conference participant.</description>
+            <required>N</required>
+            <plugin>MetraTech.Test.MeterTool.Plugins.GetUsername</plugin>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>UserRole</name>
+            <msix_type>enum</msix_type>
+            <value_type>property_string</value_type>
+            <property_string>Participant
+Presenter
+Chair
+CSR
+Operator
+Translator
+Moderator</property_string>
+            <property_string_random>True</property_string_random>
+            <description>The function of the conference participant.</description>
+            <required>Y</required>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>OrganizationName</name>
+            <msix_type>string</msix_type>
+            <value_type>property_string</value_type>
+            <property_string>MetraTech Corp.</property_string>
+            <property_string_random>True</property_string_random>
+            <length>30</length>
+            <description>The name of the organization sponsoring the conference call.</description>
+            <required>Y</required>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>userphonenumber</name>
+            <msix_type>string</msix_type>
+            <value_type>property_string</value_type>
+            <property_string>7813982222
+7813983333</property_string>
+            <property_string_random>True</property_string_random>
+            <length>38</length>
+            <description>The telephone number of the conference participant.</description>
+            <required>Y</required>
+            <min_value>7813982222</min_value>
+            <max_value>7813983333</max_value>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>specialinfo</name>
+            <msix_type>string</msix_type>
+            <value_type>property_string</value_type>
+            <property_string>Expo Update</property_string>
+            <property_string_random>True</property_string_random>
+            <length>30</length>
+            <description>Any additional information related to the conference entered by the Operator. The value can be an empty string.</description>
+            <required>Y</required>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>CallType</name>
+            <msix_type>enum</msix_type>
+            <value_type>property_string</value_type>
+            <property_string>Dial-In
+Dial-Out
+Dial-In
+Dial-In
+Dial-In
+Dial-In</property_string>
+            <property_string_random>True</property_string_random>
+            <length>9</length>
+            <description>The type of conference call.</description>
+            <required>Y</required>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>transport</name>
+            <msix_type>enum</msix_type>
+            <value_type>property_string</value_type>
+            <property_string>Domestic
+Intra-LATA
+Inter-LATA
+International
+Toll
+Toll-Free
+LongDistance</property_string>
+            <property_string_random>True</property_string_random>
+            <length>14</length>
+            <description>The type of transport method. This can be domestic or international for dial-out;
+	                             or toll or toll-free for dial-in.</description>
+            <required>N</required>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>Mode</name>
+            <msix_type>enum</msix_type>
+            <value_type>property_string</value_type>
+            <property_string>Operator-Assisted
+Unattended
+Passcode
+Direct-Dialed
+Collect
+Originator</property_string>
+            <property_string_random>True</property_string_random>
+            <length>18</length>
+            <description>The connection mode. Operated assisted connections may generate a surcharge.
+                                     Unattended connections do not have an Operator available. Passcode connections provide
+                                     subscribers with the option of reaching an Operator.</description>
+            <required>Y</required>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>ConnectTime</name>
+            <msix_type>timestamp</msix_type>
+            <value_type>prop_equals</value_type>
+            <property_string_random>True</property_string_random>
+            <description>The date and time in (GMT) the participant's call connected to the system.</description>
+            <required>Y</required>
+            <prop_equals>parent.ScheduledStartTime</prop_equals>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <greater_than_prop>p</greater_than_prop>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>EnteredConferenceTime</name>
+            <msix_type>timestamp</msix_type>
+            <value_type>prop_equals</value_type>
+            <property_string_random>True</property_string_random>
+            <description>The date and time the participant joined the conference in the format specified in ConnectTime.</description>
+            <required>Y</required>
+            <prop_equals>parent.ScheduledStartTime</prop_equals>
+            <additional_data>
+              <additional_data_enabled>True</additional_data_enabled>
+              <greater_than_enabled>True</greater_than_enabled>
+              <greater_than_prop>ConnectTime</greater_than_prop>
+              <less_than_enabled>True</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>ExitedConferenceTime</name>
+            <msix_type>timestamp</msix_type>
+            <value_type>plugin</value_type>
+            <property_string_random>True</property_string_random>
+            <description>The date and time the participant left the conference.</description>
+            <required>N</required>
+            <plugin>MetraTech.Test.MeterTool.Plugins.EndTime</plugin>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>DisconnectTime</name>
+            <msix_type>timestamp</msix_type>
+            <value_type>plugin</value_type>
+            <property_string_random>True</property_string_random>
+            <description>The date and time the participant's call disconnected from the system.</description>
+            <required>Y</required>
+            <plugin>MetraTech.Test.MeterTool.Plugins.EndTime</plugin>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>Transferred</name>
+            <msix_type>string</msix_type>
+            <value_type>property_string</value_type>
+            <property_string>N
+N
+N
+Y</property_string>
+            <property_string_random>True</property_string_random>
+            <length>1</length>
+            <description>Whether the participant was transferred from another conference. Y (Transferred) N (Not transferred)</description>
+            <required>Y</required>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>TerminationReason</name>
+            <msix_type>string</msix_type>
+            <value_type>property_string</value_type>
+            <property_string>Normal
+Normal
+Normal
+Normal
+bad connection
+lost connection</property_string>
+            <property_string_random>True</property_string_random>
+            <length>30</length>
+            <description>The reason the conference was canceled.</description>
+            <required>Y</required>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>ISDNDisconnectCause</name>
+            <msix_type>int32</msix_type>
+            <value_type>property_string</value_type>
+            <property_string>0</property_string>
+            <property_string_random>True</property_string_random>
+            <description>The reason the ISDN channel was disconnected.</description>
+            <required>Y</required>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>TrunkNumber</name>
+            <msix_type>int32</msix_type>
+            <value_type>property_string</value_type>
+            <property_string>10</property_string>
+            <property_string_random>True</property_string_random>
+            <description>The number of the trunk over which a call is routed.</description>
+            <required>Y</required>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>LineNumber</name>
+            <msix_type>int32</msix_type>
+            <value_type>property_string</value_type>
+            <property_string>35</property_string>
+            <property_string_random>True</property_string_random>
+            <description>The number of the line within the trunk to which the participant connected.</description>
+            <required>Y</required>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>DNISDigits</name>
+            <msix_type>string</msix_type>
+            <value_type>property_string</value_type>
+            <property_string>781 398 2000</property_string>
+            <property_string_random>True</property_string_random>
+            <length>23</length>
+            <description>The number the participant dialed to join the conference. Through Dialed Number Identification
+	                             Service (DNIS), this is used to determine whether the participant dialed an 800 number.</description>
+            <required>Y</required>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>ANIDigits</name>
+            <msix_type>string</msix_type>
+            <value_type>property_string</value_type>
+            <property_string>781 398 2242</property_string>
+            <property_string_random>True</property_string_random>
+            <length>23</length>
+            <description>The incoming telephone number from which the participant called.
+	                              This is determined by Automatic Number Identification (ANI).</description>
+            <required>Y</required>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+        </properties>
+        <sessions />
+      </session>
+      <session>
+        <name>metratech.com/audioconffeature</name>
+        <description>Generic Feature - child of audioconfcall</description>
+        <min_sessions>5</min_sessions>
+        <max_sessions>5</max_sessions>
+        <properties>
+          <property>
+            <name>Payer</name>
+            <msix_type>string</msix_type>
+            <value_type>prop_equals</value_type>
+            <property_string_random>True</property_string_random>
+            <length>18</length>
+            <description>The external account identifier for the person or organization that pays for the conference call.</description>
+            <required>Y</required>
+            <prop_equals>parent.Payer</prop_equals>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>FeatureType</name>
+            <msix_type>enum</msix_type>
+            <value_type>property_string</value_type>
+            <property_string>PlaybackSetup
+QA
+Polling
+Record
+TapesOriginals
+TapesCopies</property_string>
+            <property_string_random>True</property_string_random>
+            <description>Feature being metered: QA, Polling etc.</description>
+            <required>Y</required>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>Metric</name>
+            <msix_type>decimal</msix_type>
+            <value_type>property_string</value_type>
+            <property_string>33.556122</property_string>
+            <property_string_random>True</property_string_random>
+            <length>10</length>
+            <description>
+				Metric to be applied to rating. E.g., number of tapes, 
+				CDs, Notifications, etc. Notice 
+				that even though it is Not Required in the Service Definition, 
+				it will be required for the Service Types that are billed as a Metric.
+			</description>
+            <required>N</required>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>StartTime</name>
+            <msix_type>timestamp</msix_type>
+            <value_type>prop_equals</value_type>
+            <property_string_random>True</property_string_random>
+            <description>
+				Start time applies only to Translations.
+			</description>
+            <required>N</required>
+            <prop_equals>parent.ScheduledStartTime</prop_equals>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>EndTime</name>
+            <msix_type>timestamp</msix_type>
+            <value_type>plugin</value_type>
+            <property_string_random>True</property_string_random>
+            <description>
+				End time applies only to Translations.
+			</description>
+            <required>N</required>
+            <plugin>MetraTech.Test.MeterTool.Plugins.EndTime</plugin>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+          <property>
+            <name>TransactionID</name>
+            <msix_type>string</msix_type>
+            <value_type>property_string</value_type>
+            <property_string>[metratime]</property_string>
+            <property_string_random>True</property_string_random>
+            <length>40</length>
+            <description>
+				Unique Transaction ID: Some unique ID 
+				that may be shown to the customer, 
+				or kept for reference purposes.
+			</description>
+            <required>N</required>
+            <additional_data>
+              <additional_data_enabled>False</additional_data_enabled>
+              <greater_than_enabled>False</greater_than_enabled>
+              <less_than_enabled>False</less_than_enabled>
+            </additional_data>
+          </property>
+        </properties>
+        <sessions />
+      </session>
+    </sessions>
+  </session>
+</sessions>

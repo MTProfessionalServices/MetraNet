@@ -1,0 +1,24 @@
+#
+# TEST GZIP ENCODER
+# Test one character encoding
+#
+# NOTE:
+# Enclosing strings in double quotes allows you to use escapings to represent ASCII and Unicode characters.
+# " and \ in payload need to be escaped!!!
+#
+
+---
+id: 1
+message: Less Than character HTML encoding
+payload: "<"
+expect:  "<TBD>"
+---
+id: 2
+message: Greater Than character HTML encoding
+payload: ">"
+expect:  "<TBD>"
+---
+id: 3
+message: Ampersand character HTML encoding
+payload: "&"
+expect:  "<TBD>"

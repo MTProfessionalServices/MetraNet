@@ -1,0 +1,46 @@
+/* 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Metanga Web Application - Reporting Sector
+Internet Explorer 7 specific styles
+Author: Above The Fold, LLC - http://www.abovethefolddesign.com
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+/* IE 7 */
+#page, #main, #main > .helper, #content, header,
+.section-wrapper, section, .container, .widget, .reports-list > li,
+.container header, .categories, .category, .clearfix
+{
+	min-height: 1%; /* Fix hasLayout bugs */
+}
+
+h2.popout {
+	margin-top: -10px;
+}
+/* Manage Reports */
+.categories {
+	width: 100%; /* Fix broken display */
+}
+
+/* Timeframe control fixes */
+.nav-scope li.active {
+	float: left;
+	font-size: 93%;
+	display: inline;
+}
+	.nav-scope li.active .menu {
+		top: 26px;
+	}
+.nav-scope li.active .timeframe-nav {
+	float: left;
+	display: inline;
+}
+.nav-scope li.active .timeframe-pager.next {
+	float: left;
+	margin-right: 5px;
+}
+.nav-scope li.timeframe-custom.active .timeframe-nav {
+	padding-top: 4px;
+}
+
+
+/* End */

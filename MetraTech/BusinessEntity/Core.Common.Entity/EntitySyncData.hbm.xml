@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:nhibernate-mapping-2.2">
+  <meta attribute="category">System</meta>
+  <class name="Core.Common.EntitySyncData, Core.Common.Entity" table="t_be_entity_sync_data">
+    <id name="Id" column="Id">
+      <type name="guid" />
+      <generator class="guid.comb" />
+    </id>
+    <property name="EntityName" column="tx_entity_name" not-null="true" unique="true" type="string"/>
+    <property name="HbmChecksum" column="tx_hbm_checksum" not-null="true" type="string"/>
+    <property name="SyncDate" column="dt_sync_date" not-null="true" type="DateTime"/>
+  </class>
+</hibernate-mapping>
+

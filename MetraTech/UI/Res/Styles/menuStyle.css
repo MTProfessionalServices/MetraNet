@@ -1,0 +1,52 @@
+
+.x-menu{border:1px solid #718bb7;background:#f0f0f0 url(/Res/Ext/Resources/images/default/menu/menu.gif) repeat-y;padding:2px;}
+
+.x-menu-list{background:transparent;border:0 none;}
+.x-menu-list-item{font:normal 9px tahoma,arial,sans-serif;white-space:nowrap;-moz-user-select:none;-khtml-user-select:none;display:block;padding:0px;}
+
+a{text-decoration:none!important;}
+a.x-menu-item{display:block;white-space:nowrap;text-decoration:none;color:#222;-moz-outline:0 none;outline:0 none;cursor:pointer;}
+a.x-menu-item:hover {background:#ebf3fd url(/Res/Ext/Resources/images/default/menu/item-over.gif) repeat-x left bottom;border:1px solid #aaccf6;}
+
+.x-panel-header-text
+{
+  font-size:11px;
+  font-weight:bold;
+}
+
+#MetraCareMenuContainer
+{
+  color: black;
+  width: 100%;
+  height: 100%;
+  display:none;
+}
+
+#MetraControlMenuContainer
+{
+  color: black;
+  width: 100%;
+  height: 100%;
+  display:none;
+}
+
+#MetraOfferMenuContainer
+{
+  color: black;
+  width: 100%;
+  height: 100%;
+  display:none;
+}
+
+#AgreementMenuContainer
+{
+  color: black;
+  width: 100%;
+  height: 100%;
+  display:none;
+}
+
+#toolbar
+{
+  overflow:auto;
+}

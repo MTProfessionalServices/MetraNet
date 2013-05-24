@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="GRID_TITLE" xml:space="preserve">
+        <value>Transazioni non riuscite</value>
+    </data>
+    <data name="NO_RECORDS_TEXT" xml:space="preserve">
+        <value>Nessun record trovato</value>
+    </data>
+    <data name="TEXT_AVERAGE_AGE_DAYS" xml:space="preserve">
+        <value>Età&lt;br&gt;media (giorni)</value>
+    </data>
+    <data name="TEXT_BATCH_ID" xml:space="preserve">
+        <value>ID batch</value>
+    </data>
+    <data name="TEXT_CASE_NUMBER" xml:space="preserve">
+        <value>Numero di caso</value>
+    </data>
+    <data name="TEXT_CHANGE_ALL_STATUSES" xml:space="preserve">
+        <value>Modifica tutti gli stati.</value>
+    </data>
+    <data name="TEXT_CHANGE_STATUS" xml:space="preserve">
+        <value>Modifica stato</value>
+    </data>
+    <data name="TEXT_CHANGE_TRANSACTION_STATUS" xml:space="preserve">
+        <value>Modifica stato caso/transazione non riuscita</value>
+    </data>
+    <data name="TEXT_CODE" xml:space="preserve">
+        <value>Codice</value>
+    </data>
+    <data name="TEXT_CODE_MESSAGE" xml:space="preserve">
+        <value>Messaggio codice</value>
+    </data>
+    <data name="TEXT_COMPOUND_SESSION_ID" xml:space="preserve">
+        <value>ID sessione composta</value>
+    </data>
+    <data name="TEXT_CORRECTED" xml:space="preserve">
+        <value>Corretto</value>
+    </data>
+    <data name="TEXT_COUNT" xml:space="preserve">
+        <value>Conteggio</value>
+    </data>
+    <data name="TEXT_DELETED" xml:space="preserve">
+        <value>Eliminato</value>
+    </data>
+    <data name="TEXT_DISMISSED" xml:space="preserve">
+        <value>Respinto</value>
+    </data>
+    <data name="TEXT_ERROR_MESSAGE" xml:space="preserve">
+        <value>Messaggi di errore</value>
+    </data>
+    <data name="TEXT_ERROR_TYPE_EXAMPLE" xml:space="preserve">
+        <value>Tipo di errore (esempio)</value>
+    </data>
+    <data name="TEXT_ERROR_TYPE_FAILURE_SUMMARY" xml:space="preserve">
+        <value>Pagante - Riepilogo errori per tipo di errore</value>
+    </data>
+    <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_STAGE_PLUGIN" xml:space="preserve">
+        <value>Riepilogo errori fase e plug-in</value>
+    </data>
+    <data name="TEXT_FAILURE_TIME" xml:space="preserve">
+        <value>Ora dell'errore</value>
+    </data>
+    <data name="TEXT_GRID_TITLE" xml:space="preserve">
+        <value>Riepilogo per tipo di errore</value>
+    </data>
+    <data name="TEXT_GRID_TITLE_INTERVAL_TYPE" xml:space="preserve">
+        <value>Transazioni non riuscite (compreso tipo di intervallo)</value>
+    </data>
+    <data name="TEXT_GRID_TITLE_INTERVAL_TYPE_FAILURE_SUMMARY" xml:space="preserve">
+        <value>Riepilogo errori per tipo di intervallo</value>
+    </data>
+    <data name="TEXT_INTERVAL_FAILURE_SUMMARY" xml:space="preserve">
+        <value>Pagante - Riepilogo errori intervallo</value>
+    </data>
+    <data name="TEXT_IS_CHILD" xml:space="preserve">
+        <value>È secondario</value>
+    </data>
+    <data name="TEXT_MAXIMUM_AGE_DAYS" xml:space="preserve">
+        <value>Età&lt;br&gt;massima (giorni)</value>
+    </data>
+    <data name="TEXT_MINIMUM_AGE_DAYS" xml:space="preserve">
+        <value>Età&lt;br&gt;minima (giorni)</value>
+    </data>
+    <data name="TEXT_NO" xml:space="preserve">
+        <value>No</value>
+    </data>
+    <data name="TEXT_OPEN" xml:space="preserve">
+        <value>Apri</value>
+    </data>
+    <data name="TEXT_PAYER" xml:space="preserve">
+        <value>Pagatore</value>
+    </data>
+    <data name="TEXT_PLUGIN" xml:space="preserve">
+        <value>Plug-in</value>
+    </data>
+    <data name="TEXT_POSSIBLE_ACCOUNT_ID" xml:space="preserve">
+        <value>Possibile ID conto</value>
+    </data>
+    <data name="TEXT_POSSIBLE_PAYER_ACCOUNT_ID" xml:space="preserve">
+        <value>Possibile ID conto del pagante</value>
+    </data>
+    <data name="TEXT_RESUBMIT" xml:space="preserve">
+        <value>Invia nuovamente</value>
+    </data>
+    <data name="TEXT_RESUBMIT_ALL" xml:space="preserve">
+        <value>Invia tutto nuovamente</value>
+    </data>
+    <data name="TEXT_RESUBMITTED" xml:space="preserve">
+        <value>Nuovo invio effettuato</value>
+    </data>
+    <data name="TEXT_SERVICE" xml:space="preserve">
+        <value>Servizio</value>
+    </data>
+    <data name="TEXT_SESSION_ID" xml:space="preserve">
+        <value>ID sessione</value>
+    </data>
+    <data name="TEXT_STAGE" xml:space="preserve">
+        <value>Fase</value>
+    </data>
+    <data name="TEXT_STATE_REASON_CODE" xml:space="preserve">
+        <value>Codice motivo stato</value>
+    </data>
+    <data name="TEXT_STATUS" xml:space="preserve">
+        <value>Stato</value>
+    </data>
+    <data name="TEXT_UCYCLE_TYPE" xml:space="preserve">
+        <value>Tipo di ciclo di utilizzo</value>
+    </data>
+    <data name="TEXT_UCYCLE_VALUE" xml:space="preserve">
+        <value>Valore del ciclo di utilizzo</value>
+    </data>
+    <data name="TEXT_UNDER_INVESTIGATION" xml:space="preserve">
+        <value>Indagine in corso</value>
+    </data>
+    <data name="TEXT_UNIQUE_ID" xml:space="preserve">
+        <value>ID univoco</value>
+    </data>
+    <data name="TEXT_USAGE_CYCLE_TYPE" xml:space="preserve">
+        <value>Tipo di &lt;br&gt;ciclo di utilizzo</value>
+    </data>
+    <data name="TEXT_USAGE_CYCLE_TYPE_VALUE" xml:space="preserve">
+        <value>Valore del tipo di ciclo di utilizzo</value>
+    </data>
+    <data name="TEXT_USAGE_CYCLE_VALUE" xml:space="preserve">
+        <value>Valore del &lt;br&gt;ciclo di utilizzo</value>
+    </data>
+    <data name="TEXT_YES" xml:space="preserve">
+        <value>Sì</value>
+    </data>
+</root>

@@ -1,0 +1,107 @@
+﻿@using MetraTech.DomainModel.Enums
+@model System.Collections.Generic.IEnumerable<System.Linq.IGrouping<string,MetraNet.Models.SpecCharacteristicModel>>
+
+@{
+  ViewBag.Title = Resources.Resource.AvailableSharedProperties_cshtml_Available_Shared_Properties;
+  Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+
+<script type='text/javascript' src="@Url.Content("~/Scripts/jquery.cookie.js")"></script>
+<script type='text/javascript' src="@Url.Content("~/Scripts/jquery.collapsible.js")"></script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    $.collapsible(".section", "group1");
+    
+     // No Items
+    if(@ViewBag.ItemCount > 0)
+      $("#empty").hide();
+
+    // Add property
+    $(".addProperty").click(function(e) {
+      e.preventDefault();
+      var entityId = $(this).attr("data-entityId");
+      var specId = $(this).attr("data-specId");
+
+      $('#info').html("Adding...").show();
+      $.post('/MetraNet/SpecCharacteristics/AddSharedProperty', { entityId: entityId, specId: specId }, function(result) {
+        $('#info').html(result.Message);
+        if(result.Success == true)
+        {
+          $('#'+specId).remove();
+        } 
+        $('#info').fadeOut(3000);
+      });
+    });
+
+    // Add category
+    $(".addCategory").click(function(e) {
+      e.preventDefault();
+
+      var category = $(this).attr("data-category");
+
+      $(".addProperty").each( function() {
+        
+        if(category == $(this).attr("data-category") ) {
+
+          var entityId = $(this).attr("data-entityId");
+          var specId = $(this).attr("data-specId");
+
+          $('#info').html("Adding...").show();
+          $.post('/MetraNet/SpecCharacteristics/AddSharedProperty', { entityId: entityId, specId: specId }, function(result) {
+            $('#info').html(result.Message);
+            if (result.Success == true) {
+              $('#' + specId).remove();
+            }
+            $('#info').fadeOut(3000);
+          });
+        }
+
+      });
+
+    });
+
+  });
+</script>
+
+<h2>&nbsp;&nbsp;@Resources.Resource.TEXT_AVAILABLE_SHARED_PROPERTIES</h2>
+<br/>
+
+  <div class="container_12">
+    <div class="grid_7 prefix_1 suffix_4"><div id="info" style="display:none;">@Resources.Resource.TEXT_WAITING_FOR_UPDATE</div></div><div class="clear"></div>
+
+    <div class="grid_7 prefix_1 suffix_4">
+      <div id="empty">
+        @Resources.Resource.TEXT_NO_PROPERTIES_YET<br/>
+      </div>
+    </div><div class="clear"></div>
+
+    <div class="grid_8 suffix_4">
+
+        @foreach (var group in Model)
+        {
+				  <span class="section">@group.Key</span>
+          <div class="content">
+            <ul class="sortable" id="spec-list@(group.Key)">
+              @foreach (var spec in group)
+              {
+                <li id="@spec.SpecId" class="rounded-med">
+                  <strong>@spec.Name</strong> (@spec.SpecType)
+                  <a id="add_@(spec.SpecId)" data-category="@(group.Key)" data-name="@(spec.Name)" data-specId="@(spec.SpecId)" data-entityId="@(Session["EntityID"])" class="action right smallAdd addProperty">@Resources.Resource.AvailableSharedProperties_cshtml_Add_Property</a>&nbsp;&nbsp;
+                </li>
+              }
+            </ul>
+          </div>
+          <span><a id="add_category_@(group.Key)" data-category="@(group.Key)" data-entityId="@(Session["EntityID"])" class="action smallAdd addCategory">@Resources.Resource.AvailableSharedProperties_cshtml_Add_Category</a></span>
+          <br /><br />
+        }
+
+    </div>
+    <div class="clear"></div>
+    
+    <div class="grid_8 prefix_1 suffix_3">
+      <a href="/MetraNet/SpecCharacteristics/Index/@(Session["EntityID"])?EntityType=@((int)EnumHelper.GetCSharpEnum((int)EnumHelper.GetDbValueByEnum(Session["CurrentEntityType"])))">@Resources.Resource.AvailableSharedProperties_cshtml_Back_To_Properties</a>
+    </div>
+    
+  </div> <!-- end container -->

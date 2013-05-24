@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" enableLocalization="true" >
+  <!-- NOTE:  Sitemaps must use GLOBAL resource files.  The localized titles can be found in global resource file AmpWizard.resx. -->
+  <!-- NOTE:  Pages that should not be randomly accessible have (1) empty url's and (2) descriptions that identify the page name.
+              See the explanation in NavigationPanelInit.aspx, onReady() function. -->
+  <siteMapNode url="" title="" >
+    <siteMapNode url="~/MetraOffer/AmpGui/GeneralInformation.aspx" title="$resources:AmpWizard,PAGETITLE_GENERAL_INFORMATION" description="" />
+    <siteMapNode url="~/MetraOffer/AmpGui/AccountGroup.aspx" title="$resources:AmpWizard,PAGETITLE_ACCOUNT_GROUP" description="" />
+    <siteMapNode url="~/MetraOffer/AmpGui/SelectUsageQualification.aspx" title="$resources:AmpWizard,PAGETITLE_SELECT_USAGE_QUALIFICATION" description="" />
+    <siteMapNode url="~/MetraOffer/AmpGui/ItemsToAggregate.aspx" title="$resources:AmpWizard,PAGETITLE_ITEMS_TO_AGGREGATE" description="" />
+    <siteMapNode url="~/MetraOffer/AmpGui/DecisionRange.aspx" title="$resources:AmpWizard,PAGETITLE_DECISION_RANGE" description="" />
+    <siteMapNode url="~/MetraOffer/AmpGui/DecisionCycle.aspx" title="$resources:AmpWizard,PAGETITLE_DECISION_CYCLE" description="" />
+    <siteMapNode url="~/MetraOffer/AmpGui/SelectDecisionAction.aspx" title="$resources:AmpWizard,PAGETITLE_SELECT_DECISION_ACTION" description="" />
+    <siteMapNode url="~/MetraOffer/AmpGui/AmountChainGroup.aspx" title="$resources:AmpWizard,PAGETITLE_AMOUNT_CHAIN_GROUP" description="" />
+    <siteMapNode url="~/MetraOffer/AmpGui/ExecutionFrequency.aspx" title="$resources:AmpWizard,PAGETITLE_EXECUTION_FREQUENCY" description="" />
+    <siteMapNode url="~/MetraOffer/AmpGui/DecisionInteractions.aspx" title="$resources:AmpWizard,PAGETITLE_DECISION_INTERACTIONS" description="" />
+    <siteMapNode url="~/MetraOffer/AmpGui/MiscellaneousAttributes.aspx" title="$resources:AmpWizard,PAGETITLE_MISCELLANEOUS_ATTRIBUTES" description="" />
+    <siteMapNode url="~/MetraOffer/AmpGui/ErrorCheck.aspx" title="$resources:AmpWizard,PAGETITLE_ERROR_CHECK" description="" />
+  </siteMapNode>
+</siteMap>

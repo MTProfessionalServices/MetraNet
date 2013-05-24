@@ -1,0 +1,59 @@
+// VertexATLWrapper.idl : IDL source for VertexATLWrapper
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (VertexATLWrapper.tlb) and marshalling code.
+
+#include "olectl.h"
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+  object,
+	uuid(DA8BA531-8D97-4BA0-BA30-186806865E92),
+	version(1.0),
+  dual,
+	nonextensible,
+	helpstring("IVertexCtrl Interface"),
+	pointer_default(unique)
+]
+
+interface IVertexCtrl : IDispatch{
+	[propget, id(1), helpstring("property bstrVertexConfigPath")] HRESULT bstrVertexConfigPath([out, retval] BSTR* pVal);
+	[propput, id(1), helpstring("property bstrVertexConfigPath")] HRESULT bstrVertexConfigPath([in] BSTR newVal);
+	[propget, id(2), helpstring("property bstrVertexConfigName")] HRESULT bstrVertexConfigName([out, retval] BSTR* pVal);
+	[propput, id(2), helpstring("property bstrVertexConfigName")] HRESULT bstrVertexConfigName([in] BSTR newVal);
+	[id(3), helpstring("method Initialize")] HRESULT Initialize([out,retval] BSTR* bstrResults);
+	[id(4), helpstring("method Reset")] HRESULT Reset([out,retval] BSTR* bstrResults);
+	[id(5), helpstring("method Terminate")] HRESULT Terminate([out,retval] BSTR* bstrResults);
+	[id(6), helpstring("method CalculateTaxes")] HRESULT CalculateTaxes([in] BSTR bstrXMLParams, [out,retval] BSTR* bstrResults);
+	[propget, id(7), helpstring("property sReturnTimings")] HRESULT sReturnTimings([out, retval] SHORT* pVal);
+	[propput, id(7), helpstring("property sReturnTimings")] HRESULT sReturnTimings([in] SHORT newVal);
+	[id(8), helpstring("method LookupGeoCode")] HRESULT LookupGeoCode([in] BSTR bstrXMLParams, [out,retval] BSTR* bstrResults);
+	[propget, id(9), helpstring("property iWriteToJournal")] HRESULT iWriteToJournal([out, retval] LONG* pVal);
+	[propput, id(9), helpstring("property iWriteToJournal")] HRESULT iWriteToJournal([in] LONG newVal);
+	[id(10), helpstring("method Reconnect")] HRESULT Reconnect([out,retval] BSTR* bstrResults);
+	[id(11), helpstring("method Refresh")] HRESULT Refresh([out,retval] BSTR* bstrResults);
+};
+
+[
+	uuid(49A39A4B-7022-42B2-A0DE-C7B4ABFAA00D),
+	version(1.0),
+	helpstring("VertexATLWrapper 1.0 Type Library")
+]
+
+library VertexATLWrapperLib
+{
+	importlib("stdole2.tlb");
+  [
+		uuid(0E6FCBAD-34CB-438B-A2C1-EFA071A3B7EA),
+		control,
+		helpstring("VertexCtrl Class")
+	]
+	coclass VertexCtrl
+	{
+		[default] interface IVertexCtrl;
+	};
+};
+
+

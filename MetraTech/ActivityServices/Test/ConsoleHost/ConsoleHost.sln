@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleHost", "ConsoleHost.csproj", "{FA0D762A-6093-4543-831F-0160DE24B7FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dBMFv2TestLibrary", "..\dBMFv2TestLibrary\dBMFv2TestLibrary.csproj", "{53190C2B-CF5E-4AA8-844A-94738262B4F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MASInterfaceConfigTool", "..\MASInterfaceConfigTool\MASInterfaceConfigTool.csproj", "{90D605CB-A6EB-4CA1-8376-BA28662484CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA0D762A-6093-4543-831F-0160DE24B7FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA0D762A-6093-4543-831F-0160DE24B7FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA0D762A-6093-4543-831F-0160DE24B7FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA0D762A-6093-4543-831F-0160DE24B7FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53190C2B-CF5E-4AA8-844A-94738262B4F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53190C2B-CF5E-4AA8-844A-94738262B4F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53190C2B-CF5E-4AA8-844A-94738262B4F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53190C2B-CF5E-4AA8-844A-94738262B4F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90D605CB-A6EB-4CA1-8376-BA28662484CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90D605CB-A6EB-4CA1-8376-BA28662484CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90D605CB-A6EB-4CA1-8376-BA28662484CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90D605CB-A6EB-4CA1-8376-BA28662484CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

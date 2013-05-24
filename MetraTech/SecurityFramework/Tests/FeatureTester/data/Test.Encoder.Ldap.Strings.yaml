@@ -1,0 +1,46 @@
+#
+# TEST LDAP ENCODER
+# Test string encoding
+#
+# NOTE:
+# Enclosing strings in double quotes allows you to use escapings to represent ASCII and Unicode characters.
+# " and \ in payload need to be escaped!!!
+#
+
+---
+id: 1
+message: Script tag string LDAP encoding
+payload: "<script>"
+expect:  "\\3cscript\\3e"
+---
+id: 2
+message: Simple XSS test string LDAP encoding
+payload: "<script>alert('hi')</script>"
+expect:  "\\3cscript\\3ealert\\28\\27hi\\27\\29\\3c\\2fscript\\3e"
+---
+id: 3
+message: Double hyphen precedes character LDAP encoding
+payload: "--"
+expect: "--"
+---
+id: 4
+message: Slash and asterisk character LDAP encoding
+payload: "/*"
+expect: "\\2f\\2a"
+---
+id: 5
+message: Asterisk and slash character LDAP encoding
+payload: "*/"
+expect: "\\2a\\2f"
+---
+id: 6
+message: Less than and greater than characters LDAP encoding
+payload: "<>"
+expect: "\\3c\\3e"
+---
+id: 7
+message: Left and right braces character LDAP encoding
+payload: "{ }"
+expect: "\\7b\\20\\7d"
+---
+

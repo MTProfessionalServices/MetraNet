@@ -1,0 +1,159 @@
+#
+# TEST LDAP ENCODER
+# Test one character encoding
+#
+# NOTE:
+# Enclosing strings in double quotes allows you to use escapings to represent ASCII and Unicode characters.
+# " and \ in payload need to be escaped!!!
+#
+
+---
+id: 1
+message: Less Than character LDAP encoding
+payload: "<"
+expect:  "\\3c"
+---
+id: 2
+message: Greater Than character LDAP encoding
+payload: ">"
+expect:  "\\3e"
+---
+id: 3
+message: Ampersand character LDAP encoding
+payload: "&"
+expect:  "\\26"
+---
+id: 4
+message: Plus character LDAP encoding
+payload: "+"
+expect: "\\2b"
+---
+id: 5
+message: Left brace character LDAP encoding
+payload: "{"
+expect: "\\7b"
+---
+id: 6
+message: Right brace character LDAP encoding
+payload: "}"
+expect: "\\7d"
+---
+id: 7
+message: Backslash character LDAP encoding
+payload: "\\"
+expect: "\\5c"
+---
+id: 8
+message: Non-divided space character LDAP encoding
+payload: " "
+expect: "\\20"
+---
+id: 9
+message: Equal character LDAP encoding
+payload: "="
+expect: "\\3d"
+---
+id: 10
+message: At character LDAP encoding
+payload: "@"
+expect: "\\40"
+---
+id: 11
+message: Underscore character LDAP encoding
+payload: "_"
+expect: "_"
+---
+id: 12
+message: Semicolon character LDAP encoding
+payload: ";"
+expect: "\\3b"
+---
+id: 13
+message: Colon character LDAP encoding
+payload: ":"
+expect: "\\3a"
+---
+id: 14
+message: Left bracket character LDAP encoding
+payload: "["
+expect: "\\5b"
+---
+id: 15
+message: Right bracket character LDAP encoding
+payload: "]"
+expect: "\\5d"
+---
+id: 16
+message: Number sign character LDAP encoding
+payload: "#"
+expect: "\\23"
+---
+id: 17
+message: Question mark character LDAP encoding
+payload: "?"
+expect: "\\3f"
+---
+id: 18
+message: Left bracket character LDAP encoding
+payload: "("
+expect: "\\28"
+---
+id: 19
+message: Right bracket character LDAP encoding
+payload: ")"
+expect: "\\29"
+---
+id: 20
+message: Asterisk character LDAP encoding
+payload: "*"
+expect: "\\2a"
+---
+id: 21
+message: Exclamation mark character LDAP encoding
+payload: "!"
+expect: "\\21"
+---
+id: 22
+message: Tilde character LDAP encoding
+payload: "~"
+expect: "\\7e"
+---
+id: 23
+message: Grave character LDAP encoding
+payload: "`"
+expect: "\\60"
+---
+id: 24
+message: Dot character LDAP encoding
+payload: "."
+expect: "\\2e"
+---
+id: 25
+message: Caret character LDAP encoding
+payload: "^"
+expect: "\\5e"
+---
+id: 26
+message: Percentage character LDAP encoding
+payload: "%"
+expect: "\\25"
+---
+id: 27
+message: Vertical bar character LDAP encoding
+payload: "|"
+expect: "\\7c"
+---
+id: 28
+message: Comma character LDAP encoding
+payload: ","
+expect: "\\2c"
+---
+id: 29
+message: Comma character LDAP encoding
+payload: "a"
+expect: "a"
+---
+id: 30
+message: Comma character LDAP encoding
+payload: "1"
+expect: "1"

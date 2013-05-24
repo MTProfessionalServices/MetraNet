@@ -1,0 +1,23 @@
+#
+# TEST BASE64 ENCODER
+# Test string encoding
+#
+# NOTE:
+# Enclosing strings in double quotes allows you to use escapings to represent ASCII and Unicode characters.
+# " and \ in payload need to be escaped!!!
+#
+
+---
+id: 1
+message: Script tag string BASE64 encoding
+payload: "<script>"
+expect:  "PHNjcmlwdD4="
+---
+id: 2
+message: Simple XSS test string BASE64 encoding
+payload: "<script>alert('hi')</script>"
+expect:  "PHNjcmlwdD5hbGVydCgnaGknKTwvc2NyaXB0Pg=="
+
+
+
+

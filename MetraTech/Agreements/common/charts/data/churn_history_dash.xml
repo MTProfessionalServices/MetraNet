@@ -1,0 +1,33 @@
+<chart
+  manageResize='1'
+  canvasbgcolor='FFFFFF' canvasBorderAlpha='0' bordercolor='FFFFFF' borderalpha='100' showLegend='0' showborder='0'
+  bgColor='FFFFFF' bgAlpha='0' showplotborder='0' showShadow='0'  
+	baseFont='Arial' baseFontColor='444444' basefontsize='24' 
+	outCnvbaseFont='Arial' outCnvbaseFontColor='444444' outCnvbaseFontSize='24'
+  chartLeftMargin='10' chartRightMargin='10' chartTopMargin='0' chartBottomMargin='0'
+	showToolTipShadow='1' toolTipBorderColor='BBBBBB' toolTipBgColor='FFF5B5'
+  plotFillRatio='100' showShadow='0'
+  enableSmartLabels='1' showLabels='1' showValues='0' showPercentValues='1' showYAxisValues ='0' showSum='1' formatNumberScale='0' 
+  showalternatehgridcolor='0' alternateRowBgColor='FFFFFF'
+
+
+  numdivlines="0" plotFillRatio='100' setAdaptiveYMin='1' palette="1" caption='' subcaption=''
+  lowColor="00CC33" highColor="CC0000" openvalue='0062a6' closeValue='0062a6'
+>
+
+   <dataset>
+      <set value='7' />
+      <set value='5' />
+      <set value='6' />
+      <set value='8' />
+      <set value='14' />
+      <set value='12' />
+      <set value='15' />
+      <set value='30' />
+      <set value='28' />
+      <set value='31' />
+      <set value='32' />
+      <set value='35' />
+   </dataset>
+
+</chart>

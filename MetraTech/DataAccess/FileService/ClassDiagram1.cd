@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MetraTech.FileService.cFileLandingServiceInstaller" Collapsed="true">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAACAAAAAAABCAAAACAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Installer\fileserviceinstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.cLandingServiceMainProgram" Collapsed="true">
+    <Position X="18" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.CONST" Collapsed="true">
+    <Position X="14.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAgAAAAAAAAAAAAAAAAEAAIAAAAAAAA=</HashCode>
+      <FileName>Service\Common\constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.cLockFile" Collapsed="true">
+    <Position X="19.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAACIAAABAEAAA=</HashCode>
+      <FileName>Service\Common\filelock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.cFileName" Collapsed="true">
+    <Position X="19.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABIIAAAAAAAQAAAAAAQAAAAAAAAAAABA=</HashCode>
+      <FileName>Service\Common\filename.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.TSingleton&lt;T&gt;" Collapsed="true">
+    <Position X="18" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Service\Common\singleton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.CODE" Collapsed="true">
+    <Position X="21.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgBAAAAAAAAAACAAAAAAAAQAAAAAAAAAAAAAAAAAACI=</HashCode>
+      <FileName>Service\Common\utilities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.acValidate" Collapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIgIAAIAAAAAAAAACAAAAAAAAAQAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Service\Common\validation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.ecCompilationException" Collapsed="true">
+    <Position X="16.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\Error\compilationexception.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.cFileNameFilter" Collapsed="true">
+    <Position X="21.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgABAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAACA=</HashCode>
+      <FileName>Service\filenamefilter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.cFileService" Collapsed="true">
+    <Position X="16.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AhCnAAAAgSAFAaEIEGCBAEACAAgEAAQICEABBACAAAE=</HashCode>
+      <FileName>Service\fileservice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.cDatabase" Collapsed="true">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQABAAAgAAAQEAAAAAAAAAAQAgAAQAAAIAAAAAAAAA=</HashCode>
+      <FileName>Service\Registry\database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.cArgument" Collapsed="true">
+    <Position X="12" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAACAQAAAAAAAAAAAABgAAAAAAQAAAAABAAA=</HashCode>
+      <FileName>Service\Registry\Entities\argument.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.acBasicEntity" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAIQAAQAAAAABA=</HashCode>
+      <FileName>Service\Registry\Entities\basicentity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.cHostConfiguration" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQAAAAAAAQAAAAAAAAAAQAAgBCAAAAAEAHAAAEAA=</HashCode>
+      <FileName>Service\Registry\Entities\host.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.cAssemblyDependancy" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAIACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\Registry\Entities\reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.cServiceConfiguration" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQAAMAAAAwAAgAABAAAAAAggAAAIEAAQAAAAhAAA=</HashCode>
+      <FileName>Service\Registry\Entities\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.cTarget" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAYAgAAAAABgAIAAAAAAAgQIABgAAACAIQAAAAABAEA=</HashCode>
+      <FileName>Service\Registry\Entities\target.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.cProgramCode" Collapsed="true">
+    <Position X="16.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAIAAAAAAgAAAAIAIBAAACAAAAAA=</HashCode>
+      <FileName>Service\Registry\Entities\target.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.cTargetWorkInfo" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAGDAAAIAABACCAgAAEACIAABgAAQEBhBJCAAAAGEg=</HashCode>
+      <FileName>Service\Registry\Entities\workorder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.cFileRegistry" Collapsed="true">
+    <Position X="14.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJBQBAAAgMIAYQAEAAABBBEJAhgIAAIAAJAgAAAAAAA=</HashCode>
+      <FileName>Service\Registry\fileregistry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.cRegistry" Collapsed="true">
+    <Position X="18" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAABAAACBhhgAABAEAAAAAAAgggAQCIAAEBAQEAAA=</HashCode>
+      <FileName>Service\Registry\registry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.cTargetRegistry" Collapsed="true">
+    <Position X="19.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CASAAAAAAEMAAAAAAAAAAAAAAAAIAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\Registry\targetregistry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.cWorkOrderRegistry" Collapsed="true">
+    <Position X="14.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAYAAMIAAAAAAAABALEBAgAAAAIAABAAAAAACAA=</HashCode>
+      <FileName>Service\Registry\workorderregistry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.cMD5Verifier" Collapsed="true">
+    <Position X="0.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\Verifiers\Security\md5.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.acSecurityVerifier" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\Verifiers\Security\security.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.cSHA1Verifier" Collapsed="true">
+    <Position X="2.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\Verifiers\Security\sha1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.cTokenVerifier" Collapsed="true">
+    <Position X="5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\Verifiers\Security\token.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.FileService.acVerifier" Collapsed="true">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAQAAAAAAAAQAAAgAARAAAAAAAAAAIAA=</HashCode>
+      <FileName>Service\Verifiers\verifier.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MetraTech.FileService.cWatcherExt" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIIgAA0wAGAAAaBCAAJgCAUCAApEAAIMKBABAQiAAAI=</HashCode>
+      <FileName>Service\watcher.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="MetraTech.FileService.IFileLandingEventHandler" Collapsed="true">
+    <Position X="14.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IFileSystemEventHandler.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="MetraTech.FileService.EState" Collapsed="true">
+    <Position X="14.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAACAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\Registry\registry.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MetraTech.FileService.EWhatChanged" Collapsed="true">
+    <Position X="16.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAQAAQAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\Registry\registry.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MetraTech.FileService.WatcherExtEventArgType" Collapsed="true">
+    <Position X="18" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAEQgAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Service\watcher.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="MetraTech.FileService.TargetWorkHandler" Collapsed="true">
+    <Position X="16.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\Registry\Entities\workorder.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="MetraTech.FileService.PathAvailabilityHandler" Collapsed="true">
+    <Position X="14.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\watcher.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="MetraTech.FileService.WatcherExtEventHandler" Collapsed="true">
+    <Position X="18" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\watcher.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

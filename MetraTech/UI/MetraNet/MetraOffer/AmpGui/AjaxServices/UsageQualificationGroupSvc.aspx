@@ -1,0 +1,1 @@
+<%@ Page Language="C#" AutoEventWireup="true" Inherits="AjaxServices_UsageQualificationGroupSvc" CodeFile="UsageQualificationGroupSvc.aspx.cs" %>

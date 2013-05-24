@@ -1,0 +1,159 @@
+#
+# TEST JAVASCRIPT ENCODER
+# Test one character encoding
+#
+# NOTE:
+# Enclosing strings in double quotes allows you to use escapings to represent ASCII and Unicode characters.
+# " and \ in payload need to be escaped!!!
+#
+
+---
+id: 1
+message: Less Than character JavaScript encoding
+payload: "<"
+expect:  "'\\x3c'"
+--- 
+id: 2
+message: Greater Than character JavaScript encoding
+payload: ">"
+expect:  "'\\x3e'"
+---
+id: 3
+message: Ampersand character JavaScript encoding
+payload: "&"
+expect:  "'\\x26'"
+---
+id: 4
+message: Number sign character JS encoding
+payload: "#"
+expect: "'\\x23'"
+---
+id: 5
+message: Dollar character JS encoding
+payload: "$"
+expect: "'\\x24'"
+---
+id: 6
+message: Percent character JS encoding
+payload: "%"
+expect: "'\\x25'"
+---
+id: 7
+message: Ampersand character JS encoding
+payload: "&"
+expect: "'\\x26'"
+---
+id: 8
+message: Asterisk character JS encoding
+payload: "*"
+expect: "'\\x2a'"
+---
+id: 9
+message: Left bracket character JS encoding
+payload: "("
+expect: "'\\x28'"
+---
+id: 10
+message: Right bracket character JS encoding
+payload: ")"
+expect: "'\\x29'"
+---
+id: 11
+message: Underscore character JS encoding
+payload: "_"
+expect: "'_'"
+---
+id: 12
+message: Plus character JS encoding
+payload: "+"
+expect: "'\\x2b'"
+---
+id: 13
+message: Semicolon character JS encoding
+payload: ";"
+expect: "'\\x3b'"
+---
+id: 14
+message: Hyphen precede character JS encoding
+payload: "-"
+expect: "'-'"
+---
+id: 15
+message: Colon character JS encoding
+payload: ":"
+expect: "'\\x3a'"
+---
+id: 16
+message: Equals character JS encoding
+payload: "="
+expect: "'\\x3d'"
+---
+id: 17
+message: Dot character JS encoding
+payload: "."
+expect: "'.'"
+---
+id: 18
+message: Double quote character JS encoding
+payload: "\""
+expect: "'\\x22'"
+---
+id: 19
+message: Backslash character JS encoding
+payload: "\\"
+expect: "'\\x5c'"
+---
+id: 20
+message: Slash character JS encoding
+payload: "/"
+expect: "'\\x2f'"
+---
+id: 21
+message: Question mark character JS encoding
+payload: "?"
+expect: "'\\x3f'"
+---
+id: 22
+message: Tilde character JS encoding
+payload: "~"
+expect: "'\\x7e'"
+---
+id: 23
+message: Left bracket character JS encoding
+payload: "["
+expect: "'\\x5b'"
+---
+id: 24
+message: Right bracket character JS encoding
+payload: "]"
+expect: "'\\x5d'"
+---
+id: 25
+message: Left brace character JS encoding
+payload: "{"
+expect: "'\\x7b'"
+---
+id: 26
+message: Right brace character JS encoding
+payload: "}"
+expect: "'\\x7d'"
+---
+id: 27
+message: Grave character JS encoding
+payload: "`"
+expect: "'\\x60'"
+---
+id: 28
+message: Space character JS encoding
+payload: " "
+expect: "' '"
+---
+id: 29
+message: Exclamation mark character JS encoding
+payload: "!"
+expect: "'\\x21'"
+---
+id: 30
+message: At character JS encoding
+payload: "@"
+expect: "'\\x40'"

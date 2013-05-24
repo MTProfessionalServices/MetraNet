@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{655E7BFD-6BAE-4263-B0EE-EF0FD19F2806}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetraTech.FileService</RootNamespace>
+    <AssemblyName>MetraTech.FileLandingService</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetZone>LocalIntranet</TargetZone>
+    <SignManifests>false</SignManifests>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\..\Build\keys\MetraTech.snk</AssemblyOriginatorKeyFile>
+    <PublishUrl>C:\inetpub\wwwroot\publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <Platform Condition="'$(Platform)'==''">x86</Platform>
+    <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>o:\MetraTech.FileLandingService.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\DataAccess\FileService\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>o:\MetraTech.FileLandingService.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\DataAccess\FileService\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Platform Condition="'$(Platform)'==''">x86</Platform>
+    <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Core.FileLandingService.Entity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Core.FileLandingService.Entity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Core.Interface, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Core.Interface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Core.UI.Entity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Core.UI.Entity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LinFu.DynamicProxy, Version=1.0.3.14911, Culture=neutral, PublicKeyToken=62a6874124340d6e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\LinFu.DynamicProxy.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MeterRowset.interop, Version=6.1.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MeterRowset.interop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.Enums.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\NHibernate.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.LinFu, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\NHibernate.ByteCode.LinFu.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\Build\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Build\VersionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Interfaces\IFileSystemEventHandler.cs" />
+    <Compile Include="Service\Common\filelock.cs" />
+    <Compile Include="Service\Error\errorcodes.cs" />
+    <Compile Include="Service\filenamefilter.cs" />
+    <Compile Include="Service\Registry\Entities\basicentity.cs" />
+    <Compile Include="Service\Registry\registry.cs" />
+    <Compile Include="Service\Registry\database.cs" />
+    <Compile Include="Service\Registry\targetregistry.cs" />
+    <Compile Include="Service\Registry\Entities\argument.cs" />
+    <Compile Include="Service\Registry\Entities\host.cs" />
+    <Compile Include="Service\Registry\Entities\reference.cs" />
+    <Compile Include="Service\Registry\Entities\service.cs" />
+    <Compile Include="Service\Common\filename.cs" />
+    <Compile Include="Service\Error\compilationexception.cs" />
+    <Compile Include="Service\Registry\fileregistry.cs" />
+    <Compile Include="Service\Registry\workorderregistry.cs" />
+    <Compile Include="Service\Verifiers\Security\md5.cs" />
+    <Compile Include="Service\Verifiers\Security\security.cs" />
+    <Compile Include="Service\Verifiers\Security\sha1.cs" />
+    <Compile Include="Service\Verifiers\Security\token.cs" />
+    <Compile Include="Service\Common\validation.cs" />
+    <Compile Include="Installer\fileserviceinstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Installer\fileserviceinstaller.Designer.cs">
+      <DependentUpon>fileserviceinstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service\fileservice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Service\fileservice.Designer.cs">
+      <DependentUpon>fileservice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="program.cs" />
+    <Compile Include="Service\Common\utilities.cs" />
+    <Compile Include="Service\Common\constants.cs" />
+    <Compile Include="Service\Common\singleton.cs" />
+    <Compile Include="Service\Verifiers\verifier.cs" />
+    <Compile Include="Service\Registry\Entities\target.cs" />
+    <Compile Include="Service\Registry\Entities\workorder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\Build\keys\MetraTech.snk">
+      <Link>MetraTech.snk</Link>
+    </None>
+    <None Include="Properties\app.manifest" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Scripts\fls.bat" />
+    <None Include="Scripts\installer.bat" />
+    <None Include="Service\Common\app.config" />
+    <None Include="Service\fileservice.cd" />
+    <None Include="Resources\Watcher_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Installer\fileserviceinstaller.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>fileserviceinstaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Service\fileservice.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>fileservice.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ActivityServices\Common\MetraTech.ActivityServices.Common.csproj">
+      <Project>{E80F2D42-759F-4B7D-95C6-D04C1500569F}</Project>
+      <Name>MetraTech.ActivityServices.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Basic\MetraTech.Basic.csproj">
+      <Project>{B0909156-962B-4C97-AB1C-4073E3DA6DC1}</Project>
+      <Name>MetraTech.Basic %28MetraTech.Basic\MetraTech.Basic%29</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BusinessEntity\Core\MetraTech.BusinessEntity.Core.csproj">
+      <Project>{B24AE6DC-D760-4835-80FE-53BF024AC59A}</Project>
+      <Name>MetraTech.BusinessEntity.Core</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BusinessEntity\DataAccess\MetraTech.BusinessEntity.DataAccess.csproj">
+      <Project>{D5FA3D3B-0457-4602-924A-371793668FD3}</Project>
+      <Name>MetraTech.BusinessEntity.DataAccess</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BusinessEntity\GenerateBMEAssemblies\GenerateBMEAssemblies.csproj">
+      <Project>{54FF611F-7227-44E0-AB36-F7CCCA822882}</Project>
+      <Name>GenerateBMEAssemblies</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Debug\Diagnostics\MetraTech.Debug.Diagnostics.csproj">
+      <Project>{DFD0BE07-801F-4535-B742-FED22E50FA0E}</Project>
+      <Name>MetraTech.Debug.Diagnostics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainModel\Common\MetraTech.DomainModel.Common.csproj">
+      <Project>{E21F8EE1-FA01-465E-B651-A21CC2E1D6AA}</Project>
+      <Name>MetraTech.DomainModel.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainModel\Enums\MetraTech.DomainModel.Enums.csproj">
+      <Project>{C36E2EB0-9715-48BB-81F4-6228C917E071}</Project>
+      <Name>MetraTech.DomainModel.Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainModel\GenerateDMAssemblies\GenerateDMAssemblies.csproj">
+      <Project>{6D53C578-C802-4882-9A87-FFEFD7A98D2E}</Project>
+      <Name>GenerateDMAssemblies</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech.Common.csproj">
+      <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
+      <Name>MetraTech.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Security\Crypto\MetraTech.Security.Crypto.csproj">
+      <Project>{3EE96BFD-837B-4FD1-A33D-69DFAA0D22CF}</Project>
+      <Name>MetraTech.Security.Crypto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Security\DPAPI\MetraTech.Security.DPAPI.csproj">
+      <Project>{6E3647DD-E2B4-49D7-B876-BB0CA6308659}</Project>
+      <Name>MetraTech.Security.DPAPI</Name>
+    </ProjectReference>    
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <Platform Condition="'$(Platform)'==''">x86</Platform>
+    <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
+  </PropertyGroup>
+</Project>

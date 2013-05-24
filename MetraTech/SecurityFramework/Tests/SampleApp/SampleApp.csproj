@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6CD18A32-A173-43AD-8934-609AAAF7252F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SampleApp</RootNamespace>
+    <AssemblyName>SampleApp</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\SecurityFramework\Tests\SampleApp\</BaseIntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\SecurityFramework\Tests\SampleApp\</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MetraTech.Core.Services.ClientProxies">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Core.Services.ClientProxies.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.AccountTypes.Generated">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.AccountTypes.Generated.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.ProductCatalog.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.ProductCatalog.Generated.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Schema.ScriptDom, Version=9.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External\Microsoft\Bin\Microsoft.Data.Schema.ScriptDom.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Schema.ScriptDom.Sql, Version=9.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External\Microsoft\Bin\Microsoft.Data.Schema.ScriptDom.Sql.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files\Microsoft Visual Studio 10.0\Common7\IDE\PublicAssemblies\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DetectorExpressionsTest.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="..\..\..\..\Build\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Services\MetraTech.Core.Services.csproj">
+      <Project>{65B81F93-929C-4AE5-B4E7-18DA882E1DA5}</Project>
+      <Name>MetraTech.Core.Services</Name>
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DomainModel\BaseTypes\MetraTech.DomainModel.BaseTypes.csproj">
+      <Project>{433B0483-4990-476C-BA07-FABF884D12CB}</Project>
+      <Name>MetraTech.DomainModel.BaseTypes</Name>
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DomainModel\ProductCatalog\MetraTech.DomainModel.ProductCatalog.csproj">
+      <Project>{43A73CF5-A0CC-431F-B626-E88904600162}</Project>
+      <Name>MetraTech.DomainModel.ProductCatalog</Name>
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Utils\MetraTech.SecurityFramework.Core.Common\MetraTech.SecurityFramework.Core.Common.csproj">
+      <Project>{5F3C91E8-1EAE-4C6F-AEA6-41827170BFBD}</Project>
+      <Name>MetraTech.SecurityFramework.Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\SecurityFramework.csproj">
+      <Project>{77E6F668-6AAA-4914-93EC-CAD76C58787F}</Project>
+      <Name>SecurityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech.Security.Common\MetraTech.Security.Common.csproj">
+      <Project>{D0641538-CD87-42B5-847D-62DF558A2D76}</Project>
+      <Name>MetraTech.Security.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech.SecurityFramework.Serialization\MetraTech.SecurityFramework.Serialization.csproj">
+      <Project>{94F6B7E7-5235-48C2-9AEA-C85A2C4FC6C3}</Project>
+      <Name>MetraTech.SecurityFramework.Serialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ActivityServices\Common\MetraTech.ActivityServices.Common.csproj">
+      <Project>{E80F2D42-759F-4B7D-95C6-D04C1500569F}</Project>
+      <Name>MetraTech.ActivityServices.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\Services\MetraTech.Core.Services.csproj">
+      <Project>{65B81F93-929C-4AE5-B4E7-18DA882E1DA5}</Project>
+      <Name>MetraTech.Core.Services</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="R:\config\Security\mtpassword.xml">
+      <Link>mtpassword.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="R:\config\Security\mtsecurity.xml">
+      <Link>mtsecurity.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

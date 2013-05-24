@@ -1,0 +1,311 @@
+<xmlconfig xmlns="urn:dbmp-config-schema" >
+	<!-- Define the Sleep time, Increment time, Retries for the error code-->
+	<ErrorHandling>
+		<ErrorHandlingProps>
+			<ErrorCode>-516947930</ErrorCode><!-- Server Busy - Routing Queue -->
+			<NoOfRetries>5</NoOfRetries>
+			<SleepTime>20</SleepTime><!-- in seconds -->
+			<SleepIncrement>10</SleepIncrement><!-- in seconds -->
+			<!--<ErrorMsg></ErrorMsg>-->
+		</ErrorHandlingProps>
+		<ErrorHandlingProps>
+			<ErrorCode>-516947931</ErrorCode><!-- Synchronous Timeout error -->
+			<NoOfRetries>5</NoOfRetries>
+			<SleepTime>20</SleepTime><!-- in seconds -->
+			<SleepIncrement>10</SleepIncrement><!-- in seconds -->
+			<ErrorMsg></ErrorMsg>
+		</ErrorHandlingProps>
+	</ErrorHandling>
+	
+	<!--This tag used to set instructions to program before starting the metering
+	1. Ignore (don't apply updates but leave the data intact): Neither it updates the service table nor truncates the status table
+	2. Discard (don't apply updates and truncate the table before resuming metering): Truncates the status table
+	3. Apply (apply updates, then truncate):Updates the service table from status table and trucates the status table
+	-->
+	<StatusUpdateMode>1</StatusUpdateMode>
+	<!--This will be appended to Service Table name to generate the status table name-->
+	<StatusTableSuffix>_Status</StatusTableSuffix>
+	
+	<!-- Version of the Metering Client -->
+	<version ptype="INTEGER">1</version>
+	<!-- The Last Metered Time is updated when the metering client is executed. The value is represented in local time. 
+	-->
+	<lastMeteredTime ptype="DATETIME">2003-12-29T16:36:08</lastMeteredTime>
+	
+	<!-- The local time zone of the sdk machine. Dates will be converted to GMT before metering -->
+	<localTimeZone>Eastern Standard Time</localTimeZone>
+	
+	<!-- Number of Grace Days before a record can be collected for metering. Only valid if Batch Criteria 
+		 is Timestamp. The selection criteria will be something like this:
+		 LastMeteredTime <= TransactionTimestamp < Today's Date - GraceDays + 1 day + "00:00:00"
+	-->
+	<graceDays ptype="INTEGER">0</graceDays>
+	<!-- Interactive mode will stop processing when an error is found. Non-Interactive (or Batch) will try 
+		 to continue processing after an error
+	-->
+	<interactive ptype="BOOL">N</interactive>
+	<!-- Use Defaults will assign the default values specified in this file to a session property if the 
+		 source value is null 
+	-->
+	<useDefaults ptype="BOOL">N</useDefaults>
+	<!-- Batch Criteria: Specifies 1 of 3 methods to select records for a batch:
+			- All: Sends all the records found in the tables. Requires the data source to be cleaned after 
+			       every batch.
+			- Flag: Uses a field in the table to flag records with a metering status. Requires the ability
+				    to perform updates in the data source.
+			- Timestamp: Uses a timestamp field in a record to determine if it has to be sent. Only requires
+			       Read-Only access to the data source.
+	-->
+	<batchCriteria>Flag</batchCriteria>
+	
+	<!-- -->
+	<connectivityretry>FALSE</connectivityretry>
+  <!-- -->
+  <numberOfOutStandingThreads>100</numberOfOutStandingThreads>
+
+	<Timestamp>
+		<!-- Specifies the mode for the timestamp. Whether to retrieve the timestamp from the file or from 
+		     the database. It can have two values 'File' or 'DB'
+		-->
+		<Mode>DB</Mode>
+		<!-- Will be used to retrieve the timestamp value if the Mode is set to 'File' -->
+		<StartMeteringTime>2004-10-02T16:36:08</StartMeteringTime>
+		<!-- Specifies the database settings for retrieving/updating the timestamp value, if mode is set to 'DB'.
+			 Should be defined if Mode is set to 'DB', else can be ignored.
+		-->
+		<DBSettings>
+			<TableName>tblTimestamp</TableName>
+			<ColumnName>startmeteringtime</ColumnName>
+		</DBSettings>
+	</Timestamp>
+	<!-- Specifies whether the client should go to local mode if a connection error is detected.
+		 Comment out this section to disable local mode.
+		 This tag <LocalMode> can be skipped as LocalMode metering is not supported 
+	
+	<LocalMode>
+		<LocalModeFile>sdklocalmode.xml</LocalModeFile>
+		<MeterJournalFile>sdkjournal.dat</MeterJournalFile>
+	</LocalMode>
+	
+		The log files keeps a record of all processing done by the metering client. The log levels affect the level of
+		verbosity. Logging at given level will log messages from that level and lower levels.
+			1 = Fatal Errors
+			2 = Errors
+			3 = Warnings
+			4 = Information messages
+			5 = Debug messages
+	-->
+	<loggingConfig>
+		<logFileName>sdklog.txt</logFileName>
+		<logLevel ptype="INTEGER">5</logLevel>
+	</loggingConfig>
+
+	<!-- Define Metering Database server here -->
+	<DatabaseConfig>
+		<!-- SQL -->
+		<DatabaseType>Mssql</DatabaseType>
+		<Provider>sqloledb</Provider>
+		<!-- Sybase
+		<DatabaseType>Sybase</DatabaseType>
+		<Provider>Sybase ASE OLE DB Provider</Provider>
+		-->
+		<DataServer>myserver</DataServer>
+		<DataBase>NetMeterClient</DataBase>
+		<UserName>sa</UserName>
+		<Password></Password>
+		<!-- Setting the mode of connection Connected(DataReader) and DisConnected(DataSet)-->
+		<ConnectedMode>True</ConnectedMode>
+		<!-- Timeout value for the command object. Don't set it to 0 -->
+		<CommandTimeout>600</CommandTimeout><!--in seconds -->
+		<LockTable>TRUE</LockTable> 
+		<!-- Name1=Value1;Name2=Value2;Name3=Value3 ... -->
+		<AppendToConnectionString></AppendToConnectionString>
+	</DatabaseConfig>
+
+	<!--
+		Indicates Session Context Settings for Auth / Auth.
+		Priority is set to:
+		1) Checks for whether SerializedContextStr is defined.
+		2) If SerializedContextStr is not defined and UserName/password is present, try to retrieve the 
+		   Security context from the server. If receives the not null string, meters with that Security context.
+		3) If fails (either not able to connect to server r recives the null string), Meters with UserName/Password defined.
+		4) If nothing has been defined, set the bSessionContextDefined flag to false (in the code). Meters the data 
+		   without setting the auth parameters.
+	-->
+	<SessionContext>
+		<UserName>su</UserName>
+		<NameSpace>system_user</NameSpace>
+		<Password>su123</Password>	
+		<SerializedContextStr>PPjxyb2xlcy8+PGNvbXBvc2l0ZWNhcGFiaWxpdGllcz48Y29tcG9zaXRlY2FwYWJpbGl0eT48bmFtZT5VbmxpbWl0ZWQgQ2FwYWJpbGl0eTwvbmFtZT48cHJvZ2lkPk1ldHJhdGVjaC5NVEFsbENhcGFiaWxpdHk8L3Byb2dpZD48ZGJpZD4xPC9kYmlkPjwvY29tcG9zaXRlY2FwYWJpbGl0eT48L2NvbXBvc2l0ZWNhcGFiaWxpdGllcz48L3NlY3VyaXR5Y29udGV4dD4=</SerializedContextStr>
+		<!-- This tag <ServerSettings> must be defined. Can be set to blank if no request to be made to server
+		     for retrieving the Security context.
+		 -->
+		<ServerSettings>
+			<!--This tag <ServerData> can be skipped if no request to be sent to server	-->
+			
+			<ServerData>
+				<serveraddress>raghu</serveraddress>
+				<port ptype="INTEGER">80</port>
+				<priority ptype="INTEGER">3</priority>
+				<secure ptype="BOOLEAN">false</secure>
+				<meteringuid />
+				<meteringpwd />
+				<sdkdebuglevel ptype="INTEGER">0</sdkdebuglevel>
+				<transmitinterval ptype="INTEGER">0</transmitinterval>
+			</ServerData>
+
+		</ServerSettings>
+	</SessionContext>
+
+
+	<!-- Indicate any prefixes used in the datasource for tables or columns names -->
+	<TablePrefix>MT_</TablePrefix>
+	<ColumnPrefix>c_</ColumnPrefix>
+	<BatchNamePrefix>BATCH</BatchNamePrefix>
+	<BatchNamespace>batch</BatchNamespace>
+	<!-- HTTP Settings -->
+	<httptimeout ptype="INTEGER">30</httptimeout>
+	<httpretries ptype="INTEGER">9</httpretries>
+	<!-- Metering servers -->
+	<MeteringServers>	
+		<ServerData>
+			<serveraddress>localhost</serveraddress>
+			<port ptype="INTEGER">80</port>
+			<priority ptype="INTEGER">0</priority>
+			<secure ptype="BOOLEAN">false</secure>
+			<meteringuid />
+			<meteringpwd />
+			<sdkdebuglevel ptype="INTEGER">0</sdkdebuglevel>
+			<transmitinterval ptype="INTEGER">0</transmitinterval>
+
+		</ServerData>
+
+	</MeteringServers>
+	<!-- List of services to be metered. Each service called "domain.com/ServiceName" will look for a 
+		 table called "TablePrefixServiceName". For example, if TablePrefix is set to "T_" and a service 
+		 name is "metratech.com/AudioConfCall", the metering program will look for a table called 
+		 "T_AudioConfCall". 
+	-->
+	<Services>
+		<ServiceData>
+			<ServiceName>metratech.com/audioconfcall</ServiceName>
+			<SynchronousService ptype="BOOL">true</SynchronousService>
+			
+			<!-- Indicate the maximum number sessions that a session set can hold -->
+			<MaxSessionSet>15</MaxSessionSet>
+			<FailureRetries>0</FailureRetries>
+			<ServiceCriteriaField>
+				<CriteriaField>
+					<ptype>
+						<dn>MeteringStatus</dn>
+						<type>string</type>
+						<length />
+						<required>N</required>
+						<defaultvalue />
+					</ptype>
+				</CriteriaField>
+			</ServiceCriteriaField>
+			
+			<!-- BatchIdentification Section specifies the batch id in the table/view. Both BatchID and 
+					BatchNamespace tags should always be present.
+			-->	     			
+			<BatchIdentification>
+				<BatchID>
+					<ptype>
+						<dn>MTBatchID</dn>
+						<type>string</type>
+						<length>255</length>
+						<required>Y</required>
+						<defaultvalue />
+					</ptype>				
+				</BatchID>
+
+				<BatchNamespace>
+					<ptype>
+						<dn>MTBatchNamespace</dn>
+						<type>string</type>
+						<length>50</length>
+						<required>Y</required>
+						<defaultvalue />
+					</ptype>				
+				</BatchNamespace>
+			</BatchIdentification>
+			
+			<!-- Defines the columns to be updated in the service data table after records have been sent. -->
+			<SpecialFieldsToUpdate>
+				<SentTime>
+					<ptype>
+					<dn>MTSentTime</dn> 
+					<type>datetime</type> 
+					<length></length> 
+					<required>Y</required> 
+					<defaultvalue /> 
+					</ptype>
+				</SentTime>
+				
+				<ErrorMesg>
+					<ptype>
+					<dn>MTErrorMesg</dn> 
+					<type>string</type> 
+					<length>255</length> 
+					<!--  Error Message Length 255 assumed in the program --> 
+					<required>Y</required> 
+					<defaultvalue /> 
+					</ptype>
+				</ErrorMesg>
+			</SpecialFieldsToUpdate>
+			
+			<ServicePrimaryKey>
+					<ptype>
+						<dn>ConferenceID</dn>
+						<type>string</type>
+						<length>15</length>
+						<required>Y</required>
+						<defaultvalue />
+					</ptype>
+			</ServicePrimaryKey>
+
+			
+			<ServiceProperties>
+			<!-- Added support for Inlining MSIXDEF references. If the following tag exists, the DB 
+				 Metering client will attempt to load and parse the MSIXDEF file (assuming current 
+				 directory unless fully specified)and it will IGNORE THE FOLLOWING PTYPE Tags if any. 
+				 This can be repeated for children as well.
+			-->
+				<servicedefinitionfile>audioConfCall.msixdef</servicedefinitionfile>
+			
+			</ServiceProperties>
+
+			<ServiceChild>
+				<ServiceName>metratech.com/audioconfconnection</ServiceName>
+				<SynchronousService ptype="BOOL">true</SynchronousService>
+			
+				<!-- Indicate the maximum number sessions that a session set can hold -->
+				<MaxSessionSet>5</MaxSessionSet>
+
+			
+				<ServiceProperties>
+				<!-- Added support for Inlining MSIXDEF references. If the following tag exists, the DB 
+				     Metering client will attempt to load and parse the MSIXDEF file (assuming current 
+				     directory unless fully specified)and it will IGNORE THE FOLLOWING PTYPE Tags if any. 
+				     This can be repeated for children as well.
+				-->
+					<servicedefinitionfile>audioConfConnection.msixdef</servicedefinitionfile>
+			
+				</ServiceProperties>
+			</ServiceChild>
+
+
+			<ServiceChild>
+				<ServiceName>metratech.com/audioconffeature</ServiceName>
+				<SynchronousService ptype="BOOL">false</SynchronousService>	
+				<MaxSessionSet>5</MaxSessionSet>
+			
+				<ServiceProperties>
+					<servicedefinitionfile>audioConffeature.msixdef</servicedefinitionfile>	
+				</ServiceProperties>
+			</ServiceChild>
+		
+		</ServiceData>
+	</Services>
+</xmlconfig>

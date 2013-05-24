@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="MetraTech.SecurityFramework.SwitchRule">
+    <Position X="2.5" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAQQAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Subsystems\Processor\SwitchRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.SecurityFramework.StopRule" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAQQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Subsystems\Processor\StopRule.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MetraTech.SecurityFramework.SequenceRule">
+    <Position X="5.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAQQAAAAAAAAAAAAAAAEAQAAAAAAgAAg=</HashCode>
+      <FileName>Subsystems\Processor\SequenceRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.SecurityFramework.RuleBase">
+    <Position X="2.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAQQAAAAAAAAEAAgAAAAAAAAAAA0AAAA=</HashCode>
+      <FileName>Subsystems\Processor\RuleBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MetraTech.SecurityFramework.ProcessorEngine">
+    <Position X="11" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AgAAAEAAAAAABRIAAAAgAIAAACgIAAAAgAAAEBECAAA=</HashCode>
+      <FileName>Subsystems\Processor\ProcessorEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.SecurityFramework.Case">
+    <Position X="8" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAiAAACAAAAAAAAAAAAQABAgAAgAAg=</HashCode>
+      <FileName>Subsystems\Processor\Case.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetraTech.SecurityFramework.SwitchRuleEx">
+    <Position X="5.5" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAQQAAAAAAAAAAAAAAAEAAAAAAAAgAAg=</HashCode>
+      <FileName>Subsystems\Processor\SwitchRuleEx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="MetraTech.SecurityFramework.IRule">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAQQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Subsystems\Processor\IRule.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="MetraTech.SecurityFramework.OperationType">
+    <Position X="8.5" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAIgAAAAAAIAAAgAAAAAAAAAAAAAAAAAAAAAUQAAQ=</HashCode>
+      <FileName>Subsystems\Processor\OperationType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

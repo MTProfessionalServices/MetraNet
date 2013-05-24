@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)'==''">Debug</Configuration>
+    <Platform Condition="'$(Platform)'==''">x86</Platform>
+    <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{cac1cb5f-fb08-462d-a680-6f6c6580f5ad}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetraTech.Test.Plugins</RootNamespace>
+    <AssemblyName>MetraTech.Test.Plugins</AssemblyName>
+    <MinFrameworkVersionRequired>3.0</MinFrameworkVersionRequired>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\..\build\keys\metratech.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <NoWarn>1591, 0618</NoWarn>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\Test\Plugins</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin</OutputPath>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <NoWarn>1591, 0618</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\Test\Plugins</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MTPipelineLib.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTPipelineLib.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="NameID.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\NameID.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="SysContext.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\SysContext.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\build\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\build\versionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="SimpleTestPlugin.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\build\keys\metratech.snk">
+      <Link>metratech.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MetraTech.Common.csproj">
+      <Project>{f03ef01b-1630-428c-b6b5-a7648d1ace2c}</Project>
+      <Name>MetraTech.Common</Name>
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Pipeline\PlugIns\MetraTech.Pipeline.PlugIns.csproj">
+      <Project>{b0b168db-fa33-4c38-92ef-434af20391a1}</Project>
+      <Name>MetraTech.Pipeline.PlugIns</Name>
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Pipeline\SessServer\MetraTech.Pipeline.SessServer.vcxproj">
+      <Project>{226cec91-b742-4a59-a54a-5b2baa83945f}</Project>
+      <Name>MetraTech.Pipeline.SessServer</Name>
+      <Private>false</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent>regasm.exe /nologo /silent /codebase $(OutDir)$(TargetName).dll /tlb:$(MTOUTDIR)\$(Configuration)\Include\$(TargetName).tlb</PostBuildEvent>
+  </PropertyGroup>
+</Project>

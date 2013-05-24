@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:nhibernate-mapping-2.2">
+  <meta attribute="category">System</meta>
+  
+  <sql-query name="GetColumnMetadataForSql">
+    <return-scalar column="TableName" type="string"/>
+    <return-scalar column="ColumnName" type="string"/>
+    <return-scalar column="DbTypeName" type="string"/>
+    <return-scalar column="MaxLength" type="int"/>
+    <return-scalar column="Precision" type="int"/>
+    <return-scalar column="Scale" type="int"/>
+    <return-scalar column="NullableFlag" type="int"/>
+    <return-scalar column="PrimaryKeyFlag" type="int"/>
+    <return-scalar column="UniqueFlag" type="int"/>
+    exec GetColumnMetadata :tableNames , :separator
+  </sql-query>
+
+  <sql-query name="GetColumnMetadataForOracle">
+    <return-scalar column="TableName" type="string"/>
+    <return-scalar column="ColumnName" type="string"/>
+    <return-scalar column="DbTypeName" type="string"/>
+    <return-scalar column="MaxLength" type="int"/>
+    <return-scalar column="Precision" type="int"/>
+    <return-scalar column="Scale" type="int"/>
+    <return-scalar column="NullableFlag" type="int"/>
+    <return-scalar column="PrimaryKeyFlag" type="int"/>
+    <return-scalar column="UniqueFlag" type="int"/>
+    { call GetColumnMetadata(:tableNames, :separator) }
+  </sql-query>
+  
+  <sql-query name="GetTableNamesForSql">
+    <return-scalar column="TableName" type="string"/>
+    SELECT tbl.name TableName
+    from sys.tables tbl
+    inner join sys.columns col
+     on col.object_id = tbl.object_id
+    inner join sys.index_columns ic
+     on ic.object_id = col.object_id and
+        ic.column_id = col.column_id
+    inner join sys.indexes i
+    on i.object_id = ic.object_id and
+       i.index_id = ic.index_id
+    where i.is_primary_key = 1 and
+          tbl.name not like 't_be%' and
+          tbl.name not like 't_svc%' and
+          tbl.name not like 'tmp_%' and
+          tbl.name not like '%_tmp_%'
+    group by tbl.name
+  </sql-query>
+
+  <sql-query name="GetTableNamesForOracle">
+    <return-scalar column="TableName" type="string"/>
+    select tbl.table_name TableName
+    from user_tables tbl
+    inner join user_constraints cons
+    on cons.table_name = tbl.table_name
+    where cons.constraint_type = 'P' and
+    tbl.table_name not like 'T_SVC%' and
+    tbl.table_name not like 'T_BE%' and
+    tbl.table_name not like 'TMP_%' and
+    tbl.table_name not like '%_TMP_%'
+    order by tbl.table_name
+  </sql-query>
+ 
+
+
+</hibernate-mapping>
+

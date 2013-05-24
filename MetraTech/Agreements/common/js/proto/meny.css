@@ -1,0 +1,138 @@
+
+/**
+ * The CSS in this file is for styling the demo page, 
+ * Meny's critical styles (such as transforms) are applied
+ * via JavaScript.
+ *
+ * See the documentation here: https://github.com/hakimel/meny#meny
+ *
+ * @author Hakim El Hattab | http://hakim.se
+ */
+
+html, 
+body {
+	height: 100%;
+	overflow: hidden;
+  background: #000;
+}
+
+.meny {
+	display: none;
+	padding: 20px;
+	overflow: auto;
+
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+
+/**
+ * Hint graphic that appears while menu is inactive
+ */
+.meny-arrow {
+	position: absolute;
+	z-index: 10;
+
+	border: 10px solid transparent;
+
+	-webkit-transition: opacity 0.4s ease 0.4s; 
+	   -moz-transition: opacity 0.4s ease 0.4s; 
+	    -ms-transition: opacity 0.4s ease 0.4s; 
+	     -o-transition: opacity 0.4s ease 0.4s; 
+	        transition: opacity 0.4s ease 0.4s;
+}
+	.meny-left .meny-arrow {
+		left: 14px;
+		top: 50%;
+		margin-top: -16px;
+		border-left: 16px solid #333;
+	}
+
+	.meny-active .meny-arrow {
+		opacity: 0;
+
+		-webkit-transition: opacity 0.2s ease; 
+		   -moz-transition: opacity 0.2s ease; 
+		    -ms-transition: opacity 0.2s ease; 
+		     -o-transition: opacity 0.2s ease; 
+		        transition: opacity 0.2s ease;
+	}
+
+/**
+ * Main contents area
+ */
+.contents {
+	background: #fff url(../../img/ui/curl.jpg) no-repeat 0 0;
+  padding-left: 15px;
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+
+		/* Secondary Nav from style.css */
+		.nav-section {
+			padding: 1em 0;
+		}
+			.nav-section h3 {
+				color: #777;
+				font-size: 100%;
+				letter-spacing: 0.07em;
+				margin: 0 0 0.25em;
+				padding: 0.25em 10px;
+				text-transform: uppercase;
+			}
+			.nav-section ul {
+				margin: 0 0 0.5em 0;
+			}
+				.nav-section li {
+					border-bottom: solid 1px #f2f2f2;
+					margin: 0;
+					padding: 5px 20px;
+					position: relative;
+				}
+				.nav-section li.active {
+					background: #008EC3 url(../img/bg/grad_ltr_k10_5px.png) repeat-y right top;
+					text-shadow: 0 1px 0 #000;
+				}
+					.nav-section li a {
+						color: #CCC;
+						text-decoration: none;
+            transition: color .15s ease-in-out;
+            -o-transition: color .15s ease-in-out;
+            -moz-transition: color .15s ease-in-out;
+            -webkit-transition: color .15s ease-in-out;            
+					}
+					.nav-section li a:hover, .nav-section li a:active {
+						color: #fff;
+					}
+					.nav-section li.active a {
+						color: #fff;
+					}
+			
+			/* Main secondary navigation */
+			.nav-section .primary {
+				padding-bottom: 1em;
+			}
+				.nav-section .primary li {
+					border: none;
+					font-size: 108%;
+         transition: background .15s ease-in-out;
+         -o-transition: background .15s ease-in-out;
+         -moz-transition: background .15s ease-in-out;
+         -webkit-transition: background .15s ease-in-out;
+				}
+					.nav-section .primary li a {
+						font-weight: bold;
+					}
+
+/* 
+.nav-section .primary li:hover {
+background: #DDD;
+color: 444;
+}          */

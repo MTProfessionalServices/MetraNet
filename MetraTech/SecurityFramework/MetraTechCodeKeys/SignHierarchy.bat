@@ -1,0 +1,2 @@
+pvk2pfx -pvk %ROOTDIR%\build\keys\MetraTech.pvk -spc %ROOTDIR%\build\keys\MetraTech.spc -pi MetraTech2 -pfx %ROOTDIR%\build\keys\MetraTech.pfx -f
+signtool sign /f %ROOTDIR%\build\keys\MetraTech.pfx /p MetraTech2 /t http://timestamp.verisign.com/scripts/timstamp.dll /v %OUTDIR%\%VERSION%\bin\MetraTech.Accounts.Hierarchy.ClientControl.dll

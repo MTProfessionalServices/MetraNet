@@ -1,0 +1,37 @@
+#
+# TEST HTML ENTITIES DECODER
+# Test one character decoding
+#
+# NOTE:
+# Enclosing strings in double quotes allows you to use escapings to represent ASCII and Unicode characters.
+# " and \ in payload need to be escaped!!!
+#
+
+
+#-	XML decoder;
+
+id: 1
+message: The amp character Xml entities positive decoding
+payload: "&amp;&#x26;&#38;&#x026;&#038;"
+expect: "&&&&&"
+---
+id: 2
+message: The quot character Xml entities positive decoding
+payload: "&quot;&#x22;&#34;&#x022;&#034;"
+expect: "\"\"\"\"\""
+---
+id: 3
+message: The apos character Xml entities positive decoding
+payload: "&apos;&#x27;&#39;&#x027;&#039;"
+expect: "'''''"
+---
+id: 4
+message: The lt character Xml entities positive decoding
+payload: "&lt;&#x3C;&#60;&#x03C;&#060;"
+expect: "<<<<<"
+---
+id: 5
+message: The gt character Xml entities positive decoding
+payload: "&gt;&#x3E;&#62;&#x03E;&#062;"
+expect: ">>>>>"
+

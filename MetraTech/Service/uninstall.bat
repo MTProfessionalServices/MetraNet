@@ -1,0 +1,1 @@
+installutil -u O:\debug\bin\mtservices.exe

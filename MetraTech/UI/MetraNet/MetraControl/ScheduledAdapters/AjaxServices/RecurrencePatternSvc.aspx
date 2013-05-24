@@ -1,0 +1,1 @@
+<%@ Page Language="C#" AutoEventWireup="true" Inherits="AjaxServices_RecurrencePatternSvc" CodeFile="RecurrencePatternSvc.aspx.cs" meta:resourcekey="PageResource1" %>

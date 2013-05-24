@@ -1,0 +1,47 @@
+
+#divRssReleaseAnnouncements {
+  width:99%;
+  min-height:100px;
+  overflow:auto;
+  padding: 0px 0px 3px 5px;
+  background-color:#FFF;
+  margin:0px auto;
+  overflow-x: hidden;
+
+}
+#divRssServiceAnnouncements {
+  width:100%;
+  min-height:100px;
+  max-height:200px;
+  overflow-x: hidden;
+  padding: 0px 0px 3px 0px;
+	background-color: none;
+	margin:0px auto;
+	
+
+}
+
+.ItemTitle{
+ font-weight:bold;
+ margin: 0px;
+ padding-top:3px;
+}
+.ItemTitle a{ color:#4EBAFF; text-decoration:none }
+.ItemTitle a:hover{ text-decoration:underline }
+
+.ItemContent{
+ padding:1px 3px 3px 3px;
+ border-bottom:1px solid #D3CAD7;
+ color:#ddd;
+ width: 99%;
+}
+.ItemDate{
+ font-size:11px;
+ color:#AAA;
+ margin-bottom: 5px;
+}
+#RssLink
+{
+ margin:5px 0px 0px 0px;
+ padding-top:3px;
+}

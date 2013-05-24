@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xmlconfig>
+	<reportfielddef delimiter=",">
+		<header>
+			<field name="description" length="30" datatype="string" padchar=" " value="Call Information" />
+			<field name="filler" value="0" datatype="string" length="4" padchar="0" />
+			<field name="start_dt" value="%%START_DATE%%" datatype="datetime" format="YYMMDD" />
+			<field name="end_dt" value="%%END_DATE%%" datatype="datetime" format="YYMMDD" />
+			<field name="sign" value="$" length="4" datatype="string" padchar=" " align="right" />
+			<field name="filler" value=" " length="114" datatype="string" padchar=" " />
+		</header>
+		<outputfields>
+			<field name="Customer_Account_No" datatype="int" nopad="True"/>
+			<field name="User_Id" datatype="int" nopad="True" />
+			<field name="ServiceIndicator" length="1" nopad="true" /> <!-- Service indicator always 1 space-->
+			<field name="BillCode" length="21" datatype="string" padchar=" " align="left" />
+			<field name="SubmitDate" datatype="datetime" format="DDMMYY" />
+			<field name="SubmitTime" datatype="none" length="4" />
+			<field name="SequenceNumber" datatype="int" length="5" padchar="0" align="right" /> <!-- always "1" - displayed as "00001" -->
+			<field name="DeliveryFailedIndicator" datatype="bool" format="0/1" />
+			<field name="JobNumber" datatype="int" length="7" />
+			<field name="ServiceDescription" datatype="none" length="7" /> <!--always "service"-->
+			<field name="BillingCode" datatype="none" length="5" /> <!-- always "bcode" -->
+			<field name="Destination" datatype="none" length="12" padchar=" " align="left" />
+			<field name="DestinationMailBoxNumber" datatype="int" length="8" /> <!-- always "00000000" -->
+			<field name="DestinationDescription" datatype="none" nopad="True" />
+			<field name="Duration" datatype="int" length="7" padchar="0" align="right" />
+			<field name="CharacterUsed" datatype="none" length="8" nopad="true" /> <!-- always "00000000" -->
+			<field name="ChargedUnits" datatype="none" length="4"  nopad="true" /> <!-- always "0000" -->
+			<field name="Charge" datatype="decimal" length="7" format="N2" padchar="0" align="right" />
+			<field name="Discount" datatype="none" length="7" /> <!-- always "0000000" -->
+			<field name="CustomerReference" datatype="none" length="5" nopad="true" />
+			<field name="ChargeBase" datatype="none" length="1" /> <!-- always "T" -->
+			<field name="MessageProtocolUnit" datatype="none" length="32" nopad="true"  /> <!-- always "messageprotocoldataunit       32" -->
+			<field name="RecipientSequence" datatype="int" length="6" align="right" padchar="0"/> <!-- always "1" - gets displayed as "000001" -->
+			<field name="filler" length="2" />
+		</outputfields>
+		<trailer>
+			<field name="TOTALROWS" datatype="string" length="7" padchar="0" align="right" /> 
+			<field name="filler" value=" " datatype="string" padchar=" " length="155" />
+			<field name="filler" datatype="string"  padchar=" " value=" " />
+		</trailer>
+	</reportfielddef>
+</xmlconfig>
+
+<!--
+	System variables: 
+	TOTALROWS - will be replaced with total number of output data rows written to file 
+	filler - will automatically create a " " and extend this to the length specified
+	%%<value>%% - will automatically cause the framework to look for value for this in the Parameter list of the report definition
+	Hard Coded "value" tag may only be used in the header and trailer fields.
+	for data fields, hard code these in the SQL Query.
+
+
+-->

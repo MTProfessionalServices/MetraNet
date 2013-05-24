@@ -1,0 +1,20 @@
+#
+# TEST SQL FALSE POSITIVES
+# These payloads should not be detected as SQL injections
+#
+# NOTE:
+# Enclosing strings in double quotes allows you to use escapings to represent ASCII and Unicode characters.
+# " and \ in payload need to be escaped!!!
+#
+
+---
+# Normal text
+id: 1
+message: Normal text
+payload: "My input one"
+
+---
+# Classic SQL injection false positive for Irish names
+id: 2
+message: Classic SQL injection false positive for Irish names
+payload: "Mike O'Brian"

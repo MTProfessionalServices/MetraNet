@@ -1,0 +1,6 @@
+﻿CREATE TABLE Subsystem
+(
+	ID INTEGER NOT NULL,
+	Name TEXT NOT NULL,
+	CONSTRAINT PK_Subsystem PRIMARY KEY (ID)
+);

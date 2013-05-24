@@ -1,0 +1,18 @@
+﻿<ns0:MTSequentialWorkflowActivity x:Class="MetraTech.Core.Workflows.ApplyTemplateWorkflow" x:Name="ApplyTemplateWorkflow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow" xmlns:ns1="clr-namespace:MetraTech.Core.Services.ProxyActivities;Assembly=MetraTech.Core.Services.ProxyActivities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75" xmlns:ns2="clr-namespace:MetraTech.Account.ProxyActivities;Assembly=MetraTech.Account.ProxyActivities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:MetraTech.ActivityServices.Activities;Assembly=MetraTech.ActivityServices.Activities">
+	<CodeActivity x:Name="ValidateTemplateInfoActivity" ExecuteCode="codeActivity1_ExecuteCode" />
+	<ns1:AccountTemplateService_GetTemplateDefForAccountType_ClientActivity Out_template="{ActivityBind ApplyTemplateWorkflow,Path=m_TemplateDefinition}" x:Name="accountTemplateService_GetTemplateDefForAccountType_ClientActivity1" In_templateAccount="{ActivityBind ApplyTemplateWorkflow,Path=RootAccount}" In_effectiveDate="{ActivityBind ApplyTemplateWorkflow,Path=EffectiveDate}" In_accountType="{ActivityBind ApplyTemplateWorkflow,Path=AccountType}" In_inheritAnscestorProperties="False" />
+	<CodeActivity x:Name="GetDescendentsAndPrepareUpdates" ExecuteCode="GetDescendentsAndPrepareUpdates_ExecuteCode" />
+	<TransactionScopeActivity x:Name="transactionScopeActivity1">
+		<TransactionScopeActivity.TransactionOptions>
+			<WorkflowTransactionOptions TimeoutDuration="00:00:30" IsolationLevel="Serializable" />
+		</TransactionScopeActivity.TransactionOptions>
+		<WhileActivity x:Name="whileActivity1">
+			<WhileActivity.Condition>
+				<RuleConditionReference ConditionName="Condition1" />
+			</WhileActivity.Condition>
+			<ns2:AccountCreation_UpdateAccount_ClientActivity In_Account="{ActivityBind ApplyTemplateWorkflow,Path=m_CurrentAccount}" x:Name="accountCreation_UpdateAccount_ClientActivity1" />
+			<FaultHandlersActivity x:Name="faultHandlersActivity1" />
+		</WhileActivity>
+		<CodeActivity x:Name="ApplySubscriptions" ExecuteCode="ApplySubscriptions_ExecuteCode" />
+	</TransactionScopeActivity>
+</ns0:MTSequentialWorkflowActivity>

@@ -1,0 +1,64 @@
+#
+# TEST CSS ENCODER
+# Test string encoding
+#
+# NOTE:
+# Enclosing strings in double quotes allows you to use escapings to represent ASCII and Unicode characters.
+# " and \ in payload need to be escaped!!!
+#
+
+---
+id: 1
+message: Script tag string CSS encoding
+payload: "<script>"
+expect:  "\\003cscript\\003e"
+---
+id: 2
+message: Simple XSS test string CSS encoding
+payload: "<script>alert('hi')</script>"
+expect:  "\\003cscript\\003ealert\\0028\\0027hi\\0027\\0029\\003c\\002fscript\\003e"
+---
+id: 3
+message: test string HTML encoding
+payload: "';!--\"Blabla>=&{()}"
+expect:  "\\0027\\003b\\0021--\\0022Blabla\\003e\\003d\\0026\\007b\\0028\\0029\\007d"
+---
+id: 4
+message: test string HTML encoding
+payload: "&#173;"
+expect:  "\\0026\\0023173\\003b"
+---
+id: 5
+message: test string HTML encoding
+payload: "+ADwA-script+AD4A-alert('hacked+ACEA-')+ADwA-/script+AD4A-"
+expect:  "\\002bADwA-script\\002bAD4A-alert\\0028\\0027hacked\\002bACEA-\\0027\\0029\\002bADwA-\\002fscript\\002bAD4A-"
+---
+id: 6
+message: Double hyphen precedes character CSS encoding
+payload: "--"
+expect: "--"
+---
+id: 7
+message: Slash and asterisk character CSS encoding
+payload: "/*"
+expect: "\\002f\\002a"
+---
+id: 8
+message: Asterisk and slash character CSS encoding
+payload: "*/"
+expect: "\\002a\\002f"
+---
+id: 9
+message: Characters CSS encoding 
+payload: "»back"
+expect: "\\00bbback"
+---
+id: 10
+message: Character CSS encoding. If you want to include a whitespace character as part of the string, you'll need to double the whitespace.
+payload: "» back"
+expect: "\\00bb\\0020back"
+---
+id: 11
+message: Less than and greater than characters CSS encoding. If you want to include a whitespace character as part of the string, you'll need to double the whitespace.
+payload: "< >"
+expect: "\\003c\\0020\\003e"

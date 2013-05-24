@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D0641538-CD87-42B5-847D-62DF558A2D76}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetraTech.Security</RootNamespace>
+    <AssemblyName>MetraTech.Security.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\SecurityFramework\MetraTech.Security.Common\</BaseIntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\SecurityFramework\MetraTech.Security.Common\</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MetraTech.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="RCD.interop">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\RCD.interop.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SysContext.interop">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\SysContext.interop.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConfigurationParameters.cs" />
+    <Compile Include="MetraTech.Security.Crypto\CryptoConfig\CryptoConfig.cs" />
+    <Compile Include="MetraTech.Security.Crypto\MSCryptoConfig\MSConfig.cs" />
+    <Compile Include="MetraTech.Security.Crypto\MSCryptoConfig\MSCryptoConfig.cs" />
+    <Compile Include="MetraTech.Security.Crypto\MSSessionKeyConfig\CDATA.cs" />
+    <Compile Include="MetraTech.Security.Crypto\MSSessionKeyConfig\Key.cs" />
+    <Compile Include="MetraTech.Security.Crypto\MSSessionKeyConfig\KeyClass.cs" />
+    <Compile Include="MetraTech.Security.Crypto\MSSessionKeyConfig\MSSessionKeyConfig.cs" />
+    <Compile Include="MetraTech.Security.Crypto\RSACryptoConfig\CertificatePassword.cs" />
+    <Compile Include="MetraTech.Security.Crypto\RSACryptoConfig\KmsClientConfig.cs" />
+    <Compile Include="MetraTech.Security.Crypto\RSACryptoConfig\KMSKeyClass.cs" />
+    <Compile Include="MetraTech.Security.Crypto\RSACryptoConfig\RSAConfig.cs" />
+    <Compile Include="MetraTech.Security.Crypto\RSACryptoConfig\RSACryptoConfig.cs" />
+    <Compile Include="MetraTech.Security\PasswordManagerConfig.cs" />
+    <Compile Include="MetraTech.Security\PasswordConfig.cs" />
+    <Compile Include="..\..\..\Build\AssemblyInfo.cs" />
+    <Compile Include="..\..\..\Build\VersionInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MetraTech.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utils\MetraTech.SecurityFramework.Core.Common\MetraTech.SecurityFramework.Core.Common.csproj">
+      <Project>{5F3C91E8-1EAE-4C6F-AEA6-41827170BFBD}</Project>
+      <Name>MetraTech.SecurityFramework.Core.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

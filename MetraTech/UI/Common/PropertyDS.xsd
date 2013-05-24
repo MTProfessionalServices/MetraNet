@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PropertyDS" targetNamespace="http://tempuri.org/ServiceProperties.xsd" xmlns:mstns="http://tempuri.org/ServiceProperties.xsd" xmlns="http://tempuri.org/ServiceProperties.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="PropertyDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="PropertyDS" msprop:Generator_DataSetName="PropertyDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Property" msprop:Generator_UserTableName="Property" msprop:Generator_RowDeletedName="PropertyRowDeleted" msprop:Generator_RowChangedName="PropertyRowChanged" msprop:Generator_RowClassName="PropertyRow" msprop:Generator_RowChangingName="PropertyRowChanging" msprop:Generator_RowEvArgName="PropertyRowChangeEvent" msprop:Generator_RowEvHandlerName="PropertyRowChangeEventHandler" msprop:Generator_TableClassName="PropertyDataTable" msprop:Generator_TableVarName="tableProperty" msprop:Generator_RowDeletingName="PropertyRowDeleting" msprop:Generator_TablePropName="Property">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Name" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_ColumnVarNameInTable="columnName" type="xs:string" />
+              <xs:element name="Type" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Type" msprop:nullValue="_empty" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_ColumnPropNameInRow="Type" type="xs:string" />
+              <xs:element name="Length" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Length" msprop:Generator_ColumnPropNameInRow="Length" msprop:Generator_ColumnVarNameInTable="columnLength" msprop:Generator_ColumnPropNameInTable="LengthColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="Required" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Required" msprop:Generator_ColumnPropNameInRow="Required" msprop:Generator_ColumnVarNameInTable="columnRequired" msprop:Generator_ColumnPropNameInTable="RequiredColumn" type="xs:boolean" />
+              <xs:element name="DefaultValue" msdata:ReadOnly="true" msprop:Generator_UserColumnName="DefaultValue" msprop:Generator_ColumnPropNameInRow="DefaultValue" msprop:Generator_ColumnVarNameInTable="columnDefaultValue" msprop:Generator_ColumnPropNameInTable="DefaultValueColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:nullValue="_empty" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_ColumnPropNameInRow="Description" type="xs:string" minOccurs="0" />
+              <xs:element name="Value" msprop:Generator_UserColumnName="Value" msprop:Generator_ColumnPropNameInRow="Value" msprop:Generator_ColumnVarNameInTable="columnValue" msprop:Generator_ColumnPropNameInTable="ValueColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="EnumSpace" msprop:Generator_UserColumnName="EnumSpace" msprop:Generator_ColumnPropNameInRow="EnumSpace" msprop:Generator_ColumnVarNameInTable="columnEnumSpace" msprop:Generator_ColumnPropNameInTable="EnumSpaceColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="EnumType" msprop:Generator_UserColumnName="EnumType" msprop:Generator_ColumnPropNameInRow="EnumType" msprop:Generator_ColumnVarNameInTable="columnEnumType" msprop:Generator_ColumnPropNameInTable="EnumTypeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="ServiceDefinition" msprop:Generator_UserColumnName="ServiceDefinition" msprop:Generator_ColumnPropNameInRow="ServiceDefinition" msprop:Generator_ColumnVarNameInTable="columnServiceDefinition" msprop:Generator_ColumnPropNameInTable="ServiceDefinitionColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Enum" msprop:Generator_UserTableName="Enum" msprop:Generator_RowDeletedName="EnumRowDeleted" msprop:Generator_RowChangedName="EnumRowChanged" msprop:Generator_RowClassName="EnumRow" msprop:Generator_RowChangingName="EnumRowChanging" msprop:Generator_RowEvArgName="EnumRowChangeEvent" msprop:Generator_RowEvHandlerName="EnumRowChangeEventHandler" msprop:Generator_TableClassName="EnumDataTable" msprop:Generator_TableVarName="tableEnum" msprop:Generator_RowDeletingName="EnumRowDeleting" msprop:Generator_TablePropName="Enum">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EnumType" msprop:Generator_UserColumnName="EnumType" msprop:Generator_ColumnPropNameInRow="EnumType" msprop:Generator_ColumnVarNameInTable="columnEnumType" msprop:Generator_ColumnPropNameInTable="EnumTypeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Id" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInTable="IdColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="LocalizedName" msprop:Generator_UserColumnName="LocalizedName" msprop:Generator_ColumnPropNameInRow="LocalizedName" msprop:Generator_ColumnVarNameInTable="columnLocalizedName" msprop:Generator_ColumnPropNameInTable="LocalizedNameColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1">
+      <xs:selector xpath=".//mstns:Property" />
+      <xs:field xpath="mstns:Name" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="Property_Enum" msdata:parent="Property" msdata:child="Enum" msdata:parentkey="EnumType" msdata:childkey="EnumType" msprop:Generator_UserRelationName="Property_Enum" msprop:Generator_RelationVarName="relationProperty_Enum" msprop:Generator_UserChildTable="Enum" msprop:Generator_UserParentTable="Property" msprop:Generator_ParentPropName="PropertyRow" msprop:Generator_ChildPropName="GetEnumRows" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

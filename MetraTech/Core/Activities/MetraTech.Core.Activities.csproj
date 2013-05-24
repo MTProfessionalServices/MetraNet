@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E7B6902F-00C4-4BB9-AF12-D7648577EDE3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MetraTech.Core.Activities</RootNamespace>
+    <AssemblyName>MetraTech.Core.Activities</AssemblyName>
+    <ProjectTypeGuids>{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\..\build\keys\MetraTech.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <Platform Condition="'$(Platform)'==''">x86</Platform>
+    <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>o:\Doc\MetraTech.Core.Activities.XML</DocumentationFile>
+    <NoWarn>1591</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\Core\Activities\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\Core\Activities\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="COMKiosk.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\COMKiosk.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="IMTAccountType.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\IMTAccountType.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.AccountTypes.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.AccountTypes.Generated.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.Enums.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MTARInterfaceExec.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTARInterfaceExec.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MTAuditEvents.interop, Version=6.2.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTAuditEvents.interop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MTAuth.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTAuth.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MTProductCatalog.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTProductCatalog.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MTAccount.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTAccount.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MTServerAccess.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTServerAccess.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MTYAAC.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTYAAC.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="QueryAdapter.interop, Version=6.0.5.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\QueryAdapter.interop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RCD.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\RCD.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="Rowset.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Rowset.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="SysContext.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\SysContext.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Workflow.Activities" />
+    <Reference Include="System.Workflow.ComponentModel" />
+    <Reference Include="System.Workflow.Runtime" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\build\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\build\VersionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="AccountAuditActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AccountHelper.cs" />
+    <Compile Include="AccountMapperActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AccountMergeActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AdapterWorkflowBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ApplyAccountTemplatePropsActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ApplyAccountTemplateSubsActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ARPluginActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ARPropagationActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ARUpdateAccountActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BatchAccountCreator.cs" />
+    <Compile Include="BatchCreateAccountActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ExportToARActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BaseAccountActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BaseAccountViewActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BaseActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EmailActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CreateAccountActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CreateAccountViewActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InfoMessageActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MetraPayRouterBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UpdateAccountActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UpdateAccountViewActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplyRoleMembershipActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <None Include="S:\build\keys\MetraTech.snk">
+      <Link>MetraTech.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\MetraTech\AR\MetraTech.AR.csproj">
+      <Project>{fd36b4a5-7e21-45ee-83f5-59bb4a340a5c}</Project>
+      <Name>MetraTech.AR</Name>
+      <Private>False</Private>
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\MetraTech\Crypto\MetraTech.Crypto.vcxproj">
+      <Project>{e2731fc5-ce10-44a3-8ffa-c4b7e425fffc}</Project>
+      <Name>MetraTech.Crypto</Name>
+      <Private>False</Private>
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Metratech\DataAccess\MaterializedViews\MetraTech.DataAccess.MaterializedViews.csproj">
+      <Project>{2327da51-6299-4e9a-80f0-74459de5ea13}</Project>
+      <Name>MetraTech.DataAccess.MaterializedViews</Name>
+      <Private>false</Private>
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\MetraTech\UsageServer\MetraTech.UsageServer.csproj">
+      <Project>{2ae4b0ca-70b7-4f5e-af71-0191cbc3c8ac}</Project>
+      <Name>MetraTech.UsageServer</Name>
+      <Private>False</Private>
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\MetraTech\Xml\MetraTech.Xml.csproj">
+      <Project>{7d9556df-cb87-458a-b66b-f5dd5b7c384e}</Project>
+      <Name>MetraTech.Xml</Name>
+      <Private>False</Private>
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Accounts\Type\MetraTech.Accounts.Type.csproj">
+      <Project>{DEBE5BA3-A559-4DE7-ADC8-0DF5DF9DD846}</Project>
+      <Name>MetraTech.Accounts.Type</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ActivityServices\Activities\MetraTech.ActivityServices.Activities.csproj">
+      <Project>{4CB65F61-7995-417D-B816-99BAA603B92C}</Project>
+      <Name>MetraTech.ActivityServices.Activities</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ActivityServices\Common\MetraTech.ActivityServices.Common.csproj">
+      <Project>{E80F2D42-759F-4B7D-95C6-D04C1500569F}</Project>
+      <Name>MetraTech.ActivityServices.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ActivityServices\Runtime\MetraTech.ActivityServices.Runtime.csproj">
+      <Project>{ACAB69A4-28A6-4045-B6E2-0E41ED6C2231}</Project>
+      <Name>MetraTech.ActivityServices.Runtime</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ActivityServices\ServiceBase\MetraTech.ActivityServices.Services.Common.csproj">
+      <Project>{15E6CE39-F476-4ACD-B73D-BFCAAE218CB2}</Project>
+      <Name>MetraTech.ActivityServices.Services.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DataAccess\MetraTech.DataAccess.csproj">
+      <Project>{1B40F4E4-8DDC-43E0-BE45-959BEE94422F}</Project>
+      <Name>MetraTech.DataAccess</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainModel\BaseTypes\MetraTech.DomainModel.BaseTypes.csproj">
+      <Project>{433B0483-4990-476C-BA07-FABF884D12CB}</Project>
+      <Name>MetraTech.DomainModel.BaseTypes</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainModel\Common\MetraTech.DomainModel.Common.csproj">
+      <Project>{E21F8EE1-FA01-465E-B651-A21CC2E1D6AA}</Project>
+      <Name>MetraTech.DomainModel.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainModel\Enums\MetraTech.DomainModel.Enums.csproj">
+      <Project>{C36E2EB0-9715-48BB-81F4-6228C917E071}</Project>
+      <Name>MetraTech.DomainModel.Enums</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainModel\GenerateDMAssemblies\GenerateDMAssemblies.csproj">
+      <Project>{6D53C578-C802-4882-9A87-FFEFD7A98D2E}</Project>
+      <Name>GenerateDMAssemblies</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainModel\MetraPay\MetraTech.DomainModel.MetraPay.csproj">
+      <Project>{71A54A5B-2C1D-474B-B4CC-F7D4BB50E02A}</Project>
+      <Name>MetraTech.DomainModel.MetraPay</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainModel\ProductCatalog\MetraTech.DomainModel.ProductCatalog.csproj">
+      <Project>{43A73CF5-A0CC-431F-B626-E88904600162}</Project>
+      <Name>MetraTech.DomainModel.ProductCatalog</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainModel\Validators\MetraTech.DomainModel.Validators.csproj">
+      <Project>{1FA576BE-DBAC-4F3B-9D39-71C96F482B26}</Project>
+      <Name>MetraTech.DomainModel.Validators</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Events\MetraTech.Events.csproj">
+      <Project>{12D43E92-0283-418E-9D6B-30A8FF7C1319}</Project>
+      <Name>MetraTech.Events %28MetraTech.Events\MetraTech.Events%29</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Debug\Diagnostics\MetraTech.Debug.Diagnostics.csproj">
+      <Project>{DFD0BE07-801F-4535-B742-FED22E50FA0E}</Project>
+      <Name>MetraTech.Debug.Diagnostics</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech.Common.csproj">
+      <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
+      <Name>MetraTech.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Security\MetraTech.Security.csproj">
+      <Project>{269C212E-1D9A-4177-81A3-0DFE538DE6E6}</Project>
+      <Name>MetraTech.Security</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <Platform Condition="'$(Platform)'==''">x86</Platform>
+    <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
+  </PropertyGroup>
+</Project>

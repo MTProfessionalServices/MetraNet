@@ -1,0 +1,22 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Suggest", "http://localhost/Suggest/Suggest.csproj", "{022F68AE-2BAA-4A85-B1C2-78777461C976}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{022F68AE-2BAA-4A85-B1C2-78777461C976}.Debug|Default.ActiveCfg = Debug|.NET
+		{022F68AE-2BAA-4A85-B1C2-78777461C976}.Debug|Default.Build.0 = Debug|.NET
+		{022F68AE-2BAA-4A85-B1C2-78777461C976}.Release|Default.ActiveCfg = Release|.NET
+		{022F68AE-2BAA-4A85-B1C2-78777461C976}.Release|Default.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
+		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}
+	EndGlobalSection
+EndGlobal

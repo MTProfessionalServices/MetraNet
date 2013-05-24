@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"> 
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{91D19BBA-936C-47FB-A235-0471A600D4B1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Metratech.Core.Services.Test</RootNamespace>
+    <AssemblyName>Metratech.Core.Services.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\TestCommon\MetraTech.TestCommon.csproj">
+      <Project>{20307E5D-BFC9-4F27-9ECC-A61EE854E8B5}</Project>
+      <Name>MetraTech.TestCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MetraTech.ActivityServices.Common">
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.ActivityServices.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.ActivityServices.Services.Common">
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.ActivityServices.Services.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.Core.Services">
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Core.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.DataAccess">
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.Billing">
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DomainModel.Billing.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.BaseTypes">
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DomainModel.BaseTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.Xml">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Xml.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FakeItEasy">
+      <HintPath>..\..\..\Thirdparty\FakeItEasy\FakeItEasy.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Thirdparty\Castle\Castle.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Castle.Services.Logging.Log4netIntegration">
+      <HintPath>..\..\..\Thirdparty\Castle\Castle.Services.Logging.Log4netIntegration.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Castle.Services.Logging.NLogIntegration">
+      <HintPath>..\..\..\Thirdparty\Castle\Castle.Services.Logging.NLogIntegration.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="DataExportReportManagementServiceTest.cs" />
+    <Compile Include="DataExportReportManagementServiceFunctionalTest.cs" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

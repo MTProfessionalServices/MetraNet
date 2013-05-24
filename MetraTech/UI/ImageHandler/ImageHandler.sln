@@ -1,0 +1,39 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "http://localhost/ImageHandler/", "http://localhost/ImageHandler", "{F7674793-2473-4650-9377-E1EEC1FDF64F}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/ImageHandler"
+		Debug.AspNetCompiler.PhysicalPath = "C:\Builds\Development\Source\MetraTech\UI\ImageHandler\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\ImageHandler\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/ImageHandler"
+		Release.AspNetCompiler.PhysicalPath = "C:\Builds\Development\Source\MetraTech\UI\ImageHandler\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\ImageHandler\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "C:\Builds\Development\Source\MetraTech\UI\ImageHandler\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7674793-2473-4650-9377-E1EEC1FDF64F}.Debug|.NET.ActiveCfg = Debug|.NET
+		{F7674793-2473-4650-9377-E1EEC1FDF64F}.Debug|.NET.Build.0 = Debug|.NET
+		{F7674793-2473-4650-9377-E1EEC1FDF64F}.Release|.NET.ActiveCfg = Release|.NET
+		{F7674793-2473-4650-9377-E1EEC1FDF64F}.Release|.NET.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
+		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}
+	EndGlobalSection
+EndGlobal

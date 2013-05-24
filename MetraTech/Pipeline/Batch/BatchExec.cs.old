@@ -1,0 +1,325 @@
+namespace MetraTech.Pipeline.Batch
+{
+	using MetraTech;
+	using MetraTech.Pipeline.Batch;
+	using MetraTech.DataAccess;
+	using MetraTech.Pipeline;
+	using MetraTech.Interop.Rowset;
+	using MetraTech.Interop.MTAuditEvents;
+
+	using System;
+	using System.Diagnostics;
+	using System.Web.Services.Protocols;
+
+	/// <summary>
+	/// Summary description for BatchExec.
+	/// </summary>
+	public class BatchExec
+	{
+		public BatchExec() 
+		{
+			mLogger = new Logger("[BatchExec]");
+      mAuditor = new Auditor();
+		}
+
+		// ----------------------------------------------------------------
+		// Description:  Creates a new batch in the database
+		// Arguments:    apBatchObject - the batch to create
+		// ----------------------------------------------------------------
+		public void Save(BatchObject batchobject) 
+		{
+			using (IMTServicedConnection conn = ConnectionManager.CreateConnection())
+			{
+				IMTCallableStatement stmt = conn.CreateCallableStatement("InsertMeteredBatch");
+
+				byte[] bytes = MSIXUtils.DecodeUID(batchobject.UID);
+				stmt.AddParam("tx_batch",	MTParameterType.Binary, bytes);
+	
+				stmt.AddParam("tx_batch_encoded",	MTParameterType.String,	batchobject.UID);
+				stmt.AddParam("tx_source", MTParameterType.String, batchobject.Source);
+				stmt.AddParam("tx_sequence", MTParameterType.String, batchobject.SequenceNumber);
+				stmt.AddParam("tx_name", MTParameterType.String, batchobject.Name);
+				stmt.AddParam("tx_namespace",	MTParameterType.String,	batchobject.Namespace);
+				stmt.AddParam("tx_status", MTParameterType.String, batchobject.Status);
+	
+				stmt.AddParam("dt_crt_source", MTParameterType.DateTime, batchobject.SourceCreationDate);
+				stmt.AddParam("dt_crt",	MTParameterType.DateTime,	MetraTime.Now);
+	
+				stmt.AddParam("n_completed", MTParameterType.Integer,	0);
+				stmt.AddParam("n_failed",	MTParameterType.Integer, batchobject.FailureCount);
+				stmt.AddParam("n_expected",	MTParameterType.Integer, batchobject.ExpectedCount);
+				stmt.AddParam("n_metered",	MTParameterType.Integer, 0); 
+	
+	
+				stmt.AddOutputParam("id_batch",	MTParameterType.Integer);
+				stmt.ExecuteNonQuery(); 
+	
+				int	batchid	=	(int)stmt.GetOutputValue("id_batch");
+				string msg;
+				switch (batchid)
+				{
+					// MTBATCH_BATCH_ALREADY_EXISTS
+					// A batch with name, namespace and sequence number combination 
+					// already exists in the database ((DWORD)0xE4020001L)
+					case -469630975:
+						msg = String.Format("MetraTech Error Code [{0:X}]!", batchid);
+						msg += " Batch with name ["; 
+						msg += batchobject.Name; 
+						msg += "], namespace [";
+						msg += batchobject.Namespace;
+						msg += "] and sequence [";
+						msg += batchobject.SequenceNumber;
+						msg += "] already exists in the database";
+						throw new SoapException(msg, 
+																		SoapException.ServerFaultCode);
+
+					// MTBATCH_BATCH_CREATION_FAILED
+					//  Creation of batch failed ((DWORD)0xE4020003L)
+					case -1:
+						msg = String.Format("MetraTech Error Code [{0:X}]!", -469630973);
+						msg += String.Format(" Creation of batch failed"); 
+						throw new SoapException(msg,
+																		SoapException.ServerFaultCode);
+
+					// everything ok
+					default:
+						batchobject.ID = batchid;
+						break;	
+				}
+
+				//EventId, UserId, EntityTypeId, EntityId, BSTR Details
+      	mAuditor.FireEvent((int)MTAuditEvent.AUDITEVENT_BATCH_CREATED, 
+													 0, 
+													 (int)MTAuditEntityType.AUDITENTITY_TYPE_BATCH,
+													 batchid,
+													 batchobject.Comment); 
+			}
+		}
+
+		//
+		//
+		//
+		public void MarkAsActive(string UID, string comment)
+		{
+			ProcessUpdates(UID, comment, "A");
+
+			int accountID;
+			int batchID; 
+			GetBatchDetails(UID, out accountID, out batchID);
+
+			// EventId, UserId, EntityTypeId, EntityId, BSTR Details
+			mAuditor.FireEvent((int)MTAuditEvent.AUDITEVENT_BATCH_MARK_AS_ACTIVE, 
+												 accountID, 
+												 (int)MTAuditEntityType.AUDITENTITY_TYPE_BATCH, 
+												 batchID, 
+												 comment); 
+			return;
+		}
+
+		//
+		//
+		//
+		public void MarkAsBackout(string UID, string comment)
+		{
+			ProcessUpdates(UID, comment, "B");
+
+			int accountID;
+			int batchID; 
+			GetBatchDetails(UID, out accountID, out batchID);
+
+			mAuditor.FireEvent((int)MTAuditEvent.AUDITEVENT_BATCH_MARK_AS_BACKOUT, 
+												 accountID,
+												 (int)MTAuditEntityType.AUDITENTITY_TYPE_BATCH, 
+												 batchID,
+												 comment); 
+			return;
+		}
+
+		//
+		//
+		//
+		public void MarkAsFailed(string UID, string comment)
+		{
+			ProcessUpdates(UID, comment, "F");
+
+			int accountID;
+			int batchID; 
+			GetBatchDetails(UID, out accountID, out batchID);
+
+			mAuditor.FireEvent((int)MTAuditEvent.AUDITEVENT_BATCH_MARK_AS_FAILED, 
+											   accountID,
+											   (int)MTAuditEntityType.AUDITENTITY_TYPE_BATCH, 
+											   batchID,
+											   comment); 
+			return;
+		}
+
+		//
+		//
+		//
+		public void MarkAsCompleted(string UID, string comment)
+		{
+			ProcessUpdates(UID, comment, "C");
+
+			int accountID;
+			int batchID; 
+			GetBatchDetails(UID, out accountID, out batchID);
+
+			mAuditor.FireEvent((int)MTAuditEvent.AUDITEVENT_BATCH_MARK_AS_COMPLETED, 
+											   accountID,
+											   (int)MTAuditEntityType.AUDITENTITY_TYPE_BATCH, 
+											   batchID,
+											   comment); 
+			return;
+		}
+
+		//
+		//
+		//
+		public void MarkAsDismissed(string UID, string comment)
+		{
+			ProcessUpdates(UID, comment, "D");
+
+			int accountID;
+			int batchID; 
+			GetBatchDetails(UID, out accountID, out batchID);
+
+			mAuditor.FireEvent((int)MTAuditEvent.AUDITEVENT_BATCH_MARK_AS_DISMISSED, 
+												 accountID,
+												 (int)MTAuditEntityType.AUDITENTITY_TYPE_BATCH, 
+												 batchID, 
+												 comment); 
+			return;
+		}
+
+		//
+		//
+		//
+		protected void ProcessUpdates(string UID, string comment, string newstatus)
+		{
+			using (IMTServicedConnection conn = ConnectionManager.CreateConnection())
+			{
+				IMTCallableStatement stmt = conn.CreateCallableStatement("ModifyBatchStatus");
+				stmt.AddParam("tx_batch", MTParameterType.String, UID);
+				stmt.AddParam("dt_change", MTParameterType.DateTime, MetraTime.Now);
+				stmt.AddParam("tx_new_status",	MTParameterType.String, newstatus);
+				stmt.AddOutputParam("tx_current_status",	MTParameterType.String, 1);
+				stmt.AddOutputParam("status",	MTParameterType.Integer);
+
+				stmt.ExecuteNonQuery();
+				string currentbatchstatus = (String) stmt.GetOutputValue("tx_current_status");
+				int status = (int) stmt.GetOutputValue("status");
+				string msg;
+				switch (status)	
+				{
+					// MTBATCH_BATCH_DOES_NOT_EXIST
+					// An attempt is being made to update a batch that does not 
+					// exist in the system ((DWORD)0xE4020007L)
+					case -469630969:
+						msg = String.Format("MetraTech Error Code [{0:X}]!", status);
+						msg += " An attempt is being made to update a Batch with UID ["; 
+						msg += UID; 
+						msg += "] that does not exist in the system";
+						throw new SoapException(msg, 
+																		SoapException.ServerFaultCode);
+
+
+					// MessageId: MTBATCH_STATE_CHANGE_NOT_PERMITTED
+					// State transition from '%1!s!' to '%2!s!' is not permitted
+					// MTBATCH_STATE_CHANGE_NOT_PERMITTED ((DWORD)0xE4020008L)
+					case -469630968:
+						msg = String.Format("MetraTech Error Code [{0:X}]!", status);
+						msg += " State transition from ["; 
+						msg += ConvertToLongName(currentbatchstatus); 
+						msg += "] to [";
+						msg += ConvertToLongName(newstatus);
+						msg += "] is not permitted";
+						throw new SoapException(msg, 
+																		SoapException.ServerFaultCode);
+
+
+					// MTBATCH_MARK_AS_FAILED_FAILED ((DWORD)0xE4020004L)
+					// Marking a batch as Failed operation did not 
+					// succeed ((DWORD)0xE4020004L)
+					case -1:
+						msg = String.Format("MetraTech Error Code [{0:X}]!", -469630972);
+						msg += " Marking a batch ";
+						msg += ConvertToLongName(newstatus);
+						msg += "] with UID ["; 
+						msg += UID; 
+						msg += "] did not succeed";
+						throw new SoapException(msg, 
+																		SoapException.ServerFaultCode);
+
+					// everything ok
+					case 1:
+					default:
+						break;	
+				}
+			}
+			
+			return;
+		}
+
+		//
+		//
+		//
+		public void UpdateMeteredCount(string UID, int meteredCount)
+		{
+			using (IMTServicedConnection conn = ConnectionManager.CreateConnection())
+			{
+				IMTCallableStatement stmt = conn.CreateCallableStatement("UpdateMeteredCount");
+				stmt.AddParam("tx_batch", MTParameterType.String, UID);
+				stmt.AddParam("n_metered", MTParameterType.Integer, meteredCount);
+				stmt.AddParam("dt_change", MTParameterType.DateTime, MetraTime.Now);
+				stmt.AddOutputParam("status",	MTParameterType.Integer);
+
+				stmt.ExecuteNonQuery();
+				int status = (int) stmt.GetOutputValue("status");
+				
+				if (status == -1)
+				{
+					string msg = String.Format("MarkAsCompleted failed!"); 
+					throw new BatchException(msg);
+				}
+			}
+
+			return;
+		}
+
+		//
+		//
+		//
+	  protected string ConvertToLongName (string shortname)
+		{
+			if (0 == String.Compare(shortname, "C", true))
+				return "Completed";
+			else if (0 == String.Compare(shortname, "D", true))
+				return "Dismissed";
+			else if (0 == String.Compare(shortname, "B", true))
+				return "Backout";
+			else if (0 == String.Compare(shortname, "A", true))
+				return "Active";
+			else if (0 == String.Compare(shortname, "F", true))
+				return "Failed";
+			else
+				return "Unknown Status";
+		}
+
+		//
+		//
+		//
+	  protected void GetBatchDetails (string UID, 
+																		out int accountID, 
+																		out int batchID)
+		{
+			BatchObject batchobj = new BatchObject();
+			batchobj.LoadByUID(UID);
+			batchID =  batchobj.ID;
+			accountID = batchobj.GetAccountID();
+		}
+
+   	private Auditor mAuditor;
+		private Logger mLogger;
+	}
+}

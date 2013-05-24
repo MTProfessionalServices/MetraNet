@@ -1,0 +1,47 @@
+#
+# TEST HTML ENTITIES DECODER
+# Test one character decoding
+#
+# NOTE:
+# Enclosing strings in double quotes allows you to use escapings to represent ASCII and Unicode characters.
+# " and \ in payload need to be escaped!!!
+#
+
+
+#-	URL decoder;
+
+---
+id: 1
+message: The \"<>\" character URL entities positive decoding
+payload: "%3C%3E"
+expect: "<>"
+---
+id: 2
+message: The \"~.\" character URL entities positive decoding
+payload: "%7E%2E"
+expect: "~." 
+---
+id: 3
+message: The \""{\" character URL entities negative decoding
+payload: "%22%7B"
+expect: "\"{"
+---
+id: 4
+message: The \"}|\" character URL entities positive decoding
+payload: "%7D%7C"
+expect: "}|"
+---
+id: 5
+message: The \"\-\" character URL entities negative decoding
+payload: "%5C%2D"
+expect: "\\-" 
+---
+id: 6
+message: The \"`_\" character URL entities positive decoding
+payload: "%60%5F"
+expect: "`_"
+---
+id: 7
+message: The \"^% \" character URL entities negative decoding
+payload: "%5E%25%20"
+expect: "^% "

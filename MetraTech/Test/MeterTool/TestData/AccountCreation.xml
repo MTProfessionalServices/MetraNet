@@ -1,0 +1,1258 @@
+<sessions>
+  <session>
+    <name>metratech.com/accountcreation</name>
+    <description> 
+ This service definition is used to create accounts, contacts or both. It
+ gets used from the CSR application.  It is also used for customers to send 
+ account information to our system.  All the objects involved in
+ processing this service are in a transaction and is considered as 1
+ atomic unit of work. 
+ </description>
+    <min_sessions>1000</min_sessions>
+    <max_sessions>1000</max_sessions>
+    <properties>
+      <property>
+        <name>ActionType</name>
+        <msix_type>enum</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>Both</property_string>
+        <property_string_random>True</property_string_random>
+        <description>
+   Action type is used to indicate if you want to create account, contact 
+   or both
+   </description>
+        <required>Y</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>city</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>Waltham</property_string>
+        <property_string_random>False</property_string_random>
+        <length>20</length>
+        <description>
+   City part of the address.  If geocode needs to be calculated, then
+   this property should have a value passed in.
+   </description>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>state</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>MA</property_string>
+        <property_string_random>True</property_string_random>
+        <length>40</length>
+        <description>
+   State part of the address.  If geocode needs to be calculated, then
+   this property should have a value passed in.
+   </description>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>zip</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>02451</property_string>
+        <property_string_random>True</property_string_random>
+        <length>40</length>
+        <description>
+   Zipcode part of the address.  If geocode needs to be calculated, then
+   this property should have a value passed in.
+   </description>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>username</name>
+        <msix_type>string</msix_type>
+        <value_type>plugin</value_type>
+        <property_string_random>True</property_string_random>
+        <length>40</length>
+        <description>
+   Username or login that needs to be created
+   </description>
+        <required>Y</required>
+        <plugin>MetraTech.Test.MeterTool.Plugins.CreateUsername</plugin>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>password_</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>123</property_string>
+        <property_string_random>True</property_string_random>
+        <length>40</length>
+        <description>
+   Password associated with that username or login
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>name_space</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>mt</property_string>
+        <property_string_random>True</property_string_random>
+        <length>40</length>
+        <description>
+   Namespace uniquely identifying that username or login
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>Language</name>
+        <msix_type>enum</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>US</property_string>
+        <property_string_random>True</property_string_random>
+        <description>
+     Language associated with the account
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>dayofmonth</name>
+        <msix_type>int32</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>16</property_string>
+        <property_string_random>True</property_string_random>
+        <description>
+   Day of month that the user wants to get billed on
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>AccountType</name>
+        <msix_type>enum</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>CoreSubscriber</property_string>
+        <property_string_random>True</property_string_random>
+        <default_value>SUB</default_value>
+        <description>
+        Account Type enumerated value: CSR, Sub
+      </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>ContactType</name>
+        <msix_type>enum</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>Bill-To</property_string>
+        <property_string_random>False</property_string_random>
+        <description>
+        Contact type integer value: 1 for Bill-To and 2 for Ship-To
+      </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>taxexempt</name>
+        <msix_type>boolean</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>0</property_string>
+        <property_string_random>True</property_string_random>
+        <description>
+		Tax exempt indicator: 
+		T for Yes or success or true or 1 and 
+		F for no or failure or false or 0
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>TaxExemptID</name>
+        <msix_type>string</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <length>255</length>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>tariffID</name>
+        <msix_type>enum</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string>0Default
+ConferenceExpress</property_string>
+        <property_string_random>True</property_string_random>
+        <default_value>0</default_value>
+        <description>
+	  Tariff ID associated with the account
+	  </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>firstname</name>
+        <msix_type>string</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <length>40</length>
+        <description>
+   First name of the account
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>lastname</name>
+        <msix_type>string</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <length>40</length>
+        <description>
+   Last name of the account
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>email</name>
+        <msix_type>string</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <length>100</length>
+        <description>
+   Email address associated with the account
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>phonenumber</name>
+        <msix_type>string</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <length>40</length>
+        <description>
+   Phone number of the account 
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>_Accountid</name>
+        <msix_type>int32</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <description>
+   Uniquely generated account ID.  This property gets set by the pipeline  
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>timezoneID</name>
+        <msix_type>enum</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>(GMT-05:00) Eastern Time (US &amp; Canada)</property_string>
+        <property_string_random>True</property_string_random>
+        <description>
+   Timezone ID of the account
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>company</name>
+        <msix_type>string</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <length>255</length>
+        <description>
+   Company name of the associated account
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>address1</name>
+        <msix_type>string</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <length>100</length>
+        <description>
+   First part of the whole address
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>address2</name>
+        <msix_type>string</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <length>100</length>
+        <description>
+   Second part of the whole address
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>address3</name>
+        <msix_type>string</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <length>100</length>
+        <description>
+   Third part of the whole address
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>country</name>
+        <msix_type>enum</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string>Afghanistan
+Albania
+Algeria
+American Samoa
+Andorra
+Angola
+Anguilla
+Antarctica
+Antigua
+Argentina
+Armenia
+Aruba
+Ascension Island
+Australia
+Austria
+Azerbaijan
+Bahamas
+Bahrain
+Bangladesh
+Barbados
+Belarus
+Belgium
+Belize
+Benin
+Bermuda
+Bhutan
+Bolivia
+Bosnia/Hercegovina
+Botswana
+Brazil
+British Virgin Islands
+Brunei
+Bulgaria
+Burkina Faso
+Burundi
+CNMI
+Cambodia
+Cameroon
+Canada
+Cape Verde Islands
+Cayman Islands
+Central African Republic
+Chad Republic
+Chile
+China
+Christmas Islands
+Colombia
+Comoros
+Congo
+Cook Islands
+Costa Rica
+Croatia
+Cuba
+Cyprus
+Czech Republic
+Denmark
+Diego Garcia
+Djibouti
+Dominica
+Dominican Republic
+Ecuador
+Egypt
+El Salvador
+Equatorial Guinea
+Eritrea
+Estonia
+Ethiopia
+Faeroe Islands
+Falkland Islands
+Fiji Islands
+Finland
+France
+French Antilles
+French Guiana
+French Polynesia
+Gabon
+Gambia
+Georgia
+Germany
+Ghana
+Gibraltar
+Grenada
+Greece
+Greenland
+Guadeloupe
+Guam
+Guantanamo Bay
+Guatemala
+Guinea
+Guinea-Bissau
+Guyana
+Haiti
+Honduras
+Hong Kong
+Hungary
+Iceland
+India
+Indonesia
+Inmarsat
+Iran
+Iraq
+Ireland
+Israel
+Italy
+Ivory Coast
+Jamaica
+Japan
+Jordan
+Kazakhstan
+Kenya
+Kiribati
+Korea
+Kuwait
+Kyrgyzstan
+Laos
+Latvia
+Lebanon
+Lesotho
+Liberia
+Libya
+Liechtenstein
+Lithuania
+Luxembourg
+Macau
+Macedonia
+Madagascar
+Malawi
+Malaysia
+Maldives
+Mali Republic
+Malta
+Marisat Atlantic
+Marisat Indian
+Marisat Pacific
+Marisat W. Atlantic
+Marshall Islands
+Mauritius
+Mauritania
+Mayotte Island
+Mexico
+Micronesia
+Moldova
+Monaco
+Mongolia
+MontSerrat
+Morocco
+Mozambique
+Myanmar
+Namibia
+Nauru
+Nepal
+Netherlands
+Netherlands Antilles
+Nevis
+New Caledonia
+New Zealand
+Nicaragua
+Niger Republic
+Nigeria
+Niue
+Norfolk Island
+Norway
+North Korea
+Oman
+Pakistan
+Palau
+Panama
+Papua New Guinea
+Paraguay
+Peru
+Philippines
+Poland
+Portugal
+Puerto Rico
+Qatar
+Reunion Island
+Romania
+Russia
+Rwanda
+Saipan
+San Marino
+Sao Tome
+Saudi Arabia
+Senegal Republic
+Serbia/Montenegro
+Seychelles Islands
+Sierra Leone
+Singapore
+Slovakia
+Slovenia
+Solomon Islands
+Somalia
+South Africa
+South Korea
+Spain
+Sri Lanka
+St Helena
+St. Kitts/Nevis
+St. Lucia
+St. Pierre/Miquelon
+St. Vincent/Grenada
+Sudan
+Suriname
+Swaziland
+Sweden
+Switzerland
+Syria
+Thailand
+Taiwan
+Tajikistan
+Tanzania
+Togo
+Tonga Islands
+Tongolese Republic
+Trinidad/Tobago
+Tunisia
+Turkey
+Turkmenistan
+Turks/Caicos Islands
+Tuvalu
+US Virgin Islands
+USA
+Uganda
+Ukraine
+United Arab Emirates
+United Kingdom
+Uruguay
+Uzbekistan
+Vanuatu
+Vatican City
+Venezuela
+Vietnam
+Wallis/Futuna Islands
+Western Samoa
+Yemen
+Zaire
+Zimbabwe
+Zambia</property_string>
+        <property_string_random>True</property_string_random>
+        <description>
+   Country part of the address
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>facsimiletelephonenumber</name>
+        <msix_type>string</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <length>40</length>
+        <description>
+   Fax number of the account
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>middleinitial</name>
+        <msix_type>string</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <length>1</length>
+        <description>
+   Middle initial of the account
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>usagecycletype</name>
+        <msix_type>enum</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>Monthly</property_string>
+        <property_string_random>True</property_string_random>
+        <description>
+   Usage cycle type associated with the account
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>PaymentMethod</name>
+        <msix_type>enum</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>CashOrCheck</property_string>
+        <property_string_random>True</property_string_random>
+        <description>
+   Payment method of the account: 1 for Cash/Check and 2 for CreditCard/ACH 
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>operation</name>
+        <msix_type>enum</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>Add</property_string>
+        <property_string_random>True</property_string_random>
+        <description>
+   A number to indicate the operation: 0 for add, 1 for update, 2 for
+   delete and 3 for no op
+   </description>
+        <required>Y</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>transactioncookie</name>
+        <msix_type>string</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <length>255</length>
+        <description>
+   Transaction cookie value used for processes to enlist in DTC
+   transaction. Should have empty value when metered.  The value gets set
+   once the pipeline retrieves it from each machine.  The cookie is
+   machine specific and is unique to a machine.
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>accountstartdate</name>
+        <msix_type>timestamp</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>[now]</property_string>
+        <property_string_random>True</property_string_random>
+        <description>
+    this property is used to control the account start date.  This property
+    is also used when changing the account state.
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>accountenddate</name>
+        <msix_type>timestamp</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <description>
+    this property is used to control the end of an account state and is only used on updates.
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>AccountStatus</name>
+        <msix_type>enum</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>Active</property_string>
+        <property_string_random>True</property_string_random>
+        <description>Account State (Changed in 3.0)</description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>StatusReason</name>
+        <msix_type>enum</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string>PendingPaymentSetUp
+PendingApproval
+AccountTerminated
+AccountDeactivated
+Other
+None</property_string>
+        <property_string_random>True</property_string_random>
+        <description>
+     If account is not active, why?
+    </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>StatusReasonOther</name>
+        <msix_type>string</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <length>255</length>
+        <description>
+     If account is not active, and it doesn't fall under
+     StatusReason enum.
+    </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>SecurityQuestion</name>
+        <msix_type>enum</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string>None
+MothersMaidenName
+SSN
+PIN</property_string>
+        <property_string_random>True</property_string_random>
+        <description>
+     What question to ask?
+    </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>SecurityAnswer</name>
+        <msix_type>string</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <length>255</length>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>InvoiceMethod</name>
+        <msix_type>enum</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string>None
+Standard
+Detailed</property_string>
+        <property_string_random>True</property_string_random>
+        <description>
+     What kind of paper invoice do I want?
+    </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>dayofweek</name>
+        <msix_type>enum</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string>Sunday
+Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+Saturday</property_string>
+        <property_string_random>True</property_string_random>
+        <description>
+     Day of week that the user wants to get billed on (for the Weekly usage cycle type)
+       </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>firstdayofmonth</name>
+        <msix_type>int32</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>1</property_string>
+        <property_string_random>True</property_string_random>
+        <description>
+     First day of month that the user wants to get billed on (for the Semi-Monthly usage cycle type)
+      </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>seconddayofmonth</name>
+        <msix_type>int32</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>16</property_string>
+        <property_string_random>True</property_string_random>
+        <description>
+     Second day of month that the user wants to get billed on (for the Semi-Monthly usage cycle type)
+      </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>startmonth</name>
+        <msix_type>enum</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string>January
+February
+March
+April
+May
+June
+July
+August
+September
+October
+November
+December</property_string>
+        <property_string_random>True</property_string_random>
+        <description>
+     The start month that the user wants to get billed on (for the BiWeekly, Quarterly and Annual usage cycle type)
+       </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>startday</name>
+        <msix_type>int32</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <description>
+     The start month that the user wants to get billed on (for the BiWeekly, Quarterly and Annual usage cycle type)
+       </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>startyear</name>
+        <msix_type>int32</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>False</property_string_random>
+        <description>
+     The start year that the user wants to get billed on (for the BiWeekly usage cycle type)
+       </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>pricelist</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>Audio Conferencing Product Offering 10/19/2004 10:28:14 AM</property_string>
+        <property_string_random>True</property_string_random>
+        <length>255</length>
+        <description>
+      Default pricelist assigned to account.  
+      </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>currency</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>USD</property_string>
+        <property_string_random>True</property_string_random>
+        <length>10</length>
+        <description>
+      Currency assigned to account.  
+      </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>PayerAccount</name>
+        <msix_type>string</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <length>255</length>
+        <description>The paying account</description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>PayerAccountNS</name>
+        <msix_type>string</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <length>40</length>
+        <description>The paying account namespace</description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>payerID</name>
+        <msix_type>int32</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <description>    The paying account identifier.  May be used in place of PayerAccount &amp; PayerAccountNS
+   </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>payment_startdate</name>
+        <msix_type>timestamp</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <description>
+   payment redirection start date
+      </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>payment_enddate</name>
+        <msix_type>timestamp</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <description>
+   payment redirection end date
+      </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>billable</name>
+        <msix_type>boolean</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>1</property_string>
+        <property_string_random>True</property_string_random>
+        <description>Indicates that the account can pay for charges
+		T for Yes or success or true or 1 and 
+		F for no or failure or false or 0
+		</description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>ancestorAccount</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>Sales</property_string>
+        <property_string_random>False</property_string_random>
+        <length>255</length>
+        <description>Ancestor account name</description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>ancestorAccountNS</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>mt</property_string>
+        <property_string_random>True</property_string_random>
+        <length>255</length>
+        <description>Ancestor account namespace</description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>ancestorAccountID</name>
+        <msix_type>int32</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <description>
+   Ancestor account ID.  May be used instead of ancestorAccount and ancestorAccountNS
+      </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>hierarchy_startdate</name>
+        <msix_type>timestamp</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>[now]</property_string>
+        <property_string_random>True</property_string_random>
+        <description>Hierarchy start date</description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>hierarchy_enddate</name>
+        <msix_type>timestamp</msix_type>
+        <value_type>not_metered</value_type>
+        <property_string_random>True</property_string_random>
+        <description>Hierarchy start date</description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>folder</name>
+        <msix_type>boolean</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>0</property_string>
+        <property_string_random>True</property_string_random>
+        <description>
+		Indicates if this account is a folder or not
+		T for Yes or success or true or 1 and 
+		F for no or failure or false or 0
+    </description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>ApplyDefaultSecurityPolicy</name>
+        <msix_type>boolean</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>T</property_string>
+        <property_string_random>True</property_string_random>
+        <default_value>T</default_value>
+        <description>Flag indicates whether DSP should be applied to 
+		a newly created account
+		T for Yes or success or true or 1 and 
+		F for no or failure or false or 0
+		</description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>ApplyAccountTemplate</name>
+        <msix_type>boolean</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>T</property_string>
+        <property_string_random>True</property_string_random>
+        <default_value>T</default_value>
+        <description>Flag indicates whether DSP should be applied to 
+		a newly created account
+		T for Yes or success or true or 1 and 
+		F for no or failure or false or 0
+		</description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+    </properties>
+    <sessions />
+  </session>
+</sessions>

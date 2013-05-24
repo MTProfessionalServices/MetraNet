@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5F3C91E8-1EAE-4C6F-AEA6-41827170BFBD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetraTech.SecurityFramework.Core.Common</RootNamespace>
+    <AssemblyName>MetraTech.SecurityFramework.Core.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\SecurityFramework\Utils\MetraTech.SecurityFramework.Core.Common\</BaseIntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\SecurityFramework\Utils\MetraTech.SecurityFramework.Core.Common\</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\SecurityFramework\Utils\MetraTech.SecurityFramework.Core.Common\</BaseIntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\SecurityFramework\Utils\MetraTech.SecurityFramework.Core.Common\</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MetraTech.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApiInput.cs" />
+    <Compile Include="ApiOutput.cs" />
+    <Compile Include="Configuration\ChangedParams.cs" />
+    <Compile Include="Configuration\ConfigurationException.cs" />
+    <Compile Include="Configuration\ConfigurationLoader.cs" />
+    <Compile Include="Configuration\IConfigurationLogger.cs" />
+    <Compile Include="Configuration\IConfigurationLogProvider.cs" />
+    <Compile Include="Configuration\LoadItem.cs" />
+    <Compile Include="Configuration\SerializationException.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="IEngine.cs" />
+    <Compile Include="ISubsystemInitialize.cs" />
+    <Compile Include="Logging\Configuration\EventCategorySourceConfiguration.cs" />
+    <Compile Include="Logging\Configuration\ExceptionHandlerConfiguration.cs" />
+    <Compile Include="Logging\Configuration\ExceptionPolicyConfiguration.cs" />
+    <Compile Include="Logging\Configuration\ExceptionTypeConfiguration.cs" />
+    <Compile Include="Logging\Configuration\FlatFileTraceListenerConfiguration.cs" />
+    <Compile Include="Logging\Configuration\LogFormatterConfiguration.cs" />
+    <Compile Include="Logging\Configuration\LoggerConfiguration.cs" />
+    <Compile Include="Logging\Configuration\LoggingConfiguration.cs" />
+    <Compile Include="Logging\Configuration\TraceListenerConfiguration.cs" />
+    <Compile Include="Logging\Configuration\TypeConfiguration.cs" />
+    <Compile Include="Logging\EntLibErrorLogger.cs" />
+    <Compile Include="Logging\IErrorLogger.cs" />
+    <Compile Include="Logging\LoggingHelper.cs" />
+    <Compile Include="..\..\..\..\Build\AssemblyInfo.cs" />
+    <Compile Include="SecurityFrameworkException.cs" />
+    <Compile Include="SubsystemProperties.cs" />
+    <Compile Include="..\..\..\..\Build\VersionInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MetraTech.SecurityFramework.Serialization\MetraTech.SecurityFramework.Serialization.csproj">
+      <Project>{94F6B7E7-5235-48C2-9AEA-C85A2C4FC6C3}</Project>
+      <Name>MetraTech.SecurityFramework.Serialization</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Logging\LoggingClassDiagram.cd" />
+    <None Include="MetraTech.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

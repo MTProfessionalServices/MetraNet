@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ApprovalItemTypes>
+  <ApprovalItemType>
+    <!-- Unique name of the approval type -->
+    <Name>RateScheduleUpdate</Name>
+    <!-- Enabled: Does this type of change require approval? Setting to FALSE will save normally without an approval process being applied. -->
+    <Enabled>TRUE</Enabled>
+    <!-- Does this type of change allow more than one pending change at a time. If not then submitting a new change of this type when there is an existing pending change will return an error -->
+    <AllowMoreThanOnePendingChange>FALSE</AllowMoreThanOnePendingChange>
+    <!-- In addition to the ManageApprovals capability, what capability is needed to approve or deny this type of change -->
+    <CapabilityRequiredForApproveOrDeny>ApproveRateScheduleUpdate</CapabilityRequiredForApproveOrDeny>
+    <!-- When the change is approved, what webservice should be called to apply or save this change -->
+    <MethodForApplyChange>
+      <ClientProxyType></ClientProxyType>
+      <MethodName></MethodName>
+      <ConfigFileLocation></ConfigFileLocation>
+      <EndPointName></EndPointName>
+    </MethodForApplyChange>
+    <!-- When this change is shown to a user for approval, what custom webpage should be used to show the details of the change-->
+    <WebPageForChangeDisplay></WebPageForChangeDisplay>
+
+    <!-- Settings below are optional -->
+    <!-- When a change is submitted, optionally call this webservice with the change. This allows
+    for detailed customization for if the particular change requires approval -->
+    <MethodForSubmit></WebServiceForSubmit>
+    <!-- When a change is denied, optionally call this webservice with the change. This allows
+    for custom handling when a change is denied. Default is that nothing is done with the change. -->
+    <MethodForDenyChange></WebServiceForDenyChange>
+    <!-- If this pending change can be edited or updated, what page should be used for editing. -->
+    <WebPageForEdit></WebPageForEdit>
+  </ApprovalItemType>
+  <ApprovalItemType>
+    <Name>AccountUpdate</Name>
+    <Enabled>TRUE</Enabled>
+    <CapabilityRequiredForApproveOrDeny>ApproveAccountUpdate</CapabilityRequiredForApproveOrDeny>
+    <WebServiceForApplyChange>ApplyAccountUpdate</WebServiceForApplyChange>
+    <WebPageForChangeDisplay></WebPageForChangeDisplay>
+
+    <!-- Settings below are optional -->
+    <WebServiceForSubmit></WebServiceForSubmit>
+    <WebServiceForDenyChange></WebServiceForDenyChange>
+  </ApprovalItemType>
+</ApprovalItemTypes>

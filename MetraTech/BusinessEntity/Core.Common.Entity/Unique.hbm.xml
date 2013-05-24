@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:nhibernate-mapping-2.2">
+  <meta attribute="category">System</meta>
+  <class name="Core.Common.Unique, Core.Common.Entity" 
+         table="t_be_unique">
+    <meta attribute="interface">Core.Common.IPivotTableProperty, Core.Interface</meta>
+    <composite-id>
+      <key-property name="ExtensionName" column="c_extension_name" type="String"/>
+      <key-property name="EntityGroupName" column="c_entity_group_name" type="String"/>
+      <key-property name="EntityName" column="c_entity_name" type="String"/>
+      <key-property name="PropertyName" column="c_property_name" type="String"/>
+      <key-property name="EntityInstanceId" column="c_entity_instance_id" type="Guid"/>
+    </composite-id>
+    <property name="BooleanValue" column="c_boolean_value">
+      <type name="Boolean" />
+    </property>
+    <property name="DateTimeValue" column="c_datetime_value">
+      <type name="DateTime" />
+    </property>
+    <property name="DecimalValue" column="c_decimal_value">
+      <type name="Decimal" />
+    </property>
+    <property name="DoubleValue" column="c_double_value">
+      <type name="Double" />
+    </property>
+    <property name="GuidValue" column="c_guid_value">
+      <type name="Guid" />
+    </property>
+    <property name="Int32Value" column="c_int32_value">
+      <type name="Int32" />
+    </property>
+    <property name="Int64Value" column="c_int64_value">
+      <type name="Int64" />
+    </property>
+    <property name="StringValue" column="c_string_value">
+      <type name="String" />
+    </property>
+    <property name="EnumValue" column="c_enum_value">
+      <type name="Int32" />
+    </property>
+  </class>
+</hibernate-mapping>

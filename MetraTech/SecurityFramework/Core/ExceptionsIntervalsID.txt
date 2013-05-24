@@ -1,0 +1,54 @@
+﻿Exceptions intervals ID
+
+100 - input data is null;
+
+1000...1999 - Decoder subsystems;
+	1000 - General Id exception for this subsystem;
+	1010 - Invalid character or sequence found if base 64 encoded data;
+	1100 - Invalid character or sequence found in GZIP compressed data;
+
+2000...2999 - Detector subsystems;
+	2000 - General Id exception for this subsystem;
+	2010 - XSS injections was detected;
+	2020 - JavaSript element was detected;
+	2030 - DOM element was detected;
+	2040 - HTML tag was detected;
+	2050 - HTML event was detected;
+	2060 - Dengerous sign elements was detected;
+	2070 - VbSript element was detected;
+	2080 - Obfuscatons was detected;
+	...
+	2200 - SQL injections was detected;
+	2300 - Directory Traversal was detected
+
+3000...3999 - Validator subsystem;
+	3000 - General Id exception for this subsystem;
+	3010 - Empty string is not allowed;
+	3020 - Input string not in range;
+	3030 - Input value is not an integer type;
+	3040 - Input integer value is not in range;
+	3050 - Blocked input string;
+	3060 - Input value not a double type;
+	3070 - Input double value is not in range;
+	3080 - Credit card number has invalid length;
+	3090 - Illegal character in Credit card number;
+	3100 - Credit card number validation failed;
+	3110 - Input string contains invalid for HEX character(s);
+	3120 - Input string contains non-ASCII characters;
+	3130 - Input date/time string is invalid;
+	3140 - Input BASE 64 encoded data gas invalid format;
+
+4000...4999 - Encoder
+	4000 - General Id exception for this subsystem;
+
+5000...5999 - Processor
+	5000 - General Id exception for this subsystem;
+	5010 - General exception;
+
+6000...6999 - Sanitizer
+	6000 - General Id exception for this subsystem;
+
+7000...7999 - Encryptor
+	7000 - General Id exception for this subsystem;
+	7010 - Data cannot be decrypted (bad encrypted data)
+	7020 - Data cannot be decoded (bad encoded data)

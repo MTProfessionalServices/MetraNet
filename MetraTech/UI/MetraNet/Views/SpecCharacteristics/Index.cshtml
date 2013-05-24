@@ -1,0 +1,164 @@
+﻿@using MetraTech.DomainModel.Enums.Core.Global
+@using MetraTech.UI.Common
+@model IEnumerable<IGrouping<string, MetraNet.Models.SpecCharacteristicModel>>  
+         
+@{
+  ViewBag.Title = ViewContext.HttpContext.GetGlobalResourceObject("Resource", "Index_cshtml_Execute_Spec_Characteristics");
+  var UI = Session[Constants.UI_MANAGER] as UIManager;
+}
+
+<script type='text/javascript' src="@Url.Content("~/Scripts/jquery.cookie.js")"></script>
+<script type='text/javascript' src="@Url.Content("~/Scripts/jquery.collapsible.js")"></script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+
+  	$.collapsible(".section", "group1");
+    
+    // Order
+    @foreach (var group in Model)
+    {
+   <text>
+    $("#spec-list@(group.Key)").sortable({
+      handle: '.handle',
+      update: function (event, ui) {
+        $("ul#spec-list@(group.Key) li").each(function () {
+          var position = $("ul#spec-list@(group.Key) li").index(this);
+          var id = $(this).attr("id");
+          $('#info').html("Moving...").show();
+          $.post("/MetraNet/SpecCharacteristics/SetDisplayOrder", { position: position, id: id }, function(result) {
+              $('#info').html(result.Message);
+              if(result.Success == true)
+              {
+                //
+              } 
+               $('#info').fadeOut(3000);
+            });
+        });
+      }
+    }).disableSelection();
+    </text>
+    }
+    
+    // No Items
+    if(@ViewBag.ItemCount > 0)
+      $("#empty").hide();
+
+    // Delete
+    $("#dialogDelete").dialog({
+      autoOpen: false,
+      modal: true
+    });
+
+    $(".smallDelete").click(function(e) {
+      e.preventDefault();
+      var id = $(this).attr("id").replace("delete_","");
+      var name = $(this).attr("data-name");
+      $('#deleteName').html(name);
+
+      $("#dialogDelete").dialog({
+        buttons : {
+          "OK" : function() {
+            $(this).dialog("close");
+            $('#info').html("Deleting...").show();
+            $.post('/MetraNet/SpecCharacteristics/Delete', { id: id }, function(result) {
+              $('#info').html(result.Message);
+              if(result.Success == true)
+              {
+                $('#'+id).remove();
+              } 
+               $('#info').fadeOut(3000);
+            });
+          },
+          "Cancel" : function() {
+            $(this).dialog("close");
+          }
+        }
+      });
+
+      $("#dialogDelete").dialog("open");
+    });
+
+
+   // Cache selectors outside callback for performance. 
+   var $window = $(window),
+       $stickyEl = $('#info');
+
+   var elTop = $stickyEl.offset().top;
+
+   // keep info div visible
+   $window.scroll(function() {
+        var windowTop = $window.scrollTop();
+        $stickyEl.toggleClass('sticky', windowTop > elTop);
+   });
+
+
+  });
+</script>
+
+@if (Session["EntityID"] == null)
+{
+  <div class="CaptionBar">
+  @Resources.Resource.TEXT_SHARED_PROPERTIES           
+  </div>
+}
+<br/>
+<div class="container_12">
+    <div class="grid_7 prefix_1 suffix_4"><div id="info" style="display:none;">@Resources.Resource.TEXT_WAITING_FOR_UPDATE</div></div><div class="clear"></div>
+
+  <div class="grid_7 prefix_1 suffix_4">
+    @if (Session["EntityID"] != null && Session["CurrentEntityType"] != null && (EntityType)Session["CurrentEntityType"] == EntityType.AgreementTemplate)
+    {
+      <div id="empty">
+        @Resources.Resource.TEXT_NO_PROPERTIES_ADDED_YET_TO_AGREEMENT_TEMPLATE<br/>
+      </div>
+    }
+    @if ((Session["EntityID"] == null) || (Session["EntityID"] != null && Session["CurrentEntityType"] == null) || (Session["EntityID"] != null && Session["CurrentEntityType"] != null && (EntityType)Session["CurrentEntityType"] != EntityType.AgreementTemplate))
+    {
+      <div id="empty">
+        @Resources.Resource.TEXT_NO_PROPERTIES_YET<br/>
+      </div>
+    }
+  </div><div class="clear"></div>
+
+    <div class="grid_8 suffix_4">
+
+        @foreach (var group in Model)
+        {
+				  <span class="section">@group.Key</span>
+          <div class="content">
+            <ul class="sortable" id="spec-list@(group.Key)">
+              @foreach (var spec in group)
+              {     
+                <li id="@spec.SpecId" class="rounded-med">
+                  <img src="/Res/Images/icons/move_up_down.png" alt="move" width="16" height="16" class="handle" />
+                  <strong>@spec.Name</strong> (@spec.SpecType) 
+                  <a id="delete_@(spec.SpecId)" data-name="@spec.Name" class="action right smallDelete">@Resources.Resource.TEXT_ACTION_DELETE</a>&nbsp;&nbsp;
+                  @Html.ActionLink(Resources.Resource.TEXT_ACTION_EDIT, "EditProperty", new { id = spec.SpecId }, new { @class = "action right smallEdit" })
+                </li>
+              }
+            </ul>
+            @Html.ActionLink(Resources.Resource.TEXT_ACTION_ADD_PROPERTY, "AddProperty", new { category = group.Key }, new { @class = "action right smallAdd" })
+          </div><br />
+        }
+
+    </div>
+    <div class="clear"></div>
+    
+  <br/>
+  <div class="grid_8 prefix_1 suffix_3">
+    <!--  @Html.ActionLink(Resources.Resource.TEXT_ACTION_ADD_CATEGORY, "AddCategory", null, new { @class = "action smallAdd" }) -->
+    @Html.ActionLink(Resources.Resource.TEXT_ACTION_ADD_PROPERTY, "AddProperty", null, new { @id = "addNewProperty", @class = "action smallAdd" })
+    @if (Session["EntityID"] != null)
+    {
+      @Html.ActionLink(Resources.Resource.TEXT_ACTION_ADD_EXISTING_PROPERTY, "AvailableSharedProperties", new { entityId = Session["EntityID"] }, new { @id = "addNewSharedProperty", @class = "action smallAdd" })
+    }
+  </div>
+    
+  </div> <!-- end container -->
+
+<!-- Confirm Delete Dialog -->
+<div id="dialogDelete" title="@Resources.Resource.TEXT_ARE_YOU_SURE">
+  <div id="reset1">@Resources.Resource.TEXT_OK_DELETE_1 <span id="deleteName"></span> @Resources.Resource.TEXT_OK_DELETE_2</div>
+  <div id="confirmDeleteMessage"></div> 
+</div>

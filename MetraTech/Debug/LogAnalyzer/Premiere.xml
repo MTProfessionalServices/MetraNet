@@ -1,0 +1,47 @@
+<LogAnalyzer>
+
+  <LogSettings>
+    <MTLog>
+      <Filters>
+
+        <Filter>
+          <MessageContains>############### MetraTech Pipeline Service ###############</MessageContains>
+          <SubstituteMessage>$HEADER Pipeline started.</SubstituteMessage>
+        </Filter>
+
+        <Filter>
+          <MessageContains>\[cmdstage\]\[stageharness\]\[ERROR\] Session .*? failed with error e1200024 \(Account resolution failed.\) Unable to resolve accountname: .*</MessageContains>
+          <SubstituteMessage>$HEADER[ERROR] Account resolution failure</SubstituteMessage>
+        </Filter>
+
+        <Filter>
+          <MessageContains>A partial batch failure has occurred.</MessageContains>
+          <SubstituteMessage>$HEADER[ERROR] A partial batch failure has occurred.</SubstituteMessage>
+        </Filter>
+
+        <Filter>
+          <MessageContains>\]\[ERROR\]</MessageContains>
+        </Filter>  
+
+        <Filter>
+          <MessageContains>\]\[FATAL\]</MessageContains>
+        </Filter>  
+
+        <Filter>
+          <MessageContains>\]\[SessionFailures\]</MessageContains>
+        </Filter>  
+
+        <Filter>
+          <MessageContains>\[controlpipeline\]</MessageContains>
+        </Filter>  
+
+      </Filters>    
+    </MTLog>
+  </LogSettings>
+
+  <Output>
+    <MainFile>unifiedmtlog.txt</MainFile>
+    <StatisticsFile>frequency.txt</StatisticsFile>
+  </Output>
+
+</LogAnalyzer>

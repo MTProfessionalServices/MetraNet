@@ -1,0 +1,769 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A7F3B6413CD28DA00153955 /* tabpayments.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7F3B6313CD28DA00153955 /* tabpayments.png */; };
+		1D3623260D0F684500981E51 /* MetraViewXcodeAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* MetraViewXcodeAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
+		5114A800118CC37A0098A429 /* tabmessages.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A9651811853CAB00A51FDD /* tabmessages.png */; };
+		5114A801118CC3890098A429 /* cvv.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A967ED1187289800A51FDD /* cvv.png */; };
+		5114A802118CC39A0098A429 /* tabaccountinfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A2548D117D404A002585CB /* tabaccountinfo.png */; };
+		5114A803118CC3A00098A429 /* button_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 51D1371E117B583300917082 /* button_green.png */; };
+		5114A805118CC3B00098A429 /* tabbillsummary.png in Resources */ = {isa = PBXBuildFile; fileRef = 51FBB5EB1178E4A000BA5FFB /* tabbillsummary.png */; };
+		5114A806118CC3B90098A429 /* metranet.png in Resources */ = {isa = PBXBuildFile; fileRef = 5179E03D117794C500ED1A6D /* metranet.png */; };
+		5114A811118CC4320098A429 /* BillView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51FBB6561178F9A100BA5FFB /* BillView.xib */; };
+		5114A812118CC4470098A429 /* CVVView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51A968B011873D8B00A51FDD /* CVVView.xib */; };
+		5114A813118CC4500098A429 /* ContactUsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51A9650E11853B7300A51FDD /* ContactUsView.xib */; };
+		5114A814118CC45D0098A429 /* PaymentAddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51A962D81184B5C500A51FDD /* PaymentAddView.xib */; };
+		5114A815118CC45D0098A429 /* BillDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51A960341183134F00A51FDD /* BillDetailsView.xib */; };
+		5114A816118CC45D0098A429 /* PaymentSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51A95EB51181DB0400A51FDD /* PaymentSelectView.xib */; };
+		5114A817118CC45D0098A429 /* AccountInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 518D85CC117F536D003EB443 /* AccountInfo.xib */; };
+		5114A818118CC45D0098A429 /* PaymentsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51A2545E117D3A16002585CB /* PaymentsView.xib */; };
+		5114A860118E49020098A429 /* DateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5114A85F118E49020098A429 /* DateViewController.m */; };
+		51343B4911A0BBC50081111A /* Read me first - license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 51343B4811A0BBC50081111A /* Read me first - license.txt */; };
+		51343B8311A0D7140081111A /* HistoryChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51343B8111A0D7140081111A /* HistoryChartViewController.m */; };
+		51343B8411A0D7140081111A /* HistoryChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51343B8211A0D7140081111A /* HistoryChartView.xib */; };
+		5137660611A476FD002AE74D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5137660411A476FD002AE74D /* AboutViewController.m */; };
+		5137660711A476FD002AE74D /* AboutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5137660511A476FD002AE74D /* AboutView.xib */; };
+		5137662C11A47B00002AE74D /* tababout.png in Resources */ = {isa = PBXBuildFile; fileRef = 5137662B11A47B00002AE74D /* tababout.png */; };
+		51732CD8118A030B00574250 /* PaymentHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51732CD6118A030B00574250 /* PaymentHistoryViewController.m */; };
+		51732CD9118A030B00574250 /* PaymentHistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51732CD7118A030B00574250 /* PaymentHistoryView.xib */; };
+		5184F9291191B23C00B1D0BE /* MetraViewLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 5184F9281191B23C00B1D0BE /* MetraViewLib.m */; };
+		518970B7119A48750054B463 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 518970B6119A48750054B463 /* check.png */; };
+		518970BF119A48D40054B463 /* CheckView.m in Sources */ = {isa = PBXBuildFile; fileRef = 518970BD119A48D40054B463 /* CheckView.m */; };
+		518970C0119A48D40054B463 /* CheckView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 518970BE119A48D40054B463 /* CheckView.xib */; };
+		518970E7119B051B0054B463 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 518970E5119B051B0054B463 /* HistoryViewController.m */; };
+		518970E8119B051B0054B463 /* HistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 518970E6119B051B0054B463 /* HistoryView.xib */; };
+		518970F7119B06EB0054B463 /* chart.png in Resources */ = {isa = PBXBuildFile; fileRef = 518970F6119B06EB0054B463 /* chart.png */; };
+		5189712E119B18D30054B463 /* subscriptions.png in Resources */ = {isa = PBXBuildFile; fileRef = 5189712D119B18D30054B463 /* subscriptions.png */; };
+		51897132119B190F0054B463 /* SubscriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51897130119B190F0054B463 /* SubscriptionViewController.m */; };
+		51897133119B190F0054B463 /* SubscriptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51897131119B190F0054B463 /* SubscriptionView.xib */; };
+		518971F5119B95C30054B463 /* AvailableSubscriptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 518971F3119B95C30054B463 /* AvailableSubscriptionsViewController.m */; };
+		518971F6119B95C30054B463 /* AvailableSubscriptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 518971F4119B95C30054B463 /* AvailableSubscriptionsView.xib */; };
+		518D85CD117F536D003EB443 /* AccountInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 518D85CB117F536D003EB443 /* AccountInfoController.m */; };
+		51A2545F117D3A16002585CB /* PaymentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A2545D117D3A16002585CB /* PaymentsViewController.m */; };
+		51A4C57911A305E000E54748 /* UsageChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A4C57711A305E000E54748 /* UsageChartViewController.m */; };
+		51A4C57A11A305E000E54748 /* UsageChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51A4C57811A305E000E54748 /* UsageChartView.xib */; };
+		51A4C5F711A42A9400E54748 /* ProductChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A4C5F511A42A9400E54748 /* ProductChartViewController.m */; };
+		51A4C5F811A42A9400E54748 /* ProductChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51A4C5F611A42A9400E54748 /* ProductChartView.xib */; };
+		51A4C62711A4520700E54748 /* SignUpTermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A4C62511A4520700E54748 /* SignUpTermsViewController.m */; };
+		51A4C62811A4520700E54748 /* SignUpTermsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51A4C62611A4520700E54748 /* SignUpTermsView.xib */; };
+		51A95EB61181DB0400A51FDD /* PaymentSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A95EB41181DB0400A51FDD /* PaymentSelectViewController.m */; };
+		51A960351183134F00A51FDD /* BillDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A960331183134F00A51FDD /* BillDetailsViewController.m */; };
+		51A962D91184B5C500A51FDD /* PaymentAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A962D71184B5C500A51FDD /* PaymentAddViewController.m */; };
+		51A9650F11853B7300A51FDD /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A9650D11853B7300A51FDD /* ContactUsViewController.m */; };
+		51A968B111873D8B00A51FDD /* CVVView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A968AF11873D8B00A51FDD /* CVVView.m */; };
+		51B65DCB1271E1D5002D32C3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B65DCA1271E1D5002D32C3 /* Default@2x.png */; };
+		51B65DCD1271E1F7002D32C3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B65DCC1271E1F7002D32C3 /* Icon@2x.png */; };
+		51B65DCF1271E280002D32C3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B65DCE1271E280002D32C3 /* Icon.png */; };
+		51B65DD11271E299002D32C3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B65DD01271E299002D32C3 /* Default.png */; };
+		51C0CF9B1272318200EA6AB3 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C0CF9A1272318200EA6AB3 /* ASIDownloadCache.m */; };
+		51E5A5331192FCF000E3B52D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E5A5311192FCF000E3B52D /* SignUpViewController.m */; };
+		51E5A5341192FCF000E3B52D /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51E5A5321192FCF000E3B52D /* SignUpView.xib */; };
+		51E5A8CB1193946100E3B52D /* SignUpViewDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E5A8C91193946100E3B52D /* SignUpViewDetailsController.m */; };
+		51E5A8CC1193946100E3B52D /* SignUpViewDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51E5A8CA1193946100E3B52D /* SignUpViewDetails.xib */; };
+		51E5AB221194BD5E00E3B52D /* SignUpAccountInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E5AB201194BD5E00E3B52D /* SignUpAccountInfoController.m */; };
+		51E5AB231194BD5E00E3B52D /* SignUpAccountInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51E5AB211194BD5E00E3B52D /* SignUpAccountInfo.xib */; };
+		51EDDE37118A67390060AC3E /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51EDDE36118A67390060AC3E /* MainWindow.xib */; };
+		51FBB4161178B8A100BA5FFB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51FBB4151178B8A100BA5FFB /* SystemConfiguration.framework */; };
+		51FBB41A1178B94B00BA5FFB /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 51FBB4191178B94B00BA5FFB /* libz.1.2.3.dylib */; };
+		51FBB47F1178BAA700BA5FFB /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FBB4331178BAA700BA5FFB /* ASIAuthenticationDialog.m */; };
+		51FBB4801178BAA700BA5FFB /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FBB4351178BAA700BA5FFB /* ASIFormDataRequest.m */; };
+		51FBB4811178BAA700BA5FFB /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FBB4371178BAA700BA5FFB /* ASIHTTPRequest.m */; };
+		51FBB4821178BAA700BA5FFB /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FBB43B1178BAA700BA5FFB /* ASIInputStream.m */; };
+		51FBB4831178BAA700BA5FFB /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FBB43D1178BAA700BA5FFB /* ASINetworkQueue.m */; };
+		51FBB4841178BAA700BA5FFB /* ASINSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FBB43F1178BAA700BA5FFB /* ASINSStringAdditions.m */; };
+		51FBB49C1178BAA700BA5FFB /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FBB4741178BAA700BA5FFB /* NSObject+SBJSON.m */; };
+		51FBB49D1178BAA700BA5FFB /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FBB4761178BAA700BA5FFB /* NSString+SBJSON.m */; };
+		51FBB49E1178BAA700BA5FFB /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FBB4781178BAA700BA5FFB /* SBJSON.m */; };
+		51FBB49F1178BAA700BA5FFB /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FBB47A1178BAA700BA5FFB /* SBJsonBase.m */; };
+		51FBB4A01178BAA700BA5FFB /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FBB47C1178BAA700BA5FFB /* SBJsonParser.m */; };
+		51FBB4A11178BAA700BA5FFB /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FBB47E1178BAA700BA5FFB /* SBJsonWriter.m */; };
+		51FBB4BF1178BF2700BA5FFB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51FBB4BE1178BF2700BA5FFB /* CFNetwork.framework */; };
+		51FBB4C31178BF4800BA5FFB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51FBB4C21178BF4800BA5FFB /* MobileCoreServices.framework */; };
+		51FBB4D31178BFA300BA5FFB /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FBB4D21178BFA300BA5FFB /* Reachability.m */; };
+		51FBB5211178D24000BA5FFB /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 51FBB5201178D24000BA5FFB /* Settings.bundle */; };
+		51FBB6571178F9A100BA5FFB /* BillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FBB6551178F9A100BA5FFB /* BillViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0A7F3B6313CD28DA00153955 /* tabpayments.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabpayments.png; sourceTree = "<group>"; };
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* MetraViewXcodeAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetraViewXcodeAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* MetraViewXcodeAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetraViewXcodeAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* MetraViewXcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetraViewXcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		288765070DF74369002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28A0AB4B0D9B1048005BE974 /* MetraViewXcode_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetraViewXcode_Prefix.pch; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5114A85E118E49020098A429 /* DateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateViewController.h; sourceTree = "<group>"; };
+		5114A85F118E49020098A429 /* DateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateViewController.m; sourceTree = "<group>"; };
+		51343B4811A0BBC50081111A /* Read me first - license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Read me first - license.txt"; sourceTree = "<group>"; };
+		51343B8011A0D7140081111A /* HistoryChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryChartViewController.h; sourceTree = "<group>"; };
+		51343B8111A0D7140081111A /* HistoryChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryChartViewController.m; sourceTree = "<group>"; };
+		51343B8211A0D7140081111A /* HistoryChartView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryChartView.xib; sourceTree = "<group>"; };
+		5137660311A476FD002AE74D /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		5137660411A476FD002AE74D /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		5137660511A476FD002AE74D /* AboutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutView.xib; sourceTree = "<group>"; };
+		5137662B11A47B00002AE74D /* tababout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tababout.png; sourceTree = "<group>"; };
+		51732CD5118A030B00574250 /* PaymentHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentHistoryViewController.h; sourceTree = "<group>"; };
+		51732CD6118A030B00574250 /* PaymentHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentHistoryViewController.m; sourceTree = "<group>"; };
+		51732CD7118A030B00574250 /* PaymentHistoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentHistoryView.xib; sourceTree = "<group>"; };
+		5179E03D117794C500ED1A6D /* metranet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metranet.png; sourceTree = "<group>"; };
+		5184F9271191B23C00B1D0BE /* MetraViewLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MetraViewLib.h; path = MetraViewLib/MetraViewLib.h; sourceTree = "<group>"; };
+		5184F9281191B23C00B1D0BE /* MetraViewLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MetraViewLib.m; path = MetraViewLib/MetraViewLib.m; sourceTree = "<group>"; };
+		518970B6119A48750054B463 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
+		518970BC119A48D40054B463 /* CheckView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckView.h; sourceTree = "<group>"; };
+		518970BD119A48D40054B463 /* CheckView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckView.m; sourceTree = "<group>"; };
+		518970BE119A48D40054B463 /* CheckView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckView.xib; sourceTree = "<group>"; };
+		518970E4119B051B0054B463 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		518970E5119B051B0054B463 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		518970E6119B051B0054B463 /* HistoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryView.xib; sourceTree = "<group>"; };
+		518970F6119B06EB0054B463 /* chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart.png; sourceTree = "<group>"; };
+		5189712D119B18D30054B463 /* subscriptions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = subscriptions.png; sourceTree = "<group>"; };
+		5189712F119B190F0054B463 /* SubscriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscriptionViewController.h; sourceTree = "<group>"; };
+		51897130119B190F0054B463 /* SubscriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscriptionViewController.m; sourceTree = "<group>"; };
+		51897131119B190F0054B463 /* SubscriptionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubscriptionView.xib; sourceTree = "<group>"; };
+		518971F2119B95C30054B463 /* AvailableSubscriptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvailableSubscriptionsViewController.h; sourceTree = "<group>"; };
+		518971F3119B95C30054B463 /* AvailableSubscriptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvailableSubscriptionsViewController.m; sourceTree = "<group>"; };
+		518971F4119B95C30054B463 /* AvailableSubscriptionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvailableSubscriptionsView.xib; sourceTree = "<group>"; };
+		518D85CA117F536D003EB443 /* AccountInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountInfoController.h; sourceTree = "<group>"; };
+		518D85CB117F536D003EB443 /* AccountInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountInfoController.m; sourceTree = "<group>"; };
+		518D85CC117F536D003EB443 /* AccountInfo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountInfo.xib; sourceTree = "<group>"; };
+		51A2545C117D3A16002585CB /* PaymentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentsViewController.h; sourceTree = "<group>"; };
+		51A2545D117D3A16002585CB /* PaymentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentsViewController.m; sourceTree = "<group>"; };
+		51A2545E117D3A16002585CB /* PaymentsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentsView.xib; sourceTree = "<group>"; };
+		51A2548D117D404A002585CB /* tabaccountinfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabaccountinfo.png; sourceTree = "<group>"; };
+		51A4C57611A305E000E54748 /* UsageChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsageChartViewController.h; sourceTree = "<group>"; };
+		51A4C57711A305E000E54748 /* UsageChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsageChartViewController.m; sourceTree = "<group>"; };
+		51A4C57811A305E000E54748 /* UsageChartView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsageChartView.xib; sourceTree = "<group>"; };
+		51A4C5F411A42A9400E54748 /* ProductChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductChartViewController.h; sourceTree = "<group>"; };
+		51A4C5F511A42A9400E54748 /* ProductChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductChartViewController.m; sourceTree = "<group>"; };
+		51A4C5F611A42A9400E54748 /* ProductChartView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductChartView.xib; sourceTree = "<group>"; };
+		51A4C62411A4520700E54748 /* SignUpTermsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpTermsViewController.h; sourceTree = "<group>"; };
+		51A4C62511A4520700E54748 /* SignUpTermsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpTermsViewController.m; sourceTree = "<group>"; };
+		51A4C62611A4520700E54748 /* SignUpTermsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpTermsView.xib; sourceTree = "<group>"; };
+		51A95EB31181DB0400A51FDD /* PaymentSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentSelectViewController.h; sourceTree = "<group>"; };
+		51A95EB41181DB0400A51FDD /* PaymentSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentSelectViewController.m; sourceTree = "<group>"; };
+		51A95EB51181DB0400A51FDD /* PaymentSelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentSelectView.xib; sourceTree = "<group>"; };
+		51A960321183134F00A51FDD /* BillDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillDetailsViewController.h; sourceTree = "<group>"; };
+		51A960331183134F00A51FDD /* BillDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillDetailsViewController.m; sourceTree = "<group>"; };
+		51A960341183134F00A51FDD /* BillDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillDetailsView.xib; sourceTree = "<group>"; };
+		51A962D61184B5C500A51FDD /* PaymentAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentAddViewController.h; sourceTree = "<group>"; };
+		51A962D71184B5C500A51FDD /* PaymentAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentAddViewController.m; sourceTree = "<group>"; };
+		51A962D81184B5C500A51FDD /* PaymentAddView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentAddView.xib; sourceTree = "<group>"; };
+		51A9650C11853B7300A51FDD /* ContactUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUsViewController.h; sourceTree = "<group>"; };
+		51A9650D11853B7300A51FDD /* ContactUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUsViewController.m; sourceTree = "<group>"; };
+		51A9650E11853B7300A51FDD /* ContactUsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactUsView.xib; sourceTree = "<group>"; };
+		51A9651811853CAB00A51FDD /* tabmessages.png */ = {isa = PBXFileReference; explicitFileType = image.png; path = tabmessages.png; sourceTree = "<group>"; };
+		51A967ED1187289800A51FDD /* cvv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cvv.png; sourceTree = "<group>"; };
+		51A968AE11873D8B00A51FDD /* CVVView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVVView.h; sourceTree = "<group>"; };
+		51A968AF11873D8B00A51FDD /* CVVView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVVView.m; sourceTree = "<group>"; };
+		51A968B011873D8B00A51FDD /* CVVView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CVVView.xib; sourceTree = "<group>"; };
+		51B65DCA1271E1D5002D32C3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		51B65DCC1271E1F7002D32C3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		51B65DCE1271E280002D32C3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		51B65DD01271E299002D32C3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		51C0CE791271FFF400EA6AB3 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
+		51C0CF991272318200EA6AB3 /* ASIDownloadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDownloadCache.h; sourceTree = "<group>"; };
+		51C0CF9A1272318200EA6AB3 /* ASIDownloadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDownloadCache.m; sourceTree = "<group>"; };
+		51D1371E117B583300917082 /* button_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_green.png; sourceTree = "<group>"; };
+		51E5A5301192FCF000E3B52D /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = Classes/SignUpViewController.h; sourceTree = "<group>"; };
+		51E5A5311192FCF000E3B52D /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = Classes/SignUpViewController.m; sourceTree = "<group>"; };
+		51E5A5321192FCF000E3B52D /* SignUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SignUpView.xib; path = Classes/SignUpView.xib; sourceTree = "<group>"; };
+		51E5A8C81193946100E3B52D /* SignUpViewDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewDetailsController.h; path = Classes/SignUpViewDetailsController.h; sourceTree = "<group>"; };
+		51E5A8C91193946100E3B52D /* SignUpViewDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewDetailsController.m; path = Classes/SignUpViewDetailsController.m; sourceTree = "<group>"; };
+		51E5A8CA1193946100E3B52D /* SignUpViewDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SignUpViewDetails.xib; path = Classes/SignUpViewDetails.xib; sourceTree = "<group>"; };
+		51E5AB1F1194BD5E00E3B52D /* SignUpAccountInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpAccountInfoController.h; path = Classes/SignUpAccountInfoController.h; sourceTree = "<group>"; };
+		51E5AB201194BD5E00E3B52D /* SignUpAccountInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpAccountInfoController.m; path = Classes/SignUpAccountInfoController.m; sourceTree = "<group>"; };
+		51E5AB211194BD5E00E3B52D /* SignUpAccountInfo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SignUpAccountInfo.xib; path = Classes/SignUpAccountInfo.xib; sourceTree = "<group>"; };
+		51EDDE36118A67390060AC3E /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = ../MainWindow.xib; sourceTree = "<group>"; };
+		51FBB4151178B8A100BA5FFB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		51FBB4191178B94B00BA5FFB /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
+		51FBB4321178BAA700BA5FFB /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
+		51FBB4331178BAA700BA5FFB /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
+		51FBB4341178BAA700BA5FFB /* ASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIFormDataRequest.h; sourceTree = "<group>"; };
+		51FBB4351178BAA700BA5FFB /* ASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIFormDataRequest.m; sourceTree = "<group>"; };
+		51FBB4361178BAA700BA5FFB /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
+		51FBB4371178BAA700BA5FFB /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
+		51FBB4381178BAA700BA5FFB /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestConfig.h; sourceTree = "<group>"; };
+		51FBB4391178BAA700BA5FFB /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestDelegate.h; sourceTree = "<group>"; };
+		51FBB43A1178BAA700BA5FFB /* ASIInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIInputStream.h; sourceTree = "<group>"; };
+		51FBB43B1178BAA700BA5FFB /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIInputStream.m; sourceTree = "<group>"; };
+		51FBB43C1178BAA700BA5FFB /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
+		51FBB43D1178BAA700BA5FFB /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
+		51FBB43E1178BAA700BA5FFB /* ASINSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINSStringAdditions.h; sourceTree = "<group>"; };
+		51FBB43F1178BAA700BA5FFB /* ASINSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINSStringAdditions.m; sourceTree = "<group>"; };
+		51FBB4401178BAA700BA5FFB /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
+		51FBB4721178BAA700BA5FFB /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		51FBB4731178BAA700BA5FFB /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		51FBB4741178BAA700BA5FFB /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		51FBB4751178BAA700BA5FFB /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		51FBB4761178BAA700BA5FFB /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		51FBB4771178BAA700BA5FFB /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		51FBB4781178BAA700BA5FFB /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		51FBB4791178BAA700BA5FFB /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		51FBB47A1178BAA700BA5FFB /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		51FBB47B1178BAA700BA5FFB /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		51FBB47C1178BAA700BA5FFB /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		51FBB47D1178BAA700BA5FFB /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		51FBB47E1178BAA700BA5FFB /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		51FBB4BE1178BF2700BA5FFB /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		51FBB4C21178BF4800BA5FFB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		51FBB4D11178BFA300BA5FFB /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		51FBB4D21178BFA300BA5FFB /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		51FBB5201178D24000BA5FFB /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		51FBB5EB1178E4A000BA5FFB /* tabbillsummary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbillsummary.png; sourceTree = "<group>"; };
+		51FBB6541178F9A100BA5FFB /* BillViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillViewController.h; sourceTree = "<group>"; };
+		51FBB6551178F9A100BA5FFB /* BillViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillViewController.m; sourceTree = "<group>"; };
+		51FBB6561178F9A100BA5FFB /* BillView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillView.xib; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* MetraViewXcode-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MetraViewXcode-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */,
+				51FBB4161178B8A100BA5FFB /* SystemConfiguration.framework in Frameworks */,
+				51FBB41A1178B94B00BA5FFB /* libz.1.2.3.dylib in Frameworks */,
+				51FBB4BF1178BF2700BA5FFB /* CFNetwork.framework in Frameworks */,
+				51FBB4C31178BF4800BA5FFB /* MobileCoreServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				51FBB4301178BAA700BA5FFB /* lib */,
+				1D3623240D0F684500981E51 /* MetraViewXcodeAppDelegate.h */,
+				1D3623250D0F684500981E51 /* MetraViewXcodeAppDelegate.m */,
+				51EDDE36118A67390060AC3E /* MainWindow.xib */,
+				51343B6311A0BDB30081111A /* SignUp */,
+				51343B7911A0BF780081111A /* Bill */,
+				51343B7811A0BE6B0081111A /* Payments */,
+				51343B7A11A0BFB10081111A /* Usage */,
+				51343B7D11A0C0340081111A /* AccountInfo */,
+				51343B7B11A0BFE10081111A /* Subscriptions */,
+				51343B7C11A0C00D0081111A /* Contact */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* MetraViewXcode.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* MetraViewXcode */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = MetraViewXcode;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				28A0AB4B0D9B1048005BE974 /* MetraViewXcode_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				51B65DD01271E299002D32C3 /* Default.png */,
+				51B65DCE1271E280002D32C3 /* Icon.png */,
+				51B65DCC1271E1F7002D32C3 /* Icon@2x.png */,
+				51B65DCA1271E1D5002D32C3 /* Default@2x.png */,
+				51FBB5201178D24000BA5FFB /* Settings.bundle */,
+				51343B5411A0BC3A0081111A /* Icons */,
+				51343B5311A0BC2F0081111A /* Images */,
+				51343B4B11A0BBD30081111A /* GlyphishIcons */,
+				8D1107310486CEB800E47090 /* MetraViewXcode-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				51FBB4C21178BF4800BA5FFB /* MobileCoreServices.framework */,
+				51FBB4BE1178BF2700BA5FFB /* CFNetwork.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765070DF74369002DB57D /* CoreGraphics.framework */,
+				51FBB4151178B8A100BA5FFB /* SystemConfiguration.framework */,
+				51FBB4191178B94B00BA5FFB /* libz.1.2.3.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		51343B4B11A0BBD30081111A /* GlyphishIcons */ = {
+			isa = PBXGroup;
+			children = (
+				0A7F3B6313CD28DA00153955 /* tabpayments.png */,
+				5137662B11A47B00002AE74D /* tababout.png */,
+				518970F6119B06EB0054B463 /* chart.png */,
+				5189712D119B18D30054B463 /* subscriptions.png */,
+				51FBB5EB1178E4A000BA5FFB /* tabbillsummary.png */,
+				51A9651811853CAB00A51FDD /* tabmessages.png */,
+				51343B4811A0BBC50081111A /* Read me first - license.txt */,
+			);
+			name = GlyphishIcons;
+			sourceTree = "<group>";
+		};
+		51343B5311A0BC2F0081111A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				5179E03D117794C500ED1A6D /* metranet.png */,
+				51D1371E117B583300917082 /* button_green.png */,
+				518970B6119A48750054B463 /* check.png */,
+				51A967ED1187289800A51FDD /* cvv.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		51343B5411A0BC3A0081111A /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				51A2548D117D404A002585CB /* tabaccountinfo.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		51343B6311A0BDB30081111A /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				51E5A5301192FCF000E3B52D /* SignUpViewController.h */,
+				51E5A5311192FCF000E3B52D /* SignUpViewController.m */,
+				51E5A5321192FCF000E3B52D /* SignUpView.xib */,
+				51E5A8C81193946100E3B52D /* SignUpViewDetailsController.h */,
+				51E5A8C91193946100E3B52D /* SignUpViewDetailsController.m */,
+				51E5A8CA1193946100E3B52D /* SignUpViewDetails.xib */,
+				51E5AB1F1194BD5E00E3B52D /* SignUpAccountInfoController.h */,
+				51E5AB201194BD5E00E3B52D /* SignUpAccountInfoController.m */,
+				51E5AB211194BD5E00E3B52D /* SignUpAccountInfo.xib */,
+				51A4C62411A4520700E54748 /* SignUpTermsViewController.h */,
+				51A4C62511A4520700E54748 /* SignUpTermsViewController.m */,
+				51A4C62611A4520700E54748 /* SignUpTermsView.xib */,
+			);
+			name = SignUp;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		51343B7811A0BE6B0081111A /* Payments */ = {
+			isa = PBXGroup;
+			children = (
+				51A2545C117D3A16002585CB /* PaymentsViewController.h */,
+				51A2545D117D3A16002585CB /* PaymentsViewController.m */,
+				51A2545E117D3A16002585CB /* PaymentsView.xib */,
+				51A95EB31181DB0400A51FDD /* PaymentSelectViewController.h */,
+				51A95EB41181DB0400A51FDD /* PaymentSelectViewController.m */,
+				51A95EB51181DB0400A51FDD /* PaymentSelectView.xib */,
+				51A962D61184B5C500A51FDD /* PaymentAddViewController.h */,
+				51A962D71184B5C500A51FDD /* PaymentAddViewController.m */,
+				51A962D81184B5C500A51FDD /* PaymentAddView.xib */,
+				51732CD5118A030B00574250 /* PaymentHistoryViewController.h */,
+				51732CD6118A030B00574250 /* PaymentHistoryViewController.m */,
+				51732CD7118A030B00574250 /* PaymentHistoryView.xib */,
+				5114A85E118E49020098A429 /* DateViewController.h */,
+				5114A85F118E49020098A429 /* DateViewController.m */,
+				51A968AE11873D8B00A51FDD /* CVVView.h */,
+				51A968AF11873D8B00A51FDD /* CVVView.m */,
+				51A968B011873D8B00A51FDD /* CVVView.xib */,
+				518970BC119A48D40054B463 /* CheckView.h */,
+				518970BD119A48D40054B463 /* CheckView.m */,
+				518970BE119A48D40054B463 /* CheckView.xib */,
+			);
+			name = Payments;
+			sourceTree = "<group>";
+		};
+		51343B7911A0BF780081111A /* Bill */ = {
+			isa = PBXGroup;
+			children = (
+				51FBB6541178F9A100BA5FFB /* BillViewController.h */,
+				51FBB6551178F9A100BA5FFB /* BillViewController.m */,
+				51FBB6561178F9A100BA5FFB /* BillView.xib */,
+				51A960321183134F00A51FDD /* BillDetailsViewController.h */,
+				51A960331183134F00A51FDD /* BillDetailsViewController.m */,
+				51A960341183134F00A51FDD /* BillDetailsView.xib */,
+			);
+			name = Bill;
+			sourceTree = "<group>";
+		};
+		51343B7A11A0BFB10081111A /* Usage */ = {
+			isa = PBXGroup;
+			children = (
+				518970E4119B051B0054B463 /* HistoryViewController.h */,
+				518970E5119B051B0054B463 /* HistoryViewController.m */,
+				518970E6119B051B0054B463 /* HistoryView.xib */,
+				51343B8011A0D7140081111A /* HistoryChartViewController.h */,
+				51343B8111A0D7140081111A /* HistoryChartViewController.m */,
+				51343B8211A0D7140081111A /* HistoryChartView.xib */,
+				51A4C57611A305E000E54748 /* UsageChartViewController.h */,
+				51A4C57711A305E000E54748 /* UsageChartViewController.m */,
+				51A4C57811A305E000E54748 /* UsageChartView.xib */,
+				51A4C5F411A42A9400E54748 /* ProductChartViewController.h */,
+				51A4C5F511A42A9400E54748 /* ProductChartViewController.m */,
+				51A4C5F611A42A9400E54748 /* ProductChartView.xib */,
+			);
+			name = Usage;
+			sourceTree = "<group>";
+		};
+		51343B7B11A0BFE10081111A /* Subscriptions */ = {
+			isa = PBXGroup;
+			children = (
+				5189712F119B190F0054B463 /* SubscriptionViewController.h */,
+				51897130119B190F0054B463 /* SubscriptionViewController.m */,
+				51897131119B190F0054B463 /* SubscriptionView.xib */,
+				518971F2119B95C30054B463 /* AvailableSubscriptionsViewController.h */,
+				518971F3119B95C30054B463 /* AvailableSubscriptionsViewController.m */,
+				518971F4119B95C30054B463 /* AvailableSubscriptionsView.xib */,
+			);
+			name = Subscriptions;
+			sourceTree = "<group>";
+		};
+		51343B7C11A0C00D0081111A /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				51A9650C11853B7300A51FDD /* ContactUsViewController.h */,
+				51A9650D11853B7300A51FDD /* ContactUsViewController.m */,
+				51A9650E11853B7300A51FDD /* ContactUsView.xib */,
+				5137660311A476FD002AE74D /* AboutViewController.h */,
+				5137660411A476FD002AE74D /* AboutViewController.m */,
+				5137660511A476FD002AE74D /* AboutView.xib */,
+			);
+			name = Contact;
+			sourceTree = "<group>";
+		};
+		51343B7D11A0C0340081111A /* AccountInfo */ = {
+			isa = PBXGroup;
+			children = (
+				518D85CA117F536D003EB443 /* AccountInfoController.h */,
+				518D85CB117F536D003EB443 /* AccountInfoController.m */,
+				518D85CC117F536D003EB443 /* AccountInfo.xib */,
+			);
+			name = AccountInfo;
+			sourceTree = "<group>";
+		};
+		5184F9241191B0F900B1D0BE /* MetraViewLib */ = {
+			isa = PBXGroup;
+			children = (
+				5184F9271191B23C00B1D0BE /* MetraViewLib.h */,
+				5184F9281191B23C00B1D0BE /* MetraViewLib.m */,
+			);
+			name = MetraViewLib;
+			sourceTree = "<group>";
+		};
+		51FBB4301178BAA700BA5FFB /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				5184F9241191B0F900B1D0BE /* MetraViewLib */,
+				51FBB4311178BAA700BA5FFB /* ASIHttpRequest */,
+				51FBB4711178BAA700BA5FFB /* JSON */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		51FBB4311178BAA700BA5FFB /* ASIHttpRequest */ = {
+			isa = PBXGroup;
+			children = (
+				51C0CF991272318200EA6AB3 /* ASIDownloadCache.h */,
+				51C0CF9A1272318200EA6AB3 /* ASIDownloadCache.m */,
+				51C0CE791271FFF400EA6AB3 /* ASICacheDelegate.h */,
+				51FBB4D11178BFA300BA5FFB /* Reachability.h */,
+				51FBB4D21178BFA300BA5FFB /* Reachability.m */,
+				51FBB4321178BAA700BA5FFB /* ASIAuthenticationDialog.h */,
+				51FBB4331178BAA700BA5FFB /* ASIAuthenticationDialog.m */,
+				51FBB4341178BAA700BA5FFB /* ASIFormDataRequest.h */,
+				51FBB4351178BAA700BA5FFB /* ASIFormDataRequest.m */,
+				51FBB4361178BAA700BA5FFB /* ASIHTTPRequest.h */,
+				51FBB4371178BAA700BA5FFB /* ASIHTTPRequest.m */,
+				51FBB4381178BAA700BA5FFB /* ASIHTTPRequestConfig.h */,
+				51FBB4391178BAA700BA5FFB /* ASIHTTPRequestDelegate.h */,
+				51FBB43A1178BAA700BA5FFB /* ASIInputStream.h */,
+				51FBB43B1178BAA700BA5FFB /* ASIInputStream.m */,
+				51FBB43C1178BAA700BA5FFB /* ASINetworkQueue.h */,
+				51FBB43D1178BAA700BA5FFB /* ASINetworkQueue.m */,
+				51FBB43E1178BAA700BA5FFB /* ASINSStringAdditions.h */,
+				51FBB43F1178BAA700BA5FFB /* ASINSStringAdditions.m */,
+				51FBB4401178BAA700BA5FFB /* ASIProgressDelegate.h */,
+			);
+			path = ASIHttpRequest;
+			sourceTree = "<group>";
+		};
+		51FBB4711178BAA700BA5FFB /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				51FBB4721178BAA700BA5FFB /* JSON.h */,
+				51FBB4731178BAA700BA5FFB /* NSObject+SBJSON.h */,
+				51FBB4741178BAA700BA5FFB /* NSObject+SBJSON.m */,
+				51FBB4751178BAA700BA5FFB /* NSString+SBJSON.h */,
+				51FBB4761178BAA700BA5FFB /* NSString+SBJSON.m */,
+				51FBB4771178BAA700BA5FFB /* SBJSON.h */,
+				51FBB4781178BAA700BA5FFB /* SBJSON.m */,
+				51FBB4791178BAA700BA5FFB /* SBJsonBase.h */,
+				51FBB47A1178BAA700BA5FFB /* SBJsonBase.m */,
+				51FBB47B1178BAA700BA5FFB /* SBJsonParser.h */,
+				51FBB47C1178BAA700BA5FFB /* SBJsonParser.m */,
+				51FBB47D1178BAA700BA5FFB /* SBJsonWriter.h */,
+				51FBB47E1178BAA700BA5FFB /* SBJsonWriter.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* MetraViewXcode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "MetraViewXcode" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MetraViewXcode;
+			productName = MetraViewXcode;
+			productReference = 1D6058910D05DD3D006BFB54 /* MetraViewXcode.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "MetraTech Corp.";
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MetraViewXcode" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* MetraViewXcode */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* MetraViewXcode */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51FBB5211178D24000BA5FFB /* Settings.bundle in Resources */,
+				51732CD9118A030B00574250 /* PaymentHistoryView.xib in Resources */,
+				51EDDE37118A67390060AC3E /* MainWindow.xib in Resources */,
+				5114A800118CC37A0098A429 /* tabmessages.png in Resources */,
+				5114A801118CC3890098A429 /* cvv.png in Resources */,
+				5114A802118CC39A0098A429 /* tabaccountinfo.png in Resources */,
+				5114A803118CC3A00098A429 /* button_green.png in Resources */,
+				5114A805118CC3B00098A429 /* tabbillsummary.png in Resources */,
+				5114A806118CC3B90098A429 /* metranet.png in Resources */,
+				5114A811118CC4320098A429 /* BillView.xib in Resources */,
+				5114A812118CC4470098A429 /* CVVView.xib in Resources */,
+				5114A813118CC4500098A429 /* ContactUsView.xib in Resources */,
+				5114A814118CC45D0098A429 /* PaymentAddView.xib in Resources */,
+				5114A815118CC45D0098A429 /* BillDetailsView.xib in Resources */,
+				5114A816118CC45D0098A429 /* PaymentSelectView.xib in Resources */,
+				5114A817118CC45D0098A429 /* AccountInfo.xib in Resources */,
+				5114A818118CC45D0098A429 /* PaymentsView.xib in Resources */,
+				51E5A5341192FCF000E3B52D /* SignUpView.xib in Resources */,
+				51E5A8CC1193946100E3B52D /* SignUpViewDetails.xib in Resources */,
+				51E5AB231194BD5E00E3B52D /* SignUpAccountInfo.xib in Resources */,
+				518970B7119A48750054B463 /* check.png in Resources */,
+				518970C0119A48D40054B463 /* CheckView.xib in Resources */,
+				518970E8119B051B0054B463 /* HistoryView.xib in Resources */,
+				518970F7119B06EB0054B463 /* chart.png in Resources */,
+				5189712E119B18D30054B463 /* subscriptions.png in Resources */,
+				51897133119B190F0054B463 /* SubscriptionView.xib in Resources */,
+				518971F6119B95C30054B463 /* AvailableSubscriptionsView.xib in Resources */,
+				51343B4911A0BBC50081111A /* Read me first - license.txt in Resources */,
+				51343B8411A0D7140081111A /* HistoryChartView.xib in Resources */,
+				51A4C57A11A305E000E54748 /* UsageChartView.xib in Resources */,
+				51A4C5F811A42A9400E54748 /* ProductChartView.xib in Resources */,
+				51A4C62811A4520700E54748 /* SignUpTermsView.xib in Resources */,
+				5137660711A476FD002AE74D /* AboutView.xib in Resources */,
+				5137662C11A47B00002AE74D /* tababout.png in Resources */,
+				51B65DCB1271E1D5002D32C3 /* Default@2x.png in Resources */,
+				51B65DCD1271E1F7002D32C3 /* Icon@2x.png in Resources */,
+				51B65DCF1271E280002D32C3 /* Icon.png in Resources */,
+				51B65DD11271E299002D32C3 /* Default.png in Resources */,
+				0A7F3B6413CD28DA00153955 /* tabpayments.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* MetraViewXcodeAppDelegate.m in Sources */,
+				51FBB47F1178BAA700BA5FFB /* ASIAuthenticationDialog.m in Sources */,
+				51FBB4801178BAA700BA5FFB /* ASIFormDataRequest.m in Sources */,
+				51FBB4811178BAA700BA5FFB /* ASIHTTPRequest.m in Sources */,
+				51FBB4821178BAA700BA5FFB /* ASIInputStream.m in Sources */,
+				51FBB4831178BAA700BA5FFB /* ASINetworkQueue.m in Sources */,
+				51FBB4841178BAA700BA5FFB /* ASINSStringAdditions.m in Sources */,
+				51FBB49C1178BAA700BA5FFB /* NSObject+SBJSON.m in Sources */,
+				51FBB49D1178BAA700BA5FFB /* NSString+SBJSON.m in Sources */,
+				51FBB49E1178BAA700BA5FFB /* SBJSON.m in Sources */,
+				51FBB49F1178BAA700BA5FFB /* SBJsonBase.m in Sources */,
+				51FBB4A01178BAA700BA5FFB /* SBJsonParser.m in Sources */,
+				51FBB4A11178BAA700BA5FFB /* SBJsonWriter.m in Sources */,
+				51FBB4D31178BFA300BA5FFB /* Reachability.m in Sources */,
+				51FBB6571178F9A100BA5FFB /* BillViewController.m in Sources */,
+				51A2545F117D3A16002585CB /* PaymentsViewController.m in Sources */,
+				518D85CD117F536D003EB443 /* AccountInfoController.m in Sources */,
+				51A95EB61181DB0400A51FDD /* PaymentSelectViewController.m in Sources */,
+				51A960351183134F00A51FDD /* BillDetailsViewController.m in Sources */,
+				51A962D91184B5C500A51FDD /* PaymentAddViewController.m in Sources */,
+				51A9650F11853B7300A51FDD /* ContactUsViewController.m in Sources */,
+				51A968B111873D8B00A51FDD /* CVVView.m in Sources */,
+				51732CD8118A030B00574250 /* PaymentHistoryViewController.m in Sources */,
+				5114A860118E49020098A429 /* DateViewController.m in Sources */,
+				5184F9291191B23C00B1D0BE /* MetraViewLib.m in Sources */,
+				51E5A5331192FCF000E3B52D /* SignUpViewController.m in Sources */,
+				51E5A8CB1193946100E3B52D /* SignUpViewDetailsController.m in Sources */,
+				51E5AB221194BD5E00E3B52D /* SignUpAccountInfoController.m in Sources */,
+				518970BF119A48D40054B463 /* CheckView.m in Sources */,
+				518970E7119B051B0054B463 /* HistoryViewController.m in Sources */,
+				51897132119B190F0054B463 /* SubscriptionViewController.m in Sources */,
+				518971F5119B95C30054B463 /* AvailableSubscriptionsViewController.m in Sources */,
+				51343B8311A0D7140081111A /* HistoryChartViewController.m in Sources */,
+				51A4C57911A305E000E54748 /* UsageChartViewController.m in Sources */,
+				51A4C5F711A42A9400E54748 /* ProductChartViewController.m in Sources */,
+				51A4C62711A4520700E54748 /* SignUpTermsViewController.m in Sources */,
+				5137660611A476FD002AE74D /* AboutViewController.m in Sources */,
+				51C0CF9B1272318200EA6AB3 /* ASIDownloadCache.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MetraViewXcode_Prefix.pch;
+				INFOPLIST_FILE = "MetraViewXcode-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = MetraViewXcode;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MetraViewXcode_Prefix.pch;
+				INFOPLIST_FILE = "MetraViewXcode-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = MetraViewXcode;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.2;
+				PREBINDING = NO;
+				SDKROOT = iphoneos4.1;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Larry Ayres (79VAF88LEC)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.2;
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B78E3A9C-B553-407A-B505-EE127FC405DD";
+				SDKROOT = iphoneos4.1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "MetraViewXcode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MetraViewXcode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

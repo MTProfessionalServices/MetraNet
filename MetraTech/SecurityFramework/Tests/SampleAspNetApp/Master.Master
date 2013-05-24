@@ -1,0 +1,40 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="SampleAspNetApp.Master" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="scriptManager" runat="server" EnableHistory="True" AsyncPostBackErrorMessage="An error heppened. See errors log for details.">
+    </asp:ScriptManager>
+    
+    <div style="width:100%; height:50px; text-align:center; vertical-align:middle;">
+        <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx">Home</asp:HyperLink>
+        <asp:Label runat="server" ID="Label1"> | </asp:Label>
+        <asp:HyperLink runat="server" ID="HyperLink2" NavigateUrl="~/Encoder.aspx">Encoder</asp:HyperLink>
+        <asp:Label runat="server" ID="Label2"> | </asp:Label>
+        <asp:HyperLink runat="server" ID="HyperLink3" NavigateUrl="~/Detector.aspx">Detector</asp:HyperLink>
+        <asp:Label runat="server" ID="Label3"> | </asp:Label>
+        <asp:HyperLink runat="server" ID="HyperLink4" NavigateUrl="~/Decoder.aspx">Decoder</asp:HyperLink>
+        <asp:Label runat="server" ID="Label4"> | </asp:Label>
+        <asp:HyperLink runat="server" ID="HyperLink5" NavigateUrl="~/Events.aspx">Events</asp:HyperLink>        
+        <asp:Label runat="server" ID="Label5"> | </asp:Label>
+        <asp:HyperLink runat="server" ID="HyperLink6" NavigateUrl="~/Validator.aspx">Validator</asp:HyperLink>
+        <asp:Label runat="server" ID="Label6"> | </asp:Label>
+        <asp:HyperLink runat="server" ID="HyperLink7" NavigateUrl="~/Processor.aspx">Processor</asp:HyperLink>
+        <asp:Label runat="server" ID="Label7"> | </asp:Label>
+        <asp:HyperLink runat="server" ID="HyperLink8" NavigateUrl="~/Sanitizer.aspx">Sanitizer</asp:HyperLink>
+        <asp:Label runat="server" ID="Label8"> | </asp:Label>
+        <asp:HyperLink runat="server" ID="HyperLink1" NavigateUrl="~/LoginTest/Default.aspx">Login test</asp:HyperLink>
+    </div>
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

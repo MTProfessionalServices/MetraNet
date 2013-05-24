@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TEXT_DEF_ACTIVATION_DATE" xml:space="preserve">
+    <value>Aktivierungsdatum</value>
+  </data>
+  <data name="TEXT_DEF_ASSIGNED_REPORT_PARAMETERS" xml:space="preserve">
+    <value>Zugewiesene Berichtsparameter</value>
+  </data>
+  <data name="TEXT_DEF_ASSIGN_REPORT_PARAMETERS" xml:space="preserve">
+    <value>Berichtsparameter zuweisen</value>
+  </data>
+  <data name="TEXT_DEF_COMPRESS_OUTPUT_FILE" xml:space="preserve">
+    <value>Bericht komprimieren</value>
+  </data>
+  <data name="TEXT_DEF_COMPRESS_THRESHOLD" xml:space="preserve">
+    <value>Komprimierungsschwelle</value>
+  </data>
+  <data name="TEXT_DEF_CONTROL_FILE_DESTINATION" xml:space="preserve">
+    <value>Ziel der Kontrolldatei</value>
+  </data>
+  <data name="TEXT_DEF_CREATE_NEW_REPORT_DEFINITION" xml:space="preserve">
+    <value>Neue Berichtsdefinition erstellen</value>
+  </data>
+  <data name="TEXT_DEF_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
+    <value>Neue Berichtsinstanz erstellen</value>
+  </data>
+  <data name="TEXT_DEF_CREATE_NEW_REPORT_PARAMETER" xml:space="preserve">
+    <value>Neuen Berichtsparameter erstellen</value>
+  </data>
+  <data name="TEXT_DEF_CREATE_NEW_REPORT_SCHEDULE" xml:space="preserve">
+    <value>Zeitplan für neue Instanz erstellen</value>
+  </data>
+  <data name="TEXT_DEF_DEACTIVATION_DATE" xml:space="preserve">
+    <value>Deaktivierungsdatum</value>
+  </data>
+  <data name="TEXT_DEF_DELIVERY_METHOD" xml:space="preserve">
+    <value>Zustellverfahren</value>
+  </data>
+  <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="TEXT_DEF_DESTINATION" xml:space="preserve">
+    <value>Ziel</value>
+  </data>
+  <data name="TEXT_DEF_EXECUTE_DAY" xml:space="preserve">
+    <value>Ausführungstag</value>
+  </data>
+  <data name="TEXT_DEF_EXECUTE_END_TIME" xml:space="preserve">
+    <value>Endzeit der Ausführung</value>
+  </data>
+  <data name="TEXT_DEF_EXECUTE_FIRST_DAY_OF_MONTH" xml:space="preserve">
+    <value>Ausführung am ersten Tag des Monats</value>
+  </data>
+  <data name="TEXT_DEF_EXECUTE_LAST_DAY_OF_MONTH" xml:space="preserve">
+    <value>Ausführung am letzten Tag des Monats</value>
+  </data>
+  <data name="TEXT_DEF_EXECUTE_START_TIME" xml:space="preserve">
+    <value>Startzeit der Ausführung</value>
+  </data>
+  <data name="TEXT_DEF_EXECUTE_TIME" xml:space="preserve">
+    <value>Ausführungszeit</value>
+  </data>
+  <data name="TEXT_DEF_EXECUTION_TYPE" xml:space="preserve">
+    <value>Ausführungstyp</value>
+  </data>
+  <data name="TEXT_DEF_GENERATE_CONTROL_FILE" xml:space="preserve">
+    <value>Kontrolldatei generieren</value>
+  </data>
+  <data name="TEXT_DEF_INSTANCE_ID" xml:space="preserve">
+    <value>Instanz-ID</value>
+  </data>
+  <data name="TEXT_DEF_LAST_RUN_DATE" xml:space="preserve">
+    <value>Letztes Ausführungsdatum</value>
+  </data>
+  <data name="TEXT_DEF_MANAGE_REPORT_PARAMETERS" xml:space="preserve">
+    <value>Berichtsparameter verwalten</value>
+  </data>
+  <data name="TEXT_DEF_MONTH_DECEMBER" xml:space="preserve">
+    <value>Dezember</value>
+  </data>
+  <data name="TEXT_DEF_MONTH_FEBRUARY" xml:space="preserve">
+    <value>Februar</value>
+  </data>
+  <data name="TEXT_DEF_MONTH_JANUARY" xml:space="preserve">
+    <value>Januar</value>
+  </data>
+  <data name="TEXT_DEF_MONTH_JULY" xml:space="preserve">
+    <value>Juli</value>
+  </data>
+  <data name="TEXT_DEF_MONTH_JUNE" xml:space="preserve">
+    <value>Juni</value>
+  </data>
+  <data name="TEXT_DEF_MONTH_MARCH" xml:space="preserve">
+    <value>März</value>
+  </data>
+  <data name="TEXT_DEF_MONTH_MAY" xml:space="preserve">
+    <value>Mai</value>
+  </data>
+  <data name="TEXT_DEF_MONTH_OCTOBER" xml:space="preserve">
+    <value>Oktober</value>
+  </data>
+  <data name="TEXT_DEF_MONTH_TO_DATE" xml:space="preserve">
+    <value>Monat bis heute</value>
+  </data>
+  <data name="TEXT_DEF_NEXT_RUN_DATE" xml:space="preserve">
+    <value>Datum der nächsten Ausführung</value>
+  </data>
+  <data name="TEXT_DEF_OUTPUT_EXEC_PARAMETERS" xml:space="preserve">
+    <value>Ausführungsparameter in Ausgabe schreiben</value>
+  </data>
+  <data name="TEXT_DEF_PARAMETER_ID" xml:space="preserve">
+    <value>Parameter-ID</value>
+  </data>
+  <data name="TEXT_DEF_PASSWORD" xml:space="preserve">
+    <value>FTP-Kennwort</value>
+  </data>
+  <data name="TEXT_DEF_PREVENT_ADHOC_EXECUTION" xml:space="preserve">
+    <value>Ad-hoc-Ausführung verhindern</value>
+  </data>
+  <data name="TEXT_DEF_QUERY_TAG" xml:space="preserve">
+    <value>Abfrage-Kennzeichen</value>
+  </data>
+  <data name="TEXT_DEF_REPEAT_HOURS" xml:space="preserve">
+    <value>Stunden wiederholen</value>
+  </data>
+  <data name="TEXT_DEF_REPORT_ID" xml:space="preserve">
+    <value>Berichts-ID</value>
+  </data>
+  <data name="TEXT_DEF_REPORT_OUTPUT_FILE_NAME" xml:space="preserve">
+    <value>Name der Ausgabedatei</value>
+  </data>
+  <data name="TEXT_DEF_REPORT_OUTPUT_TYPE" xml:space="preserve">
+    <value>Ausgabetyp</value>
+  </data>
+  <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
+    <value>Berichtstitel</value>
+  </data>
+  <data name="TEXT_DEF_SCHEDULE_ID" xml:space="preserve">
+    <value>Zeitplan-ID</value>
+  </data>
+  <data name="TEXT_DEF_SCHEDULE_TYPE" xml:space="preserve">
+    <value>Zeitplantyp</value>
+  </data>
+  <data name="TEXT_DEF_SHOW_ALL_REPORT_DEFINITIONS" xml:space="preserve">
+    <value>Berichtsdefinitionen</value>
+  </data>
+  <data name="TEXT_DEF_SKIP_FIRST_DAY_OF_MONTH" xml:space="preserve">
+    <value>Ersten Tag des Monats überspringen</value>
+  </data>
+  <data name="TEXT_DEF_SKIP_LAST_DAY_OF_MONTH" xml:space="preserve">
+    <value>Letzten Tag des Monats überspringen</value>
+  </data>
+  <data name="TEXT_DEF_UPDATE_DAILY_SCHEDULE" xml:space="preserve">
+    <value>Täglichen Zeitplan aktualisieren</value>
+  </data>
+  <data name="TEXT_DEF_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
+    <value>Vorhandene Berichtsdefinition aktualisieren</value>
+  </data>
+  <data name="TEXT_DEF_UPDATE_EXISTING_REPORT_INSTANCE" xml:space="preserve">
+    <value>Vorhandene Berichtsinstanz aktualisieren</value>
+  </data>
+  <data name="TEXT_DEF_UPDATE_INSTANCE_PARAMETER_VALUE" xml:space="preserve">
+    <value>Instanzparameterwert aktualisieren</value>
+  </data>
+  <data name="TEXT_DEF_UPDATE_MONTHLY_SCHEDULE" xml:space="preserve">
+    <value>Monatlichen Zeitplan aktualisieren</value>
+  </data>
+  <data name="TEXT_DEF_UPDATE_WEEKLY_SCHEDULE" xml:space="preserve">
+    <value>Wöchentlichen Zeitplan aktualisieren</value>
+  </data>
+  <data name="TEXT_DEF_USER_NAME" xml:space="preserve">
+    <value>FTP-Benutzername</value>
+  </data>
+  <data name="TEXT_DEF_USE_QUOTED_IDENTIFIERS" xml:space="preserve">
+    <value>Bezeichner in Anführungszeichen verwenden</value>
+  </data>
+  <data name="TEXT_DEF_VALUE" xml:space="preserve">
+    <value>Wert</value>
+  </data>
+  <data name="TEXT_DEF_WEEKDAY_FRIDAY" xml:space="preserve">
+    <value>Freitag</value>
+  </data>
+  <data name="TEXT_DEF_WEEKDAY_MONDAY" xml:space="preserve">
+    <value>Montag</value>
+  </data>
+  <data name="TEXT_DEF_WEEKDAY_SATURDAY" xml:space="preserve">
+    <value>Samstag</value>
+  </data>
+  <data name="TEXT_DEF_WEEKDAY_SUNDAY" xml:space="preserve">
+    <value>Sonntag</value>
+  </data>
+  <data name="TEXT_DEF_WEEKDAY_THURSDAY" xml:space="preserve">
+    <value>Donnerstag</value>
+  </data>
+  <data name="TEXT_DEF_WEEKDAY_TUESDAY" xml:space="preserve">
+    <value>Dienstag</value>
+  </data>
+  <data name="TEXT_DEF_WEEKDAY_WEDNESDAY" xml:space="preserve">
+    <value>Mittwoch</value>
+  </data>
+</root>

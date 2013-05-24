@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.UsageServer", "MetraTech.UsageServer.csproj", "{2AE4B0CA-70B7-4F5E-AF71-0191CBC3C8AC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{91E196C1-2AD3-4B5A-A836-A9F5CE31BBB1}"
+	ProjectSection(SolutionItems) = preProject
+		..\Local.testsettings = ..\Local.testsettings
+		MetraTech.UsageServer.vsmdi = MetraTech.UsageServer.vsmdi
+		..\TraceAndTestImpact.testsettings = ..\TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.UsageServer.Test", "..\UsageServer.Test\MetraTech.UsageServer.Test.csproj", "{BBAFA350-312A-45C2-9A59-CF990994A475}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2AE4B0CA-70B7-4F5E-AF71-0191CBC3C8AC} = {2AE4B0CA-70B7-4F5E-AF71-0191CBC3C8AC}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = MetraTech.UsageServer.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2AE4B0CA-70B7-4F5E-AF71-0191CBC3C8AC}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{2AE4B0CA-70B7-4F5E-AF71-0191CBC3C8AC}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{2AE4B0CA-70B7-4F5E-AF71-0191CBC3C8AC}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{2AE4B0CA-70B7-4F5E-AF71-0191CBC3C8AC}.Debug|x86.ActiveCfg = Debug|x86
+		{2AE4B0CA-70B7-4F5E-AF71-0191CBC3C8AC}.Debug|x86.Build.0 = Debug|x86
+		{2AE4B0CA-70B7-4F5E-AF71-0191CBC3C8AC}.Release|Any CPU.ActiveCfg = Release|x86
+		{2AE4B0CA-70B7-4F5E-AF71-0191CBC3C8AC}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{2AE4B0CA-70B7-4F5E-AF71-0191CBC3C8AC}.Release|Mixed Platforms.Build.0 = Release|x86
+		{2AE4B0CA-70B7-4F5E-AF71-0191CBC3C8AC}.Release|x86.ActiveCfg = Release|x86
+		{2AE4B0CA-70B7-4F5E-AF71-0191CBC3C8AC}.Release|x86.Build.0 = Release|x86
+		{BBAFA350-312A-45C2-9A59-CF990994A475}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{BBAFA350-312A-45C2-9A59-CF990994A475}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{BBAFA350-312A-45C2-9A59-CF990994A475}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{BBAFA350-312A-45C2-9A59-CF990994A475}.Debug|x86.ActiveCfg = Debug|x86
+		{BBAFA350-312A-45C2-9A59-CF990994A475}.Debug|x86.Build.0 = Debug|x86
+		{BBAFA350-312A-45C2-9A59-CF990994A475}.Release|Any CPU.ActiveCfg = Release|x86
+		{BBAFA350-312A-45C2-9A59-CF990994A475}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{BBAFA350-312A-45C2-9A59-CF990994A475}.Release|Mixed Platforms.Build.0 = Release|x86
+		{BBAFA350-312A-45C2-9A59-CF990994A475}.Release|x86.ActiveCfg = Release|x86
+		{BBAFA350-312A-45C2-9A59-CF990994A475}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

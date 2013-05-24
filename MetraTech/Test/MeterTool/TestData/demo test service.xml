@@ -1,0 +1,108 @@
+<sessions>
+  <session>
+    <name>metratech.com/testservice</name>
+    <description>Simple test service.  Used for testing basic functionality and SDK connectivity.</description>
+    <min_sessions>1</min_sessions>
+    <max_sessions>1</max_sessions>
+    <properties>
+      <property>
+        <name>description</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>Just a test smoke test...</property_string>
+        <length>80</length>
+        <description>Comment entered by the user.  Used for display only.</description>
+        <required>Y</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>time</name>
+        <msix_type>timestamp</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>[now]</property_string>
+        <description>Any date/time value.  Used for display only.</description>
+        <required>Y</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>units</name>
+        <msix_type>float</msix_type>
+        <value_type>value_range</value_type>
+        <description>Arbitrary number of units that will be rated for.
+			The units are multiplied by a configurable rate to calculate the amount.</description>
+        <required>Y</required>
+        <min_value>1</min_value>
+        <max_value>5</max_value>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>accountname</name>
+        <msix_type>string</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>demo</property_string>
+        <length>20</length>
+        <description>Account to which this transaction is associated.  Used for account resolution.</description>
+        <required>Y</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>DecProp1</name>
+        <msix_type>DECIMAL</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>0.000001</property_string>
+        <default_value>0.000000</default_value>
+        <description>Test decimal property</description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>DecProp2</name>
+        <msix_type>DECIMAL</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>0.000002</property_string>
+        <default_value>0.000000</default_value>
+        <description>Test decimal property</description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+      <property>
+        <name>DecProp3</name>
+        <msix_type>DECIMAL</msix_type>
+        <value_type>property_string</value_type>
+        <property_string>0.000003</property_string>
+        <description>Test decimal property</description>
+        <required>N</required>
+        <additional_data>
+          <additional_data_enabled>False</additional_data_enabled>
+          <greater_than_enabled>False</greater_than_enabled>
+          <less_than_enabled>False</less_than_enabled>
+        </additional_data>
+      </property>
+    </properties>
+    <sessions />
+  </session>
+</sessions>

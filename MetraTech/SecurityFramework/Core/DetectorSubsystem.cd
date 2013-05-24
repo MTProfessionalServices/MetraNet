@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MetraTech.SecurityFramework.DetectorApi" Collapsed="true">
+    <Position X="1" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEICAIAEQAYAAAAAAIAAQACAFAAAAAAAoEAQEBAAA=</HashCode>
+      <FileName>Subsystems\Detector\DetectorApi.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MetraTech.SecurityFramework.Detector" Collapsed="true">
+    <Position X="1" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAQAABAAZAAAIAAAQAAAAAAAAAAEAAAAAAgAEQ=</HashCode>
+      <FileName>Subsystems\Detector\Detector.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MetraTech.SecurityFramework.DefaultXssDetectorEngine" Collapsed="true">
+    <Position X="3.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAACEAAAEAAIBAQAAAAAQAAAAgAAAEABAAAAAAEICIA=</HashCode>
+      <FileName>Subsystems\Detector\Engine\DefaultXssDetectorEngine.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MetraTech.SecurityFramework.DefaultSqlDetectorEngine" Collapsed="true">
+    <Position X="3.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACECAAAAAQAAQAAAAAAAAAAAAAAAABAAAAAAAADAA=</HashCode>
+      <FileName>Subsystems\Detector\Engine\DefaultSqlDetectorEngine.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="MetraTech.SecurityFramework.ISubsystem" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Subsystems\ISubsystem.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MetraTech.SecurityFramework.ISubsystemApi" Collapsed="true">
+    <Position X="8.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAYAAAAAAAAAAAAAEAAAAAAAoEAAAAAAA=</HashCode>
+      <FileName>Subsystems\ISubsystemApi.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MetraTech.SecurityFramework.ISubsystemControlApi" Collapsed="true">
+    <Position X="11.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAIAEQAAAAAAAAIAAQACABAAAAAAAAAAQEBAAA=</HashCode>
+      <FileName>Subsystems\ISubsystemControlApi.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MetraTech.SecurityFramework.IEngine" Collapsed="true">
+    <Position X="11.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Subsystems\IEngine.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

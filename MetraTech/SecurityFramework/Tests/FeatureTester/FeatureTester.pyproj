@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{b29d6fa3-0677-458f-997e-8a7ede1ddc05}</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>C:\Users\sfdev\Desktop\MtSfSvn\Tests\FeatureTester\CliRunnerSsEncoder.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <AssemblyName>FeatureTester1</AssemblyName>
+    <Name>FeatureTester</Name>
+    <RootNamespace>FeatureTester1</RootNamespace>
+    <InterpreterPath />
+    <CommandLineArguments />
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <DebugStdLib>False</DebugStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="CliRunnerSsDetector.py" />
+    <None Include="CliRunnerSsEncoder.py" />
+    <None Include="tests\AppTestBaseCommon.py" />
+    <None Include="tests\AppTestBaseIsolated.py" />
+    <None Include="tests\SuiteSsDetectorAll_1.py" />
+    <None Include="tests\SuiteSsDetectorEngineSqlStd.py" />
+    <None Include="tests\SuiteSsEncoderAll_1.py" />
+    <None Include="tests\TestSsDetectorEngineSqlStd_1.py" />
+    <None Include="tests\TestSsEncoderEngineHtmlStd_1.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NewFolderx" />
+    <Folder Include="tests\" />
+  </ItemGroup>
+</Project>

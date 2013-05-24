@@ -1,0 +1,1 @@
+makecert.exe -r -pe -ss Root -sr LocalMachine -n "CN=ActivityServicesCert" -sky exchange

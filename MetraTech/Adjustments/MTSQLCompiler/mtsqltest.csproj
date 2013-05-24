@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)'==''">Debug</Configuration>
+    <Platform Condition="'$(Platform)'==''">x86</Platform>
+    <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{cfd3576b-4cd8-42c9-a73e-904461c0911b}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>mtsqltest</RootNamespace>
+    <AssemblyName>mtsqltest</AssemblyName>
+    <MinFrameworkVersionRequired>3.0</MinFrameworkVersionRequired>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\..\build\keys\metratech.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <NoWarn>1591, 0618</NoWarn>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\Adjustments\MTSQLCompiler</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin</OutputPath>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <NoWarn>1591, 0618</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\Adjustments\MTSQLCompiler</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MTProductCatalog.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTProductCatalog.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\build\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\build\versionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Execute.cs" />
+    <Compile Include="ExecuteInputs.cs" />
+    <Compile Include="ExecutionParameters.cs" />
+    <Compile Include="MTSQLCompiler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MetraTech.Common.csproj">
+      <Project>{f03ef01b-1630-428c-b6b5-a7648d1ace2c}</Project>
+      <Name>MetraTech.Common</Name>
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MTSQL\MetraTech.MTSQL.vcxproj">
+      <Project>{0f732b9e-4b14-49da-afdf-8864e5cd8d02}</Project>
+      <Name>MetraTech.MTSQL</Name>
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Pipeline\MetraTech.Pipeline.csproj">
+      <Project>{a5b6d6a0-c62e-481f-bf26-d005b1573934}</Project>
+      <Name>MetraTech.Pipeline</Name>
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Xml\MetraTech.Xml.csproj">
+      <Project>{7d9556df-cb87-458a-b66b-f5dd5b7c384e}</Project>
+      <Name>MetraTech.Xml</Name>
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MetraTech.Adjustments.csproj">
+      <Project>{86e49020-c430-454d-a403-825f19587e1e}</Project>
+      <Name>MetraTech.Adjustments</Name>
+      <Private>false</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,4 @@
+rem This Bat-file for merge all libraries. In Post build events write: "$(TargetDir)IlMerge.bat" "$(TargetPath)" "$(TargetDir)" 
+pushd %2
+"C:\Program Files\Microsoft\ILMerge\ilmerge.exe" /targetplatform:v4,"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /out:..\..\..\Build\MetraTech.SecurityFramework.dll %1 Microsoft.Practices.ServiceLocation.dll Microsoft.Practices.Unity.Interception.dll Microsoft.Practices.Unity.dll Microsoft.Practices.EnterpriseLibrary.Common.dll Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll Microsoft.Practices.EnterpriseLibrary.Logging.dll Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll AntiXssLibrary.dll Microsoft.Data.Schema.ScriptDom.dll Microsoft.Data.Schema.ScriptDom.Sql.dll
+popd

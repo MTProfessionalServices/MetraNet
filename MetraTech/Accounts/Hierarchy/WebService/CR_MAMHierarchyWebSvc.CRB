@@ -1,0 +1,10 @@
+REM * DevPartner Code Review Batch Configuration File *
+
+[SOLUTION]
+SOLUTION=S:\MetraTech\UI\MAMHierarchyWebSvc\MAMHierarchyWebSvc.sln
+RULESET=All Rules
+METRICS=0
+NAMING=1
+REGARDLESS=0
+SESSIONFILE=S:\MetraTech\UI\MAMHierarchyWebSvc\MAMHierarchyWebSvc.DPMDB
+SUMMARYFILE=S:\MetraTech\UI\MAMHierarchyWebSvc\CR_MAMHierarchyWebSvc.HTM

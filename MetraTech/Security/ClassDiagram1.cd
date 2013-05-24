@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="MetraTech.Security.Auth" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="1.25" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>Auth.cs</FileName>
+      <HashCode>AAAAAAAAAABEIQACBAAAAAggAAAAAAAQIAAQACAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MetraTech.Security.Crypto.CryptoConfig" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MetraTech.Security.Crypto.CertificatePassword" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MetraTech.Security.Crypto.KMSKeyClass" Collapsed="true">
+    <Position X="10" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MetraTech.Security.Crypto.CryptoManager" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MetraTech.Security.Crypto.PasswordConfig">
+    <Position X="4.75" Y="3.5" Width="2.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MetraTech.Security.Crypto.PasswordManager" BaseTypeListCollapsed="true">
+    <Position X="2.5" Y="1.25" Width="2" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="KM_Client_Wrapper.KMClientWrapper">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MetraTech.Security.Crypto.Credentials">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MetraTech.Security.Crypto.RSACryptoManager">
+    <Position X="8.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MetraTech.Security.Crypto.RSACryptoConfig" Collapsed="true">
+    <Position X="10" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MetraTech.Security.Crypto.RSAConfig">
+    <Position X="10" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MetraTech.Security.Crypto.MSCryptoManager">
+    <Position X="11.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MetraTech.Security.Crypto.MSCryptoConfig" Collapsed="true">
+    <Position X="11.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MetraTech.Security.Crypto.MSConfig">
+    <Position X="13.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MetraTech.Security.Crypto.PasswordStrengthException" Collapsed="true">
+    <Position X="11.75" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="MetraTech.Security.IAuth" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Auth.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAQAABAAAAAgAAAAAAAAQAAAQAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MetraTech.Security.Crypto.ICryptoManager" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="MetraTech.Security.Crypto.IPasswordManager" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Enum Name="MetraTech.Security.LoginStatus">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Auth.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAQAAAAIAAAAAACAAIAAAAABAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MetraTech.Security.Crypto.CryptKeyClass" Collapsed="true">
+    <Position X="6.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Enum>
+  <Enum Name="MetraTech.Security.Crypto.HashKeyClass" Collapsed="true">
+    <Position X="6.5" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Enum>
+  <Enum Name="MetraTech.Security.Crypto.CryptoProvider" Collapsed="true">
+    <Position X="6.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier />
+  </Enum>
+</ClassDiagram>

@@ -1,0 +1,16 @@
+//
+// Prefix header for all source files of the 'MetraViewXcode' target in the 'MetraViewXcode' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+#endif
+
+
+#define DEBUG_MODE
+#ifdef DEBUG_MODE
+#define XLog( s, ... ) NSLog( @"<%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+#else
+#define XLog( s, ... )
+#endif

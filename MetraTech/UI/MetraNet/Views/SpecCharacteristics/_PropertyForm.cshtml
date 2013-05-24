@@ -1,0 +1,317 @@
+﻿@using System.Threading
+@model MetraNet.Models.SpecCharacteristicValueModel
+
+<script type="text/javascript">
+  $(function () {
+
+    $(".datePicker").datepicker();
+
+    $('#Div' + $('#SpecType').val()).show();  // show value fields
+
+    $('#SpecType').change(function () {
+      $('.dataChoice').hide();
+      $('#Div' + $(this).val()).show();
+    });
+
+    $("#dialogLocalize").dialog({
+      autoOpen: false,
+      modal: true,
+      width: 450,
+      buttons: {
+        "OK": function () {
+          syncModaltoHidden();
+          $(this).dialog("close");
+        }
+      }
+    });
+
+    // Localize
+    $(".localize").click(function (e) {
+      e.preventDefault();
+
+      $(".localizationFields").hide();
+      var name = $(this).attr("data-name");
+      $("#" + name + "Localization").show();
+
+      $("#dialogLocalize").dialog("open");
+    });
+
+    function syncModaltoHidden() {
+      $(".LocalWarning").hide();
+      $('.copyVal').each(function () {
+        var hiddenId = '#' + $(this).attr('id').replace('copyVal_', '');
+        $(hiddenId).val($(this).val());
+
+        if ($(this).val() == '') {  // show warning icon if we have a field with no value
+          var warningIcon = '#' + $(this).attr('data-name') + 'LocalWarning';
+          $(warningIcon).show();
+        }
+      });
+    }
+
+    syncModaltoHidden();
+
+
+    $("#Choices").change(function () {
+      var choices = $(this).val().split('\n');
+      $("#DefaultChoice").autocomplete({
+        source: choices
+      });
+    });
+
+    var initialChoices = $("#DefaultChoice").val().split('\n');
+    $("#DefaultChoice").autocomplete({
+      source: initialChoices
+    });
+  });
+</script>
+
+@using (Html.BeginForm())
+{
+  <div class="container_12">
+    <div id="panel1"></div>
+    <div id="property" class="grid_12 container flat rounded-sm">
+      <header>
+         <span class="section">@Resources.Resource.TEXT_PROPERTY</span>
+      </header>
+
+      <div class="inner tspace bspace clearfix">
+        <div>@Html.ValidationSummary(true, Resources.Resource.TEXT_CORRECT_ERRORS)</div>
+
+        @Html.HiddenFor(m => m.ValueId) 
+        @Html.HiddenFor(m => m.SpecId) 
+        
+        @if (Model.ValueIds != null && Model.ValueIds.Count > 0)
+        {
+          int index = 0;
+          foreach (var val in Model.ValueIds)
+          {
+            <input type="hidden" name="ValueIds[@(index)]" id="ValueIds@(index)" value="@val" />
+            index++;
+          }
+        }
+        
+        <div class="editor-label">@Html.LabelFor(m => m.Category)</div>
+        <div class="editor-field">@Html.TextBoxFor(m => m.Category, new { @tabindex = "10" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.Category)</span> <a href="" data-name="Category" class="localize">@Resources.Resource._PropertyForm_cshtml_Set_Localization</a><img title="@Resources.Resource.TEXT_MISSING_LOCALIZATION" id="CategoryLocalWarning" class="LocalWarning" src="/res/images/icons/bullet_error.png"/></div> 
+
+        <div class="editor-label">@Html.LabelFor(m => m.Name)</div>
+        <div class="editor-field">@Html.TextBoxFor(m => m.Name, new { @tabindex = "20" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.Name)</span> <a href="" data-name="Name" class="localize">@Resources.Resource._PropertyForm_cshtml_Set_Localization</a><img title="@Resources.Resource.TEXT_MISSING_LOCALIZATION" id="NameLocalWarning" class="LocalWarning" src="/res/images/icons/bullet_error.png"/></div>    
+
+        <div class="editor-label">@Html.LabelFor(m => m.Description)</div>
+        <div class="editor-field">@Html.TextAreaFor(m => m.Description, new { @tabindex = "30" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.Description)</span> <a href="" data-name="Description" class="localize">@Resources.Resource._PropertyForm_cshtml_Set_Localization</a><img title="@Resources.Resource.TEXT_MISSING_LOCALIZATION" id="DescriptionLocalWarning" class="LocalWarning" src="/res/images/icons/bullet_error.png"/></div>    
+    
+        <div class="editor-label">@Html.LabelFor(m => m.SpecType)</div>
+        <div class="editor-field">@Html.EnumDropDownListFor(m => m.SpecType, new { @tabindex = "40" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.SpecType)</span></div>    
+    
+        <div id="DivString" class="dataChoice" style="display: none">
+          <div class="editor-label">@Html.LabelFor(m => m.StringValue)</div>
+          <div class="editor-field">@Html.TextAreaFor(m => m.StringValue, new { @tabindex = "50" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.StringValue)</span></div>  
+          
+          <div class="editor-label">@Html.LabelFor(m => m.Length)</div>
+          <div class="editor-field">@Html.TextBoxFor(m => m.Length, new { @tabindex = "60" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.Length)</span></div>  
+        </div>
+    
+        <div id="DivInt" class="dataChoice" style="display: none">
+          <div class="editor-label">@Html.LabelFor(m => m.IntValue)</div>
+          <div class="editor-field">@Html.TextBoxFor(m => m.IntValue, new { @tabindex = "70" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.IntValue)</span></div>  
+          
+          <div class="editor-label">@Html.LabelFor(m => m.Min)</div>
+          <div class="editor-field">@Html.TextBoxFor(m => m.Min, new { @tabindex = "80" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.Min)</span></div>  
+   
+          <div class="editor-label">@Html.LabelFor(m => m.Max)</div>
+          <div class="editor-field">@Html.TextBoxFor(m => m.Max, new { @tabindex = "90" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.Max)</span></div>  
+        </div>
+    
+        <div id="DivDecimal" class="dataChoice" style="display: none">
+          <div class="editor-label">@Html.LabelFor(m => m.DecimalValue)</div>
+          <div class="editor-field">@Html.TextBoxFor(m => m.DecimalValue, new { @tabindex = "100" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.DecimalValue)</span></div>  
+
+          <div class="editor-label">@Html.LabelFor(m => m.MinDecimal)</div>
+          <div class="editor-field">@Html.TextBoxFor(m => m.MinDecimal, new { @tabindex = "110" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.MinDecimal)</span></div>  
+   
+          <div class="editor-label">@Html.LabelFor(m => m.MaxDecimal)</div>
+          <div class="editor-field">@Html.TextBoxFor(m => m.MaxDecimal, new { @tabindex = "120" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.MaxDecimal)</span></div>  
+        </div>
+    
+        <div id="DivList" class="dataChoice" style="display: none">
+          <div class="editor-label">@Html.LabelFor(m => m.Choices)</div>
+          <div class="editor-field">@Html.TextAreaFor(m => m.Choices, new { @tabindex = "130" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.Choices)</span><a href="" data-name="Choices" class="localize">Set localization</a><img title="@Resources.Resource.TEXT_MISSING_LOCALIZATION" id="ChoicesLocalWarning" class="LocalWarning" src="/res/images/icons/bullet_error.png"/></div>  
+      
+          <div class="editor-label">@Html.LabelFor(m => m.DefaultChoice)</div>
+          <div class="editor-field">@Html.TextBoxFor(m => m.DefaultChoice, new { @tabindex = "140" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.DefaultChoice)</span></div>    
+        </div>
+    
+        <div id="DivBoolean" class="dataChoice" style="display: none">
+          <div class="editor-label">@Html.LabelFor(m => m.BooleanValue)</div>
+          <div class="editor-field">@Html.CheckBoxFor(m => m.BooleanValue, new { @tabindex = "150" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.BooleanValue)</span></div> 
+        </div>
+    
+        <div id="DivDatetime" class="dataChoice" style="display: none">
+          <div class="editor-label">@Html.LabelFor(m => m.DatetimeValue)</div>
+          <div class="editor-field">@Html.TextBoxFor(m => m.DatetimeValue, new { @class = "datePicker", @tabindex = "160" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.DatetimeValue)</span></div> 
+          
+          <div class="editor-label">@Html.LabelFor(m => m.BetweenStartDate)</div>
+          <div class="editor-field">@Html.TextBoxFor(m => m.BetweenStartDate, new { @class = "datePicker", @tabindex = "170" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.BetweenStartDate)</span></div> 
+         
+          <div class="editor-label">@Html.LabelFor(m => m.BetweenEndDate)</div>
+          <div class="editor-field">@Html.TextBoxFor(m => m.BetweenEndDate, new { @class = "datePicker", @tabindex = "180" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.BetweenEndDate)</span></div> 
+        </div>
+        
+
+      </div>
+    </div> <!-- end container -->
+    <div class="clear"></div>
+    <br/>
+
+    <div class="grid_12 container flat rounded-sm">
+      <header>
+         <span class="section">@Resources.Resource.TEXT_RESTRICTIONS</span>
+      </header>
+
+      <div class="inner tspace bspace clearfix">
+          <div class="editor-label">@Html.LabelFor(m => m.IsUserVisible)</div>
+          <div class="editor-field">@Html.CheckBoxFor(m => m.IsUserVisible) <span class="editor-validate">@Html.ValidationMessageFor(m => m.IsUserVisible)</span></div> 
+
+          <div class="editor-label">@Html.LabelFor(m => m.IsUserEditable)</div>
+          <div class="editor-field">@Html.CheckBoxFor(m => m.IsUserEditable) <span class="editor-validate">@Html.ValidationMessageFor(m => m.IsUserEditable)</span></div> 
+        
+          <div class="editor-label">@Html.LabelFor(m => m.IsRequired)</div>
+          <div class="editor-field">@Html.CheckBoxFor(m => m.IsRequired) <span class="editor-validate">@Html.ValidationMessageFor(m => m.IsRequired)</span></div> 
+
+      </div>
+    </div> <!-- end container -->
+    <div class="clear"></div>
+    
+<!--
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Hidden Fields for Modal Windows
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+  <div id="submitFields">
+    @if (Model.NameDisplayNames != null && Model.NameDisplayNames.Count > 0)
+    {
+      int j = 0;
+      if (Model.NameDisplayNames != null && Model.NameDisplayNames.Count > 0)
+      {
+        int index = 0;
+        foreach (var item in Model.NameDisplayNames)
+        {
+          <input type="hidden" name="NameDisplayNames[@(index)].Key" id="DisplayNames@(j)Key" value="@item.Key" />
+          <input type="hidden" name="NameDisplayNames[@(index)].Value" id="DisplayNames@(j)Value" value="@item.Value" />
+          j++;
+          index++;
+        }
+      }
+
+      if (Model.CategoryDisplayNames != null && Model.CategoryDisplayNames.Count > 0)
+      {
+        int index = 0;
+        foreach (var item in Model.CategoryDisplayNames)
+        {
+          <input type="hidden" name="CategoryDisplayNames[@(index)].Key" id="DisplayNames@(j)Key" value="@item.Key" />
+          <input type="hidden" name="CategoryDisplayNames[@(index)].Value" id="DisplayNames@(j)Value" value="@item.Value" />
+          j++;
+          index++;
+        }
+      }
+
+      if (Model.DescriptionDisplayNames != null && Model.DescriptionDisplayNames.Count > 0)
+      {
+        int index = 0;
+        foreach (var item in Model.DescriptionDisplayNames)
+        {
+          <input type="hidden" name="DescriptionDisplayNames[@(index)].Key" id="DisplayNames@(j)Key" value="@item.Key" />
+          <input type="hidden" name="DescriptionDisplayNames[@(index)].Value" id="DisplayNames@(j)Value" value="@item.Value" />
+          j++;
+          index++;
+        }
+      }
+
+      if (Model.ChoicesDisplayNames != null && Model.ChoicesDisplayNames.Count > 0)
+      {
+        int index = 0;
+        foreach (var item in Model.ChoicesDisplayNames)
+        {
+          <input type="hidden" name="ChoicesDisplayNames[@(index)].Key" id="DisplayNames@(j)Key" value="@item.Key" />
+          <input type="hidden" name="ChoicesDisplayNames[@(index)].Value" id="DisplayNames@(j)Value" value="@item.Value" />
+          j++;
+          index++;
+        }
+      }
+    }
+  </div>
+
+<!--
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Modal Windows
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+    <div id="dialogLocalize" title="@Resources.Resource._PropertyForm_cshtml_Set_Localization_Title">
+      @{
+    int i = 0;
+        
+        <div id="NameLocalization" class="localizationFields">
+        @if (Model.NameDisplayNames != null && Model.NameDisplayNames.Count > 0)
+        {
+          int index = 0;
+          foreach (var item in Model.NameDisplayNames)
+          {
+             <div class="editor-label">@item.Key: <input class="copyVal" data-val="true" type="hidden" data-name="Name" name="copyVal_NameDisplayNames[@(index)].Key" id="copyVal_DisplayNames@(i)Key" value="@item.Key" /></div>
+             <div class="editor-field"><input class="copyVal" data-val="true" data-name="Name" name="copyVal_NameDisplayNames[@(index)].Value" id="copyVal_DisplayNames@(i)Value" value="@item.Value" /></div>
+            i++;
+            index++;
+          }
+        }
+        </div>
+
+        <div id="CategoryLocalization" class="localizationFields">         
+          @if (Model.CategoryDisplayNames != null && Model.CategoryDisplayNames.Count > 0)
+          {
+            int index = 0;
+            foreach (var item in Model.CategoryDisplayNames)
+            {
+              <div class="editor-label"><label>@item.Key:</label> <input class="copyVal" data-val="true" type="hidden" data-name="Category" name="copyVal_CategoryDisplayNames[@(index)].Key" id="copyVal_DisplayNames@(i)Key" value="@item.Key" /></div>
+              <div class="editor-field"><input class="copyVal" data-val="true" data-name="Category" name="copyVal_CategoryDisplayNames[@(index)].Value" id="copyVal_DisplayNames@(i)Value" value="@item.Value" /></div>
+              i++;
+              index++;
+            }
+          }
+        </div>
+        
+        <div id="DescriptionLocalization" class="localizationFields">         
+          @if (Model.DescriptionDisplayNames != null && Model.DescriptionDisplayNames.Count > 0)
+          {
+            int index = 0;
+            foreach (var item in Model.DescriptionDisplayNames)
+            {
+              <div class="editor-label"><label>@item.Key:</label> <input class="copyVal" data-val="true" type="hidden" data-name="Description" name="copyVal_DescriptionDisplayNames[@(index)].Key" id="copyVal_DisplayNames@(i)Key" value="@item.Key" /></div>
+              <div class="editor-field"><input class="copyVal" data-val="true" data-name="Description" name="copyVal_DescriptionDisplayNames[@(index)].Value" id="copyVal_DisplayNames@(i)Value" value="@item.Value" /></div>
+              i++;
+              index++;
+            }
+          }
+        </div>
+        
+        <div id="ChoicesLocalization" class="localizationFields">         
+        @if (Model.ChoicesDisplayNames != null && Model.ChoicesDisplayNames.Count > 0)
+        {
+          int index = 0;
+          foreach (var item in Model.ChoicesDisplayNames)
+          {
+            <div class="editor-label"><label>@item.Key:</label> <input class="copyVal" data-val="true" type="hidden" data-name="Choices" name="copyVal_ChoicesDisplayNames[@(index)].Key" id="copyVal_DisplayNames@(i)Key" value="@item.Key" /></div>
+            <div class="editor-field"><textarea class="copyVal" data-val="true" data-name="Choices" name="copyVal_ChoicesDisplayNames[@(index)].Value" id="copyVal_DisplayNames@(i)Value">@item.Value</textarea></div>
+            i++;
+            index++;
+          }
+        }
+       </div>                
+      }
+    </div> 
+
+    <div class="grid_4 prefix_4 tspace bspace">
+      <button id="ok" type="submit" name="actionType" value="save">@Resources.Resource.TEXT_OK</button>
+      <button id="cancel" type="submit" name="actionType" value="cancel" class="cancel">@Resources.Resource.TEXT_CANCEL</button>
+    </div>
+
+  </div> <!-- end container_12 -->
+}

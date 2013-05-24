@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F637CF36-332E-4089-A979-9C3BD9A8F9C6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SampleAspNetApp</RootNamespace>
+    <AssemblyName>SampleAspNetApp</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\SecurityFramework\Tests\SampleAspNetApp\</BaseIntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\SecurityFramework\Tests\SampleAspNetApp\</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Data.Schema.ScriptDom, Version=9.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External\Microsoft\Bin\Microsoft.Data.Schema.ScriptDom.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Schema.ScriptDom.Sql, Version=9.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External\Microsoft\Bin\Microsoft.Data.Schema.ScriptDom.Sql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\XssDecoderTest.ascx" />
+    <Content Include="Decoder.aspx" />
+    <Content Include="DecoderBase64.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Detector.aspx" />
+    <Content Include="Encoder.aspx" />
+    <Content Include="Error.aspx" />
+    <Content Include="Events.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="GZipCompress.aspx" />
+    <Content Include="LoginTest\Account\Login.aspx" />
+    <Content Include="LoginTest\Default.aspx" />
+    <Content Include="mtpassword.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mtsecurity.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PerformanceTests\SimpleTest.aspx" />
+    <Content Include="PerformanceTests\TestXss1.aspx" />
+    <Content Include="PerformanceTests\TestXss2.aspx" />
+    <Content Include="PolicyActionsView.ascx" />
+    <Content Include="Processor.aspx" />
+    <Content Include="Sanitizer.aspx" />
+    <Content Include="sessionkeys.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Test.aspx" />
+    <Content Include="Text.txt" />
+    <Content Include="Validator.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\XssDecoderTest.ascx.cs">
+      <DependentUpon>XssDecoderTest.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\XssDecoderTest.ascx.designer.cs">
+      <DependentUpon>XssDecoderTest.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Decoder.aspx.cs">
+      <DependentUpon>Decoder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Decoder.aspx.designer.cs">
+      <DependentUpon>Decoder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DecoderBase64.aspx.cs">
+      <DependentUpon>DecoderBase64.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DecoderBase64.aspx.designer.cs">
+      <DependentUpon>DecoderBase64.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Detector.aspx.cs">
+      <DependentUpon>Detector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detector.aspx.designer.cs">
+      <DependentUpon>Detector.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encoder.aspx.cs">
+      <DependentUpon>Encoder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encoder.aspx.designer.cs">
+      <DependentUpon>Encoder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events.aspx.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events.aspx.designer.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GZipCompress.aspx.cs">
+      <DependentUpon>GZipCompress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GZipCompress.aspx.designer.cs">
+      <DependentUpon>GZipCompress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginTest\Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginTest\Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginTest\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginTest\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginTest\Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginTest\Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master.Master.cs">
+      <DependentUpon>Master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master.Master.designer.cs">
+      <DependentUpon>Master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceTests\SimpleTest.aspx.cs">
+      <DependentUpon>SimpleTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerformanceTests\SimpleTest.aspx.designer.cs">
+      <DependentUpon>SimpleTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceTests\TestXss1.aspx.cs">
+      <DependentUpon>TestXss1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerformanceTests\TestXss1.aspx.designer.cs">
+      <DependentUpon>TestXss1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceTests\TestXss2.aspx.cs">
+      <DependentUpon>TestXss2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerformanceTests\TestXss2.aspx.designer.cs">
+      <DependentUpon>TestXss2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PolicyActionsView.ascx.cs">
+      <DependentUpon>PolicyActionsView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PolicyActionsView.ascx.designer.cs">
+      <DependentUpon>PolicyActionsView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Processor.aspx.cs">
+      <DependentUpon>Processor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Processor.aspx.designer.cs">
+      <DependentUpon>Processor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\..\..\Build\AssemblyInfo.cs" />
+    <Compile Include="Sanitizer.aspx.cs">
+      <DependentUpon>Sanitizer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sanitizer.aspx.designer.cs">
+      <DependentUpon>Sanitizer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Validator.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Validator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Validator.aspx.designer.cs">
+      <DependentUpon>Validator.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\SecurityFramework.csproj">
+      <Project>{77E6F668-6AAA-4914-93EC-CAD76C58787F}</Project>
+      <Name>SecurityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech.Security.Common\MetraTech.Security.Common.csproj">
+      <Project>{D0641538-CD87-42B5-847D-62DF558A2D76}</Project>
+      <Name>MetraTech.Security.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech.SecurityFramework.Serialization\MetraTech.SecurityFramework.Serialization.csproj">
+      <Project>{94F6B7E7-5235-48C2-9AEA-C85A2C4FC6C3}</Project>
+      <Name>MetraTech.SecurityFramework.Serialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Utils\MetraTech.SecurityFramework.Core.Common\MetraTech.SecurityFramework.Core.Common.csproj">
+      <Project>{5F3C91E8-1EAE-4C6F-AEA6-41827170BFBD}</Project>
+      <Name>MetraTech.SecurityFramework.Core.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AppCode\" />
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Master.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\SecurityFramework.csproj">
+      <Project>{77E6F668-6AAA-4914-93EC-CAD76C58787F}</Project>
+      <Name>SecurityFramework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LoginTest\Site.Master" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6806</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/SampleAspNetApp</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

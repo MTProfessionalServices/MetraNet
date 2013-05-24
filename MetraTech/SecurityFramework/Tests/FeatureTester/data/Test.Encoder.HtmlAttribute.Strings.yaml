@@ -1,0 +1,34 @@
+#
+# TEST HTML ENCODER
+# Test string encoding
+#
+# NOTE:
+# Enclosing strings in double quotes allows you to use escapings to represent ASCII and Unicode characters.
+# " and \ in payload need to be escaped!!!
+#
+
+---
+id: 1
+message: Script tag string HTML encoding
+payload: "<script>"
+expect:  "&#60;script&#62;"
+---
+id: 2
+message: Simple XSS test string HTML encoding
+payload: "<script>alert('hi')</script>"
+expect:  "&#60;script&#62;alert&#40;&#39;hi&#39;&#41;&#60;&#47;script&#62;"
+---
+id: 3
+message: test string HTML encoding
+payload: "';!--\"Blabla>=&{()}"
+expect:  "&#39;&#59;&#33;--&#34;Blabla&#62;&#61;&#38;&#123;&#40;&#41;&#125;"
+---
+id: 4
+message: test string HTML encoding
+payload: "&#173;"
+expect:  "&#38;&#35;173&#59;"
+---
+id: 5
+message: test string HTML encoding
+payload: "+ADwA-script+AD4A-alert('hacked+ACEA-')+ADwA-/script+AD4A-"
+expect:  "&#43;ADwA-script&#43;AD4A-alert&#40;&#39;hacked&#43;ACEA-&#39;&#41;&#43;ADwA-&#47;script&#43;AD4A-"

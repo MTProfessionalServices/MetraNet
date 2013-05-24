@@ -1,0 +1,33 @@
+<LogAnalyzer>
+
+  <LogSettings>
+    <MTLog>
+      <Filters>
+        <Filter>
+          <MessageContains>\]\[ERROR\]</MessageContains>
+        </Filter>  
+        <Filter>
+          <MessageContains>\]\[FATAL\]</MessageContains>
+        </Filter>  
+        <Filter>
+          <MessageContains>############### MetraTech Pipeline Service ###############</MessageContains>
+          <SubstituteMessage>$HEADER Pipeline started.</SubstituteMessage>
+        </Filter>
+      </Filters>    
+    </MTLog>
+
+    <MSIXLog>
+      <Filters>
+        <Filter>
+          <MessageContains><![CDATA[\[DEBUG\] <msix>]]></MessageContains>
+          <SubstituteMessage>$HEADER Incoming MSIX: $SERVICEDEF</SubstituteMessage>
+        </Filter>  
+      </Filters>
+    </MSIXLog>
+  </LogSettings>
+
+  <Output>
+    <File>test.txt</File>
+  </Output>
+
+</LogAnalyzer>

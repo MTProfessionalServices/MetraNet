@@ -1,0 +1,79 @@
+#
+# TEST HTML ENTITIES DECODER
+# Test one character decoding
+#
+# NOTE:
+# Enclosing strings in double quotes allows you to use escapings to represent ASCII and Unicode characters.
+# " and \ in payload need to be escaped!!!
+#
+
+
+#-	JS decoder;
+
+
+---
+id: 1
+message: The space character JS entities positive decoding
+payload: "\\X20\\u0020"
+expect: "  "
+---
+id: 2
+message: The \"!\" character JS entities positive decoding
+payload: "\\x21\\u0021"
+expect: "!!"
+---
+id: 3
+message: The \"""\" character JS entities positive decoding
+payload: "\\x22\\u0022"
+expect: "\"\""
+---
+id: 4
+message: The \"#\" character JS entities positive decoding
+payload: "\\x23\\u0023"
+expect: "##"
+---
+id: 5
+message: The \"$\" character JS entities positive decoding
+payload: "\\x24\\u0024"
+expect: "$$"
+---
+id: 6
+message: The \"%\" character JS entities positive decoding
+payload: "\\x25\\u0025"
+expect: "%%"
+---
+id: 7
+message: The \"(\" character JS entities positive decoding
+payload: "\\x28\\u0028"
+expect: "(("
+---
+id: 8
+message: The \")\" character JS entities positive decoding
+payload: "\\x29\\u0029"
+expect: "))"
+---
+id: 9
+message: The \"*\" character JS entities positive decoding
+payload: "\\x2a\\u002a"
+expect: "**"
+---
+id: 10
+message: The \"\" character JS entities positive decoding
+payload: "\\x7d\\u007d"
+expect: "}}"
+---
+id: 11
+message: The \"\" character JS entities positive decoding
+payload: "\\x7b\\u007b"
+expect: "{{"
+---
+id: 12
+message: The \"<\" character JS entities positive decoding
+payload: "\\x3c\\u003c"
+expect: "<<"
+
+---
+id: 13
+message: The \">\" character JS entities positive decoding
+payload: "\\x3e\\u003e"
+expect: ">>"

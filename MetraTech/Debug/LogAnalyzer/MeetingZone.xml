@@ -1,0 +1,23 @@
+<LogAnalyzer>
+
+  <LogSettings>
+    <MTLog>
+      <Filters>
+        <Filter>
+          <MessageContains>for .*? records took .*? milli</MessageContains>
+        </Filter>  
+        <Filter>
+          <MessageContains>\]\[ERROR\]</MessageContains>
+        </Filter>  
+        <Filter>
+          <MessageContains>\]\[FATAL\]</MessageContains>
+        </Filter>  
+      </Filters>    
+    </MTLog>
+  </LogSettings>
+
+  <Output>
+    <File>digest.txt</File>
+  </Output>
+
+</LogAnalyzer>

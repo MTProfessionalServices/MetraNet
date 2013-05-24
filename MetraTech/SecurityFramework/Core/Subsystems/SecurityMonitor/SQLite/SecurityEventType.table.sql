@@ -1,0 +1,6 @@
+﻿CREATE TABLE SecurityEventType
+(
+	ID INTEGER NOT NULL,
+	Name TEXT NOT NULL,
+	CONSTRAINT PK_SecurityEventType PRIMARY KEY (ID)
+);

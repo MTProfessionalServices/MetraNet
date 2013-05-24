@@ -1,0 +1,283 @@
+#
+# TEST HTML ENTITIES DECODER
+# Test one character decoding
+#
+# NOTE:
+# Enclosing strings in double quotes allows you to use escapings to represent ASCII and Unicode characters.
+# " and \ in payload need to be escaped!!!
+#
+
+id: 1
+message: Quot character HTML entities positive decoding
+payload: "&quot;&QUOT;"
+expect: "\"\""
+---
+id: 2
+message: Quot character HTML entities positive decoding
+payload: "&#x022&#034"
+expect: "\"\""
+---
+id: 3
+message: Quot character HTML entities positive decoding
+payload: "&#x022;&#034;"
+expect: "\"\""
+---
+id: 4
+message: Quot character HTML entities positive decoding
+payload: "&#x22;&#34;"
+expect: "\"\""
+---
+id: 5
+message: Quot character HTML entities positive decoding
+payload: "&#x22&#34"
+expect: "\"\""
+---
+id: 6
+message: Quot character HTML entities positive decoding
+payload: "&#0000034&#000000000034&#0000034;&#000000000034;"
+expect: "\"\"\"\""
+---
+id: 7
+message: Amp character HTML entities positive decoding
+payload: "&amp;&AMP;"
+expect: "&&"
+---
+id: 8
+message: Amp character HTML entities positive decoding
+payload: "&#x026;&#038;"
+expect: "&&"
+---
+id: 9
+message: Amp character HTML entities positive decoding
+payload: "&#x026&#038"
+expect: "&&"
+---
+id: 10
+message: Amp character HTML entities positive decoding
+payload: "&#x26;&#38;"
+expect: "&&"
+---
+id: 11
+message: Amp character HTML entities positive decoding
+payload: "&#x26&#38"
+expect: "&&"
+---
+id: 12
+message: Amp character HTML entities positive decoding
+payload: "&#0000038;&#000000000038;&#0000038&#000000000038"
+expect: "&&&&"
+---
+#id: 13
+#message: Apos character HTML entities positive decoding
+#payload: "&apos;&APOS;"
+#expect: "''"
+#---
+#id: 14
+#message: Apos character HTML entities positive decoding
+#payload: "&apos&APOS"
+#expect: "''"
+#---
+id: 15
+message: Apos character HTML entities positive decoding
+payload: "&#x027;&#039;"
+expect: "''"
+---
+id: 16
+message: Apos character HTML entities positive decoding
+payload: "&#x027&#039"
+expect: "''"
+---
+id: 17
+message: Apos character HTML entities positive decoding
+payload: "&#x27;&#39;"
+expect: "''"
+---
+id: 18
+message: Apos character HTML entities positive decoding
+payload: "&#x27&#39"
+expect: "''"
+---
+id: 19
+message: Apos character HTML entities positive decoding
+payload: "&#x0000027&#x000000000027&#0000039;&#000000000039;"
+expect: "''''"
+---
+id: 20
+message: lt character HTML entries positive decoding
+payload: "&lt;&LT;"
+expect: "<<"
+---
+id: 21
+message: lt character HTML entries positive decoding
+payload: "&lt&LT"
+expect: "<<"
+---
+id: 22
+message: lt character HTML entries positive decoding
+payload: "&#x03C;&#060;"
+expect: "<<"
+---
+id: 23
+message: lt character HTML entries positive decoding
+payload: "&#x03C&#060"
+expect: "<<"
+---
+id: 24
+message: lt character HTML entries positive decoding
+payload: "&#x3C;&#60;"
+expect: "<<"
+---
+id: 25
+message: lt character HTML entries positive decoding
+payload: "&#x3C&#60"
+expect: "<<"
+---
+id: 26
+message: lt character HTML entries positive decoding
+payload: "&#0000060&#000000000060&#x000003C&#x000000000003C&#0000060;&#000000000060;&#x000003C;&#x000000000003C;"
+expect: "<<<<<<<<"
+---
+id: 27
+message: gt character HTML entries positive decoding
+payload: "&gt;&GT;"
+expect: ">>"
+---
+id: 28
+message: gt character HTML entries positive decoding
+payload: "&gt&GT"
+expect: ">>"
+---
+id: 29
+message: gt character HTML entries positive decoding
+payload: "&#x03E;&#062;"
+expect: ">>"
+---
+id: 30
+message: gt character HTML entries positive decoding
+payload: "&#x03E&#062"
+expect: ">>"
+---
+id: 31
+message: gt character HTML entries positive decoding
+payload: "&#x3E;&#62;"
+expect: ">>"
+---
+id: 32
+message: gt character HTML entries positive decoding
+payload: "&#x3E&#62"
+expect: ">>"
+---
+id: 33
+message: gt character HTML entries positive decoding
+payload: "&#0000062;&#0000062&#000000000062&#000000000062;&#x000003E;&#x000003E&#x00000000003E;&#x00000000003E"
+expect: ">>>>>>>>"
+#---
+#id: 34
+#message: nbsp character HTML entries positive decoding
+#payload: "&nbsp;&NPSP;"
+#expect: "  "
+#---
+#id: 35
+#message: nbsp character HTML entries positive decoding
+#payload: "&nbsp&NBSP"
+#expect: "  "
+---
+id: 36
+message: nbsp character HTML entries positive decoding
+payload: "&#x0A0;&#0160;"
+expect: "  "
+---
+id: 37
+message: nbsp character HTML entries positive decoding
+payload: "&#x0A0&#0160"
+expect: "  "
+---
+id: 38
+message: nbsp character HTML entries positive decoding
+payload: "&#xA0;&#160;"
+expect: "  "
+---
+id: 39
+message: nbsp character HTML entries positive decoding
+payload: "&#xA0&#160"
+expect: "  "
+---
+id: 40
+message: nbsp character HTML entries positive decoding
+payload: "&#x000000A0;&#00000160;&#x0000000000A0;&#0000000000160;&#x000000A0&#00000160&#x0000000000A0&#0000000000160"
+expect: "        "
+---
+id: 41
+message: Quot character HTML entities positive decoding
+payload: "&#X22"
+expect: "\""
+---
+id: 42
+message: Amp character HTML entities positive decoding
+payload: "&#X26"
+expect: "&"
+---
+id: 43
+message: Apos character HTML entities positive decoding
+payload: "&#X27;"
+expect: "'"
+---
+id: 44
+message: lt character HTML entries positive decoding
+payload: "&#x03c;"
+expect: "<"
+---
+id: 45
+message: lt character HTML entries positive decoding
+payload: "&#X03C;"
+expect: "<"
+---
+id: 46
+message: lt character HTML entries positive decoding
+payload: "&#x03c;"
+expect: "<"
+---
+id: 47
+message: gt character HTML entries positive decoding
+payload: "&#x03e;"
+expect: ">"
+---
+id: 48
+message: gt character HTML entries positive decoding
+payload: "&#X03E;"
+expect: ">"
+---
+id: 49
+message: gt character HTML entries positive decoding
+payload: "&#X03e;"
+expect: ">"
+---
+id: 50
+message: nbsp character HTML entries positive decoding
+payload: "&#x0a0;"
+expect: " "
+---
+id: 51
+message: nbsp character HTML entries positive decoding
+payload: "&#X0A0;"
+expect: " "
+---
+id: 52
+message: nbsp character HTML entries positive decoding
+payload: "&#X0a0;"
+expect: " "
+---
+id: 53
+message: Sensetive character HTML entries positive decoding
+payload: "QuoT;AmP;lT;gT;NbSp;ApOs;"
+expect: "QuoT;AmP;lT;gT;NbSp;ApOs;"
+---
+id: 54
+message: Quot character HTML entities positive decoding
+payload: "&quot&QUOT"
+expect: "\"\""
+---
+id: 55
+message: Amp character HTML entities positive decoding
+payload: "&amp&AMP"
+expect: "&&"

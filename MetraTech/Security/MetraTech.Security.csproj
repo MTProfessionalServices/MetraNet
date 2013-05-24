@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)'==''">Debug</Configuration>
+    <Platform Condition="'$(Platform)'==''">x86</Platform>
+    <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{269C212E-1D9A-4177-81A3-0DFE538DE6E6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetraTech.Security</RootNamespace>
+    <AssemblyName>MetraTech.Security</AssemblyName>
+    <MinFrameworkVersionRequired>3.0</MinFrameworkVersionRequired>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\build\keys\metratech.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <NoWarn>1591, 0618</NoWarn>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\Security</BaseIntermediateOutputPath>
+    <DocumentationFile>$(MTOUTDIR)\Doc\MetraTech.Security.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin</OutputPath>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <NoWarn>1591, 0618</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\Security</BaseIntermediateOutputPath>
+    <DocumentationFile>$(MTOUTDIR)\Doc\MetraTech.Security.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="COMSecureStore.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\COMSecureStore.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="comticketagent.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\comticketagent.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="IMTAccountType.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\IMTAccountType.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.Enums.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
+    </Reference>
+    <Reference Include="MTAuditEvents.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTAuditEvents.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MTAuth.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTAuth.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MTProductCatalog.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTProductCatalog.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MTServerAccess.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTServerAccess.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MTYAAC.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTYAAC.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="RCD.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\RCD.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="RCD.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\RCD.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="SysContext.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\SysContext.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\build\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\versionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Auth.cs" />
+    <Compile Include="Credential.cs" />
+    <Compile Include="IPasswordManager.cs" />
+    <Compile Include="LdapPasswordManager.cs" />
+    <Compile Include="PasswordManager.cs" />
+    <Compile Include="PasswordManagerBase.cs" />
+    <Compile Include="RandomPassword.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\build\keys\metratech.snk">
+      <Link>metratech.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+	<ProjectReference Include="..\DomainModel\GenerateDMAssemblies\GenerateDMAssemblies.csproj">
+      <Project>{6D53C578-C802-4882-9A87-FFEFD7A98D2E}</Project>
+      <Name>GenerateDMAssemblies</Name>
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Accounts\Type\MetraTech.Accounts.Type.csproj">
+      <Project>{debe5ba3-a559-4de7-adc8-0df5df9dd846}</Project>
+      <Name>MetraTech.Accounts.Type</Name>
+      <Private>false</Private>
+    </ProjectReference>
+	<ProjectReference Include="..\DataAccess\MetraTech.DataAccess.csproj">
+      <Project>{1b40f4e4-8ddc-43e0-be45-959bee94422f}</Project>
+      <Name>MetraTech.DataAccess</Name>
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MetraTech.Common.csproj">
+      <Project>{f03ef01b-1630-428c-b6b5-a7648d1ace2c}</Project>
+      <Name>MetraTech.Common</Name>
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="Crypto\MetraTech.Security.Crypto.csproj">
+      <Project>{3ee96bfd-837b-4fd1-a33d-69dfaa0d22cf}</Project>
+      <Name>MetraTech.Security.Crypto</Name>
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SecurityFramework\Core\SecurityFramework.csproj">
+      <Project>{77E6F668-6AAA-4914-93EC-CAD76C58787F}</Project>
+      <Name>SecurityFramework</Name>
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SecurityFramework\MetraTech.SecurityFramework.Serialization\MetraTech.SecurityFramework.Serialization.csproj">
+      <Project>{94F6B7E7-5235-48C2-9AEA-C85A2C4FC6C3}</Project>
+      <Name>MetraTech.SecurityFramework.Serialization</Name>
+      <Private>false</Private>
+    </ProjectReference>
+	<ProjectReference Include="..\SecurityFramework\MetraTech.Security.Common\MetraTech.Security.Common.csproj">
+	  <Project>{D0641538-CD87-42B5-847D-62DF558A2D76}</Project>
+	  <Name>MetraTech.Security.Common</Name>
+	  <Private>false</Private>
+	</ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent>regasm.exe /nologo /silent /codebase $(OutDir)$(TargetName).dll /tlb:$(MTOUTDIR)\$(Configuration)\Include\$(TargetName).tlb</PostBuildEvent>
+  </PropertyGroup>
+</Project>

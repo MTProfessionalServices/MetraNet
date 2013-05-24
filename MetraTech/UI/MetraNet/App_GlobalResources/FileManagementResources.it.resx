@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="ARGUMENT_CONDITIONAL" xml:space="preserve">
+        <value>Condizionale</value>
+    </data>
+    <data name="ARGUMENT_FILTER" xml:space="preserve">
+        <value>Filtro dell'argomento</value>
+    </data>
+    <data name="ARGUMENT_FORMAT" xml:space="preserve">
+        <value>Formato</value>
+    </data>
+    <data name="ARGUMENT_GRID_TITLE" xml:space="preserve">
+        <value>Argomenti</value>
+    </data>
+    <data name="ARGUMENT_ORDER" xml:space="preserve">
+        <value>Ordine</value>
+    </data>
+    <data name="ARGUMENT_PANEL_TITLE" xml:space="preserve">
+        <value>Proprietà</value>
+    </data>
+    <data name="ARGUMENT_TITLE" xml:space="preserve">
+        <value>Proprietà dell'argomento</value>
+    </data>
+    <data name="ASSEMBLY_TITLE" xml:space="preserve">
+        <value>Assembly</value>
+    </data>
+    <data name="DETAIL_COMMAND" xml:space="preserve">
+        <value>Comando eseguito</value>
+    </data>
+    <data name="DETAIL_CURRENT_ERROR_CODE" xml:space="preserve">
+        <value>Codice errore corrente</value>
+    </data>
+    <data name="DETAIL_CURRENT_ERROR_MESSAGE" xml:space="preserve">
+        <value>Current Error Message</value>
+    </data>
+    <data name="DETAIL_CURRENT_STATE" xml:space="preserve">
+        <value>Stato corrente</value>
+    </data>
+    <data name="DETAIL_DO_RETRY" xml:space="preserve">
+        <value>Riprovare a elaborare il processo.</value>
+    </data>
+    <data name="DETAIL_FILES" xml:space="preserve">
+        <value>File</value>
+    </data>
+    <data name="DETAIL_METRAFLOW_HISTORY" xml:space="preserve">
+        <value>Acquisisci dettagli esecuzione MetraFlow</value>
+    </data>
+    <data name="DETAIL_STATE_HISTORY" xml:space="preserve">
+        <value>Dettagli della cronologia stati</value>
+    </data>
+    <data name="DETAIL_STATE_HISTORY_DATE" xml:space="preserve">
+        <value>Data</value>
+    </data>
+    <data name="DETAIL_STATE_HISTORY_STATE" xml:space="preserve">
+        <value>Stato/Provincia</value>
+    </data>
+    <data name="DETAIL_TARGET" xml:space="preserve">
+        <value>Obiettivo</value>
+    </data>
+    <data name="DETAIL_TITLE" xml:space="preserve">
+        <value>Rapporto processo dettagliato</value>
+    </data>
+    <data name="DETAIL_WAS_MARKED_FOR_RETRY" xml:space="preserve">
+        <value>Contrassegnato per nuovo tentativo</value>
+    </data>
+    <data name="FILE_DATE" xml:space="preserve">
+        <value>Data</value>
+    </data>
+    <data name="FILE_ERROR_MESSAGE" xml:space="preserve">
+        <value>Error Message</value>
+    </data>
+    <data name="FILE_GENERAL_TITLE" xml:space="preserve">
+        <value>File</value>
+    </data>
+    <data name="FILE_NAME" xml:space="preserve">
+        <value>Nome</value>
+    </data>
+    <data name="FILE_PENDING_TITLE" xml:space="preserve">
+        <value>File in sospeso</value>
+    </data>
+    <data name="FILE_REJECT_REASON" xml:space="preserve">
+        <value>Motivo del rifiuto</value>
+    </data>
+    <data name="FILE_REJECTED_TITLE" xml:space="preserve">
+        <value>File rifiutati</value>
+    </data>
+    <data name="FILE_RETRY_HINT" xml:space="preserve">
+        <value>Riprovare a elaborare il file.</value>
+    </data>
+    <data name="FILE_RETRY_MESSAGE" xml:space="preserve">
+        <value>Provare nuovamente a usare il file?</value>
+    </data>
+    <data name="FILE_RETRY_TITLE" xml:space="preserve">
+        <value>Riprova</value>
+    </data>
+    <data name="FILE_STATE" xml:space="preserve">
+        <value>Stato/Provincia</value>
+    </data>
+    <data name="FILE_TITLE" xml:space="preserve">
+        <value>File</value>
+    </data>
+    <data name="GLOBAL_ACTIVE_DIR" xml:space="preserve">
+        <value>Directory attiva</value>
+    </data>
+    <data name="GLOBAL_COMPLETED_DIR" xml:space="preserve">
+        <value>Directory completata</value>
+    </data>
+    <data name="GLOBAL_FAILED_DIR" xml:space="preserve">
+        <value>Directory non riuscita</value>
+    </data>
+    <data name="GLOBAL_INCOMING_DIR" xml:space="preserve">
+        <value>Directory In arrivo</value>
+    </data>
+    <data name="GLOBAL_INCOMING_DIR_HELP" xml:space="preserve">
+        <value>La directory della posta in arrivo deve essere ubicata sul sistema su cui è in esecuzione File Landing Service. Non immettere il nome del server. Ad esempio, se FLS è in esecuzione su MNServer3 sul disco D:\\IncomingFLS, sarà necessario immettere D:\\IncomingFLS.</value>
+    </data>
+    <data name="GLOBAL_PANEL_TITLE" xml:space="preserve">
+        <value>Gestione file - Processi globali</value>
+    </data>
+    <data name="GLOBAL_RESCAN_INTERVAL" xml:space="preserve">
+        <value>Intervallo di rilettura in sec</value>
+    </data>
+    <data name="GLOBAL_TITLE" xml:space="preserve">
+        <value>Globali</value>
+    </data>
+    <data name="JOB_ACTIVE_TITLE" xml:space="preserve">
+        <value>Gestione file - Processi attivi</value>
+    </data>
+    <data name="JOB_ALL_TITLE" xml:space="preserve">
+        <value>Gestione file - Tutti i processi</value>
+    </data>
+    <data name="JOB_BATCH_ID" xml:space="preserve">
+        <value>ID batch</value>
+    </data>
+    <data name="JOB_COMPLETED_TITLE" xml:space="preserve">
+        <value>Gestione file - Processi completati</value>
+    </data>
+    <data name="JOB_CONTROL_NUMBER" xml:space="preserve">
+        <value>Numero di controllo</value>
+    </data>
+    <data name="JOB_DATE" xml:space="preserve">
+        <value>Data</value>
+    </data>
+    <data name="JOB_ERROR_CODE" xml:space="preserve">
+        <value>Codice di errore</value>
+    </data>
+    <data name="JOB_FAILED_TITLE" xml:space="preserve">
+        <value>Gestione file - Processi non riusciti</value>
+    </data>
+    <data name="JOB_GRID_GENERAL_TITLE" xml:space="preserve">
+        <value>Processi</value>
+    </data>
+    <data name="JOB_PAST_TWO_DAYS_TITLE" xml:space="preserve">
+        <value>Gestione file - Processi degli ultimi due giorni</value>
+    </data>
+    <data name="JOB_PAST_WEEK_TITLE" xml:space="preserve">
+        <value>Gestione file - Processi dell'ultima settimana</value>
+    </data>
+    <data name="JOB_STATE" xml:space="preserve">
+        <value>Stato/Provincia</value>
+    </data>
+    <data name="JOB_TITLE" xml:space="preserve">
+        <value>Processo</value>
+    </data>
+    <data name="JOB_TRACKING_ID" xml:space="preserve">
+        <value>ID di controllo</value>
+    </data>
+    <data name="METRAFLOW_HISTORY_DESCRIPTION" xml:space="preserve">
+        <value>Descrizione</value>
+    </data>
+    <data name="METRAFLOW_HISTORY_ENDING_TIME" xml:space="preserve">
+        <value>Ora fine</value>
+    </data>
+    <data name="METRAFLOW_HISTORY_INSTRUCTION_NO" xml:space="preserve">
+        <value>Numero di istruzione</value>
+    </data>
+    <data name="METRAFLOW_HISTORY_SEQ_NO" xml:space="preserve">
+        <value>Numero di sequenza</value>
+    </data>
+    <data name="METRAFLOW_HISTORY_STARTING_TIME" xml:space="preserve">
+        <value>Ora di inizio</value>
+    </data>
+    <data name="METRAFLOW_HISTORY_TITLE" xml:space="preserve">
+        <value>Registro delle operazioni MetraFlow</value>
+    </data>
+    <data name="PROGRAM_CODE_TITLE" xml:space="preserve">
+        <value>Codice programma</value>
+    </data>
+    <data name="SERVICE_HOST_TITLE" xml:space="preserve">
+        <value>Host del servizio</value>
+    </data>
+    <data name="SUCCESSFUL_SAVE" xml:space="preserve">
+        <value>Salvataggio riuscito.</value>
+    </data>
+    <data name="TARGET_ACTION" xml:space="preserve">
+        <value>Azione</value>
+    </data>
+    <data name="TARGET_ADD" xml:space="preserve">
+        <value>Aggiungi</value>
+    </data>
+    <data name="TARGET_DESCRIPTION" xml:space="preserve">
+        <value>Descrizione</value>
+    </data>
+    <data name="TARGET_EXECUTABLE" xml:space="preserve">
+        <value>Eseguibile</value>
+    </data>
+    <data name="TARGET_FILTER" xml:space="preserve">
+        <value>Filtro obiettivo</value>
+    </data>
+    <data name="TARGET_GRID_TITLE" xml:space="preserve">
+        <value>Gestione file - Obiettivi</value>
+    </data>
+    <data name="TARGET_MISSING_DATAFILE_ARG" xml:space="preserve">
+        <value>Attenzione: argomento non presente nel file dati per l'obiettivo.</value>
+    </data>
+    <data name="TARGET_NAME" xml:space="preserve">
+        <value>Nome</value>
+    </data>
+    <data name="TARGET_TITLE" xml:space="preserve">
+        <value>Obiettivo</value>
+    </data>
+    <data name="TEXT_ACTIONS" xml:space="preserve">
+        <value>Azioni</value>
+    </data>
+    <data name="TEXT_ADD" xml:space="preserve">
+        <value>Aggiungi</value>
+    </data>
+    <data name="TEXT_ADD_BME" xml:space="preserve">
+        <value>Aggiungi</value>
+    </data>
+    <data name="TEXT_BE" xml:space="preserve">
+        <value>BE</value>
+    </data>
+    <data name="TEXT_CONDITIONAL_FLAG" xml:space="preserve">
+        <value>Flag condizionale</value>
+    </data>
+    <data name="TEXT_EDIT_BE" xml:space="preserve">
+        <value>Modifica BE</value>
+    </data>
+    <data name="TEXT_FORMAT" xml:space="preserve">
+        <value>Formato</value>
+    </data>
+    <data name="TEXT_INTERNAL_ERROR" xml:space="preserve">
+        <value>Errore interno.</value>
+    </data>
+    <data name="TEXT_INTERNAL_ID" xml:space="preserve">
+        <value>ID interno</value>
+    </data>
+    <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
+        <value>Nessun record trovato</value>
+    </data>
+    <data name="TEXT_ORDER" xml:space="preserve">
+        <value>Ordine</value>
+    </data>
+    <data name="TEXT_REGEX" xml:space="preserve">
+        <value>File</value>
+    </data>
+    <data name="TEXT_RESCAN_INTERVAL_ERROR" xml:space="preserve">
+        <value>L'intervallo di rilettura deve essere impostato su un valore compreso tra 2 e 86400.</value>
+    </data>
+    <data name="TEXT_RETRIEVE_FILE_DETAILS_ERROR" xml:space="preserve">
+        <value>Si è verificato un errore durante il recupero dei dettagli del conto.</value>
+    </data>
+    <data name="TEXT_RETRIEVE_HISTORY_DETAILS_RUN_ERROR" xml:space="preserve">
+        <value>Impossibile recuperare i dettagli della cronologia relativi all'esecuzione.</value>
+    </data>
+    <data name="TEXT_RETRIEVE_RUN_DETAILS_ERROR" xml:space="preserve">
+        <value>Impossibile recuperare i dettagli dell'esecuzione.</value>
+    </data>
+    <data name="TEXT_RETRIEVE_TARGET_DETAILS_ERROR" xml:space="preserve">
+        <value>Si è verificato un errore durante il recupero dei dettagli dell'obiettivo.</value>
+    </data>
+    <data name="TEXT_UNABLE_RETRIEVE_FILE_DETAILS_ERROR" xml:space="preserve">
+        <value>Impossibile recuperare i dettagli del file.</value>
+    </data>
+</root>

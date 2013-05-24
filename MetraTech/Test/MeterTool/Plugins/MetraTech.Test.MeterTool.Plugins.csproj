@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)'==''">Debug</Configuration>
+    <Platform Condition="'$(Platform)'==''">x86</Platform>
+    <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{e0c01bd8-b535-441f-9fb5-a0943b45b4f7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetraTech.Test.MeterTool.Plugins</RootNamespace>
+    <AssemblyName>MetraTech.Test.MeterTool.Plugins</AssemblyName>
+    <MinFrameworkVersionRequired>3.0</MinFrameworkVersionRequired>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\..\..\build\keys\metratech.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <NoWarn>1591, 0618</NoWarn>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\Test\MeterTool\Plugins</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin</OutputPath>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <NoWarn>1591, 0618</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\Test\MeterTool\Plugins</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MTServerAccess.Interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTServerAccess.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="Rowset.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Rowset.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\..\build\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\build\versionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="ConfID.cs" />
+    <Compile Include="CreateUsername.cs" />
+    <Compile Include="DBProperty.cs" />
+    <Compile Include="EndTime.cs" />
+    <Compile Include="GetUsername.cs" />
+    <Compile Include="SimpleEndTime.cs" />
+    <Compile Include="SmokeTestGetUsername.cs" />
+    <Compile Include="StartTimePlusDuration.cs" />
+    <Compile Include="SubsriberLoginNames.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\build\keys\metratech.snk">
+      <Link>metratech.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DataAccess\MetraTech.DataAccess.csproj">
+      <Project>{1b40f4e4-8ddc-43e0-be45-959bee94422f}</Project>
+      <Name>MetraTech.DataAccess</Name>
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech.Test.csproj">
+      <Project>{e95b8f73-f559-48ae-bcc2-7b0a9b3ac5a2}</Project>
+      <Name>MetraTech.Test</Name>
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MeterToolLib\MetraTech.Test.MeterTool.MeterToolLib.csproj">
+      <Project>{0df99971-7418-4688-a573-62dd01810852}</Project>
+      <Name>MetraTech.Test.MeterTool.MeterToolLib</Name>
+      <Private>false</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

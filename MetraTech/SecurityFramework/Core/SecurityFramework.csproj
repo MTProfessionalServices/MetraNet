@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{77E6F668-6AAA-4914-93EC-CAD76C58787F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SecurityFramework.Core</RootNamespace>
+    <AssemblyName>MetraTech.SecurityFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>MetraTech.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\Bin\</OutputPath>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\SecurityFramework\Core\</BaseIntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>SecurityRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\SecurityFramework\Core\</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\Bin\</OutputPath>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\SecurityFramework\Core\</BaseIntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>SecurityRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech\SecurityFramework\Core\</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AntiXssLibrary">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\AntiXssLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Schema.ScriptDom, Version=9.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\Microsoft\Bin\Microsoft.Data.Schema.ScriptDom.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Schema.ScriptDom.Sql, Version=9.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\Microsoft\Bin\Microsoft.Data.Schema.ScriptDom.Sql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SF.cs" />
+    <Compile Include="SFCOM.cs" />
+    <Compile Include="Subsystems\AccessController\AccessControllerEngineCategory.cs" />
+    <Compile Include="Subsystems\AccessController\AccessControllerException.cs" />
+    <Compile Include="Subsystems\AccessController\AccessItem.cs" />
+    <Compile Include="Subsystems\AccessController\AccessItemUrl.cs" />
+    <Compile Include="Subsystems\AccessController\AccessType.cs" />
+    <Compile Include="Subsystems\AccessController\Engine\AccessControllerEngineBase.cs" />
+    <Compile Include="Subsystems\AccessController\Engine\UrlAccessControllerEngine.cs" />
+    <Compile Include="Subsystems\Category.cs" />
+    <Compile Include="Subsystems\Common\CaseInsensitiveStringComparer.cs" />
+    <Compile Include="Subsystems\Common\Configuration\SecurityFrameworkSettings.cs" />
+    <Compile Include="Subsystems\Common\ExceptionId.cs" />
+    <Compile Include="Subsystems\Common\ExecutionContextFactory.cs" />
+    <Compile Include="Subsystems\Common\IExecutionContext.cs" />
+    <Compile Include="Subsystems\Common\MTKeyValuePair.cs" />
+    <Compile Include="Subsystems\Common\NullInputDataException.cs" />
+    <Compile Include="Subsystems\Common\PerformanceMonitor.cs" />
+    <Compile Include="Subsystems\Common\StringHelper.cs" />
+    <Compile Include="Subsystems\Common\Testing\UnitTestExecutionContext.cs" />
+    <Compile Include="Subsystems\Common\Web\HttpExecutionContext.cs" />
+    <Compile Include="Subsystems\Decoder\Base64DecoderToStringEngine.cs" />
+    <Compile Include="Subsystems\Decoder\ComplexBase64Decoder.cs" />
+    <Compile Include="Subsystems\Decoder\CssDecoderEngine.cs" />
+    <Compile Include="Subsystems\Decoder\DecoderEngineBase.cs" />
+    <Compile Include="Subsystems\Decoder\DecoderInputDataException.cs" />
+    <Compile Include="Subsystems\Decoder\DecoderTranslatorEngineBase.cs" />
+    <Compile Include="Subsystems\Decoder\EntityDecoderEngine.cs" />
+    <Compile Include="Subsystems\Decoder\GZipDecoderEngine.cs" />
+    <Compile Include="Subsystems\Decoder\JavaScriptDecoderEngine.cs" />
+    <Compile Include="Subsystems\Decoder\LdapDecoderEngine.cs" />
+    <Compile Include="Subsystems\Decoder\VbScriptDecoderEngine.cs" />
+    <Compile Include="Subsystems\Detector\Base64Detector.cs" />
+    <Compile Include="Subsystems\Detector\Engine\Base64DetectorEngine.cs" />
+    <Compile Include="Subsystems\Detector\Engine\DetectorEngineBase.cs" />
+    <Compile Include="Subsystems\Detector\Engine\DirectoryTraversalDetectorEngine.cs" />
+    <Compile Include="Subsystems\Detector\Engine\PatternWeight.cs" />
+    <Compile Include="Subsystems\Detector\Engine\SimpleXssDetectorProperties.cs" />
+    <Compile Include="Subsystems\Detector\Engine\SimpleXssDetectorPropertiesConfigured.cs" />
+    <Compile Include="Subsystems\Detector\Engine\SimpleXssDetectorV2.cs" />
+    <Compile Include="Subsystems\Detector\Engine\ThrowExceptionEngineDetectObfuscation.cs" />
+    <Compile Include="Subsystems\Encoder\EncoderEngineBase.cs" />
+    <Compile Include="Subsystems\Encoder\EncoderInputDataException.cs" />
+    <Compile Include="Subsystems\Encryptor\EncryptorEngineBase.cs" />
+    <Compile Include="Subsystems\Encryptor\EncryptorProperties.cs" />
+    <Compile Include="Subsystems\Encryptor\EncryptorEngineCategory.cs" />
+    <Compile Include="Subsystems\Encryptor\CryptoUtils.cs" />
+    <Compile Include="Subsystems\Encryptor\EncryptorInputDataException.cs" />
+    <Compile Include="Subsystems\Encryptor\IEncryptor.cs" />
+    <Compile Include="Subsystems\Encryptor\KeyEncryptorEngineBase.cs" />
+    <Compile Include="Subsystems\Encryptor\KMClientWrapper.cs" />
+    <Compile Include="Subsystems\Encryptor\MSCryptoEngineBase.cs" />
+    <Compile Include="Subsystems\Encryptor\MSDecryptEngine.cs" />
+    <Compile Include="Subsystems\Encryptor\MSEncryptEngine.cs" />
+    <Compile Include="Subsystems\Encryptor\MSHashEngine.cs" />
+    <Compile Include="Subsystems\Encryptor\ProtectDataEngine.cs" />
+    <Compile Include="Subsystems\Encryptor\RSADecryptorEngine.cs" />
+    <Compile Include="Subsystems\Encryptor\RSAEncryptorEngine.cs" />
+    <Compile Include="Subsystems\Encryptor\RSAEngineBase.cs" />
+    <Compile Include="Subsystems\Encryptor\RSAHashEngine.cs" />
+    <Compile Include="Subsystems\Encryptor\UnprotectDataEngine.cs" />
+    <Compile Include="Subsystems\EngineBase.cs" />
+    <Compile Include="Subsystems\ISubsystem.cs" />
+    <Compile Include="SecurityKernel.cs" />
+    <Compile Include="..\..\..\Build\AssemblyInfo.cs" />
+    <Compile Include="SecurityKernelProps.cs" />
+    <Compile Include="Subsystems\AccessController\AccessController.cs" />
+    <Compile Include="Subsystems\AccessController\IAccessControllerApi.cs" />
+    <Compile Include="Subsystems\AccessController\IAccessControllerControlApi.cs" />
+    <Compile Include="Subsystems\Common\BadFileIoException.cs" />
+    <Compile Include="Subsystems\Common\BadInputDataException.cs" />
+    <Compile Include="Subsystems\Common\DataMatching\PatternMatcher\PatternMatcher.cs" />
+    <Compile Include="Subsystems\Common\DataMatching\PatternMatcher\PatternMatcherResult.cs" />
+    <Compile Include="Subsystems\Common\DataMatching\PatternMatcher\PrecompiledRegex.cs" />
+    <Compile Include="Subsystems\Common\DataMatching\StringMatcher\StringMatcher.cs" />
+    <Compile Include="Subsystems\Common\DataMatching\StringMatcher\StringMatcherResult.cs" />
+    <Compile Include="Subsystems\Common\MailHelper.cs" />
+    <Compile Include="Subsystems\Detector\DetectorInputDataException.cs" />
+    <Compile Include="Subsystems\Common\ExceptionExtensions.cs" />
+    <Compile Include="Subsystems\ISubsystemApi.cs" />
+    <Compile Include="Subsystems\ISubsystemControlApi.cs" />
+    <Compile Include="Subsystems\Common\SubsystemAccessException.cs" />
+    <Compile Include="Subsystems\Common\SubsystemApiAccessException.cs" />
+    <Compile Include="Subsystems\Common\SubsystemInputParamException.cs" />
+    <Compile Include="Subsystems\Common\SubsystemInternalException.cs" />
+    <Compile Include="Subsystems\ISubsystemInfo.cs" />
+    <Compile Include="Subsystems\ObjectReferenceMapper\ObjectReferenceMapperEngineBase.cs" />
+    <Compile Include="Subsystems\ObjectReferenceMapper\DefaultObjectReferenceMapperEngine.cs" />
+    <Compile Include="Subsystems\ObjectReferenceMapper\ObjectReferenceMapperEngineCategory.cs" />
+    <Compile Include="Subsystems\ObjectReferenceMapper\ObjectReferenceMapperException.cs" />
+    <Compile Include="Subsystems\Processor\CaseCollection.cs" />
+    <Compile Include="Subsystems\Processor\SwitchRuleEx.cs" />
+    <Compile Include="Subsystems\Processor\IRule.cs" />
+    <Compile Include="Subsystems\Processor\ProcessorEngineCategory.cs" />
+    <Compile Include="Subsystems\Processor\ProcessorEngine.cs" />
+    <Compile Include="Subsystems\Processor\OperationType.cs" />
+    <Compile Include="Subsystems\Processor\ProcessorException.cs" />
+    <Compile Include="Subsystems\Processor\RuleBase.cs" />
+    <Compile Include="Subsystems\Processor\SequenceRule.cs" />
+    <Compile Include="Subsystems\Processor\StopRule.cs" />
+    <Compile Include="Subsystems\Processor\SwitchRule.cs" />
+    <Compile Include="Subsystems\Processor\Case.cs" />
+    <Compile Include="Subsystems\RequestScreener\Engine\DefaultInputRequestScreenerEngine.cs" />
+    <Compile Include="Subsystems\RequestScreener\RequestScreener.cs" />
+    <Compile Include="Subsystems\RequestScreener\Engine\RequestScreenerEngineBase.cs" />
+    <Compile Include="Subsystems\RequestScreener\RequestScreenerApiInput.cs" />
+    <Compile Include="Subsystems\RequestScreener\RequestScreenerEngineCategory.cs" />
+    <Compile Include="Subsystems\RequestScreener\RequestScreenerEngineExtraParamInfo.cs" />
+    <Compile Include="Subsystems\RequestScreener\RequestScreenerException.cs" />
+    <Compile Include="Subsystems\RequestScreener\RequestScreenerInputDataException.cs" />
+    <Compile Include="Subsystems\Sanitizer\Base64SanitizerEngine.cs" />
+    <Compile Include="Subsystems\Sanitizer\NullCharacterSanitizerEngine.cs" />
+    <Compile Include="Subsystems\Sanitizer\SanitizerEngineBase.cs" />
+    <Compile Include="Subsystems\Sanitizer\SanitizerEngineCategory.cs" />
+    <Compile Include="Subsystems\Sanitizer\SanitizerInputDataException.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\CsvFileRecorderDefinitionProperties.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\CsvFileWriter.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\ActionFrequencyRule.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\BlockAddressPolicyAction.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\BlockOperationPolicyAction.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\BlockPolicyActionBase.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\BlockUserPolicyAction.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\ChangeSessionParameterPolicyAction.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\EventRatioThresholdRule.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\InputDataSizeRule.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\IPChangeRule.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\SQLiteLogAnalyzer.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\EventTypeRule.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\EventRepeatThresholdRule.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\EventTimespanThresholdRule.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\EventSourceRule.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\ILogAnalizerRepository.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\IPolicyRule.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\LogAnalizerFactory.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\LogoutUserPolicyAction.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\LogPolicyAction.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\NotificationPolicyActionBase.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\NotifyAdminPolicyAction.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\NotifyUserPolicyAction.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\PolicyAction.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\RedirectOperationPolicyAction.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\RedirectPolicyActionBase.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\RedirectUserActionPolicy.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\SecurityPolicy.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\Policy\SecurityPolicyEngine.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\SecurityPolicyActionType.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\SQLiteRecorderDefinitionProperties.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\SQLiteWriter.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\SQLite\SecurityEventTypeEntity.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\SQLite\SqliteDataAccess.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\EventFilterProperties.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\EventRecorderDefinition.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\EventRecorderDefinitionProperties.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\SecurityEvent.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\SecurityEventFilter.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\SecurityEventWriter.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\SecurityMonitorControlApi.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\SQLite\SQLiteHelper.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\SQLite\SubsystemCategoryEntity.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\StatisticsCategory.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\TableColumn.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\SecurityMonitorProperties.cs" />
+    <Compile Include="Subsystems\SubsystemApiBase.cs" />
+    <Compile Include="Subsystems\SubsystemBase.cs" />
+    <Compile Include="Subsystems\SubsystemControlApiBase.cs" />
+    <Compile Include="Subsystems\Validator\Base64StringValidatorEngine.cs" />
+    <Compile Include="Subsystems\Validator\BasicDoubleValidatorEngine.cs" />
+    <Compile Include="Subsystems\Validator\BasicLongValidatorEngine.cs" />
+    <Compile Include="Subsystems\Validator\CcnStringValidatorEngine.cs" />
+    <Compile Include="Subsystems\Validator\DateStringValidatorEngine.cs" />
+    <Compile Include="Subsystems\Validator\HexStringValidatorEngine.cs" />
+    <Compile Include="Subsystems\Validator\PrintableStringValidatorEngine.cs" />
+    <Compile Include="Subsystems\Validator\StringPattern.cs" />
+    <Compile Include="Subsystems\Validator\ValidatorEngineBase.cs" />
+    <Compile Include="Subsystems\Validator\ValidatorInputDataException.cs" />
+    <Compile Include="Subsystems\Decoder\Decoder.cs" />
+    <Compile Include="Subsystems\Decoder\DecoderEngineCategory.cs" />
+    <Compile Include="Subsystems\Decoder\DecoderExtensions.cs" />
+    <Compile Include="Subsystems\Decoder\DefaultHtmlDecoderEngine.cs" />
+    <Compile Include="Subsystems\Decoder\DefaultUrlDecoderEngine.cs" />
+    <Compile Include="Subsystems\Detector\Engine\DefaultXssDetectorEngine.cs" />
+    <Compile Include="Subsystems\Detector\Engine\DefaultSqlDetectorEngine.cs" />
+    <Compile Include="Subsystems\Detector\Detector.cs" />
+    <Compile Include="Subsystems\Detector\DetectorEngineCategory.cs" />
+    <Compile Include="Subsystems\Detector\DetectorExtensions.cs" />
+    <Compile Include="Subsystems\Encoder\DefaultCssEncoderEngine.cs" />
+    <Compile Include="Subsystems\Encoder\DefaultLdapEncoderEngine.cs" />
+    <Compile Include="Subsystems\Encoder\Encoder.cs" />
+    <Compile Include="Subsystems\Encoder\EncoderEngineCategory.cs" />
+    <Compile Include="Subsystems\Encoder\DefaultHtmlAttributeEncoderEngine.cs" />
+    <Compile Include="Subsystems\Encoder\DefaultHtmlEncoderEngine.cs" />
+    <Compile Include="Subsystems\Encoder\EncoderExtensions.cs" />
+    <Compile Include="Subsystems\Encoder\DefaultJavaScriptEncoderEngine.cs" />
+    <Compile Include="Subsystems\Encoder\DefaultVbScriptEncoderEngine.cs" />
+    <Compile Include="Subsystems\Encoder\DefaultXmlAttributeEncoderEngine.cs" />
+    <Compile Include="Subsystems\Encoder\DefaultXmlEncoderEngine.cs" />
+    <Compile Include="Subsystems\Encoder\DefaultUrlEncoderEngine.cs" />
+    <Compile Include="Subsystems\Encryptor\Encryptor.cs" />
+    <Compile Include="Subsystems\Encryptor\EncryptorExtensions.cs" />
+    <Compile Include="Subsystems\Encryptor\IEncryptorApi.cs" />
+    <Compile Include="Subsystems\Equalizer\Equalizer.cs" />
+    <Compile Include="Subsystems\Equalizer\EqualizerExtensions.cs" />
+    <Compile Include="Subsystems\ObjectReferenceMapper\ObjectReferenceMapper.cs" />
+    <Compile Include="Subsystems\PasswordQualifier\PasswordQualifier.cs" />
+    <Compile Include="Subsystems\PasswordQualifier\PasswordQualifierExtensions.cs" />
+    <Compile Include="Subsystems\Processor\IProcessor.cs" />
+    <Compile Include="Subsystems\Processor\IProcessorAction.cs" />
+    <Compile Include="Subsystems\Processor\IProcessorApi.cs" />
+    <Compile Include="Subsystems\Processor\IProcessorContext.cs" />
+    <Compile Include="Subsystems\Processor\IProcessorControlApi.cs" />
+    <Compile Include="Subsystems\Processor\IProcessorInputEngine.cs" />
+    <Compile Include="Subsystems\Processor\IProcessorInput.cs" />
+    <Compile Include="Subsystems\Processor\IProcessorOutputEngine.cs" />
+    <Compile Include="Subsystems\Processor\IProcessorResult.cs" />
+    <Compile Include="Subsystems\Processor\Processor.cs" />
+    <Compile Include="Subsystems\Processor\ProcessorExtensions.cs" />
+    <Compile Include="Subsystems\RandomObjectGenerator\IRandomObjectGenerator.cs" />
+    <Compile Include="Subsystems\RandomObjectGenerator\IRandomObjectGeneratorApi.cs" />
+    <Compile Include="Subsystems\RandomObjectGenerator\RandomObjectGenerator.cs" />
+    <Compile Include="Subsystems\RandomObjectGenerator\RandomObjectGeneratorExtensions.cs" />
+    <Compile Include="Subsystems\Sanitizer\Sanitizer.cs" />
+    <Compile Include="Subsystems\Sanitizer\SanitizerExtensions.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\ISecurityEvent.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\ISecurityMonitor.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\ISecurityMonitorApi.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\ISecurityMonitorControlApi.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\ISecurityPolicyActionHandler.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\SecurityMonitor.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\SecurityMonitorApi.cs" />
+    <Compile Include="Subsystems\SecurityMonitor\SecurityMonitorPolicyProps.cs" />
+    <Compile Include="Subsystems\SystemAccountManager\SystemAccountManager.cs" />
+    <Compile Include="Subsystems\Validator\BasicIntValidatorEngine.cs" />
+    <Compile Include="Subsystems\Validator\BasicStringValidatorEngine.cs" />
+    <Compile Include="Subsystems\Validator\PatternStringValidatorEngine.cs" />
+    <Compile Include="Subsystems\Validator\Validator.cs" />
+    <Compile Include="Subsystems\Validator\ValidatorEngineCategory.cs" />
+    <Compile Include="Subsystems\Validator\ValidatorExtensions.cs" />
+    <Compile Include="Subsystems\WebInspector\SubsystemApi\Engine\WebInspectorEngineBase.cs" />
+    <Compile Include="Subsystems\WebInspector\SubsystemApi\Engine\WebInspectorErrorEngine.cs" />
+    <Compile Include="Subsystems\WebInspector\SubsystemApi\Engine\WebInspectorRequestEngine.cs" />
+    <Compile Include="Subsystems\WebInspector\SubsystemApi\Engine\WebInspectorResponseEngine.cs" />
+    <Compile Include="Subsystems\WebInspector\SubsystemApi\WebInspectorEngineCategory.cs" />
+    <Compile Include="Subsystems\WebInspector\SubsystemApi\WebInspectorErrorApiInput.cs" />
+    <Compile Include="Subsystems\WebInspector\SubsystemApi\WebInspectorException.cs" />
+    <Compile Include="Subsystems\WebInspector\SubsystemApi\WebInspectorRequestApiInput.cs" />
+    <Compile Include="Subsystems\WebInspector\SubsystemApi\WebInspectorResponseApiInput.cs" />
+    <Compile Include="Subsystems\WebInspector\SubsystemApi\WebInspectorSubsystem.cs" />
+    <Compile Include="Subsystems\WebInspector\WebInspector.cs" />
+    <Compile Include="Subsystems\WebInspector\WinAction.cs" />
+    <Compile Include="Subsystems\WebInspector\WinActionableResult.cs" />
+    <Compile Include="Subsystems\WebInspector\WinActionInfo.cs" />
+    <Compile Include="Subsystems\WebInspector\WinActionType.cs" />
+    <Compile Include="Subsystems\WebInspector\WinConfigInfo.cs" />
+    <Compile Include="Subsystems\WebInspector\WinDecoderRule.cs" />
+    <Compile Include="Subsystems\WebInspector\WinDetectorRule.cs" />
+    <Compile Include="Subsystems\WebInspector\WinFieldSource.cs" />
+    <Compile Include="Subsystems\WebInspector\WinFilterContext.cs" />
+    <Compile Include="Subsystems\WebInspector\WinHttpModule.cs" />
+    <Compile Include="Subsystems\WebInspector\WinLogActionHandler.cs" />
+    <Compile Include="Subsystems\WebInspector\WinParamRuleInfo.cs" />
+    <Compile Include="Subsystems\WebInspector\WinPerformanceMonitor.cs" />
+    <Compile Include="Subsystems\WebInspector\WinProcessor.cs" />
+    <Compile Include="Subsystems\WebInspector\WinProcessorInfo.cs" />
+    <Compile Include="Subsystems\WebInspector\WinProcessorQualifier.cs" />
+    <Compile Include="Subsystems\WebInspector\WinPropertiesInfo.cs" />
+    <Compile Include="Subsystems\WebInspector\WinQualifierInfo.cs" />
+    <Compile Include="Subsystems\WebInspector\WinRequestScreenerRule.cs" />
+    <Compile Include="Subsystems\WebInspector\WinResourceRule.cs" />
+    <Compile Include="Subsystems\WebInspector\WinResourceRuleInfo.cs" />
+    <Compile Include="Subsystems\WebInspector\WinRule.cs" />
+    <Compile Include="Subsystems\WebInspector\WinRuleInfo.cs" />
+    <Compile Include="Subsystems\WebInspector\WinValidatorRule.cs" />
+    <Compile Include="..\..\..\Build\VersionInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Configs\IlMerge.bat">
+      <Link>IlMerge.bat</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="App.config" />
+    <None Include="App_Data\SecurityFramework.db" />
+    <None Include="Processor class diagramm.cd" />
+    <None Include="DetectorSubsystem.cd" />
+    <None Include="MetraTech.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Configs\MtSfAccessController.xml">
+      <Link>MtSfAccessController.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\Configs\MtSfConfigurationLoader.xml">
+      <Link>MtSfConfigurationLoader.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\Configs\MtSfDecoder.xml">
+      <Link>MtSfDecoder.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\Configs\MtSfEncryptor.xml">
+      <Link>MtSfEncryptor.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\Configs\MtSfLogging.xml">
+      <Link>MtSfLogging.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\Configs\MtSfSanitizer.xml">
+      <Link>MtSfSanitizer.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Configs\MtSfSettings.xml">
+      <Link>MtSfSettings.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\Configs\MtSfSsDetector.xml">
+      <Link>MtSfSsDetector.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\Configs\MtSfSsEncoder.xml">
+      <Link>MtSfSsEncoder.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Configs\MtSfSsObjectReferenceMapper.xml">
+      <Link>MtSfSsObjectReferenceMapper.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\Configs\MtSfSsProcessor.xml">
+      <Link>MtSfSsProcessor.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\Configs\MtSfSsRequestScreener.xml">
+      <Link>MtSfSsRequestScreener.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Configs\MtSfSsSecurityMonitor.xml">
+      <Link>MtSfSsSecurityMonitor.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\Configs\MtSfSsValidator.xml">
+      <Link>MtSfSsValidator.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\Configs\MtSfSsWebInspector.xml">
+      <Link>MtSfSsWebInspector.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\Configs\MtSfWebInspectorDefaultConfiguration.xml">
+      <Link>MtSfWebInspectorDefaultConfiguration.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ExceptionsIntervalsID.txt" />
+    <Content Include="Subsystems\SecurityMonitor\SQLite\IX_SecurityEvent_SubsystemCategoryId_TimeStamp.index.sql" />
+    <Content Include="Subsystems\SecurityMonitor\SQLite\IX_SecutiryEvent_SessionId_SubsystemCategoryId.index.sql" />
+    <Content Include="Subsystems\SecurityMonitor\SQLite\SecurityPolicyAction.table.sql" />
+    <Content Include="Subsystems\SecurityMonitor\SQLite\SecurityPolicyActionType.data.sql" />
+    <Content Include="Subsystems\SecurityMonitor\SQLite\SecurityPolicyActionType.table.sql" />
+    <Content Include="Subsystems\SecurityMonitor\SQLite\Problem.data.sql" />
+    <Content Include="Subsystems\SecurityMonitor\SQLite\Problem.table.sql" />
+    <Content Include="Subsystems\SecurityMonitor\SQLite\SecurityEvent.table.sql" />
+    <Content Include="Subsystems\SecurityMonitor\SQLite\SecurityEventType.data.sql" />
+    <Content Include="Subsystems\SecurityMonitor\SQLite\SecurityEventType.table.sql" />
+    <Content Include="Subsystems\SecurityMonitor\SQLite\Subsystem.data.sql" />
+    <Content Include="Subsystems\SecurityMonitor\SQLite\Subsystem.table.sql" />
+    <Content Include="Subsystems\SecurityMonitor\SQLite\SubsystemCategory.data.sql" />
+    <Content Include="Subsystems\SecurityMonitor\SQLite\SubsystemCategory.table.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MetraTech.Security.Common\MetraTech.Security.Common.csproj">
+      <Project>{D0641538-CD87-42B5-847D-62DF558A2D76}</Project>
+      <Name>MetraTech.Security.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MetraTech.SecurityFramework.Serialization\MetraTech.SecurityFramework.Serialization.csproj">
+      <Project>{94F6B7E7-5235-48C2-9AEA-C85A2C4FC6C3}</Project>
+      <Name>MetraTech.SecurityFramework.Serialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utils\MetraTech.SecurityFramework.Core.Common\MetraTech.SecurityFramework.Core.Common.csproj">
+      <Project>{5F3C91E8-1EAE-4C6F-AEA6-41827170BFBD}</Project>
+      <Name>MetraTech.SecurityFramework.Core.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "%25ROOTDIR%25\MetraTech\SecurityFramework\Configs\*.xml" "%25RMPDIR%25\config\Security\Validation\*.xml" /Y</PostBuildEvent>
+  </PropertyGroup>
+</Project>

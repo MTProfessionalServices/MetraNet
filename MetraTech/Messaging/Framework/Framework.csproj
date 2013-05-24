@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7F6268CF-F459-4796-B166-D11F3EBAF72C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetraTech.Messaging.Framework</RootNamespace>
+    <AssemblyName>MetraTech.Messaging.Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\metratech\messaging\Framework\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\metratech\messaging\Framework\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MTServerAccess.interop">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTServerAccess.interop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RabbitMQ.Client">
+      <HintPath>..\..\..\..\Thirdparty\RabbitMQ\RabbitMQ.Client.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RCD.interop">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>$(MTOUTDIR)\debug\Bin\RCD.interop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SysContext.interop">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>$(MTOUTDIR)\debug\Bin\SysContext.interop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configurations\Configuration.cs" />
+    <Compile Include="Configurations\ConfigurationManager.cs" />
+    <Compile Include="Configurations\MessageTypeRule.cs" />
+    <Compile Include="Configurations\QueueConfig.cs" />
+    <Compile Include="Configurations\RabbitMQServerConfig.cs" />
+    <Compile Include="Configurations\ThreadPoolConfig.cs" />
+    <Compile Include="Messages\MessageWithError.cs" />
+    <Compile Include="Messages\Message.cs" />
+    <Compile Include="Messages\Request.cs" />
+    <Compile Include="Messages\Response.cs" />
+    <Compile Include="Persistence\IRequestRepository.cs" />
+    <Compile Include="Persistence\InMemoryRequestRepository.cs" />
+    <Compile Include="Persistence\JetBlueDatabase.cs" />
+    <Compile Include="Persistence\JetBlueRequestRepository.cs" />
+    <Compile Include="Worker\ArchiveWorker.cs" />
+    <Compile Include="Worker\BaseWorker.cs" />
+    <Compile Include="Worker\ControlWorker.cs" />
+    <Compile Include="MessageProcessor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Worker\HaltProcessingCallback.cs" />
+    <Compile Include="Worker\ListenerWorker.cs" />
+    <Compile Include="Worker\RequestWorker.cs" />
+    <Compile Include="Worker\ResponseWorker.cs" />
+    <Compile Include="Worker\SharedStructures.cs" />
+    <Compile Include="Worker\TimeoutWorker.cs" />
+    <Compile Include="Worker\WorkerPool.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ADOX">
+      <Guid>{00000600-0000-0010-8000-00AA006D2EA4}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MetraTech.Common.csproj">
+      <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
+      <Name>MetraTech.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Xml\MetraTech.Xml.csproj">
+      <Project>{7D9556DF-CB87-458A-B66B-F5DD5B7C384E}</Project>
+      <Name>MetraTech.Xml</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,44 @@
+#
+# TEST VBSCRIPT ENCODER
+# Test string encoding
+#
+# NOTE:
+# Enclosing strings in double quotes allows you to use escapings to represent ASCII and Unicode characters.
+# " and \ in payload need to be escaped!!!
+#
+
+---
+id: 1
+message: Script tag string VBScript encoding
+payload: "<script>"
+expect:  "chrw(60)&\"script\"&chrw(62)"
+---
+id: 2
+message: Simple XSS test string VBScript encoding
+payload: "<script>alert('hi')</script>"
+expect:  "chrw(60)&\"script\"&chrw(62)&\"alert\"&chrw(40)&chrw(39)&\"hi\"&chrw(39)&chrw(41)&chrw(60)&chrw(47)&\"script\"&chrw(62)"
+---
+id: 3
+message: test string HTML encoding
+payload: "+ADwA-script+AD4A-alert('hacked+ACEA-')+ADwA-/script+AD4A-"
+expect:  "chrw(43)&\"ADwA-script\"&chrw(43)&\"AD4A-alert\"&chrw(40)&chrw(39)&\"hacked\"&chrw(43)&\"ACEA-\"&chrw(39)&chrw(41)&chrw(43)&\"ADwA-\"&chrw(47)&\"script\"&chrw(43)&\"AD4A-\""
+---
+id: 4
+message: Small Latin letter "a" and number five characters VB script encoding
+payload: "a5"
+expect: "\"a5\""
+---
+id: 5
+message: Capital Latin letter "A" and number four VB script encoding
+payload: "A4"
+expect: "\"A4\""
+---
+id: 6
+message: Line feed character VB script encoding
+payload: "\\n"
+expect: "chrw(92)&\"n\""
+---
+id: 7
+message: Special symbols and Latin letters combination VB script encoding
+payload: "<>,./?\\|'\"\\:;}{][*+=_!123qwe"
+expect: "chrw(60)&chrw(62)&\",.\"&chrw(47)&chrw(63)&chrw(92)&chrw(124)&chrw(39)&chrw(34)&chrw(92)&chrw(58)&chrw(59)&chrw(125)&chrw(123)&chrw(93)&chrw(91)&chrw(42)&chrw(43)&chrw(61)&\"_\"&chrw(33)&\"123qwe\""

@@ -1,0 +1,9 @@
+; MTAccount.def : Declares the module parameters.
+
+LIBRARY      "MTAccount.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTGenDBReader.1 = s 'MTGenDBReader Class'
+	{
+		CLSID = s '{77693A19-16C6-40FC-8748-2787A095E018}'
+	}
+	MetraTech.MTGenDBReader = s 'MTGenDBReader Class'
+	{
+		CLSID = s '{77693A19-16C6-40FC-8748-2787A095E018}'
+		CurVer = s 'MetraTech.MTGenDBReader.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {77693A19-16C6-40FC-8748-2787A095E018} = s 'MTGenDBReader Class'
+		{
+			ProgID = s 'MetraTech.MTGenDBReader.1'
+			VersionIndependentProgID = s 'MetraTech.MTGenDBReader'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{25B6E75E-CCB0-4710-B49A-3390A80AA222}'
+		}
+	}
+}

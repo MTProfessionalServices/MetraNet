@@ -1,0 +1,26 @@
+HKCR
+{
+	MTAccountStates.PendingFinalBill.1 = s 'PendingFinalBill Class'
+	{
+		CLSID = s '{E9D729E4-EB03-4E07-96C7-5BE15F1B5254}'
+	}
+	MTAccountStates.PendingFinalBill = s 'PendingFinalBill Class'
+	{
+		CLSID = s '{E9D729E4-EB03-4E07-96C7-5BE15F1B5254}'
+		CurVer = s 'MTAccountStates.PendingFinalBill.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E9D729E4-EB03-4E07-96C7-5BE15F1B5254} = s 'PendingFinalBill Class'
+		{
+			ProgID = s 'MTAccountStates.PendingFinalBill.1'
+			VersionIndependentProgID = s 'MTAccountStates.PendingFinalBill'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{69B9ADB2-B532-49C2-8074-B0629C1E420B}'
+		}
+	}
+}

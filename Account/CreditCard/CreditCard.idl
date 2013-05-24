@@ -1,0 +1,184 @@
+/**************************************************************************
+ * @doc SDKPUB
+ *
+ * @module |
+ *
+ * The MetraTech Credit Card Software Development Kit COM idl file
+ *
+ * Copyright 1999 by MetraTech Corporation
+ * All rights reserved.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech Corporation MAKES
+ * NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+ * example, but not limitation, MetraTech Corporation MAKES NO
+ * REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+ * PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE OR
+ * DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+ * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ *
+ * Title to copyright in this software and any associated
+ * documentation shall at all times remain with MetraTech Corporation,
+ * and USER agrees to preserve the same.
+ *
+ ***************************************************************************/
+ // CreditCard.idl : IDL source for CreditCard.dll
+
+
+// This file will be processed by the MIDL tool to
+// produce the type library (CreditCard.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+//interface IMTCreditCard;
+
+    	// Credit Card Action Types
+	typedef [uuid(32bdb68e-dfb7-11d2-a236-00a0cc3ad9cd)]
+	enum {
+		ACTION_NONE = -1,
+		ACTION_PREAUTH = 0,
+		ACTION_DEBIT = 1,
+		ACTION_CREDIT =2
+	} MTCreditCardAction;
+
+	// Credit Card Types
+	// g. cieplik 12/12/07 add type for Maestro credit card
+	typedef [uuid(6e135c5c-dfb7-11d2-a236-00a0cc3ad9cd)]
+	enum {
+		MT_NOTSELECTED            = 0,
+		MT_VISA                   = 1,
+		MT_MASTERCARD             = 2,
+		MT_AMERICAN_EXPRESS       = 3,
+		MT_DISCOVER               = 4,
+		MT_JCB                    = 5,
+		MT_CARTEBLANCHE           = 6,
+		MT_DINERS                 = 7,
+		MT_VISA_PCARD             = 8,
+		MT_MASTERCARD_PCARD       = 9,
+		MT_AMERICAN_EXPRESS_PCARD = 10,
+		MT_MAESTRO				  = 13,
+		MT_VISA_PCARD_INTL        = 14,
+		MT_MASTERCARD_PCARD_INTL  = 15,
+		MT_AMERICAN_EXPRESS_PCARD_INTL = 16
+	} MTCreditCardType;
+
+	// Expiration Date Formats
+    typedef [uuid(6dce5850-5c8a-11d3-ae8c-00c04f54fe3b)]
+	enum {
+	    MT_YYMM = 0,
+		MT_MMYY = 1,
+  		MT_YYYYMM = 2,
+  		MT_MMYYYY = 3,
+  		MT_MM_slash_YY = 4,
+  		MT_YY_slash_MM = 5,
+  		MT_MM_slash_YYYY = 6,
+  		MT_YYYY_slash_MM = 7,
+  		MT_DATE_FORMAT_NOT_SUPPORTED = 8
+	} MTExpDateFormat;
+
+	// Credit Card Errors
+	typedef [uuid(7974d5f8-dfb7-11d2-a236-00a0cc3ad9cd)]
+	enum {
+		MT_CC_SUCCESS = 0,
+		MT_CC_ERROR_INVALID_NUM_DIGITS = 1,
+		MT_CC_ERROR_NON_NUMERIC_CHARACTER = 2,
+		MT_CC_ERROR_CARD_TYPE_MISMATCH = 3,
+		MT_CC_ERROR_CHECKSUM = 4,
+		MT_CC_ERROR_INVALID_EXP_DATE = 5,
+		MT_CC_ERROR_CARD_EXPIRED = 6,
+		MT_CC_ERROR_DECLINED = 7,
+		MT_CC_ERROR_NOPROCESSOR = 8,
+		MT_CC_ERROR_REQUIRED_AVS_FIELD_MISSING = 9
+	} MTCreditCardErrorMsg;
+
+
+
+	[
+		object,
+		uuid(ED2FF074-DB0F-11D2-A234-00A0CC3AD9CD),
+		dual,
+		helpstring("IMTCreditCard Interface"),
+		pointer_default(unique)
+	]
+	interface IMTCreditCard : IDispatch
+	{
+		[propget, id(1), helpstring("property MapName")] HRESULT MapName([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property MapName")] HRESULT MapName([in] BSTR newVal);
+		[propget, id(2), helpstring("property MapNamespace")] HRESULT MapNamespace([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property MapNamespace")] HRESULT MapNamespace([in] BSTR newVal);
+		[propget, id(3), helpstring("property Action")] HRESULT Action([out, retval] MTCreditCardAction *pVal);
+		[propput, id(3), helpstring("property Action")] HRESULT Action([in] MTCreditCardAction newVal);
+		[propget, id(4), helpstring("property Amount")] HRESULT Amount([out, retval] double *pVal);
+		[propput, id(4), helpstring("property Amount")] HRESULT Amount([in] double newVal);
+		[propget, id(5), helpstring("property CurrencyCode")] HRESULT CurrencyCode([out, retval] BSTR *pVal);
+		[propput, id(5), helpstring("property CurrencyCode")] HRESULT CurrencyCode([in] BSTR newVal);
+		[propget, id(6), helpstring("property NameOnCard")] HRESULT NameOnCard([out, retval] BSTR *pVal);
+		[propput, id(6), helpstring("property NameOnCard")] HRESULT NameOnCard([in] BSTR newVal);
+		[propget, id(7), helpstring("property CardNumber")] HRESULT CardNumber([out, retval] BSTR *pVal);
+		[propput, id(7), helpstring("property CardNumber")] HRESULT CardNumber([in] BSTR newVal);
+		[propget, id(8), helpstring("property ExpirationDateMonth")] HRESULT ExpirationDateMonth([out, retval] long *pVal);
+		[propput, id(8), helpstring("property ExpirationDateMonth")] HRESULT ExpirationDateMonth([in] long newVal);
+		[propget, id(9), helpstring("property ExpirationDateYear")] HRESULT ExpirationDateYear([out, retval] long *pVal);
+		[propput, id(9), helpstring("property ExpirationDateYear")] HRESULT ExpirationDateYear([in] long newVal);
+		[propget, id(10), helpstring("property CardType")] HRESULT CardType([out, retval] MTCreditCardType *pVal);
+		[propput, id(10), helpstring("property CardType")] HRESULT CardType([in] MTCreditCardType newVal);
+		[propget, id(11), helpstring("property FirstName")] HRESULT FirstName([out, retval] BSTR *pVal);
+		[propput, id(11), helpstring("property FirstName")] HRESULT FirstName([in] BSTR newVal);
+		[propget, id(12), helpstring("property LastName")] HRESULT LastName([out, retval] BSTR *pVal);
+		[propput, id(12), helpstring("property LastName")] HRESULT LastName([in] BSTR newVal);
+		[propget, id(13), helpstring("property Company")] HRESULT Company([out, retval] BSTR *pVal);
+		[propput, id(13), helpstring("property Company")] HRESULT Company([in] BSTR newVal);
+		[propget, id(14), helpstring("property Address1")] HRESULT Address1([out, retval] BSTR *pVal);
+		[propput, id(14), helpstring("property Address1")] HRESULT Address1([in] BSTR newVal);
+		[propget, id(15), helpstring("property Address2")] HRESULT Address2([out, retval] BSTR *pVal);
+		[propput, id(15), helpstring("property Address2")] HRESULT Address2([in] BSTR newVal);
+		[propget, id(16), helpstring("property Address3")] HRESULT Address3([out, retval] BSTR *pVal);
+		[propput, id(16), helpstring("property Address3")] HRESULT Address3([in] BSTR newVal);
+		[propget, id(17), helpstring("property City")] HRESULT City([out, retval] BSTR *pVal);
+		[propput, id(17), helpstring("property City")] HRESULT City([in] BSTR newVal);
+		[propget, id(18), helpstring("property State")] HRESULT State([out, retval] BSTR *pVal);
+		[propput, id(18), helpstring("property State")] HRESULT State([in] BSTR newVal);
+		[propget, id(19), helpstring("property Country")] HRESULT Country([out, retval] BSTR *pVal);
+		[propput, id(19), helpstring("property Country")] HRESULT Country([in] BSTR newVal);
+		[propget, id(20), helpstring("property Phone")] HRESULT Phone([out, retval] BSTR *pVal);
+		[propput, id(20), helpstring("property Phone")] HRESULT Phone([in] BSTR newVal);
+		[id(21), helpstring("method Validate")] HRESULT Validate([out, retval] MTCreditCardErrorMsg * successCode);
+		[id(22), helpstring("method Execute")] HRESULT Execute([in, defaultvalue(0)] BOOL wait, [out, retval] MTCreditCardErrorMsg * successCode);
+		[id(25), helpstring("method AddUserProperty")] HRESULT AddUserProperty([in] BSTR Name, [in] VARIANT Value);
+		[propget, id(26), helpstring("property ServiceName")] HRESULT ServiceName([out, retval] BSTR *pVal);
+		[propput, id(26), helpstring("property ServiceName")] HRESULT ServiceName([in] BSTR newVal);
+		[propget, id(27), helpstring("property UseAVS")] HRESULT UseAVS([out, retval] BOOL *pVal);
+		[propput, id(27), helpstring("property UseAVS")] HRESULT UseAVS([in] BOOL newVal);
+		[propget, id(28), helpstring("property ZipCode")] HRESULT ZipCode([out, retval] BSTR *pVal);
+		[propput, id(28), helpstring("property ZipCode")] HRESULT ZipCode([in] BSTR newVal);
+		[id(29), helpstring("method AddServer")] HRESULT AddServer([in] long priority, [in] BSTR serverName, [in] long Port, [in] BOOL Secure, [in] VARIANT username, [in] VARIANT password);
+		[propget, id(30), helpstring("property HTTPTimeout")] HRESULT HTTPTimeout([out, retval] long *pVal);
+		[propput, id(30), helpstring("property HTTPTimeout")] HRESULT HTTPTimeout([in] long newVal);
+		[propget, id(31), helpstring("property HTTPRetries")] HRESULT HTTPRetries([out, retval] long *pVal);
+		[propput, id(31), helpstring("property HTTPRetries")] HRESULT HTTPRetries([in] long newVal);
+		[propget, id(32), helpstring("property HTTPProxyHostname")] HRESULT HTTPProxyHostname([out, retval] BSTR *pVal);
+		[propput, id(32), helpstring("property HTTPProxyHostname")] HRESULT HTTPProxyHostname([in] BSTR newVal);
+		[propget, id(33), helpstring("property ExpDateFormat")] HRESULT ExpDateFormat([out, retval] MTExpDateFormat *pVal);
+		[propput, id(33), helpstring("property ExpDateFormat")] HRESULT ExpDateFormat([in] MTExpDateFormat newVal);
+		[id(34), helpstring("method ValidateTypeAndNumber")] HRESULT ValidateTypeAndNumber([out, retval] MTCreditCardErrorMsg * successCode);
+	};
+
+[
+	uuid(ED2FF068-DB0F-11D2-A234-00A0CC3AD9CD),
+	version(1.0),
+	helpstring("MetraTechCreditCard 1.0 Type Library")
+]
+library CREDITCARDLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(ED2FF075-DB0F-11D2-A234-00A0CC3AD9CD),
+		helpstring("MTCreditCard Class")
+	]
+	coclass MTCreditCard
+	{
+		[default] interface IMTCreditCard;
+	};
+};

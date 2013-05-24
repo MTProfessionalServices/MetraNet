@@ -1,0 +1,26 @@
+HKCR
+{
+	MTAccountStates.PendingActiveApproval.1 = s 'PendingActiveApproval Class'
+	{
+		CLSID = s '{1CA47C58-1AAC-4DB8-BCDC-9FF9027F205F}'
+	}
+	MTAccountStates.PendingActiveApproval = s 'PendingActiveApproval Class'
+	{
+		CLSID = s '{1CA47C58-1AAC-4DB8-BCDC-9FF9027F205F}'
+		CurVer = s 'MTAccountStates.PendingActiveApproval.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1CA47C58-1AAC-4DB8-BCDC-9FF9027F205F} = s 'PendingActiveApproval Class'
+		{
+			ProgID = s 'MTAccountStates.PendingActiveApproval.1'
+			VersionIndependentProgID = s 'MTAccountStates.PendingActiveApproval'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{69B9ADB2-B532-49C2-8074-B0629C1E420B}'
+		}
+	}
+}

@@ -1,0 +1,154 @@
+/**************************************************************************
+* Copyright 1997-2002 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTAccountStateInterface.idl";
+
+// definitions prototypes
+interface IMTState;
+
+	[
+		object,
+		uuid(665C5C32-C75B-4209-B516-774A8ABAC248),
+		dual,
+		helpstring("IMTAccountStateMetaData Interface"),
+		pointer_default(unique)
+	]
+	interface IMTAccountStateMetaData : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize();
+		[id(2), helpstring("method InitializeWithState")] HRESULT InitializeWithState([in] BSTR statename);
+		[propget, id(3), helpstring("property PendingActiveApproval")] HRESULT PendingActiveApproval([out, retval] IMTState* *pVal);
+		[propput, id(3), helpstring("property PendingActiveApproval")] HRESULT PendingActiveApproval([in] IMTState* newVal);
+		[propget, id(4), helpstring("property Active")] HRESULT Active([out, retval] IMTState* *pVal);
+		[propput, id(4), helpstring("property Active")] HRESULT Active([in] IMTState* newVal);
+		[propget, id(5), helpstring("property Suspended")] HRESULT Suspended([out, retval] IMTState* *pVal);
+		[propput, id(5), helpstring("property Suspended")] HRESULT Suspended([in] IMTState* newVal);
+		[propget, id(6), helpstring("property PendingFinalBill")] HRESULT PendingFinalBill([out, retval] IMTState* *pVal);
+		[propput, id(6), helpstring("property PendingFinalBill")] HRESULT PendingFinalBill([in] IMTState* newVal);
+		[propget, id(7), helpstring("property Closed")] HRESULT Closed([out, retval] IMTState* *pVal);
+		[propput, id(7), helpstring("property Closed")] HRESULT Closed([in] IMTState* newVal);
+		[propget, id(8), helpstring("property Archived")] HRESULT Archived([out, retval] IMTState* *pVal);
+		[propput, id(8), helpstring("property Archived")] HRESULT Archived([in] IMTState* newVal);
+	};
+	[
+		object,
+		uuid(A5FE07E0-BCF1-4293-87BC-5E59A26C3821),
+		dual,
+		helpstring("IMTState Interface"),
+		pointer_default(unique)
+	]
+	interface IMTState : IDispatch
+	{
+		[propget, id(1), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		[propget, id(2), helpstring("property LongName")] HRESULT LongName([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property LongName")] HRESULT LongName([in] BSTR newVal);
+		[propget, id(3), helpstring("property ProgID")] HRESULT ProgID([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property ProgID")] HRESULT ProgID([in] BSTR newVal);
+		[id(4), helpstring("method AddConfiguredBusinessRules")] HRESULT AddConfiguredBusinessRules([in] BSTR bizrule, [in] VARIANT_BOOL boolVal);
+		[id(5), helpstring("method GetBusinessRuleValue")] HRESULT GetBusinessRuleValue([in] BSTR bizrule, [out,retval] VARIANT_BOOL* boolVal);
+		[propget, id(6), helpstring("property ArchiveAge")] HRESULT ArchiveAge([out, retval] long *pVal);
+		[propput, id(6), helpstring("property ArchiveAge")] HRESULT ArchiveAge([in] long newVal);
+	};
+
+[
+	uuid(69B9ADB2-B532-49C2-8074-B0629C1E420B),
+	version(1.0),
+	helpstring("MTAccountStates 1.0 Type Library")
+]
+library MTACCOUNTSTATESLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(9347B023-3230-408F-A97D-CB3CDEC6DB04),
+		helpstring("MTAccountStateManager Class")
+	]
+	coclass MTAccountStateManager
+	{
+		[default] interface IMTAccountStateManager;
+	};
+	[
+		uuid(BED1350C-9518-4DA6-B441-1AEFDC49D5D3),
+		helpstring("Suspended Class")
+	]
+	coclass Suspended
+	{
+		[default] interface IMTAccountStateInterface;
+	};
+	[
+		uuid(1CA47C58-1AAC-4DB8-BCDC-9FF9027F205F),
+		helpstring("PendingActiveApproval Class")
+	]
+	coclass PendingActiveApproval
+	{
+		[default] interface IMTAccountStateInterface;
+	};
+	[
+		uuid(6520C26C-DFD9-4B5C-BBDF-B27ABDEBE94F),
+		helpstring("Active Class")
+	]
+	coclass Active
+	{
+		[default] interface IMTAccountStateInterface;
+	};
+	[
+		uuid(E9D729E4-EB03-4E07-96C7-5BE15F1B5254),
+		helpstring("PendingFinalBill Class")
+	]
+	coclass PendingFinalBill
+	{
+		[default] interface IMTAccountStateInterface;
+	};
+	[
+		uuid(E5D85AE3-E8BD-41FD-8234-81FEFBBC8864),
+		helpstring("Closed Class")
+	]
+	coclass Closed
+	{
+		[default] interface IMTAccountStateInterface;
+	};
+	[
+		uuid(3E1B1DEC-C61B-4F17-AE54-A04623335CE6),
+		helpstring("Archived Class")
+	]
+	coclass Archived
+	{
+		[default] interface IMTAccountStateInterface;
+	};
+	[
+		uuid(946ED82D-99C0-48E9-AB20-0EFF5C025056),
+		helpstring("MTAccountStateMetaData Class")
+	]
+	coclass MTAccountStateMetaData
+	{
+		[default] interface IMTAccountStateMetaData;
+	};
+	[
+		uuid(8F4C886C-28FC-46CA-AEA3-3DDDC879DA7C),
+		helpstring("MTState Class")
+	]
+	coclass MTState
+	{
+		[default] interface IMTState;
+	};
+};

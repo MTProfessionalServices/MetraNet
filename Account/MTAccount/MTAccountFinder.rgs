@@ -1,0 +1,26 @@
+HKCR
+{
+	MTAccount.MTAccountFinder.1 = s 'MTAccountFinder Class'
+	{
+		CLSID = s '{04641E32-880B-11D4-9163-00B0D02B5777}'
+	}
+	MTAccount.MTAccountFinder = s 'MTAccountFinder Class'
+	{
+		CLSID = s '{04641E32-880B-11D4-9163-00B0D02B5777}'
+		CurVer = s 'MTAccount.MTAccountFinder.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {04641E32-880B-11D4-9163-00B0D02B5777} = s 'MTAccountFinder Class'
+		{
+			ProgID = s 'MTAccount.MTAccountFinder.1'
+			VersionIndependentProgID = s 'MTAccount.MTAccountFinder'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{EA7138B3-D8D2-11D3-AEC6-00C04F54FE3B}'
+		}
+	}
+}

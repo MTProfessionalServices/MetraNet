@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTPaymentAssociation.1 = s 'MTPaymentAssociation Class'
+	{
+		CLSID = s '{F5A5B98F-FA4D-474F-931C-21695340628E}'
+	}
+	MetraTech.MTPaymentAssociation = s 'MTPaymentAssociation Class'
+	{
+		CLSID = s '{F5A5B98F-FA4D-474F-931C-21695340628E}'
+		CurVer = s 'MetraTech.MTPaymentAssociation.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F5A5B98F-FA4D-474F-931C-21695340628E} = s 'MTPaymentAssociation Class'
+		{
+			ProgID = s 'MetraTech.MTPaymentAssociation.1'
+			VersionIndependentProgID = s 'MetraTech.MTPaymentAssociation'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{E164DCDD-3409-4992-BC3C-535D825F00BC}'
+		}
+	}
+}

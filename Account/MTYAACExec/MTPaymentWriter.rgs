@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTPaymentWriter.1 = s 'MTPaymentWriter Class'
+	{
+		CLSID = s '{3EB28068-BE9B-4515-A410-06D9F2678061}'
+	}
+	MetraTech.MTPaymentWriter = s 'MTPaymentWriter Class'
+	{
+		CLSID = s '{3EB28068-BE9B-4515-A410-06D9F2678061}'
+		CurVer = s 'MetraTech.MTPaymentWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {3EB28068-BE9B-4515-A410-06D9F2678061} = s 'MTPaymentWriter Class'
+		{
+			ProgID = s 'MetraTech.MTPaymentWriter.1'
+			VersionIndependentProgID = s 'MetraTech.MTPaymentWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{25B6E75E-CCB0-4710-B49A-3390A80AA222}'
+		}
+	}
+}

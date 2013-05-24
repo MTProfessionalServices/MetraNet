@@ -1,0 +1,117 @@
+// MTAccount.idl : IDL source for MTAccount.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTAccount.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTAccountAdapter.idl";
+
+	[
+		object,
+		uuid(f2074640-e58d-11d3-aec9-00c04f54fe3b),
+		dual,
+		helpstring("IMTDummy Interface"),
+		pointer_default(unique)
+	]
+	interface IMTDummy : IDispatch
+	{
+		[id(1), helpstring("method Dummy")] HRESULT Dummy();
+	};
+
+	[
+		object,
+		uuid(BB48A9F1-89D1-11D4-9165-00B0D02B5777),
+		dual,
+		helpstring("IMTAccountFinder Interface"),
+		pointer_default(unique)
+	]
+	interface IMTAccountFinder : IDispatch
+	{
+		[id(1), helpstring("method Search")] HRESULT Search([in] IMTAccountPropertyCollection * pAPC, [out,retval] IMTSearchResultCollection ** ppSRC);
+		[propget, id(2), helpstring("property MaxRows")] HRESULT MaxRows([out, retval] long * pVal);
+		[propput, id(2), helpstring("property MaxRows")] HRESULT MaxRows([in] [defaultvalue(100)] long newVal);
+	};
+	
+[
+	uuid(EA7138B3-D8D2-11D3-AEC6-00C04F54FE3B),
+	version(1.0),
+	helpstring("MTAccount 1.0 Type Library")
+]
+library MTACCOUNTLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(5F3B8F55-D8D3-11D3-AEC6-00C04F54FE3B),
+		helpstring("MTLDAPAdapter Class")
+	]
+	coclass MTLDAPAdapter
+	{
+		interface IMTAccountAdapter;
+		interface IMTAccountAdapter2;
+	};
+	[
+		uuid(5F3B8F57-D8D3-11D3-AEC6-00C04F54FE3B),
+		helpstring("MTSQLAdapter Class")
+	]
+	coclass MTSQLAdapter
+	{
+		interface IMTAccountAdapter;
+		interface IMTAccountAdapter2;
+	};
+	[
+		uuid(CC364122-D8EF-11D3-AEC6-00C04F54FE3B),
+		helpstring("MTDB2Adapter Class")
+	]
+	coclass MTDB2Adapter
+	{
+		interface IMTAccountAdapter;
+		interface IMTAccountAdapter2;
+	};
+	[
+		uuid(99C69E66-D90B-11D3-AEC6-00C04F54FE3B),
+		helpstring("MTAccountProperty Class")
+	]
+	coclass MTAccountProperty
+	{
+		[default] interface IMTAccountProperty;
+	};
+	[
+		uuid(99C69E68-D90B-11D3-AEC6-00C04F54FE3B),
+		helpstring("MTAccountPropertyCollection Class")
+	]
+	coclass MTAccountPropertyCollection
+	{
+		[default] interface IMTAccountPropertyCollection;
+	};
+	[
+		uuid(8EEA96A2-D9CE-11D3-AEC6-00C04F54FE3B),
+		helpstring("MTAccountServer Class")
+	]
+	coclass MTAccountServer
+	{
+		interface IMTAccountAdapter;
+		interface IMTAccountAdapter2;
+	};
+	[
+		uuid(04641E3E-880B-11D4-9163-00B0D02B5777),
+		helpstring("MTSearchResultCollection Class")
+	]
+	coclass MTSearchResultCollection
+	{
+		[default] interface IMTSearchResultCollection;
+	}; 
+	[
+		uuid(04641E32-880B-11D4-9163-00B0D02B5777),
+		helpstring("MTAccountFinder Class")
+	]
+	coclass MTAccountFinder
+	{
+		[default] interface IMTAccountFinder;
+	};
+
+};

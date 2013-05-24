@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTechAccount.MTCreditCard.1 = s 'MTCreditCard Class'
+	{
+		CLSID = s '{ED2FF075-DB0F-11D2-A234-00A0CC3AD9CD}'
+	}
+	MetraTechAccount.MTCreditCard = s 'MTCreditCard Class'
+	{
+		CLSID = s '{ED2FF075-DB0F-11D2-A234-00A0CC3AD9CD}'
+		CurVer = s 'MetraTechAccount.MTCreditCard.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {ED2FF075-DB0F-11D2-A234-00A0CC3AD9CD} = s 'MTCreditCard Class'
+		{
+			ProgID = s 'MetraTechAccount.MTCreditCard.1'
+			VersionIndependentProgID = s 'MetraTechAccount.MTCreditCard'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{ED2FF068-DB0F-11D2-A234-00A0CC3AD9CD}'
+		}
+	}
+}

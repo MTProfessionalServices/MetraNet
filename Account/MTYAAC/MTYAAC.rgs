@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTYAAC.1 = s 'MTYAAC Class'
+	{
+		CLSID = s '{115C38E8-BD31-4BFB-83A3-18B6CDEBBB0A}'
+	}
+	MetraTech.MTYAAC = s 'MTYAAC Class'
+	{
+		CLSID = s '{115C38E8-BD31-4BFB-83A3-18B6CDEBBB0A}'
+		CurVer = s 'MetraTech.MTYAAC.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {115C38E8-BD31-4BFB-83A3-18B6CDEBBB0A} = s 'MTYAAC Class'
+		{
+			ProgID = s 'MetraTech.MTYAAC.1'
+			VersionIndependentProgID = s 'MetraTech.MTYAAC'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{E164DCDD-3409-4992-BC3C-535D825F00BC}'
+		}
+	}
+}

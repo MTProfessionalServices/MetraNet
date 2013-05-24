@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{e66119ef-7abc-4bef-9042-01bec68c406f}</ProjectGuid>
+    <RootNamespace>MTYAACExec</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>True</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>False</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(MTOUTDIR)\$(Configuration)\Bin\</OutDir>
+    <GenerateManifest>false</GenerateManifest>
+	<LinkIncremental>false</LinkIncremental>
+    <IntDir>$(MTOUTDIR)\$(Configuration)\Account\MTYAACExec\</IntDir>
+    <CustomBuildBeforeTargets>ClCompile</CustomBuildBeforeTargets>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <CLCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ROOTDIR)\SDK\include;$(ROOTDIR)\Shared\Collection;$(MTOUTDIR)\$(CONFIGURATION)\Shared\Collection;$(ROOTDIR)\Core\DataAccess\Rowset;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\MTAuth;$(MTOUTDIR)\$(CONFIGURATION)\MTAuth;$(ROOTDIR)\Account\MTYAAC;$(MTOUTDIR)\$(CONFIGURATION)\Account\MTYAAC;$(ROOTDIR)\Core\MTProgressExec;$(MTOUTDIR)\$(CONFIGURATION)\Core\MTProgressExec;$(ROOTDIR)\ProductCatalog\MTProductCatalog;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\MTProductCatalog;$(ROOTDIR)\ProductCatalog\Counter;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\Counter;$(ROOTDIR)\ProductCatalog\PCConfig;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\PCConfig;$(ROOTDIR)\ProductCatalog\MTProductCatalogExec;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\MTProductCatalogExec;$(ROOTDIR)\Core\DataAccess\MTODBC;$(MTOUTDIR)\$(CONFIGURATION)\Shared\ServerAccess\MTServerAccess;$(ROOTDIR)\Account\MTYAACExec;$(MTOUTDIR)\$(CONFIGURATION)\Account\MTYAACExec;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>_DEBUG;DEBUG;RWDEBUG;WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_WIN32_WINNT=0x501;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;UNICODE;_UNICODE;_USRDLL;</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
+      <DisableSpecificWarnings>4995;4335;</DisableSpecificWarnings>
+      <StringPooling>true</StringPooling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalOptions>/bigobj /c /MDd </AdditionalOptions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)stdafx.pch</PrecompiledHeaderOutputFile>
+    </CLCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>kernel32.lib;user32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;libboost_regex-vc100-mt-gd-1_43.lib;comsvcs.lib;</AdditionalDependencies>
+      <EnableUAC>false</EnableUAC>
+      <ProfileGuidedDatabase>
+      </ProfileGuidedDatabase>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalLibraryDirectories>$(MTOUTDIR)\$(Configuration)\lib;</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4070 /ignore:4217 /ignore:4199 /ignore:4098  /subsystem:windows</AdditionalOptions>
+      <ImportLibrary>$(MTOUTDIR)\$(Configuration)\lib\MTYAACExec.lib</ImportLibrary>
+      <ModuleDefinitionFile>$(ROOTDIR)\Account\MTYAACExec\MTYAACExec.def</ModuleDefinitionFile>
+      <RegisterOutput>true</RegisterOutput>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>s:\build\tools\MakeTreeVersion;$(ROOTDIR)\SDK\include;$(ROOTDIR)\Shared\Collection;$(MTOUTDIR)\$(CONFIGURATION)\Shared\Collection;$(ROOTDIR)\Core\DataAccess\Rowset;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\MTAuth;$(MTOUTDIR)\$(CONFIGURATION)\MTAuth;$(ROOTDIR)\Account\MTYAAC;$(MTOUTDIR)\$(CONFIGURATION)\Account\MTYAAC;$(ROOTDIR)\Core\MTProgressExec;$(MTOUTDIR)\$(CONFIGURATION)\Core\MTProgressExec;$(ROOTDIR)\ProductCatalog\MTProductCatalog;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\MTProductCatalog;$(ROOTDIR)\ProductCatalog\Counter;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\Counter;$(ROOTDIR)\ProductCatalog\PCConfig;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\PCConfig;$(ROOTDIR)\ProductCatalog\MTProductCatalogExec;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\MTProductCatalogExec;$(ROOTDIR)\Core\DataAccess\MTODBC;$(MTOUTDIR)\$(CONFIGURATION)\Shared\ServerAccess\MTServerAccess;$(ROOTDIR)\Account\MTYAACExec;$(MTOUTDIR)\$(CONFIGURATION)\Account\MTYAACExec;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG</PreprocessorDefinitions>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Post-Build Event</Message>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Message>Generate derived RC file</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Command>bash s:\build\tools\GenerateDerivedRc.bash MTYAACExec_version.h $(ROOTDIR)\Account\MTYAACExec\MTYAACExec.rc &gt; $(IntDir)\MTYAACExec_derived.rc</Command>
+      <Outputs>$(IntDir)\MTYAACExec_derived.rc</Outputs>
+      <Inputs>MTYAACExec_version.h;s:\build\tools\MakeTreeVersion\template.rc</Inputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(MTOUTDIR)\$(Configuration)\Bin\</OutDir>
+    <GenerateManifest>false</GenerateManifest>
+    <IntDir>$(MTOUTDIR)\$(Configuration)\Account\MTYAACExec\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <CustomBuildBeforeTargets>ClCompile</CustomBuildBeforeTargets>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <CLCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>$(ROOTDIR)\SDK\include;$(ROOTDIR)\Shared\Collection;$(MTOUTDIR)\$(CONFIGURATION)\Shared\Collection;$(ROOTDIR)\Core\DataAccess\Rowset;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\MTAuth;$(MTOUTDIR)\$(CONFIGURATION)\MTAuth;$(ROOTDIR)\Account\MTYAAC;$(MTOUTDIR)\$(CONFIGURATION)\Account\MTYAAC;$(ROOTDIR)\Core\MTProgressExec;$(MTOUTDIR)\$(CONFIGURATION)\Core\MTProgressExec;$(ROOTDIR)\ProductCatalog\MTProductCatalog;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\MTProductCatalog;$(ROOTDIR)\ProductCatalog\Counter;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\Counter;$(ROOTDIR)\ProductCatalog\PCConfig;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\PCConfig;$(ROOTDIR)\ProductCatalog\MTProductCatalogExec;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\MTProductCatalogExec;$(ROOTDIR)\Core\DataAccess\MTODBC;$(MTOUTDIR)\$(CONFIGURATION)\Shared\ServerAccess\MTServerAccess;$(ROOTDIR)\Account\MTYAACExec;$(MTOUTDIR)\$(CONFIGURATION)\Account\MTYAACExec;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_WIN32_WINNT=0x501;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;UNICODE;_UNICODE;</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
+      <DisableSpecificWarnings>4995;4335;</DisableSpecificWarnings>
+      <StringPooling>true</StringPooling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalOptions>/bigobj /c </AdditionalOptions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)stdafx.pch</PrecompiledHeaderOutputFile>
+    </CLCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <MapExports>true</MapExports>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>kernel32.lib;user32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;libboost_regex-vc100-mt-1_43.lib;comsvcs.lib;</AdditionalDependencies>
+      <EnableUAC>false</EnableUAC>
+      <ProfileGuidedDatabase>
+      </ProfileGuidedDatabase>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalOptions>/ignore:4070 /ignore:4217 /ignore:4199 /ignore:4098  /subsystem:windows</AdditionalOptions>
+      <AdditionalLibraryDirectories>$(MTOUTDIR)\$(Configuration)\lib;</AdditionalLibraryDirectories>
+      <ImportLibrary>$(MTOUTDIR)\$(Configuration)\lib\MTYAACExec.lib</ImportLibrary>
+      <ModuleDefinitionFile>$(ROOTDIR)\Account\MTYAACExec\MTYAACExec.def</ModuleDefinitionFile>
+      <RegisterOutput>true</RegisterOutput>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>s:\build\tools\MakeTreeVersion;$(ROOTDIR)\SDK\include;$(ROOTDIR)\Shared\Collection;$(MTOUTDIR)\$(CONFIGURATION)\Shared\Collection;$(ROOTDIR)\Core\DataAccess\Rowset;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\MTAuth;$(MTOUTDIR)\$(CONFIGURATION)\MTAuth;$(ROOTDIR)\Account\MTYAAC;$(MTOUTDIR)\$(CONFIGURATION)\Account\MTYAAC;$(ROOTDIR)\Core\MTProgressExec;$(MTOUTDIR)\$(CONFIGURATION)\Core\MTProgressExec;$(ROOTDIR)\ProductCatalog\MTProductCatalog;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\MTProductCatalog;$(ROOTDIR)\ProductCatalog\Counter;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\Counter;$(ROOTDIR)\ProductCatalog\PCConfig;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\PCConfig;$(ROOTDIR)\ProductCatalog\MTProductCatalogExec;$(MTOUTDIR)\$(CONFIGURATION)\ProductCatalog\MTProductCatalogExec;$(ROOTDIR)\Core\DataAccess\MTODBC;$(MTOUTDIR)\$(CONFIGURATION)\Shared\ServerAccess\MTServerAccess;$(ROOTDIR)\Account\MTYAACExec;$(MTOUTDIR)\$(CONFIGURATION)\Account\MTYAACExec;$(ROOTDIR)\include;$(MTOUTDIR)\$(CONFIGURATION)\include;$(MTOUTDIR)\$(CONFIGURATION)\Core\DataAccess\Rowset;$(ROOTDIR)\Thirdparty\Boost\include\boost-1_33_1;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG</PreprocessorDefinitions>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Post-Build Event</Message>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Message>Generate derived RC file</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Command>bash s:\build\tools\GenerateDerivedRc.bash MTYAACExec_version.h $(ROOTDIR)\Account\MTYAACExec\MTYAACExec.rc &gt; $(IntDir)\MTYAACExec_derived.rc</Command>
+      <Outputs>$(IntDir)\MTYAACExec_derived.rc</Outputs>
+      <Inputs>MTYAACExec_version.h;s:\build\tools\MakeTreeVersion\template.rc</Inputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ResourceCompile Include="$(IntDir)\MTYAACExec_derived.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <CLCompile Include="..\..\build\stdafx.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <AdditionalIncludeDirectories>$(ROOTDIR)\Account\MTYAACExec;$(ROOTDIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </CLCompile>
+    <ClCompile Include="MTAccTemplateWriter.cpp" />
+    <ClCompile Include="MTAncestorMgrWriter.cpp" />
+    <ClCompile Include="MTFolderOwnerWriter.cpp" />
+    <ClCompile Include="MTGenDBReader.cpp" />
+    <ClCompile Include="MTGenDbWriter.cpp" />
+    <ClCompile Include="MTPaymentWriter.cpp" />
+    <ClCompile Include="MTYAACExec.cpp" />
+    <ClCompile Include="MTYAACReader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\batchhelper\mtbatchhelper.vcxproj">
+      <Project>{ad650402-e50f-44ea-9308-2a5f3dc11500}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\DataAccess\MTODBC\MTODBC.vcxproj">
+      <Project>{d6090d12-0c9a-4f21-a85e-5dbf81b383fa}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\error\error.vcxproj">
+      <Project>{3e843aea-c148-4997-bb48-9bfc4e6bbd39}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\mtcomerr\mtcomerr.vcxproj">
+      <Project>{fc230fdb-5c05-45be-a5ae-e6db137061e7}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\mtdec\mtdec.vcxproj">
+      <Project>{140b2a6e-da49-40b5-8961-830a57f7673c}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\MTUtil\mtutil.vcxproj">
+      <Project>{238eb1f4-b29e-4ed1-980e-3b5355c3cf3f}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Metratech\DataAccess\MaterializedViews\MetraTech.DataAccess.MaterializedViews.csproj">
+      <Project>{2327da51-6299-4e9a-80f0-74459de5ea13}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ProductCatalog\PCCache\PCCache.vcxproj">
+      <Project>{20112f2d-2d04-4da4-ac99-9f4d9842939f}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

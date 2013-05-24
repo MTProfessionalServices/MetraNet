@@ -1,0 +1,26 @@
+HKCR
+{
+	MTAccount.MTAccountPropertyCollection.1 = s 'MTAccountPropertyCollection Class'
+	{
+		CLSID = s '{99C69E68-D90B-11D3-AEC6-00C04F54FE3B}'
+	}
+	MTAccount.MTAccountPropertyCollection = s 'MTAccountPropertyCollection Class'
+	{
+		CLSID = s '{99C69E68-D90B-11D3-AEC6-00C04F54FE3B}'
+		CurVer = s 'MTAccount.MTAccountPropertyCollection.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {99C69E68-D90B-11D3-AEC6-00C04F54FE3B} = s 'MTAccountPropertyCollection Class'
+		{
+			ProgID = s 'MTAccount.MTAccountPropertyCollection.1'
+			VersionIndependentProgID = s 'MTAccount.MTAccountPropertyCollection'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+			'TypeLib' = s '{EA7138B3-D8D2-11D3-AEC6-00C04F54FE3B}'
+		}
+	}
+}

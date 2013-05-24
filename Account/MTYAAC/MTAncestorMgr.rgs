@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTAncestorMgr.1 = s 'MTAncestorMgr Class'
+	{
+		CLSID = s '{F5CCB1D3-F451-4F0A-B50A-748D126ACB69}'
+	}
+	MetraTech.MTAncestorMgr = s 'MTAncestorMgr Class'
+	{
+		CLSID = s '{F5CCB1D3-F451-4F0A-B50A-748D126ACB69}'
+		CurVer = s 'MetraTech.MTAncestorMgr.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F5CCB1D3-F451-4F0A-B50A-748D126ACB69} = s 'MTAncestorMgr Class'
+		{
+			ProgID = s 'MetraTech.MTAncestorMgr.1'
+			VersionIndependentProgID = s 'MetraTech.MTAncestorMgr'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+			'TypeLib' = s '{E164DCDD-3409-4992-BC3C-535D825F00BC}'
+		}
+	}
+}

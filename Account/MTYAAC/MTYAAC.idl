@@ -1,0 +1,141 @@
+/**************************************************************************
+* Copyright 1997-2002 by MetraTech
+* All rights reserved.
+*
+* THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO
+* REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. By way of
+* example, but not limitation, MetraTech MAKES NO REPRESENTATIONS OR
+* WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE
+* OR THAT THE USE OF THE LICENCED SOFTWARE OR DOCUMENTATION WILL NOT
+* INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER
+* RIGHTS.
+*
+* Title to copyright in this software and any associated
+* documentation shall at all times remain with MetraTech, and USER
+* agrees to preserve the same.
+*
+***************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "IMTYAAC.idl";
+
+[
+	object,
+	uuid(8b28f644-0d75-4a4a-a1ac-c839b9a2a4c5),
+	dual,
+	helpstring("Dummy interface"),
+	pointer_default(unique)
+]
+interface IDummy : IDispatch
+{
+};
+
+[
+	uuid(E164DCDD-3409-4992-BC3C-535D825F00BC),
+	version(1.0),
+	helpstring("Yet Another Account Class (YAAC) Library")
+]
+library MTYAACLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib("msxml4.dll");
+
+	[
+		uuid(115C38E8-BD31-4BFB-83A3-18B6CDEBBB0A),
+		helpstring("MTYAAC Class (MetraTech Yet Another Account Class)")
+	]
+	coclass MTYAAC
+	{
+		[default] interface IMTYAAC;
+	};
+	[
+		uuid(396F8369-07D0-4821-A563-02E353A532E5),
+		helpstring("MTAccountTemplate Class")
+	]
+	coclass MTAccountTemplate
+	{
+		[default] interface IMTAccountTemplate;
+	};
+	[
+		uuid(E619386D-5F01-4722-B5E1-F75F8217A984),
+		helpstring("MTPaymentMgr Class")
+	]
+	coclass MTPaymentMgr
+	{
+		[default] interface IMTPaymentMgr;
+	};
+	[
+		uuid(F5CCB1D3-F451-4F0A-B50A-748D126ACB69),
+		helpstring("MTAncestorMgr Class")
+	]
+	coclass MTAncestorMgr
+	{
+		[default] interface IMTAncestorMgr;
+	};
+	[
+		uuid(20E70D3F-F933-458C-8DA7-89A5D02117A5),
+		helpstring("MTAccountHierarchySlice Class")
+	]
+	coclass MTAccountHierarchySlice
+	{
+		[default] interface IMTAccountHierarchySlice;
+	};
+	[
+		uuid(099A763A-E5C8-4B99-B5D8-CD7EE1013CAF),
+		helpstring("MTPaymentSlice Class")
+	]
+	coclass MTPaymentSlice
+	{
+		[default] interface IMTPaymentSlice;
+	};
+	[
+		uuid(F5A5B98F-FA4D-474F-931C-21695340628E),
+		helpstring("MTPaymentAssociation Class")
+	]
+	coclass MTPaymentAssociation
+	{
+		[default] interface IMTPaymentAssociation;
+	};
+	[
+		uuid(BF13694A-0AFA-4BAC-89B0-22A201746073),
+		helpstring("MTAccountTemplateSubscriptions Class")
+	]
+	coclass MTAccountTemplateSubscriptions
+	{
+		[default] interface IMTAccountTemplateSubscriptions;
+	};
+	[
+		uuid(67574610-C485-4B8A-9C05-F8BCBC3BD25D),
+		helpstring("MTAccountTemplateSubscription Class")
+	]
+	coclass MTAccountTemplateSubscription
+	{
+		[default] interface IMTAccountTemplateSubscription;
+	};
+	[
+		uuid(AA517939-8CB5-47D0-AA7A-6B058E117BC3),
+		helpstring("MTAccountTemplateProperty Class")
+	]
+	coclass MTAccountTemplateProperty
+	{
+		[default] interface IMTAccountTemplateProperty;
+	};
+	[
+		uuid(7EB03B3F-C8F2-43FE-9972-E63F60BD37B8),
+		helpstring("MTAccountTemplateProperties Class")
+	]
+	coclass MTAccountTemplateProperties
+	{
+		[default] interface IMTAccountTemplateProperties;
+	};
+	[
+		uuid(7ABBB470-8EDC-4C2C-B81A-738071E00FE2),
+		helpstring("MTYAAC Shepherd")
+	]
+	coclass MTAccountCatalog
+	{
+		[default] interface IMTAccountCatalog;
+	};
+};

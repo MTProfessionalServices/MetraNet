@@ -1,0 +1,183 @@
+// MTYAACExec.idl : IDL source for MTYAACExec.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTYAACExec.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "rowsetinterfaces.idl";
+import "GenericCollectionInterfaces.idl";
+import "IMTYAAC.idl";
+
+  [
+    object,
+    uuid(62B7644A-A3C4-4525-9738-834BB45B480C),
+    dual,
+    helpstring("IMTGenDBReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTGenDBReader : IDispatch
+  {
+    [id(1), helpstring("method ExecuteStatement")] HRESULT ExecuteStatement([in] BSTR aQuery,
+    [in, optional] VARIANT aQueryDir,
+    [out, retval] IMTSQLRowset** ppRowset);
+  };
+  [
+    object,
+    uuid(E000D7DF-01D3-4239-A10A-1AACC0494492),
+    dual,
+    helpstring("IMTFolderOwnerWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTFolderOwnerWriter : IDispatch
+  {
+    [id(1), helpstring("method AddOwnedFolder")] HRESULT AddOwnedFolder([in] long aFolder,[in] long aOwner,[out,retval] long* pCurrentOwner);
+    [id(2), helpstring("method AddOwnedFoldersBatch")] HRESULT AddOwnedFoldersBatch([in] long aOwner,[in] IMTCollection* pCol,[in] IMTProgress* pProgress,[out,retval] IMTRowSet** ppErrors);
+		[id(3), helpstring("method UpdateFolderOwner")] HRESULT UpdateFolderOwner([in] long aFolder,[in] long aNewOwner);
+  };
+  [
+    object,
+    uuid(2FC9A372-D662-472F-96DD-78A581035CB0),
+    dual,
+    helpstring("IMTPaymentWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTPaymentWriter : IDispatch
+  {
+    [id(1), helpstring("method PayForAccount")] HRESULT PayForAccount([in] IMTSessionContext* apCtxt, [in] long aPayer,[in] long aPayee,[in] DATE aStartDate,[in] DATE aEndDate);
+    
+    [id(2), helpstring("method PayForAccountBatch")] HRESULT PayForAccountBatch([in] IMTSessionContext* apCtxt,
+      [in] IMTCollection* pCol,
+      [in] IMTProgress* pProgress,
+      [in] long aPayer,
+      [in] DATE StartDate,
+      [in,optional] VARIANT aEndDate,
+      [out,retval] IMTRowSet** ppRowset);
+
+    [id(3), helpstring("method UpdatePaymentRecord")] HRESULT UpdatePaymentRecord([in] IMTSessionContext* apCtxt, [in] long aPayer,[in] long aPayee,[in] DATE oldStart,[in] DATE oldEnd,[in] DATE aStartDate,[in] DATE aEndDate);
+  };
+  [
+    object,
+    uuid(2215816F-DE8E-42B0-972C-E5EE2466DBB4),
+    dual,
+    helpstring("IMTAncestorMgrWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTAncestorMgrWriter : IDispatch
+  {
+    [id(1), helpstring("method MoveAccount")] HRESULT MoveAccount([in] IMTSessionContext* apCtxt, [in] long aAncestor,[in] long aDescendent,[in] DATE StartDate);
+    [id(2), helpstring("method AddToHierarchy")] HRESULT AddToHierarchy([in] IMTSessionContext* apCtxt, [in] long aAncestor,[in] long aDescendent,[in] DATE aStartDate,[in] DATE aEndDate);
+    [id(3), helpstring("method MoveAccountBatch")] HRESULT MoveAccountBatch([in] IMTSessionContext* apCtxt, [in] long aAncestor,[in] IMTCollection* pCol,[in] IMTProgress* pProgress,[in] DATE aStartDate,[out,retval] IMTRowSet** ppErrors);
+  };
+  [
+    object,
+    uuid(E8B6EB39-3C5A-4D52-B837-92C556084F56),
+    dual,
+    helpstring("IMTGenDbWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTGenDbWriter : IDispatch
+  {
+    [id(1), helpstring("method ExecuteStatement")] HRESULT ExecuteStatement([in] BSTR aQuery,[in,optional] VARIANT aQueryDir);
+  };
+  [
+    object,
+    uuid(ABD88787-CB82-4E25-9F21-10E21656A2E9),
+    dual,
+    helpstring("IMTAccTemplateWriter Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTAccTemplateWriter : IDispatch
+  {
+    [id(1), helpstring("method SaveTemplateProperties")] HRESULT SaveTemplateProperties([in] long aTemplateID,[in] IMTCollectionReadOnly* pCol);
+    [id(2), helpstring("method SaveSubscriptions")] HRESULT SaveSubscriptions([in] long aTemplateID,[in] IMTAccountTemplateSubscriptions* pSubs);
+    [id(3), helpstring("method CopyTemplate")] HRESULT CopyTemplate([in] long aNewFolder, [in] long aAccountTypeID, [in,optional] VARIANT aParentFolder);
+	[id(4), helpstring("method DeleteTemplate")] HRESULT DeleteTemplate([in] long aTemplateID);
+  };
+
+  [
+    object,
+    uuid(fb5a17dd-da13-46f7-bd54-7c280288d3b9),
+    dual,
+    helpstring("IMTYAACReader Interface"),
+    pointer_default(unique)
+  ]
+  interface IMTYAACReader : IDispatch
+  {
+
+    [id(1), helpstring("method GetYAACByName")] HRESULT GetYAACByName
+      ([in]IMTSessionContext* apCtx, [in]BSTR aName, [in]BSTR aNamespace, [in]VARIANT RefDate, [out, retval]IMTYAAC** ppYaac);
+    [id(2), helpstring("method GetYAAC")] HRESULT GetYAAC
+      ([in]IMTSessionContext* apCtx, [in]long aAccountID, [in]VARIANT RefDate, [out, retval]IMTYAAC** ppYaac);
+    [id(3), helpstring("method GetAvailableGroupSubscriptionsAsRowset")] HRESULT GetAvailableGroupSubscriptionsAsRowset
+      ([in]IMTSessionContext* apCtx, [in]IMTYAAC* apYAAC, [in]DATE RefDate, [in, optional]VARIANT aFilter, [out, retval]IMTSQLRowset** ppRowset);
+  };
+
+[
+  uuid(25B6E75E-CCB0-4710-B49A-3390A80AA222),
+  version(1.0),
+  helpstring("MTYAACExec 1.0 Type Library")
+]
+library MTYAACEXECLib
+{
+  importlib("stdole32.tlb");
+  importlib("stdole2.tlb");
+
+  [
+    uuid(77693A19-16C6-40FC-8748-2787A095E018),
+    helpstring("MTGenDBReader Class")
+  ]
+  coclass MTGenDBReader
+  {
+    [default] interface IMTGenDBReader;
+  };
+  [
+    uuid(C3E3DCB3-9B8E-4AFF-9458-576DC3743E72),
+    helpstring("MTFolderOwnerWriter Class")
+  ]
+  coclass MTFolderOwnerWriter
+  {
+    [default] interface IMTFolderOwnerWriter;
+  };
+  [
+    uuid(3EB28068-BE9B-4515-A410-06D9F2678061),
+    helpstring("MTPaymentWriter Class")
+  ]
+  coclass MTPaymentWriter
+  {
+    [default] interface IMTPaymentWriter;
+  };
+  [
+    uuid(65FBF039-AA2A-4EC8-9D85-7CE8268AB2A4),
+    helpstring("MTAncestorMgrWriter Class")
+  ]
+  coclass MTAncestorMgrWriter
+  {
+    [default] interface IMTAncestorMgrWriter;
+  };
+  [
+    uuid(5F5C57E9-C6B9-4761-978C-160A5C14CFE6),
+    helpstring("MTGenDbWriter Class")
+  ]
+  coclass MTGenDbWriter
+  {
+    [default] interface IMTGenDbWriter;
+  };
+  [
+    uuid(5D1DFD88-EDDC-42B9-A57B-805F3AFE0646),
+    helpstring("MTAccTemplateWriter Class")
+  ]
+  coclass MTAccTemplateWriter
+  {
+    [default] interface IMTAccTemplateWriter;
+  };
+   [
+    uuid(1DC6D73E-6E89-4A1B-B37A-2E89C51460EC),
+    helpstring("MTYAACReader Class")
+  ]
+  coclass MTYAACReader
+  {
+    [default] interface IMTYAACReader;
+  };
+};

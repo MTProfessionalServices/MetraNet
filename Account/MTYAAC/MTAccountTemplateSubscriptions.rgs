@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTAccountTemplateSubscriptions.1 = s 'MTAccountTemplateSubscriptions Class'
+	{
+		CLSID = s '{BF13694A-0AFA-4BAC-89B0-22A201746073}'
+	}
+	MetraTech.MTAccountTemplateSubscriptions = s 'MTAccountTemplateSubscriptions Class'
+	{
+		CLSID = s '{BF13694A-0AFA-4BAC-89B0-22A201746073}'
+		CurVer = s 'MetraTech.MTAccountTemplateSubscriptions.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {BF13694A-0AFA-4BAC-89B0-22A201746073} = s 'MTAccountTemplateSubscriptions Class'
+		{
+			ProgID = s 'MetraTech.MTAccountTemplateSubscriptions.1'
+			VersionIndependentProgID = s 'MetraTech.MTAccountTemplateSubscriptions'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{E164DCDD-3409-4992-BC3C-535D825F00BC}'
+		}
+	}
+}

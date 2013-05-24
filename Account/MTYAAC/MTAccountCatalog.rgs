@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTAccountCatalog.1 = s 'MTYAAC Shepherd'
+	{
+		CLSID = s '{7ABBB470-8EDC-4C2C-B81A-738071E00FE2}'
+	}
+	MetraTech.MTAccountCatalog = s 'MTYAAC Shepherd'
+	{
+		CLSID = s '{7ABBB470-8EDC-4C2C-B81A-738071E00FE2}'
+		CurVer = s 'MetraTech.MTAccountCatalog.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {7ABBB470-8EDC-4C2C-B81A-738071E00FE2} = s 'MTYAAC Shepherd'
+		{
+			ProgID = s 'MetraTech.MTAccountCatalog.1'
+			VersionIndependentProgID = s 'MetraTech.MTAccountCatalog'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{E164DCDD-3409-4992-BC3C-535D825F00BC}'
+		}
+	}
+}

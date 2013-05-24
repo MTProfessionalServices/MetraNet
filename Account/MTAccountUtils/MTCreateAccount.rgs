@@ -1,0 +1,26 @@
+HKCR
+{
+	MTAccountUtils.MTCreateAccount.1 = s 'MTCreateAccount Class'
+	{
+		CLSID = s '{1D5F1B7E-9170-11D4-A64D-00C04F579C39}'
+	}
+	MTAccountUtils.MTCreateAccount = s 'MTCreateAccount Class'
+	{
+		CLSID = s '{1D5F1B7E-9170-11D4-A64D-00C04F579C39}'
+		CurVer = s 'MTAccountUtils.MTCreateAccount.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1D5F1B7E-9170-11D4-A64D-00C04F579C39} = s 'MTCreateAccount Class'
+		{
+			ProgID = s 'MTAccountUtils.MTCreateAccount.1'
+			VersionIndependentProgID = s 'MTAccountUtils.MTCreateAccount'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{1D5F1B71-9170-11D4-A64D-00C04F579C39}'
+		}
+	}
+}

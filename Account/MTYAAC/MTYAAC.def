@@ -1,0 +1,9 @@
+; MTYAAC.def : Declares the module parameters.
+
+LIBRARY      "MTYAAC.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

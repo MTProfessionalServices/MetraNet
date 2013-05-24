@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTAccountHierarchySlice.1 = s 'MTAccountHierarchySlice Class'
+	{
+		CLSID = s '{20E70D3F-F933-458C-8DA7-89A5D02117A5}'
+	}
+	MetraTech.MTAccountHierarchySlice = s 'MTAccountHierarchySlice Class'
+	{
+		CLSID = s '{20E70D3F-F933-458C-8DA7-89A5D02117A5}'
+		CurVer = s 'MetraTech.MTAccountHierarchySlice.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {20E70D3F-F933-458C-8DA7-89A5D02117A5} = s 'MTAccountHierarchySlice Class'
+		{
+			ProgID = s 'MetraTech.MTAccountHierarchySlice.1'
+			VersionIndependentProgID = s 'MetraTech.MTAccountHierarchySlice'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{E164DCDD-3409-4992-BC3C-535D825F00BC}'
+		}
+	}
+}

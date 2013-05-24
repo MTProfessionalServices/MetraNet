@@ -1,0 +1,46 @@
+// MTAccountUtils.idl : IDL source for MTAccountUtils.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTAccountUtils.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(1D5F1B7D-9170-11D4-A64D-00C04F579C39),
+		dual,
+		helpstring("IMTCreateAccount Interface"),
+		pointer_default(unique)
+	]
+	interface IMTCreateAccount : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize();
+		[id(2), helpstring("Add a user")] 
+		HRESULT AddUser([in] LPDISPATCH pCredentials,
+										[in] BSTR aLanguage,
+										[in] long TimezoneID, 
+										[in] long AccountStatus, 
+										[in] LPDISPATCH pRowset, 
+										[out,retval] long* AccountID);
+	};
+
+[
+	uuid(1D5F1B71-9170-11D4-A64D-00C04F579C39),
+	version(1.0),
+	helpstring("MTAccountUtils 1.0 Type Library")
+]
+library MTACCOUNTUTILSLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(1D5F1B7E-9170-11D4-A64D-00C04F579C39),
+		helpstring("MTCreateAccount Class")
+	]
+	coclass MTCreateAccount
+	{
+		[default] interface IMTCreateAccount;
+	};
+};

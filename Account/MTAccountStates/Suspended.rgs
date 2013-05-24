@@ -1,0 +1,26 @@
+HKCR
+{
+	MTAccountStates.Suspended.1 = s 'Suspended Class'
+	{
+		CLSID = s '{BED1350C-9518-4DA6-B441-1AEFDC49D5D3}'
+	}
+	MTAccountStates.Suspended = s 'Suspended Class'
+	{
+		CLSID = s '{BED1350C-9518-4DA6-B441-1AEFDC49D5D3}'
+		CurVer = s 'MTAccountStates.Suspended.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {BED1350C-9518-4DA6-B441-1AEFDC49D5D3} = s 'Suspended Class'
+		{
+			ProgID = s 'MTAccountStates.Suspended.1'
+			VersionIndependentProgID = s 'MTAccountStates.Suspended'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{69B9ADB2-B532-49C2-8074-B0629C1E420B}'
+		}
+	}
+}

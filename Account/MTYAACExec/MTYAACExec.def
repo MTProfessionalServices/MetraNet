@@ -1,0 +1,9 @@
+; MTYAACExec.def : Declares the module parameters.
+
+LIBRARY      "MTYAACExec.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

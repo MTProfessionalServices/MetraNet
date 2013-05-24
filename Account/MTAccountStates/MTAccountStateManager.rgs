@@ -1,0 +1,26 @@
+HKCR
+{
+	MTAccountStates.MTAccountStateManager.1 = s 'MTAccountStateManager Class'
+	{
+		CLSID = s '{9347B023-3230-408F-A97D-CB3CDEC6DB04}'
+	}
+	MTAccountStates.MTAccountStateManager = s 'MTAccountStateManager Class'
+	{
+		CLSID = s '{9347B023-3230-408F-A97D-CB3CDEC6DB04}'
+		CurVer = s 'MTAccountStates.MTAccountStateManager.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {9347B023-3230-408F-A97D-CB3CDEC6DB04} = s 'MTAccountStateManager Class'
+		{
+			ProgID = s 'MTAccountStates.MTAccountStateManager.1'
+			VersionIndependentProgID = s 'MTAccountStates.MTAccountStateManager'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{69B9ADB2-B532-49C2-8074-B0629C1E420B}'
+		}
+	}
+}

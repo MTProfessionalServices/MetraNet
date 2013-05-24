@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTAccTemplateWriter.1 = s 'MTAccTemplateWriter Class'
+	{
+		CLSID = s '{5D1DFD88-EDDC-42B9-A57B-805F3AFE0646}'
+	}
+	MetraTech.MTAccTemplateWriter = s 'MTAccTemplateWriter Class'
+	{
+		CLSID = s '{5D1DFD88-EDDC-42B9-A57B-805F3AFE0646}'
+		CurVer = s 'MetraTech.MTAccTemplateWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {5D1DFD88-EDDC-42B9-A57B-805F3AFE0646} = s 'MTAccTemplateWriter Class'
+		{
+			ProgID = s 'MetraTech.MTAccTemplateWriter.1'
+			VersionIndependentProgID = s 'MetraTech.MTAccTemplateWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{25B6E75E-CCB0-4710-B49A-3390A80AA222}'
+		}
+	}
+}

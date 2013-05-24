@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTPaymentSlice.1 = s 'MTPaymentSlice Class'
+	{
+		CLSID = s '{099A763A-E5C8-4B99-B5D8-CD7EE1013CAF}'
+	}
+	MetraTech.MTPaymentSlice = s 'MTPaymentSlice Class'
+	{
+		CLSID = s '{099A763A-E5C8-4B99-B5D8-CD7EE1013CAF}'
+		CurVer = s 'MetraTech.MTPaymentSlice.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {099A763A-E5C8-4B99-B5D8-CD7EE1013CAF} = s 'MTPaymentSlice Class'
+		{
+			ProgID = s 'MetraTech.MTPaymentSlice.1'
+			VersionIndependentProgID = s 'MetraTech.MTPaymentSlice'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{E164DCDD-3409-4992-BC3C-535D825F00BC}'
+		}
+	}
+}

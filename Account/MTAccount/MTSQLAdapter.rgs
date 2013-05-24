@@ -1,0 +1,26 @@
+HKCR
+{
+	MTAccount.MTSQLAdapter.1 = s 'MTSQLAdapter Class'
+	{
+		CLSID = s '{5F3B8F57-D8D3-11D3-AEC6-00C04F54FE3B}'
+	}
+	MTAccount.MTSQLAdapter = s 'MTSQLAdapter Class'
+	{
+		CLSID = s '{5F3B8F57-D8D3-11D3-AEC6-00C04F54FE3B}'
+		CurVer = s 'MTAccount.MTSQLAdapter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {5F3B8F57-D8D3-11D3-AEC6-00C04F54FE3B} = s 'MTSQLAdapter Class'
+		{
+			ProgID = s 'MTAccount.MTSQLAdapter.1'
+			VersionIndependentProgID = s 'MTAccount.MTSQLAdapter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+			'TypeLib' = s '{EA7138B3-D8D2-11D3-AEC6-00C04F54FE3B}'
+		}
+	}
+}

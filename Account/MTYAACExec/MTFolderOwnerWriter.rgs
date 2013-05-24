@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTFolderOwnerWriter.1 = s 'MTFolderOwnerWriter Class'
+	{
+		CLSID = s '{C3E3DCB3-9B8E-4AFF-9458-576DC3743E72}'
+	}
+	MetraTech.MTFolderOwnerWriter = s 'MTFolderOwnerWriter Class'
+	{
+		CLSID = s '{C3E3DCB3-9B8E-4AFF-9458-576DC3743E72}'
+		CurVer = s 'MetraTech.MTFolderOwnerWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {C3E3DCB3-9B8E-4AFF-9458-576DC3743E72} = s 'MTFolderOwnerWriter Class'
+		{
+			ProgID = s 'MetraTech.MTFolderOwnerWriter.1'
+			VersionIndependentProgID = s 'MetraTech.MTFolderOwnerWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{25B6E75E-CCB0-4710-B49A-3390A80AA222}'
+		}
+	}
+}

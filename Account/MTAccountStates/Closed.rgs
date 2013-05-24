@@ -1,0 +1,26 @@
+HKCR
+{
+	MTAccountStates.Closed.1 = s 'Closed Class'
+	{
+		CLSID = s '{E5D85AE3-E8BD-41FD-8234-81FEFBBC8864}'
+	}
+	MTAccountStates.Closed = s 'Closed Class'
+	{
+		CLSID = s '{E5D85AE3-E8BD-41FD-8234-81FEFBBC8864}'
+		CurVer = s 'MTAccountStates.Closed.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E5D85AE3-E8BD-41FD-8234-81FEFBBC8864} = s 'Closed Class'
+		{
+			ProgID = s 'MTAccountStates.Closed.1'
+			VersionIndependentProgID = s 'MTAccountStates.Closed'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{69B9ADB2-B532-49C2-8074-B0629C1E420B}'
+		}
+	}
+}

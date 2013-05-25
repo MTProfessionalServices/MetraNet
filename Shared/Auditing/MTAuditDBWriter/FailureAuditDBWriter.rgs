@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.FailureAuditDBWriter.1 = s 'FailureAuditDBWriter Class'
+	{
+		CLSID = s '{57BC43AA-E24F-4C67-B2F9-09CA121EC8CC}'
+	}
+	MetraTech.FailureAuditDBWriter = s 'FailureAuditDBWriter Class'
+	{
+		CLSID = s '{57BC43AA-E24F-4C67-B2F9-09CA121EC8CC}'
+		CurVer = s 'MetraTech.FailureAuditDBWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {57BC43AA-E24F-4C67-B2F9-09CA121EC8CC} = s 'FailureAuditDBWriter Class'
+		{
+			ProgID = s 'MetraTech.FailureAuditDBWriter.1'
+			VersionIndependentProgID = s 'MetraTech.FailureAuditDBWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{42BE79C3-477A-4574-95C8-58393E98BF7C}'
+		}
+	}
+}

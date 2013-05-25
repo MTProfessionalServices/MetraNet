@@ -1,0 +1,96 @@
+
+CompareDef Design
+-----------------
+
+Most the Regression Tests compare results from t_acc_usage with some CSV files.
+The tool we have today is a limited VBScript.
+
+	- Finding detailed information about the errors is difficult.
+	- There is no possibility to pick one account and re run the compare. 
+	- There is no possibility to extend the tools with an Analysis User Interface.
+
+This is a proposal to turn the VBScript into a robust API based on a CompareDef object definition
+and a run time engine called the CompareEngine.
+
+CompareDef Object
+-----------------
+
+CompareDef object stands for Compare Definition and will be similar to a Test Harness Test file or Test Session.
+It is a XML test file describing what the compare is about.
+
+The primary goal is to compare the result of a SQL select query with the content of a CSV File and return the errors in a 
+meaning full way.
+
+
+CompareDef:
+	Properties
+		Name
+		PropertyBagName
+		ResultFolder
+		SQLQuery: if the query is not defined we use a default global query
+
+	Method
+		Compare
+		Save
+
+CompareEngine
+-------------
+The CompareEngine is an C# Class.
+
+class CCompareDefObject{
+	public Name
+	public PropertyBagName
+	public ResultFolder
+	public SQLQuery
+	public Compare()
+	public Save()
+}
+class CAccountIDInfo{
+	AccountID
+	AccountName
+}
+class CAccountIDInfos{ // Collection CAccountIDInfos
+
+}
+class CCompareEngineError{
+	PropertyBag
+	AccountID
+	AccountName
+}
+class CCompareEngineErrors{ // Collection of CCompareEngineError
+
+}
+class CCompareEngine{
+
+	public Execute(CCompareDefObject CompareDefObject, CCompareEngineErrors Errors){
+		
+		CAccountIDInfos AccountIDInfos;
+
+		[001] Read the property bag and populate the AccountIDInfos collections
+
+		[002] For each account in AccountIDInfos{
+			
+			Execute the Query for the account
+
+			Find the CSV File name based on the property ResultFolder and the Account Name			
+
+			Compare the dataset with the CSVFile{
+
+				+Compare Record.Count
+
+				+Compare row by row
+				if(error){
+					Errors.Add(
+						CompareDefObject.Name
+						AccountName, AccountId	
+						ColumnName,
+						ExpectedValue, Value,
+						DataSet.Row.ToString,
+						CSVFile.Row.ToString,
+					)
+				}
+			}		
+		}		
+	}
+}
+

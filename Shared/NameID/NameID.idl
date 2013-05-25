@@ -1,0 +1,44 @@
+// NameID.idl : IDL source for NameID.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (NameID.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTNameID.idl";
+
+	[
+		object,
+		uuid(ff33e930-241a-11d3-8db3-00c04f484788),
+		dual,
+		helpstring("IDummy Interface"),
+		pointer_default(unique)
+	]
+	interface IDummy : IDispatch
+	{
+	};
+
+
+[
+	uuid(E70403F1-2419-11D3-8DB3-00C04F484788),
+	version(1.0),
+	helpstring("NameID 1.0 Type Library")
+]
+library NAMEIDLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	interface IMTNameID;
+
+	[
+		uuid(3B2F9590-3EAF-11D2-A1C5-006008C0E24A),
+		helpstring("MTNameID Class")
+	]
+	coclass MTNameID
+	{
+		[default] interface IMTNameID;
+	};
+};

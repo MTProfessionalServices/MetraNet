@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.AuditDBWriter.1 = s 'AuditDBWriter Class'
+	{
+		CLSID = s '{F00E069E-1ED5-4064-9888-7FEB252B7E28}'
+	}
+	MetraTech.AuditDBWriter = s 'AuditDBWriter Class'
+	{
+		CLSID = s '{F00E069E-1ED5-4064-9888-7FEB252B7E28}'
+		CurVer = s 'MetraTech.AuditDBWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F00E069E-1ED5-4064-9888-7FEB252B7E28} = s 'AuditDBWriter Class'
+		{
+			ProgID = s 'MetraTech.AuditDBWriter.1'
+			VersionIndependentProgID = s 'MetraTech.AuditDBWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{42BE79C3-477A-4574-95C8-58393E98BF7C}'
+		}
+	}
+}

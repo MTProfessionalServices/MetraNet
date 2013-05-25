@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MTProductView", "MTProductView\MTProductView.vcxproj", "{D07A0EEC-0C1D-489E-BC51-C071BFC23261}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MTProductViewExec", "MTProductViewExec\MTProductViewExec.vcxproj", "{DEF07E5A-16DF-45B6-AC23-2F904D4F014E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProductViewOps", "ProductViewOps\ProductViewOps.vcxproj", "{99B2F3D5-11E3-4E20-8959-56EC903741DE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProductView", "ProductView\ProductView.vcxproj", "{8310DCA6-03D6-4443-9AF8-B1B178D568D9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dynamictable", "..\DynamicTable\dynamictable.vcxproj", "{5EAFEF6A-7E7F-4AF2-9748-E6838C5B86BF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AddProductView", "TestDriver\AddProductView.vcxproj", "{F053D3A4-57C6-4F19-8F74-710F00186098}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D07A0EEC-0C1D-489E-BC51-C071BFC23261}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D07A0EEC-0C1D-489E-BC51-C071BFC23261}.Debug|Win32.Build.0 = Debug|Win32
+		{D07A0EEC-0C1D-489E-BC51-C071BFC23261}.Release|Win32.ActiveCfg = Release|Win32
+		{D07A0EEC-0C1D-489E-BC51-C071BFC23261}.Release|Win32.Build.0 = Release|Win32
+		{DEF07E5A-16DF-45B6-AC23-2F904D4F014E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DEF07E5A-16DF-45B6-AC23-2F904D4F014E}.Debug|Win32.Build.0 = Debug|Win32
+		{DEF07E5A-16DF-45B6-AC23-2F904D4F014E}.Release|Win32.ActiveCfg = Release|Win32
+		{DEF07E5A-16DF-45B6-AC23-2F904D4F014E}.Release|Win32.Build.0 = Release|Win32
+		{99B2F3D5-11E3-4E20-8959-56EC903741DE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{99B2F3D5-11E3-4E20-8959-56EC903741DE}.Debug|Win32.Build.0 = Debug|Win32
+		{99B2F3D5-11E3-4E20-8959-56EC903741DE}.Release|Win32.ActiveCfg = Release|Win32
+		{99B2F3D5-11E3-4E20-8959-56EC903741DE}.Release|Win32.Build.0 = Release|Win32
+		{8310DCA6-03D6-4443-9AF8-B1B178D568D9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8310DCA6-03D6-4443-9AF8-B1B178D568D9}.Debug|Win32.Build.0 = Debug|Win32
+		{8310DCA6-03D6-4443-9AF8-B1B178D568D9}.Release|Win32.ActiveCfg = Release|Win32
+		{8310DCA6-03D6-4443-9AF8-B1B178D568D9}.Release|Win32.Build.0 = Release|Win32
+		{5EAFEF6A-7E7F-4AF2-9748-E6838C5B86BF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5EAFEF6A-7E7F-4AF2-9748-E6838C5B86BF}.Debug|Win32.Build.0 = Debug|Win32
+		{5EAFEF6A-7E7F-4AF2-9748-E6838C5B86BF}.Release|Win32.ActiveCfg = Release|Win32
+		{5EAFEF6A-7E7F-4AF2-9748-E6838C5B86BF}.Release|Win32.Build.0 = Release|Win32
+		{F053D3A4-57C6-4F19-8F74-710F00186098}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F053D3A4-57C6-4F19-8F74-710F00186098}.Debug|Win32.Build.0 = Debug|Win32
+		{F053D3A4-57C6-4F19-8F74-710F00186098}.Release|Win32.ActiveCfg = Release|Win32
+		{F053D3A4-57C6-4F19-8F74-710F00186098}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

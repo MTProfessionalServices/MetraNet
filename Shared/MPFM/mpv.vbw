@@ -1,0 +1,11 @@
+frmMain = 635, 162, 1587, 518, , 48, 36, 1292, 755, C
+frmOptions = 220, 220, 1464, 939, , 44, 44, 1288, 763, C
+Module2 = 0, 0, 0, 0, C
+MPFMModule = 132, 132, 1376, 851, C
+MTGlobal_VB_MSG = 0, 0, 0, 0, C
+MTVBExtensionReplace = 0, 0, 0, 0, C
+MTVBExtension = 286, 286, 1530, 1005, C
+cWindowsModule = 0, 0, 0, 0, C
+CChart = 339, 138, 1583, 857, C
+CPerformanceViewer = 74, 163, 1318, 882, C
+CDB = 44, 44, 1288, 763, C

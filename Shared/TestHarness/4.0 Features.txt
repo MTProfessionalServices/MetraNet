@@ -1,0 +1,107 @@
+CONTINUE to process required/default value in sessions
+first we do not store the info in the session.
+
+[1][DONE]Test Session dialog : Delete a test without losing the focus
+
+[3][CANCELED]Include the grid and tab in the install
+
+[4][DONE]When execute a test from a session
+	pass -sessionpath and -sessionname
+
+[5][DONE] When start a super session
+	reset the indent counter
+
+[6][50%DONE]New option for test session from the pop up menu :
+	generate text description:
+
+[7][DONE]Introduce notion of 
+	required parameters
+	optional parameters with default value
+
+	when add a test to a session : open a text box for each 
+		required parameter
+		optional with a default value
+
+	When click ok on the edit session dialog - applied rule required/optional
+	
+[8] [CANCELED]do not show the error message did not update the file result.csv
+
+[12][DONE]Execute a test selected from the list box in the Test Session Dialog
+
+[13] Store the test description in the VBS file and store the test session description in the associated 
+     text file.
+     The property of CTDBItem.Description should read the description from the VBS file if available
+     else can return the one from the xml file.
+     The property is read only.
+
+[14][DONE]Multi Select
+	- CTRL+A Select All/UnSelect All
+	- Delete, Skip, Cut, Copy Paste tests, Execute
+	- Edit, Add, Delete parameters from the selected test intersection
+
+[15] From the Test Session  dialog
+	Execute up to the selected test (included)
+
+[16][DONE]Form Edit Session 
+	[DONE]add a status bar 
+	[DONE]add a message when executing a test...
+
+[17][DONE]Form Edit Session rezise the column of the list view parameters when the resize event occur
+
+[18][DONE]Add a button apply to the edit session dialog
+
+[19] [DONE]CTDBItem Clone Function should close the 
+	check box - Argument format , ...
+
+[20][DONE How to store required and default value is session
+	20.1 may be just the value coming from the parameter.value or parameter.default value is enough
+	20.2 may be should not hard code in the session the parameter default value but retreive them
+	so we could change them...
+
+[21][DONE]CTRL+E from the main UI can open test as test session. 
+
+[22][DONE]Required parameter may have a default value
+
+[23][DONE]Remove Value+DefaultValue from the test and the api
+
+[24][DONE]Support Delete Key in the Test dialog to delete test parameters
+
+[25] [DONE]MustIgnoreProperty when comparing
+
+[26][DONE] implemente CUT tests into the form Edit Test Session...
+
+[27][DONE] Retreive the enum value from the test when open a test session
+[28][DONE]Implement a Optional Parameter Picker Dialog from the test session form
+[29][DONE]Add a new menu validate integrity
+[30][DONE]New validity rule : required parameter in session must have a value...
+[32][++++]Re use the Optional Parameter Picker Dialog for Add a parameter to a test if only one selected
+	Pending to see if we use the dialog to do the remove
+
+
+[33]Form Edit Session when select multi test , the icon show required/optional is not correct.
+Implement a business logic that is one parameter x is required in test1 but not in test2 then
+the use view the parameter as required...
+
+[34]Form Edit Session Description file.
+Execute a command that copy all the xml description tag in one text file.
+
+[35]The CTDBItem . description is based on the file not more on the xml property
+
+[36]Support CTDItem.Description in the dialog form.description in readonly or not...
+
+[37][DONE]The font used by the textbox that show the comment shouldbe configurable
+It would be nice if descriptions in the test harness were displayed in a different
+font (something unispace like courier new or Lucinda console).  Otherwise the formatting looks
+kind of bad (tabs don't align, etc).
+
+[38] May be bug with tab display when add a test to a session as template
+
+[39][DONE] Inside the test session dialog, multi-select all tests, hit Ctrl-X to cut them, 
+     then hit Ctrl-V to paste them.  Tests are pasted back in reverse order.
+
+[40][DONE] in the edit session dialog, if you highlight a test, choose one of its parameters, and then 
+click Edit, you will see blocks in place of tabs in the parameter description.
+
+
+[41] Description Parser trim the first tab in a very smart way!
+ 

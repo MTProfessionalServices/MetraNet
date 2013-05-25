@@ -1,0 +1,85 @@
+// MTServices.idl : IDL source for MTServices.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTServices.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "mtconfig.idl";
+
+	[
+		object,
+		uuid(2A54584F-A4CB-11D2-B297-006008925549),
+		dual,
+		helpstring("IMTServicesDef Interface"),
+		pointer_default(unique)
+	]
+	interface IMTServicesDef : IDispatch
+	{
+		[id(1), helpstring("method Save")] HRESULT Save();
+		[propget, id(2), helpstring("property dn")] HRESULT dn([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property dn")] HRESULT dn([in] BSTR newVal);
+		[propget, id(3), helpstring("property type")] HRESULT type([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property type")] HRESULT type([in] BSTR newVal);
+		[propget, id(4), helpstring("property length")] HRESULT length([out, retval] long *pVal);
+		[propput, id(4), helpstring("property length")] HRESULT length([in] long newVal);
+		[propget, id(5), helpstring("property required")] HRESULT required([out, retval] BSTR *pVal);
+		[propput, id(5), helpstring("property required")] HRESULT required([in] BSTR newVal);
+		[propget, id(6), helpstring("property defaultVal")] HRESULT defaultVal([out, retval] BSTR *pVal);
+		[propput, id(6), helpstring("property defaultVal")] HRESULT defaultVal([in] BSTR newVal);
+		[propget, id(7), helpstring("property name")] HRESULT name([out, retval] BSTR *pVal);
+		[propput, id(7), helpstring("property name")] HRESULT name([in] BSTR newVal);
+		[propget, id(8), helpstring("property majorversion")] HRESULT majorversion([out, retval] BSTR *pVal);
+		[propput, id(8), helpstring("property majorversion")] HRESULT majorversion([in] BSTR newVal);
+		[propget, id(9), helpstring("property minorversion")] HRESULT minorversion([out, retval] BSTR *pVal);
+		[propput, id(9), helpstring("property minorversion")] HRESULT minorversion([in] BSTR newVal);
+		[propget, id(10), helpstring("property tablename")] HRESULT tablename([out, retval] BSTR *pVal);
+		[propput, id(10), helpstring("property tablename")] HRESULT tablename([in] BSTR newVal);
+		[id(12), helpstring("method Initialize")] HRESULT Initialize();
+		[id(13), helpstring("method AddProperty")] HRESULT AddProperty(BSTR dn, BSTR type, long length, BSTR required, BSTR defaultVal);
+		[id(14), helpstring("method WriteSet")] HRESULT WriteSet(IMTConfigPropSet* apPropSet);
+	};
+	[
+		object,
+		uuid(CBE21D53-058A-11D3-AE5A-00C04F54FE3B),
+		dual,
+		helpstring("IMTServicesCollection Interface"),
+		pointer_default(unique)
+	]
+	interface IMTServicesCollection : IDispatch
+	{
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[propget, id(2), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[id(3), helpstring("method Add")] HRESULT Add(IMTServicesDef* pServicesDef);
+		[id(4), helpstring("method WriteSet")] HRESULT WriteSet(IMTConfigPropSet* apPropSet);
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item(long aIndex, [out, retval] VARIANT *pVal);
+		[id(6), helpstring("method Initialize")] HRESULT Initialize(BSTR XMLFileName);
+	};
+[
+	uuid(2A545840-A4CB-11D2-B297-006008925549),
+	version(1.0),
+	helpstring("MTServices 1.0 Type Library")
+]
+library MTSERVICESLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(2A545850-A4CB-11D2-B297-006008925549),
+		helpstring("MTServicesDef Class")
+	]
+	coclass MTServicesDef
+	{
+		[default] interface IMTServicesDef;
+	};
+	[
+		uuid(CBE21D54-058A-11D3-AE5A-00C04F54FE3B),
+		helpstring("MTServicesCollection Class")
+	]
+	coclass MTServicesCollection
+	{
+		[default] interface IMTServicesCollection;
+	};
+};

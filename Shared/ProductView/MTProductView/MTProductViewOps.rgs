@@ -1,0 +1,26 @@
+HKCR
+{
+	MTProductView.MTProductViewOps.1 = s 'MTProductViewOps Class'
+	{
+		CLSID = s '{14ED2FC7-CCDE-11D3-A60D-00C04F579C39}'
+	}
+	MTProductView.MTProductViewOps = s 'MTProductViewOps Class'
+	{
+		CLSID = s '{14ED2FC7-CCDE-11D3-A60D-00C04F579C39}'
+		CurVer = s 'MTProductView.MTProductViewOps.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {14ED2FC7-CCDE-11D3-A60D-00C04F579C39} = s 'MTProductViewOps Class'
+		{
+			ProgID = s 'MTProductView.MTProductViewOps.1'
+			VersionIndependentProgID = s 'MTProductView.MTProductViewOps'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{D0CF0775-A746-11D2-B298-006008925549}'
+		}
+	}
+}

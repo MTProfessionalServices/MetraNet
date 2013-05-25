@@ -1,0 +1,460 @@
+<HTML><HEAD><TITLE>CUnitTest</TITLE></HEAD><BODY>
+<FONT Face='verdana' size=2>
+<H1>CUnitTest VBScript Class</H1>
+The file CUnitTest.vbs located in the Test Database\VBScript.Library implements the class CUnitTest<BR>
+               and some global functions to make the unit-test and system-test development<BR>
+               process easy. The global functions are implemented at the end of the file.
+
+<H2>Program ID</H2>
+CUnitTest
+<BR><H2>CUnitTest Enum Type</H2>
+<TABLE WIDTH="100%" CELLPADDING="3" CELLSPACING="2" BORDER="1">
+</TABLE>
+<BR><H2>CUnitTest Methods</H2>
+<TABLE WIDTH="100%" CELLPADDING="3" CELLSPACING="2" BORDER="1">
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#ExitIfFail" ><SPAN STYLE="font-weight : normal;">ExitIfFail</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#LogFile" ><SPAN STYLE="font-weight : normal;">LogFile</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#LoadFile" ><SPAN STYLE="font-weight : normal;">LoadFile</SPAN></A>
+</P
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#Environ" ><SPAN STYLE="font-weight : normal;">Environ</SPAN></A>
+</P
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#ProcessAutoSDKFile" ><SPAN STYLE="font-weight : normal;">ProcessAutoSDKFile</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#Execute" ><SPAN STYLE="font-weight : normal;">Execute</SPAN></A>
+</P
+</TD>
+</TR>
+</TABLE>
+<BR><H2>CUnitTest Properties</H2>
+<TABLE WIDTH="100%" CELLPADDING="3" CELLSPACING="2" BORDER="1">
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#Operation" ><SPAN STYLE="font-weight : normal;">Operation</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#UTApi"><SPAN STYLE="font-weight : normal;">UTApi</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#TestSessionParameters"><SPAN STYLE="font-weight : normal;">TestSessionParameters</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#Succeed"><SPAN STYLE="font-weight : normal;">Succeed</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#Name (Get)" ><SPAN STYLE="font-weight : normal;">Name (Get)</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#FullName (Get)" ><SPAN STYLE="font-weight : normal;">FullName (Get)</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#Path (Get)" ><SPAN STYLE="font-weight : normal;">Path (Get)</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#Version (Get)" ><SPAN STYLE="font-weight : normal;">Version (Get)</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#DefaultArgument (Get)" ><SPAN STYLE="font-weight : normal;">DefaultArgument (Get)</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#Argument (Get)" ><SPAN STYLE="font-weight : normal;">Argument (Get)</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#ArgumentsToString (Get)" ><SPAN STYLE="font-weight : normal;">ArgumentsToString (Get)</SPAN></A>
+</P
+</TD>
+</TR>
+</TABLE>
+<BR><BR><H1>Enum Type Detail</H1>
+<HR WIDTH="100%" SIZE="2" Align="CENTER">
+<BR><BR><H1>Method Detail</H1>
+<HR WIDTH="100%" SIZE="2" Align="CENTER">
+<A NAME="#ExitIfFail"></A>
+<H2>ExitIfFail</H2>
+This function ends the test if booExp is FALSE.  When this happens,<BR>
+                 the test will fail.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function ExitIfFail(<BR>&nbsp;&nbsp;booExp As Variant<BR>) As Variant</P></BLOCKQUOTE>
+</FONT>
+<H3>Arguments</H3>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+booExp
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ Boolean True or FALSE
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR><A NAME="#LogFile"></A>
+<H2>LogFile</H2>
+This function logs strData in the file strFileName.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function LogFile(<BR>&nbsp;&nbsp;strFileName,<BR>&nbsp;&nbsp;strData<BR>)</P></BLOCKQUOTE>
+</FONT>
+<H3>Arguments</H3>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+strFileName
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ String<BR>
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+strData
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ strData
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<H3>Return Value</H3>
+<BLOCKQUOTE><P>Returns TRUE If the function succeeds, else returns FALSE.
+</P></BLOCKQUOTE>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR><A NAME="#LoadFile"></A>
+<H2>LoadFile</H2>
+Returns the content of the file strFileName. The file must be a text file.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function LoadFile(<BR>&nbsp;&nbsp;strFileName As Variant<BR>) As Variant</P></BLOCKQUOTE>
+</FONT>
+<H3>Arguments</H3>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+strFileName
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ String.
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+
+
+
+<H3>Return Value</H3>
+<BLOCKQUOTE><P>Returns TRUE if the function succeeds; if not, it returns FALSE.
+</P></BLOCKQUOTE>
+
+
+</BLOCKQUOTE>
+
+<H3>Return Value</H3>
+<BLOCKQUOTE><P>Returns TRUE If the function succeeds, else returns FALSE.
+</P></BLOCKQUOTE>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR><A NAME="#ProcessAutoSDKFile"></A>
+<H2>ProcessAutoSDKFile</H2>
+This is the main function to execute the test that meters the autosdk file. See the AutoSDK\Services\AutoSDK folder in the test database.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function ProcessAutoSDKFile() As Variant</P></BLOCKQUOTE>
+</FONT>
+<H3>Return Value</H3>
+<BLOCKQUOTE><P>Returns TRUE If the function succeeds, else returns FALSE.
+</P></BLOCKQUOTE>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR><A NAME="#Execute"></A>
+<H2>Execute</H2>
+Execute the program strProgram with the parameters strParameters synchronoulsy.
+
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function Execute(<BR>&nbsp;&nbsp;strProgram As Variant,<BR>&nbsp;&nbsp;strParameters As Variant,<BR>&nbsp;&nbsp;lngShowMode As Variant<BR>) As Variant</P></BLOCKQUOTE>
+</FONT>
+<H3>Arguments</H3>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+strProgram
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ String<BR>
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+strParameters
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ String<BR>
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+lngShowMode
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ Long. Use the values : vbHide, vbMaximizedFocus, vbMinizedFocus, vbMinizedNoFocus, vbNormalFocus, vbNormalNoFocus.
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<H3>Return Value</H3>
+<BLOCKQUOTE><P>Returns TRUE If the function succeeds: if not, returns FALSE.
+</P></BLOCKQUOTE>
+
+
+<BR><BR><H1>Property Detail</H1>
+<HR WIDTH="100%" SIZE="2" Align="CENTER">
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR><A NAME="#Operation"></A>
+<H2>Operation</H2>
+Associates a message with the next step that the test will execute. strMessage is sent to
+the test harness and displays in the window console. If the test fails, it is easy to see which
+steps of the test failed.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function GetOperation() As Variant</P></BLOCKQUOTE>
+</FONT>
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR><A NAME="#Trace"></A>
+<H2>Trace</H2>
+Sends the string strString to the test harness and displays it in the window console.<BR>
+                 All strings sent to the test harness are displayed in the Test Harness Log List Box and are logged in the file test.log located in the root of the test database.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function Trace(<BR>&nbsp;&nbsp;strString As Variant<BR>) As Variant</P></BLOCKQUOTE>
+</FONT>
+<H3>Arguments</H3>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+strString
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ String
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+
+<A NAME="#UTApi"></A>
+<H2>UTApi</H2>
+Returns the instance of MTTestApi.TestApi COM Object allocated by the CTest class. This object is used to comminicate 
+with the test harness and supply helper method.<BR>
+<BR>
+See MTAPICOM Object Help.
+<BR>
+
+
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public UTApi</P></BLOCKQUOTE>
+</FONT>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR>
+<A NAME="#TestSessionParameters"></A>
+<H2>TestSessionParameters</H2>
+Returns a MTVBLib.CVariables object that implement the current Test Session parameters. 
+
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public TestSessionParameters ' As CVariables</P></BLOCKQUOTE></FONT>
+
+You can add a parameters to the current session this way
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Test.TestSessionParameters.Add "Server","BigDisk"</P></BLOCKQUOTE></FONT><BR>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR>
+<A NAME="#Succeed"></A>
+<H2>Succeed</H2>
+Get or Set the result of the Test. You do not need to use the property. The CTest FrameWork uses it.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Succeed</P></BLOCKQUOTE>
+</FONT>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR>
+<A NAME="#Name (Get)"></A>
+<H2>Name (Get)</H2>
+Returns the file name of the test. Does not return the path or extension.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Property Get Name() As Variant</P></BLOCKQUOTE>
+</FONT>
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR>
+<A NAME="#FullName (Get)"></A>
+<H2>FullName (Get)</H2>
+Returns the full file name of the test, including the path, filename, and extension.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Property Get FullName() As Variant</P></BLOCKQUOTE>
+</FONT>
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR>
+<A NAME="#Path (Get)"></A>
+<H2>Path (Get)</H2>
+Returns the path of the test that is to say where the test file is located in the database.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Property Get Path() As Variant</P></BLOCKQUOTE>
+</FONT>
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR>
+<A NAME="#Version (Get)"></A>
+<H2>Version (Get)</H2>
+Returns the version of the class CUnitTest.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Property Get Version() As Variant</P></BLOCKQUOTE>
+</FONT>
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR>
+<A NAME="#DefaultArgument (Get)"></A>
+<H2>DefaultArgument (Get)</H2>
+Returns the value of the command line argument if it is defined;  if not, returns varDefaultValue.<BR>
+                 See the function Argument() for more details.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Property Get DefaultArgument(<BR>&nbsp;&nbsp;strName As Variant,<BR>&nbsp;&nbsp;varDefaultValue As Variant<BR>) As Variant</P></BLOCKQUOTE>
+</FONT>
+<H3>Arguments</H3>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+strName
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ String<BR>
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+varDefaultValue
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ String
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR>
+<A NAME="#Argument (Get)"></A>
+<H2>Argument (Get)</H2>
+Returns the value of the command line argument; if the argument is not defined, it returns Empty.<BR>
+                 The Test harness build name/value command line arguments this way:<BR>
+                   -SQLSERVER "BigDisk" -USERNAME "Freddy"<BR>
+                 The - is optional
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Property Get Argument(<BR>&nbsp;&nbsp;strName As Variant<BR>) As Variant</P></BLOCKQUOTE>
+</FONT>
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR>
+<A NAME="#ArgumentsToString (Get)"></A>
+<H2>ArgumentsToString (Get)</H2>
+Returns the command line.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Property Get ArgumentsToString() As Variant</P></BLOCKQUOTE>
+</FONT>
+
+</BODY></HTML>

@@ -1,0 +1,3 @@
+VBGROUP 5.0
+StartupProject=TestHarness.vbp
+Project=MTTestDatabase\MTTestDatabase.vbp

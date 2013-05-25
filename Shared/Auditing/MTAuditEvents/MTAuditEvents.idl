@@ -1,0 +1,68 @@
+// MTAuditEvents.idl : IDL source for MTAuditEvents.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTAuditEvents.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "AuditEvents.idl";
+
+ [
+  object,
+  uuid(BF1D7DB1-8A15-423d-825E-891511C1C0BE),
+  dual,
+  helpstring("Dummy interface"),
+  pointer_default(unique)
+ ]
+ interface IDummy : IDispatch
+ {
+ };
+
+[
+	uuid(A6831BC4-9A5B-47C1-85A6-F88F037D140C),
+	version(1.0),
+	helpstring("MTAuditEvents 1.0 Type Library")
+]
+
+library MTAUDITEVENTSLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	
+	[
+		helpstring("my enum")
+	]
+	enum MTAuditEntityType;
+
+
+
+	[
+		uuid(BC4A68E3-6579-4102-B787-B7BF5C26A99E),
+		helpstring("AuditEvent Class")
+	]
+	coclass AuditEvent
+	{
+		[default] interface IAuditEvent;
+	};
+	[
+		uuid(E3CFD2F2-CEF4-47C5-BEEB-75A48EB47D0D),
+		helpstring("Auditor Class")
+	]
+	coclass Auditor
+	{
+		[default] interface IAuditor;
+	};
+	[
+		uuid(8F175395-3B00-4B56-8601-3C57FE4F1A08),
+		helpstring("AuditEventHandler Class")
+	]
+	coclass AuditEventHandler
+	{
+		[default] interface IAuditEventHandler;
+	};
+};
+
+
+

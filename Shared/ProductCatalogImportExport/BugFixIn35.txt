@@ -1,0 +1,70 @@
+TODO
+	- Adjustment
+	- UDRC
+	- Hidden Product Offering.
+		- new property
+		- Feature excluded hidden po
+
+
+
+
+BUG 1
+
+' ICB Does not work because of the bug
+            ' There is a bug in the 3.0.1 API with GetICBPriceListMapping() which does not call context.Complete!
+            ' Therefore the method objPriceListMapping.CreateRateSchedule() always failed because it think the transaction
+            ' has been aborted.
+
+
+BUG 2
+
+? typename(Object)
+
+object IMTGroupSubscription
+property name : CorporateAccount - wrong meta data
+
+
+? typename(Object)
+IMTGroupSubscription
+
+?Property.Name
+CorporateAccount
+
+
+BUG 3
+
+<gsubmember>
+<property name="Start Date">10/1/2002 12:01:01 AM</property>
+
+<gsubmember>
+<property name="Account ID">265</property>
+
+
+BUG 4
+
+Rowset  missing rowset->movenext
+
+
+
+
+ProductCatalog.GetGroupSubscriptionByName(CDate(strDate), GroupScriptionName)
+GetGroupSubscriptionByCorporateAccount(lngCorporateAccountID)
+
+
+
+BUG FIXED DURING 3.5 QA TEST THAT WILL AFFECT PCIMPORT EXPORT 3.0.1
+
+
+[#] ImportMTProperty
+
+	does not support extended property
+
+	fix:
+                If objPCComObject.Properties(strName).Extended Then
+                    objPCComObject.Properties(strName).value = strValue
+                Else
+                    CallByName objPCComObject, strName, VbLet, strValue
+                End If
+
+[#] Import Export Subscription and Group Subscription Does not import Calendar
+

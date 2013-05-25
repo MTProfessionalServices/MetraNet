@@ -1,0 +1,452 @@
+<HTML><HEAD><TITLE>MTTestApi.TestAPI</TITLE></HEAD><BODY>
+<FONT Face='verdana' size=2>
+<H1>MTTestApi.TestAPI COM Object</H1>
+The COM object MTTestApi.TestApi is an interface between the Test Harness and the test (VBScript or program).<br>
+The Test Harness create an instance and the Test Client create an instance.<br>
+The COM object also supply helper methods.
+<H2>Program ID</H2>
+MTTestApi.TestAPI
+<BR><H2>TestAPI Enum Type</H2>
+<TABLE WIDTH="100%" CELLPADDING="3" CELLSPACING="2" BORDER="1">
+</TABLE>
+<BR><H2>TestAPI Methods</H2>
+<TABLE WIDTH="100%" CELLPADDING="3" CELLSPACING="2" BORDER="1">
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#LogFile" ><SPAN STYLE="font-weight : normal;">LogFile</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#TRACE" ><SPAN STYLE="font-weight : normal;">TRACE</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#Sleep" ><SPAN STYLE="font-weight : normal;">Sleep</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#LogResult" ><SPAN STYLE="font-weight : normal;">LogResult</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#ExecSync" ><SPAN STYLE="font-weight : normal;">ExecSync</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#DeleteResultFile" ><SPAN STYLE="font-weight : normal;">DeleteResultFile</SPAN></A>
+</P
+</TD>
+</TR>
+</TABLE>
+<BR><H2>TestAPI Properties</H2>
+<TABLE WIDTH="100%" CELLPADDING="3" CELLSPACING="2" BORDER="1">
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#TextFile"><SPAN STYLE="font-weight : normal;">TextFile</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#PreProcesser"><SPAN STYLE="font-weight : normal;">PreProcessor</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#WinApi"><SPAN STYLE="font-weight : normal;">WinApi</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#TemplateResultString (Get)" ><SPAN STYLE="font-weight : normal;">TemplateResultString (Get)</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#GetLogResultFileName (Get)" ><SPAN STYLE="font-weight : normal;">GetLogResultFileName (Get)</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#GetTestLogFileName (Get)" ><SPAN STYLE="font-weight : normal;">GetTestLogFileName (Get)</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#TestHarnessMode (Get)" ><SPAN STYLE="font-weight : normal;">TestHarnessMode (Get)</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#TestHarnessMode (Let)" ><SPAN STYLE="font-weight : normal;">TestHarnessMode (Let)</SPAN></A>
+</P
+</TD>
+</TR>
+</TABLE>
+<BR><BR><H1>Enum Type Detail</H1>
+<HR WIDTH="100%" SIZE="2" Align="CENTER">
+<BR><BR><H1>Method Detail</H1>
+<HR WIDTH="100%" SIZE="2" Align="CENTER">
+<A NAME="#LogFile"></A>
+<H2>LogFile</H2>
+Write a message to a log file.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function LogFile(<BR>&nbsp;&nbsp;ByVal strFileName As String,<BR>&nbsp;&nbsp;ByVal strMessage As String,<BR>&nbsp;&nbsp;<B><I>Optional </B></I>ByVal booCreateFile As Boolean = False<BR>) As Boolean</P></BLOCKQUOTE>
+</FONT>
+<H3>Arguments</H3>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+strFileName
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ Complete Path and file name for the log file used by the script.<BR>
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+strMessage
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ A string that has to be logged.<BR>
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+booCreateFile
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ An optional boolean variable, if true then the log file will be<BR>
+                 created.  If it already exists, it will be deleted and then recreated.
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<H3>Return Value</H3>
+<BLOCKQUOTE><P>True if Ok
+</P></BLOCKQUOTE>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR><A NAME="#TRACE"></A>
+<H2>TRACE</H2>
+Write the string strMessage to the log file $(METRATECHTESTDATABASE)\test.log<BR>
+If $(METRATECHTESTDATABASE) does not exist, write to $(TEMP)\test.log
+The string also send to the Test Harness to be displayed in the display list view.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function TRACE(<BR>&nbsp;&nbsp;ByVal strMessage As String,<BR>&nbsp;&nbsp;<B><I>Optional </B></I>ByVal booCreateFile As Boolean = False<BR>) As Boolean</P></BLOCKQUOTE>
+</FONT>
+<H3>Arguments</H3>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+strMessage
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ A string that has to be logged.<BR>
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+booCreateFile
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ An optional boolean variable, if true then the log file will be<BR>
+                 created.  If it already exists, it will be deleted and then recreated.
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<H3>Return Value</H3>
+<BLOCKQUOTE><P>True if Ok
+</P></BLOCKQUOTE>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR><A NAME="#Sleep"></A>
+<H2>Sleep</H2>
+Sleep for specified time
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function Sleep(<BR>&nbsp;&nbsp;ByVal lngMilliSecond As Long<BR>) As Boolean</P></BLOCKQUOTE>
+</FONT>
+<H3>Arguments</H3>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+lngTime
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ time in milliseconds.
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<H3>Return Value</H3>
+<BLOCKQUOTE><P>True if Ok
+</P></BLOCKQUOTE>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR><A NAME="#LogResult"></A>
+<H2>LogResult</H2>
+Append a string describing the test result in a specific format to<BR>
+                 $(METRATECHTESTDATABASE)\result.csv file.<BR>
+                 If $(METRATECHTESTDATABASE) does not exist, write to $(TEMP)\result.csv file.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function LogResult(<BR>&nbsp;&nbsp;ByVal strTestName As String,<BR>&nbsp;&nbsp;ByVal booResult As Boolean,<BR>&nbsp;&nbsp;ByVal strStartTime As String,<BR>&nbsp;&nbsp;ByVal strEndTime As String,<BR>&nbsp;&nbsp;<B><I>Optional </B></I>ByVal strResultDescription As String<BR>) As String</P></BLOCKQUOTE>
+</FONT>
+<H3>Arguments</H3>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+strTestName
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ Name of the test, as a string.<BR>
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+booResult
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ Test result, as a boolean.  True, if test has succeeded.<BR>
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+strStartTime
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ Time the test was started, as a string.<BR>
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+strEndTime
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ Time the test was finished, as a string.<BR>
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+strResultDescription
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ An optional string describing the test result.
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<H3>Return Value</H3>
+<BLOCKQUOTE><P>The string that was appened.
+</P></BLOCKQUOTE>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR><A NAME="#ExecSync"></A>
+<H2>ExecSync</H2>
+Shell a new process and waits for it to complete.<BR>
+Calling application is totally non-responsive while<BR>
+new process executes.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function ExecSync(<BR>&nbsp;&nbsp;ByVal JobToDo As String,<BR>&nbsp;&nbsp;<B><I>Optional </B></I>ExecMode As VbAppWinStyle = vbNormalFocus<BR>) As Boolean</P></BLOCKQUOTE>
+</FONT>
+<H3>Arguments</H3>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+JobToDo
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ The name of the job as String<BR>
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+ExecMode
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ The execution mode, optional, as VBAppWinStyle.<BR>
+                Default is vbNormalFocus
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<H3>Return Value</H3>
+<BLOCKQUOTE><P>True if Ok
+</P></BLOCKQUOTE>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR><A NAME="#DeleteResultFile"></A>
+<H2>DeleteResultFile</H2>
+Delete the result file name. The result file name is the file that contains the test result information.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function DeleteResultFile() As Boolean</P></BLOCKQUOTE>
+</FONT>
+<BR><BR><H1>Property Detail</H1>
+<HR WIDTH="100%" SIZE="2" Align="CENTER">
+<A NAME="#TextFile"></A>
+<H2>TextFile</H2>
+ Returns an instance of the object MTVBLib.CTextFile
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public TextFile         As New cTextFile</P></BLOCKQUOTE>
+</FONT>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR>
+<A NAME="#PreProcesser"></A>
+<H2>PreProcessor</H2>
+ Returns an instance of the object MTVBLib.CPreProcessor
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public PreProcessor      As New CPreProcessor</P></BLOCKQUOTE>
+</FONT>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR>
+<A NAME="#WinApi"></A>
+<H2>WinApi</H2>
+ Returns an instance of the object MTVBLib.CWindows
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public WinApi           As New cWindows</P></BLOCKQUOTE>
+</FONT>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR>
+<A NAME="#TemplateResultString (Get)"></A>
+<H2>TemplateResultString (Get)</H2>
+Returns the format of the string that is logged to the result.csv file.<BR>
+                 This file is used by the test harness.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Property Get TemplateResultString() As String</P></BLOCKQUOTE>
+</FONT>
+<H3>Return Value</H3>
+<BLOCKQUOTE><P>A string, specifying the format.
+</P></BLOCKQUOTE>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR>
+<A NAME="#GetLogResultFileName (Get)"></A>
+<H2>GetLogResultFileName (Get)</H2>
+Returns the complete path of the result file (result.csv) that is being used.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Property Get GetLogResultFileName() As String</P></BLOCKQUOTE>
+</FONT>
+<H3>Return Value</H3>
+<BLOCKQUOTE><P>A string, specifying the complete path of the result.csv file
+</P></BLOCKQUOTE>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR>
+<A NAME="#GetTestLogFileName (Get)"></A>
+<H2>GetTestLogFileName (Get)</H2>
+Returns the complete path of the log file (test.log) that is being used.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Property Get GetTestLogFileName() As String</P></BLOCKQUOTE>
+</FONT>
+<H3>Return Value</H3>
+<BLOCKQUOTE><P>A string, specifying the complete path of the test.log file
+</P></BLOCKQUOTE>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR>
+<A NAME="#TestHarnessMode (Get)"></A>
+<H2>TestHarnessMode (Get)</H2>
+The TestHarness set this property to TRUE to tell the test client that they are running from the test harness.<BR>
+                 A Test Client cannot set this property but only get it.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Property Get TestHarnessMode() As Boolean</P></BLOCKQUOTE>
+</FONT>
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR>
+<A NAME="#TestHarnessMode (Let)"></A>
+<H2>TestHarnessMode (Let)</H2>
+Set property Get.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Property Let TestHarnessMode(<BR>&nbsp;&nbsp;ByVal vNewValue As Boolean<BR>)</P></BLOCKQUOTE>
+</FONT>
+
+</BODY></HTML>

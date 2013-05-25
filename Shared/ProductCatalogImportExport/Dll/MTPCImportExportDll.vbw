@@ -1,0 +1,13 @@
+MTVBExtension = 0, 0, 0, 0, C
+MTVBExtensionReplace = 0, 0, 0, 0, C
+MTGlobal_VB_MSG = 0, 0, 0, 0, C
+CImportExport = 0, 0, 0, 0, C
+MTPCImportExportModule = 0, 0, 0, 0, C
+CExport = 0, 0, 0, 0, C
+CImport = 0, 0, 0, 0, C
+CSaxParserPriceList = 0, 0, 0, 0, C
+CSaxParserError = 0, 0, 0, 0, C
+CConsoleWindow = 0, 0, 0, 0, C
+CConsoleWindowModule = 0, 0, 0, 0, C
+CConsoleKeyBoard = 0, 0, 0, 0, C
+cWindowsModule = 0, 0, 0, 0, C

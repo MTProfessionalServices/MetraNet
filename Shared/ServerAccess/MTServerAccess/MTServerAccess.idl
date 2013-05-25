@@ -1,0 +1,48 @@
+// MTServerAccess.idl : IDL source for MTServerAccess.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTServerAccess.tlb) and marshalling code.
+
+
+import "IMTServerAccess.idl";
+
+[
+	object,
+	uuid(d5932e50-1e7f-417b-b4d2-71358a1a2eb0),
+	dual,
+	helpstring("IMTDummy Interface"),
+	pointer_default(unique)
+]
+interface Dummy : IDispatch
+{
+};
+
+
+[
+	uuid(E3475813-2A5B-11D3-AE72-00C04F54FE3B),
+	version(1.0),
+	helpstring("MTServerAccess 1.0 Type Library")
+]
+library MTSERVERACCESSLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(68DEF490-2A5A-11D3-AE72-00C04F54FE3B),
+		helpstring("MTServerAccessData Class")
+	]
+	coclass MTServerAccessData
+	{
+		[default] interface IMTServerAccessData;
+	};
+	[
+		uuid(68DEF492-2A5A-11D3-AE72-00C04F54FE3B),
+		helpstring("MTServerAccessDataSet Class")
+	]
+	coclass MTServerAccessDataSet
+	{
+		[default] interface IMTServerAccessDataSet;
+	};
+};

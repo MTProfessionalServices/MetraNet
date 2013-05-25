@@ -1,0 +1,428 @@
+[Root]
+Most Recent Package=Standard Setup Package 1
+
+[Package|Standard Setup Package 1|Test Harness 3.6]
+Icon1=testHarness.exe
+Title1=Test Harness
+StartIn1=$(AppPath)
+Key1=Icon1
+
+
+[Package|Standard Setup Package 1|Test Harness 3.5.5]
+Icon1=testHarness.exe
+Title1=Test Harness
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Standard Setup Package 1|Test Harness 3.5.4]
+Icon1=testHarness.exe
+Title1=Test Harness
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Standard Setup Package 1|Test Harness 3.5.3]
+Icon1=testHarness.exe
+Title1=Test Harness
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Standard Setup Package 1|Test Harness 3.5.2]
+Icon1=testHarness.exe
+Title1=Test Harness
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Standard Setup Package 1|Test Harness 3.5.1]
+Icon1=testHarness.exe
+Title1=Test Harness
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Standard Setup Package 1|Test Harness 3.5]
+Icon1=testHarness.exe
+Title1=Test Harness
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Standard Setup Package 1|Test Harness 3.0]
+Icon1=testHarness.exe
+Title1=Test Harness
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Standard Setup Package 1|MetaTestHarness 1.2]
+Icon1=TestHarness.exe
+Title1=MetaTestHarness 1.2
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Standard Setup Package 1|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=S:\Shared\TestHarness\Install\setup
+
+[Package|Standard Setup Package 1|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Standard Setup Package 1|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Standard Setup Package 1|Files Found]
+
+[Package|Standard Setup Package 1|Files Released]
+FredRunner.ini=
+image002.jpg=
+image001.jpg=
+filelist.xml=
+header.htm=
+fredrunner programming guide.htm=
+fredrunner.vbs=
+fredrunner.welcome.htm=
+fredrunner.exe=
+nunitcore.dll=
+interop.vba.dll=
+interop.mtvblib.dll=
+interop.mttestapi.dll=
+interop.msxml2.dll=
+mtnunitconsole.exe=
+
+[Package|Standard Setup Package 1|Missing Dependency Information]
+C:\MetraTech\BuildOut\debug\bin\MTVBLib.dll=
+S:\Shared\TestHarness\MTTestDatabase\MTTestDatabase.dll=
+C:\WINNT\SYSTEM32\cdonts.dll=
+C:\WINNT\SYSTEM32\msxml3.dll=
+C:\Program Files\Common Files\System\ado\msado25.tlb=
+o:\debug\bin\MTTestAPI.exe=
+O:\debug\bin\MTVBLib.dll=
+C:\WINNT\SYSTEM32\MTVBLib.dll=
+C:\Program Files\TestHarness\MTTestDatabase.dll=
+o:\debug\bin\FredRunner.exe=
+O:\debug\bin\MTTestDatabase.dll=
+O:\debug\bin\MTVBSysLib.dll=
+C:\WINNT\SYSTEM32\shlwapi.dll=
+C:\WINNT\SYSTEM32\psapi.dll=
+C:\Program Files\TestHarness\MTVBLib.dll=
+S:\Shared\TestHarness\MTNUnitConsole\bin\Release\MTNUnitConsole.exe=
+S:\Shared\TestHarness\MTNUnitConsole\bin\Release\Interop.MSXML2.dll=
+S:\Shared\TestHarness\MTNUnitConsole\bin\Release\Interop.MTTestAPI.dll=
+S:\Shared\TestHarness\MTNUnitConsole\bin\Release\Interop.MTVBLib.dll=
+S:\Shared\TestHarness\MTNUnitConsole\bin\Release\Interop.VBA.dll=
+S:\Shared\TestHarness\MTNUnitConsole\bin\Release\NUnitCore.dll=
+
+[Package|Standard Setup Package 1|Out-of-Date Dependency Information]
+C:\WINNT\system32\mscomctl.ocx=
+
+[Package|Standard Setup Package 1|Files Added]
+s:\shared\testharness\install\files\testharness.ini=
+s:\shared\testharness\help\_blank.htm=
+s:\shared\testharness\help\bsscdht1.js=
+s:\shared\testharness\help\bsscdht2.js=
+s:\shared\testharness\help\bsscdhtm.js=
+s:\shared\testharness\help\bsscnav1.gif=
+s:\shared\testharness\help\bsscnav2.gif=
+s:\shared\testharness\help\bsscnav3.gif=
+s:\shared\testharness\help\bsscnav4.gif=
+s:\shared\testharness\help\bsscnav5.gif=
+s:\shared\testharness\help\bsscnav6.gif=
+s:\shared\testharness\help\bsscnav7.gif=
+s:\shared\testharness\help\bsscnav8.gif=
+s:\shared\testharness\help\bssctab0.gif=
+s:\shared\testharness\help\bssctab1.gif=
+s:\shared\testharness\help\bssctab2.gif=
+s:\shared\testharness\help\bssctab3.gif=
+s:\shared\testharness\help\bssctab4.gif=
+s:\shared\testharness\help\bssctab5.gif=
+s:\shared\testharness\help\bssctab6.gif=
+s:\shared\testharness\help\bssctoc1.gif=
+s:\shared\testharness\help\bssctoc2.gif=
+s:\shared\testharness\help\bssctoc3.gif=
+s:\shared\testharness\help\bssctoc4.gif=
+s:\shared\testharness\help\cunittest.vbscript.class.htm=
+s:\shared\testharness\help\cunittest.vbscript.global.htm=
+s:\shared\testharness\help\default.css=
+s:\shared\testharness\help\defa_ns.css=
+s:\shared\testharness\help\ehelp.xml=
+s:\shared\testharness\help\mtapicomobjecthelp.htm=
+s:\shared\testharness\help\navframe.htm=
+s:\shared\testharness\help\navpane1.htm=
+s:\shared\testharness\help\navpane2.htm=
+s:\shared\testharness\help\tabframe.htm=
+s:\shared\testharness\help\testharnessfaq.htm=
+s:\shared\testharness\help\testharness.htm=
+s:\shared\testharness\help\tocdhtml.htm=
+s:\shared\testharness\help\toclist.htm=
+s:\shared\testharness\help\webhelp3.js=
+s:\shared\testharness\help\welcome.htm=
+o:\debug\bin\mttestapi.exe=
+s:\shared\testharness\tip.txt=
+
+[Package|Standard Setup Package 1|Files Removed]
+c:\program files\common files\system\ado\msado25.tlb=
+o:\debug\bin\fredrunner.exe=
+S:\Shared\TestHarness\fredrunner\fredrunner.vbs=
+S:\Shared\TestHarness\fredrunner\fredrunner.welcome.htm=
+c:\winnt\system32\psapi.dll=
+c:\winnt\system32\shlwapi.dll=
+c:\winnt\system32\msxml3.dll=
+
+[Package|Standard Setup Package 1|Files In Project]
+C:\WINNT\SYSTEM32\MSVBVM60.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\Program Files\Common Files\System\ado\msado25.tlb=No
+C:\WINNT\SYSTEM32\msxml3.dll=No
+C:\WINNT\SYSTEM32\cdonts.dll=Yes
+C:\WINNT\SYSTEM32\COMDLG32.OCX=Yes
+C:\WINNT\SYSTEM32\TABCTL32.OCX=Yes
+C:\WINNT\SYSTEM32\mscomctl.ocx=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINNT\SYSTEM32\VB6STKIT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+S:\Shared\TestHarness\Install\files\TestHarness.ini=Yes
+S:\Shared\TestHarness\Help\_blank.htm=Yes
+S:\Shared\TestHarness\Help\bsscdht1.js=Yes
+S:\Shared\TestHarness\Help\bsscdht2.js=Yes
+S:\Shared\TestHarness\Help\bsscdhtm.js=Yes
+S:\Shared\TestHarness\Help\bsscnav1.gif=Yes
+S:\Shared\TestHarness\Help\bsscnav2.gif=Yes
+S:\Shared\TestHarness\Help\bsscnav3.gif=Yes
+S:\Shared\TestHarness\Help\bsscnav4.gif=Yes
+S:\Shared\TestHarness\Help\bsscnav5.gif=Yes
+S:\Shared\TestHarness\Help\bsscnav6.gif=Yes
+S:\Shared\TestHarness\Help\bsscnav7.gif=Yes
+S:\Shared\TestHarness\Help\bsscnav8.gif=Yes
+S:\Shared\TestHarness\Help\bssctab0.gif=Yes
+S:\Shared\TestHarness\Help\bssctab1.gif=Yes
+S:\Shared\TestHarness\Help\bssctab2.gif=Yes
+S:\Shared\TestHarness\Help\bssctab3.gif=Yes
+S:\Shared\TestHarness\Help\bssctab4.gif=Yes
+S:\Shared\TestHarness\Help\bssctab5.gif=Yes
+S:\Shared\TestHarness\Help\bssctab6.gif=Yes
+S:\Shared\TestHarness\Help\bssctoc1.gif=Yes
+S:\Shared\TestHarness\Help\bssctoc2.gif=Yes
+S:\Shared\TestHarness\Help\bssctoc3.gif=Yes
+S:\Shared\TestHarness\Help\bssctoc4.gif=Yes
+S:\Shared\TestHarness\Help\CUnitTest.VBScript.Class.htm=Yes
+S:\Shared\TestHarness\Help\CUnitTest.VBScript.Global.htm=Yes
+S:\Shared\TestHarness\Help\default.css=Yes
+S:\Shared\TestHarness\Help\defa_ns.css=Yes
+S:\Shared\TestHarness\Help\eHelp.xml=Yes
+S:\Shared\TestHarness\Help\MTAPICOMObjectHelp.htm=Yes
+S:\Shared\TestHarness\Help\navframe.htm=Yes
+S:\Shared\TestHarness\Help\navpane1.htm=Yes
+S:\Shared\TestHarness\Help\navpane2.htm=Yes
+S:\Shared\TestHarness\Help\tabframe.htm=Yes
+S:\Shared\TestHarness\Help\TestHarnessFAQ.htm=Yes
+S:\Shared\TestHarness\Help\TestHarness.htm=Yes
+S:\Shared\TestHarness\Help\tocdhtml.htm=Yes
+S:\Shared\TestHarness\Help\toclist.htm=Yes
+S:\Shared\TestHarness\Help\webhelp3.js=Yes
+S:\Shared\TestHarness\Help\Welcome.htm=Yes
+o:\debug\bin\MTTestAPI.exe=Yes
+S:\Shared\TestHarness\tip.txt=Yes
+O:\debug\bin\MTTestDatabase.dll=Yes
+C:\WINNT\SYSTEM32\psapi.dll=No
+C:\WINNT\SYSTEM32\shlwapi.dll=No
+C:\WINNT\system32\msflxgrd.ocx=Yes
+O:\debug\bin\testHarness.exe=Yes
+O:\debug\bin\MTVBLib.dll=Yes
+
+[Package|Standard Setup Package 1|Configure Registry Files]
+Applicable=No
+
+[Package|Standard Setup Package 1|Configure Remote Servers]
+Applicable=No
+
+[Package|Standard Setup Package 1|Install Locations]
+S:\Shared\TestHarness\TestHarness.exe=$(AppPath)
+C:\WINNT\SYSTEM32\MSVBVM60.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Common Files\System\ado\msado25.tlb=$(WinSysPath)
+C:\WINNT\SYSTEM32\msxml3.dll=$(WinSysPath)
+C:\WINNT\SYSTEM32\cdonts.dll=$(WinSysPath)
+S:\Shared\TestHarness\MTTestDatabase\MTTestDatabase.dll=$(AppPath)
+C:\MetraTech\BuildOut\debug\bin\MTVBLib.dll=$(AppPath)
+C:\WINNT\SYSTEM32\COMDLG32.OCX=$(WinSysPath)
+C:\WINNT\SYSTEM32\TABCTL32.OCX=$(WinSysPath)
+C:\WINNT\SYSTEM32\mscomctl.ocx=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINNT\SYSTEM32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+S:\Shared\TestHarness\Install\files\TestHarness.ini=$(AppPath)
+S:\Shared\TestHarness\Help\_blank.htm=$(AppPath)\help
+S:\Shared\TestHarness\Help\bsscdht1.js=$(AppPath)\help
+S:\Shared\TestHarness\Help\bsscdht2.js=$(AppPath)\help
+S:\Shared\TestHarness\Help\bsscdhtm.js=$(AppPath)\help
+S:\Shared\TestHarness\Help\bsscnav1.gif=$(AppPath)\help
+S:\Shared\TestHarness\Help\bsscnav2.gif=$(AppPath)\help
+S:\Shared\TestHarness\Help\bsscnav3.gif=$(AppPath)\help
+S:\Shared\TestHarness\Help\bsscnav4.gif=$(AppPath)\help
+S:\Shared\TestHarness\Help\bsscnav5.gif=$(AppPath)\help
+S:\Shared\TestHarness\Help\bsscnav6.gif=$(AppPath)\help
+S:\Shared\TestHarness\Help\bsscnav7.gif=$(AppPath)\help
+S:\Shared\TestHarness\Help\bsscnav8.gif=$(AppPath)\help
+S:\Shared\TestHarness\Help\bssctab0.gif=$(AppPath)\help
+S:\Shared\TestHarness\Help\bssctab1.gif=$(AppPath)\help
+S:\Shared\TestHarness\Help\bssctab2.gif=$(AppPath)\help
+S:\Shared\TestHarness\Help\bssctab3.gif=$(AppPath)\help
+S:\Shared\TestHarness\Help\bssctab4.gif=$(AppPath)\help
+S:\Shared\TestHarness\Help\bssctab5.gif=$(AppPath)\help
+S:\Shared\TestHarness\Help\bssctab6.gif=$(AppPath)\help
+S:\Shared\TestHarness\Help\bssctoc1.gif=$(AppPath)\help
+S:\Shared\TestHarness\Help\bssctoc2.gif=$(AppPath)\help
+S:\Shared\TestHarness\Help\bssctoc3.gif=$(AppPath)\help
+S:\Shared\TestHarness\Help\bssctoc4.gif=$(AppPath)\help
+S:\Shared\TestHarness\Help\CUnitTest.VBScript.Class.htm=$(AppPath)\help
+S:\Shared\TestHarness\Help\CUnitTest.VBScript.Global.htm=$(AppPath)\help
+S:\Shared\TestHarness\Help\default.css=$(AppPath)\help
+S:\Shared\TestHarness\Help\defa_ns.css=$(AppPath)\help
+S:\Shared\TestHarness\Help\eHelp.xml=$(AppPath)\help
+S:\Shared\TestHarness\Help\MTAPICOMObjectHelp.htm=$(AppPath)\help
+S:\Shared\TestHarness\Help\navframe.htm=$(AppPath)\help
+S:\Shared\TestHarness\Help\navpane1.htm=$(AppPath)\help
+S:\Shared\TestHarness\Help\navpane2.htm=$(AppPath)\help
+S:\Shared\TestHarness\Help\tabframe.htm=$(AppPath)\help
+S:\Shared\TestHarness\Help\TestHarnessFAQ.htm=$(AppPath)\help
+S:\Shared\TestHarness\Help\TestHarness.htm=$(AppPath)\help
+S:\Shared\TestHarness\Help\tocdhtml.htm=$(AppPath)\help
+S:\Shared\TestHarness\Help\toclist.htm=$(AppPath)\help
+S:\Shared\TestHarness\Help\webhelp3.js=$(AppPath)\help
+S:\Shared\TestHarness\Help\Welcome.htm=$(AppPath)\help
+o:\debug\bin\MTTestAPI.exe=$(AppPath)
+S:\Shared\TestHarness\tip.txt=$(AppPath)
+O:\debug\bin\MTVBLib.dll=$(AppPath)
+C:\Program Files\TestHarness\MTTestDatabase.dll=$(AppPath)
+C:\WINNT\SYSTEM32\MTVBLib.dll=$(AppPath)
+o:\debug\bin\FredRunner.exe=$(AppPath)
+O:\debug\bin\TestHarness.exe=$(AppPath)
+O:\debug\bin\MTTestDatabase.dll=$(AppPath)
+O:\debug\bin\MTVBSysLib.dll=$(WinSysPath)
+S:\Shared\TestHarness\FredRunner\doc\FredRunner Programming Guide.htm=$(AppPath)\doc
+S:\Shared\TestHarness\FredRunner\doc\FredRunner Programming Guide_files\header.htm=$(AppPath)\doc
+S:\Shared\TestHarness\FredRunner\doc\FredRunner Programming Guide_files\filelist.xml=$(AppPath)\doc
+S:\Shared\TestHarness\FredRunner\doc\FredRunner Programming Guide_files\image001.jpg=$(AppPath)\doc
+S:\Shared\TestHarness\FredRunner\doc\FredRunner Programming Guide_files\image002.jpg=$(AppPath)\doc
+S:\Shared\TestHarness\FredRunner\FredRunner.Welcome.htm=$(AppPath)
+S:\Shared\TestHarness\FredRunner\FredRunner.vbs=$(AppPath)
+S:\Shared\TestHarness\FredRunner\Install\FredRunner.ini=$(AppPath)
+C:\MetraTech\BuildOut\debug\bin\TestHarness.exe=$(AppPath)
+C:\WINNT\SYSTEM32\psapi.dll=$(WinSysPath)
+C:\WINNT\SYSTEM32\shlwapi.dll=$(WinSysPath)
+C:\WINNT\system32\msflxgrd.ocx=$(WinSysPath)
+C:\Program Files\TestHarness\MTVBLib.dll=$(WinSysPath)
+S:\Shared\TestHarness\MTNUnitConsole\bin\Release\MTNUnitConsole.exe=$(AppPath)
+S:\Shared\TestHarness\MTNUnitConsole\bin\Release\Interop.MSXML2.dll=$(AppPath)
+S:\Shared\TestHarness\MTNUnitConsole\bin\Release\Interop.MTTestAPI.dll=$(AppPath)
+S:\Shared\TestHarness\MTNUnitConsole\bin\Release\Interop.MTVBLib.dll=$(AppPath)
+S:\Shared\TestHarness\MTNUnitConsole\bin\Release\Interop.VBA.dll=$(AppPath)
+S:\Shared\TestHarness\MTNUnitConsole\bin\Release\NUnitCore.dll=$(AppPath)
+
+[Package|Standard Setup Package 1|Configure Shared Files]
+Applicable=Yes
+S:\Shared\TestHarness\TestHarness.exe=No
+S:\Shared\TestHarness\Install\files\TestHarness.ini=No
+S:\Shared\TestHarness\Help\_blank.htm=No
+S:\Shared\TestHarness\Help\bsscdht1.js=No
+S:\Shared\TestHarness\Help\bsscdht2.js=No
+S:\Shared\TestHarness\Help\bsscdhtm.js=No
+S:\Shared\TestHarness\Help\bsscnav1.gif=No
+S:\Shared\TestHarness\Help\bsscnav2.gif=No
+S:\Shared\TestHarness\Help\bsscnav3.gif=No
+S:\Shared\TestHarness\Help\bsscnav4.gif=No
+S:\Shared\TestHarness\Help\bsscnav5.gif=No
+S:\Shared\TestHarness\Help\bsscnav6.gif=No
+S:\Shared\TestHarness\Help\bsscnav7.gif=No
+S:\Shared\TestHarness\Help\bsscnav8.gif=No
+S:\Shared\TestHarness\Help\bssctab0.gif=No
+S:\Shared\TestHarness\Help\bssctab1.gif=No
+S:\Shared\TestHarness\Help\bssctab2.gif=No
+S:\Shared\TestHarness\Help\bssctab3.gif=No
+S:\Shared\TestHarness\Help\bssctab4.gif=No
+S:\Shared\TestHarness\Help\bssctab5.gif=No
+S:\Shared\TestHarness\Help\bssctab6.gif=No
+S:\Shared\TestHarness\Help\bssctoc1.gif=No
+S:\Shared\TestHarness\Help\bssctoc2.gif=No
+S:\Shared\TestHarness\Help\bssctoc3.gif=No
+S:\Shared\TestHarness\Help\bssctoc4.gif=No
+S:\Shared\TestHarness\Help\CUnitTest.VBScript.Class.htm=No
+S:\Shared\TestHarness\Help\CUnitTest.VBScript.Global.htm=No
+S:\Shared\TestHarness\Help\default.css=No
+S:\Shared\TestHarness\Help\defa_ns.css=No
+S:\Shared\TestHarness\Help\eHelp.xml=No
+S:\Shared\TestHarness\Help\MTAPICOMObjectHelp.htm=No
+S:\Shared\TestHarness\Help\navframe.htm=No
+S:\Shared\TestHarness\Help\navpane1.htm=No
+S:\Shared\TestHarness\Help\navpane2.htm=No
+S:\Shared\TestHarness\Help\tabframe.htm=No
+S:\Shared\TestHarness\Help\TestHarnessFAQ.htm=No
+S:\Shared\TestHarness\Help\TestHarness.htm=No
+S:\Shared\TestHarness\Help\tocdhtml.htm=No
+S:\Shared\TestHarness\Help\toclist.htm=No
+S:\Shared\TestHarness\Help\webhelp3.js=No
+S:\Shared\TestHarness\Help\Welcome.htm=No
+S:\Shared\TestHarness\MTTestDatabase\MTTestDatabase.dll=No
+C:\MetraTech\BuildOut\debug\bin\MTVBLib.dll=No
+o:\debug\bin\MTTestAPI.exe=No
+S:\Shared\TestHarness\tip.txt=No
+C:\Program Files\TestHarness\MTTestDatabase.dll=Yes
+C:\WINNT\SYSTEM32\MTVBLib.dll=Yes
+O:\debug\bin\MTVBLib.dll=No
+o:\debug\bin\FredRunner.exe=No
+O:\debug\bin\TestHarness.exe=No
+S:\Shared\TestHarness\FredRunner\doc\FredRunner Programming Guide.htm=No
+S:\Shared\TestHarness\FredRunner\doc\FredRunner Programming Guide_files\header.htm=No
+S:\Shared\TestHarness\FredRunner\doc\FredRunner Programming Guide_files\filelist.xml=No
+S:\Shared\TestHarness\FredRunner\doc\FredRunner Programming Guide_files\image001.jpg=No
+S:\Shared\TestHarness\FredRunner\doc\FredRunner Programming Guide_files\image002.jpg=No
+S:\Shared\TestHarness\FredRunner\FredRunner.Welcome.htm=No
+S:\Shared\TestHarness\FredRunner\FredRunner.vbs=No
+S:\Shared\TestHarness\FredRunner\Install\FredRunner.ini=No
+O:\debug\bin\MTTestDatabase.dll=No
+C:\MetraTech\BuildOut\debug\bin\TestHarness.exe=No
+S:\Shared\TestHarness\MTNUnitConsole\bin\Release\MTNUnitConsole.exe=No
+S:\Shared\TestHarness\MTNUnitConsole\bin\Release\Interop.MSXML2.dll=No
+S:\Shared\TestHarness\MTNUnitConsole\bin\Release\Interop.MTTestAPI.dll=No
+S:\Shared\TestHarness\MTNUnitConsole\bin\Release\Interop.MTVBLib.dll=No
+S:\Shared\TestHarness\MTNUnitConsole\bin\Release\Interop.VBA.dll=No
+S:\Shared\TestHarness\MTNUnitConsole\bin\Release\NUnitCore.dll=Yes
+
+[Package|Standard Setup Package 1|Distribution]
+Type=single
+Size=
+Title=Test Harness 3.6.1
+
+[Package|Standard Setup Package 1|MetaTestHarness 2.0]
+Icon1=TestHarness.exe
+Title1=MetraTech Harness 2.0.1
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Standard Setup Package 1|IconGroups]
+Group0=Test Harness 3.6.1
+PrivateGroup0=0
+Parent0=$(Programs)
+
+[Package|Standard Setup Package 1|Test Harness 3.6.1]
+Icon1=testHarness.exe
+Title1=Test Harness
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Standard Setup Package 1|Package]
+PackageFolder=S:\Shared\TestHarness\Install\setup
+ProjectFolder=S:\Shared\TestHarness
+ServerSideCab=
+File1=S:\Shared\TestHarness\Install\setup\setup.exe
+File2=S:\Shared\TestHarness\Install\setup\Setup.Lst
+File3=S:\Shared\TestHarness\Install\setup\testHarness.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz

@@ -1,0 +1,321 @@
+<msix>
+<timestamp>2002-06-06T19:34:18Z</timestamp>
+<version>2.0</version>
+<uid>wKgBzbbHICYQZTj19Df3XQ==</uid>
+<entity>192.168.1.205</entity>
+<beginsession>
+<dn>metratech.com/audioConfCall</dn>
+<uid>wKgBzWa5HSYOUruT8Df3XQ==</uid>
+<commit>Y</commit>
+<insert>Y</insert>
+<properties>
+  <property>
+    <dn>conferenceid</dn>
+    <value>199903195095819</value>
+  </property>
+  <property>
+    <dn>payer</dn>
+    <value>kevin</value>
+  </property>
+  <property>
+    <dn>accountingcode</dn>
+    <value>GL99A</value>
+  </property>
+  <property>
+    <dn>conferencename</dn>
+    <value>Expo Meeting</value>
+  </property>
+  <property>
+    <dn>conferencesubject</dn>
+    <value>Tradeshow meeting with partners</value>
+  </property>
+  <property>
+    <dn>organizationname</dn>
+    <value>MetraTech Corp.</value>
+  </property>
+  <property>
+    <dn>specialinfo</dn>
+    <value>Auto start</value>
+  </property>
+  <property>
+    <dn>schedulercomments</dn>
+    <value>Second conference for tradeshow</value>
+  </property>
+  <property>
+    <dn>scheduledconnections</dn>
+    <value>1</value>
+  </property>
+  <property>
+    <dn>scheduledstarttime</dn>
+    <value>2002-06-06T19:34:16Z</value>
+  </property>
+  <property>
+    <dn>scheduledtimegmtoffset</dn>
+    <value>5</value>
+  </property>
+  <property>
+    <dn>scheduledduration</dn>
+    <value>5</value>
+  </property>
+  <property>
+    <dn>cancelledflag</dn>
+    <value>N</value>
+  </property>
+  <property>
+    <dn>cancellationtime</dn>
+    <value>2002-06-06T19:34:16Z</value>
+  </property>
+  <property>
+    <dn>servicelevel</dn>
+    <value>Standard</value>
+  </property>
+  <property>
+    <dn>terminationreason</dn>
+    <value>Normal</value>
+  </property>
+  <property>
+    <dn>systemname</dn>
+    <value>Bridge1</value>
+  </property>
+  <property>
+    <dn>salespersonid</dn>
+    <value>Amy</value>
+  </property>
+  <property>
+    <dn>operatorid</dn>
+    <value>Philip</value>
+  </property>
+</properties>
+</beginsession>
+<beginsession>
+<dn>metratech.com/audioConfConnection</dn>
+<uid>wKgBzWa5HSbENE9t8Tf3XQ==</uid>
+<commit>Y</commit>
+<insert>Y</insert>
+<parentid>wKgBzWa5HSYOUruT8Df3XQ==</parentid>
+<properties>
+  <property>
+    <dn>conferenceid</dn>
+    <value>199903195095819</value>
+  </property>
+  <property>
+    <dn>payer</dn>
+    <value>kevin</value>
+  </property>
+  <property>
+    <dn>userbilled</dn>
+    <value>N</value>
+  </property>
+  <property>
+    <dn>username</dn>
+    <value>pkenny</value>
+  </property>
+  <property>
+    <dn>userrole</dn>
+    <value>CSR</value>
+  </property>
+  <property>
+    <dn>organizationname</dn>
+    <value>MetraTech Corp.</value>
+  </property>
+  <property>
+    <dn>userphonenumber</dn>
+    <value>781 398 2242</value>
+  </property>
+  <property>
+    <dn>specialinfo</dn>
+    <value>Expo update</value>
+  </property>
+  <property>
+    <dn>calltype</dn>
+    <value>Dial-In</value>
+  </property>
+  <property>
+    <dn>transport</dn>
+    <value>Toll</value>
+  </property>
+  <property>
+    <dn>mode</dn>
+    <value>Direct-Dialed</value>
+  </property>
+  <property>
+    <dn>connecttime</dn>
+    <value>2002-06-06T19:34:16Z</value>
+  </property>
+  <property>
+    <dn>enteredconferencetime</dn>
+    <value>2002-06-06T19:34:16Z</value>
+  </property>
+  <property>
+    <dn>exitedconferencetime</dn>
+    <value>2002-06-06T19:39:16Z</value>
+  </property>
+  <property>
+    <dn>disconnecttime</dn>
+    <value>2002-06-06T19:44:16Z</value>
+  </property>
+  <property>
+    <dn>transferred</dn>
+    <value>N</value>
+  </property>
+  <property>
+    <dn>terminationreason</dn>
+    <value>Normal</value>
+  </property>
+  <property>
+    <dn>isdndisconnectcause</dn>
+    <value>0</value>
+  </property>
+  <property>
+    <dn>trunknumber</dn>
+    <value>10</value>
+  </property>
+  <property>
+    <dn>linenumber</dn>
+    <value>35</value>
+  </property>
+  <property>
+    <dn>dnisdigits</dn>
+    <value>781 398 2000</value>
+  </property>
+  <property>
+    <dn>anidigits</dn>
+    <value>781 398 2242</value>
+  </property>
+</properties>
+</beginsession>
+
+<beginsession>
+<dn>metratech.com/audioConfConnection</dn>
+<uid>wKgBzWa5HSaxPQUY8jf3XQ==</uid>
+<commit>Y</commit>
+<insert>Y</insert>
+<parentid>wKgBzWa5HSYOUruT8Df3XQ==</parentid>
+<properties>
+  <property>
+    <dn>conferenceid</dn>
+    <value>199903195095819</value>
+  </property>
+  <property>
+    <dn>payer</dn>
+    <value>kevin</value>
+  </property>
+  <property>
+    <dn>userbilled</dn>
+    <value>N</value>
+  </property>
+  <property>
+    <dn>username</dn>
+    <value>Freddy Mercury</value>
+  </property>
+  <property>
+    <dn>userrole</dn>
+    <value>CSR</value>
+  </property>
+  <property>
+    <dn>organizationname</dn>
+    <value>MetraTech Corp.</value>
+  </property>
+  <property>
+    <dn>userphonenumber</dn>
+    <value>781 398 2242</value>
+  </property>
+  <property>
+    <dn>specialinfo</dn>
+    <value>Expo update</value>
+  </property>
+  <property>
+    <dn>calltype</dn>
+    <value>Dial-In</value>
+  </property>
+  <property>
+    <dn>transport</dn>
+    <value>Toll-Free</value>
+  </property>
+  <property>
+    <dn>mode</dn>
+    <value>Direct-Dialed</value>
+  </property>
+  <property>
+    <dn>connecttime</dn>
+    <value>2002-06-06T19:34:16Z</value>
+  </property>
+  <property>
+    <dn>enteredconferencetime</dn>
+    <value>2002-06-06T19:34:16Z</value>
+  </property>
+  <property>
+    <dn>exitedconferencetime</dn>
+    <value>2002-06-06T19:39:16Z</value>
+  </property>
+  <property>
+    <dn>disconnecttime</dn>
+    <value>2002-06-06T19:44:16Z</value>
+  </property>
+  <property>
+    <dn>transferred</dn>
+    <value>N</value>
+  </property>
+  <property>
+    <dn>terminationreason</dn>
+    <value>Normal</value>
+  </property>
+  <property>
+    <dn>isdndisconnectcause</dn>
+    <value>0</value>
+  </property>
+  <property>
+    <dn>trunknumber</dn>
+    <value>10</value>
+  </property>
+  <property>
+    <dn>linenumber</dn>
+    <value>35</value>
+  </property>
+  <property>
+    <dn>dnisdigits</dn>
+    <value>781 398 2000</value>
+  </property>
+  <property>
+    <dn>anidigits</dn>
+    <value>781 398 2242</value>
+  </property>
+</properties>
+</beginsession>
+
+<beginsession>
+<dn>metratech.com/audioConfFeature</dn>
+<uid>wKgBzWa5HSaNU/vG8zf3XQ==</uid>
+<commit>Y</commit>
+<insert>Y</insert>
+<parentid>wKgBzWa5HSYOUruT8Df3XQ==</parentid>
+<properties>
+  <property>
+    <dn>payer</dn>
+    <value>kevin</value>
+  </property>
+  <property>
+    <dn>featuretype</dn>
+    <value>Polling</value>
+  </property>
+  <property>
+    <dn>metric</dn>
+    <value>33.556122</value>
+  </property>
+  <property>
+    <dn>starttime</dn>
+    <value>2002-06-06T19:34:16Z</value>
+  </property>
+  <property>
+    <dn>endtime</dn>
+    <value>2002-06-06T19:44:16Z</value>
+  </property>
+  <property>
+    <dn>transactionid</dn>
+    <value>2002-06-06T19:34:16Z</value>
+  </property>
+</properties>
+</beginsession>
+
+</msix>
+

@@ -1,0 +1,1 @@
+pcimportexport -ipo -file "t:\Development\Core\MTProductCatalog\ImportExport\ImportExport-Subscription-Test-PO.xml" -PropertyBag "c:\temp\ImportExport-Subscription-Test-PO.PropertyBag.txt" -ProductOfferingIndex 1 -SetCurrency TRUE -SetDefaultPriceList TRUE

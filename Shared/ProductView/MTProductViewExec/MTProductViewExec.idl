@@ -1,0 +1,111 @@
+// MTProductViewExec.idl : IDL source for MTProductViewExec.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTProductViewExec.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTProductView.idl";
+import "Rowset.idl";
+import "IMTAuth.idl";
+
+	[
+		object,
+		uuid(A1641B14-CF3F-477B-B3C7-7676077C87FA),
+		dual,
+		helpstring("IMTProductViewWriter Interface"),
+		pointer_default(unique)
+	]
+	interface IMTProductViewWriter : IDispatch
+	{
+    [id(1), helpstring("method Create")] HRESULT Create([in] IMTSessionContext* apCtxt, [in] IProductView* apPV, [out, retval] long* apID);
+    [id(2), helpstring("method Update")] HRESULT Update([in] IMTSessionContext* apCtxt, [in] IProductView* apPV);
+    [id(3), helpstring("method Remove")] HRESULT Remove([in] IMTSessionContext* apCtxt, [in] long aID);
+    [id(4), helpstring("method RecursiveUpdate")] HRESULT RecursiveUpdate([in] IMTSessionContext* apCtxt, [in] IProductView* apPV);
+	};
+	[
+		object,
+		uuid(CFE1F759-D546-4519-9DC7-944411038713),
+		dual,
+		helpstring("IMTProductViewReader Interface"),
+		pointer_default(unique)
+	]
+	interface IMTProductViewReader : IDispatch
+	{
+		[id(1), helpstring("method Load")] HRESULT Load([in] IMTSessionContext* apCtxt, [in] IMTSQLRowset* apRowset, [out, retval] IProductView** apPV);
+		[id(2), helpstring("method Find")] HRESULT Find([in] IMTSessionContext* apCtxt, [in] long aPVID, [out, retval] IProductView** apPV);
+		[id(3), helpstring("method FindProperties")] HRESULT FindProperties([in] IMTSessionContext* apCtxt, [in] long aPVID, [out, retval] IMTCollection** apProperties);
+		[id(4), helpstring("method FindByName")] HRESULT FindByName([in] IMTSessionContext* apCtxt, [in] BSTR aPVName, [out, retval] IProductView** apPV);
+	};
+	[
+		object,
+		uuid(7AB838AE-9AAB-444A-8B6D-9C65C2A349B6),
+		dual,
+		helpstring("IMTProductViewPropertyReader Interface"),
+		pointer_default(unique)
+	]
+	interface IMTProductViewPropertyReader : IDispatch
+	{
+		[id(1), helpstring("method Load")] HRESULT Load([in] IMTSessionContext* apCtxt, [in] IMTSQLRowset* apRowset, [out, retval] IProductViewProperty** apPVProp);
+		[id(2), helpstring("method Find")] HRESULT Find([in] IMTSessionContext* apCtxt, [in] long aPVPropID, [out, retval] IProductViewProperty** apPVProp);
+		[id(500), helpstring("method LoadInternal")] HRESULT LoadInternal([in] IMTSessionContext* apCtxt, [in] IMTSQLRowset* apRowset, [out, retval] IProductViewProperty** apPVProp);
+	};
+	[
+		object,
+		uuid(617178CC-491C-436C-BF33-92441A3A8C58),
+		dual,
+		helpstring("IMTProductViewPropertyWriter Interface"),
+		pointer_default(unique)
+	]
+	interface IMTProductViewPropertyWriter : IDispatch
+	{
+    [id(1), helpstring("method Create")] HRESULT Create([in] IMTSessionContext* apCtxt, [in] IProductViewProperty* apPVProp, [out, retval] long* apID);
+    [id(2), helpstring("method Update")] HRESULT Update([in] IMTSessionContext* apCtxt, [in] IProductViewProperty* apPVProp);
+    [id(3), helpstring("method Remove")] HRESULT Remove([in] IMTSessionContext* apCtxt, [in] long aID);
+	};
+
+[
+	uuid(CFB6128F-7F72-4DAF-A054-C807E6D88927),
+	version(1.0),
+	helpstring("MTProductViewExec 1.0 Type Library")
+]
+library MTPRODUCTVIEWEXECLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(B7733215-B020-44F5-A5EB-AE81F55B34B6),
+		helpstring("MTProductViewWriter Class")
+	]
+	coclass MTProductViewWriter
+	{
+		[default] interface IMTProductViewWriter;
+	};
+	[
+		uuid(11309EF0-A5C5-4E2E-A0C5-F00E47089670),
+		helpstring("MTProductViewReader Class")
+	]
+	coclass MTProductViewReader
+	{
+		[default] interface IMTProductViewReader;
+	};
+	[
+		uuid(3CD1172F-EBD9-49C0-8C53-3C8DC27BFE44),
+		helpstring("MTProductViewPropertyReader Class")
+	]
+	coclass MTProductViewPropertyReader
+	{
+		[default] interface IMTProductViewPropertyReader;
+	};
+	[
+		uuid(2D8FBD1E-D922-4733-8136-D0148E5EE06B),
+		helpstring("MTProductViewPropertyWriter Class")
+	]
+	coclass MTProductViewPropertyWriter
+	{
+		[default] interface IMTProductViewPropertyWriter;
+	};
+};

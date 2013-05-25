@@ -1,0 +1,187 @@
+// MeterRowset.idl : IDL source for MeterRowset.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MeterRowset.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "COMMeter.idl";
+import "rowsetinterfaces.idl";
+
+	[
+		object,
+		uuid(A3145ECB-0576-4E02-865D-B1E9D2C2586D),
+		dual,
+		helpstring("IMeterRowset Interface"),
+		pointer_default(unique)
+	]
+	interface IMeterRowset : IDispatch
+	{
+		
+		// initializes the object for metering to the given MSIX service definition.
+		// mappings are made between service definition properties and rowset
+		// columns which are prefixed by a "c_" and ending in the property name. 
+		[id(1), helpstring("method InitForService")] HRESULT InitForService(BSTR serviceName);
+
+		// adds a MSIX property with a given value which will be set in all
+		// sessions generated from the rowset (including children).
+		[id(2), helpstring("method AddCommonProperty")] HRESULT AddCommonProperty(BSTR aName, DataType aType, VARIANT aValue);
+
+		// adds an additional column mapping between the given service definition
+		// property and the given column from the rowset.
+		[id(3), helpstring("method AddColumnMapping")] HRESULT AddColumnMapping(BSTR aColumnName, DataType aPropType,
+																																						BSTR aPropName, VARIANT_BOOL aRequired);
+
+		// initializes the object to meter to the given server access entry
+		[id(4), helpstring("method InitSDK")] HRESULT InitSDK(BSTR aServerAccess);
+
+		// iterates over the given rowset, adding a session to the current
+		// session set for each row. each column that has a matching column
+		// mapping will be created as a property in the current row's MSIX
+		// session. when a session set is full, it is then metered to the server.
+		// this continues until the end of the rowset is reached.
+		[id(5), helpstring("method MeterRowset")] HRESULT MeterRowset(IMTSQLRowset * apRowset);
+
+		// generates the batch ID in which the sessions will be a part of.
+		// also sets the BatchID propery to this value.
+		[id(6), helpstring("method GenerateBatchID")] HRESULT GenerateBatchID([out, retval] BSTR * apBatchID);
+
+		// gets the batch ID of the generated sessions
+		[propget, id(7), helpstring("property BatchID")] HRESULT BatchID([out, retval] BSTR *pVal);
+
+		// sets the batch ID of the generated sessions
+		[propput, id(7), helpstring("property BatchID")] HRESULT BatchID([in] BSTR newVal);
+
+		// gets the number of rows that were metered in
+		[propget, id(8), helpstring("property MeteredCount")] HRESULT MeteredCount([out, retval] long *pVal);
+
+		// gets the number of rows that were not metered in due to SDK errors
+		[propget, id(9), helpstring("property MeterErrorCount")] HRESULT MeterErrorCount([out, retval] long *pVal);
+
+		// gets the total number of sessions that have been committed (either as a 
+		// success or a failure) to the database as of the current moment
+		[propget, id(10), helpstring("property CommittedCount")] HRESULT CommittedCount([out, retval] long *pVal);
+
+		// waits for all metered sessions to be committed to the database
+		// (either as a success or failure). polls the database every 5
+		// seconds, checking if the number of sessions committed is equal
+		// to the given expected commit count. if there has been no change
+		// in the polled actual number of committed sessions in the given
+		// amount of time, then the method will time-out, returning S_FALSE. 
+		[id(11), helpstring("method WaitForCommit")] HRESULT WaitForCommit([in] long lExpectedCommitCount, [in] long lTimeOutInSeconds);
+
+		//
+		// compound session support
+		//
+
+		// NOTE:
+		// the parent rowset (given to the MeterRowset method) must contain
+		// a column named "id_sess". a child rowset must contain
+		// a column named "id_parent_sess" which refers to an id_sess in the
+		// parent rowset (this associates a child row(s) to a parent row).
+		// additionally a child rowset must be ordered by id_parent_sess in
+		// ascending order.
+
+		// adds a child rowset to be metered to the given service definition
+		// later when MeterRowset is called.
+		[id(12), helpstring("method AddChildRowset")] HRESULT AddChildRowset(IMTSQLRowset * apRowset, BSTR aServiceName);
+		
+		// adds an additional column mapping between the given service definition
+		// property and the given column from the child rowset.
+		[id(13), helpstring("method AddChildColumnMapping")] HRESULT AddChildColumnMapping(BSTR aColumnName, DataType aPropType,
+																																											 BSTR aPropName, VARIANT_BOOL aRequired,
+																																											 BSTR aServiceName);
+
+		// gets the number of sessions that will be added to a session set.
+		// NOTE: the default is 1 for backward compatibility although a
+		// higher number is recommended for better performance
+		[propget, id(14), helpstring("property SessionSetSize")] HRESULT SessionSetSize([out, retval] long *pVal);
+
+		// sets the number of sessions that will be added to a session set.
+		[propput, id(14), helpstring("property SessionSetSize")] HRESULT SessionSetSize([in] long newVal);
+
+		// gets the number of sessions that were committed and successfully made it
+		// to their respective product view.
+		// NOTE: WaitForCommit method must be called before getting this property
+		[propget, id(15), helpstring("property CommittedSuccessCount")]
+			HRESULT CommittedSuccessCount([out, retval] long *pVal);
+
+		// gets the number of sessions that were committed but failed to
+		// make it to their respective product view (instead they are in t_pv_errror)
+		// NOTE: WaitForCommit method must be called before getting this property
+		[propget, id(16), helpstring("property CommittedErrorCount")] 
+			HRESULT CommittedErrorCount([out, retval] long *pVal);
+
+		// Creates a Batch and returns it
+		[id(17), helpstring("method CreateAdapterBatch")] HRESULT CreateAdapterBatch([in] long RunID, [in] BSTR AdapterName, [in] BSTR SequenceNumber, [out, retval] IBatch** pNewBatch);
+
+    //Initializes a Meter rowset (does not meter it!), MeterPopulatedRowset should be called to actually meter it
+    [id(18), helpstring("method InitializeFromRowset")] HRESULT InitializeFromRowset([in] IMTSQLRowset * apRowset, [in] BSTR aServiceName);
+    //returns a error if an internal session set was not initialized prior by using InitializeFromRowset
+    [id(19), helpstring("method MeterPolulatedRowset")] HRESULT MeterPopulatedRowset();
+
+    // gets the service def name
+		[propget, id(20), helpstring("property ServiceDefinition")] HRESULT ServiceDefinition([out, retval] BSTR *pVal);
+
+		[id(21), helpstring("method PopulateSession")] HRESULT PopulateSession(ISession * session, IMTSQLRowset *apRowset);
+
+    // Sets an external DTC transaction cookie in which
+		// all pipeline work will participate in
+    [propput, id(22), helpstring("property TransactionID")]
+     HRESULT TransactionID([in] BSTR TransactionID);
+
+    //Internal, undocumented 
+    [propput, id(23), helpstring("property MeterSynchronously")]
+     HRESULT MeterSynchronously([in] VARIANT_BOOL aMeterSynchronously);
+    [propget, id(23), helpstring("property MeterSynchronously")]
+     HRESULT MeterSynchronously([out, retval] VARIANT_BOOL* pVal);
+
+    //Internal, undocumented 
+    //Only makes sense if previous property is true
+    [propput, id(24), helpstring("property SyncMeteringRetries")]
+     HRESULT SyncMeteringRetries([in] long aNumRetries);
+    [propget, id(24), helpstring("property SyncMeteringRetries")]
+     HRESULT SyncMeteringRetries([out, retval] long* pVal);
+
+     //Internal, undocumented 
+    //Only makes sense if previous 2 properties is true
+    [propput, id(25), helpstring("property SyncMeteringRetrySleepInterval")]
+     HRESULT SyncMeteringRetrySleepInterval([in] long aSeconds);
+    [propget, id(25), helpstring("property SyncMeteringRetrySleepInterval")]
+     HRESULT SyncMeteringRetrySleepInterval([out, retval] long* aSeconds);
+ 
+		// Creates a Batch and returns it
+		[id(27), helpstring("method CreateAdapterBatchEx")] HRESULT CreateAdapterBatchEx([in] long RunID, [in] BSTR AdapterName, [in] BSTR SequenceNumber, [out, retval] IBatch** pNewBatch);
+
+		// waits for all metered sessions to be committed to the database
+		[id(28), helpstring("method WaitForCommitEx")] HRESULT WaitForCommitEx([in] long lExpectedCommitCount, [in] long lTimeOutInSeconds, [in] BSTR BatchName, [in] BSTR BatchNamespace, [in] BSTR BatchSeqNum);
+
+    // Sets an external DTC transaction cookie that will
+		// be used by the Listener to insert the message
+		// transactionally into the routing tables.
+    [propput, id(29), helpstring("property ListenerTransactionID")]
+		HRESULT ListenerTransactionID([in] BSTR TransactionID);
+
+	};
+
+[
+	uuid(BD8B8E08-7284-424B-BBC7-1A5F44750568),
+	version(1.0),
+	helpstring("MeterRowset 1.0 Type Library")
+]
+library METERROWSETLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(628D54D0-98B8-4623-B6E2-93DC3F55C2F2),
+		helpstring("MeterRowset Class")
+	]
+	coclass MeterRowset
+	{
+		[default] interface IMeterRowset;
+	};
+};

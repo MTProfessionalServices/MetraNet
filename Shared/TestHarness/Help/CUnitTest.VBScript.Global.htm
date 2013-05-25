@@ -1,0 +1,264 @@
+<HTML><HEAD><TITLE>CUnitTest</TITLE></HEAD><BODY>
+<FONT Face='verdana' size=2>
+<H1>CUnitTest Global Constants and Functions</H1>
+
+The file CTest.vbs contains also some global constants and functions.
+
+<BR><H2>Global Constants</H2>
+<BLOCKQUOTE><P>
+<BR>
+PUBLIC CONST <B>TEST_HARNESS_TEST_FILE_EXTENSION</B>        = "TEST"<BR>
+PUBLIC CONST <B>AUTOSDK_EXE</B>                              = "AutoSDK.exe"<BR>
+PUBLIC CONST <B>TESTAPI_PROG_ID</B>                          = "MTTestApi.TestApi"<BR>
+PUBLIC CONST <B>MSIXTOOLS_PROG_ID</B>                        = "MTMSIX.MSIXTools"<BR>
+<BR>
+PUBLIC CONST <B>DEFAULT_PIPELINE_WAIT_TIME</B>               = 4000 ' MilliSecond<BR>
+PUBLIC CONST <B>DEFAULT_ACCOUNT_ID</B>                       = 123<BR>
+PUBLIC CONST <B>DEFAULT_HOST</B>                             = "localhost"<BR>
+
+<BR>
+'<BR>
+'  Execute() method parameter lngShowMode enum type<BR>
+'<BR>
+PUBLIC CONST <B>vbHide</B>               = 0<BR>
+PUBLIC CONST <B>vbMaximizedFocus</B>     = 3<BR>
+PUBLIC CONST <B>vbMinizedFocus</B>       = 2<BR>
+PUBLIC CONST <B>vbMinizedNoFocus</B>     = 6<BR>
+PUBLIC CONST <B>vbNormalFocus</B>        = 1<BR>
+PUBLIC CONST <B>vbNormalNoFocus</B>      = 4<BR>
+</P></BLOCKQUOTE>
+
+
+<BR><H2>Global Methods</H2>
+<TABLE WIDTH="100%" CELLPADDING="3" CELLSPACING="2" BORDER="1">
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#IsValidObject" ><SPAN STYLE="font-weight : normal;">IsValidObject</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#IsBoolean" ><SPAN STYLE="font-weight : normal;">IsBoolean</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#IIF" ><SPAN STYLE="font-weight : normal;">IIF</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#SetOperation" ><SPAN STYLE="font-weight : normal;">SetOperation</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#GetOperation" ><SPAN STYLE="font-weight : normal;">GetOperation</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#Trace" ><SPAN STYLE="font-weight : normal;">Trace</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#GetVBSErrorString" ><SPAN STYLE="font-weight : normal;">GetVBSErrorString</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#GetTypeName" ><SPAN STYLE="font-weight : normal;">GetTypeName</SPAN></A>
+</P
+</TD>
+</TR>
+<TR>
+<TD WIDTH="32%" BGCOLOR="#ECECEC" VALIGN="TOP" Class="Table">
+<P CLASS="Table">
+<A HREF="#UMTDateToCDate" ><SPAN STYLE="font-weight : normal;">UMTDateToCDate</SPAN></A>
+</P
+</TD>
+</TR>
+</TABLE>
+
+
+<BR><BR><H1>Methods Detail</H1>
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR><A NAME="#IsValidObject"></A>
+<H2>IsValidObject</H2>
+Return True if v (variant) is a valid object. Empty and Nothing are not valid objects.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function IsValidObject(<BR>&nbsp;&nbsp;v As Variant<BR>) As Variant</P></BLOCKQUOTE>
+</FONT>
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR><A NAME="#IsBoolean"></A>
+<H2>IsBoolean</H2>
+Returns TRUE if varV is a valid boolean value. Valid boolean values are : TRUE, FALSE, "TRUE", "FALSE", 0 for false, not 0 for TRUE.<BR>
+                 Always use TRUE or FALSE. Remenber that in Visual Basic and VBScript:<BR>
+                    - Not 0 = TRUE<BR>
+                    - Not 1 = -2 which is still TRUE.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function IsBoolean(<BR>&nbsp;&nbsp;varV As Variant<BR>) As Variant</P></BLOCKQUOTE>
+</FONT>
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR><A NAME="#IIF"></A>
+<H2>IIF</H2>
+Implements the Visual Basic IFF() function in VBScript. The function returns ValueTRUE if<BR>
+                 booExp is TRUE; it not, returns ValueFALSE.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function IIF(<BR>&nbsp;&nbsp;booExp As Variant,<BR>&nbsp;&nbsp;ValueTRUE As Variant,<BR>&nbsp;&nbsp;ValueFALSE As Variant<BR>) As Variant</P></BLOCKQUOTE>
+</FONT>
+<H3>Arguments</H3>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+booExp
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ Boolean<BR>
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+ValueTRUE
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ Variant<BR>
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+ValueFALSE
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ Variant
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<H3>Return Value</H3>
+<BLOCKQUOTE><P>Returns TRUE If the function succeeds, else returns FALSE.
+</P></BLOCKQUOTE>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR><A NAME="#SetOperation"></A>
+<H2>SetOperation</H2>
+Associates a message with the next step that the test will execute. strMessage is sent to<BR>
+                 the test harness and displays in the window console. If the test fails, it is easy to see which<BR>
+                 steps of the test failed.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function SetOperation(<BR>&nbsp;&nbsp;strMessage As Variant<BR>) As Variant</P></BLOCKQUOTE>
+</FONT>
+<H3>Arguments</H3>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+strMessage
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ String
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<H3>Return Value</H3>
+<BLOCKQUOTE><P>Returns TRUE If the function succeed else FALSE.
+</P></BLOCKQUOTE>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR><A NAME="#GetOperation"></A>
+<H2>GetOperation</H2>
+Returns the current operation.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function GetOperation() As Variant</P></BLOCKQUOTE>
+</FONT>
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR><A NAME="#Trace"></A>
+<H2>Trace</H2>
+Sends the string strString to the test harness and displays it in the window console.<BR>
+                 All strings sent to the test harness are displayed in the Test Harness Log List Box and are logged in the file test.log located in the root of the test database.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function Trace(<BR>&nbsp;&nbsp;strString As Variant<BR>) As Variant</P></BLOCKQUOTE>
+</FONT>
+<H3>Arguments</H3>
+<BLOCKQUOTE>
+<P>
+<SPAN STYLE="font-style : italic;">
+<I>
+strString
+</I>
+</SPAN>
+</P>
+<BLOCKQUOTE>
+<P>
+ String
+</P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<H3>Return Value</H3>
+<BLOCKQUOTE><P>Returns TRUE If the function succeeds, else returns FALSE.
+</P></BLOCKQUOTE>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR><A NAME="#GetVBSErrorString"></A>
+<H2>GetVBSErrorString</H2>
+If you caught a VBScript Run Time Error with On Error Resume Next, this function returns<BR>
+                 the error details in a string.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function GetVBSErrorString() As Variant</P></BLOCKQUOTE>
+</FONT>
+<H3>Return Value</H3>
+<BLOCKQUOTE><P>Returns TRUE If the function succeeds, else returns FALSE.
+</P></BLOCKQUOTE>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR><A NAME="#GetTypeName"></A>
+<H2>GetTypeName</H2>
+Returns the Type of a variable: Empty, Nothing, Long, String, Object. The different between this
+function and the VBScript native function TypeName() is that unsupported VBScript types like DECIMAL
+are recognize because we use the Visual Basic Type Name function.
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function GetTypeName(<BR>&nbsp;&nbsp;varValue As Variant<BR>) As Variant</P></BLOCKQUOTE>
+</FONT>
+<H3>Return Value</H3>
+<BLOCKQUOTE><P>Returns TRUE If the function succeed else FALSE.
+</P></BLOCKQUOTE>
+
+<BR><HR WIDTH="100%" SIZE="2" Align="CENTER"><BR><A NAME="#UMTDateToCDate"></A>
+<H2>UMTDateToCDate</H2>
+
+<H3>Visual Basic Syntax</H3>
+<FONT Face="Courier New" Size="3"><BLOCKQUOTE><P>Public Function UMTDateToCDate(<BR>&nbsp;&nbsp;strUMTDate As Variant<BR>) As Variant</P></BLOCKQUOTE>
+</FONT>
+<H3>Return Value</H3>
+<BLOCKQUOTE><P>Returns TRUE If the function succeeds, else returns FALSE.
+</P></BLOCKQUOTE>
+<A NAME="#CONST"></A>

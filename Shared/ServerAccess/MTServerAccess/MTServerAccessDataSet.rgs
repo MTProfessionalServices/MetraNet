@@ -1,0 +1,26 @@
+HKCR
+{
+	MTServerAccess.MTServerAccessDataSet.1 = s 'MTServerAccessDataSet Class'
+	{
+		CLSID = s '{68DEF492-2A5A-11D3-AE72-00C04F54FE3B}'
+	}
+	MTServerAccess.MTServerAccessDataSet = s 'MTServerAccessDataSet Class'
+	{
+		CLSID = s '{68DEF492-2A5A-11D3-AE72-00C04F54FE3B}'
+		CurVer = s 'MTServerAccess.MTServerAccessDataSet.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {68DEF492-2A5A-11D3-AE72-00C04F54FE3B} = s 'MTServerAccessDataSet Class'
+		{
+			ProgID = s 'MTServerAccess.MTServerAccessDataSet.1'
+			VersionIndependentProgID = s 'MTServerAccess.MTServerAccessDataSet'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{E3475813-2A5B-11D3-AE72-00C04F54FE3B}'
+		}
+	}
+}

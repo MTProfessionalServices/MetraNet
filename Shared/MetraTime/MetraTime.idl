@@ -1,0 +1,70 @@
+// MetraTime.idl : IDL source for MetraTime.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MetraTime.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(44C42822-9C97-48A7-9719-57FE9BFB7A8C),
+		dual,
+		helpstring("IMetraTimeClient Interface"),
+		pointer_default(unique)
+	]
+	interface IMetraTimeClient : IDispatch
+	{
+		[id(1), helpstring("method GetMTTime")] HRESULT GetMTTime([out, retval] long * currentTime);
+		[id(2), helpstring("method GetMTOLETime")] HRESULT GetMTOLETime([out, retval] VARIANT * currentTime);
+		[propget, id(3), helpstring("property IsTimeAdjusted")] HRESULT IsTimeAdjusted([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(4), helpstring("property MaxDate")] HRESULT MaxDate([out, retval] long *pVal);
+		[propget, id(5), helpstring("property MaxMTOLETime")] HRESULT MaxMTOLETime([out, retval] DATE *pVal);
+		[propget, id(6), helpstring("property MinDate")] HRESULT MinDate([out, retval] long *pVal);
+		[propget, id(7), helpstring("property MinMTOLETime")] HRESULT MinMTOLETime([out, retval] DATE *pVal);
+    [id(8), helpstring("method GetMTTimeWithMilliSecAsString")] HRESULT GetMTTimeWithMilliSecAsString([out, retval] BSTR *pVal);
+  };
+	[
+		object,
+		uuid(F7F0C37C-683A-4D57-BF59-3C153E6468EE),
+		dual,
+		helpstring("IMetraTimeControl Interface"),
+		pointer_default(unique)
+	]
+	interface IMetraTimeControl : IDispatch
+	{
+		[id(1), helpstring("method SetSimulatedTime")] HRESULT SetSimulatedTime(long simTime);
+		[id(2), helpstring("method SetSimulatedOLETime")] HRESULT SetSimulatedOLETime(VARIANT simTime);
+		[id(3), helpstring("method StopSimulatedTime")] HRESULT StopSimulatedTime();
+		[id(4), helpstring("method StartSimulatedTime")] HRESULT StartSimulatedTime();
+		[id(5), helpstring("method SetSimulatedTimeOffset")] HRESULT SetSimulatedTimeOffset(long offset);
+		[id(6), helpstring("method GetSimulatedTimeOffset")] HRESULT GetSimulatedTimeOffset([out, retval] long * offset);
+	};
+
+[
+	uuid(0900FBFB-65A0-4DF6-8212-9DB496A0FF5A),
+	version(1.0),
+	helpstring("MetraTime 1.0 Type Library")
+]
+library METRATIMELib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(0396957D-92BF-42F2-9C23-68AC6D58270D),
+		helpstring("MetraTimeClient Class")
+	]
+	coclass MetraTimeClient
+	{
+		[default] interface IMetraTimeClient;
+	};
+	[
+		uuid(3C038FD1-6184-4495-A849-1471CFDF8CCE),
+		helpstring("MetraTimeControl Class")
+	]
+	coclass MetraTimeControl
+	{
+		[default] interface IMetraTimeControl;
+	};
+};

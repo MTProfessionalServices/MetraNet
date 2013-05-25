@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MeterRowset.1 = s 'MeterRowset Class'
+	{
+		CLSID = s '{628D54D0-98B8-4623-B6E2-93DC3F55C2F2}'
+	}
+	MetraTech.MeterRowset = s 'MeterRowset Class'
+	{
+		CLSID = s '{628D54D0-98B8-4623-B6E2-93DC3F55C2F2}'
+		CurVer = s 'MetraTech.MeterRowset.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {628D54D0-98B8-4623-B6E2-93DC3F55C2F2} = s 'MeterRowset Class'
+		{
+			ProgID = s 'MetraTech.MeterRowset.1'
+			VersionIndependentProgID = s 'MetraTech.MeterRowset'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{BD8B8E08-7284-424B-BBC7-1A5F44750568}'
+		}
+	}
+}

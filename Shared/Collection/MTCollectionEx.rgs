@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTCollectionEx.1 = s 'MTCollectionEx Class'
+	{
+		CLSID = s '{D3729CB6-16D1-45D3-AEEE-133A6750310B}'
+	}
+	MetraTech.MTCollectionEx = s 'MTCollectionEx Class'
+	{
+		CLSID = s '{D3729CB6-16D1-45D3-AEEE-133A6750310B}'
+		CurVer = s 'MetraTech.MTCollectionEx.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {D3729CB6-16D1-45D3-AEEE-133A6750310B} = s 'MTCollectionEx Class'
+		{
+			ProgID = s 'MetraTech.MTCollectionEx.1'
+			VersionIndependentProgID = s 'MetraTech.MTCollectionEx'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{64FCC3D9-2D64-418C-829C-C9E073D93669}'
+		}
+	}
+}

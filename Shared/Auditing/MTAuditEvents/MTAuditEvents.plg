@@ -1,0 +1,93 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: MTAuditEvents - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "midl.exe /tlb ".\MTAuditEvents.tlb" /h "MTAuditEvents.h" /iid "MTAuditEvents_i.c" /Oicf "D:\development\Shared\Auditing\MTAuditEvents\MTAuditEvents.idl""
+Creating command line "rc.exe /l 0x409 /fo"Debug/MTAuditEvents.res" /d "_DEBUG" "D:\development\Shared\Auditing\MTAuditEvents\MTAuditEvents.rc"" 
+Creating temporary file "c:\temp\RSPE74.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /Fp"Debug/MTAuditEvents.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\development\Shared\Auditing\MTAuditEvents\AuditEvent.cpp"
+"D:\development\Shared\Auditing\MTAuditEvents\MTAuditEvents.cpp"
+"D:\development\Shared\Auditing\MTAuditEvents\Auditor.cpp"
+"D:\development\Shared\Auditing\MTAuditEvents\AuditEventHandler.cpp"
+]
+Creating command line "cl.exe @c:\temp\RSPE74.tmp" 
+Creating temporary file "c:\temp\RSPE75.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /dll /incremental:yes /pdb:"Debug/MTAuditEvents.pdb" /debug /machine:I386 /def:".\MTAuditEvents.def" /out:"Debug/MTAuditEvents.dll" /implib:"Debug/MTAuditEvents.lib" /pdbtype:sept 
+.\Debug\AuditEvent.obj
+.\Debug\MTAuditEvents.obj
+.\Debug\StdAfx.obj
+.\Debug\MTAuditEvents.res
+.\Debug\Auditor.obj
+.\Debug\AuditEventHandler.obj
+]
+Creating command line "link.exe @c:\temp\RSPE75.tmp"
+Creating temporary file "c:\temp\RSPE76.bat" with contents
+[
+@echo off
+regsvr32 /s /c ".\Debug\MTAuditEvents.dll"
+echo regsvr32 exec. time > ".\Debug\regsvr32.trg"
+]
+Creating command line "c:\temp\RSPE76.bat"
+Creating Type Library...
+Microsoft (R) 32b/64b MIDL Compiler Version 5.03.0280 
+Copyright (c) Microsoft Corp 1991-1999. All rights reserved.
+Processing D:\development\Shared\Auditing\MTAuditEvents\MTAuditEvents.idl
+MTAuditEvents.idl
+Processing c:\Program Files\Microsoft Platform SDK\include\oaidl.idl
+oaidl.idl
+Processing c:\Program Files\Microsoft Platform SDK\include\objidl.idl
+objidl.idl
+Processing c:\Program Files\Microsoft Platform SDK\include\unknwn.idl
+unknwn.idl
+Processing c:\Program Files\Microsoft Platform SDK\include\wtypes.idl
+wtypes.idl
+Processing c:\Program Files\Microsoft Platform SDK\include\basetsd.h
+basetsd.h
+Processing c:\Program Files\Microsoft Platform SDK\include\guiddef.h
+guiddef.h
+Processing c:\Program Files\Microsoft Platform SDK\include\ocidl.idl
+ocidl.idl
+Processing c:\Program Files\Microsoft Platform SDK\include\oleidl.idl
+oleidl.idl
+Processing c:\Program Files\Microsoft Platform SDK\include\servprov.idl
+servprov.idl
+Processing c:\Program Files\Microsoft Platform SDK\include\urlmon.idl
+urlmon.idl
+Processing c:\Program Files\Microsoft Platform SDK\include\msxml.idl
+msxml.idl
+64 bit Processing D:\development\Shared\Auditing\MTAuditEvents\MTAuditEvents.idl
+MTAuditEvents.idl
+64 bit Processing c:\Program Files\Microsoft Platform SDK\include\oaidl.idl
+oaidl.idl
+64 bit Processing c:\Program Files\Microsoft Platform SDK\include\objidl.idl
+objidl.idl
+64 bit Processing c:\Program Files\Microsoft Platform SDK\include\unknwn.idl
+unknwn.idl
+64 bit Processing c:\Program Files\Microsoft Platform SDK\include\wtypes.idl
+wtypes.idl
+64 bit Processing c:\Program Files\Microsoft Platform SDK\include\basetsd.h
+basetsd.h
+64 bit Processing c:\Program Files\Microsoft Platform SDK\include\guiddef.h
+guiddef.h
+64 bit Processing c:\Program Files\Microsoft Platform SDK\include\ocidl.idl
+ocidl.idl
+64 bit Processing c:\Program Files\Microsoft Platform SDK\include\oleidl.idl
+oleidl.idl
+64 bit Processing c:\Program Files\Microsoft Platform SDK\include\servprov.idl
+servprov.idl
+64 bit Processing c:\Program Files\Microsoft Platform SDK\include\urlmon.idl
+urlmon.idl
+64 bit Processing c:\Program Files\Microsoft Platform SDK\include\msxml.idl
+msxml.idl
+midl.exe terminated at user request.
+
+</pre>
+</body>
+</html>

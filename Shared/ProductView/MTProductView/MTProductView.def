@@ -1,0 +1,9 @@
+; MTProductView.def : Declares the module parameters.
+
+LIBRARY      "MTProductView.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

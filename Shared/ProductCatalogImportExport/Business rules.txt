@@ -1,0 +1,194 @@
+
+Implementation Review:
+
+	
+	- ORACLE has not been tested
+		- queries need to be checked.
+
+	- Product Catalog API change
+		RateSchedule.Exist()
+		Subscription.CanSubscribe
+
+	- Upgrade
+		 Just curious, but how are we planning to support upgrading a customer's product catalog from 3.0 to 3.5 (or 4.0 for that matter).  As long as the platform extensions are loaded and synchronized, we should be able to export the prod cat from the 3.0 machine and import it into the 3.5 machine, right?
+
+	- Last minute new feature
+		-multifile po
+		-exported xml validity
+
+	- Performance
+
+	- Parameter Table Check Sum
+
+	- Subscrition already exist is an error
+
+	- Usage of PCImportExport 3.5 before 3.5 is shipped.
+
+	- With Group subscription there is a notion of date to look up corporate account and group subscription
+		Should I pass the date as a parameter.
+	- Api to get the corporation list does not return the corporation name space
+		Set Rowset = objMTYAAC.GetAncestorMgr.HierarchyRoot(Now).GetChildListAsRowset
+
+	- Group Subscription Business Rule
+		We must verify that all the account/member of a group subscription exist before we create the group subscription
+		if one account is missing we will raise a warning say Group subscription was not created because an account is missing...
+
+	- Subscription Business Rule
+		If an account cannot be found we raise a warning and go to the next account/subscription
+
+	Limitation
+		We do not support 2 Corporations with the same name in 2 different name space.
+		We cannot export a group subscription from a corporation created in the future.
+
+
+
+TODO
+	Add - Bacl List of PO, PL, PI Template 
+	
+	Unit Test - Import a valid PO and Roll Back - DONE
+
+	Unit Test - 1 error in import price list
+	Unit Test - Unit Test subcription does re-export the subscription and compare
+
+	-	DONE UnitTest Compare should check the rateschedule xml
+	-	DONE Export Counter does not work in 3.5
+
+3.5 Remarks
+
+	- Calendar read write performance must be improved.
+	- Export/Import rule must be written like :
+		When a calendar had no calenderday the tag <calendardays> is not generated.
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+QUESTION - What do if in the middle of the import - we realise a price able item type is missing....
+	   Check first
+	
+
+
+TO DO
+
+	ask fabricio how to link a calendar to a product offering.
+
+	PriceAbleTime Cycle do not use cyclytypeid but set all the property
+	Verify the properties to ignore but ok!
+
+
+LIMITATION For the QA Tools
+	- We do not export subscription
+	- ICB PriceList
+	
+
+
+BUSINESS RULE
+
+	- PriceList must have a name  
+ 	- Is PriceList Name unique across the system
+	- We do not export/import ICB Price List , which by the way may not have a name
+	- RateSchedule Unique Name		
+		' PriceAbleItem Name + ParamTable Name + PriceListName + RateSchedule.EffectiveDate.StartDate + RateSchedule.EffectiveDate.StartDateType +  RateSchedule.EffectiveDate.StartOffset
+	- Why EnumConfig slowdown com+
+	- One RateSchedule  has only 1  price List ??? RateSchedule.GetPriceList()
+
+	- Export each rate in one file named after the ParamTable Name
+	- Rate export Enun Type 
+		Do we export FQN
+	
+	- CycleID, CycleTypeID
+		<imtaggregatecharge name="Song Downloads">
+			<imtpccycle name="Cycle">
+				  <imtproperty name="AdapterProgID">MTStdUsageCycle.MTStdWeekly.1</imtproperty> 
+				  <imtproperty name="CycleID">31</imtproperty> 
+				  <imtproperty name="CycleTypeDescription">Weekly</imtproperty> 
+				  <imtproperty name="CycleTypeID">4</imtproperty> 
+
+
+	- What Happens is a counter is not set
+	- What if a PriveAble Item in a PO does not have a price list
+
+
+
+NEW SPEC
+	- We will export this ID, they will be ignored by the import. This could be use full to QA and other
+	To export a product catalog and verify relation.
+	This property cannot be changed...
+	
+
+TASK LIST
+	- Set the return code  TRUE
+	- Check the return code
+	- static_objEnumConfig.GetEnumeratorByID(CLng(value)) How do you get the fqn
+
+Let us review my design to implement this first phase of the Product Catalog Import/Export.
+
+I would like to remember you that my goal is not to do the 3.5 feature Product Catalog Import/Export but only to :
+
+	- write source code that can be used by QA in about 1 week to import Product catalog to test 3.0
+	- Re use fully the source code when we will code the 3.5 feature.
+
+I will email you the functional design doc made during 2.0. 
+
+Agenda based on the functional design doc
+
+	- Export/Import Business rule
+		- We do not export ICB Price List
+
+	- Overall architecture of the COM Objects
+		- Visual Basic
+		- XML Parsing with MS Sax Engine
+		- Logging
+		- Error management
+			- Object already exist
+			- un expected run time error
+		- Performance measurement
+			- Time per main functions : ExportPriceAbleItem
+			- exported and imported object count
+
+	- File
+		XML Format
+		Folder convention
+		File Name convention
+
+	- Basic command line for this phase.
+
+
+
+
+TIME TRACK
+JULY
+24
+25
+26
+29
+30
+31
+AOUT
+1
+2
+5
+6 Vacation Hospital
+7 Vacation Hospital
+8 Vacation Hospital
+9 Vacation Hospital
+12
+13 Company Event
+14
+15
+16
+19
+20
+21 - Help Rudi on mom 3.5 1/2 
+22 - 3.0.1 Bug Date Localization
+23 - PCImnportExport Unit Test / MiniMe
+26 - Mini me integration
+
+17 days
+
+
+total estimate 24
+
+left 8 days
+

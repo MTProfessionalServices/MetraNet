@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.Auditor.1 = s 'Auditor Class'
+	{
+		CLSID = s '{E3CFD2F2-CEF4-47C5-BEEB-75A48EB47D0D}'
+	}
+	MetraTech.Auditor = s 'Auditor Class'
+	{
+		CLSID = s '{E3CFD2F2-CEF4-47C5-BEEB-75A48EB47D0D}'
+		CurVer = s 'MetraTech.Auditor.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E3CFD2F2-CEF4-47C5-BEEB-75A48EB47D0D} = s 'Auditor Class'
+		{
+			ProgID = s 'MetraTech.Auditor.1'
+			VersionIndependentProgID = s 'MetraTech.Auditor'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{A6831BC4-9A5B-47C1-85A6-F88F037D140C}'
+		}
+	}
+}

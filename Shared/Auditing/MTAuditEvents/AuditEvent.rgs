@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.AuditEvent.1 = s 'AuditEvent Class'
+	{
+		CLSID = s '{BC4A68E3-6579-4102-B787-B7BF5C26A99E}'
+	}
+	MetraTech.AuditEvent = s 'AuditEvent Class'
+	{
+		CLSID = s '{BC4A68E3-6579-4102-B787-B7BF5C26A99E}'
+		CurVer = s 'MetraTech.AuditEvent.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {BC4A68E3-6579-4102-B787-B7BF5C26A99E} = s 'AuditEvent Class'
+		{
+			ProgID = s 'MetraTech.AuditEvent.1'
+			VersionIndependentProgID = s 'MetraTech.AuditEvent'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{A6831BC4-9A5B-47C1-85A6-F88F037D140C}'
+		}
+	}
+}

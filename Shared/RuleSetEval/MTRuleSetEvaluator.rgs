@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MTRuleSetEvaluator.1 = s 'MTRuleSetEvaluator Class'
+	{
+		CLSID = s '{FDA64B01-5082-4081-AD60-D99A61A81FED}'
+	}
+	MetraTech.MTRuleSetEvaluator = s 'MTRuleSetEvaluator Class'
+	{
+		CLSID = s '{FDA64B01-5082-4081-AD60-D99A61A81FED}'
+		CurVer = s 'MetraTech.MTRuleSetEvaluator.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {FDA64B01-5082-4081-AD60-D99A61A81FED} = s 'MTRuleSetEvaluator Class'
+		{
+			ProgID = s 'MetraTech.MTRuleSetEvaluator.1'
+			VersionIndependentProgID = s 'MetraTech.MTRuleSetEvaluator'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{C9204A9B-7F48-46B8-B7C2-74CED70990BF}'
+		}
+	}
+}

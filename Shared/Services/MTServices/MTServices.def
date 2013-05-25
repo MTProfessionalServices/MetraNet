@@ -1,0 +1,9 @@
+; MTServices.def : Declares the module parameters.
+
+LIBRARY      "MTServices.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

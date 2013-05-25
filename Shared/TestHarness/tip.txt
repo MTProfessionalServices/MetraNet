@@ -1,0 +1,16 @@
+You should always unit test your code.
+Raju said : Please do not delete the Start Team Database.
+If the Test Harness does not respond after executing a test, this may happen because the SQL Server used to store the test result is down. Open the option dialog, Tab check list database and un check Record Mode.
+If you have a problem, please Re-Apply Service Pack X.
+Debugging VBScript WSF (Windows Script Hosting) file is still part of the big unknown, though it seems possible.
+Always blame Boris P.
+Use VBS file rather than WSF. There are different template files in the Test Database Templates.Library folder. With VBS file the debugger is working and you do not need a virtual folder from IIS to access the Test Database.
+Visual Basic is not a toy.
+VBScript is not a toy.
+Where can I find a good log file viewer?    ...Are you really serious...
+www.fLogViewer.com > Tail.exe
+Please read the Test Harness at least once. Just press F1.
+There are 3 kinds of people in software development, those who know how to count and those who do not know how to count.
+Without Billing It's Just A Hobby.
+Show me the bill!
+If you want to know how the bill will look like if customer A on a quarterly billing cycle who has a PO with an aggregate rated PI with biweekly billing cycle and if he changes his billing cycle to monthly and if the cow jumps over the moon and....ASK JED

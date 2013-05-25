@@ -1,0 +1,26 @@
+HKCR
+{
+	MetraTech.MetraTimeControl.1 = s 'MetraTimeControl Class'
+	{
+		CLSID = s '{3C038FD1-6184-4495-A849-1471CFDF8CCE}'
+	}
+	MetraTech.MetraTimeControl = s 'MetraTimeControl Class'
+	{
+		CLSID = s '{3C038FD1-6184-4495-A849-1471CFDF8CCE}'
+		CurVer = s 'MetraTech.MetraTimeControl.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {3C038FD1-6184-4495-A849-1471CFDF8CCE} = s 'MetraTimeControl Class'
+		{
+			ProgID = s 'MetraTech.MetraTimeControl.1'
+			VersionIndependentProgID = s 'MetraTech.MetraTimeControl'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{0900FBFB-65A0-4DF6-8212-9DB496A0FF5A}'
+		}
+	}
+}

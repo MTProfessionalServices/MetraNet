@@ -1,0 +1,52 @@
+HKCR
+{
+	Metratech.CollectionOnMap.1 = s 'MTCollectionOnMap Class'
+	{
+		CLSID = s '{2E417F5D-C824-4656-9FCF-6DAE5E71FAD5}'
+	}
+	Metratech.CollectionOnMap = s 'MTCollectionOnMap Class'
+	{
+		CLSID = s '{2E417F5D-C824-4656-9FCF-6DAE5E71FAD5}'
+		CurVer = s 'Metratech.CollectionOnMap.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {2E417F5D-C824-4656-9FCF-6DAE5E71FAD5} = s 'MTCollectionOnMap Class'
+		{
+			ProgID = s 'Metratech.CollectionOnMap.1'
+			VersionIndependentProgID = s 'Metratech.CollectionOnMap'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{AD3FE648-B211-4CD9-BF9C-9A6C26EEC139}'
+		}
+	}
+}
+HKCR
+{
+	Metratech.CollectionOnMap.1 = s 'MTCollectionOnMap Class'
+	{
+		CLSID = s '{70F503B3-2854-45EB-BF39-04E5170DDB34}'
+	}
+	Metratech.CollectionOnMap = s 'MTCollectionOnMap Class'
+	{
+		CLSID = s '{70F503B3-2854-45EB-BF39-04E5170DDB34}'
+		CurVer = s 'Metratech.CollectionOnMap.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {70F503B3-2854-45EB-BF39-04E5170DDB34} = s 'MTCollectionOnMap Class'
+		{
+			ProgID = s 'Metratech.CollectionOnMap.1'
+			VersionIndependentProgID = s 'Metratech.CollectionOnMap'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{AD3FE648-B211-4CD9-BF9C-9A6C26EEC139}'
+		}
+	}
+}

@@ -1,0 +1,24 @@
+HKCR
+{
+	Metratech.MTConfigFile.1 = s 'MTConfigFile Class'
+	{
+		CLSID = s '{20021549-741F-11D2-80FC-006008C0E8B7}'
+	}
+	Metratech.MTConfigFile = s 'MTConfigFile Class'
+	{
+		CurVer = s 'Metratech.MTConfigFile.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {20021549-741F-11D2-80FC-006008C0E8B7} = s 'MTConfigFile Class'
+		{
+			ProgID = s 'Metratech.MTConfigFile.1'
+			VersionIndependentProgID = s 'Metratech.MTConfigFile'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+		}
+	}
+}

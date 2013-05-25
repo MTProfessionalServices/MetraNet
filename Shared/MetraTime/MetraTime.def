@@ -1,0 +1,9 @@
+; MetraTime.def : Declares the module parameters.
+
+LIBRARY      "MetraTime.DLL"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

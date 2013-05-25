@@ -1,0 +1,264 @@
+<HTML><HEAD><TITLE>MetraTech Test Harness Help</TITLE></HEAD><BODY>
+<FONT Face='verdana' size=2>
+
+
+<H1>MetraTech Test Harness 4.0.x Help</H1>
+<H2>What's New</H2>
+
+<H3>Improved User Interface</H3><hr size=1>
+The Tes
+<BR><BR>
+<H3>Super Session</H3><hr size=1>
+A Session can now contains another test session.
+<BR><BR>
+<H3>New Command Line Parameter</H3><hr size=1>
+When a test is executed from a session you can read from the command line the session path and name via the command line parameter:<BR>
+   -LOCALSESSIONPATH<BR>
+   -LOCALSESSIONNAME<BR>
+
+<BR><BR>
+<H3>Test and Test Session Description</H3><hr size=1>
+It is now possible to define description with a specific format for Test and Test Session.<br>
+for a test:<PRE>' -----------------------------------------------------------------------------------------------------------------------------------------
+' [NAME]
+' [DESCRIPTION]      Text
+'                    Text
+' [CREATIONDATE]     5/11/2004 3:54:28 PM
+' [AUTHOR]           Administrator
+' [DEPENDENCIES]     Text
+'
+' [PARAMETER]
+'   {Name}          Text
+'   {Required}      True/False
+'   {Description}   Text
+'   {DefaultValue}  Text
+'   {Enum:1}        Text
+'   {Enum:2}        Text
+'
+' [END]
+' --------------------------------------------------------------------------------------------------------------------------------------------
+</PRE>
+for a Test Session:
+<PRE>
+' -----------------------------------------------------------------------------------------------------------------------------------------
+' [NAME]            Text
+' [DESCRIPTION]     Text
+' [CREATIONDATE]    Text
+' [AUTHOR]          Text
+' [DEPENDENCIES]    Text
+' [END]
+' --------------------------------------------------------------------------------------------------------------------------------------------
+</PRE>
+
+<BR><BR>
+
+
+
+
+<H1>MetraTech Test Harness 3.6 Help</H1>
+<H2>What's New</H2>
+
+
+<H3>Test File Name Integrity</H3><hr size=1>
+Test cannot have coma char in their name. In previous version test with a coma in the name will not report correctly their status.<BR>
+<BR><BR>
+<H3>Message Box</H3><hr size=1>
+When a Test Session fails there is no message box poping up.
+<BR><BR><BR>
+
+<H1>MetraTech Test Harness 3.5.5 Help</H1>
+<H2>What's New</H2>
+
+<H3>New Find Function</H3><hr size=1>
+You can find a test or a test session from the current selected node, by pression CTRL+F,
+or do a mouse right click. The Find function support the wildcard like the DIR command.
+
+<H3>Multi Database support</H3><hr size=1>
+It is now possible to use more than one database. The environment variable METRATECHDATABASE still point to the main
+database. But the install allows you to add other environment variable METRATECHDATABASE1, METRATECHDATABASE2,...
+These external Test Databases will appear at the root level of the main database with a green folder icon.<br>
+<br>
+The first usage is to support ATT Development, Services and QA tests which must not be stored in the main database but
+in the services\extension folder.
+
+<H3>Test Execution Sub Module</H3><hr size=1>
+A Test has now a new property called : PopUpDefinition. This property is supposed to contains
+a list of Name. If this property is defined, then when you right click on a Test the option
+"Execution PopUp" will be visible. If you chose it, it will display the list of names.
+If you click on one the test will be executed, with the extra command line paramater :<BR>
+-Execute NAME<br>
+<br>
+It is sometime handy to allow to test just a sub module in a bug test.
+See the test "MOM Full Application Test" for more details.
+<br>
+
+<H3>Comparing XML File</H3><hr size=1>
+The new class MTTestDatabase.CXMLCompare allow to compare XML in a smart way.
+See Fred for more details. This class is used in the PCImportExport SmokeTest.
+<br>
+
+
+
+<H1>MetraTech Test Harness 3.0 Help</H1>
+<H2>What's New</H2>
+<H3>Database Loading</H3><hr size=1>
+The Cancel button on the session dialog does not reload the all database.                                <br>
+The database loading is much faster, but since our database is also increasing you must not see that.<br>
+The loading of the static file (xml,txt,dat,csv) is now optional and turned off by default.<br>
+See options dialog.
+
+<H3></B>Bound Checker Support</H3><hr size=1>
+It is possible to run a script under Bound Checker and have the Bound Checker report opened just after.
+ 
+<H3>Command Line Generation</H3><hr size=1></B>
+The pop up menu on a test or test session has a new option called <i>"Copy Command Line"</i> which 
+copy the command line to execute the test or the test session.
+
+<H3>Dash Board</H3><hr size=1>
+The Test Harness support a new window called the dashboard which allow to execute different tests from different machine
+and track their progression.
+
+To configure the DashBoard database connection define a property bag file name "%TEMP%\TestDashBoard.Config.Txt" with the following
+content:<BR>
+<BR>        
+[BAG]    <BR>
+SQLServer=BigDisk<BR>
+SQLDatabase=TestHarnessCoverageDB<BR>
+SQLUserName=sa<BR>
+SQLPassWord=<BR>
+<BR>
+<BR>
+The sql table is t_TestDashBoard.
+<BR>
+You can start the DashBoard with the command line TestHarness.exe /D.
+<BR>
+
+<H3>Bugs fixed</H3><hr size=1>
+<li> The menu option Edit Script with a custom editor is now working.<BR>
+<li> If the TestHarness.Ini file is not found a message is displayed, the splash screen is unloaded and the options dialog is opened<BR>
+<li> The entry in the start menu to lanch the test harness is working<BR>
+
+
+<br><br><br><br>
+
+
+<H1>MetraTech Test Harness 2.0 Help</H1>
+
+<H2>What's New</H2>
+
+<H3>You can insert into a test parameter value any environment variable value.</H3><hr size=1>
+This is very use full when you need to pass
+to a program the full path of a file stored in the test database. Because at edit time you do not
+know the full path by setting the parameter value this way you can solve the problem:<br>
+<br>
+Test Parameter Name : file<br>
+Test Parameter value  : %METRATECHTESTDATABASE%\Development\UI\Application Tests\FredRunner.Library\MAM.Test.vbs<br>
+<br>
+<i>The name must be in upper case.</i>
+
+<H3>Windows Script Hosting dectection</H3><hr size=1>
+Better error handling if Windows Script Hosting is not installed or not correctly installed.
+
+<H3>Optimization</H3><hr size=1>
+ - The Test Harness reload the all database only when it is required. The Test Database is not reloaded
+when you edit a test.<BR>
+ - The Test Harness tests is the METRATECHDATABASE Internet Information Server virtual link is working.
+ - The Test Harness tests is the METRATECHDATABASE environment variable is set.<BR>
+ 
+<H3>Install</H3><hr size=1>
+The setup will ask your local path to the Tests Database and will create the 
+Internet Information Server virtual link and the environment variable.
+You can also run this feature this way : TestHarness.exe /I.
+
+<H3>MTTestApi COM Object New Environ Property</H3><hr size=1>
+You can read and write environment variable from the CTest class this way.<BR>
+<BR><FONT FACE="Courier New" Size=2>
+&nbsp;&nbsp;&nbsp;&nbsp;Test.UTApi.Environ("FRED_PATH") = "c:\program files\fred_path"<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;strS                      = Test.UTApi.Environ("FRED_PATH")<BR>
+</FONT>
+<BR>  
+The Environment variables group used by default is USER. You can also specify it this way:<BR>
+<BR><FONT FACE="Courier New" Size=2>
+&nbsp;&nbsp;&nbsp;&nbsp;Test.UTApi.Environ("FRED_PATH","SYSTEM") = "c:\program files\fred_path"<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;strS                      = Test.UTApi.Environ("FRED_PATH","SYSTEM")<BR>
+</FONT>
+<BR>  
+ 
+
+<H3>Bugs fixed</H3><hr size=1>
+- It is now possible to execute one test or more Test from the command line.<br>
+- It is now possible to execute a tests and  tests session from the same command line.<br>
+<BR><FONT FACE="Courier New" Size=2>
+&nbsp;&nbsp;&nbsp;&nbsp;TestHarness.exe -test c:\Tests database\MyTest.Test -testsession c:\Tests database\MySession.TestSession<BR>
+
+</FONT>
+<BR>  
+
+
+
+<br>
+
+- Tree view state bug Each time you open or close a folder the test harness store the info. In the previous version the state
+was stored at the end of the program and this was leading to some confusion.<br>
+
+
+
+<br><br><br><br>
+
+
+
+<H1>MetraTect Test Harness 1.1 Help</H1>
+
+<H2>What's New</H2>
+
+<H3>Tests in Test Session</H3><hr size=1>
+It is now possible to add the same test in a session two or more time.
+
+<H3>VBS file are supported for writing test files</H3><hr size=1>
+We recommend using VBS files rather than WSF files.
+VBS files can be debugged with Visual Studio debugger or the Script Debugger and do not need the ISS virtual link. 
+WSF files are still supported.<BR>
+If you start a new test use the template:
+</BLOCKQUOTE>
+Templates.Library\TestTemplate.vbs<BR>
+</BLOCKQUOTE>
+To activate the debug mode, open the open dialog, tab script engine.<BR>
+
+<H3>Test Session Parameters</H3><hr size=1>
+It is now possible for a test to pass command line parameters to the next test during a test session execution.<BR>
+This feature was asked by Ralf and should be very usefull for writing system tests.<BR>
+<BR>
+See TestSessionParameters property in the CUnitTest VBScript Class help.<BR>
+<BR>
+
+<H3>Help</H3><hr size=1>
+Help has been added. Please read the help at least once quickly, so you will know
+what is provided in the different VBScript files and COM Object.
+
+<H3>Test Harness Log View</H3><hr size=1>
+The Test Harness Log view has been turn into a list view with fancy icons and colors.
+You can also right click in the list view to clear, copy or edit the content of the list view.
+
+<H3>Tip of the day</H3><hr size=1>
+An extremely usefull <i>'Tip of the day'</i> window has been added.
+
+<H3>Test Harness Log View Update</H3><hr size=1>
+The Test Harness Log view is now updated after each test during a test session execution rather
+that at the end of the test session execution.
+
+<H3>SQL User Name and Password</H3><hr size=1>
+The SQL User Name and Password are no longer hard coded in the program
+
+<H3>The Harness behavior during test execution</H3><hr size=1>
+The Test Harness is fully sleeping when a test is executed. The side effect is that
+tests run faster.
+
+<H3>Test Fail Message Box</H3><hr size=1>
+An optional message box will display the name of each test that failed. The message box
+will close itself automatically after 10 seconds. See options dialog, tab general.
+
+
+
+</font>
+</BODY>
+</HTML>

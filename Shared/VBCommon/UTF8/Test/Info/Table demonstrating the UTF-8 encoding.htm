@@ -1,0 +1,1830 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0046)http://home-4.tiscali.nl/~t876506/utf8tbl.html -->
+<HTML><HEAD><TITLE>Table demonstrating the UTF-8 encoding</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1251">
+<META http-equiv=content-style-type content=text/css>
+<META content="Conversion Unicode UTF-8 encoding" name=description>
+<META content=unicode,utf-8 name=keywords>
+<META content="MSHTML 6.00.2800.1170" name=GENERATOR></HEAD>
+<BODY bgColor=navajowhite>
+<CENTER>
+<H2><FONT color=red>Unicode UTF-8 encoding</FONT></H2></CENTER>Go to the test 
+page with <A href="http://home-4.tiscali.nl/~t876506/UnicodeDisplay.html">all 
+Macintosh displayable Unicode characters</A><BR>Go to the page with <A 
+href="http://home-4.tiscali.nl/~t876506/entitiesTips.html">explanations and tips 
+of 'HTML entities'</A><BR>Go to the <A 
+href="http://home-4.tiscali.nl/~t876506/EntitiesXHTML1.html">table with all HTML 
+entities</A><BR>Go to a page with <A 
+href="http://home-4.tiscali.nl/~t876506/charsets.html">tables of Macintosh &amp; 
+Windows standard encodings and Symbol encodings in ASCII.</A><BR><A 
+href="http://home-4.tiscali.nl/~t876506/index.html">Go to/Back to the index.</A> 
+
+<HR>
+
+<P>Unicode has been developed to describe all possible characters of all 
+languages plus a lot of symbols with one unique number for each 
+character/symbol. Unicode as defined by the Unicode organization has become a 
+universal standard: ISO/IEC 10646, describing the 'Universal Multiple-Octet 
+Coded Character Set' (UCS).<BR>It is not always possible to transfer a Unicode 
+character to another computer reliably. For that reason a special encoding 
+scheme has been developed, UTF-8, which stands for UCS Transformation Format 
+8.<BR>On this page you will find an overview of the UTF-8 encoding scheme.
+<P>This page is encoded as x-mac-roman. It is possible that your browser will 
+not support this and will fall to iso-8859-1 or your default charset. In that 
+case the literal characters of the table will be displayed incorrectly. That's 
+no problem if you are only interested in the <A 
+href="http://home-4.tiscali.nl/~t876506/utf8tbl.html#algo">conversion algorithms 
+for UTF-8</A> on this page.
+<P><B>Explanation of the table</B><BR>
+<TABLE bgColor=yellow>
+  <TBODY>
+  <TR bgColor=aqua>
+    <TD>ch
+    <TD>dec
+    <TD>hx
+    <TD>U-hex
+    <TD>U-dec
+    <TD>UTF-dec
+    <TD>UTF-hx
+    <TD>lit
+    <TD>Unicode name
+    <TD>PostScript name 
+  <TR>
+    <TD>Є
+    <TD>170
+    <TD>AA
+    <TD>2122
+    <TD>8482
+    <TD>226.132.162
+    <TD>E284A2
+    <TD>в„ў
+    <TD>TRADE MARK SIGN
+    <TD>trademark </TR></TBODY></TABLE>
+<P>The meaning of the columns is a follows:<BR><I>ch:</I> the specified 
+character as literal, which is probably not displayed correctly<BR><I>dec:</I> 
+the decimal ASCII value of the character<BR><I>hx:</I> the hexadecimal value of 
+the character<BR><I>U-hex:</I> the Unicode value in hexadecimal<BR><I>U-dec:</I> 
+the Unicode value in decimal<BR><I>UTF-dec:</I> the UTF8-encoded bytes as 
+decimal numbers<BR><I>UTF-hx:</I> the UTF8-encoded bytes as hexadecimal 
+numbers<BR><I>lit:</I> the UTF8-encoded characters as literals, which are 
+probably not displayed correctly in the absolute sense, but are displayed 'as 
+seen' by your browser<BR><I>Unicode name:</I> the full Unicode name of the 
+character<BR><I>PostScript name:</I> the PostScript name of the character if 
+this name exists
+<P>Let us take for example the trademark sign, which looks something like a 
+higher positioned TM.<BR>On a Macintosh you can produce this sign by taking 
+character position number 170. On a Windows computer this is position 153. 
+Unicode is the same for all users and in this scheme the trademark sign can be 
+found at position 2122 hexadecimal, which is the same as 8842 decimal.<BR>On a 
+webpage you could try to encode this character like <FONT 
+color=red>&amp;trade;</FONT> but the Macintosh browsers are not able to 
+reproduce many of those 'entities'. If your reader has a version 4 browser or 
+better, the best thing you can do is encode the trademark sign with a Unicode 
+entity like <FONT color=red>&amp;#8482;</FONT>. In a suitable META-tag your page 
+has to be defined as a UTF-8 page. This is explained in detail on the page with 
+<A href="http://home-4.tiscali.nl/~t876506/entitiesTips.html">entity 
+tips</A>.<BR>If you write an email with for instance Microsoft Outlook Express 
+and let the emailer encode your letter as UTF-8, then Outlook Express converts 
+the trademark sign to a UTF-8 code. The result is in this case a combination of 
+three characters with numerical values 226, 132 and 162. What characters you 
+will see on your screen without UTF-8 decoding, depends on your platform. A 
+Macintosh user would see a comma like quotation mark, followed by a capital N 
+with a tilde and a cent sign. The Windows viewer will see a letter a with a 
+circumflex, followed by a double lower comma like quotation mark and a cent 
+sign.<BR>How did the encoding program get these numbers?
+<P><A name=algo></A><B>UTF-8 encoding</B><BR>The proper way to convert between 
+UCS-4 and UTF-8 is to use bitmask (and, or) and bitshift operations. But if you 
+would like to convert only a couple of characters by hand or if your program 
+development environment (scripting language) does not support bit operations, 
+then integer division and multiplication can be used as follows.
+<P><U>From Unicode UCS-4 to UTF-8:</U><BR>Start with the Unicode number 
+expressed as a decimal number and call this ud.
+<P>If ud &lt;128 (7F hex) then UTF-8 is 1 byte long, the value of ud.
+<P>If ud &gt;=128 and &lt;=2047 (7FF hex) then UTF-8 is 2 bytes 
+long.<BR>&nbsp;&nbsp;&nbsp;byte 1 = 192 + (ud div 64)<BR>&nbsp;&nbsp;&nbsp;byte 
+2 = 128 + (ud mod 64)
+<P>If ud &gt;=2048 and &lt;=65535 (FFFF hex) then UTF-8 is 3 bytes 
+long.<BR>&nbsp;&nbsp;&nbsp;byte 1 = 224 + (ud div 
+4096)<BR>&nbsp;&nbsp;&nbsp;byte 2 = 128 + ((ud div 64) mod 
+64)<BR>&nbsp;&nbsp;&nbsp;byte 3 = 128 + (ud mod 64)
+<P>If ud &gt;=65536 and &lt;=2097151 (1FFFFF hex) then UTF-8 is 4 bytes 
+long.<BR>&nbsp;&nbsp;&nbsp;byte 1 = 240 + (ud div 
+262144)<BR>&nbsp;&nbsp;&nbsp;byte 2 = 128 + ((ud div 4096) mod 
+64)<BR>&nbsp;&nbsp;&nbsp;byte 3 = 128 + ((ud div 64) mod 
+64)<BR>&nbsp;&nbsp;&nbsp;byte 4 = 128 + (ud mod 64)
+<P>If ud &gt;=2097152 and &lt;=67108863 (3FFFFFF hex) then UTF-8 is 5 bytes 
+long.<BR>&nbsp;&nbsp;&nbsp;byte 1 = 248 + (ud div 
+16777216)<BR>&nbsp;&nbsp;&nbsp;byte 2 = 128 + ((ud div 262144) mod 
+64)<BR>&nbsp;&nbsp;&nbsp;byte 3 = 128 + ((ud div 4096) mod 
+64)<BR>&nbsp;&nbsp;&nbsp;byte 4 = 128 + ((ud div 64) mod 
+64)<BR>&nbsp;&nbsp;&nbsp;byte 5 = 128 + (ud mod 64)
+<P>If ud &gt;=67108864 and &lt;=2147483647 (7FFFFFFF hex) then UTF-8 is 6 bytes 
+long.<BR>&nbsp;&nbsp;&nbsp;byte 1 = 252 + (ud div 
+1073741824)<BR>&nbsp;&nbsp;&nbsp;byte 2 = 128 + ((ud div 16777216) mod 
+64)<BR>&nbsp;&nbsp;&nbsp;byte 3 = 128 + ((ud div 262144) mod 
+64)<BR>&nbsp;&nbsp;&nbsp;byte 4 = 128 + ((ud div 4096) mod 
+64)<BR>&nbsp;&nbsp;&nbsp;byte 5 = 128 + ((ud div 64) mod 
+64)<BR>&nbsp;&nbsp;&nbsp;byte 6 = 128 + (ud mod 64)
+<P>The operation <I>div</I> means integer division and <I>mod</I> means the rest 
+after integer division.<BR>For positive numbers a div b = int(a/b) and a mod b = 
+(a/b-int(a/b))*b.<BR>UTF-8 sequences of 4 bytes and longer are at the moment not 
+supported by the regular browsers.<BR>The highest character position currently 
+(Unicode 3.2) defined is number 10FFFF hex (1114111 dec) in a 'private use' 
+area. The highest character with an actual glyph is number E007F hex (917631 
+dec), the CANCEL TAG character. 
+<P><U>From UTF-8 to Unicode UCS-4:</U><BR>Let's take a UTF-8 byte sequence. The 
+first byte in a new sequence will tell us how long the sequence is. Let's call 
+the subsequent decimal bytes z y x w v u.
+<P>If z is between and including 0 - 127, then there is 1 byte z. The decimal 
+Unicode value ud = the value of z.
+<P>If z is between and including 192 - 223, then there are 2 bytes z y; ud = 
+(z-192)*64 + (y-128)
+<P>If z is between and including 224 - 239, then there are 3 bytes z y x; ud = 
+(z-224)*4096 + (y-128)*64 + (x-128)
+<P>If z is between and including 240 - 247, then there are 4 bytes z y x w; ud = 
+(z-240)*262144 + (y-128)*4096 + (x-128)*64 + (w-128)
+<P>If z is between and including 248 - 251, then there are 5 bytes z y x w v; ud 
+= (z-248)*16777216 + (y-128)*262144 + (x-128)*4096 + (w-128)*64 + (v-128)
+<P>If z is 252 or 253, then there are 6 bytes z y x w v u; ud = 
+(z-252)*1073741824 + (y-128)*16777216 + (x-128)*262144 + (w-128)*4096 + 
+(v-128)*64 + (u-128)
+<P>If z = 254 or 255 then there is something wrong!
+<P>Example: take the decimal Unicode designation 8482 (decimal), which is for 
+the trademark sign. This number is larger than 2048, so we get three 
+numbers.<BR>The first number is 224 + (8482 div 4096) = 224 + 2 = 226.<BR>The 
+second number is 128 + (8482 div 64) mod 64) = 128 + (132 mod 64) = 128 + 4 = 
+132.<BR>The third number is 128 + (8482 mod 64) = 128 + 34 = 162.<BR>Now the 
+other way round. We see the numbers 226, 132 and 162. What is the decimal 
+Unicode value?<BR>In this case: (226-224)*4096+(132-128)*64+(162-128) = 
+8482.<BR>And the conversion between hexadecimal and decimal? Come on, this is 
+not a math tutorial! In case you don't know, use a calculator.
+<P><B>References</B><BR>More information about the UTF-8 encoding can be found 
+at:<BR><A 
+href="ftp://ftp.informatik.uni-erlangen.de/pub/doc/ISO/charsets/ISO-10646-UTF-8.html">ISO-10646/UTF-8 
+encoding.</A><BR>The table on the page you're looking at now follows the Apple 
+Roman Unicode encoding.<BR>This encoding can be found at the unicode 
+organization:<BR><A 
+href="ftp://ftp.unicode.org/Public/MAPPINGS/VENDORS/APPLE/ROMAN.TXT">Apple Roman 
+Unicode encoding.</A><BR>This document describes the latest Apple character set, 
+as used by the Apple Mac OS Text Encoding Converter software version 
+1.5.<BR>Code position 0xDB is now used for the EURO SIGN, but a couple of years 
+ago this position was used for the CURRENCY SIGN, as originally defined.<BR>The 
+standard Windows Roman encoding is 'code page 1252'. The unicode definition can 
+be found at:<BR><A 
+href="ftp://ftp.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP1252.TXT">Windows 
+code page 1252, Unicode encodings</A>
+<P>
+<P>And now where you have been waiting for, the complete 1-byte UTF-8 table.
+<P>
+<P>
+<TABLE bgColor=yellow>
+  <TBODY>
+  <TR bgColor=aqua>
+    <TD>ch
+    <TD>dec
+    <TD>hx
+    <TD>U-hex
+    <TD>U-dec
+    <TD>UTF-dec
+    <TD>UTF-hx
+    <TD>lit
+    <TD>Unicode name
+    <TD>PostScript name 
+  <TR>
+    <TD>Ђ
+    <TD>128
+    <TD>80
+    <TD>00C4
+    <TD>196
+    <TD>195.132
+    <TD>C384
+    <TD>Г„
+    <TD>LATIN CAPITAL LETTER A WITH DIAERESIS
+    <TD>Adieresis 
+  <TR>
+    <TD>Ѓ
+    <TD>129
+    <TD>81
+    <TD>00C5
+    <TD>197
+    <TD>195.133
+    <TD>C385
+    <TD>Г…
+    <TD>LATIN CAPITAL LETTER A WITH RING ABOVE
+    <TD>Aring 
+  <TR>
+    <TD>‚
+    <TD>130
+    <TD>82
+    <TD>00C7
+    <TD>199
+    <TD>195.135
+    <TD>C387
+    <TD>Г‡
+    <TD>LATIN CAPITAL LETTER C WITH CEDILLA
+    <TD>Ccedilla 
+  <TR>
+    <TD>ѓ
+    <TD>131
+    <TD>83
+    <TD>00C9
+    <TD>201
+    <TD>195.137
+    <TD>C389
+    <TD>Г‰
+    <TD>LATIN CAPITAL LETTER E WITH ACUTE
+    <TD>Eacute 
+  <TR>
+    <TD>„
+    <TD>132
+    <TD>84
+    <TD>00D1
+    <TD>209
+    <TD>195.145
+    <TD>C391
+    <TD>Г‘
+    <TD>LATIN CAPITAL LETTER N WITH TILDE
+    <TD>Ntilde 
+  <TR>
+    <TD>…
+    <TD>133
+    <TD>85
+    <TD>00D6
+    <TD>214
+    <TD>195.150
+    <TD>C396
+    <TD>Г–
+    <TD>LATIN CAPITAL LETTER O WITH DIAERESIS
+    <TD>Odieresis 
+  <TR>
+    <TD>†
+    <TD>134
+    <TD>86
+    <TD>00DC
+    <TD>220
+    <TD>195.156
+    <TD>C39C
+    <TD>Гњ
+    <TD>LATIN CAPITAL LETTER U WITH DIAERESIS
+    <TD>Udieresis 
+  <TR>
+    <TD>‡
+    <TD>135
+    <TD>87
+    <TD>00E1
+    <TD>225
+    <TD>195.161
+    <TD>C3A1
+    <TD>ГЎ
+    <TD>LATIN SMALL LETTER A WITH ACUTE
+    <TD>aacute 
+  <TR>
+    <TD>€
+    <TD>136
+    <TD>88
+    <TD>00E0
+    <TD>224
+    <TD>195.160
+    <TD>C3A0
+    <TD>Г&nbsp;
+    <TD>LATIN SMALL LETTER A WITH GRAVE
+    <TD>agrave 
+  <TR>
+    <TD>‰
+    <TD>137
+    <TD>89
+    <TD>00E2
+    <TD>226
+    <TD>195.162
+    <TD>C3A2
+    <TD>Гў
+    <TD>LATIN SMALL LETTER A WITH CIRCUMFLEX
+    <TD>acircumflex 
+  <TR>
+    <TD>Љ
+    <TD>138
+    <TD>8A
+    <TD>00E4
+    <TD>228
+    <TD>195.164
+    <TD>C3A4
+    <TD>Г¤
+    <TD>LATIN SMALL LETTER A WITH DIAERESIS
+    <TD>adieresis 
+  <TR>
+    <TD>‹
+    <TD>139
+    <TD>8B
+    <TD>00E3
+    <TD>227
+    <TD>195.163
+    <TD>C3A3
+    <TD>ГЈ
+    <TD>LATIN SMALL LETTER A WITH TILDE
+    <TD>atilde 
+  <TR>
+    <TD>Њ
+    <TD>140
+    <TD>8C
+    <TD>00E5
+    <TD>229
+    <TD>195.165
+    <TD>C3A5
+    <TD>ГҐ
+    <TD>LATIN SMALL LETTER A WITH RING ABOVE
+    <TD>aring 
+  <TR>
+    <TD>Ќ
+    <TD>141
+    <TD>8D
+    <TD>00E7
+    <TD>231
+    <TD>195.167
+    <TD>C3A7
+    <TD>Г§
+    <TD>LATIN SMALL LETTER C WITH CEDILLA
+    <TD>ccedilla 
+  <TR>
+    <TD>Ћ
+    <TD>142
+    <TD>8E
+    <TD>00E9
+    <TD>233
+    <TD>195.169
+    <TD>C3A9
+    <TD>Г©
+    <TD>LATIN SMALL LETTER E WITH ACUTE
+    <TD>eacute 
+  <TR>
+    <TD>Џ
+    <TD>143
+    <TD>8F
+    <TD>00E8
+    <TD>232
+    <TD>195.168
+    <TD>C3A8
+    <TD>ГЁ
+    <TD>LATIN SMALL LETTER E WITH GRAVE
+    <TD>egrave 
+  <TR>
+    <TD>ђ
+    <TD>144
+    <TD>90
+    <TD>00EA
+    <TD>234
+    <TD>195.170
+    <TD>C3AA
+    <TD>ГЄ
+    <TD>LATIN SMALL LETTER E WITH CIRCUMFLEX
+    <TD>ecircumflex 
+  <TR>
+    <TD>‘
+    <TD>145
+    <TD>91
+    <TD>00EB
+    <TD>235
+    <TD>195.171
+    <TD>C3AB
+    <TD>Г«
+    <TD>LATIN SMALL LETTER E WITH DIAERESIS
+    <TD>edieresis 
+  <TR>
+    <TD>’
+    <TD>146
+    <TD>92
+    <TD>00ED
+    <TD>237
+    <TD>195.173
+    <TD>C3AD
+    <TD>Г&shy;
+    <TD>LATIN SMALL LETTER I WITH ACUTE
+    <TD>iacute 
+  <TR>
+    <TD>“
+    <TD>147
+    <TD>93
+    <TD>00EC
+    <TD>236
+    <TD>195.172
+    <TD>C3AC
+    <TD>Г¬
+    <TD>LATIN SMALL LETTER I WITH GRAVE
+    <TD>igrave 
+  <TR>
+    <TD>”
+    <TD>148
+    <TD>94
+    <TD>00EE
+    <TD>238
+    <TD>195.174
+    <TD>C3AE
+    <TD>Г®
+    <TD>LATIN SMALL LETTER I WITH CIRCUMFLEX
+    <TD>icircumflex 
+  <TR>
+    <TD>•
+    <TD>149
+    <TD>95
+    <TD>00EF
+    <TD>239
+    <TD>195.175
+    <TD>C3AF
+    <TD>ГЇ
+    <TD>LATIN SMALL LETTER I WITH DIAERESIS
+    <TD>idieresis 
+  <TR>
+    <TD>–
+    <TD>150
+    <TD>96
+    <TD>00F1
+    <TD>241
+    <TD>195.177
+    <TD>C3B1
+    <TD>Г±
+    <TD>LATIN SMALL LETTER N WITH TILDE
+    <TD>ntilde 
+  <TR>
+    <TD>—
+    <TD>151
+    <TD>97
+    <TD>00F3
+    <TD>243
+    <TD>195.179
+    <TD>C3B3
+    <TD>Гі
+    <TD>LATIN SMALL LETTER O WITH ACUTE
+    <TD>oacute 
+  <TR>
+    <TD>
+    <TD>152
+    <TD>98
+    <TD>00F2
+    <TD>242
+    <TD>195.178
+    <TD>C3B2
+    <TD>ГІ
+    <TD>LATIN SMALL LETTER O WITH GRAVE
+    <TD>ograve 
+  <TR>
+    <TD>™
+    <TD>153
+    <TD>99
+    <TD>00F4
+    <TD>244
+    <TD>195.180
+    <TD>C3B4
+    <TD>Гґ
+    <TD>LATIN SMALL LETTER O WITH CIRCUMFLEX
+    <TD>ocircumflex 
+  <TR>
+    <TD>љ
+    <TD>154
+    <TD>9A
+    <TD>00F6
+    <TD>246
+    <TD>195.182
+    <TD>C3B6
+    <TD>Г¶
+    <TD>LATIN SMALL LETTER O WITH DIAERESIS
+    <TD>odieresis 
+  <TR>
+    <TD>›
+    <TD>155
+    <TD>9B
+    <TD>00F5
+    <TD>245
+    <TD>195.181
+    <TD>C3B5
+    <TD>Гµ
+    <TD>LATIN SMALL LETTER O WITH TILDE
+    <TD>otilde 
+  <TR>
+    <TD>њ
+    <TD>156
+    <TD>9C
+    <TD>00FA
+    <TD>250
+    <TD>195.186
+    <TD>C3BA
+    <TD>Гє
+    <TD>LATIN SMALL LETTER U WITH ACUTE
+    <TD>uacute 
+  <TR>
+    <TD>ќ
+    <TD>157
+    <TD>9D
+    <TD>00F9
+    <TD>249
+    <TD>195.185
+    <TD>C3B9
+    <TD>Г№
+    <TD>LATIN SMALL LETTER U WITH GRAVE
+    <TD>ugrave 
+  <TR>
+    <TD>ћ
+    <TD>158
+    <TD>9E
+    <TD>00FB
+    <TD>251
+    <TD>195.187
+    <TD>C3BB
+    <TD>Г»
+    <TD>LATIN SMALL LETTER U WITH CIRCUMFLEX
+    <TD>ucircumflex 
+  <TR>
+    <TD>џ
+    <TD>159
+    <TD>9F
+    <TD>00FC
+    <TD>252
+    <TD>195.188
+    <TD>C3BC
+    <TD>Гј
+    <TD>LATIN SMALL LETTER U WITH DIAERESIS
+    <TD>udieresis 
+  <TR bgColor=aqua>
+    <TD>ch
+    <TD>dec
+    <TD>hx
+    <TD>U-hex
+    <TD>U-dec
+    <TD>UTF-dec
+    <TD>UTF-hx
+    <TD>lit
+    <TD>Unicode name
+    <TD>PostScript name 
+  <TR>
+    <TD>&nbsp;
+    <TD>160
+    <TD>A0
+    <TD>2020
+    <TD>8224
+    <TD>226.128.160
+    <TD>E280A0
+    <TD>вЂ&nbsp;
+    <TD>DAGGER
+    <TD>dagger 
+  <TR>
+    <TD>Ў
+    <TD>161
+    <TD>A1
+    <TD>00B0
+    <TD>176
+    <TD>194.176
+    <TD>C2B0
+    <TD>В°
+    <TD>DEGREE SIGN
+    <TD>degree 
+  <TR>
+    <TD>ў
+    <TD>162
+    <TD>A2
+    <TD>00A2
+    <TD>162
+    <TD>194.162
+    <TD>C2A2
+    <TD>Вў
+    <TD>CENT SIGN
+    <TD>cent 
+  <TR>
+    <TD>Ј
+    <TD>163
+    <TD>A3
+    <TD>00A3
+    <TD>163
+    <TD>194.163
+    <TD>C2A3
+    <TD>ВЈ
+    <TD>POUND SIGN
+    <TD>sterling 
+  <TR>
+    <TD>¤
+    <TD>164
+    <TD>A4
+    <TD>00A7
+    <TD>167
+    <TD>194.167
+    <TD>C2A7
+    <TD>В§
+    <TD>SECTION SIGN
+    <TD>section 
+  <TR>
+    <TD>Ґ
+    <TD>165
+    <TD>A5
+    <TD>2022
+    <TD>8226
+    <TD>226.128.162
+    <TD>E280A2
+    <TD>вЂў
+    <TD>BULLET
+    <TD>bullet 
+  <TR>
+    <TD>¦
+    <TD>166
+    <TD>A6
+    <TD>00B6
+    <TD>182
+    <TD>194.182
+    <TD>C2B6
+    <TD>В¶
+    <TD>PILCROW SIGN
+    <TD>paragraph 
+  <TR>
+    <TD>§
+    <TD>167
+    <TD>A7
+    <TD>00DF
+    <TD>223
+    <TD>195.159
+    <TD>C39F
+    <TD>Гџ
+    <TD>LATIN SMALL LETTER SHARP S
+    <TD>germandbls 
+  <TR>
+    <TD>Ё
+    <TD>168
+    <TD>A8
+    <TD>00AE
+    <TD>174
+    <TD>194.174
+    <TD>C2AE
+    <TD>В®
+    <TD>REGISTERED SIGN
+    <TD>registered 
+  <TR>
+    <TD>©
+    <TD>169
+    <TD>A9
+    <TD>00A9
+    <TD>169
+    <TD>194.169
+    <TD>C2A9
+    <TD>В©
+    <TD>COPYRIGHT SIGN
+    <TD>copyright 
+  <TR>
+    <TD>Є
+    <TD>170
+    <TD>AA
+    <TD>2122
+    <TD>8482
+    <TD>226.132.162
+    <TD>E284A2
+    <TD>в„ў
+    <TD>TRADE MARK SIGN
+    <TD>trademark 
+  <TR>
+    <TD>«
+    <TD>171
+    <TD>AB
+    <TD>00B4
+    <TD>180
+    <TD>194.180
+    <TD>C2B4
+    <TD>Вґ
+    <TD>ACUTE ACCENT
+    <TD>acute 
+  <TR>
+    <TD>¬
+    <TD>172
+    <TD>AC
+    <TD>00A8
+    <TD>168
+    <TD>194.168
+    <TD>C2A8
+    <TD>ВЁ
+    <TD>DIAERESIS
+    <TD>dieresis 
+  <TR>
+    <TD>&shy;
+    <TD>173
+    <TD>AD
+    <TD>2260
+    <TD>8800
+    <TD>226.137.160
+    <TD>E289A0
+    <TD>в‰&nbsp;
+    <TD>NOT EQUAL TO
+    <TD>notequal 
+  <TR>
+    <TD>®
+    <TD>174
+    <TD>AE
+    <TD>00C6
+    <TD>198
+    <TD>195.134
+    <TD>C386
+    <TD>Г†
+    <TD>LATIN CAPITAL LETTER AE
+    <TD>AE 
+  <TR>
+    <TD>Ї
+    <TD>175
+    <TD>AF
+    <TD>00D8
+    <TD>216
+    <TD>195.152
+    <TD>C398
+    <TD>Г
+    <TD>LATIN CAPITAL LETTER O WITH STROKE
+    <TD>Oslash 
+  <TR>
+    <TD>°
+    <TD>176
+    <TD>B0
+    <TD>221E
+    <TD>8734
+    <TD>226.136.158
+    <TD>E2889E
+    <TD>в€ћ
+    <TD>INFINITY
+    <TD>infinity 
+  <TR>
+    <TD>±
+    <TD>177
+    <TD>B1
+    <TD>00B1
+    <TD>177
+    <TD>194.177
+    <TD>C2B1
+    <TD>В±
+    <TD>PLUS-MINUS SIGN
+    <TD>plusminus 
+  <TR>
+    <TD>І
+    <TD>178
+    <TD>B2
+    <TD>2264
+    <TD>8804
+    <TD>226.137.164
+    <TD>E289A4
+    <TD>в‰¤
+    <TD>LESS-THAN OR EQUAL TO
+    <TD>lessequal 
+  <TR>
+    <TD>і
+    <TD>179
+    <TD>B3
+    <TD>2265
+    <TD>8805
+    <TD>226.137.165
+    <TD>E289A5
+    <TD>в‰Ґ
+    <TD>GREATER-THAN OR EQUAL TO
+    <TD>greaterequal 
+  <TR>
+    <TD>ґ
+    <TD>180
+    <TD>B4
+    <TD>00A5
+    <TD>165
+    <TD>194.165
+    <TD>C2A5
+    <TD>ВҐ
+    <TD>YEN SIGN
+    <TD>yen 
+  <TR>
+    <TD>µ
+    <TD>181
+    <TD>B5
+    <TD>00B5
+    <TD>181
+    <TD>194.181
+    <TD>C2B5
+    <TD>Вµ
+    <TD>MICRO SIGN
+    <TD>mu 
+  <TR>
+    <TD>¶
+    <TD>182
+    <TD>B6
+    <TD>2202
+    <TD>8706
+    <TD>226.136.130
+    <TD>E28882
+    <TD>в€‚
+    <TD>PARTIAL DIFFERENTIAL
+    <TD>partialdiff 
+  <TR>
+    <TD>·
+    <TD>183
+    <TD>B7
+    <TD>2211
+    <TD>8721
+    <TD>226.136.145
+    <TD>E28891
+    <TD>в€‘
+    <TD>N-ARY SUMMATION
+    <TD>summation 
+  <TR>
+    <TD>ё
+    <TD>184
+    <TD>B8
+    <TD>220F
+    <TD>8719
+    <TD>226.136.143
+    <TD>E2888F
+    <TD>в€Џ
+    <TD>N-ARY PRODUCT
+    <TD>product 
+  <TR>
+    <TD>№
+    <TD>185
+    <TD>B9
+    <TD>03C0
+    <TD>960
+    <TD>207.128
+    <TD>CF80
+    <TD>ПЂ
+    <TD>GREEK SMALL LETTER PI
+    <TD>pi 
+  <TR>
+    <TD>є
+    <TD>186
+    <TD>BA
+    <TD>222B
+    <TD>8747
+    <TD>226.136.171
+    <TD>E288AB
+    <TD>в€«
+    <TD>INTEGRAL
+    <TD>integral 
+  <TR>
+    <TD>»
+    <TD>187
+    <TD>BB
+    <TD>00AA
+    <TD>170
+    <TD>194.170
+    <TD>C2AA
+    <TD>ВЄ
+    <TD>FEMININE ORDINAL INDICATOR
+    <TD>ordfeminine 
+  <TR>
+    <TD>ј
+    <TD>188
+    <TD>BC
+    <TD>00BA
+    <TD>186
+    <TD>194.186
+    <TD>C2BA
+    <TD>Вє
+    <TD>MASCULINE ORDINAL INDICATOR
+    <TD>ordmasculine 
+  <TR>
+    <TD>Ѕ
+    <TD>189
+    <TD>BD
+    <TD>03A9
+    <TD>937
+    <TD>206.169
+    <TD>CEA9
+    <TD>О©
+    <TD>GREEK CAPITAL LETTER OMEGA
+    <TD>Omega 
+  <TR>
+    <TD>ѕ
+    <TD>190
+    <TD>BE
+    <TD>00E6
+    <TD>230
+    <TD>195.166
+    <TD>C3A6
+    <TD>Г¦
+    <TD>LATIN SMALL LETTER AE
+    <TD>ae 
+  <TR>
+    <TD>ї
+    <TD>191
+    <TD>BF
+    <TD>00F8
+    <TD>248
+    <TD>195.184
+    <TD>C3B8
+    <TD>Гё
+    <TD>LATIN SMALL LETTER O WITH STROKE
+    <TD>oslash 
+  <TR bgColor=aqua>
+    <TD>ch
+    <TD>dec
+    <TD>hx
+    <TD>U-hex
+    <TD>U-dec
+    <TD>UTF-dec
+    <TD>UTF-hx
+    <TD>lit
+    <TD>Unicode name
+    <TD>PostScript name 
+  <TR>
+    <TD>А
+    <TD>192
+    <TD>C0
+    <TD>00BF
+    <TD>191
+    <TD>194.191
+    <TD>C2BF
+    <TD>Вї
+    <TD>INVERTED QUESTION MARK
+    <TD>questiondown 
+  <TR>
+    <TD>Б
+    <TD>193
+    <TD>C1
+    <TD>00A1
+    <TD>161
+    <TD>194.161
+    <TD>C2A1
+    <TD>ВЎ
+    <TD>INVERTED EXCLAMATION MARK
+    <TD>exclamdown 
+  <TR>
+    <TD>В
+    <TD>194
+    <TD>C2
+    <TD>00AC
+    <TD>172
+    <TD>194.172
+    <TD>C2AC
+    <TD>В¬
+    <TD>NOT SIGN
+    <TD>logicalnot 
+  <TR>
+    <TD>Г
+    <TD>195
+    <TD>C3
+    <TD>221A
+    <TD>8730
+    <TD>226.136.154
+    <TD>E2889A
+    <TD>в€љ
+    <TD>SQUARE ROOT
+    <TD>radical 
+  <TR>
+    <TD>Д
+    <TD>196
+    <TD>C4
+    <TD>0192
+    <TD>402
+    <TD>198.146
+    <TD>C692
+    <TD>Ж’
+    <TD>LATIN SMALL LETTER F WITH HOOK
+    <TD>florin 
+  <TR>
+    <TD>Е
+    <TD>197
+    <TD>C5
+    <TD>2248
+    <TD>8776
+    <TD>226.137.136
+    <TD>E28988
+    <TD>в‰€
+    <TD>ALMOST EQUAL TO
+    <TD>approxequal 
+  <TR>
+    <TD>Ж
+    <TD>198
+    <TD>C6
+    <TD>2206
+    <TD>8710
+    <TD>226.136.134
+    <TD>E28886
+    <TD>в€†
+    <TD>INCREMENT
+    <TD>Delta 
+  <TR>
+    <TD>З
+    <TD>199
+    <TD>C7
+    <TD>00AB
+    <TD>171
+    <TD>194.171
+    <TD>C2AB
+    <TD>В«
+    <TD>LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
+    <TD>guillemotleft 
+  <TR>
+    <TD>И
+    <TD>200
+    <TD>C8
+    <TD>00BB
+    <TD>187
+    <TD>194.187
+    <TD>C2BB
+    <TD>В»
+    <TD>RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+    <TD>guillemotright 
+  <TR>
+    <TD>Й
+    <TD>201
+    <TD>C9
+    <TD>2026
+    <TD>8230
+    <TD>226.128.166
+    <TD>E280A6
+    <TD>вЂ¦
+    <TD>HORIZONTAL ELLIPSIS
+    <TD>ellipsis 
+  <TR>
+    <TD>К
+    <TD>202
+    <TD>CA
+    <TD>00A0
+    <TD>160
+    <TD>194.160
+    <TD>C2A0
+    <TD>В&nbsp;
+    <TD>NO-BREAK SPACE
+    <TD>nobreakspace 
+  <TR>
+    <TD>Л
+    <TD>203
+    <TD>CB
+    <TD>00C0
+    <TD>192
+    <TD>195.128
+    <TD>C380
+    <TD>ГЂ
+    <TD>LATIN CAPITAL LETTER A WITH GRAVE
+    <TD>Agrave 
+  <TR>
+    <TD>М
+    <TD>204
+    <TD>CC
+    <TD>00C3
+    <TD>195
+    <TD>195.131
+    <TD>C383
+    <TD>Гѓ
+    <TD>LATIN CAPITAL LETTER A WITH TILDE
+    <TD>Atilde 
+  <TR>
+    <TD>Н
+    <TD>205
+    <TD>CD
+    <TD>00D5
+    <TD>213
+    <TD>195.149
+    <TD>C395
+    <TD>Г•
+    <TD>LATIN CAPITAL LETTER O WITH TILDE
+    <TD>Otilde 
+  <TR>
+    <TD>О
+    <TD>206
+    <TD>CE
+    <TD>0152
+    <TD>338
+    <TD>197.146
+    <TD>C592
+    <TD>Е’
+    <TD>LATIN CAPITAL LIGATURE OE
+    <TD>OE 
+  <TR>
+    <TD>П
+    <TD>207
+    <TD>CF
+    <TD>0153
+    <TD>339
+    <TD>197.147
+    <TD>C593
+    <TD>Е“
+    <TD>LATIN SMALL LIGATURE OE
+    <TD>oe 
+  <TR>
+    <TD>Р
+    <TD>208
+    <TD>D0
+    <TD>2013
+    <TD>8211
+    <TD>226.128.147
+    <TD>E28093
+    <TD>вЂ“
+    <TD>EN DASH
+    <TD>endash 
+  <TR>
+    <TD>С
+    <TD>209
+    <TD>D1
+    <TD>2014
+    <TD>8212
+    <TD>226.128.148
+    <TD>E28094
+    <TD>вЂ”
+    <TD>EM DASH
+    <TD>emdash 
+  <TR>
+    <TD>Т
+    <TD>210
+    <TD>D2
+    <TD>201C
+    <TD>8220
+    <TD>226.128.156
+    <TD>E2809C
+    <TD>вЂњ
+    <TD>LEFT DOUBLE QUOTATION MARK
+    <TD>quotedblleft 
+  <TR>
+    <TD>У
+    <TD>211
+    <TD>D3
+    <TD>201D
+    <TD>8221
+    <TD>226.128.157
+    <TD>E2809D
+    <TD>вЂќ
+    <TD>RIGHT DOUBLE QUOTATION MARK
+    <TD>quotedblright 
+  <TR>
+    <TD>Ф
+    <TD>212
+    <TD>D4
+    <TD>2018
+    <TD>8216
+    <TD>226.128.152
+    <TD>E28098
+    <TD>вЂ
+    <TD>LEFT SINGLE QUOTATION MARK
+    <TD>quoteleft 
+  <TR>
+    <TD>Х
+    <TD>213
+    <TD>D5
+    <TD>2019
+    <TD>8217
+    <TD>226.128.153
+    <TD>E28099
+    <TD>вЂ™
+    <TD>RIGHT SINGLE QUOTATION MARK
+    <TD>quoteright 
+  <TR>
+    <TD>Ц
+    <TD>214
+    <TD>D6
+    <TD>00F7
+    <TD>247
+    <TD>195.183
+    <TD>C3B7
+    <TD>Г·
+    <TD>DIVISION SIGN
+    <TD>divide 
+  <TR>
+    <TD>Ч
+    <TD>215
+    <TD>D7
+    <TD>25CA
+    <TD>9674
+    <TD>226.151.138
+    <TD>E2978A
+    <TD>в—Љ
+    <TD>LOZENGE
+    <TD>lozenge 
+  <TR>
+    <TD>Ш
+    <TD>216
+    <TD>D8
+    <TD>00FF
+    <TD>255
+    <TD>195.191
+    <TD>C3BF
+    <TD>Гї
+    <TD>LATIN SMALL LETTER Y WITH DIAERESIS
+    <TD>ydieresis 
+  <TR>
+    <TD>Щ
+    <TD>217
+    <TD>D9
+    <TD>0178
+    <TD>376
+    <TD>197.184
+    <TD>C5B8
+    <TD>Её
+    <TD>LATIN CAPITAL LETTER Y WITH DIAERESIS
+    <TD>Ydieresis 
+  <TR>
+    <TD>Ъ
+    <TD>218
+    <TD>DA
+    <TD>2044
+    <TD>8260
+    <TD>226.129.132
+    <TD>E28184
+    <TD>вЃ„
+    <TD>FRACTION SLASH
+    <TD>fraction 
+  <TR>
+    <TD>Ы
+    <TD>219
+    <TD>DB
+    <TD>20AC
+    <TD>8364
+    <TD>226.130.172
+    <TD>E282AC
+    <TD>в‚¬
+    <TD>EURO SIGN
+    <TD>currency 
+  <TR>
+    <TD>Ь
+    <TD>220
+    <TD>DC
+    <TD>2039
+    <TD>8249
+    <TD>226.128.185
+    <TD>E280B9
+    <TD>вЂ№
+    <TD>SINGLE LEFT-POINTING ANGLE QUOTATION MARK
+    <TD>guilsinglleft 
+  <TR>
+    <TD>Э
+    <TD>221
+    <TD>DD
+    <TD>203A
+    <TD>8250
+    <TD>226.128.186
+    <TD>E280BA
+    <TD>вЂє
+    <TD>SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
+    <TD>guilsinglright 
+  <TR>
+    <TD>Ю
+    <TD>222
+    <TD>DE
+    <TD>FB01
+    <TD>64257
+    <TD>239.172.129
+    <TD>EFAC81
+    <TD>п¬Ѓ
+    <TD>LATIN SMALL LIGATURE FI
+    <TD>fi 
+  <TR>
+    <TD>Я
+    <TD>223
+    <TD>DF
+    <TD>FB02
+    <TD>64258
+    <TD>239.172.130
+    <TD>EFAC82
+    <TD>п¬‚
+    <TD>LATIN SMALL LIGATURE FL
+    <TD>fl 
+  <TR bgColor=aqua>
+    <TD>ch
+    <TD>dec
+    <TD>hx
+    <TD>U-hex
+    <TD>U-dec
+    <TD>UTF-dec
+    <TD>UTF-hx
+    <TD>lit
+    <TD>Unicode name
+    <TD>PostScript name 
+  <TR>
+    <TD>а
+    <TD>224
+    <TD>E0
+    <TD>2021
+    <TD>8225
+    <TD>226.128.161
+    <TD>E280A1
+    <TD>вЂЎ
+    <TD>DOUBLE DAGGER
+    <TD>daggerdbl 
+  <TR>
+    <TD>б
+    <TD>225
+    <TD>E1
+    <TD>00B7
+    <TD>183
+    <TD>194.183
+    <TD>C2B7
+    <TD>В·
+    <TD>MIDDLE DOT
+    <TD>periodcentered 
+  <TR>
+    <TD>в
+    <TD>226
+    <TD>E2
+    <TD>201A
+    <TD>8218
+    <TD>226.128.154
+    <TD>E2809A
+    <TD>вЂљ
+    <TD>SINGLE LOW-9 QUOTATION MARK
+    <TD>quotesinglbase 
+  <TR>
+    <TD>г
+    <TD>227
+    <TD>E3
+    <TD>201E
+    <TD>8222
+    <TD>226.128.158
+    <TD>E2809E
+    <TD>вЂћ
+    <TD>DOUBLE LOW-9 QUOTATION MARK
+    <TD>quotedblbase 
+  <TR>
+    <TD>д
+    <TD>228
+    <TD>E4
+    <TD>2030
+    <TD>8240
+    <TD>226.128.176
+    <TD>E280B0
+    <TD>вЂ°
+    <TD>PER MILLE SIGN
+    <TD>perthousand 
+  <TR>
+    <TD>е
+    <TD>229
+    <TD>E5
+    <TD>00C2
+    <TD>194
+    <TD>195.130
+    <TD>C382
+    <TD>Г‚
+    <TD>LATIN CAPITAL LETTER A WITH CIRCUMFLEX
+    <TD>Acircumflex 
+  <TR>
+    <TD>ж
+    <TD>230
+    <TD>E6
+    <TD>00CA
+    <TD>202
+    <TD>195.138
+    <TD>C38A
+    <TD>ГЉ
+    <TD>LATIN CAPITAL LETTER E WITH CIRCUMFLEX
+    <TD>Ecircumflex 
+  <TR>
+    <TD>з
+    <TD>231
+    <TD>E7
+    <TD>00C1
+    <TD>193
+    <TD>195.129
+    <TD>C381
+    <TD>ГЃ
+    <TD>LATIN CAPITAL LETTER A WITH ACUTE
+    <TD>Aacute 
+  <TR>
+    <TD>и
+    <TD>232
+    <TD>E8
+    <TD>00CB
+    <TD>203
+    <TD>195.139
+    <TD>C38B
+    <TD>Г‹
+    <TD>LATIN CAPITAL LETTER E WITH DIAERESIS
+    <TD>Edieresis 
+  <TR>
+    <TD>й
+    <TD>233
+    <TD>E9
+    <TD>00C8
+    <TD>200
+    <TD>195.136
+    <TD>C388
+    <TD>Г€
+    <TD>LATIN CAPITAL LETTER E WITH GRAVE
+    <TD>Egrave 
+  <TR>
+    <TD>к
+    <TD>234
+    <TD>EA
+    <TD>00CD
+    <TD>205
+    <TD>195.141
+    <TD>C38D
+    <TD>ГЌ
+    <TD>LATIN CAPITAL LETTER I WITH ACUTE
+    <TD>Iacute 
+  <TR>
+    <TD>л
+    <TD>235
+    <TD>EB
+    <TD>00CE
+    <TD>206
+    <TD>195.142
+    <TD>C38E
+    <TD>ГЋ
+    <TD>LATIN CAPITAL LETTER I WITH CIRCUMFLEX
+    <TD>Icircumflex 
+  <TR>
+    <TD>м
+    <TD>236
+    <TD>EC
+    <TD>00CF
+    <TD>207
+    <TD>195.143
+    <TD>C38F
+    <TD>ГЏ
+    <TD>LATIN CAPITAL LETTER I WITH DIAERESIS
+    <TD>Idieresis 
+  <TR>
+    <TD>н
+    <TD>237
+    <TD>ED
+    <TD>00CC
+    <TD>204
+    <TD>195.140
+    <TD>C38C
+    <TD>ГЊ
+    <TD>LATIN CAPITAL LETTER I WITH GRAVE
+    <TD>Igrave 
+  <TR>
+    <TD>о
+    <TD>238
+    <TD>EE
+    <TD>00D3
+    <TD>211
+    <TD>195.147
+    <TD>C393
+    <TD>Г“
+    <TD>LATIN CAPITAL LETTER O WITH ACUTE
+    <TD>Oacute 
+  <TR>
+    <TD>п
+    <TD>239
+    <TD>EF
+    <TD>00D4
+    <TD>212
+    <TD>195.148
+    <TD>C394
+    <TD>Г”
+    <TD>LATIN CAPITAL LETTER O WITH CIRCUMFLEX
+    <TD>Ocircumflex 
+  <TR>
+    <TD>р
+    <TD>240
+    <TD>F0
+    <TD>F8FF
+    <TD>63743
+    <TD>239.163.191
+    <TD>EFA3BF
+    <TD>пЈї
+    <TD>Apple logo
+    <TD>apple 
+  <TR>
+    <TD>с
+    <TD>241
+    <TD>F1
+    <TD>00D2
+    <TD>210
+    <TD>195.146
+    <TD>C392
+    <TD>Г’
+    <TD>LATIN CAPITAL LETTER O WITH GRAVE
+    <TD>Ograve 
+  <TR>
+    <TD>т
+    <TD>242
+    <TD>F2
+    <TD>00DA
+    <TD>218
+    <TD>195.154
+    <TD>C39A
+    <TD>Гљ
+    <TD>LATIN CAPITAL LETTER U WITH ACUTE
+    <TD>Uacute 
+  <TR>
+    <TD>у
+    <TD>243
+    <TD>F3
+    <TD>00DB
+    <TD>219
+    <TD>195.155
+    <TD>C39B
+    <TD>Г›
+    <TD>LATIN CAPITAL LETTER U WITH CIRCUMFLEX
+    <TD>Ucircumflex 
+  <TR>
+    <TD>ф
+    <TD>244
+    <TD>F4
+    <TD>00D9
+    <TD>217
+    <TD>195.153
+    <TD>C399
+    <TD>Г™
+    <TD>LATIN CAPITAL LETTER U WITH GRAVE
+    <TD>Ugrave 
+  <TR>
+    <TD>х
+    <TD>245
+    <TD>F5
+    <TD>0131
+    <TD>305
+    <TD>196.177
+    <TD>C4B1
+    <TD>Д±
+    <TD>LATIN SMALL LETTER DOTLESS I
+    <TD>dotlessi 
+  <TR>
+    <TD>ц
+    <TD>246
+    <TD>F6
+    <TD>02C6
+    <TD>710
+    <TD>203.134
+    <TD>CB86
+    <TD>Л†
+    <TD>MODIFIER LETTER CIRCUMFLEX ACCENT
+    <TD>circumflex 
+  <TR>
+    <TD>ч
+    <TD>247
+    <TD>F7
+    <TD>02DC
+    <TD>732
+    <TD>203.156
+    <TD>CB9C
+    <TD>Лњ
+    <TD>SMALL TILDE
+    <TD>tilde 
+  <TR>
+    <TD>ш
+    <TD>248
+    <TD>F8
+    <TD>00AF
+    <TD>175
+    <TD>194.175
+    <TD>C2AF
+    <TD>ВЇ
+    <TD>MACRON
+    <TD>macron 
+  <TR>
+    <TD>щ
+    <TD>249
+    <TD>F9
+    <TD>02D8
+    <TD>728
+    <TD>203.152
+    <TD>CB98
+    <TD>Л
+    <TD>BREVE
+    <TD>breve 
+  <TR>
+    <TD>ъ
+    <TD>250
+    <TD>FA
+    <TD>02D9
+    <TD>729
+    <TD>203.153
+    <TD>CB99
+    <TD>Л™
+    <TD>DOT ABOVE
+    <TD>dotaccent 
+  <TR>
+    <TD>ы
+    <TD>251
+    <TD>FB
+    <TD>02DA
+    <TD>730
+    <TD>203.154
+    <TD>CB9A
+    <TD>Лљ
+    <TD>RING ABOVE
+    <TD>ring 
+  <TR>
+    <TD>ь
+    <TD>252
+    <TD>FC
+    <TD>00B8
+    <TD>184
+    <TD>194.184
+    <TD>C2B8
+    <TD>Вё
+    <TD>CEDILLA
+    <TD>cedilla 
+  <TR>
+    <TD>э
+    <TD>253
+    <TD>FD
+    <TD>02DD
+    <TD>733
+    <TD>203.157
+    <TD>CB9D
+    <TD>Лќ
+    <TD>DOUBLE ACUTE ACCENT
+    <TD>hungarumlaut 
+  <TR>
+    <TD>ю
+    <TD>254
+    <TD>FE
+    <TD>02DB
+    <TD>731
+    <TD>203.155
+    <TD>CB9B
+    <TD>Л›
+    <TD>OGONEK
+    <TD>ogonek 
+  <TR>
+    <TD>я
+    <TD>255
+    <TD>FF
+    <TD>02C7
+    <TD>711
+    <TD>203.135
+    <TD>CB87
+    <TD>Л‡
+    <TD>CARON
+    <TD>caron </TR></TBODY></TABLE>
+<P>The following characters can normally not be displayed on a Mac. These are 
+the Windows-specific characters and they follow the Windows code page 
+cp1252.<BR>Modern Macintosh browsers however, are able to display them, 
+especially when the user has installed the full Apple Language Kits, found on 
+the Mac OS 9+ CD.<BR>
+<TABLE bgColor=yellow>
+  <TBODY>
+  <TR bgColor=aqua>
+    <TD>ch
+    <TD>dec
+    <TD>hx
+    <TD>U-hex
+    <TD>U-dec
+    <TD>UTF-dec
+    <TD>UTF-hx
+    <TD>lit
+    <TD>Unicode name
+    <TD>PostScript name 
+  <TR>
+    <TD>Љ
+    <TD>138
+    <TD>8A
+    <TD>0160
+    <TD>352
+    <TD>197.160
+    <TD>C5A0
+    <TD>Е&nbsp;
+    <TD>LATIN CAPITAL LETTER S WITH CARON
+    <TD>Scaron 
+  <TR>
+    <TD>љ
+    <TD>154
+    <TD>9A
+    <TD>0161
+    <TD>353
+    <TD>197.161
+    <TD>C5A1
+    <TD>ЕЎ
+    <TD>LATIN SMALL LETTER S WITH CARON
+    <TD>scaron 
+  <TR>
+    <TD>¦
+    <TD>166
+    <TD>A6
+    <TD>A6
+    <TD>166
+    <TD>194.166
+    <TD>C2A6
+    <TD>В¦
+    <TD>BROKEN BAR
+    <TD>brokenbar 
+  <TR>
+    <TD>І
+    <TD>178
+    <TD>B2
+    <TD>B2
+    <TD>178
+    <TD>194.178
+    <TD>C2B2
+    <TD>ВІ
+    <TD>SUPERSCRIPT TWO
+    <TD>twosuperior 
+  <TR>
+    <TD>і
+    <TD>179
+    <TD>B3
+    <TD>B3
+    <TD>179
+    <TD>194.179
+    <TD>C2B3
+    <TD>Ві
+    <TD>SUPERSCRIPT THREE
+    <TD>threesuperior 
+  <TR>
+    <TD>№
+    <TD>185
+    <TD>B9
+    <TD>B9
+    <TD>185
+    <TD>194.185
+    <TD>C2B9
+    <TD>В№
+    <TD>SUPERSCRIPT ONE
+    <TD>onesuperior 
+  <TR>
+    <TD>ј
+    <TD>188
+    <TD>BC
+    <TD>BC
+    <TD>188
+    <TD>194.188
+    <TD>C2BC
+    <TD>Вј
+    <TD>VULGAR FRACTION ONE QUARTER
+    <TD>onequarter 
+  <TR>
+    <TD>Ѕ
+    <TD>189
+    <TD>BD
+    <TD>BD
+    <TD>189
+    <TD>194.189
+    <TD>C2BD
+    <TD>ВЅ
+    <TD>VULGAR FRACTION ONE HALF
+    <TD>onehalf 
+  <TR>
+    <TD>ѕ
+    <TD>190
+    <TD>BE
+    <TD>BE
+    <TD>190
+    <TD>194.190
+    <TD>C2BE
+    <TD>Вѕ
+    <TD>VULGAR FRACTION THREE QUARTERS
+    <TD>threequarters 
+  <TR>
+    <TD>Р
+    <TD>208
+    <TD>D0
+    <TD>D0
+    <TD>208
+    <TD>195.144
+    <TD>C390
+    <TD>Гђ
+    <TD>LATIN CAPITAL LETTER ETH
+    <TD>Eth 
+  <TR>
+    <TD>Ч
+    <TD>215
+    <TD>D7
+    <TD>D7
+    <TD>215
+    <TD>195.151
+    <TD>C397
+    <TD>Г—
+    <TD>MULTIPLICATION SIGN
+    <TD>multiply 
+  <TR>
+    <TD>Э
+    <TD>221
+    <TD>DD
+    <TD>DD
+    <TD>221
+    <TD>195.157
+    <TD>C39D
+    <TD>Гќ
+    <TD>LATIN CAPITAL LETTER Y WITH ACUTE
+    <TD>Yacute 
+  <TR>
+    <TD>Ю
+    <TD>222
+    <TD>DE
+    <TD>DE
+    <TD>222
+    <TD>195.158
+    <TD>C39E
+    <TD>Гћ
+    <TD>LATIN CAPITAL LETTER THORN
+    <TD>Thorn 
+  <TR>
+    <TD>р
+    <TD>240
+    <TD>F0
+    <TD>F0
+    <TD>240
+    <TD>195.176
+    <TD>C3B0
+    <TD>Г°
+    <TD>LATIN SMALL LETTER ETH
+    <TD>eth 
+  <TR>
+    <TD>э
+    <TD>253
+    <TD>FD
+    <TD>FD
+    <TD>253
+    <TD>195.189
+    <TD>C3BD
+    <TD>ГЅ
+    <TD>LATIN SMALL LETTER Y WITH ACUTE
+    <TD>yacute 
+  <TR>
+    <TD>ю
+    <TD>254
+    <TD>FE
+    <TD>FE
+    <TD>254
+    <TD>195.190
+    <TD>C3BE
+    <TD>Гѕ
+    <TD>LATIN SMALL LETTER THORN
+    <TD>thorn </TR></TBODY></TABLE>
+<P>© Oscar van Vlijmen, June 2000<BR>URL-alias of this page: 
+http://ovv.club.tip.nl/utf8tbl.html<BR>Last update: 2002-12-28 
+</P></BODY></HTML>

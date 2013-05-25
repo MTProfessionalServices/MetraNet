@@ -1,0 +1,36 @@
+GOAL 1
+____________________________________________________________________________________________________________
+
+	1 - Mark the time. StartTime = Now()
+	2 - Meter x transaction.
+	3 - Wait for the pipeline to process the transaction (Manual operation)
+	4 - Stat
+		4.1 Get the t_acc_usage last row EndTime=R.Fields("dt_crt")
+		    OverAll Time = DateDiff(EndTime,StartTime)		
+		
+		4.2 Draw graph of the number of transaction processed per second from StartTime.
+	
+
+
+
+Frame Work
+
+
+	1 Configures the parameters
+		- Interval = 10, 20, 30 minutes...
+		- Transaction / batch
+		- Number of RMP machine , address,...
+
+	3 Start
+
+	3 Meter batch for the interval duration
+		- The user can cancel the all test
+		- The user can stop the step and go the step 4
+
+	4 Wait for the pipe line to process all the transaction
+		- The user can cancel the all test
+
+	5 Run statistic queries, prepare data for graph, draw graph
+		- The user can cancel the all test
+
+	6 Goto 3

@@ -1,0 +1,4 @@
+
+
+[	]	Export PO does not list in statistic the price able item instance
+[	]	PriceAble Item Type display name are not exported by PCIMPORTEXPORT and not upgradable via extensions

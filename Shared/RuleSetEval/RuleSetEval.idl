@@ -1,0 +1,43 @@
+// RuleSetEval.idl : IDL source for RuleSetEval.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (RuleSetEval.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "MTRuleSetEvaluator.idl";
+import "IMTRuleSet.idl";
+
+
+	[
+		object,
+		uuid(E6D48CB0-36F6-4E1B-947C-FD9C844821BE),
+		dual,
+		helpstring("Dummy interface"),
+		pointer_default(unique)
+	]
+	interface IDummy : IDispatch
+	{
+	};
+
+[
+	uuid(C9204A9B-7F48-46B8-B7C2-74CED70990BF),
+	version(1.0),
+	helpstring("RuleSetEval 1.0 Type Library")
+]
+library RULESETEVALLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(FDA64B01-5082-4081-AD60-D99A61A81FED),
+		helpstring("MTRuleSetEvaluator Class")
+	]
+	coclass MTRuleSetEvaluator
+	{
+		[default] interface IMTRuleSetEvaluator;
+	};
+};

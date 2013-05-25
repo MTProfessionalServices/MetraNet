@@ -1,0 +1,24 @@
+HKCR
+{
+	MTServicesDef.MTServicesDef.1 = s 'MTServicesDef Class'
+	{
+		CLSID = s '{2A545850-A4CB-11D2-B297-006008925549}'
+	}
+	MTServicesDef.MTServicesDef = s 'MTServicesDef Class'
+	{
+		CurVer = s 'MTServicesDef.MTServicesDef.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {2A545850-A4CB-11D2-B297-006008925549} = s 'MTServicesDef Class'
+		{
+			ProgID = s 'MTServicesDef.MTServicesDef.1'
+			VersionIndependentProgID = s 'MTServicesDef.MTServicesDef'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+		}
+	}
+}

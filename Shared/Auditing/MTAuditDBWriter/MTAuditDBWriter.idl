@@ -1,0 +1,61 @@
+// MTAuditDBWriter.idl : IDL source for MTAuditDBWriter.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTAuditDBWriter.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "AuditEvents.idl";
+
+	[
+		object,
+		uuid(E8BA0093-B4BF-49D5-AA85-2D4B074877DC),
+		dual,
+		helpstring("IAuditDBWriter Interface"),
+		pointer_default(unique)
+	]
+	interface IAuditDBWriter : IDispatch
+	{
+		[id(1), helpstring("method Write")] HRESULT Write([in] IAuditEvent* apAuditEvent);
+		[id(2), helpstring("method Init")] HRESULT Init();
+	};
+	[
+		object,
+		uuid(3BE7D23F-9EAE-4B4B-A4A5-70E8EADAF156),
+		dual,
+		helpstring("IFailureAuditDBWriter Interface"),
+		pointer_default(unique)
+	]
+	interface IFailureAuditDBWriter : IDispatch
+	{
+		[id(1), helpstring("method Write")] HRESULT Write([in] IAuditEvent * apAuditEvent);
+	};
+
+[
+	uuid(42BE79C3-477A-4574-95C8-58393E98BF7C),
+	version(1.0),
+	helpstring("MTAuditDBWriter 1.0 Type Library")
+]
+library MTAUDITDBWRITERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(F00E069E-1ED5-4064-9888-7FEB252B7E28),
+		helpstring("AuditDBWriter Class")
+	]
+	coclass AuditDBWriter
+	{
+		[default] interface IAuditDBWriter;
+	};
+	[
+		uuid(57BC43AA-E24F-4C67-B2F9-09CA121EC8CC),
+		helpstring("FailureAuditDBWriter Class")
+	]
+	coclass FailureAuditDBWriter
+	{
+		[default] interface IFailureAuditDBWriter;
+	};
+};

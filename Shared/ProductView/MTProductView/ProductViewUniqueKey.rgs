@@ -1,0 +1,26 @@
+HKCR
+{
+	Metratech.ProductViewUniqueKey.1 = s 'ProductViewUniqueKey Class'
+	{
+		CLSID = s '{D9A688BA-1DC9-439A-957D-3A437C8ACA07}'
+	}
+	Metratech.ProductViewUniqueKey = s 'ProductViewUniqueKey Class'
+	{
+		CLSID = s '{D9A688BA-1DC9-439A-957D-3A437C8ACA07}'
+		CurVer = s 'Metratech.ProductViewUniqueKey.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {D9A688BA-1DC9-439A-957D-3A437C8ACA07} = s 'ProductViewUniqueKey Class'
+		{
+			ProgID = s 'Metratech.ProductViewUniqueKey.1'
+			VersionIndependentProgID = s 'Metratech.ProductViewUniqueKey'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{D0CF0775-A746-11D2-B298-006008925549}'
+		}
+	}
+}

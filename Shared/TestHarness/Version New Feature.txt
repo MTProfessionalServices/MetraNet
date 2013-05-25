@@ -1,0 +1,12 @@
+
+For Test Harness 4.0.
+
+A couple of suggestions for the next version of the test harness:
+
+1) Have a "Skip" flag on each test, settable from the GUI.  If set the test should not be executed and TH should write a line into result.csv with status [SKIPPED]
+
+2) The default behavior should be *not* to abandon the session if a test fails.  We miss a lot of test failures because generally people don't set the flag to continue the session if the test fails even when there are no dependencies.
+
+Thanks
+Simon
+

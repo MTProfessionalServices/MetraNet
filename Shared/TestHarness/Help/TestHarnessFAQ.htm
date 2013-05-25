@@ -1,0 +1,94 @@
+<HTML>
+<BODY>
+<FONT Face='verdana' size=2>
+<CENTER>
+
+<H1>Test Harness FAQ</H1>
+</CENTER>
+<BR>
+
+<BR><BR><H2>What is the difference between .WSF and .VBS file?</H2>
+<hr size=1>
+VBS are VBScript file and WSF are Window Script Hosting file. WSF is based on VBScript but
+add features (<a Target="_TOP" HREF="http://msdn.microsoft.com/scripting/default.htm">http://msdn.microsoft.com/scripting/default.htm</a>).
+With VBS file you can debug your test file and you do not need the IIS Virtual Link on the test database.
+Look in the Test Database Template.Library there are different samples.<BR>
+
+<BR><BR><H2>Why do I need a IIS Virtual Link to the Test Database</H2>
+<hr size=1>
+In WSF file we use an URL to include the class CTest.vbs. If the virtual link is not created or IIS is not running the test will fail.<BR>
+
+<BR><BR><H2>Why do I need an Environment Variable MetraTechTestDatabase</H2>
+<hr size=1>
+ The Test Harness and the class CTest.vbs uses the MetraTechTestDatabase Environment Variable to retreive where is the test
+ database located.<BR>
+
+<BR><BR><H2>How should I handle error in my test program?</H2>
+<hr size=1>
+ If an error is raise by VBScript or any COM object called, the test will end and the instance Test As New CTest 
+ will tell the Test Harness that the test failed. Therefore, it is not mandatory to catch errors.<BR>
+
+<BR><BR><H2>How do I start a new Test?</H2>
+<hr size=1>
+ Copy the file VBScript.Template and paste it somewhere in the Test Database.<BR>
+
+<BR><BR><H2>What are the global parameters?</H2>
+<hr size=1>
+ The Test Harness implements a notion of global parameters. These parameters are always passed to the command line.
+ The parameters are defined in the test called GLOBAL that is located in the root of the Test Database.
+ It is possible to exclude the global parameters from the command line for each test. See the Edit Test Dialog.
+ It is also possible to specify the Command Line Format for each test. See the Edit Test Dialog.<BR>
+ 
+<BR><BR><H2>What are the Test Session parameters?</H2>
+<hr size=1>
+Test Session Parameters are command line parameters that are created by a test during the execution of
+a test session and are available to the following tests in the session.
+
+
+<BR><BR><H2>Where can I find a good log viewer utility?</H2>
+<hr size=1>
+<A TARGET="_TOP" HREF=" http://www.flogviewer.com">http://www.flogviewer.com</a><BR>
+
+<BR><BR><H2>Can I include my own VBScript Library in my test file?</H2>
+<hr size=1>
+ Yes, see the syntax used to include CTest.vbs. The syntax supports an http call or a file call.<BR>
+  WSF syntax :<BR>
+  <BLOCKQUOTE>
+  &lt;SCRIPT LANGUAGE="VBScript" SRC="http://localhost/MetraTechTestDatabase/MyLibrary/MyLibrary.vbs" /&gt;<BR>
+  &lt;SCRIPT LANGUAGE="VBScript" SRC="../../MyLibrary/MyLibrary.vbs" /&gt;
+  </BLOCKQUOTE>
+  VBS syntax : you must call the include function from the Main() function<BR>
+  <BLOCKQUOTE>Include Environ("MetratechTestDatabase") & "\Development\ui\uiLib\MyLib.vbs"</BLOCKQUOTE>
+    
+<BR><BR><H2>Can I create my own VBScript class in my test?</H2>
+<hr size=1>
+ Yes. As a serious OO developer you should. Get the VBScript help.<BR>
+ 
+  
+<BR><BR><H2>How to Add, remove, update and read a Session Parameter?</H2>
+<hr size=1>
+ Syntax: 
+<BLOCKQUOTE>
+ TestSessionParameters.Add "Server","BigDisk"<BR>
+ TestSessionParameters.Remove "Server"<BR>
+ TestSessionParameters.Item("Server").Value = "SAUGE"<BR>
+ Server = TestSession.Item("Server").Value<BR>
+</BLOCKQUOTE>
+ 
+<BR><BR><H2>Can I run my test without the Test Harness?</H2>
+<hr size=1>
+Yes each test can run with or without the Test Harness. It is even possible to detect id the Test Harness is running.<BR>
+<BLOCKQUOTE>
+If Test.UTApi.TestHarnessMode Then<BR>
+<BR>
+End If
+<BR>
+</BLOCKQUOTE>
+
+ 
+<BR><BR><H2>How cam I see the command line</H2>
+<hr size=1>
+Set to TRUE the global parameters DEBUG or call the function Test.ArgumentsToString()
+ 
+ </BODY>
+</HTML>

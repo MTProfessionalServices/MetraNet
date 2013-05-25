@@ -1,0 +1,26 @@
+HKCR
+{
+	MTGenericDBExec.MTGenericDBWriter.1 = s 'MTGenericDBWriter Class'
+	{
+		CLSID = s '{CA1E3625-7A82-4C62-A750-5E1398A94F3B}'
+	}
+	MTGenericDBExec.MTGenericDBWriter = s 'MTGenericDBWriter Class'
+	{
+		CLSID = s '{CA1E3625-7A82-4C62-A750-5E1398A94F3B}'
+		CurVer = s 'MTGenericDBExec.MTGenericDBWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {CA1E3625-7A82-4C62-A750-5E1398A94F3B} = s 'MTGenericDBWriter Class'
+		{
+			ProgID = s 'MTGenericDBExec.MTGenericDBWriter.1'
+			VersionIndependentProgID = s 'MTGenericDBExec.MTGenericDBWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B430744C-4954-4C8E-8686-A72F653914C1}'
+		}
+	}
+}

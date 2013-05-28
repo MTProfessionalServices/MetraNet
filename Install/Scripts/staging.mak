@@ -48,7 +48,7 @@ BLDTYPE=release
 
 S_BASE_DIR         = S:
 S_METRANET_DIR     = R:
-S_METRACONNECT_DIR = S:\MetraConnect
+S_METRACONNECT_DIR = V:\Legacy_Internal\MetraConnect
 S_TECHDOC_DIR      = P:\TechDoc
 S_3RDPARTY_DIR     = $(THIRDPARTY)
 S_KEY_DIR          = $(S_BASE_DIR)\build\keys

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Expressions;
@@ -78,13 +79,13 @@ namespace MetraTech.ExpressionEngine
         /// All Account Qualification Groups
         /// </summary>
         public Dictionary<string, Aqg> Aqgs { get { return _aqgs; } }
-        private Dictionary<string, Aqg> _aqgs = new Dictionary<string, Aqg>(StringComparer.InvariantCultureIgnoreCase);
+        private readonly Dictionary<string, Aqg> _aqgs = new Dictionary<string, Aqg>(StringComparer.InvariantCultureIgnoreCase);
 
         /// <summary>
         /// All UsageQualificationGroups
         /// </summary>
         public Dictionary<string, Uqg> Uqgs { get { return _uqgs; } }
-        private Dictionary<string, Uqg> _uqgs = new Dictionary<string, Uqg>(StringComparer.InvariantCultureIgnoreCase);
+        private readonly Dictionary<string, Uqg> _uqgs = new Dictionary<string, Uqg>(StringComparer.InvariantCultureIgnoreCase);
 
         /// <summary>
         /// All Namespaces
@@ -96,16 +97,16 @@ namespace MetraTech.ExpressionEngine
         /// All expressions
         /// </summary>
         public Dictionary<string, Expression> Expressions { get { return _expressions; } }
-        private Dictionary<string, Expression> _expressions = new Dictionary<string, Expression>(StringComparer.InvariantCultureIgnoreCase);
+        private readonly Dictionary<string, Expression> _expressions = new Dictionary<string, Expression>(StringComparer.InvariantCultureIgnoreCase);
 
         public Dictionary<string, EmailTemplate> EmailTemplates { get { return _emailTemplates; } }
-        private Dictionary<string, EmailTemplate> _emailTemplates = new Dictionary<string, EmailTemplate>(StringComparer.InvariantCultureIgnoreCase);
+        private readonly Dictionary<string, EmailTemplate> _emailTemplates = new Dictionary<string, EmailTemplate>(StringComparer.InvariantCultureIgnoreCase);
 
         public Dictionary<string, EmailInstance> EmailInstances { get { return _emailInstances; }}
-        private Dictionary<string, EmailInstance> _emailInstances = new Dictionary<string, EmailInstance>(StringComparer.InvariantCultureIgnoreCase);
+        private readonly Dictionary<string, EmailInstance> _emailInstances = new Dictionary<string, EmailInstance>(StringComparer.InvariantCultureIgnoreCase);
 
         public Dictionary<string, PageLayout> PageLayouts { get { return _pageLayouts; } }
-        private Dictionary<string, PageLayout> _pageLayouts = new Dictionary<string, PageLayout>(StringComparer.InvariantCultureIgnoreCase);
+        private readonly Dictionary<string, PageLayout> _pageLayouts = new Dictionary<string, PageLayout>(StringComparer.InvariantCultureIgnoreCase);
         
         #endregion
 
@@ -113,19 +114,19 @@ namespace MetraTech.ExpressionEngine
         //These are updated by UpdateContext()
 
         public List<Property> AllProperties { get { return _allProperties; } }
-        private List<Property> _allProperties = new List<Property>();
+        private readonly List<Property> _allProperties = new List<Property>();
 
         public Dictionary<string, Property> UniqueProperties { get { return _uniqueProperties; } }
-        private Dictionary<string, Property> _uniqueProperties = new Dictionary<string, Property>(StringComparer.InvariantCultureIgnoreCase);
+        private readonly Dictionary<string, Property> _uniqueProperties = new Dictionary<string, Property>(StringComparer.InvariantCultureIgnoreCase);
 
         public List<EnumCategory> RelevantEnums { get { return _relevantEnums; } }
-        private List<EnumCategory> _relevantEnums = new List<EnumCategory>();
+        private readonly List<EnumCategory> _relevantEnums = new List<EnumCategory>();
 
         public List<string> Extensions { get { return _extensions; } }
-        private List<string> _extensions = new List<string>();
+        private readonly List<string> _extensions = new List<string>();
 
         public List<string> Namespaces { get { return _namespaces; } } 
-        private List<string> _namespaces = new List<string>(); 
+        private readonly List<string> _namespaces = new List<string>(); 
         #endregion
 
         #region Constructors
@@ -191,11 +192,7 @@ namespace MetraTech.ExpressionEngine
         #region Expression Methods
         public ExpressionParseResults GetExpressionParseResults()
         {
-            ExpressionParseResults results;
-            if (Expression.Type == ExpressionType.Email)
-                results = EmailInstance.Parse();
-            else
-                results = Expression.Parse();
+          ExpressionParseResults results = Expression.Type == ExpressionType.Email ? EmailInstance.Parse() : Expression.Parse();
 
             results.BindResultsToContext(this);
             return results;
@@ -211,7 +208,7 @@ namespace MetraTech.ExpressionEngine
             if (string.IsNullOrEmpty(name))
                 return null;
 
-            return _getRecursive(name, (IEnumerable<Property>)PropertyBags);
+            return _getRecursive(name, PropertyBags);
         }
 
         private Property _getRecursive(string name, IEnumerable<Property> properties)
@@ -273,31 +270,21 @@ namespace MetraTech.ExpressionEngine
             var results = new List<Property>();
             foreach (var entity in entities)
             {
-                foreach (var property in entity.Properties)
-                {
-                    if (property.Type.IsBaseTypeFilterMatch(typeFilter))
-                        results.Add(property);
-                }
+              results.AddRange(entity.Properties.Where(property => property.Type.IsBaseTypeFilterMatch(typeFilter)));
             }
             return results;
         }
 
         public List<Property> GetProperties(Type dtInfo, MatchType minimumMatchLevel, bool uniqueProperties)
         {
-            var properties = new List<Property>();
-            IEnumerable<Property> list;
+          IEnumerable<Property> list;
 
             if (uniqueProperties)
                 list = UniqueProperties.Values;
             else
                 list = AllProperties;
 
-            foreach (var property in list)
-            {
-                if (property.Type.IsMatch(dtInfo, minimumMatchLevel))
-                    properties.Add(property);
-            }
-            return properties;
+          return list.Where(property => property.Type.IsMatch(dtInfo, minimumMatchLevel)).ToList();
         }
 
         public bool TryGetPropertyFromAllProperties(string name, out Property result)
@@ -536,10 +523,9 @@ namespace MetraTech.ExpressionEngine
             if (!dirInfo.Exists)
                 throw new ArgumentException("extensionsDir doesn't exist: " + extensionsDir);
 
-            var context = new Context(ProductType.MetraNet);
-            context.ExtensionsDirPath = extensionsDir;
+            var context = new Context(ProductType.MetraNet) {ExtensionsDirPath = extensionsDir};
 
-            foreach (var extensionDirInfo in dirInfo.GetDirectories())
+          foreach (var extensionDirInfo in dirInfo.GetDirectories())
             {
                 LoadExtension(context, extensionDirInfo);
             }

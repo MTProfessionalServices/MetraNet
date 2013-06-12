@@ -70,6 +70,12 @@
     <Compile Include="Compoenents\ctlEnumCategoryAndValue.Designer.cs">
       <DependentUpon>ctlEnumCategoryAndValue.cs</DependentUpon>
     </Compile>
+    <Compile Include="Compoenents\ctlPropertyLink.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Compoenents\ctlPropertyLink.Designer.cs">
+      <DependentUpon>ctlPropertyLink.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compoenents\ctlPropertyReference.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -269,6 +275,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compoenents\ctlEnumCategoryAndValue.resx">
       <DependentUpon>ctlEnumCategoryAndValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compoenents\ctlPropertyLink.resx">
+      <DependentUpon>ctlPropertyLink.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compoenents\ctlPropertyReference.resx">
       <DependentUpon>ctlPropertyReference.cs</DependentUpon>

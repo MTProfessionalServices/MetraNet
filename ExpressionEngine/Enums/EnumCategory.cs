@@ -265,7 +265,7 @@ namespace MetraTech.ExpressionEngine.Components
                 {
                     if (messages == null)
                         throw;
-                    messages.Error(string.Format(CultureInfo.CurrentCulture, Localization.FileLoadError, fileInfo.FullName), exception);
+                    messages.Error(exception, string.Format(CultureInfo.CurrentCulture, Localization.FileLoadError, fileInfo.FullName));
                 }               
             }
 

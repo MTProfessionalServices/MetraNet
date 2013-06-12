@@ -375,6 +375,5 @@ namespace PropertyGui
             base.OnNodeMouseClick(e);
         }
         #endregion
-
     }
 }

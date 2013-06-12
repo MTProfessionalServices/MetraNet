@@ -1,4 +1,5 @@
 ﻿using MetraTech.ExpressionEngine;
+using MetraTech.ExpressionEngine.Infrastructure;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
@@ -32,8 +33,8 @@ namespace PropertyGui.TypeSystemControls
 
             ctlProperty.Top = ctlUom.Top;
             ctlProperty.Left = ctlUom.Left;
-            ctlProperty.Init(property, TypeFactory.CreateUnitOfMeasure(), "UnitOfMeasure", PropertyCreated);
-            //ctlProperty.OnPropertyCreated = PropertyCreated;
+            var link = ((NumberType) Property.Type).GetUnitOfMeasurePropertyLink();
+            ctlProperty.Init(link, "UnitOfMeasure", Property.PropertyBag, OnPropertyCreated);
         }
 
         public override void SyncToForm()
@@ -43,7 +44,7 @@ namespace PropertyGui.TypeSystemControls
         public override void SyncToObject()
         {
             //Note that UnitOfMeasureMode set in change event
-            NumberType.UnitOfMeasureProperty = ctlProperty.PropertyName;
+            ctlProperty.SyncToForm();
             NumberType.UnitOfMeasureCategory = ctlUom.EnumCategory;
             NumberType.FixedUnitOfMeasure = ctlUom.EnumFullName;
 
@@ -63,7 +64,7 @@ namespace PropertyGui.TypeSystemControls
             {
                 case UnitOfMeasureMode.PropertyDriven:
                     showProperty = true;
-                    ctlProperty.PropertyName = NumberType.UnitOfMeasureProperty;
+                    ctlProperty.SyncToForm();
                     lblGeneric.Text = "Unit of Measure Property:";
                     break;
                 case UnitOfMeasureMode.FixedCategory:

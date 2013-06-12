@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
-using System.Text;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Validations;
 
@@ -102,17 +100,17 @@ namespace MetraTech.ExpressionEngine.Infrastructure
         }
 
 
-        public void WriteCsvFile(string filePath)
-        {
-            IOHelper.EnsureDirectoryExits(Path.GetDirectoryName(filePath));
-            var sb = new StringBuilder();
-            foreach (var component in Components.Values)
-            {
-                sb.AppendLine(string.Format(CultureInfo.InvariantCulture, "{0},{1}", component.FullName, component.ComponentType));
-            }
+        //public void WriteCsvFile(string filePath)
+        //{
+        //    IOHelper.EnsureDirectoryExits(Path.GetDirectoryName(filePath));
+        //    var sb = new StringBuilder();
+        //    foreach (var component in Components.Values)
+        //    {
+        //        sb.AppendLine(string.Format(CultureInfo.InvariantCulture, "{0},{1}", component.FullName, component.ComponentType));
+        //    }
 
-            File.WriteAllText(filePath, sb.ToString());
-        }
+        //    File.WriteAllText(filePath, sb.ToString());
+        //}
         #endregion
 
         #region IEnumerable Methods

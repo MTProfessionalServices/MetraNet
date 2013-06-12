@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.Reflection;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Infrastructure;
@@ -8,12 +7,12 @@ using MetraTech.ExpressionEngine.Validations;
 namespace MetraTech.ExpressionEngine.Components
 {
     /// <summary>
-    /// Implements a link to a component. Many objects use a string to refer to components via string that contains
-    /// the component's FullName. This class faciliates generic validation and refactoring (renaming) of those references
-    /// to other componet. Since the refrence is a simple string (a value type) this class had to use reflection to be able 
+    /// Implements a link to a component. Many objects use a string to refer to components via a string that contains
+    /// the component's FullName. This class faciliates generic validation and refactoring (renaming) of those references.
+    /// Since the refrence is a simple string (a value type) this class uses reflection to be able 
     /// to generically rename the string. Since reflection was required for renaming, reflection is also used to read the
-    /// value of string during validation (one code path). This approch keeps the runtime simple (reference are just a string)
-    /// and this class, and it's associated relatively expensive reflection, are only invode at design or vaidation time.
+    /// value of string during validation (one code path). This approch keeps the runtime simple (references are just a string)
+    /// and this class, and it's associated relatively expensive reflection, are only invoked at design or vaidation time.
     /// 
     /// For validation need to think through;
     /// *PropertyBag: PropertyBagTypeName
@@ -23,19 +22,36 @@ namespace MetraTech.ExpressionEngine.Components
     public class ComponentLink
     {
         #region Properties
+        /// <summary>
+        /// Compared to the acitual component type during validation
+        /// </summary>
         public ComponentType ExpectedComponentType { get; private set; }
-        //private IComponent LinkComponent;
+
+        /// <summary>
+        /// The object that contains the link; used to perform reflection. See description at top.
+        /// </summary>
         private object LinkObject;
+
+        /// <summary>
+        /// The field that contains the link to the component; uses reflection. See description at top.
+        /// </summary>
         private PropertyInfo PropertyInfo;
+
+        /// <summary>
+        /// The name that the user assoicates with the link. Typically the label in the UI. Used to generate validation messages
+        /// </summary>
         public string UserContext { get; private set; }
+
+        /// <summary>
+        /// Determines if the link is required. If so, existance of the component is check at validation time
+        /// </summary>
         public bool IsRequired { get; private set; }
         #endregion
 
         #region Constructor
         public ComponentLink(ComponentType expectedType, object linkObject, string linkObjectPropertyName, bool isRequired, string userContext)
         {
-            //if (linkComponent == null)
-            //    throw new ArgumentException("linkComponent is null");
+            //Check parameters
             if (linkObject == null)
                 throw new ArgumentException("linkObject is null");
             if (string.IsNullOrEmpty(linkObjectPropertyName))
@@ -43,8 +59,8 @@ namespace MetraTech.ExpressionEngine.Components
             if (string.IsNullOrEmpty(userContext))
                 throw new ArgumentException("userContext is null or empty");
 
+            //Store parameters
             ExpectedComponentType = expectedType;
-            //LinkComponent = linkComponent;
             LinkObject = linkObject;
             IsRequired = isRequired;
             UserContext = userContext;
@@ -59,7 +75,7 @@ namespace MetraTech.ExpressionEngine.Components
         #endregion
 
         #region Methods
-        public void Validate(IComponent associatedComponent, ValidationMessageCollection messages, Context context)
+        public virtual void Validate(IComponent associatedComponent, ValidationMessageCollection messages, Context context)
         {
             if (associatedComponent == null)
                 throw new ArgumentException("associatedComponent is null");
@@ -68,35 +84,24 @@ namespace MetraTech.ExpressionEngine.Components
             if (context == null)
                 throw new ArgumentException("context is null");
 
-            var errorMsg = GetValidationMessage(context);
-            if (errorMsg != null)
-                messages.Error(associatedComponent, errorMsg);
+            var fullName = GetFullName();
+            if (string.IsNullOrEmpty(fullName))
+            {
+                if (IsRequired)
+                    messages.Error(Localization.ComponentNotSpecified, UserContext);
+                return;
+            }
+
+            var component = context.GlobalComponentCollection.Get(fullName);
+            if (component == null)
+                messages.Error(associatedComponent, Localization.UnableToFindComponent, UserContext, fullName);
+            else if (component.ComponentType != ExpectedComponentType)
+                messages.Error(associatedComponent, Localization.ComponentNotOfExpectedType, UserContext, ComponentHelper.GetUserName(ExpectedComponentType), component.ComponentType);
         }
 
         public string GetFullName()
         {
            return (string)PropertyInfo.GetValue(LinkObject, null);
-        }
-
-        public virtual string GetValidationMessage(Context context)
-        {
-            if (context == null)
-                throw new ArgumentException("context is null");
-
-            var fullName = GetFullName();
-            if (string.IsNullOrEmpty(fullName))
-            {
-                if (IsRequired)
-                    return string.Format(CultureInfo.CurrentCulture, "{0} is not specified.", UserContext);
-                return null;
-            }
-
-            var component = context.GlobalComponentCollection.Get(fullName);
-            if (component == null)
-                return string.Format(CultureInfo.CurrentCulture, "Invalid {0}: Unable to find '{1}'", UserContext, fullName);
-            if (component.ComponentType != ExpectedComponentType)
-                return string.Format(CultureInfo.CurrentCulture, "Invalid {0}: Expected a {1} but found a {2}", UserContext, ComponentHelper.GetUserName(ExpectedComponentType), component.ComponentType);
-            return null;
         }
 
         public void SetFullName(string newName)

@@ -117,5 +117,11 @@ namespace ExpressionEngineTest
             Assert.AreEqual("Day", BasicHelper.GetNameFromFullName("Hello.World.It.Is.A.Nice.Day"), "Hello.World.It.Is.A.Nice.Day");
             Assert.AreEqual("MyName", BasicHelper.GetNameFromFullName("......MyName"), "MyName");
         }
+
+        [TestMethod()]
+        public void GetFullNameTest()
+        {
+            Assert.AreEqual("Hello.World", BasicHelper.GetFullName("Hello", "World"));
+        }
     }
 }

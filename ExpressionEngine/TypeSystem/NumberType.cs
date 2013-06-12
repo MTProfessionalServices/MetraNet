@@ -2,6 +2,7 @@
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
+using MetraTech.ExpressionEngine.Infrastructure;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
@@ -127,9 +128,9 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         {
             return new ComponentLink(ComponentType.UnitOfMeasure, this, FixedUnitOfMeasurePropertyName, true, "Fixed Unit of Measure");
         }
-        public ComponentLink GetUnitOfMeasurePropertyLink()
+        public PropertyLink GetUnitOfMeasurePropertyLink()
         {
-            return new ComponentLink(ComponentType.PropertyBagProperty, this, UnitOfMeasurePropertyPropertyName, true, "Unit of Measure Property");
+            return new PropertyLink(TypeFactory.CreateUnitOfMeasure(), this, UnitOfMeasurePropertyPropertyName, true, "Unit of Measure Property");
         }
         #endregion
     }

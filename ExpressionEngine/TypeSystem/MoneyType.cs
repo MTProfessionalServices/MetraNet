@@ -73,7 +73,6 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         {
             var type = (MoneyType)base.Copy();
             InternalCopy(type);
-            //type.UnitsProperty = UnitsProperty;
             return type;
         }
         #endregion

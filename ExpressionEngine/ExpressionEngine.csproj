@@ -94,8 +94,6 @@
     <Compile Include="Expressions\Enumerations\ExpressionType.cs" />
     <Compile Include="Expressions\ExpressionHelper.cs" />
     <Compile Include="MTProperties\Enumerations\IndexType.cs" />
-    <Compile Include="MetraNet\IceConversion.cs" />
-    <Compile Include="MetraNet\Loader.cs" />
     <Compile Include="PropertyBags\AccountViewEntity.cs" />
     <Compile Include="MTProperties\AccountViewProperty.cs" />
     <Compile Include="PropertyBags\PropertyBagFactory.cs" />

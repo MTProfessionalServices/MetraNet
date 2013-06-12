@@ -61,6 +61,15 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Account Qualification Group.
+        /// </summary>
+        internal static string AccountQualificationGroup {
+            get {
+                return ResourceManager.GetString("AccountQualificationGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;All&gt;.
         /// </summary>
         internal static string AllChoice {
@@ -75,6 +84,24 @@ namespace MetraTech.ExpressionEngine {
         internal static string BaseTypeIncorrect {
             get {
                 return ResourceManager.GetString("BaseTypeIncorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid {0}: Expected a {1} but found a {2}.
+        /// </summary>
+        internal static string ComponentNotOfExpectedType {
+            get {
+                return ResourceManager.GetString("ComponentNotOfExpectedType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} is not specified..
+        /// </summary>
+        internal static string ComponentNotSpecified {
+            get {
+                return ResourceManager.GetString("ComponentNotSpecified", resourceCulture);
             }
         }
         
@@ -124,6 +151,24 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email Instance.
+        /// </summary>
+        internal static string EmailInstance {
+            get {
+                return ResourceManager.GetString("EmailInstance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email Template.
+        /// </summary>
+        internal static string EmailTemplate {
+            get {
+                return ResourceManager.GetString("EmailTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enumeration FixedCategory not specified.
         /// </summary>
         internal static string EnumCategoryNotSpecified {
@@ -169,11 +214,29 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Event Qualification Group.
+        /// </summary>
+        internal static string EventQualificationGroup {
+            get {
+                return ResourceManager.GetString("EventQualificationGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &quot;{0} [{1}]&quot;.
         /// </summary>
         internal static string ExceptionMessage {
             get {
                 return ResourceManager.GetString("ExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expression.
+        /// </summary>
+        internal static string Expression {
+            get {
+                return ResourceManager.GetString("Expression", resourceCulture);
             }
         }
         
@@ -201,6 +264,15 @@ namespace MetraTech.ExpressionEngine {
         internal static string FixedCurrency {
             get {
                 return ResourceManager.GetString("FixedCurrency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Function.
+        /// </summary>
+        internal static string Function {
+            get {
+                return ResourceManager.GetString("Function", resourceCulture);
             }
         }
         
@@ -259,6 +331,15 @@ namespace MetraTech.ExpressionEngine {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Page Layout.
+        /// </summary>
+        internal static string PageLayout {
+            get {
+                return ResourceManager.GetString("PageLayout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PropertyBag.
         /// </summary>
         internal static string PropertyBag {
@@ -309,6 +390,24 @@ namespace MetraTech.ExpressionEngine {
         internal static string String1 {
             get {
                 return ResourceManager.GetString("String1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} is not compatible with {1}..
+        /// </summary>
+        internal static string TypesNotCompatible {
+            get {
+                return ResourceManager.GetString("TypesNotCompatible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid {0}: Unable to find &apos;{1}&apos;.
+        /// </summary>
+        internal static string UnableToFindComponent {
+            get {
+                return ResourceManager.GetString("UnableToFindComponent", resourceCulture);
             }
         }
         
@@ -408,6 +507,15 @@ namespace MetraTech.ExpressionEngine {
         internal static string UnitOfMeasureNotSpecified {
             get {
                 return ResourceManager.GetString("UnitOfMeasureNotSpecified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit Test.
+        /// </summary>
+        internal static string UnitTest {
+            get {
+                return ResourceManager.GetString("UnitTest", resourceCulture);
             }
         }
     }

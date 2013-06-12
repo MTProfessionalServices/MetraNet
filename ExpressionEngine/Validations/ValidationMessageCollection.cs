@@ -17,12 +17,22 @@ namespace MetraTech.ExpressionEngine.Validations
         #endregion
 
         #region Properties
+
+        /// <summary>
+        /// The number of errors
+        /// </summary>
         [DataMember]
         public int ErrorCount { get; private set; }
 
+        /// <summary>
+        /// The number of warnings
+        /// </summary>
         [DataMember]
         public int WarningCount { get; private set; }
 
+        /// <summary>
+        /// The number of informational messages
+        /// </summary>
         [DataMember]
         public int InfoCount { get; private set; }
         public int Count { get { return Messages.Count; } }
@@ -68,62 +78,57 @@ namespace MetraTech.ExpressionEngine.Validations
             if (component == null)
                 throw new ArgumentException("component is null");
 
-            var prefix = string.Format(CultureInfo.CurrentCulture, Localization.ComponentValidationMessagePrefix, ComponentHelper.GetUserName(component.ComponentType), component.FullName);
-            string subMessage;
-            if (args != null)
-                subMessage = string.Format(CultureInfo.CurrentCulture, formatTemplate, args);
-            else
-                subMessage = formatTemplate;
-            var message = prefix + subMessage;
+            var prefix = string.Format(CultureInfo.CurrentUICulture, Localization.ComponentValidationMessagePrefix, ComponentHelper.GetUserName(component.ComponentType), component.FullName);
+            var message = prefix + string.Format(CultureInfo.CurrentUICulture, formatTemplate, args);
             Add(severityType, message);
         }
-        public void Add(SeverityType severity, string message)
+        public void Add(SeverityType severity, string message, params object[] args)
         {
-            Add(severity, message, NoPosition, NoPosition);
+            Add(severity, NoPosition, NoPosition, message, args);
         }
-        public void Add(SeverityType severity, string message, int lineNumber, int columnNumber)
+        public void Add(SeverityType severity, int lineNumber, int columnNumber, string message, params object[] args)
         {
             var valMsg = new ValidationMessage(severity, message, lineNumber, columnNumber);
             Add(valMsg);
         }
 
-        public void Error(string message)
+        public void Error(string message, params object[] args)
         {
-            Add(SeverityType.Error, message, NoPosition, NoPosition);
+            Add(SeverityType.Error, NoPosition, NoPosition, message, args);
         }
-        public void Error(IComponent component, string formatTemplate, object[] args=null)
+        public void Error(IComponent component, string formatTemplate, params object[] args)
         {
             Add(component, SeverityType.Error, formatTemplate, args);
         }
         public void Error(string message, int lineNumber, int columnNumber)
         {
-            Add(SeverityType.Error, message, lineNumber, columnNumber);
+            Add(SeverityType.Error, lineNumber, columnNumber, message);
         }
 
-        public void Error(string message, Exception exception)
+        public void Error(Exception exception, string message, params object[] args)
         {
             if (exception == null)
                 throw new ArgumentException("excpetion is null");
 
-            var msg = string.Format(CultureInfo.CurrentCulture, Localization.ExceptionMessage, message, exception.Message);
+            var msg = string.Format(CultureInfo.CurrentUICulture, Localization.ExceptionMessage, message, exception.Message, args);
             var valMessage = new ValidationMessage(SeverityType.Error, msg);
             valMessage.Exception = exception;
             Add(valMessage);
         }
 
-        public void Warn(string message)
+        public void Warn(string message, params object[] args)
         {
-            Add(SeverityType.Warn, message);
+            Add(SeverityType.Warn, message, args);
         }
-        public void Warn(IComponent component, string formatTemplate, object[] args = null)
+        public void Warn(IComponent component, string formatTemplate, params object[] args)
         {
             Add(component, SeverityType.Warn, formatTemplate, args);
         }
-        public void Info(string message)
+        public void Info(string message, params object[] args)
         {
-            Add(SeverityType.Info, message);
+            Add(SeverityType.Info, message, args);
         }
-        public void Info(IComponent component, string formatTemplate, object[] args = null)
+        public void Info(IComponent component, string formatTemplate, params object[] args)
         {
             Add(component, SeverityType.Info, formatTemplate, args);
         }

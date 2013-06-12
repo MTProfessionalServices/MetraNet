@@ -77,6 +77,7 @@
     <Compile Include="TypeSystem\TypeTest.cs" />
     <Compile Include="Enums\EnumCategoryTest.cs" />
     <Compile Include="Enums\UnitOfMeasureTest.cs" />
+    <Compile Include="Validations\ValidationMessageTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExpressionEngine\ExpressionEngine.csproj">

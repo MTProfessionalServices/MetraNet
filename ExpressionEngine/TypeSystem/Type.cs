@@ -161,7 +161,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         public MatchType CompareType(Type type2)
         {
             if (type2 == null)
-                throw new ArgumentNullException("type2");
+                throw new ArgumentException("type2");
 
 
             //Any match only works one way
@@ -222,7 +222,8 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         {
             return IsImplicitCast(this, target);
         }
-
+        
+        //TODO: Need to deal with implict casts, right not only exact matches return true
         public static bool IsImplicitCast(Type start, Type end)
         {
             if (start == null)
@@ -230,10 +231,11 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             if (end == null)
                 throw new ArgumentNullException("end");
             if (!start.IsNumeric || !end.IsNumeric)
-                throw new ArgumentException("Arguments must be numeric");
+                return false;
 
             if (start.BaseType == end.BaseType)
                 return true;
+
             return false;
         }
 

@@ -68,6 +68,11 @@ namespace MetraTech.ExpressionEngine
                 return null;
             return fullName.Substring(0, fullName.Length - parts[parts.Length - 1].Length - 1);
         }
+
+        public static string GetFullName(string _namespace, string name)
+        {
+            return _namespace + "." + name;
+        }
         #endregion
 
         #region Methods

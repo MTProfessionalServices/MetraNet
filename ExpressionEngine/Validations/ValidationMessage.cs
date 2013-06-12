@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Runtime.Serialization;
-using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Validations.Enumerations;
 using System.Globalization;
 
@@ -45,12 +44,18 @@ namespace MetraTech.ExpressionEngine.Validations
         #endregion
 
         #region Constructors
-        public ValidationMessage(SeverityType severity, string message)
+        public ValidationMessage(string componentName, SeverityType severity, string message, params object[] args)
         {
+            ComponentName = componentName;
             Severity = severity;
-            Message = message;
+            Message = string.Format(CultureInfo.CurrentUICulture, message, args);  
         }
-        public ValidationMessage(SeverityType severity, string message, int lineNumber, int columnNumber):this(severity, message)
+
+        public ValidationMessage(SeverityType severity, string message, params object[] args):this(null, severity, message, args)
+        {
+        }
+
+        public ValidationMessage(string componentName, SeverityType severity, int lineNumber, int columnNumber, string message, params object[] args):this(componentName, severity, message, args)
         {
             LineNumber = lineNumber;
             ColumnNumber = columnNumber;

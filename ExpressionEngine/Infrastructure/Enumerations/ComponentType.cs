@@ -3,20 +3,20 @@
     public enum ComponentType
     {
         AccountQualificatonGroup,
-        CurrencyCategory,
         Currency,
+        CurrencyCategory,
         EmailInstance,
         EmailTemplate,
-        PropertyBag,
-        PropertyBagProperty,
-        EnumerationCategory,
         Enumeration,
+        EnumerationCategory,
         EventQualificationGroup,
         Expression,
         Function,
         PageLayout,
-        UnitOfMeasureCategory,
+        PropertyBag,
+        PropertyBagProperty,
         UnitOfMeasure,
+        UnitOfMeasureCategory,
         UnitTest
     }
 }

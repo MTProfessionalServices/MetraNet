@@ -117,157 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AllChoice" xml:space="preserve">
-    <value>&lt;All&gt;</value>
-  </data>
-  <data name="BaseTypeIncorrect" xml:space="preserve">
-    <value>The BaseType must be {0} for this action not {1}</value>
-  </data>
-  <data name="DuplicatePropertyName" xml:space="preserve">
-    <value>Duplicate Property Name: '{0}'</value>
-  </data>
-  <data name="EnumNamespaceNotSpecified" xml:space="preserve">
-    <value>Enumeration NameSpace not specified</value>
-  </data>
-  <data name="EnumCategoryNotSpecified" xml:space="preserve">
-    <value>Enumeration FixedCategory not specified</value>
-  </data>
-  <data name="ExceptionMessage" xml:space="preserve">
-    <value>"{0} [{1}]"</value>
-  </data>
-  <data name="ExpressionIsValid" xml:space="preserve">
-    <value>The expression is valid.</value>
-  </data>
-  <data name="FileLoadError" xml:space="preserve">
-    <value>Error loading {0}</value>
-  </data>
-  <data name="InPropertySuffix" xml:space="preserve">
-    <value>in Property  '{0}' in PropertyBag '{1}'</value>
-  </data>
-  <data name="InsufficientDescription" xml:space="preserve">
-    <value>Insufficient description</value>
-  </data>
-  <data name="InvalidDefaultValue" xml:space="preserve">
-    <value>Invalid default value</value>
-  </data>
-  <data name="InvalidName" xml:space="preserve">
-    <value>Invalid Name</value>
-  </data>
-  <data name="NameNotSpecified" xml:space="preserve">
-    <value>Name not specified</value>
-  </data>
-  <data name="PropertyMessagePrefix" xml:space="preserve">
-    <value>Property '{0}': </value>
-  </data>
-  <data name="UnableToFindEnumCategory" xml:space="preserve">
-    <value>Unable to find the '{0}' Enumeration Category</value>
-  </data>
-  <data name="UnableToFindEnumNamespace" xml:space="preserve">
-    <value>Unaable to find the '{0}' EnumNamespace</value>
-  </data>
-  <data name="UnableToFindProperty" xml:space="preserve">
-    <value>Unable to find '{0}' property in the current context</value>
-  </data>
-  <data name="UnableToFindUnitOfMeasureItem" xml:space="preserve">
-    <value>Unable to find Unit of Measure item'{0}'</value>
-  </data>
-  <data name="UnitOfMeasureCategoryMustBeUom" xml:space="preserve">
-    <value>Unit of Measure FixedCategory can not be a general enumeration, it must be a unit of measure</value>
-  </data>
-  <data name="UnitOfMeasureCategoryNotSpecified" xml:space="preserve">
-    <value>Unit of Measure FixedCategory not specified</value>
-  </data>
-  <data name="UnitOfMeasureNamespaceMustBeMetraTech" xml:space="preserve">
-    <value>Unit of Measure '{0}' Namespace must be set to MetraTech</value>
-  </data>
-  <data name="UnitOfMeasureNotSpecified" xml:space="preserve">
-    <value>Unit of Measure not specified</value>
-  </data>
-  <data name="DefaultNewPropertyName" xml:space="preserve">
-    <value>Property{0}</value>
-  </data>
-  <data name="EnumerationIsNotUoM" xml:space="preserve">
-    <value>Enumeration '{0}' is not a Unit of Measure</value>
-  </data>
-  <data name="String" xml:space="preserve">
-    <value />
-  </data>
-  <data name="String1" xml:space="preserve">
-    <value>return;</value>
-  </data>
-  <data name="UnableToFinUnitOfMeasureCategory" xml:space="preserve">
-    <value>Unable to find Unit of Measure category '{0}'</value>
-  </data>
-  <data name="FixedCurrency" xml:space="preserve">
-    <value>Fixed Currency</value>
-  </data>
-  <data name="EnumerationCategory" xml:space="preserve">
-    <value>Enumeration Category</value>
-  </data>
-  <data name="QuantityProperty" xml:space="preserve">
-    <value>Quantity Property</value>
-  </data>
-  <data name="Currency" xml:space="preserve">
-    <value>Currency</value>
-  </data>
-  <data name="CurrencyCategory" xml:space="preserve">
-    <value>Currency Category</value>
-  </data>
-  <data name="Enumeration" xml:space="preserve">
-    <value>Enumeration</value>
-  </data>
-  <data name="NoDescription" xml:space="preserve">
-    <value>No description</value>
-  </data>
-  <data name="PropertyBag" xml:space="preserve">
-    <value>PropertyBag</value>
-  </data>
-  <data name="PropertyBagProperty" xml:space="preserve">
-    <value>Property</value>
-  </data>
-  <data name="UnitOfMeasure" xml:space="preserve">
-    <value>Unit of Measure</value>
-  </data>
-  <data name="UnitOfMeasureCategory" xml:space="preserve">
-    <value>Unit of Measure Category</value>
-  </data>
-  <data name="ComponentValidationMessagePrefix" xml:space="preserve">
-    <value>{0} {1}: </value>
-  </data>
-  <data name="AccountQualificationGroup" xml:space="preserve">
-    <value>Account Qualification Group</value>
-  </data>
-  <data name="EmailInstance" xml:space="preserve">
-    <value>Email Instance</value>
-  </data>
-  <data name="EmailTemplate" xml:space="preserve">
-    <value>Email Template</value>
-  </data>
-  <data name="EventQualificationGroup" xml:space="preserve">
-    <value>Event Qualification Group</value>
-  </data>
-  <data name="UnitTest" xml:space="preserve">
-    <value>Unit Test</value>
-  </data>
-  <data name="Expression" xml:space="preserve">
-    <value>Expression</value>
-  </data>
-  <data name="Function" xml:space="preserve">
-    <value>Function</value>
-  </data>
-  <data name="PageLayout" xml:space="preserve">
-    <value>Page Layout</value>
-  </data>
-  <data name="ComponentNotOfExpectedType" xml:space="preserve">
-    <value>Invalid {0}: Expected a {1} but found a {2}</value>
-  </data>
-  <data name="ComponentNotSpecified" xml:space="preserve">
-    <value>{0} is not specified.</value>
-  </data>
-  <data name="TypesNotCompatible" xml:space="preserve">
-    <value>{0} is not compatible with {1}.</value>
-  </data>
-  <data name="UnableToFindComponent" xml:space="preserve">
-    <value>Invalid {0}: Unable to find '{1}'</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnAddProperty.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKASURBVDhPpZPvS5NRFMf9W9ybAqFRYhYKakoJFsrK
+        ZlNU/NW2nLMpOtuzuXTqNnVkOif+qKgN3UYj3ebmdKRiJk5Xukh9HEq0UQRBbeztt+dRfKYGvqgLBy5c
+        Pp9zz7nnJgBI+J/4C9Z6Glhd7nqi3SkiW6cEEdmbmkjT6wpSYikjROPFrNPJTgi0Hgmn01UffrXej9Xw
+        IgI//Fj/vgJX0AaFuxZ8Izdc9eI257iEERzC4qhn14b937uY++qEkRzG8209bHtGLH17C82CFKVj+VHe
+        cB4jORBoZiSJFBya3jFj99cWRrf68HStC72+dugDWgwENOjdaMP0vg2EW4hCw41QQX92Is0eCChYPris
+        wuefG1TGAfRvaqB+r6CODpdqTQrZohDy5To49qy4O5aDvCcZckbQ5qglnUErdVUTuleV6FiRQTonYgQC
+        Kw9Ns2WQzBRj6KMWfUutuN6bRjIC+SQ/5v3ixOAnLQW3MODpjdhVBPk8H+bAKLK0qTFG0GKrik0FJ6Dx
+        E1D6Gs8UEN4aWAIjSO9KjgsareWkwaeBflONlndCiOcrUGW5w4jozHQ8dPMw6FOhx/sIV1TseAniiRL5
+        fQsH9qAZ0vlK1HtLD2o+WjQscnDRMF0M+44J13SpSH6cFG+i0FSUWP2yMES4BZgkx5mG0WCdgw4a5mFq
+        24gH5ns0HGIrzsefkW5G+bMCTsnIzWizvRIOSmLwdYKYrYZsphKG1Q7YKVho5iJZmRSl4JODdDSa3KFc
+        DkefE84fyoRugYDpgx4mvx5qbzOyelJoOHwcZl7h+Gzf6stk5erSiezuq2SGOiWS1nkxcrn9AnlJmUSw
+        FefO/kz/8q3/AEFGyx+xaI5YAAAAAElFTkSuQmCC
+</value>
   </data>
 </root>

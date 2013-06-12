@@ -1,4 +1,5 @@
-﻿using MetraTech.ExpressionEngine.Infrastructure;
+﻿using MetraTech.ExpressionEngine.Components.Enumerations;
+using MetraTech.ExpressionEngine.Infrastructure;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -35,6 +36,16 @@ namespace ExpressionEngineTest
         {
             var msg = "Index " + index.ToString();
             Assert.AreEqual(expectedKey, list[index].Key, msg);
+        }
+
+        [TestMethod()]
+        public void GetUserNameTest()
+        {
+            foreach (var type in Enum.GetValues(typeof (ComponentType)))
+            {
+                var userName = ComponentHelper.GetUserName((ComponentType)type);
+                Assert.IsTrue(!string.IsNullOrWhiteSpace(userName), "ComponentType = " + type.ToString());
+            }
         }
     }
 }

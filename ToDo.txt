@@ -1,5 +1,5 @@
-*PropertyReferce error message has no context
-*If there are charges, Event charge panel and validation should be suppressed
+*Validate local property links
+*Should connect links with guis
 *Numeric editor; UOM categories are all enums... need to filter
 *EnumCategory icon is wrong
 *Hide property panel when no properties

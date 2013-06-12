@@ -48,14 +48,28 @@ namespace MetraTech.ExpressionEngine.Infrastructure
         {
             switch (type)
             {
+                case ComponentType.AccountQualificatonGroup:
+                    return Localization.AccountQualificationGroup;
                 case ComponentType.Currency:
                     return Localization.Currency;
                 case ComponentType.CurrencyCategory:
                     return Localization.CurrencyCategory;
+                case ComponentType.EmailInstance:
+                    return Localization.EmailInstance;
+                case ComponentType.EmailTemplate:
+                    return Localization.EmailTemplate;
                 case ComponentType.Enumeration:
                     return Localization.Enumeration;
                 case ComponentType.EnumerationCategory:
                     return Localization.EnumerationCategory;
+                case ComponentType.EventQualificationGroup:
+                    return Localization.EventQualificationGroup;
+                case ComponentType.Expression:
+                    return Localization.Expression;
+                case ComponentType.Function:
+                    return Localization.Function;
+                case ComponentType.PageLayout:
+                    return Localization.PageLayout;
                 case ComponentType.PropertyBag:
                     return Localization.PropertyBag;
                 case ComponentType.PropertyBagProperty:
@@ -64,6 +78,8 @@ namespace MetraTech.ExpressionEngine.Infrastructure
                     return Localization.UnitOfMeasure;
                 case ComponentType.UnitOfMeasureCategory:
                     return Localization.UnitOfMeasureCategory;
+                case ComponentType.UnitTest:
+                    return Localization.UnitTest;
                 default:
                     throw new ArgumentException("unexpected type");
             }

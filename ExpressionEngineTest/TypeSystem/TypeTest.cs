@@ -159,5 +159,58 @@ namespace ExpressionEngineTest
             Assert.AreEqual("<>", type.ListSuffix);
         }
 
+        //[TestMethod()]
+        //public void ValidateArgumentExcpetionsTest()
+        //{
+        //    var type = TypeFactory.CreateDecimal();
+        //    Assert.
+        //    type.Validate(null, null, null, null);
+        //}
+        #region CompareType
+        [TestMethod()]
+        public void CompareTypeTest()
+        {
+            //Check that any matches everything
+            foreach (var baseType in Enum.GetValues(typeof (BaseType)))
+            {
+                AssertCompare(BaseType.Any, (BaseType)baseType, MatchType.Any);
+            }
+        }
+
+        public void CompareTypeEnumMismatchTest()
+        {
+
+        }
+
+        private void AssertCompare(BaseType baseType1, BaseType baseType2, MatchType expectedMatchType)
+        {
+            var type1 = TypeFactory.Create(baseType1);
+            var type2 = TypeFactory.Create(baseType2);
+            var msg = string.Format(CultureInfo.InvariantCulture, "{0} : {1}", baseType1, baseType2);
+            Assert.AreEqual(expectedMatchType, type1.CompareType(type2), msg);
+        }
+        #endregion
+
+        [TestMethod()]
+        public void IsImplictCastTest()
+        {
+            //Non-numeric
+            AssertImplicitCast(BaseType.Integer, BaseType.String, false);
+            AssertImplicitCast(BaseType.String, BaseType.Integer, false);
+
+            //Same
+            AssertImplicitCast(BaseType.Integer, BaseType.Integer, true);
+            AssertImplicitCast(BaseType.Float, BaseType.Float, true);
+            AssertImplicitCast(BaseType.Double, BaseType.Double, true);
+        }
+
+        private void AssertImplicitCast(BaseType baseType1, BaseType baseType2, bool expectedResult)
+        {
+            var type1 = TypeFactory.Create(baseType1);
+            var type2 = TypeFactory.Create(baseType2);
+            var msg = string.Format(CultureInfo.InvariantCulture, "{0} : {1}", baseType1, baseType2);
+            Assert.AreEqual(expectedResult, MetraTech.ExpressionEngine.TypeSystem.Type.IsImplicitCast(type1, type2), msg);
+        }
+
     }
 }

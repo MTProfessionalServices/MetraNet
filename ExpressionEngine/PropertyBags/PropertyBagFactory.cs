@@ -87,7 +87,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
                 {
                     if (messages == null)
                         throw;
-                    messages.Error(string.Format(CultureInfo.CurrentCulture, Localization.FileLoadError, fileInfo.FullName), exception);
+                    messages.Error(exception, string.Format(CultureInfo.CurrentCulture, Localization.FileLoadError, fileInfo.FullName));
                 }
             }
 
@@ -110,7 +110,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
                 {
                     if (context.DeserilizationMessages == null)
                         throw;
-                    context.DeserilizationMessages.Error(string.Format(CultureInfo.CurrentCulture, Localization.FileLoadError, propertyBag.ToString()), exception);
+                    context.DeserilizationMessages.Error(exception, string.Format(CultureInfo.CurrentCulture, Localization.FileLoadError, propertyBag.ToString()));
                 }
             }
         }

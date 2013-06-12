@@ -39,7 +39,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         /// The entity's namespace. Primarly used to prevent name collisions for MetraNet
         /// </summary>
         [DataMember]
-        public string Namespace { get; private set; }
+        public string Namespace { get; set; }
 
         /// <summary>
         /// The properties contained in the property bag which may include other property bags

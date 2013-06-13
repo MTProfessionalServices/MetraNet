@@ -62,7 +62,7 @@ namespace PropertyGui
         public TreeNode AddNode(Property property)
         {
             var node = new TreeNode();
-            node.Text = property.CalculationExpressionWithAssignment;
+            node.Text = string.Format("{0} = {1}", property.Name, property.CalculationExpression);
             node.ToolTipText = property.Description;
             node.ImageKey = "Edit.png";
             node.SelectedImageKey = "Edit.png";

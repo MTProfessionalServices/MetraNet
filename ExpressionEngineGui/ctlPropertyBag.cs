@@ -307,6 +307,7 @@ namespace PropertyGui
 
         private void btnCopyToClipboard_Click(object sender, EventArgs e)
         {
+            Clipboard.SetText(txtScript.Text);
         }
 
         private void tabMain_SelectedIndexChanged(object sender, EventArgs e)

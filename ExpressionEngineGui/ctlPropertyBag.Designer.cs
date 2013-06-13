@@ -210,7 +210,7 @@
             this.cboEventType.FormattingEnabled = true;
             this.cboEventType.Location = new System.Drawing.Point(78, 48);
             this.cboEventType.Name = "cboEventType";
-            this.cboEventType.Size = new System.Drawing.Size(258, 21);
+            this.cboEventType.Size = new System.Drawing.Size(113, 21);
             this.cboEventType.TabIndex = 5;
             // 
             // txtFullName
@@ -218,7 +218,7 @@
             this.txtFullName.Location = new System.Drawing.Point(78, 22);
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.ReadOnly = true;
-            this.txtFullName.Size = new System.Drawing.Size(258, 20);
+            this.txtFullName.Size = new System.Drawing.Size(590, 20);
             this.txtFullName.TabIndex = 4;
             // 
             // txtDescription

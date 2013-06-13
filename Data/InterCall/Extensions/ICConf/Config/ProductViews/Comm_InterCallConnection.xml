@@ -1277,18 +1277,18 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
-        <DefaultValue i:nil="true" />
+        <CalculationExpression></CalculationExpression>
+        <DefaultValue></DefaultValue>
         <Description>Division currency.</Description>
         <Direction>Input</Direction>
         <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>div_curr</Name>
         <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
+        <Type i:type="EnumerationType">
+          <BaseType>Currency</BaseType>
           <ListType>None</ListType>
-          <Length>3</Length>
+          <Category i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1317,18 +1317,18 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
-        <DefaultValue i:nil="true" />
+        <CalculationExpression></CalculationExpression>
+        <DefaultValue></DefaultValue>
         <Description>Global currency.</Description>
         <Direction>Input</Direction>
         <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>gbl_curr</Name>
         <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
+        <Type i:type="EnumerationType">
+          <BaseType>Currency</BaseType>
           <ListType>None</ListType>
-          <Length>3</Length>
+          <Category i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1496,8 +1496,8 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
-        <DefaultValue i:nil="true" />
+        <CalculationExpression></CalculationExpression>
+        <DefaultValue></DefaultValue>
         <Description>The FederalTax tax for the Event.</Description>
         <Direction>Input</Direction>
         <IsCalculated>false</IsCalculated>
@@ -1544,8 +1544,8 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
-        <DefaultValue i:nil="true" />
+        <CalculationExpression></CalculationExpression>
+        <DefaultValue></DefaultValue>
         <Description>The CountyTax tax for the Event.</Description>
         <Direction>Input</Direction>
         <IsCalculated>false</IsCalculated>
@@ -1616,7 +1616,7 @@
       </Property>
     </Properties>
   </Properties>
-  <EventType>Unknown</EventType>
+  <EventType>Charge</EventType>
   <IsMetered>false</IsMetered>
   <UniqueKey />
 </PropertyBag>

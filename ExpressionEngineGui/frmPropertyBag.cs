@@ -50,10 +50,5 @@ namespace PropertyGui
             }
         }
 
-        private void ctlPropertyBag_Load(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

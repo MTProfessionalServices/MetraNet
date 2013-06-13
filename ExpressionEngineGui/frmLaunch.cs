@@ -118,5 +118,14 @@ namespace PropertyGui
             dialog.ShowDialog();
         }
 
+        private void btnInterCall_Click(object sender, EventArgs e)
+        {
+            var context = DemoLoader.CreateContext(ProductType.MetraNet, "InterCall");
+            context.GlobalComponentCollection.Load();
+            var pv = (ProductViewEntity) context.GlobalComponentCollection.Get("intercall.com.ProductViews.Comm_InterCallConnection");
+            var dialog = new frmPropertyBag(context, pv);
+            dialog.ShowDialog();
+        }
+
     }
 }

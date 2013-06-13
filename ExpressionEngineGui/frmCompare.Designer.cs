@@ -49,10 +49,10 @@ namespace PropertyGui
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.txtContext1 = new System.Windows.Forms.TextBox();
             this.treContext1 = new PropertyGui.ctlExpressionTree();
-            this.txtContext2 = new System.Windows.Forms.TextBox();
-            this.treContext2 = new PropertyGui.ctlExpressionTree();
             this.mnuContext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtContext2 = new System.Windows.Forms.TextBox();
+            this.treContext2 = new PropertyGui.ctlExpressionTree();
             this.panHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -246,6 +246,7 @@ namespace PropertyGui
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.treContext1.ContextMenuStrip = this.mnuContext;
+            this.treContext1.DefaultNodeContextMenu = null;
             this.treContext1.EntityTypeFilter = null;
             this.treContext1.EnumValueContextMenu = null;
             this.treContext1.FunctionFilter = null;
@@ -262,6 +263,22 @@ namespace PropertyGui
             this.treContext1.TabIndex = 27;
             this.treContext1.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
             this.treContext1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treContext1_NodeMouseDoubleClick);
+            // 
+            // mnuContext
+            // 
+            this.mnuContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuEdit});
+            this.mnuContext.Name = "mnuContext";
+            this.mnuContext.Size = new System.Drawing.Size(153, 48);
+            // 
+            // mnuEdit
+            // 
+            this.mnuEdit.Name = "mnuEdit";
+            this.mnuEdit.Size = new System.Drawing.Size(152, 22);
+            this.mnuEdit.Text = "Edit";
+            this.mnuEdit.DropDownOpening += new System.EventHandler(this.mnuEdit_DropDownOpening);
+            this.mnuEdit.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuEdit_DropDownItemClicked);
+            this.mnuEdit.Click += new System.EventHandler(this.mnuEdit_Click);
             // 
             // txtContext2
             // 
@@ -283,6 +300,7 @@ namespace PropertyGui
             this.treContext2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.treContext2.DefaultNodeContextMenu = null;
             this.treContext2.EntityTypeFilter = null;
             this.treContext2.EnumValueContextMenu = null;
             this.treContext2.FunctionFilter = null;
@@ -299,21 +317,6 @@ namespace PropertyGui
             this.treContext2.TabIndex = 28;
             this.treContext2.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
             this.treContext2.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treContext1_NodeMouseDoubleClick);
-            // 
-            // mnuContext
-            // 
-            this.mnuContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuEdit});
-            this.mnuContext.Name = "mnuContext";
-            this.mnuContext.Size = new System.Drawing.Size(95, 26);
-            // 
-            // mnuEdit
-            // 
-            this.mnuEdit.Name = "mnuEdit";
-            this.mnuEdit.Size = new System.Drawing.Size(152, 22);
-            this.mnuEdit.Text = "Edit";
-            this.mnuEdit.DropDownOpening += new System.EventHandler(this.mnuEdit_DropDownOpening);
-            this.mnuEdit.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuEdit_DropDownItemClicked);
             // 
             // frmCompare
             // 

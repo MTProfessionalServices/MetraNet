@@ -82,6 +82,12 @@
     <Compile Include="Compoenents\ctlPropertyReference.Designer.cs">
       <DependentUpon>ctlPropertyReference.cs</DependentUpon>
     </Compile>
+    <Compile Include="ctlCalculationSequence.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctlCalculationSequence.Designer.cs">
+      <DependentUpon>ctlCalculationSequence.cs</DependentUpon>
+    </Compile>
     <Compile Include="ctlContextBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -142,6 +148,12 @@
     <Compile Include="ctlValueBinder.Designer.cs">
       <DependentUpon>ctlValueBinder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Flow\ctlFlowSteps.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Flow\ctlFlowSteps.Designer.cs">
+      <DependentUpon>ctlFlowSteps.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddProperty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +171,12 @@
     </Compile>
     <Compile Include="frmCompare.Designer.cs">
       <DependentUpon>frmCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Flow\frmFlow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Flow\frmFlow.Designer.cs">
+      <DependentUpon>frmFlow.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPropertyBag.cs">
       <SubType>Form</SubType>
@@ -236,6 +254,12 @@
     <Compile Include="TypeSystemControls\ctlChargeType.Designer.cs">
       <DependentUpon>ctlChargeType.cs</DependentUpon>
     </Compile>
+    <Compile Include="TypeSystemControls\ctlComputedType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TypeSystemControls\ctlComputedType.Designer.cs">
+      <DependentUpon>ctlComputedType.cs</DependentUpon>
+    </Compile>
     <Compile Include="TypeSystemControls\ctlEnumerationType.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -282,6 +306,9 @@
     <EmbeddedResource Include="Compoenents\ctlPropertyReference.resx">
       <DependentUpon>ctlPropertyReference.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ctlCalculationSequence.resx">
+      <DependentUpon>ctlCalculationSequence.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ctlContextBase.resx">
       <DependentUpon>ctlContextBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -310,6 +337,9 @@
     <EmbeddedResource Include="ctlValueBinder.resx">
       <DependentUpon>ctlValueBinder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Flow\ctlFlowSteps.resx">
+      <DependentUpon>ctlFlowSteps.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddProperty.resx">
       <DependentUpon>frmAddProperty.cs</DependentUpon>
     </EmbeddedResource>
@@ -318,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCompare.resx">
       <DependentUpon>frmCompare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Flow\frmFlow.resx">
+      <DependentUpon>frmFlow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPropertyBag.resx">
       <DependentUpon>frmPropertyBag.cs</DependentUpon>
@@ -405,7 +438,12 @@
   <ItemGroup>
     <None Include="Resources\PageLayout.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\arrow_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_up.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

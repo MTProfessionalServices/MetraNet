@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ServiceDefinitionEntity" xmlns="MetraTech">
+  <Availability>Unknown</Availability>
+  <DefaultValue i:nil="true" />
+  <Description>This service stores bank account specific information. This service returns
+      an error if this bank account has already been entered. The uniquely identifying
+      data is the account id, routing number, last four digits of the bank account 
+      number, and the account type.
+
+      Payment Server stores 2 categories of information: account and payment method.
+      Account information is data common to all payment methods, such as, account id,
+      confirmation requested, retry on failure, etc. Payment method information
+      includes credit card numbers and bank account numbers.
+
+      Payment Server has 2 modes of operation: restrict payment methods on record to
+      one per payment type and allow multiple payment methods on record for each
+      payment type. For example, the former mode restricts a subscriber to store at
+      most a single credit card payment method and a single ACH payment method. The
+      latter allows for multiple credit car payment methods and multiple ACH payment
+      methods for a subscriber. When running in the restricted mode, this service 
+      removes the previous payment method prior to adding the new one. 
+
+      This service removes payment method information only. This service deletes
+      account information if this is the only payment method on record. The uniquely 
+      identifying data is the account id, routing number, last four digits of the bank 
+      account number, and the account type.
+
+      Typical usage: Synchronous metering.
+
+      Return properties:
+      name                        type      length    comment  
+      retcode                     int32               CREDITCARDACCOUNT_SUCCESS (0x618F0013L)
+                                                      indicates success.
+      respcode                    string    32        Processor specific text message. 
+      paymentservicetransactionid string    32        Used for follow up transaction
+                                                      inquiries. 
+      _AccountID                  int32               A value of -1 indicates an error.
+
+      Current Version: 1.3
+
+      Changes:
+      09/20/00 (V1.3)
+      - Initial version.</Description>
+  <Direction>Input</Direction>
+  <IsCore>false</IsCore>
+  <Name>ps_ach_deletepaymentmethod</Name>
+  <Required>true</Required>
+  <Type i:type="PropertyBagType">
+    <BaseType>PropertyBag</BaseType>
+    <ListType>None</ListType>
+    <Name>ServiceDefinition</Name>
+    <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
+  </Type>
+  <Namespace>metratech.com.ServiceDefinitions</Namespace>
+  <Properties>
+    <Properties>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>The internal MetraNet account identifier</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>AccountId</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>The time the event is deemed to have occurred</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>Timestamp</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>The account identifier is a numeric value that represents a subscriber.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>_AccountID</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>The Routing Number is a 9-digit number consisting of three components:  
+        Federal Reserve Routing Symbol (4-digits), ABA Institution Identifier (4-digits),
+        and a single Check Digit.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>routingnumber</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>9</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>The last four digits of the credit card number. This is a card identifying 
+        attribute. The purpose is to identify the card while protecting the card 
+        number.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>lastfourdigits</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>4</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Type of account. Possible values are checking or savings.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>bankaccounttype</Name>
+        <Required>true</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>metratech.com/paymentserver.bankaccounttype</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DefaultValue i:nil="true" />
+        <Description>Indicates a testing session through a PS pipeline.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>testsession</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+    </Properties>
+  </Properties>
+  <AutoDelete>false</AutoDelete>
+  <AutoResubmit>false</AutoResubmit>
+</PropertyBag>

@@ -92,6 +92,10 @@ namespace MetraTech.ExpressionEngine.MTProperties
             return (GetValue(name) != null);
         }
 
+        public void AddRange(IEnumerable<Property> collection)
+        {
+            Properties.AddRange(collection);
+        }
         /// <summary>
         /// Returns the value for the specified property name. If the property isn't found, null is returned
         /// </summary>

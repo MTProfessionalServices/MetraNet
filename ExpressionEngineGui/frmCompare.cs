@@ -266,15 +266,18 @@ namespace PropertyGui
       private void mnuEdit_DropDownOpening(object sender, EventArgs e)
       {
         //mnuEdit.Enabled = (
-
       }
 
       private void mnuEdit_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
-      {
-         
+      {    
       }
 
-        
+      private void mnuEdit_Click(object sender, EventArgs e)
+      {
+          var pv = (ProductViewEntity)treContext1.SelectedNode.Tag;
+          var dialog = new frmPropertyBag(Context1, pv);
+          dialog.ShowDialog();
+      }     
 
     }
 }

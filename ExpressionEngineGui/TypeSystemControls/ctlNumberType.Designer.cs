@@ -33,7 +33,6 @@
             this.lblGeneric = new System.Windows.Forms.Label();
             this.lblUnitOfMeasure = new System.Windows.Forms.Label();
             this.ctlUom = new PropertyGui.Compoenents.ctlEnumCategoryAndValue();
-            this.ctlLink = new PropertyGui.Compoenents.ctlComponentLink();
             this.ctlProperty = new PropertyGui.Compoenents.ctlPropertyLink();
             this.SuspendLayout();
             // 
@@ -85,16 +84,9 @@
             this.ctlUom.Size = new System.Drawing.Size(266, 47);
             this.ctlUom.TabIndex = 7;
             // 
-            // ctlLink
-            // 
-            this.ctlLink.Location = new System.Drawing.Point(140, 108);
-            this.ctlLink.Name = "ctlLink";
-            this.ctlLink.Size = new System.Drawing.Size(270, 21);
-            this.ctlLink.TabIndex = 11;
-            // 
             // ctlProperty
             // 
-            this.ctlProperty.Location = new System.Drawing.Point(412, 30);
+            this.ctlProperty.Location = new System.Drawing.Point(412, 27);
             this.ctlProperty.Name = "ctlProperty";
             this.ctlProperty.Size = new System.Drawing.Size(244, 21);
             this.ctlProperty.TabIndex = 12;
@@ -104,14 +96,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.ctlProperty);
-            this.Controls.Add(this.ctlLink);
             this.Controls.Add(this.ctlUom);
             this.Controls.Add(this.lblUnitOfMeasure);
             this.Controls.Add(this.lblGeneric);
             this.Controls.Add(this.cboUnitOfMeasureMode);
             this.Controls.Add(this.label1);
             this.Name = "ctlNumberType";
-            this.Size = new System.Drawing.Size(665, 162);
+            this.Size = new System.Drawing.Size(666, 115);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,7 +115,6 @@
         private System.Windows.Forms.Label lblGeneric;
         private System.Windows.Forms.Label lblUnitOfMeasure;
         private Compoenents.ctlEnumCategoryAndValue ctlUom;
-        private Compoenents.ctlComponentLink ctlLink;
         private Compoenents.ctlPropertyLink ctlProperty;
     }
 }

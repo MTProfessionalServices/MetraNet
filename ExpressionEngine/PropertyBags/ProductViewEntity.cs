@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text;
 using MetraTech.ExpressionEngine.Database;
 using MetraTech.ExpressionEngine.MTProperties;
+using MetraTech.ExpressionEngine.Mvm;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using System.Runtime.Serialization;
@@ -31,6 +34,11 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         ///// The xQualificationGroup prefix
         /// </summary>
         public override string XqgPrefix { get { return UserContext.Settings.NewSyntax ? "EVENT" : "USAGE"; } }
+
+        //[DataMember]
+        public List<string> CalculationSequence = new List<string>();
+        //public IEnumerable<string> CalculationSequence { get { return _calculationSequence.GetEnumerator(); } }
+        //private List<string> _calculationSequence = new List<string>();
 
         #endregion
 
@@ -102,6 +110,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             return Properties.Get(PropertyBagConstants.EventCharge);
         }
 
+
         public List<Property> GetCharges(bool includeEventCharge)
         {
             var charges = new List<Property>();
@@ -117,6 +126,15 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             return charges;
         }
 
+        //public string GetAllChargeCalculations()
+        //{
+        //    var sb = new StringBuilder();
+        //    foreach (var charge in GetCharges(false))
+        //    {
+        //        sb.AppendLine()
+        //    }
+        //}
+
         protected override void ValidateProperties(ValidationMessageCollection messages, Context context)
         {
             var hasCharges = GetCharges(false).Count > 0;
@@ -127,6 +145,21 @@ namespace MetraTech.ExpressionEngine.PropertyBags
                     continue;
                 property.Validate(messages, context);
             }
+        }
+
+        public string GetMvmScript()
+        {
+            var sb = new StringBuilder();
+            MvmHelper.GetScriptGenerationHeader(sb, this);
+            foreach (var step in CalculationSequence)
+            {
+                var property = Properties.Get(step);
+                if (property == null)
+                    throw new Exception("Step not found: " + step);
+                sb.AppendLine(MvmHelper.GetAssigment(property, true));
+            }
+            sb.Append(MvmHelper.GetEndTag("MVMScript"));
+            return sb.ToString();
         }
         #endregion
 

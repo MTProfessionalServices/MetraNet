@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>Enumeration</BaseType>
+  <Description></Description>
+  <Extension>ICConf</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>1.5IP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>128IP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>128KB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>2.0IP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>256IP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>256KB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>384IP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>384KB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>4.0IP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>512IP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>512KB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>6.0IP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>768IP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>768KB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>1.5MB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>2.0MB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>8</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>A</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>A8</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>AI</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>AWM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>D</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>D8</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>DECC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>E</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>E8</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>G</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>G8</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>GMC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>GMC8</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>GMCIT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>GMCUI</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>GMCV1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>GMCVP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>GMCW</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>GMCWS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>GMMA2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>GMMAB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>GMMIT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>GMMM8</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>GMMMM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>GMMMT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>GMMV1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>GMMVP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>I</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>IO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>ITL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>IWM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>IWS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>L</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>MCCM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>MCPM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>MCWXP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>MP160</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>OACC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>P</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>P8</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>PCC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>R</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>R8</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RC8</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RCMUM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RL12</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RL13</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RVP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RVP1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RVP10</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RVP11</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RVP12</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RVP13</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RVP14</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RVP18</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RVP19</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RVP2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RVP20</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RVP21</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RVP24</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RVP3</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RVP4</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RVP5</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RVP6</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RVP7</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RVP8</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>RVP9</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>UMABP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>UMMAB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>UMMEC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>UMMG8</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>UMMGT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>UMMIT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>UMMM8</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>UMMMM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>UMMMT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>UMMVP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>UMP</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>VSPM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>WEBEX</Name>
+    </EnumItem>
+  </Items>
+  <Name>BillCode</Name>
+  <Namespace>intercall.com/ConfCommon</Namespace>
+</EnumCategory>

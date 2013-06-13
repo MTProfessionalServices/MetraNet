@@ -1,8 +1,13 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Reflection;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Infrastructure;
+using MetraTech.ExpressionEngine.PropertyBags;
+using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.Validations;
+using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace MetraTech.ExpressionEngine.Components
 {
@@ -83,7 +88,7 @@ namespace MetraTech.ExpressionEngine.Components
                 throw new ArgumentException("messages is null");
             if (context == null)
                 throw new ArgumentException("context is null");
-
+           
             var fullName = GetFullName();
             if (string.IsNullOrEmpty(fullName))
             {
@@ -98,6 +103,31 @@ namespace MetraTech.ExpressionEngine.Components
             else if (component.ComponentType != ExpectedComponentType)
                 messages.Error(associatedComponent, Localization.ComponentNotOfExpectedType, UserContext, ComponentHelper.GetUserName(ExpectedComponentType), component.ComponentType);
         }
+
+        public IComponent GetComponent(Context context)
+        {
+            if (context == null)
+                throw new ArgumentException("context is null");
+
+            var component = context.GlobalComponentCollection.Get(GetFullName());
+            if (component == null)
+                return null;
+
+            if (component is PropertyBag)
+            {
+                var propertyBag = (PropertyBag) component;
+                var typeName = ((PropertyBagType) propertyBag.Type).Name;
+                if (typeName == PropertyBagConstants.ServiceDefinition)
+                {
+                    if (ExpectedComponentType == ComponentType.ServiceDefinition)
+                        return component;
+                    return null;
+                }
+            }
+
+            return component;
+        }
+
 
         public string GetFullName()
         {

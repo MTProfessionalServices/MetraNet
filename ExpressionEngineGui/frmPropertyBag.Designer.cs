@@ -34,7 +34,7 @@
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSave = new System.Windows.Forms.ToolStripMenuItem();
             this.ctlPropertyBag = new PropertyGui.ctlPropertyBag();
             this.mnuContext.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -73,16 +73,17 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveToolStripMenuItem});
+            this.mnuSave});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // saveToolStripMenuItem
+            // mnuSave
             // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.saveToolStripMenuItem.Text = "Save";
+            this.mnuSave.Name = "mnuSave";
+            this.mnuSave.Size = new System.Drawing.Size(98, 22);
+            this.mnuSave.Text = "Save";
+            this.mnuSave.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // ctlPropertyBag
             // 
@@ -93,6 +94,7 @@
             this.ctlPropertyBag.Name = "ctlPropertyBag";
             this.ctlPropertyBag.Size = new System.Drawing.Size(832, 360);
             this.ctlPropertyBag.TabIndex = 1;
+            this.ctlPropertyBag.Load += new System.EventHandler(this.ctlPropertyBag_Load);
             // 
             // frmPropertyBag
             // 
@@ -120,6 +122,6 @@
         private ctlPropertyBag ctlPropertyBag;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuSave;
     }
 }

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>Enumeration</BaseType>
+  <Description></Description>
+  <Extension>ICConf</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>G</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>GL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>I</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>ITFS-DO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>L</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>M</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>T</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>W</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>WL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>WT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>D</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>DM</Name>
+    </EnumItem>
+  </Items>
+  <Name>NumberType</Name>
+  <Namespace>intercall.com/ConfCommon</Namespace>
+</EnumCategory>

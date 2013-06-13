@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>Enumeration</BaseType>
+  <Description>Credit Card</Description>
+  <Extension>PaymentSvrClient</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>7</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Visa - Purchase Card</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>8</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MasterCard - Purchase Card</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>9</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>American Express - Purchase Card</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>10</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Visa - Purchase Card Intl</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>11</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MasterCard - Purchase Card Intl</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>12</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>American Express - Purchase Card Intl</Name>
+    </EnumItem>
+  </Items>
+  <Name>PurchaseCard</Name>
+  <Namespace>metratech.com/paymentserver</Namespace>
+</EnumCategory>

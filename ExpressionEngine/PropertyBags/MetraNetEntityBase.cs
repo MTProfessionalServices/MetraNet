@@ -10,11 +10,6 @@ namespace MetraTech.ExpressionEngine.PropertyBags
     {
         #region Properties
 
-        /// <summary>
-        /// The extension that the PropertyBag is associated with
-        /// </summary>
-        public string Extension { get; set; }
-
         public virtual string SubDirectoryName { get { return ((PropertyBagType)Type).Name + "s"; } }
 
         #endregion

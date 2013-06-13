@@ -33,16 +33,27 @@ namespace PropertyGui
         #region Events
         private void mnuSave_Click(object sender, EventArgs e)
         {
+
+        }
+        #endregion
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             try
             {
-                PropertyBag.Save("");
+                var pv = (ProductViewEntity) PropertyBag;
+                pv.SaveInExtensionsDirectory(Context.ExtensionsDirPath);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
-        #endregion
+
+        private void ctlPropertyBag_Load(object sender, EventArgs e)
+        {
+
+        }
 
     }
 }

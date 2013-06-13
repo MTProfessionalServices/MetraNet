@@ -1,6 +1,10 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Globalization;
+using System.Runtime.Serialization;
+using System.Text;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Infrastructure;
+using MetraTech.ExpressionEngine.MTProperties;
+using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 namespace MetraTech.ExpressionEngine.TypeSystem
 {
@@ -60,6 +64,28 @@ namespace MetraTech.ExpressionEngine.TypeSystem
             : this()
         {
             QuantityProperty = quantityProperty;
+        }
+        #endregion
+
+        #region Methods
+        public string GetChargeExpression(Property chargeProperty, bool includeAssignment)
+        {
+            string variable = string.Empty;
+            if (includeAssignment)
+                variable = string.Format("USAGE.{0} := ", chargeProperty.DatabaseName);
+            if (chargeProperty.Name == "EventCharge")
+            {
+                var sb = new StringBuilder(variable);
+                foreach (var charge in ((ProductViewEntity) chargeProperty.PropertyCollection.Parent).GetCharges(false))
+                {
+                    if (sb.Length > variable.Length)
+                        sb.Append(" + ");
+                    sb.Append("USAGE." + charge.DatabaseName);
+                }
+                return sb.ToString();
+            }
+
+            return string.Format(CultureInfo.InvariantCulture, "{0} * SOMETHING", chargeProperty.DatabaseName);
         }
         #endregion
 

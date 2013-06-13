@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>Enumeration</BaseType>
+  <Description></Description>
+  <Extension>ICConf</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>0</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>3</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>4</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>5</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>6</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>7</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>8</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>9</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>10</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases />
+      <Description i:nil="true" />
+      <Name>11</Name>
+    </EnumItem>
+  </Items>
+  <Name>FeatureType</Name>
+  <Namespace>intercall.com/ConfCommon</Namespace>
+</EnumCategory>

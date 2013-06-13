@@ -43,6 +43,7 @@ namespace PropertyGui
                 throw new ArgumentException("propertyBag is null");
             Context = context;
             PropertyBag = propertyBag;
+            ctlCalculationSequence.Init((ProductViewEntity)PropertyBag);
 
             SyncToForm();
         }
@@ -85,6 +86,7 @@ namespace PropertyGui
             PropertyBag.Description = txtDescription.Text;
             ((ProductViewEntity)PropertyBag).EventType = (EventType)cboEventType.SelectedItem;
             ctlPropertyEditor.SyncToObject();
+            ctlCalculationSequence.SyncToObject();
         }
 
         private void EnsureNodeSelected()
@@ -302,6 +304,23 @@ namespace PropertyGui
         }
 
         #endregion
+
+        private void btnCopyToClipboard_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void tabMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SyncToObject();
+            if (tabMain.SelectedTab.Equals(tabCalculationSequence))
+            {
+                ctlCalculationSequence.SyncToForm();
+            }
+            else if (tabMain.SelectedTab.Equals(tabScript))
+            {
+                txtScript.Text = ((ProductViewEntity)PropertyBag).GetMvmScript();
+            }
+        }
 
     }
 }

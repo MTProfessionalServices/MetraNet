@@ -30,10 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.treProperties = new PropertyGui.ctlExpressionTree();
             this.mnuContext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuExpandAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctlPropertyEditor = new PropertyGui.ctlProperty();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnValidate = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -51,6 +49,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabProperties = new System.Windows.Forms.TabPage();
             this.btnRename = new System.Windows.Forms.Button();
+            this.tabCalculationSequence = new System.Windows.Forms.TabPage();
+            this.tabScript = new System.Windows.Forms.TabPage();
+            this.btnCopyToClipboard = new System.Windows.Forms.Button();
+            this.btnUnitTest = new System.Windows.Forms.Button();
+            this.btnValidateScript = new System.Windows.Forms.Button();
+            this.txtScript = new System.Windows.Forms.TextBox();
+            this.treProperties = new PropertyGui.ctlExpressionTree();
+            this.ctlPropertyEditor = new PropertyGui.ctlProperty();
+            this.ctlCalculationSequence = new PropertyGui.ctlCalculationSequence();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -59,6 +66,8 @@
             this.tabMain.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.tabProperties.SuspendLayout();
+            this.tabCalculationSequence.SuspendLayout();
+            this.tabScript.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer
@@ -81,31 +90,6 @@
             this.splitContainer.SplitterDistance = 351;
             this.splitContainer.TabIndex = 3;
             // 
-            // treProperties
-            // 
-            this.treProperties.AllowEntityExpand = true;
-            this.treProperties.AllowEnumExpand = true;
-            this.treProperties.ContextMenuStrip = this.mnuContext;
-            this.treProperties.DefaultNodeContextMenu = null;
-            this.treProperties.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treProperties.EntityTypeFilter = null;
-            this.treProperties.EnumValueContextMenu = null;
-            this.treProperties.FullRowSelect = true;
-            this.treProperties.FunctionFilter = null;
-            this.treProperties.HideSelection = false;
-            this.treProperties.ImageIndex = 0;
-            this.treProperties.Location = new System.Drawing.Point(0, 0);
-            this.treProperties.Name = "treProperties";
-            this.treProperties.PathSeparator = ".";
-            this.treProperties.PropertyTypeFilter = null;
-            this.treProperties.SelectedImageIndex = 0;
-            this.treProperties.ShowNamespaces = false;
-            this.treProperties.ShowNodeToolTips = true;
-            this.treProperties.Size = new System.Drawing.Size(347, 276);
-            this.treProperties.TabIndex = 4;
-            this.treProperties.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
-            this.treProperties.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treProperties_AfterSelect);
-            // 
             // mnuContext
             // 
             this.mnuContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -119,14 +103,6 @@
             this.mnuExpandAll.Name = "mnuExpandAll";
             this.mnuExpandAll.Size = new System.Drawing.Size(129, 22);
             this.mnuExpandAll.Text = "Expand All";
-            // 
-            // ctlPropertyEditor
-            // 
-            this.ctlPropertyEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctlPropertyEditor.Location = new System.Drawing.Point(0, 0);
-            this.ctlPropertyEditor.Name = "ctlPropertyEditor";
-            this.ctlPropertyEditor.Size = new System.Drawing.Size(492, 276);
-            this.ctlPropertyEditor.TabIndex = 0;
             // 
             // btnAdd
             // 
@@ -203,12 +179,15 @@
             // 
             this.tabMain.Controls.Add(this.tabGeneral);
             this.tabMain.Controls.Add(this.tabProperties);
+            this.tabMain.Controls.Add(this.tabCalculationSequence);
+            this.tabMain.Controls.Add(this.tabScript);
             this.tabMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabMain.Location = new System.Drawing.Point(0, 0);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
             this.tabMain.Size = new System.Drawing.Size(871, 379);
             this.tabMain.TabIndex = 10;
+            this.tabMain.SelectedIndexChanged += new System.EventHandler(this.tabMain_SelectedIndexChanged);
             // 
             // tabGeneral
             // 
@@ -308,6 +287,113 @@
             this.btnRename.UseVisualStyleBackColor = true;
             this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
             // 
+            // tabCalculationSequence
+            // 
+            this.tabCalculationSequence.Controls.Add(this.ctlCalculationSequence);
+            this.tabCalculationSequence.Location = new System.Drawing.Point(4, 22);
+            this.tabCalculationSequence.Name = "tabCalculationSequence";
+            this.tabCalculationSequence.Size = new System.Drawing.Size(863, 353);
+            this.tabCalculationSequence.TabIndex = 2;
+            this.tabCalculationSequence.Text = "Calculation Sequence";
+            this.tabCalculationSequence.UseVisualStyleBackColor = true;
+            // 
+            // tabScript
+            // 
+            this.tabScript.Controls.Add(this.btnCopyToClipboard);
+            this.tabScript.Controls.Add(this.btnUnitTest);
+            this.tabScript.Controls.Add(this.btnValidateScript);
+            this.tabScript.Controls.Add(this.txtScript);
+            this.tabScript.Location = new System.Drawing.Point(4, 22);
+            this.tabScript.Name = "tabScript";
+            this.tabScript.Size = new System.Drawing.Size(863, 353);
+            this.tabScript.TabIndex = 3;
+            this.tabScript.Text = "Script (Advanced)";
+            this.tabScript.UseVisualStyleBackColor = true;
+            // 
+            // btnCopyToClipboard
+            // 
+            this.btnCopyToClipboard.Location = new System.Drawing.Point(15, 22);
+            this.btnCopyToClipboard.Name = "btnCopyToClipboard";
+            this.btnCopyToClipboard.Size = new System.Drawing.Size(118, 23);
+            this.btnCopyToClipboard.TabIndex = 3;
+            this.btnCopyToClipboard.Text = "Copy to Clipboard";
+            this.btnCopyToClipboard.UseVisualStyleBackColor = true;
+            this.btnCopyToClipboard.Click += new System.EventHandler(this.btnCopyToClipboard_Click);
+            // 
+            // btnUnitTest
+            // 
+            this.btnUnitTest.Enabled = false;
+            this.btnUnitTest.Location = new System.Drawing.Point(257, 22);
+            this.btnUnitTest.Name = "btnUnitTest";
+            this.btnUnitTest.Size = new System.Drawing.Size(112, 23);
+            this.btnUnitTest.TabIndex = 2;
+            this.btnUnitTest.Text = "Unit Test";
+            this.btnUnitTest.UseVisualStyleBackColor = true;
+            // 
+            // btnValidateScript
+            // 
+            this.btnValidateScript.Enabled = false;
+            this.btnValidateScript.Location = new System.Drawing.Point(139, 22);
+            this.btnValidateScript.Name = "btnValidateScript";
+            this.btnValidateScript.Size = new System.Drawing.Size(112, 23);
+            this.btnValidateScript.TabIndex = 1;
+            this.btnValidateScript.Text = "Validate Script";
+            this.btnValidateScript.UseVisualStyleBackColor = true;
+            // 
+            // txtScript
+            // 
+            this.txtScript.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtScript.Location = new System.Drawing.Point(3, 51);
+            this.txtScript.Multiline = true;
+            this.txtScript.Name = "txtScript";
+            this.txtScript.ReadOnly = true;
+            this.txtScript.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtScript.Size = new System.Drawing.Size(857, 285);
+            this.txtScript.TabIndex = 0;
+            // 
+            // treProperties
+            // 
+            this.treProperties.AllowEntityExpand = true;
+            this.treProperties.AllowEnumExpand = true;
+            this.treProperties.ContextMenuStrip = this.mnuContext;
+            this.treProperties.DefaultNodeContextMenu = null;
+            this.treProperties.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treProperties.EntityTypeFilter = null;
+            this.treProperties.EnumValueContextMenu = null;
+            this.treProperties.FullRowSelect = true;
+            this.treProperties.FunctionFilter = null;
+            this.treProperties.HideSelection = false;
+            this.treProperties.ImageIndex = 0;
+            this.treProperties.Location = new System.Drawing.Point(0, 0);
+            this.treProperties.Name = "treProperties";
+            this.treProperties.PathSeparator = ".";
+            this.treProperties.PropertyTypeFilter = null;
+            this.treProperties.SelectedImageIndex = 0;
+            this.treProperties.ShowNamespaces = false;
+            this.treProperties.ShowNodeToolTips = true;
+            this.treProperties.Size = new System.Drawing.Size(347, 276);
+            this.treProperties.TabIndex = 4;
+            this.treProperties.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
+            this.treProperties.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treProperties_AfterSelect);
+            // 
+            // ctlPropertyEditor
+            // 
+            this.ctlPropertyEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctlPropertyEditor.Location = new System.Drawing.Point(0, 0);
+            this.ctlPropertyEditor.Name = "ctlPropertyEditor";
+            this.ctlPropertyEditor.Size = new System.Drawing.Size(492, 276);
+            this.ctlPropertyEditor.TabIndex = 0;
+            // 
+            // ctlCalculationSequence
+            // 
+            this.ctlCalculationSequence.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctlCalculationSequence.Location = new System.Drawing.Point(0, 0);
+            this.ctlCalculationSequence.Name = "ctlCalculationSequence";
+            this.ctlCalculationSequence.Size = new System.Drawing.Size(863, 353);
+            this.ctlCalculationSequence.TabIndex = 0;
+            // 
             // ctlPropertyBag
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,6 +411,9 @@
             this.tabGeneral.PerformLayout();
             this.tabProperties.ResumeLayout(false);
             this.tabProperties.PerformLayout();
+            this.tabCalculationSequence.ResumeLayout(false);
+            this.tabScript.ResumeLayout(false);
+            this.tabScript.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -353,5 +442,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem mnuExpandAll;
         private System.Windows.Forms.Button btnRename;
+        private System.Windows.Forms.TabPage tabCalculationSequence;
+        private System.Windows.Forms.TabPage tabScript;
+        private System.Windows.Forms.Button btnCopyToClipboard;
+        private System.Windows.Forms.Button btnUnitTest;
+        private System.Windows.Forms.Button btnValidateScript;
+        private System.Windows.Forms.TextBox txtScript;
+        private ctlCalculationSequence ctlCalculationSequence;
     }
 }

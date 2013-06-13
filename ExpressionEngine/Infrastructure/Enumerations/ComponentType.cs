@@ -13,8 +13,10 @@
         Expression,
         Function,
         PageLayout,
+        ParameterTable,
         PropertyBag,
         PropertyBagProperty,
+        ServiceDefinition,
         UnitOfMeasure,
         UnitOfMeasureCategory,
         UnitTest

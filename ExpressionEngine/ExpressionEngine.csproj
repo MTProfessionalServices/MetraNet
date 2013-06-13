@@ -59,6 +59,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Flows\AccountLookupStep.cs" />
+    <Compile Include="Flows\BatchMtsqlStep.cs" />
+    <Compile Include="Flows\Enumerations\FlowStepType.cs" />
+    <Compile Include="Flows\FlowCollection.cs" />
+    <Compile Include="Flows\FlowStepBase.cs" />
+    <Compile Include="Flows\FlowStepFactory.cs" />
+    <Compile Include="Flows\MeterStep.cs" />
+    <Compile Include="Flows\MtsqlStep.cs" />
+    <Compile Include="Flows\ParameterTableLookupStep.cs" />
     <Compile Include="Infrastructure\ComponentHelper.cs" />
     <Compile Include="Infrastructure\ComponentLinkCollection.cs" />
     <Compile Include="Infrastructure\ComponentLink.cs" />
@@ -71,6 +80,7 @@
     <Compile Include="Infrastructure\PropertyLink.cs" />
     <Compile Include="MTProperties\Enumerations\Availability.cs" />
     <Compile Include="MTProperties\PropertyReference.cs" />
+    <Compile Include="Mvm\MvmHelper.cs" />
     <Compile Include="Placeholders\PageLayout.cs" />
     <Compile Include="PropertyBags\Enumerations\EventType.cs" />
     <Compile Include="PropertyBags\PropertyBagManager.cs" />

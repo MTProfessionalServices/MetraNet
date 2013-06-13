@@ -58,6 +58,7 @@
     <Compile Include="Infrastructure\ComponentHelperTest.cs" />
     <Compile Include="Enums\CurrencyTest.cs" />
     <Compile Include="Enums\EnumManagerTest.cs" />
+    <Compile Include="IOHelperTest.cs" />
     <Compile Include="MTProperties\PropertyReferenceTest.cs" />
     <Compile Include="TypeSystem\TaxTypeTest.cs" />
     <Compile Include="TypeSystem\ChargeTypeTest.cs" />

@@ -81,6 +81,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
                             propertyBag = PropertyBag.CreateFromFile<PropertyBag>(fileInfo.FullName);
                             break;
                     }
+                    propertyBag.Extension = IOHelper.GetMetraNetExtension(fileInfo.FullName);
                     list.Add(propertyBag);
                 }
                 catch (Exception exception)

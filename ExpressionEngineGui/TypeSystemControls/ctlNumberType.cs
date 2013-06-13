@@ -1,5 +1,4 @@
 ﻿using MetraTech.ExpressionEngine;
-using MetraTech.ExpressionEngine.Infrastructure;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;

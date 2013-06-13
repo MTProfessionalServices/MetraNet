@@ -4,6 +4,7 @@ using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
+using MetraTech.ExpressionEngine.Mvm;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
@@ -89,6 +90,21 @@ namespace MetraTech.ExpressionEngine.MTProperties
         /// </summary>
         [DataMember]
         public bool Required { get; set; }
+
+        /// <summary>
+        /// Indicates if the value is calculated via the CalculationExpression. When this is true, the user
+        /// should be prevented from ever setting the value via a direct mechanism.
+        /// </summary>
+        [DataMember]
+        public bool IsCalculated { get; set; }
+
+        /// <summary>
+        /// The expression used to calcuate the value. Only used when the value IsCalcualted is set to true.
+        /// </summary>
+        [DataMember]
+        public string CalculationExpression { get; set; }
+
+        public string CalculationExpressionWithAssignment { get { return MvmHelper.GetAssigment(this); } }
 
         /// <summary>
         /// The defult value for the property
@@ -243,15 +259,15 @@ namespace MetraTech.ExpressionEngine.MTProperties
 
         #region Methods
 
-
         public virtual object Clone()
         {
             throw new NotImplementedException();
-            //May want to be more judicious when creating a copy of the property
-            //but using MemberwiseClone works for the moment
-            //var property = this.MemberwiseClone() as PropertyDriven;
-            //property.DataTypeInfo = this.DataTypeInfo.Copy();
-            //return property;
+        }
+        public virtual object Copy()
+        {
+            var property = new Property(Name, Type.Copy(), Required, Description);
+            property.IsCore = IsCore;
+            return property;
         }
 
         /// <summary>

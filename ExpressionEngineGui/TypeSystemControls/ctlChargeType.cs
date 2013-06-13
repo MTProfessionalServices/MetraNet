@@ -41,6 +41,5 @@ namespace PropertyGui.TypeSystemControls
             ChargeType.QuantityProperty = ctlQuantityProperty.PropertyName;
         }
         #endregion
-
     }
 }

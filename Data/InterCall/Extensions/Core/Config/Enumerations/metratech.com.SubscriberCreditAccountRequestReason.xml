@@ -1,0 +1,808 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>Enumeration</BaseType>
+  <Description>Subscriber Credit Account Request Reason</Description>
+  <Extension>Core</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC01</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC01</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC02</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC02</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC03</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC03</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC04</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC04</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC05</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC05</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC06</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC06</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC07</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC07</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC08</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC08</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC09</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC09</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC10</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC10</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC11</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC11</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC12</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC12</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC13</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC13</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC14</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC14</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC15</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC16</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC16</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC17</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC17</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC18</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC18</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC19</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC19</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC20</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC20</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC21</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC21</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC22</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC22</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC23</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC23</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC24</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC24</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC25</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC25</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC26</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC26</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC27</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC27</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC28</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC28</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC29</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC29</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC30</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC30</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC31</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC31</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC32</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC32</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC33</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC33</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC34</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC34</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC35</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC35</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC36</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC36</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC37</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC37</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC38</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC38</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC39</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC39</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC40</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC40</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC41</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC41</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC42</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC42</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC43</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC43</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC44</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC44</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC45</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC45</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC46</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC46</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC47</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC47</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC48</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC48</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC49</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC49</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC50</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC50</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC51</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC51</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC52</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC52</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC53</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC53</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC54</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC54</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC55</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC55</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC56</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC56</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC57</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC57</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC58</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC58</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC59</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC59</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC60</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC60</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC61</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC61</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC62</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC62</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC63</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC63</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC64</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC64</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC65</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC65</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC66</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC66</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC67</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC67</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC68</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC68</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC69</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC69</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC70</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC70</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC71</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC71</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC72</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC72</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC73</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC73</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC74</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC74</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC75</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC75</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC76</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC76</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC77</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC77</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC78</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC78</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC79</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC79</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC80</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC80</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC81</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC81</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC82</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC82</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC83</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC83</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC84</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC84</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC85</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC85</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC86</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC86</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC87</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC87</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC88</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC88</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC89</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC89</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC90</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC90</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RC91</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RC91</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ContractDispute</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ContractDispute</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>DroppedCall</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DroppedCall</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>PoorConnection</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PoorConnection</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>BadService</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BadService</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>GeneralDissatisfaction</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GeneralDissatisfaction</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Other</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Other</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CD</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>EL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>EL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>WK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SO</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CRDIT</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CRDIT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ARCC</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ARCC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>M9</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>M9</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RK</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CAGST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CAGST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CAPST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CAPST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CAHST</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CAHST</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SBAA and ASBAA</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SBAA and ASBAA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>SBAM and ASBAM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SBAM and ASBAM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RFGL</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RFGL</Name>
+    </EnumItem>
+  </Items>
+  <Name>SubscriberCreditAccountRequestReason</Name>
+  <Namespace>metratech.com</Namespace>
+</EnumCategory>

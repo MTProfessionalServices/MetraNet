@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>Enumeration</BaseType>
+  <Description></Description>
+  <Extension>ICConf</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Rate</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>RateQty</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>1</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>Cost</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>2</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>CostQty</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>3</Name>
+    </EnumItem>
+  </Items>
+  <Name>FeatureRateType</Name>
+  <Namespace>intercall.com/ConfCommon</Namespace>
+</EnumCategory>

@@ -1,0 +1,1669 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>Enumeration</BaseType>
+  <Description>Country list enumeration</Description>
+  <Extension>Core</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Afghanistan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Albania</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Algeria</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>5</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>American Samoa</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>6</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Andorra</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>7</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Angola</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>8</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Anguilla</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>9</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Antarctica</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>10</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Antigua</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>11</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Argentina</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>12</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Armenia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>13</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Aruba</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>14</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Ascension Island</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Australia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>16</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Austria</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>17</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Azerbaijan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>18</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Bahamas</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>19</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Bahrain</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>20</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Bangladesh</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>21</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Barbados</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>22</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Belarus</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>23</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Belgium</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>24</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Belize</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>25</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Benin</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>224</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Bermuda</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>26</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Bhutan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>27</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Bolivia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>28</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Bosnia/Hercegovina</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>29</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Botswana</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>30</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Brazil</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>31</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>British Virgin Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>32</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Brunei</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>33</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Bulgaria</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>34</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Burkina Faso</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>35</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Burundi</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>36</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CNMI</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>37</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Cambodia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>38</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Cameroon</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>39</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Canada</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>40</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Cape Verde Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>41</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Cayman Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>42</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Central African Republic</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>43</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Chad Republic</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>44</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Chile</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>45</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>China</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>225</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Christmas Island</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>46</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Colombia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>47</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Comoros</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>48</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Congo</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>49</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Cook Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>50</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Costa Rica</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>51</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Croatia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>52</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Cuba</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>53</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Cyprus</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>54</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Czech Republic</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>55</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Denmark</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>56</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Diego Garcia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>57</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Djibouti</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>58</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Dominica</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>59</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Dominican Republic</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>60</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Ecuador</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>61</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Egypt</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>62</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>El Salvador</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>63</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Equatorial Guinea</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>64</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Eritrea</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>65</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Estonia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>66</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Ethiopia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>67</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Faeroe Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>68</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Falkland Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>69</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Fiji Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>70</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Finland</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>71</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>France</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>72</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>French Antilles</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>73</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>French Guiana</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>74</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>French Polynesia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>75</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Gabon</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>76</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Gambia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>77</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Georgia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>78</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Germany</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>79</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Ghana</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>80</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Gibraltar</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>81</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Grenada</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>82</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Greece</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>83</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Greenland</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>84</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Guadeloupe</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>85</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Guam</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>86</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Guantanamo Bay</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>87</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Guatemala</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>88</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Guinea</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>89</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Guinea-Bissau</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>90</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Guyana</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>91</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Haiti</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>92</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Honduras</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>93</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Hong Kong</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>94</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Hungary</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>95</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Iceland</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>96</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>India</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>97</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Indonesia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>128</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Inmarsat - East Atlantic Ocean</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>129</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Inmarsat - Indian Ocean</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>130</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Inmarsat - Pacific Ocean</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>131</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Inmarsat - West Atlantic Ocean</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>98</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Iran</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>99</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Iraq</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>100</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Ireland</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>101</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Israel</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>102</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Italy</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>103</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Ivory Coast</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>104</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Jamaica</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>105</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Japan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>106</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Jordan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>227</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Kazakhstan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>107</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Kenya</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>108</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Kiribati</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>110</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Kuwait</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>230</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Kyrgyzstan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>111</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Laos</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>112</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Latvia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>113</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Lebanon</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>114</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Lesotho</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>115</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Liberia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>116</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Libya</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>117</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Liechtenstein</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>118</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Lithuania</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>119</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Luxembourg</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>120</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Macau</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>121</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Macedonia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>122</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Madagascar</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>123</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Malawi</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>124</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Malaysia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>125</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Maldives</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>126</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Mali Republic</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>127</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Malta</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>132</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Marshall Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>133</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Mauritius</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>134</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Mauritania</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>135</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Mayotte Island</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>136</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Mexico</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>137</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Micronesia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>138</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Moldova</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>139</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Monaco</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>140</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Mongolia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>141</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MontSerrat</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>142</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Morocco</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>143</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Mozambique</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>144</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Myanmar</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>145</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Namibia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>146</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Nauru</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>147</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Nepal</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>148</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Netherlands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>149</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Netherlands Antilles</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>239</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Nevis</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>150</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>New Caledonia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>151</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>New Zealand</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>152</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Nicaragua</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>153</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Niger Republic</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>154</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Nigeria</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>155</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Niue</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>231</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Norfolk Island</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>156</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Norway</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>228</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>North Korea</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>157</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Oman</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>158</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Pakistan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>159</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Palau</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>226</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Palestine</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>160</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Panama</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>161</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Papua New Guinea</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>162</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Paraguay</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>163</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Peru</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>164</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Philippines</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>165</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Poland</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>166</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Portugal</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>167</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Puerto Rico</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>168</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Qatar</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>169</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Reunion Island</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>170</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Romania</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>232</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Russia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>171</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Rwanda</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>172</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Saipan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>173</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>San Marino</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>174</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Sao Tome</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>175</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Saudi Arabia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>176</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Senegal Republic</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>177</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Serbia/Montenegro</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>178</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Seychelles Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>179</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Sierra Leone</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>180</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Singapore</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>181</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Slovakia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>182</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Slovenia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>183</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Solomon Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>233</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Somalia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>184</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>South Africa</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>229</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>South Korea</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>185</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Spain</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>186</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Sri Lanka</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>187</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>St Helena</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>188</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>St. Kitts/Nevis</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>189</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>St. Lucia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>190</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>St. Pierre/Miquelon</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>191</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>St. Vincent/Grenadines</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>234</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Sudan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>192</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Suriname</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>193</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Swaziland</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>194</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Sweden</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>195</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Switzerland</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>196</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Syria</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>197</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Thailand</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>198</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Taiwan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>235</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Tajikistan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>199</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Tanzania</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>236</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Togo</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>200</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Tonga Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>201</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Tongolese Republic</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>202</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Trinidad/Tobago</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>203</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Tunisia</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>204</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Turkey</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>237</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Turkmenistan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>205</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Turks/Caicos Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>206</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Tuvalu</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>207</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>US Virgin Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>208</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>USA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>209</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Uganda</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>210</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Ukraine</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>211</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>United Arab Emirates</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>212</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>United Kingdom</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>213</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Uruguay</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>238</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Uzbekistan</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>214</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Vanuatu</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>215</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Vatican City</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>216</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Venezuela</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>217</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Vietnam</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>218</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Wallis/Futuna Islands</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>219</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Western Samoa</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>220</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Yemen</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>221</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Zaire</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>222</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Zimbabwe</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>223</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Zambia</Name>
+    </EnumItem>
+  </Items>
+  <Name>CountryName</Name>
+  <Namespace>Global</Namespace>
+</EnumCategory>

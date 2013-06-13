@@ -49,6 +49,7 @@
             this.btnPageLayout = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnEditCompute = new System.Windows.Forms.Button();
+            this.btnInterCall = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -256,7 +257,7 @@
             // 
             // btnEditCompute
             // 
-            this.btnEditCompute.Location = new System.Drawing.Point(633, 276);
+            this.btnEditCompute.Location = new System.Drawing.Point(633, 264);
             this.btnEditCompute.Name = "btnEditCompute";
             this.btnEditCompute.Size = new System.Drawing.Size(75, 23);
             this.btnEditCompute.TabIndex = 26;
@@ -264,11 +265,22 @@
             this.btnEditCompute.UseVisualStyleBackColor = true;
             this.btnEditCompute.Click += new System.EventHandler(this.btnEditCompute_Click);
             // 
+            // btnInterCall
+            // 
+            this.btnInterCall.Location = new System.Drawing.Point(456, 264);
+            this.btnInterCall.Name = "btnInterCall";
+            this.btnInterCall.Size = new System.Drawing.Size(75, 23);
+            this.btnInterCall.TabIndex = 27;
+            this.btnInterCall.Text = "IC PV";
+            this.btnInterCall.UseVisualStyleBackColor = true;
+            this.btnInterCall.Click += new System.EventHandler(this.btnInterCall_Click);
+            // 
             // frmLaunch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(732, 319);
+            this.Controls.Add(this.btnInterCall);
             this.Controls.Add(this.btnEditCompute);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
@@ -307,5 +319,6 @@
         private System.Windows.Forms.Button btnPageLayout;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnEditCompute;
+        private System.Windows.Forms.Button btnInterCall;
     }
 }

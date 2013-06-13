@@ -47,6 +47,11 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         [DataMember]
         public PropertyCollection Properties { get; private set; }
 
+        /// <summary>
+        /// The extension that the PropertyBag is associated with
+        /// </summary>
+        public string Extension { get; set; }
+
         public override string CompatibleKey
         {
             get { return string.Format(CultureInfo.InvariantCulture, "{0}|{1}", Name, Type.CompatibleKey); }
@@ -178,7 +183,9 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         public static T CreateFromFile<T>(string file)
         {
             var xmlContent = File.ReadAllText(file);
-            return CreateFromString<T>(xmlContent);
+            var propertyBag = CreateFromString<T>(xmlContent);
+            //propertyBag.Extension = IOHelper.GetMetraNetExtension(file);
+            return propertyBag;
         }
 
         public static T CreateFromString<T>(string xmlContent)

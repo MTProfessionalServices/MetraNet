@@ -17,6 +17,7 @@ namespace PropertyGui
         #region Properties
         private bool IgnoreChanges = false;
         private Context Context;
+        private PropertyBag PropertyBag;
         public Property Property { get; private set; }
         public ChangeEvent OnChangeEvent;
         public PropertyCreated OnPropertyCreated;
@@ -41,9 +42,10 @@ namespace PropertyGui
         {
             if (context == null)
                 throw new ArgumentException("context is null");
-            if (context == null)
+            if (propertyBag == null)
                 throw new AggregateException("propertyBag is null");
             Context = context;
+            PropertyBag = propertyBag;
 
             //TODO: MetraNet doesn't support all of the data types, need to filter them
             GuiHelper.LoadMetraNetBaseTypes(cboDataType);
@@ -67,7 +69,11 @@ namespace PropertyGui
             //If it's core, disallow editing
             Enabled = !Property.IsCore;
 
+            chkIsCalculated.Checked = Property.IsCalculated;
+            txtExpression.Text = property.CalculationExpression;
             IgnoreChanges = false;
+
+            changeEvent(null, null);
         }
 
         public void SyncToObject()
@@ -81,6 +87,17 @@ namespace PropertyGui
             
             if (CurrentTypeControl != null)
                 CurrentTypeControl.SyncToObject();
+
+            Property.IsCalculated = chkIsCalculated.Checked;
+            Property.CalculationExpression = txtExpression.Text;
+
+            //This isn't exactly correct at this point; we need to deal with the charges below the event charge
+            if (Property.Type.IsCharge && Property.Name == "EventCharge")
+            {
+                chkIsCalculated.Checked = true;
+                //txtExpression.Text = ((ProductViewEntity)PropertyBag).GetEventChargeExpression();
+                txtExpression.Text = ((ChargeType)Property.Type).GetChargeExpression(Property, false);
+            }
         }
 
         #endregion
@@ -127,11 +144,14 @@ namespace PropertyGui
 
         private void changeEvent(object sender, EventArgs e)
         {
+            txtExpression.Visible = chkIsCalculated.Checked;
+
             if (IgnoreChanges)
                 return;
 
             SyncToObject();
 
+            
             if (OnChangeEvent != null)
                 OnChangeEvent();
         }
@@ -143,6 +163,5 @@ namespace PropertyGui
         }
 
         #endregion
-
     }
 }

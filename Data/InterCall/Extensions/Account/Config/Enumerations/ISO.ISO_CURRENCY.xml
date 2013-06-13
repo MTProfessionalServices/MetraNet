@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>Enumeration</BaseType>
+  <Description>ISO CURRENCY</Description>
+  <Extension>Account</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>840</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>840</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>124</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>124</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>826</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>826</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>36</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>36</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>756</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>756</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>203</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>203</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>208</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>208</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>978</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>978</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>344</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>344</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>392</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>392</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>578</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>578</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>554</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>554</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>985</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>985</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>752</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>752</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>702</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>702</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>356</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>356</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>156</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>156</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>348</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>348</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>404</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>404</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>504</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>504</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>703</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>703</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>710</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>710</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>784</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>784</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>764</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>764</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>458</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>458</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>410</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>410</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>901</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>901</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>360</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>360</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>986</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>986</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>32</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>32</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>484</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>484</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>152</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>152</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>862</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>862</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>352</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>352</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>170</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>170</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>858</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>858</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>937</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>937</Name>
+    </EnumItem>
+  </Items>
+  <Name>ISO_CURRENCY</Name>
+  <Namespace>ISO</Namespace>
+</EnumCategory>

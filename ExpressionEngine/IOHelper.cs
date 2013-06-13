@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Linq;
 using System.Globalization;
@@ -60,6 +61,14 @@ namespace MetraTech.ExpressionEngine
             if (!dirInfo.Exists)
                 dirInfo.Create();
             return dirInfo;
+        }
+
+        public static string GetMetraNetExtension(string filePath)
+        {
+            var match = Regex.Match(filePath, @"\\Extensions\\([a-zA-Z0-9_]+)", RegexOptions.IgnoreCase);
+            if (match.Groups.Count == 2)
+                return match.Groups[1].Value;
+            return null;
         }
     }
 }

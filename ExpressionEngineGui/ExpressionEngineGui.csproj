@@ -254,12 +254,6 @@
     <Compile Include="TypeSystemControls\ctlChargeType.Designer.cs">
       <DependentUpon>ctlChargeType.cs</DependentUpon>
     </Compile>
-    <Compile Include="TypeSystemControls\ctlComputedType.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="TypeSystemControls\ctlComputedType.Designer.cs">
-      <DependentUpon>ctlComputedType.cs</DependentUpon>
-    </Compile>
     <Compile Include="TypeSystemControls\ctlEnumerationType.cs">
       <SubType>UserControl</SubType>
     </Compile>

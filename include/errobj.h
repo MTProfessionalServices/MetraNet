@@ -437,6 +437,19 @@ class MTException : public std::exception
 		HRESULT mHr;
 };
 
+
+// ESR-5978 The MTPropNotInSessionException allows us to handle the case
+// when a property is missing, but the corresponding condition in the parameter table is optional --
+// Then we just want to say that the current rule doesn't match and continue on to examine
+// the remaining rules in the ruleset.
+class MTPropNotInSessionException : public MTException
+{
+  public:
+    MTPropNotInSessionException(const std::string& msg, HRESULT hr = E_FAIL)
+      : MTException(msg, hr) 
+    {}
+};
+
 #endif
 
 #endif /* _ERROBJ_H */

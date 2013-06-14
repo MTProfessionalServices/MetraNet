@@ -111,7 +111,7 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-	<Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\..\Build\AssemblyInfo.cs">
@@ -163,6 +163,10 @@
     <ProjectReference Include="..\Components\DataExporter\MetraTech.DataExportFramework.Components.DataExporter.csproj">
       <Project>{84C68104-F403-4D50-9083-6634258B1C32}</Project>
       <Name>MetraTech.DataExportFramework.Components.DataExporter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MetraTech.DataExportFramework.Common\MetraTech.DataExportFramework.Common.csproj">
+      <Project>{FCED5E8E-7105-49E9-80A5-1A6AF3AEE32A}</Project>
+      <Name>MetraTech.DataExportFramework.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

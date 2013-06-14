@@ -63,7 +63,7 @@ namespace MetraTech.BusinessEntity.DataAccess.Metadata
       }
       
       // Copy files to Temp
-      BuildUtil.SetupTempDir(EntityDir, EntityTempDir);
+      BuildUtil.SetupTempDir(EntityDir, EntityTempDir, LockedFiles);
 
       if (File.Exists(EntityAssemblyWithPath))
       {

@@ -126,7 +126,7 @@ STDMETHODIMP CAuditDBWriter::Write(IAuditEvent *apAuditEvent)
 
 		_bstr_t details = AuditEvent->Details;
 		vtParam = (details.length() > 0) ? details : vtNULL;
-		rs->AddInputParameterToStoredProc ("tx_details", MTTYPE_VARCHAR, INPUT_PARAM, vtParam);
+		rs->AddInputParameterToStoredProc ("tx_details", MTTYPE_W_VARCHAR, INPUT_PARAM, vtParam);
 
 		
 		_bstr_t loggedAs = AuditEvent->LoggedInAs;;

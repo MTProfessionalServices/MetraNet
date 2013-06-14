@@ -26,12 +26,12 @@ namespace MetraTech.Core.Services
 
     [OperationContract]
     [FaultContract(typeof(MASBasicFaultDetail))]
-    void AddNewReportDefinition(string ReportTitle, string ReportType, string ReportDefinitionSource, string ReportDescription, string ReportQuerySource,
+    void AddNewReportDefinition(string ReportTitle, string ReportType, string ReportDefinitionSource, string ReportDescription,
                                 string ReportQueryTag, int PreventAdhocExecution);
 
     [OperationContract]
     [FaultContract(typeof(MASBasicFaultDetail))]
-    void UpdateReportDefinition(int IDReport, string ReportDefinitionSource, string ReportDescription, string ReportQuerySource,
+    void UpdateReportDefinition(int IDReport, string ReportDefinitionSource, string ReportDescription,
                                 string ReportQueryTag, string ReportType, int PreventAdhocExecution);
 
 
@@ -43,14 +43,14 @@ namespace MetraTech.Core.Services
     [OperationContract]
     [FaultContract(typeof(MASBasicFaultDetail))]
     void CreateNewReportInstance(int IDReport, string InstanceDescr, string ReportOutputType, string ReportDistributionType, string ReportDestination, string ReportExecutionType,
-     string ReportXMLConfigLocation, DateTime ReportActivationDate, DateTime ReportDeActivationDate, string DestinationAccessUser, string DestinationAccessPassword,
+     DateTime ReportActivationDate, DateTime ReportDeActivationDate, string DestinationAccessUser, string DestinationAccessPassword,
      int CompressReport, int CompressThreshold, int DSID, string EOPInstanceName, int CreateControlFile, string ControlFileDestination, int OutputExecutionParameters,
      int UseQuotedIdentifiers, DateTime LastRunDateTime, DateTime NextRunDateTime, string ParameterDefaultNameValues, string OutputFileName);
 
     [OperationContract]
     [FaultContract(typeof(MASBasicFaultDetail))]
     void UpdateExistingReportInstance(int IDReport, int IDReportInstance, string InstanceDescr, string ReportOutputType, string ReportDistributionType,
-          string ReportDestination, string ReportExecutionType, string ReportXMLConfigLocation, DateTime ReportActivationDate, DateTime ReportDeActivationDate,
+          string ReportDestination, string ReportExecutionType, DateTime ReportActivationDate, DateTime ReportDeActivationDate,
           string DestinationAccessUser, string DestinationAccessPassword, int CompressReport, int CompressThreshold, string EOPInstanceName, int DSID,
           int CreateControlFile, string ControlFileDestination, int OutputExecutionParameters, int UseQuotedIdentifiers, DateTime LastRunDateTime,
           DateTime NextRunDateTime, string ParameterDefaultNameValues, string OutputFileName);
@@ -248,7 +248,7 @@ namespace MetraTech.Core.Services
     /// </summary>
 
     // Add New Report Definition
-    public void AddNewReportDefinition(string ReportTitle, string ReportType, string ReportDefinitionSource, string ReportDescription, string ReportQuerySource,
+    public void AddNewReportDefinition(string ReportTitle, string ReportType, string ReportDefinitionSource, string ReportDescription,
         string ReportQueryTag, int PreventAdhocExecution)
     {
       using (HighResolutionTimer timer = new HighResolutionTimer("AddNewReportDefinition"))
@@ -262,8 +262,7 @@ namespace MetraTech.Core.Services
               callStmt.AddParam("c_report_title", MTParameterType.String, ReportTitle);
               callStmt.AddParam("c_report_desc", MTParameterType.String, ReportDescription);
               callStmt.AddParam("c_rep_type", MTParameterType.String, ReportType);
-              callStmt.AddParam("c_rep_def_source", MTParameterType.String, ReportDefinitionSource);
-              callStmt.AddParam("c_rep_query_source", MTParameterType.String, ReportQuerySource);
+              callStmt.AddParam("c_rep_def_source", MTParameterType.String, ReportDefinitionSource);              
               callStmt.AddParam("c_rep_query_tag", MTParameterType.String, ReportQueryTag);
               callStmt.AddParam("c_prevent_adhoc_execution", MTParameterType.Integer, PreventAdhocExecution);
               mLogger.LogInfo("Executing sp export_InsertReportDefinition to create a new report definition..");
@@ -286,7 +285,7 @@ namespace MetraTech.Core.Services
       }
     }
 
-    public void UpdateReportDefinition(int IDReport, string ReportDefinitionSource, string ReportDescription, string ReportQuerySource,
+    public void UpdateReportDefinition(int IDReport, string ReportDefinitionSource, string ReportDescription,
                                 string ReportQueryTag, string ReportType, int PreventAdhocExecution)
     {
       using (HighResolutionTimer timer = new HighResolutionTimer("UpdateReportDefinition"))
@@ -300,8 +299,7 @@ namespace MetraTech.Core.Services
               callStmt.AddParam("id_rep", MTParameterType.Integer, IDReport);
               callStmt.AddParam("c_rep_type", MTParameterType.String, ReportType);
               callStmt.AddParam("c_report_desc", MTParameterType.String, ReportDescription);
-              callStmt.AddParam("c_rep_def_source", MTParameterType.String, ReportDefinitionSource);
-              callStmt.AddParam("c_rep_query_source", MTParameterType.String, ReportQuerySource);
+              callStmt.AddParam("c_rep_def_source", MTParameterType.String, ReportDefinitionSource);              
               callStmt.AddParam("c_rep_query_tag", MTParameterType.String, ReportQueryTag);
               callStmt.AddParam("c_prevent_adhoc_execution", MTParameterType.Integer, PreventAdhocExecution);
               mLogger.LogInfo("Executing sp export_UpdateReportDefinition to update existing report definition..");
@@ -361,7 +359,7 @@ namespace MetraTech.Core.Services
 
     // Add New Report Definition
     public void CreateNewReportInstance(int IDReport, string InstanceDescr, string ReportOutputType, string ReportDistributionType, string ReportDestination,
-    string ReportExecutionType, string ReportXMLConfigFileLocation, DateTime ReportActivationDate, DateTime ReportDeActivationDate, string DestinationAccessUser,
+    string ReportExecutionType, DateTime ReportActivationDate, DateTime ReportDeActivationDate, string DestinationAccessUser,
     string DestinationAccessPassword, int CompressReport, int CompressThreshold, int DSID, string EOPInstanceName, int CreateControlFile, string ControlFileDestination,
     int OutputExecutionParameters, int UseQuotedIdentifiers, DateTime LastRunDateTime, DateTime NextRunDateTime, string ParameterDefaultNameValues, string OutputFileName)
     {
@@ -378,8 +376,7 @@ namespace MetraTech.Core.Services
               callStmt.AddParam("outputType", MTParameterType.String, ReportOutputType);
               callStmt.AddParam("distributionType", MTParameterType.String, ReportDistributionType);
               callStmt.AddParam("destination", MTParameterType.String, ReportDestination);
-              callStmt.AddParam("ReportExecutionType", MTParameterType.String, ReportExecutionType);
-              callStmt.AddParam("xmlConfigLocation", MTParameterType.String, ReportXMLConfigFileLocation);
+              callStmt.AddParam("ReportExecutionType", MTParameterType.String, ReportExecutionType);              
               callStmt.AddParam("c_report_online", MTParameterType.Integer, 0);
               callStmt.AddParam("dtActivate", MTParameterType.DateTime, ReportActivationDate);
               callStmt.AddParam("dtDeActivate", MTParameterType.DateTime, ReportDeActivationDate);
@@ -423,7 +420,7 @@ namespace MetraTech.Core.Services
 
     // Update Existing Report Instance
     public void UpdateExistingReportInstance(int IDReport, int IDReportInstance, string InstanceDescr, string ReportOutputType, string ReportDistributionType,
-    string ReportDestination, string ReportExecutionType, string ReportXMLConfigFileLocation, DateTime ReportActivationDate, DateTime ReportDeActivationDate,
+    string ReportDestination, string ReportExecutionType, DateTime ReportActivationDate, DateTime ReportDeActivationDate,
     string DestinationAccessUser, string DestinationAccessPassword, int CompressReport, int CompressThreshold, string EOPInstanceName, int DSID, int CreateControlFile,
     string ControlFileDestination, int OutputExecutionParameters, int UseQuotedIdentifiers, DateTime LastRunDateTime, DateTime NextRunDateTime, string ParameterDefaultNameValues,
     string OutputFileName)
@@ -442,8 +439,7 @@ namespace MetraTech.Core.Services
               callStmt.AddParam("outputType", MTParameterType.String, ReportOutputType);
               callStmt.AddParam("distributionType", MTParameterType.String, ReportDistributionType);
               callStmt.AddParam("destination", MTParameterType.String, ReportDestination);
-              callStmt.AddParam("ReportExecutionType", MTParameterType.String, ReportExecutionType);
-              callStmt.AddParam("xmlConfigLocation", MTParameterType.String, ReportXMLConfigFileLocation);
+              callStmt.AddParam("ReportExecutionType", MTParameterType.String, ReportExecutionType);              
               callStmt.AddParam("dtActivate", MTParameterType.DateTime, ReportActivationDate);
               callStmt.AddParam("dtDeActivate", MTParameterType.DateTime, ReportDeActivationDate);
               callStmt.AddParam("destnAccessUser", MTParameterType.String, DestinationAccessUser);
@@ -1071,12 +1067,11 @@ namespace MetraTech.Core.Services
                   reportdefinition.ReportID = rdr.GetInt32(0);
                   reportdefinition.ReportTitle = rdr.GetString(1);
                   reportdefinition.ReportType = rdr.GetString(2);
-                  reportdefinition.ReportDefinitionSource = rdr.IsDBNull(3) ? String.Empty : rdr.GetString(3);
-                  reportdefinition.ReportQuerySource = rdr.IsDBNull(4) ? String.Empty : rdr.GetString(4);
-                  reportdefinition.ReportQueryTag = rdr.IsDBNull(5) ? String.Empty : rdr.GetString(5);
-                  reportdefinition.ReportDescription = rdr.IsDBNull(6) ? String.Empty : rdr.GetString(6);
+                  reportdefinition.ReportDefinitionSource = rdr.IsDBNull(3) ? String.Empty : rdr.GetString(3);                  
+                  reportdefinition.ReportQueryTag = rdr.IsDBNull(4) ? String.Empty : rdr.GetString(4);
+                  reportdefinition.ReportDescription = rdr.IsDBNull(5) ? String.Empty : rdr.GetString(5);
 
-                  if ((rdr.GetInt32(7)) == 0)
+                  if ((rdr.GetInt32(6)) == 0)
                   {
                     //reportdefinition.PreventAdhocExecution = PreventAdhocExecutionEnum.Yes;
                     reportdefinition.bPreventAdhocExecution = false;
@@ -1519,12 +1514,10 @@ namespace MetraTech.Core.Services
                     {
                       reportinstance.ReportOutputType = ReportOutputTypeEnum.CSV;
                     }
-                  }
-
-                  reportinstance.XMLConfigLocation = rdr.GetString(5);
+                  }                 
 
 
-                  if (rdr.GetString(6) == "Disk")
+                  if (rdr.GetString(5) == "Disk")
                   {
 
                     reportinstance.ReportDistributionType = ReportDeliveryTypeEnum.Disk;
@@ -1536,16 +1529,16 @@ namespace MetraTech.Core.Services
                   }
 
 
-                  reportinstance.ReportDestination = rdr.IsDBNull(7) ? String.Empty : rdr.GetString(7);
-                  reportinstance.FTPAccessUser = rdr.IsDBNull(8) ? String.Empty : rdr.GetString(8);
+                  reportinstance.ReportDestination = rdr.IsDBNull(6) ? String.Empty : rdr.GetString(6);
+                  reportinstance.FTPAccessUser = rdr.IsDBNull(7) ? String.Empty : rdr.GetString(7);
 
-                  if (rdr.IsDBNull(9))
+                  if (rdr.IsDBNull(8))
                   {
                     reportinstance.FTPAccessPassword = String.Empty;
                   }
                   else
                   {
-                    var encryptedPassword = rdr.GetString(9);
+                    var encryptedPassword = rdr.GetString(8);
 
                     //Decrypt the password
                     var cryptoManager = new CryptoManager();
@@ -1561,7 +1554,7 @@ namespace MetraTech.Core.Services
                   //}
                   //else 
                   //{
-                  if (rdr.GetString(10) == "EOP")
+                  if (rdr.GetString(9) == "EOP")
                   {
                     reportinstance.ReportExecutionType = ReportExecutionTypeEnum.EOP;
 
@@ -1574,7 +1567,7 @@ namespace MetraTech.Core.Services
 
                   //}
 
-                  if (rdr.GetString(11) == "No")
+                  if (rdr.GetString(10) == "No")
                   {
                     reportinstance.bGenerateControlFile = false;
                     //reportinstance.GenerateControlFile = GenerateControlFileEnum.No;
@@ -1585,10 +1578,10 @@ namespace MetraTech.Core.Services
                     //reportinstance.GenerateControlFile = GenerateControlFileEnum.Yes;
                   }
 
-                  reportinstance.ControlFileDeliveryLocation = rdr.IsDBNull(12) ? String.Empty : rdr.GetString(12);
+                  reportinstance.ControlFileDeliveryLocation = rdr.IsDBNull(11) ? String.Empty : rdr.GetString(11);
 
 
-                  if (rdr.GetString(14) == "No")
+                  if (rdr.GetString(13) == "No")
                   {
                     reportinstance.bCompressReport = false;
                     //reportinstance.CompressReport = CompressReportEnum.No;
@@ -1599,9 +1592,9 @@ namespace MetraTech.Core.Services
                     //reportinstance.CompressReport = CompressReportEnum.Yes;
                   }
 
-                  reportinstance.CompressThreshold = rdr.GetInt32(15);
+                  reportinstance.CompressThreshold = rdr.GetInt32(14);
 
-                  if (rdr.GetString(16) == "No")
+                  if (rdr.GetString(15) == "No")
                   {
                     reportinstance.bOutputExecParameters = false;
                     //reportinstance.OutputExecParameters = WriteExecParamsToReportEnum.No;
@@ -1612,7 +1605,7 @@ namespace MetraTech.Core.Services
                     //reportinstance.OutputExecParameters = WriteExecParamsToReportEnum.Yes;
                   }
 
-                  if (rdr.GetString(17) == "No")
+                  if (rdr.GetString(16) == "No")
                   {
                     reportinstance.bUseQuotedIdentifiers = false;
                     //reportinstance.UseQuotedIdentifiers = UseQuotedIdentifiersEnum.No;
@@ -1624,11 +1617,11 @@ namespace MetraTech.Core.Services
                     //reportinstance.UseQuotedIdentifiers = UseQuotedIdentifiersEnum.Yes;
                   }
 
-                  reportinstance.LastRunDate = rdr.GetDateTime(18);
+                  reportinstance.LastRunDate = rdr.GetDateTime(17);
 
-                  reportinstance.NextRunDate = rdr.IsDBNull(19) ? DateTime.Now : rdr.GetDateTime(19);
+                  reportinstance.NextRunDate = rdr.IsDBNull(18) ? DateTime.Now : rdr.GetDateTime(18);
 
-                  reportinstance.OutputFileName = rdr.IsDBNull(20) ? String.Empty : rdr.GetString(20);
+                  reportinstance.OutputFileName = rdr.IsDBNull(19) ? String.Empty : rdr.GetString(19);
 
                   exportReportInstance.Items.Add(reportinstance);
 

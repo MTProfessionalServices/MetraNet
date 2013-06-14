@@ -24,12 +24,6 @@ using MetraTech.Debug.Diagnostics;
 
 public partial class DataExportReportManagement_DeleteAssignedReportParameter : MTPage
 {
-  //public ExportReportDefinition exportreportdefinition
-  //{
-  //  get { return ViewState["exportreportdefinition"] as ExportReportDefinition; } //The ViewState labels are immaterial here..
-  //  set { ViewState["exportreportdefinition"] = value; }
-  //}
-
   public string strincomingReportId { get; set; } 
   public int intincomingReportID { get; set; }
   

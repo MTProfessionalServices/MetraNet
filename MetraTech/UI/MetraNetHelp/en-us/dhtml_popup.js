@@ -20,8 +20,6 @@ function showBlock(pstrID){
       myImage.src = 'arrowdown.gif';
       myImage.alt = 'Hide';
     }
-    if (document.location.href.indexOf('mk:@') == 0)
-      myDiv.innerHTML = myDiv.innerHTML;
   }
 }
 function hideBlock(pstrID){
@@ -33,8 +31,6 @@ function hideBlock(pstrID){
       myImage.src = 'arrowright.gif';
       myImage.alt = 'Show';
     }
-    if (document.location.href.indexOf('mk:@') == 0)
-      myDiv.innerHTML = myDiv.innerHTML;
   }
 }
 

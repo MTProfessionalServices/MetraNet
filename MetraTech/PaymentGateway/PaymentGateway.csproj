@@ -70,6 +70,7 @@
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTServerAccess.interop.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json" />
     <Reference Include="QueryAdapter.interop">
@@ -79,6 +80,7 @@
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\RCD.interop.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="SysContext.interop">
       <SpecificVersion>False</SpecificVersion>
@@ -109,7 +111,7 @@
       <Link>VersionInfo.cs</Link>
     </Compile>
     <Compile Include="IPaymentGateway.cs" />
-    <Compile Include="metanga.com.cs" />
+    <Compile Include="metratech.com.PaymentBroker.cs" />
     <Compile Include="MetangaGateway.cs" />
     <Compile Include="TestGatewayStub.cs" />
     <Compile Include="WorldPayConfig.cs" />

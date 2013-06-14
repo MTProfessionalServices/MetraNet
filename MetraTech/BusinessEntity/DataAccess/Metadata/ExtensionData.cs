@@ -39,7 +39,7 @@ namespace MetraTech.BusinessEntity.DataAccess.Metadata
     ///   (1) Let each entity group lock its own assemblies
     ///   (2) Lock the interface assembly, if one of the entity groups votes to build the interface assembly
     /// </summary>
-    public void CopyToTempAndLockOutputFiles()
+    public void CopyToTempAndLockOutputFiles(Dictionary<string, FileStream> AllLockedFiles = null)
     {
       MustBuild = false;
 
@@ -50,7 +50,7 @@ namespace MetraTech.BusinessEntity.DataAccess.Metadata
       var deletedInterfaceFiles = new List<string>();
 
       // Copy files to Temp
-      BuildUtil.SetupTempDir(InterfaceDir, InterfaceTempDir);
+      BuildUtil.SetupTempDir(InterfaceDir, InterfaceTempDir, AllLockedFiles);
 
       foreach(EntityGroupData entityGroupData in EntityGroupDataList)
       {
@@ -266,6 +266,7 @@ namespace MetraTech.BusinessEntity.DataAccess.Metadata
     #endregion
 
     #region Public Static Methods
+
     public static List<ExtensionData> GroupByExtension(List<EntityGroupData> entityGroupDataList)
     {
       Check.Require(entityGroupDataList != null, "entityGroupDataList cannot be null");
@@ -282,7 +283,7 @@ namespace MetraTech.BusinessEntity.DataAccess.Metadata
         {
           extensionData = new ExtensionData(entityGroupData.ExtensionName);
           extensionData.BuildGraph = entityGroupData.BuildGraph;
-          extensionDataList.Add(extensionData);
+          extensionDataList.Add(extensionData);          
         }
 
         extensionData.EntityGroupDataList.Add(entityGroupData);

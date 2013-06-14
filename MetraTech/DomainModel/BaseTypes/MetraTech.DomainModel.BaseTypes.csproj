@@ -65,11 +65,23 @@
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
     </Reference>
-    <Reference Include="MTAuditEvents.interop, Version=6.4.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+    <Reference Include="MTAuditEvents.interop">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
-      <HintPath>$(MTOUTDIR)\debug\Bin\MTAuditEvents.interop.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTAuditEvents.interop.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.ActivityServices.Common">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.ActivityServices.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.Common">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.Common">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Common.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -123,6 +135,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ProdCatTimeSpan.cs" />
+    <Compile Include="Quoting.cs" />
     <Compile Include="RateEntry.cs" />
     <Compile Include="RateSchedule.cs" />
     <Compile Include="ReasonCode.cs" />
@@ -131,6 +144,7 @@
     <Compile Include="SessionType.cs" />
     <Compile Include="TaxAdjustments.cs" />
     <Compile Include="TaxData.cs" />
+    <Compile Include="UDRCValuesBase.cs" />
     <Compile Include="UnitDependentRecurringChargePIInstance.cs" />
     <Compile Include="UnitDependentRecurringChargePITemplate.cs" />
     <Compile Include="UsageCycleInfo.cs" />
@@ -179,12 +193,6 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\MetraTech\Adjustments\MetraTech.Adjustments.csproj">
-      <Project>{86e49020-c430-454d-a403-825f19587e1e}</Project>
-      <Name>MetraTech.Adjustments</Name>
-      <Private>False</Private>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </ProjectReference>
     <ProjectReference Include="..\..\ActivityServices\Common\MetraTech.ActivityServices.Common.csproj">
       <Project>{E80F2D42-759F-4B7D-95C6-D04C1500569F}</Project>
       <Name>MetraTech.ActivityServices.Common</Name>

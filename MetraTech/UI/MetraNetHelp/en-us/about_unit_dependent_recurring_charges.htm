@@ -56,11 +56,11 @@ document.getElementById("div1").innerHTML = text;
 <p class="bodytext">This value can represent the number of &quot;seats&quot; purchased for a conferencing service, the volume of bandwidth purchased with a given subscription, or any other quantity you want to base a recurring charge on.</p>
 <p class="bodytext">Instances of unit-dependent recurring charges have a rate schedule that looks much like that of an aggregate usage charge, but uses the CSR-entered value as its counter (in this case the counter has a static value, unless the CSR changes it).</p>
 <p class="bodytext">A given unit-dependent recurring charge can be:</p>
-<ul class="listbullet"><li class="listbullet"><strong class="strong">Single-Bucket</strong>: </li></ul><p class="bodytext">Single-Bucket pricing rates all units based on the final range reached in the rate schedule. For example, a rate schedule specifies that 10 units or fewer are no-cost, and more than that amount is $1.00 per minute. Over the course of a billing period, a subscriber uses 100 units. Using Single-Bucket rating, the total charge is $100. Because the total number of units reached over 10, all units fell into the $1 per unit rate.</p>
+<ul class="listbullet"><li class="listbullet"><strong class="strong">Single-Bucket</strong>: </li></ul><p class="bodytext">Single-Bucket pricing rates all units based on the final range reached in the rate schedule. For example, a rate schedule specifies that 10 units or fewer are no-cost, and more than that amount is $1.00 per minute. Over the course of a billing period, a subscriber uses 100 units. Using Single-Bucket pricing, the total charge is $100. Because the total number of units reached over 10, all units fell into the $1 per unit rate.</p>
 <p class="bodytext"><strong class="strong">Note</strong>: In MetraNet releases prior to the 7.0 release, Single-Bucket pricing was referred to as <em class="emphasis">tiered</em> <em class="emphasis">rating</em>.</p>
-<p class="bodytext"><strong class="strong">Note</strong>: In MetraNet releases prior to the 7.0 release, Single-Bucket pricing was referred to as <em class="emphasis">tiered</em> <em class="emphasis">rating</em>.</p>
+<p class="bodytext"></p>
 <p class="listcontinue"><strong class="strong">Major Reference</strong></p>
-<ul class="listbullet"><li class="listbullet"><strong class="strong">Single-Bucket</strong>: </li></ul><p class="bodytext">Multi-Bucket pricing rates each unit based on the range each unit falls into in the rate schedule. For example, a rate schedule specifies that 10 units or fewer are no-cost, and more than that amount is $1.00 per minute. Over the course of a billing period, a subscriber uses 100 units. Using Multi-Bucket rating, the total charge is $90 (because units 1-10 would cost nothing, and the units over this would be $1.00 each).</p>
+<ul class="listbullet"><li class="listbullet"><strong class="strong">Single-Bucket</strong>: </li></ul><p class="bodytext">Multi-Bucket pricing rates each unit based on the range each unit falls into in the rate schedule. For example, a rate schedule specifies that 10 units or fewer are no-cost, and more than that amount is $1.00 per minute. Over the course of a billing period, a subscriber uses 100 units. Using Multi-Bucket pricing, the total charge is $90 (because units 1-10 cost nothing, and the units over this are $1.00 each).</p>
 <p class="bodytext">In MetraNet releases prior to the 7.0 release, Multi-Bucket pricing was referred to as <em class="emphasis">tapered</em> <em class="emphasis">rating</em>.</p>
 <p class="listcontinue"><strong class="strong">Major Reference</strong></p>
 <p class="bodytext">In the MetraOffer module, in the recurring charge wizard, you will want to make clear what this counter value represents. For instance, if the value represents conferencing seats, you will want to type in &quot;Number of Conferencing Seats&quot; in the wizard. This name will later appear in the MetraCare subscription page when the CSR manages an account's subscriptions. If you label this field ambiguously, then CSRs will not know what to enter in them, possibly leading to incorrect bills.</p>
@@ -76,7 +76,7 @@ document.getElementById("div1").innerHTML = text;
 
   </td></tr></table>
 <table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
-    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0</span></td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
 </tr></table>
 </body>
 </html>

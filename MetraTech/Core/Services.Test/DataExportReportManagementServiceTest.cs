@@ -61,8 +61,7 @@ namespace MetraTech.Core.Services.Test
             const string reportTitle = "TestReport";
             const string reportType = "TestReportType";
             const string reportDefinitionSource = "ReportDefinitionSource";
-            const string reportDescription = "ReportDescription";
-            const string reportQuerySource = "ReportQuerySource";
+            const string reportDescription = "ReportDescription";            
             const string reportQueryTag = "ReportQueryTag";
             const int preventAdhocExecution = 0;
 
@@ -72,7 +71,7 @@ namespace MetraTech.Core.Services.Test
             #region When
 
             service.AddNewReportDefinition(reportTitle, reportType, reportDefinitionSource, reportDescription,
-                                           reportQuerySource, reportQueryTag, preventAdhocExecution);
+                                           reportQueryTag, preventAdhocExecution);
 
             #endregion
 
@@ -145,7 +144,6 @@ namespace MetraTech.Core.Services.Test
             const string reportType = "TestReportType";
             const string reportDefinitionSource = "ReportDefinitionSource";
             const string reportDescription = "ReportDescription";
-            const string reportQuerySource = "ReportQuerySource";
             const string reportQueryTag = "ReportQueryTag";
             const int preventAdhocExecution = 0;
 
@@ -156,7 +154,7 @@ namespace MetraTech.Core.Services.Test
             try
             {
                 service.AddNewReportDefinition(reportTitle, reportType, reportDefinitionSource, reportDescription,
-                                               reportQuerySource, reportQueryTag, preventAdhocExecution);
+                                                reportQueryTag, preventAdhocExecution);
             }
             // Expecting MASBaseException to be thrown
             catch (MASBaseException e)
@@ -215,7 +213,6 @@ namespace MetraTech.Core.Services.Test
             const string reportType = "TestReportType";
             const string reportDefinitionSource = "ReportDefinitionSource";
             const string reportDescription = "ReportDescription";
-            const string reportQuerySource = "ReportQuerySource";
             const string reportQueryTag = "ReportQueryTag";
             const int preventAdhocExecution = 0;
 
@@ -227,7 +224,7 @@ namespace MetraTech.Core.Services.Test
             try
             {
                 service.AddNewReportDefinition(reportTitle, reportType, reportDefinitionSource, reportDescription,
-                                           reportQuerySource, reportQueryTag, preventAdhocExecution);
+                                            reportQueryTag, preventAdhocExecution);
             }
             catch
             {

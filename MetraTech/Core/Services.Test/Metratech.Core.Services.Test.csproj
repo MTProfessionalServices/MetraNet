@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"> 
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -37,6 +37,10 @@
     <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech</BaseIntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Quoting\MetraTech.Quoting.csproj">
+      <Project>{C4914DDD-93C8-475F-B5DB-1CDB6C8ECA17}</Project>
+      <Name>MetraTech.Quoting %28MetraTech.Quoting\MetraTech.Quoting%29</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\TestCommon\MetraTech.TestCommon.csproj">
       <Project>{20307E5D-BFC9-4F27-9ECC-A61EE854E8B5}</Project>
       <Name>MetraTech.TestCommon</Name>
@@ -108,6 +112,11 @@
   <ItemGroup>
     <Compile Include="DataExportReportManagementServiceTest.cs" />
     <Compile Include="DataExportReportManagementServiceFunctionalTest.cs" />
+    <Compile Include="QuotingServiceTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Local.testsettings" />
+    <None Include="TraceAndTestImpact.testsettings" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

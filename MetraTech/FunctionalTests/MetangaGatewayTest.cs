@@ -184,7 +184,7 @@ namespace MetraTech.FunctionalTests
         {
             CreditCardPaymentMethod paymentMethod = new CreditCardPaymentMethod
                 {
-                    SafeAccountNumber = _accountId.ToString(),
+                    AccountNumber = _accountId.ToString(),
                     CVNumber = "123",
                     City = "Waltham",
                     Country = PaymentMethodCountry.USA,
@@ -198,12 +198,7 @@ namespace MetraTech.FunctionalTests
                     ExpirationDate = "12/2020",
                     ExpirationDateFormat = MTExpDateFormat.MT_MM_slash_YYYY
                 };
-            foreach (var val in Enum.GetValues(typeof (PaymentMethodCountry)).Cast<PaymentMethodCountry>())
-            {
-                
-            }
-            var temp = MetraTech.DomainModel.Enums.EnumHelper.GetValueByEnum(PaymentMethodCountry.Afghanistan);
-                    
+             
             return paymentMethod;
         }
 

@@ -40,7 +40,7 @@ namespace MetraTech.DataAccess.QueryManagement
     using Entities;
     using EnumeratedTypes;
     using Helpers;
-    
+
     /// <summary>
     /// Provides access to the QueryManagement configuration file.
     /// </summary>
@@ -57,7 +57,7 @@ namespace MetraTech.DataAccess.QueryManagement
         /// <summary>
         /// List of configuration errors.
         /// </summary>
-        private static List<string> configurationErrorList = new List<string>();
+        private List<string> configurationErrorList = new List<string>();
 
         /// <summary>
         /// XmlDocument which loads the QueryManagement configuration file into memory.
@@ -237,7 +237,7 @@ namespace MetraTech.DataAccess.QueryManagement
         /// Determines where MetraNet is installed from the registry
         /// </summary>
         /// <returns>A string which represents the folder path where MetraNet is installed.</returns>
-        private static void DetermineMetranetInstallationDirectory()
+        private static void DetermineMetranetInstallationDirectory(QueryManagementConfiguration initme)
         {
             const string methodName = "[DetermineMetranetInstallationDirectory]";
             string message = string.Empty;
@@ -347,11 +347,11 @@ namespace MetraTech.DataAccess.QueryManagement
                 }
             }
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
-        private static void DeterminePlatformDatabase()
+        private static void DeterminePlatformDatabase(QueryManagementConfiguration initme)
         {
             const string methodName = "[DeterminePlatformDatabase]";
             string message = string.Empty;
@@ -375,12 +375,12 @@ namespace MetraTech.DataAccess.QueryManagement
                 {
                     case "{SQL SERVER}":
                         {
-                            QueryManagementConfiguration.queryManagementConfiguration.PlatformDatabase = DatabaseTypeEnum.SqlServer;
+                            initme.platformDatabase = DatabaseTypeEnum.SqlServer;
                         }
                         break;
                     case "{ORACLE}":
                         {
-                            QueryManagementConfiguration.queryManagementConfiguration.PlatformDatabase = DatabaseTypeEnum.Oracle;
+                            initme.platformDatabase = DatabaseTypeEnum.Oracle;
                         }
                         break;
                     default:
@@ -408,7 +408,7 @@ namespace MetraTech.DataAccess.QueryManagement
                 }
             }
         }
-        
+
         /// <summary>
         /// Searches for the xml node specified by the parameter "xmlNodeName"
         /// validating it exists, and optionally if it contains innerText.
@@ -419,7 +419,7 @@ namespace MetraTech.DataAccess.QueryManagement
         /// <param name="xmlNodeName">The name of the xml node to search for.</param>
         /// <param name="containsInnerText">Boolean value indicating if the xml node searched for contains innerText.</param>
         /// <returns></returns>
-        private static XmlNode FindAndParseXmlNodeOrSaveError(XmlDocument xmlDocument, XmlNode xmlNode, string xmlNodeName, bool containsInnerText)
+        private static XmlNode FindAndParseXmlNodeOrSaveError(QueryManagementConfiguration initme, XmlDocument xmlDocument, XmlNode xmlNode, string xmlNodeName, bool containsInnerText)
         {
             const string methodName = "[FindAndParseXmlNodeOrSaveError]";
 
@@ -455,7 +455,7 @@ namespace MetraTech.DataAccess.QueryManagement
 
                 if (xmlNodeName.Equals("root", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    xmlTestNode = QueryManagementConfiguration.queryManagementConfiguration.configurationFile.DocumentElement;
+                    xmlTestNode = initme.configurationFile.DocumentElement;
                 }
                 else
                 {
@@ -470,10 +470,10 @@ namespace MetraTech.DataAccess.QueryManagement
                             "The \"",
                             xmlNodeName,
                             "\" element is missing in the file \"",
-                            QueryManagementConfiguration.queryManagementConfiguration.configurationFileName,
+                            initme.configurationFileName,
                             "\".");
 
-                    QueryManagementConfiguration.configurationErrorList.Add(message);
+                    initme.configurationErrorList.Add(message);
                 }
 
                 if (containsInnerText)
@@ -486,10 +486,10 @@ namespace MetraTech.DataAccess.QueryManagement
                                 "The \"",
                                 xmlNodeName,
                                 "\" element's value/InnerText is missing in the file \"",
-                                QueryManagementConfiguration.queryManagementConfiguration.configurationFileName,
+                                initme.configurationFileName,
                                 "\".");
 
-                        QueryManagementConfiguration.configurationErrorList.Add(message);
+                        initme.configurationErrorList.Add(message);
                     }
                 }
 
@@ -541,22 +541,26 @@ namespace MetraTech.DataAccess.QueryManagement
                     {
                         if (QueryManagementConfiguration.queryManagementConfiguration == null)
                         {
-                            QueryManagementConfiguration.queryManagementConfiguration = new QueryManagementConfiguration();
-                            QueryManagementConfiguration.DetermineMetranetInstallationDirectory();
-                            QueryManagementConfiguration.queryManagementConfiguration.configurationFileName =
-                                string.Concat(QueryManagementConfiguration.metraNetInstallDirectory, @"\Config\QueryManagement\QueryManagement.xml");
-                            QueryManagementConfiguration.queryManagementConfiguration.configurationFile.Load(QueryManagementConfiguration.queryManagementConfiguration.configurationFileName);
-                            QueryManagementConfiguration.ParseConfigurationFile();
-                            QueryManagementConfiguration.DeterminePlatformDatabase();
 
-                            if (QueryManagementConfiguration.configurationErrorList.Count > 0)
+                            var tempConfig = new QueryManagementConfiguration();
+                            if (tempConfig == null)
+                                throw new Exception("Can not create QueryManagementConfiguration Instance");
+
+                            QueryManagementConfiguration.DetermineMetranetInstallationDirectory(tempConfig);
+                            tempConfig.configurationFileName = string.Concat(QueryManagementConfiguration.metraNetInstallDirectory, @"\Config\QueryManagement\QueryManagement.xml");
+                            tempConfig.configurationFile.Load(tempConfig.configurationFileName);
+                            QueryManagementConfiguration.ParseConfigurationFile(tempConfig);
+                            QueryManagementConfiguration.DeterminePlatformDatabase(tempConfig);
+
+                            if (tempConfig.configurationErrorList.Count > 0)
                             {
-                                foreach (string s in QueryManagementConfiguration.configurationErrorList)
+                                foreach (string s in tempConfig.configurationErrorList)
                                 {
                                     LogHelper.WriteLog(s, LogLevelEnum.Fatal, QueryManagementConfiguration.Logger, null);
                                 }
                                 throw new QueryManagementException("One or more configuration errors encountered.");
                             }
+                            QueryManagementConfiguration.queryManagementConfiguration = tempConfig;
                         }
                     }
                 }
@@ -584,7 +588,7 @@ namespace MetraTech.DataAccess.QueryManagement
         /// <summary>
         /// Reads, validates and sets local variables from the QueryManagement configuration file.
         /// </summary>
-        private static void ParseConfigurationFile()
+        private static void ParseConfigurationFile(QueryManagementConfiguration initme)
         {
             const string methodName = "[ParseConfigurationFile]";
 
@@ -604,17 +608,16 @@ namespace MetraTech.DataAccess.QueryManagement
             {
                 if (QueryManagementConfiguration.Logger.WillLogInfo)
                 {
-                    message = string.Concat(methodName, "Parsing configuration file, \"", QueryManagementConfiguration.queryManagementConfiguration.configurationFileName, "\"");
+                    message = string.Concat(methodName, "Parsing configuration file, \"", initme.configurationFileName, "\"");
                     LogHelper.WriteLog(message, LogLevelEnum.Info, QueryManagementConfiguration.Logger, null);
                 }
 
-                var rootXmlNode = QueryManagementConfiguration.FindAndParseXmlNodeOrSaveError(QueryManagementConfiguration.queryManagementConfiguration.configurationFile, null, "root", false);
-                var enabledXmlNode = QueryManagementConfiguration.FindAndParseXmlNodeOrSaveError(null, rootXmlNode, "enabled", true);
-                QueryManagementConfiguration.queryManagementConfiguration.enabled = enabledXmlNode.InnerText.Equals("true", StringComparison.InvariantCultureIgnoreCase) ? true : false;
-
-                var validatorsXmlNode = QueryManagementConfiguration.FindAndParseXmlNodeOrSaveError(null, rootXmlNode, "validators", true);
-                QueryManagementConfiguration.ParseValidatorXmlNodes(validatorsXmlNode, typeof(DirectoryValidationTypeEnum));
-                QueryManagementConfiguration.ParseValidatorXmlNodes(validatorsXmlNode, typeof(InfoFileValidationTypeEnum));
+                var rootXmlNode = QueryManagementConfiguration.FindAndParseXmlNodeOrSaveError(initme, initme.configurationFile, null, "root", false);
+                var enabledXmlNode = QueryManagementConfiguration.FindAndParseXmlNodeOrSaveError(initme, null, rootXmlNode, "enabled", true);
+                initme.enabled = enabledXmlNode.InnerText.Equals("true", StringComparison.InvariantCultureIgnoreCase) ? true : false;
+                var validatorsXmlNode = QueryManagementConfiguration.FindAndParseXmlNodeOrSaveError(initme, null, rootXmlNode, "validators", true);
+                QueryManagementConfiguration.ParseValidatorXmlNodes(initme, validatorsXmlNode, typeof(DirectoryValidationTypeEnum));
+                QueryManagementConfiguration.ParseValidatorXmlNodes(initme, validatorsXmlNode, typeof(InfoFileValidationTypeEnum));
             }
             finally
             {
@@ -642,7 +645,7 @@ namespace MetraTech.DataAccess.QueryManagement
         /// </summary>
         /// <param name="validatorsXmlNode">The validators xml node from the QueryManagement configuration file.</param>
         /// <param name="enumType">The enumerated type to load, parse and validate mathing xml nodes from.</param>
-        private static void ParseValidatorXmlNodes(XmlNode validatorsXmlNode, Type enumType)
+        private static void ParseValidatorXmlNodes(QueryManagementConfiguration initme, XmlNode validatorsXmlNode, Type enumType)
         {
             const string methodName = "[ParseValidatorXmlNodes]";
 
@@ -695,8 +698,8 @@ namespace MetraTech.DataAccess.QueryManagement
 
                 string typeName = enumType.ToString();
                 string validatorNodeName = null;
-                
-                switch(typeName)
+
+                switch (typeName)
                 {
                     case "MetraTech.DataAccess.QueryManagement.EnumeratedTypes.DirectoryValidationTypeEnum":
                         {
@@ -710,11 +713,11 @@ namespace MetraTech.DataAccess.QueryManagement
                         break;
                     default:
                         {
-                             message = string.Concat(
-                                methodName,
-                                string.Format(CultureInfo.CurrentCulture,
-                                MessageConstants.ParameterIsNotValid,
-                                "enumType"));
+                            message = string.Concat(
+                               methodName,
+                               string.Format(CultureInfo.CurrentCulture,
+                               MessageConstants.ParameterIsNotValid,
+                               "enumType"));
 
                             if (QueryManagementConfiguration.Logger.WillLogFatal)
                             {
@@ -726,7 +729,7 @@ namespace MetraTech.DataAccess.QueryManagement
                 }
 
                 string[] names = Enum.GetNames(enumType);
-                var validatorNode = QueryManagementConfiguration.FindAndParseXmlNodeOrSaveError(null, validatorsXmlNode, validatorNodeName, false);
+                var validatorNode = QueryManagementConfiguration.FindAndParseXmlNodeOrSaveError(initme, null, validatorsXmlNode, validatorNodeName, false);
 
                 if (validatorNode != null)
                 {
@@ -738,9 +741,9 @@ namespace MetraTech.DataAccess.QueryManagement
                             continue;
                         }
 
-                        var validatorTypeXmlNode = QueryManagementConfiguration.FindAndParseXmlNodeOrSaveError(null, validatorNode, names[index], false);
-                        var validatorEnabledXmlNode = QueryManagementConfiguration.FindAndParseXmlNodeOrSaveError(null, validatorTypeXmlNode, "enabled", true);
-                        if (QueryManagementConfiguration.ValidateBooleanXmlNodeInnerText(validatorEnabledXmlNode))
+                        var validatorTypeXmlNode = QueryManagementConfiguration.FindAndParseXmlNodeOrSaveError(initme, null, validatorNode, names[index], false);
+                        var validatorEnabledXmlNode = QueryManagementConfiguration.FindAndParseXmlNodeOrSaveError(initme, null, validatorTypeXmlNode, "enabled", true);
+                        if (QueryManagementConfiguration.ValidateBooleanXmlNodeInnerText(initme, validatorEnabledXmlNode))
                         {
                             if (validatorEnabledXmlNode.InnerText.Equals("true", StringComparison.InvariantCultureIgnoreCase))
                             {
@@ -750,7 +753,7 @@ namespace MetraTech.DataAccess.QueryManagement
                     }
                     if (validationList.Count > 0)
                     {
-                        QueryManagementConfiguration.queryManagementConfiguration.validators.Add(enumType, validationList);
+                        initme.validators.Add(enumType, validationList);
                     }
                 }
             }
@@ -778,7 +781,7 @@ namespace MetraTech.DataAccess.QueryManagement
         /// Validates the value/InnerText of the XmlNode specified is equivalent to a boolean value of true or false.
         /// </summary>
         /// <param name="xmlNode">The xml node to validate contains a boolean value in its InnerText field/property.</param>
-        private static bool ValidateBooleanXmlNodeInnerText(XmlNode xmlNode)
+        private static bool ValidateBooleanXmlNodeInnerText(QueryManagementConfiguration initme, XmlNode xmlNode)
         {
             const string methodName = "[ValidateBooleanXmlNodeInnerText]";
 
@@ -809,7 +812,7 @@ namespace MetraTech.DataAccess.QueryManagement
                                 "\" element's value/InnerText acceptable values are \"true\" or \"false\".  The current value is \"",
                                 xmlNode.InnerText,
                                 "\" in the file ",
-                                QueryManagementConfiguration.queryManagementConfiguration.configurationFileName,
+                                initme.configurationFileName,
                                 "\" for the parent element \"",
                                 xmlNode.ParentNode.Name,
                                 "\".");
@@ -817,7 +820,7 @@ namespace MetraTech.DataAccess.QueryManagement
                         LogHelper.WriteLog(message, LogLevelEnum.Fatal, QueryManagementConfiguration.Logger, null);
                     }
 
-                    QueryManagementConfiguration.configurationErrorList.Add(message);
+                    initme.configurationErrorList.Add(message);
                     return false;
                 }
                 return true;

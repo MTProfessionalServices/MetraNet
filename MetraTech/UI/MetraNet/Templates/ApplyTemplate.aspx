@@ -8,13 +8,7 @@
   <div style="width:810px">
   
     <MTCDT:MTGenericForm ID="MTGenericFormAccountTemplate" runat="server" meta:resourcekey="MTGenericFormAccountTemplateResource1"></MTCDT:MTGenericForm>
-    <MT:MTPanel ID="MTPanelApplyTo" runat="server" Text="Apply Template To" meta:resourcekey="ApplyToPanel" >    
 
-        <MT:MTRadioControl ID="radAll" meta:resourcekey="radAll" runat="server" BoxLabel="All Descendants" Name="r1" Text="1" Value="1" Checked="true" TabIndex="20" /> 
-        <MT:MTRadioControl ID="radDirect" meta:resourcekey="radDirect" runat="server" BoxLabel="Direct Descendants" Name="r1" Text="2" Value="2" TabIndex="30" />
-
-    </MT:MTPanel>   
-    <MT:MTFilterGrid ID="MTFilterGridProperties" runat="server" TemplateFileName="AccountTemplateApply" ExtensionName="Account"></MT:MTFilterGrid>    
     <MT:MTFilterGrid ID="MTFilterGrid1" runat="server" TemplateFileName="AccountTemplateApplySubscriptions" ExtensionName="Account"></MT:MTFilterGrid>
             
     <MT:MTPanel ID="MTPanel1" runat="server" Text="Subscription Span" meta:resourcekey="SubscriptionSpanPanel" >
@@ -53,15 +47,6 @@
 
   <script type="text/javascript">
   
-    // Remove Pager
-    GetBottomBar_<%= MTFilterGridProperties.ClientID %> = function()
-    {
-      var bbar = new Ext.Toolbar({
-        items:[ ]
-      });
-
-      return bbar;
-    };
     
      // Custom Renderers
     OverrideRenderer_<%= MTFilterGrid1.ClientID %> = function(cm)
@@ -134,21 +119,11 @@
         subIds += subRecords[i].data.ProductOfferingId + ":" + subRecords[i].data.GroupID;
       }
 
-      var propertyRecords = grid_<%= MTFilterGridProperties.ClientID %>.getSelectionModel().getSelections();
       var propertyIds = "";
-      for(var i=0; i < propertyRecords.length; i++)
-      {
-        if(i > 0)
-        {
-          propertyIds += ",";
-        }
-        propertyIds += propertyRecords[i].data.Key; 
-      }
-            
       var args = "ApplySubscriptionsString=" + subIds + "**";
       args += "ApplyPropertiesString=" + propertyIds + "**";
       args += "ApplyDefaultSecurityString=" + Ext.get("ctl00_ContentPlaceHolder1_cbApplyDefaultSecurityPolicy").dom.checked + "**";
-      args += "ApplyAllDescendentsString=" + Ext.get("ctl00_ContentPlaceHolder1_radAll").dom.checked + "**";
+      args += "ApplyAllDescendentsString=" + "true" + "**";
       args += "ApplyStartDateString=" + Ext.get("ctl00_ContentPlaceHolder1_StartDate").dom.value + "**";
       args += "ApplyEndDateString=" + Ext.get("ctl00_ContentPlaceHolder1_EndDate").dom.value + "**";
       args += "ApplyStartNextBillingPeriodString=" + Ext.get("ctl00_ContentPlaceHolder1_cbStartNextBillingPeriod").dom.checked + "**";

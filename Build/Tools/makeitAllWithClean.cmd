@@ -7,7 +7,6 @@ rd /s/q o:\debug
 rd /s/q r:\extensions\SystemConfig\config\EnumType\Temp
 rd /s/q s:\MetraTech\UI\PreCompiled\
 rd s:\MetraTech\Agreements\bin
-rd /s/q R:\extensions\SmokeTest\BusinessEntity\Interface
 
 FOR /D %%p IN ("%windir%\Microsoft.NET\Framework\v2.0.50727\Temporary ASP.NET Files\*.*") DO rmdir "%%p" /s /q
 

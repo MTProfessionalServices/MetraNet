@@ -233,6 +233,7 @@
     <Compile Include="AuthService.cs" />
     <Compile Include="BasePCWebService.cs" />
     <Compile Include="BaseSubscriptionService.cs" />
+    <Compile Include="QuotingService.cs" />
     <Compile Include="FLSManagementService.cs" />
     <Compile Include="ProductOfferingService.cs" />
     <Compile Include="RelationshipService.cs" />
@@ -332,9 +333,9 @@
       <Private>False</Private>
       <EmbedInteropTypes>false</EmbedInteropTypes>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\MetraTech\Pipeline\ReRun\MetraTech.Pipeline.ReRun.csproj">
+    <ProjectReference Include="..\..\Pipeline\ReRun\MetraTech.Pipeline.Rerun.csproj">
       <Project>{bc2dc75e-9076-45ae-b592-7ebe2ab11ba7}</Project>
-      <Name>MetraTech.Pipeline.ReRun</Name>
+      <Name>MetraTech.Pipeline.Rerun</Name>
       <Private>False</Private>
       <EmbedInteropTypes>false</EmbedInteropTypes>
     </ProjectReference>
@@ -387,7 +388,7 @@
     </ProjectReference>
     <ProjectReference Include="..\..\Basic\MetraTech.Basic.csproj">
       <Project>{B0909156-962B-4C97-AB1C-4073E3DA6DC1}</Project>
-      <Name>MetraTech.Basic %28MetraTech.Basic\MetraTech.Basic%29</Name>
+      <Name>MetraTech.Basic</Name>
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <Private>False</Private>
     </ProjectReference>
@@ -469,6 +470,10 @@
       <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
       <Name>MetraTech.Common</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Quoting\MetraTech.Quoting.csproj">
+      <Project>{C4914DDD-93C8-475F-B5DB-1CDB6C8ECA17}</Project>
+      <Name>MetraTech.Quoting %28MetraTech.Quoting\MetraTech.Quoting%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Security\MetraTech.Security.csproj">
       <Project>{269C212E-1D9A-4177-81A3-0DFE538DE6E6}</Project>

@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="667f8942-ff8e-403e-aa89-b53126903f3f" name="Quoting" linkedPackageId="25a37ff6-df50-4ce3-a9bb-c8989da2c0ee" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <ownedCommentsInternal>
+    <comment Id="c378f3ff-d13b-485e-ba48-b9f41a70881f">
+      <elementDefinition Id="ce511502-7880-4b80-b895-3e0872bf439a" />
+      <body>Check Accounts to have one billling cycle
+
+Check PO 
+
+Check dates
+</body>
+      <annotatedElements>
+        <opaqueActionMoniker Id="1e6dc665-251f-4e8c-9ed2-4592cb4bb60f" LastKnownName="Validate quote request" />
+      </annotatedElements>
+    </comment>
+    <comment Id="f230ffcc-b47f-4744-b4cf-73a2e94e56f4">
+      <elementDefinition Id="cf1cc1fe-2fcf-401a-bf4c-03b51c5ee6fe" />
+      <body>Create temporary subscribtions
+
+Get usage interval id
+
+Create a mettering batch id
+
+(Get Product catalog data)</body>
+      <annotatedElements>
+        <opaqueActionMoniker Id="0c526dc0-ce6c-4a33-b78d-762d1c181bc1" LastKnownName="Prepare data for metering" />
+      </annotatedElements>
+    </comment>
+    <comment Id="42465438-0a65-4409-bd65-88d81b24c662">
+      <elementDefinition Id="766ea13c-f65c-4b8f-a98c-0c6c51fa0323" />
+      <body>Run adapter "like" query to generate and meter</body>
+      <annotatedElements>
+        <opaqueActionMoniker Id="5396b185-889f-4778-b665-3f252aa904fa" LastKnownName="Meter RC and NRC" />
+      </annotatedElements>
+    </comment>
+    <comment Id="ee2dd38f-c0af-4906-b154-db2b2c27386a">
+      <elementDefinition Id="9c8ebeaf-d476-4b35-a97b-32b1c9ccfa26" />
+      <body>Product Catalog:
+t_subscription
+t_po
+
+Metering
+t_svc_
+t_session_set
+t_message
+
+Usage
+t_acc_usage
+t_pv_nonrecurring
+t_pv_faltrecurringcharge</body>
+      <annotatedElements>
+        <objectNodeMoniker Id="35affa83-0473-48a4-b5cb-363d79523435" LastKnownName="Data base" />
+      </annotatedElements>
+    </comment>
+    <comment Id="ec9d3187-c40a-479c-ad6f-5bcf9b6c2d39">
+      <elementDefinition Id="95fe2d43-bc22-4eb2-976f-477318714f78" />
+      <body>Run
+MTSP_GENERATE_STATEFUL_RCS_FOR_QUOTING
+and
+MTSP_GENERATE_STATEFUL_NRCS_FOR_QUOTING
+</body>
+      <annotatedElements>
+        <sendSignalActionMoniker Id="ec0768e5-46f3-4445-aab5-9bb09d5fcd8c" LastKnownName="Query to generate and meter" />
+      </annotatedElements>
+    </comment>
+    <comment Id="14dec33e-0a21-455f-b532-a5af910c5a09">
+      <elementDefinition Id="8fc168e3-a0be-4e91-90bf-815f4db365de" />
+      <body>Clean up subscriptions
+
+Backout usage data</body>
+      <annotatedElements>
+        <opaqueActionMoniker Id="14fbf623-012d-417e-978e-4b9885f04ec2" LastKnownName="Clean up " />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="1ecc76f5-ef0f-4b71-b681-55d4568381f1">
+      <profileInstance Id="9a403a7f-3c9c-486c-914a-b24049f03b50" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="64c5052b-ed73-4db5-bb25-5af09a3dde93">
+      <profileInstance Id="f1386264-b15c-4f38-bf53-4c388023ea8b" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="843133dc-3c2c-467c-bdd2-d588e2d761a5" name="Quoting" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="ffd81975-734f-44a8-af07-49c72b3acf77" />
+        <nodes>
+          <initialNode Id="6f482527-c802-4f22-b1d4-0005a38c5e64" name="Start quoting" isLeaf="false">
+            <elementDefinition Id="56ec4059-e91d-499d-a3e1-2a73ec8a29ba" />
+            <flowNodeTargets>
+              <controlFlow Id="b000218d-c302-4f90-aa80-4210d8a8da4e" isLeaf="false">
+                <opaqueActionMoniker Id="1e6dc665-251f-4e8c-9ed2-4592cb4bb60f" LastKnownName="Validate quote request" />
+                <elementDefinition Id="4e735ae7-b6bf-46af-88c7-94804b5e8547" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction Id="1e6dc665-251f-4e8c-9ed2-4592cb4bb60f" name="Validate quote request" isLeaf="false">
+            <description>Check Accounts to have one billling cycle
+Check PO 
+</description>
+            <elementDefinition Id="69a29c79-cac0-4362-8741-5a58ded921ae" />
+            <flowNodeTargets>
+              <controlFlow Id="fe9e9e6c-4f12-4b5e-b023-a1b821a8e2a3" isLeaf="false">
+                <opaqueActionMoniker Id="0c526dc0-ce6c-4a33-b78d-762d1c181bc1" LastKnownName="Prepare data for metering" />
+                <elementDefinition Id="837c49e2-5713-404b-a726-8c5b24ea60fd" />
+              </controlFlow>
+            </flowNodeTargets>
+            <pins>
+              <opaqueActionHasInputValues>
+                <inputPin Id="7d97c18e-70c0-47f0-b9a9-b48cecdc1e72" name="Accounts" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="e3e97b69-649a-4930-abdf-beda26e87f0a" />
+                  <upperBound>
+                    <literalInteger Id="abaed3e2-d2e2-4ddf-a6e9-006179b1f9bb" name="2147483647" value="2147483647">
+                      <elementDefinition Id="af4ff06a-48c4-4c83-9b13-883e08fa95fb" />
+                    </literalInteger>
+                  </upperBound>
+                </inputPin>
+              </opaqueActionHasInputValues>
+              <opaqueActionHasInputValues>
+                <inputPin Id="0223c7f8-091d-4ad1-a849-4cef483475b2" name="POs" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="ede59a4b-7541-4a54-8e96-5b324119eeb5" />
+                  <upperBound>
+                    <literalInteger Id="aca5c288-f043-4cd8-aed2-b275b9fa2275" name="2147483647" value="2147483647">
+                      <elementDefinition Id="cfd2fcc2-b02f-4249-b9b1-3ed0ce13d5c3" />
+                    </literalInteger>
+                  </upperBound>
+                </inputPin>
+              </opaqueActionHasInputValues>
+              <opaqueActionHasInputValues>
+                <inputPin Id="09e86ddc-6f17-4d8a-9839-79c71dbc680c" name="Date" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="d523f471-a5bf-43dc-8d08-1ff6ea6b5dc8" />
+                  <upperBound>
+                    <literalInteger Id="32de078d-6ecb-4a05-95fc-8779d61296c2" name="2147483647" value="2147483647">
+                      <elementDefinition Id="5c9d2eb0-a79d-4478-b8a8-edcff21b8926" />
+                    </literalInteger>
+                  </upperBound>
+                </inputPin>
+              </opaqueActionHasInputValues>
+            </pins>
+          </opaqueAction>
+          <opaqueAction Id="0c526dc0-ce6c-4a33-b78d-762d1c181bc1" name="Prepare data for metering" isLeaf="false">
+            <elementDefinition Id="26ea2de0-2070-4e29-b994-23087f88d0a1" />
+            <flowNodeTargets>
+              <controlFlow Id="511fe5e7-915f-4798-8891-6ab186cbd653" isLeaf="false">
+                <opaqueActionMoniker Id="5396b185-889f-4778-b665-3f252aa904fa" LastKnownName="Meter RC and NRC" />
+                <elementDefinition Id="93cb8384-1dfb-4026-b849-95748e33c201" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="5396b185-889f-4778-b665-3f252aa904fa" name="Meter RC and NRC" isLeaf="false">
+            <elementDefinition Id="383a16e9-219a-461c-8777-f2d88d8a63bd" />
+            <flowNodeTargets>
+              <controlFlow Id="e81e58bf-3219-46b4-aa54-5f574858f866" isLeaf="false">
+                <sendSignalActionMoniker Id="ec0768e5-46f3-4445-aab5-9bb09d5fcd8c" LastKnownName="Query to generate and meter" />
+                <elementDefinition Id="70b5a363-bd57-4e4c-bc8a-80e221d51054" />
+              </controlFlow>
+              <controlFlow Id="c7649171-c4fb-4106-a65b-ddf7d474f906" isLeaf="false">
+                <acceptEventActionMoniker Id="e9f2c84a-f484-4ffa-a386-23484099f68e" LastKnownName="Wait for pipeline to complete" />
+                <elementDefinition Id="2ea02f0c-6b95-44b9-9ae5-ab8274d3724f" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <sendSignalAction Id="ec0768e5-46f3-4445-aab5-9bb09d5fcd8c" name="Query to generate and meter" isLeaf="false">
+            <elementDefinition Id="4b060666-6fd1-4ab2-a5da-e2af0816699c" />
+            <objectFlowTargets>
+              <objectFlow Id="23691319-b456-4ac3-998f-95e4d8a1911c" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <objectNodeMoniker Id="35affa83-0473-48a4-b5cb-363d79523435" LastKnownName="Data base" />
+                <elementDefinition Id="1daca38e-0d64-4d56-a135-ba10b9dc2c47" />
+              </objectFlow>
+              <objectFlow Id="33196f85-6c71-4f04-8d6d-e6a671f5bd80" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <objectNodeMoniker Id="65868d6a-0c7b-4c4b-8f9b-c50ec4296bd7" LastKnownName="RC and NRC Pipeline" />
+                <elementDefinition Id="604fdbec-e9ac-4ae4-baf1-dfa705ee118d" />
+              </objectFlow>
+            </objectFlowTargets>
+          </sendSignalAction>
+          <objectNode Id="35affa83-0473-48a4-b5cb-363d79523435" name="Data base" isLeaf="false" ordering="Unordered" isControlType="false">
+            <elementDefinition Id="e9eedfd8-8be5-4f8f-9301-57f610077558" />
+            <upperBound>
+              <literalInteger Id="595e6cd4-d24d-4d1d-bd31-66dea7ad70c1" name="2147483647" value="2147483647">
+                <elementDefinition Id="d093666a-ab0a-4d4a-af1a-a1a08c105592" />
+              </literalInteger>
+            </upperBound>
+          </objectNode>
+          <objectNode Id="65868d6a-0c7b-4c4b-8f9b-c50ec4296bd7" name="RC and NRC Pipeline" isLeaf="false" ordering="Unordered" isControlType="false">
+            <elementDefinition Id="aa16edf6-31d6-4f63-a039-4353119550ce" />
+            <objectFlowTargets>
+              <objectFlow Id="78524d56-2a1f-472b-bbf6-87e05f0e7f33" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <objectNodeMoniker Id="35affa83-0473-48a4-b5cb-363d79523435" LastKnownName="Data base" />
+                <elementDefinition Id="cf67b7ef-6970-47b7-afc3-cf4a5d2d1231" />
+              </objectFlow>
+              <objectFlow Id="0435301d-498b-429c-9ddf-f325adbb5782" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <acceptEventActionMoniker Id="e9f2c84a-f484-4ffa-a386-23484099f68e" LastKnownName="Wait for pipeline to complete" />
+                <elementDefinition Id="959cccf8-236c-4d1d-b6cb-308b4e405cab" />
+              </objectFlow>
+            </objectFlowTargets>
+            <upperBound>
+              <literalInteger Id="ababe8a2-1712-4068-bd7d-9978cc300ee3" name="2147483647" value="2147483647">
+                <elementDefinition Id="ab854194-4902-45f4-a35c-f775d8690aea" />
+              </literalInteger>
+            </upperBound>
+          </objectNode>
+          <acceptEventAction Id="e9f2c84a-f484-4ffa-a386-23484099f68e" name="Wait for pipeline to complete" isLeaf="false" isUnmarshall="false">
+            <elementDefinition Id="acb27757-8b8a-47c4-9987-58982eff8e21" />
+            <flowNodeTargets>
+              <controlFlow Id="e804e384-dbd0-4a66-94a1-951c4a233f90" isLeaf="false">
+                <opaqueActionMoniker Id="4e3e4b13-e8c3-4781-828a-459876aff7be" LastKnownName="Collect data/generate report on usage data" />
+                <elementDefinition Id="68763716-1230-45ce-99aa-13b54754a360" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <opaqueAction Id="4e3e4b13-e8c3-4781-828a-459876aff7be" name="Collect data/generate report on usage data" isLeaf="false">
+            <elementDefinition Id="4380c394-c1c5-4d44-880e-d03c10cdfca7" />
+            <flowNodeTargets>
+              <controlFlow Id="3d870ad9-4278-4886-9c44-ec579b0fffc4" isLeaf="false">
+                <sendSignalActionMoniker Id="00cced95-141a-4f6e-a96b-285f1009241e" LastKnownName="Query to collect usage data" />
+                <elementDefinition Id="a4ad9295-3a6a-4a1d-ab36-89dadc090e3d" />
+              </controlFlow>
+              <controlFlow Id="f1b1249a-0fde-4f74-a916-8ee6ad32341a" isLeaf="false">
+                <acceptEventActionMoniker Id="43da2fe7-32ea-497f-93c6-4d06f20df01d" LastKnownName="Wait for report response" />
+                <elementDefinition Id="c0101ec3-b4eb-4535-ad29-80377a168cfb" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <sendSignalAction Id="00cced95-141a-4f6e-a96b-285f1009241e" name="Query to collect usage data" isLeaf="false">
+            <elementDefinition Id="19d366c5-48d6-4cf6-9f6e-3c5bdd83d43d" />
+            <objectFlowTargets>
+              <objectFlow Id="7b827499-c985-42c7-b40b-d9c326d248f0" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <objectNodeMoniker Id="35affa83-0473-48a4-b5cb-363d79523435" LastKnownName="Data base" />
+                <elementDefinition Id="fd79a399-b29e-4d6f-b211-9da238c312e5" />
+              </objectFlow>
+              <objectFlow Id="c7f11e52-5e73-4dff-ab90-4de5801a0db7" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <objectNodeMoniker Id="8aa6a7b8-0989-4e4e-9ca0-c3bdd9c006df" LastKnownName="Report provider (Crystal Report)" />
+                <elementDefinition Id="865a8235-ad08-4497-acec-96ff35f45c93" />
+              </objectFlow>
+            </objectFlowTargets>
+          </sendSignalAction>
+          <opaqueAction Id="14fbf623-012d-417e-978e-4b9885f04ec2" name="Clean up " isLeaf="false">
+            <elementDefinition Id="be3ea3a3-5d4b-4c17-a917-6565d5c96976" />
+            <flowNodeTargets>
+              <controlFlow Id="a75486da-6f84-4592-84e4-b28b89d4d298" isLeaf="false">
+                <activityFinalNodeMoniker Id="812e3569-4035-43e5-b6c8-768840c3cfea" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="6352d930-d1c9-476a-8e79-6d355a595ecc" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <objectNode Id="8aa6a7b8-0989-4e4e-9ca0-c3bdd9c006df" name="Report provider (Crystal Report)" isLeaf="false" ordering="Unordered" isControlType="false">
+            <elementDefinition Id="d0060ab6-81a3-40f3-ae2a-6ed188f5d3db" />
+            <objectFlowTargets>
+              <objectFlow Id="de7d8620-9e25-409c-996b-bd80d5bf407b" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <acceptEventActionMoniker Id="43da2fe7-32ea-497f-93c6-4d06f20df01d" LastKnownName="Wait for report response" />
+                <elementDefinition Id="1f8cf0b9-06f9-40ff-a56a-77c254d67e22" />
+              </objectFlow>
+            </objectFlowTargets>
+            <upperBound>
+              <literalInteger Id="d6f610bb-a447-44a0-a27d-2c4746f5b423" name="2147483647" value="2147483647">
+                <elementDefinition Id="e69d704e-b43d-404b-b774-e2e6d1732592" />
+              </literalInteger>
+            </upperBound>
+          </objectNode>
+          <acceptEventAction Id="43da2fe7-32ea-497f-93c6-4d06f20df01d" name="Wait for report response" isLeaf="false" isUnmarshall="false">
+            <elementDefinition Id="d82c53d0-ad72-4e0e-b851-bda21d12b641" />
+            <flowNodeTargets>
+              <controlFlow Id="fe168ae0-c4cc-43f5-acaf-b676eff544f7" isLeaf="false">
+                <opaqueActionMoniker Id="14fbf623-012d-417e-978e-4b9885f04ec2" LastKnownName="Clean up " />
+                <elementDefinition Id="b78a7ed0-61c5-45a3-bb92-a23b7c3b3158" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <activityFinalNode Id="812e3569-4035-43e5-b6c8-768840c3cfea" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="206ab4ea-7ce9-4c7f-a7ee-d21c64cf82a1" />
+          </activityFinalNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="25a37ff6-df50-4ce3-a9bb-c8989da2c0ee" name="QuotingDesign">
+    <elementDefinition Id="93863d05-52a8-4889-8154-5b84b4ee1396" />
+  </package>
+</activityRootModel>

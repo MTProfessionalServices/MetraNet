@@ -24,7 +24,10 @@ namespace MetraTech.Reports
 	public interface IReportViewer 
 	{ 
 		MetraTech.Interop.Rowset.MTInMemRowsetClass GetFileList(string subFolderPath, int accountID);
+        MetraTech.Interop.Rowset.MTInMemRowsetClass GetQuoteFileList(int accountID);
+		
 		byte[] GetReportFile(string fileName);
+        byte[] GetQuoteReportFile(string fileName);
 	}
 
 	[GuidAttribute ("D65A59F0-7BFA-4078-A52D-FA7A4A4F4981")]
@@ -36,6 +39,7 @@ namespace MetraTech.Reports
 		private string mAPSServerName;
 		private string mReportsVirDir;
 		private string mIntervalID;
+        private string mQuotesSubFolder;
 		private string mAccountID;
 		private string mAPSUsername;
 		private string mAPSPassword;
@@ -57,6 +61,8 @@ namespace MetraTech.Reports
 			mAPSPassword = ReportConfiguration.GetInstance().APSPassword;
 			mAPSSecure = ReportConfiguration.GetInstance().APSSecure;
 			mAPSPort = ReportConfiguration.GetInstance().APSPort;
+
+            mQuotesSubFolder = ReportConfiguration.GetInstance().QuotesSubFolder;
 		}
 
         public ReportViewer(int accountId, int intervalId)
@@ -75,44 +81,59 @@ namespace MetraTech.Reports
             mAPSPassword = ReportConfiguration.GetInstance().APSPassword;
             mAPSSecure = ReportConfiguration.GetInstance().APSSecure;
             mAPSPort = ReportConfiguration.GetInstance().APSPort;
+
+            mQuotesSubFolder = ReportConfiguration.GetInstance().QuotesSubFolder; ;
+        }
+        public ReportViewer(int accountId, string QuotesSubFolder)
+        {
+            mQuotesSubFolder = QuotesSubFolder;
+            mAccountID = accountId.ToString();
+
+            rs = new MetraTech.Interop.Rowset.MTInMemRowsetClass();
+            rs.Init();
+            rs.AddColumnDefinition("FileName", "string");
+            rs.AddColumnDefinition("DisplayName", "string");
+
+            mAPSServerName = ReportConfiguration.GetInstance().APSName;
+            mReportsVirDir = ReportConfiguration.GetInstance().ReportInstanceVirtualDirectory;
+            mAPSUsername = ReportConfiguration.GetInstance().APSUser;
+            mAPSPassword = ReportConfiguration.GetInstance().APSPassword;
+            mAPSSecure = ReportConfiguration.GetInstance().APSSecure;
+            mAPSPort = ReportConfiguration.GetInstance().APSPort;
         }
 
-		public MetraTech.Interop.Rowset.MTInMemRowsetClass GetFileList(string subFolderPath, int accountID)
+        public MetraTech.Interop.Rowset.MTInMemRowsetClass GetQuoteFileList(int accountID)
+	    {
+            mQuotesSubFolder = ReportConfiguration.GetInstance().QuotesSubFolder;
+            mAccountID = accountID.ToString();
+
+            return GetFileListInternal(GetURLForReportingServer(mQuotesSubFolder, accountID.ToString()));
+	    }
+
+	    public MetraTech.Interop.Rowset.MTInMemRowsetClass GetFileList(string subFolderPath, int accountID)
+	    {
+	        //validate IntervalID
+	        int nIntervalID;
+
+	        if (!int.TryParse(subFolderPath, out nIntervalID))
+	        {
+	            mLogger.LogError("Invalid Interval ID: " + subFolderPath);
+	            return rs;
+	        }
+
+	        mIntervalID = subFolderPath;
+	        mAccountID = accountID.ToString();
+
+	        return GetFileListInternal(GetURLForReportingServer(subFolderPath, accountID.ToString()));
+	    }
+
+	    private MetraTech.Interop.Rowset.MTInMemRowsetClass GetFileListInternal(string url)
 		{
-      //validate IntervalID
-      int nIntervalID;
-      if (!int.TryParse(subFolderPath, out nIntervalID))
-      {
-        mLogger.LogError("Invalid Interval ID: " + subFolderPath);
-        return rs;
-      }
 
-			mIntervalID = subFolderPath;    
-			mAccountID = accountID.ToString();
-			//get the aps servername, location of virtual directory to build the url
-			StringBuilder url = new StringBuilder();
-			if (mAPSSecure == 0)
-				url.Append(@"http://");
-			else
-			{
-				url.Append(@"https://");
-				mLogger.LogInfo("Using SSL, https to connect to the APS Server");
-			}
-			url.Append(mAPSServerName);
-			url.Append(@"/");
-			url.Append(mReportsVirDir);
-			url.Append(@"/");
-			url.Append(mIntervalID);
-			url.Append(@"\");
-			url.Append(mAccountID);
+            UriBuilder buildUri = new UriBuilder(url.ToString());
+            buildUri.Port = mAPSPort;
 
-			mLogger.LogDebug(string.Format("Using url: {0}", url));
-
-			UriBuilder buildUri = new UriBuilder(url.ToString());
-			buildUri.Port = mAPSPort;
-			
-			Uri myUri = buildUri.Uri;
-
+            Uri myUri = buildUri.Uri;
 			try 
 			{
 				System.Net.CredentialCache myCache = new CredentialCache();
@@ -183,36 +204,64 @@ namespace MetraTech.Reports
 			return rs;
 		}
 
+	    private string GetURLForReportingServer(string subFolderPath, string accountID, string fileName = "")
+	    {
+            //get the aps servername, location of virtual directory to build the url
+	        StringBuilder url = new StringBuilder();
+	        if (mAPSSecure == 0)
+	            url.Append(@"http://");
+	        else
+	        {
+	            url.Append(@"https://");
+	            mLogger.LogInfo("Using SSL, https to connect to the APS Server");
+	        }
+	        url.Append(mAPSServerName);
+	        url.Append(@"/");
+	        url.Append(mReportsVirDir);
+	        url.Append(@"/");
 
+	        if (subFolderPath.IndexOf("{AccountId}") > 0)
+	        {
+	            subFolderPath = subFolderPath.Replace(@"\", @"/").Replace("{AccountId}", accountID);
+	            url.Append(subFolderPath);
+	            url.Append(@"/");
+	        }
+	        else
+	        {
+	            url.Append(subFolderPath);
+	            url.Append(@"\");
+	            url.Append(accountID);
+	            url.Append(@"\");
+	        }
 
-		public byte[] GetReportFile(string fileName)
+	        if (!String.IsNullOrEmpty(fileName))
+            {
+                url.Append(fileName);
+            }
+
+	        mLogger.LogDebug(string.Format("Using url: {0}", url));
+	       
+	        return url.ToString();
+	    }
+
+	    public byte[] GetReportFile(string fileName)
+	    {
+            return GetReportFileInteranal(GetURLForReportingServer(mIntervalID, mAccountID, fileName));
+	    }
+
+        public byte[] GetQuoteReportFile(string fileName)
+        {
+            return GetReportFileInteranal(GetURLForReportingServer(mQuotesSubFolder, mAccountID, fileName));
+        }
+
+	    private byte[] GetReportFileInteranal(string fileNameURL)
 		{
 			
-			StringBuilder url = new StringBuilder();
-			if (mAPSSecure == 0)
-				url.Append(@"http://");
-			else
-			{
-				url.Append(@"https://");
-				mLogger.LogInfo("Using SSL, https to connect to the APS Server");
-			}
-			url.Append(mAPSServerName);
-			url.Append(@"/");
-			url.Append(mReportsVirDir);
-			url.Append(@"/");
-			url.Append(mIntervalID);
-			url.Append(@"\");
-			url.Append(mAccountID);
-			url.Append(@"\");
-			url.Append(fileName);
-			
-			mLogger.LogDebug(string.Format("Using url: {0}", url));
-			UriBuilder buildUri = new UriBuilder(url.ToString());
+			mLogger.LogDebug(string.Format("Using url: {0}", fileNameURL));
+            UriBuilder buildUri = new UriBuilder(fileNameURL);
 			buildUri.Port = mAPSPort;
 			
-			Uri myUri = buildUri.Uri;
-			//Uri myUri = new Uri(url.ToString());
-			//myUri.Port = mAPSPort;
+			Uri myUri = buildUri.Uri;			
 
 			try
 			{

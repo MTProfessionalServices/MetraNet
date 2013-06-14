@@ -128,7 +128,8 @@ namespace MetraTech.Basic
     }
 
     public static void SetupTempDir(string buildDir,
-                                     string tempDir)
+                                    string tempDir,
+                                    Dictionary<string, FileStream> lockedFiles = null)
     {
       if (!Directory.Exists(tempDir))
       {
@@ -152,7 +153,26 @@ namespace MetraTech.Basic
           continue;
         }
 
-        File.Copy(file, Path.Combine(tempDir, Path.GetFileName(file)));
+          if (lockedFiles != null)
+          {
+              if (lockedFiles.Count > 0)
+              {
+                  FileStream fileStream;
+                  lockedFiles.TryGetValue(Path.GetFileName(file), out fileStream);
+                  if (fileStream != null)
+                  {
+                      fileStream.Close();
+                  }
+              }
+          }
+          try
+          {
+              File.Copy(file, Path.Combine(tempDir, Path.GetFileName(file)));
+          }
+          catch (System.Exception e)
+          {
+              logger.Warn("File copy of file into temp folder is missed (file should be already there) " + e.Message);
+          }
       }
     }
 

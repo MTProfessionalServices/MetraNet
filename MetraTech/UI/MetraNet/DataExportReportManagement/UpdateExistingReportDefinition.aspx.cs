@@ -70,8 +70,7 @@ public partial class DataExportReportManagement_UpdateExistingReportDefinition :
       MTGenericForm1.TemplateName = "DataExportFramework.ReportDefinition";
       MTGenericForm1.ReadOnly = false;
 
-      exportreportdefinition.ReportType = "Query";
-      exportreportdefinition.ReportQuerySource = "";
+      exportreportdefinition.ReportType = "Query";  
 
       //Gather the Existing Report Definition Details
 
@@ -109,8 +108,7 @@ public partial class DataExportReportManagement_UpdateExistingReportDefinition :
       }
 
       //Initialize some read only values 
-      exportreportdefinition.ReportType = "Query";
-      exportreportdefinition.ReportQuerySource = "";//("\DataExport\Config\queries").ToString();
+      exportreportdefinition.ReportType = "Query";      
       exportreportdefinition.ReportDefinitionSource = "Query";
       int preventadhocexec = 0;
 
@@ -136,7 +134,7 @@ public partial class DataExportReportManagement_UpdateExistingReportDefinition :
         if (strincomingAction == "Update")
         {
           client.UpdateReportDefinition(intincomingReportID, exportreportdefinition.ReportDefinitionSource, exportreportdefinition.ReportDescription,
-          exportreportdefinition.ReportQuerySource, exportreportdefinition.ReportQueryTag, exportreportdefinition.ReportType, preventadhocexec);
+			exportreportdefinition.ReportQueryTag, exportreportdefinition.ReportType, preventadhocexec);
         }
         else
         {

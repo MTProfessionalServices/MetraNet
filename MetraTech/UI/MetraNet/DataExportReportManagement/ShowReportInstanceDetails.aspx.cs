@@ -177,7 +177,6 @@ public partial class DataExportReportManagement_ShowReportInstanceDetails : MTPa
       reportexecutiontype="Scheduled";
       }
       
-      string reportxmlconfigfilelocation = "NA";// exportreportinstance.XMLConfigLocation; 
       DateTime reportactivationdate = exportreportinstance.InstanceActivationDate;
       DateTime reportdeactivationdate = exportreportinstance.InstanceDeactivationDate;
       string destinationaccessuser = exportreportinstance.FTPAccessUser;
@@ -250,7 +249,7 @@ public partial class DataExportReportManagement_ShowReportInstanceDetails : MTPa
       if (strincomingAction == "Update")
       {
         client.UpdateExistingReportInstance(idreport, idreportinstance, instancedescr, reportoutputtype, reportdistributiontype, reportdestination,
-        reportexecutiontype, reportxmlconfigfilelocation, reportactivationdate, reportdeactivationdate, destinationaccessuser, destinationaccesspassword,
+        reportexecutiontype, reportactivationdate, reportdeactivationdate, destinationaccessuser, destinationaccesspassword,
         compressreport, compressthreshold, eopinstancename, dsid, createcontrolfile, controlfiledestination, outputexecutionparameters, usequotedidentifiers, lastundatetime,
         nextrundatetime, parameterdefaultnamevalues, outputfilename);
 

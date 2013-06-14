@@ -1135,8 +1135,6 @@ namespace MetraTech.DataAccess
         {
             IMTDataReader ret = null;
 
-            OnBeforeExecute();
-
             ConnectionInfo connInfo = new ConnectionInfo("NetMeterStage");
 
             // Parse query to generate parts
@@ -1199,6 +1197,8 @@ namespace MetraTech.DataAccess
                 oraParam.ParameterName = ":Rows";
                 Command.Parameters.Add(oraParam);
             }
+
+            OnBeforeExecute();
 
             IDataReader nativereader = Command.ExecuteReader();
 

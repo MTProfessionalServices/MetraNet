@@ -153,6 +153,9 @@ namespace MetraTech.Core.Services
   [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
   public class AccountTemplateService : CMASServiceBase, IAccountTemplateService
   {
+		//Describes signature of method which implemented business logic for applying account template in background thread.
+		delegate void ApplyAccountTemplateDelegate(int templateId, int sessionId, object additional);
+
     #region Private Members
     private static Logger m_Logger = new Logger("[AccountTemplateService]");
     private static IdGenerator m_SessionIdGenerator = new IdGenerator("id_template_session", 100);
@@ -609,14 +612,16 @@ namespace MetraTech.Core.Services
 
             mtTemplate.Save(effectiveDate);
 
-            auditor.FireEvent((int)MTAuditEvent.AUDITEVENT_ACCOUNT_TEMPLATE_SAVE_SUCCESS, this.GetSessionContext().AccountID, (int)MTAuditEntityType.AUDITENTITY_TYPE_ACCOUNT, templateAcctId,
+                        auditor.FireEvent(
+                            (int)MTAuditEvent.AUDITEVENT_ACCOUNT_TEMPLATE_SAVE_SUCCESS, this.GetSessionContext().AccountID, (int)MTAuditEntityType.AUDITENTITY_TYPE_ACCOUNT, templateAcctId,
 String.Format("Saved account template {0} for account {1} successfully",
 "'" + accType.Name + "'", templateAcctId.ToString()));
           }
           else
           {
 
-            auditor.FireFailureEvent((int)MTAuditEvent.AUDITEVENT_ACCOUNT_TEMPLATE_SAVE_FAILED, this.GetSessionContext().AccountID, (int)MTAuditEntityType.AUDITENTITY_TYPE_ACCOUNT, templateAcctId,
+                        auditor.FireFailureEvent(
+                            (int)MTAuditEvent.AUDITEVENT_ACCOUNT_TEMPLATE_SAVE_FAILED, this.GetSessionContext().AccountID, (int)MTAuditEntityType.AUDITENTITY_TYPE_ACCOUNT, templateAcctId,
  String.Format("Error saving account template {0} for account {1}",
  "'" + accType.Name.ToString() + "'", templateAcctId.ToString()));
             throw new Common.MASBasicException("The specified account template ID does not match the ID for the existing template");
@@ -626,11 +631,12 @@ String.Format("Saved account template {0} for account {1} successfully",
         {
           m_Logger.LogException("MAS Exception caught saving account template", mas);
 
-          auditor.FireFailureEvent((int)MTAuditEvent.AUDITEVENT_ACCOUNT_TEMPLATE_SAVE_FAILED, this.GetSessionContext().AccountID, (int)MTAuditEntityType.AUDITENTITY_TYPE_ACCOUNT, templateAcctId,
+                    auditor.FireFailureEvent(
+                        (int)MTAuditEvent.AUDITEVENT_ACCOUNT_TEMPLATE_SAVE_FAILED, this.GetSessionContext().AccountID, (int)MTAuditEntityType.AUDITENTITY_TYPE_ACCOUNT, templateAcctId,
    String.Format("Error saving account template {0} for account {1}",
    "'" + accType.Name.ToString() + "'", templateAcctId.ToString()));
 
-          throw mas;
+                    throw;
         }
         catch (COMException comE)
         {
@@ -764,7 +770,6 @@ String.Format("Saved account template {0} for account {1} successfully",
              accountType,
              accIds,
              effectiveDate,
-             propNames,
              subscriptions,
              subscriptionDates,
              endConflictingSubscriptions,
@@ -839,7 +844,6 @@ String.Format("Saved account template {0} for account {1} successfully",
               accountType,
               accountIds,
               effectiveDate,
-              propNames,
               subscriptions,
               subscriptionDates,
               endConflictingSubscriptions,
@@ -1079,7 +1083,7 @@ String.Format("Error while applying the account template {0} to specific descend
           #region Load Template Properties
           using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(
               @"Queries\AccHierarchies",
-                        pulicTemplate ? "__LOAD_TEMPLATE_PROPERTIES_PUB__" : "__LOAD_TEMPLATE_PROPERTIES__"))
+					    pulicTemplate ? @"__LOAD_TEMPLATE_PROPERTIES_PUB__" : @"__LOAD_TEMPLATE_PROPERTIES__"))
           {
             stmt.AddParam("%%TEMPLATEID%%", loadedTemplateId);
 
@@ -1100,7 +1104,9 @@ String.Format("Error while applying the account template {0} to specific descend
           #endregion
 
           #region Load Template Subscriptions
-          using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(@"Queries\AccHierarchies", "__LOAD_TEMPLATE_SUBSCRIPTIONS__"))
+					using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(
+					@"Queries\AccHierarchies",
+					pulicTemplate ?  @"__LOAD_TEMPLATE_SUBSCRIPTIONS_PUB__" : @"__LOAD_TEMPLATE_SUBSCRIPTIONS__"))
           {
             stmt.AddParam("%%TEMPLATEID%%", loadedTemplateId);
             stmt.AddParam("%%ID_LANG%%", sessionContext.LanguageID);
@@ -1219,7 +1225,6 @@ String.Format("Error while applying the account template {0} to specific descend
               po.CanUserUnsubscribe = rdr.GetBoolean(i);
               break;
 
-                            
             #region Ignored Columns
             case "n_name":
             case "n_desc":
@@ -1588,7 +1593,6 @@ String.Format("Error while applying the account template {0} to specific descend
         string accountType,
         List<MetraTech.ActivityServices.Common.AccountIdentifier> accountIds,
         DateTime effectiveDate,
-        List<string> propNames,
         List<AccountTemplateSubscription> subscriptions,
         BaseTypes.ProdCatTimeSpan subscriptionDates,
         bool endConflictingSubscriptions,
@@ -1692,7 +1696,6 @@ String.Format("Error while applying the account template {0} to specific descend
       request.AccountType = accountType;
       request.EffectiveDate = effectiveDate;
       request.EndConflictingSubscriptions = endConflictingSubscriptions;
-      request.PropNames = propNames;
       request.SubscriptionDates = subscriptionDates;
       request.Subscriptions = subscriptions;
       request.TemplateOwnerId = templateOwnerId;
@@ -1735,8 +1738,69 @@ String.Format("Error while applying the account template {0} to specific descend
         }
       }
 
+			List<Exception> errorList = new List<Exception>(1);
+			//State array contain elements:
+			//0: list of exceptions which was thrown while account template properties were applied.
+			//1: template request - wraps other entities which needs for future applying template.
+			var state = new object[] {errorList, request };
+
+			ApplyAccountTemplateDelegate worker = new ApplyAccountTemplateDelegate(BackgroundApplyAccountTemplate);
+			//Run applying template properties in background thread.
+			worker.BeginInvoke(template.ID, sessionId, errorList, new AsyncCallback(BackgroundApplyAccountTemplateCallback), state);
+		}
+
+		private void BackgroundApplyAccountTemplate(int templateId, int sessionId, object additional)
+		{
+			using (IMTConnection conn = ConnectionManager.CreateConnection())
+			{
+				//Calling stored procedure which applying template properties.
+				using (var stmt = conn.CreateCallableStatement("ApplyAccountTemplate"))
+				{
+					try
+					{
+						stmt.AddParam("accountTemplateId", MTParameterType.Integer, templateId);
+						stmt.AddParam("sessionId", MTParameterType.Integer, sessionId);
+						stmt.AddParam("systemDate", MTParameterType.DateTime, MetraTime.Now);
+
+						stmt.ExecuteNonQuery();
+					}
+					catch (Exception exc)
+					{
+						string msg = string.Format("Error while applying template {0}. Session: {1}", templateId, sessionId);
+						m_Logger.LogException(msg, exc);
+						(additional as List<Exception>).Add(exc);
+						throw;
+					}
+				}
+			}
+		}
+
+		private void BackgroundApplyAccountTemplateCallback(IAsyncResult result)
+		{
+			StringBuilder sb = new StringBuilder();
+			sb.Append("Applying properties of template to accounts is complete.");
+			
+			//State array contain elements:
+			//0: list of exceptions which was thrown while account template properties were applied.
+			//1: template request - wraps other entities which needs for future applying template.
+			object[] stateArray = ((object[])result.AsyncState);
+
+			var exceptionList = stateArray[0] as List<Exception>;
+
+			if (exceptionList.Count == 0)
+			{
+				//Enqueue request for further applying process if process of applying properties was ended without errors.
+				AccountTemplateRequest request = stateArray[1] as AccountTemplateRequest;
       m_RequestsQueue.Enqueue(request);
     }
+			else
+			{
+				sb.AppendLine();
+				sb.AppendFormat(" An exception was thrown: \"{0}\"", exceptionList[0].Message);
+			}
+
+			m_Logger.LogInfo(sb.ToString());
+		}
 
     private static void AccountTemplateService_ServiceStarting()
     {
@@ -1770,6 +1834,7 @@ String.Format("Error while applying the account template {0} to specific descend
 
       return retval;
     }
+
     #endregion
 
     #region Template Application Methods
@@ -1857,7 +1922,8 @@ String.Format("Error while applying the account template {0} to specific descend
         }
       }
 
-      WriteSessionDetail(request.SessionId, DetailType.General, DetailResult.Information, "Starting application of template", nRetryCount);
+			//FEAT-1730: this business logic was relocated to processing by the database.
+			/*WriteSessionDetail(request.SessionId, DetailType.General, DetailResult.Information, "Starting application of template", nRetryCount);
 
       if (request.PropNames.Count > 0)
       {
@@ -1966,7 +2032,7 @@ String.Format("Error while applying the account template {0} to specific descend
       else
       {
         WriteSessionDetail(request.SessionId, DetailType.Update, DetailResult.Information, "There are no account properties to be applied", nRetryCount);
-      }
+			}*/
 
       if (request.Subscriptions.Count > 0)
       {

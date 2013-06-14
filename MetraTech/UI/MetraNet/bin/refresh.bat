@@ -85,6 +85,8 @@ copy %MTOUTDIR%\%VERSION%\bin\MetraTech.DataAccess.dll %ROOTDIR%\MetraTech\UI\Me
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.DataAccess.pdb %ROOTDIR%\MetraTech\UI\MetraNet\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.DataAccess.QueryManagement.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.DataAccess.QueryManagement.pdb %ROOTDIR%\MetraTech\UI\MetraNet\bin
+copy %MTOUTDIR%\%VERSION%\bin\MetraTech.DataExportFramework.Common.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
+copy %MTOUTDIR%\%VERSION%\bin\MetraTech.DataExportFramework.Common.pdb %ROOTDIR%\MetraTech\UI\MetraNet\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.ActivityServices.Common.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.ActivityServices.Common.pdb %ROOTDIR%\MetraTech\UI\MetraNet\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Pipeline.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin

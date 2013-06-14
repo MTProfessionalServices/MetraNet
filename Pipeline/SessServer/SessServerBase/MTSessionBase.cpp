@@ -357,7 +357,19 @@ void CMTSessionBase::PropertyError(HRESULT aError, long aPropId)
 
 			string errorStr("Invalid property, name: ");
 			errorStr += name;
-			throw MTException(errorStr.c_str(), aError);
+
+			// ESR-5978 If the property is missing, throw a more specific exception so that,
+			// if the condition is optional in the parameter table, instead of failing completely,
+			// we can say the current rule doesn't match and then continue to examine
+			// the remaining rules in the ruleset.
+			if (aError == PIPE_ERR_INVALID_PROPERTY)
+			{
+			  throw MTPropNotInSessionException(errorStr.c_str(), aError);
+			}
+			else
+			{
+			  throw MTException(errorStr.c_str(), aError);
+			}
 		}
 		catch (_com_error &)
 		{

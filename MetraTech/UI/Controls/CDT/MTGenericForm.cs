@@ -285,6 +285,14 @@ namespace MetraTech.UI.Controls.CDT
 
       if (!Page.IsPostBack)
       {
+        //Check if the URL specifies an override for the template that should be used when rendering
+        if (Page.Request.QueryString[this.ID + "_TemplateFileName"] != null)
+        {
+            TemplateName = Page.Request.QueryString[this.ID + "_TemplateFileName"];
+            if (TemplateName.ToLower().EndsWith(".xml"))
+                TemplateName = TemplateName.Substring(0, TemplateName.Length - 4);
+        }
+
         MTDataBinder binder = NamingContainer.FindControl(DataBinderInstanceName) as MTDataBinder;
         MTPage page = Page as MTPage;
         string helpName = "";

@@ -56,6 +56,7 @@
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\IMTAccountType.interop.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.Security">
+      <Private>false</Private>
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Security.dll</HintPath>
     </Reference>

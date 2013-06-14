@@ -3,14 +3,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>
-    </ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9F72B8F8-BBEE-4AD5-AB6C-E67C0528254E}</ProjectGuid>
+    <ProjectGuid>{42857A3C-817A-4E05-8DEA-E78385BFE2DA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MetraTech.Approvals.Test</RootNamespace>
-    <AssemblyName>MetraTech.Approvals.Test</AssemblyName>
+    <RootNamespace>MetraTech.Quoting.Test</RootNamespace>
+    <AssemblyName>MetraTech.Quoting.Test</AssemblyName>
     <StartupObject>
     </StartupObject>
     <FileUpgradeFlags>
@@ -48,7 +47,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\Development\Source\MetraTech\Approvals\Test\</BaseIntermediateOutputPath>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\Development\Source\MetraTech\Quoting\Test\</BaseIntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
@@ -58,28 +57,36 @@
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\Development\Source\MetraTech\Approvals\Test\</BaseIntermediateOutputPath>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\Development\Source\MetraTech\Quoting\Test\</BaseIntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+    <Reference Include="AuditEventsLib.interop">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Antlr3.Runtime.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\AuditEventsLib.interop.dll</HintPath>
       <Private>False</Private>
-    </Reference>
-    <Reference Include="Core.Core.Entity">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Core.Core.Entity.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
+    </Reference>    
     <Reference Include="Core.Interface">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Core.Interface.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Core.Quoting.Entity">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Core.Quoting.Entity.dll</HintPath>
+    </Reference>
     <Reference Include="GenericCollection.interop">
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\GenericCollection.interop.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="MASClientProxyHook">
+      <ExecutableExtension>.exe</ExecutableExtension>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MeterRowset.interop">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MeterRowset.interop</HintPath>
     </Reference>
     <Reference Include="MetraTech.Account.ClientProxies">
       <SpecificVersion>False</SpecificVersion>
@@ -96,20 +103,50 @@
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.ActivityServices.Services.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="MetraTech.Approvals">
+    <Reference Include="MetraTech.BusinessEntity.Core">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Approvals.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.BusinessEntity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.BusinessEntity.DataAccess">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.BusinessEntity.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.BusinessEntity.Service">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.BusinessEntity.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.DataAccess">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.Debug.Diagnostics">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Debug.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.Common">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Common.dll</HintPath>
+    </Reference>    
+    <Reference Include="MetraTech.Localization">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Localization.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.Pipeline">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Pipeline.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.Quoting">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Quoting.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.Basic">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Basic.dll</HintPath>
       <Private>False</Private>
-    </Reference>
-    <Reference Include="MetraTech.Basic">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Basic.dll</HintPath>
-    </Reference>
+    </Reference>    
     <Reference Include="MetraTech.Common">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Common.dll</HintPath>
@@ -154,16 +191,46 @@
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.ProductCatalog.Generated.dll</HintPath>
     </Reference>
+    <Reference Include="MetraTech.Reports">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Reports.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.Reports.CrystalEnterprise">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Reports.CrystalEnterprise.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.UI.Tools">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.UI.Tools.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.UsageServer">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.UsageServer.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="MetraTech.Xml">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Xml.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MTAuditEvents.interop">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTAuditEvents.interop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="MTAuth.interop">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTAuth.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MTBillingReRun.interop">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTBillingReRun.interop.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MTConfigLib.interop">
       <SpecificVersion>False</SpecificVersion>
@@ -184,13 +251,33 @@
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
       <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MTServerAccess.interop">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTServerAccess.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MTYAAC.interop">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTYAAC.interop.dll</HintPath>
     </Reference>
     <Reference Include="PropSet.interop">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\PropSet.interop.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="QueryAdapter.interop">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\QueryAdapter.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="RCD.interop">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\RCD.interop.dll</HintPath>
     </Reference>
     <Reference Include="Rowset.interop">
       <SpecificVersion>False</SpecificVersion>
@@ -201,18 +288,33 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\SysContext.interop.dll</HintPath>
+    </Reference>	
+    <Reference Include="MetraTech.Pipeline.Rerun">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Pipeline.Rerun.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.Quoting">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Quoting.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Runtime.Serialization">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -220,21 +322,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApprovalChangeType.AccountUpdate.Test.cs" />
-    <Compile Include="ApprovalChangeType.RateUpdate.Test.cs" />
-    <Compile Include="ApprovalManagement.Tests.cs" />
-    <Compile Include="ChangeDetailsTests.cs" />
     <Compile Include="ConfigurationTests.cs" />
-    <Compile Include="ApprovalChangeType.ProductOfferingUpdate.Test.cs" />
-    <Compile Include="ApprovalChangeType.GroupSubscriptionMembers.Add.Test.cs" />
-    <Compile Include="ApprovalChangeType.GroupSubscriptionMembers.Delete.Test.cs" />
-    <Compile Include="ApprovalChangeType.GroupSubscriptionMembers.Update.Test.cs" />
-    <Compile Include="ApprovalChangeType.GroupSubscriptionMembers.Unsubscribe.Test.cs" />
-    <Compile Include="LockClass.cs" />
-    <Compile Include="SharedTestCode.ApprovalScenarios.cs" />
-    <Compile Include="InternalFrameworkTests.cs" />
-    <Compile Include="ReflectionTests.cs" />
-    <Compile Include="SharedTestCode.Approvals.cs" />
+    <Compile Include="UsageIntervalDeterminationTests.cs" />
+    <Compile Include="QuotePDFReportFunctionalTests.cs" />
+    <Compile Include="QuotingErrorHandlingFunctionalTests.cs" />
+    <Compile Include="QuotingAccountSubscriptionVariationsFunctionalTests.cs" />
+    <Compile Include="QuotingActivityServiceFunctionalTests.cs" />
+    <Compile Include="QuotingRecurringChargeVariationsFunctionalTests.cs" />
+    <Compile Include="QuotingRepositoryFunctionalTests.cs" />
+    <Compile Include="SharedTestCode.QuotingScenarios.cs" />
+    <Compile Include="SharedTestCode.Quoting.cs" />
+    <Compile Include="QuotingBasicFunctionalTests.cs" />
     <Compile Include="SharedTestCode.Generic.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -256,7 +354,7 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
+  </ItemGroup>  
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -268,7 +366,5 @@
   <PropertyGroup>
     <PostBuildEvent>
     </PostBuildEvent>
-    <Platform Condition="'$(Platform)'==''">x86</Platform>
-    <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
   </PropertyGroup>
 </Project>

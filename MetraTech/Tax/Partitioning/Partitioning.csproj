@@ -35,14 +35,17 @@
     <Reference Include="MetraTech.DataAccess, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DataAccess.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.DomainModel.Enums, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DomainModel.Enums.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.DomainModel.Enums.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.Tax.Framework">
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Tax.Framework.dll</HintPath>
@@ -55,6 +58,7 @@
     <Reference Include="MetraTech.UsageServer, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.UsageServer.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

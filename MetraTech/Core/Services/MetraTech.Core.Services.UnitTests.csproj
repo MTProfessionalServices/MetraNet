@@ -85,6 +85,11 @@
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="MetraTech.Core.Services, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Core.Services.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="MetraTech.Core.Services.ClientProxies, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Core.Services.ClientProxies.dll</HintPath>
@@ -155,6 +160,10 @@
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Security.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="MetraTech.TestCommon, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.TestCommon.dll</HintPath>
+    </Reference>
     <Reference Include="MetraTech.Xml">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Xml.dll</HintPath>
@@ -209,6 +218,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountTemplateServiceTests.cs" />
     <Compile Include="ApprovalManagementService.UnitTests.cs" />
     <Compile Include="ElectronicPaymentService.Tests.cs" />
     <Compile Include="FileManagementServiceTests.cs" />

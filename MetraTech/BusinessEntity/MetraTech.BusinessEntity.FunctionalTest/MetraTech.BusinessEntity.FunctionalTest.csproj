@@ -35,28 +35,36 @@
   <ItemGroup>
     <Reference Include="MetraTech.ActivityServices.Common">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.ActivityServices.Common.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.Basic">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Basic.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.BusinessEntity.Core">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.BusinessEntity.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.BusinessEntity.DataAccess">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.BusinessEntity.DataAccess.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.BusinessEntity.Service.ClientProxies, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.BusinessEntity.Service.ClientProxies.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.DomainModel.Enums.Generated">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.SmokeTest.Interface">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.SmokeTest.Interface.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.SmokeTest.TestBME.Entity">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.SmokeTest.TestBME.Entity.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />

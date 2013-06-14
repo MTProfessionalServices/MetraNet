@@ -5,7 +5,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Core.Services.Uni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.UI.Test.Selenium", "..\..\UI\Selenium\MetraTech.UI.Test.Selenium.csproj", "{E9B94ECD-8A20-4852-B77B-F214CC523D51}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1BABC14C-8317-4041-BB85-E3D9871987DB}"
+	ProjectSection(SolutionItems) = preProject
+		MetraTech.Core.Services.UnitTests.vsmdi = MetraTech.Core.Services.UnitTests.vsmdi
+		TestSettings1.testsettings = TestSettings1.testsettings
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = MetraTech.Core.Services.UnitTests.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86

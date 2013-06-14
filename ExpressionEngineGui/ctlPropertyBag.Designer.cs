@@ -49,11 +49,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabProperties = new System.Windows.Forms.TabPage();
             this.btnRename = new System.Windows.Forms.Button();
-            this.tabCalculationSequence = new System.Windows.Forms.TabPage();
             this.tabScript = new System.Windows.Forms.TabPage();
             this.treProperties = new PropertyGui.ctlExpressionTree();
             this.ctlPropertyEditor = new PropertyGui.ctlProperty();
-            this.ctlCalculationSequence = new PropertyGui.ctlCalculationSequence();
             this.ctlFlowEditor = new PropertyGui.Flows.Steps.ctlFlowEditor();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -63,7 +61,6 @@
             this.tabMain.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.tabProperties.SuspendLayout();
-            this.tabCalculationSequence.SuspendLayout();
             this.tabScript.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,7 +81,7 @@
             // 
             this.splitContainer.Panel2.Controls.Add(this.ctlPropertyEditor);
             this.splitContainer.Size = new System.Drawing.Size(851, 280);
-            this.splitContainer.SplitterDistance = 351;
+            this.splitContainer.SplitterDistance = 349;
             this.splitContainer.TabIndex = 3;
             // 
             // mnuContext
@@ -176,7 +173,6 @@
             // 
             this.tabMain.Controls.Add(this.tabGeneral);
             this.tabMain.Controls.Add(this.tabProperties);
-            this.tabMain.Controls.Add(this.tabCalculationSequence);
             this.tabMain.Controls.Add(this.tabScript);
             this.tabMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabMain.Location = new System.Drawing.Point(0, 0);
@@ -284,16 +280,6 @@
             this.btnRename.UseVisualStyleBackColor = true;
             this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
             // 
-            // tabCalculationSequence
-            // 
-            this.tabCalculationSequence.Controls.Add(this.ctlCalculationSequence);
-            this.tabCalculationSequence.Location = new System.Drawing.Point(4, 22);
-            this.tabCalculationSequence.Name = "tabCalculationSequence";
-            this.tabCalculationSequence.Size = new System.Drawing.Size(863, 353);
-            this.tabCalculationSequence.TabIndex = 2;
-            this.tabCalculationSequence.Text = "Calculation Sequence";
-            this.tabCalculationSequence.UseVisualStyleBackColor = true;
-            // 
             // tabScript
             // 
             this.tabScript.Controls.Add(this.ctlFlowEditor);
@@ -324,7 +310,7 @@
             this.treProperties.SelectedImageIndex = 0;
             this.treProperties.ShowNamespaces = false;
             this.treProperties.ShowNodeToolTips = true;
-            this.treProperties.Size = new System.Drawing.Size(347, 276);
+            this.treProperties.Size = new System.Drawing.Size(345, 276);
             this.treProperties.TabIndex = 4;
             this.treProperties.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
             this.treProperties.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treProperties_AfterSelect);
@@ -334,16 +320,8 @@
             this.ctlPropertyEditor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ctlPropertyEditor.Location = new System.Drawing.Point(0, 0);
             this.ctlPropertyEditor.Name = "ctlPropertyEditor";
-            this.ctlPropertyEditor.Size = new System.Drawing.Size(492, 276);
+            this.ctlPropertyEditor.Size = new System.Drawing.Size(494, 276);
             this.ctlPropertyEditor.TabIndex = 0;
-            // 
-            // ctlCalculationSequence
-            // 
-            this.ctlCalculationSequence.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctlCalculationSequence.Location = new System.Drawing.Point(0, 0);
-            this.ctlCalculationSequence.Name = "ctlCalculationSequence";
-            this.ctlCalculationSequence.Size = new System.Drawing.Size(863, 353);
-            this.ctlCalculationSequence.TabIndex = 0;
             // 
             // ctlFlowEditor
             // 
@@ -370,7 +348,6 @@
             this.tabGeneral.PerformLayout();
             this.tabProperties.ResumeLayout(false);
             this.tabProperties.PerformLayout();
-            this.tabCalculationSequence.ResumeLayout(false);
             this.tabScript.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -400,9 +377,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem mnuExpandAll;
         private System.Windows.Forms.Button btnRename;
-        private System.Windows.Forms.TabPage tabCalculationSequence;
         private System.Windows.Forms.TabPage tabScript;
-        private ctlCalculationSequence ctlCalculationSequence;
         private Flows.Steps.ctlFlowEditor ctlFlowEditor;
     }
 }

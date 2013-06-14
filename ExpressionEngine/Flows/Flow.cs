@@ -12,7 +12,7 @@ namespace MetraTech.ExpressionEngine.Flows
         public PropertyCollection InitialProperties = new PropertyCollection(null);
 
         [DataMember]
-        public FlowCollection FlowCollection = new FlowCollection();
+        public FlowCollection FlowCollection { get; private set; }
         #endregion
 
         #region Constructor
@@ -21,6 +21,8 @@ namespace MetraTech.ExpressionEngine.Flows
             if (context == null)
                 throw new ArgumentException("context is null");
             Context = context;
+
+            FlowCollection = new FlowCollection();
         }
 
         public void UpdateFlow()

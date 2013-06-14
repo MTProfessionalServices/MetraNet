@@ -26,6 +26,16 @@ namespace PropertyGui.Flows.Steps
 
             ctlFlowSteps.Init(Flow, splitContainer.Panel2);
         }
+
+        public void SyncToForm()
+        {
+            ctlFlowSteps.SyncToForm();
+        }
+
+        public void SyncToObject()
+        {
+            ctlFlowSteps.SyncToObject();
+        }
         #endregion
     }
 }

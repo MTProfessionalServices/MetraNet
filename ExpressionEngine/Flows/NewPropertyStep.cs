@@ -1,4 +1,5 @@
-﻿using MetraTech.ExpressionEngine.Flows.Enumerations;
+﻿using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.Flows.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
@@ -6,9 +7,11 @@ using System.Globalization;
 
 namespace MetraTech.ExpressionEngine.Flows
 {
+    [DataContract(Namespace = "MetraTech")]
     public class NewPropertyStep : FlowStepBase
     {
         #region Properties
+        [DataMember]
         public Property Property = new Property(null, TypeFactory.CreateString(), true, null);
         #endregion
 

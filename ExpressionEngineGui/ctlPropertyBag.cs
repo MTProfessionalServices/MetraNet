@@ -43,15 +43,17 @@ namespace PropertyGui
                 throw new ArgumentException("propertyBag is null");
             Context = context;
             PropertyBag = propertyBag;
-            ctlCalculationSequence.Init((ProductViewEntity) PropertyBag);
+
+            var flow = ((ProductViewEntity)PropertyBag).Flow;
+            flow.InitialProperties = new PropertyCollection(this);
 
             //Why  do I need to do this here???
-            var flow = new Flow(Context);
+            //var flow = new Flow(Context);
             foreach (var property in PropertyBag.Properties)
             {
                 flow.InitialProperties.Add((Property)property.Copy());
             }
-            ((ProductViewEntity) PropertyBag).Flow = flow;
+            //((ProductViewEntity) PropertyBag).Flow = flow;
             ctlFlowEditor.Init(((ProductViewEntity)PropertyBag).Flow);
 
             SyncToForm();
@@ -85,6 +87,7 @@ namespace PropertyGui
             EnsureNodeSelected();
             treProperties.ExpandAll();
 
+            ctlFlowEditor.SyncToForm();
             tabMain.SelectedTab = tabProperties;
 
             IgnoreChanges = false;
@@ -95,7 +98,7 @@ namespace PropertyGui
             PropertyBag.Description = txtDescription.Text;
             ((ProductViewEntity)PropertyBag).EventType = (EventType)cboEventType.SelectedItem;
             ctlPropertyEditor.SyncToObject();
-            ctlCalculationSequence.SyncToObject();
+            ctlFlowEditor.SyncToObject();
         }
 
         private void EnsureNodeSelected()
@@ -317,13 +320,9 @@ namespace PropertyGui
         private void tabMain_SelectedIndexChanged(object sender, EventArgs e)
         {
             SyncToObject();
-            if (tabMain.SelectedTab.Equals(tabCalculationSequence))
+            if (tabMain.SelectedTab.Equals(tabScript))
             {
-                ctlCalculationSequence.SyncToForm();
-            }
-            else if (tabMain.SelectedTab.Equals(tabScript))
-            {
-
+              
             }
         }
 

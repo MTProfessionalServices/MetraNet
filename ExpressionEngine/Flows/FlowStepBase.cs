@@ -10,6 +10,8 @@ namespace MetraTech.ExpressionEngine.Flows
     /// Simple prototype for transaction flows to replace pipelines
     /// </summary>
     [DataContract(Namespace = "MetraTech")]
+    [KnownType(typeof(ExpressionStep))]
+    [KnownType(typeof(NewPropertyStep))]
     public class FlowStepBase
     {
         #region properties
@@ -28,9 +30,10 @@ namespace MetraTech.ExpressionEngine.Flows
         [DataMember]
         public string Description { get; set; }
 
-        public PropertyCollection InputsAndOutputs { get; private set; }
+        public PropertyCollection InputsAndOutputs = new PropertyCollection(null);
 
-        public PropertyCollection AvailableProperties { get; private set; }
+        public PropertyCollection AvailableProperties { get { return _availableProperties; } }
+        private PropertyCollection _availableProperties = new PropertyCollection(null);
         #endregion
 
         #region Constructor
@@ -40,9 +43,6 @@ namespace MetraTech.ExpressionEngine.Flows
                 throw new ArgumentException("flow is null");
             Flow = flow;
             FlowStepType = flowItemType;
-
-            InputsAndOutputs = new PropertyCollection(this);
-            AvailableProperties = new PropertyCollection(this);
         }
         #endregion
 

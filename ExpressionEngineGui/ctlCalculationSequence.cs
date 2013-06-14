@@ -51,12 +51,7 @@ namespace PropertyGui
 
         public void SyncToObject()
         {
-            ProductView.CalculationSequence = new List<string>();
-            var nodes = treSequence.GetAllNodes();
-            foreach (var treeNode in nodes)
-            {
-                ProductView.CalculationSequence.Add(((Property) treeNode.Tag).Name);
-            }
+
         }
 
         public TreeNode AddNode(Property property)

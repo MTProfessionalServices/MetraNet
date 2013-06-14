@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.Flows
 {
-    //[DataContract(Namespace = "MetraTech")]
     public class FlowCollection : List<FlowStepBase>
     {
         #region Methods
         public void UpdateFlow(Context context, PropertyCollection initalProperties)
         {
+#warning TODO: need to reactivate this
+            return;
             if (Count == 0)
                 return;
 

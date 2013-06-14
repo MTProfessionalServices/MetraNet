@@ -85,5 +85,8 @@
         <MASCodeService ElementName="FLSManagementService" Type="MetraTech.Core.Services.FLSManagementService, MetraTech.Core.Services.dll" Description="FLS Management Service">
             <Interface Name="FLSManagementService" ContractType="MetraTech.Core.Services.IFLSManagementService, MetraTech.Core.Services.dll" Description="FLS Management Service." />
         </MASCodeService>
+    <MASCodeService ElementName="QuotingService" Type="MetraTech.Core.Services.QuotingService, MetraTech.Core.Services.dll" Description="The Quoting Service." >
+      <Interface Name="QuotingService" ContractType="MetraTech.Core.Services.IQuotingService, MetraTech.Core.Services.dll" Description="The Quoting Service." />
+    </MASCodeService>
     </MASServices>
 </MASConfig>

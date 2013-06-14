@@ -71,7 +71,7 @@
 		<description>recurring charge (priceable item) template ID</description>
 	</ptype>
 -->
-<ptype>
+<ptype uservisible="False" filterable="False" exportable="False">
     <dn>_SubscriptionID</dn>
     <type>int32</type>
     <length>

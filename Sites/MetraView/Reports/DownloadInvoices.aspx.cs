@@ -33,6 +33,7 @@ public partial class Reports_DownloadInvoices : MTPage
 
     try
     {
+        //fill reports list
       int intervalID = billManager.GetCurrentInterval().ID;
       var reports = billManager.GetReports(intervalID);
       reportFormats = GetReportFormatConfigFile();
@@ -70,6 +71,48 @@ public partial class Reports_DownloadInvoices : MTPage
         sb.Append(GetLocalResourceObject("NoInvoices.Text"));
       }
       InvoiceList.Text = sb.ToString();
+
+      //fill quotes list
+      
+      var quoteReports = billManager.GetQuoteReports();
+      reportFormats = GetReportFormatConfigFile();
+        sb = new StringBuilder();
+
+      if (quoteReports != null && quoteReports.Count > 0 && reportFormats.Root != null)
+      {
+          if (Session[SiteConstants.QUOTE_REPORT_DICTIONARY] == null)
+          {
+              Session[SiteConstants.QUOTE_REPORT_DICTIONARY] = new Dictionary<string, ReportFile>();
+          }
+
+          var quoteReportDictionary = Session[SiteConstants.QUOTE_REPORT_DICTIONARY] as Dictionary<string, ReportFile>;
+
+          foreach (var reportFile in quoteReports)
+          {
+              // The reportFile objects are stored in a dictionary and the name is passed to ShowReports.aspx
+              if (quoteReportDictionary != null)
+              {
+                  if (!quoteReportDictionary.ContainsKey(String.Format("{0}_{1}", reportFile.FileName, intervalID)))
+                  {
+                      quoteReportDictionary.Add((String.Format("{0}_{1}", reportFile.FileName, intervalID)), reportFile);
+                  }
+              }
+              string reportToList = AddReportToQuoteList(reportFile.FileName, intervalID);
+
+              if (!string.IsNullOrEmpty(reportToList))
+              {
+                  sb.Append(reportToList);
+                  Logger.LogInfo((string)GetLocalResourceObject("AddReport.Text"), reportFile.FileName);
+              }
+          }
+      }
+      else
+      {
+          sb.Append(GetLocalResourceObject("NoQuotes.Text"));
+      }
+      QuoteList.Text = sb.ToString();
+
+
     }
     catch (Exception exp)
     {
@@ -99,6 +142,27 @@ public partial class Reports_DownloadInvoices : MTPage
                 reportFileName);
           }
         }
+      return reportToList;
+  }
+
+  private string AddReportToQuoteList(string reportFileName, int intervalID)
+  {
+      string reportFormat = Path.GetExtension(reportFileName);
+      string reportToList = String.Empty;
+
+      foreach (XElement format in reportFormats.Root.Elements())
+      {
+          if (format.Attribute("type").Value.Equals(reportFormat))
+          {
+              reportToList =
+                String.Format(
+                  "<li><a href=\"{0}/Reports/ShowReports.aspx?report={1}&isQuote=yes\"><img src='{2}'/>{3}</a></li>",
+                  Request.ApplicationPath,
+                  Server.UrlEncode(String.Format("{0}_{1}", reportFileName, intervalID)),
+                  format.Element("ReportImage").Value,
+                  reportFileName);
+          }
+      }
       return reportToList;
   }
   //

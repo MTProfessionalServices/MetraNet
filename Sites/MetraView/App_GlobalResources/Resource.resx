@@ -246,6 +246,9 @@
     <data name="TEXT_DOWNLOAD_INVOICES" xml:space="preserve">
         <value>Download Invoices and Reports</value>
     </data>
+	<data name="TEXT_DOWNLOAD_QUOTES" xml:space="preserve">
+        <value>Download Quotes</value>
+    </data>
     <data name="TEXT_EDIT" xml:space="preserve">
         <value>Edit </value>
     </data>
@@ -331,7 +334,7 @@
         <value>NO</value>
     </data>
     <data name="TEXT_NO_BILL" xml:space="preserve">
-        <value>Your bill is not availble yet.  Please click &lt;a href="Usage.aspx?view=summary"&gt;here&lt;/a&gt; to see your current usage.</value>
+        <value>Your bill is not available yet.  Please click &lt;a href="Usage.aspx?view=summary"&gt;here&lt;/a&gt; to see your current usage.</value>
     </data>
     <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
         <value>No Records Found</value>

@@ -11,6 +11,8 @@ using MetraTech.Security;
 
 public partial class EntryPointPage : MTPage
 {
+  private const int m_ticketLifeSpanInMins = 65;
+
   protected void Page_Load(object sender, EventArgs e)
   {
     // Create a UIManager
@@ -105,7 +107,7 @@ public partial class EntryPointPage : MTPage
 
   private void SetupUserData(string userName, string nameSpace, IMTSessionContext sessionContext)
   {
-      string ticket = MetraTech.ActivityServices.Services.Common.TicketManager.CreateTicket(sessionContext.AccountID, nameSpace, userName, 5);
+      string ticket = MetraTech.ActivityServices.Services.Common.TicketManager.CreateTicket(sessionContext.AccountID, nameSpace, userName, m_ticketLifeSpanInMins);
     // Setup user data
     UI.User.UserName = userName;
     UI.User.NameSpace = nameSpace;

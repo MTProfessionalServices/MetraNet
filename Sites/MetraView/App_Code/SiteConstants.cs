@@ -25,6 +25,7 @@ public static class SiteConstants
   public const string ReportView = "ReportView";
   public const string InvoiceAccount = "InvoiceAccount";
   public const string REPORT_DICTIONARY = "ReportDictionary";
+  public const string QUOTE_REPORT_DICTIONARY = "QuoteReportDictionary";
   public const string LocaleTransator = "LocaleTranslator";
   public const string LastActiveInterval = "LastActiveInterval";
   public const string PaymentInformation = "PaymentInformation";

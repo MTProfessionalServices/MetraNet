@@ -126,6 +126,9 @@
   <data name="NoInvoices.Text" xml:space="preserve">
     <value>No Invoices Found</value>
   </data>
+  <data name="NoQuotes.Text" xml:space="preserve">
+    <value>No Quotes Found</value>
+  </data>
   <data name="SelectInterval.Text" xml:space="preserve">
     <value>Select Interval</value>
   </data>

@@ -60,13 +60,13 @@
           ListWidth="70" Label="Priority" TabIndex="140" meta:resourcekey="ddPriorityResource1"
           ReadOnly="false">
         </MT:MTDropDown>
-        <div id="Div1" style="float: left; width: 330px;">
+        <div id="Div1" style="float: left; width: 340px;">
           <MT:MTTextBoxControl ID="tbAccountNumber" runat="server" AllowBlank="False" ControlWidth="200"
             Label="Account Number" TabIndex="150" ControlHeight="18" HideLabel="False" LabelWidth="120"
             meta:resourcekey="tbAccountNumberResource1" ReadOnly="False" XTypeNameSpace="form"
             OptionalExtConfig="minLength:11,&#13;&#10;maxLength:20" VType="digits" />
         </div>
-        <div id="Div2" style="float: left; width: 150px;">
+        <div id="Div2" style="float: left; width: 140px;">
           <asp:LinkButton runat="server" ID="AcctNumLinkButton" Text="Account Number" Width="700"
             meta:resourcekey="tbAccountNumberLinkResource1" OnClientClick="loadHelp(); return false;"
             CausesValidation="false" TabIndex="160"></asp:LinkButton>
@@ -74,13 +74,13 @@
             &nbsp;
           </div>
         </div>
-        <div id="Div3" style="float: left; width: 330px;">
+        <div id="Div3" style="float: left; width: 340px;">
           <MT:MTTextBoxControl ID="tbRoutingNumber" runat="server" AllowBlank="False" ControlWidth="200"
             Label="Routing Number" TabIndex="170" ControlHeight="18" HideLabel="False" LabelWidth="120"
             meta:resourcekey="tbRoutingNumberResource1" OptionalExtConfig="minLength:9,&#13;&#10;maxLength:20"
             ReadOnly="False" XTypeNameSpace="form"/>
         </div>
-        <div id="Div4" style="float: left; width: 150px;">
+        <div id="Div4" style="float: left; width: 140px;">
           <asp:LinkButton runat="server" ID="RoutNumLinkButton" Text="Routing Number" Width="700"
             meta:resourcekey="tbRoutingNumberLinkResource1" OnClientClick="loadHelp(); return false;"
             CausesValidation="false" TabIndex="180"></asp:LinkButton>

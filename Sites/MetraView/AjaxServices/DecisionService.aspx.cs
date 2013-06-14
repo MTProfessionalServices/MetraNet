@@ -23,8 +23,6 @@ public partial class AjaxServices_DecisionService : MTListServicePage
 {
   protected void Page_Load ( object sender, EventArgs e )
   {
-    //parse query name
-
     int id_interval;
     String str_interval = Request [ "id_interval" ];
     if ( string.IsNullOrEmpty ( str_interval ) )
@@ -52,6 +50,7 @@ public partial class AjaxServices_DecisionService : MTListServicePage
     {
       using ( var conn = ConnectionManager.CreateConnection ( ) )
       {
+          Logger.LogDebug("Looking for decisions for id_acc " + UI.User.AccountId + " and interval " + id_interval  );
         using ( var stmt = conn.CreateAdapterStatement ( "MetraViewServices", "__MVIEW_GET_CURRENT_DECISION_STATE__" ) )
         {
           stmt.AddParam ( "%%ID_ACC%%", UI.User.AccountId );
@@ -61,6 +60,7 @@ public partial class AjaxServices_DecisionService : MTListServicePage
             var decisions = new Dictionary<string, DecisionInstance> ();
             while ( rdr.Read () )
             {
+			  Logger.LogDebug("Found decision");
               var bucket = new BucketInstance ( Logger, rdr );
               DecisionInstance decision;
               if ( !decisions.TryGetValue ( bucket.DecisionId, out decision ) )
@@ -118,7 +118,8 @@ public partial class AjaxServices_DecisionService : MTListServicePage
     List<string> rangeTicks = decision.RangeTicks;
     List<string> markerClasses = decision.MarkerClasses;
     List<string> rangeClasses = decision.RangeClasses;
-    List<decimal> measureRanges = decision.MeasureRanges;
+    List<int> measureRanges = decision.MeasureRanges;
+
     StringBuilder builder = new StringBuilder ( "{" );
     builder.AppendFormat ( "\"title\":\"{0}\",\"subtitle\":\"{1}\",\"startDate\":\"{2}\",\"endDate\":\"{3}\",\"datesLabel\":\"{4}\",\"intervalId\":{5},\"ranges\":{6},\"measures\":{7},\"markers\":{8},\"tickTitle\":\"{9}\""
       , title, subtitle, decision.StartDate, decision.EndDate, datesLabel, decision.IntervalId, NumberListToJson ( ranges ), NumberListToJson ( measures ), NumberListToJson ( markers ), tickTitle );
@@ -137,7 +138,16 @@ public partial class AjaxServices_DecisionService : MTListServicePage
     return "[" + string.Join ( ",", range ) + "]";
   }
 
-  protected string StringListToJson ( List<string> range )
+  protected string NumberListToJson(List<int> range)
+  {
+      if (range == null)
+      {
+          return "[]";
+      }
+      return "[" + string.Join(",", range) + "]";
+  }
+
+  protected string StringListToJson(List<string> range)
   {
     if ( range == null )
     {
@@ -175,7 +185,7 @@ public class BucketInstance
     object val;
     if ( DecisionInstAttributes.TryGetValue ( "total_bands", out val ))
     {
-      int cnt = ( int ) val;
+      int cnt = Convert.ToInt32(val);
       for ( int i = 1; i <= cnt; i++ )
       {
         var suffix = "_band" + i;
@@ -209,11 +219,11 @@ public class BucketInstance
     this.QualifiedTotal = other.QualifiedTotal;
     if ( this.DecisionInstAttributes.ContainsKey ( "tier_start" ) )
     {
-      this.TierStart = (decimal) this.DecisionInstAttributes [ "tier_start" ];
+      this.TierStart = Convert.ToDecimal(this.DecisionInstAttributes [ "tier_start" ]);
     }
     if ( this.DecisionInstAttributes.ContainsKey ( "tier_end" ) )
     {
-      this.TierEnd = ( decimal ) this.DecisionInstAttributes [ "tier_end" ];
+      this.TierEnd = Convert.ToDecimal(this.DecisionInstAttributes [ "tier_end" ]);
     }
   }
 
@@ -225,7 +235,9 @@ public class BucketInstance
     DecisionInstAttributes = new Dictionary<string, object> ();
     TierStart = decimal.MinValue;
     TierEnd = decimal.MaxValue;
-    // FIXME: case sensitivity in dictionaries
+	bool hasStart = false;
+	bool hasEnd = false;
+
     for ( int i = 0; i < rdr.FieldCount; i++ )
     {
       Logger.LogDebug ( rdr.GetName ( i ) + " = " + rdr.GetValue ( i ) );
@@ -238,6 +250,7 @@ public class BucketInstance
         if ( !rdr.IsDBNull ( i ) )
         {
           TierStart = rdr.GetDecimal ( i );
+		  hasStart = true;
         }
       }
       else if ( rdr.GetName ( i ).Equals ( "tier_end", StringComparison.InvariantCultureIgnoreCase ) )
@@ -245,6 +258,7 @@ public class BucketInstance
         if ( !rdr.IsDBNull ( i ) )
         {
           TierEnd = rdr.GetDecimal ( i );
+		  hasEnd = true;
         }
       }
       else if ( rdr.GetName ( i ).Equals ( "qualified_total", StringComparison.InvariantCultureIgnoreCase ) )
@@ -264,19 +278,37 @@ public class BucketInstance
           Logger.LogDebug ( "\t" + headers [ j ] + " = " + values [ j + 1 ] );
           if ( headers [ j ].Equals ( "tier_start", StringComparison.InvariantCultureIgnoreCase ) )
           {
-            TierStart = decimal.Parse(values [ j + 1 ]);
+		    if (!string.IsNullOrEmpty(values [ j + 1 ]))
+		    {
+              TierStart = Convert.ToDecimal(values [ j + 1 ]);
+			  hasStart = true;
+			}
           }
           else if ( headers [ j ].Equals ( "tier_end", StringComparison.InvariantCultureIgnoreCase ) )
           {
-            TierEnd = decimal.Parse ( values [ j + 1 ] );
+		    if (!string.IsNullOrEmpty(values [ j + 1 ]))
+		    {
+              TierEnd = Convert.ToDecimal ( values [ j + 1 ] );
+			  hasEnd = true;
+			}
           }
         }
       }
       if ( !rdr.IsDBNull ( i ) )
       {
-        DecisionInstAttributes [ rdr.GetName ( i ) ] = rdr.GetValue ( i );
+        DecisionInstAttributes [ rdr.GetName ( i ).ToLowerInvariant() ] = rdr.GetValue ( i );
       }
     }
+	
+	if (!hasStart)
+	{
+	  TierStart = 0;
+	}
+	if (!hasEnd)
+	{
+	  TierEnd = TierStart;
+	}
+	
     object DecisionIdFormat;
     DecisionInstAttributes.TryGetValue("decision_id_format", out DecisionIdFormat);
 
@@ -321,7 +353,7 @@ public class BucketInstance
             {
               a1 += rdr.GetString ( "format_string5" );
             }
-            list = a1.Split ( ',' );
+            list = a1.ToLowerInvariant().Split ( ',' );
           }
         }
       }
@@ -357,7 +389,6 @@ public class BucketInstance
     }
     // TODO: prepopulate this
     // TODO: support custom rounding
-    // TODO: support currency symbol
     Dictionary<string, int> indexes = new Dictionary<string, int> ();
     object [] array = new object [ DecisionInstAttributes.Count + 4 ];
     int i = 0;
@@ -398,6 +429,10 @@ public class BucketInstance
         }
 
         int index = -1;
+        if (key != null)
+        {
+            key = key.ToLowerInvariant();
+        }
         if ( !indexes.TryGetValue ( key + "." + System.Threading.Thread.CurrentThread.CurrentUICulture.Name, out index ) )
         {
           if ( !indexes.TryGetValue ( key + "." + System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName, out index ) )
@@ -410,7 +445,8 @@ public class BucketInstance
         }
         if ( index > -1 )
         {
-          // TODO: support currency precision override
+            // TODO: support currency symbol
+            // TODO: support currency precision override
           object currency;
           if ( ( !string.IsNullOrEmpty ( fmt ) ) && fmt.Equals ( ":C", StringComparison.InvariantCultureIgnoreCase ) && DecisionInstAttributes.TryGetValue ( "tier_currency", out currency ) )
           {
@@ -433,6 +469,108 @@ public class BucketInstance
     var fm = regex.Replace ( format, evaluator );
     return string.Format ( fm, array );
   }
+
+  private bool TryGetLocalizedString(string baseKey, out object value)
+  {
+      string localizedKey = baseKey + "." + System.Threading.Thread.CurrentThread.CurrentUICulture.Name;
+      if (DecisionInstAttributes.TryGetValue(localizedKey, out value))
+      {
+          if (value != null)
+          {
+              return true;
+          }
+      }
+      localizedKey = baseKey + "." + System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+      if (DecisionInstAttributes.TryGetValue(localizedKey, out value))
+      {
+          if (value != null)
+          {
+              return true;
+          }
+      }
+      if (DecisionInstAttributes.TryGetValue(baseKey, out value))
+      {
+          if (value != null)
+          {
+              return true;
+          }
+      }
+      return false;
+  }
+
+  public string RangeTickFormat
+  {
+      get
+      {
+          object fmt;
+          if (TryGetLocalizedString("range_tick_format", out fmt))
+          {
+              return fmt as string;
+          }
+          else
+          {
+              return "{per_unit_rate}";// string.Empty;
+          }
+      }
+  }
+
+  public string RangeTick
+  {
+      get
+      {
+          return Format(RangeTickFormat);
+      }
+  }
+
+  public string RangeTitleFormat
+  {
+      get
+      {
+          object fmt;
+          if (TryGetLocalizedString("range_title_format", out fmt))
+          {
+              return fmt as string;
+          }
+          else
+          {
+              return string.Empty;
+          }
+      }
+  }
+
+  public string RangeTitle
+  {
+      get
+      {
+          return Format(RangeTitleFormat);
+      }
+  }
+
+  public string MeasureTitleFormat
+  {
+      get
+      {
+          object fmt;
+          if (TryGetLocalizedString("measure_title_format", out fmt))
+          {
+              return fmt as string;
+          }
+          else
+          {
+              return "{qualified_events:#} events qualified";
+          }
+      }
+  }
+
+  public string MeasureTitle
+  {
+      get
+      {
+          return Format(MeasureTitleFormat);
+      }
+  }
+
+
 }
 
 public class DecisionInstance
@@ -466,7 +604,6 @@ public class DecisionInstance
     this.DecisionId = decisionId;
     this.DecisionTypeAttributes = new Dictionary<string, string> (); ;
     this.BucketInstances = new List<BucketInstance> ();
-    // TODO: implement me
     string [] values = rdr.GetString ( "decision_object_id" ).Split ( new string [ 1 ] { "<|" }, StringSplitOptions.None );
     string [] headers = BucketInstance.GetHeaders ( Convert.ToInt32 ( values [ 0 ] ) );
     for ( int j = 0; j < headers.Length; j++ )
@@ -474,13 +611,16 @@ public class DecisionInstance
       DecisionTypeAttributes [ headers [ j ] ] = values [ j + 1 ];
     }
     IntervalId = rdr.GetInt32 ( "id_usage_interval" );
-    if ( !rdr.IsDBNull ( "start_date" ) )
+    for (int i = 0; i < rdr.FieldCount; i++)
     {
-      StartDate = rdr.GetDateTime ( "start_date" );
-    }
-    if ( !rdr.IsDBNull ( "end_date" ) )
-    {
-      StartDate = rdr.GetDateTime ( "end_date" );
+        if (rdr.GetName(i).Equals("start_date", StringComparison.InvariantCultureIgnoreCase) && !rdr.IsDBNull(i))
+        {
+            StartDate = rdr.GetDateTime(i);
+        }
+        else if (rdr.GetName(i).Equals("end_date", StringComparison.InvariantCultureIgnoreCase) && !rdr.IsDBNull(i))
+        {
+            EndDate = rdr.GetDateTime(i);
+        }
     }
   }
 
@@ -554,13 +694,13 @@ public class DecisionInstance
       string txt = GetLocalizedString ( "dates_text_format" );
       if ( string.IsNullOrEmpty ( txt ) )
       {
-        txt = "{start_date:M} - {end_date:M}";
+        txt = "{start_date:D} - {end_date:D}";
       }
       return txt;
     }
   }
 
-  private string Format ( string format )
+  private string Format(string format)
   {
     if ( string.IsNullOrEmpty ( format ) )
     {
@@ -568,7 +708,6 @@ public class DecisionInstance
     }
     // TODO: prepopulate this
     // TODO: support custom rounding
-    // TODO: support currency symbol
     Dictionary<string, int> indexes = new Dictionary<string, int> ();
     object [] array = new object [ DecisionTypeAttributes.Count + 4 ];
     int i = 0;
@@ -605,6 +744,10 @@ public class DecisionInstance
         }
 
         int index = -1;
+        if (key != null)
+        {
+            key = key.ToLowerInvariant();
+        }
         if ( !indexes.TryGetValue ( key + "." + System.Threading.Thread.CurrentThread.CurrentUICulture.Name, out index ) )
         {
           if ( !indexes.TryGetValue ( key + "." + System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName, out index ) )
@@ -617,7 +760,8 @@ public class DecisionInstance
         }
         if (index > -1)
         {
-          // TODO: support currency precision override
+            // TODO: support currency symbol
+            // TODO: support currency precision override
           string currency;
           if ( ( !string.IsNullOrEmpty ( fmt ) ) && fmt.Equals ( ":C", StringComparison.InvariantCultureIgnoreCase ) && DecisionTypeAttributes.TryGetValue ( "tier_currency", out currency ) )
           {
@@ -631,7 +775,7 @@ public class DecisionInstance
         }
         else
         {
-          return string.Empty; // string.Format ( "{0}{{{1}}}{2}{3}", open, key, fmt, close );
+          return string.Empty;
         }
       }
       return m.Value;
@@ -685,7 +829,6 @@ public class DecisionInstance
       List<decimal> list = new List<decimal> ();
       foreach ( var b in BucketInstances )
       {
-        // TODO: compare start to previous end?
         if ( !list.Contains ( b.TierStart ) )
         {
           list.Add ( b.TierStart );
@@ -707,21 +850,47 @@ public class DecisionInstance
       List<decimal> list = new List<decimal> ();
       foreach ( var b in BucketInstances )
       {
+	  if (b.QualifiedTotal > 0.0m)
+	  {
+	    var m = b.QualifiedTotal;
+		if ( m > b.TierEnd )
+		{
+		  m = b.TierEnd;
+		}
         if ( !list.Contains ( b.QualifiedTotal ) )
         {
           list.Add ( b.QualifiedTotal );
         }
+        if ( !list.Contains ( m ) )
+        {
+          list.Add ( m );
+        }
+		}
       }
+	  if (list.Count == 0)
+	  {
+	    list.Add(0.0m);
+	  }
       list.Sort ();
       return list;
     }
   }
 
-  public List<decimal> MeasureRanges
+  public List<int> MeasureRanges
   {
     get
     {
-      return null; // TODO: implement
+        List<int> list = new List<int>();
+        int i = 0;
+        foreach (var b in BucketInstances)
+        {
+            if (b.QualifiedTotal > 0.0m)
+            {
+                list.Add(i);
+            }
+            i++;
+        }
+        return list;
     }
   }
 
@@ -730,25 +899,104 @@ public class DecisionInstance
     get
     {
       List<decimal> list = new List<decimal> ();
+      decimal max = decimal.MinValue;
       foreach ( var b in BucketInstances )
       {
-        if ( !list.Contains ( b.TierEnd ) )
-        {
-          list.Add ( b.TierEnd );
-        }
+          if (b.QualifiedTotal > max)
+          {
+              max = b.QualifiedTotal;
+          }
       }
-      list.Sort ();
-      var l2 = new List<decimal>();
-      l2.Add ( list [ list.Count - 1 ] );
-      return l2;
+      if (max > decimal.MinValue)
+      {
+          list.Add(max);
+          if (IncludeProjections)
+          {
+              var n = (EndDate - StartDate).TotalSeconds;
+              var d = (MetraTech.MetraTime.Now - StartDate).TotalSeconds;
+              if (MetraTech.MetraTime.Now > EndDate)
+              {
+                  d = n;
+              }
+              if (d > 0.0 && n > d)
+              {
+                  var ratio = n / d;
+                  list.Add(max * ((decimal) ratio));
+              }
+          }
+      }
+      return list;
     }
+  }
+
+  public bool IncludeProjections
+  {
+      get
+      {
+          string val;
+          if (DecisionTypeAttributes.TryGetValue("include_projections", out val))
+          {
+              if (!string.IsNullOrEmpty(val))
+              {
+                  return Convert.ToBoolean(val);
+              }
+              else
+              {
+                  return false;
+              }
+          }
+          else
+          {
+              return false;
+          }
+      }
   }
 
   public List<string> MarkerClasses
   {
     get
     {
-      return null; // TODO: implement
+        List<string> list = new List<string>();
+        decimal max = decimal.MinValue;
+        decimal end = decimal.MinValue;
+        foreach (var b in BucketInstances)
+        {
+            if (b.QualifiedTotal > max)
+            {
+                max = b.QualifiedTotal;
+            }
+            if (b.TierEnd > end)
+            {
+                end = b.TierEnd;
+            }
+        }
+        if (max > decimal.MinValue)
+        {
+            list.Add(string.Empty);
+            if (IncludeProjections)
+            {
+                var n = (EndDate - StartDate).TotalSeconds;
+                var d = (MetraTech.MetraTime.Now - StartDate).TotalSeconds;
+                if (MetraTech.MetraTime.Now > EndDate)
+                {
+                    d = n;
+                }
+                if (d > 0.0 && n > d)
+                {
+                    var ratio = n / d;
+                    var projected = max * ((decimal)ratio);
+                    if (projected > end)
+                    {
+                        list.Add("good");
+                    }
+                    else
+                    {
+                        list.Add("bad");
+                    }
+                }
+            }
+        }
+        return list;
     }
   }
 
@@ -756,7 +1004,23 @@ public class DecisionInstance
   {
     get
     {
-      return null; // TODO: implement
+        List<string> list = new List<string>();
+        foreach (var b in BucketInstances)
+        {
+            if (b.TierStart > b.QualifiedTotal)
+            {
+                list.Add("future");
+            }
+            else if (b.QualifiedTotal > 0.0m)
+            {
+                list.Add("selected");
+            }
+            else
+            {
+                list.Add("expired");
+            }
+        }
+        return list;
     }
   }
 
@@ -764,7 +1028,12 @@ public class DecisionInstance
   {
     get
     {
-      return null; // TODO: localize
+        List<string> list = new List<string>();
+        foreach (var b in BucketInstances)
+        {
+            list.Add(b.RangeTitle);
+        }
+        return list;
     }
   }
 
@@ -772,7 +1041,12 @@ public class DecisionInstance
   {
     get
     {
-      return null; // TODO: localize
+        List<string> list = new List<string>();
+        foreach (var b in BucketInstances)
+        {
+            list.Add(b.MeasureTitle);
+        }
+        return list;
     }
   }
 
@@ -780,7 +1054,7 @@ public class DecisionInstance
   {
     get
     {
-      return null; // TODO: localize
+      return null; // TODO: implement
     }
   }
 
@@ -788,7 +1062,12 @@ public class DecisionInstance
   {
     get
     {
-      return null; // TODO: localize
+      List<string> list = new List<string> ();
+      foreach ( var b in BucketInstances )
+      {
+          list.Add ( b.RangeTick );
+      }
+      return list;
     }
   }
 

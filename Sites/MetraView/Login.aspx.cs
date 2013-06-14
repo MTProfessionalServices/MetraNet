@@ -13,7 +13,7 @@ public partial class login : MTPage
 {
   private string _nameSpace;
   private string _authApp;
-  private const int m_ticketLifeSpanInMins = 5;
+  private const int m_ticketLifeSpanInMins = 65;
   
   protected override void OnPreInit(EventArgs e)
   {
@@ -191,8 +191,13 @@ public partial class login : MTPage
     auth.Initialize(userName, _nameSpace, userName, "MetraView");
     MetraTech.Security.LoginStatus status = auth.Login(password, _authApp, ref tmp);
     IMTSessionContext sessionContext = tmp as IMTSessionContext;
-    string ticket = MetraTech.ActivityServices.Services.Common.TicketManager.CreateTicket(sessionContext.AccountID, _nameSpace, userName, m_ticketLifeSpanInMins);
-    
+    string ticket = "";
+    // Don't generate ticket if user not authenticated
+    if (status == MetraTech.Security.LoginStatus.OK || status == MetraTech.Security.LoginStatus.OKPasswordExpiringSoon)
+    {
+        ticket = MetraTech.ActivityServices.Services.Common.TicketManager.CreateTicket(sessionContext.AccountID, _nameSpace, userName, m_ticketLifeSpanInMins);
+    }
+
     string err = "";
     switch (status)
     {

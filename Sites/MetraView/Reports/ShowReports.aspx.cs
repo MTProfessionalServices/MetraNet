@@ -31,32 +31,59 @@ public partial class Reports_ShowReports : MTPage
       throw new UIException(Resources.ErrorMessages.ERROR_NOT_VALID_ACCOUNT);
     }
 
-    if (Session[SiteConstants.REPORT_DICTIONARY] != null 
-      && !string.IsNullOrEmpty(Request.QueryString["report"]))
-    {
+    bool getQuoteReport = !string.IsNullOrEmpty(Request.QueryString["isQuote"]);
 
-      var reportName = Request.QueryString["report"];
-      var reportDictionary = Session[SiteConstants.REPORT_DICTIONARY] as Dictionary<string, ReportFile>;
-
-      if (reportDictionary != null)
+      if (getQuoteReport)
       {
-        var reportFile = reportDictionary[reportName];
+          if (Session[SiteConstants.QUOTE_REPORT_DICTIONARY] != null
+               && !string.IsNullOrEmpty(Request.QueryString["report"]))
+          {
 
-        if (reportFile != null)
-        {
-          var billManager = new BillManager(UI);
-          Interval currentInterval = billManager.GetCurrentInterval();
+              var reportName = Request.QueryString["report"];
+              var reportDictionary = Session[SiteConstants.QUOTE_REPORT_DICTIONARY] as Dictionary<string, ReportFile>;
 
-          ReportStream(reportFile, currentInterval);
-        }
+              if (reportDictionary != null)
+              {
+                  var reportFile = reportDictionary[reportName];
+
+                  if (reportFile != null)
+                  {
+                      var billManager = new BillManager(UI);
+                      Interval currentInterval = billManager.GetCurrentInterval();
+
+                      ReportStream(reportFile, currentInterval, true);
+                  }
+              }
+          }
       }
-    }
+      else if (Session[SiteConstants.REPORT_DICTIONARY] != null
+               && !string.IsNullOrEmpty(Request.QueryString["report"]))
+      {
+
+          var reportName = Request.QueryString["report"];
+          var reportDictionary = Session[SiteConstants.REPORT_DICTIONARY] as Dictionary<string, ReportFile>;
+
+          if (reportDictionary != null)
+          {
+              var reportFile = reportDictionary[reportName];
+
+              if (reportFile != null)
+              {
+                  var billManager = new BillManager(UI);
+                  Interval currentInterval = billManager.GetCurrentInterval();
+
+                  ReportStream(reportFile, currentInterval);
+              }
+          }
+      }
   }
+
+
 
   //
   //Get stream of selected report from StaticReportService
   //
-  private void ReportStream(ReportFile reportFile, Interval currentInterval)
+  private void ReportStream(ReportFile reportFile, Interval currentInterval, bool isQuote = false)
   {
     var client = new StaticReportsServiceClient("NetTcpBinding_IMetraTech.Core.Services.StaticReportsService");
 
@@ -70,8 +97,8 @@ public partial class Reports_ShowReports : MTPage
       if (UI.Subscriber.SelectedAccount._AccountID.HasValue)
       {
         //For Crystal report service
-        client.GetReportFile(new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value),
-                             currentInterval.ID, reportFile.FileName, out stream);
+          client.GetReportFile(new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value),
+                               isQuote ? -1 : currentInterval.ID, reportFile.FileName, out stream);
 
         string reportFileName = GetReportByFormat(reportFile.FileName, currentInterval);
 

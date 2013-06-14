@@ -8,5 +8,11 @@
 <ul>
 <asp:Literal ID="InvoiceList" runat="server"></asp:Literal>
 </ul>
+<p></p>
+<h1><%=Resources.Resource.TEXT_DOWNLOAD_QUOTES %></h1>
+<p></p>
+<ul>
+<asp:Literal ID="QuoteList" runat="server"></asp:Literal>
+</ul>
 </asp:Content>
 

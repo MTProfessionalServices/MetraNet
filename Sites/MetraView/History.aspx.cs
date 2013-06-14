@@ -12,6 +12,7 @@ public partial class History : MTPage
 
   // Only show 20 intervals maximum, otherwise, the graph x axis labels start to become unreadable
   private const int MAX_INTERVALS_FOR_CHART = 20;
+  private decimal _minY;
 
   protected void Page_Load(object sender, EventArgs e)
   {
@@ -19,8 +20,14 @@ public partial class History : MTPage
     {
       var billManger = new BillManager(UI);
       var intervals = billManger.GetBillingHistory();
+      _minY = 0;
       GetChartData(intervals);
     }
+  }
+
+  protected decimal GetYMin()
+  {
+      return _minY;
   }
 
   private void GetChartData(List<Interval> intervals)
@@ -67,6 +74,12 @@ public partial class History : MTPage
         sbXTicks.Append(" - ");
         sbXTicks.Append(interval.EndDate.ToShortDateString());
         sbXTicks.Append("'],");
+
+        if (interval.UsageAmount.HasValue == true && interval.UsageAmount.Value < _minY)
+        {
+            _minY = interval.UsageAmount.Value;
+        }
+
       }
     }
 

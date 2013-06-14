@@ -246,6 +246,9 @@
     <data name="TEXT_DOWNLOAD_INVOICES" xml:space="preserve">
         <value>Télécharger factures et rapports</value>
     </data>
+	<data name="TEXT_DOWNLOAD_QUOTES" xml:space="preserve">
+        <value>Télécharger quotes</value>
+    </data>
     <data name="TEXT_EDIT" xml:space="preserve">
         <value>Modifier</value>
     </data>

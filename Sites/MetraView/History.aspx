@@ -61,7 +61,7 @@
                     }
                 },
                 yaxis:{
-                    min:0,
+                    min:<%=GetYMin()%>,
                     tickOptions:{
                         formatString: GRAPH_CURRENCY_FORMAT,
                         fontSize:'10pt', 

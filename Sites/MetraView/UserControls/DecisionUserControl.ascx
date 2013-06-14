@@ -143,7 +143,6 @@ white-space:nowrap;
 <script>
 
   function populateDatePicker(id) {
-    console.log('click');
     clearDatePickers(); 
     var dp = document.getElementById(id);
     var old = dp.innerHTML;
@@ -153,25 +152,8 @@ white-space:nowrap;
     div.style("overflow-y","auto");
     div.style("overflow-x","visible");
     var ul = div.append("ul").style("margin-left", "0px").style("margin-right", "10px").style("padding-left", "0px");
-    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button.png) left center no-repeat").attr("datepickerid", id).attr("interval", 90133432).attr("title", "Interval 95553432").attr("selected", "true").on("click", function () { var ul = d3.select(this); console.log("" + ul.text() + " " + ul.attr("datepickerid")); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).style("overflow", "hidden").attr("title", "Interval 97773432").attr("interval", ul.attr("interval")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text(old);
-    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button_uncheck.png) left center no-repeat").attr("datepickerid", id).attr("interval", 90133432).attr("title", "Interval 90133432").on("click", function () { var ul = d3.select(this); console.log("" + ul.text() + " " + ul.attr("datepickerid")); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text("February 28, 2012 - February 27, 2013");
-    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button_uncheck.png) left center no-repeat").attr("datepickerid", id).attr("interval", 90133432).attr("title", "Interval 91133432").on("click", function () { var ul = d3.select(this); console.log("" + ul.text() + " " + ul.attr("datepickerid")); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text("February 28, 2012 - February 27, 2013");
-    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button_uncheck.png) left center no-repeat").attr("datepickerid", id).attr("interval", 90133432).attr("title", "Interval 92133432").on("click", function () { var ul = d3.select(this); console.log("" + ul.text() + " " + ul.attr("datepickerid")); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text("February 28, 2012 - February 27, 2013");
-    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button_uncheck.png) left center no-repeat").attr("datepickerid", id).attr("interval", 90133432).attr("title", "Interval 93133432").on("click", function () { var ul = d3.select(this); console.log("" + ul.text() + " " + ul.attr("datepickerid")); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text("February 28, 2012 - February 27, 2013");
-    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button_uncheck.png) left center no-repeat").attr("datepickerid", id).attr("interval", 90133432).attr("title", "Interval 94133432").on("click", function () { var ul = d3.select(this); console.log("" + ul.text() + " " + ul.attr("datepickerid")); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text("February 28, 2012 - February 27, 2013");
-    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button_uncheck.png) left center no-repeat").attr("datepickerid", id).attr("interval", 90133432).attr("title", "Interval 95133432").on("click", function () { var ul = d3.select(this); console.log("" + ul.text() + " " + ul.attr("datepickerid")); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text("February 28, 2012 - February 27, 2013");
-    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button_uncheck.png) left center no-repeat").attr("datepickerid", id).attr("interval", 90133432).attr("title", "Interval 96133432").on("click", function () { var ul = d3.select(this); console.log("" + ul.text() + " " + ul.attr("datepickerid")); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text("February 28, 2012 - February 27, 2013");
-    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button_uncheck.png) left center no-repeat").attr("datepickerid", id).attr("interval", 90133432).attr("title", "Interval 97133432").on("click", function () { var ul = d3.select(this); console.log("" + ul.text() + " " + ul.attr("datepickerid")); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text("February 28, 2012 - February 27, 2013");
-    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button_uncheck.png) left center no-repeat").attr("datepickerid", id).attr("interval", 90133432).attr("title", "Interval 98133432").on("click", function () { var ul = d3.select(this); console.log("" + ul.text() + " " + ul.attr("datepickerid")); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text("February 28, 2012 - February 27, 2013");
-    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button_uncheck.png) left center no-repeat").attr("datepickerid", id).attr("interval", 90133432).attr("title", "Interval 99133432").on("click", function () { var ul = d3.select(this); console.log("" + ul.text() + " " + ul.attr("datepickerid")); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text("February 28, 2012 - February 27, 2013");
-    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button_uncheck.png) left center no-repeat").attr("datepickerid", id).attr("interval", 90133432).attr("title", "Interval 90233432").on("click", function () { var ul = d3.select(this); console.log("" + ul.text() + " " + ul.attr("datepickerid")); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text("February 28, 2012 - February 27, 2013");
-    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button_uncheck.png) left center no-repeat").attr("datepickerid", id).attr("interval", 90133432).attr("title", "Interval 90333432").on("click", function () { var ul = d3.select(this); console.log("" + ul.text() + " " + ul.attr("datepickerid")); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text("February 28, 2012 - February 27, 2013");
-    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button_uncheck.png) left center no-repeat").attr("datepickerid", id).attr("interval", 90133432).attr("title", "Interval 90433432").on("click", function () { var ul = d3.select(this); console.log("" + ul.text() + " " + ul.attr("datepickerid")); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text("February 28, 2012 - February 27, 2013");
-    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button_uncheck.png) left center no-repeat").attr("datepickerid", id).attr("interval", 90133432).attr("title", "Interval 90533432").on("click", function () { var ul = d3.select(this); console.log("" + ul.text() + " " + ul.attr("datepickerid")); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text("February 28, 2012 - February 27, 2013");
-    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button_uncheck.png) left center no-repeat").attr("datepickerid", id).attr("interval", 90133432).attr("title", "Interval 90633432").on("click", function () { var ul = d3.select(this); console.log("" + ul.text() + " " + ul.attr("datepickerid")); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text("February 28, 2012 - February 27, 2013");
-    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button_uncheck.png) left center no-repeat").attr("datepickerid", id).attr("interval", 90133432).attr("title", "Interval 90733432").on("click", function () { var ul = d3.select(this); console.log("" + ul.text() + " " + ul.attr("datepickerid")); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text("February 28, 2012 - February 27, 2013");
-    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button_uncheck.png) left center no-repeat").attr("datepickerid", id).attr("interval", 90133432).attr("title", "Interval 90833432").on("click", function () { var ul = d3.select(this); console.log("" + ul.text() + " " + ul.attr("datepickerid")); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text("February 28, 2012 - February 27, 2013");
-    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button_uncheck.png) left center no-repeat").attr("datepickerid", id).attr("interval", 90133432).attr("title", "Interval 90933432").on("click", function () { var ul = d3.select(this); console.log("" + ul.text() + " " + ul.attr("datepickerid")); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text("February 28, 2012 - February 27, 2013");
+    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button.png) left center no-repeat").attr("datepickerid", id).attr("interval", div.attr("interval")).attr("title", "Interval " + div.attr("interval")).attr("selected", "true").on("click", function () { var ul = d3.select(this); /*console.log("" + ul.text() + " " + ul.attr("datepickerid"));*/ document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).style("overflow", "hidden").attr("title", "Interval " + ul.attr("interval")).attr("interval", ul.attr("interval")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text(old);
+//    ul.append("li").style("background", "url(/Res/images/icons/ui_radio_button_uncheck.png) left center no-repeat").attr("datepickerid", id).attr("interval", 90133432).attr("title", "Interval 90133432").on("click", function () { var ul = d3.select(this); console.log("" + ul.text() + " " + ul.attr("datepickerid")); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); d3.select("#" + ul.attr("datepickerid")).on("click", function () { populateDatePicker(ul.attr("datepickerid")); }); d3.event.preventDefault(); d3.event.stopPropagation(); }).text("February 28, 2012 - February 27, 2013");
     d3.event.preventDefault();
   }
 
@@ -203,8 +185,8 @@ white-space:nowrap;
     .width(width)
     .height(height);
 
-  d3.json("/MetraView/AjaxServices/DecisionService.aspx?id_acc=124", function (error, data) {
-    var svg = d3.select("#Decisions-body").selectAll("svg")
+  d3.json("/MetraView/AjaxServices/DecisionService.aspx?_=" + new Date().getTime(), function (error, data) {
+    var svg = d3.select("#DecisionInstances-body").selectAll("svg")
       .data(data)
     .enter().append("svg")
       .attr("class", "bullet")
@@ -248,12 +230,20 @@ white-space:nowrap;
       .attr("text-anchor", "end")
       .text("right click for options");
 
-    var cnt = title[0].length;
+    if (svg.data() == null || svg.data().length == 0) {
+        d3.select("#DecisionInstances-body").append("text").text("No Transactions Found for the Current Interval");
+    }
+
+    var cnt = 0;
+	if (title != null && title.length > 0)
+	{
+	  cnt = title[0].length;
+	}
     title.each(function (d, i) {
-      var bdy = document.getElementById("Decisions-body");
+      var bdy = document.getElementById("DecisionInstances-body");
       var rect = bdy.getBoundingClientRect();
-      var span = d3.select("#Decisions-body").append("span").style("position", "relative");
-      span.style("top", -((cnt * 100) + 41) + "px");
+      var span = d3.select("#DecisionInstances-body").append("span").style("position", "relative");
+      span.style("top", -((cnt * 100) + 11) + "px");
       span.style("right", "-480px");
       var button = span.append("div");
       button.attr("class", "datepicker").style("white-space", "nowrap").style("display", "inline-block").attr("id", "datepicker" + i).style("width", "auto").style("position", "absolute").style("background-color", "#fff").style("border", "dotted").style("border-width", "1px").style("border-color", "#aaa").style("padding", "0px").style("padding-left", "2px").style("padding-right", "2px").style("margin", "0px");
@@ -263,8 +253,8 @@ white-space:nowrap;
       else {
         button.style("top", ((i * 108) + 0) + "px"); //.style("right", "-300px");
       }
-      button.attr("interval", 97773432);
-      button.text(d.startDate + " - " + d.endDate).attr("title", "Interval 97773432").style("right", "0px").style("text-anchor", "end");
+    button.attr("interval", d.intervalId);
+      button.text(d.datesLabel).attr("title", "Interval " + d.intervalId).style("right", "0px").style("text-anchor", "end");
       span.on("contextmenu", function (d, i) {
         d3.selectAll(".bullet .contextmenu").attr("display", "none");
         var cm = d3.select("#contextmenu" + 0)
@@ -280,26 +270,15 @@ white-space:nowrap;
     d3.selectAll(".datepicker").on("click", function (d, i) {
       populateDatePicker("datepicker" + i);
     });
-    /*      console.log('click');
-    var dp = document.getElementById("datepicker" + i);
-    var old = dp.innerHTML;
-    dp.innerHTML = "";
-    var div = d3.select("#datepicker" + i);
-    div.on("click", null);
-    var ul = div.append("ul");
-    ul.append("li").attr("datepickerid", "datepicker" + i).attr("interval", 90133432).attr("selected", "true").on("click", function () { var ul = d3.select(this); console.log("" + ul.text()); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); }).text(old);
-    ul.append("li").attr("datepickerid", "datepicker" + i).attr("interval", 90133432).on("click", function () { var ul = d3.select(this); console.log("" + ul.text()); document.getElementById(ul.attr("datepickerid")).innerHTML = ul.text(); }).text("February 28, 2012 - February 27, 2013");
-    d3.event.preventDefault();
-    });
-    */
-    var divs = d3.select("#Decisions-body").append("div").attr("id", function (d, i) { return "contextmenu" + i; }).attr("class", "contextmenu").style("display", "none").style("top", "150px").style("left", "400px").style("position", "absolute").style("background-color", "#fff").style("border", "solid").style("border-width", "3px").style("padding", "2px");
+
+    var divs = d3.select("#DecisionInstances-body").append("div").attr("id", function (d, i) { return "contextmenu" + i; }).attr("class", "contextmenu").style("display", "none").style("top", "150px").style("left", "400px").style("position", "absolute").style("background-color", "#fff").style("border", "solid").style("border-width", "3px").style("padding", "2px");
     var ul = divs.append("ul").attr("class", "contextmenulist").style("margin-left", "0px").style("padding-left", "0px");
-    ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/checkbox_yes.png) left center no-repeat").text("Include Previous Results");
-    ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/checkbox_no.png) left center no-repeat").text("Include Projected Results");
+//    ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/checkbox_yes.png) left center no-repeat").text("Include Previous Results");
+//    ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/checkbox_no.png) left center no-repeat").text("Include Projected Results");
 //    ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/arrow_redo.png) left center no-repeat").text("Redraw").on('click', function () { console.log("redraw"); svg.call(chart); });
     ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/arrow_refresh_small.png) left center no-repeat").text("Refresh").on('click', function () {
-      console.log("refresh"); d3.json("/MetraView/AjaxServices/DecisionService.aspx?id_acc=124", function (error, data) {
-        var svg = d3.select("#Decisions-body").selectAll("svg")
+        d3.json("/MetraView/AjaxServices/DecisionService.aspx?_=" + new Date().getTime(), function (error, data) {
+        var svg = d3.select("#DecisionInstances-body").selectAll("svg")
       .data(data); svg.call(chart);
       });
     });

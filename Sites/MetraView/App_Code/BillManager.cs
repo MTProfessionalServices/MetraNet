@@ -844,6 +844,15 @@ public class BillManager: System.Web.UI.TemplateControl
       return null;  // possibly no report server
     }
   }
+
+  /// <summary>
+  /// Get a list of ReprotFiles for the quotes for the current account
+  /// </summary>  
+  /// <returns></returns>
+  public List<ReportFile> GetQuoteReports()
+  {
+      return GetReports(-1);
+  }
   #endregion
 
   #region Payment Info - Last Payment and Next Payment Amount and Due Date

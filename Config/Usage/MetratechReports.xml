@@ -1,21 +1,30 @@
-<?xml version="1.0" encoding="utf-8" ?> 
+<?xml version="1.0" encoding="utf-8" ?>
+<!--To applay the changes you need to restart Data Export Service-->
 <xmlconfig>
 	<reports>
 		<scandataexportservice>
-			<scaninterval value="1" />	<!-- in minutes -->
+		    <!-- Interval for scanning in minutes -->
+			<scaninterval>1</scaninterval>
 		</scandataexportservice>
-		<!-- Change the  below entry to the server name where the Metratech Data Export Service is running.-->
+		<!-- Name of server where Data Export Service is running -->
 		<processingserver>localhost</processingserver>
-		<workingfolder>Config\WorkingFolder</workingfolder>
-		<queries>
-			<v1_format>
-				<service>Config\Queries\Service</service>
-				<custom>Config\Queries\Custom</custom>
-			</v1_format>
-			<v2_format>
-				<service>Config\SqlCore\Queries\Service</service>
-				<custom>Config\SqlCore\Queries\Custom</custom>
-			</v2_format>
-		</queries>
+		
+		<!-- Data Export framework supports two types of path "relative" and "absolute". To change the path type use pathtype attribute in  path's tags -->
+		<!-- If pathtype attribute is not specified, then by default the Data Export will use relative path -->
+		<paths>
+			<!-- The deafult folder for saving reports in case user din't specify in report instance -->		
+			<workingfolder pathtype="relative">..\WorkingFolder</workingfolder>
+			<queries>
+			
+				<!-- Folder for storing services queries that Data Export Service uses internaly -->
+				<!-- Attention! If MN uses Query Management that path to services should contain 'SqlCustom\Queries" tail in the path -->
+				<service pathtype="relative">..\SqlCustom\Queries\Service</service>
+				<!-- Folder for storing custom query which were created by User -->
+				<!-- Attention! If MN uses Query Management that path to services should contain 'SqlCustom\Queries" tail in the path -->
+				<custom pathtype="relative">..\SqlCustom\Queries\Custom</custom>			
+			</queries>
+			<!-- Folder path to filed definitions for the reports -->
+			<reportfieldef pathtype="relative">..\fieldDef</reportfieldef>
+		</paths>
 	</reports>
 </xmlconfig>

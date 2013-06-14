@@ -1,45 +1,56 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.Flows
 {
-    [DataContract(Namespace = "MetraTech")]
+    //[DataContract(Namespace = "MetraTech")]
     public class FlowCollection : List<FlowStepBase>
     {
         #region Methods
-        public void UpdateFlow(Context context)
+        public void UpdateFlow(Context context, PropertyCollection initalProperties)
         {
-            FlowStepBase previousItem = null;
-            foreach (var item in this)
-            {
-                item.UpdateInputsAndOutputs(context);
+            if (Count == 0)
+                return;
 
-                item.AvailableProperties.Clear();
+            this[0].AvailableProperties.Clear();
+            foreach (var property in initalProperties)
+            {
+                this[0].AvailableProperties.Add((Property)property.Copy());
+            }
+
+            FlowStepBase previousItem = null;
+            foreach (var step in this)
+            {
+                step.UpdateInputsAndOutputs(context);
+
                 if (previousItem != null)
                 {
+                    step.AvailableProperties.Clear();
+
                     //Copy what was available to previous
-                    item.AvailableProperties.AddRange(previousItem.AvailableProperties);
+                    step.AvailableProperties.AddRange(previousItem.AvailableProperties);
 
                     //Append outputs from the the previous item if they aren't already in the list
                     foreach (var property in previousItem.InputsAndOutputs)
                     {
-                        if (property.IsOutputOrInOut && !item.AvailableProperties.Exists(property.Name))
-                            item.AvailableProperties.Add(property);
+                        if (property.IsOutputOrInOut && !step.AvailableProperties.Exists(property.Name))
+                            step.AvailableProperties.Add(property);
                     }
                 }
 
-                previousItem = item;
+                previousItem = step;
             }
         }
 
         public void Validate(ValidationMessageCollection messages, Context context)
         {
-            UpdateFlow(context);
-            foreach (var item in this)
-            {
-                item.Validate(messages, context);
-            }
+            //UpdateFlow(context);
+            //foreach (var item in this)
+            //{
+            //    item.Validate(messages, context);
+            //}
         }
         #endregion
     }

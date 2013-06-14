@@ -5,8 +5,10 @@
         AccountLookup,
         ApplyCharges,
         BatchMtsql,
+        Expression,
         Meter,
         Mtsql,
+        NewProperty,
         ParameterTableLookup,
         ProcessList
     }

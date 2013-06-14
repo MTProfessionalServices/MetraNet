@@ -90,11 +90,6 @@ namespace PropertyGui
                 txtExpression.Paste("USAGE." + ((Property) lstProperties.SelectedItem).DatabaseName);
         }
 
-        private void lstDecisionAttributes_DoubleClick(object sender, EventArgs e)
-        {
-            if (lstDecisionAttributes.SelectedItem != null)
-                txtExpression.Paste(lstDecisionAttributes.SelectedItem.ToString());
-        }
 
         private void lstFunctions_SelectedIndexChanged(object sender, EventArgs e)
         {

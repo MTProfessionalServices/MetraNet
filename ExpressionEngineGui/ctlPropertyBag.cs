@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
-using MetraTech.ExpressionEngine.Infrastructure;
+using MetraTech.ExpressionEngine.Flows;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
@@ -43,7 +43,16 @@ namespace PropertyGui
                 throw new ArgumentException("propertyBag is null");
             Context = context;
             PropertyBag = propertyBag;
-            ctlCalculationSequence.Init((ProductViewEntity)PropertyBag);
+            ctlCalculationSequence.Init((ProductViewEntity) PropertyBag);
+
+            //Why  do I need to do this here???
+            var flow = new Flow(Context);
+            foreach (var property in PropertyBag.Properties)
+            {
+                flow.InitialProperties.Add((Property)property.Copy());
+            }
+            ((ProductViewEntity) PropertyBag).Flow = flow;
+            ctlFlowEditor.Init(((ProductViewEntity)PropertyBag).Flow);
 
             SyncToForm();
         }
@@ -305,11 +314,6 @@ namespace PropertyGui
 
         #endregion
 
-        private void btnCopyToClipboard_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText(txtScript.Text);
-        }
-
         private void tabMain_SelectedIndexChanged(object sender, EventArgs e)
         {
             SyncToObject();
@@ -319,7 +323,7 @@ namespace PropertyGui
             }
             else if (tabMain.SelectedTab.Equals(tabScript))
             {
-                txtScript.Text = ((ProductViewEntity)PropertyBag).GetMvmScript();
+
             }
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using MetraTech.ExpressionEngine.Database;
+using MetraTech.ExpressionEngine.Flows;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.Mvm;
 using MetraTech.ExpressionEngine.TypeSystem;
@@ -29,6 +30,9 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         [DataMember]
         public EventType EventType { get; set; }
+
+        [DataMember]
+        public Flow Flow;
 
         /// <summary>
         ///// The xQualificationGroup prefix

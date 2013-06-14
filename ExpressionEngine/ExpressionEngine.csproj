@@ -62,11 +62,14 @@
     <Compile Include="Flows\AccountLookupStep.cs" />
     <Compile Include="Flows\BatchMtsqlStep.cs" />
     <Compile Include="Flows\Enumerations\FlowStepType.cs" />
+    <Compile Include="Flows\ExpressionStep.cs" />
+    <Compile Include="Flows\Flow.cs" />
     <Compile Include="Flows\FlowCollection.cs" />
     <Compile Include="Flows\FlowStepBase.cs" />
     <Compile Include="Flows\FlowStepFactory.cs" />
     <Compile Include="Flows\MeterStep.cs" />
     <Compile Include="Flows\MtsqlStep.cs" />
+    <Compile Include="Flows\NewPropertyStep.cs" />
     <Compile Include="Flows\ParameterTableLookupStep.cs" />
     <Compile Include="Infrastructure\ComponentHelper.cs" />
     <Compile Include="Infrastructure\ComponentLinkCollection.cs" />

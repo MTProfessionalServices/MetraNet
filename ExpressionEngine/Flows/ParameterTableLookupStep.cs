@@ -12,8 +12,8 @@ namespace MetraTech.ExpressionEngine.Flows
         #endregion
 
         #region Constructor
-        public ParameterTableLookupStep(FlowCollection flowCollection)
-            : base(flowCollection, FlowStepType.ParameterTableLookup)
+        public ParameterTableLookupStep(Flow flow)
+            : base(flow, FlowStepType.ParameterTableLookup)
         {
         }
         #endregion

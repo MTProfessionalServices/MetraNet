@@ -17,8 +17,8 @@ namespace MetraTech.ExpressionEngine.Flows
         #endregion
 
         #region Constructor
-        public MeterStep(FlowCollection flowCollection)
-            : base(flowCollection, FlowStepType.Meter)
+        public MeterStep(Flow flow)
+            : base(flow, FlowStepType.Meter)
         {
         }
         #endregion

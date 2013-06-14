@@ -5,12 +5,12 @@ namespace MetraTech.ExpressionEngine.Flows
 {
     public static class FlowStepFactory
     {
-        public static FlowStepBase Create(FlowStepType flowItemType, FlowCollection flowCollection)
+        public static FlowStepBase Create(FlowStepType flowItemType, Flow flow)
         {
             switch (flowItemType)
             {
                 case FlowStepType.Meter:
-                    return new MeterStep(flowCollection);
+                    return new MeterStep(flow);
                 default:
                     throw new ArgumentException("unhandled flowItemType");
             }

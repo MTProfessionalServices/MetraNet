@@ -9,7 +9,7 @@ namespace MetraTech.ExpressionEngine.Flows
         #endregion
 
         #region Constructor
-        public MtsqlStep(FlowCollection flowCollection) : base(flowCollection, FlowStepType.Mtsql)
+        public MtsqlStep(Flow flow) : base(flow, FlowStepType.Mtsql)
         {
         }
         #endregion

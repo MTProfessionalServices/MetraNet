@@ -17,10 +17,10 @@ namespace MetraTech.ExpressionEngine.Flows
         /// <summary>
         /// The parent collection to which the flow belongs
         /// </summary>
-        public FlowCollection FlowCollection { get; private set; }
+        public Flow Flow { get; private set; }
 
         [DataMember]
-        public FlowStepType FlowItemType { get; private set; }
+        public FlowStepType FlowStepType { get; private set; }
 
         [DataMember]
         public string Name { get; set; }
@@ -34,12 +34,12 @@ namespace MetraTech.ExpressionEngine.Flows
         #endregion
 
         #region Constructor
-        public FlowStepBase(FlowCollection flowCollection, FlowStepType flowItemType)
+        public FlowStepBase(Flow flow, FlowStepType flowItemType)
         {
-            if (flowCollection == null)
-                throw new ArgumentException("flowCollection is null");
-            FlowCollection = flowCollection;
-            FlowItemType = flowItemType;
+            if (flow == null)
+                throw new ArgumentException("flow is null");
+            Flow = flow;
+            FlowStepType = flowItemType;
 
             InputsAndOutputs = new PropertyCollection(this);
             AvailableProperties = new PropertyCollection(this);
@@ -59,6 +59,11 @@ namespace MetraTech.ExpressionEngine.Flows
         public void Validate(ValidationMessageCollection messages, Context context)
         {
             //TODO: add validation
+        }
+
+        public virtual string GetAutoLabel()
+        {
+            return null;
         }
         #endregion
     }

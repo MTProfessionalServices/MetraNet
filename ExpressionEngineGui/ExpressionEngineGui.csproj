@@ -148,12 +148,37 @@
     <Compile Include="ctlValueBinder.Designer.cs">
       <DependentUpon>ctlValueBinder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Flow\ctlFlowSteps.cs">
+    <Compile Include="Flows\ctlFlowSteps.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Flow\ctlFlowSteps.Designer.cs">
+    <Compile Include="Flows\ctlFlowSteps.Designer.cs">
       <DependentUpon>ctlFlowSteps.cs</DependentUpon>
     </Compile>
+    <Compile Include="Flows\Steps\ctlExpression.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlExpression.Designer.cs">
+      <DependentUpon>ctlExpression.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlFlowEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlFlowEditor.Designer.cs">
+      <DependentUpon>ctlFlowEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlFlowStepBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlFlowStepBase.Designer.cs">
+      <DependentUpon>ctlFlowStepBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlNewPropertyStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlNewPropertyStep.Designer.cs">
+      <DependentUpon>ctlNewPropertyStep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Flows\Steps\StepFactory.cs" />
     <Compile Include="frmAddProperty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,10 +197,10 @@
     <Compile Include="frmCompare.Designer.cs">
       <DependentUpon>frmCompare.cs</DependentUpon>
     </Compile>
-    <Compile Include="Flow\frmFlow.cs">
+    <Compile Include="Flows\frmFlow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Flow\frmFlow.Designer.cs">
+    <Compile Include="Flows\frmFlow.Designer.cs">
       <DependentUpon>frmFlow.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPropertyBag.cs">
@@ -331,8 +356,20 @@
     <EmbeddedResource Include="ctlValueBinder.resx">
       <DependentUpon>ctlValueBinder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Flow\ctlFlowSteps.resx">
+    <EmbeddedResource Include="Flows\ctlFlowSteps.resx">
       <DependentUpon>ctlFlowSteps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Flows\Steps\ctlExpression.resx">
+      <DependentUpon>ctlExpression.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Flows\Steps\ctlFlowEditor.resx">
+      <DependentUpon>ctlFlowEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Flows\Steps\ctlFlowStepBase.resx">
+      <DependentUpon>ctlFlowStepBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Flows\Steps\ctlNewPropertyStep.resx">
+      <DependentUpon>ctlNewPropertyStep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddProperty.resx">
       <DependentUpon>frmAddProperty.cs</DependentUpon>
@@ -343,7 +380,7 @@
     <EmbeddedResource Include="frmCompare.resx">
       <DependentUpon>frmCompare.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Flow\frmFlow.resx">
+    <EmbeddedResource Include="Flows\frmFlow.resx">
       <DependentUpon>frmFlow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPropertyBag.resx">
@@ -424,19 +461,22 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\EmailEditor.png" />
+    <None Include="Flows\Resources\EmailEditor.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\MarioBar.png" />
+    <None Include="Flows\Resources\MarioBar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PageLayout.png" />
+    <None Include="Flows\Resources\PageLayout.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\arrow_down.png" />
+    <None Include="Flows\Resources\arrow_down.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\arrow_up.png" />
+    <None Include="Flows\Resources\arrow_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_refresh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

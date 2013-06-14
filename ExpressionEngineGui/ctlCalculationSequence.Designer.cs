@@ -37,10 +37,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lstFunctions = new System.Windows.Forms.ListBox();
-            this.lstDecisionAttributes = new System.Windows.Forms.ListBox();
             this.lstProperties = new System.Windows.Forms.ListBox();
             this.btnMoveDown = new System.Windows.Forms.Button();
             this.btnMoveUp = new System.Windows.Forms.Button();
@@ -119,10 +117,8 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.label5);
-            this.splitContainer.Panel2.Controls.Add(this.label4);
             this.splitContainer.Panel2.Controls.Add(this.label3);
             this.splitContainer.Panel2.Controls.Add(this.lstFunctions);
-            this.splitContainer.Panel2.Controls.Add(this.lstDecisionAttributes);
             this.splitContainer.Panel2.Controls.Add(this.lstProperties);
             this.splitContainer.Panel2.Controls.Add(this.label2);
             this.splitContainer.Panel2.Controls.Add(this.txtExpression);
@@ -133,20 +129,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(483, 236);
+            this.label5.Location = new System.Drawing.Point(257, 236);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 11;
             this.label5.Text = "Functions:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(259, 236);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Decision Attributes:";
             // 
             // label3
             // 
@@ -162,29 +149,12 @@
             this.lstFunctions.FormattingEnabled = true;
             this.lstFunctions.Items.AddRange(new object[] {
             "ConvertCurrency()"});
-            this.lstFunctions.Location = new System.Drawing.Point(486, 252);
+            this.lstFunctions.Location = new System.Drawing.Point(260, 252);
             this.lstFunctions.Name = "lstFunctions";
             this.lstFunctions.Size = new System.Drawing.Size(203, 121);
             this.lstFunctions.Sorted = true;
             this.lstFunctions.TabIndex = 8;
             this.lstFunctions.SelectedIndexChanged += new System.EventHandler(this.lstFunctions_SelectedIndexChanged);
-            // 
-            // lstDecisionAttributes
-            // 
-            this.lstDecisionAttributes.FormattingEnabled = true;
-            this.lstDecisionAttributes.Items.AddRange(new object[] {
-            "OBJECT.amount_after",
-            "OBJECT.amount_before",
-            "OBJECT.master_units",
-            "OBJECT.orig_amount",
-            "OBJECT.orig_rate",
-            "OBJECT.percent_eligible"});
-            this.lstDecisionAttributes.Location = new System.Drawing.Point(262, 252);
-            this.lstDecisionAttributes.Name = "lstDecisionAttributes";
-            this.lstDecisionAttributes.Size = new System.Drawing.Size(207, 121);
-            this.lstDecisionAttributes.Sorted = true;
-            this.lstDecisionAttributes.TabIndex = 7;
-            this.lstDecisionAttributes.DoubleClick += new System.EventHandler(this.lstDecisionAttributes_DoubleClick);
             // 
             // lstProperties
             // 
@@ -242,10 +212,8 @@
         private System.Windows.Forms.SplitContainer splitContainer;
         private System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.ListBox lstFunctions;
-        private System.Windows.Forms.ListBox lstDecisionAttributes;
         private System.Windows.Forms.ListBox lstProperties;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnMoveDown;
         private System.Windows.Forms.Button btnMoveUp;

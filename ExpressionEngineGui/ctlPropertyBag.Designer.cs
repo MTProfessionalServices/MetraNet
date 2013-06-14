@@ -51,13 +51,10 @@
             this.btnRename = new System.Windows.Forms.Button();
             this.tabCalculationSequence = new System.Windows.Forms.TabPage();
             this.tabScript = new System.Windows.Forms.TabPage();
-            this.btnCopyToClipboard = new System.Windows.Forms.Button();
-            this.btnUnitTest = new System.Windows.Forms.Button();
-            this.btnValidateScript = new System.Windows.Forms.Button();
-            this.txtScript = new System.Windows.Forms.TextBox();
             this.treProperties = new PropertyGui.ctlExpressionTree();
             this.ctlPropertyEditor = new PropertyGui.ctlProperty();
             this.ctlCalculationSequence = new PropertyGui.ctlCalculationSequence();
+            this.ctlFlowEditor = new PropertyGui.Flows.Steps.ctlFlowEditor();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -299,59 +296,13 @@
             // 
             // tabScript
             // 
-            this.tabScript.Controls.Add(this.btnCopyToClipboard);
-            this.tabScript.Controls.Add(this.btnUnitTest);
-            this.tabScript.Controls.Add(this.btnValidateScript);
-            this.tabScript.Controls.Add(this.txtScript);
+            this.tabScript.Controls.Add(this.ctlFlowEditor);
             this.tabScript.Location = new System.Drawing.Point(4, 22);
             this.tabScript.Name = "tabScript";
             this.tabScript.Size = new System.Drawing.Size(863, 353);
             this.tabScript.TabIndex = 3;
             this.tabScript.Text = "Script (Advanced)";
             this.tabScript.UseVisualStyleBackColor = true;
-            // 
-            // btnCopyToClipboard
-            // 
-            this.btnCopyToClipboard.Location = new System.Drawing.Point(15, 22);
-            this.btnCopyToClipboard.Name = "btnCopyToClipboard";
-            this.btnCopyToClipboard.Size = new System.Drawing.Size(118, 23);
-            this.btnCopyToClipboard.TabIndex = 3;
-            this.btnCopyToClipboard.Text = "Copy to Clipboard";
-            this.btnCopyToClipboard.UseVisualStyleBackColor = true;
-            this.btnCopyToClipboard.Click += new System.EventHandler(this.btnCopyToClipboard_Click);
-            // 
-            // btnUnitTest
-            // 
-            this.btnUnitTest.Enabled = false;
-            this.btnUnitTest.Location = new System.Drawing.Point(257, 22);
-            this.btnUnitTest.Name = "btnUnitTest";
-            this.btnUnitTest.Size = new System.Drawing.Size(112, 23);
-            this.btnUnitTest.TabIndex = 2;
-            this.btnUnitTest.Text = "Unit Test";
-            this.btnUnitTest.UseVisualStyleBackColor = true;
-            // 
-            // btnValidateScript
-            // 
-            this.btnValidateScript.Enabled = false;
-            this.btnValidateScript.Location = new System.Drawing.Point(139, 22);
-            this.btnValidateScript.Name = "btnValidateScript";
-            this.btnValidateScript.Size = new System.Drawing.Size(112, 23);
-            this.btnValidateScript.TabIndex = 1;
-            this.btnValidateScript.Text = "Validate Script";
-            this.btnValidateScript.UseVisualStyleBackColor = true;
-            // 
-            // txtScript
-            // 
-            this.txtScript.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtScript.Location = new System.Drawing.Point(3, 51);
-            this.txtScript.Multiline = true;
-            this.txtScript.Name = "txtScript";
-            this.txtScript.ReadOnly = true;
-            this.txtScript.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtScript.Size = new System.Drawing.Size(857, 285);
-            this.txtScript.TabIndex = 0;
             // 
             // treProperties
             // 
@@ -394,6 +345,14 @@
             this.ctlCalculationSequence.Size = new System.Drawing.Size(863, 353);
             this.ctlCalculationSequence.TabIndex = 0;
             // 
+            // ctlFlowEditor
+            // 
+            this.ctlFlowEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctlFlowEditor.Location = new System.Drawing.Point(0, 0);
+            this.ctlFlowEditor.Name = "ctlFlowEditor";
+            this.ctlFlowEditor.Size = new System.Drawing.Size(863, 353);
+            this.ctlFlowEditor.TabIndex = 0;
+            // 
             // ctlPropertyBag
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,7 +372,6 @@
             this.tabProperties.PerformLayout();
             this.tabCalculationSequence.ResumeLayout(false);
             this.tabScript.ResumeLayout(false);
-            this.tabScript.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -444,10 +402,7 @@
         private System.Windows.Forms.Button btnRename;
         private System.Windows.Forms.TabPage tabCalculationSequence;
         private System.Windows.Forms.TabPage tabScript;
-        private System.Windows.Forms.Button btnCopyToClipboard;
-        private System.Windows.Forms.Button btnUnitTest;
-        private System.Windows.Forms.Button btnValidateScript;
-        private System.Windows.Forms.TextBox txtScript;
         private ctlCalculationSequence ctlCalculationSequence;
+        private Flows.Steps.ctlFlowEditor ctlFlowEditor;
     }
 }

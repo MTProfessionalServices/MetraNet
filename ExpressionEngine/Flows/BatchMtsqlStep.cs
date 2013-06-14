@@ -11,7 +11,8 @@ namespace MetraTech.ExpressionEngine.Flows
         #endregion
 
         #region Constructor
-        public BatchMtsqlStep(FlowCollection flowCollection) : base(flowCollection, FlowStepType.BatchMtsql)
+        public BatchMtsqlStep(Flow flow)
+            : base(flow, FlowStepType.BatchMtsql)
         {
         }
         #endregion

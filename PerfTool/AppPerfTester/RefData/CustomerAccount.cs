@@ -58,7 +58,7 @@ namespace AppRefData
                 nm_space = "mt";
 
                 nm_login = getLogin(cView);
-                if (NetMeter.doesLoginExist(nm_login, "mt"))
+                if(nm_login.Length < 5 || NetMeter.doesLoginExist(nm_login, "mt"))
                     continue;
 
                 NetMeter.reserveLogin(nm_login, "mt", id_acc);

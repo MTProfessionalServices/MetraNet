@@ -28,7 +28,6 @@ namespace BaselineGUI
             log.Debug("exit constructor");
         }
 
-
         public void schedule()
         {
             foreach (StressSource src in sources)
@@ -55,8 +54,6 @@ namespace BaselineGUI
             if (timeToWait > 10)
                 Thread.Sleep(timeToWait);
         }
-
-
 
         public void go()
         {

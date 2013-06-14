@@ -27,7 +27,7 @@ namespace BaselineGUI
 
         public void Bringup()
         {
-            ProductOfferingServiceClient client = new ProductOfferingServiceClient("WSHttpBinding_IProductOfferingService");
+            ProductOfferingServiceClient client = new ProductOfferingServiceClient("NetTcpBinding_IMetraTech.Core.Services.ProductOfferingService");
             client.ClientCredentials.UserName.UserName = PrefRepo.active.actSvcs.authName; // "admin";
             client.ClientCredentials.UserName.Password = PrefRepo.active.actSvcs.authPassword; // "123";
             int count = 0;

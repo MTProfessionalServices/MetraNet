@@ -59,41 +59,6 @@ namespace AppRefData
                 log.InfoFormat("pi.PITemplate: {0}", pi.PITemplate);
             }
 
-
-            #region Get the interval
-            ////AccUsageCycle accUsageCycle = NetMeter.AccUsageCycleBy_id_acc[id_acc];
-            ////List<UsageInterval> usageIntervals = NetMeter.UsageIntervalBy_id_usage_cycle[accUsageCycle.id_usage_cycle];
-            //// looks like we can use any interval type to determine the partion
-            //List<UsageInterval> usageIntervalsTmp = NetMeter.UsageIntervalBy_id_usage_cycle[3];
-
-            //UsageInterval theUsageIntervalTmp = null;
-            //foreach (UsageInterval ui in usageIntervalsTmp)
-            //{
-            //    if (ui.tx_interval_status != "O")
-            //        continue;
-            //    if (ui.dt_start > DateTime.Now)
-            //        continue;
-            //    if (ui.dt_end < DateTime.Now)
-            //        continue;
-            //    theUsageIntervalTmp = ui;
-            //    break;
-            //}
-
-            //#endregion
-
-            //#region // get the partion for this interval
-            ////Partition partition = NetMeter.findPartition(DateTime.Now);
-            //Partition partition = NetMeter.findPartition(theUsageIntervalTmp.id_interval);
-            //log.InfoFormat("Using partition {0}", partition.partition_name);
-
-            //FCDatabaseServer fcDatabase = FrameworkComponentFactory.find<FCDatabaseServer>();
-            //conn = fcDatabase.getConnection(partition.partition_name);
-
-            //// Bit of hack to get these to the right DB
-            //AccUsage.adapterWidget.build(conn);
-            //PvLdperfSimplePV.adapterWidget.build(conn);
-            #endregion
-
             watch.Restart();
             int numPvs = usagePerAccount;
             int totalPvs = 0;

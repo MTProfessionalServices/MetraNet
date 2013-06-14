@@ -70,7 +70,14 @@ namespace BaselineGUI
             MTList<BaseProductView> list = new MTList<BaseProductView>();
 
             watch.Restart();
-            client.GetUsageDetails(repParams, productSlice, accountSlice, ref list);
+            try
+            {
+                client.GetUsageDetails(repParams, productSlice, accountSlice, ref list);
+            }
+            catch (Exception ex)
+            {                
+                log.Error("Error while trying to get usage details", ex);               
+            }
             watch.Stop();
             statistic.addSample(watch.ElapsedMilliseconds,
                                 String.Format("list.TotalRows={0}, list.Items.Count={1}",

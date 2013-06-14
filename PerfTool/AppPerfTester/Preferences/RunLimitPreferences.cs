@@ -19,8 +19,8 @@ namespace BaselineGUI
 
         public void setToDefaults()
         {
-            numPasses = "200";
-            maxRunTime = "180";
+            numPasses = "1000";
+            maxRunTime = "1800";
         }
     }
 }

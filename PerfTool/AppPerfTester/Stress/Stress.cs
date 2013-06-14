@@ -18,7 +18,7 @@ namespace BaselineGUI
         List<StressWorker> workers;
 
         // This should move to configuration
-        public int numWorkers = 40;
+        public int numWorkers = PrefRepo.active.stress.numThreads;
 
         public Stress()
         {
@@ -33,7 +33,6 @@ namespace BaselineGUI
                 worker.queue = queue;
                 workers.Add(worker);
             }
-
         }
 
         public void setup()
@@ -54,9 +53,6 @@ namespace BaselineGUI
             {
                 worker.Join();
             }
-
-
-
             log.Debug("teardown complete");
         }
 

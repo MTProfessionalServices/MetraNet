@@ -12,6 +12,7 @@ using System.Xml;
 using MetraTech.DomainModel.ProductCatalog;
 using NetMeterObj;
 using BaselineGUI;
+using log4net;
 
 
 namespace AppRefData
@@ -20,6 +21,7 @@ namespace AppRefData
     {
         public MetraTech.DomainModel.ProductCatalog.ProductOffering targetPO = null;
         Progressable progress;
+        private static readonly ILog log = LogManager.GetLogger(typeof(SubLoader));
 
         public SubLoader()
         {
@@ -32,7 +34,6 @@ namespace AppRefData
             return fcPos.getRefDataList();
         }
 
-
         public void addSubscriptions(SqlConnection conn)
         {
             Stopwatch watch = new Stopwatch();
@@ -42,8 +43,7 @@ namespace AppRefData
             watch.Restart();
             int totalSubs = 0;
             int numAccounts = 0;
-
-            //int id_po = (int)targetPO.ProductOfferingId;
+           
             List<int> id_poList = getRefDataList();
 
             Sub newSub = new Sub();
@@ -52,7 +52,7 @@ namespace AppRefData
             newSubHistory.id_sub_ext = new byte[16];
 
             DateTime yesterday = DateTime.Now.AddDays(-1);
-            DateTime endOfTime = DateTime.Parse("2038-12-31 00:00:00");
+            DateTime endOfTime = DateTime.Parse("2038-01-01 00:00:00");
 
             progress.isRunning = true;
             progress.Minimum = 0;
@@ -77,24 +77,15 @@ namespace AppRefData
 
                 foreach (int id_po in id_poList)
                 {
-
-                    if (NetMeter.SubBy_id_acc.ContainsKey(id_acc))
+                    if (NetMeter.SubDTOBy_id_acc.ContainsKey(id_acc))
                     {
-                        List<Sub> subList = NetMeter.SubBy_id_acc[id_acc];
-                        bool found = false;
-                        foreach (Sub s in subList)
+                        List<Sub> subList = NetMeter.SubDTOBy_id_acc[id_acc];
+                        foreach (Sub sub in subList)
                         {
-                            if (s.id_po == id_po)
-                            {
-                                found = true;
-                                break;
-                            }
-
+                            if (sub.id_po == id_po)
+                                continue;
                         }
-                        if (found)
-                            continue;
                     }
-
 
                     int id_sub = NetMeter.getMashedID32("id_subscription");
 
@@ -121,11 +112,23 @@ namespace AppRefData
                     newSubHistory.insert();
                     totalSubs++;
 
+                    if (NetMeter.SubDTOBy_id_acc.ContainsKey(id_acc))
+                    {
+                        NetMeter.SubDTOBy_id_acc[id_acc].Add(newSub);
+                    }
+                    else
+                    {
+                        List<Sub> subListForAccId = new List<Sub>();
+                        subListForAccId.Add(newSub);
+                        NetMeter.SubDTOBy_id_acc.Add((Int32)id_acc, subListForAccId);
+                    }
                     if (Sub.adapterWidget.insertTable.Rows.Count >= 10000)
                     {
                         Sub.adapterWidget.flush();
                         SubHistory.adapterWidget.flush();
                     }
+
+
                 }
             }
 
@@ -134,11 +137,10 @@ namespace AppRefData
 
             watch.Stop();
 
-            Console.WriteLine("Inserts took {0} milliseconds", watch.ElapsedMilliseconds);
+            log.InfoFormat(String.Format("Inserts took {0} milliseconds", watch.ElapsedMilliseconds));
             double rate = (totalSubs * 1000.0) / (double)watch.ElapsedMilliseconds;
-            Console.WriteLine("Subs/second {0}", rate);
+            log.InfoFormat(String.Format("Subs/second {0}", rate));
             progress.isRunning = false;
         }
-
     }
 }

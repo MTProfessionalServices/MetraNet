@@ -55,7 +55,6 @@ namespace BaselineGUI
         m_productOfferingIdToAdd = productOffering.ProductOfferingId.Value;
         log.DebugFormat("productOfferingIdToAdd = {0}", m_productOfferingIdToAdd);
       }
-
     }
 
     public void teardown()

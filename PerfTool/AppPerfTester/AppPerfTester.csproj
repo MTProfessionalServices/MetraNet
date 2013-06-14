@@ -224,6 +224,7 @@
     <Compile Include="AM\AMRetrieveBmeCallLogEntryViaMas.cs" />
     <Compile Include="AM\AMRetrieveBmeCallLogEntryViaMasTelmore.cs" />
     <Compile Include="AM\AMSubscriptionAdd.cs" />
+    <Compile Include="AM\AMSubscriptionAddSlim.cs" />
     <Compile Include="AM\AMUpdateSubscription.cs" />
     <Compile Include="AM\AppMethodBase.cs" />
     <Compile Include="AM\AppMethodFactory.cs" />

@@ -35,6 +35,7 @@ namespace BaselineGUI
                 install<AMGetSubscriptionDetails>();
                 install<AMUpdateSubscription>();
                 install<AMSubscriptionAdd>();
+                install<AMSubscriptionAddSlim>();
                 install<AMSubscriptionDel>();
                 install<AMGetSubscriptions>();
                 install<AMGetAccountList>();

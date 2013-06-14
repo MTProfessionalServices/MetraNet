@@ -59,10 +59,10 @@ namespace BaselineGUI
             client.LoadAccountWithViews(new AccountIdentifier(id_acc), timeStamp, out acct);
             watch.Stop();
 
-            if (acct.UserName.Length < 5)
+            if (acct.UserName.Length < 1)
             {
                 throw new InvalidOperationException(
-                    String.Format("expected acct.UserName.Length >= 5, but got {0}",
+                    String.Format("expected acct.UserName.Length >= 1, but got {0}",
                     acct.UserName.Length));
             }
 

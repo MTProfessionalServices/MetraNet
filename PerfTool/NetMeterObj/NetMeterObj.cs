@@ -15,8 +15,6 @@ using log4net;
 
 namespace NetMeterObj
 {
-    
-
     public partial class NetMeterObj
     {
         private static readonly ILog log = LogManager.GetLogger(typeof(NetMeterObj));
@@ -78,6 +76,7 @@ namespace NetMeterObj
         public static Dictionary<Int32, ProdView> ProdViewBy_id_prod_view;
         public static Dictionary<String, ProdView> ProdViewBy_nm_name;
         public static Lexicon<Int32, Sub> SubBy_id_acc;
+        public static Dictionary<Int32, List<Sub>> SubDTOBy_id_acc;
 
         public void loadLists(DataContext dc)
         {
@@ -86,20 +85,20 @@ namespace NetMeterObj
             AccUsageList = load<AccUsage>(dc, "t_acc_usage");
             PvLdperfSimplePVList = load<PvLdperfSimplePV>(dc, "t_pv_ldperfSimplePV");
             PvFlatRecurringChargeList = load<PvFlatRecurringCharge>(dc, "t_pv_FlatRecurringCharge");
-            AccUsageIntervalList = load<AccUsageInterval>(dc, "t_acc_usage_interval");
+          AccUsageIntervalList = load<AccUsageInterval>(dc, "t_acc_usage_interval");
             AccUsageCycleList = load<AccUsageCycle>(dc, "t_acc_usage_cycle");
             UsageCycleList = load<UsageCycle>(dc, "t_usage_cycle");
             AccountList = load<Account>(dc, "t_account");
-            AccountMapperList = load<AccountMapper>(dc, "t_account_mapper");
+           AccountMapperList = load<AccountMapper>(dc, "t_account_mapper");
             AccountStateList = load<AccountState>(dc, "t_account_state");
             AccountStateHistoryList = load<AccountStateHistory>(dc, "t_account_state_history");
             AccountTypeList = load<AccountType>(dc, "t_account_type");
             AccountAncestorList = load<AccountAncestor>(dc, "t_account_ancestor");
-            AvInternalList = load<AvInternal>(dc, "t_av_internal");
+           AvInternalList = load<AvInternal>(dc, "t_av_internal");
             AvContactList = load<AvContact>(dc, "t_av_contact");
-            DmAccountList = load<DmAccount>(dc, "t_dm_account");
-            DmAccountAncestorList = load<DmAccountAncestor>(dc, "t_dm_account_ancestor");
-            CapabilityInstanceList = load<CapabilityInstance>(dc, "t_capability_instance");
+           DmAccountList = load<DmAccount>(dc, "t_dm_account");
+           DmAccountAncestorList = load<DmAccountAncestor>(dc, "t_dm_account_ancestor");
+           CapabilityInstanceList = load<CapabilityInstance>(dc, "t_capability_instance");
             PathCapabilityList = load<PathCapability>(dc, "t_path_capability");
             EnumCapabilityList = load<EnumCapability>(dc, "t_enum_capability");
             PartitionList = load<Partition>(dc, "t_partition");
@@ -117,7 +116,7 @@ namespace NetMeterObj
             SubList = load<Sub>(dc, "t_sub");
             SubHistoryList = load<SubHistory>(dc, "t_sub_history");
 #else
-            SubList = new List<Sub>();
+            SubList = load<Sub>(dc, "t_sub");
             SubHistoryList = new List<SubHistory>();
 #endif
 
@@ -242,7 +241,24 @@ namespace NetMeterObj
                 if (item.id_acc == null) continue;
                 SubBy_id_acc.Add((Int32)item.id_acc, item);
             }
+            SubDTOBy_id_acc = new Dictionary<Int32, List<Sub>>();
+            foreach (var item in SubList)
+            {
+                if (item.id_acc == null) continue;
+                if (SubDTOBy_id_acc.ContainsKey((Int32)item.id_acc))
+                {
+                    SubDTOBy_id_acc[(Int32)item.id_acc].Add(item);
+                }
+                else
+                {
+                    List<Sub> subListForAccId = new List<Sub>();
+                    subListForAccId.Add(item);
+                    SubDTOBy_id_acc.Add((Int32)item.id_acc, subListForAccId);
+                }
+            }
         }
+
+
         public void createAdapterWidgets()
         {
             BeLdpAudCalllogentry.adapterWidget = AdapterWidgetFactory.create("t_be_ldp_aud_calllogentry");

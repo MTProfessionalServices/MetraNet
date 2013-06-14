@@ -28,8 +28,8 @@ namespace BaselineGUI
 
         Button buttonOkay;
         Button buttonCancel;
-        TextBox runtime;
-        Label labelRuntime;
+        TextBox runtime, numThreads;
+        Label labelRuntime, labelNumThreads;
 
         public DialogStressPrefs()
         {
@@ -61,6 +61,16 @@ namespace BaselineGUI
             labelRuntime.PerformLayout();
             this.Controls.Add(labelRuntime);
 
+            numThreads = new TextBox();
+            numThreads.Text = "10";
+            this.Controls.Add(numThreads);
+
+            labelNumThreads = new Label();
+            labelNumThreads.Text = "Number Of Threads";
+            labelNumThreads.AutoSize = true;
+            labelNumThreads.PerformLayout();
+            this.Controls.Add(labelNumThreads);
+
             List<String> allGroups = AppMethodFactory.getAllGroupNames();
             foreach (string groupName in allGroups)
             {
@@ -91,7 +101,6 @@ namespace BaselineGUI
                 }
             }
 
-
             this.Layout += new LayoutEventHandler(this.doLayout);
 
             pushModelToControl();
@@ -99,7 +108,6 @@ namespace BaselineGUI
             this.ResumeLayout();
             this.PerformLayout();
         }
-
 
         public void doLayout(object sender, LayoutEventArgs e)
         {
@@ -110,7 +118,9 @@ namespace BaselineGUI
 
             labelRuntime.Location = new Point(x, y);
             runtime.Location = new Point(labelRuntime.Right + 8, y);
-            y = runtime.Bottom + 8;
+            labelNumThreads.Location = new Point(x, runtime.Bottom + 8);
+            numThreads.Location = new Point(labelNumThreads.Right + 8, runtime.Bottom + 8);
+            y = numThreads.Bottom + 8;
 
             buttonOkay.Location = new Point(x, y);
             buttonCancel.Location = new Point(x + 100, y);
@@ -161,6 +171,7 @@ namespace BaselineGUI
                 amEnabled[key].Checked = pref.stressEnabled;
                 amRate[key].Text = String.Format("{0}", pref.stressRate);
                 runtime.Text = string.Format("{0}", PrefRepo.active.stress.maxRunTime);
+                numThreads.Text = string.Format("{0}", PrefRepo.active.stress.numThreads);
             }
         }
 
@@ -174,8 +185,8 @@ namespace BaselineGUI
                 pref.stressEnabled = amEnabled[key].Checked;
                 pref.stressRate = Double.Parse(amRate[key].Text);
                 PrefRepo.active.stress.maxRunTime = Int32.Parse(runtime.Text);
+                PrefRepo.active.stress.numThreads = Int32.Parse(numThreads.Text);
             }
         }
-
     }
 }

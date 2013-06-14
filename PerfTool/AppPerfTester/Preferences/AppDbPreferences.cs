@@ -21,9 +21,9 @@ namespace BaselineGUI
 
         public void setToDefaults()
         {
-            address = "perfdb";
+            address = "perf10";
             port = "1433";
-            database = "perf70dev";
+            database = "jeff70";
             userName = "sa";
             password = "MetraTech1";
         }

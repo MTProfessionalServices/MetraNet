@@ -23,7 +23,7 @@ namespace BaselineGUI
 
         public void setToDefaults()
         {
-            staticEnabled = true;
+            staticEnabled = false;
             mutableEnabled = false;
         }
     }

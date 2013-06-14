@@ -63,23 +63,23 @@ namespace BaselineGUI
             watch.Stop();
             statistic.addSample(watch.ElapsedMilliseconds);
 
-#if true
+//#if true
 
-            // Retrieve the added account to make sure it exists
-            DateTime timeStamp = DateTime.Now;
-            MTList<Account> accounts = new MTList<Account>();
-            accounts.PageSize = 10;
-            accounts.CurrentPage = 1;
-            accounts.Filters.Add(new MTFilterElement("username", MTFilterElement.OperationType.Like, custAcct.UserName));
-            client.GetAccountList(DateTime.Now, ref accounts, false);
-            log.DebugFormat("accounts.TotalRows={0}", accounts.TotalRows);
-            if (accounts.TotalRows < 1)
-            {
-                throw new InvalidOperationException(
-                    String.Format("AddAccountWithoutWorkflow: failed to retrieve added account with username={0}", 
-                    custAcct.UserName));
-            }
-#endif
+//            // Retrieve the added account to make sure it exists
+//            DateTime timeStamp = DateTime.Now;
+//            MTList<Account> accounts = new MTList<Account>();
+//            accounts.PageSize = 10;
+//            accounts.CurrentPage = 1;
+//            accounts.Filters.Add(new MTFilterElement("username", MTFilterElement.OperationType.Like, custAcct.UserName));
+//            client.GetAccountList(DateTime.Now, ref accounts, false);
+//            log.DebugFormat("accounts.TotalRows={0}", accounts.TotalRows);
+//            if (accounts.TotalRows < 1)
+//            {
+//                throw new InvalidOperationException(
+//                    String.Format("AddAccountWithoutWorkflow: failed to retrieve added account with username={0}", 
+//                    custAcct.UserName));
+//            }
+//#endif
         }
 
     }

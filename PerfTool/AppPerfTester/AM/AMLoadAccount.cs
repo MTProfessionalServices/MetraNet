@@ -59,10 +59,10 @@ namespace BaselineGUI
             watch.Stop();
             statistic.addSample(watch.ElapsedMilliseconds);
 
-            if (acct.UserName.Length < 5)
+            if (acct.UserName.Length < 1)
             {
                 throw new InvalidOperationException(
-                    String.Format("expected acct.UserName.Length >= 5, but got {0}",
+                    String.Format("expected acct.UserName.Length >= 1, but got {0}",
                     acct.UserName.Length));
             }
         }

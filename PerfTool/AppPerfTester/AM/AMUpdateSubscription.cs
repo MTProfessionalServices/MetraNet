@@ -52,15 +52,17 @@ namespace BaselineGUI
         {
             try
             {
-
                 Stopwatch watch = new Stopwatch();
-
-                int id_acc = Framework.netMeter.pickReadableAccountID();
                 MTList<Subscription> subscriptions = new MTList<Subscription>();
                 Subscription sub = new Subscription();
                 MTList<Subscription> subs = new MTList<Subscription>();
+
+                int id_acc = Framework.netMeter.pickReadableAccountID();
                 client.GetSubscriptions(new AccountIdentifier(id_acc), ref subs);
                 status1 = string.Format("Account ({0})", id_acc);
+
+                if (subs.Items.Count == 0)
+                    return;
 
                 System.Random random = new Random();
                 sub = subs.Items[random.Next(0, subs.Items.Count)];
@@ -88,8 +90,9 @@ namespace BaselineGUI
                 statistic.addSample(watch.ElapsedMilliseconds);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                log.Error(String.Format("Caught exception when trying to update subscription {0}", ex.Message));
                 return;
             }
         }

@@ -34,6 +34,7 @@ create procedure RemoveGroupSubscription(
     -- If a subscription is added to a template, then id_po points to the subscription
     -- If a group subscription is added to a template, then id_group points to the group subscription.
     delete from t_acc_template_subs where id_group = @groupID and id_po is null
+    delete from t_acc_template_subs_pub where id_group = @groupID and id_po is null
 
     -- Eventually we would need to make sure that the rules for each icb rate schedule are removed from the proper parameter tables
     delete from t_pl_map where id_sub = @p_id_sub

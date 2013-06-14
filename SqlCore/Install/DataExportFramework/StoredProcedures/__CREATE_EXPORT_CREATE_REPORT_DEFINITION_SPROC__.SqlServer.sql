@@ -3,7 +3,6 @@
       @c_report_title     VARCHAR(255),
       @c_rep_type         VARCHAR(10),
       @c_rep_def_source   VARCHAR(255)	= NULL,
-      @c_rep_query_source VARCHAR(255)	= NULL,
       @c_rep_query_tag    VARCHAR(255)	= NULL,
       @ParameterNames     VARCHAR(5000)	= NULL,
       @id_rep             INT               OUTPUT
@@ -18,8 +17,8 @@
 		      RETURN
 	      END
 	
-	      INSERT INTO t_export_reports (c_report_title, c_rep_type, c_rep_def_source, c_rep_query_source, c_rep_query_tag)
-	      VALUES		(@c_report_title, @c_rep_type, @c_rep_def_source,@c_rep_query_source, @c_rep_query_tag)	
+	      INSERT INTO t_export_reports (c_report_title, c_rep_type, c_rep_def_source, c_rep_query_tag)
+	      VALUES		(@c_report_title, @c_rep_type, @c_rep_def_source, @c_rep_query_tag)	
 
 	      SELECT @id_rep = SCOPE_IDENTITY()
 	

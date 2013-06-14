@@ -75,28 +75,5 @@ insert into t_recur_window select * from tmp_newrw;
 MeterInitialFromRecurWindow;
 MeterCreditFromRecurWindow;
 
-
-UPDATE t_recur_window w1
-SET c_CycleEffectiveEnd =
-(SELECT MIN(NVL(w2.c_CycleEffectiveDate,w2.c_SubscriptionEnd))
-FROM t_recur_window w2
-WHERE w2.c__SubscriptionID  = w1.c__SubscriptionID
-AND w1.c_PayerStart         = w2.c_PayerStart
-AND w1.c_PayerEnd           = w2.c_PayerEnd
-AND w1.c_UnitValueStart     = w2.c_UnitValueStart
-AND w1.c_UnitValueEnd       = w2.c_UnitValueEnd
-AND w2.c_CycleEffectiveDate > w1.c_CycleEffectiveDate
-)
-WHERE 1=1
-AND EXISTS
-(SELECT 1
-FROM t_recur_window w2
-WHERE w2.c__SubscriptionID  = w1.c__SubscriptionID
-AND w1.c_PayerStart        = w2.c_PayerStart
-AND w1.c_PayerEnd           = w2.c_PayerEnd
-AND w1.c_UnitValueStart     = w2.c_UnitValueStart
-AND w1.c_UnitValueEnd       = w2.c_UnitValueEnd
-AND w2.c_CycleEffectiveDate > w1.c_CycleEffectiveDate
-) ;
 END;
 

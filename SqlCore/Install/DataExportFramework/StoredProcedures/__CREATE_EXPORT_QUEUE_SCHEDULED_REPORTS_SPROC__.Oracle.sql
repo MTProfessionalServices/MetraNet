@@ -17,11 +17,9 @@
                  v_dt_last_run DATE;
                  v_c_report_title VARCHAR2(50);
                  v_c_rep_type VARCHAR2(10);
-                 v_c_rep_def_source VARCHAR2(100);
-                 v_c_rep_query_source VARCHAR2(100);
+                 v_c_rep_def_source VARCHAR2(100);                 
                  v_c_rep_query_tag VARCHAR2(50);
-                 v_c_rep_output_type VARCHAR2(10);
-                 v_c_xmlConfig_loc VARCHAR2(255);
+                 v_c_rep_output_type VARCHAR2(10);                 
                  v_c_rep_distrib_type VARCHAR2(10);
                  v_c_report_destn VARCHAR2(255);
                  v_c_destn_direct NUMBER(1,0);
@@ -49,11 +47,9 @@
                  trpi.dt_next_run ,
                  trp.c_report_title ,
                  trp.c_rep_type ,
-                 trp.c_rep_def_source ,
-                 trp.c_rep_query_source ,
+                 trp.c_rep_def_source ,                 
                  trp.c_rep_query_tag ,
-                 trpi.c_rep_output_type ,
-                 trpi.c_xmlConfig_loc ,
+                 trpi.c_rep_output_type ,                 
                  trpi.c_rep_distrib_type ,
                  trpi.c_report_destn ,
                  trpi.c_destn_direct ,
@@ -107,7 +103,7 @@
                              ON trpi.id_rep_instance_id = tdfp.id_rep_instance_id
                             AND trpm.id_param_name = tdfp.id_param_name );
                  OPEN c_reports;
-                 FETCH c_reports INTO v_id_rep,v_id_rep_instance_id,v_id_schedule,v_c_sch_type,v_dt_queued,v_dt_next_run,v_c_report_title,v_c_rep_type,v_c_rep_def_source,v_c_rep_query_source,v_c_rep_query_tag,v_c_rep_output_type,v_c_xmlConfig_loc,v_c_rep_distrib_type,v_c_report_destn,v_c_destn_direct,v_c_access_user,v_c_access_pwd,v_ds_id,v_eopinstancename,v_generatecontrolfile,v_controlfiledeliverylocation,v_outputExecuteParamInfo,v_UseQuotedIdentifiers,v_compressreport,v_compressthreshold,v_dt_last_run,v_outputFileName;
+                 FETCH c_reports INTO v_id_rep,v_id_rep_instance_id,v_id_schedule,v_c_sch_type,v_dt_queued,v_dt_next_run,v_c_report_title,v_c_rep_type,v_c_rep_def_source,v_c_rep_query_tag,v_c_rep_output_type,v_c_rep_distrib_type,v_c_report_destn,v_c_destn_direct,v_c_access_user,v_c_access_pwd,v_ds_id,v_eopinstancename,v_generatecontrolfile,v_controlfiledeliverylocation,v_outputExecuteParamInfo,v_UseQuotedIdentifiers,v_compressreport,v_compressthreshold,v_dt_last_run,v_outputFileName;
                  WHILE c_reports%FOUND
                  LOOP 
                     DECLARE
@@ -152,14 +148,14 @@
                           DBMS_OUTPUT.PUT_LINE('WARNINGS - ' || CAST(v_id_rep_instance_id AS VARCHAR2) || ' ' || CAST(v_Warning_Results AS VARCHAR2));
                           IF v_Warning_Results = 0 THEN
                              INSERT INTO t_export_workqueue
-                               ( id_rep_instance_id, id_rep, id_schedule, c_sch_type, dt_queued, dt_sched_run, c_rep_title, c_rep_type, c_rep_def_source, c_rep_query_source, c_rep_query_tag, c_rep_output_type, c_xmlConfig_loc, c_rep_distrib_type, c_rep_destn, c_destn_direct, c_destn_access_user, c_destn_access_pwd, c_ds_id, c_eop_step_instance_name, c_generate_control_file, c_control_file_delivery_locati, c_output_execute_params_info, c_use_quoted_identifiers, c_compressreport, c_compressthreshold, c_exec_type, dt_last_run, dt_next_run, c_current_process_stage, c_param_name_values, id_run, c_queuerow_source, c_output_file_name )
-                               VALUES ( v_id_rep_instance_id, v_id_rep, v_id_schedule, v_c_sch_type, v_dt_queued, v_dt_next_run, v_c_report_title, v_c_rep_type, v_c_rep_def_source, v_c_rep_query_source, v_c_rep_query_tag, v_c_rep_output_type, v_c_xmlConfig_loc, v_c_rep_distrib_type, v_c_report_destn, v_c_destn_direct, v_c_access_user, v_c_access_pwd, v_ds_id, v_eopinstancename, v_generatecontrolfile, v_controlfiledeliverylocation, v_outputExecuteParamInfo, v_UseQuotedIdentifiers, v_compressreport, v_compressthreshold, 'sch', v_dt_last_run, v_dt_next_run, 0, v_param_name_values, v_RunId, CAST(v_RunID AS VARCHAR2(4000)), v_outputFileName );
+                               ( id_rep_instance_id, id_rep, id_schedule, c_sch_type, dt_queued, dt_sched_run, c_rep_title, c_rep_type, c_rep_def_source, c_rep_query_tag, c_rep_output_type, c_rep_distrib_type, c_rep_destn, c_destn_direct, c_destn_access_user, c_destn_access_pwd, c_ds_id, c_eop_step_instance_name, c_generate_control_file, c_control_file_delivery_locati, c_output_execute_params_info, c_use_quoted_identifiers, c_compressreport, c_compressthreshold, c_exec_type, dt_last_run, dt_next_run, c_current_process_stage, c_param_name_values, id_run, c_queuerow_source, c_output_file_name )
+                               VALUES ( v_id_rep_instance_id, v_id_rep, v_id_schedule, v_c_sch_type, v_dt_queued, v_dt_next_run, v_c_report_title, v_c_rep_type, v_c_rep_def_source, v_c_rep_query_tag, v_c_rep_output_type, v_c_rep_distrib_type, v_c_report_destn, v_c_destn_direct, v_c_access_user, v_c_access_pwd, v_ds_id, v_eopinstancename, v_generatecontrolfile, v_controlfiledeliverylocation, v_outputExecuteParamInfo, v_UseQuotedIdentifiers, v_compressreport, v_compressthreshold, 'sch', v_dt_last_run, v_dt_next_run, 0, v_param_name_values, v_RunId, CAST(v_RunID AS VARCHAR2(4000)), v_outputFileName );
                           END IF;
                        END;
                        END IF;
                        /* END */
                        v_param_name_values := NULL ;
-                       FETCH c_reports INTO v_id_rep,v_id_rep_instance_id,v_id_schedule,v_c_sch_type,v_dt_queued,v_dt_next_run,v_c_report_title,v_c_rep_type,v_c_rep_def_source,v_c_rep_query_source,v_c_rep_query_tag,v_c_rep_output_type,v_c_xmlConfig_loc,v_c_rep_distrib_type,v_c_report_destn,v_c_destn_direct,v_c_access_user,v_c_access_pwd,v_ds_id,v_eopinstancename,v_generatecontrolfile,v_controlfiledeliverylocation,v_outputExecuteParamInfo,v_UseQuotedIdentifiers,v_compressreport,v_compressthreshold,v_dt_last_run,v_outputFileName;
+                       FETCH c_reports INTO v_id_rep,v_id_rep_instance_id,v_id_schedule,v_c_sch_type,v_dt_queued,v_dt_next_run,v_c_report_title,v_c_rep_type,v_c_rep_def_source,v_c_rep_query_tag,v_c_rep_output_type,v_c_rep_distrib_type,v_c_report_destn,v_c_destn_direct,v_c_access_user,v_c_access_pwd,v_ds_id,v_eopinstancename,v_generatecontrolfile,v_controlfiledeliverylocation,v_outputExecuteParamInfo,v_UseQuotedIdentifiers,v_compressreport,v_compressthreshold,v_dt_last_run,v_outputFileName;
                     END;
                  END LOOP;
                  CLOSE c_reports;

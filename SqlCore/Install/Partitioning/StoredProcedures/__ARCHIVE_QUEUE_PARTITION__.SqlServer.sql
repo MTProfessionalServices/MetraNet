@@ -5,6 +5,8 @@ CREATE PROCEDURE archive_queue_partition(
     @result          NVARCHAR(4000) OUTPUT
 )
 AS
+	/* This SP is called from from basic SP - [archive_queue] if DB is partitioned */
+
 	/*
 	How to run this stored procedure:	
 	DECLARE @result NVARCHAR(2000)
@@ -180,7 +182,7 @@ AS
 	        IF (@@error <> 0)
 	        BEGIN
 	            SET @result = 
-	                '7000022-archive_queues operation failed-->Error in update stats'
+	                '7000022-archive_queue_partition operation failed-->Error in update stats'
 	            
 	            CLOSE c1 
 	            DEALLOCATE c1 
@@ -201,4 +203,4 @@ AS
 	    EXECUTE (@sql1)
 	END
 	
-	SET @result = '0-archive_queue operation successful'
+	SET @result = '0-archive_queue_partition operation successful'

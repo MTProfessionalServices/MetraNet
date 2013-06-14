@@ -3,14 +3,12 @@
               (
                 v_c_report_title IN VARCHAR2 DEFAULT NULL ,
                 v_c_rep_type IN VARCHAR2 DEFAULT NULL ,
-                v_c_rep_def_source IN VARCHAR2 DEFAULT NULL ,
-                iv_c_rep_query_source IN VARCHAR2 DEFAULT NULL ,
+                v_c_rep_def_source IN VARCHAR2 DEFAULT NULL ,                
                 v_c_rep_query_tag IN VARCHAR2 DEFAULT NULL ,
                 iv_ParameterNames IN VARCHAR2 DEFAULT NULL ,
                 v_id_rep OUT NUMBER
               )
               AS
-                 v_c_rep_query_source VARCHAR2(255) := iv_c_rep_query_source;
                  v_ParameterNames VARCHAR2(4000) := iv_ParameterNames;
                  v_temp NUMBER(1, 0) := 0;
                  v_ipos NUMBER(10,0);
@@ -42,8 +40,8 @@
                  END;
                  END IF;
                  INSERT INTO t_export_reports
-                   ( c_report_title, c_rep_type, c_rep_def_source, c_rep_query_source, c_rep_query_tag )
-                   VALUES ( v_c_report_title, v_c_rep_type, v_c_rep_def_source, v_c_rep_query_source, v_c_rep_query_tag )
+                   ( c_report_title, c_rep_type, c_rep_def_source, c_rep_query_tag )
+                   VALUES ( v_c_report_title, v_c_rep_type, v_c_rep_def_source, v_c_rep_query_tag )
                    RETURNING id_rep INTO v_id_rep;
                  v_ipos := 0 ;
                  v_inextpos := 0 ;

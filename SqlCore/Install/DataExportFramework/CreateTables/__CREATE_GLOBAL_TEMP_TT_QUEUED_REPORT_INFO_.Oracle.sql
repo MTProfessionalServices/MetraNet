@@ -3,8 +3,7 @@
 			(
 				c_rep_title                    VARCHAR2(50 BYTE) NOT NULL,
 				c_rep_type                     VARCHAR2(50 BYTE) NOT NULL,
-				c_rep_def_source               VARCHAR2(100 BYTE),
-				c_rep_query_source             VARCHAR2(100 BYTE),
+				c_rep_def_source               VARCHAR2(100 BYTE),				
 				c_rep_query_tag                VARCHAR2(100 BYTE),
 				c_rep_output_type              VARCHAR2(10 BYTE),
 				c_rep_distrib_type             VARCHAR2(50 BYTE),
@@ -28,7 +27,6 @@
 				c_sch_type                     VARCHAR2(10 BYTE),
 				dt_sched_run                   DATE,
 				c_param_name_values            VARCHAR2(1000 BYTE),
-				c_xmlconfig_loc                VARCHAR2(255 BYTE),
 				c_output_file_name             VARCHAR2(50 BYTE),
 				id_work_queue                  RAW(16) NOT NULL,
 				dt_queued                      DATE,

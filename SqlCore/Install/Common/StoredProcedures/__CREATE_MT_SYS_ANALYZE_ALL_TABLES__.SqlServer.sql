@@ -1,83 +1,81 @@
-
-CREATE PROCEDURE [dbo].[MT_sys_analyze_all_tables] 
+CREATE PROCEDURE MT_sys_analyze_all_tables 
 (
-@NU_varStatPercent INT = 30,
-@U_varStatPercent INT = 30, 
-@H_varStatPercent INT = 30, 
-@include_table_name NVARCHAR(MAX) = NULL,
-@exclude_table_name NVARCHAR(MAX) = NULL,
-@only_indexes NVARCHAR(10) = 'ALL'
+    @U_float_sample_percent FLOAT = NULL,
+    @NU_float_sample_percent FLOAT = NULL,
+    @include_table_name  NVARCHAR(MAX) = NULL,
+    @exclude_table_name  NVARCHAR(MAX) = NULL,
+    @only_indexes        NVARCHAR(10) = 'ALL'
 )
 AS
+SET NOCOUNT ON
+
 BEGIN TRY
+	
 	/********************************************************************
 	** Procedure Name:  MT_sys_analyze_all_tables
-	** exec MT_sys_analyze_all_tables 100,30,100,null,null,'ALL'
-	** Procedure Description: Analyze all the user defined tables in all the partitions
-	**
-	** Parameters: varStatPercent int
+	** Procedure Description: Analyze all the user defined tables
+	** 
+	** Execute SP without specification sample rate to let SQL server calculate default SAMPLE rates:
+	** exec MT_sys_analyze_all_tables
+	** (recommended)
+	** 
+	** To set specific percent for Usage, Non-usage or both table groups:
+	** exec MT_sys_analyze_all_tables @U_float_sample_percent = 0.001, @NU_float_sample_percent = 20.0
+	** Note:
+	** this option is relevant only if all tables in specified group (U or NU) contains approximately the same ammount of data.
+	** Otherwise - execute SP parameterless 
+	** 
+	** Parameters:
+			@U_float_sample_percent is a FLOAT usage sampling ratio,
+			@NU_float_sample_percent is a FLOAT non-usage sampling ratio,
+			@include_table_name is a comma-separated list of one or more tables to be included in the analysis.
+			@exclude_table_name is a comma-separated list of one or more tables to be excluded in the analysis
+			@only_indexes can be ALL, meaning all index and column-level statistics will be analyzed, or INDEX, meaning only indexes will be analyzed
 	**
 	** Returns: 0 IF successful
 	**          1 IF fatal error occurred
 	**
 	** NOTES: 
 	*********************************************************************************/
-	DECLARE 
-	@varTblName VARCHAR(128), 
-	@SQLStmtError INT,
-	@PrintStmt VARCHAR(1000), 
-	@NU_varStatPercentChar VARCHAR(255),
-	@U_varStatPercentChar VARCHAR(255),
-	@H_varStatPercentChar VARCHAR(255),
-	@getdate DATETIME, 
-	@starttime DATETIME,
-	@ErrorMessage NVARCHAR(MAX),
-	@ErrorSeverity INT,
-	@ErrorState INT
-
-
-	SET NOCOUNT ON
-	DECLARE @intervalstart INT
-	DECLARE @intervalend INT
-	DECLARE @rowcount INT
-	DECLARE @maxdate DATETIME
-
-	SET @maxdate = dbo.MTMaxdate()
-	SET @rowcount=0
-	SELECT @getdate = GETDATE()
-	IF @NU_varStatPercent < 5
-	   SET @NU_varStatPercentChar = ' WITH SAMPLE 5 PERCENT, ' + @only_indexes
-	ELSE IF @NU_varStatPercent >= 100
-	   SET @NU_varStatPercentChar = ' WITH FULLSCAN, ' + @only_indexes
-	ELSE SET @NU_varStatPercentChar = ' WITH SAMPLE '
-	   + CAST(@NU_varStatPercent AS VARCHAR(20))
-	   + ' PERCENT, ' + @only_indexes
-
-	IF @U_varStatPercent < 5
-	   SET @U_varStatPercentChar = ' WITH SAMPLE 5 PERCENT, ' + @only_indexes
-	ELSE IF @U_varStatPercent >= 100
-	   SET @U_varStatPercentChar = ' WITH FULLSCAN, ' + @only_indexes
-	ELSE SET @U_varStatPercentChar = ' WITH SAMPLE '
-	   + CAST(@U_varStatPercent AS VARCHAR(20))
-	   + ' PERCENT, ' + @only_indexes
-
-	IF @H_varStatPercent < 5
-	   SET @H_varStatPercentChar = ' WITH SAMPLE 5 PERCENT, ' + @only_indexes
-	ELSE IF @H_varStatPercent >= 100
-	   SET @H_varStatPercentChar = ' WITH FULLSCAN, ' + @only_indexes
-	ELSE SET @H_varStatPercentChar = ' WITH SAMPLE '
-	   + CAST(@H_varStatPercent AS VARCHAR(20))
-	   + ' PERCENT, ' + @only_indexes
-
-	DECLARE @SqlStmt NVARCHAR(MAX)
-	DECLARE @SqlViewStmtPattern VARCHAR(MAX)
-	DECLARE @SqlNonUsageStmtPattern VARCHAR(MAX)
-	DECLARE @SqlUsageStmtPattern VARCHAR(MAX)
-	DECLARE @SqlPartitionStmtPattern VARCHAR(MAX)
-
-	DECLARE @IncludeTables VARCHAR(MAX)
-	DECLARE @ExcludeTables VARCHAR(MAX)
-	 
+	
+	DECLARE @table_name               VARCHAR(128),
+	        @SQLStmtError             INT,
+	        @ErrorMessage             NVARCHAR(MAX),
+	        @ErrorSeverity            INT,
+	        @ErrorState               INT,
+	        @SqlStmt                  NVARCHAR(MAX),
+	        @SqlViewStmtPattern       VARCHAR(MAX),
+	        @SqlNonUsageStmtPattern   VARCHAR(MAX),
+	        @SqlUsageStmtPattern      VARCHAR(MAX),
+	        --DECLARE @SqlMeterStmtPattern VARCHAR(MAX)
+	        @IncludeTables            VARCHAR(MAX),
+	        @ExcludeTables            VARCHAR(MAX),
+	        @start_time_update_stats  DATETIME,
+	        @total_duration_sec       INT
+	
+	IF @U_float_sample_percent < 0 OR @U_float_sample_percent > 100
+	   RAISERROR ('@U_float_sample_percent should be between 0 and 100.', 16, 1)
+	   
+	IF @NU_float_sample_percent < 0 OR @NU_float_sample_percent > 100
+	   RAISERROR ('@NU_float_sample_percent should be between 0 and 100.', 16, 1)
+	
+	IF @only_indexes  NOT IN ( 'ALL', 'COLUMNS', 'INDEX')
+		RAISERROR ('@@only_indexes may take 3 values: ''ALL'', ''COLUMNS'', ''INDEX''', 16, 1)
+	
+	CREATE TABLE #StatisticsHeader
+	(
+		 Name                   sysname,
+		 Updated                datetime,
+		 [Rows]                 bigint,
+		 RowsSampled            bigint,
+		 Steps                  tinyint,
+		 Density                decimal(9,5),
+		 AverageKeyLength       decimal(9,5),
+		 StringIndex            nchar(3),
+		 FilterExpression       nvarchar(1000),
+		 UnfilteredRows         bigint
+	)
+	
 	--Indexed Views
 	SET @SqlViewStmtPattern = 'DECLARE curUserObjs CURSOR FOR
 	SELECT DISTINCT obj.name FROM sysindexkeys keys 
@@ -86,29 +84,37 @@ BEGIN TRY
 	 
 	--Non-Usage tables in NetMeter Database
 	SET @SqlNonUsageStmtPattern = 'DECLARE curUserObjs CURSOR FOR
-	SELECT table_name FROM information_schema.tables
-	WHERE table_type = ''BASE TABLE''
-	AND table_name NOT LIKE ''t_acc_usage%'' 
-	AND table_name NOT LIKE ''t_pv%''
-	AND table_name NOT LIKE ''t_svc%'' 
-	AND table_name NOT IN (''t_session'',''t_session_state'',''t_session_set'',''t_message'')
-	{%0}'
+	SELECT TABLE_NAME FROM information_schema.tables
+	WHERE TABLE_TYPE = ''BASE TABLE''
+	AND TABLE_SCHEMA = ''dbo''
+	AND TABLE_NAME NOT LIKE ''t_acc_usage''
+	AND TABLE_NAME NOT LIKE ''t_pv%''
+	AND TABLE_NAME NOT LIKE ''t_uk_%''
+	AND TABLE_NAME NOT LIKE ''t_svc%''
+	AND table_name NOT LIKE ''amplu_%'' 
+	AND table_name NOT LIKE ''ampbi_%'' 
+	AND table_name NOT IN (''t_session'',''t_session_state'',''t_session_set'',''t_message'', ''change_tables'', ''ddl_history'', ''lsn_time_mapping'', ''captured_columns'', ''index_columns'') {%0}
+	ORDER BY TABLE_NAME'
 
-	--Usage tables in NetMeter Database
+	--Usage tables in Partition NetMeter Database		
 	SET @SqlUsageStmtPattern = 'DECLARE curUserObjs CURSOR FOR
-	SELECT table_name FROM information_schema.tables
-	WHERE table_type = ''BASE TABLE''
-	AND (table_name LIKE ''t_acc_usage%'' 
-	OR table_name LIKE ''t_pv%''
-	OR table_name LIKE ''t_svc%'' 
-	OR table_name IN (''t_session'',''t_session_state'',''t_session_set'',''t_message''))
-	{%0}'
+	SELECT TABLE_NAME FROM information_schema.tables
+	WHERE TABLE_TYPE = ''BASE TABLE''
+	AND TABLE_SCHEMA = ''dbo''
+	AND (TABLE_NAME LIKE ''t_acc_usage'' 
+	OR TABLE_NAME LIKE ''t_pv%''
+	OR TABLE_NAME LIKE ''t_uk_%'') {%0}
+	ORDER BY TABLE_NAME'
 
-	--Partition info in NetMeter Database		
-	SET @SqlPartitionStmtPattern = 'DECLARE curUserObjs CURSOR FOR
-	SELECT table_name FROM {%0}.information_schema.tables
-	WHERE table_type = ''BASE TABLE'' {%1}
-	ORDER BY table_name'
+	/* 
+	--Meter tables in Partition NetMeter Database		
+	SET @SqlMeterStmtPattern = 'DECLARE curUserObjs CURSOR FOR
+	SELECT TABLE_NAME FROM information_schema.tables
+	WHERE TABLE_TYPE = ''BASE TABLE''
+	AND TABLE_SCHEMA = ''dbo''
+	AND (TABLE_NAME IN (''t_session'',''t_session_state'',''t_session_set'',''t_message'') 
+	OR TABLE_NAME LIKE ''t_svc%'') {%0}
+	ORDER BY TABLE_NAME' */
 
 	IF (@include_table_name IS NOT NULL)
 		SELECT @IncludeTables = '''' + REPLACE(@include_table_name, ',', ''',''') + ''''
@@ -118,19 +124,26 @@ BEGIN TRY
 
 	DECLARE @dbname NVARCHAR(100)
 	SELECT @dbname = DB_NAME()
-
+	SET @start_time_update_stats = GETDATE()
+	
+	/* sampled_rows - is an indicator of performing update statistics on specific table */
+	UPDATE t_updatestatsinfo SET sampled_rows = NULL
+	
+	
 	--Indexed Views
+	
+	PRINT 'Updating statistics for Indexed Views...'
 	IF (@IncludeTables IS NULL) AND (@ExcludeTables IS NULL) --all view
 	BEGIN
-		SET @SqlStmt = REPLACE(@SqlViewStmtPattern, '{%0}', '') 
+		SET @SqlStmt = REPLACE(@SqlViewStmtPattern, '{%0}', '')
 	END
 	ELSE IF (@IncludeTables IS NOT NULL) --include view
 	BEGIN
-		SET @SqlStmt = REPLACE(@SqlViewStmtPattern, '{%0}', ' AND obj.name IN (' + @IncludeTables + ')') 
+		SET @SqlStmt = REPLACE(@SqlViewStmtPattern, '{%0}', ' AND obj.name IN (' + @IncludeTables + ')')
 	END
 	ELSE IF (@ExcludeTables IS NOT NULL) --exclude view
 	BEGIN
-		SET @SqlStmt = REPLACE(@SqlViewStmtPattern, '{%0}', ' AND obj.name NOT IN (' + @ExcludeTables + ')') 
+		SET @SqlStmt = REPLACE(@SqlViewStmtPattern, '{%0}', ' AND obj.name NOT IN (' + @ExcludeTables + ')')
 	END
 
 	PRINT @SqlStmt
@@ -140,28 +153,31 @@ BEGIN TRY
 	IF @SQLStmtError <> 0
 		RETURN 1
 	OPEN curUserObjs
-	FETCH curUserObjs INTO @varTblName
+	FETCH curUserObjs INTO @table_name
 	WHILE @@FETCH_STATUS = 0
 	BEGIN
-		SET @starttime = getdate()
-		SET @SqlStmt = 'UPDATE STATISTICS ' + @varTblName + @NU_varStatPercentChar
-		PRINT @SqlStmt + ':START-' + CONVERT(CHAR(25), CURRENT_TIMESTAMP, 131)
-		EXECUTE (@SqlStmt)
-		PRINT 'END-' + CONVERT(CHAR(25), CURRENT_TIMESTAMP, 131)
-		INSERT INTO t_updatestatsinfo VALUES (@varTblName, @NU_varStatPercentChar, DATEDIFF(ss,@starttime,GETDATE()))
-		FETCH curUserObjs INTO @varTblName
+		EXEC MT_sys_analyze_single_table
+		     @table_type = 'V',
+		     @table_name = @table_name,
+		     @float_sample_rate = @NU_float_sample_percent,
+		     @only_indexes = @only_indexes
+		
+		FETCH curUserObjs INTO @table_name
 	END
 	CLOSE curUserObjs
 	DEALLOCATE curUserObjs
 	PRINT 'Statistics have been updated for all Indexed Views.'
 
-	--Non-Usage tables in NetMeter Database
+
+	--Updating Non-Usage tables
+	
+	PRINT 'Updating statistics for Non-Usage tables...'
 	IF (@IncludeTables IS NULL) AND (@ExcludeTables IS NULL) --all tables
-		SET @SqlStmt = REPLACE (@SqlNonUsageStmtPattern, '{%0}', '') 
+		SET @SqlStmt = REPLACE (@SqlNonUsageStmtPattern, '{%0}', '')
 	ELSE IF (@IncludeTables IS NOT NULL) --include view
-		SET @SqlStmt = REPLACE (@SqlNonUsageStmtPattern, '{%0}', ' AND table_name IN (' + @IncludeTables + ')') 
+		SET @SqlStmt = REPLACE (@SqlNonUsageStmtPattern, '{%0}', ' AND table_name IN (' + @IncludeTables + ')')
 	ELSE IF (@ExcludeTables IS NOT NULL) --exclude view
-		SET @SqlStmt = REPLACE (@SqlNonUsageStmtPattern, '{%0}', ' AND table_name NOT IN (' + @ExcludeTables + ')') 
+		SET @SqlStmt = REPLACE (@SqlNonUsageStmtPattern, '{%0}', ' AND table_name NOT IN (' + @ExcludeTables + ')')
 
 	PRINT @SqlStmt
 	EXEC (@SqlStmt)
@@ -170,250 +186,155 @@ BEGIN TRY
 	IF @SQLStmtError <> 0
 		RETURN 1
 	OPEN curUserObjs
-	FETCH curUserObjs INTO @varTblName
+	FETCH curUserObjs INTO @table_name
 	WHILE @@FETCH_STATUS = 0
 	BEGIN
-		SET @starttime = GETDATE()
-		SET @SqlStmt = 'UPDATE STATISTICS ' + @varTblName + @NU_varStatPercentChar
-		PRINT @SqlStmt + ':START-' + CONVERT(CHAR(25), CURRENT_TIMESTAMP, 131)
-		EXECUTE (@SqlStmt)
-		PRINT 'END-' + CONVERT(CHAR(25), CURRENT_TIMESTAMP, 131)
-		INSERT INTO t_updatestatsinfo VALUES (@varTblName, @NU_varStatPercentChar, DATEDIFF(ss,@starttime,GETDATE()))
-		FETCH curUserObjs INTO @varTblName
+		EXEC MT_sys_analyze_single_table
+			 @table_type = 'N',
+			 @table_name = @table_name,
+			 @float_sample_rate = @NU_float_sample_percent,
+			 @only_indexes = @only_indexes
+			     
+		FETCH curUserObjs INTO @table_name
 	END
 	CLOSE curUserObjs
 	DEALLOCATE curUserObjs
-	INSERT INTO t_updatestats_partition(partname,partition_status,last_stats_time,Non_Usage_Sampling_Ratio)
-	VALUES ( @dbname,'O',@getdate,@NU_varStatPercent)
-	PRINT 'Statistics have been updated for all Non-Partitioned Non-Usage tables'
+	PRINT 'Statistics have been updated for all Non-Usage tables'
 
-	IF (SELECT b_partitioning_enabled FROM t_usage_server) = 'N' --no partitioning
+	
+	--Updating Usage tables
+	
+	PRINT 'Updating Statistics for Usage tables...'
+	IF (@IncludeTables IS NULL) AND (@ExcludeTables IS NULL) --all tables
+		SET @SqlStmt = REPLACE(@SqlUsageStmtPattern, '{%0}', '') 
+	ELSE IF (@IncludeTables IS NOT NULL) --include tables
+		SET @SqlStmt = REPLACE(@SqlUsageStmtPattern, '{%0}', ' AND table_name IN (' + @IncludeTables + ')') 
+	ELSE IF (@ExcludeTables IS NOT NULL) --exclude tables
+		SET @SqlStmt = REPLACE(@SqlUsageStmtPattern, '{%0}', ' AND table_name NOT IN (' + @ExcludeTables + ')') 
+	
+	PRINT @SqlStmt
+	EXEC (@SqlStmt)
+	
+	SELECT @SQLStmtError = @@ERROR
+	IF @SQLStmtError <> 0
+		RETURN 1
+	
+	OPEN curUserObjs
+	FETCH curUserObjs INTO @table_name
+	WHILE @@FETCH_STATUS = 0
 	BEGIN
-		--Usage tables in NetMeter Database
-		IF (@IncludeTables IS NULL) AND (@ExcludeTables IS NULL) --all tables
-			SET @SqlStmt = REPLACE(@SqlUsageStmtPattern, '{%0}', '') 
-		ELSE IF (@IncludeTables IS NOT NULL) --include tables
-			SET @SqlStmt = REPLACE(@SqlUsageStmtPattern, '{%0}', ' AND table_name IN (' + @IncludeTables + ')') 
-		ELSE IF (@ExcludeTables IS NOT NULL) --exclude tables
-			SET @SqlStmt = REPLACE(@SqlUsageStmtPattern, '{%0}', ' AND table_name NOT IN (' + @ExcludeTables + ')') 
-		
-		PRINT @SqlStmt
-		EXEC (@SqlStmt)
-		
-		SELECT @SQLStmtError = @@ERROR
-		IF @SQLStmtError <> 0
-			RETURN 1
-		OPEN curUserObjs
-		FETCH curUserObjs INTO @varTblName
-		WHILE @@FETCH_STATUS = 0
-		BEGIN
-			SET @starttime = getdate()
-			SET @SqlStmt = 'UPDATE STATISTICS ' + @varTblName + @U_varStatPercentChar
-			PRINT @SqlStmt + ':START-' + CONVERT(CHAR(25), CURRENT_TIMESTAMP, 131)
-			EXECUTE (@SqlStmt)
-			PRINT 'END-' + CONVERT(CHAR(25), CURRENT_TIMESTAMP, 131)
-			INSERT INTO t_updatestatsinfo VALUES (@varTblName, @U_varStatPercentChar, datediff(ss,@starttime,getdate()))
-			FETCH curUserObjs INTO @varTblName
-		END
-		CLOSE curUserObjs
-		DEALLOCATE curUserObjs
-		UPDATE t_updatestats_partition SET Usage_Sampling_Ratio = @U_varStatPercent
-		WHERE partname = @dbname AND partition_status='O' AND last_stats_time = @getdate
-		PRINT 'Statistics have been updated for all Non-Partitioned Usage tables'
+		EXEC MT_sys_analyze_single_table
+		     @table_type = 'U',
+		     @table_name = @table_name,
+		     @float_sample_rate = @U_float_sample_percent,
+		     @only_indexes = @only_indexes
+			
+		FETCH curUserObjs INTO @table_name
 	END
-	ELSE
-	BEGIN --contain partitioning
-		--Loop over all the partitions and update stats with Usage sampling ratio
-		DECLARE @partname NVARCHAR(4000)
-		--create table #partition(partname NVARCHAR(4000))
-		DECLARE part CURSOR FOR SELECT DISTINCT partition_name FROM t_partition 
-		OPEN part
-		FETCH part INTO @partname
-		WHILE @@FETCH_STATUS = 0
-		BEGIN
-		--Check for open Intervals
-			SELECT @intervalstart = id_interval_start, @intervalend= id_interval_end FROM t_partition
-			WHERE partition_name = @partname
-			IF EXISTS
-			(
-			SELECT 1 FROM t_usage_interval
-			WHERE tx_interval_status <> 'H'
-			AND id_interval between @intervalstart AND @intervalend
-			AND not exists (SELECT 1 FROM t_archive_partition WHERE partition_name=@partname
-			AND status = 'A' AND tt_end = @maxdate)
-			UNION ALL
-			SELECT 1 FROM t_partition WHERE partition_name = @partname AND b_default = 'Y'
-			UNION ALL
-			SELECT 1 FROM t_partition WHERE id_partition NOT IN
-			(SELECT id_partition FROM t_partition_interval_map)
-			AND partition_name = @partname)
-			BEGIN
-				
-				SET @SqlStmt = REPLACE (@SqlPartitionStmtPattern, '{%0}', @partname) 
+	CLOSE curUserObjs
+	DEALLOCATE curUserObjs
+	PRINT 'Statistics have been updated for all Usage tables'
+
+	/* 
+	--- Update statistics for meter tables
+	PRINT 'Updating Statistics for Meter tables...'
+	IF (@IncludeTables IS NULL) AND (@ExcludeTables IS NULL) --all tables
+		SET @SqlStmt = REPLACE(@SqlMeterStmtPattern, '{%0}', '') 
+	ELSE IF (@IncludeTables IS NOT NULL) --include tables
+		SET @SqlStmt = REPLACE(@SqlMeterStmtPattern, '{%0}', ' AND table_name IN (' + @IncludeTables + ')') 
+	ELSE IF (@ExcludeTables IS NOT NULL) --exclude tables
+		SET @SqlStmt = REPLACE(@SqlMeterStmtPattern, '{%0}', ' AND table_name NOT IN (' + @ExcludeTables + ')') 
+	
+	PRINT @SqlStmt
+	EXEC (@SqlStmt)
+	
+	SELECT @SQLStmtError = @@ERROR
+	IF @SQLStmtError <> 0
+		RETURN 1
+	OPEN curUserObjs
+	FETCH curUserObjs INTO @table_name
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		EXEC MT_sys_analyze_single_table
+		     @table_type = 'M',
+		     @table_name = @table_name,
+		     @float_sample_rate = @U_float_sample_percent,
+		     @only_indexes = @only_indexes
 			
-				IF (@IncludeTables IS NULL) AND (@ExcludeTables IS NULL) --all tables
-					SET @SqlStmt = REPLACE(@SqlStmt, '{%1}', '') 
-				ELSE IF (@IncludeTables IS NOT NULL) --include tables
-					SET @SqlStmt = REPLACE(@SqlStmt, '{%1}', ' AND table_name IN (' + @IncludeTables + ')') 
-				ELSE IF (@ExcludeTables IS NOT NULL) --exclude tables
-					SET @SqlStmt = REPLACE(@SqlStmt, '{%1}', ' AND table_name NOT IN (' + @ExcludeTables + ')') 
-		
-				PRINT @SqlStmt
-				EXEC (@SqlStmt)
-				
-				SELECT @SQLStmtError = @@ERROR
-				IF @SQLStmtError <> 0
-					RETURN 1
-				OPEN curUserObjs
-				FETCH curUserObjs INTO @varTblName
-				WHILE @@FETCH_STATUS = 0
-				   BEGIN
-					   SET @starttime = getdate()
-					   SET @SqlStmt = 'UPDATE STATISTICS ' + @partname + '..' + @varTblName + @U_varStatPercentChar
-					   PRINT @SqlStmt + ':START-' + CONVERT(CHAR(25), CURRENT_TIMESTAMP, 131)
-					   EXECUTE (@SqlStmt)
-					   PRINT 'END-' + CONVERT(CHAR(25), CURRENT_TIMESTAMP, 131)
-		   			   INSERT INTO t_updatestatsinfo VALUES (@varTblName, @U_varStatPercentChar, DATEDIFF(ss,@starttime,GETDATE()))
-				   FETCH curUserObjs INTO @varTblName
-				   END
-				CLOSE curUserObjs
-				DEALLOCATE curUserObjs
-				INSERT INTO t_updatestats_partition(partname,partition_status,last_stats_time,Usage_Sampling_Ratio)
-				VALUES ( @partname,'O',@getdate,@U_varStatPercent)
-				SET @rowcount = @@ROWCOUNT
-				PRINT 'Statistics have been updated for all tables of Open Interval Partitions.'
-			END
-			IF (@rowcount = 0)
-			BEGIN
-			--Check for Archived Intervals
-				IF exists
-					(SELECT 1 FROM t_partition part
-					INNER JOIN t_archive_partition archive
-					ON part.partition_name = archive.partition_name
-					WHERE part.partition_name = @partname
-					AND status ='A'
-					AND tt_end = @maxdate
-					AND NOT EXISTS
-						(SELECT 1 FROM t_updatestats_partition back1
-						WHERE part.partition_name = back1.partname
-						AND
-						back1.last_stats_time IS NOT NULL AND partition_status = 'A')
-					)
-					BEGIN
-						SET @SqlStmt = REPLACE (@SqlPartitionStmtPattern, '{%0}', @partname) 
-			
-						IF (@IncludeTables IS NULL) AND (@ExcludeTables IS NULL) --all tables
-							SET @SqlStmt = REPLACE(@SqlStmt, '{%1}', '') 
-						ELSE IF (@IncludeTables IS NOT NULL) --include tables
-							SET @SqlStmt = REPLACE(@SqlStmt, '{%1}', ' AND table_name IN (' + @IncludeTables + ')') 
-						ELSE IF (@ExcludeTables IS NOT NULL) --exclude tables
-							SET @SqlStmt = REPLACE(@SqlStmt, '{%1}', ' AND table_name NOT IN (' + @ExcludeTables + ')') 
-				
-						PRINT @SqlStmt
-						EXEC (@SqlStmt)
-							
-						SELECT @SQLStmtError = @@ERROR
-						IF @SQLStmtError <> 0
-							RETURN 1
-						OPEN curUserObjs
-						FETCH curUserObjs INTO @varTblName
-						WHILE @@FETCH_STATUS = 0
-						   BEGIN
-							  SET @starttime = getdate()
-							  SET @SqlStmt = 'UPDATE STATISTICS ' + @partname + '..' + @varTblName + @H_varStatPercentChar
-							  PRINT @SqlStmt + ':START-' + CONVERT(CHAR(25), CURRENT_TIMESTAMP, 131)
-							  EXECUTE (@SqlStmt)
-							  PRINT 'END-' + CONVERT(CHAR(25), CURRENT_TIMESTAMP, 131)
-	         	   			  INSERT INTO t_updatestatsinfo VALUES (@varTblName, @H_varStatPercentChar, DATEDIFF(ss,@starttime,GETDATE()))
-						   FETCH curUserObjs INTO @varTblName
-						   END
-						CLOSE curUserObjs
-						DEALLOCATE curUserObjs
-						INSERT INTO t_updatestats_partition(partname,partition_status,last_stats_time,H_Sampling_Ratio)
-						VALUES ( @partname,'A',@getdate,@H_varStatPercent)
-						SET @rowcount = @@ROWCOUNT
-						PRINT 'Statistics have been updated for all tables of Archived Interval Partitions'
-					END
-			END
-			IF (@rowcount = 0)
-			BEGIN
-			--Check for Hard-Closed Intervals
-			IF EXISTS
-				(SELECT 1 FROM t_partition part
-				WHERE partition_name = @partname
-				AND id_partition IN
-				(SELECT id_partition FROM t_partition_interval_map)
-				AND @partname not IN (SELECT partition_name FROM t_partition WHERE b_default = 'Y')
-				AND NOT EXISTS
-					(
-					SELECT 1 FROM t_usage_interval usage
-					WHERE tx_interval_status <> 'H'
-					AND id_interval between @intervalstart AND @intervalend
-					)
-				AND NOT EXISTS
-					(
-					SELECT 1 FROM t_updatestats_partition back1
-					WHERE part.partition_name = back1.partname
-					AND
-					((back1.last_stats_time is not null AND partition_status = 'H')
-					OR (back1.last_stats_time is not null AND partition_status = 'A')))
-					)
-				BEGIN
-					SET @SqlStmt = REPLACE(@SqlPartitionStmtPattern, '{%0}', @partname) 
-		
-					IF (@IncludeTables IS NULL) AND (@ExcludeTables IS NULL) --all tables
-						SET @SqlStmt = REPLACE(@SqlStmt, '{%1}', '') 
-					ELSE IF (@IncludeTables IS NOT NULL) --include tables
-						SET @SqlStmt = REPLACE(@SqlStmt, '{%1}', ' AND table_name IN (' + @IncludeTables + ')') 
-					ELSE IF (@ExcludeTables IS NOT NULL) --exclude tables
-						SET @SqlStmt = REPLACE(@SqlStmt, '{%1}', ' AND table_name NOT IN (' + @ExcludeTables + ')') 
-			
-					PRINT @SqlStmt
-					EXEC (@SqlStmt)
-			
-					SELECT @SQLStmtError = @@ERROR
-					IF @SQLStmtError <> 0
-						RETURN 1
-					OPEN curUserObjs
-					FETCH curUserObjs INTO @varTblName
-					WHILE @@FETCH_STATUS = 0
-					   BEGIN
-						  SET @starttime = GETDATE()
-						  SET @SqlStmt = 'UPDATE STATISTICS ' + @partname + '..' + @varTblName + @H_varStatPercentChar
-						  PRINT @SqlStmt + ':START-' + CONVERT(CHAR(25), CURRENT_TIMESTAMP, 131)
-						  EXECUTE (@SqlStmt)
-						  PRINT 'END-' + CONVERT(CHAR(25), CURRENT_TIMESTAMP, 131)
-     	   				  INSERT INTO t_updatestatsinfo VALUES (@varTblName, @H_varStatPercentChar, DATEDIFF(ss,@starttime,GETDATE()))
-					   FETCH curUserObjs INTO @varTblName
-					   END
-					CLOSE curUserObjs
-					DEALLOCATE curUserObjs
-					INSERT INTO t_updatestats_partition(partname,partition_status,last_stats_time,H_Sampling_Ratio)
-					VALUES ( @partname,'H',@getdate,@H_varStatPercent)
-					PRINT 'Statistics have been updated for all tables of Hard closed Interval Partitions'
-				END
-			END
-		SET @rowcount=0
-		FETCH NEXT FROM part INTO @partname
-		END
-		CLOSE part
-		DEALLOCATE part
+		FETCH curUserObjs INTO @table_name
 	END
+	CLOSE curUserObjs
+	DEALLOCATE curUserObjs
+	PRINT 'Statistics have been updated for all Meter tables'
+	*/
+
+	DROP TABLE #StatisticsHeader
+	
+	DECLARE @U_total_rows     BIGINT,
+			@NU_total_rows    BIGINT,
+			@U_sampled_rows   BIGINT,
+			@NU_sampled_rows  BIGINT,
+	        @last_id          INT
+
+	SELECT @U_total_rows = SUM(total_rows),
+		   @U_sampled_rows = SUM(sampled_rows)
+	FROM   t_updatestatsinfo
+	WHERE  tab_type = 'U'
+	
+	SELECT @NU_total_rows = SUM(total_rows),
+		   @NU_sampled_rows = SUM(sampled_rows)
+	FROM   t_updatestatsinfo
+	WHERE tab_type IN ( 'N', 'V')
+	
+	SET @total_duration_sec = datediff(s,@start_time_update_stats,getdate())
+	
+	INSERT INTO t_mt_sys_analyze_all_tables
+	  (
+	    execution_date,
+	    stats_updated,
+	    U_total_rows,
+	    NU_total_rows,
+	    U_sampled_rows,
+	    NU_sampled_rows,
+	    execution_time_sec
+	  )
+	SELECT @start_time_update_stats,
+	       SUM(num_of_stats),
+	       @U_total_rows,
+	       @NU_total_rows,
+	       @U_sampled_rows,
+	       @NU_sampled_rows,
+	       @total_duration_sec
+	FROM   t_updatestatsinfo
+
+	SELECT @last_id = MAX(id) FROM t_mt_sys_analyze_all_tables
+
+	UPDATE t_mt_sys_analyze_all_tables
+	SET    U_sampled_percent   = (CAST(U_sampled_rows AS FLOAT) / CAST(U_total_rows AS FLOAT)) * 100,
+	       NU_sampled_percent  = (CAST(NU_sampled_rows AS FLOAT) / CAST(NU_total_rows AS FLOAT)) * 100,
+	       execution_time      = DATEADD(second, execution_time_sec, '0:00:00')
+	WHERE  id                  = @last_id
+
+	/* Display UPDATE STATISTIC summary */
+	SELECT *
+	FROM   t_mt_sys_analyze_all_tables
+	SELECT *
+	FROM   t_updatestatsinfo
+	WHERE  total_rows > 0
+		   AND num_of_stats > 0
+	ORDER BY
+		   total_rows DESC
 
 	RETURN 0
 END TRY
-BEGIN CATCH  
-	PRINT ERROR_MESSAGE()
-	
-	SELECT  @ErrorMessage = ERROR_MESSAGE(),
-		@ErrorSeverity = ERROR_SEVERITY(),
-		@ErrorState = ERROR_STATE();
+BEGIN CATCH
+	IF CURSOR_STATUS('global', 'curUserObjs') >= -1
+	BEGIN
+	    CLOSE curUserObjs
+	    DEALLOCATE curUserObjs
+	END
 
-	RAISERROR (@ErrorMessage, -- Message text.
-			   @ErrorSeverity, -- Severity.
-			   @ErrorState -- State.
-			   )
-
+	PRINT ERROR_MESSAGE()	
+	SELECT @ErrorMessage = ERROR_MESSAGE(), @ErrorSeverity = ERROR_SEVERITY(), @ErrorState = ERROR_STATE()
+	RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState)
 END CATCH
-
-	

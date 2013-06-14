@@ -6,8 +6,7 @@
                 p_outputType IN VARCHAR2 DEFAULT NULL ,
                 p_distributionType IN VARCHAR2 DEFAULT NULL ,
                 p_destination IN VARCHAR2 DEFAULT NULL ,
-                p_ReportExecutionType IN CHAR DEFAULT NULL ,
-                p_xmlConfigLocation IN VARCHAR2 DEFAULT NULL ,
+                p_ReportExecutionType IN CHAR DEFAULT NULL ,                
                 p_c_report_online IN NUMBER DEFAULT NULL ,
                 p_dtActivate IN DATE DEFAULT NULL ,
                 p_dtDeActivate IN DATE DEFAULT NULL ,
@@ -30,19 +29,17 @@
                 p_ReportInstanceId OUT NUMBER
               )              
               AS
-                 v_xmlConfigLocation VARCHAR2(255) := p_xmlConfigLocation;
                  p_ErrorMessage VARCHAR2(100);
               
               BEGIN
-                 v_xmlConfigLocation := 'DataExport\Config\fieldDef' ;
+                 
                  INSERT INTO t_export_report_instance
                    ( c_rep_instance_desc, 
 				     id_rep, 
 					 c_report_online, 
 					 dt_activate, 
 					 dt_deactivate, 
-					 c_rep_output_type, 
-					 c_xmlConfig_loc, 
+					 c_rep_output_type,					 
 					 c_rep_distrib_type, 
 					 c_report_destn, 
 					 c_destn_direct, 
@@ -65,8 +62,7 @@
 							NVL(p_c_report_online, 0), 
 							NVL(p_dtActivate, p_system_datetime), 
 							p_dtDeActivate, 
-							p_outputType, 
-							v_xmlConfigLocation, 
+							p_outputType,							
 							p_distributionType, 
 							p_destination, 
 							NVL(p_directMoveToDestn, 1), 

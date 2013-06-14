@@ -1,67 +1,76 @@
 /*__HIERARCHY_BROWESER_LEVELS__*/
-
-select
-num_generations,account_type, icon, parent_id, id_parent, child_id, b_children as children, nm_login, nm_space, hierarchyname,
-CASE when folder_owner IS NULL THEN N'' ELSE folder_owner END as folder_owner,
+SELECT
+num_generations,account_type, icon, parent_id, id_parent, child_id, b_children AS children, nm_login, nm_space, hierarchyname,
+CASE WHEN folder_owner IS NULL THEN N'' ELSE folder_owner END AS folder_owner,
 folder, currency, status, numpayees
-
-from (
-
+FROM
+(
 SELECT
 accs.num_generations,
-at.name as account_type,
-'account.gif' as icon,
-accs.id_ancestor as parent_id,
+at.name AS account_type,
+'account.gif' AS icon,
+accs.id_ancestor AS parent_id,
 accs.id_parent,
-accs.id_descendent as child_id,
+accs.id_descendent AS child_id,
 accs.b_children,
 map.nm_login nm_login,
 map.nm_space nm_space,
-map.nm_login as hierarchyname,
-ownmap.nm_login as folder_owner,
+CASE
+                WHEN (htac.c_firstname IS NULL OR htac.c_firstname = ' ') AND (htac.c_lastname IS NULL OR htac.c_lastname = ' ') THEN map.nm_login
+                WHEN htac.c_firstname IS NULL OR htac.c_firstname = ' ' THEN translate(htac.c_lastname using nchar_cs)
+                WHEN htac.c_lastname IS NULL OR htac.c_lastname = ' ' THEN translate(htac.c_firstname using nchar_cs)
+                ELSE translate(concat(htac.c_firstname, concat(' ', htac.c_lastname)) using nchar_cs)
+              END AS hierarchyname,
+CASE
+                WHEN (otac.c_firstname IS NULL OR otac.c_firstname = ' ') AND (otac.c_lastname IS NULL OR otac.c_lastname = ' ') THEN ownmap.nm_login
+                WHEN otac.c_firstname IS NULL OR otac.c_firstname = ' ' THEN translate(otac.c_lastname using nchar_cs)
+                WHEN otac.c_lastname IS NULL OR otac.c_lastname = ' ' THEN translate(otac.c_firstname using nchar_cs)
+                ELSE translate(concat(otac.c_firstname, concat(' ', otac.c_lastname)) using nchar_cs)
+              END as folder_owner,
 descmap.d_count folder,
 tav.c_currency currency,
 accstate.status status,
 accs.numpayees
-
 FROM
-(select
+(
+SELECT
 aa.num_generations,
 aa.id_ancestor,
-aa2.id_ancestor as id_parent,
+aa2.id_ancestor AS id_parent,
 aa.id_descendent,
 aa3.b_children,
 COUNT(1) numpayees
-from t_account_ancestor aa
-inner join t_account_ancestor aa2 on aa2.id_descendent = aa.id_ancestor and %%REF_DATE%% between aa2.vt_start and aa2.vt_end and aa2.num_generations=1
-inner join t_account_ancestor aa3 on aa3.id_descendent = aa.id_ancestor and %%REF_DATE%% between aa3.vt_start and aa3.vt_end and aa3.num_generations=0 and aa3.id_ancestor = aa.id_ancestor
-left outer join t_payment_redirection pr on aa.id_descendent = pr.id_payer
-                                         and %%REF_DATE%% BETWEEN pr.vt_start and pr.vt_end
-                                         and pr.id_payee != pr.id_payer
-where 1=1
-and aa.id_descendent = %%DESCENDENT%%
-and %%REF_DATE%% between aa.vt_start and aa.vt_end
-group by aa.num_generations, aa.id_ancestor, aa2.id_ancestor, aa.id_descendent, aa3.b_children) accs
- inner join t_account acc on acc.id_acc = accs.id_ancestor
- inner join t_account_type at on at.id_type = acc.id_type
+FROM t_account_ancestor aa
+INNER JOIN t_account_ancestor aa2 ON aa2.id_descendent = aa.id_ancestor AND %%REF_DATE%% BETWEEN aa2.vt_start AND aa2.vt_end AND aa2.num_generations=1
+INNER JOIN t_account_ancestor aa3 ON aa3.id_descendent = aa.id_ancestor AND %%REF_DATE%% BETWEEN aa3.vt_start AND aa3.vt_end AND aa3.num_generations=0 
+AND aa3.id_ancestor = aa.id_ancestor
+LEFT OUTER JOIN t_payment_redirection pr ON aa.id_descendent = pr.id_payer
+                                         AND %%REF_DATE%% BETWEEN pr.vt_start AND pr.vt_end AND pr.id_payee != pr.id_payer
+WHERE 1=1
+AND aa.id_descendent = %%DESCENDENT%%
+AND %%REF_DATE%% BETWEEN aa.vt_start AND aa.vt_end
+GROUP BY aa.num_generations, aa.id_ancestor, aa2.id_ancestor, aa.id_descendent, aa3.b_children) accs
+ INNER JOIN t_account acc ON acc.id_acc = accs.id_ancestor
+ INNER JOIN t_account_type at ON at.id_type = acc.id_type
   INNER  JOIN t_av_internal tav ON tav.id_acc = accs.id_ancestor
 INNER JOIN t_account_mapper map ON map.id_acc = accs.id_ancestor  
-		INNER JOIN t_namespace ns on ns.nm_space = map.nm_space 
-
+		INNER JOIN t_namespace ns ON ns.nm_space = map.nm_space
 			AND ns.tx_typ_space IN ('system_mps', 'system_user', 'system_auth')
   LEFT OUTER  JOIN t_impersonate imp ON imp.id_acc = accs.id_ancestor
 LEFT OUTER JOIN t_account_mapper ownmap ON ownmap.id_acc = imp.id_owner  
-		LEFT OUTER JOIN t_namespace ownns on ownns.nm_space = ownmap.nm_space 
-
+		LEFT OUTER JOIN t_namespace ownns ON ownns.nm_space = ownmap.nm_space
 			AND ownns.tx_typ_space IN ('system_mps', 'system_user', 'system_auth')
-left outer join t_account ownacc on ownacc.id_acc = imp.id_owner
- left outer join t_account_type ownat on ownat.id_type = ownacc.id_type
+LEFT OUTER JOIN t_account ownacc ON ownacc.id_acc = imp.id_owner
+ LEFT OUTER JOIN t_account_type ownat ON ownat.id_type = ownacc.id_type
   LEFT OUTER JOIN (
-select at.id_type, CASE WHEN COUNT(adm.id_type) > 0 THEN 1 ELSE 0 END d_count from
+SELECT at.id_type, CASE WHEN COUNT(adm.id_type) > 0 THEN 1 ELSE 0 END d_count FROM
   t_account_type at
-  left outer join t_acctype_descendenttype_map adm on at.id_type = adm.id_type
-  group by at.id_type
-) descmap on descmap.id_type = at.id_type
+  LEFT OUTER JOIN t_acctype_descendenttype_map adm ON at.id_type = adm.id_type
+  GROUP BY at.id_type
+) descmap ON descmap.id_type = at.id_type
+INNER JOIN t_enum_data ed ON ed.nm_enum_data = 'metratech.com/accountcreation/ContactType/Bill-To'
+LEFT OUTER JOIN t_av_contact htac ON htac.id_acc = accs.id_ancestor AND htac.c_contacttype = ed.id_enum_data
+LEFT OUTER JOIN t_av_contact otac ON otac.id_acc = ownacc.id_acc AND otac.c_contacttype = ed.id_enum_data
 INNER JOIN t_account_state accstate ON
       accstate.id_acc = accs.id_ancestor AND
       %%REF_DATE%% BETWEEN accstate.vt_start AND accstate.vt_end
@@ -69,5 +78,5 @@ WHERE 1=1
 AND at.b_IsVisibleInHierarchy = '1'
 AND ns.tx_typ_space = '%%TYPE_SPACE%%' 
 ) a
-where 1=1
-ORDER BY num_generations desc;
+WHERE 1=1
+ORDER BY num_generations desc

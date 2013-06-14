@@ -49,7 +49,7 @@ from t_vw_base_props
   
   AND t_po.id_po not in 
   (
-    select id_po from t_acc_template_subs ats 
+    select id_po from t_acc_template_subs_pub ats 
 	LEFT OUTER JOIN t_acc_template act ON act.id_acc_template = ats.id_acc_template
 	WHERE id_folder = %%FOLDERACCOUNT%% and id_acc_type = %%ACCOUNT_TYPE%%
 	and id_group is null
@@ -58,7 +58,7 @@ from t_vw_base_props
   AND t_po.id_po not in 
   (
     select sub.id_po 
-    from t_acc_template_subs asub
+    from t_acc_template_subs_pub asub
     inner join t_group_sub gs on asub.id_group = gs.id_group
     inner join t_sub sub on sub.id_group = gs.id_group
 	left outer join t_acc_template act on act.id_acc_template = asub.id_acc_template

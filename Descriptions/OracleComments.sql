@@ -1512,13 +1512,9 @@ COMMENT ON COLUMN T_EXPORT_EXECUTE_AUDIT.C_REP_TYPE                      IS 'Rep
 ;
 COMMENT ON COLUMN T_EXPORT_EXECUTE_AUDIT.C_REP_DEF_SOURCE                IS 'Report Definition Source, whether Query or Crystal. Currently we only support ?Query? type. This field may be used in future if we decide to support some other type.  '
 ;
-COMMENT ON COLUMN T_EXPORT_EXECUTE_AUDIT.C_REP_QUERY_SOURCE              IS 'Report Query Source points to the actual report query folder. Currently all reports queries configured in ?\DataExport\config\queries?.'
-;
 COMMENT ON COLUMN T_EXPORT_EXECUTE_AUDIT.C_REP_QUERY_TAG                 IS 'Actual Query Tag for a given report. For example, __GET_ALL_ACCOUNTS__'
 ;
 COMMENT ON COLUMN T_EXPORT_EXECUTE_AUDIT.C_REP_OUTPUT_TYPE               IS 'Report Output Type, whether CSV, TXT or XML'
-;
-COMMENT ON COLUMN T_EXPORT_EXECUTE_AUDIT.C_XMLCONFIG_LOC                 IS 'The report output field definition config file location, \DataExport\Config\fieldDef. '
 ;
 COMMENT ON COLUMN T_EXPORT_EXECUTE_AUDIT.C_REP_DISTRIB_TYPE              IS 'Report Delivery Method whether Disk or FTP'
 ;
@@ -1605,8 +1601,6 @@ COMMENT ON COLUMN T_EXPORT_REPORT_INSTANCE.DT_DEACTIVATE                   IS 'I
 ;
 COMMENT ON COLUMN T_EXPORT_REPORT_INSTANCE.C_REP_OUTPUT_TYPE               IS 'Report Output Type, whether CSV, TXT or XML'
 ;
-COMMENT ON COLUMN T_EXPORT_REPORT_INSTANCE.C_XMLCONFIG_LOC                 IS 'The report output field definition config file location, \DataExport\Config\fieldDef.'
-;
 COMMENT ON COLUMN T_EXPORT_REPORT_INSTANCE.C_REP_DISTRIB_TYPE              IS 'Report Delivery Method whether Disk or FTP'
 ;
 COMMENT ON COLUMN T_EXPORT_REPORT_INSTANCE.C_DESTN_DIRECT                  IS 'Not in use'
@@ -1663,8 +1657,6 @@ COMMENT ON COLUMN T_EXPORT_REPORTS.C_REP_TYPE                 IS 'Whether the re
 ;
 COMMENT ON COLUMN T_EXPORT_REPORTS.C_REP_DEF_SOURCE           IS 'Report Definition Source, whether Query or Crystal. Currently we only support ?Query? type. This field may be used in future if we decide to support some other type.'
 ;
-COMMENT ON COLUMN T_EXPORT_REPORTS.C_REP_QUERY_SOURCE         IS 'Report Query Source points to the actual report query folder. Currently all reports queries configured in ?\DataExport\config\queries?.'
-;
 COMMENT ON COLUMN T_EXPORT_REPORTS.C_REP_QUERY_TAG            IS 'Actual Query Tag for a given report. For example, __GET_ALL_ACCOUNTS__'
 ;
 COMMENT ON COLUMN T_EXPORT_REPORTS.C_REPORT_DESC              IS 'Report Description'
@@ -1720,8 +1712,6 @@ COMMENT ON COLUMN T_EXPORT_WORKQUEUE.C_REP_DEF_SOURCE                IS 'Report 
 COMMENT ON COLUMN T_EXPORT_WORKQUEUE.C_REP_QUERY_TAG                 IS 'Actual Query Tag for a given report. For example, __GET_ALL_ACCOUNTS__'
 ;
 COMMENT ON COLUMN T_EXPORT_WORKQUEUE.C_REP_OUTPUT_TYPE               IS 'Report Output Type, whether CSV, TXT or XML'
-;
-COMMENT ON COLUMN T_EXPORT_WORKQUEUE.C_XMLCONFIG_LOC                 IS 'The report output field definition config file location, \DataExport\Config\fieldDef. '
 ;
 COMMENT ON COLUMN T_EXPORT_WORKQUEUE.C_REP_DISTRIB_TYPE              IS 'Report Delivery Method whether Disk or FTP'
 ;

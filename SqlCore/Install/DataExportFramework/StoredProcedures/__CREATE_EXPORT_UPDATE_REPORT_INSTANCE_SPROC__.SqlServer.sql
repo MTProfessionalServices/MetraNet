@@ -6,8 +6,7 @@
       @outputType				VARCHAR(10),
       @distributionType		VARCHAR(50),
       @destination			VARCHAR(500),
-      @ReportExecutionType	CHAR(10),
-      @xmlConfigLocation		VARCHAR(255)	= NULL,
+      @ReportExecutionType	CHAR(10),      
       @dtActivate				DATETIME		= NULL,
       @dtDeActivate			DATETIME		= NULL,
       @destnAccessUser		VARCHAR(50)		= NULL,
@@ -28,16 +27,14 @@
       BEGIN
 	      SET NOCOUNT ON
 	      BEGIN TRAN
-	      DECLARE @ErrorMessage VARCHAR(100)
-		  
-	      SET @xmlConfigLocation = '\DataExport\Config\fieldDef'
+	      DECLARE @ErrorMessage VARCHAR(100)	  
+	    
 
 	      UPDATE	t_export_report_instance SET
 			      c_rep_instance_desc					= @desc,
 			      dt_activate							= @dtActivate,
 			      dt_deactivate						= @dtDeactivate,
-			      c_rep_output_type					= @outputType,
-			      c_xmlConfig_loc						= @xmlConfigLocation, 
+			      c_rep_output_type					= @outputType,			      
 			      c_rep_distrib_type					= @distributionType, 
 			      c_report_destn						= @destination, 
 			      c_access_user						= @destnAccessUser, 

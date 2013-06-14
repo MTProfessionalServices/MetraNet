@@ -33,13 +33,7 @@
             <DataType>int32</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <Description></Description>
-        </Parameter>
-        <Parameter>
-            <Name>c_rep_query_source</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>SqlParameter</ReplacementType>
-            <Description></Description>
-        </Parameter>
+        </Parameter>        
         <Parameter>
             <Name>c_rep_query_tag</Name>
             <DataType>int32</DataType>

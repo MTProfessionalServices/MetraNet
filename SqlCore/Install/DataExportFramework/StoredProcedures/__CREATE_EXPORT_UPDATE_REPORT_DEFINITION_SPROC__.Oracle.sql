@@ -4,8 +4,7 @@
                 p_id_rep IN NUMBER DEFAULT NULL ,
                 p_c_rep_type IN VARCHAR2 DEFAULT NULL ,
                 p_c_report_desc IN VARCHAR2 DEFAULT NULL ,
-                p_c_rep_def_source IN VARCHAR2 DEFAULT NULL ,
-                p_c_rep_query_source IN VARCHAR2 DEFAULT NULL ,
+                p_c_rep_def_source IN VARCHAR2 DEFAULT NULL ,                
                 p_c_rep_query_tag IN VARCHAR2 DEFAULT NULL ,
                 p_c_prevent_adhoc_execution IN NUMBER DEFAULT NULL ,
                 cv_1 IN OUT SYS_REFCURSOR
@@ -22,8 +21,7 @@
                  UPDATE t_export_reports
                     SET c_rep_type = p_c_rep_type,
                         c_report_desc = NVL(p_c_report_desc, p_c_report_title),
-                        c_rep_def_source = p_c_rep_def_source,
-                        c_rep_query_source = 'DataExport\Config\queries',
+                        c_rep_def_source = p_c_rep_def_source,                        
                         c_rep_query_tag = p_c_rep_query_tag,
                         c_prevent_adhoc_execution = p_c_prevent_adhoc_execution
                     WHERE id_rep = p_id_rep;

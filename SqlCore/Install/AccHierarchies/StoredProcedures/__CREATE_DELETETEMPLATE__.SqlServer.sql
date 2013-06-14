@@ -9,6 +9,9 @@
 				-- delete the subscriptions in this template
 		 		delete from t_acc_template_subs 
 					where id_acc_template = @p_id_template
+				-- delete the subscriptions in this template
+		 		delete from t_acc_template_subs_pub 
+					where id_acc_template = @p_id_template
 				-- delete public properties for this template
 		 		delete from t_acc_template_props_pub
 					where id_acc_template = @p_id_template

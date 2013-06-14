@@ -11,8 +11,18 @@ accs.id_descendent as child_id,
 accs.b_children,
 map.nm_login nm_login,
 map.nm_space nm_space,
-map.nm_login as hierarchyname,
-ownmap.nm_login as folder_owner,
+CASE
+                WHEN (htac.c_firstname IS NULL OR htac.c_firstname = ' ') AND (htac.c_lastname IS NULL OR htac.c_lastname = ' ') THEN map.nm_login
+                WHEN htac.c_firstname IS NULL OR htac.c_firstname = ' ' THEN translate(htac.c_lastname using nchar_cs)
+                WHEN htac.c_lastname IS NULL OR htac.c_lastname = ' ' THEN translate(htac.c_firstname using nchar_cs)
+                ELSE translate(concat(htac.c_firstname, concat(' ', htac.c_lastname)) using nchar_cs)
+              END AS hierarchyname,
+CASE
+                WHEN (otac.c_firstname IS NULL OR otac.c_firstname = ' ') AND (otac.c_lastname IS NULL OR otac.c_lastname = ' ') THEN ownmap.nm_login
+                WHEN otac.c_firstname IS NULL OR otac.c_firstname = ' ' THEN translate(otac.c_lastname using nchar_cs)
+                WHEN otac.c_lastname IS NULL OR otac.c_lastname = ' ' THEN translate(otac.c_firstname using nchar_cs)
+                ELSE translate(concat(otac.c_firstname, concat(' ', otac.c_lastname)) using nchar_cs)
+              END as folder_owner,
 descmap.d_count folder,
 tav.c_currency currency,
 accstate.status status,
@@ -51,6 +61,9 @@ LEFT OUTER JOIN (select at.id_type, CASE WHEN COUNT(adm.id_type) > 0 THEN 1 ELSE
 left outer join t_acctype_descendenttype_map adm on at.id_type = adm.id_type
 group by at.id_type
 ) descmap on descmap.id_type = at.id_type
+INNER JOIN t_enum_data ed ON ed.nm_enum_data = 'metratech.com/accountcreation/ContactType/Bill-To'
+LEFT OUTER JOIN t_av_contact htac ON htac.id_acc = accs.id_descendent AND htac.c_contacttype = ed.id_enum_data
+LEFT OUTER JOIN t_av_contact otac ON otac.id_acc = ownacc.id_acc AND otac.c_contacttype = ed.id_enum_data
 INNER JOIN t_account_state accstate ON
 accstate.id_acc = accs.id_descendent AND
 accstate.status IN (%%EXCLUDED_STATES%%) AND
@@ -62,5 +75,5 @@ AND ('%%USER_NAME%%' = ' ' OR map.nm_login LIKE '%%USER_NAME%%')
 AND ns.tx_typ_space = '%%TYPE_SPACE%%') a
 where 1=1
 AND RowNumber > %%PAGE_SIZE%% * (%%PAGE_NUMBER%% -1)
-AND ROWNUM < %%PAGE_SIZE%%
+AND ROWNUM <= %%PAGE_SIZE%%
 ORDER BY RowNumber

@@ -2524,16 +2524,10 @@ EXEC sp_addextendedproperty 'MS_Description', 'Report Type', 'Schema', dbo, 'tab
 EXEC sp_addextendedproperty 'MS_Description', 'Report Definition Source, whether Query or Crystal. Currently we only support ?Query? type. This field may be used in future if we decide to support some other type.  ', 'Schema', dbo, 'table', t_export_execute_audit, 'column', c_rep_def_source
 ;
 
-EXEC sp_addextendedproperty 'MS_Description', 'Report Query Source points to the actual report query folder. Currently all reports queries configured in ?\DataExport\config\queries?.', 'Schema', dbo, 'table', t_export_execute_audit, 'column', c_rep_query_source
-;
-
 EXEC sp_addextendedproperty 'MS_Description', 'Actual Query Tag for a given report. For example, __GET_ALL_ACCOUNTS__', 'Schema', dbo, 'table', t_export_execute_audit, 'column', c_rep_query_tag
 ;
 
 EXEC sp_addextendedproperty 'MS_Description', 'Report Output Type, whether CSV, TXT or XML', 'Schema', dbo, 'table', t_export_execute_audit, 'column', c_rep_output_type
-;
-
-EXEC sp_addextendedproperty 'MS_Description', 'The report output field definition config file location, \DataExport\Config\fieldDef. ', 'Schema', dbo, 'table', t_export_execute_audit, 'column', c_xmlConfig_loc
 ;
 
 EXEC sp_addextendedproperty 'MS_Description', 'Report Delivery Method whether Disk or FTP', 'Schema', dbo, 'table', t_export_execute_audit, 'column', c_rep_distrib_type
@@ -2658,9 +2652,6 @@ EXEC sp_addextendedproperty 'MS_Description', 'Instance Deactivation Date', 'Sch
 EXEC sp_addextendedproperty 'MS_Description', 'Report Output Type, whether CSV, TXT or XML', 'Schema', dbo, 'table', t_export_report_instance, 'column', c_rep_output_type
 ;
 
-EXEC sp_addextendedproperty 'MS_Description', 'The report output field definition config file location, \DataExport\Config\fieldDef.', 'Schema', dbo, 'table', t_export_report_instance, 'column', c_xmlConfig_loc
-;
-
 EXEC sp_addextendedproperty 'MS_Description', 'Report Delivery Method whether Disk or FTP', 'Schema', dbo, 'table', t_export_report_instance, 'column', c_rep_distrib_type
 ;
 
@@ -2737,9 +2728,6 @@ EXEC sp_addextendedproperty 'MS_Description', 'Whether the report type is Query 
 EXEC sp_addextendedproperty 'MS_Description', 'Report Definition Source, whether Query or Crystal. Currently we only support ?Query? type. This field may be used in future if we decide to support some other type.', 'Schema', dbo, 'table', t_export_reports, 'column', c_rep_def_source
 ;
 
-EXEC sp_addextendedproperty 'MS_Description', 'Report Query Source points to the actual report query folder. Currently all reports queries configured in ?\DataExport\config\queries?.', 'Schema', dbo, 'table', t_export_reports, 'column', c_rep_query_source
-;
-
 EXEC sp_addextendedproperty 'MS_Description', 'Actual Query Tag for a given report. For example, __GET_ALL_ACCOUNTS__', 'Schema', dbo, 'table', t_export_reports, 'column', c_rep_query_tag
 ;
 
@@ -2805,16 +2793,10 @@ EXEC sp_addextendedproperty 'MS_Description', 'Report Type', 'Schema', dbo, 'tab
 EXEC sp_addextendedproperty 'MS_Description', 'Report Definition Source, whether Query or Crystal. Currently we only support ?Query? type. This field may be used in future if we decide to support some other type.  ', 'Schema', dbo, 'table', t_export_workqueue, 'column', c_rep_def_source
 ;
 
-EXEC sp_addextendedproperty 'MS_Description', 'Report Query Source points to the actual report query folder. Currently all reports queries configured in ?\DataExport\config\queries?.', 'Schema', dbo, 'table', t_export_workqueue, 'column', c_rep_query_source
-;
-
 EXEC sp_addextendedproperty 'MS_Description', 'Actual Query Tag for a given report. For example, __GET_ALL_ACCOUNTS__', 'Schema', dbo, 'table', t_export_workqueue, 'column', c_rep_query_tag
 ;
 
 EXEC sp_addextendedproperty 'MS_Description', 'Report Output Type, whether CSV, TXT or XML', 'Schema', dbo, 'table', t_export_workqueue, 'column', c_rep_output_type
-;
-
-EXEC sp_addextendedproperty 'MS_Description', 'The report output field definition config file location, \DataExport\Config\fieldDef. ', 'Schema', dbo, 'table', t_export_workqueue, 'column', c_xmlConfig_loc
 ;
 
 EXEC sp_addextendedproperty 'MS_Description', 'Report Delivery Method whether Disk or FTP', 'Schema', dbo, 'table', t_export_workqueue, 'column', c_rep_distrib_type
@@ -2921,16 +2903,10 @@ EXEC sp_addextendedproperty 'MS_Description', 'Report Type', 'Schema', dbo, 'tab
 EXEC sp_addextendedproperty 'MS_Description', 'Report Definition Source, whether Query or Crystal. Currently we only support ?Query? type. This field may be used in future if we decide to support some other type.  ', 'Schema', dbo, 'table', t_export_workqueue_temp, 'column', c_rep_def_source
 ;
 
-EXEC sp_addextendedproperty 'MS_Description', 'Report Query Source points to the actual report query folder. Currently all reports queries configured in ?\DataExport\config\queries?.', 'Schema', dbo, 'table', t_export_workqueue_temp, 'column', c_rep_query_source
-;
-
 EXEC sp_addextendedproperty 'MS_Description', 'Actual Query Tag for a given report. For example, __GET_ALL_ACCOUNTS__', 'Schema', dbo, 'table', t_export_workqueue_temp, 'column', c_rep_query_tag
 ;
 
 EXEC sp_addextendedproperty 'MS_Description', 'Report Output Type, whether CSV, TXT or XML', 'Schema', dbo, 'table', t_export_workqueue_temp, 'column', c_rep_output_type
-;
-
-EXEC sp_addextendedproperty 'MS_Description', 'The report output field definition config file location, \DataExport\Config\fieldDef. ', 'Schema', dbo, 'table', t_export_workqueue_temp, 'column', c_xmlConfig_loc
 ;
 
 EXEC sp_addextendedproperty 'MS_Description', 'Report Delivery Method whether Disk or FTP', 'Schema', dbo, 'table', t_export_workqueue_temp, 'column', c_rep_distrib_type

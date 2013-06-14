@@ -41,6 +41,9 @@
 				alter table T_ACC_TEMPLATE_SUBS add  constraint FK2_T_ACC_TEMPLATE_SUBS
 				foreign key (ID_ACC_TEMPLATE) references T_ACC_TEMPLATE (ID_ACC_TEMPLATE) 
 
+				alter table T_ACC_TEMPLATE_SUBS_PUB add  constraint FK2_T_ACC_TEMPLATE_SUBS_PUB
+				foreign key (ID_ACC_TEMPLATE) references T_ACC_TEMPLATE (ID_ACC_TEMPLATE) 
+
 				alter table t_aggregate add constraint fk1_t_aggregate 
 				foreign key(id_usage_cycle) references t_usage_cycle(id_usage_cycle)
 

@@ -50,6 +50,9 @@ BEGIN
    DELETE FROM t_acc_template_subs
          WHERE id_group = v_groupid AND id_po IS NULL;
 
+   DELETE FROM t_acc_template_subs_pub
+         WHERE id_group = v_groupid AND id_po IS NULL;
+
    /* Eventually we would need to make sure that the rules for each icb rate schedule are removed from the proper parameter tables */
    DELETE FROM t_pl_map
          WHERE id_sub = p_id_sub;

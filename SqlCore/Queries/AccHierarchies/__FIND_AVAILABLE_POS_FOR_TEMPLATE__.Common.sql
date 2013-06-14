@@ -42,13 +42,13 @@ from t_vw_base_props
   
   AND t_po.id_po not in 
   (
-    select id_po from t_acc_template_subs where id_acc_template = %%ACC_TEMPLATE%% and id_group is null
+    select id_po from t_acc_template_subs_pub where id_acc_template = %%ACC_TEMPLATE%% and id_group is null
   )
 
   AND t_po.id_po not in 
   (
     select sub.id_po 
-    from t_acc_template_subs asub
+    from t_acc_template_subs_pub asub
     inner join t_group_sub gs on asub.id_group = gs.id_group
     inner join t_sub sub on sub.id_group = gs.id_group
     where id_acc_template = %%ACC_TEMPLATE%%

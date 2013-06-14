@@ -5,14 +5,13 @@
       @ExecuteStartDateTime		DATETIME,
       @ExecuteCompleteDateTime	DATETIME,
       @Descr						VARCHAR(500),
-      @executionParamValues		VARCHAR(1000),
-      @fieldDefFileUsed				VARCHAR(255) = NULL
+      @executionParamValues		VARCHAR(1000)     
       AS
       BEGIN
 	      SET NOCOUNT ON
 	      INSERT INTO t_export_execute_audit ( id_work_queue, id_rep, id_rep_instance_id, id_schedule, c_sch_type, dt_queued,  
 			      dt_sched_run, c_use_database, c_rep_title, c_rep_type, c_rep_def_source, 
-			      c_rep_query_source, c_rep_query_tag, c_rep_output_type, c_xmlConfig_loc, 
+			      c_rep_query_tag, c_rep_output_type,
 			      c_rep_distrib_type, c_rep_destn, c_destn_access_user, c_use_quoted_identifiers,
 			      c_generate_control_file, c_control_file_delivery_location, c_output_execute_params_info,
 			      c_exec_type, c_compressreport, c_compressthreshold, c_ds_id, c_eop_step_instance_name, 
@@ -20,7 +19,7 @@
 			      c_run_result_status, c_run_result_descr, c_execute_paraminfo, c_queuerow_source, c_output_file_name)
 	      SELECT  id_work_queue, id_rep, id_rep_instance_id, id_schedule, c_sch_type, dt_queued, 
 			      dt_sched_run, ISNULL(c_use_database, '(local)'), c_rep_title, c_rep_type, c_rep_def_source, 
-			      c_rep_query_source, c_rep_query_tag, c_rep_output_type, ISNULL(@fieldDefFileUsed, 'NONE USED'), 
+			      c_rep_query_tag, c_rep_output_type,
 			      c_rep_distrib_type, c_rep_destn, c_destn_access_user, c_use_quoted_identifiers, 
 			      c_generate_control_file, c_control_file_delivery_location, c_output_execute_params_info,
 			      c_exec_type, c_compressreport, c_compressthreshold, c_ds_id, c_eop_step_instance_name, 			

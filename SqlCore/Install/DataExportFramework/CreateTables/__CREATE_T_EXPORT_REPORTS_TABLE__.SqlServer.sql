@@ -4,7 +4,6 @@
 			[c_report_title] [varchar](50) NOT NULL,
 			[c_rep_type] [varchar](50) NOT NULL,
 			[c_rep_def_source] [varchar](100) NULL,
-			[c_rep_query_source] [varchar](100) NULL,
 			[c_rep_query_tag] [varchar](100) NULL,
 			[c_report_desc] [varchar](255) NULL,
 			[c_prevent_adhoc_execution] [INT] NULL CONSTRAINT [DF_t_export_report_c_prevent_adhoc_execution]  DEFAULT (0),

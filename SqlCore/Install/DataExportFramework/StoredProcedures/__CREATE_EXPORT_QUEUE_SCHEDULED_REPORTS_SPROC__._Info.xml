@@ -87,13 +87,7 @@
             <DataType>int32</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <Description></Description>
-        </Parameter>
-        <Parameter>
-            <Name>c_rep_query_source</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>SqlParameter</ReplacementType>
-            <Description></Description>
-        </Parameter>
+        </Parameter>        
         <Parameter>
             <Name>c_rep_query_tag</Name>
             <DataType>int32</DataType>
@@ -105,13 +99,7 @@
             <DataType>int32</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <Description></Description>
-        </Parameter>
-        <Parameter>
-            <Name>c_xmlConfig_loc</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>SqlParameter</ReplacementType>
-            <Description></Description>
-        </Parameter>
+        </Parameter>        
         <Parameter>
             <Name>c_rep_distrib_type</Name>
             <DataType>int32</DataType>

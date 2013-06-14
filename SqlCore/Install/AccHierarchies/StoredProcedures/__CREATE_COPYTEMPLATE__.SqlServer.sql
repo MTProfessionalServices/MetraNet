@@ -59,11 +59,11 @@
 							t_acc_template_props existing where 
 							existing.id_acc_template = @parentTemplateID
 
-							insert into t_acc_template_subs (id_po, id_group, id_acc_template,
+							insert into t_acc_template_subs_pub (id_po, id_group, id_acc_template,
 							vt_start,vt_end)
 						  select existing.id_po, existing.id_group, @nexttemplate,
 							existing.vt_start,existing.vt_end
-							from t_acc_template_subs existing
+							from t_acc_template_subs_pub existing
 							where
 							existing.id_acc_template = @parentTemplateID
 							

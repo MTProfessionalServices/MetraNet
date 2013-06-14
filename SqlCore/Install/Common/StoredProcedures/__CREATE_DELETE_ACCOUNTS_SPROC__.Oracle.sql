@@ -543,6 +543,16 @@ BEGIN
                                                       SELECT ID
                                                         FROM tmp_accountidstable));
 
+   DELETE FROM t_acc_template_subs_pub
+         WHERE id_acc_template IN (
+                                 SELECT id_acc_template
+                                   FROM t_acc_template
+                                  WHERE id_folder IN (
+                                                      SELECT ID
+                                                        FROM tmp_accountidstable));
+
+   DBMS_OUTPUT.put_line ('-- Deleting from t_acc_template_subs_pub --');
+
    IF (SQLCODE <> 0)
    THEN
       DBMS_OUTPUT.put_line ('Cannot delete from t_acc_template_subs table');

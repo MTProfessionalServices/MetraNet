@@ -5,8 +5,7 @@
       @outputType				VARCHAR(10),
       @distributionType		VARCHAR(50),
       @destination			VARCHAR(500),
-      @ReportExecutionType	CHAR(10),
-      @xmlConfigLocation		VARCHAR(255)	= NULL,
+      @ReportExecutionType	CHAR(10),      
       @c_report_online		BIT				= NULL,
       @dtActivate				DATETIME		= NULL,
       @dtDeActivate			DATETIME		= NULL,
@@ -32,17 +31,16 @@
 	      SET NOCOUNT ON
 	      BEGIN TRAN
 	      DECLARE @ErrorMessage VARCHAR(100)
-	      SET @xmlConfigLocation = 'DataExport\Config\fieldDef'
-
+	      
 	      INSERT INTO t_export_report_instance ( 
 				      c_rep_instance_desc, id_rep, c_report_online, dt_activate, 
-				      dt_deactivate, c_rep_output_type, c_xmlConfig_loc, c_rep_distrib_type, 
+				      dt_deactivate, c_rep_output_type, c_rep_distrib_type, 
 				      c_report_destn, c_destn_direct, c_access_user, c_access_pwd, 
 				      c_generate_control_file, c_control_file_delivery_location, c_output_execute_params_info,
 				      c_use_quoted_identifiers, c_exec_type, c_compressreport, c_compressthreshold, 
 				      c_ds_id, c_eop_step_instance_name, dt_last_run, dt_next_run, c_output_file_name)
 	      VALUES	(	@desc, @id_rep, ISNULL(@c_report_online, 0), ISNULL(@dtActivate, @system_datetime),
-				      @dtDeActivate, @outputType, @xmlConfigLocation, @distributionType, 
+				      @dtDeActivate, @outputType, @distributionType, 
 				      @destination, ISNULL(@directMoveToDestn, 1), @destnAccessUser, @destnAccessPwd, 
 				      @createcontrolfile, @controlfiledelivery, ISNULL(@outputExecuteParams, 0),
 				      @UseQuotedIdentifiers, @ReportExecutionType, ISNULL(@compressreport, 0), ISNULL(@compressthreshold, -1), 

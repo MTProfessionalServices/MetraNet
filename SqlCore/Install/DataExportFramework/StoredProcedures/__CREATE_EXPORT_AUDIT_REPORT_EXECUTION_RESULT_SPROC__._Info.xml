@@ -45,13 +45,7 @@
             <DataType>int32</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <Description></Description>
-        </Parameter>
-        <Parameter>
-            <Name>fieldDefFileUsed</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>SqlParameter</ReplacementType>
-            <Description></Description>
-        </Parameter>
+        </Parameter>       
         <Parameter>
             <Name>MTLOG</Name>
             <DataType>int32</DataType>

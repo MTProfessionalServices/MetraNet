@@ -54,15 +54,15 @@
 					BEGIN
 						wkid := SYS_GUID();
 						INSERT INTO t_export_workqueue(id_work_queue, id_rep, id_rep_instance_id, id_schedule, c_sch_type, dt_queued, dt_sched_run,
-								  c_rep_title, c_rep_type, c_rep_def_source, c_rep_query_source,
-								  c_rep_query_tag, c_rep_output_type, c_xmlConfig_loc, c_rep_distrib_type, c_rep_destn,
+								  c_rep_title, c_rep_type, c_rep_def_source,
+								  c_rep_query_tag, c_rep_output_type, c_rep_distrib_type, c_rep_destn,
 								  c_destn_direct, c_destn_access_user, c_destn_access_pwd, c_ds_id, c_eop_step_instance_name,
 								  c_generate_control_file, c_control_file_delivery_locati, c_output_execute_params_info,
 								  c_compressreport, c_compressthreshold, c_exec_type, c_use_quoted_identifiers,
 								  dt_last_run, dt_next_run, c_current_process_stage, c_param_name_values, id_run, c_queuerow_source, c_output_file_name)
 						SELECT    wkid, trpi.id_rep, trpi.id_rep_instance_id, NULL, NULL, p_system_datetime, p_system_datetime,
-								  trp.c_report_title, trp.c_rep_type,trp.c_rep_def_source, trp.c_rep_query_source,
-								  trp.c_rep_query_tag, trpi.c_rep_output_type, trpi.c_xmlConfig_loc, trpi.c_rep_distrib_type, trpi.c_report_destn,
+								  trp.c_report_title, trp.c_rep_type,trp.c_rep_def_source,
+								  trp.c_rep_query_tag, trpi.c_rep_output_type, trpi.c_rep_distrib_type, trpi.c_report_destn,
 								  trpi.c_destn_direct, trpi.c_access_user, trpi.c_access_pwd, trpi.c_ds_id, trpi.c_eop_step_instance_name,
 								  trpi.c_generate_control_file, trpi.c_control_file_delivery_locati, trpi.c_output_execute_params_info,
 								  trpi.c_compressreport, trpi.c_compressthreshold, 'eop', trpi.c_use_quoted_identifiers,
@@ -96,15 +96,15 @@
 
 			wkid := SYS_GUID();
 			INSERT INTO t_export_workqueue(id_work_queue, id_rep, id_rep_instance_id, id_schedule, c_sch_type, dt_queued, dt_sched_run,
-					   c_rep_title, c_rep_type, c_rep_def_source, c_rep_query_source,
-					   c_rep_query_tag, c_rep_output_type, c_xmlConfig_loc, c_rep_distrib_type, c_rep_destn,
+					   c_rep_title, c_rep_type, c_rep_def_source,
+					   c_rep_query_tag, c_rep_output_type, c_rep_distrib_type, c_rep_destn,
 					   c_destn_direct, c_destn_access_user, c_destn_access_pwd, c_ds_id, c_eop_step_instance_name,
 					   c_generate_control_file, c_control_file_delivery_locati, c_output_execute_params_info,
 					   c_compressreport, c_compressthreshold, c_exec_type, c_use_quoted_identifiers,
 					   dt_last_run, dt_next_run, c_current_process_stage, c_param_name_values, id_run, c_queuerow_source, c_output_file_name)
 			SELECT    wkid, trpi.id_rep, trpi.id_rep_instance_id, NULL, NULL , p_system_datetime , p_system_datetime ,
-					   trp.c_report_title, trp.c_rep_type,trp.c_rep_def_source, trp.c_rep_query_source,
-					   trp.c_rep_query_tag, trpi.c_rep_output_type, trpi.c_xmlConfig_loc, trpi.c_rep_distrib_type, trpi.c_report_destn,
+					   trp.c_report_title, trp.c_rep_type,trp.c_rep_def_source,
+					   trp.c_rep_query_tag, trpi.c_rep_output_type, trpi.c_rep_distrib_type, trpi.c_report_destn,
 					   trpi.c_destn_direct, trpi.c_access_user, trpi.c_access_pwd, trpi.c_ds_id, trpi.c_eop_step_instance_name,
 					   trpi.c_generate_control_file, trpi.c_control_file_delivery_locati, trpi.c_output_execute_params_info,
 					   trpi.c_compressreport, trpi.c_compressthreshold, 'eop', trpi.c_use_quoted_identifiers,

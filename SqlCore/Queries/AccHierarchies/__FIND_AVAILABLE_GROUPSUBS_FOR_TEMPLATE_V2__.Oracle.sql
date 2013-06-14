@@ -32,7 +32,7 @@
       ts.id_group IS NOT NULL AND tg.id_corporate_account = %%CORPORATEACCOUNT%% 
     AND ts.id_po not in 
     (
-      select ts1.id_po from t_acc_template_subs tsubs
+      select ts1.id_po from t_acc_template_subs_pub tsubs
       INNER JOIN t_group_sub tg1 on tsubs.id_group = tg1.id_group
       INNER JOIN t_sub ts1 on ts1.id_group = tg1.id_group
      /* where id_acc_template = at.id_acc_template */

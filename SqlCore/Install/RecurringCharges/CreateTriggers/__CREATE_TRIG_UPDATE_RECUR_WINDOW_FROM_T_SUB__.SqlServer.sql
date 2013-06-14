@@ -74,32 +74,4 @@ declare @temp datetime
   
    INSERT INTO t_recur_window SELECT * FROM #recur_window_holder;
 
-   UPDATE t_recur_window
-SET c_CycleEffectiveEnd = 
- (
-  SELECT MIN(IsNull(c_CycleEffectiveDate,c_SubscriptionEnd)) FROM t_recur_window w2
-    WHERE w2.c__SubscriptionId = t_recur_window.c__SubscriptionId AND t_recur_window.c_PayerStart = w2.c_PayerStart 
-    AND t_recur_window.c_PayerEnd = w2.c_PayerEnd 
-    AND t_recur_window.c_UnitValueStart = w2.c_UnitValueStart 
-    AND t_recur_window.c_UnitValueEnd = w2.c_UnitValueEnd 
-    AND t_recur_window.c_membershipstart = w2.c_membershipstart 
-    AND t_recur_window.c_membershipend = w2.c_membershipend 
-    AND t_recur_window.c__accountid = w2.c__accountid 
-    AND t_recur_window.c__payingaccount = w2.c__payingaccount 
-    AND w2.c_CycleEffectiveDate > t_recur_window.c_CycleEffectiveDate
-)
-WHERE 1=1
-AND EXISTS 
-(SELECT 1 FROM t_recur_window w2
-    WHERE w2.c__SubscriptionId = t_recur_window.c__SubscriptionId 
-    AND t_recur_window.c_PayerStart = w2.c_PayerStart 
-    AND t_recur_window.c_PayerEnd = w2.c_PayerEnd 
-    AND t_recur_window.c_UnitValueStart = w2.c_UnitValueStart 
-    AND t_recur_window.c_UnitValueEnd = w2.c_UnitValueEnd 
-    AND t_recur_window.c_membershipstart = w2.c_membershipstart 
-    AND t_recur_window.c_membershipend = w2.c_membershipend 
-    AND t_recur_window.c__accountid = w2.c__accountid 
-    AND t_recur_window.c__payingaccount = w2.c__payingaccount 
-    AND w2.c_CycleEffectiveDate > t_recur_window.c_CycleEffectiveDate)
-    ;
  end;

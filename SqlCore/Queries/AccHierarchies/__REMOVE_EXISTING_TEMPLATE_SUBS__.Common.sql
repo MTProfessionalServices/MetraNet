@@ -1,3 +1,3 @@
 
-				delete from t_acc_template_subs where id_acc_template = %%TEMPLATEID%%
+				delete from t_acc_template_subs_pub where id_acc_template = %%TEMPLATEID%%
 					

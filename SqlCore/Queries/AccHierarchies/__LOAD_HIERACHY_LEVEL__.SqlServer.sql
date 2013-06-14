@@ -50,8 +50,18 @@ accs.id_descendent as child_id,
 accs.b_children,
 map.nm_login nm_login,
 map.nm_space nm_space,
-map.nm_login as hierarchyname,
-ownmap.nm_login as folder_owner,
+CASE
+                WHEN (htac.c_firstname IS NULL OR htac.c_firstname = '') AND (htac.c_lastname IS NULL OR htac.c_lastname = '') THEN map.nm_login
+                WHEN htac.c_firstname IS NULL OR htac.c_firstname = '' THEN htac.c_lastname
+                WHEN htac.c_lastname IS NULL OR htac.c_lastname = '' THEN htac.c_firstname
+                ELSE (htac.c_firstname + (' ' + htac.c_lastname))
+              END AS hierarchyname,
+CASE
+                WHEN (otac.c_firstname IS NULL OR otac.c_firstname = '') AND (otac.c_lastname IS NULL OR otac.c_lastname = '') THEN ownmap.nm_login
+                WHEN otac.c_firstname IS NULL OR otac.c_firstname = '' THEN otac.c_lastname
+                WHEN otac.c_lastname IS NULL OR otac.c_lastname = '' THEN otac.c_firstname
+                ELSE (otac.c_firstname + (' ' + otac.c_lastname))
+              END as folder_owner,
 descmap.d_count folder,
 tav.c_currency currency,
 accstate.status status,
@@ -74,6 +84,9 @@ LEFT OUTER JOIN t_account_mapper ownmap ON ownmap.id_acc = imp.id_owner
 left outer join t_account ownacc on ownacc.id_acc = imp.id_owner
  left outer join t_account_type ownat on ownat.id_type = ownacc.id_type
   LEFT OUTER JOIN my_types descmap on descmap.id_type = at.id_type
+INNER JOIN dbo.t_enum_data ed ON ed.nm_enum_data = 'metratech.com/accountcreation/contacttype/bill-to'
+  LEFT OUTER JOIN t_av_contact htac ON htac.id_acc = accs.id_descendent AND htac.c_contacttype = ed.id_enum_data
+  LEFT OUTER JOIN t_av_contact otac ON otac.id_acc = ownacc.id_acc AND otac.c_contacttype = ed.id_enum_data
 INNER LOOP JOIN t_account_state accstate ON
       accstate.id_acc = accs.id_descendent AND
       accstate.status IN (%%EXCLUDED_STATES%%) AND

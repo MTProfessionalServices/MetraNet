@@ -12,10 +12,11 @@
             ON acc.id_acc = ancestor.id_descendent
           INNER JOIN t_account_type atype
             ON atype.id_type = acc.id_type
+		  LEFT OUTER JOIN t_acc_tmpl_types tatt ON 1 = 1
         where ancestor.id_ancestor = %%ANCESTOR%%
         AND id_descendent <> 1 /* just in case someone adds the root as an acount at some date */
         AND %%REFDATE%% between ancestor.vt_start AND ancestor.vt_end
-        AND %%ACCTYPE_PREDICATE%%
+        AND (COALESCE(tatt.all_types,0) = 1 OR %%ACCTYPE_PREDICATE%%)
         %%NUMGENERATIONS%%
         %%NOFOLDERS%%
 		

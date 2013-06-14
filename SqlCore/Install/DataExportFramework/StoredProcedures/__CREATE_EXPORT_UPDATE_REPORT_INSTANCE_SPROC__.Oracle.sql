@@ -7,8 +7,7 @@
                 p_outputType IN VARCHAR2 DEFAULT NULL ,
                 p_distributionType IN VARCHAR2 DEFAULT NULL ,
                 p_destination IN VARCHAR2 DEFAULT NULL ,
-                p_ReportExecutionType IN CHAR DEFAULT NULL ,
-                p_xmlConfigLocation IN VARCHAR2 DEFAULT NULL ,
+                p_ReportExecutionType IN CHAR DEFAULT NULL ,                
                 p_dtActivate IN DATE DEFAULT NULL ,
                 p_dtDeActivate IN DATE DEFAULT NULL ,
                 p_destnAccessUser IN VARCHAR2 DEFAULT NULL ,
@@ -27,17 +26,15 @@
                 p_paramDefaultNameValues IN VARCHAR2 DEFAULT NULL 
               )             
               AS
-                 v_xmlConfigLocation VARCHAR2(255) := p_xmlConfigLocation;
                  p_ErrorMessage VARCHAR2(100);
               
               BEGIN
-                 v_xmlConfigLocation := '\DataExport\Config\fieldDef' ;
+                 
                  UPDATE t_export_report_instance
                     SET c_rep_instance_desc = p_desc,
                         dt_activate = p_dtActivate,
                         dt_deactivate = p_dtDeactivate,
-                        c_rep_output_type = p_outputType,
-                        c_xmlConfig_loc = v_xmlConfigLocation,
+                        c_rep_output_type = p_outputType,                        
                         c_rep_distrib_type = p_distributionType,
                         c_report_destn = p_destination,
                         c_access_user = p_destnAccessUser,

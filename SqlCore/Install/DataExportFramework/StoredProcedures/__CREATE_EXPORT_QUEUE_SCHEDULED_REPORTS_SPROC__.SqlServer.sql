@@ -11,8 +11,8 @@ AS
 	DECLARE @id_rep INT, @id_rep_instance_id INT, @id_schedule INT, @c_sch_type VARCHAR(10), @dt_queued DATETIME, @dt_next_run DATETIME, 
 			@c_current_process_stage INT, @c_processing_server VARCHAR(50), @dt_last_run DATETIME,
 			@c_report_title VARCHAR(50), @c_rep_type VARCHAR(10), @c_rep_def_source VARCHAR(100), 
-			@c_rep_query_source VARCHAR(100), @c_rep_query_tag VARCHAR(50), @c_rep_output_type VARCHAR(10), 
-			@c_xmlConfig_loc VARCHAR(255), @c_rep_distrib_type VARCHAR(10), @c_report_destn VARCHAR(255), 
+			@c_rep_query_tag VARCHAR(50), @c_rep_output_type VARCHAR(10), 
+			@c_rep_distrib_type VARCHAR(10), @c_report_destn VARCHAR(255), 
 			@c_destn_direct BIT, @c_access_user VARCHAR(50), @c_access_pwd VARCHAR(2048), 
 			@ds_id INT, @eopinstancename NVARCHAR(510), @outputExecuteParamInfo BIT, @outputFileName varchar(50),
 			@generatecontrolfile BIT, @controlfiledeliverylocation VARCHAR(255), @compressreport BIT, 
@@ -48,8 +48,8 @@ AS
 	SET NOCOUNT OFF	
 	DECLARE c_reports CURSOR FOR
 	SELECT	trpi.id_rep, trps.id_rep_instance_id, trps.id_schedule, trps.c_sch_type, @system_datetime AS dt_Queued, trpi.dt_next_run, 
-			trp.c_report_title, trp.c_rep_type, trp.c_rep_def_source, trp.c_rep_query_source,  
-			trp.c_rep_query_tag, trpi.c_rep_output_type, trpi.c_xmlConfig_loc, trpi.c_rep_distrib_type, trpi.c_report_destn, 
+			trp.c_report_title, trp.c_rep_type, trp.c_rep_def_source,
+			trp.c_rep_query_tag, trpi.c_rep_output_type, trpi.c_rep_distrib_type, trpi.c_report_destn, 
 			trpi.c_destn_direct, trpi.c_access_user, trpi.c_access_pwd, trpi.c_ds_id, trpi.c_eop_step_instance_name, 
 			trpi.c_generate_control_file, trpi.c_control_file_delivery_location, trpi.c_output_execute_params_info,
 			trpi.c_use_quoted_identifiers, trpi.c_compressreport, trpi.c_compressthreshold, trpi.dt_last_run, trpi.c_output_file_name
@@ -64,8 +64,8 @@ AS
 	OPEN c_reports
 	FETCH NEXT FROM c_reports INTO
 	@id_rep, @id_rep_instance_id, @id_schedule, @c_sch_type, @dt_queued, @dt_next_run, 
-	@c_report_title, @c_rep_type, @c_rep_def_source, @c_rep_query_source, 
-	@c_rep_query_tag, @c_rep_output_type, @c_xmlConfig_loc, @c_rep_distrib_type, @c_report_destn, 
+	@c_report_title, @c_rep_type, @c_rep_def_source, 
+	@c_rep_query_tag, @c_rep_output_type, @c_rep_distrib_type, @c_report_destn, 
 	@c_destn_direct, @c_access_user, @c_access_pwd, @ds_id, @eopinstancename, 
 	@generatecontrolfile, @controlfiledeliverylocation, @outputExecuteParamInfo,
 	@UseQuotedIdentifiers, @compressreport, @compressthreshold, @dt_last_run, @outputFileName
@@ -96,15 +96,15 @@ AS
 					PRINT 'WARNINGS - ' + convert(varchar, @id_rep_instance_id) + ' ' + convert(varchar, @Warning_Results)
 					IF @Warning_Results = 0
 						INSERT INTO t_export_workqueue(id_rep_instance_id, id_rep, id_schedule, c_sch_type, dt_queued, dt_sched_run, 
-								c_rep_title, c_rep_type, c_rep_def_source, c_rep_query_source, 
-								c_rep_query_tag, c_rep_output_type, c_xmlConfig_loc, c_rep_distrib_type, c_rep_destn, 
+								c_rep_title, c_rep_type, c_rep_def_source, 
+								c_rep_query_tag, c_rep_output_type, c_rep_distrib_type, c_rep_destn, 
 								c_destn_direct, c_destn_access_user, c_destn_access_pwd, c_ds_id, c_eop_step_instance_name, 
 								c_generate_control_file, c_control_file_delivery_location, c_output_execute_params_info,
 								c_use_quoted_identifiers, c_compressreport, c_compressthreshold, c_exec_type, 
 								dt_last_run, dt_next_run, c_current_process_stage, c_param_name_values, id_run, c_queuerow_source, c_output_file_name)
 						VALUES (@id_rep_instance_id, @id_rep, @id_schedule, @c_sch_type, @dt_queued, @dt_next_run, 
-								@c_report_title, @c_rep_type, @c_rep_def_source, @c_rep_query_source, 
-								@c_rep_query_tag, @c_rep_output_type, @c_xmlConfig_loc, @c_rep_distrib_type, @c_report_destn, 
+								@c_report_title, @c_rep_type, @c_rep_def_source, 
+								@c_rep_query_tag, @c_rep_output_type, @c_rep_distrib_type, @c_report_destn, 
 								@c_destn_direct, @c_access_user, @c_access_pwd, @ds_id, @eopinstancename, 
 								@generatecontrolfile, @controlfiledeliverylocation, @outputExecuteParamInfo,
 								@UseQuotedIdentifiers, @compressreport, @compressthreshold, 'sch', 
@@ -114,8 +114,8 @@ AS
 		SET @param_name_values = NULL
 		FETCH NEXT FROM c_reports INTO
 		@id_rep, @id_rep_instance_id, @id_schedule, @c_sch_type, @dt_queued, @dt_next_run, 
-		@c_report_title, @c_rep_type, @c_rep_def_source, @c_rep_query_source, 
-		@c_rep_query_tag, @c_rep_output_type, @c_xmlConfig_loc, @c_rep_distrib_type, @c_report_destn, 
+		@c_report_title, @c_rep_type, @c_rep_def_source,
+		@c_rep_query_tag, @c_rep_output_type, @c_rep_distrib_type, @c_report_destn, 
 		@c_destn_direct, @c_access_user, @c_access_pwd, @ds_id, @eopinstancename, 
 		@generatecontrolfile, @controlfiledeliverylocation, @outputExecuteParamInfo,
 		@UseQuotedIdentifiers, @compressreport, @compressthreshold, @dt_last_run, @outputFileName

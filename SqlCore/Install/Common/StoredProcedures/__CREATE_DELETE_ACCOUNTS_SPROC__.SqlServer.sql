@@ -529,6 +529,19 @@
 					GOTO SetError
 				END
 
+				-- t_acc_template_subs_pub
+				PRINT '-- Deleting from t_acc_template_subs_pub --'
+				DELETE FROM t_acc_template_subs_pub
+				WHERE id_acc_template IN
+				(SELECT id_acc_template
+				FROM t_acc_template
+				WHERE id_folder in (SELECT ID FROM #AccountIDsTable))
+				IF (@@Error <> 0)
+				BEGIN
+					PRINT 'Cannot delete from t_acc_template_subs_pub table'
+					GOTO SetError
+				END
+
 				-- t_acc_template
 				PRINT '-- Deleting from t_acc_template --'
 				DELETE FROM t_acc_template

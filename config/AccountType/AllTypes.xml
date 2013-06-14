@@ -10,9 +10,9 @@
             </ServiceDef>
         </ServiceDefinitions>
         <CanBePayer>False</CanBePayer>
-        <CanSubscribe>False</CanSubscribe>
+        <CanSubscribe>True</CanSubscribe>
         <CanHaveSyntheticRoot>False</CanHaveSyntheticRoot>
-        <CanParticipateInGSub>False</CanParticipateInGSub>
+        <CanParticipateInGSub>True</CanParticipateInGSub>
         <CanHaveTemplates>True</CanHaveTemplates>
         <IsVisibleInHierarchy>False</IsVisibleInHierarchy>
         <IsCorporate>False</IsCorporate>

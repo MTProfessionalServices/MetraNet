@@ -49,6 +49,7 @@
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <EnableColumnConfig>true</EnableColumnConfig>
     <SubGrid></SubGrid>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
@@ -280,7 +281,7 @@
             <Width>130</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
+            <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
@@ -316,7 +317,7 @@
             <Width>130</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
+            <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
@@ -348,7 +349,7 @@
             <Width>100</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
+            <Sortable>false</Sortable>
             <ColumnHideable>false</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Filterable>false</Filterable>
@@ -361,6 +362,7 @@
                 <ResourceClassKey></ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -382,6 +384,7 @@
                     <Fields></Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
     </ExpanderTemplate>
     <GridButtons></GridButtons>

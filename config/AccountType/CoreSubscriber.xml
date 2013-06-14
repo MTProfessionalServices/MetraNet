@@ -17,7 +17,7 @@
 		<CanSubscribe>True</CanSubscribe>
 		<CanHaveSyntheticRoot>False</CanHaveSyntheticRoot>
 		<CanParticipateInGSub>True</CanParticipateInGSub>
-		<CanHaveTemplates>False</CanHaveTemplates>
+        <CanHaveTemplates>True</CanHaveTemplates>
 		<IsVisibleInHierarchy>True</IsVisibleInHierarchy>
 		<IsCorporate>False</IsCorporate>
 		<AccountViews>

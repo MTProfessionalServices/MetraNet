@@ -47,7 +47,7 @@ BLDTYPE=release
 ################################################
 
 S_BASE_DIR         = S:
-S_METRANET_DIR     = V:\RMP
+S_METRANET_DIR     = R:
 S_METRACONNECT_DIR = V:\MetraConnect
 S_TECHDOC_DIR      = P:\TechDoc
 S_3RDPARTY_DIR     = $(THIRDPARTY)

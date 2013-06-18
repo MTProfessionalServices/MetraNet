@@ -14,13 +14,6 @@ namespace MetraTech.ExpressionEngine.Mvm
             sb.AppendLine(GetStartTag("MVMScript"));
         }
 
-        public static string GetAssigment(Property property, bool encasedInTag=false)
-        {
-            var content = string.Format(CultureInfo.InvariantCulture, "OBJECT.{0} = {1}", property.DatabaseName, property.CalculationExpression);
-            if (encasedInTag)
-                return string.Format(CultureInfo.InvariantCulture, "{0}{1}{2}", GetStartTag("Script"), content, GetEndTag("Script"));
-            return content;
-        }
 
         public static string GetComment(string content)
         {

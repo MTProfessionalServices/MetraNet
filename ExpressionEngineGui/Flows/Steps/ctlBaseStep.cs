@@ -1,28 +1,37 @@
 ﻿using System;
 using System.Windows.Forms;
+using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Flows;
 
 namespace PropertyGui.Flows.Steps
 {
-    public partial class ctlFlowStepBase : UserControl
+    public partial class ctlBaseStep : UserControl
     {
         #region Properties
-        protected FlowStepBase Step;
+
+        /// <summary>
+        /// The underlying step. Each subclass has a Step accessor that casts this to the appropriate type.
+        /// </summary>
+        protected BaseStep _step;
+        protected Context Context;
         #endregion
 
         #region Constructor
-        public ctlFlowStepBase()
+        public ctlBaseStep()
         {
             InitializeComponent();
         }
         #endregion
 
         #region Methods
-        public virtual void Init(FlowStepBase step)
+        public virtual void Init(BaseStep step, Context context)
         {
             if (step == null)
                 throw new ArgumentException("step is null");
-            Step = step;
+            if (context == null)
+                throw new ArgumentException("context is null");
+            _step = step;
+            Context = context;
         }
         public virtual void SyncToObject()
         {        

@@ -31,8 +31,8 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         [DataMember]
         public EventType EventType { get; set; }
 
-        [DataMember]
-        public Flow Flow;
+        //[DataMember]
+        public BaseFlow Flow = new BaseFlow();
 
         /// <summary>
         ///// The xQualificationGroup prefix

@@ -1,17 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Flows;
+using MetraTech.ExpressionEngine.Flows.Enumerations;
 using PropertyGui.Flows.Steps;
+using StepFactory = PropertyGui.Flows.Steps.StepFactory;
 
 namespace PropertyGui.Flows
 {
     public partial class ctlFlowSteps : UserControl
     {
         #region Properties
-        private Flow Flow;
-        private FlowStepBase CurrentStep;
-        private ctlFlowStepBase CurrentStepControl;
+        private Context Context;
+        private BaseFlow Flow;
+        private BaseStep CurrentStep;
+        private ctlBaseStep CurrentStepControl;
         private Control TargetStepControlParent;
+        private TreeNode PreviouslySelectedNode;
         #endregion
 
         #region Constructor
@@ -22,36 +28,13 @@ namespace PropertyGui.Flows
         #endregion
 
         #region Methods
-        public void LoadSteps(FlowCollection flowCollection)
+        public void Init(Context context, BaseFlow flow, Control targetStepControlParent=null)
         {
-            treSteps.BeginUpdate();
-            treSteps.Nodes.Clear();
-            foreach (var step in flowCollection)
-            {
-                AddStep(step);
-            }
-            treSteps.EndUpdate();
-        }
-
-        private TreeNode AddStep(FlowStepBase step)
-        {
-            return InsertStep(treSteps.Nodes.Count, step);
-        }
-        private TreeNode InsertStep(int index, FlowStepBase step)
-        {
-            var node = new TreeNode();
-            node.ImageKey = step.FlowStepType.ToString();
-            node.Name = step.Name;
-            node.Tag = step;
-            return node;
-        }
-        #endregion
-
-        #region Methods
-        public void Init(Flow flow, Control targetStepControlParent=null)
-        {
+            if (context == null)
+                throw new ArgumentException("context is null");
             if (flow == null)
                 throw new ArgumentException("flow is null");
+            Context = context;
             Flow = flow;
             TargetStepControlParent = targetStepControlParent;
         }
@@ -60,35 +43,56 @@ namespace PropertyGui.Flows
         {
             treSteps.BeginUpdate();
             treSteps.Nodes.Clear();
-            foreach (var step in Flow.FlowCollection)
+            foreach (var step in Flow.Steps)
             {
                 AddNode(step);
             }
             treSteps.EndUpdate();
         }
 
+        private TreeNode AddStep(BaseStep step)
+        {
+            return InsertStep(treSteps.Nodes.Count, step);
+        }
+        private TreeNode InsertStep(int index, BaseStep step)
+        {
+            var node = new TreeNode();
+            node.ImageKey = step.FlowStepType.ToString();
+            node.Name = step.Name;
+            node.Tag = step;
+            return node;
+        }
+
         public void SyncToObject()
         {
-            Flow.FlowCollection.Clear();
+            Flow.Steps.Clear();
             if (CurrentStepControl != null)
                 CurrentStepControl.SyncToObject();
             foreach (var node in treSteps.GetAllNodes())
             {
-                Flow.FlowCollection.Add((FlowStepBase)node.Tag);
+                Flow.Steps.Add((BaseStep)node.Tag);
             }
-            Flow.UpdateFlow();
         }
 
-        public TreeNode AddNode(FlowStepBase step)
+        private void UpdateNode(TreeNode node)
         {
-            var node = new TreeNode();
+            var step = (BaseStep) node.Tag;
             node.Text = step.GetAutoLabel();
-            node.ToolTipText = "";
+            node.ToolTipText = step.GetAutoDescription();
             node.ImageKey = step.FlowStepType.ToString() + ".png";
             node.SelectedImageKey = node.ImageKey;
+        }
+        public TreeNode InsertNode(int index, BaseStep step)
+        {
+            var node = new TreeNode();
             node.Tag = step;
-            treSteps.Nodes.Add(node);
+            UpdateNode(node);
+            treSteps.Nodes.Insert(index, node);
             return node;
+        }
+        public TreeNode AddNode(BaseStep step)
+        {
+            return InsertNode(treSteps.Nodes.Count, step);
         }
         #endregion
 
@@ -139,42 +143,83 @@ namespace PropertyGui.Flows
                 return;
             }
 
-            CurrentStep = (FlowStepBase)treSteps.SelectedNode.Tag;
+            CurrentStep = (BaseStep)treSteps.SelectedNode.Tag;
 
             if (CurrentStepControl != null)
             {
                 CurrentStepControl.SyncToObject();
+                UpdateNode(PreviouslySelectedNode);
                 CurrentStepControl.Parent = null;
                 CurrentStepControl.Visible = false;
                 CurrentStepControl.Dispose();
             }
 
-            CurrentStepControl = StepFactory.Create(CurrentStep);
+            Flow.UpdateFlow(Context);
+            CurrentStepControl = StepFactory.Create(Context, CurrentStep);
             if (TargetStepControlParent != null)
             {
                 CurrentStepControl.Parent = TargetStepControlParent;
                 CurrentStepControl.Dock = DockStyle.Fill;
-                CurrentStepControl.Init(CurrentStep);
+                //CurrentStepControl.Init(CurrentStep, Context);
                 CurrentStepControl.SyncToForm();
             }
+            PreviouslySelectedNode = treSteps.SelectedNode;
         }
 
 
+        #region Menu Events
         private void menu_Click(object sender, EventArgs e)
         {
-            FlowStepBase step;
+            BaseStep step;
             if (sender.Equals(mnuExpression))
                 step = new ExpressionStep(Flow);
             else //if (sender.Equals(mnuNewProperty))
                 step = new NewPropertyStep(Flow);
-            var node = AddNode(step);
+
+            TreeNode node;
+            if (treSteps.SelectedNode != null)
+                node = InsertNode(treSteps.SelectedNode.Index, step);
+            else
+                node = AddNode(step);
             treSteps.SelectedNode = node;
         }
+        #endregion
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            Flow.UpdateFlow(Context);//;, Flow.InitialProperties);
             SyncToObject();
             SyncToForm();
+
+            if (CurrentStep != null)
+            {
+                foreach (var node in treSteps.GetAllNodes())
+                {
+                    if (node.Tag.Equals(CurrentStep))
+                        treSteps.SelectedNode = node;
+                }
+            }
         }
+
+        private void mnuDelete_Click(object sender, EventArgs e)
+        {
+            if (treSteps.SelectedNode == null)
+                return;
+
+            var index = treSteps.SelectedNode.Index;
+            treSteps.Nodes.RemoveAt(index);
+            SyncToObject();
+            AttemptToSelectNode(index);
+        }
+
+        private void AttemptToSelectNode(int targetIndex)
+        {
+            if (targetIndex < treSteps.Nodes.Count)
+                treSteps.SelectedNode = treSteps.Nodes[targetIndex];
+            else if (treSteps.Nodes.Count > 0)
+                treSteps.SelectedNode = treSteps.Nodes[treSteps.Nodes.Count - 1];
+        }
+
+
     }
 }

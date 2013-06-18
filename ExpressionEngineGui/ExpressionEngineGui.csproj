@@ -82,12 +82,6 @@
     <Compile Include="Compoenents\ctlPropertyReference.Designer.cs">
       <DependentUpon>ctlPropertyReference.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctlCalculationSequence.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ctlCalculationSequence.Designer.cs">
-      <DependentUpon>ctlCalculationSequence.cs</DependentUpon>
-    </Compile>
     <Compile Include="ctlContextBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -154,6 +148,12 @@
     <Compile Include="Flows\ctlFlowSteps.Designer.cs">
       <DependentUpon>ctlFlowSteps.cs</DependentUpon>
     </Compile>
+    <Compile Include="Flows\Steps\ctlCalculateCharge.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlCalculateCharge.Designer.cs">
+      <DependentUpon>ctlCalculateCharge.cs</DependentUpon>
+    </Compile>
     <Compile Include="Flows\Steps\ctlExpression.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -166,11 +166,11 @@
     <Compile Include="Flows\Steps\ctlFlowEditor.Designer.cs">
       <DependentUpon>ctlFlowEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Flows\Steps\ctlFlowStepBase.cs">
+    <Compile Include="Flows\Steps\ctlBaseStep.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Flows\Steps\ctlFlowStepBase.Designer.cs">
-      <DependentUpon>ctlFlowStepBase.cs</DependentUpon>
+    <Compile Include="Flows\Steps\ctlBaseStep.Designer.cs">
+      <DependentUpon>ctlBaseStep.cs</DependentUpon>
     </Compile>
     <Compile Include="Flows\Steps\ctlNewPropertyStep.cs">
       <SubType>UserControl</SubType>
@@ -325,9 +325,6 @@
     <EmbeddedResource Include="Compoenents\ctlPropertyReference.resx">
       <DependentUpon>ctlPropertyReference.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctlCalculationSequence.resx">
-      <DependentUpon>ctlCalculationSequence.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ctlContextBase.resx">
       <DependentUpon>ctlContextBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -359,14 +356,17 @@
     <EmbeddedResource Include="Flows\ctlFlowSteps.resx">
       <DependentUpon>ctlFlowSteps.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Flows\Steps\ctlCalculateCharge.resx">
+      <DependentUpon>ctlCalculateCharge.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Flows\Steps\ctlExpression.resx">
       <DependentUpon>ctlExpression.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Flows\Steps\ctlFlowEditor.resx">
       <DependentUpon>ctlFlowEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Flows\Steps\ctlFlowStepBase.resx">
-      <DependentUpon>ctlFlowStepBase.cs</DependentUpon>
+    <EmbeddedResource Include="Flows\Steps\ctlBaseStep.resx">
+      <DependentUpon>ctlBaseStep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Flows\Steps\ctlNewPropertyStep.resx">
       <DependentUpon>ctlNewPropertyStep.cs</DependentUpon>

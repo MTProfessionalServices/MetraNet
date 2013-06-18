@@ -2,10 +2,10 @@
 
 namespace MetraTech.ExpressionEngine.Flows
 {
-    public class AccountLookupStep : FlowStepBase
+    public class AccountLookupStep : BaseStep
     {
        #region Constructor
-        public AccountLookupStep(Flow flow) : base(flow, FlowStepType.AccountLookup)
+        public AccountLookupStep(BaseFlow flow) : base(flow, StepType.AccountLookup)
         {
         }
         #endregion

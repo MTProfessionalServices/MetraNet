@@ -5,15 +5,15 @@ using MetraTech.ExpressionEngine.PropertyBags;
 
 namespace MetraTech.ExpressionEngine.Flows
 {
-    public class ParameterTableLookupStep : FlowStepBase
+    public class ParameterTableLookupStep : BaseStep
     {
         #region Properties
         public string ParameterTable { get; set; }
         #endregion
 
         #region Constructor
-        public ParameterTableLookupStep(Flow flow)
-            : base(flow, FlowStepType.ParameterTableLookup)
+        public ParameterTableLookupStep(BaseFlow flow)
+            : base(flow, StepType.ParameterTableLookup)
         {
         }
         #endregion

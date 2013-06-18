@@ -1617,6 +1617,17 @@
     </Properties>
   </Properties>
   <EventType>Charge</EventType>
+  <Flow>
+    <FlowCollection>
+      <FlowStepBase i:type="ExpressionStep">
+        <Description i:nil="true" />
+        <FlowStepType>Expression</FlowStepType>
+        <Name i:nil="true" />
+        <Expression>bbbbb</Expression>
+        <PropertyName>related_ws_id_sess</PropertyName>
+      </FlowStepBase>
+    </FlowCollection>
+  </Flow>
   <IsMetered>false</IsMetered>
   <UniqueKey />
 </PropertyBag>

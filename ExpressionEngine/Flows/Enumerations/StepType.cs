@@ -1,15 +1,16 @@
 ﻿namespace MetraTech.ExpressionEngine.Flows.Enumerations
 {
-    public enum FlowStepType
+    public enum StepType
     {
         AccountLookup,
         ApplyCharges,
-        BatchMtsql,
+        CalculateEventCharge,
         Expression,
         Meter,
         Mtsql,
         NewProperty,
         ParameterTableLookup,
-        ProcessList
+        ProcessList,
+        Query,
     }
 }

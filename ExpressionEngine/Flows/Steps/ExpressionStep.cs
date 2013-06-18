@@ -1,11 +1,12 @@
 ﻿using System.Globalization;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
+using MetraTech.ExpressionEngine.MTProperties;
 
 namespace MetraTech.ExpressionEngine.Flows
 {
     [DataContract(Namespace = "MetraTech")]
-    public class ExpressionStep : FlowStepBase
+    public class ExpressionStep : BaseStep
     {
         #region Properties
 
@@ -23,8 +24,8 @@ namespace MetraTech.ExpressionEngine.Flows
         #endregion
 
         #region Constructor
-        public ExpressionStep(Flow flow)
-            : base(flow, FlowStepType.Expression)
+        public ExpressionStep(BaseFlow flow)
+            : base(flow, StepType.Expression)
         {
         }
         #endregion
@@ -35,9 +36,21 @@ namespace MetraTech.ExpressionEngine.Flows
             InputsAndOutputs.Clear();
         }
 
+        public Property GetProperty()
+        {
+            return AvailableProperties.Get(PropertyName);
+        }
         public override string GetAutoLabel()
         {
             return string.Format(CultureInfo.InvariantCulture, "{0} = {1}", PropertyName, Expression);
+        }
+
+        public override string GetAutoDescription()
+        {
+            var property = GetProperty();
+            if (property != null)
+                return property.Description;
+            return null;
         }
         #endregion
     }

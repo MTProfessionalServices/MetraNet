@@ -38,8 +38,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtDefaultValue = new System.Windows.Forms.TextBox();
             this.panBottom = new System.Windows.Forms.Panel();
-            this.chkIsCalculated = new System.Windows.Forms.CheckBox();
-            this.txtExpression = new System.Windows.Forms.TextBox();
             this.panBottom.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,8 +126,6 @@
             // 
             // panBottom
             // 
-            this.panBottom.Controls.Add(this.chkIsCalculated);
-            this.panBottom.Controls.Add(this.txtExpression);
             this.panBottom.Controls.Add(this.txtDescription);
             this.panBottom.Controls.Add(this.txtDefaultValue);
             this.panBottom.Controls.Add(this.label3);
@@ -138,28 +134,6 @@
             this.panBottom.Name = "panBottom";
             this.panBottom.Size = new System.Drawing.Size(686, 248);
             this.panBottom.TabIndex = 22;
-            // 
-            // chkIsCalculated
-            // 
-            this.chkIsCalculated.AutoSize = true;
-            this.chkIsCalculated.Location = new System.Drawing.Point(2, 128);
-            this.chkIsCalculated.Name = "chkIsCalculated";
-            this.chkIsCalculated.Size = new System.Drawing.Size(156, 17);
-            this.chkIsCalculated.TabIndex = 23;
-            this.chkIsCalculated.Text = "Is calculated via expression";
-            this.chkIsCalculated.UseVisualStyleBackColor = true;
-            this.chkIsCalculated.CheckedChanged += new System.EventHandler(this.changeEvent);
-            // 
-            // txtExpression
-            // 
-            this.txtExpression.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtExpression.Location = new System.Drawing.Point(0, 146);
-            this.txtExpression.Multiline = true;
-            this.txtExpression.Name = "txtExpression";
-            this.txtExpression.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtExpression.Size = new System.Drawing.Size(643, 46);
-            this.txtExpression.TabIndex = 23;
             // 
             // ctlProperty
             // 
@@ -192,7 +166,5 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtDefaultValue;
         private System.Windows.Forms.Panel panBottom;
-        private System.Windows.Forms.TextBox txtExpression;
-        private System.Windows.Forms.CheckBox chkIsCalculated;
     }
 }

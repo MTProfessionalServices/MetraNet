@@ -43,6 +43,7 @@
             // 
             // splitContainer
             // 
+            this.splitContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer.Location = new System.Drawing.Point(0, 0);
             this.splitContainer.Name = "splitContainer";
@@ -64,7 +65,7 @@
             this.tabMain.Location = new System.Drawing.Point(0, 0);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(215, 330);
+            this.tabMain.Size = new System.Drawing.Size(211, 326);
             this.tabMain.TabIndex = 1;
             // 
             // tabSequence
@@ -73,7 +74,7 @@
             this.tabSequence.Location = new System.Drawing.Point(4, 4);
             this.tabSequence.Name = "tabSequence";
             this.tabSequence.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSequence.Size = new System.Drawing.Size(207, 304);
+            this.tabSequence.Size = new System.Drawing.Size(203, 300);
             this.tabSequence.TabIndex = 0;
             this.tabSequence.Text = "Sequence";
             this.tabSequence.UseVisualStyleBackColor = true;
@@ -83,7 +84,7 @@
             this.ctlFlowSteps.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ctlFlowSteps.Location = new System.Drawing.Point(3, 3);
             this.ctlFlowSteps.Name = "ctlFlowSteps";
-            this.ctlFlowSteps.Size = new System.Drawing.Size(201, 298);
+            this.ctlFlowSteps.Size = new System.Drawing.Size(197, 294);
             this.ctlFlowSteps.TabIndex = 0;
             // 
             // tabProperties

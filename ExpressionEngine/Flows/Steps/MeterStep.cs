@@ -8,7 +8,7 @@ using MetraTech.ExpressionEngine.PropertyBags;
 
 namespace MetraTech.ExpressionEngine.Flows
 {
-    public class MeterStep : FlowStepBase
+    public class MeterStep : BaseStep
     {
         #region Properties
         [DataMember]
@@ -17,8 +17,8 @@ namespace MetraTech.ExpressionEngine.Flows
         #endregion
 
         #region Constructor
-        public MeterStep(Flow flow)
-            : base(flow, FlowStepType.Meter)
+        public MeterStep(BaseFlow flow)
+            : base(flow, StepType.Meter)
         {
         }
         #endregion

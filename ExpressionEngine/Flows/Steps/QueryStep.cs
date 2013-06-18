@@ -1,15 +1,18 @@
-﻿using MetraTech.ExpressionEngine.Flows.Enumerations;
+﻿using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.Flows.Enumerations;
 
 namespace MetraTech.ExpressionEngine.Flows
 {
-    public class MtsqlStep : FlowStepBase
+    public class QueryStep : BaseStep
     {
         #region Properties
+        [DataMember]
         public string Script { get; set; }
         #endregion
 
         #region Constructor
-        public MtsqlStep(Flow flow) : base(flow, FlowStepType.Mtsql)
+        public QueryStep(BaseFlow flow)
+            : base(flow, StepType.Query)
         {
         }
         #endregion

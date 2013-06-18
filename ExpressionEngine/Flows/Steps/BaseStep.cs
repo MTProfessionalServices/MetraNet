@@ -12,20 +12,22 @@ namespace MetraTech.ExpressionEngine.Flows
     [DataContract(Namespace = "MetraTech")]
     [KnownType(typeof(ExpressionStep))]
     [KnownType(typeof(NewPropertyStep))]
-    public class FlowStepBase
+    public class BaseStep
     {
         #region properties
 
         /// <summary>
         /// The parent collection to which the flow belongs
         /// </summary>
-        public Flow Flow { get; private set; }
+        public BaseFlow Flow { get; private set; }
 
         [DataMember]
-        public FlowStepType FlowStepType { get; private set; }
+        public StepType FlowStepType { get; private set; }
 
         [DataMember]
         public string Name { get; set; }
+
+        public bool IsUserEditable { get; private set; }
 
         [DataMember]
         public string Description { get; set; }
@@ -37,12 +39,14 @@ namespace MetraTech.ExpressionEngine.Flows
         #endregion
 
         #region Constructor
-        public FlowStepBase(Flow flow, FlowStepType flowItemType)
+        public BaseStep(BaseFlow flow, StepType flowItemType, bool isUserEditable=true)
         {
             if (flow == null)
                 throw new ArgumentException("flow is null");
             Flow = flow;
             FlowStepType = flowItemType;
+
+            IsUserEditable = isUserEditable;
         }
         #endregion
 
@@ -62,6 +66,11 @@ namespace MetraTech.ExpressionEngine.Flows
         }
 
         public virtual string GetAutoLabel()
+        {
+            return null;
+        }
+
+        public virtual string GetAutoDescription()
         {
             return null;
         }

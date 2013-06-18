@@ -92,21 +92,6 @@ namespace MetraTech.ExpressionEngine.MTProperties
         public bool Required { get; set; }
 
         /// <summary>
-        /// Indicates if the value is calculated via the CalculationExpression. When this is true, the user
-        /// should be prevented from ever setting the value via a direct mechanism.
-        /// </summary>
-        [DataMember]
-        public bool IsCalculated { get; set; }
-
-        /// <summary>
-        /// The expression used to calcuate the value. Only used when the value IsCalcualted is set to true.
-        /// </summary>
-        [DataMember]
-        public string CalculationExpression { get; set; }
-
-        public string CalculationExpressionWithAssignment { get { return MvmHelper.GetAssigment(this); } }
-
-        /// <summary>
         /// The defult value for the property
         /// </summary>
         [DataMember]

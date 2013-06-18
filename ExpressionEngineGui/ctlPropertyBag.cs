@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Flows;
+using MetraTech.ExpressionEngine.Flows.Steps;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
@@ -44,17 +45,19 @@ namespace PropertyGui
             Context = context;
             PropertyBag = propertyBag;
 
-            var flow = ((ProductViewEntity)PropertyBag).Flow;
-            flow.InitialProperties = new PropertyCollection(this);
+            //var flow = ((ProductViewEntity)PropertyBag).Flow;
+            //flow.InitialProperties = new PropertyCollection(this);
 
             //Why  do I need to do this here???
-            //var flow = new Flow(Context);
+            var flow = new BaseFlow();
+            ((ProductViewEntity)PropertyBag).Flow = flow;
+
+            flow.Steps.Add(new CalculateEventChargeStep(flow));
             foreach (var property in PropertyBag.Properties)
             {
                 flow.InitialProperties.Add((Property)property.Copy());
             }
-            //((ProductViewEntity) PropertyBag).Flow = flow;
-            ctlFlowEditor.Init(((ProductViewEntity)PropertyBag).Flow);
+            ctlFlowEditor.Init(Context, ((ProductViewEntity)PropertyBag).Flow);
 
             SyncToForm();
         }

@@ -8,7 +8,7 @@ using System.Globalization;
 namespace MetraTech.ExpressionEngine.Flows
 {
     [DataContract(Namespace = "MetraTech")]
-    public class NewPropertyStep : FlowStepBase
+    public class NewPropertyStep : BaseStep
     {
         #region Properties
         [DataMember]
@@ -16,8 +16,8 @@ namespace MetraTech.ExpressionEngine.Flows
         #endregion
 
         #region Constructor
-        public NewPropertyStep(Flow flow)
-            : base(flow, FlowStepType.NewProperty)
+        public NewPropertyStep(BaseFlow flow)
+            : base(flow, StepType.NewProperty)
         {
         }
         #endregion
@@ -26,8 +26,9 @@ namespace MetraTech.ExpressionEngine.Flows
         public override void UpdateInputsAndOutputs(Context context)
         {
             InputsAndOutputs.Clear();
-            Property.Direction = Direction.Output;
-            InputsAndOutputs.Add((Property)Property.Copy());
+            var property = (Property) Property.Copy();
+            property.Direction = Direction.Output;
+            InputsAndOutputs.Add(property);
         }
 
         public override string GetAutoLabel()

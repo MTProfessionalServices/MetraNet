@@ -15,6 +15,7 @@ namespace PropertyGui
     public partial class ctlProperty : UserControl
     {
         #region Properties
+        public bool ShowIsRequired { get { return chkIsRequired.Visible; } set { chkIsRequired.Visible = value; } }
         private bool IgnoreChanges = false;
         private Context Context;
         private PropertyBag PropertyBag;
@@ -69,8 +70,6 @@ namespace PropertyGui
             //If it's core, disallow editing
             Enabled = !Property.IsCore;
 
-            chkIsCalculated.Checked = Property.IsCalculated;
-            txtExpression.Text = property.CalculationExpression;
             IgnoreChanges = false;
 
             changeEvent(null, null);
@@ -87,17 +86,6 @@ namespace PropertyGui
             
             if (CurrentTypeControl != null)
                 CurrentTypeControl.SyncToObject();
-
-            Property.IsCalculated = chkIsCalculated.Checked;
-            Property.CalculationExpression = txtExpression.Text;
-
-            //This isn't exactly correct at this point; we need to deal with the charges below the event charge
-            if (Property.Type.IsCharge && Property.Name == "EventCharge")
-            {
-                chkIsCalculated.Checked = true;
-                //txtExpression.Text = ((ProductViewEntity)PropertyBag).GetEventChargeExpression();
-                txtExpression.Text = ((ChargeType)Property.Type).GetChargeExpression(Property, false);
-            }
         }
 
         #endregion
@@ -144,8 +132,6 @@ namespace PropertyGui
 
         private void changeEvent(object sender, EventArgs e)
         {
-            txtExpression.Visible = chkIsCalculated.Checked;
-
             if (IgnoreChanges)
                 return;
 

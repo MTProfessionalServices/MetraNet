@@ -1,10 +1,12 @@
-﻿using MetraTech.ExpressionEngine.Components;
+﻿using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
 using MetraTech.ExpressionEngine.PropertyBags;
 
 namespace MetraTech.ExpressionEngine.Flows
 {
+    [DataContract(Namespace = "MetraTech")]
     public class ParameterTableLookupStep : BaseStep
     {
         #region Properties

@@ -6,7 +6,6 @@
         ApplyCharges,
         CalculateEventCharge,
         Expression,
-        Meter,
         Mtsql,
         NewProperty,
         ParameterTableLookup,

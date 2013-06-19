@@ -148,6 +148,12 @@
     <Compile Include="Flows\ctlFlowSteps.Designer.cs">
       <DependentUpon>ctlFlowSteps.cs</DependentUpon>
     </Compile>
+    <Compile Include="Flows\Steps\ctlAccountLookupStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlAccountLookupStep.Designer.cs">
+      <DependentUpon>ctlAccountLookupStep.cs</DependentUpon>
+    </Compile>
     <Compile Include="Flows\Steps\ctlCalculateCharge.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -177,6 +183,18 @@
     </Compile>
     <Compile Include="Flows\Steps\ctlNewPropertyStep.Designer.cs">
       <DependentUpon>ctlNewPropertyStep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlParameterTableLookupStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlParameterTableLookupStep.Designer.cs">
+      <DependentUpon>ctlParameterTableLookupStep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlQueryStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlQueryStep.Designer.cs">
+      <DependentUpon>ctlQueryStep.cs</DependentUpon>
     </Compile>
     <Compile Include="Flows\Steps\StepFactory.cs" />
     <Compile Include="frmAddProperty.cs">
@@ -356,6 +374,9 @@
     <EmbeddedResource Include="Flows\ctlFlowSteps.resx">
       <DependentUpon>ctlFlowSteps.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Flows\Steps\ctlAccountLookupStep.resx">
+      <DependentUpon>ctlAccountLookupStep.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Flows\Steps\ctlCalculateCharge.resx">
       <DependentUpon>ctlCalculateCharge.cs</DependentUpon>
     </EmbeddedResource>
@@ -370,6 +391,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Flows\Steps\ctlNewPropertyStep.resx">
       <DependentUpon>ctlNewPropertyStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Flows\Steps\ctlQueryStep.resx">
+      <DependentUpon>ctlQueryStep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddProperty.resx">
       <DependentUpon>frmAddProperty.cs</DependentUpon>

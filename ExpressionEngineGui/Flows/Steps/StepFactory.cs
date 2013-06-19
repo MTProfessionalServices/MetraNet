@@ -17,14 +17,23 @@ namespace PropertyGui.Flows.Steps
             ctlBaseStep control;
             switch (step.FlowStepType)
             {
-                case StepType.NewProperty:
-                    control = new ctlNewPropertyStep();
+                case StepType.AccountLookup:
+                    control = new ctlAccountLookupStep();
+                    break;
+                case StepType.CalculateEventCharge:
+                    control = new ctlCalculateCharge();
                     break;
                 case StepType.Expression:
                     control = new ctlExpression();
                     break;
-                case StepType.CalculateEventCharge:
-                    control = new ctlCalculateCharge();
+                case StepType.NewProperty:
+                    control = new ctlNewPropertyStep();
+                    break;
+                case StepType.ParameterTableLookup:
+                    control = new ctlParameterTableLookupStep();
+                    break;
+                case StepType.Query:
+                    control = new ctlQueryStep();
                     break;
                 default:
                     throw new ArgumentException("Unhandled type");

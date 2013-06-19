@@ -9,8 +9,6 @@ namespace MetraTech.ExpressionEngine.Flows
         {
             switch (flowItemType)
             {
-                case StepType.Meter:
-                    return new MeterStep(flow);
                 default:
                     throw new ArgumentException("unhandled flowItemType");
             }

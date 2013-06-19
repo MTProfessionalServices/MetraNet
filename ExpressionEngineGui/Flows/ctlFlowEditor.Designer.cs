@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabSequence = new System.Windows.Forms.TabPage();
             this.ctlFlowSteps = new PropertyGui.Flows.ctlFlowSteps();
             this.tabProperties = new System.Windows.Forms.TabPage();
             this.tabFunctions = new System.Windows.Forms.TabPage();
+            this.ctlToolbox = new PropertyGui.ctlExpressionTree();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tabSequence.SuspendLayout();
+            this.tabProperties.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer
@@ -89,10 +92,11 @@
             // 
             // tabProperties
             // 
+            this.tabProperties.Controls.Add(this.ctlToolbox);
             this.tabProperties.Location = new System.Drawing.Point(4, 4);
             this.tabProperties.Name = "tabProperties";
             this.tabProperties.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProperties.Size = new System.Drawing.Size(207, 304);
+            this.tabProperties.Size = new System.Drawing.Size(203, 300);
             this.tabProperties.TabIndex = 1;
             this.tabProperties.Text = "Properties";
             this.tabProperties.UseVisualStyleBackColor = true;
@@ -101,10 +105,31 @@
             // 
             this.tabFunctions.Location = new System.Drawing.Point(4, 4);
             this.tabFunctions.Name = "tabFunctions";
-            this.tabFunctions.Size = new System.Drawing.Size(207, 304);
+            this.tabFunctions.Size = new System.Drawing.Size(203, 300);
             this.tabFunctions.TabIndex = 2;
             this.tabFunctions.Text = "Functions";
             this.tabFunctions.UseVisualStyleBackColor = true;
+            // 
+            // ctlToolbox
+            // 
+            this.ctlToolbox.AllowEntityExpand = true;
+            this.ctlToolbox.AllowEnumExpand = true;
+            this.ctlToolbox.DefaultNodeContextMenu = null;
+            this.ctlToolbox.EntityTypeFilter = null;
+            this.ctlToolbox.EnumValueContextMenu = null;
+            this.ctlToolbox.FunctionFilter = null;
+            this.ctlToolbox.HideSelection = false;
+            this.ctlToolbox.ImageIndex = 0;
+            this.ctlToolbox.Location = new System.Drawing.Point(0, 35);
+            this.ctlToolbox.Name = "ctlToolbox";
+            this.ctlToolbox.PathSeparator = ".";
+            this.ctlToolbox.PropertyTypeFilter = null;
+            this.ctlToolbox.SelectedImageIndex = 0;
+            this.ctlToolbox.ShowNamespaces = false;
+            this.ctlToolbox.ShowNodeToolTips = true;
+            this.ctlToolbox.Size = new System.Drawing.Size(200, 259);
+            this.ctlToolbox.TabIndex = 0;
+            this.ctlToolbox.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
             // 
             // ctlFlowEditor
             // 
@@ -118,6 +143,7 @@
             this.splitContainer.ResumeLayout(false);
             this.tabMain.ResumeLayout(false);
             this.tabSequence.ResumeLayout(false);
+            this.tabProperties.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -130,5 +156,6 @@
         private ctlFlowSteps ctlFlowSteps;
         private System.Windows.Forms.TabPage tabProperties;
         private System.Windows.Forms.TabPage tabFunctions;
+        private ctlExpressionTree ctlToolbox;
     }
 }

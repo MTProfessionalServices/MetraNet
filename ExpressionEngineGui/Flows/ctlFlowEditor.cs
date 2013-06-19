@@ -30,6 +30,8 @@ namespace PropertyGui.Flows.Steps
             Flow = flow;
 
             ctlFlowSteps.Init(Context, Flow, splitContainer.Panel2);
+            ctlToolbox.Init(Context, null);
+
         }
 
         public void SyncToForm()

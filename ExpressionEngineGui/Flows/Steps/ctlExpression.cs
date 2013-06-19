@@ -7,12 +7,7 @@ namespace PropertyGui.Flows.Steps
     public partial class ctlExpression : ctlBaseStep
     {
         #region Properties
-
-        private ExpressionStep Step
-        {
-            get { return (ExpressionStep) _step; }
-        }
-
+        private ExpressionStep Step { get { return (ExpressionStep) _step; } }
         #endregion
 
         #region Constructor

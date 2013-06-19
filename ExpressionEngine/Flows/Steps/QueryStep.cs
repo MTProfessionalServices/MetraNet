@@ -3,11 +3,12 @@ using MetraTech.ExpressionEngine.Flows.Enumerations;
 
 namespace MetraTech.ExpressionEngine.Flows
 {
+    [DataContract(Namespace = "MetraTech")]
     public class QueryStep : BaseStep
     {
         #region Properties
         [DataMember]
-        public string Script { get; set; }
+        public string Query { get; set; }
         #endregion
 
         #region Constructor

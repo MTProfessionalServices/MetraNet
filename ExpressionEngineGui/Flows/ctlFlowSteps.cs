@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Flows;
-using MetraTech.ExpressionEngine.Flows.Enumerations;
 using PropertyGui.Flows.Steps;
 using StepFactory = PropertyGui.Flows.Steps.StepFactory;
 
@@ -48,6 +46,7 @@ namespace PropertyGui.Flows
                 AddNode(step);
             }
             treSteps.EndUpdate();
+            AttemptToSelectNode(0);
         }
 
         private TreeNode AddStep(BaseStep step)
@@ -94,9 +93,40 @@ namespace PropertyGui.Flows
         {
             return InsertNode(treSteps.Nodes.Count, step);
         }
+
+        private void AttemptToSelectNode(int targetIndex)
+        {
+            if (targetIndex < treSteps.Nodes.Count)
+                treSteps.SelectedNode = treSteps.Nodes[targetIndex];
+            else if (treSteps.Nodes.Count > 0)
+                treSteps.SelectedNode = treSteps.Nodes[treSteps.Nodes.Count - 1];
+        }
+
+        private void MoveNode(TreeNode node, int index)
+        {
+            treSteps.Nodes.RemoveAt(node.Index);
+            treSteps.Nodes.Insert(index, node);
+            treSteps.SelectedNode = node;
+        }
         #endregion
 
-        #region Events
+        #region Button Events
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            Flow.UpdateFlow(Context);//;, Flow.InitialProperties);
+            SyncToObject();
+            SyncToForm();
+
+            if (CurrentStep != null)
+            {
+                foreach (var node in treSteps.GetAllNodes())
+                {
+                    if (node.Tag.Equals(CurrentStep))
+                        treSteps.SelectedNode = node;
+                }
+            }
+        }
         private void btnMoveUp_Click(object sender, EventArgs e)
         {
             if (treSteps.SelectedNode == null)
@@ -111,12 +141,6 @@ namespace PropertyGui.Flows
             MoveNode(treSteps.SelectedNode, index);
         }
 
-        private void MoveNode(TreeNode node, int index)
-        {
-            treSteps.Nodes.RemoveAt(node.Index);
-            treSteps.Nodes.Insert(index, node);
-            treSteps.SelectedNode = node;
-        }
 
         private void btnMoveDown_Click(object sender, EventArgs e)
         {
@@ -135,6 +159,7 @@ namespace PropertyGui.Flows
 
         #endregion
 
+        #region Tree Events
         private void treSteps_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (treSteps.SelectedNode == null)
@@ -165,7 +190,7 @@ namespace PropertyGui.Flows
             }
             PreviouslySelectedNode = treSteps.SelectedNode;
         }
-
+        #endregion
 
         #region Menu Events
         private void menu_Click(object sender, EventArgs e)
@@ -181,24 +206,12 @@ namespace PropertyGui.Flows
                 node = InsertNode(treSteps.SelectedNode.Index, step);
             else
                 node = AddNode(step);
-            treSteps.SelectedNode = node;
-        }
-        #endregion
 
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            Flow.UpdateFlow(Context);//;, Flow.InitialProperties);
+            //Need to update the flow so that available properties etc are set properly
             SyncToObject();
-            SyncToForm();
+            Flow.UpdateFlow(Context);
 
-            if (CurrentStep != null)
-            {
-                foreach (var node in treSteps.GetAllNodes())
-                {
-                    if (node.Tag.Equals(CurrentStep))
-                        treSteps.SelectedNode = node;
-                }
-            }
+            treSteps.SelectedNode = node;
         }
 
         private void mnuDelete_Click(object sender, EventArgs e)
@@ -211,15 +224,6 @@ namespace PropertyGui.Flows
             SyncToObject();
             AttemptToSelectNode(index);
         }
-
-        private void AttemptToSelectNode(int targetIndex)
-        {
-            if (targetIndex < treSteps.Nodes.Count)
-                treSteps.SelectedNode = treSteps.Nodes[targetIndex];
-            else if (treSteps.Nodes.Count > 0)
-                treSteps.SelectedNode = treSteps.Nodes[treSteps.Nodes.Count - 1];
-        }
-
-
+        #endregion
     }
 }

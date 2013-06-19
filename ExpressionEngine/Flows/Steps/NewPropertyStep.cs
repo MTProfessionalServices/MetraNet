@@ -25,6 +25,9 @@ namespace MetraTech.ExpressionEngine.Flows
         #region Methods
         public override void UpdateInputsAndOutputs(Context context)
         {
+#warning why do i need this here???
+            InputsAndOutputs = new PropertyCollection(this);
+
             InputsAndOutputs.Clear();
             var property = (Property) Property.Copy();
             property.Direction = Direction.Output;

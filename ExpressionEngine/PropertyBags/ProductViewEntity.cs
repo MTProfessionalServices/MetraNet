@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using MetraTech.ExpressionEngine.Database;
 using MetraTech.ExpressionEngine.Flows;
 using MetraTech.ExpressionEngine.MTProperties;
-using MetraTech.ExpressionEngine.Mvm;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using System.Runtime.Serialization;
@@ -20,8 +17,6 @@ namespace MetraTech.ExpressionEngine.PropertyBags
     public class ProductViewEntity : MetraNetEntityBase
     {
         #region Properties
-        [DataMember]
-        public bool IsMetered { get; set; }
 
         [DataMember]
         public Collection<UniqueKey> UniqueKey { get; private set; }
@@ -31,7 +26,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         [DataMember]
         public EventType EventType { get; set; }
 
-        //[DataMember]
+        [DataMember]
         public BaseFlow Flow = new BaseFlow();
 
         /// <summary>
@@ -51,6 +46,19 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         #endregion
 
         #region Methods
+
+        public void UpdateFlow(Context context)
+        {
+            #warning Why  do I need to do this here???
+            Flow.InitialProperties = new PropertyCollection(PropertyBag);
+
+
+            foreach (var property in Properties)
+            {
+                Flow.InitialProperties.Add((Property)property.Copy());
+            }
+            Flow.UpdateFlow(context);
+        }
 
         /// <summary>
         /// Appends the core values
@@ -135,6 +143,8 @@ namespace MetraTech.ExpressionEngine.PropertyBags
                     continue;
                 property.Validate(messages, context);
             }
+
+            UpdateFlow(context);
         }
         #endregion
 

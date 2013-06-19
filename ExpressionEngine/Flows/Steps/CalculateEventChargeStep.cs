@@ -20,10 +20,6 @@ namespace MetraTech.ExpressionEngine.Flows.Steps
         #endregion
 
         #region Methods
-        public override void UpdateInputsAndOutputs(Context context)
-        {
-            InputsAndOutputs.Clear();
-        }
 
         public override string GetAutoLabel()
         {

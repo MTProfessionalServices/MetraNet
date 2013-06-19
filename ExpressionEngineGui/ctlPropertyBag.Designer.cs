@@ -30,8 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.treProperties = new PropertyGui.ctlExpressionTree();
             this.mnuContext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuExpandAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCollapseAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctlPropertyEditor = new PropertyGui.ctlProperty();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnValidate = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -49,9 +52,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabProperties = new System.Windows.Forms.TabPage();
             this.btnRename = new System.Windows.Forms.Button();
-            this.tabScript = new System.Windows.Forms.TabPage();
-            this.treProperties = new PropertyGui.ctlExpressionTree();
-            this.ctlPropertyEditor = new PropertyGui.ctlProperty();
+            this.tabCalculationSequence = new System.Windows.Forms.TabPage();
             this.ctlFlowEditor = new PropertyGui.Flows.Steps.ctlFlowEditor();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -61,7 +62,7 @@
             this.tabMain.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.tabProperties.SuspendLayout();
-            this.tabScript.SuspendLayout();
+            this.tabCalculationSequence.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer
@@ -84,19 +85,60 @@
             this.splitContainer.SplitterDistance = 349;
             this.splitContainer.TabIndex = 3;
             // 
+            // treProperties
+            // 
+            this.treProperties.AllowEntityExpand = true;
+            this.treProperties.AllowEnumExpand = true;
+            this.treProperties.ContextMenuStrip = this.mnuContext;
+            this.treProperties.DefaultNodeContextMenu = null;
+            this.treProperties.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treProperties.EntityTypeFilter = null;
+            this.treProperties.EnumValueContextMenu = null;
+            this.treProperties.FullRowSelect = true;
+            this.treProperties.FunctionFilter = null;
+            this.treProperties.HideSelection = false;
+            this.treProperties.ImageIndex = 0;
+            this.treProperties.Location = new System.Drawing.Point(0, 0);
+            this.treProperties.Name = "treProperties";
+            this.treProperties.PathSeparator = ".";
+            this.treProperties.PropertyTypeFilter = null;
+            this.treProperties.SelectedImageIndex = 0;
+            this.treProperties.ShowNamespaces = false;
+            this.treProperties.ShowNodeToolTips = true;
+            this.treProperties.Size = new System.Drawing.Size(345, 276);
+            this.treProperties.TabIndex = 4;
+            this.treProperties.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
+            this.treProperties.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treProperties_AfterSelect);
+            // 
             // mnuContext
             // 
             this.mnuContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuExpandAll});
+            this.mnuExpandAll,
+            this.mnuCollapseAll});
             this.mnuContext.Name = "mnuContext";
-            this.mnuContext.Size = new System.Drawing.Size(130, 26);
+            this.mnuContext.Size = new System.Drawing.Size(153, 70);
             this.mnuContext.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuContext_ItemClicked);
             // 
             // mnuExpandAll
             // 
             this.mnuExpandAll.Name = "mnuExpandAll";
-            this.mnuExpandAll.Size = new System.Drawing.Size(129, 22);
+            this.mnuExpandAll.Size = new System.Drawing.Size(152, 22);
             this.mnuExpandAll.Text = "Expand All";
+            // 
+            // mnuCollapseAll
+            // 
+            this.mnuCollapseAll.Name = "mnuCollapseAll";
+            this.mnuCollapseAll.Size = new System.Drawing.Size(152, 22);
+            this.mnuCollapseAll.Text = "Collapse All";
+            // 
+            // ctlPropertyEditor
+            // 
+            this.ctlPropertyEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctlPropertyEditor.Location = new System.Drawing.Point(0, 0);
+            this.ctlPropertyEditor.Name = "ctlPropertyEditor";
+            this.ctlPropertyEditor.ShowIsRequired = false;
+            this.ctlPropertyEditor.Size = new System.Drawing.Size(494, 276);
+            this.ctlPropertyEditor.TabIndex = 0;
             // 
             // btnAdd
             // 
@@ -173,7 +215,7 @@
             // 
             this.tabMain.Controls.Add(this.tabGeneral);
             this.tabMain.Controls.Add(this.tabProperties);
-            this.tabMain.Controls.Add(this.tabScript);
+            this.tabMain.Controls.Add(this.tabCalculationSequence);
             this.tabMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabMain.Location = new System.Drawing.Point(0, 0);
             this.tabMain.Name = "tabMain";
@@ -280,48 +322,15 @@
             this.btnRename.UseVisualStyleBackColor = true;
             this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
             // 
-            // tabScript
+            // tabCalculationSequence
             // 
-            this.tabScript.Controls.Add(this.ctlFlowEditor);
-            this.tabScript.Location = new System.Drawing.Point(4, 22);
-            this.tabScript.Name = "tabScript";
-            this.tabScript.Size = new System.Drawing.Size(863, 353);
-            this.tabScript.TabIndex = 3;
-            this.tabScript.Text = "Script (Advanced)";
-            this.tabScript.UseVisualStyleBackColor = true;
-            // 
-            // treProperties
-            // 
-            this.treProperties.AllowEntityExpand = true;
-            this.treProperties.AllowEnumExpand = true;
-            this.treProperties.ContextMenuStrip = this.mnuContext;
-            this.treProperties.DefaultNodeContextMenu = null;
-            this.treProperties.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treProperties.EntityTypeFilter = null;
-            this.treProperties.EnumValueContextMenu = null;
-            this.treProperties.FullRowSelect = true;
-            this.treProperties.FunctionFilter = null;
-            this.treProperties.HideSelection = false;
-            this.treProperties.ImageIndex = 0;
-            this.treProperties.Location = new System.Drawing.Point(0, 0);
-            this.treProperties.Name = "treProperties";
-            this.treProperties.PathSeparator = ".";
-            this.treProperties.PropertyTypeFilter = null;
-            this.treProperties.SelectedImageIndex = 0;
-            this.treProperties.ShowNamespaces = false;
-            this.treProperties.ShowNodeToolTips = true;
-            this.treProperties.Size = new System.Drawing.Size(345, 276);
-            this.treProperties.TabIndex = 4;
-            this.treProperties.ViewMode = PropertyGui.MvcAbstraction.ViewModeType.Properties;
-            this.treProperties.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treProperties_AfterSelect);
-            // 
-            // ctlPropertyEditor
-            // 
-            this.ctlPropertyEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctlPropertyEditor.Location = new System.Drawing.Point(0, 0);
-            this.ctlPropertyEditor.Name = "ctlPropertyEditor";
-            this.ctlPropertyEditor.Size = new System.Drawing.Size(494, 276);
-            this.ctlPropertyEditor.TabIndex = 0;
+            this.tabCalculationSequence.Controls.Add(this.ctlFlowEditor);
+            this.tabCalculationSequence.Location = new System.Drawing.Point(4, 22);
+            this.tabCalculationSequence.Name = "tabCalculationSequence";
+            this.tabCalculationSequence.Size = new System.Drawing.Size(863, 353);
+            this.tabCalculationSequence.TabIndex = 3;
+            this.tabCalculationSequence.Text = "Calculation Sequence";
+            this.tabCalculationSequence.UseVisualStyleBackColor = true;
             // 
             // ctlFlowEditor
             // 
@@ -348,7 +357,7 @@
             this.tabGeneral.PerformLayout();
             this.tabProperties.ResumeLayout(false);
             this.tabProperties.PerformLayout();
-            this.tabScript.ResumeLayout(false);
+            this.tabCalculationSequence.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -377,7 +386,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem mnuExpandAll;
         private System.Windows.Forms.Button btnRename;
-        private System.Windows.Forms.TabPage tabScript;
+        private System.Windows.Forms.TabPage tabCalculationSequence;
         private Flows.Steps.ctlFlowEditor ctlFlowEditor;
+        private System.Windows.Forms.ToolStripMenuItem mnuCollapseAll;
     }
 }

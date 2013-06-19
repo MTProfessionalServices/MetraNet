@@ -33,12 +33,12 @@ namespace MetraTech.ExpressionEngine.Flows
         #region Methods
         public override void UpdateInputsAndOutputs(Context context)
         {
-            InputsAndOutputs.Clear();
+            //InputsAndOutputs.Clear();
         }
 
         public Property GetProperty()
         {
-            return AvailableProperties.Get(PropertyName);
+             return AvailableProperties.Get(PropertyName);
         }
         public override string GetAutoLabel()
         {

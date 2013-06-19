@@ -45,20 +45,8 @@ namespace PropertyGui
             Context = context;
             PropertyBag = propertyBag;
 
-            //var flow = ((ProductViewEntity)PropertyBag).Flow;
-            //flow.InitialProperties = new PropertyCollection(this);
-
-            //Why  do I need to do this here???
-            var flow = new BaseFlow();
-            ((ProductViewEntity)PropertyBag).Flow = flow;
-
-            flow.Steps.Add(new CalculateEventChargeStep(flow));
-            foreach (var property in PropertyBag.Properties)
-            {
-                flow.InitialProperties.Add((Property)property.Copy());
-            }
+            ((ProductViewEntity)PropertyBag).UpdateFlow(Context);
             ctlFlowEditor.Init(Context, ((ProductViewEntity)PropertyBag).Flow);
-
             SyncToForm();
         }
         
@@ -246,6 +234,8 @@ namespace PropertyGui
         {
             if (e.ClickedItem.Equals(mnuExpandAll))
                 treProperties.ExpandAll();
+            else if (e.ClickedItem.Equals(mnuCollapseAll))
+                treProperties.CollapseAll();
         }
         #endregion
 
@@ -323,11 +313,13 @@ namespace PropertyGui
         private void tabMain_SelectedIndexChanged(object sender, EventArgs e)
         {
             SyncToObject();
-            if (tabMain.SelectedTab.Equals(tabScript))
+            if (tabMain.SelectedTab.Equals(tabCalculationSequence))
             {
               
             }
         }
+
+
 
     }
 }

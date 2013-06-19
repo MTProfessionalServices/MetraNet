@@ -160,10 +160,10 @@
     <Compile Include="Flows\Steps\ctlExpression.Designer.cs">
       <DependentUpon>ctlExpression.cs</DependentUpon>
     </Compile>
-    <Compile Include="Flows\Steps\ctlFlowEditor.cs">
+    <Compile Include="Flows\ctlFlowEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Flows\Steps\ctlFlowEditor.Designer.cs">
+    <Compile Include="Flows\ctlFlowEditor.Designer.cs">
       <DependentUpon>ctlFlowEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Flows\Steps\ctlBaseStep.cs">
@@ -362,7 +362,7 @@
     <EmbeddedResource Include="Flows\Steps\ctlExpression.resx">
       <DependentUpon>ctlExpression.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Flows\Steps\ctlFlowEditor.resx">
+    <EmbeddedResource Include="Flows\ctlFlowEditor.resx">
       <DependentUpon>ctlFlowEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Flows\Steps\ctlBaseStep.resx">

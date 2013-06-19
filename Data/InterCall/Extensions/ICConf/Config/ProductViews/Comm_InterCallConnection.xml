@@ -1,11 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ProductViewEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
-  <CalculationExpression i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>Commission for Intercall Connection</Description>
   <Direction>Input</Direction>
-  <IsCalculated>false</IsCalculated>
   <IsCore>false</IsCore>
   <Name>Comm_InterCallConnection</Name>
   <Required>true</Required>
@@ -20,11 +18,9 @@
     <Properties>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Session ID for the Retail Transaction</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>related_retail_id_sess</Name>
         <Required>true</Required>
@@ -43,11 +39,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Session ID for the Wholesale Transaction</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>related_ws_id_sess</Name>
         <Required>true</Required>
@@ -66,11 +60,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Adjustment ID for the Retail Transaction</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>related_retail_id_adj</Name>
         <Required>true</Required>
@@ -89,11 +81,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Adjustment ID for the Wholesale Transaction</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>related_ws_id_adj</Name>
         <Required>true</Required>
@@ -112,11 +102,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Session ID for the Retail Discount Transaction</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>related_retail_id_disc</Name>
         <Required>true</Required>
@@ -135,11 +123,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Session ID for the Wholesale Discount Transaction</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>related_ws_id_disc</Name>
         <Required>true</Required>
@@ -158,11 +144,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The bill_code used for rating.</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>rate_bill_code</Name>
         <Required>false</Required>
@@ -178,11 +162,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The product part of the rate_bill_code</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>product</Name>
         <Required>false</Required>
@@ -198,11 +180,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The transport part of the rate_bill_code.</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>transport</Name>
         <Required>false</Required>
@@ -218,11 +198,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>1 - Inbound. 2 Outbound.</Description>
         <Direction>Input</Direction>
-        <IsCalculated>true</IsCalculated>
         <IsCore>false</IsCore>
         <Name>call_type</Name>
         <Required>false</Required>
@@ -238,11 +216,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Surcharge Code used for rating</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>surcharge_code</Name>
         <Required>false</Required>
@@ -258,11 +234,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The country part of the surcharge code.</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>country</Name>
         <Required>false</Required>
@@ -278,11 +252,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The number type part of the surcharge code.</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>number_type</Name>
         <Required>false</Required>
@@ -298,11 +270,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>bridge Commission Type</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>bridge_comm_type</Name>
         <Required>false</Required>
@@ -318,11 +288,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>bridge Feature Commission Percentage Value</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>bridge_comm_pct</Name>
         <Required>false</Required>
@@ -341,11 +309,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>a bad day today</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>bridge_comm_amt</Name>
         <Required>true</Required>
@@ -368,19 +334,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>bridge Commission Amount (Div)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>bridge_comm_div_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -390,19 +354,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression>ConvertCurrency(USAGE.c_bu_curr, USAGE.c_bridge_comm_amt)</CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>bridge Commission Amount (BU)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>true</IsCalculated>
         <IsCore>false</IsCore>
         <Name>bridge_comm_bu_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -412,19 +374,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>bridge Commission Amount (Gbl)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>bridge_comm_gbl_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -434,11 +394,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>leg Commission Type</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>leg_comm_type</Name>
         <Required>false</Required>
@@ -454,11 +412,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>leg Feature Commission Percentage Value</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>leg_comm_pct</Name>
         <Required>false</Required>
@@ -477,11 +433,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>leg Commission Amount</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>leg_comm_amt</Name>
         <Required>true</Required>
@@ -504,19 +458,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>leg Commission Amount (Div)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>leg_comm_div_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -526,19 +478,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>leg Commission Amount (BU)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>leg_comm_bu_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -548,19 +498,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>leg Commission Amount (Gbl)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>leg_comm_gbl_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -570,11 +518,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>surcharge Commission Type</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>surcharge_comm_type</Name>
         <Required>false</Required>
@@ -590,11 +536,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>surcharge Feature Commission Percentage Value</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>surcharge_comm_pct</Name>
         <Required>false</Required>
@@ -613,11 +557,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>surcharge Commission Amount</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>surcharge_comm_amt</Name>
         <Required>true</Required>
@@ -640,19 +582,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>surcharge Commission Amount (Div)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>surcharge_comm_div_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -662,19 +602,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>surcharge Commission Amount (BU)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>surcharge_comm_bu_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -684,19 +622,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>surcharge Commission Amount (Gbl)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>surcharge_comm_gbl_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -706,11 +642,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Telecom Charge Code</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>telecom_charge_code</Name>
         <Required>false</Required>
@@ -726,11 +660,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>telecom Commission Type</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>telecom_comm_type</Name>
         <Required>false</Required>
@@ -746,11 +678,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>telecom Feature Commission Percentage Value</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>telecom_comm_pct</Name>
         <Required>false</Required>
@@ -769,11 +699,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>telecom Commission Amount</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>telecom_comm_amt</Name>
         <Required>true</Required>
@@ -796,19 +724,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>telecom Commission Amount (Div)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>telecom_comm_div_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -818,19 +744,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>telecom Commission Amount (BU)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>telecom_comm_bu_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -840,19 +764,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>telecom Commission Amount (Gbl)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>telecom_comm_gbl_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -862,11 +784,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Feature Commission Type</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>svc_fee_comm_type</Name>
         <Required>false</Required>
@@ -882,11 +802,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Feature Commission Percentage Value</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>svc_fee_comm_pct</Name>
         <Required>false</Required>
@@ -905,11 +823,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>bridge Svc Fee Commission Amount</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>bridge_svc_comm_amt</Name>
         <Required>true</Required>
@@ -932,19 +848,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>bridge Svc Fee Commission Amount (Div)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>bridge_svc_comm_div_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -954,19 +868,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>bridge Svc Fee Commission Amount (BU)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>bridge_svc_comm_bu_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -976,19 +888,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>bridge Svc Fee Commission Amount (Gbl)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>bridge_svc_comm_gbl_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -998,11 +908,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>leg Svc Fee Commission Amount</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>leg_svc_comm_amt</Name>
         <Required>true</Required>
@@ -1025,19 +933,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>leg Svc Fee Commission Amount (Div)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>leg_svc_comm_div_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -1047,19 +953,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>leg Svc Fee Commission Amount (BU)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>leg_svc_comm_bu_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -1069,19 +973,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>leg Svc Fee Commission Amount (Gbl)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>leg_svc_comm_gbl_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -1091,11 +993,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>surcharge Svc Fee Commission Amount</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>surcharge_svc_comm_amt</Name>
         <Required>true</Required>
@@ -1118,19 +1018,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>surcharge Svc Fee Commission Amount (Div)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>surcharge_svc_comm_div_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -1140,19 +1038,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>surcharge Svc Fee Commission Amount (BU)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>surcharge_svc_comm_bu_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -1162,19 +1058,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>surcharge Svc Fee Commission Amount (Gbl)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>surcharge_svc_comm_gbl_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -1184,11 +1078,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>telecom Svc Fee Commission Amount</Description>
         <Direction>Input</Direction>
-        <IsCalculated>true</IsCalculated>
         <IsCore>false</IsCore>
         <Name>telecom_svc_comm_amt</Name>
         <Required>true</Required>
@@ -1211,19 +1103,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>telecom Svc Fee Commission Amount (Div)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>telecom_svc_comm_div_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -1233,19 +1123,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>telecom Svc Fee Commission Amount (BU)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>telecom_svc_comm_bu_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -1255,19 +1143,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>telecom Svc Fee Commission Amount (Gbl)</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>telecom_svc_comm_gbl_amt</Name>
         <Required>true</Required>
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -1277,11 +1163,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>Division currency.</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>div_curr</Name>
         <Required>false</Required>
@@ -1297,11 +1181,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>BU currency.</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>bu_curr</Name>
         <Required>false</Required>
@@ -1317,11 +1199,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>Global currency.</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>false</IsCore>
         <Name>gbl_curr</Name>
         <Required>false</Required>
@@ -1337,11 +1217,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>The internal MetraNet account identifier</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>true</IsCore>
         <Name>AccountId</Name>
         <Required>true</Required>
@@ -1360,11 +1238,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The time the event is deemed to have occurred</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>true</IsCore>
         <Name>Timestamp</Name>
         <Required>true</Required>
@@ -1379,11 +1255,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The currency for the Event</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>true</IsCore>
         <Name>Currency</Name>
         <Required>true</Required>
@@ -1399,11 +1273,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression>USAGE.c_bridge_comm_amt + USAGE.c_leg_comm_amt + USAGE.c_surcharge_comm_amt + USAGE.c_telecom_comm_amt + USAGE.c_bridge_svc_comm_amt + USAGE.c_leg_svc_comm_amt + USAGE.c_surcharge_svc_comm_amt + USAGE.c_telecom_svc_comm_amt</CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>The charge assoicated with the event which may summarize other charges within the event.The amount can be negative to represent a credit.</Description>
         <Direction>Input</Direction>
-        <IsCalculated>true</IsCalculated>
         <IsCore>true</IsCore>
         <Name>EventCharge</Name>
         <Required>true</Required>
@@ -1426,11 +1298,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Identifes which MetraView page will present the Event.</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>true</IsCore>
         <Name>PresentationPageId</Name>
         <Required>true</Required>
@@ -1449,11 +1319,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Uniquely identifes the Event</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>true</IsCore>
         <Name>EventId</Name>
         <Required>true</Required>
@@ -1472,11 +1340,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The EventTax tax for the Event.</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>true</IsCore>
         <Name>EventTax</Name>
         <Required>true</Required>
@@ -1496,11 +1362,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>The FederalTax tax for the Event.</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>true</IsCore>
         <Name>FederalTax</Name>
         <Required>true</Required>
@@ -1520,11 +1384,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The StateTax tax for the Event.</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>true</IsCore>
         <Name>StateTax</Name>
         <Required>true</Required>
@@ -1544,11 +1406,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression></CalculationExpression>
         <DefaultValue></DefaultValue>
         <Description>The CountyTax tax for the Event.</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>true</IsCore>
         <Name>CountyTax</Name>
         <Required>true</Required>
@@ -1568,11 +1428,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The LocalTax tax for the Event.</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>true</IsCore>
         <Name>LocalTax</Name>
         <Required>true</Required>
@@ -1592,11 +1450,9 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <CalculationExpression i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The OtherTax tax for the Event.</Description>
         <Direction>Input</Direction>
-        <IsCalculated>false</IsCalculated>
         <IsCore>true</IsCore>
         <Name>OtherTax</Name>
         <Required>true</Required>
@@ -1618,16 +1474,20 @@
   </Properties>
   <EventType>Charge</EventType>
   <Flow>
-    <FlowCollection>
-      <FlowStepBase i:type="ExpressionStep">
+    <Steps>
+      <BaseStep i:type="CalculateEventChargeStep">
+        <Description i:nil="true" />
+        <FlowStepType>CalculateEventCharge</FlowStepType>
+        <Name i:nil="true" />
+      </BaseStep>
+      <BaseStep i:type="ExpressionStep">
         <Description i:nil="true" />
         <FlowStepType>Expression</FlowStepType>
         <Name i:nil="true" />
-        <Expression>bbbbb</Expression>
-        <PropertyName>related_ws_id_sess</PropertyName>
-      </FlowStepBase>
-    </FlowCollection>
+        <Expression>hello</Expression>
+        <PropertyName>bridge_comm_amt</PropertyName>
+      </BaseStep>
+    </Steps>
   </Flow>
-  <IsMetered>false</IsMetered>
   <UniqueKey />
 </PropertyBag>

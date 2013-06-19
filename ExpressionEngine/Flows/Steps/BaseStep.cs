@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
+using MetraTech.ExpressionEngine.Flows.Steps;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.Validations;
 
@@ -10,6 +11,7 @@ namespace MetraTech.ExpressionEngine.Flows
     /// Simple prototype for transaction flows to replace pipelines
     /// </summary>
     [DataContract(Namespace = "MetraTech")]
+    [KnownType(typeof(CalculateEventChargeStep))]
     [KnownType(typeof(ExpressionStep))]
     [KnownType(typeof(NewPropertyStep))]
     public class BaseStep
@@ -32,10 +34,12 @@ namespace MetraTech.ExpressionEngine.Flows
         [DataMember]
         public string Description { get; set; }
 
+        /// <summary>
+        /// Indicates what properties (and their direction) the Step interacts with. Each subclass should override this method
+        /// </summary>
         public PropertyCollection InputsAndOutputs = new PropertyCollection(null);
 
-        public PropertyCollection AvailableProperties { get { return _availableProperties; } }
-        private PropertyCollection _availableProperties = new PropertyCollection(null);
+        public PropertyCollection AvailableProperties  = new PropertyCollection(null);
         #endregion
 
         #region Constructor
@@ -53,23 +57,31 @@ namespace MetraTech.ExpressionEngine.Flows
         #region Methods
 
         /// <summary>
-        /// Updates the InputsAndOutputs property. This must be overridden in every FlowItem
+        /// Updates the InputsAndOutputs collection. Should be overriden by base class.
         /// </summary>
         public virtual void UpdateInputsAndOutputs(Context context)
         {
-            
+#warning why do i need this here?
+            InputsAndOutputs = new PropertyCollection(this);
+            InputsAndOutputs.Clear();
         }
 
-        public void Validate(ValidationMessageCollection messages, Context context)
+        public virtual void Validate(ValidationMessageCollection messages, Context context)
         {
             //TODO: add validation
         }
 
+        /// <summary>
+        /// Returns an automatically generated user-friendly label. Commonly used as the text in the tree control UI.
+        /// </summary>
         public virtual string GetAutoLabel()
         {
             return null;
         }
 
+        /// <summary>
+        /// Returns an automatically generated description. Commonly used for a tool tip in the tree control UI.
+        /// </summary>
         public virtual string GetAutoDescription()
         {
             return null;

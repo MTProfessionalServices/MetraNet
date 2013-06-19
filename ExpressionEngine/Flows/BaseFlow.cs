@@ -1,17 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.Flows
 {
-    //[DataContract(Namespace = "MetraTech")]
+    [DataContract(Namespace = "MetraTech")]
     public class BaseFlow
     {
         #region Properties 
         public PropertyCollection InitialProperties = new PropertyCollection(null);
 
+        /// <summary>
+        /// The steps within the flow
+        /// </summary>
+        [DataMember]
         public List<BaseStep> Steps = new List<BaseStep>();
+
         #endregion
 
         #region Methods
@@ -21,6 +26,9 @@ namespace MetraTech.ExpressionEngine.Flows
             for (int index = 0; index < Steps.Count; index++)
             {
                 var step = Steps[index];
+
+                #warning, why do we need this here???
+                step.AvailableProperties = new PropertyCollection(this);
 
                 step.AvailableProperties.Clear();
 

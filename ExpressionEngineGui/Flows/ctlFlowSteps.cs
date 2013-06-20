@@ -15,6 +15,7 @@ namespace PropertyGui.Flows
         private BaseStep CurrentStep;
         private ctlBaseStep CurrentStepControl;
         private Control TargetStepControlParent;
+        private ctlContextExplorer Toolbox;
         private TreeNode PreviouslySelectedNode;
         #endregion
 
@@ -26,7 +27,7 @@ namespace PropertyGui.Flows
         #endregion
 
         #region Methods
-        public void Init(Context context, BaseFlow flow, Control targetStepControlParent=null)
+        public void Init(Context context, BaseFlow flow, Control targetStepControlParent=null, ctlContextExplorer toolbox=null)
         {
             if (context == null)
                 throw new ArgumentException("context is null");
@@ -35,6 +36,7 @@ namespace PropertyGui.Flows
             Context = context;
             Flow = flow;
             TargetStepControlParent = targetStepControlParent;
+            Toolbox = toolbox;
         }
 
         public void SyncToForm()
@@ -106,6 +108,7 @@ namespace PropertyGui.Flows
         {
             treSteps.Nodes.RemoveAt(node.Index);
             treSteps.Nodes.Insert(index, node);
+            Flow.UpdateFlow(Context);
             treSteps.SelectedNode = node;
         }
         #endregion
@@ -185,8 +188,12 @@ namespace PropertyGui.Flows
             {
                 CurrentStepControl.Parent = TargetStepControlParent;
                 CurrentStepControl.Dock = DockStyle.Fill;
-                //CurrentStepControl.Init(CurrentStep, Context);
                 CurrentStepControl.SyncToForm();
+            }
+            if (Toolbox != null)
+            {
+                Context.AvailableProperties = CurrentStep.AvailableProperties;
+                Context.InputsAndOutputs = CurrentStep.InputsAndOutputs;
             }
             PreviouslySelectedNode = treSteps.SelectedNode;
         }

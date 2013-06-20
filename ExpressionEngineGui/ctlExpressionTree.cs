@@ -6,6 +6,7 @@ using System.IO;
 using System.Drawing;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.MTProperties;
+using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
@@ -125,6 +126,9 @@ namespace PropertyGui
                 case MvcAbstraction.ViewModeType.PageLayouts:
                     LoadGeneric(Context.PageLayouts.Values);
                     break;
+                case MvcAbstraction.ViewModeType.AvailableProperties:
+                    LoadAvailablePropertiesMode();
+                    break;
                 default:
                     throw new NotImplementedException();
             }
@@ -161,7 +165,7 @@ namespace PropertyGui
             {
                 var typeNode = CreateNode(enumCategory, null);
 
-                if (AllowEnumExpand)
+                //if (AllowEnumExpand)
                   AddEnumValues(enumCategory, typeNode);
             }
         }
@@ -201,6 +205,23 @@ namespace PropertyGui
                     continue;
 
                 CreateNode(func, null);
+            }
+        }
+
+        private void LoadAvailablePropertiesMode()
+        {
+            foreach (var property in Context.AvailableProperties)
+            {
+                if (property is PropertyBag)
+                {
+                    //Create the propertyBag node
+                    var entityNode = CreateNode(property, null);
+
+                    //Create the property nodes
+                    AddProperties(entityNode, ((PropertyBag) property).Properties, PropertyTypeFilter);
+                }
+                else
+                    CreateNode(property);
             }
         }
 

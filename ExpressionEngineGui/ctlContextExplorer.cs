@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Components;
@@ -23,6 +17,7 @@ namespace PropertyGui
         #region Properties
         public Context Context;
         public bool IgnoreChanges = true;
+        public ctlExpressionTree Tree { get { return treExplorer; } }
         #endregion
 
         #region Constructor
@@ -50,17 +45,13 @@ namespace PropertyGui
             treExplorer.Init(Context, null);//mnuEnumValue);
 
             //Init the Mode combo
-            cboMode.BeginUpdate();
-            cboMode.Items.Clear();
-            foreach (var viewMode in MvcAbstraction.GetRelevantViewModes(Context.Expression))
-            {
-                cboMode.Items.Add(viewMode);
-            }
-            cboMode.Sorted = true;
-            cboMode.EndUpdate();
-            cboMode.SelectedItem = MvcAbstraction.ViewModeType.Entities;
+            if (context.Expression != null)
+                SetModeOptions(Context.Expression.Info);
+            else
+                SetModeOptions(null); 
 
             //Init the PropertyBag Type Filter
+ 
             cboEntityTypeFilter.BeginUpdate();
             cboEntityTypeFilter.Items.Clear();
             cboEntityTypeFilter.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -102,6 +93,19 @@ namespace PropertyGui
             
             IgnoreChanges = false;
             UpdateGui();
+        }
+
+        public void SetModeOptions(ExpressionInfo info)
+        {
+            cboMode.BeginUpdate();
+            cboMode.Items.Clear();
+            foreach (var viewMode in MvcAbstraction.GetRelevantViewModes(info))
+            {
+                cboMode.Items.Add(viewMode);
+            }
+            cboMode.Sorted = true;
+            cboMode.EndUpdate();
+            cboMode.SelectedItem = MvcAbstraction.ViewModeType.Entities;  
         }
 
         private void InitPanel(Panel panel)
@@ -174,7 +178,6 @@ namespace PropertyGui
         {
             UpdateGui();
         }
-
 
         #endregion
 

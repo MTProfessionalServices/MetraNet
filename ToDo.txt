@@ -1,56 +1,10 @@
-*Validate local property links
-*Should connect links with guis
-*Numeric editor; UOM categories are all enums... need to filter
-*EnumCategory icon is wrong
-*Hide property panel when no properties
-
-
-*Save PV
-*MetraNet Extended Properties
-*MetraNet Extended Subscriptions
-
-
-DONE:
------------------------------------------------------------
-
------------------------------------------------------------
-
-*Extensions; issue with casting to a abstract class
-*Move Validate to launch
-*Add Form Layout
-*Metanga expressions
-*Namespaces from MetraNet
-*Namespace tree option
-*Namespace filter
-
-
-
-*Tax
-*Metanga BillableEvent 100%
-*Cloud Compute PV 100%
-
-*BME relationships
-
-*How to model Account in PV
-
-*Function parameter binding not working
-*In function not working
-*Property view causes exception
-*LayoutPanel resizing
-*Only CountryCode Enum for MetraNet has items in entity view (ok in explorer view and works for metanga!)
-*FormLayout: better image
-*What aren't enums working in In function
-*Double clicking an Entity creates USAGE.c_Entitry
-
-
-464 warnings!
-
-TaxCategoryProperty { get; set; }
-TaxAuthorityProperty { get; set; }
-TaxLocationProperty { get; set; }
-TaxReportToProperty { get; set; }
-
-
-
-
-
+*Available properties not updating after click
+*Default to available properties
+*Add property filter to available properties
+*Inputs and outputs not showing up in panel
+*Double click add property
+*Double click add function
+*Double click add enumeration
+*Remove property and function from expression
+*Replace expression textbox with subclass
+*Validation has false positives

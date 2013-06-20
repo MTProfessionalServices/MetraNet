@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
+using MetraTech.ExpressionEngine.Expressions;
+using MetraTech.ExpressionEngine.Expressions.Enumerations;
 using MetraTech.ExpressionEngine.Flows;
 
 namespace PropertyGui.Flows.Steps
@@ -29,9 +31,18 @@ namespace PropertyGui.Flows.Steps
             Context = context;
             Flow = flow;
 
-            ctlFlowSteps.Init(Context, Flow, splitContainer.Panel2);
-            ctlToolbox.Init(Context, null);
+            ctlFlowSteps.Init(Context, Flow, splitStepToolbox.Panel1, ctlToolbox);
 
+            //Toolbox
+            var info = new ExpressionInfo(ExpressionType.ProductView);
+            info.SupportsProperties = false;
+            info.SupportsAvailableProperties = true;
+            
+
+            ctlToolbox.Tree.AllowEnumExpand = false;
+          
+            ctlToolbox.Init(Context);
+            ctlToolbox.SetModeOptions(info);
         }
 
         public void SyncToForm()

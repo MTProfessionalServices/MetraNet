@@ -21,7 +21,7 @@ namespace PropertyGui
     public static class MvcAbstraction
     {
         #region Enums
-        public enum ViewModeType { Properties, Entities, Functions, Enumerations, AQGs, UQGs, InputsOutputs, Emails, PageLayouts, Expressions }
+        public enum ViewModeType { AvailableProperties, Properties, Entities, Functions, Enumerations, AQGs, UQGs, InputsOutputs, Emails, PageLayouts, Expressions }
         #endregion
 
         #region Methods
@@ -30,12 +30,12 @@ namespace PropertyGui
         /// Returns a list of ViewModes that are applicable to the specified Expression. If no
         /// Expression is supplied, all ViewModes are returned. Used to load a filter combo box.
         /// </summary>
-        public static List<ViewModeType> GetRelevantViewModes(Expression expression = null)
+        public static List<ViewModeType> GetRelevantViewModes(ExpressionInfo info = null)
         {
             var viewModes = new List<ViewModeType>();
 
             //If no expression, then show almost everything (i.e., no filter)
-            if (expression == null)
+            if (info == null)
             {
                 foreach (var item in Enum.GetValues(typeof(ViewModeType)))
                 {
@@ -47,14 +47,16 @@ namespace PropertyGui
                 return viewModes;
             }
 
-            if (expression.Info.SupportsAqgs)
+            if (info.SupportsAqgs)
                 viewModes.Add(ViewModeType.AQGs);
-            if (expression.Info.SupportsUqgs)
-                viewModes.Add(ViewModeType.UQGs);
-            if (expression.Info.SupportedEntityTypes.Count > 0)
+            if (info.SupportsUqgs)
+                //viewModes.Add(ViewModeType.UQGs);
+            if (info.SupportedEntityTypes.Count > 0)
                 viewModes.Add(ViewModeType.Entities);
-
-            viewModes.Add(ViewModeType.Properties);
+            if (info.SupportsProperties)
+                viewModes.Add(ViewModeType.Properties);
+            if (info.SupportsAvailableProperties)
+                viewModes.Add(ViewModeType.AvailableProperties);
             viewModes.Add(ViewModeType.Enumerations);
             viewModes.Add(ViewModeType.Functions);
             viewModes.Add(ViewModeType.InputsOutputs);

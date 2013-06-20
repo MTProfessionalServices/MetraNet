@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Flows;
@@ -20,6 +21,7 @@ namespace PropertyGui.Flows.Steps
         public ctlBaseStep()
         {
             InitializeComponent();
+            BackColor = Color.Silver;
         }
         #endregion
 

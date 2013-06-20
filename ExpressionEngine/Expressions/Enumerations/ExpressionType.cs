@@ -3,9 +3,10 @@
     public enum ExpressionType
     {
         Aqg,
-        Uqg,
-        Logic,
         Email,
-        Message ///Merging of localized text (e.g., email templates, sms messages, etc.)
+        Logic,
+        Message, //Merging of localized text (e.g., email templates, sms messages, etc.)
+        ProductView,
+        Uqg
     }
 }

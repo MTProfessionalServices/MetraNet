@@ -68,16 +68,16 @@
     <Compile Include="Flows\Steps\MtsqlStep.cs" />
     <Compile Include="Flows\Steps\NewPropertyStep.cs" />
     <Compile Include="Flows\Steps\ParameterTableLookupStep.cs" />
-    <Compile Include="obj\Infrastructure\ComponentHelper.cs" />
-    <Compile Include="obj\Infrastructure\ComponentLinkCollection.cs" />
-    <Compile Include="obj\Infrastructure\ComponentLink.cs" />
-    <Compile Include="obj\Infrastructure\Enumerations\ScopeType.cs" />
-    <Compile Include="obj\Infrastructure\ContextMetadata.cs" />
-    <Compile Include="obj\Infrastructure\Enumerations\ComponentType.cs" />
+    <Compile Include="Infrastructure\ComponentHelper.cs" />
+    <Compile Include="Infrastructure\ComponentLinkCollection.cs" />
+    <Compile Include="Infrastructure\ComponentLink.cs" />
+    <Compile Include="Infrastructure\Enumerations\ScopeType.cs" />
+    <Compile Include="Infrastructure\ContextMetadata.cs" />
+    <Compile Include="Infrastructure\Enumerations\ComponentType.cs" />
     <Compile Include="Enums\EnumManager.cs" />
-    <Compile Include="obj\Infrastructure\GlobalComponentCollection.cs" />
-    <Compile Include="obj\Infrastructure\IComponent.cs" />
-    <Compile Include="obj\Infrastructure\PropertyLink.cs" />
+    <Compile Include="Infrastructure\GlobalComponentCollection.cs" />
+    <Compile Include="Infrastructure\IComponent.cs" />
+    <Compile Include="Infrastructure\PropertyLink.cs" />
     <Compile Include="MTProperties\Enumerations\Availability.cs" />
     <Compile Include="MTProperties\PropertyReference.cs" />
     <Compile Include="Mvm\MvmHelper.cs" />
@@ -95,7 +95,7 @@
     <Compile Include="MTProperties\Enumerations\OperatorScope.cs" />
     <Compile Include="MTProperties\Enumerations\ParameterTablePropertyContext.cs" />
     <Compile Include="MTProperties\MetraNetPropertyBase.cs" />
-    <Compile Include="obj\Infrastructure\Enumerations\ProductType.cs" />
+    <Compile Include="Infrastructure\Enumerations\ProductType.cs" />
     <Compile Include="MTProperties\ParameterTableProperty.cs" />
     <Compile Include="PropertyBags\BusinessModelingEntity.cs" />
     <Compile Include="PropertyBags\ParameterTableEntity.cs" />
@@ -117,7 +117,7 @@
     <Compile Include="MTProperties\Enumerations\Direction.cs" />
     <Compile Include="Placeholders\Aqg.cs" />
     <Compile Include="TypeSystem\Enumerations\BaseType.cs" />
-    <Compile Include="obj\Infrastructure\Context.cs" />
+    <Compile Include="Infrastructure\Context.cs" />
     <Compile Include="Enums\Currency.cs" />
     <Compile Include="PropertyBags\PropertyBag.cs" />
     <Compile Include="EmailInstance.cs" />
@@ -191,6 +191,7 @@
     <CodeAnalysisDictionary Include="CustomDictionary.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="obj\" />
     <Folder Include="UserTest\Enumerations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

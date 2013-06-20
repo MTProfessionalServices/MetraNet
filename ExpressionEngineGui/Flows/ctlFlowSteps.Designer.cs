@@ -40,6 +40,7 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnMoveDown = new System.Windows.Forms.Button();
             this.btnMoveUp = new System.Windows.Forms.Button();
+            this.btnTest = new System.Windows.Forms.Button();
             this.contextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,10 +136,21 @@
             this.btnMoveUp.UseVisualStyleBackColor = true;
             this.btnMoveUp.Click += new System.EventHandler(this.btnMoveUp_Click);
             // 
+            // btnTest
+            // 
+            this.btnTest.Enabled = false;
+            this.btnTest.Location = new System.Drawing.Point(121, 2);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(48, 23);
+            this.btnTest.TabIndex = 10;
+            this.btnTest.Text = "Test...";
+            this.btnTest.UseVisualStyleBackColor = true;
+            // 
             // ctlFlowSteps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnMoveDown);
             this.Controls.Add(this.btnMoveUp);
@@ -162,5 +174,6 @@
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem mnuDelete;
+        private System.Windows.Forms.Button btnTest;
     }
 }

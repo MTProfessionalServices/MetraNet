@@ -14,6 +14,8 @@ namespace MetraTech.ExpressionEngine.Expressions
         public List<string> SupportedEntityTypes { get; private set; }
         public bool SupportsAqgs { get; set; }
         public bool SupportsUqgs { get; set; }
+        public bool SupportsProperties { get; set; }
+        public bool SupportsAvailableProperties { get; set; }
 
         #endregion
 

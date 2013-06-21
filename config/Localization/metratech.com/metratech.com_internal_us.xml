@@ -75,8 +75,24 @@
             <Value>Tax Exempt</Value>
         </locale_entry>
         <locale_entry>
+            <Name>metratech.com/Internal/TaxExemptEndDate</Name>
+            <Value>Tax Exempt End Date</Value>
+        </locale_entry>
+        <locale_entry>
             <Name>metratech.com/internal/TaxExemptID</Name>
             <Value>Tax Exempt Id</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/Internal/TaxExemptReason</Name>
+            <Value>Tax Exempt Reason</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/Internal/TaxExemptStartDate</Name>
+            <Value>Tax Exempt Start Date</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/Internal/TaxRegistryReference</Name>
+            <Value>Tax Registry Reference</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Internal/TaxServiceAddressPCode</Name>
@@ -87,28 +103,16 @@
             <Value>Tax Vendor</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/Internal/TaxRegistryReference</Name>
-            <Value>Tax Registry Reference</Value>
-        </locale_entry>
-		<locale_entry>
-            <Name>metratech.com/Internal/TaxExemptReason</Name>
-            <Value>Tax Exempt Reason</Value>
-        </locale_entry>
-		<locale_entry>
-            <Name>metratech.com/Internal/TaxExemptStartDate</Name>
-            <Value>Tax Exempt Start Date</Value>
-        </locale_entry>
-		<locale_entry>
-            <Name>metratech.com/Internal/TaxExemptEndDate</Name>
-            <Value>Tax Exempt End Date</Value>
-        </locale_entry>
-        <locale_entry>
             <Name>metratech.com/internal/TimezoneID</Name>
             <Value>Timezone</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/internal/UsageCycleType</Name>
             <Value>Billing Cycle</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/Internal/UseStdImpliedTaxAlg</Name>
+            <Value>Use Standard Implied Tax Algorithm</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

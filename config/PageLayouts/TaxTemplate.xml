@@ -20,6 +20,7 @@
                 <Value><![CDATA[Tax]]></Value>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -38,6 +39,7 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label />
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -54,6 +56,7 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label />
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -70,6 +73,7 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label />
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -86,6 +90,7 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label />
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -102,6 +107,7 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label />
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -118,6 +124,7 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label />
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
@@ -138,6 +145,7 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label />
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -154,6 +162,7 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label />
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -170,6 +179,7 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label />
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -186,6 +196,7 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label />
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -202,10 +213,29 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label />
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.AccountTypes.InternalView</ObjectName>
+                            <ID>UseStdImpliedTaxAlg</ID>
+                            <Name>UseStdImpliedTaxAlg</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label />
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
     </Sections>
 </PageLayout>

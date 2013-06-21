@@ -218,4 +218,13 @@
         <defaultvalue></defaultvalue>
         <description>Typically used for MetraTax to store the VAT registration number.  This field is information only and does not influence tax calculation.</description>
     </ptype>
+    <ptype>
+        <dn>UseStdImpliedTaxAlg</dn>
+        <type>boolean</type>
+        <length></length>
+        <required>N</required>
+        <defaultvalue>T</defaultvalue>
+        <description>Tells the calculate tax adapters which algorithm to use when calculating the tax amount for tax inclusive amounts. If set to True, then the standard implied tax algorithm is tax=amount - amount/(1.0+rate). If set to False, the alternate implied tax algorithm is tax=amount*rate.
+</description>
+    </ptype>
 </defineservice>

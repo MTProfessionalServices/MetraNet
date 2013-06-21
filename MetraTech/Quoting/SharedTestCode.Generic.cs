@@ -1039,7 +1039,14 @@ namespace MetraTech.Shared.Test
       account.LDAP.Add(billToContactView);
 
       account.StartMonth = MonthOfTheYear.January;
+      account.FirstDayOfMonth = 1;
       account.StartDay = 1;
+      account.DayOfMonth = 1;
+      account.DayOfWeek = MetraTech.DomainModel.Enums.Core.Global.DayOfTheWeek.Sunday;
+      account.StartYear = DateTime.Now.Year;
+      account.SecondDayOfMonth = 15;
+      
+
 
       account.PayerID = PayerID;
 

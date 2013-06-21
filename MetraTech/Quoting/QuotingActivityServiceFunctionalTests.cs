@@ -145,7 +145,7 @@ namespace MetraTech.Quoting.Test
       Assert.IsTrue(!string.IsNullOrEmpty(erroredResponse.FailedMessage), "Failed quote does not have FailedMessage set");
 
       //Verify the message we expect is there
-      Assert.IsTrue(erroredResponse.FailedMessage.Contains(expectedErrorMessagePartialText));
+      Assert.IsTrue(erroredResponse.FailedMessage.Contains(expectedErrorMessagePartialText),"Expected failure message with text '{0}' but got failure message '{1}'", expectedErrorMessagePartialText, erroredResponse.FailedMessage);
 
       #endregion
     }

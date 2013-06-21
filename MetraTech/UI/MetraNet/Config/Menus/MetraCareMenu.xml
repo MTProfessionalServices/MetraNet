@@ -328,7 +328,7 @@
                                 <LocalizationTag>TEXT_SUMMARY</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>[AccountSummaryPage]</Link>
+                            <Link>/MetraNet/ManageAccount.aspx</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/report_user.png</Icon>
                             <Description>Account Summary Details</Description>
@@ -808,7 +808,7 @@
                                 <LocalizationTag>TEXT_SUMMARY</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>[AccountSummaryPage]</Link>
+                            <Link>/MetraNet/ManageAccount.aspx</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/report_user.png</Icon>
                             <Description>Corporate Account Summary</Description>
@@ -1292,7 +1292,7 @@
                                 <LocalizationTag>TEXT_SUMMARY</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>[AccountSummaryPage]</Link>
+                            <Link>/MetraNet/ManageAccount.aspx</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/report_user.png</Icon>
                             <Description>Account Summarization</Description>

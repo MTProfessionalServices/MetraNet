@@ -1,23 +1,44 @@
 using System;
 using System.Configuration;
 using System.Collections.Generic;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Web.UI.WebControls;
 using MetraTech.DomainModel.Enums;
 using MetraTech.DomainModel.Enums.Account.Metratech_com_accountcreation;
 using MetraTech.DomainModel.Enums.Core.Global;
 using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
 using MetraTech.UI.Common;
 using MetraTech.PageNav.ClientProxies;
-using System.Text.RegularExpressions;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.Accounts.Type;
 using MetraTech.Interop.IMTAccountType;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.UI.Controls;
 using MetraTech.ActivityServices.Common;
-using System.Web.UI.WebControls;
 
 public partial class AddAccount : MTAccountPage
 {
+  /// <summary>
+  /// Returns JSON string with mapping of account attributes to JavaScript client-side controls
+  /// </summary>
+  public string JSControlMapping
+  {
+    get
+    {
+      StringBuilder sb = new StringBuilder();
+
+      foreach (MTDataBindingItem itm in MTDataBinder1.DataBindingItems)
+      {
+        if (itm.ControlInstance != null)
+        {
+            sb.AppendFormat("{0}'{1}.{2}':'{3}'", sb.Length == 0 ? string.Empty : ",", (itm.BindingSource == "BillTo") ? "LDAP[ContactType=Bill_To]" : itm.BindingSource, itm.BindingSourceMember, itm.ControlInstance.ClientID);
+        }
+      }
+      return string.Format("{{{0}}}", sb);
+    }
+  }
+
   protected void Page_Load(object sender, EventArgs e)
   {
     if (!IsPostBack)
@@ -172,6 +193,10 @@ public partial class AddAccount : MTAccountPage
 	//    throw new ApplicationException(Resources.ErrorMessages.ERROR_SECURITY_ANSWER_INVALID);
 	//  }
 	//}
+
+
+  // [TODO] After fixing CORE-6642 validation of SemiMonthly Cycle is no longer required here. Before removing it:
+  // Use localized "Resources.ErrorMessages.ERROR_ENDDOM_INVALID"(see below) instead of unlocalized INVALID_FIRST_DAY in S:\MetraTech\DomainModel\Validators\AccountValidator.cs
 
     // Validate the semi-monthly selected days if semi-monthly defined.
     if (((MTBillingCycleControl)FindControlRecursive(Page, "MTBillingCycleControl1")).CycleList.SelectedValue.ToLower()

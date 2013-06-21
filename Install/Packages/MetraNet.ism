@@ -7069,8 +7069,8 @@
 		<row><td>NEW_STRING792</td><td>1033</td><td>Repeat Ticketing Key:</td><td>0</td><td/><td>-1566752497</td></row>
 		<row><td>NEW_STRING793</td><td>1033</td><td>Payment Method Hash Key:</td><td>0</td><td/><td>-90169525</td></row>
 		<row><td>NEW_STRING794</td><td>1033</td><td>Payment Method Hash Key:</td><td>0</td><td/><td>-90162644</td></row>
-		<row><td>NEW_STRING795</td><td>1033</td><td>Type Independent Account Templates</td><td>0</td><td/><td>1981821003</td></row>
-		<row><td>NEW_STRING796</td><td>1033</td><td>Account Templates for Specific Account Types</td><td>0</td><td/><td>1981843563</td></row>
+		<row><td>NEW_STRING795</td><td>1033</td><td>Apply Account Templates to All Account Types</td><td>0</td><td/><td>1981821003</td></row>
+		<row><td>NEW_STRING796</td><td>1033</td><td>Apply Account Templates to Selected Account Types</td><td>0</td><td/><td>1981843563</td></row>
 		<row><td>NEW_STRING797</td><td>1033</td><td>Account Template Configuration</td><td>0</td><td/><td>1981853963</td></row>
 		<row><td>NEW_STRING8</td><td>1033</td><td>The Leading Web Services-Based Billing, Customer Self-Care and Partner Management Platform</td><td>0</td><td/><td>479841514</td></row>
 		<row><td>NEW_STRING80</td><td>1033</td><td>Repeat the password associated with the administrative login ID.|</td><td>0</td><td/><td>1821826129</td></row>

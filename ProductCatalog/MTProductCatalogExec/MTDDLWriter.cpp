@@ -31,7 +31,7 @@
 
 #import <MetraTech.Product.Hooks.DynamicTableUpdate.tlb> 
 #import <MetraTech.Product.Hooks.InsertProdProperties.tlb>
-
+#import <QueryAdapter.tlb> rename("GetUserName", "QAGetUserName")
 
 /////////////////////////////////////////////////////////////////////////////
 // CMTDDLWriter
@@ -491,7 +491,17 @@ STDMETHODIMP CMTDDLWriter::SyncParameterTables(IMTSessionContext* apCtxt)
 					MT_THROW_COM_ERROR("Inserting parameter table properties failed for %s", (char*) paramTblName);
 			} // if 
 
-      StrToLower(tablename);
+			StrToLower(tablename);
+			
+			// Post processing Param Table creation - creating reference integrity trigger
+			QUERYADAPTERLib::IMTQueryAdapterPtr queryAdapter(__uuidof(QUERYADAPTERLib::MTQueryAdapter));
+			queryAdapter->Init(CONFIG_DIR);
+			queryAdapter->SetQueryTag("__ADD_INTEGRITY_TRIGGER__");
+			queryAdapter->AddParam("%%NM_NAME%%", tablename.c_str());
+
+			rowset->SetQueryString(queryAdapter->GetQuery());
+			rowset->Execute();
+			
 			paramTableMap.erase(tablename);
 		} // for
 

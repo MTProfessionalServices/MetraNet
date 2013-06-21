@@ -56,6 +56,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Quoting.Test.Cons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.DomainModel.ProductCatalog", "..\DomainModel\ProductCatalog\MetraTech.DomainModel.ProductCatalog.csproj", "{43A73CF5-A0CC-431F-B626-E88904600162}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MetraTech.Reports", "MetraTech.Reports", "{F36E0B7A-D401-40AC-AAEB-EC9B19077296}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Reports.CrystalEnterprise", "..\Reports\CrystalEnterprise\MetraTech.Reports.CrystalEnterprise.csproj", "{E6F85B9C-27EB-4261-A723-52C7A0483493}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Reports", "..\Reports\MetraTech.Reports.csproj", "{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = MetraTech.Quoting.vsmdi
@@ -447,6 +453,42 @@ Global
 		{43A73CF5-A0CC-431F-B626-E88904600162}.Release|Mixed Platforms.Build.0 = Release|x86
 		{43A73CF5-A0CC-431F-B626-E88904600162}.Release|x86.ActiveCfg = Release|x86
 		{43A73CF5-A0CC-431F-B626-E88904600162}.Release|x86.Build.0 = Release|x86
+		{E6F85B9C-27EB-4261-A723-52C7A0483493}.Debug|.NET.ActiveCfg = Debug|x86
+		{E6F85B9C-27EB-4261-A723-52C7A0483493}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{E6F85B9C-27EB-4261-A723-52C7A0483493}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{E6F85B9C-27EB-4261-A723-52C7A0483493}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{E6F85B9C-27EB-4261-A723-52C7A0483493}.Debug|x86.ActiveCfg = Debug|x86
+		{E6F85B9C-27EB-4261-A723-52C7A0483493}.Debug|x86.Build.0 = Debug|x86
+		{E6F85B9C-27EB-4261-A723-52C7A0483493}.DebugcoreQA|.NET.ActiveCfg = Debug|x86
+		{E6F85B9C-27EB-4261-A723-52C7A0483493}.DebugcoreQA|Any CPU.ActiveCfg = Debug|x86
+		{E6F85B9C-27EB-4261-A723-52C7A0483493}.DebugcoreQA|Mixed Platforms.ActiveCfg = Debug|x86
+		{E6F85B9C-27EB-4261-A723-52C7A0483493}.DebugcoreQA|Mixed Platforms.Build.0 = Debug|x86
+		{E6F85B9C-27EB-4261-A723-52C7A0483493}.DebugcoreQA|x86.ActiveCfg = Debug|x86
+		{E6F85B9C-27EB-4261-A723-52C7A0483493}.DebugcoreQA|x86.Build.0 = Debug|x86
+		{E6F85B9C-27EB-4261-A723-52C7A0483493}.Release|.NET.ActiveCfg = Release|x86
+		{E6F85B9C-27EB-4261-A723-52C7A0483493}.Release|Any CPU.ActiveCfg = Release|x86
+		{E6F85B9C-27EB-4261-A723-52C7A0483493}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{E6F85B9C-27EB-4261-A723-52C7A0483493}.Release|Mixed Platforms.Build.0 = Release|x86
+		{E6F85B9C-27EB-4261-A723-52C7A0483493}.Release|x86.ActiveCfg = Release|x86
+		{E6F85B9C-27EB-4261-A723-52C7A0483493}.Release|x86.Build.0 = Release|x86
+		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}.Debug|.NET.ActiveCfg = Debug|x86
+		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}.Debug|x86.ActiveCfg = Debug|x86
+		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}.Debug|x86.Build.0 = Debug|x86
+		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}.DebugcoreQA|.NET.ActiveCfg = Debug|x86
+		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}.DebugcoreQA|Any CPU.ActiveCfg = Debug|x86
+		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}.DebugcoreQA|Mixed Platforms.ActiveCfg = Debug|x86
+		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}.DebugcoreQA|Mixed Platforms.Build.0 = Debug|x86
+		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}.DebugcoreQA|x86.ActiveCfg = Debug|x86
+		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}.DebugcoreQA|x86.Build.0 = Debug|x86
+		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}.Release|.NET.ActiveCfg = Release|x86
+		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}.Release|Any CPU.ActiveCfg = Release|x86
+		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}.Release|Mixed Platforms.Build.0 = Release|x86
+		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}.Release|x86.ActiveCfg = Release|x86
+		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -468,6 +510,8 @@ Global
 		{42857A3C-817A-4E05-8DEA-E78385BFE2DA} = {8A53BEBA-F1E9-4653-BE3E-7E130812087E}
 		{DABA4CDB-2CD3-466C-AD17-F24685BDE517} = {8A53BEBA-F1E9-4653-BE3E-7E130812087E}
 		{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79} = {8A53BEBA-F1E9-4653-BE3E-7E130812087E}
+		{E6F85B9C-27EB-4261-A723-52C7A0483493} = {F36E0B7A-D401-40AC-AAEB-EC9B19077296}
+		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A} = {F36E0B7A-D401-40AC-AAEB-EC9B19077296}
 	EndGlobalSection
 	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
 		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}

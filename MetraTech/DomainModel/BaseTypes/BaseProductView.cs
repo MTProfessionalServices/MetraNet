@@ -1936,11 +1936,11 @@ namespace MetraTech.DomainModel.BaseTypes
         #region IsTaxInclusive
 
         [DataMember(IsRequired = false, EmitDefaultValue = false)] private bool isIsTaxInclusiveDirty = false;
-        private bool? m_IsTaxInclusive;
+        private bool m_IsTaxInclusive;
 
         [MTDataMember(Description = "Is this tax inclusive?  Null means unknown", Length = 40)]
         [DataMember(IsRequired = false, EmitDefaultValue = false)]
-        public bool? IsTaxInclusive
+        public bool IsTaxInclusive
         {
             get { return m_IsTaxInclusive; }
             set
@@ -1957,7 +1957,25 @@ namespace MetraTech.DomainModel.BaseTypes
         }
 
         #endregion
+        
+		#region IsTaxInclusive Display Name
+        [MTPropertyLocalizationAttribute(
+            ResourceId = "metratech.domainmodel.productview.defaultproductview.IsTaxInclusive",
+            DefaultValue = "IsTaxInclusive",
+            MTLocalizationId = "metratech.com/defaultproductview/IsTaxInclusive",
+            Extension = "Core",
+            LocaleSpace = "metratech.com/defaultproductview")]
+        public string IsTaxInclusiveDisplayName
+        {
+            get
+            {
+                return
+                    ResourceManager.GetString(
+                        "metratech.domainmodel.productview.defaultproductview.IsTaxInclusive");
+            }
+        }
 
+        #endregion
         #region IsTaxAlreadyCalculated
 
         [DataMember(IsRequired = false, EmitDefaultValue = false)] private bool isIsTaxAlreadyCalculatedDirty = false;
@@ -2006,6 +2024,24 @@ namespace MetraTech.DomainModel.BaseTypes
 
         #endregion
 
+		#region IsTaxInformational Display Name
+        [MTPropertyLocalizationAttribute(
+            ResourceId = "metratech.domainmodel.productview.defaultproductview.IsTaxInformational",
+            DefaultValue = "IsTaxInformational",
+            MTLocalizationId = "metratech.com/defaultproductview/IsTaxInformational",
+            Extension = "Core",
+            LocaleSpace = "metratech.com/defaultproductview")]
+        public string IsTaxInformationalDisplayName
+        {
+            get
+            {
+                return
+                    ResourceManager.GetString(
+                        "metratech.domainmodel.productview.defaultproductview.IsTaxInformational");
+            }
+        }
+
+        #endregion
         #endregion
 
         public static Type[] KnownTypes()

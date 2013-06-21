@@ -3,6 +3,12 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Collections;
 using System.Diagnostics;
+//using MetraTech.Account.ClientProxies;
+using MetraTech.DomainModel.AccountTypes;
+using MetraTech.DomainModel.Enums.Account.Metratech_com_accountcreation;
+using MetraTech.DomainModel.Enums.Core.Global;
+using MetraTech.DomainModel.Enums.Core.Global_SystemCurrencies;
+using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
 using NUnit.Framework;
 using PC=MetraTech.Interop.MTProductCatalog;
 using MetraTech.Interop.MTAuth;
@@ -16,6 +22,7 @@ using MetraTech.Interop.COMMeter;
 using PipelineTransaction = MetraTech.Interop.PipelineTransaction;
 using Account = MetraTech.Accounts.Type;
 using MetraTech.Security;
+using MetraTech.DomainModel.BaseTypes;
 
 
 
@@ -90,7 +97,8 @@ namespace MetraTech.Test.Common
 		private static PC.MTProductCatalog mPC;
 		private static YAAC.IMTAccountCatalog mAccCatalog;
 		private static bool bFirstTraceRequest = true;
-		
+   
+
 		static Utils()
 		{
 			mPC = new PC.MTProductCatalogClass();
@@ -1691,339 +1699,352 @@ namespace MetraTech.Test.Common
       CreateCorporation(CorpName, aStartDate);
     }
 
+
 		public static void CreateCorporation(string CorpName, DateTime aStartDate)
 		{
-			IMeter sdk = null;
-      try
-      {
-        sdk = TestLibrary.InitSDK();
-        ISessionSet sessionSet = sdk.CreateSessionSet();
-        sessionSet.SessionContext = mSUCtx.ToXML();
 
-        ISession session = sessionSet.CreateSession("metratech.com/accountcreation");
-        session.RequestResponse = true;
-        session.InitProperty("actiontype", "both");
-        session.InitProperty("username", CorpName);
-        session.InitProperty("password_", "123");
-        session.InitProperty("name_space", "mt");
-        session.InitProperty("language", "US");
-        session.InitProperty("timezoneID", "18");
-        session.InitProperty("taxexempt", "F");
-        session.InitProperty("city", "Stalingrad");
-        session.InitProperty("state", "MA");
-        session.InitProperty("zip", "01451");
-        session.InitProperty("usagecycletype", "Monthly");
-        session.InitProperty("dayofmonth", "1");
-        session.InitProperty("paymentmethod", "1");
-        session.InitProperty("InvoiceMethod", "Detailed");
-        session.InitProperty("transactioncookie", "");
-        session.InitProperty("operation", "Add");
-        session.InitProperty("firstname", string.Format("{0} NUnit test, ", mPrefix));
-        session.InitProperty("lastname", aStartDate.ToString() + " GMT");
-        session.InitProperty("email", "account@unittest.com");
-        session.InitProperty("phonenumber", "781-839-8300");
-        session.InitProperty("company", "MetraTech");
-        session.InitProperty("address1", "330 Bear Hill Road");
-        session.InitProperty("address2", "Third Floor");
-        session.InitProperty("address3", "");
-        session.InitProperty("country", "USA");
-        session.InitProperty("middleinitial", "");
-        session.InitProperty("facsimiletelephonenumber", "781-839-8301");
-        session.InitProperty("StatusReason", "0");
-        session.InitProperty("accountstatus", "AC");
-        session.InitProperty("ancestorAccountID", "1");
-        session.InitProperty("folder", "T");
-        session.InitProperty("billable", "T");
-        session.InitProperty("currency", "USD");
-        session.InitProperty("accounttype", "CORPORATEACCOUNT");
-        session.InitProperty("contacttype", "bill-to");
-        session.InitProperty("applydefaultsecuritypolicy", "F");
-        session.InitProperty("accountstartdate", aStartDate);
+      var account =
+                    (CorporateAccount)MetraTech.DomainModel.BaseTypes.Account.CreateAccount("CorporateAccount");
+      account.UserName = CorpName;
+      account.Password_ = "123";
+      account.Name_Space = "mt";
+      account.DayOfMonth = 1;      
+      //account.AncestorAccountNS = "mt";
+      account.AccountStatus =
+          MetraTech.DomainModel.Enums.Account.Metratech_com_accountcreation.AccountStatus.Active;
+      account.AccountStartDate = aStartDate;
 
-        try
-        {
-          sessionSet.Close();
-        }
-        catch (COMException err)
-        {
-          TestLibrary.Trace(err.ToString());
-        }
-      }
-      finally
-      {
-		if (sdk != null)
-           Marshal.ReleaseComObject(sdk);
-      }
+      var internalView =
+          (MetraTech.DomainModel.AccountTypes.InternalView)View.CreateView(@"metratech.com/internal");
+      internalView.UsageCycleType = UsageCycleType.Monthly;
+      internalView.Billable = true;
+      internalView.SecurityQuestion = SecurityQuestion.MothersMaidenName;
+      internalView.Language = LanguageCode.US;
+      internalView.Currency = SystemCurrencies.USD.ToString();
+      internalView.TimezoneID = TimeZoneID._GMT_05_00__Eastern_Time__US___Canada_;
+      internalView.Folder = true;
+
+      account.Internal = internalView;
+
+      // Create the billToContactView
+      var billToContactView =
+          (MetraTech.DomainModel.AccountTypes.ContactView)View.CreateView(@"metratech.com/contact");
+      billToContactView.ContactType = ContactType.Bill_To;
+      billToContactView.FirstName = "Boris";
+      billToContactView.LastName = "Boruchovich";
+      account.LDAP.Add(billToContactView);
+
+      var addAccountClient = new MetraTech.Account.ClientProxies.AccountCreation_AddAccount_Client();
+      addAccountClient.UserName = "su";
+      addAccountClient.Password = "su123";
+      addAccountClient.InOut_Account = account;
+      addAccountClient.Invoke();
+
+      
     }
 
-    public static void CreateDepartment(string dept, string parent, DateTime aStartDate)
+    public static void CreateDepartment(string dept, string parent, DateTime? aStartDate)
     {
-      IMeter sdk = null;
-      try
-      {
-        sdk = TestLibrary.InitSDK();
-        ISessionSet sessionSet = sdk.CreateSessionSet();
-        sessionSet.SessionContext = mSUCtx.ToXML();
+      //IMeter sdk = null;
+      //try
+      //{
+        var account =
+                    (DepartmentAccount)MetraTech.DomainModel.BaseTypes.Account.CreateAccount("DepartmentAccount");
+        string fullname = dept;
 
-        ISession session = sessionSet.CreateSession("metratech.com/accountcreation");
-        session.RequestResponse = true;
-        session.InitProperty("actiontype", "both");
-        session.InitProperty("username", dept);
-        session.InitProperty("password_", "123");
-        session.InitProperty("name_space", "mt");
-        session.InitProperty("language", "US");
-        session.InitProperty("timezoneID", "18");
-        session.InitProperty("taxexempt", "F");
-        session.InitProperty("city", "Stalingrad");
-        session.InitProperty("state", "MA");
-        session.InitProperty("zip", "01451");
-        session.InitProperty("usagecycletype", "Monthly");
-        session.InitProperty("dayofmonth", "1");
-        session.InitProperty("paymentmethod", "1");
-        session.InitProperty("InvoiceMethod", "Detailed");
-        session.InitProperty("transactioncookie", "");
-        session.InitProperty("operation", "Add");
-        session.InitProperty("firstname", string.Format("{0} NUnit test, ", mPrefix));
-        session.InitProperty("lastname", aStartDate.ToString() + " GMT");
-        session.InitProperty("email", "account@unittest.com");
-        session.InitProperty("phonenumber", "781-839-8300");
-        session.InitProperty("company", "MetraTech");
-        session.InitProperty("address1", "330 Bear Hill Road");
-        session.InitProperty("address2", "Third Floor");
-        session.InitProperty("address3", "");
-        session.InitProperty("country", "USA");
-        session.InitProperty("middleinitial", "");
-        session.InitProperty("facsimiletelephonenumber", "781-839-8301");
-        session.InitProperty("StatusReason", "0");
-        session.InitProperty("accountstatus", "AC");
-        session.InitProperty("ancestorAccountID", Utils.GetAccountID(parent).ToString());
-        session.InitProperty("folder", "T");
-        session.InitProperty("billable", "T");
-        session.InitProperty("currency", "USD");
-        session.InitProperty("accounttype", "DepartmentAccount");
-        session.InitProperty("contacttype", "bill-to");
-        session.InitProperty("applydefaultsecuritypolicy", "F");
-        session.InitProperty("accountstartdate", aStartDate);
+        account.UserName = dept;
+        account.Password_ = "123";
+        account.Name_Space = "mt";
+        account.DayOfMonth = 1;
+        account.AncestorAccount = Utils.GetAccountID(parent).ToString();
+        account.AncestorAccountNS = "mt";
+        account.AccountStatus =
+            MetraTech.DomainModel.Enums.Account.Metratech_com_accountcreation.AccountStatus.Active;
+        account.AccountStartDate = aStartDate;
 
-        try
-        {
-          sessionSet.Close();
-        }
-        catch (COMException err)
-        {
-          TestLibrary.Trace(err.ToString());
-        }
-      }
-      finally
-      {
-        if (sdk != null)
-           Marshal.ReleaseComObject(sdk);
-      }
+        var internalView =
+            (MetraTech.DomainModel.AccountTypes.InternalView)View.CreateView(@"metratech.com/internal");
+        internalView.UsageCycleType = UsageCycleType.Monthly;
+        internalView.Billable = true;
+        internalView.SecurityQuestion = SecurityQuestion.MothersMaidenName;
+        internalView.Language = LanguageCode.US;
+        internalView.Currency = SystemCurrencies.USD.ToString();
+        internalView.TimezoneID = TimeZoneID._GMT_05_00__Eastern_Time__US___Canada_;
+        internalView.Folder = true;
+
+        account.Internal = internalView;
+
+        // Create the billToContactView
+        var billToContactView =
+            (MetraTech.DomainModel.AccountTypes.ContactView)View.CreateView(@"metratech.com/contact");
+        billToContactView.ContactType = ContactType.Bill_To;
+        billToContactView.FirstName = "Boris";
+        billToContactView.LastName = "Boruchovich";
+        account.LDAP.Add(billToContactView);
+
+        var addAccountClient = new MetraTech.Account.ClientProxies.AccountCreation_AddAccount_Client();
+        addAccountClient.UserName = "su";
+        addAccountClient.Password = "su123";
+        addAccountClient.InOut_Account = account;
+        addAccountClient.Invoke();
+
+      #region old code
+      //sdk = TestLibrary.InitSDK();
+        //ISessionSet sessionSet = sdk.CreateSessionSet();
+        //sessionSet.SessionContext = mSUCtx.ToXML();
+
+      //  ISession session = sessionSet.CreateSession("metratech.com/accountcreation");
+      //  session.RequestResponse = true;
+      //  session.InitProperty("actiontype", "both");
+      //  session.InitProperty("username", dept);
+      //  session.InitProperty("password_", "123");
+      //  session.InitProperty("name_space", "mt");
+      //  session.InitProperty("language", "US");
+      //  session.InitProperty("timezoneID", "18");
+      //  session.InitProperty("taxexempt", "F");
+      //  session.InitProperty("city", "Stalingrad");
+      //  session.InitProperty("state", "MA");
+      //  session.InitProperty("zip", "01451");
+      //  session.InitProperty("usagecycletype", "Monthly");
+      //  session.InitProperty("dayofmonth", "1");
+      //  session.InitProperty("paymentmethod", "1");
+      //  session.InitProperty("InvoiceMethod", "Detailed");
+      //  session.InitProperty("transactioncookie", "");
+      //  session.InitProperty("operation", "Add");
+      //  session.InitProperty("firstname", string.Format("{0} NUnit test, ", mPrefix));
+      //  session.InitProperty("lastname", aStartDate.ToString() + " GMT");
+      //  session.InitProperty("email", "account@unittest.com");
+      //  session.InitProperty("phonenumber", "781-839-8300");
+      //  session.InitProperty("company", "MetraTech");
+      //  session.InitProperty("address1", "330 Bear Hill Road");
+      //  session.InitProperty("address2", "Third Floor");
+      //  session.InitProperty("address3", "");
+      //  session.InitProperty("country", "USA");
+      //  session.InitProperty("middleinitial", "");
+      //  session.InitProperty("facsimiletelephonenumber", "781-839-8301");
+      //  session.InitProperty("StatusReason", "0");
+      //  session.InitProperty("accountstatus", "AC");
+      //  session.InitProperty("ancestorAccountID", Utils.GetAccountID(parent).ToString());
+      //  session.InitProperty("folder", "T");
+      //  session.InitProperty("billable", "T");
+      //  session.InitProperty("currency", "USD");
+      //  session.InitProperty("accounttype", "DepartmentAccount");
+      //  session.InitProperty("contacttype", "bill-to");
+      //  session.InitProperty("applydefaultsecuritypolicy", "F");
+      //  session.InitProperty("accountstartdate", aStartDate);
+
+      //  try
+      //  {
+      //    sessionSet.Close();
+      //  }
+      //  catch (COMException err)
+      //  {
+      //    TestLibrary.Trace(err.ToString());
+      //  }
+      //}
+      //finally
+      //{
+      //  if (sdk != null)
+      //     Marshal.ReleaseComObject(sdk);
+      //}
+      #endregion
     }
 
 		public static void CreateSubscriberAccounts(string CorpName, ArrayList accountSpecs, DateTime aStartDate)
 		{
-      IMeter sdk = null;
-      try
-      {
-        sdk = TestLibrary.InitSDK();
-        ISessionSet sessionSet = sdk.CreateSessionSet();
-        sessionSet.SessionContext = mSUCtx.ToXML();
-        foreach (AccountParameters ap in accountSpecs)
-        {
-          string fullname = ap.UserName;
-          string ns = "mt";
-          Auth auth = new Auth();
-          auth.Initialize(fullname, ns);
-          string password = auth.HashNewPassword("123"); 
-          //string password = "123";
-          ISession session = sessionSet.CreateSession("metratech.com/accountcreation");
-          session.RequestResponse = true;
-          session.InitProperty("actiontype", "both");
-          session.InitProperty("username", fullname);
-          session.InitProperty("password_", password);
-          session.InitProperty("name_space", ns);
-          session.InitProperty("language", "US");
-          session.InitProperty("timezoneID", "18");
-          session.InitProperty("taxexempt", "F");
-          session.InitProperty("city", "Stalingrad");
-          session.InitProperty("state", "MA");
-          session.InitProperty("zip", "01451");
-          ap.Cycle.Set(session);
-          session.InitProperty("paymentmethod", "1");
-          session.InitProperty("InvoiceMethod", "Detailed");
-          session.InitProperty("transactioncookie", "");
-          session.InitProperty("operation", "Add");
-          session.InitProperty("firstname", "NUnit");
-          session.InitProperty("lastname", fullname);
-          session.InitProperty("email", "account@unittest.com");
-          session.InitProperty("phonenumber", "781-839-8300");
-          session.InitProperty("company", "MetraTech");
-          session.InitProperty("address1", "330 Bear Hill Road");
-          session.InitProperty("address2", "Third Floor");
-          session.InitProperty("address3", "");
-          session.InitProperty("country", "USA");
-          session.InitProperty("middleinitial", "");
-          session.InitProperty("facsimiletelephonenumber", "781-839-8301");
-          session.InitProperty("StatusReason", "0");
-          session.InitProperty("accountstatus", "AC");
-          session.InitProperty("ancestorAccount", CorpName);
-          session.InitProperty("ancestorAccountNS", "mt");
-          session.InitProperty("folder", "T");
-          session.InitProperty("billable", "T");
-          if (ap.Pricelist.Length > 0)
-            session.InitProperty("pricelist", ap.Pricelist);
-          session.InitProperty("currency", "USD");
-          session.InitProperty("accounttype", "CORESUBSCRIBER");
-          session.InitProperty("contacttype", "bill-to");
-          session.InitProperty("applydefaultsecuritypolicy", "F");
-          session.InitProperty("accountstartdate", aStartDate);
+		    foreach (AccountParameters ap in accountSpecs)
+		    {
+                var account =
+                    (CoreSubscriber)MetraTech.DomainModel.BaseTypes.Account.CreateAccount("CoreSubscriber");
+                string fullname = ap.UserName;
+                string ns = "mt";
+                Auth auth = new Auth();
+                auth.Initialize(fullname, ns);
+                string password = auth.HashNewPassword("123");
 
-          System.Runtime.InteropServices.Marshal.ReleaseComObject(session);
-        }
+                account.UserName = fullname; ;
+                account.Password_ = password;
+                account.Name_Space = ns;
+                account.DayOfMonth = 1;
+                account.AncestorAccount = CorpName;
+                account.AncestorAccountNS = "mt";
+                account.AccountStatus =
+                    MetraTech.DomainModel.Enums.Account.Metratech_com_accountcreation.AccountStatus.Active;
+                account.AccountStartDate = aStartDate;
 
-        try
-        {
-          sessionSet.Close();
-        }
-        catch (COMException err)
-        {
-          TestLibrary.Trace(err.ToString());
-        }
-      }
-      finally
-      {
-        if (sdk != null)
-           Marshal.ReleaseComObject(sdk);
-      }
+                var internalView =
+                    (MetraTech.DomainModel.AccountTypes.InternalView)View.CreateView(@"metratech.com/internal");
+                internalView.UsageCycleType = UsageCycleType.Monthly;
+                internalView.Billable = true;
+                internalView.SecurityQuestion = SecurityQuestion.MothersMaidenName;
+                internalView.Language = LanguageCode.US;
+                internalView.Currency = SystemCurrencies.USD.ToString();
+                internalView.TimezoneID = TimeZoneID._GMT_05_00__Eastern_Time__US___Canada_;
+                internalView.Folder = true;
+
+                //ap.Cycle.Set(PC.IMTPCCycle);
+                account.Internal = internalView;
+		        if (ap.Pricelist.Length > 0)
+		            internalView.PriceList = int.Parse(ap.Pricelist);
+
+                // Create the billToContactView
+                var billToContactView =
+                    (MetraTech.DomainModel.AccountTypes.ContactView)View.CreateView(@"metratech.com/contact");
+                billToContactView.ContactType = ContactType.Bill_To;
+                billToContactView.FirstName = "Boris";
+                billToContactView.LastName = "Boruchovich";
+                account.LDAP.Add(billToContactView);
+
+                var addAccountClient = new MetraTech.Account.ClientProxies.AccountCreation_AddAccount_Client();
+                addAccountClient.UserName = "su";
+                addAccountClient.Password = "su123";
+                addAccountClient.InOut_Account = account;
+                addAccountClient.Invoke();
+
+                //if (ap.Pricelist.Length > 0)
+                //     session.InitProperty("pricelist", ap.Pricelist);
+
+		        //string fullname = ap.UserName;
+                //string ns = "mt";
+                //Auth auth = new Auth();
+                //auth.Initialize(fullname, ns);
+                //string password = auth.HashNewPassword("123");
+                ////string password = "123";
+                //ISession session = sessionSet.CreateSession("metratech.com/accountcreation");
+                //session.RequestResponse = true;
+                //session.InitProperty("actiontype", "both");
+                //session.InitProperty("username", fullname);
+                //session.InitProperty("password_", password);
+                //session.InitProperty("name_space", ns);
+                //session.InitProperty("language", "US");
+                //session.InitProperty("timezoneID", "18");
+                //session.InitProperty("taxexempt", "F");
+                //session.InitProperty("city", "Stalingrad");
+                //session.InitProperty("state", "MA");
+                //session.InitProperty("zip", "01451");
+                //ap.Cycle.Set(session);
+                //session.InitProperty("paymentmethod", "1");
+                //session.InitProperty("InvoiceMethod", "Detailed");
+                //session.InitProperty("transactioncookie", "");
+                //session.InitProperty("operation", "Add");
+                //session.InitProperty("firstname", "NUnit");
+                //session.InitProperty("lastname", fullname);
+                //session.InitProperty("email", "account@unittest.com");
+                //session.InitProperty("phonenumber", "781-839-8300");
+                //session.InitProperty("company", "MetraTech");
+                //session.InitProperty("address1", "330 Bear Hill Road");
+                //session.InitProperty("address2", "Third Floor");
+                //session.InitProperty("address3", "");
+                //session.InitProperty("country", "USA");
+                //session.InitProperty("middleinitial", "");
+                //session.InitProperty("facsimiletelephonenumber", "781-839-8301");
+                //session.InitProperty("StatusReason", "0");
+                //session.InitProperty("accountstatus", "AC");
+                //session.InitProperty("ancestorAccount", CorpName);
+                //session.InitProperty("ancestorAccountNS", "mt");
+                //session.InitProperty("folder", "T");
+                //session.InitProperty("billable", "T");
+                //if (ap.Pricelist.Length > 0)
+                //    session.InitProperty("pricelist", ap.Pricelist);
+                //session.InitProperty("currency", "USD");
+                //session.InitProperty("accounttype", "CORESUBSCRIBER");
+                //session.InitProperty("contacttype", "bill-to");
+                //session.InitProperty("applydefaultsecuritypolicy", "F");
+                //session.InitProperty("accountstartdate", aStartDate);
+
+		    }
 		}
 
-		public static void CreateSubscriberAccounts(int aStartOffset, DateTime aStartDate)
-		{
-			IMeter sdk = null;
-      try
-      {
-        sdk = TestLibrary.InitSDK();
-        ISessionSet sessionSet = sdk.CreateSessionSet();
-        sessionSet.SessionContext = mSUCtx.ToXML();
-        string CorpName = GenerateCorporateAccountName();
+	    public static void CreateSubscriberAccounts(int aStartOffset, DateTime aStartDate)
+	    {
+	        string CorpName = GenerateCorporateAccountName();
 
-        for (int i = aStartOffset; i < aStartOffset + 100; i++)
-        {
-          string fullname = Utils.GenerateSubscriberUserName(i);
-          ISession session = sessionSet.CreateSession("metratech.com/accountcreation");
-          session.RequestResponse = true;
-          session.InitProperty("actiontype", "both");
-          session.InitProperty("username", fullname);
-          session.InitProperty("password_", "123");
-          session.InitProperty("name_space", "mt");
-          session.InitProperty("language", "US");
-          session.InitProperty("timezoneID", "18");
-          session.InitProperty("taxexempt", "F");
-          session.InitProperty("city", "Stalingrad");
-          session.InitProperty("state", "MA");
-          session.InitProperty("zip", "01451");
-          session.InitProperty("usagecycletype", "Monthly");
-          session.InitProperty("dayofmonth", "1");
-          session.InitProperty("paymentmethod", "1");
-          session.InitProperty("InvoiceMethod", "Detailed");
-          session.InitProperty("transactioncookie", "");
-          session.InitProperty("operation", "Add");
-          session.InitProperty("firstname", "NUnit");
-          session.InitProperty("lastname", fullname);
-          session.InitProperty("email", "account@unittest.com");
-          session.InitProperty("phonenumber", "781-839-8300");
-          session.InitProperty("company", "MetraTech");
-          session.InitProperty("address1", "330 Bear Hill Road");
-          session.InitProperty("address2", "Third Floor");
-          session.InitProperty("address3", "");
-          session.InitProperty("country", "USA");
-          session.InitProperty("middleinitial", "");
-          session.InitProperty("facsimiletelephonenumber", "781-839-8301");
-          session.InitProperty("StatusReason", "0");
-          session.InitProperty("accountstatus", "AC");
-          session.InitProperty("ancestorAccount", CorpName);
-          session.InitProperty("ancestorAccountNS", "mt");
-          session.InitProperty("folder", "T");
-          session.InitProperty("billable", "T");
-          session.InitProperty("currency", "USD");
-          session.InitProperty("accounttype", "CORESUBSCRIBER");
-          session.InitProperty("contacttype", "bill-to");
-          session.InitProperty("applydefaultsecuritypolicy", "F");
-          session.InitProperty("accountstartdate", aStartDate);
+	        for (int i = aStartOffset; i < aStartOffset + 100; i++)
+	        {
+	            var account =
+	                (CoreSubscriber) MetraTech.DomainModel.BaseTypes.Account.CreateAccount("CoreSubscriber");
+	            account.UserName = Utils.GenerateSubscriberUserName(i);
+	            account.Password_ = "123";
+	            account.Name_Space = "mt";
+	            account.DayOfMonth = 1;
+	            account.AncestorAccount = CorpName;
+	            account.AncestorAccountNS = "mt";
+	            account.AccountStatus =
+	                MetraTech.DomainModel.Enums.Account.Metratech_com_accountcreation.AccountStatus.Active;
+	            account.AccountStartDate = aStartDate;
 
-          System.Runtime.InteropServices.Marshal.ReleaseComObject(session);
-        }
+	            var internalView =
+	                (MetraTech.DomainModel.AccountTypes.InternalView) View.CreateView(@"metratech.com/internal");
+	            internalView.UsageCycleType = UsageCycleType.Monthly;
+	            internalView.Billable = true;
+	            internalView.SecurityQuestion = SecurityQuestion.MothersMaidenName;
+	            internalView.Language = LanguageCode.US;
+	            internalView.Currency = SystemCurrencies.USD.ToString();
+	            internalView.TimezoneID = TimeZoneID._GMT_05_00__Eastern_Time__US___Canada_;
+	            internalView.Folder = true;
 
-        try
-        {
-          sessionSet.Close();
+	            account.Internal = internalView;
 
-        }
-        catch (COMException err)
-        {
-          TestLibrary.Trace(err.ToString());
-        }
-      }
-      finally
-      {
-        if (sdk != null)
-           Marshal.ReleaseComObject(sdk);
-      }
-    }
+	            // Create the billToContactView
+	            var billToContactView =
+	                (MetraTech.DomainModel.AccountTypes.ContactView) View.CreateView(@"metratech.com/contact");
+	            billToContactView.ContactType = ContactType.Bill_To;
+	            billToContactView.FirstName = "Boris";
+	            billToContactView.LastName = "Boruchovich";
+	            account.LDAP.Add(billToContactView);
 
-		public static void CreateAndConnectGSM()
-		{
-      IMeter sdk = null;
-      try
-      {
-        sdk = TestLibrary.InitSDK();
-        ISessionSet sessionSet = sdk.CreateSessionSet();
-        sessionSet.SessionContext = mSUCtx.ToXML();
+	            var addAccountClient = new MetraTech.Account.ClientProxies.AccountCreation_AddAccount_Client();
+	            addAccountClient.UserName = "su";
+	            addAccountClient.Password = "su123";
+	            addAccountClient.InOut_Account = account;
+	            addAccountClient.Invoke();
+	        }
+	    }
 
-        for (int i = 1; i < 101; i++)
-        {
-          string fullname = Utils.GenerateGSMUserName(i);
-          ISession session = sessionSet.CreateSession("metratech.com/GSMCreateAndConnect");
-          session.RequestResponse = true;
-          session.InitProperty("actiontype", "both");
-          session.InitProperty("operation", "Add");
-          session.InitProperty("username", fullname);
-          session.InitProperty("password_", "123");
-          session.InitProperty("name_space", "mt");
-          session.InitProperty("accounttype", "GSMSERVICEACCOUNT");
-          session.InitProperty("language", "US");
-          session.InitProperty("timezoneID", "18");
-          session.InitProperty("currency", "USD");
-          session.InitProperty("accountstartdate", MetraTime.Now);
-          session.InitProperty("ancestorAccount", Utils.GenerateSubscriberUserName(i));
-          session.InitProperty("ancestorAccountNS", "mt");
-          session.InitProperty("accountstatus", "AC");
-          session.InitProperty("ApplyAccountTemplate", "F");
-          session.InitProperty("ApplyDefaultSecurityPolicy", "F");
-          session.InitProperty("IMSI", string.Format("123_{0}", i));
-          session.InitProperty("MSISDN", string.Format("123_MSISDN_{0}", i));
+	    public static void CreateAndConnectGSM()
+	    {
+	        for (int i = 1; i < 101; i++)
+	        {
+	            var account =
+	                (GSMServiceAccount) MetraTech.DomainModel.BaseTypes.Account.CreateAccount("GSMServiceAccount");
+	            account.UserName = Utils.GenerateGSMUserName(i);
+	            account.Password_ = "123";
+	            account.Name_Space = "mt";
+	            account.DayOfMonth = 1;
+	            account.AncestorAccount = Utils.GenerateSubscriberUserName(i);
+	            account.AncestorAccountNS = "mt";
+	            account.PayerAccount = account.AncestorAccount;
+	            account.PayerAccountNS = "mt";
+	            account.AccountStatus =
+	                AccountStatus.Active;
 
-          System.Runtime.InteropServices.Marshal.ReleaseComObject(session);
-        }
+	            var internalView =
+	                (InternalView) View.CreateView(@"metratech.com/internal");
+	            internalView.UsageCycleType = UsageCycleType.Monthly;
 
-        try
-        {
-          sessionSet.Close();
-        }
-        catch (COMException err)
-        {
-          TestLibrary.Trace(err.ToString());
-        }
-      }
-      finally
-      {
-        if (sdk != null)
-           Marshal.ReleaseComObject(sdk);
-      }
-    }
-		
-		public static void AddMapping(string accname, string ns, string newns)
+	            internalView.SecurityQuestion = SecurityQuestion.MothersMaidenName;
+	            internalView.Language = LanguageCode.US;
+	            internalView.Currency = SystemCurrencies.USD.ToString();
+	            internalView.TimezoneID = TimeZoneID._GMT_05_00__Eastern_Time__US___Canada_;
+
+	            account.Internal = internalView;
+	            account.AccountStartDate = MetraTime.Now;
+
+	            var gsmview = new GSMView();
+	            gsmview.IMSI = string.Format("123_{0}", i);
+	            gsmview.MSISDN = string.Format("123_MSISDN_{0}", i);
+
+	            account.GSM = gsmview;
+	            var addAccountClient = new Account.ClientProxies.AccountCreation_AddAccount_Client();
+	            addAccountClient.UserName = "su";
+	            addAccountClient.Password = "su123";
+	            addAccountClient.InOut_Account = account;
+	            addAccountClient.Invoke();
+	        }
+	    }
+
+	    public static
+		    void AddMapping(string accname, string ns, string newns)
 		{
 			IMeter sdk = null;
       try
@@ -2058,7 +2079,7 @@ namespace MetraTech.Test.Common
 			PC.IMTProductOffering po = mPC.GetProductOfferingByName(Utils.GeneratePOName());
 			PC.IMTSQLRowset rs = (PC.IMTSQLRowset)po.GetSubscribableAccountTypesAsRowset();
 			Assert.AreEqual(1, rs.RecordCount);
-			Account.AccountType coreAccount = new Account.AccountType();
+			var coreAccount = new Accounts.Type.AccountType();
 			coreAccount.InitializeByName(AccountType);
 			po.RemoveSubscribableAccountType(coreAccount.ID);
 
@@ -2072,7 +2093,7 @@ namespace MetraTech.Test.Common
 			while(System.Convert.ToBoolean(rs.EOF) == false)
 			{
 				string name = (string)rs.get_Value("AccountTypeName");
-				Account.AccountType att = new Account.AccountType();
+				var att = new Accounts.Type.AccountType();
 				att.InitializeByName(name);
 				po.RemoveSubscribableAccountType(att.ID);
 				rs.MoveNext();
@@ -2084,7 +2105,7 @@ namespace MetraTech.Test.Common
 		{
 			PC.IMTProductOffering po = mPC.GetProductOfferingByName(Utils.GeneratePOName());
 			PC.IMTSQLRowset rs = (PC.IMTSQLRowset)po.GetSubscribableAccountTypesAsRowset();
-			Account.AccountType coreAccount = new Account.AccountType();
+			var coreAccount = new Accounts.Type.AccountType();
 			coreAccount.InitializeByName(AccountType);
 			po.AddSubscribableAccountType(coreAccount.ID);
 		}

@@ -177,12 +177,17 @@ namespace MetraTech.Shared.Test
       try
       {
         CreateQuoteAndVerifyResults(request, 0, string.Empty, 0, 0);
-        Assert.Fail("An exception should have been thrown due to invalid input parameters");
+
+        //If we got here we didn't get an exception when we expected one
+        Assert.Fail("Expected exception with text '{0]' but didn't get an exception", expectedErrorMessagePartial);
       }
       catch (Exception ex)
       {
-        Assert.IsTrue(ex.Message.Contains(expectedErrorMessagePartial));
+        Assert.IsTrue(ex.Message.Contains(expectedErrorMessagePartial), "Expected exception with text '{0}' but got exception with text '{1}'", expectedErrorMessagePartial, ex.Message);
+        return;
       }
+
+
     }
   }
 }

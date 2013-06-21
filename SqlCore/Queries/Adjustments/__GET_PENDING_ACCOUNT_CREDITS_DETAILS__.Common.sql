@@ -10,9 +10,14 @@
                 
                 (%%NULL_CLAUSE%%((au.tax_federal), 0.0) + %%NULL_CLAUSE%%((au.tax_state), 0.0) + %%NULL_CLAUSE%%((au.tax_county), 0.0) +
                 %%NULL_CLAUSE%%((au.tax_local), 0.0) + %%NULL_CLAUSE%%((au.tax_other), 0.0)) TaxAmount,
-                (au.amount +
-                %%NULL_CLAUSE%%((au.tax_federal), 0.0) + %%NULL_CLAUSE%%((au.tax_state), 0.0) + %%NULL_CLAUSE%%((au.tax_county), 0.0) +
-                %%NULL_CLAUSE%%((au.tax_local), 0.0) + %%NULL_CLAUSE%%((au.tax_other), 0.0)) AmountWithTax,
+                au.amount +
+                /*If implied taxes, then taxes are already included, don't add them again */				
+				  (case when au.is_implied_tax = 'N' then (%%NULL_CLAUSE%%((au.tax_federal), 0.0) + %%NULL_CLAUSE%%((au.tax_state), 0.0) + %%NULL_CLAUSE%%((au.tax_county), 0.0) +
+                    %%NULL_CLAUSE%%((au.tax_local), 0.0) + %%NULL_CLAUSE%%((au.tax_other), 0.0)) else 0 end)
+				  /*If informational taxes, then they shouldn't be in the total */
+				  - (case when au.is_implied_tax = 'Y' then (%%NULL_CLAUSE%%((au.tax_federal), 0.0) + %%NULL_CLAUSE%%((au.tax_state), 0.0) + %%NULL_CLAUSE%%((au.tax_county), 0.0) +
+                    %%NULL_CLAUSE%%((au.tax_local), 0.0) + %%NULL_CLAUSE%%((au.tax_other), 0.0)) else 0 end)
+				  AmountWithTax,
                 'Atomic' SessionType
               from t_pv_AccountCreditRequest pv
               inner join t_acc_usage au on au.id_sess = pv.id_sess

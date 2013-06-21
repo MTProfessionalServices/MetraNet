@@ -76,6 +76,10 @@ AS
    l_polID				INTEGER;
    l_id_parent_cap			INTEGER;
    l_id_atomic_cap			INTEGER;
+   templateId           INTEGER;
+   templateOwner        INTEGER;
+   sessionId            INTEGER;
+   templateCount		INTEGER;
 BEGIN
    p_ancestor_type_out := 'Err';
 /* step : validate that the account does not already exist.  Note    that this check is performed by checking the t_account_mapper table.    However, we don't check the account state so the new account could
@@ -630,7 +634,44 @@ to purge the archived account before the new account could be created.
       END IF;
    END IF;
 
+    SELECT NVL(MIN(id_acc_template),-1), NVL(MIN(templOwner),-1), COUNT(*)
+        INTO templateId, templateOwner, templateCount
+        FROM
+        (
+        select  id_acc_template
+                , template.id_folder as templOwner
+            from
+                    t_acc_template template
+            INNER JOIN t_account_ancestor ancestor on template.id_folder = ancestor.id_ancestor
+            INNER JOIN t_account_mapper mapper on mapper.id_acc = ancestor.id_ancestor
+            inner join t_account_type atype on template.id_acc_type = atype.id_type
+                WHERE id_descendent = accountID AND
+                    p_systemdate between vt_start AND vt_end AND
+                    atype.name = p_acc_type
+            ORDER BY num_generations asc
+        )
+        where ROWNUM = 1;
+
+    IF (templateCount <> 0 AND templateId <> -1)
+    THEN
+        SELECT id_current INTO sessionId FROM t_current_id WHERE nm_current = 'id_template_session' FOR UPDATE OF id_current;
+        UPDATE t_current_id SET id_current=id_current+1 where nm_current='id_template_session';
+
+        insert into t_acc_template_session(id_session, id_template_owner, nm_acc_type, dt_submission, id_submitter, nm_host, n_status, n_accts, n_subs)
+        values (sessionId, templateOwner, p_acc_type, p_systemdate, 0, '', 0, 0, 0);
+        ApplyAccountTemplate(
+            accountTemplateId => templateId,
+            sessionId => sessionId,
+            systemDate => p_systemdate,
+            sub_start => p_systemdate,
+            sub_end => NULL,
+            next_cycle_after_startdate => 'N',
+            next_cycle_after_enddate   => 'N',
+            id_event_success           => NULL,
+            id_event_failure           => NULL,
+            account_id                 => accountid
+        );
+    END IF;
    /* done*/
    status := 1;
 END;
-		

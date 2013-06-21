@@ -24,7 +24,7 @@
 				while(@i < @count) begin
 					FETCH NEXT FROM @cursorvar into @paramtable	
 					/* select @paramtable */
-					set @tempstr = N'delete from ' + @paramtable + ' where id_sched in (select id_sched from t_rsched where id_pi_template = ' + CAST(@id_template as varchar(256)) + ')'
+					set @tempstr = N'delete from ' + @paramtable + ' where id_sched in (select id_sched from t_rsched where id_pi_template = ' + CAST(@id_template as varchar(256)) + ' UNION ALL select id_sched from t_rsched_pub where id_pi_template = ' + CAST(@id_template as varchar(256)) + ')'
 					/* select @tempstr */
 					exec sp_executesql @tempstr
 					set @i = @i + 1

@@ -5,8 +5,16 @@ Select
 acc.id_sess SessionID,
 acc.am_currency Currency,
 acc.Amount  UnadjustedAmount,
-acc.Amount + {fn IFNULL(acc.tax_federal, 0.0)} + {fn IFNULL(acc.tax_state, 0.0)} + {fn IFNULL(acc.tax_county, 0.0)} + {fn IFNULL(acc.tax_local, 0.0)} + {fn IFNULL(acc.tax_other, 0.0)} as UnadjustedAmountWithTax,
-
+acc.amount + 
+	      /*If implied taxes, then taxes are already included, don't add them again */
+	      (case when acc.is_implied_tax = 'N' then 
+              ({fn IFNULL(acc.tax_federal, 0.0)} + {fn IFNULL(acc.tax_state, 0.0)} + {fn IFNULL(acc.tax_county, 0.0)} + 
+                  {fn IFNULL(acc.tax_local, 0.0)} + {fn IFNULL(acc.tax_other, 0.0)}) else 0.0 end)
+	      /*If informational taxes, then they shouldn't be in the total */
+			  - (CASE WHEN (acc.tax_informational = 'Y') THEN 
+              ({fn IFNULL(acc.tax_federal, 0.0)} + {fn IFNULL(acc.tax_state, 0.0)} + {fn IFNULL(acc.tax_county, 0.0)} + 
+                  {fn IFNULL(acc.tax_local, 0.0)} + {fn IFNULL(acc.tax_other, 0.0)}) else 0.0 end) 
+  as UnadjustedAmountWithTax,
 {fn IFNULL(acc.tax_federal, 0.0)} TotalFederalTax,
 {fn IFNULL(acc.tax_state, 0.0)} TotalStateTax,
 {fn IFNULL(acc.tax_county, 0.0)} TotalCountyTax,

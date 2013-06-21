@@ -31,9 +31,14 @@
 				au.am_currency 'Currency', sum((isnull((au.tax_federal), 
 				0.0) + isnull((au.tax_state), 0.0) + isnull((au.tax_county), 0.0) + 
 				isnull((au.tax_local), 0.0) + isnull((au.tax_other), 0.0))) TaxAmount, 
-				sum(au.amount + (isnull((au.tax_federal), 0.0) + isnull((au.tax_state), 0.0) + 
-				isnull((au.tax_county), 0.0) + isnull((au.tax_local), 0.0) + 
-				isnull((au.tax_other), 0.0))) AmountWithTax
+				sum(au.amount + 
+				/*If implied taxes, then taxes are already included, don't add them again */
+				  (case when au.is_implied_tax = 'N' then (isnull((au.tax_federal), 0.0) + isnull((au.tax_state), 0.0) + 
+				    isnull((au.tax_county), 0.0) + isnull((au.tax_local), 0.0) + isnull((au.tax_other), 0.0)) else 0 end) 
+				/*If informational taxes, then they shouldn't be in the total */
+                  - (case when au.tax_informational = 'Y' then (isnull((au.tax_federal), 0.0) + isnull((au.tax_state), 0.0) + 
+				    isnull((au.tax_county), 0.0) + isnull((au.tax_local), 0.0) + isnull((au.tax_other), 0.0)) else 0 end)) 				
+					AmountWithTax
 				from t_usage_interval
 				JOIN t_acc_usage au on au.id_acc = @id_acc AND au.id_usage_interval = @id_interval AND au.id_pi_template is not NULL
 				JOIN t_base_props tb_template on tb_template.id_prop = au.id_pi_template

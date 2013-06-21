@@ -1,104 +1,125 @@
 
-create proc ApplyAccountTemplate @accountTemplateId int, @sessionId int, @systemDate datetime
-as
-set nocount on
+CREATE PROCEDURE ApplyAccountTemplate
+(
+	@accountTemplateId          int,
+	@sessionId                  int,
+	@systemDate                 datetime,
+	@sub_start                  datetime,
+	@sub_end                    datetime,
+	@next_cycle_after_startdate char, /* Y or N */
+	@next_cycle_after_enddate   char, /* Y or N */
+	@id_event_success           int,
+	@id_event_failure           int,
+	@account_id					int = NULL
+)
+AS
+	SET NOCOUNT ON
 
 
-declare @nRetryCount int
-set @nRetryCount = 0
+	DECLARE @nRetryCount int
+	SET @nRetryCount = 0
 
-declare @DetailTypeGeneral int
-declare @DetailResultInformation int
-declare @DetailTypeSubscription int
-declare @id_acc_type int
-declare @id_acc int
+	DECLARE @DetailTypeGeneral int
+	DECLARE @DetailResultInformation int
+	DECLARE @DetailTypeSubscription int
+	DECLARE @id_acc_type int
+	DECLARE @id_acc int
+	DECLARE @user_id int
 
-select @id_acc_type = id_acc_type, @id_acc = id_folder from t_acc_template where id_acc_template = @accountTemplateId
+	SELECT @id_acc_type = id_acc_type, @id_acc = id_folder FROM t_acc_template WHERE id_acc_template = @accountTemplateId
+	SELECT @user_id = ts.id_submitter FROM t_acc_template_session ts WHERE ts.id_session = @sessionId
 
 
-SELECT @DetailTypeGeneral = id_enum_data FROM t_enum_data WHERE nm_enum_data = 'metratech.com/accounttemplate/DetailResult/Success'
-SELECT @DetailResultInformation = id_enum_data FROM t_enum_data WHERE nm_enum_data = 'metratech.com/accounttemplate/DetailResult/Information'
-SELECT @DetailTypeSubscription = id_enum_data FROM t_enum_data WHERE nm_enum_data = 'metratech.com/accounttemplate/DetailType/Subscription'
---!!!Starting application of template
-insert into t_acc_template_session_detail
+	SELECT @DetailTypeGeneral = id_enum_data FROM t_enum_data WHERE nm_enum_data = 'metratech.com/accounttemplate/DetailResult/Success'
+	SELECT @DetailResultInformation = id_enum_data FROM t_enum_data WHERE nm_enum_data = 'metratech.com/accounttemplate/DetailResult/Information'
+	SELECT @DetailTypeSubscription = id_enum_data FROM t_enum_data WHERE nm_enum_data = 'metratech.com/accounttemplate/DetailType/Subscription'
+	--!!!Starting application of template
+	INSERT INTO t_acc_template_session_detail
+		( 
+			id_session,    
+			n_detail_type,
+			n_result,    
+			dt_detail,  
+			nm_text,    
+			n_retry_count
+		)
+		VALUES
+		(
+			@sessionId,
+			@DetailTypeGeneral,
+			@DetailResultInformation,
+			getdate(),
+			'Starting application of template',
+			@nRetryCount
+		)
+
+	-- Updating session details with a number of themplates to be applied in the session
+	UPDATE t_acc_template_session
+	SET    n_templates = (SELECT COUNT(1) FROM t_account_ancestor aa JOIN t_acc_template at ON aa.id_ancestor = @id_acc AND aa.id_descendent = at.id_folder)
+	WHERE  id_session = @sessionId
+
+	DECLARE @incIdTemplate INT
+	--Select account hierarchy for current template and for each child template.
+	DECLARE accTemplateCursor CURSOR FOR
+
+	SELECT tat.id_acc_template
+
+	FROM t_account_ancestor taa
+	INNER JOIN t_acc_template tat ON taa.id_descendent = tat.id_folder AND tat.id_acc_type = @id_acc_type
+	WHERE taa.id_ancestor = @id_acc
+
+	OPEN accTemplateCursor   
+	FETCH NEXT FROM accTemplateCursor INTO @incIdTemplate
+
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+
+		--Apply account template to appropriate account list.
+		EXEC ApplyTemplateToAccounts
+			@idAccountTemplate          = @incIdTemplate,
+			@sub_start                  = @sub_start,
+			@sub_end                    = @sub_end,
+			@next_cycle_after_startdate = @next_cycle_after_startdate,
+			@next_cycle_after_enddate   = @next_cycle_after_enddate,
+			@user_id                    = @user_id,
+			@id_event_success           = @id_event_success,
+			@id_event_failure           = @id_event_failure,
+			@systemDate                 = @systemDate,
+			@sessionId                  = @sessionId,
+			@retrycount                 = @nRetryCount,
+			@account_id				    = @account_id
+		
+		UPDATE t_acc_template_session
+		SET    n_templates_applied = n_templates_applied + 1
+		WHERE  id_session = @sessionId
+
+		FETCH NEXT FROM accTemplateCursor INTO @incIdTemplate
+	END
+
+	CLOSE accTemplateCursor   
+	DEALLOCATE accTemplateCursor
+
+	-- Finalize session state
+	UPDATE t_acc_template_session
+	SET    n_templates = n_templates_applied
+	WHERE  id_session = @sessionId
+
+	--!!!Template application complete
+	INSERT INTO t_acc_template_session_detail
 	( 
-		id_session,    
+		id_session,
 		n_detail_type,
-		n_result,    
-		dt_detail,  
-		nm_text,    
+		n_result,
+		dt_detail,
+		nm_text,
 		n_retry_count
 	)
-	values
+	VALUES
 	(
 		@sessionId,
 		@DetailTypeGeneral,
 		@DetailResultInformation,
 		getdate(),
-		'Starting application of template',
+		'Template application complete',
 		@nRetryCount
 	)
-
-declare @incIdTemplate int
---Select account hierarchy for current template and for each child template.
-declare accTemplateCursor cursor for
-
-select tat.id_acc_template
-
-from t_account_ancestor taa
-inner join t_acc_template tat on taa.id_descendent = tat.id_folder and tat.id_acc_type = @id_acc_type
-where taa.id_ancestor = @id_acc
-
-OPEN accTemplateCursor   
-fetch next from accTemplateCursor into @incIdTemplate
-
-while @@FETCH_STATUS = 0
-begin
-
-	--Apply account template to appropriate account list.
-	execute ApplyTemplateToAccounts @incIdTemplate, @sessionId, @nRetryCount, @systemDate
-	fetch next from accTemplateCursor into @incIdTemplate
-end
-
-close accTemplateCursor   
-deallocate accTemplateCursor
-
-
-insert into t_acc_template_session_detail
-( 
-	id_session,
-	n_detail_type,
-	n_result,
-	dt_detail,
-	nm_text,
-	n_retry_count
-)
-values
-(
-	@sessionId,
-	@DetailTypeSubscription,
-	@DetailResultInformation,
-	getdate(),
-	'There are no subscriptions to be applied',
-	@nRetryCount
-)
-
---!!!Template application complete
-insert into t_acc_template_session_detail
-( 
-	id_session,
-	n_detail_type,
-	n_result,
-	dt_detail,
-	nm_text,
-	n_retry_count
-)
-values
-(
-	@sessionId,
-	@DetailTypeGeneral,
-	@DetailResultInformation,
-	getdate(),
-	'Template application complete',
-	@nRetryCount
-)

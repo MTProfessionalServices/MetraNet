@@ -1,6 +1,20 @@
-create proc ApplyTemplateToAccounts @idAccountTemplate int, @sessionId int, @nRetryCount int, @systemDate datetime
+CREATE PROCEDURE ApplyTemplateToAccounts
+(
+	@idAccountTemplate          int,
+	@sub_start                  datetime,
+	@sub_end                    datetime,
+	@next_cycle_after_startdate char, /* Y or N */
+	@next_cycle_after_enddate   char, /* Y or N */
+	@user_id                    int,
+	@id_event_success           int,
+	@id_event_failure           int,
+	@systemDate                 datetime,
+	@sessionId                  int,
+	@retrycount                 int,
+	@account_id					int = NULL
+)
 as
-	SET nocount on
+	SET NOCOUNT ON
 
 	DECLARE @errTbl TABLE (
 		dt_detail datetime NOT NULL,
@@ -39,7 +53,7 @@ as
 
 		SELECT @UsageCycleId = tuc.id_usage_cycle, @PayerId = tprop.PayerID
 			FROM t_usage_cycle tuc
-			JOIN (
+			RIGHT OUTER JOIN (
 				SELECT 	tp.DayOfMonth
 						,tp.StartDay
 						,ISNULL(m.num,-1) StartMonth
@@ -95,6 +109,7 @@ as
 					(@UsageCycleId <> -1 AND tauc.id_usage_cycle <> @UsageCycleId)
 					OR (@PayerId <> -1 AND tpr.id_payee <> @PayerId)
 				)
+				AND ta.id_acc = ISNULL(@account_id, ta.id_acc)
 
 
 		DECLARE @IdAcc INTEGER
@@ -121,8 +136,17 @@ as
 			IF @errorStr <> '' BEGIN
 				INSERT INTO @errTbl(dt_detail, nm_text) VALUES(GETDATE(), @errorStr)
 			END
+
 			SET @errorStr = ''
-			EXEC dbo.UpdateUsageCycleFromTemplate @IdAcc, @UsageCycleId, @OldUsageCycle, @systemDate, @errorStr OUTPUT
+			EXEC UpdatePayerFromTemplate
+				@IdAcc = @IdAcc,
+				@PayerId = @PayerId,
+				@systemDate = @systemDate,
+				@PaymentStart = @PaymentStart,
+				@PaymentEnd = @PaymentEnd,
+				@OldPayerId = @OldPayerId,
+				@p_account_currency = @p_account_currency,
+				@errorStr = @errorStr OUT
 			IF @errorStr <> '' BEGIN
 				INSERT INTO @errTbl(dt_detail, nm_text) VALUES(GETDATE(), @errorStr)
 			END
@@ -137,8 +161,23 @@ as
 		INSERT INTO @errTbl(dt_detail, nm_text) VALUES(GETDATE(), ERROR_MESSAGE())
 		ROLLBACK TRANSACTION T1
 	END CATCH
+
+	EXEC apply_subscriptions
+		@template_id                = @idAccountTemplate,
+		@sub_start                  = @sub_start,
+		@sub_end                    = @sub_end,
+		@next_cycle_after_startdate = @next_cycle_after_startdate,
+		@next_cycle_after_enddate   = @next_cycle_after_enddate,
+		@user_id                    = @user_id,
+		@id_audit                   = null,
+		@id_event_success           = @id_event_success,
+		@id_event_failure           = @id_event_failure,
+		@systemdate                 = @systemDate,
+		@id_template_session        = @sessionId,
+		@retrycount                 = @retrycount
+
 	INSERT INTO t_acc_template_session_detail
-	( 
+	(
 		id_session,
 		n_detail_type,
 		n_result,
@@ -152,5 +191,5 @@ as
 			@DetailResultInformation,
 			e.dt_detail,
 			e.nm_text,
-			@nRetryCount
-		FROM @errTbl e
+			@retrycount
+	FROM    @errTbl e

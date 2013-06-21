@@ -9,7 +9,7 @@ set @id_bill_group = %%ID_BILL_GROUP%%
 set @tax_vendor = %%TAX_VENDOR%%
 
 insert into t_tax_input_%%ID_TAX_RUN%% with (tablock)
-(id_sess, id_usage_interval, charge_name, id_acc, amount, invoice_date, product_code)
+(id_sess, id_usage_interval, charge_name, id_acc, amount, invoice_date, product_code, is_implied_tax, tax_informational)
 select 
   pvc.id_sess, 
   pvc.id_usage_interval,
@@ -17,7 +17,9 @@ select
   au.id_acc,
   au.Amount,
   GetDate() InvoiceDate,
-  'MT100' ProductCode
+  'MT100' ProductCode,
+  au.is_implied_tax,
+  au.tax_informational
 from 
   t_pv_OrderCookies pvc 
   inner join t_acc_usage au on au.id_sess = pvc.id_sess and au.id_usage_interval = pvc.id_usage_interval

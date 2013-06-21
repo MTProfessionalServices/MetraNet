@@ -1,7 +1,7 @@
 
 -- populates #tmp_acc_amounts, #tmp_prev_balance, #tmp_adjustments for a given @id_interval
 -- used by MTSP_INSERTINVOICE and __GET_NON_BILLABLE_ACCOUNTS_WITH_BALANCE__
-CREATE   PROCEDURE MTSP_INSERTINVOICE_BALANCES
+CREATE  PROCEDURE MTSP_INSERTINVOICE_BALANCES
 @id_billgroup int,
 @exclude_billable char, -- '1' to only return non-billable accounts, '0' to return all accounts
 @id_run int,
@@ -166,7 +166,15 @@ SELECT
 	(ISNULL(au.Tax_Local,0.0))ELSE 0 END) +
   SUM(CASE WHEN (pvpay.id_sess IS NULL AND pvar.id_sess IS NULL) THEN
 	(ISNULL(au.Tax_Other,0.0))ELSE 0 END) tax_ttl_amt,
-  SUM(CASE WHEN (pvpay.id_sess IS NULL AND pvar.id_sess IS NULL AND NOT vh.id_view IS NULL) THEN (ISNULL(au.Amount, 0.0)) ELSE 0 END) current_charges,
+  SUM(CASE WHEN (pvpay.id_sess IS NULL AND pvar.id_sess IS NULL AND NOT vh.id_view IS NULL) THEN 
+   ISNULL(au.Amount, 0.0) - 
+   /*If implied taxes, then taxes are already included, don't add them again */
+   ((CASE WHEN (au.is_implied_tax = 'Y') THEN (ISNULL(au.Tax_Federal,0.0) + ISNULL(au.Tax_State,0.0) + 
+          ISNULL(au.Tax_County,0.0) + ISNULL(au.Tax_Local,0.0) + ISNULL(au.Tax_Other,0.0)) ELSE 0 END)
+/*If informational taxes, then they shouldn't be in the total */
+    + (CASE WHEN (au.tax_informational = 'Y') THEN (ISNULL(au.Tax_Federal,0.0) + ISNULL(au.Tax_State,0.0) + 
+          ISNULL(au.Tax_County,0.0) + ISNULL(au.Tax_Local,0.0) + ISNULL(au.Tax_Other,0.0)) ELSE 0 END))
+		  ELSE 0 END) current_charges,
   CASE WHEN avi.c_billable = '0' THEN pr.id_payer ELSE ammps.id_acc END id_payer,
   CASE WHEN avi.c_billable = '0' THEN auipay.id_usage_interval ELSE au.id_usage_interval END id_payer_interval
 FROM  #tmp_all_accounts tmpall
@@ -186,7 +194,8 @@ INNER join t_usage_interval uipay ON auipay.id_usage_interval = uipay.id_interva
         AND ui.dt_end BETWEEN CASE WHEN auipay.dt_effective IS NULL THEN uipay.dt_start ELSE dateadd(s, 1, auipay.dt_effective) END AND uipay.dt_end
 
 LEFT OUTER JOIN
-(SELECT au1.id_usage_interval, au1.amount, au1.Tax_Federal, au1.Tax_State, au1.Tax_County, au1.Tax_Local, au1.Tax_Other, au1.id_sess, au1.id_acc, au1.id_view
+(SELECT au1.id_usage_interval, au1.amount, au1.Tax_Federal, au1.Tax_State, au1.Tax_County, au1.Tax_Local, au1.Tax_Other, au1.id_sess, au1.id_acc, 
+    au1.id_view, au1.is_implied_tax, au1.tax_informational
 FROM t_acc_usage au1
 LEFT OUTER JOIN t_pi_template piTemplated2
 ON piTemplated2.id_template=au1.id_pi_template
@@ -284,9 +293,10 @@ SELECT
            END),  --tax_ttl_amt
   SUM(CASE WHEN (ed.nm_enum_data <> 'metratech.com/Payment'
 		AND ed.nm_enum_data <> 'metratech.com/ARAdjustment')
-           THEN (ISNULL(dm.TotalAmount, 0.0))
-           ELSE 0
-           END) current_charges,
+		/*Subtract out implied taxes and informational taxes, then add back their intersection, because it would have been subtracted twice*/
+        THEN  (ISNULL(dm.TotalAmount, 0.0) - ISNULL(dm.TotalImpliedTax, 0.0) - ISNULL(dm.TotalInformationalTax, 0.0) + ISNULL(dm.TotalImplInfTax, 0.0))
+	    ELSE 0
+      END) current_charges,
   CASE WHEN avi.c_billable = '0'
        THEN pr.id_payer
        ELSE tmpall.id_acc

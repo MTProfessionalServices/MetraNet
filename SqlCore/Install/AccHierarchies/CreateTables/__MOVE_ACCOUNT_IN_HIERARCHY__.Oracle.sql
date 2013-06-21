@@ -1,5 +1,6 @@
 
-create  or replace procedure MoveAccount
+create  or replace 
+procedure MoveAccount
 	(p_new_parent int,
 	 p_account_being_moved int,
    p_vt_move_start date,
@@ -25,7 +26,11 @@ originalAncestor int;
 syntheticroot varchar2(1);
 dummy_type int;
 p_vt_move_start_trunc date;
-
+allTypesSupported int;
+templateId int; 
+templateOwner int; 
+templateCount int;
+sessionId int;
 begin
     vt_move_end := dbo.MTMaxDate();
     
@@ -433,6 +438,77 @@ delete from t_dm_account where id_dm_acc in (select id_dm_acc from tmp_t_dm_acco
 	
 		delete from tmp_t_dm_account;
 		delete from tmp_deletethese;
+
+		
+    SELECT NVL(MAX(all_types),0)
+        INTO allTypesSupported
+        FROM t_acc_tmpl_types;
+    SELECT NVL(MIN(id_acc_template),-1), NVL(MIN(templOwner),-1), COUNT(*)
+        INTO templateId, templateOwner, templateCount
+        FROM
+        (
+        select  id_acc_template
+                , template.id_folder as templOwner
+            from
+                    t_acc_template template
+            INNER JOIN t_account_ancestor ancestor on template.id_folder = ancestor.id_ancestor
+            INNER JOIN t_account_mapper mapper on mapper.id_acc = ancestor.id_ancestor
+            inner join t_account_type atype on template.id_acc_type = atype.id_type
+                WHERE id_descendent = p_new_parent AND
+                    p_system_time between vt_start AND vt_end AND
+                    (atype.name = p_acc_type OR allTypesSupported = 1)
+            ORDER BY num_generations asc
+        )
+        where ROWNUM = 1;
+
+    IF (templateCount <> 0 AND templateId <> -1)
+    THEN 
+        updateprivatetempates(
+            id_template => templateId
+        );
+        inserttemplatesession(templateOwner, p_acc_type, 0, ' ', 0, 0, 0, sessionId); 
+        ApplyAccountTemplate(
+            accountTemplateId => templateId,
+            sessionId => sessionId,
+            systemDate => p_system_time,
+            sub_start => p_system_time,
+            sub_end => NULL,
+            next_cycle_after_startdate => 'N',
+            next_cycle_after_enddate   => 'N',
+            id_event_success           => NULL,
+            id_event_failure           => NULL,
+            account_id                 => NULL,
+            doCommit                   => 'N'
+        );
+    ELSE 
+        FOR tmpl IN (
+            SELECT template.id_acc_template, template.id_folder, atype.name
+                FROM t_account_ancestor ancestor
+                JOIN t_acc_template template ON ancestor.id_descendent = template.id_folder 
+                JOIN t_account_type atype on template.id_acc_type = atype.id_type
+                WHERE ancestor.id_ancestor = p_new_parent
+        )
+        LOOP
+            updateprivatetempates(
+                id_template => tmpl.id_acc_template
+            );
+            inserttemplatesession(templateOwner, p_acc_type, 0, ' ', 0, 0, 0, sessionId); 
+            ApplyAccountTemplate(
+                accountTemplateId => tmpl.id_acc_template,
+                sessionId => sessionId,
+                systemDate => p_system_time,
+                sub_start => p_system_time,
+                sub_end => NULL,
+                next_cycle_after_startdate => 'N',
+                next_cycle_after_enddate   => 'N',
+                id_event_success           => NULL,
+                id_event_failure           => NULL,
+                account_id                 => NULL,
+                doCommit                   => 'N'
+            );
+        END LOOP;
+        
+    END IF;
 
     p_status:=1;
 END;

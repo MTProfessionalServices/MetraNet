@@ -34,7 +34,7 @@ set @p_id_ancestor = @new_parent
 set @p_id_descendent = @account_being_moved
 
 
-select @realstartdate = dbo.mtstartofday(@p_dt_start) 
+select @realstartdate = dbo.mtstartofday(@p_dt_start)
 
 --Take update lock very early as we are deadlocking in MoveAccount
 declare @old_parent int
@@ -55,24 +55,24 @@ select @AccCreateDate = dbo.mtminoftwodates(dbo.mtstartofday(ancestor.dt_crt),db
 @ancestor_acc_type = ancestor.id_type,
 @descendent_acc_type = descendent.id_type
 from t_account ancestor with (updlock)
-inner join t_account descendent with (updlock) ON 
+inner join t_account descendent with (updlock) ON
 ancestor.id_acc = @p_id_ancestor and
 descendent.id_acc = @p_id_descendent
 
 
-select @p_ancestor_type = name 
+select @p_ancestor_type = name
 from t_account_type
 where id_type = @ancestor_acc_type
 
 
-select @p_acc_type = name 
+select @p_acc_type = name
 from t_account_type
 where id_type = @descendent_acc_type
 
 
 --begin business rules check
 
-	select @AccMaxCreateDate = 
+	select @AccMaxCreateDate =
 	dbo.mtmaxoftwodates(dbo.mtstartofday(ancestor.dt_crt),dbo.mtstartofday(descendent.dt_crt))
 	from t_account ancestor,t_account descendent where ancestor.id_acc = @p_id_ancestor and
 	descendent.id_acc = @p_id_descendent
@@ -80,46 +80,46 @@ where id_type = @descendent_acc_type
 		-- MT_CANNOT_MOVE_ACCOUNT_BEFORE_START_DATE
 		select @status = -486604750
 		return
-	end 
+	end
 	
 	-- step : make sure that the new ancestor is not actually a child
-	select @status = count(*) 
-	from t_account_ancestor 
-	where id_ancestor = @p_id_descendent 
-	and id_descendent = @p_id_ancestor AND 
+	select @status = count(*)
+	from t_account_ancestor
+	where id_ancestor = @p_id_descendent
+	and id_descendent = @p_id_ancestor AND
   	@realstartdate between vt_start AND vt_end
-	if @status > 0 
-   	begin 
+	if @status > 0
+   	begin
 		-- MT_NEW_PARENT_IS_A_CHILD
 	 select @status = -486604797
 	 return
-  	end 
+  	end
 
-	select @status = count(*) 
-	from t_account_ancestor 
-	where id_ancestor = @p_id_ancestor 
-	and id_descendent = @p_id_descendent 
+	select @status = count(*)
+	from t_account_ancestor
+	where id_ancestor = @p_id_ancestor
+	and id_descendent = @p_id_descendent
 	and num_generations = 1
-	and @realstartdate >= vt_start 
+	and @realstartdate >= vt_start
 	and vt_end = @varMaxDateTime
-	if @status > 0 
-	begin 
+	if @status > 0
+	begin
 		-- MT_NEW_ANCESTOR_IS_ALREADY_ A_ANCESTOR
 	 select @status = 1
 	 return
-	end 
+	end
 
 
       -- step : make sure that the account is not archived or closed
-	select @status = count(*)  from t_account_state 
+	select @status = count(*)  from t_account_state
 	where id_acc = @p_id_Descendent
-	and (dbo.IsClosed(@status) = 1 OR dbo.isArchived(@status) = 1) 
+	and (dbo.IsClosed(@status) = 1 OR dbo.isArchived(@status) = 1)
 	and @realstartdate between vt_start AND vt_end
 	if (@status > 0 )
 	begin
 	   -- OPERATION_NOT_ALLOWED_IN_CLOSED_OR_ARCHIVED
 	select @status = -469368827
-	end 
+	end
 
 	-- step : make sure that the account is not a corporate account
 	--only check next 2 business rules if p_enforce_same_corporation rule is turned on
@@ -130,11 +130,11 @@ where id_type = @descendent_acc_type
 			begin
 			select @status = -486604770
 			return
-			end 
+			end
 		-- do this check if the original ancestor of the account being moved is not -1 
 		-- or the new ancestor is not -1
 		declare @originalAncestor integer
-		select @originalAncestor = id_ancestor from t_account_ancestor 
+		select @originalAncestor = id_ancestor from t_account_ancestor
 			where id_descendent =  @p_id_descendent
 			and num_generations = 1
 			and @vt_move_start_trunc >= vt_start and @vt_move_start_trunc <= vt_end
@@ -182,7 +182,7 @@ where id_type = @descendent_acc_type
 --METRAVIEW DATAMART 
 
 declare @tmp_t_dm_account table(id_dm_acc int,id_acc int,vt_start datetime,vt_end datetime)
-insert into @tmp_t_dm_account  select * from t_dm_account where id_acc in 
+insert into @tmp_t_dm_account  select * from t_dm_account where id_acc in
 (
 select distinct id_descendent from t_account_ancestor where id_ancestor = @account_being_moved
 )
@@ -190,7 +190,7 @@ select distinct id_descendent from t_account_ancestor where id_ancestor = @accou
 delete from t_dm_account_ancestor where id_dm_descendent in (select id_dm_acc from @tmp_t_dm_account)
 delete from t_dm_account where id_dm_acc in (select id_dm_acc from @tmp_t_dm_account)
 
-select 
+select
 aa2.id_ancestor,
 aa2.id_descendent,
 aa2.num_generations,
@@ -207,9 +207,9 @@ where
 aa1.id_descendent=@account_being_moved
 and
 aa1.num_generations > 0
-and 
-aa1.vt_start <= @vt_move_end 
-and 
+and
+aa1.vt_start <= @vt_move_end
+and
 @vt_move_start_trunc <= aa1.vt_end
 and
 aa3.id_ancestor=@account_being_moved
@@ -238,7 +238,7 @@ case when aa.id_descendent = 1 then
     end
 from
 t_account_ancestor aa
-inner join #deletethese d on aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and 
+inner join #deletethese d on aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and
 	aa.num_generations=d.num_generations and aa.vt_start < d.vt_start and aa.vt_end > d.vt_end
 
 -- Update end date of existing records for which the applicability interval of the update
@@ -253,8 +253,8 @@ set
 t_account_ancestor.vt_end = dateadd(s, -1, d.vt_start)
 --select *
 from
-t_account_ancestor aa 
-inner join #deletethese d on aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and 
+t_account_ancestor aa
+inner join #deletethese d on aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and
 	aa.num_generations=d.num_generations and aa.vt_start < d.vt_start and aa.vt_end > d.vt_start
 
 -- Update start date of existing records for which the effectivity interval of the update
@@ -266,8 +266,8 @@ set
 t_account_ancestor.vt_start = dateadd(s, 1, d.vt_end)
 --select *
 from
-t_account_ancestor aa 
-inner join #deletethese d on aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and 
+t_account_ancestor aa
+inner join #deletethese d on aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and
 	aa.num_generations=d.num_generations and aa.vt_start <= d.vt_end and aa.vt_end > d.vt_end
 
 -- Delete existing records for which the effectivity interval of the update
@@ -277,8 +277,8 @@ inner join #deletethese d on aa.id_ancestor=d.id_ancestor and aa.id_descendent=d
 delete aa
 --select *
 from
-t_account_ancestor aa 
-inner join #deletethese d on aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and 
+t_account_ancestor aa
+inner join #deletethese d on aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and
 	aa.num_generations=d.num_generations and aa.vt_start >= d.vt_start and aa.vt_end <= d.vt_end
 
 -----------------------------------------------------------------------------
@@ -290,10 +290,10 @@ inner join #deletethese d on aa.id_ancestor=d.id_ancestor and aa.id_descendent=d
 -- cross join as the source of the data.
 
 insert into t_account_ancestor(id_ancestor, id_descendent, num_generations,b_children, vt_start, vt_end,tx_path)
-select aa1.id_ancestor, 
-aa2.id_descendent, 
+select aa1.id_ancestor,
+aa2.id_descendent,
 aa1.num_generations+aa2.num_generations+1 as num_generations,
-aa2.b_children, 
+aa2.b_children,
 dbo.MTMaxOfTwoDates(@vt_move_start_trunc, dbo.MTMaxOfTwoDates(aa1.vt_start, aa2.vt_start)) as vt_start,
 dbo.MTMinOfTwoDates(@vt_move_end, dbo.MTMinOfTwoDates(aa1.vt_end, aa2.vt_end)) as vt_end,
 case when aa2.id_descendent = 1 then
@@ -304,13 +304,13 @@ case when aa2.id_descendent = 1 then
 from
 t_account_ancestor aa1
 inner join t_account_ancestor aa2 with (updlock) on aa1.vt_start < aa2.vt_end and aa2.vt_start < aa1.vt_end and aa2.vt_start < @vt_move_end and @vt_move_start_trunc < aa2.vt_end
-where 
-aa1.id_descendent = @new_parent 
-and 
-aa1.vt_start < @vt_move_end 
-and 
+where
+aa1.id_descendent = @new_parent
+and
+aa1.vt_start < @vt_move_end
+and
 @vt_move_start_trunc < aa1.vt_end
-and 
+and
 aa2.id_ancestor = @account_being_moved
 
 -- Implement the coalescing step.
@@ -318,7 +318,7 @@ aa2.id_ancestor = @account_being_moved
 -- might need coalesing.
 WHILE 1=1
 BEGIN
-update t_account_ancestor 
+update t_account_ancestor
 set t_account_ancestor.vt_end = (
 	select max(aa2.vt_end)
 	from
@@ -363,7 +363,7 @@ and id_descendent in (select id_descendent from #deletethese)
 IF @@rowcount <= 0 BREAK
 END
 
-delete from t_account_ancestor 
+delete from t_account_ancestor
 where
 exists (
 	select *
@@ -398,7 +398,7 @@ where @p_system_time between aa.vt_start and aa.vt_end
 
 	update new set b_Children = 'Y' from t_account_ancestor new where
 	id_descendent = @new_parent
-	and b_children='N'	
+	and b_children='N'
 
 	update old set b_Children = 'N' from t_account_ancestor old where
 	id_descendent = @p_id_ancestor_out and
@@ -427,12 +427,68 @@ where @p_system_time between aa.vt_start and aa.vt_end
 		and acc.vt_end = @varMaxDateTime
 
 		--we are adding 0 level record for all children of moving account
-		insert into t_dm_account_ancestor select dm1.id_dm_acc,dm1.id_dm_acc,0 	
-		from 
+		insert into t_dm_account_ancestor select dm1.id_dm_acc,dm1.id_dm_acc,0
+		from
 		t_dm_account dm1
 		inner join @tmp_t_dm_account acc on dm1.id_acc = acc.id_acc
 		and acc.vt_end = @varMaxDateTime
 
-select @status=1
+	-- Process templates after moving account
+
+
+	DECLARE @allTypesSupported INT
+    SELECT @allTypesSupported = all_types
+        FROM t_acc_tmpl_types
+
+	SET @allTypesSupported = ISNULL(@allTypesSupported,0)
+
+	DECLARE @templateId INT
+	DECLARE @templateOwner INT
+	DECLARE @templateType VARCHAR(200)
+
+	select top 1 @templateId = id_acc_template
+			, @templateOwner = template.id_folder
+			, @templateType = atype.name
+	from
+				t_acc_template template
+	INNER JOIN t_account_ancestor ancestor on template.id_folder = ancestor.id_ancestor
+	INNER JOIN t_account_mapper mapper on mapper.id_acc = ancestor.id_ancestor
+	inner join t_account_type atype on template.id_acc_type = atype.id_type
+			WHERE id_descendent = @new_parent AND
+				@p_system_time between vt_start AND vt_end AND
+				(atype.name = @p_acc_type OR @allTypesSupported = 1)
+	ORDER BY num_generations asc
+
+	DECLARE @sessionId INTEGER
+	IF @templateId IS NOT NULL 
+	BEGIN
+		EXECUTE UpdatePrivateTempates @templateId
+		EXECUTE GetCurrentID 'id_template_session', @sessionId OUT
+        insert into t_acc_template_session(id_session, id_template_owner, nm_acc_type, dt_submission, id_submitter, nm_host, n_status, n_accts, n_subs)
+        values (@sessionId, @templateOwner, @p_acc_type, @p_system_time, 0, '', 0, 0, 0)
+		execute ApplyAccountTemplate @templateId, @sessionId, @p_system_time, NULL, NULL, 'N', 'N', NULL, NULL, NULL
+	END
+	ELSE BEGIN
+		DECLARE tmpl CURSOR FOR
+            SELECT template.id_acc_template, template.id_folder, atype.name
+                FROM t_account_ancestor ancestor
+                JOIN t_acc_template template ON ancestor.id_descendent = template.id_folder
+                JOIN t_account_type atype on template.id_acc_type = atype.id_type
+                WHERE ancestor.id_ancestor = @new_parent AND
+				    @p_system_time between vt_start AND vt_end
+		OPEN tmpl
+		FETCH NEXT FROM tmpl INTO @templateId, @templateOwner, @templateType
+		WHILE @@FETCH_STATUS = 0 BEGIN
+			EXECUTE UpdatePrivateTempates @templateId
+			EXECUTE GetCurrentID 'id_template_session', @sessionId OUT
+			insert into t_acc_template_session(id_session, id_template_owner, nm_acc_type, dt_submission, id_submitter, nm_host, n_status, n_accts, n_subs)
+			values (@sessionId, @templateOwner, @p_acc_type, @p_system_time, 0, '', 0, 0, 0)
+			execute ApplyAccountTemplate @templateId, @sessionId, @p_system_time, NULL, NULL, 'N', 'N', NULL, NULL, NULL
+			FETCH NEXT FROM tmpl INTO @templateId, @templateOwner, @templateType
+		END
+		CLOSE tmpl
+		DEALLOCATE tmpl
+	END
+
+	select @status=1
 END
-		

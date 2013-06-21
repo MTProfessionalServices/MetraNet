@@ -10,11 +10,14 @@ Insert into %%PAYEE_SESSION%%
 (
 id_acc,id_dm_acc,id_usage_interval,id_prod,id_view,id_pi_template,id_pi_instance,am_currency,id_se,dt_session,
 TotalAmount,TotalFederalTax,TotalCountyTax,TotalLocalTax,TotalOtherTax,TotalStateTax,TotalTax,
+TotalImpliedTax,TotalInformationalTax,TotalImplInfTax,
 PrebillAdjAmt,PrebillFedTaxAdjAmt,PrebillStateTaxAdjAmt,PrebillCntyTaxAdjAmt,
-PrebillLocalTaxAdjAmt,PrebillOtherTaxAdjAmt,PrebillTotalTaxAdjAmt,NumPrebillAdjustments,
+PrebillLocalTaxAdjAmt,PrebillOtherTaxAdjAmt,PrebillTotalTaxAdjAmt,PrebillImpliedTaxAdjAmt,
+PrebillInformationalTaxAdjAmt,PrebillImplInfTaxAdjAmt,NumPrebillAdjustments,
 PostbillAdjAmt,PostbillFedTaxAdjAmt,PostbillStateTaxAdjAmt,
 PostbillCntyTaxAdjAmt,PostbillLocalTaxAdjAmt,PostbillOtherTaxAdjAmt,
-PostbillTotalTaxAdjAmt,NumPostbillAdjustments,PrebillAdjustedAmount,PostbillAdjustedAmount,NumTransactions
+PostbillTotalTaxAdjAmt,PostbillImpliedTaxAdjAmt,PostbillInformationalTaxAdjAmt,PostbillImplInfTaxAdjAmt,
+NumPostbillAdjustments,PrebillAdjustedAmount,PostbillAdjustedAmount,NumTransactions
 )
 select au.id_acc,acc.id_dm_acc,au.id_usage_interval,au.id_prod,au.id_view,au.id_pi_template,au.id_pi_instance,
 au.am_currency,au.id_se,trunc(au.dt_session),
@@ -26,12 +29,24 @@ SUM(nvl(au.Tax_Other, 0.0)),
 SUM(nvl(au.Tax_State, 0.0)),
 SUM(nvl(au.Tax_Federal, 0.0)) + SUM(nvl(au.Tax_State, 0.0)) + SUM(nvl(au.Tax_County, 0.0)) + 
 SUM(nvl(au.Tax_Local, 0.0)) + SUM(nvl(au.Tax_Other, 0.0)),
+SUM(CASE WHEN (au.is_implied_tax = 'N') THEN 0.0 ELSE 
+	 (nvl(au.Tax_Federal, 0.0) + nvl(au.Tax_State, 0.0) + nvl(au.Tax_County, 0.0) + 
+     nvl(au.Tax_Local, 0.0) + nvl(au.Tax_Other, 0.0)) END),
+SUM(CASE WHEN (au.tax_informational = 'N') THEN 0.0 ELSE 
+	(nvl(au.Tax_Federal, 0.0) + nvl(au.Tax_State, 0.0) + nvl(au.Tax_County, 0.0) + 
+     nvl(au.Tax_Local, 0.0) + nvl(au.Tax_Other, 0.0)) END),
+SUM(CASE WHEN (au.tax_informational = 'Y' AND au.is_implied_tax = 'Y') THEN 
+	(nvl(au.Tax_Federal, 0.0) + nvl(au.Tax_State, 0.0) + nvl(au.Tax_County, 0.0) + 
+     nvl(au.Tax_Local, 0.0) + nvl(au.Tax_Other, 0.0)) ELSE 0.0 END),
 cast (0.0 as numeric(38,6)) as PrebillAdjAmt,
 cast (0.0 as numeric(38,6)) as PrebillFedTaxAdjAmt,cast (0.0 as numeric(38,6)) as  PrebillStateTaxAdjAmt,cast (0.0 as numeric(38,6)) as  PrebillCntyTaxAdjAmt,
 cast (0.0 as numeric(38,6)) as PrebillLocalTaxAdjAmt,cast (0.0 as numeric(38,6)) as PrebillOtherTaxAdjAmt,cast (0.0 as numeric(38,6)) as PrebillTotalTaxAdjAmt,
+cast (0.0 as numeric(38,6)) as PrebillImpliedTaxAdjAmt,cast (0.0 as numeric(38,6)) as PrebillInformationalTaxAdjAmt,cast (0.0 as numeric(38,6)) as PrebillImplInfTaxAdjAmt,
 cast (0.0 as numeric(38,6)) as NumPrebillAdjustments,cast (0.0 as numeric(38,6)) as PostbillAdjAmt,cast (0.0 as numeric(38,6)) as PostbillFedTaxAdjAmt,
 cast (0.0 as numeric(38,6)) as PostbillStateTaxAdjAmt,cast (0.0 as numeric(38,6)) as PostbillCntyTaxAdjAmt,cast (0.0 as numeric(38,6)) as PostbillLocalTaxAdjAmt,
-cast (0.0 as numeric(38,6)) as PostbillOtherTaxAdjAmt,cast (0.0 as numeric(38,6)) as PostbillTotalTaxAdjAmt,cast (0.0 as numeric(38,6)) as NumPostbillAdjustments,
+cast (0.0 as numeric(38,6)) as PostbillOtherTaxAdjAmt,cast (0.0 as numeric(38,6)) as PostbillTotalTaxAdjAmt,
+cast (0.0 as numeric(38,6)) as PostbillImpliedTaxAdjAmt,cast (0.0 as numeric(38,6)) as PostbillInformationalTaxAdjAmt,cast (0.0 as numeric(38,6)) as PostbillImplInfTaxAdjAmt,
+cast (0.0 as numeric(38,6)) as NumPostbillAdjustments,
 SUM(nvl(au.Amount,0.0)) PrebillAdjustedAmount,
 SUM(nvl(au.Amount,0.0)) PostbillAdjustedAmount,
 COUNT(*) NumTransactions
@@ -52,14 +67,17 @@ Insert into %%%NETMETERSTAGE_PREFIX%%%summ_delta_i_payee_session
 id_acc,id_dm_acc,id_usage_interval,id_prod,id_view,id_pi_template,id_pi_instance,am_currency,id_se,dt_session,
 PrebillAdjAmt,PrebillFedTaxAdjAmt,PrebillStateTaxAdjAmt,PrebillCntyTaxAdjAmt,
 PrebillLocalTaxAdjAmt,PrebillOtherTaxAdjAmt,PrebillTotalTaxAdjAmt,PrebillAdjustedAmount,
+PrebillImpliedTaxAdjAmt,PrebillInformationalTaxAdjAmt,PrebillImplInfTaxAdjAmt,
 NumPrebillAdjustments,
 PostbillAdjAmt,PostbillFedTaxAdjAmt,PostbillStateTaxAdjAmt,
 PostbillCntyTaxAdjAmt,PostbillLocalTaxAdjAmt,PostbillOtherTaxAdjAmt,
-PostbillTotalTaxAdjAmt,PostbillAdjustedAmount,NumPostbillAdjustments
+PostbillTotalTaxAdjAmt,PostbillAdjustedAmount,
+PostbillImpliedTaxAdjAmt,PostbillInformationalTaxAdjAmt,PostbillImplInfTaxAdjAmt,
+NumPostbillAdjustments
 )
 select au.id_acc,acc.id_dm_acc,au.id_usage_interval,au.id_prod,au.id_view,au.id_pi_template,au.id_pi_instance,
 au.am_currency,au.id_se,trunc(au.dt_session),
-SUM(CASE WHEN (billajs.ADJUSTMENTAMOUNT IS NOT NULL  AND billajs.n_adjustmenttype=0) THEN billajs. ADJUSTMENTAMOUNT
+SUM(CASE WHEN (billajs.ADJUSTMENTAMOUNT IS NOT NULL  AND billajs.n_adjustmenttype=0) THEN billajs.ADJUSTMENTAMOUNT
 ELSE 0 END),
 SUM(CASE WHEN (billajs.ADJUSTMENTAMOUNT IS NOT NULL  AND billajs.n_adjustmenttype=0) THEN billajs.aj_tax_federal
 ELSE 0 END),
@@ -75,6 +93,7 @@ SUM(CASE WHEN (billajs.ADJUSTMENTAMOUNT IS NOT NULL AND billajs.n_adjustmenttype
 ELSE 0 END),
 SUM(CASE WHEN (billajs.ADJUSTMENTAMOUNT IS NOT NULL  AND billajs.n_adjustmenttype=0) THEN billajs.ADJUSTMENTAMOUNT
 ELSE 0 END),
+0,0,0,
 SUM(CASE WHEN (au.id_parent_sess IS NULL AND billajs.id_adj_trx IS NOT NULL AND billajs.n_adjustmenttype=0)	
 THEN 1 ELSE 0 END) + 
 SUM(CASE WHEN (au.id_parent_sess IS NOT NULL AND billajs.ADJUSTMENTAMOUNT IS NOT NULL AND billajs.n_adjustmenttype=0) THEN 1 ELSE 0 END),
@@ -88,6 +107,7 @@ SUM(CASE WHEN (billajs.ADJUSTMENTAMOUNT IS NOT NULL and billajs.n_adjustmenttype
 billajs.aj_tax_county + billajs.aj_tax_local + billajs.aj_tax_other) ELSE 0 END),
 SUM(CASE WHEN (billajs.ADJUSTMENTAMOUNT IS NOT NULL) THEN billajs.ADJUSTMENTAMOUNT
 ELSE 0 END),
+0,0,0,
 SUM(CASE WHEN (au.id_parent_sess IS NULL AND billajs.id_adj_trx IS NOT NULL AND billajs.n_adjustmenttype=1) THEN 1 ELSE 0 END) + 
 SUM(CASE WHEN (au.id_parent_sess IS NOT NULL AND billajs.ADJUSTMENTAMOUNT IS NOT NULL AND billajs.n_adjustmenttype=1)  THEN 1 ELSE 0 END)
 from
@@ -105,9 +125,13 @@ au.id_pi_instance,au.id_pi_template,au.am_currency,au.id_se;
 /* Update the MV for records that exists in Delta table */
 
 update %%PAYEE_SESSION%% dm_1 set (PrebillAdjAmt,PrebillFedTaxAdjAmt,PrebillStateTaxAdjAmt,PrebillCntyTaxAdjAmt,
- PrebillLocalTaxAdjAmt,PrebillOtherTaxAdjAmt,PrebillTotalTaxAdjAmt,PostbillAdjAmt,PostbillFedTaxAdjAmt,
+ PrebillLocalTaxAdjAmt,PrebillOtherTaxAdjAmt,PrebillTotalTaxAdjAmt,
+ PrebillImpliedTaxAdjAmt,PrebillInformationalTaxAdjAmt,PrebillImplInfTaxAdjAmt,
+PostbillAdjAmt,PostbillFedTaxAdjAmt,
 PostbillStateTaxAdjAmt,PostbillCntyTaxAdjAmt,PostbillLocalTaxAdjAmt,PostbillOtherTaxAdjAmt,
-PostbillTotalTaxAdjAmt,PrebillAdjustedAmount,PostbillAdjustedAmount,NumPrebillAdjustments,
+PostbillTotalTaxAdjAmt,PrebillAdjustedAmount,PostbillAdjustedAmount,
+ PostbillImpliedTaxAdjAmt,PostbillInformationalTaxAdjAmt,PostbillImplInfTaxAdjAmt,
+ NumPrebillAdjustments,
 NumPostbillAdjustments,NumTransactions) = (select 
 dm_1.PrebillAdjAmt + nvl(tmp2.PrebillAdjAmt, 0.0),
       dm_1.PrebillFedTaxAdjAmt + nvl(tmp2.PrebillFedTaxAdjAmt, 0.0), 
@@ -116,6 +140,7 @@ dm_1.PrebillAdjAmt + nvl(tmp2.PrebillAdjAmt, 0.0),
       dm_1.PrebillLocalTaxAdjAmt + nvl(tmp2.PrebillLocalTaxAdjAmt, 0.0), 
       dm_1.PrebillOtherTaxAdjAmt + nvl(tmp2.PrebillOtherTaxAdjAmt, 0.0), 
       dm_1.PrebillTotalTaxAdjAmt + nvl(tmp2.PrebillTotalTaxAdjAmt, 0.0), 
+	  0.0,0.0,0.0,
       dm_1.PostbillAdjAmt + nvl(tmp2.PostbillAdjAmt, 0.0), 
       dm_1.PostbillFedTaxAdjAmt + nvl(tmp2.PostbillFedTaxAdjAmt, 0.0), 
       dm_1.PostbillStateTaxAdjAmt + nvl(tmp2.PostbillStateTaxAdjAmt, 0.0), 
@@ -125,6 +150,7 @@ dm_1.PrebillAdjAmt + nvl(tmp2.PrebillAdjAmt, 0.0),
       dm_1.PostbillTotalTaxAdjAmt + nvl(tmp2.PostbillTotalTaxAdjAmt, 0.0), 
       dm_1.PrebillAdjustedAmount + nvl(tmp2.PrebillAdjustedAmount, 0.0), 
       dm_1.PostbillAdjustedAmount + nvl(tmp2.PostbillAdjustedAmount, 0.0), 
+	  0.0,0.0,0.0,
       dm_1.NumPrebillAdjustments + nvl(tmp2.NumPrebillAdjustments, 0.0), 
       dm_1.NumPostbillAdjustments + nvl(tmp2.NumPostbillAdjustments, 0.0), 
       dm_1.NumTransactions + nvl(tmp2.NumTransactions, 0.0) 
@@ -158,17 +184,23 @@ Insert into %%PAYEE_SESSION%%
 (
 id_acc,id_dm_acc,id_usage_interval,id_prod,id_view,id_pi_template,id_pi_instance,am_currency,id_se,dt_session,PrebillAdjAmt,
 PrebillFedTaxAdjAmt,PrebillStateTaxAdjAmt,PrebillCntyTaxAdjAmt,PrebillLocalTaxAdjAmt,
-PrebillOtherTaxAdjAmt,PrebillTotalTaxAdjAmt,PrebillAdjustedAmount,NumPrebillAdjustments,
+PrebillOtherTaxAdjAmt,PrebillTotalTaxAdjAmt,PrebillAdjustedAmount,
+PrebillImpliedTaxAdjAmt,PrebillInformationalTaxAdjAmt,PrebillImplInfTaxAdjAmt,NumPrebillAdjustments,
 PostbillAdjAmt,PostbillFedTaxAdjAmt,PostbillStateTaxAdjAmt,
 PostbillCntyTaxAdjAmt,PostbillLocalTaxAdjAmt,PostbillOtherTaxAdjAmt,
-PostbillTotalTaxAdjAmt,PostbillAdjustedAmount,NumPostbillAdjustments,NumTransactions
+PostbillTotalTaxAdjAmt,PostbillAdjustedAmount,
+PostbillImpliedTaxAdjAmt,PostbillInformationalTaxAdjAmt,PostbillImplInfTaxAdjAmt,
+NumPostbillAdjustments,NumTransactions
 )
 select id_acc,id_dm_acc,id_usage_interval,id_prod,id_view,id_pi_template,id_pi_instance,am_currency,id_se,dt_session,PrebillAdjAmt,
 PrebillFedTaxAdjAmt,PrebillStateTaxAdjAmt,PrebillCntyTaxAdjAmt,PrebillLocalTaxAdjAmt,
-PrebillOtherTaxAdjAmt,PrebillTotalTaxAdjAmt,PrebillAdjustedAmount,NumPrebillAdjustments,
+PrebillOtherTaxAdjAmt,PrebillTotalTaxAdjAmt,PrebillAdjustedAmount,
+ PrebillImpliedTaxAdjAmt,PrebillInformationalTaxAdjAmt,PrebillImplInfTaxAdjAmt,NumPrebillAdjustments,
 PostbillAdjAmt,PostbillFedTaxAdjAmt,PostbillStateTaxAdjAmt,
 PostbillCntyTaxAdjAmt,PostbillLocalTaxAdjAmt,PostbillOtherTaxAdjAmt,
-PostbillTotalTaxAdjAmt,PostbillAdjustedAmount,NumPostbillAdjustments,NumTransactions
+PostbillTotalTaxAdjAmt,PostbillAdjustedAmount,
+PostbillImpliedTaxAdjAmt,PostbillInformationalTaxAdjAmt,PostbillImplInfTaxAdjAmt,
+NumPostbillAdjustments,NumTransactions
 from
 %%%NETMETERSTAGE_PREFIX%%%summ_delta_i_payee_session tmp2 where not exists 
       (select 1 from %%PAYEE_SESSION%% dm_1 where 

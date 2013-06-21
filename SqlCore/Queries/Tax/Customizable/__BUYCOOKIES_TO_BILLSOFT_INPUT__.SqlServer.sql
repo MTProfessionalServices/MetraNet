@@ -29,7 +29,7 @@ select
         '0' round_digits,
         '1' lines,
         '1' location,
-        'BSPC0001' product_code,
+        'mt100' product_code,
         'S' client_resale,
         'I' inc_code,
         au.id_acc,

@@ -100,11 +100,18 @@ BEGIN
   /* add unbilled current charges */
   for i in
   (SELECT SUM(nvl(au.Amount, 0.0)) +
-          SUM(nvl(au.Tax_Federal,0.0)) +
-          SUM(nvl(au.Tax_State,0.0)) +
-          SUM(nvl(au.Tax_County,0.0)) +
-          SUM(nvl(au.Tax_Local,0.0)) +
-          SUM(nvl(au.Tax_Other,0.0)) amt,
+           /*For implied taxes, tax is already included, so don't add it again*/
+                       SUM(CASE WHEN (au.is_implied_tax = 'N') THEN  nvl(au.Tax_Federal,0.0) +
+                       nvl(au.Tax_State,0.0) +
+                       nvl(au.Tax_County,0.0) +
+                       nvl(au.Tax_Local,0.0) +
+                       nvl(au.Tax_Other,0.0) else 0 end) -
+			/* Informational taxes don't get added into total */
+					   SUM(CASE WHEN (au.tax_informational = 'Y') THEN  nvl(au.Tax_Federal,0.0) +
+                       nvl(au.Tax_State,0.0) +
+                       nvl(au.Tax_County,0.0) +
+                       nvl(au.Tax_Local,0.0) +
+                       nvl(au.Tax_Other,0.0) else 0 end) amt,
           au.am_currency curr
   FROM t_acc_usage au
     inner join t_view_hierarchy vh on au.id_view = vh.id_view
@@ -188,11 +195,18 @@ BEGIN
   for i in(
   SELECT
    SUM(nvl(au.Amount, 0.0)) +
-   SUM(nvl(au.Tax_Federal, 0.0)) +
-   SUM(nvl(au.Tax_State, 0.0)) +
-   SUM(nvl(au.Tax_County, 0.0)) +
-   SUM(nvl(au.Tax_Local, 0.0)) +
-   SUM(nvl(au.Tax_Other, 0.0)) amt,
+   /*For implied taxes, tax is already included, so don't add it again*/
+                       SUM(CASE WHEN (au.is_implied_tax = 'N') THEN  nvl(au.Tax_Federal,0.0) +
+                       nvl(au.Tax_State,0.0) +
+                       nvl(au.Tax_County,0.0) +
+                       nvl(au.Tax_Local,0.0) +
+                       nvl(au.Tax_Other,0.0) else 0 end)  -
+			/* Informational taxes don't get added into total */
+					   SUM(CASE WHEN (au.tax_informational = 'Y') THEN  nvl(au.Tax_Federal,0.0) +
+                       nvl(au.Tax_State,0.0) +
+                       nvl(au.Tax_County,0.0) +
+                       nvl(au.Tax_Local,0.0) +
+                       nvl(au.Tax_Other,0.0) else 0 end) amt,
    au.am_currency curr
   FROM t_acc_usage au
     inner join t_view_hierarchy vh on au.id_view = vh.id_view

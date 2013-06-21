@@ -8,6 +8,7 @@ CREATE OR REPLACE PROCEDURE MTSP_GENERATE_ST_NRCS_QUOTING
   v_id_batch    VARCHAR2,
   v_n_batch_size INT,
   v_run_date    DATE,
+  v_is_group_sub INT,
   v_p_count OUT INT
 )
 AS
@@ -18,64 +19,122 @@ AS
    v_id_ss      INT;
    v_tx_batch   VARCHAR2(256);
 BEGIN
-   
-   DELETE FROM TMP_RC_ACCOUNTS_FOR_RUN;
-   INSERT INTO TMP_RC_ACCOUNTS_FOR_RUN ( ID_ACC )
+
+   DELETE FROM TMP_NRC_ACCOUNTS_FOR_RUN;
+   INSERT INTO TMP_NRC_ACCOUNTS_FOR_RUN ( ID_ACC )
         SELECT * FROM table(cast(dbo.CSVToInt(v_id_accounts) as  tab_id_instance));
 
    DELETE FROM TMP_NRC;
 
     v_tx_batch := utl_raw.cast_to_varchar2(utl_encode.base64_decode(utl_raw.cast_to_raw (v_id_batch)));
-      
-   
+
+   IF v_is_group_sub > 0 THEN
+   BEGIN
    INSERT INTO TMP_NRC
-   (
-        id_source_sess,
-        c_NRCEventType,
-        c_NRCIntervalStart,
-        c_NRCIntervalEnd,
-        c_NRCIntervalSubscriptionStart,
-        c_NRCIntervalSubscriptionEnd,
-        c__AccountID,
-        c__PriceableItemInstanceID,
-        c__PriceableItemTemplateID,
-        c__ProductOfferingID,
-        c__SubscriptionID,
-        c__IntervalID,
-        c__Resubmit,
-        c__CollectionID
-   )
-        SELECT SYS_GUID() AS id_source_sess,
-          nrc.n_event_type AS c_NRCEventType,
-          v_dt_start AS c_NRCIntervalStart,
-          v_dt_end AS c_NRCIntervalEnd,
-          sub.vt_start AS c_NRCIntervalSubscriptionStart,
-          sub.vt_end AS c_NRCIntervalSubscriptionEnd,
-          sub.id_acc AS c__AccountID,
-          plm.id_pi_instance AS c__PriceableItemInstanceID,
-          plm.id_pi_template AS c__PriceableItemTemplateID,
-          sub.id_po AS c__ProductOfferingID,
-          sub.id_sub AS c__SubscriptionID,
-          v_id_interval AS c__IntervalID,
-          '0' AS c__Resubmit,
-          v_tx_batch AS c__CollectionID
-        FROM t_sub sub
-              JOIN TMP_NRC_ACCOUNTS_FOR_RUN acc
-               ON acc.id_acc = sub.id_acc
-              JOIN t_po
-               ON sub.id_po = t_po.id_po
-              JOIN t_pl_map plm
-               ON sub.id_po = plm.id_po
-              AND plm.id_paramtable IS NULL
-              JOIN t_base_props bp
-               ON bp.id_prop = plm.id_pi_instance
-              AND bp.n_kind = 30
-              JOIN t_nonrecur nrc
-               ON nrc.id_prop = bp.id_prop
-              AND nrc.n_event_type = 1
-        WHERE sub.vt_start >= v_dt_start
-              AND sub.vt_start < v_dt_end
-    ;
+       (
+            id_source_sess,
+            c_NRCEventType,
+            c_NRCIntervalStart,
+            c_NRCIntervalEnd,
+            c_NRCIntervalSubscriptionStart,
+            c_NRCIntervalSubscriptionEnd,
+            c__AccountID,
+            c__PriceableItemInstanceID,
+            c__PriceableItemTemplateID,
+            c__ProductOfferingID,
+            c__SubscriptionID,
+            c__IntervalID,
+            c__Resubmit,
+            c__CollectionID
+       )
+            SELECT SYS_GUID() AS id_source_sess,
+              nrc.n_event_type AS c_NRCEventType,
+              v_dt_start AS c_NRCIntervalStart,
+              v_dt_end AS c_NRCIntervalEnd,
+              mem.vt_start AS c_NRCIntervalSubscriptionStart,
+              mem.vt_end AS c_NRCIntervalSubscriptionEnd,
+              mem.id_acc AS c__AccountID,
+              plm.id_pi_instance AS c__PriceableItemInstanceID,
+              plm.id_pi_template AS c__PriceableItemTemplateID,
+              sub.id_po AS c__ProductOfferingID,
+              sub.id_sub AS c__SubscriptionID,
+              v_id_interval AS c__IntervalID,
+              '0' AS c__Resubmit,
+              v_tx_batch AS c__CollectionID
+            FROM t_sub sub
+                  JOIN t_gsubmember mem
+                   ON mem.id_group = sub.id_group
+                  JOIN TMP_NRC_ACCOUNTS_FOR_RUN acc
+                   ON acc.id_acc = sub.id_acc
+                  JOIN t_po
+                   ON sub.id_po = t_po.id_po
+                  JOIN t_pl_map plm
+                   ON sub.id_po = plm.id_po
+                  AND plm.id_paramtable IS NULL
+                  JOIN t_base_props bp
+                   ON bp.id_prop = plm.id_pi_instance
+                  AND bp.n_kind = 30
+                  JOIN t_nonrecur nrc
+                   ON nrc.id_prop = bp.id_prop
+                  AND nrc.n_event_type = 1
+            WHERE sub.vt_start >= v_dt_start
+                  AND sub.vt_start < v_dt_end
+        ;
+
+   END;
+   ELSE
+   BEGIN
+
+       INSERT INTO TMP_NRC
+       (
+            id_source_sess,
+            c_NRCEventType,
+            c_NRCIntervalStart,
+            c_NRCIntervalEnd,
+            c_NRCIntervalSubscriptionStart,
+            c_NRCIntervalSubscriptionEnd,
+            c__AccountID,
+            c__PriceableItemInstanceID,
+            c__PriceableItemTemplateID,
+            c__ProductOfferingID,
+            c__SubscriptionID,
+            c__IntervalID,
+            c__Resubmit,
+            c__CollectionID
+       )
+            SELECT SYS_GUID() AS id_source_sess,
+              nrc.n_event_type AS c_NRCEventType,
+              v_dt_start AS c_NRCIntervalStart,
+              v_dt_end AS c_NRCIntervalEnd,
+              sub.vt_start AS c_NRCIntervalSubscriptionStart,
+              sub.vt_end AS c_NRCIntervalSubscriptionEnd,
+              sub.id_acc AS c__AccountID,
+              plm.id_pi_instance AS c__PriceableItemInstanceID,
+              plm.id_pi_template AS c__PriceableItemTemplateID,
+              sub.id_po AS c__ProductOfferingID,
+              sub.id_sub AS c__SubscriptionID,
+              v_id_interval AS c__IntervalID,
+              '0' AS c__Resubmit,
+              v_tx_batch AS c__CollectionID
+            FROM t_sub sub
+                  JOIN TMP_NRC_ACCOUNTS_FOR_RUN acc
+                   ON acc.id_acc = sub.id_acc
+                  JOIN t_po
+                   ON sub.id_po = t_po.id_po
+                  JOIN t_pl_map plm
+                   ON sub.id_po = plm.id_po
+                  AND plm.id_paramtable IS NULL
+                  JOIN t_base_props bp
+                   ON bp.id_prop = plm.id_pi_instance
+                  AND bp.n_kind = 30
+                  JOIN t_nonrecur nrc
+                   ON nrc.id_prop = bp.id_prop
+                  AND nrc.n_event_type = 1
+            WHERE sub.vt_start >= v_dt_start
+                  AND sub.vt_start < v_dt_end
+        ;
+  END;
+  END IF;
 
    SELECT COUNT(*)
      INTO v_total_nrcs
@@ -137,24 +196,24 @@ BEGIN
        GROUP BY id_message,id_ss,b_root;
 
    INSERT INTO t_svc_nonrecurringcharge
-     (  id_source_sess, 
-        id_parent_source_sess, 
-        id_external, 
-        c_NRCEventType, 
-        c_NRCIntervalStart, 
-        c_NRCIntervalEnd, 
-        c_NRCIntervalSubscriptionStart, 
-        c_NRCIntervalSubscriptionEnd, 
-        c__AccountID, 
-        c__PriceableItemInstanceID, 
-        c__PriceableItemTemplateID, 
-        c__ProductOfferingID, 
-        c__SubscriptionID, 
-        c__IntervalID, 
-        c__Resubmit, 
-        c__TransactionCookie, 
+     (  id_source_sess,
+        id_parent_source_sess,
+        id_external,
+        c_NRCEventType,
+        c_NRCIntervalStart,
+        c_NRCIntervalEnd,
+        c_NRCIntervalSubscriptionStart,
+        c_NRCIntervalSubscriptionEnd,
+        c__AccountID,
+        c__PriceableItemInstanceID,
+        c__PriceableItemTemplateID,
+        c__ProductOfferingID,
+        c__SubscriptionID,
+        c__IntervalID,
+        c__Resubmit,
+        c__TransactionCookie,
         c__CollectionID )
-     ( SELECT 
+     ( SELECT
           id_source_sess,
           NULL id_parent_source_sess,
           NULL id_external,

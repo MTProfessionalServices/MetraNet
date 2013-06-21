@@ -10,6 +10,8 @@
           n_accts int not null,
           n_subs int not null,
           n_retries int not null default(-1),
+          n_templates int not null default(0),
+          n_templates_applied int not null default(0),
           constraint pk_t_acc_template_session PRIMARY KEY(id_session)
         )
       

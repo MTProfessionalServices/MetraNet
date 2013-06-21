@@ -5,7 +5,8 @@
 		     c_MetraTaxHasOverrideBand,
 		     c_MetraTaxOverrideBand,
 		     c_TaxServiceAddressPCode,
-		     c_TaxExempt
+		     c_TaxExempt,
+			 c_UseStdImpliedTaxAlg
               from t_av_Internal
 	      where id_acc = %%ID_ACC%%
       

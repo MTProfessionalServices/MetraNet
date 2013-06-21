@@ -1,9 +1,18 @@
 
-CREATE OR REPLACE PROCEDURE ApplyAccountTemplate
+CREATE OR REPLACE 
+PROCEDURE ApplyAccountTemplate
 (
-    accountTemplateId NUMBER,
-    sessionId NUMBER,
-    systemDate DATE
+    accountTemplateId          NUMBER,
+    sessionId                  NUMBER,
+    systemDate                 DATE,
+    sub_start                  DATE,
+    sub_end                    DATE,
+    next_cycle_after_startdate CHAR,
+    next_cycle_after_enddate   CHAR,
+    id_event_success           INT,
+    id_event_failure           INT,
+    account_id                 INT DEFAULT NULL,
+    doCommit                   CHAR DEFAULT 'Y'
 )
 AS
     nRetryCount NUMBER := 0;
@@ -12,6 +21,7 @@ AS
     DetailTypeSubscription NUMBER(10);
     id_acc_type NUMBER(10);
     id_acc NUMBER(10);
+    user_id NUMBER(10);
 BEGIN
 
     SELECT id_acc_type, id_folder
@@ -35,6 +45,11 @@ BEGIN
       FROM t_enum_data
      WHERE nm_enum_data = 'metratech.com/accounttemplate/DetailType/Subscription';
      
+    SELECT id_submitter
+    INTO   user_id
+    FROM   t_acc_template_session ts
+    WHERE  id_session = sessionId;
+    
     --!!!Starting application of template
     InsertTmplSessionDetail
     (
@@ -45,6 +60,16 @@ BEGIN
         nRetryCount
     );
 
+	/* Updating session details with a number of themplates to be applied in the session */
+	UPDATE t_acc_template_session
+	SET    n_templates = (SELECT COUNT(1) FROM t_account_ancestor aa JOIN t_acc_template at ON aa.id_ancestor = id_acc AND aa.id_descendent = at.id_folder)
+	WHERE  id_session = sessionId;
+	
+    IF (doCommit = 'Y')
+    THEN
+	COMMIT;
+    END IF;
+
     --Select account hierarchy for current template and for each child template.
     FOR tmpl in (
         SELECT tat.id_acc_template
@@ -54,18 +79,37 @@ BEGIN
     LOOP
 
         --Apply account template to appropriate account list.
-        ApplyTemplateToAccounts(tmpl.id_acc_template, sessionId, nRetryCount, systemDate);
+        ApplyTemplateToAccounts
+        (
+            idAccountTemplate          => tmpl.id_acc_template,
+            sessionId                  => sessionId,
+            nRetryCount                => nRetryCount,
+            systemDate                 => systemDate,
+            sub_start                  => sub_start,
+            sub_end                    => sub_end,
+            next_cycle_after_startdate => next_cycle_after_startdate,
+            next_cycle_after_enddate   => next_cycle_after_enddate,
+            user_id                    => user_id,
+            id_event_success           => id_event_success,
+            id_event_failure           => id_event_failure,
+            account_id                 => account_id
+        );
+		
+		UPDATE t_acc_template_session
+		SET    n_templates_applied = n_templates_applied + 1
+		WHERE  id_session = sessionId;
+		
+        IF (doCommit = 'Y')
+        THEN
+		COMMIT;
+        END IF;
+
     END LOOP;
 
-
-    InsertTmplSessionDetail
-    (
-        sessionId,
-        DetailTypeSubscription,
-        DetailResultInformation,
-        'There are no subscriptions to be applied',
-        nRetryCount
-    );
+	-- Finalize session state
+	UPDATE t_acc_template_session
+	SET    n_templates = n_templates_applied
+	WHERE  id_session = sessionId;
 
     --!!!Template application complete
     InsertTmplSessionDetail
@@ -77,4 +121,3 @@ BEGIN
         nRetryCount
     );
 END;
-

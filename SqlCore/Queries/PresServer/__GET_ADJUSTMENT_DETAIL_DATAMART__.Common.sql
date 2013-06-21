@@ -15,9 +15,16 @@ au.id_pi_instance PIInstance,
 /* %%AJ_TABLE_NAME%% */
 ({fn IFNULL(au.tax_federal, 0.0)} + {fn IFNULL(au.tax_state, 0.0)} + {fn IFNULL(au.tax_county, 0.0)} + 
         {fn IFNULL(au.tax_local, 0.0)} + {fn IFNULL(au.tax_other, 0.0)}) TaxAmount, 
-(au.amount + 
-        {fn IFNULL(au.tax_federal, 0.0)} + {fn IFNULL(au.tax_state, 0.0)} + {fn IFNULL(au.tax_county, 0.0)} + 
-        {fn IFNULL(au.tax_local, 0.0)} + {fn IFNULL(au.tax_other, 0.0)}) AmountWithTax, 
+au.amount + 
+	      /*If implied taxes, then taxes are already included, don't add them again */
+	      (case when au.is_implied_tax = 'N' then 
+              ({fn IFNULL(au.tax_federal, 0.0)} + {fn IFNULL(au.tax_state, 0.0)} + {fn IFNULL(au.tax_county, 0.0)} + 
+                  {fn IFNULL(au.tax_local, 0.0)} + {fn IFNULL(au.tax_other, 0.0)}) else 0.0 end)
+	      /*If informational taxes, then they shouldn't be in the total */
+			  - (CASE WHEN (au.tax_informational = 'Y') THEN 
+              ({fn IFNULL(au.tax_federal, 0.0)} + {fn IFNULL(au.tax_state, 0.0)} + {fn IFNULL(au.tax_county, 0.0)} + 
+                  {fn IFNULL(au.tax_local, 0.0)} + {fn IFNULL(au.tax_other, 0.0)}) else 0.0 end)
+  AmountWithTax, 
 au.id_usage_interval IntervalID
 ,ajdetails.IsPrebill IsPrebillTransaction
 ,ajdetails.IsPrebillAdjusted

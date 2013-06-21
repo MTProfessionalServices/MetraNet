@@ -3,7 +3,7 @@
                         au.ID_SESS, au.TX_UID, au.ID_ACC, au.ID_PAYEE, au.ID_VIEW, au.ID_USAGE_INTERVAL, au.ID_PARENT_SESS, 
                         au.ID_PROD, au.ID_SVC, au.DT_SESSION, au.AMOUNT, au.AM_CURRENCY, au.DT_CRT, au.TX_BATCH, 
                         au.TAX_FEDERAL, au.TAX_STATE, au.TAX_COUNTY, au.TAX_LOCAL, au.TAX_OTHER, au.ID_PI_INSTANCE, 
-                        au.ID_PI_TEMPLATE, au.ID_SE, au.DIV_CURRENCY, au.DIV_AMOUNT
+                        au.ID_PI_TEMPLATE, au.ID_SE, au.DIV_CURRENCY, au.DIV_AMOUNT, au.is_implied_tax, au.tax_informational
                         ,CASE WHEN (prebillajs.AdjustmentAmount IS NOT NULL AND prebillajs.c_status = 'A')
                         THEN prebillajs.AdjustmentAmount
                         ELSE 0 END

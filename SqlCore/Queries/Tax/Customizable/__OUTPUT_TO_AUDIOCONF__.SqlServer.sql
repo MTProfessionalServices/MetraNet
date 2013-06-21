@@ -36,7 +36,8 @@ update au
            au.tax_state = tax_state_amount,
            au.tax_county = tax_county_amount,
            au.tax_local = tax_local_amount,
-           au.tax_other = tax_other_amount
+           au.tax_other = tax_other_amount,
+		   au.tax_calculated = 'Y'
     from
         ( select  i.id_sess,
                   i.id_usage_interval,
@@ -77,7 +78,8 @@ update au
         tax_federal = ChildTaxFederal,
         tax_state = ChildTaxState,
         tax_county = ChildTaxCounty,
-        tax_local = ChildTaxLocal
+        tax_local = ChildTaxLocal,
+		tax_calculated = 'Y'
     from  t_acc_usage au
         inner join t_billgroup_member bgm on bgm.id_acc = au.id_acc and bgm.id_billgroup = @id_bill_group
         inner join (

@@ -1,1 +1,0 @@
-select * from t_prod_view where nm_table_name=%%TABLE_NAME%%

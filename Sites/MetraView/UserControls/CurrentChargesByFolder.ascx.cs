@@ -50,6 +50,17 @@ public partial class UserControls_CurrentChargesByFolder : System.Web.UI.UserCon
           if (billManager.ReportParams.ReportView == ReportViewType.OnlineBill)
           {
             ReportLevel = billManager.GetByFolderReport(null, null);
+
+            // Do not show the informational tax lines if there is no informational tax
+            if (ReportLevel.ImplInfTax != null && ReportLevel.ImplInfTax.TaxAmount == decimal.Zero)
+            {
+              IncludedInformationalTaxDiv.Attributes.Add("style", "display: none;");
+            }
+            if (ReportLevel.InformationalTax != null && ReportLevel.InformationalTax.TaxAmount == decimal.Zero)
+            {
+              InformationalTaxDiv.Attributes.Add("style", "display: none;");
+            }
+
           }
           else
           {
@@ -62,6 +73,17 @@ public partial class UserControls_CurrentChargesByFolder : System.Web.UI.UserCon
               // Show usage for owned folder
               ReportLevel = billManager.GetByFolderReport(int.Parse(Session[SiteConstants.OwnedAccount].ToString()), null);
             }
+
+            // Do not show the informational tax lines if there is no informational tax
+            if (ReportLevel.ImplInfTax != null && ReportLevel.ImplInfTax.TaxAmount == decimal.Zero)
+            {
+              IncludedInformationalTaxDiv.Attributes.Add("style", "display: none;");
+            }
+            if (ReportLevel.InformationalTax != null && ReportLevel.InformationalTax.TaxAmount == decimal.Zero)
+            {
+              InformationalTaxDiv.Attributes.Add("style", "display: none;");
+            }
+
           }
         }
       }
@@ -71,7 +93,12 @@ public partial class UserControls_CurrentChargesByFolder : System.Web.UI.UserCon
       {
         if ((bool)SiteConfig.Settings.BillSetting.InlineTax)
         {
+          subTotalWithExpanderPanel.Visible = false;
           PanelTaxes.Visible = false;
+        }
+        else
+        {
+          subTotalPanel.Visible = false;
         }
       }
 
@@ -120,6 +147,36 @@ public partial class UserControls_CurrentChargesByFolder : System.Web.UI.UserCon
   protected string GetTaxAmount()
   {
     return ReportLevel.TotalTax != null ? ReportLevel.TotalTax.TaxAmountAsString : 0M.ToDisplayAmount(UI);
+  }
+
+  protected string GetUsageAmount()
+  {
+      return ReportLevel.UsageAmountAsString;
+  }
+
+  protected string GetImpliedTaxAmount()
+  {
+      return ReportLevel.ImpliedTax != null ? ReportLevel.ImpliedTax.TaxAmountAsString : 0M.ToDisplayAmount(UI);
+  }
+
+  protected string GetImplInfTaxAmount()
+  {
+      return ReportLevel.ImplInfTax != null ? ReportLevel.ImplInfTax.TaxAmountAsString : 0M.ToDisplayAmount(UI);
+  }
+
+  protected string GetInformationalTaxAmount()
+  {
+      return ReportLevel.InformationalTax != null ? ReportLevel.InformationalTax.TaxAmountAsString : 0M.ToDisplayAmount(UI);
+  }
+
+  protected string GetNonImpliedTaxAmount()
+  {
+      return ReportLevel.NonImpliedTax != null ? ReportLevel.NonImpliedTax.TaxAmountAsString : 0M.ToDisplayAmount(UI);
+  }
+
+  protected string GetBillableTaxAmount()
+  {
+      return ReportLevel.BillableTax != null ? ReportLevel.BillableTax.TaxAmountAsString : 0M.ToDisplayAmount(UI);
   }
 
   protected string GetTotalCurrentChargesAmount()

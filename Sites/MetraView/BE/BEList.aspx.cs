@@ -192,7 +192,6 @@ public partial class BEList : MTPage
             MyGrid1.ExtensionName = Request.QueryString["Extension"];
             MyGrid1.TemplateFileName = BEName + ".xml";
 
-
             GetRelatedEntities();
             if (ChildGrid == "false")
             {
@@ -262,7 +261,6 @@ public partial class BEList : MTPage
         }
 
         MTTitle1.InnerText = MyGrid1.Title;
-
         if (ReturnUrl.Contains("MetraNet"))
         {
             if (MyGrid1.GridButtons.Count > 0)
@@ -362,7 +360,15 @@ public partial class BEList : MTPage
         }
 
 
-        if (BEName != "Core.UI.Site")
+        if (BEName != "Core.UI.Site" && 
+          BEName != "Core.UI.BillSetting" && 
+          BEName != "Core.UI.ReportInventory" && 
+          BEName != "Core.UI.ProductViewMapping" && 
+          BEName != "Core.UI.EntryPoint" && 
+          BEName != "Core.UI.Dashboard" &&
+          BEName != "Core.UI.Column" &&
+          BEName != "Core.UI.Widget" &&
+          BEName != "Core.UI.Parameter")
         {
             MyGrid1.Buttons = MTButtonType.None;
         }

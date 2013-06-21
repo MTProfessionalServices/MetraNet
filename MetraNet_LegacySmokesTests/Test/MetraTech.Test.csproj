@@ -55,6 +55,31 @@
       <SpecificVersion>false</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\IMTAccountType.interop.dll</HintPath>
     </Reference>
+    <Reference Include="MetraTech.Account.ClientProxies" >
+	  <Private>false</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Account.ClientProxies.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.ActivityServices.Common" >
+	  <Private>false</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.ActivityServices.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.AccountTypes.Generated" >
+	  <Private>false</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DomainModel.AccountTypes.Generated.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.BaseTypes" >
+	  <Private>false</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DomainModel.BaseTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.Enums.Generated" >
+	  <Private>false</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
+    </Reference>
     <Reference Include="MetraTech.Security">
       <Private>false</Private>
       <SpecificVersion>False</SpecificVersion>
@@ -173,6 +198,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Messaging" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.XML" />
   </ItemGroup>

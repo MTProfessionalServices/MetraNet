@@ -131,6 +131,7 @@
     <None Include="..\..\..\Source\build\keys\metratech.snk">
       <Link>metratech.snk</Link>
     </None>
+    <None Include="..\core\services\App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

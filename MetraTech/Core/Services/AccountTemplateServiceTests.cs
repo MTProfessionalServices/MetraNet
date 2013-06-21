@@ -13,6 +13,9 @@ using MetraTech.TestCommon;
 
 namespace MetraTech.Core.Services.UnitTests
 {
+    /// <summary>
+    /// To run these test you need to run ActivityServices and Pipeline, also you need to have at least one PO in the database.
+    /// </summary>
     [TestClass]
     public class AccountTemplateServiceTests
     {
@@ -114,29 +117,112 @@ namespace MetraTech.Core.Services.UnitTests
             tService.ClientCredentials.UserName.UserName = suName;
             tService.ClientCredentials.UserName.Password = suPassword;
             Assert.IsNotNull(tService, "AccountTemplateServiceClient creation failed");
+
             AccountTemplate template = new AccountTemplate();
             template.AccountType = "CoreSubscriber";
             template.Description = "TestCreateAccountTemplate";
             template.Properties.Add("LDAP[ContactType=Bill_To].Address1", "Address 1");
             template.Properties.Add("Account.PayerID", accCorp._AccountID);
+            
             ProductOfferingServiceClient poService = new ProductOfferingServiceClient();
             poService.ClientCredentials.UserName.UserName = suName;
             poService.ClientCredentials.UserName.Password = suPassword;
             MTList<ProductOffering> POs = new MTList<ProductOffering>();
             poService.GetProductOfferings(ref POs);
-            if (POs.Items.Count != 0)
-            {
+            Assert.AreNotEqual(POs.Items.Count, 0, "Subscription(s) not found. Please create or import some.");
+            
                 ProductOffering po = POs.Items[0];
                 AccountTemplateSubscription sub = new AccountTemplateSubscription();
                 sub.ProductOfferingId = po.ProductOfferingId;
                 template.Subscriptions.Add(sub);
-            }
+
             AccountIdentifier acc = new AccountIdentifier((int)accCorp._AccountID);
             tService.SaveAccountTemplate(acc, "CoreSubscriber", DateTime.Today, ref template);
             AccountTemplate created;
             tService.GetTemplateDefForAccountType(acc, "CoreSubscriber", DateTime.Today, false, out created);
+
             Assert.AreNotEqual(created.ID, -1, "Template is not created");
-            Assert.AreNotEqual(created.Subscriptions.Count, 1, "Subscription is not saved");
+            Assert.AreEqual(created.Subscriptions.Count, 1, "Subscription is not saved");
+        }
+
+        /// <summary>
+        /// Create new account template with subscription and check that new template is saved in database.
+        /// Note: Any product offering should be created in database before run this test.
+        /// </summary>
+        [TestMethod, MTFunctionalTest]
+        public void ApplyAccountTemplate_WithSubscriptions_Success()
+        {
+            // Create account hierarchy
+            guid = Guid.NewGuid().GetHashCode();
+            string userName = string.Format("{0}_{1}", "CorporateAccount", guid);
+            Account corp = CreateAccount("CorporateAccount", "mt", 1, 0);
+            Account dept = CreateAccount("DepartmentAccount", "mt", corp._AccountID, 1);
+            Account core1 = CreateAccount("CoreSubscriber", "mt", dept._AccountID, 1);
+            Account core2 = CreateAccount("CoreSubscriber", "mt", dept._AccountID, 2);
+
+
+            AccountTemplateServiceClient tService = new AccountTemplateServiceClient();
+            tService.ClientCredentials.UserName.UserName = suName;
+            tService.ClientCredentials.UserName.Password = suPassword;
+            Assert.IsNotNull(tService, "AccountTemplateServiceClient creation failed");
+
+            AccountTemplate template = new AccountTemplate();
+            template.AccountType = "CoreSubscriber";
+            template.Description = "TestCreateAccountTemplate";
+            template.Properties.Add("LDAP[ContactType=Bill_To].Address1", "Address 1");
+            template.Properties.Add("Account.PayerID", corp._AccountID);
+
+            ProductOfferingServiceClient poService = new ProductOfferingServiceClient();
+            poService.ClientCredentials.UserName.UserName = suName;
+            poService.ClientCredentials.UserName.Password = suPassword;
+            MTList<ProductOffering> POs = new MTList<ProductOffering>();
+            poService.GetProductOfferings(ref POs);
+            Assert.AreNotEqual(POs.Items.Count, 0, "Subscription(s) not found. Please create or import some.");
+
+            ProductOffering po = POs.Items[0];
+            AccountTemplateSubscription sub = new AccountTemplateSubscription();
+            sub.ProductOfferingId = po.ProductOfferingId;
+            template.Subscriptions.Add(sub);
+
+            AccountIdentifier acc = new AccountIdentifier((int)corp._AccountID);
+            tService.SaveAccountTemplate(acc, "CoreSubscriber", DateTime.Today, ref template);
+
+            int sessionId;
+            tService.ApplyAccountTemplate(
+                acc,
+                "CoreSubscriber",
+                AccountTemplateScope.ALL_DESCENDENTS,
+                MetraTime.Now.Date,
+                new List<string>(),
+                new List<AccountTemplateSubscription>(),
+                new ProdCatTimeSpan()
+                    {
+                        StartDate = MetraTime.Now.Date,
+                        StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
+                        EndDate = MetraTime.Now.Date.AddMonths(1),
+                        EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
+                    },
+                true,
+                out sessionId);
+
+            System.Threading.Thread.Sleep(5000);
+
+            MTList<Subscription> testSubs;
+            SubscriptionService_GetSubscriptions_Client subscriptionsClient = new SubscriptionService_GetSubscriptions_Client();
+            //AccountService_LoadAccount_Client accountServiceClient = new AccountService_LoadAccount_Client();
+
+            subscriptionsClient.UserName = suName;
+            subscriptionsClient.Password = suPassword;
+
+            testSubs = new MTList<Subscription>();
+            subscriptionsClient.In_acct = new AccountIdentifier(core1._AccountID.Value);
+            subscriptionsClient.InOut_subs = testSubs;
+
+            subscriptionsClient.Invoke();
+
+            testSubs = subscriptionsClient.InOut_subs;
+
+            Assert.AreEqual(1, testSubs.Items.Count, "Subscription is not created");
         }
 
         /// <summary>

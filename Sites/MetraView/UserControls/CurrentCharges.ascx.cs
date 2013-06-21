@@ -38,23 +38,40 @@ public partial class UserControls_CurrentCharges : System.Web.UI.UserControl
         }
         if (billManager.InvoiceReport == null)
         {
-            InvoiceReport = billManager.GetInvoiceReport(true);
+          InvoiceReport = billManager.GetInvoiceReport(true);
         }
         else
         {
-            InvoiceReport = billManager.InvoiceReport;
+          InvoiceReport = billManager.InvoiceReport;
         }
         ReportLevel = billManager.GetByProductReport();
+        
+        // Do not show the informational tax lines if there is no informational tax
+        if (ReportLevel.ImplInfTax != null && ReportLevel.ImplInfTax.TaxAmount == decimal.Zero)
+        {
+          IncludedInformationalTaxDiv.Attributes.Add("style", "display: none;");
+        }
+        if (ReportLevel.InformationalTax != null && ReportLevel.InformationalTax.TaxAmount == decimal.Zero)
+        {
+          InformationalTaxDiv.Attributes.Add("style", "display: none;");
+        }
+
       }
 
       // Hide tax panel if taxes are inlined
       // This agrees with current user documentation.
       if (SiteConfig.Settings.BillSetting.InlineTax != null)
       {
-          if ((bool)SiteConfig.Settings.BillSetting.InlineTax)
-          {
-              PanelTaxes.Visible = false;
-          }
+        if ((bool)SiteConfig.Settings.BillSetting.InlineTax)
+        {
+          subTotalWithExpanderPanel.Visible = false;
+          PanelTaxes.Visible = false;
+          PanelImpliedTaxes.Visible = false;
+        }
+        else
+        {
+          subTotalPanel.Visible = false;
+        }
       }
 
       // Hide adjustment panel if adjustments are inlined
@@ -103,9 +120,39 @@ public partial class UserControls_CurrentCharges : System.Web.UI.UserControl
     return ReportLevel.TotalTax != null ? ReportLevel.TotalTax.TaxAmountAsString : 0M.ToDisplayAmount(UI);
   }
 
+  protected string GetUsageAmount()
+  {
+      return ReportLevel.UsageAmountAsString;
+  }
+
+  protected string GetImpliedTaxAmount()
+  {
+      return ReportLevel.ImpliedTax != null ? ReportLevel.ImpliedTax.TaxAmountAsString : 0M.ToDisplayAmount(UI);
+  }
+
+  protected string GetImplInfTaxAmount()
+  {
+      return ReportLevel.ImplInfTax != null ? ReportLevel.ImplInfTax.TaxAmountAsString : 0M.ToDisplayAmount(UI);
+  }
+
+  protected string GetInformationalTaxAmount()
+  {
+      return ReportLevel.InformationalTax != null ? ReportLevel.InformationalTax.TaxAmountAsString : 0M.ToDisplayAmount(UI);
+  }
+
+  protected string GetNonImpliedTaxAmount()
+  {
+      return ReportLevel.NonImpliedTax != null ? ReportLevel.NonImpliedTax.TaxAmountAsString : 0M.ToDisplayAmount(UI);
+  }
+
+  protected string GetBillableTaxAmount()
+  {
+      return ReportLevel.BillableTax != null ? ReportLevel.BillableTax.TaxAmountAsString : 0M.ToDisplayAmount(UI);
+  }
+
   protected string GetTotalCurrentChargesAmount()
   {
-    return ReportLevel.TotalDisplayAmountAsString ?? 0M.ToDisplayAmount(UI);
+      return ReportLevel.TotalDisplayAmountAsString ?? 0M.ToDisplayAmount(UI);
   }
 
   protected string GetCurrentTotalAmount()
@@ -114,7 +161,7 @@ public partial class UserControls_CurrentCharges : System.Web.UI.UserControl
     {
       if (InvoiceReport.PreviousBalances != null)
       {
-        return InvoiceReport.PreviousBalances.CurrentBalanceAsString ?? 0M.ToDisplayAmount(UI);
+          return InvoiceReport.PreviousBalances.CurrentBalanceAsString ?? 0M.ToDisplayAmount(UI);
       }
     }
     return GetTotalCurrentChargesAmount();

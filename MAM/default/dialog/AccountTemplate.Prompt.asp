@@ -64,10 +64,15 @@ Private Function Form_Initialize(EventArg)
 
   ' Get string (strMessageTypes) containing a list of types being moved,
   ' and if there is more than one type set bMultipleTypes to true
-  Dim id, objYAAC, node, col, accType, accTypeFirst, bFirst, strMessageTypes, bMultipleTypes
+  Dim id, objYAAC, node, col, accType, accTypeFirst, ancestorName, bFirst, strMessageTypes, bMultipleTypes
   bMultipleTypes = FALSE
   bFirst = TRUE
   Set col = Server.CreateObject(MT_COLLECTION_PROG_ID)
+
+  ' Get the name of the ancestor account
+  Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(Request.QueryString("AncestorAccountID")), mam_GetHierarchyTime())
+  ancestorName = objYAAC.AccountName
+
   For Each id in objAccountCol
     Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(id), mam_GetHierarchyTime())
     
@@ -90,7 +95,7 @@ Private Function Form_Initialize(EventArg)
 
   'If there is no template, and we are dealing with a single type just redirect to a confirm dialog
   If Not bMultipleTypes Then
-    ' Intialize the template helper
+      ' Intialize the template helper
     Call AccountTemplateHelper.Initialize(Request.QueryString("AncestorAccountID"), Session("MAM_CURRENT_ACCOUNT_TYPE"))
     If AccountTemplateHelper.NoAncestorWithTemplate Then
       Call response.redirect(mam_ConfirmDialogEncodeAllURL(mam_getDictionary("TEXT_MOVE_ACCOUNTS"), mam_getDictionary("TEXT_ACCOUNTS_MOVED_SUCCESSFULLY"), mam_getDictionary("WELCOME_DIALOG")))
@@ -106,9 +111,9 @@ Private Function Form_Initialize(EventArg)
    
   'Add the prompt
   Call Service.Properties.Add("ACCOUNT_TEMPLATE_APPLY_PROMPT", "String", 0, false, empty)
-  
+
   Service.Properties("ACCOUNT_TEMPLATE_APPLY_PROMPT") = "You moved account(s) having the following different account types (" &strMessageTypes & ").<br><br> "
-  Service.Properties("ACCOUNT_TEMPLATE_APPLY_PROMPT") = Service.Properties("ACCOUNT_TEMPLATE_APPLY_PROMPT") & replace(mam_GetDictionary("TEXT_ACCOUNT_TEMPLATE_APPLY_PROMPT"), "[FOLDER_NAME]", AccountTemplateHelper.GetAncestorName())
+  Service.Properties("ACCOUNT_TEMPLATE_APPLY_PROMPT") = Service.Properties("ACCOUNT_TEMPLATE_APPLY_PROMPT") & replace(mam_GetDictionary("TEXT_ACCOUNT_TEMPLATE_APPLY_PROMPT"), "[FOLDER_NAME]", ancestorName)
   Call mdm_GetDictionary.Add("bCloseOnly", false)
    
   Form_Initialize = true  

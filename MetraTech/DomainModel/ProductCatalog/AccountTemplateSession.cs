@@ -380,6 +380,67 @@ namespace MetraTech.DomainModel.ProductCatalog
         }
         #endregion
 
+        #region NumTemplates
+
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        private int m_NumTemplates;
+        private bool m_IsNumTemplatesDirty;
+        [MTDataMember(Description = "This is the number of the templates applied in the session.", Length = 40)]
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        public int NumTemplates
+        {
+            get
+            {
+                return m_NumTemplates;
+            }
+            set
+            {
+                m_NumTemplates = value;
+                m_IsNumTemplatesDirty = false;
+            }
+        }
+
+        [ScriptIgnore]
+        public bool IsNumTemplatesDirty
+        {
+            get
+            {
+                return m_IsNumTemplatesDirty;
+            }
+        }
+
+        #endregion
+
+        #region NumTemplatesApplied
+
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        private int m_NumTemplatesApplied;
+        private bool m_IsNumTemplatesAppliedDirty;
+        [MTDataMember(Description = "This is the number of the templates applied in the session.", Length = 40)]
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        public int NumTemplatesApplied
+        {
+            get
+            {
+                return m_NumTemplatesApplied;
+            }
+            set
+            {
+                m_NumTemplatesApplied = value;
+                m_IsNumTemplatesAppliedDirty = true;
+            }
+        }
+
+        [ScriptIgnore]
+        public bool IsNumTemplatesAppliedDirty
+        {
+            get
+            {
+                return m_IsNumTemplatesAppliedDirty;
+            }
+        }
+
+        #endregion
     }
 
     [Serializable]

@@ -119,5 +119,18 @@ namespace MetraTech.UI.Common
         Logger.LogException("Unable to populate pricelist", exp);
       }
     }
+
+    /// <summary>
+    /// Returns MetraNet virtual folder name
+    /// </summary>
+    /// <returns>String contains MetraNet virtual folder name</returns>
+    protected string GetVirtualFolder()
+    {
+      string path = AppDomain.CurrentDomain.FriendlyName;
+      path = path.Substring(path.LastIndexOf("/"));
+      path = path.Substring(0, path.IndexOf("-"));
+      return path;
+    }
+
   }
 }

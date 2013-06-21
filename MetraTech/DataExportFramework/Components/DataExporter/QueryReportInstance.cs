@@ -3,8 +3,10 @@ using System.Collections;
 using System.IO;
 using System.Text;
 using System.Data;
+using System.Text.RegularExpressions;
 using System.Xml;
 using MetraTech.DataExportFramework.Common;
+using MetraTech.Interop.QueryAdapter;
 using MetraTech.Interop.Rowset;
 using MetraTech.Interop.RCD;
 using MetraTech.DataAccess;
@@ -214,68 +216,83 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 
 		private void CreateReport()
 		{
-			IMTConnection _cn = null;
-			IMTDataReader _rdr = null;
 			try 
 			{
-				_cn = ConnectionManager.CreateConnection();
-				IMTAdapterStatement _select = _cn.CreateAdapterStatement(_config.PathToCustomQueryDir, this.__queryTag);
-				IEnumerator _enParams = this.__arParams.GetEnumerator();
-				while (_enParams.MoveNext())
+                using (IMTConnection _cn = ConnectionManager.CreateConnection())
 				{
-					ReportParam _prm = (ReportParam)_enParams.Current;
-					if (_prm.ParamValue.ToString().Trim().Length == 0)
-						_prm.ParamValue = "NULL";
-					if (_prm.ParamValue.ToString().Trim().ToUpper() == "NULL")
-						_select.AddParam(_prm.ParamName, _prm.ParamValue, true);
-					else
-						_select.AddParam(_prm.ParamName, "'" + _prm.ParamValue + "'", true);
+				     using (MTComSmartPtr<IMTQueryAdapter> queryAdapter = new MTComSmartPtr<IMTQueryAdapter>())
+                    {
+                        queryAdapter.Item = new MTQueryAdapterClass();
+                        queryAdapter.Item.Init(_config.PathToCustomQueryDir);
+                        queryAdapter.Item.SetQueryTag(this.__queryTag);
+                        IEnumerator _enParams = this.__arParams.GetEnumerator();
+                        while (_enParams.MoveNext())
+                        {
+                            ReportParam _prm = (ReportParam)_enParams.Current;
+                            if (_prm.ParamValue.ToString().Trim().Length == 0)
+                                _prm.ParamValue = "NULL";
+                            if (_prm.ParamValue.ToString().Trim().ToUpper() == "NULL")
+                                queryAdapter.Item.AddParam(_prm.ParamName, _prm.ParamValue, true);
+                            else
+                                queryAdapter.Item.AddParam(_prm.ParamName, "'" + _prm.ParamValue + "'", true);
+                        }
+
+                        DefLog.MakeLogEntry(String.Format("DEF is going to execute query: \n {0}", queryAdapter.Item.GetRawSQLQuery(true)), "debug");
+
+
+                        using (IMTPreparedStatement stmt = _cn.CreatePreparedStatement(queryAdapter.Item.GetRawSQLQuery(true)))
+                        {
+                            if (_cn.ConnectionInfo.IsOracle)
+			                      {
+			                          // if statement just call oracle sp for example " oracle(13, :1my_cursor); end;" the output param should be added
+                              Regex reg = new Regex(@"\b[A-Za-z]\w+\((,?\s*(?:(?:['""]?\w+['""]?)|(?<arg_with_points>:\w+)))*\);?\s*(?:end;)?$", 
+                                                      RegexOptions.Multiline | RegexOptions.IgnoreCase);
+                                // the pattern checks:
+                                // open :1 for select * from t_acc_usage;
+			                          // exec sp_abc(1,3,:1);
+			                          // declare begin sp_abc(1,2,:1); end;
+			                          // exec sp_abc2(:1, 3, "asdf");
+			                          // exec sp_abc2 ("a:2",2);
+                                // execute GetAccByType('Root\", :p_result); ENd;
+			                          if (reg.Match(queryAdapter.Item.GetRawSQLQuery(true)).Groups["arg_with_points"].Success)
+			                          {
+			                              stmt.SetResultSetCount(1);
+			                          }
+			                      }
+
+                            using (IMTDataReader reader = stmt.ExecuteReader())
+                            {
+                                var formatter = GetFormatter(this.__outputType);
+
+
+                                formatter.Delimiter = this.__delimiter;
+                                formatter.IncludeNonListedFields = this.__includeNonListedFields;
+
+                                formatter.MTLogger = DefLog.LoggerInstance();
+                                formatter.SpecialFormatInfo = this.__arFieldDefs;
+
+                                //int _rowCount = _ftm.GenerateOutFile(_rdr, this.__tempReportFile, __showHeaderFields);
+                                formatter.UseQuotedIdentifiers = this.__useQuotedIdentifiers;
+                                formatter.BeginFileWrite(this.__tempReportFile, this.__showHeaderFields);
+
+                                if (this.__outputExecuteParamInfo)
+                                {
+                                    string _sExecuteParamInfo = ExecuteParameterInfo();
+                                    formatter.DoWriteFile(_sExecuteParamInfo);
+                                }
+                                int _rowCount = formatter.DoWriteFile(reader, this.__showHeaderFields);
+                                formatter.EndFileWrite();
+
+                                DefLog.MakeLogEntry(this.__loggerMsg + "- " + _rowCount + " rows of data written to the output file");
+
+                                this.MoveReportToDestination();
+
+                                this.__isComplete = true;
+                            }
+                        }
+                    }
 				}
-                DefLog.MakeLogEntry(_select.Query, "debug");
-				_rdr = _select.ExecuteReader();
-				BaseFormatter _ftm = null;
-				//Check on out put type to call the correct formatter
-				if (this.__outputType == "csv")
-				{
-					_ftm = new CharDelimitedFormatter();
-					//this.__extension = "csv";
-				}
-				else if (this.__outputType == "txt")
-				{
-					_ftm = new FixedLengthFormatter();
-				}
-
-        else if (this.__outputType == "xml")
-        {
-          _ftm = new XMLFormatter();
-        }
-
-
-
-        _ftm.Delimiter = this.__delimiter; 
-				_ftm.IncludeNonListedFields = this.__includeNonListedFields;
-
-                _ftm.MTLogger = DefLog.LoggerInstance();
-				_ftm.SpecialFormatInfo = this.__arFieldDefs;
-
-				//int _rowCount = _ftm.GenerateOutFile(_rdr, this.__tempReportFile, __showHeaderFields);
-				_ftm.UseQuotedIdentifiers = this.__useQuotedIdentifiers;
-				_ftm.BeginFileWrite(this.__tempReportFile, this.__showHeaderFields);
-				if (this.__outputExecuteParamInfo)
-				{
-					string _sExecuteParamInfo = ExecuteParameterInfo();
-					_ftm.DoWriteFile(_sExecuteParamInfo);
-				}
-				int _rowCount = _ftm.DoWriteFile(_rdr, this.__showHeaderFields);
-				_ftm.EndFileWrite();
-
-                DefLog.MakeLogEntry(this.__loggerMsg + "- " + _rowCount.ToString() + " rows of data written to the output file");
-
-				this.MoveReportToDestination();
-
-				this.__isComplete = true;
 			}
-			
 			catch (Exception ex)
 			{
                 string rptExc = ex.ToString();
@@ -285,19 +302,28 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
                 DefLog.MakeLogEntry(this.__loggerMsg + " Report writing error\n" + rptExc, "Error");
                 throw (new Exception(rptExc));
 			}
-			finally
-			{
-				if (_cn != null)
-				{
-					_cn.Close();
-					_cn.Dispose();
-				}
-				if (_rdr != null)
-				{
-					_rdr.Close();
-					_rdr.Dispose();
-				}
-			}
 		}
+
+	    private BaseFormatter GetFormatter(string outputType)
+	    {
+	        BaseFormatter formatter = null;
+
+	        switch (outputType)
+	        {
+                case "csv":
+                    formatter = new CharDelimitedFormatter();
+                    break;
+                case "txt":
+                    formatter = new FixedLengthFormatter();
+                    break;
+                case "xml":
+                    formatter = new XMLFormatter();
+                    break;
+                default:
+	                throw new ArgumentException(String.Format("DataExport framework does not support {0} formater.",
+	                                                          outputType));
+	        }
+	        return formatter;
+	    }
 	}
 }

@@ -2393,8 +2393,14 @@ Function SetDatabaseDevicePaths(sDBName, sStgDBName, sDBServer, sAdminUid, sAdmi
   sMasterDevDir = goFso.GetParentFolderName(sMasterDevPath) 
 
   ' data files
-  sDBDataFile    = sMasterDevDir & sPathSep & sDBName    & "_Data.mdf" 
-  sStgDBDataFile = sMasterDevDir & sPathSep & sStgDBName & "_Data.mdf" 
+  if not isOracle then
+	sDBDataFile    = sMasterDevDir & sPathSep & sDBName    & "_Data.mdf" 
+	sStgDBDataFile = sMasterDevDir & sPathSep & sStgDBName & "_Data.mdf"
+  else
+	' data files (set for oracle)
+	sDBDataFile    = sMasterDevDir & sPathSep & sDBName    & "_Data.dbf" 
+	sStgDBDataFile = sMasterDevDir & sPathSep & sStgDBName & "_Data.dbf"
+  end if
 
   ' log files (not set for oracle)
   if not isOracle then

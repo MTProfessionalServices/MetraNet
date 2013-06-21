@@ -47,15 +47,15 @@ BLDTYPE=release
 ################################################
 
 S_BASE_DIR         = S:
-S_METRANET_DIR     = R:
-S_METRACONNECT_DIR = V:\Legacy_Internal\MetraConnect
+S_METRANET_DIR     = V:\RMP
+S_METRACONNECT_DIR = V:\MetraConnect
 S_TECHDOC_DIR      = P:\TechDoc
 S_3RDPARTY_DIR     = $(THIRDPARTY)
 S_KEY_DIR          = $(S_BASE_DIR)\build\keys
 
 S_METRATECH_DIR    = $(S_BASE_DIR)\MetraTech
-S_MVMEXTCORE_DIR     = R:\Extensions\MvmCore
-S_MVMEXTAMP_DIR     = R:\Extensions\MvmAmp
+S_MVMEXTCORE_DIR     = $(BUILDROOT)\MetraNetMVM\RMP\Extensions\MvmCore
+S_MVMEXTAMP_DIR     = $(BUILDROOT)\MetraNetMVM\RMP\Extensions\MvmAmp
 
 
 ################################################
@@ -1421,7 +1421,7 @@ RMP_GacDlls:
   @echo $(DELIM)
   @echo Working on GacDlls directory...
   $(MKDIR) $(P_GACDLLS_DIR)
-  XCOPY $(S_GACDLLS_DIR) $(P_GACDLLS_DIR) /Y /E /I /C
+  XCOPY $(S_GACDLLS_DIR)\* $(P_GACDLLS_DIR) /Y /E /I /C
   
 ###############################################
 # RMP\Test

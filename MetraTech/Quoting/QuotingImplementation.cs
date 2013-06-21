@@ -7,14 +7,9 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Transactions;
 using MetraTech.ActivityServices.Common;
-using MetraTech.ActivityServices.Services.Common;
 using MetraTech.BusinessEntity.DataAccess.Persistence;
 using MetraTech.DataAccess;
 using MetraTech.DomainModel.BaseTypes;
-using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
-using MetraTech.DomainModel.ProductCatalog;
-using MetraTech.DomainModel.Common;
-using MetraTech.DomainModel.Enums.Core.Global;
 using MetraTech.Interop.MTAuditEvents;
 //using MetraTech.Interop.MTAuth;
 using MetraTech.Interop.MTBillingReRun;
@@ -53,6 +48,7 @@ namespace MetraTech.Quoting
     private int UsageIntervalForQuote { get; set; }
 
     private readonly List<MTSubscription> createdSubsciptions;
+    private readonly List<IMTGroupSubscription> createdGroupSubsciptions;
     private Dictionary<string, Interop.MeterRowset.MeterRowset> metters = new Dictionary<string, Interop.MeterRowset.MeterRowset>();
     private Dictionary<string, string> batchIds = new Dictionary<string, string>();
 
@@ -63,6 +59,7 @@ namespace MetraTech.Quoting
     public QuotingImplementation(QuotingConfiguration configuration, Auth.IMTSessionContext sessionContext, IQuotingRepository quotingRepository)
     {
       createdSubsciptions = new List<MTSubscription>();
+      createdGroupSubsciptions = new List<IMTGroupSubscription>();
 
       Configuration = configuration;
       SessionContext = sessionContext;
@@ -72,6 +69,7 @@ namespace MetraTech.Quoting
     public QuotingImplementation(QuotingConfiguration configuration, Auth.IMTSessionContext sessionContext)
     {
       createdSubsciptions = new List<MTSubscription>();
+      createdGroupSubsciptions = new List<IMTGroupSubscription>();
 
       Configuration = configuration;
       SessionContext = sessionContext;
@@ -82,6 +80,7 @@ namespace MetraTech.Quoting
     public QuotingImplementation(QuotingConfiguration configuration)
     {
       createdSubsciptions = new List<MTSubscription>();
+      createdGroupSubsciptions = new List<IMTGroupSubscription>();
 
       Configuration = configuration;
       this.quotingRepository = new QuotingRepository();
@@ -90,6 +89,7 @@ namespace MetraTech.Quoting
     public QuotingImplementation()
     {
       createdSubsciptions = new List<MTSubscription>();
+      createdGroupSubsciptions = new List<IMTGroupSubscription>();
 
       Configuration = QuotingConfigurationManager.LoadConfigurationFromFile();
       this.quotingRepository = new QuotingRepository();
@@ -115,6 +115,7 @@ namespace MetraTech.Quoting
         CurrentResponse.MessageLog = new List<QuoteLogRecord>();
 
         createdSubsciptions.Clear();
+        createdGroupSubsciptions.Clear();
 
         ValidateRequest(quoteRequest);
 
@@ -765,6 +766,7 @@ namespace MetraTech.Quoting
               }
 
               mtGroupSubscription.Save();
+              createdGroupSubsciptions.Add(mtGroupSubscription);
 
               MTGSubMember mtGsubMember = null;
 
@@ -824,6 +826,7 @@ namespace MetraTech.Quoting
               }
 
               mtGroupSubscription.Save();
+              createdGroupSubsciptions.Add(mtGroupSubscription);
             }
 
             #endregion
@@ -988,12 +991,43 @@ namespace MetraTech.Quoting
 
     protected void CleanupSubscriptionsCreated()
     {
+      // Remove individual subscriptions
       foreach (var subscription in createdSubsciptions)
       {
         var account = CurrentProductCatalog.GetAccount(subscription.AccountID);
         CleanupUDRCMetricValues(subscription.ID);
         // TODO: Check whether the subscription is fully deleted or just ended
         account.RemoveSubscription(subscription.ID);
+      }
+
+      // Remove group subscriptions
+      foreach (var subscription in createdGroupSubsciptions)
+      {
+        // Unsubscribe members
+        foreach (var idAccount in CurrentRequest.Accounts)
+        {
+          MetraTech.Interop.MTProductCatalog.IMTGSubMember gsmember = new MetraTech.Interop.MTProductCatalog.MTGSubMemberClass();
+          gsmember.AccountID = idAccount;
+
+          if (subscription.FindMember(idAccount, CurrentRequest.EffectiveDate) != null)
+          {
+            subscription.UnsubscribeMember((MetraTech.Interop.MTProductCatalog.MTGSubMember)gsmember);
+    }
+        }
+
+        using (IMTNonServicedConnection conn = ConnectionManager.CreateNonServicedConnection())
+        {
+          using (IMTCallableStatement stmt = conn.CreateCallableStatement("RemoveGroupSubscription_Quoting"))
+          {
+            int status = 0;
+            stmt.AddParam("p_id_sub", MTParameterType.Integer, subscription.ID);
+            stmt.AddParam("p_systemdate", MTParameterType.DateTime, CurrentRequest.EffectiveDate);
+            stmt.AddParam("p_status", MTParameterType.Integer, status);
+            stmt.ExecuteNonQuery();
+          }
+        }
+
+        CleanupUDRCMetricValues(subscription.ID);
       }
     }
 

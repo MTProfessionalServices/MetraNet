@@ -112,11 +112,18 @@ namespace MetraTech.DomainModel.Enums
       }
 
       Type enumType = GetGeneratedEnumType(enumSpace, enumTypeStr, "");
-      csharpEnum = GetGeneratedEnumByEntry(enumType, value);
 
-      lock (CSharpEnumDictionary)
+      if (enumType != null)
       {
-        CSharpEnumDictionary[enumDataId] = csharpEnum;
+        csharpEnum = GetGeneratedEnumByEntry(enumType, value);
+
+        if (csharpEnum != null)
+        {
+          lock (CSharpEnumDictionary)
+          {
+            CSharpEnumDictionary[enumDataId] = csharpEnum;
+          }
+        }
       }
       return csharpEnum;
     }

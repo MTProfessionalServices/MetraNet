@@ -1501,29 +1501,7 @@ namespace MetraTech.Core.Services
                 value = reader.GetValue(pi.Name);
                 if (EnumHelper.IsEnumType(pi.PropertyType) && !(value is DBNull))
                 {
-                    string strValue = value as string;
-                    if (strValue != null)
-                    {
-                        // Converting from enum value
-                        Type propertyType;
-                        if (pi.PropertyType.IsGenericType && pi.PropertyType.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
-                        {
-                            System.ComponentModel.NullableConverter nullableConverter = new System.ComponentModel.NullableConverter(pi.PropertyType);
-                            propertyType = nullableConverter.UnderlyingType;
-                        }
-                        else
-                        {
-                            propertyType = pi.PropertyType;
-                        }
-
-                        value = EnumHelper.GetEnumByValue(propertyType, Convert.ToString(value));
-                    }
-                    else
-                    {
-                        // Converting from enum value ID
-                        int enumId = Convert.ToInt32(value);
-                        value = EnumHelper.GetCSharpEnum(enumId);
-                    }
+                  value = ConverToEnum(pi, value);
                 }
                 else if (!(value is DBNull) && (pi.PropertyType == typeof(int) || pi.PropertyType == typeof(int?)))
                 {
@@ -1538,6 +1516,43 @@ namespace MetraTech.Core.Services
             }
 
             obj.SetValue(pi, value);
+        }
+
+        private static object ConverToEnum(PropertyInfo pi, object value)
+        {
+          string strValue = value as string;
+          if (strValue != null)
+          {
+            // Converting from enum value
+            Type propertyType;
+            if (pi.PropertyType.IsGenericType && pi.PropertyType.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
+            {
+              System.ComponentModel.NullableConverter nullableConverter = new System.ComponentModel.NullableConverter(pi.PropertyType);
+              propertyType = nullableConverter.UnderlyingType;
+            }
+            else
+            {
+              propertyType = pi.PropertyType;
+            }
+
+            value = EnumHelper.GetEnumByValue(propertyType, Convert.ToString(value));
+          }
+          else
+          {
+            /*CORE-6663 - "SQL Server: account hierarchy is failed in case Department Account have Billing Cycle with StartDate property." */
+            // Enums come either as global enum IDs or as enum indexes.
+            Type enumType = pi.PropertyType.IsEnum ? pi.PropertyType : new System.ComponentModel.NullableConverter(pi.PropertyType).UnderlyingType;
+            // Converting from enum value ID
+            int enumId = Convert.ToInt32(value);
+            value = EnumHelper.GetCSharpEnum(enumId);
+            // Detect if value came as enum index.
+            if (value == null || value.GetType() != enumType)
+            {
+              //it was not enum global enum index (id was not found in t_enum_data table) use value as is
+              value = enumId;
+            }
+          }
+          return value;
         }
 
         private void LoadViewInternalFromReader(int accountId, string userName, string nameSpace, string viewType, IMTDataReader reader, IList views, bool displayAliases)

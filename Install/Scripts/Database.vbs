@@ -426,6 +426,8 @@ Function InstallDatabase()
 
  End If
 
+ If Not SetAccountTemplateType(gsAccTmplType) Then Exit Function
+
   ExitAction "InstallDatabase"
   InstallDatabase = kRetVal_SUCCESS
 End Function
@@ -1554,9 +1556,44 @@ Function SetAccountTemplateTypeOracle(sAccountTemplateType)
  dim sCmd
  dim sFileName
 
- sFileName = MakeRMPPath(QUERY_PATH & "AccHierarchies\OraTmplType" & sAccountTemplateType & ".sql")
+ Dim sCustActData
+ Dim sIncludeDir
+ sIncludeDir = "."
+ On Error Resume Next
+ sCustActData = Session.Property("CustomActionData")
+ If err.Number = 0 Then
+  On Error Goto 0
+  'we are being called from the installer; get install dir from CustomActionData and derive include dir
+  Dim nEnd
+  nEnd = InStr(sCustActData,";")
+  If nEnd = 0 Then nEnd = Len(sCustActData)+1
+  sIncludeDir = Left(sCustActData,nEnd-1) & "install\scripts"
+ Else
+  On Error Goto 0
+   Dim oWsh, oEnv
+   Set oWsh = CreateObject("Wscript.Shell")
+   Set oEnv = oWsh.Environment("PROCESS")
 
- sCmd = "sqlplus " & gsUserID & "/{0}@" & gsDBServer & " @" & sFileName
+   If oEnv("ROOTDIR") <> "" Then
+    'ROOTDIR is defined, we are in development environment; derive include dir accordingly
+    sIncludeDir = oEnv("ROOTDIR") & "\install\scripts"
+   Else
+    'Last chance: include file must be in my current directory
+    sIncludeDir = "."
+   End If
+
+   Set oWsh = Nothing
+   Set oEnv = Nothing
+ End If
+ sFileName = sIncludeDir & "\acctmpltype.sql"
+ Dim oFso
+ Set oFso  = CreateObject("Scripting.FileSystemObject")
+ If Not oFso.FileExists(sFileName) Then
+  wscript.echo "     Error: File " & sFileName & " does not exist"
+  Set oFso = Nothing
+  Exit Function
+ End If
+ sCmd = "sqlplus " & gsUserID & "/{0}@" & gsDBServer & " @" & sFileName & " " & sAccountTemplateType
 
  If Not ExecuteCommandWithPasswords(sCmd,array(gsUserPwd)) Then 
   writelog("Error executing SQLPlus script : " & sFileName)

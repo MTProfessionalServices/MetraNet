@@ -192,8 +192,8 @@ BOOL ParamTableCreator::SetupDatabase(CMSIXDefinition & arDef)
 	id.SetPropertyType(CMSIXProperties::TYPE_INT32);
 	id.SetDataType(L"int");
 	id.SetColumnName(L"id_sched");
-	id.SetReferenceTable(L"t_rsched");
-	id.SetRefColumn(L"id_sched");
+	/*id.SetReferenceTable(L"t_rsched");
+	id.SetRefColumn(L"id_sched");*/
 	additionalColumns.push_back(id);
 
 

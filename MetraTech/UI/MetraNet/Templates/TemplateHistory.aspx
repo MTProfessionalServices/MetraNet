@@ -38,12 +38,16 @@
       var NumAccountsCompleted = record.data.NumAccountsCompleted;
       var NumAccountErrors = record.data.NumAccountErrors;
 
+      var NumTemplates = record.json.NumTemplates;
+      var NumTemplatesApplied = record.json.NumTemplatesApplied;
+
       var NumSubscriptions = record.data.NumSubscriptions;
       var NumSubscriptionsCompleted = record.data.NumSubscriptionsCompleted;
       var NumSubscriptionErrors = record.data.NumSubscriptionErrors;
       
       var percent = 0;
       
+      /*
       if((NumAccounts + NumSubscriptions) > 0)
       {
         percent = Math.round(((NumAccountsCompleted + NumSubscriptionsCompleted) / (NumAccounts + NumSubscriptions)) * 100);
@@ -53,6 +57,17 @@
         // No accounts or subscriptions to update, so just set the percent complete to 100 since there is no work to do. Otherwise, percent complete gets stuck at 0.
         percent = 100;
       }
+      */
+      if (NumTemplates > 0)
+      {
+        percent = Math.floor((NumTemplatesApplied / NumTemplates) * 100);
+      }
+      else
+      {
+        // No templates to apply, so just set the percent complete to 100 since there is no work to do. Otherwise, percent complete gets stuck at 0.
+        percent = 100;
+      }
+
       progressText = percent + "%";
       
       var numErrors = NumAccountErrors + NumSubscriptionErrors;

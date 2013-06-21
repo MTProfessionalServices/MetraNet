@@ -46,7 +46,8 @@ namespace MetraTech.Tax.Framework.MetraTax
                                  " Country: " + m_lastReadTaxAccountView.MetraTaxCountryCode +
                                  " Zone: " + m_lastReadTaxAccountView.MetraTaxCountryZone +
                                  " Has Override: " + m_lastReadTaxAccountView.HasMetraTaxOverride +
-                                 " OverrideTaxBand: " + m_lastReadTaxAccountView.MetraTaxOverrideTaxBand);
+                                 " OverrideTaxBand: " + m_lastReadTaxAccountView.MetraTaxOverrideTaxBand +
+                                 " Use Standard Implied Tax Algorithm: " + m_lastReadTaxAccountView.UseStandardImpliedTaxAlgorithm);
                 return m_lastReadTaxAccountView;
             }
 
@@ -75,6 +76,7 @@ namespace MetraTech.Tax.Framework.MetraTax
                     result.IsNullMetraTaxCountryZone = true;
                     result.IsNullMetraTaxOverrideTaxBand = true;
                     result.IsNullVendor = true;
+                    result.IsNullUseStandardImpliedTaxAlgorithm = true;
 
                     if (!reader.IsDBNull("c_MetraTaxHasOverrideBand"))
                     {
@@ -104,13 +106,19 @@ namespace MetraTech.Tax.Framework.MetraTax
                         result.IsNullVendor = false;
                         result.Vendor = (TaxVendor)EnumHelper.GetCSharpEnum(reader.GetInt32("c_TaxVendor"));
                     }
+                    if (!reader.IsDBNull("c_UseStdImpliedTaxAlg"))
+                    {
+                        result.IsNullUseStandardImpliedTaxAlgorithm = false;
+                        result.UseStandardImpliedTaxAlgorithm = (reader.GetString("c_UseStdImpliedTaxAlg") == "1");
+                    }
 
                     mLogger.LogDebug("Retrieved tax account view: " +
                                      " Vendor: " + result.Vendor + " (" + result.IsNullVendor + ")" +
                                      " Country: " + result.MetraTaxCountryCode + " (" + result.IsNullMetraTaxCountry + ")" +
                                      " Zone: " + result.MetraTaxCountryZone + " (" + result.IsNullMetraTaxCountryZone + ")" +
                                      " Has Override: " + result.HasMetraTaxOverride + " (" + result.IsNullHasMetraTaxOverride + ")" +
-                                     " OverrideTaxBand: " + result.MetraTaxOverrideTaxBand);
+                                     " OverrideTaxBand: " + result.MetraTaxOverrideTaxBand +
+                                     " Use Standard Implied Tax Algorithm: " + result.UseStandardImpliedTaxAlgorithm);
                 }
                 else
                 {

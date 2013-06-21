@@ -113,7 +113,9 @@ namespace MetraTech.UI.Controls
                             itemSelector: 'div.search-item',
                             onSelect: function(record){ // override default onSelect to do redirect
                               var display = record.data.UserName + ' (' + record.data._AccountID + ')';
-                              Ext.get(""{CLIENT_ID}"").dom.value = display;
+                              //Ext.get(""{CLIENT_ID}"").dom.value = display;
+                              search{CLIENT_ID}.setValue(display);
+                              search{CLIENT_ID}.fireEvent('selected');
                               search{CLIENT_ID}.collapse();
                             }
                         });
@@ -125,6 +127,10 @@ namespace MetraTech.UI.Controls
                         catch(e){}
 
                         search{CLIENT_ID}.applyToMarkup(""{CLIENT_ID}"");
+                        if (typeof(cBoxes) != 'undefined')
+                        {
+                          cBoxes['{CLIENT_ID}'] = search{CLIENT_ID};
+                        }
                       });  
                       </script>";
         #endregion

@@ -86,6 +86,14 @@
             <Name>metratech.com/DefaultProductView/IsPreBillTransaction</Name>
             <Value>È una transazione precedente alla fatturazione</Value>
         </locale_entry>
+		<locale_entry>
+			<Name>metratech.com/DefaultProductView/IsTaxInclusive</Name>
+			<Value>(Italian)Is tax inclusive?</Value>
+		</locale_entry>
+		<locale_entry>
+			<Name>metratech.com/DefaultProductView/IsTaxInformational</Name>
+			<Value>(Italian)Is tax informational?</Value>
+		</locale_entry>
         <locale_entry>
             <Name>metratech.com/DefaultProductView/LocalTaxAmount</Name>
             <Value>Importo dell'imposta locale</Value>

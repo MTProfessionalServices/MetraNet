@@ -86,7 +86,14 @@
             <Name>metratech.com/DefaultProductView/IsPreBillTransaction</Name>
             <Value>Transaktion vor Rechnungsstellung?</Value>
         </locale_entry>
-        <locale_entry>
+		<locale_entry>
+			<Name>metratech.com/DefaultProductView/IsTaxInclusive</Name>
+			<Value>(German)Is tax inclusive?</Value>
+		</locale_entry>
+		<locale_entry>
+			<Name>metratech.com/DefaultProductView/IsTaxInformational</Name>
+			<Value>(German)Is tax informational?</Value>
+		</locale_entry><locale_entry>
             <Name>metratech.com/DefaultProductView/LocalTaxAmount</Name>
             <Value>Betrag der Gemeindesteuer</Value>
         </locale_entry>

@@ -86,7 +86,14 @@
             <Name>metratech.com/DefaultProductView/IsPreBillTransaction</Name>
             <Value>Is Pre-bill Transaction</Value>
         </locale_entry>
-        <locale_entry>
+		<locale_entry>
+			<Name>metratech.com/DefaultProductView/IsTaxInclusive</Name>
+			<Value>Is tax inclusive?</Value>
+		</locale_entry>
+		<locale_entry>
+			<Name>metratech.com/DefaultProductView/IsTaxInformational</Name>
+			<Value>Is tax informational?</Value>
+		</locale_entry><locale_entry>
             <Name>metratech.com/DefaultProductView/LocalTaxAmount</Name>
             <Value>Local Tax Amount</Value>
         </locale_entry>

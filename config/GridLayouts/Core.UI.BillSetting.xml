@@ -6,7 +6,7 @@
     <Height>360</Height>
     <Width>715</Width>
     <Expandable>true</Expandable>
-    <Buttons>Cancel</Buttons>
+    <Buttons>Custom</Buttons>
     <ObjectName>Core.UI.BillSetting</ObjectName>
     <DataSourceURL>../AjaxServices/BEListSvc.aspx?Name=Core.UI.BillSetting&amp;Assembly=Core.UI.Entity</DataSourceURL>
     <MultiSelect>false</MultiSelect>
@@ -20,8 +20,8 @@
     <FilterLabelWidth>75</FilterLabelWidth>
     <FilterColumnWidth>350</FilterColumnWidth>
     <NoRecordsText>
-      <LocalizationTag>TEXT_NO_RECORDS_FOUND</LocalizationTag>
-      <ResourceClassKey>Resource</ResourceClassKey>
+        <LocalizationTag>TEXT_NO_RECORDS_FOUND</LocalizationTag>
+        <ResourceClassKey>Resource</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>true</FilterPanelCollapsed>
@@ -33,7 +33,7 @@
     <DefaultSortDirection>Ascending</DefaultSortDirection>
     <DisplayCount>false</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
-    <CustomImplementationFilePath></CustomImplementationFilePath>
+    <CustomImplementationFilePath>/MetraView/BE/BEList.aspx.js</CustomImplementationFilePath>
     <ShowFilterPanel>true</ShowFilterPanel>
     <ShowTopBar>true</ShowTopBar>
     <ShowBottomBar>true</ShowBottomBar>
@@ -41,6 +41,10 @@
     <ShowGridHeader>true</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <SubGrid></SubGrid>
+    <Title>
+        <Value><![CDATA[]]></Value>
+    </Title>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
@@ -52,8 +56,8 @@
             <DataIndex>internalId</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_INTERNAL_ID</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_INTERNAL_ID</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -88,8 +92,8 @@
             <DataIndex>AllowOnlinePayment</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_ALLOW_ONLINE_PAYMENT</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_ALLOW_ONLINE_PAYMENT</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -124,8 +128,8 @@
             <DataIndex>AllowSavedReports</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_ALLOW_SAVED_REPORTS</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_ALLOW_SAVED_REPORTS</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -160,8 +164,8 @@
             <DataIndex>AllowSharedReports</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_ALLOW_SHARED_REPORTS</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_ALLOW_SHARED_REPORTS</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -196,8 +200,8 @@
             <DataIndex>AllowSelfCare</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_ALLOW_SELF_CARE</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_ALLOW_SELF_CARE</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -232,8 +236,8 @@
             <DataIndex>InlineAdjustments</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_INLINE_ADJUSTMENTS</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_INLINE_ADJUSTMENTS</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -268,8 +272,8 @@
             <DataIndex>InlineTax</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_INLINE_TAX</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_INLINE_TAX</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -304,8 +308,8 @@
             <DataIndex>ShowSecondPassData</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_SHOW_SECOND_PASS_DATA</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_SHOW_SECOND_PASS_DATA</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -334,10 +338,10 @@
             <RecordElement>false</RecordElement>
             <ID>Actions</ID>
             <DataIndex></DataIndex>
-            <IsColumn>true</IsColumn>          
+            <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_ACTIONS</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_ACTIONS</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -350,18 +354,33 @@
         </Element>
     </Elements>
     <ExpanderTemplate></ExpanderTemplate>
-    <GridButtons></GridButtons>
-    <ToolbarButtons>
+    <GridButtons>
         <Button>
-            <ButtonID>Add</ButtonID>           
+            <ButtonID>ApplyChanges</ButtonID>
             <ButtonText>
-              <LocalizationTag>TEXT_ADD_BME</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_APPLY_CHANGES</LocalizationTag>
+                <ResourceClassKey>SiteJSConsts</ResourceClassKey>
             </ButtonText>
             <ToolTip>
-              <LocalizationTag>TEXT_ADD_BME</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
-            </ToolTip>         
+                <LocalizationTag>TEXT_APPLY_CHANGES</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
+            </ToolTip>
+            <IconClass></IconClass>
+            <RequiredCapabilities></RequiredCapabilities>
+            <JSHandlerFunction>onApplyChanges</JSHandlerFunction>
+        </Button>
+    </GridButtons>
+    <ToolbarButtons>
+        <Button>
+            <ButtonID>Add</ButtonID>
+            <ButtonText>
+                <LocalizationTag>TEXT_ADD_BME</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <LocalizationTag>TEXT_ADD_BME</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
+            </ToolTip>
             <IconClass>add</IconClass>
             <RequiredCapabilities></RequiredCapabilities>
             <JSHandlerFunction>onNew</JSHandlerFunction>

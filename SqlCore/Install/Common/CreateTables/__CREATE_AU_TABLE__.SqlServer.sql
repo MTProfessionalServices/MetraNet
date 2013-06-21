@@ -24,8 +24,8 @@
 			 id_se int NOT NULL,
              div_currency nvarchar(3) NULL,
              div_amount numeric(22,10) NULL,
-             tax_inclusive nvarchar(1) NULL,
+             is_implied_tax nvarchar(1) NOT NULL,
              tax_calculated nvarchar(1) NULL,
-             tax_informational nvarchar(1) NULL, 
+             tax_informational nvarchar(1) NOT NULL, 
 			 CONSTRAINT PK_t_acc_usage PRIMARY KEY CLUSTERED (id_sess, id_usage_interval))
 		

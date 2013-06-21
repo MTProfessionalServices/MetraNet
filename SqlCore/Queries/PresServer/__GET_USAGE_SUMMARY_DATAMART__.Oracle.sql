@@ -53,8 +53,22 @@
       SUM({fn IFNULL(au.tax_county, 0.0)}) CountyTaxAmount,
       SUM({fn IFNULL(au.tax_local, 0.0)}) LocalTaxAmount,
       SUM({fn IFNULL(au.tax_other, 0.0)}) OtherTaxAmount,
-      SUM({fn IFNULL(au.Amount, 0.0)} + {fn IFNULL(au.Tax_Federal, 0.0)} + {fn IFNULL(au.Tax_State, 0.0)} + {fn IFNULL(au.Tax_County, 0.0)} + {fn IFNULL(au.Tax_Local, 0.0)} + {fn IFNULL(au.Tax_Other, 0.0)}) as AmountWithTax,      
-      SUM(%%DISPLAYAMOUNT%%) AS DisplayAmount,
+	  SUM(au.amount + 
+	      /*If implied taxes, then taxes are already included, don't add them again */
+	      (case when au.is_implied_tax = 'N' then 
+              ({fn IFNULL(au.tax_federal, 0.0)} + {fn IFNULL(au.tax_state, 0.0)} + {fn IFNULL(au.tax_county, 0.0)} + 
+                  {fn IFNULL(au.tax_local, 0.0)} + {fn IFNULL(au.tax_other, 0.0)}) else 0.0 end)
+	      /*If informational taxes, then they shouldn't be in the total */
+			  - (CASE WHEN (au.tax_informational = 'Y') THEN 
+              ({fn IFNULL(au.tax_federal, 0.0)} + {fn IFNULL(au.tax_state, 0.0)} + {fn IFNULL(au.tax_county, 0.0)} + 
+                  {fn IFNULL(au.tax_local, 0.0)} + {fn IFNULL(au.tax_other, 0.0)}) else 0.0 end))
+			  AmountWithTax,
+      SUM((case when au.is_implied_tax = 'N' then %%DISPLAYAMOUNT%% else au.amount end) 
+	  /*If informational taxes, then they shouldn't be in the total */
+			  - (CASE WHEN (au.tax_informational = 'Y') THEN 
+              ({fn IFNULL(au.tax_federal, 0.0)} + {fn IFNULL(au.tax_state, 0.0)} + {fn IFNULL(au.tax_county, 0.0)} + 
+                  {fn IFNULL(au.tax_local, 0.0)} + {fn IFNULL(au.tax_other, 0.0)}) else 0.0 end)) 
+		AS DisplayAmount,
       COUNT(1) as Count
       from
       t_acc_usage au 

@@ -15,6 +15,9 @@
 			SUM({fn IFNULL(TotalLocalTax,0)}) as TotalLocalTax,
 			SUM({fn IFNULL(TotalOtherTax,0)}) as TotalOtherTax,
 			SUM({fn IFNULL(TotalTax,0)}) as TotalTax,
+			SUM({fn IFNULL(TotalImpliedTax,0)}) as TotalImpliedTax,
+			SUM({fn IFNULL(TotalInformationalTax,0)}) as TotalInformationalTax,
+			SUM({fn IFNULL(TotalImplInfTax,0)}) as TotalImplInfTax,
 			SUM({fn IFNULL(PrebillAdjAmt,0)}) as PrebillAdjAmt,
  			SUM({fn IFNULL(PostbillAdjAmt,0)}) as PostbillAdjAmt,
  			SUM({fn IFNULL(PrebillAdjustedAmount,0)}) as PrebillAdjustedAmount,
@@ -29,12 +32,18 @@
 			SUM({fn IFNULL(PrebillLocalTaxAdjAmt,0)}) as PrebillLocalTaxAdjAmt,
 			SUM({fn IFNULL(PrebillOtherTaxAdjAmt,0)}) as PrebillOtherTaxAdjAmt,
 			SUM({fn IFNULL(PrebillTotalTaxAdjAmt,0)}) as PrebillTotalTaxAdjAmt,
+			SUM({fn IFNULL(PrebillImpliedTaxAdjAmt,0)}) as PrebillImpliedTaxAdjAmt,
+			SUM({fn IFNULL(PrebillInformationalTaxAdjAmt,0)}) as PrebillInformationalTaxAdjAmt,
+			SUM({fn IFNULL(PrebillImplInfTaxAdjAmt,0)}) as PrebillImplInfTaxAdjAmt,
 			SUM({fn IFNULL(PostbillFedTaxAdjAmt,0)}) as PostbillFedTaxAdjAmt,
 			SUM({fn IFNULL(PostbillStateTaxAdjAmt,0)}) as PostbillStateTaxAdjAmt,
 			SUM({fn IFNULL(PostbillCntyTaxAdjAmt,0)}) as PostbillCntyTaxAdjAmt,
 			SUM({fn IFNULL(PostbillLocalTaxAdjAmt,0)}) as PostbillLocalTaxAdjAmt,
 			SUM({fn IFNULL(PostbillOtherTaxAdjAmt,0)}) as PostbillOtherTaxAdjAmt,
-			SUM({fn IFNULL(PostbillTotalTaxAdjAmt,0)}) as PostbillTotalTaxAdjAmt
+			SUM({fn IFNULL(PostbillTotalTaxAdjAmt,0)}) as PostbillTotalTaxAdjAmt,
+			SUM({fn IFNULL(PostbillImpliedTaxAdjAmt,0)}) as PostbillImpliedTaxAdjAmt,
+			SUM({fn IFNULL(PostbillInformationalTaxAdjAmt,0)}) as PostbillInformationalTaxAdjAmt,
+			SUM({fn IFNULL(PostbillImplInfTaxAdjAmt,0)}) as PostbillImplInfTaxAdjAmt
 			from
 			t_dm_account_ancestor s1 
 			inner join t_dm_account_ancestor d1 on s1.id_dm_descendent=d1.id_dm_ancestor
@@ -101,6 +110,9 @@
 		SUM({fn IFNULL(TotalLocalTax,0)}) as TotalLocalTax,
 		SUM({fn IFNULL(TotalOtherTax,0)}) as TotalOtherTax,
 		SUM({fn IFNULL(TotalTax,0)}) as TotalTax,
+        SUM({fn IFNULL(TotalImpliedTax,0)}) as TotalImpliedTax,
+		SUM({fn IFNULL(TotalInformationalTax,0)}) as TotalInformationalTax,
+		SUM({fn IFNULL(TotalImplInfTax,0)}) as TotalImplInfTax,
 		SUM({fn IFNULL(PrebillAdjAmt,0)}) as PrebillAdjAmt,
 	  SUM({fn IFNULL(PostbillAdjAmt,0)}) as PostbillAdjAmt,
  		SUM({fn IFNULL(PrebillAdjustedAmount,0)}) as PrebillAdjustedAmount,
@@ -114,12 +126,18 @@
 		SUM({fn IFNULL(PrebillLocalTaxAdjAmt,0)}) as PrebillLocalTaxAdjAmt,
 		SUM({fn IFNULL(PrebillOtherTaxAdjAmt,0)}) as PrebillOtherTaxAdjAmt,
 		SUM({fn IFNULL(PrebillTotalTaxAdjAmt,0)}) as PrebillTotalTaxAdjAmt,
+		SUM({fn IFNULL(PrebillImpliedTaxAdjAmt,0)}) as PrebillImpliedTaxAdjAmt,
+		SUM({fn IFNULL(PrebillInformationalTaxAdjAmt,0)}) as PrebillInformationalTaxAdjAmt,
+		SUM({fn IFNULL(PrebillImplInfTaxAdjAmt,0)}) as PrebillImplInfTaxAdjAmt,
 		SUM({fn IFNULL(PostbillFedTaxAdjAmt,0)}) as PostbillFedTaxAdjAmt,
 		SUM({fn IFNULL(PostbillStateTaxAdjAmt,0)}) as PostbillStateTaxAdjAmt,
 		SUM({fn IFNULL(PostbillCntyTaxAdjAmt,0)}) as PostbillCntyTaxAdjAmt,
 		SUM({fn IFNULL(PostbillLocalTaxAdjAmt,0)}) as PostbillLocalTaxAdjAmt,
 		SUM({fn IFNULL(PostbillOtherTaxAdjAmt,0)}) as PostbillOtherTaxAdjAmt,
-		SUM({fn IFNULL(PostbillTotalTaxAdjAmt,0)}) as PostbillTotalTaxAdjAmt
+		SUM({fn IFNULL(PostbillTotalTaxAdjAmt,0)}) as PostbillTotalTaxAdjAmt,
+		SUM({fn IFNULL(PostbillImpliedTaxAdjAmt,0)}) as PostbillImpliedTaxAdjAmt,
+		SUM({fn IFNULL(PostbillInformationalTaxAdjAmt,0)}) as PostbillInformationalTaxAdjAmt,
+		SUM({fn IFNULL(PostbillImplInfTaxAdjAmt,0)}) as PostbillImplInfTaxAdjAmt
 		from
 		t_mv_payee_session au
 		inner join t_view_hierarchy vh on au.id_view = vh.id_view

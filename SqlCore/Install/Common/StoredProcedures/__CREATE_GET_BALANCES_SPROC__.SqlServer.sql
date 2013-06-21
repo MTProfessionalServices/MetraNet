@@ -91,11 +91,18 @@ DECLARE
 
   -- add unbilled current charges
   SELECT @tmp_amount = SUM(isnull(au.Amount, 0.0)) +
-                       SUM(isnull(au.Tax_Federal,0.0)) +
-                       SUM(isnull(au.Tax_State,0.0)) +
-                       SUM(isnull(au.Tax_County,0.0)) +
-                       SUM(isnull(au.Tax_Local,0.0)) +
-                       SUM(isnull(au.Tax_Other,0.0)),
+            /*For implied taxes, tax is already included, so don't add it again*/
+                       SUM(CASE WHEN (au.is_implied_tax = 'N') THEN  isnull(au.Tax_Federal,0.0) +
+                       isnull(au.Tax_State,0.0) +
+                       isnull(au.Tax_County,0.0) +
+                       isnull(au.Tax_Local,0.0) +
+                       isnull(au.Tax_Other,0.0) else 0 end) -
+			/* Informational taxes don't get added into total */
+					   SUM(CASE WHEN (au.tax_informational = 'Y') THEN  isnull(au.Tax_Federal,0.0) +
+                       isnull(au.Tax_State,0.0) +
+                       isnull(au.Tax_County,0.0) +
+                       isnull(au.Tax_Local,0.0) +
+                       isnull(au.Tax_Other,0.0) else 0 end),
     @tmp_currency = au.am_currency
   FROM t_acc_usage au
     inner join t_view_hierarchy vh on au.id_view = vh.id_view
@@ -173,11 +180,18 @@ DECLARE
   -- step6: get current charges
   SELECT
    @current_charges = SUM(isnull(au.Amount, 0.0)) +
-                      SUM(isnull(au.Tax_Federal,0.0)) +
-                      SUM(isnull(au.Tax_State,0.0)) +
-                      SUM(isnull(au.Tax_County,0.0)) +
-                      SUM(isnull(au.Tax_Local,0.0)) +
-                      SUM(isnull(au.Tax_Other,0.0)),
+   /*For implied taxes, tax is already included, so don't add it again*/
+                       SUM(CASE WHEN (au.is_implied_tax = 'N') THEN  isnull(au.Tax_Federal,0.0) +
+                       isnull(au.Tax_State,0.0) +
+                       isnull(au.Tax_County,0.0) +
+                       isnull(au.Tax_Local,0.0) +
+                       isnull(au.Tax_Other,0.0) else 0 end) -
+			/* Informational taxes don't get added into total */
+					   SUM(CASE WHEN (au.tax_informational = 'Y') THEN  isnull(au.Tax_Federal,0.0) +
+                       isnull(au.Tax_State,0.0) +
+                       isnull(au.Tax_County,0.0) +
+                       isnull(au.Tax_Local,0.0) +
+                       isnull(au.Tax_Other,0.0) else 0 end),
    @tmp_currency = au.am_currency
   FROM t_acc_usage au
     inner join t_view_hierarchy vh on au.id_view = vh.id_view

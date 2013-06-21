@@ -28,9 +28,14 @@ count(au.id_sess) Count,
 au.am_currency Currency, sum((nvl((au.tax_federal), 
 0.0) + nvl((au.tax_state), 0.0) + nvl((au.tax_county), 0.0) + 
 nvl((au.tax_local), 0.0) + nvl((au.tax_other), 0.0))) TaxAmount, 
-sum(au.amount + (nvl((au.tax_federal), 0.0) + nvl((au.tax_state), 0.0) + 
-nvl((au.tax_county), 0.0) + nvl((au.tax_local), 0.0) + 
-nvl((au.tax_other), 0.0))) AmountWithTax
+au.amount + 
+	/*If implied taxes, then taxes are already included, don't add them again */
+	(case when au.is_implied_tax = 'N' then (NVL((au.tax_federal), 0.0) + NVL((au.tax_state), 0.0) + 
+       NVL((au.tax_county), 0.0) + NVL((au.tax_local), 0.0) + NVL((au.tax_other), 0.0)) else 0 end)
+	/*If informational taxes, then they shouldn't be in the total */
+    - (case when au.tax_informational = 'Y' then (NVL((au.tax_federal), 0.0) + NVL((au.tax_state), 0.0) + 
+         NVL((au.tax_county), 0.0) + NVL((au.tax_local), 0.0) + NVL((au.tax_other), 0.0)) else 0 end)
+	AmountWithTax
 from t_usage_interval
 JOIN t_acc_usage au on au.id_acc = %%ID_ACC%%
 AND au.id_usage_interval = %%INTERVAL%% AND au.id_pi_template is not NULL

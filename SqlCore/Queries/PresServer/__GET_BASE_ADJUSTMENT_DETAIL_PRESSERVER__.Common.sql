@@ -2,7 +2,9 @@
 Select 
 /* __GET_BASE_ADJUSTMENT_DETAIL_PRESSERVER__ */
 au.Amount UnadjustedAmount,
-au.Amount + au.tax_federal + au.tax_state + au.tax_county + au.tax_local + au.tax_other as UnadjustedAmountWithTax,
+au.Amount + (case when au.is_implied_tax = 'N' then (au.tax_federal + au.tax_state + au.tax_county + au.tax_local + au.tax_other) else 0)
+          - (case when au.tax_informational = 'Y' then (au.tax_federal + au.tax_state + au.tax_county + au.tax_local + au.tax_other) else 0)
+  as UnadjustedAmountWithTax,
 
 au.tax_federal,
 au.tax_state,

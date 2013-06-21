@@ -12,7 +12,8 @@ update au
            au.tax_state = tax_state_amount,
            au.tax_county = tax_county_amount,
            au.tax_local = tax_local_amount,
-           au.tax_other = tax_other_amount
+           au.tax_other = tax_other_amount,
+		   au.tax_calculated = 'Y'
     from
         ( select  i.id_sess,
                   i.id_usage_interval,

@@ -102,9 +102,9 @@ BEGIN
   v_tmp_amount := 0.0;
   /* add unbilled current charges */
   for i in (
-  SELECT SUM(nvl(au.TotalAmount, 0.0)) + 
-         SUM(nvl(au.TotalTax,0.0))  tmp_amount  ,
-         au.am_currency                                             tmp_currency
+  SELECT SUM(nvl(au.TotalAmount, 0.0)) + SUM(nvl(au.TotalTax,0.0)) - SUM(nvl(au.TotalImpliedTax,0.0)) - SUM(nvl(au.TotalInformationalTax,0.0)) 
+     + SUM(nvl(au.TotalImplInfTax,0.0)) tmp_amount  ,
+     au.am_currency  tmp_currency
   FROM t_mv_payer_interval au
     inner join t_view_hierarchy vh on au.id_view = vh.id_view
     left outer join t_pi_template piTemplated2 on piTemplated2.id_template=au.id_pi_template
@@ -193,8 +193,7 @@ BEGIN
   /* step6: get current charges */
   for i in (
   SELECT
-    SUM(nvl(au.TotalAmount, 0.0)) +
-    SUM(nvl(au.TotalTax,0.0)) +
+    SUM(nvl(au.TotalAmount, 0.0)) + SUM(nvl(au.TotalTax,0.0)) - SUM((au.TotalImpliedTax,0.0)) - SUM((au.TotalInformationalTax,0.0)) + SUM((au.TotalImplInfTax,0.0)) +
     SUM(nvl(au.PrebillAdjAmt, 0.0)) +
     SUM(nvl(au.PrebillTotalTaxAdjAmt, 0.0)) current_charges,
     au.am_currency  tmp_currency

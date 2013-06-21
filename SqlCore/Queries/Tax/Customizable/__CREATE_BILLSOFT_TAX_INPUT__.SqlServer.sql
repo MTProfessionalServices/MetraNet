@@ -13,6 +13,7 @@ CREATE TABLE t_tax_input_%%ID_TAX_RUN%%
        customer_type varchar(255),
        invoice_date  date,
        is_implied_tax       varchar(255),
+	   tax_informational varchar(255),
        round_alg     varchar(255),
        round_digits int,
        lines  int,

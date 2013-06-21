@@ -84,8 +84,9 @@ DECLARE
   SET @unbilled_prior_charges = @unbilled_prior_charges + @tmp_amount
   SET @tmp_amount = 0.0
   -- add unbilled current charges
-  SELECT @tmp_amount = SUM(isnull(au.TotalAmount, 0.0)) + 
-                       SUM(isnull(au.TotalTax,0.0)),@tmp_currency = au.am_currency
+  SELECT @tmp_amount = SUM(isnull(au.TotalAmount, 0.0)) + SUM(isnull(au.TotalTax,0.0)) - SUM(isnull(au.TotalImpliedTax,0.0)) - SUM(isnull(au.TotalInformationalTax,0.0)) 
+     + SUM(isnull(au.TotalImplInfTax,0.0)),
+		 @tmp_currency = au.am_currency
   FROM t_mv_payer_interval au
     inner join t_view_hierarchy vh on au.id_view = vh.id_view
     left outer join t_pi_template piTemplated2 on piTemplated2.id_template=au.id_pi_template
@@ -162,8 +163,8 @@ DECLARE
   -- step6: get current charges
   SELECT
    @current_charges = 
-    SUM(isnull(au.TotalAmount, 0.0)) + 
-    SUM(isnull(au.TotalTax,0.0))+ 
+    SUM(isnull(au.TotalAmount, 0.0)) + SUM(isnull(au.TotalTax,0.0)) - SUM(isnull(au.TotalImpliedTax,0.0)) - SUM(isnull(au.TotalInformationalTax,0.0)) 
+     + SUM(isnull(au.TotalImplInfTax,0.0)) + 
     SUM(isnull(au.PrebillAdjAmt, 0.0)) +
     SUM(isnull(au.PrebillTotalTaxAdjAmt, 0.0)),
    @tmp_currency = au.am_currency

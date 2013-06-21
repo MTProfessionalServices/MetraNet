@@ -184,7 +184,16 @@ then
 			(nvl(au.Tax_Local,0.0))ELSE 0 END) +
 			SUM(CASE WHEN (pvpay.id_sess IS NULL AND pvar.id_sess IS NULL) THEN
 			(nvl(au.Tax_Other,0.0))ELSE 0 END) tax_ttl_amt,
-			SUM(CASE WHEN (pvpay.id_sess IS NULL AND pvar.id_sess IS NULL AND NOT vh.id_view IS NULL) THEN (nvl(au.Amount, 0.0)) ELSE 0 END) current_charges,
+			SUM(CASE WHEN (pvpay.id_sess IS NULL AND pvar.id_sess IS NULL AND NOT vh.id_view IS NULL) THEN 
+              nvl(au.Amount, 0.0) - 
+              /*If implied taxes, then taxes are already included, don't add them again */
+              ((CASE WHEN (au.is_implied_tax = 'Y') THEN (nvl(au.Tax_Federal,0.0) + nvl(au.Tax_State,0.0) + 
+                  nvl(au.Tax_County,0.0) + nvl(au.Tax_Local,0.0) + nvl(au.Tax_Other,0.0)) ELSE 0 END)
+              /*If informational taxes, then they shouldn't be in the total */
+              + (CASE WHEN (au.tax_informational = 'Y') THEN (nvl(au.Tax_Federal,0.0) + nvl(au.Tax_State,0.0) + 
+                nvl(au.Tax_County,0.0) + nvl(au.Tax_Local,0.0) + nvl(au.Tax_Other,0.0)) ELSE 0 END))
+		      ELSE 0 END)         
+			  current_charges, 
 			CASE WHEN avi.c_billable = '0' THEN pr.id_payer ELSE ammps.id_acc END id_payer,
 			CASE WHEN avi.c_billable = '0' THEN auipay.id_usage_interval ELSE au.id_usage_interval END id_payer_interval
 		FROM  tmp_all_accounts tmpall
@@ -203,7 +212,8 @@ then
 		INNER join t_usage_interval uipay ON auipay.id_usage_interval = uipay.id_interval
 						AND ui.dt_end BETWEEN CASE WHEN auipay.dt_effective IS NULL THEN uipay.dt_start ELSE dbo.addsecond(auipay.dt_effective) END AND uipay.dt_end
 		LEFT OUTER JOIN
-		(SELECT au1.id_usage_interval, au1.amount, au1.Tax_Federal, au1.Tax_State, au1.Tax_County, au1.Tax_Local, au1.Tax_Other, au1.id_sess, au1.id_acc, au1.id_view
+		(SELECT au1.id_usage_interval, au1.amount, au1.Tax_Federal, au1.Tax_State, au1.Tax_County, au1.Tax_Local, au1.Tax_Other, au1.id_sess, au1.id_acc, au1.id_view, 
+		     au1.is_implied_tax, au1.tax_informational
 		FROM t_acc_usage au1
 		LEFT OUTER JOIN t_pi_template piTemplated2
 		ON piTemplated2.id_template=au1.id_pi_template
@@ -288,9 +298,8 @@ begin
                                           AND ed.nm_enum_data <>
                                                   ''metratech.com/ARAdjustment''
                                          )
-                                       THEN (NVL (dm.TotalAmount,
-                                                  0.0
-                                                 )
+                                       THEN (
+									   NVL(dm.TotalAmount, 0.0) - NVL(dm.TotalImpliedTax, 0.0) - NVL(dm.TotalInformationalTax, 0.0) + NVL(dm.TotalImplInfTax, 0.0)
                                             )
                                     ELSE 0
                                  END

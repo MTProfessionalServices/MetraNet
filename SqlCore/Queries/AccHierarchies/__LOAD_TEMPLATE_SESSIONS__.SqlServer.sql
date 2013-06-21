@@ -15,7 +15,9 @@
             n_subs as NumSubscriptions,
             coalesce(num_subs_completed, 0) as NumSubscriptionsCompleted,
             coalesce(num_sub_errors, 0) as NumSubscriptionErrors,
-            n_retries as NumRetries
+            n_retries as NumRetries,
+            n_templates as NumTemplates,
+            n_templates_applied as NumTemplatesApplied
           from
             t_acc_template_session sessions
             inner join

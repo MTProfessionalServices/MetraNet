@@ -23,9 +23,16 @@
       {fn IFNULL((au.tax_county), 0.0)} CountyTaxAmount,
       {fn IFNULL((au.tax_local), 0.0)} LocalTaxAmount,
       {fn IFNULL((au.tax_other), 0.0)} OtherTaxAmount,
-      (au.amount + 
-              {fn IFNULL((au.tax_federal), 0.0)} + {fn IFNULL((au.tax_state), 0.0)} + {fn IFNULL((au.tax_county), 0.0)} + 
-              {fn IFNULL((au.tax_local), 0.0)} + {fn IFNULL((au.tax_other), 0.0)}) as AmountWithTax,
+      au.amount + 
+	      /*If implied taxes, then taxes are already included, don't add them again */
+	      (case when au.is_implied_tax = 'N' then 
+              ({fn IFNULL(au.tax_federal, 0.0)} + {fn IFNULL(au.tax_state, 0.0)} + {fn IFNULL(au.tax_county, 0.0)} + 
+                  {fn IFNULL(au.tax_local, 0.0)} + {fn IFNULL(au.tax_other, 0.0)}) else 0.0 end)
+	      /*If informational taxes, then they shouldn't be in the total */
+			  - (CASE WHEN (au.tax_informational = 'Y') THEN 
+              ({fn IFNULL(au.tax_federal, 0.0)} + {fn IFNULL(au.tax_state, 0.0)} + {fn IFNULL(au.tax_county, 0.0)} + 
+                  {fn IFNULL(au.tax_local, 0.0)} + {fn IFNULL(au.tax_other, 0.0)}) else 0.0 end)
+			  AmountWithTax,
       au.id_usage_interval IntervalID
       ,au.CompoundPrebillAdjAmt
       ,au.CompoundPostbillAdjAmt
@@ -69,9 +76,14 @@
       ,au.PrebillAdjustmentID
       ,au.PostbillAdjustmentID
       ,au.IsIntervalSoftClosed
-      ,{fn IFNULL((%%DISPLAYAMOUNT%%),au.amount)} AS DisplayAmount
-      ,au.tax_inclusive IsTaxInclusive
-      ,au.tax_calculated isTaxCalculated
+      ,{fn IFNULL((case when au.is_implied_tax = 'N' then %%DISPLAYAMOUNT%% else au.amount end),au.amount)}
+         /*If informational taxes, then they shouldn't be in the total */
+			  - (CASE WHEN (au.tax_informational = 'Y') THEN 
+              ({fn IFNULL(au.tax_federal, 0.0)} + {fn IFNULL(au.tax_state, 0.0)} + {fn IFNULL(au.tax_county, 0.0)} + 
+                  {fn IFNULL(au.tax_local, 0.0)} + {fn IFNULL(au.tax_other, 0.0)}) else 0.0 end)
+		  AS DisplayAmount
+      ,au.is_implied_tax IsTaxInclusive
+      ,au.tax_calculated IsTaxCalculated
       ,au.tax_informational IsTaxInformational
       %%SELECT_CLAUSE%%
       from
@@ -101,7 +113,7 @@
         au.tax_state,
         au.tx_batch,
         au.tx_UID,
-        au.tax_inclusive,
+        au.is_implied_tax,
         au.tax_calculated,
         au.tax_informational,
         /* 1. Return Different Amounts:  */

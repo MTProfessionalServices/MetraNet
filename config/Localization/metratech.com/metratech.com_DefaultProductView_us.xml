@@ -74,6 +74,14 @@
             <Name>metratech.com/DefaultProductView/IsIntervalSoftClosed</Name>
             <Value>Is Interval Soft Closed</Value>
         </locale_entry>
+		<locale_entry>
+			<Name>metratech.com/DefaultProductView/IsTaxInclusive</Name>
+			<Value>Is tax inclusive?</Value>
+		</locale_entry>
+		<locale_entry>
+			<Name>metratech.com/DefaultProductView/IsTaxInformational</Name>
+			<Value>Is tax informational?</Value>
+		</locale_entry>
         <locale_entry>
             <Name>metratech.com/DefaultProductView/IsPostBillAdjusted</Name>
             <Value>Is Post-bill Adjusted</Value>

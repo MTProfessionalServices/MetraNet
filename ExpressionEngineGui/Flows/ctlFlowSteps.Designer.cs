@@ -32,15 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctlFlowSteps));
             this.treSteps = new System.Windows.Forms.TreeView();
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnuExpression = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuTemporaryProperty = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnMoveDown = new System.Windows.Forms.Button();
             this.btnMoveUp = new System.Windows.Forms.Button();
             this.btnTest = new System.Windows.Forms.Button();
+            this.mnuInsert = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,36 +63,16 @@
             // contextMenu
             // 
             this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuExpression,
-            this.mnuTemporaryProperty,
-            this.toolStripSeparator1,
+            this.mnuInsert,
             this.mnuDelete});
             this.contextMenu.Name = "contextMenu";
-            this.contextMenu.Size = new System.Drawing.Size(181, 76);
-            // 
-            // mnuExpression
-            // 
-            this.mnuExpression.Name = "mnuExpression";
-            this.mnuExpression.Size = new System.Drawing.Size(180, 22);
-            this.mnuExpression.Text = "Expression";
-            this.mnuExpression.Click += new System.EventHandler(this.menu_Click);
-            // 
-            // mnuTemporaryProperty
-            // 
-            this.mnuTemporaryProperty.Name = "mnuTemporaryProperty";
-            this.mnuTemporaryProperty.Size = new System.Drawing.Size(180, 22);
-            this.mnuTemporaryProperty.Text = "Temporary Property";
-            this.mnuTemporaryProperty.Click += new System.EventHandler(this.menu_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.contextMenu.Size = new System.Drawing.Size(153, 70);
             // 
             // mnuDelete
             // 
+            this.mnuDelete.Image = global::PropertyGui.Properties.Resources.delete;
             this.mnuDelete.Name = "mnuDelete";
-            this.mnuDelete.Size = new System.Drawing.Size(180, 22);
+            this.mnuDelete.Size = new System.Drawing.Size(152, 22);
             this.mnuDelete.Text = "Delete";
             this.mnuDelete.Click += new System.EventHandler(this.mnuDelete_Click);
             // 
@@ -104,7 +82,9 @@
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList.Images.SetKeyName(0, "NewProperty.png");
             this.imageList.Images.SetKeyName(1, "Expression.png");
-            this.imageList.Images.SetKeyName(2, "CalculateEventCharge.png");
+            this.imageList.Images.SetKeyName(2, "Aggregate.png");
+            this.imageList.Images.SetKeyName(3, "Delete.png");
+            this.imageList.Images.SetKeyName(4, "CalculateEventCharge.png");
             // 
             // btnRefresh
             // 
@@ -146,6 +126,12 @@
             this.btnTest.Text = "Test...";
             this.btnTest.UseVisualStyleBackColor = true;
             // 
+            // mnuInsert
+            // 
+            this.mnuInsert.Name = "mnuInsert";
+            this.mnuInsert.Size = new System.Drawing.Size(152, 22);
+            this.mnuInsert.Text = "Insert";
+            // 
             // ctlFlowSteps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,11 +155,9 @@
         private System.Windows.Forms.Button btnMoveDown;
         private System.Windows.Forms.Button btnMoveUp;
         private System.Windows.Forms.ContextMenuStrip contextMenu;
-        private System.Windows.Forms.ToolStripMenuItem mnuExpression;
-        private System.Windows.Forms.ToolStripMenuItem mnuTemporaryProperty;
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem mnuDelete;
         private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.ToolStripMenuItem mnuInsert;
     }
 }

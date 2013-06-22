@@ -63,7 +63,7 @@ namespace PropertyGui
             this.cboMode.FormattingEnabled = true;
             this.cboMode.Location = new System.Drawing.Point(74, 5);
             this.cboMode.Name = "cboMode";
-            this.cboMode.Size = new System.Drawing.Size(166, 21);
+            this.cboMode.Size = new System.Drawing.Size(192, 21);
             this.cboMode.TabIndex = 9;
             this.cboMode.SelectedIndexChanged += new System.EventHandler(this.cbo_SelectedIndexChanged);
             // 
@@ -132,9 +132,9 @@ namespace PropertyGui
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 13);
+            this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 14;
-            this.label3.Text = "FixedCategory:";
+            this.label3.Text = "Category:";
             // 
             // cboCategory
             // 
@@ -197,11 +197,11 @@ namespace PropertyGui
             // btnRefresh
             // 
             this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefresh.Location = new System.Drawing.Point(246, 5);
+            this.btnRefresh.Image = global::PropertyGui.Properties.Resources.arrow_refresh;
+            this.btnRefresh.Location = new System.Drawing.Point(272, 5);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(58, 23);
+            this.btnRefresh.Size = new System.Drawing.Size(32, 23);
             this.btnRefresh.TabIndex = 14;
-            this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 

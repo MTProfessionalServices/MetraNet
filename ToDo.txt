@@ -1,10 +1,17 @@
+
+*Property filtering not working
+*Hide property bag filter
+
+*Replace expression textbox with subclass
+*Validation has false positives
+
+FIXED:
+------------
+*Inputs and outputs not showing up in panel
 *Available properties not updating after click
 *Default to available properties
 *Add property filter to available properties
-*Inputs and outputs not showing up in panel
 *Double click add property
+*Remove property and function from expression
 *Double click add function
 *Double click add enumeration
-*Remove property and function from expression
-*Replace expression textbox with subclass
-*Validation has false positives

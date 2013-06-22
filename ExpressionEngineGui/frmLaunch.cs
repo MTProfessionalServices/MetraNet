@@ -122,7 +122,9 @@ namespace PropertyGui
         {
             var context = DemoLoader.CreateContext(ProductType.MetraNet, "InterCall");
             context.GlobalComponentCollection.Load();
-            var pv = (ProductViewEntity) context.GlobalComponentCollection.Get("intercall.com.ProductViews.Comm_InterCallConnection");
+            //var pv = (ProductViewEntity)context.GlobalComponentCollection.Get("intercall.com.ProductViews.Comm_InterCallConnection");
+            //var pv = (ProductViewEntity)context.GlobalComponentCollection.Get("intercall.com.ProductViews.InterCallConnection");
+            var pv = (ProductViewEntity)context.GlobalComponentCollection.Get("intercall.com.ProductViews.InterCallFeature");
             var dialog = new frmPropertyBag(context, pv);
             dialog.ShowDialog();
         }

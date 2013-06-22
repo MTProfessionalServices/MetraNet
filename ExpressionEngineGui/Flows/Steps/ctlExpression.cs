@@ -1,6 +1,4 @@
-﻿using System.Globalization;
-using MetraTech.ExpressionEngine.Flows;
-using MetraTech.ExpressionEngine.MTProperties;
+﻿using MetraTech.ExpressionEngine.Flows;
 
 namespace PropertyGui.Flows.Steps
 {
@@ -22,20 +20,17 @@ namespace PropertyGui.Flows.Steps
         {
             cboProperty.Text = Step.PropertyName;
             txtExpression.Text = Step.Expression;
-
-            lstAvailableProperties.BeginUpdate();
-            lstAvailableProperties.Items.Clear();
-            lstAvailableProperties.DisplayMember = "Name";
-            foreach (var property in Step.AvailableProperties)
-            {
-                lstAvailableProperties.Items.Add(property);
-            }
-            lstAvailableProperties.EndUpdate();
         }
+
         public override void SyncToObject()
         {
             Step.PropertyName = cboProperty.Text;
             Step.Expression = txtExpression.Text;
+        }
+
+        public override void InsertSnippet(string snippet)
+        {
+            txtExpression.Paste(snippet);
         }
         #endregion
 
@@ -52,22 +47,5 @@ namespace PropertyGui.Flows.Steps
             cboProperty.EndUpdate();
         }
         #endregion
-
-        private void lstAvailableProperties_DoubleClick(object sender, System.EventArgs e)
-        {
-            if (lstAvailableProperties.SelectedItem != null)
-            {
-                var property = string.Format(CultureInfo.InvariantCulture, "USAGE.{0}",
-                                             ((Property)lstAvailableProperties.SelectedItem).DatabaseName);
-                txtExpression.Paste(property);
-            }
-        }
-
-        private void lstFunctions_DoubleClick(object sender, System.EventArgs e)
-        {
-            if (lstAvailableProperties.SelectedItem != null)
-                txtExpression.Paste(lstFunctions.Text);
-        }
-
     }
 }

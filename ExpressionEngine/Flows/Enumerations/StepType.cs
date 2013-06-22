@@ -3,7 +3,7 @@
     public enum StepType
     {
         AccountLookup,
-        ApplyCharges,
+        Aggregate,
         CalculateEventCharge,
         Expression,
         Mtsql,

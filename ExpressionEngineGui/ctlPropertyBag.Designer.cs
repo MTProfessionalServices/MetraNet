@@ -54,6 +54,8 @@
             this.btnRename = new System.Windows.Forms.Button();
             this.tabCalculationSequence = new System.Windows.Forms.TabPage();
             this.ctlFlowEditor = new PropertyGui.Flows.Steps.ctlFlowEditor();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cboParent = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -116,19 +118,19 @@
             this.mnuExpandAll,
             this.mnuCollapseAll});
             this.mnuContext.Name = "mnuContext";
-            this.mnuContext.Size = new System.Drawing.Size(153, 70);
+            this.mnuContext.Size = new System.Drawing.Size(137, 48);
             this.mnuContext.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuContext_ItemClicked);
             // 
             // mnuExpandAll
             // 
             this.mnuExpandAll.Name = "mnuExpandAll";
-            this.mnuExpandAll.Size = new System.Drawing.Size(152, 22);
+            this.mnuExpandAll.Size = new System.Drawing.Size(136, 22);
             this.mnuExpandAll.Text = "Expand All";
             // 
             // mnuCollapseAll
             // 
             this.mnuCollapseAll.Name = "mnuCollapseAll";
-            this.mnuCollapseAll.Size = new System.Drawing.Size(152, 22);
+            this.mnuCollapseAll.Size = new System.Drawing.Size(136, 22);
             this.mnuCollapseAll.Text = "Collapse All";
             // 
             // ctlPropertyEditor
@@ -226,6 +228,8 @@
             // 
             // tabGeneral
             // 
+            this.tabGeneral.Controls.Add(this.cboParent);
+            this.tabGeneral.Controls.Add(this.label5);
             this.tabGeneral.Controls.Add(this.cboEventType);
             this.tabGeneral.Controls.Add(this.txtFullName);
             this.tabGeneral.Controls.Add(this.txtDescription);
@@ -340,6 +344,24 @@
             this.ctlFlowEditor.Size = new System.Drawing.Size(863, 353);
             this.ctlFlowEditor.TabIndex = 0;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 82);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Parent:";
+            // 
+            // cboParent
+            // 
+            this.cboParent.FormattingEnabled = true;
+            this.cboParent.Location = new System.Drawing.Point(78, 76);
+            this.cboParent.Name = "cboParent";
+            this.cboParent.Size = new System.Drawing.Size(590, 21);
+            this.cboParent.TabIndex = 7;
+            this.cboParent.DropDown += new System.EventHandler(this.cboParent_DropDown);
+            // 
             // ctlPropertyBag
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -389,5 +411,7 @@
         private System.Windows.Forms.TabPage tabCalculationSequence;
         private Flows.Steps.ctlFlowEditor ctlFlowEditor;
         private System.Windows.Forms.ToolStripMenuItem mnuCollapseAll;
+        private System.Windows.Forms.ComboBox cboParent;
+        private System.Windows.Forms.Label label5;
     }
 }

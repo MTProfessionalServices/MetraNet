@@ -5,6 +5,7 @@ using MetraTech.ExpressionEngine;
 using System.IO;
 using System.Drawing;
 using MetraTech.ExpressionEngine.Components;
+using MetraTech.ExpressionEngine.Expressions.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
@@ -150,8 +151,19 @@ namespace PropertyGui
 
         private void LoadInputsOutputs()
         {
-            var results = Context.GetExpressionParseResults();
-            foreach (var property in results.Parameters)
+            PropertyCollection properties;
+            if (Context.Expression != null && Context.Expression.Type == ExpressionType.Email)
+            {
+                var results = Context.GetExpressionParseResults();
+                properties = results.Parameters;
+            }
+            else
+            {
+                properties = Context.InputsAndOutputs;
+            }
+
+
+            foreach (var property in properties)
             {
                 var node = CreateNode(property);
                 node.SelectedImageKey = property.ImageDirection;
@@ -387,7 +399,7 @@ namespace PropertyGui
         /// </summary>
         protected override void OnNodeMouseClick(TreeNodeMouseClickEventArgs e)
         {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            if (e.Button == MouseButtons.Right)
             {
                 var node = GetNodeAt(e.Location);
                 if (node != null)

@@ -2,6 +2,7 @@
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties;
+using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 
 namespace MetraTech.ExpressionEngine.Flows
 {
@@ -33,7 +34,11 @@ namespace MetraTech.ExpressionEngine.Flows
         #region Methods
         public override void UpdateInputsAndOutputs(Context context)
         {
-            //InputsAndOutputs.Clear();
+#warning why do i need this here? Should just need to clear it.
+            InputsAndOutputs = new PropertyCollection(this);
+
+            //We aren't dealing with any inputs, including if this property is used itself as an input
+            AddToInputsAndOutputs(PropertyName, Direction.Output);
         }
 
         public Property GetProperty()

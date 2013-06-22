@@ -42,6 +42,10 @@ namespace PropertyGui.Flows.Steps
         public virtual void SyncToForm()
         {        
         }
+
+        public virtual void InsertSnippet(string snippet)
+        {
+        }
         #endregion
     }
 }

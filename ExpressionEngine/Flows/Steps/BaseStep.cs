@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
 using MetraTech.ExpressionEngine.Flows.Steps;
 using MetraTech.ExpressionEngine.MTProperties;
+using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.Flows
@@ -85,6 +86,18 @@ namespace MetraTech.ExpressionEngine.Flows
         public virtual string GetAutoDescription()
         {
             return null;
+        }
+
+        public Property AddToInputsAndOutputs(string propertyName, Direction direction)
+        {
+            var property = AvailableProperties.Get(propertyName);
+            if (property == null)
+                return null;
+
+            var ioProperty = (Property) property.Copy();
+            ioProperty.Direction = direction;
+            InputsAndOutputs.Add(ioProperty);
+            return ioProperty;
         }
         #endregion
     }

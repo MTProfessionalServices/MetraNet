@@ -60,7 +60,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>Code to identify the product.  Always either P or P8 Billing Code. It will always contain the Premium type billing code of Base Billing Code.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -169,7 +169,7 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>Participant start time</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -186,7 +186,7 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>Participant end time</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -651,7 +651,7 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>Bridge Timezone.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -705,7 +705,7 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>The duration used for rating, one of the 4 durations in the connection.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -714,8 +714,8 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
@@ -850,7 +850,7 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>Alternative resplus amount for USF for the bridge amount. Per minute rate.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -859,8 +859,8 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
@@ -871,7 +871,7 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>Alternative resplus amount for USF for the bridge amount. Rate currency.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -880,8 +880,8 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
@@ -892,19 +892,23 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature amount</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>leg_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="ChargeType">
+          <BaseType>Charge</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty i:nil="true" />
+          <FixedCurrency i:nil="true" />
+          <EndProperty i:nil="true" />
+          <PriceProperty i:nil="true" />
+          <ProductProperty i:nil="true" />
+          <QuantityProperty></QuantityProperty>
+          <StartProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1036,19 +1040,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature in div amount</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>leg_div_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1057,19 +1060,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (div curr)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>leg_div_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1078,19 +1080,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature in div currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>leg_div_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1099,19 +1100,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature in bu currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>leg_bu_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1120,19 +1120,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (bu curr)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>leg_bu_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1141,19 +1140,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature in bu currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>leg_bu_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1162,19 +1160,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature amt in GBL currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>leg_gbl_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1183,19 +1180,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (gbl curr)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>leg_gbl_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1204,19 +1200,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>tax country amount in GBL currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>leg_gbl_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1285,19 +1280,23 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature amount</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>bridge_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="ChargeType">
+          <BaseType>Charge</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty i:nil="true" />
+          <FixedCurrency i:nil="true" />
+          <EndProperty i:nil="true" />
+          <PriceProperty i:nil="true" />
+          <ProductProperty i:nil="true" />
+          <QuantityProperty></QuantityProperty>
+          <StartProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1306,19 +1305,23 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (inv curr)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>bridge_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="ChargeType">
+          <BaseType>Charge</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty i:nil="true" />
+          <FixedCurrency i:nil="true" />
+          <EndProperty i:nil="true" />
+          <PriceProperty i:nil="true" />
+          <ProductProperty i:nil="true" />
+          <QuantityProperty></QuantityProperty>
+          <StartProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1366,7 +1369,7 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>derived rate used to calculate the amount</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -1375,8 +1378,8 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
@@ -1387,7 +1390,7 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (rate curr)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -1396,8 +1399,8 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
@@ -1408,7 +1411,7 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>amount in rate currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -1417,8 +1420,8 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
@@ -1429,19 +1432,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature in div amount</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>bridge_div_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1450,19 +1452,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (div curr)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>bridge_div_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1471,19 +1472,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature in div currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>bridge_div_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1492,19 +1492,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature in bu currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>bridge_bu_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1513,19 +1512,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (bu curr)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>bridge_bu_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1534,19 +1532,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature in bu currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>bridge_bu_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1555,19 +1552,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature amt in GBL currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>bridge_gbl_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1576,19 +1572,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (gbl curr)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>bridge_gbl_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1597,19 +1592,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>tax country amount in GBL currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>bridge_gbl_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1618,7 +1612,7 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>Used in adjustment tables t_aj</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -1627,8 +1621,8 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
@@ -1678,19 +1672,23 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature amount</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>surcharge_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="ChargeType">
+          <BaseType>Charge</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty i:nil="true" />
+          <FixedCurrency i:nil="true" />
+          <EndProperty i:nil="true" />
+          <PriceProperty i:nil="true" />
+          <ProductProperty i:nil="true" />
+          <QuantityProperty></QuantityProperty>
+          <StartProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1699,7 +1697,7 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (inv curr)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -1708,8 +1706,8 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
@@ -1759,7 +1757,7 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>derived rate used to calculate the amount</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -1768,8 +1766,8 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
@@ -1780,7 +1778,7 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (rate curr)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -1789,8 +1787,8 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
@@ -1801,7 +1799,7 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>amount in rate currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -1810,8 +1808,8 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
@@ -1822,19 +1820,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature in div amount</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>surcharge_div_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1843,19 +1840,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (div curr)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>surcharge_div_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1864,19 +1860,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature in div currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>surcharge_div_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1885,19 +1880,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature in bu currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>surcharge_bu_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1906,19 +1900,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (bu curr)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>surcharge_bu_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1927,19 +1920,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature in bu currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>surcharge_bu_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1948,19 +1940,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature amt in GBL currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>surcharge_gbl_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1969,19 +1960,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (gbl curr)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>surcharge_gbl_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1990,19 +1980,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>tax country amount in GBL currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>surcharge_gbl_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -2134,7 +2123,7 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature bill code</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -2215,19 +2204,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature in div amount</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>telecom_div_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -2236,19 +2224,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (div curr)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>telecom_div_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -2257,19 +2244,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature in div currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>telecom_div_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -2278,19 +2264,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature in bu currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>telecom_bu_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -2299,19 +2284,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (bu curr)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>telecom_bu_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -2320,19 +2304,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature in bu currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>telecom_bu_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -2341,19 +2324,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature amt in GBL currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>telecom_gbl_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -2362,19 +2344,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (gbl curr)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>telecom_gbl_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -2383,19 +2364,18 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>tax country amount in GBL currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>telecom_gbl_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -2521,16 +2501,16 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>Division currency.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>div_curr</Name>
         <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
+        <Type i:type="EnumerationType">
+          <BaseType>Currency</BaseType>
           <ListType>None</ListType>
-          <Length>3</Length>
+          <Category i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -2539,16 +2519,16 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>BU currency.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>bu_curr</Name>
         <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
+        <Type i:type="EnumerationType">
+          <BaseType>Currency</BaseType>
           <ListType>None</ListType>
-          <Length>3</Length>
+          <Category i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -2557,16 +2537,16 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>Global currency.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>gbl_curr</Name>
         <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
+        <Type i:type="EnumerationType">
+          <BaseType>Currency</BaseType>
           <ListType>None</ListType>
-          <Length>3</Length>
+          <Category i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -2711,7 +2691,7 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>The internal MetraNet account identifier</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
@@ -2720,8 +2700,8 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
@@ -2967,6 +2947,8 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
     </Properties>
   </Properties>
   <EventType>Unknown</EventType>
-  <IsMetered>false</IsMetered>
+  <Flow>
+    <Steps />
+  </Flow>
   <UniqueKey />
 </PropertyBag>

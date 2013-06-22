@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Flows;
+using MetraTech.ExpressionEngine.Flows.Enumerations;
 using PropertyGui.Flows.Steps;
-using StepFactory = PropertyGui.Flows.Steps.StepFactory;
+using StepFactory = PropertyGui.Flows.Steps.StepControlFactory;
 
 namespace PropertyGui.Flows
 {
@@ -13,7 +15,7 @@ namespace PropertyGui.Flows
         private Context Context;
         private BaseFlow Flow;
         private BaseStep CurrentStep;
-        private ctlBaseStep CurrentStepControl;
+        public ctlBaseStep CurrentStepControl { get; private set; }
         private Control TargetStepControlParent;
         private ctlContextExplorer Toolbox;
         private TreeNode PreviouslySelectedNode;
@@ -37,6 +39,20 @@ namespace PropertyGui.Flows
             Flow = flow;
             TargetStepControlParent = targetStepControlParent;
             Toolbox = toolbox;
+
+            AddMenuItem(StepType.Expression);
+            AddMenuItem(StepType.Aggregate);
+            AddMenuItem(StepType.NewProperty);
+            AddMenuItem(StepType.CalculateEventCharge);
+        }
+
+        public void AddMenuItem(StepType flowItemType)
+        {
+            var image = imageList.Images[string.Format("{0}.png", flowItemType)];
+            var text = flowItemType.ToString();
+            var item = new ToolStripMenuItem(text, image, insertStepMenu_Click);
+            item.Tag = flowItemType;
+            mnuInsert.DropDownItems.Add(item);
         }
 
         public void SyncToForm()
@@ -194,19 +210,18 @@ namespace PropertyGui.Flows
             {
                 Context.AvailableProperties = CurrentStep.AvailableProperties;
                 Context.InputsAndOutputs = CurrentStep.InputsAndOutputs;
+                Toolbox.RefreshTree();
             }
             PreviouslySelectedNode = treSteps.SelectedNode;
         }
         #endregion
 
         #region Menu Events
-        private void menu_Click(object sender, EventArgs e)
+
+        private void insertStepMenu_Click(object sender, EventArgs e)
         {
-            BaseStep step;
-            if (sender.Equals(mnuExpression))
-                step = new ExpressionStep(Flow);
-            else //if (sender.Equals(mnuNewProperty))
-                step = new NewPropertyStep(Flow);
+            var menuItem = (ToolStripMenuItem) sender;
+            var step  = MetraTech.ExpressionEngine.Flows.StepFactory.Create((StepType) menuItem.Tag, Flow);
 
             TreeNode node;
             if (treSteps.SelectedNode != null)
@@ -220,6 +235,7 @@ namespace PropertyGui.Flows
 
             treSteps.SelectedNode = node;
         }
+
 
         private void mnuDelete_Click(object sender, EventArgs e)
         {

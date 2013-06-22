@@ -46,9 +46,9 @@ namespace PropertyGui
 
             //Init the Mode combo
             if (context.Expression != null)
-                SetModeOptions(Context.Expression.Info);
+                SetModeOptions(Context.Expression.Info, MvcAbstraction.ViewModeType.Entities);
             else
-                SetModeOptions(null); 
+                SetModeOptions(null, MvcAbstraction.ViewModeType.Entities); 
 
             //Init the PropertyBag Type Filter
  
@@ -95,7 +95,7 @@ namespace PropertyGui
             UpdateGui();
         }
 
-        public void SetModeOptions(ExpressionInfo info)
+        public void SetModeOptions(ExpressionInfo info, MvcAbstraction.ViewModeType selectedMode)
         {
             cboMode.BeginUpdate();
             cboMode.Items.Clear();
@@ -105,7 +105,7 @@ namespace PropertyGui
             }
             cboMode.Sorted = true;
             cboMode.EndUpdate();
-            cboMode.SelectedItem = MvcAbstraction.ViewModeType.Entities;  
+            cboMode.SelectedItem = selectedMode;  
         }
 
         private void InitPanel(Panel panel)
@@ -134,6 +134,7 @@ namespace PropertyGui
             {
                 case MvcAbstraction.ViewModeType.Entities:
                 case MvcAbstraction.ViewModeType.Properties:
+                case MvcAbstraction.ViewModeType.AvailableProperties:
                     control = panGeneral;
                     break;
                 case MvcAbstraction.ViewModeType.Functions:
@@ -159,6 +160,9 @@ namespace PropertyGui
             var property = (Property)node.Tag;
             var columnPrefix = UserContext.Settings.NewSyntax ? string.Empty : "c_";
 
+            if (Context.Expression == null)
+                return node.FullPath;
+
             switch (Context.Expression.Type)
             {
                 case ExpressionType.Aqg:
@@ -169,6 +173,13 @@ namespace PropertyGui
                 default:
                     return node.FullPath;
             }
+        }
+
+        public void RefreshTree()
+        {
+            treExplorer.PreserveState();
+            UpdateGui();
+            treExplorer.RestoreState();
         }
         #endregion
 
@@ -233,9 +244,7 @@ namespace PropertyGui
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            treExplorer.PreserveState();
-            UpdateGui();
-            treExplorer.RestoreState();
+            RefreshTree();
         }
         #endregion
     }

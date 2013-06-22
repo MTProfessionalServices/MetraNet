@@ -274,7 +274,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>True if owner_number represents an account.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -724,19 +724,23 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature amount</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>feature_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="ChargeType">
+          <BaseType>Charge</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty i:nil="true" />
+          <FixedCurrency i:nil="true" />
+          <EndProperty i:nil="true" />
+          <PriceProperty i:nil="true" />
+          <ProductProperty i:nil="true" />
+          <QuantityProperty></QuantityProperty>
+          <StartProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -847,7 +851,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>amount in rate currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -856,8 +860,8 @@
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
@@ -868,19 +872,18 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature in div amount</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>feature_div_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -889,19 +892,18 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (div curr)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>feature_div_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -910,19 +912,18 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature in div currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>feature_div_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -931,19 +932,18 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature in bu currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>feature_bu_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -952,19 +952,18 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (bu curr)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>feature_bu_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -973,19 +972,18 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature in bu currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>feature_bu_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -994,19 +992,18 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature amt in GBL currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>feature_gbl_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1015,19 +1012,18 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (gbl curr)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>feature_gbl_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1036,19 +1032,18 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>tax country amount in GBL currency</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>feature_gbl_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1174,16 +1169,16 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>Division currency.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>div_curr</Name>
         <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
+        <Type i:type="EnumerationType">
+          <BaseType>Currency</BaseType>
           <ListType>None</ListType>
-          <Length>3</Length>
+          <Category i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1192,16 +1187,16 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>BU currency.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>bu_curr</Name>
         <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
+        <Type i:type="EnumerationType">
+          <BaseType>Currency</BaseType>
           <ListType>None</ListType>
-          <Length>3</Length>
+          <Category i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1210,16 +1205,16 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>Global currency.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>gbl_curr</Name>
         <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
+        <Type i:type="EnumerationType">
+          <BaseType>Currency</BaseType>
           <ListType>None</ListType>
-          <Length>3</Length>
+          <Category i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1663,6 +1658,9 @@
     </Properties>
   </Properties>
   <EventType>Unknown</EventType>
-  <IsMetered>false</IsMetered>
+  <Flow>
+    <Steps />
+  </Flow>
+  <Parent>intercall.com.ProductViews.InterCallConference</Parent>
   <UniqueKey />
 </PropertyBag>

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
-using MetraTech.ExpressionEngine.Flows;
-using MetraTech.ExpressionEngine.Flows.Steps;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
@@ -56,6 +54,7 @@ namespace PropertyGui
 
             //Init the general stuff
             txtFullName.Text = PropertyBag.FullName;
+            cboParent.Text = ((ProductViewEntity) PropertyBag).Parent;
             txtDescription.Text = PropertyBag.Description;
             GuiHelper.LoadEnum<EventType>(cboEventType);
             cboEventType.SelectedItem = ((ProductViewEntity)PropertyBag).EventType;
@@ -76,7 +75,6 @@ namespace PropertyGui
             treProperties.HideSelection = false;
             LoadTree();
             EnsureNodeSelected();
-            treProperties.ExpandAll();
 
             ctlFlowEditor.SyncToForm();
             tabMain.SelectedTab = tabProperties;
@@ -86,6 +84,8 @@ namespace PropertyGui
 
         public void SyncToObject()
         {
+            var pv = (ProductViewEntity) PropertyBag;
+            pv.Parent = cboParent.Text;
             PropertyBag.Description = txtDescription.Text;
             ((ProductViewEntity)PropertyBag).EventType = (EventType)cboEventType.SelectedItem;
             ctlPropertyEditor.SyncToObject();
@@ -317,6 +317,18 @@ namespace PropertyGui
             {
               
             }
+        }
+
+        private void cboParent_DropDown(object sender, EventArgs e)
+        {
+            cboParent.BeginUpdate();
+            cboParent.Items.Clear();
+            foreach (var pv in Context.PropertyBagManager.PropertyBags)
+            {
+                if (pv is ProductViewEntity)
+                    cboParent.Items.Add(pv.FullName);
+            }
+            cboParent.EndUpdate();
         }
 
 

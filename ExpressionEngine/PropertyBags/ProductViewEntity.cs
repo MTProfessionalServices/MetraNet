@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Database;
 using MetraTech.ExpressionEngine.Flows;
 using MetraTech.ExpressionEngine.MTProperties;
@@ -17,6 +18,12 @@ namespace MetraTech.ExpressionEngine.PropertyBags
     public class ProductViewEntity : MetraNetEntityBase
     {
         #region Properties
+
+        /// <summary>
+        /// Multipoint parent, optional, if not null, must be a ProductView
+        /// </summary>
+        [DataMember]
+        public string Parent { get; set; }
 
         [DataMember]
         public Collection<UniqueKey> UniqueKey { get; private set; }
@@ -50,9 +57,25 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         public void UpdateFlow(Context context)
         {
             #warning Why  do I need to do this here???
-            Flow.InitialProperties = new PropertyCollection(PropertyBag);
+            if (Flow == null)
+                Flow = new BaseFlow();
+            Flow.InitialProperties = new PropertyCollection(null);
 
+            //Append the Parent and it's properties
+            var parentPv = (ProductViewEntity)context.GetComponent(ComponentType.PropertyBag, Parent);
+            if (parentPv != null)
+            {
+                var parent = new PropertyBag(null, "PARENT", null, PropertyBagMode.PropertyBag, parentPv.Description);
+                Flow.InitialProperties.Add(parent);
+                foreach (var property in parentPv.Properties)
+                {
+                    parent.Properties.Add((Property)property.Copy());
+                }
+            }
 
+            var pb = (PropertyBag)Flow.InitialProperties.Get("PARENT");
+
+            //Append the PV properties
             foreach (var property in Properties)
             {
                 Flow.InitialProperties.Add((Property)property.Copy());

@@ -5,6 +5,6 @@
   <minor>0</minor>
   <SP>2</SP>
   <release>1</release>
-  <buildbranch>DEV</buildbranch>
+  <buildbranch>develop</buildbranch>
   <startyear>2013</startyear>
 </version>

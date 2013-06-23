@@ -56,7 +56,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Flows\AggregateItem.cs" />
     <Compile Include="Flows\ProductViewFlow.cs" />
     <Compile Include="Flows\Steps\AccountLookupStep.cs" />
     <Compile Include="Flows\Steps\AggregationStep.cs" />

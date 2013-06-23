@@ -36,42 +36,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Syncfusion.Chart.Base">
-      <HintPath>..\ThirdParty\Syncfusion\Syncfusion.Chart.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Chart.Windows">
-      <HintPath>..\ThirdParty\Syncfusion\Syncfusion.Chart.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Core">
-      <HintPath>..\ThirdParty\Syncfusion\Syncfusion.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Diagram.Base">
-      <HintPath>..\ThirdParty\Syncfusion\Syncfusion.Diagram.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Diagram.Windows">
-      <HintPath>..\ThirdParty\Syncfusion\Syncfusion.Diagram.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Grid.Base">
-      <HintPath>..\ThirdParty\Syncfusion\Syncfusion.Grid.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Grid.Windows">
-      <HintPath>..\ThirdParty\Syncfusion\Syncfusion.Grid.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.GridHelperClasses.Windows">
-      <HintPath>..\ThirdParty\Syncfusion\Syncfusion.GridHelperClasses.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Shared.Base">
-      <HintPath>..\ThirdParty\Syncfusion\Syncfusion.Shared.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Shared.Windows">
-      <HintPath>..\ThirdParty\Syncfusion\Syncfusion.Shared.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Tools.Base">
-      <HintPath>..\ThirdParty\Syncfusion\Syncfusion.Tools.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Tools.Windows">
-      <HintPath>..\ThirdParty\Syncfusion\Syncfusion.Tools.Windows.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -102,6 +66,12 @@
     </Compile>
     <Compile Include="Compoenents\ctlEnumCategoryAndValue.Designer.cs">
       <DependentUpon>ctlEnumCategoryAndValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compoenents\ctlPropertyBinder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Compoenents\ctlPropertyBinder.Designer.cs">
+      <DependentUpon>ctlPropertyBinder.cs</DependentUpon>
     </Compile>
     <Compile Include="Compoenents\ctlPropertyLink.cs">
       <SubType>UserControl</SubType>
@@ -375,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compoenents\ctlEnumCategoryAndValue.resx">
       <DependentUpon>ctlEnumCategoryAndValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compoenents\ctlPropertyBinder.resx">
+      <DependentUpon>ctlPropertyBinder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compoenents\ctlPropertyLink.resx">
       <DependentUpon>ctlPropertyLink.cs</DependentUpon>

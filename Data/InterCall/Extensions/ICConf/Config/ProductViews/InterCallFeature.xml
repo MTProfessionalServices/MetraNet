@@ -1659,7 +1659,29 @@
   </Properties>
   <EventType>Unknown</EventType>
   <Flow>
-    <Steps />
+    <Steps>
+      <BaseStep i:type="CalculateEventChargeStep">
+        <Description i:nil="true" />
+        <FlowStepType>CalculateEventCharge</FlowStepType>
+        <Name i:nil="true" />
+      </BaseStep>
+      <BaseStep i:type="ExpressionStep">
+        <Description i:nil="true" />
+        <FlowStepType>Expression</FlowStepType>
+        <Name i:nil="true" />
+        <Expression>hello world</Expression>
+        <PropertyName>entry_type</PropertyName>
+      </BaseStep>
+      <BaseStep i:type="AggregationStep">
+        <Description i:nil="true" />
+        <FlowStepType>Aggregate</FlowStepType>
+        <Name i:nil="true" />
+        <Action>Sum</Action>
+        <Filter>asdfasdfasdf</Filter>
+        <SourceProperty>feature_div_tax_amt</SourceProperty>
+        <TargetProperty>.PARENT.max_part_duration</TargetProperty>
+      </BaseStep>
+    </Steps>
   </Flow>
   <Parent>intercall.com.ProductViews.InterCallConference</Parent>
   <UniqueKey />

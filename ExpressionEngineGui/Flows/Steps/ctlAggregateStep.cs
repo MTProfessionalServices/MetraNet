@@ -1,6 +1,10 @@
 ﻿using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Flows;
 using MetraTech.ExpressionEngine.Flows.Steps;
+using MetraTech.ExpressionEngine.MTProperties;
+using MetraTech.ExpressionEngine.Mvm.Enumerations;
+using MetraTech.ExpressionEngine.PropertyBags;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace PropertyGui.Flows.Steps
 {
@@ -21,27 +25,40 @@ namespace PropertyGui.Flows.Steps
         public override void Init(BaseStep step, Context context)
         {
             base.Init(step, context);
-            //var grdItems =
+
+            //Init the targets
+            var targets = new PropertyCollection(null);
+            var parent = Step.AvailableProperties.Get("PARENT");
+            if (parent != null && parent is PropertyBag)
+            {
+                targets.Add(parent);
+            }
+            ctlTargetProperty.Init(targets, TypeFactory.CreateNumeric());
+           
+
+            GuiHelper.LoadEnum<AggregateAction>(cboAction);
+
+            ctlSourceProperty.Init(step.AvailableProperties, TypeFactory.CreateNumeric());
+
+            //ctlExpression.Init(Context, null);
         }
 
         public override void SyncToForm()
         {
-            foreach (var item in Step.Items)
-            {
-                
-            }
+            ctlTargetProperty.Text = Step.TargetProperty;
+            cboAction.SelectedItem = Step.Action;
+            ctlSourceProperty.Text = Step.SourceProperty;
+            ctlExpression.Text = Step.Filter;
         }
 
         public override void SyncToObject()
         {
-            //Step.Items.Clear();
-         
+            Step.TargetProperty = ctlTargetProperty.Text;
+            Step.Action = (AggregateAction)cboAction.SelectedItem;
+            Step.SourceProperty = ctlSourceProperty.Text;
+            Step.Filter = ctlExpression.Text;
         }
         #endregion
 
-        private void ctlAggregateStep_Load(object sender, System.EventArgs e)
-        {
-
-        }
     }
 }

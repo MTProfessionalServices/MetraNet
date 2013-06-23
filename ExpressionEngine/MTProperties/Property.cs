@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Components;
@@ -65,10 +66,17 @@ namespace MetraTech.ExpressionEngine.MTProperties
         /// </summary>
         public virtual string FullName { get
         {
-            var pb = PropertyBag;
-            if (pb == null)
+            var ancestors = GetPropertyBagAncestors();
+            if (ancestors.Count == 0)
                 return Name;
-            return pb.FullName + "." + Name;
+
+            string name = string.Empty;
+            foreach (var propertyBag in ancestors)
+            {
+                name += propertyBag.Name + ".";
+            }
+
+            return name + Name;
         } }
         public string FullNameWithListSuffix { get { return FullName + Type.ListSuffix; } }
      
@@ -289,6 +297,19 @@ namespace MetraTech.ExpressionEngine.MTProperties
                     return Name;
                 return entity.Name + "." + Name;
             }
+        }
+
+        public List<PropertyBag> GetPropertyBagAncestors()
+        {
+            var ancestors = new List<PropertyBag>();
+            PropertyBag pb = PropertyBag;
+            while (pb != null)
+            {
+                ancestors.Insert(0, pb);
+                pb = pb.PropertyBag;
+            }
+
+            return ancestors;
         }
 
         /// <summary>

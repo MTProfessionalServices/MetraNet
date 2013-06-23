@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using MetraTech.ExpressionEngine;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine.Components;
@@ -11,6 +12,8 @@ namespace PropertyGui
 {
     public static class GuiHelper
     {
+        public static Font ExpressionFont = new Font("Courier New", 8.5f);
+
         public static void LoadEnum<T>(ComboBox comboBox)
         {
             comboBox.BeginUpdate();

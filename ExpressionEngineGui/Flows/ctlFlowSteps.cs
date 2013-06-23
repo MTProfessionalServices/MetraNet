@@ -40,6 +40,8 @@ namespace PropertyGui.Flows
             TargetStepControlParent = targetStepControlParent;
             Toolbox = toolbox;
 
+            treSteps.Font = GuiHelper.ExpressionFont;
+
             AddMenuItem(StepType.Expression);
             AddMenuItem(StepType.Aggregate);
             AddMenuItem(StepType.NewProperty);

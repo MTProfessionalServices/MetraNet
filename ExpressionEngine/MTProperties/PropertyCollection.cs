@@ -163,15 +163,22 @@ namespace MetraTech.ExpressionEngine.MTProperties
         /// <summary>
         /// Returns a list of properties that match the specified type filter.
         /// </summary>
-        public List<Property> GetFilteredProperties(MetraTech.ExpressionEngine.TypeSystem.Type type)
+        public List<Property> GetFilteredProperties(TypeSystem.Type type)
         {
             var properties = new List<Property>();
-            foreach (var property in Properties)
-            {
-                if (property.Type.IsBaseTypeFilterMatch(type))
-                    properties.Add(property);
-            }
+            _getFilteredProperties(this, type, properties);
             return properties;
+        }
+
+        private void _getFilteredProperties(PropertyCollection availableProperties, TypeSystem.Type type, List<Property> propertyMatches)
+        {
+            foreach (var property in availableProperties)
+            {
+                if (property is Property && property.Type.IsBaseTypeFilterMatch(type))
+                    propertyMatches.Add(property);
+                else if (property is PropertyBag)
+                    _getFilteredProperties(((PropertyBag)property).Properties, type, propertyMatches);
+            }
         }
 
         public ValidationMessageCollection Validate(ValidationMessageCollection messages, Context context)

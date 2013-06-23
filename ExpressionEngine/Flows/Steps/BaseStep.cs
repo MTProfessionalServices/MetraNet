@@ -12,9 +12,11 @@ namespace MetraTech.ExpressionEngine.Flows
     /// Simple prototype for transaction flows to replace pipelines
     /// </summary>
     [DataContract(Namespace = "MetraTech")]
+    [KnownType(typeof(AggregationStep))]
     [KnownType(typeof(CalculateEventChargeStep))]
     [KnownType(typeof(ExpressionStep))]
     [KnownType(typeof(NewPropertyStep))]
+    
     public class BaseStep
     {
         #region properties

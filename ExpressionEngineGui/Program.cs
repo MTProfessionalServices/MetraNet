@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace PropertyGui
@@ -19,7 +17,8 @@ namespace PropertyGui
 
             //var form = new frmCompare(@"C:\ExpressionEngine\Data");
 
-            var form = new frmLaunch();
+            var form = new frmLaunch(); 
+            //var form = new Form1();
             Application.Run(form);
         }
     }

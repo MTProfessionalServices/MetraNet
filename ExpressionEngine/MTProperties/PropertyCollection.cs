@@ -76,10 +76,21 @@ namespace MetraTech.ExpressionEngine.MTProperties
             if (string.IsNullOrEmpty(name))
                 return null;
 
-            foreach (var property in Properties)
+            var names = name.Split('.');
+            var propertyCollection = this;
+            for (int index = 0; index < names.Length; index++)
             {
-                if (name == property.Name)
-                    return property;
+                var subName = names[index];
+                foreach (var property in propertyCollection)
+                {
+                    if (subName == property.Name)
+                    {
+                        if (index == names.Length - 1)
+                            return property;
+                        if (property is PropertyBag)
+                            propertyCollection = ((PropertyBag) property).Properties;
+                    }
+                }
             }
             return null;
         }

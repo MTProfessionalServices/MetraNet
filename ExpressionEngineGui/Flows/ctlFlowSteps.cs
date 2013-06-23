@@ -66,7 +66,18 @@ namespace PropertyGui.Flows
                 AddNode(step);
             }
             treSteps.EndUpdate();
-            AttemptToSelectNode(0);
+
+            //Attempt to reselect previosly seleconed node
+            if (CurrentStep != null)
+            {
+                foreach (var node in treSteps.GetAllNodes())
+                {
+                    if (node.Tag.Equals(CurrentStep))
+                        treSteps.SelectedNode = node;
+                }
+            }
+            else
+                AttemptToSelectNode(0);
         }
 
         private TreeNode AddStep(BaseStep step)
@@ -129,24 +140,20 @@ namespace PropertyGui.Flows
             Flow.UpdateFlow(Context);
             treSteps.SelectedNode = node;
         }
+
+        public void RefreshTree()
+        {
+            Flow.UpdateFlow(Context);
+            SyncToObject();
+            SyncToForm();
+        }
         #endregion
 
         #region Button Events
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            Flow.UpdateFlow(Context);//;, Flow.InitialProperties);
-            SyncToObject();
-            SyncToForm();
-
-            if (CurrentStep != null)
-            {
-                foreach (var node in treSteps.GetAllNodes())
-                {
-                    if (node.Tag.Equals(CurrentStep))
-                        treSteps.SelectedNode = node;
-                }
-            }
+            RefreshTree();
         }
         private void btnMoveUp_Click(object sender, EventArgs e)
         {

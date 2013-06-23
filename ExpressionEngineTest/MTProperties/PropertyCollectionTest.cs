@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using MetraTech.ExpressionEngine.MTProperties;
+using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -47,7 +48,22 @@ namespace ExpressionEngineTest
 
             property = properties.Get("");
             Assert.IsNull(property, "empty string");
+        }
 
+        [TestMethod()]
+        public void GetHiearchyTest()
+        {
+            var properties = new PropertyCollection(null);
+            properties.AddString("Foo", null, false);
+
+            var parent = new PropertyBag(null, "PARENT", null, PropertyBagMode.PropertyBag, null);
+            properties.Add(parent);
+            Assert.AreEqual(parent, properties.Get("PARENT"), "Foo");
+            
+            parent.Properties.Add(PropertyFactory.Create("p1", TypeFactory.CreateInteger32(), true, null));
+            var p2 = PropertyFactory.Create("p2", TypeFactory.CreateInteger32(), true, null);
+            parent.Properties.Add(p2);
+            Assert.AreEqual(p2, properties.Get("PARENT.p2"), "PARENT.p2");
         }
 
         [TestMethod()]

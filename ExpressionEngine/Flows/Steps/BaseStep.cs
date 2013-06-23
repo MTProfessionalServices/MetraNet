@@ -19,12 +19,12 @@ namespace MetraTech.ExpressionEngine.Flows
     
     public class BaseStep
     {
-        #region properties
+        #region Properties
 
         /// <summary>
         /// The parent collection to which the flow belongs
         /// </summary>
-        public BaseFlow Flow { get; private set; }
+        public BaseFlow Flow { get; set; }
 
         [DataMember]
         public StepType FlowStepType { get; private set; }
@@ -54,7 +54,16 @@ namespace MetraTech.ExpressionEngine.Flows
             FlowStepType = flowItemType;
 
             IsUserEditable = isUserEditable;
+            FixDeserilization(new StreamingContext());
         }
+
+        [OnDeserializedAttribute]
+        private void FixDeserilization(StreamingContext sc)
+        {
+            InputsAndOutputs = new PropertyCollection(null);
+            AvailableProperties  = new PropertyCollection(null);
+        }
+
         #endregion
 
         #region Methods
@@ -64,8 +73,6 @@ namespace MetraTech.ExpressionEngine.Flows
         /// </summary>
         public virtual void UpdateInputsAndOutputs(Context context)
         {
-#warning why do i need this here?
-            InputsAndOutputs = new PropertyCollection(this);
             InputsAndOutputs.Clear();
         }
 

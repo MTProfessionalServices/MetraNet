@@ -32,13 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctlFlowSteps));
             this.treSteps = new System.Windows.Forms.TreeView();
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuInsert = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnMoveDown = new System.Windows.Forms.Button();
             this.btnMoveUp = new System.Windows.Forms.Button();
             this.btnTest = new System.Windows.Forms.Button();
-            this.mnuInsert = new System.Windows.Forms.ToolStripMenuItem();
+            this.cboViewMode = new System.Windows.Forms.ComboBox();
             this.contextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@
             this.treSteps.SelectedImageIndex = 0;
             this.treSteps.ShowLines = false;
             this.treSteps.ShowNodeToolTips = true;
-            this.treSteps.Size = new System.Drawing.Size(221, 316);
+            this.treSteps.Size = new System.Drawing.Size(313, 316);
             this.treSteps.TabIndex = 0;
             this.treSteps.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treSteps_AfterSelect);
             // 
@@ -66,13 +67,19 @@
             this.mnuInsert,
             this.mnuDelete});
             this.contextMenu.Name = "contextMenu";
-            this.contextMenu.Size = new System.Drawing.Size(153, 70);
+            this.contextMenu.Size = new System.Drawing.Size(108, 48);
+            // 
+            // mnuInsert
+            // 
+            this.mnuInsert.Name = "mnuInsert";
+            this.mnuInsert.Size = new System.Drawing.Size(107, 22);
+            this.mnuInsert.Text = "Insert";
             // 
             // mnuDelete
             // 
             this.mnuDelete.Image = global::PropertyGui.Properties.Resources.delete;
             this.mnuDelete.Name = "mnuDelete";
-            this.mnuDelete.Size = new System.Drawing.Size(152, 22);
+            this.mnuDelete.Size = new System.Drawing.Size(107, 22);
             this.mnuDelete.Text = "Delete";
             this.mnuDelete.Click += new System.EventHandler(this.mnuDelete_Click);
             // 
@@ -126,23 +133,30 @@
             this.btnTest.Text = "Test...";
             this.btnTest.UseVisualStyleBackColor = true;
             // 
-            // mnuInsert
+            // cboViewMode
             // 
-            this.mnuInsert.Name = "mnuInsert";
-            this.mnuInsert.Size = new System.Drawing.Size(152, 22);
-            this.mnuInsert.Text = "Insert";
+            this.cboViewMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboViewMode.FormattingEnabled = true;
+            this.cboViewMode.Items.AddRange(new object[] {
+            "Config",
+            "Analysis"});
+            this.cboViewMode.Location = new System.Drawing.Point(214, 4);
+            this.cboViewMode.Name = "cboViewMode";
+            this.cboViewMode.Size = new System.Drawing.Size(74, 21);
+            this.cboViewMode.TabIndex = 11;
             // 
             // ctlFlowSteps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cboViewMode);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnMoveDown);
             this.Controls.Add(this.btnMoveUp);
             this.Controls.Add(this.treSteps);
             this.Name = "ctlFlowSteps";
-            this.Size = new System.Drawing.Size(221, 348);
+            this.Size = new System.Drawing.Size(313, 348);
             this.contextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -159,5 +173,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuDelete;
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.ToolStripMenuItem mnuInsert;
+        private System.Windows.Forms.ComboBox cboViewMode;
     }
 }

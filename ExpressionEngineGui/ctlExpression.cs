@@ -5,7 +5,6 @@ using System.Text;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Components;
-using MetraTech.ExpressionEngine.Expressions;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
 
 namespace PropertyGui
@@ -30,14 +29,17 @@ namespace PropertyGui
 
             ContextMenuStrip = mnuContext;
             Multiline = true;
+            Font = GuiHelper.ExpressionFont;
 
-            if (Context.Expression.Type == ExpressionType.Email)
+            if (Context.Expression != null && Context.Expression.Type == ExpressionType.Email)
                 WordWrap = true;
             else
                 WordWrap = false;
 
-            ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            Text = Context.Expression.Content;
+            ScrollBars = ScrollBars.Both;
+
+            if (Context.Expression != null)
+                Text = Context.Expression.Content;
         }
 
         public void HandleTreeEvent(IExpressionEngineTreeNode item, string value)

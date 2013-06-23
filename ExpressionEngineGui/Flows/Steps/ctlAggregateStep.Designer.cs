@@ -41,7 +41,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 20);
+            this.label1.Location = new System.Drawing.Point(9, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 13);
             this.label1.TabIndex = 0;
@@ -50,7 +50,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 50);
+            this.label2.Location = new System.Drawing.Point(9, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 1;
@@ -59,7 +59,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 82);
+            this.label3.Location = new System.Drawing.Point(9, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 13);
             this.label3.TabIndex = 2;
@@ -68,7 +68,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 116);
+            this.label4.Location = new System.Drawing.Point(9, 115);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 13);
             this.label4.TabIndex = 3;
@@ -76,35 +76,41 @@
             // 
             // ctlTargetProperty
             // 
-            this.ctlTargetProperty.Location = new System.Drawing.Point(118, 20);
+            this.ctlTargetProperty.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctlTargetProperty.Location = new System.Drawing.Point(94, 19);
             this.ctlTargetProperty.Name = "ctlTargetProperty";
-            this.ctlTargetProperty.Size = new System.Drawing.Size(246, 21);
+            this.ctlTargetProperty.Size = new System.Drawing.Size(540, 21);
             this.ctlTargetProperty.TabIndex = 4;
             // 
             // cboAction
             // 
+            this.cboAction.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.cboAction.FormattingEnabled = true;
-            this.cboAction.Location = new System.Drawing.Point(118, 47);
+            this.cboAction.Location = new System.Drawing.Point(94, 46);
             this.cboAction.Name = "cboAction";
-            this.cboAction.Size = new System.Drawing.Size(246, 21);
+            this.cboAction.Size = new System.Drawing.Size(540, 21);
             this.cboAction.TabIndex = 5;
             // 
             // ctlSourceProperty
             // 
-            this.ctlSourceProperty.Location = new System.Drawing.Point(118, 74);
+            this.ctlSourceProperty.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctlSourceProperty.Location = new System.Drawing.Point(94, 73);
             this.ctlSourceProperty.Name = "ctlSourceProperty";
-            this.ctlSourceProperty.Size = new System.Drawing.Size(246, 21);
+            this.ctlSourceProperty.Size = new System.Drawing.Size(540, 21);
             this.ctlSourceProperty.TabIndex = 6;
             // 
             // ctlExpression
             // 
             this.ctlExpression.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctlExpression.Location = new System.Drawing.Point(118, 113);
+            this.ctlExpression.Location = new System.Drawing.Point(94, 112);
             this.ctlExpression.Multiline = true;
             this.ctlExpression.Name = "ctlExpression";
             this.ctlExpression.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.ctlExpression.Size = new System.Drawing.Size(514, 207);
+            this.ctlExpression.Size = new System.Drawing.Size(540, 207);
             this.ctlExpression.TabIndex = 7;
             // 
             // ctlAggregateStep

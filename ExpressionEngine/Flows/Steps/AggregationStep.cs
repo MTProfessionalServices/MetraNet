@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
-using MetraTech.ExpressionEngine.MTProperties;
+using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.Mvm.Enumerations;
 
 namespace MetraTech.ExpressionEngine.Flows.Steps
@@ -47,9 +45,9 @@ namespace MetraTech.ExpressionEngine.Flows.Steps
         #region Methods
         public override void UpdateInputsAndOutputs(Context context)
         {
-#warning why do i need this here? Should just need to clear it.
-            InputsAndOutputs = new PropertyCollection(this);
-
+            InputsAndOutputs.Clear();
+            AddToInputsAndOutputs(TargetProperty, Direction.Output);
+            AddToInputsAndOutputs(SourceProperty, Direction.Input);
         }
 
         public override string GetAutoLabel()
@@ -66,6 +64,7 @@ namespace MetraTech.ExpressionEngine.Flows.Steps
         {
             return "Aggregate...";
         }
+
         #endregion
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.MTProperties;
+using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.Validations;
 
 namespace MetraTech.ExpressionEngine.Flows
@@ -9,14 +10,34 @@ namespace MetraTech.ExpressionEngine.Flows
     public class BaseFlow
     {
         #region Properties 
-        public PropertyCollection InitialProperties = new PropertyCollection(null);
+
+        public PropertyCollection InitialProperties { get; private set; }
+        public ProductViewEntity ProductView { get; set; }
 
         /// <summary>
         /// The steps within the flow
         /// </summary>
         [DataMember]
-        public List<BaseStep> Steps = new List<BaseStep>();
+        public List<BaseStep> Steps { get; private set; }
 
+        #endregion
+
+        #region Constructor
+        public BaseFlow()
+        {
+            Steps = new List<BaseStep>();
+            FixDeserilization(new StreamingContext());
+        }
+
+        [OnDeserializedAttribute]
+        private void FixDeserilization(StreamingContext sc)
+        {
+            InitialProperties = new PropertyCollection(null);
+            foreach (var step in Steps)
+            {
+                step.Flow = this;
+            }
+        }
         #endregion
 
         #region Methods

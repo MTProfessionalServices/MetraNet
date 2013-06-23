@@ -29,7 +29,7 @@ namespace PropertyGui.Flows.Steps
             //Init the targets
             var targets = new PropertyCollection(null);
             var parent = Step.AvailableProperties.Get("PARENT");
-            if (parent != null && parent is PropertyBag)
+            if (parent is PropertyBag)
             {
                 targets.Add(parent);
             }
@@ -40,7 +40,7 @@ namespace PropertyGui.Flows.Steps
 
             ctlSourceProperty.Init(step.AvailableProperties, TypeFactory.CreateNumeric());
 
-            //ctlExpression.Init(Context, null);
+            ctlExpression.Init(Context, null);
         }
 
         public override void SyncToForm()
@@ -59,6 +59,5 @@ namespace PropertyGui.Flows.Steps
             Step.Filter = ctlExpression.Text;
         }
         #endregion
-
     }
 }

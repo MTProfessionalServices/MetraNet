@@ -145,6 +145,12 @@
     <Compile Include="ctlValueBinder.Designer.cs">
       <DependentUpon>ctlValueBinder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Flows\ctlFlowAnalysis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Flows\ctlFlowAnalysis.Designer.cs">
+      <DependentUpon>ctlFlowAnalysis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Flows\ctlFlowSteps.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -382,6 +388,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ctlValueBinder.resx">
       <DependentUpon>ctlValueBinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Flows\ctlFlowAnalysis.resx">
+      <DependentUpon>ctlFlowAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Flows\ctlFlowSteps.resx">
       <DependentUpon>ctlFlowSteps.cs</DependentUpon>

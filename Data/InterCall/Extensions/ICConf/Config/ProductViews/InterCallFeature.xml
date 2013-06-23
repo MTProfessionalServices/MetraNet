@@ -1657,7 +1657,7 @@
       </Property>
     </Properties>
   </Properties>
-  <EventType>Unknown</EventType>
+  <EventType>Charge</EventType>
   <Flow>
     <Steps>
       <BaseStep i:type="CalculateEventChargeStep">
@@ -1679,7 +1679,7 @@
         <Action>Sum</Action>
         <Filter>asdfasdfasdf</Filter>
         <SourceProperty>feature_div_tax_amt</SourceProperty>
-        <TargetProperty>.PARENT.max_part_duration</TargetProperty>
+        <TargetProperty>PARENT.minimum_amt</TargetProperty>
       </BaseStep>
     </Steps>
   </Flow>

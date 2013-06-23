@@ -56,10 +56,10 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         public void UpdateFlow(Context context)
         {
-            #warning Why  do I need to do this here???
-            if (Flow == null)
-                Flow = new BaseFlow();
-            Flow.InitialProperties = new PropertyCollection(null);
+            //#warning Why  do I need to do this here???
+            //if (Flow == null)
+            //    Flow = new BaseFlow();
+            //Flow.InitialProperties = new PropertyCollection(null);
 
             //Append the Parent and it's properties
             var parentPv = (ProductViewEntity)context.GetComponent(ComponentType.PropertyBag, Parent);
@@ -73,13 +73,12 @@ namespace MetraTech.ExpressionEngine.PropertyBags
                 }
             }
 
-            var pb = (PropertyBag)Flow.InitialProperties.Get("PARENT");
-
             //Append the PV properties
             foreach (var property in Properties)
             {
                 Flow.InitialProperties.Add((Property)property.Copy());
             }
+            Flow.ProductView = this;
             Flow.UpdateFlow(context);
         }
 
@@ -139,7 +138,6 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         {
             return Properties.Get(PropertyBagConstants.EventCharge);
         }
-
 
         public List<Property> GetCharges(bool includeEventCharge)
         {

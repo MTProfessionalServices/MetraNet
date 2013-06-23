@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <version>
-  <name>7.0.1.1</name>
+  <name>7.0.2.1</name>
   <major>7</major>
   <minor>0</minor>
-  <SP>1</SP>
+  <SP>2</SP>
   <release>1</release>
   <buildbranch>master</buildbranch>
   <startyear>2013</startyear>

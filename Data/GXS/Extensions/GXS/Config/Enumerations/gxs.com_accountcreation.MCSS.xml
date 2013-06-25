@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>Enumeration</BaseType>
+  <Description>Lists the possible values for MCSS.
+
+NOT USED - REPLACED WITH INTERNATIONALAGREEMENTTYPE</Description>
+  <Extension>GXS</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>0</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>None</Name>
+    </EnumItem>
+  </Items>
+  <Name>MCSS</Name>
+  <Namespace>gxs.com/accountcreation</Namespace>
+</EnumCategory>

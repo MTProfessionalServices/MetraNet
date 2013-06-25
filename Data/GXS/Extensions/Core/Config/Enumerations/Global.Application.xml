@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>Enumeration</BaseType>
+  <Description>MetraTech Web Applications</Description>
+  <Extension>Core</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MAM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MAM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MCM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MCM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MOM</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MOM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>MPS</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MPS</Name>
+    </EnumItem>
+  </Items>
+  <Name>Application</Name>
+  <Namespace>Global</Namespace>
+</EnumCategory>

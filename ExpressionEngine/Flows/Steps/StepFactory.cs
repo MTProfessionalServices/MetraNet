@@ -6,9 +6,9 @@ namespace MetraTech.ExpressionEngine.Flows
 {
     public static class StepFactory
     {
-        public static BaseStep Create(StepType flowItemType, BaseFlow flow)
+        public static BaseStep Create(StepType stepType, BaseFlow flow)
         {
-            switch (flowItemType)
+            switch (stepType)
             {
                 case StepType.AccountLookup:
                     return new AccountLookupStep(flow);
@@ -16,8 +16,12 @@ namespace MetraTech.ExpressionEngine.Flows
                     return new AggregationStep(flow);
                 case StepType.CalculateEventCharge:
                     return new CalculateEventChargeStep(flow);
+                case StepType.Enforce:
+                    return new EnforceStep(flow);
                 case StepType.Expression:
                     return new ExpressionStep(flow);
+                case StepType.Function:
+                    return new FunctionStep(flow);
                 case StepType.Mtsql:
                     return new MtsqlStep(flow);
                 case StepType.NewProperty:
@@ -27,7 +31,7 @@ namespace MetraTech.ExpressionEngine.Flows
                 case StepType.Query:
                     return new QueryStep(flow);
                 default:
-                    throw new ArgumentException("unhandled flowItemType");
+                    throw new ArgumentException("unhandled stepType");
             }
         }
     }

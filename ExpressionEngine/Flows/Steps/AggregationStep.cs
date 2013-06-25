@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
@@ -53,6 +54,18 @@ namespace MetraTech.ExpressionEngine.Flows.Steps
         {
             return  string.Format(CultureInfo.InvariantCulture, "{0} = Aggreate({1}, {2})",
                           TargetProperty, Action, SourceProperty);
+        }
+
+        public override List<EventChargeMapping> GetEventChargeMappings()
+        {
+            var mappings = new List<EventChargeMapping>();
+            var mapping = GetBaseEventChargeMapping();
+            mapping.ChargeName = "";
+            mapping.FieldName = TargetProperty;
+            mapping.FieldType = CdeFieldMappingType.aggregation;
+            mapping.ContributingField = SourceProperty;
+            mappings.Add(mapping);
+            return mappings;
         }
         #endregion
     }

@@ -1,9 +1,14 @@
 *PropertyFlowLink
 *Skip PARENT
-
 *Property filtering not working
 *Hide property bag filter
 *Validation has false positives
+
+
+Questions for Andy:
+-----------------
+*Is a filter valid for all steps? What about charge and units?
+
 
 FIXED:
 ------------

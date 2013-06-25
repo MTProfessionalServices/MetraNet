@@ -1,0 +1,850 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>Enumeration</BaseType>
+  <Description>List of cost centers to be shared between invoice and revenue.</Description>
+  <Extension>GXS</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>0</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>None</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0001</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0015</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0023</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>4</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0031</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>5</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0054</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>6</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0073</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>7</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0094</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>119</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0143</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>8</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0166</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>9</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0174</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>10</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0194</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>11</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0265</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>12</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0276</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>13</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0325</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>14</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0360</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0390</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>16</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0413</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>17</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0504</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>18</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0528</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>19</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0556</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>20</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0604</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>21</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0609</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>22</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0619</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>23</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0620</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>24</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0621</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>25</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0622</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>26</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0623</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>27</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0625</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>28</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0626</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>29</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0627</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>30</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0628</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>31</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0629</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>32</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0634</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>33</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0637</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>34</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0638</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>35</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0642</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>36</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0646</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>37</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0647</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>38</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0648</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>39</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0649</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>40</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0650</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>41</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0664</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>42</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0669</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>43</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0671</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>44</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0691</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>45</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0699</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>46</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0703</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>47</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0711</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>48</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0712</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>49</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0716</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>50</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0717</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>51</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0718</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>52</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0725</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>53</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0727</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>54</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0736</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>55</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0739</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>56</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0741</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>57</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0747</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>58</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0750</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>59</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0754</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>60</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0770</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>61</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0781</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>62</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0782</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>63</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0789</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>64</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0794</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>65</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0795</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>66</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0830</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>67</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0836</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>68</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0840</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>69</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0842</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>70</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0849</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>71</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0890</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>72</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0894</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>73</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0899</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>74</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0910</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>75</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0912</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>76</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0913</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>77</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0914</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>78</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0915</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>79</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0916</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>80</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0917</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>81</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0918</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>82</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0919</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>83</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0920</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>84</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0921</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>85</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0922</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>86</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0923</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>87</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0925</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>88</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0926</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>89</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0927</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>90</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0928</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>91</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0929</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>92</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0930</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>93</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0931</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>94</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0932</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>95</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0934</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>117</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0933</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>96</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0935</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>97</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0936</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>98</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0937</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>99</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0940</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>100</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0941</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>101</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0943</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>102</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0945</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>103</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0946</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>118</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0948</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>104</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0949</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>105</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0950</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>106</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0951</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>107</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0952</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>108</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0954</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>109</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0955</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>110</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0957</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>111</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0960</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>112</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0970</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>113</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0971</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>114</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0998</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>115</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>0999</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>116</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>2300</Name>
+    </EnumItem>
+  </Items>
+  <Name>CostCenter</Name>
+  <Namespace>gxs.com/accountcreation</Namespace>
+</EnumCategory>

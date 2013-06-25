@@ -15,6 +15,7 @@
 
         public const string EventCharge = "EventCharge";
         public const string EventTax = "EventTax";
+        public const string ParentPropertyBag = "Parent";
 
     }
 }

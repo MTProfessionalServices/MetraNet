@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Flows;
@@ -11,6 +12,7 @@ namespace PropertyGui.Flows
     public partial class ctlFlowSteps : UserControl
     {
         #region Properties
+        private bool IgnoreChanges = true;
         private Context Context;
         private BaseFlow Flow;
         private BaseStep CurrentStep;
@@ -24,9 +26,6 @@ namespace PropertyGui.Flows
         public ctlFlowSteps()
         {
             InitializeComponent();
-
-            GuiHelper.LoadEnum<LabelMode>(cboLabelMode);
-            cboLabelMode.SelectedItem = LabelMode.Business;
         }
         #endregion
 
@@ -48,6 +47,13 @@ namespace PropertyGui.Flows
             AddMenuItem(StepType.Aggregate);
             AddMenuItem(StepType.NewProperty);
             AddMenuItem(StepType.CalculateEventCharge);
+            AddMenuItem(StepType.Enforce);
+            AddMenuItem(StepType.Function);
+
+            IgnoreChanges = true;
+            GuiHelper.LoadEnum<LabelMode>(cboLabelMode);
+            cboLabelMode.SelectedItem = LabelMode.Business;
+            IgnoreChanges = false;
         }
 
         public void AddMenuItem(StepType flowItemType)
@@ -80,6 +86,8 @@ namespace PropertyGui.Flows
             }
             else
                 AttemptToSelectNode(0);
+
+          
         }
 
         private TreeNode AddStep(BaseStep step)
@@ -158,7 +166,8 @@ namespace PropertyGui.Flows
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            RefreshTree();
+            if (!IgnoreChanges)
+                RefreshTree();
         }
         private void btnMoveUp_Click(object sender, EventArgs e)
         {
@@ -188,7 +197,6 @@ namespace PropertyGui.Flows
 
             MoveNode(treSteps.SelectedNode, index);
         }
-
 
         #endregion
 
@@ -262,5 +270,20 @@ namespace PropertyGui.Flows
             AttemptToSelectNode(index);
         }
         #endregion
+
+        private void btnCsv_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SyncToObject();
+                var csv = Flow.GetEventChargeMappingsCsvString();
+                Clipboard.SetText(csv);
+                File.WriteAllText(@"C:\Temp\CdeEventChargeMappings.csv", csv);
+            }
+            catch (Exception ex)
+            {  
+                GuiHelper.ShowErrorMessage(ex.Message);
+            }
+        }
     }
 }

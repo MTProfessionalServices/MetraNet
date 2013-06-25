@@ -1,8 +1,10 @@
-﻿using System.Globalization;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
+using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace MetraTech.ExpressionEngine.Flows
 {
@@ -50,6 +52,21 @@ namespace MetraTech.ExpressionEngine.Flows
         public override string GetTechnicalAutoLabel()
         {
             return string.Format(CultureInfo.InvariantCulture, "{0} = {1}", PropertyName, Expression);
+        }
+
+
+        public override List<EventChargeMapping> GetEventChargeMappings()
+        {
+            var mappings = new List<EventChargeMapping>();
+
+            var mapping = GetBaseEventChargeMapping();
+            mapping.ChargeName = "???";
+            mapping.FieldName = PropertyName;
+            mapping.FieldType = CdeFieldMappingType.modifier;
+            mapping.Modifier = Expression;
+
+            mappings.Add(mapping);
+            return mappings;
         }
 
         #endregion

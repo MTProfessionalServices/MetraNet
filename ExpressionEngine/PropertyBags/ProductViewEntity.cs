@@ -56,16 +56,16 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         public void UpdateFlow(Context context)
         {
-            //#warning Why  do I need to do this here???
-            //if (Flow == null)
-            //    Flow = new BaseFlow();
-            //Flow.InitialProperties = new PropertyCollection(null);
+//#warning Why  do I need to do this here???
+//            if (Flow == null)
+//                Flow = new BaseFlow();
+//            Flow.InitialProperties = new PropertyCollection(null);
 
             //Append the Parent and it's properties
             var parentPv = (ProductViewEntity)context.GetComponent(ComponentType.PropertyBag, Parent);
             if (parentPv != null)
             {
-                var parent = new PropertyBag(null, "PARENT", null, PropertyBagMode.PropertyBag, parentPv.Description);
+                var parent = new PropertyBag(null, PropertyBagConstants.ParentPropertyBag, null, PropertyBagMode.PropertyBag, parentPv.Description);
                 Flow.InitialProperties.Add(parent);
                 foreach (var property in parentPv.Properties)
                 {

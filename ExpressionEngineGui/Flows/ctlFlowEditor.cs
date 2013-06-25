@@ -19,6 +19,7 @@ namespace PropertyGui.Flows.Steps
         public ctlFlowEditor()
         {
             InitializeComponent();
+            tabStep.SelectedTab = tabDetails;
         }
         #endregion
 
@@ -32,7 +33,7 @@ namespace PropertyGui.Flows.Steps
             Context = context;
             Flow = flow;
 
-            ctlFlowSteps.Init(Context, Flow, splitStepToolbox.Panel1, ctlToolbox);
+            ctlFlowSteps.Init(Context, Flow, tabDetails, ctlToolbox);
 
             //Toolbox
             var info = new ExpressionInfo(ExpressionType.ProductView);
@@ -72,12 +73,23 @@ namespace PropertyGui.Flows.Steps
         public void SyncToForm()
         {
             ctlFlowSteps.SyncToForm();
+            UpdateGui();
         }
 
         public void SyncToObject()
         {
             ctlFlowSteps.SyncToObject();
         }
+
+        public void UpdateGui()
+        {
+            ctlConditionalExecution.Visible = chkConditionalExecution.Checked;
+        }
         #endregion
+
+        private void chkConditionalExecution_CheckedChanged(object sender, EventArgs e)
+        {
+          UpdateGui();
+        }
     }
 }

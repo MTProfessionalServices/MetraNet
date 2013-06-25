@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>Enumeration</BaseType>
+  <Description>State and Province Options</Description>
+  <Extension>GXS</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>None</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>81</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ZZ</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>2</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>3</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>5</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>7</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AZ</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>9</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>12</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>13</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>CT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>14</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>15</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>DE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>18</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>FL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>20</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>GA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>24</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>HI</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>25</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>26</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ID</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>27</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>28</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>IN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>29</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>30</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>KY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>31</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>LA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>32</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>33</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>34</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ME</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>37</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MI</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>38</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>39</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MO</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>41</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>42</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>43</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>44</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ND</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>45</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>46</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>47</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NJ</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>48</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NM</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>49</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NV</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>50</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>51</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>OH</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>52</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>OK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>53</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>OR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>54</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>58</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PR</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>60</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>RI</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>66</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>67</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SD</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>70</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TN</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>72</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>TX</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>73</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>UT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>74</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>75</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VI</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>76</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>VT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>77</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WA</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>78</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WI</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>79</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WV</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>80</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>WY</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>94</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>AB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>82</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>BC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>83</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>MB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>84</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>85</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NL</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>86</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NT</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>87</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NS</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>88</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>NU</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>89</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>ON</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>90</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>PE</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>91</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>QC</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>92</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>SK</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>93</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>YT</Name>
+    </EnumItem>
+  </Items>
+  <Name>StateProvince</Name>
+  <Namespace>gxs.com/accountcreation</Namespace>
+</EnumCategory>

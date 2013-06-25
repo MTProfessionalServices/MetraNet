@@ -26,8 +26,14 @@ namespace PropertyGui.Flows.Steps
                 case StepType.CalculateEventCharge:
                     control = new ctlCalculateCharge();
                     break;
+                case StepType.Enforce:
+                    control = new ctlEnforce();
+                    break;
                 case StepType.Expression:
                     control = new ctlExpression();
+                    break;
+                case StepType.Function:
+                    control = new ctlFuctionStep();
                     break;
                 case StepType.NewProperty:
                     control = new ctlNewPropertyStep();

@@ -48,7 +48,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,13 +58,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Flows\Enumerations\CdeFieldMappingType.cs" />
     <Compile Include="Flows\Enumerations\LabelMode.cs" />
+    <Compile Include="Flows\EventChargeMapping.cs" />
     <Compile Include="Flows\ProductViewFlow.cs" />
     <Compile Include="Flows\StepInfo.cs" />
     <Compile Include="Flows\Steps\AccountLookupStep.cs" />
     <Compile Include="Flows\Steps\AggregationStep.cs" />
     <Compile Include="Flows\Steps\CalculateEventChargeStep.cs" />
     <Compile Include="Flows\Steps\ContainerStep.cs" />
+    <Compile Include="Flows\Steps\EnforceStep.cs" />
+    <Compile Include="Flows\Steps\FunctionStep.cs" />
     <Compile Include="Flows\Steps\QueryStep.cs" />
     <Compile Include="Flows\Enumerations\StepType.cs" />
     <Compile Include="Flows\Steps\ExpressionStep.cs" />

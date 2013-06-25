@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>Enumeration</BaseType>
+  <Description>List of supported UI Cultures.</Description>
+  <Extension>Core</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>en-US</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>English</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>en-GB</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>English GB</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>fr-FR</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>French</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>de-DE</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>German</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>it</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Italian</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>es</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Spanish</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ja</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Japanese</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>ar</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Arabic</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>es-mx</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Spanish - Mexican</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>pt-br</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Portuguese - Brazil</Name>
+    </EnumItem>
+  </Items>
+  <Name>UICultures</Name>
+  <Namespace>UI</Namespace>
+</EnumCategory>

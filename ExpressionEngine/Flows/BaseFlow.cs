@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.Validations;
@@ -77,6 +78,29 @@ namespace MetraTech.ExpressionEngine.Flows
             //{
             //    item.Validate(messages, context);
             //}
+        }
+
+        public string GetEventChargeMappingsCsvString()
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine(EventChargeMapping.GetCsvHeaderString());
+            foreach (var mapping in GetEventChargeMappings())
+            {
+                sb.AppendLine(mapping.GetCsvString());
+            }
+
+            return sb.ToString();
+        }
+
+        public List<EventChargeMapping> GetEventChargeMappings()
+        {
+            var mappings = new List<EventChargeMapping>();
+            foreach (var step in Steps)
+            {
+                mappings.AddRange(step.GetEventChargeMappings());
+            }
+
+            return mappings;
         }
         #endregion
     }

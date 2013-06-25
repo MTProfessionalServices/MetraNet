@@ -1655,7 +1655,14 @@
   <EventType>Charge</EventType>
   <Flow>
     <Steps>
+      <BaseStep i:type="FunctionStep">
+        <ConditionalExpression i:nil="true" />
+        <StepType>Function</StepType>
+        <UserDescription i:nil="true" />
+        <UserLabel i:nil="true" />
+      </BaseStep>
       <BaseStep i:type="CalculateEventChargeStep">
+        <ConditionalExpression i:nil="true" />
         <StepType>CalculateEventCharge</StepType>
         <UserDescription i:nil="true" />
         <UserLabel i:nil="true" />

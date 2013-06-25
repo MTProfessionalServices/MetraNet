@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnumCategory xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
+  <BaseType>Enumeration</BaseType>
+  <Description>Message Activity for IE</Description>
+  <Extension>GXS</Extension>
+  <Items>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>0</arrays:string>
+        <arrays:string>S</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Send</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>1</arrays:string>
+        <arrays:string>R</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Receive</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>2</arrays:string>
+        <arrays:string>B</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Both</Name>
+    </EnumItem>
+    <EnumItem>
+      <Aliases>
+        <arrays:string>3</arrays:string>
+        <arrays:string>A</arrays:string>
+      </Aliases>
+      <Description i:nil="true" />
+      <Name>Archive</Name>
+    </EnumItem>
+  </Items>
+  <Name>MessageActivity</Name>
+  <Namespace>gxs.com/Global</Namespace>
+</EnumCategory>

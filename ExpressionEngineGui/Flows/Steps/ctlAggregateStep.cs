@@ -5,6 +5,7 @@ using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.Mvm.Enumerations;
 using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Constants;
 
 namespace PropertyGui.Flows.Steps
 {
@@ -28,7 +29,7 @@ namespace PropertyGui.Flows.Steps
 
             //Init the targets
             var targets = new PropertyCollection(null);
-            var parent = Step.AvailableProperties.Get("PARENT");
+            var parent = Step.AvailableProperties.Get(PropertyBagConstants.ParentPropertyBag);
             if (parent is PropertyBag)
             {
                 targets.Add(parent);
@@ -39,8 +40,6 @@ namespace PropertyGui.Flows.Steps
             GuiHelper.LoadEnum<AggregateAction>(cboAction);
 
             ctlSourceProperty.Init(step.AvailableProperties, TypeFactory.CreateNumeric());
-
-            ctlExpression.Init(Context, null);
         }
 
         public override void SyncToForm()
@@ -49,7 +48,6 @@ namespace PropertyGui.Flows.Steps
             ctlTargetProperty.Text = Step.TargetProperty;
             cboAction.SelectedItem = Step.Action;
             ctlSourceProperty.Text = Step.SourceProperty;
-            ctlExpression.Text = Step.Filter;
         }
 
         public override void SyncToObject()
@@ -58,7 +56,6 @@ namespace PropertyGui.Flows.Steps
             Step.TargetProperty = ctlTargetProperty.Text;
             Step.Action = (AggregateAction)cboAction.SelectedItem;
             Step.SourceProperty = ctlSourceProperty.Text;
-            Step.Filter = ctlExpression.Text;
         }
         #endregion
     }

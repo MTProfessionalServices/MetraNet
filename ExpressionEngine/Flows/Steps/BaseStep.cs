@@ -15,7 +15,9 @@ namespace MetraTech.ExpressionEngine.Flows
     [DataContract(Namespace = "MetraTech")]
     [KnownType(typeof(AggregationStep))]
     [KnownType(typeof(CalculateEventChargeStep))]
+    [KnownType(typeof(EnforceStep))]
     [KnownType(typeof(ExpressionStep))]
+    [KnownType(typeof(FunctionStep))]
     [KnownType(typeof(NewPropertyStep))]
     
     public class BaseStep
@@ -51,6 +53,8 @@ namespace MetraTech.ExpressionEngine.Flows
 
         [DataMember]
         public string ConditionalExpression { get; set; }
+
+        public bool HasConditionalExpression { get { return !string.IsNullOrWhiteSpace(ConditionalExpression); } }
 
         /// <summary>
         /// The child steps
@@ -155,6 +159,19 @@ namespace MetraTech.ExpressionEngine.Flows
             ioProperty.Direction = direction;
             InputsAndOutputs.Add(ioProperty);
             return ioProperty;
+        }
+
+        public virtual List<EventChargeMapping> GetEventChargeMappings()
+        {
+            return new List<EventChargeMapping>();
+        }
+
+        protected EventChargeMapping GetBaseEventChargeMapping()
+        {
+            var mapping = new EventChargeMapping();
+            mapping.ProductView = Flow.ProductView.Name;
+            mapping.Filter = ConditionalExpression;
+            return mapping;
         }
         #endregion
     }

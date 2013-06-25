@@ -33,13 +33,14 @@
             this.treSteps = new System.Windows.Forms.TreeView();
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuInsert = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.cboLabelMode = new System.Windows.Forms.ComboBox();
+            this.btnCsv = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnMoveDown = new System.Windows.Forms.Button();
             this.btnMoveUp = new System.Windows.Forms.Button();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.cboLabelMode = new System.Windows.Forms.ComboBox();
+            this.mnuDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,14 +76,6 @@
             this.mnuInsert.Size = new System.Drawing.Size(107, 22);
             this.mnuInsert.Text = "Insert";
             // 
-            // mnuDelete
-            // 
-            this.mnuDelete.Image = global::PropertyGui.Properties.Resources.delete;
-            this.mnuDelete.Name = "mnuDelete";
-            this.mnuDelete.Size = new System.Drawing.Size(107, 22);
-            this.mnuDelete.Text = "Delete";
-            this.mnuDelete.Click += new System.EventHandler(this.mnuDelete_Click);
-            // 
             // imageList
             // 
             this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
@@ -92,6 +85,28 @@
             this.imageList.Images.SetKeyName(2, "Aggregate.png");
             this.imageList.Images.SetKeyName(3, "Delete.png");
             this.imageList.Images.SetKeyName(4, "CalculateEventCharge.png");
+            this.imageList.Images.SetKeyName(5, "Enforce.png");
+            this.imageList.Images.SetKeyName(6, "Container.png");
+            this.imageList.Images.SetKeyName(7, "Function.png");
+            // 
+            // cboLabelMode
+            // 
+            this.cboLabelMode.FormattingEnabled = true;
+            this.cboLabelMode.Location = new System.Drawing.Point(82, 5);
+            this.cboLabelMode.Name = "cboLabelMode";
+            this.cboLabelMode.Size = new System.Drawing.Size(76, 21);
+            this.cboLabelMode.TabIndex = 10;
+            this.cboLabelMode.SelectedIndexChanged += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnCsv
+            // 
+            this.btnCsv.Location = new System.Drawing.Point(218, 2);
+            this.btnCsv.Name = "btnCsv";
+            this.btnCsv.Size = new System.Drawing.Size(39, 23);
+            this.btnCsv.TabIndex = 11;
+            this.btnCsv.Text = "CSV";
+            this.btnCsv.UseVisualStyleBackColor = true;
+            this.btnCsv.Click += new System.EventHandler(this.btnCsv_Click);
             // 
             // btnRefresh
             // 
@@ -126,18 +141,19 @@
             this.btnMoveUp.UseVisualStyleBackColor = true;
             this.btnMoveUp.Click += new System.EventHandler(this.btnMoveUp_Click);
             // 
-            // cboLabelMode
+            // mnuDelete
             // 
-            this.cboLabelMode.FormattingEnabled = true;
-            this.cboLabelMode.Location = new System.Drawing.Point(118, 5);
-            this.cboLabelMode.Name = "cboLabelMode";
-            this.cboLabelMode.Size = new System.Drawing.Size(121, 21);
-            this.cboLabelMode.TabIndex = 10;
+            this.mnuDelete.Image = global::PropertyGui.Properties.Resources.delete;
+            this.mnuDelete.Name = "mnuDelete";
+            this.mnuDelete.Size = new System.Drawing.Size(107, 22);
+            this.mnuDelete.Text = "Delete";
+            this.mnuDelete.Click += new System.EventHandler(this.mnuDelete_Click);
             // 
             // ctlFlowSteps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnCsv);
             this.Controls.Add(this.cboLabelMode);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnMoveDown);
@@ -162,5 +178,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuInsert;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ComboBox cboLabelMode;
+        private System.Windows.Forms.Button btnCsv;
     }
 }

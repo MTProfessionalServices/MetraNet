@@ -47,10 +47,7 @@ namespace MetraTech.ExpressionEngine.Flows
             for (int index = 0; index < Steps.Count; index++)
             {
                 var step = Steps[index];
-
-                #warning, why do we need this here???
-                step.AvailableProperties = new PropertyCollection(this);
-
+                step.Index = index + 1;
                 step.AvailableProperties.Clear();
 
                 //Copy what was available to previous

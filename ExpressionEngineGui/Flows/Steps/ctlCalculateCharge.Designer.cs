@@ -35,11 +35,11 @@
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(12, 33);
+            this.textBox1.Location = new System.Drawing.Point(18, 51);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(549, 78);
+            this.textBox1.Size = new System.Drawing.Size(405, 78);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Calculates all of the Charges and then sums them to calculate the EventCharge.";
             // 
@@ -49,7 +49,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.textBox1);
             this.Name = "ctlCalculateCharge";
-            this.Size = new System.Drawing.Size(578, 150);
+            this.Size = new System.Drawing.Size(484, 150);
+            this.Controls.SetChildIndex(this.textBox1, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 

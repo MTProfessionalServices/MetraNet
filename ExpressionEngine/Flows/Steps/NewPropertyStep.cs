@@ -25,18 +25,20 @@ namespace MetraTech.ExpressionEngine.Flows
         #region Methods
         public override void UpdateInputsAndOutputs(Context context)
         {
-#warning why do i need this here???
-            InputsAndOutputs = new PropertyCollection(this);
-
             InputsAndOutputs.Clear();
             var property = (Property) Property.Copy();
             property.Direction = Direction.Output;
             InputsAndOutputs.Add(property);
         }
 
-        public override string GetAutoLabel()
+        public override string GetBusinessAutoLabel()
         {
-            return string.Format(CultureInfo.InvariantCulture, "New {0} ({1})", Property.Name, Property.Type.BaseType.ToString());
+            return string.Format(CultureInfo.InvariantCulture, "Create new property {0} ({1})", Property.Name, Property.Type.BaseType.ToString());
+        }
+
+        public override string GetTechnicalAutoLabel()
+        {
+            return string.Format(CultureInfo.InvariantCulture, "new {0} ({1})", Property.Name, Property.Type.BaseType.ToString());
         }
         #endregion
     }

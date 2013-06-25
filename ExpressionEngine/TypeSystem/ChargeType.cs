@@ -13,6 +13,10 @@ namespace MetraTech.ExpressionEngine.TypeSystem
     {
         #region Constants
         private const string QuantityPropertyPropertyName = "QuantityProperty";
+        private const string PricePropertyPropertyName = "PriceProperty";
+        private const string ProductPropertyPropertyName = "ProductProperty";
+        private const string StartPropertyPropertyName = "StartProperty";
+        private const string EndPropertyPropertyName = "EndProperty";
         #endregion
 
         #region Properties
@@ -94,18 +98,32 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         {
             var links = new ComponentLinkCollection();
             links.Add(GetQuantityPropertyLink());
-
-            //references.Add(new PropertyReference(PriceProperty, TypeFactory.CreateMoney(), false));
-            //references.Add(new PropertyReference(ProductProperty, TypeFactory.CreateInteger(), false));
-            //references.Add(new PropertyReference(StartProperty, TypeFactory.CreateDateTime(), false));
-            //references.Add(new PropertyReference(EndProperty, TypeFactory.CreateDateTime(), false));
+            links.Add(GetPricePropertyLink());
+            links.Add(GetProductPropertyLink());
+            links.Add(GetStartPropertyLink());
+            links.Add(GetEndPropertyLink());
             return links;
         }
-        public ComponentLink GetQuantityPropertyLink()
+        public PropertyLink GetQuantityPropertyLink()
         {
             return new PropertyLink(TypeFactory.CreateNumeric(), this, QuantityPropertyPropertyName, true, Localization.QuantityProperty);
         }
-
+        public PropertyLink GetPricePropertyLink()
+        {
+            return new PropertyLink(TypeFactory.CreateMoney(), this, PricePropertyPropertyName, true, "Price Property");
+        }
+        public PropertyLink GetProductPropertyLink()
+        {
+            return new PropertyLink(TypeFactory.CreateInteger32(), this, ProductPropertyPropertyName, true, "Product Property");
+        }
+        public PropertyLink GetStartPropertyLink()
+        {
+            return new PropertyLink(TypeFactory.CreateDateTime(), this, StartPropertyPropertyName, true, "Start Property");
+        }
+        public PropertyLink GetEndPropertyLink()
+        {
+            return new PropertyLink(TypeFactory.CreateDateTime(), this, EndPropertyPropertyName, true, "End Property");
+        }
         #endregion
     }
 }

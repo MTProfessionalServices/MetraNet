@@ -15,7 +15,7 @@ namespace PropertyGui.Flows.Steps
                 throw new ArgumentException("step is null");
 
             ctlBaseStep control;
-            switch (step.FlowStepType)
+            switch (step.StepType)
             {
                 case StepType.AccountLookup:
                     control = new ctlAccountLookupStep();

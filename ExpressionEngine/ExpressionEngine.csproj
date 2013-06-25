@@ -56,15 +56,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Flows\Enumerations\LabelMode.cs" />
     <Compile Include="Flows\ProductViewFlow.cs" />
+    <Compile Include="Flows\StepInfo.cs" />
     <Compile Include="Flows\Steps\AccountLookupStep.cs" />
     <Compile Include="Flows\Steps\AggregationStep.cs" />
     <Compile Include="Flows\Steps\CalculateEventChargeStep.cs" />
+    <Compile Include="Flows\Steps\ContainerStep.cs" />
     <Compile Include="Flows\Steps\QueryStep.cs" />
     <Compile Include="Flows\Enumerations\StepType.cs" />
     <Compile Include="Flows\Steps\ExpressionStep.cs" />
     <Compile Include="Flows\BaseFlow.cs" />
     <Compile Include="Flows\Steps\BaseStep.cs" />
+    <Compile Include="Flows\Steps\StartStep.cs" />
     <Compile Include="Flows\Steps\StepFactory.cs" />
     <Compile Include="Flows\Steps\MtsqlStep.cs" />
     <Compile Include="Flows\Steps\NewPropertyStep.cs" />

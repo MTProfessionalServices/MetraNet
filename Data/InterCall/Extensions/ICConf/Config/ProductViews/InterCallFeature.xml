@@ -725,22 +725,17 @@
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
         <DefaultValue></DefaultValue>
-        <Description>feature amount</Description>
+        <Description>Same as EventCharge. Used for reporting purposes so that you don't need to join to t_acc_usage.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>feature_amt</Name>
         <Required>false</Required>
-        <Type i:type="ChargeType">
-          <BaseType>Charge</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
           <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty i:nil="true" />
-          <FixedCurrency i:nil="true" />
-          <EndProperty i:nil="true" />
-          <PriceProperty i:nil="true" />
-          <ProductProperty i:nil="true" />
-          <QuantityProperty></QuantityProperty>
-          <StartProperty i:nil="true" />
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1458,7 +1453,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>The charge assoicated with the event which may summarize other charges within the event.The amount can be negative to represent a credit.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
@@ -1470,11 +1465,11 @@
           <CurrencyMode>PropertyDriven</CurrencyMode>
           <CurrencyProperty>Currency</CurrencyProperty>
           <FixedCurrency i:nil="true" />
-          <EndProperty i:nil="true" />
-          <PriceProperty i:nil="true" />
-          <ProductProperty i:nil="true" />
-          <QuantityProperty i:nil="true" />
-          <StartProperty i:nil="true" />
+          <EndProperty>intercall.com.ProductViews.InterCallFeature.</EndProperty>
+          <PriceProperty>intercall.com.ProductViews.InterCallFeature.</PriceProperty>
+          <ProductProperty>intercall.com.ProductViews.InterCallFeature.</ProductProperty>
+          <QuantityProperty>intercall.com.ProductViews.InterCallFeature.</QuantityProperty>
+          <StartProperty>intercall.com.ProductViews.InterCallFeature.</StartProperty>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1661,25 +1656,9 @@
   <Flow>
     <Steps>
       <BaseStep i:type="CalculateEventChargeStep">
-        <Description i:nil="true" />
-        <FlowStepType>CalculateEventCharge</FlowStepType>
-        <Name i:nil="true" />
-      </BaseStep>
-      <BaseStep i:type="ExpressionStep">
-        <Description i:nil="true" />
-        <FlowStepType>Expression</FlowStepType>
-        <Name i:nil="true" />
-        <Expression>hello world</Expression>
-        <PropertyName>entry_type</PropertyName>
-      </BaseStep>
-      <BaseStep i:type="AggregationStep">
-        <Description i:nil="true" />
-        <FlowStepType>Aggregate</FlowStepType>
-        <Name i:nil="true" />
-        <Action>Sum</Action>
-        <Filter>asdfasdfasdf</Filter>
-        <SourceProperty>feature_div_tax_amt</SourceProperty>
-        <TargetProperty>PARENT.minimum_amt</TargetProperty>
+        <StepType>CalculateEventCharge</StepType>
+        <UserDescription i:nil="true" />
+        <UserLabel i:nil="true" />
       </BaseStep>
     </Steps>
   </Flow>

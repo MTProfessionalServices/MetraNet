@@ -36,11 +36,11 @@ namespace PropertyGui.Flows.Steps
             Context = context;
         }
         public virtual void SyncToObject()
-        {        
+        {
         }
 
         public virtual void SyncToForm()
-        {        
+        {
         }
 
         public virtual void InsertSnippet(string snippet)

@@ -27,12 +27,6 @@ namespace MetraTech.ExpressionEngine.Flows.Steps
         /// </summary>
         [DataMember]
         public string SourceProperty { get; set; }
-
-        /// <summary>
-        /// An optional filter to deterine if the source property is used in the aggregation
-        /// </summary>
-        [DataMember]
-        public string Filter { get; set; }
         #endregion
 
         #region Constructor
@@ -50,21 +44,16 @@ namespace MetraTech.ExpressionEngine.Flows.Steps
             AddToInputsAndOutputs(SourceProperty, Direction.Input);
         }
 
-        public override string GetAutoLabel()
+        public override string GetBusinessAutoLabel()
         {
-            return string.Format(CultureInfo.InvariantCulture,
-                    "Aggreate({0}, {1}, {2}, '{3}')",
-                        TargetProperty,
-                        Action,
-                        SourceProperty,
-                        Filter);
+            return string.Format(CultureInfo.InvariantCulture, "Aggreate {0} of {1} into {2}", Action, SourceProperty, TargetProperty);
         }
 
-        public override string GetAutoDescription()
+        public override string GetTechnicalAutoLabel()
         {
-            return "Aggregate...";
+            return  string.Format(CultureInfo.InvariantCulture, "{0} = Aggreate({1}, {2})",
+                          TargetProperty, Action, SourceProperty);
         }
-
         #endregion
     }
 }

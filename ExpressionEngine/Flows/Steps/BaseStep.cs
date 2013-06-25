@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
 using MetraTech.ExpressionEngine.Flows.Steps;
@@ -26,16 +27,35 @@ namespace MetraTech.ExpressionEngine.Flows
         /// </summary>
         public BaseFlow Flow { get; set; }
 
-        [DataMember]
-        public StepType FlowStepType { get; private set; }
+        public StepInfo Info { get { return StepInfo.Items[StepType]; } }
 
         [DataMember]
-        public string Name { get; set; }
+        public StepType StepType { get; private set; }
+        
+        /// <summary>
+        /// The sequential step number; updated when UpdateFlow() is invoked
+        /// </summary>
+        public int Index { get; set; }
 
-        public bool IsUserEditable { get; private set; }
+        /// <summary>
+        /// Label entered by the user, shown in the tree
+        /// </summary>
+        [DataMember]
+        public string UserLabel { get; set; }
+
+        /// <summary>
+        /// A description entered by the user, shown as a tooltip in the tree
+        /// </summary>
+        [DataMember]
+        public string UserDescription { get; set; }
 
         [DataMember]
-        public string Description { get; set; }
+        public string ConditionalExpression { get; set; }
+
+        /// <summary>
+        /// The child steps
+        /// </summary>
+        public List<BaseStep> Steps = new List<BaseStep>();
 
         /// <summary>
         /// Indicates what properties (and their direction) the Step interacts with. Each subclass should override this method
@@ -46,14 +66,12 @@ namespace MetraTech.ExpressionEngine.Flows
         #endregion
 
         #region Constructor
-        public BaseStep(BaseFlow flow, StepType flowItemType, bool isUserEditable=true)
+        public BaseStep(BaseFlow flow, StepType stepType)
         {
             if (flow == null)
                 throw new ArgumentException("flow is null");
             Flow = flow;
-            FlowStepType = flowItemType;
-
-            IsUserEditable = isUserEditable;
+            StepType = stepType;
             FixDeserilization(new StreamingContext());
         }
 
@@ -64,6 +82,21 @@ namespace MetraTech.ExpressionEngine.Flows
             AvailableProperties  = new PropertyCollection(null);
         }
 
+        #endregion
+
+        #region Flow Methods
+        public BaseStep FirstStep()
+        {
+            if (Steps.Count == 0)
+                return null;
+            return Steps[0];
+        }
+        public BaseStep LastStep()
+        {
+            if (Steps.Count == 0)
+                return null;
+            return Steps[Steps.Count-1];
+        }
         #endregion
 
         #region Methods
@@ -84,17 +117,32 @@ namespace MetraTech.ExpressionEngine.Flows
         /// <summary>
         /// Returns an automatically generated user-friendly label. Commonly used as the text in the tree control UI.
         /// </summary>
-        public virtual string GetAutoLabel()
+        public virtual string GetBusinessAutoLabel()
         {
             return null;
         }
 
-        /// <summary>
-        /// Returns an automatically generated description. Commonly used for a tool tip in the tree control UI.
-        /// </summary>
-        public virtual string GetAutoDescription()
+        public virtual string GetTechnicalAutoLabel()
         {
             return null;
+        }
+
+        public string GetLabel(LabelMode mode)
+        {
+            if (mode == LabelMode.Business)
+            {
+                if (!string.IsNullOrWhiteSpace(UserLabel))
+                    return UserLabel;
+                return GetBusinessAutoLabel();
+            }
+            return GetTechnicalAutoLabel();
+        }
+
+        public string GetDescription()
+        {
+            if (!string.IsNullOrWhiteSpace(UserDescription))
+                return UserDescription;
+            return Info.Description;
         }
 
         public Property AddToInputsAndOutputs(string propertyName, Direction direction)

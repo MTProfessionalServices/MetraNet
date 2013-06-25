@@ -45,6 +45,7 @@ namespace PropertyGui.Flows.Steps
 
         public override void SyncToForm()
         {
+            base.SyncToForm();
             ctlTargetProperty.Text = Step.TargetProperty;
             cboAction.SelectedItem = Step.Action;
             ctlSourceProperty.Text = Step.SourceProperty;
@@ -53,6 +54,7 @@ namespace PropertyGui.Flows.Steps
 
         public override void SyncToObject()
         {
+            base.SyncToObject();
             Step.TargetProperty = ctlTargetProperty.Text;
             Step.Action = (AggregateAction)cboAction.SelectedItem;
             Step.SourceProperty = ctlSourceProperty.Text;

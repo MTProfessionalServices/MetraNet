@@ -30,17 +30,19 @@
         {
             this.SuspendLayout();
             // 
-            // ctlFlowStepBase
+            // ctlBaseStep
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "ctlBaseStep";
-            this.Size = new System.Drawing.Size(534, 212);
+            this.Size = new System.Drawing.Size(722, 364);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+
 
     }
 }

@@ -3,7 +3,6 @@ using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
-using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 
 namespace MetraTech.ExpressionEngine.Flows.Steps
@@ -16,7 +15,7 @@ namespace MetraTech.ExpressionEngine.Flows.Steps
 
         #region Constructor
         public CalculateEventChargeStep(BaseFlow flow)
-            : base(flow, StepType.CalculateEventCharge, false)
+            : base(flow, StepType.CalculateEventCharge)
         {
         }
         #endregion
@@ -35,10 +34,13 @@ namespace MetraTech.ExpressionEngine.Flows.Steps
                 AddToInputsAndOutputs(type.PriceProperty, Direction.Input);
             }
         }
-        public override string GetAutoLabel()
+        public override string GetBusinessAutoLabel()
         {
-            //ToDo: Need to variablize this to deal with EventPayments! 
-            return string.Format(CultureInfo.InvariantCulture, "Calculate EventCharge");
+            return "Calculate Event Charge";
+        }
+        public override string GetTechnicalAutoLabel()
+        {
+            return "CalculateEventCharge()";
         }
         #endregion
     }

@@ -34,9 +34,6 @@ namespace MetraTech.ExpressionEngine.Flows
         #region Methods
         public override void UpdateInputsAndOutputs(Context context)
         {
-#warning why do i need this here? Should just need to clear it.
-            InputsAndOutputs = new PropertyCollection(this);
-
             //We aren't dealing with any inputs, including if this property is used itself as an input
             AddToInputsAndOutputs(PropertyName, Direction.Output);
         }
@@ -45,18 +42,16 @@ namespace MetraTech.ExpressionEngine.Flows
         {
              return AvailableProperties.Get(PropertyName);
         }
-        public override string GetAutoLabel()
+        public override string GetBusinessAutoLabel()
+        {
+            return GetTechnicalAutoLabel();
+        }
+
+        public override string GetTechnicalAutoLabel()
         {
             return string.Format(CultureInfo.InvariantCulture, "{0} = {1}", PropertyName, Expression);
         }
 
-        public override string GetAutoDescription()
-        {
-            var property = GetProperty();
-            if (property != null)
-                return property.Description;
-            return null;
-        }
         #endregion
     }
 }

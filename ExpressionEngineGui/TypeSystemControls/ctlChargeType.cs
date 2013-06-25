@@ -24,21 +24,30 @@ namespace PropertyGui.TypeSystemControls
             base.Init(property, context);
             ChargeType = (ChargeType)property.Type;
 
-            ctlQuantityProperty.Init(Property, TypeFactory.CreateNumeric(), "Quantity", PropertyCreated);
+            ctlQuantityProperty.Init(ChargeType.GetQuantityPropertyLink(), "Quantity", Property.PropertyBag, OnPropertyCreated);
+            ctlPriceProperty.Init(ChargeType.GetPricePropertyLink(), "Price", Property.PropertyBag, OnPropertyCreated); 
+            ctlProductProperty.Init(ChargeType.GetProductPropertyLink(), "Product", Property.PropertyBag, OnPropertyCreated);
+            ctlStartProperty.Init(ChargeType.GetStartPropertyLink(), "Start", Property.PropertyBag, OnPropertyCreated);
+            ctlEndProperty.Init(ChargeType.GetEndPropertyLink(), "End", Property.PropertyBag, OnPropertyCreated);
         }
 
         public override void SyncToForm()
         {
             Visible = !Property.IsCore || ((ProductViewEntity)Property.PropertyCollection.PropertyBag).GetCharges(false).Count == 0;
-            ctlQuantityProperty.PropertyName = ChargeType.QuantityProperty;
-            cboPriceProperty.Text = ChargeType.PriceProperty;
-            cboProductProperty.Text = ChargeType.ProductProperty;
-            cboSartProperty.Text = ChargeType.StartProperty;
-            cboEndProperty.Text = ChargeType.EndProperty;
+            ctlQuantityProperty.SyncToForm();
+            ctlPriceProperty.SyncToForm();
+            ctlProductProperty.SyncToForm();
+            ctlStartProperty.SyncToForm();
+            ctlEndProperty.SyncToForm();
         }
+
         public override void SyncToObject()
         {
-            ChargeType.QuantityProperty = ctlQuantityProperty.PropertyName;
+            ctlQuantityProperty.SyncToObject();
+            ctlPriceProperty.SyncToObject();
+            ctlProductProperty.SyncToObject();
+            ctlStartProperty.SyncToObject();
+            ctlEndProperty.SyncToObject();
         }
         #endregion
     }

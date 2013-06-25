@@ -36,7 +36,8 @@
             this.ctlProperty.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ctlProperty.Location = new System.Drawing.Point(0, 0);
             this.ctlProperty.Name = "ctlProperty";
-            this.ctlProperty.Size = new System.Drawing.Size(450, 371);
+            this.ctlProperty.ShowIsRequired = true;
+            this.ctlProperty.Size = new System.Drawing.Size(665, 371);
             this.ctlProperty.TabIndex = 0;
             // 
             // ctlNewPropertyStep
@@ -45,8 +46,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.ctlProperty);
             this.Name = "ctlNewPropertyStep";
-            this.Size = new System.Drawing.Size(450, 371);
+            this.Size = new System.Drawing.Size(665, 371);
+            this.Controls.SetChildIndex(this.ctlProperty, 0);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

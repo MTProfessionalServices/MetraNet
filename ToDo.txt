@@ -1,11 +1,8 @@
-*Recursive lookup of property name
-*IO for calculate charge
+*PropertyFlowLink
 *Skip PARENT
 
 *Property filtering not working
 *Hide property bag filter
-
-*Replace expression textbox with subclass
 *Validation has false positives
 
 FIXED:
@@ -18,3 +15,7 @@ FIXED:
 *Remove property and function from expression
 *Double click add function
 *Double click add enumeration
+*IO for calculate charge
+*Replace expression textbox with subclass
+*Recursive lookup of property name
+*Tree refresh loses selected item

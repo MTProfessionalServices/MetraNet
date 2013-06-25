@@ -38,7 +38,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(257, 32);
+            this.label3.Location = new System.Drawing.Point(257, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(19, 20);
             this.label3.TabIndex = 12;
@@ -48,7 +48,7 @@
             // cboProperty
             // 
             this.cboProperty.FormattingEnabled = true;
-            this.cboProperty.Location = new System.Drawing.Point(6, 31);
+            this.cboProperty.Location = new System.Drawing.Point(6, 65);
             this.cboProperty.Name = "cboProperty";
             this.cboProperty.Size = new System.Drawing.Size(245, 21);
             this.cboProperty.Sorted = true;
@@ -58,7 +58,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 15);
+            this.label1.Location = new System.Drawing.Point(15, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(26, 13);
             this.label1.TabIndex = 10;
@@ -71,11 +71,11 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtExpression.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtExpression.Location = new System.Drawing.Point(6, 61);
+            this.txtExpression.Location = new System.Drawing.Point(6, 102);
             this.txtExpression.Multiline = true;
             this.txtExpression.Name = "txtExpression";
             this.txtExpression.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtExpression.Size = new System.Drawing.Size(674, 358);
+            this.txtExpression.Size = new System.Drawing.Size(674, 317);
             this.txtExpression.TabIndex = 8;
             this.txtExpression.WordWrap = false;
             // 
@@ -89,6 +89,10 @@
             this.Controls.Add(this.txtExpression);
             this.Name = "ctlExpression";
             this.Size = new System.Drawing.Size(693, 436);
+            this.Controls.SetChildIndex(this.txtExpression, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.cboProperty, 0);
+            this.Controls.SetChildIndex(this.label3, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 

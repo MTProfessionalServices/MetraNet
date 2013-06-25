@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Flows;
@@ -25,6 +24,9 @@ namespace PropertyGui.Flows
         public ctlFlowSteps()
         {
             InitializeComponent();
+
+            GuiHelper.LoadEnum<LabelMode>(cboLabelMode);
+            cboLabelMode.SelectedItem = LabelMode.Business;
         }
         #endregion
 
@@ -87,29 +89,32 @@ namespace PropertyGui.Flows
         private TreeNode InsertStep(int index, BaseStep step)
         {
             var node = new TreeNode();
-            node.ImageKey = step.FlowStepType.ToString();
-            node.Name = step.Name;
+            node.ImageKey = step.StepType.ToString();
             node.Tag = step;
             return node;
         }
 
         public void SyncToObject()
         {
-            Flow.Steps.Clear();
+            //Insure that the current step control is updated
             if (CurrentStepControl != null)
-                CurrentStepControl.SyncToObject();
+                CurrentStepControl.SyncToObject(); 
+            
+            //Get the order of the steps
+            Flow.Steps.Clear();
             foreach (var node in treSteps.GetAllNodes())
             {
                 Flow.Steps.Add((BaseStep)node.Tag);
             }
+            Flow.UpdateFlow(Context);
         }
 
         private void UpdateNode(TreeNode node)
         {
             var step = (BaseStep) node.Tag;
-            node.Text = step.GetAutoLabel();
-            node.ToolTipText = step.GetAutoDescription();
-            node.ImageKey = step.FlowStepType.ToString() + ".png";
+            node.Text = string.Format("{0}. {1}", step.Index, step.GetLabel((LabelMode)cboLabelMode.SelectedItem));
+            node.ToolTipText = step.GetDescription();
+            node.ImageKey = step.StepType.ToString() + ".png";
             node.SelectedImageKey = node.ImageKey;
         }
         public TreeNode InsertNode(int index, BaseStep step)
@@ -135,15 +140,15 @@ namespace PropertyGui.Flows
 
         private void MoveNode(TreeNode node, int index)
         {
+            //Need to deslected the node because the tree will autorelceted whatever node fills its slot
+            treSteps.SelectedNode = null;
             treSteps.Nodes.RemoveAt(node.Index);
             treSteps.Nodes.Insert(index, node);
-            Flow.UpdateFlow(Context);
-            treSteps.SelectedNode = node;
+            RefreshTree();
         }
 
         public void RefreshTree()
         {
-            Flow.UpdateFlow(Context);
             SyncToObject();
             SyncToForm();
         }

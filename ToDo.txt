@@ -8,6 +8,7 @@
 Questions for Andy:
 -----------------
 *Is a filter valid for all steps? What about charge and units?
+*IC rate default... where did the value come from?
 
 
 FIXED:

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using MetraTech.ExpressionEngine;
@@ -15,11 +16,12 @@ namespace PropertyGui.Flows
         private bool IgnoreChanges = true;
         private Context Context;
         private BaseFlow Flow;
-        private BaseStep CurrentStep;
+        public BaseStep CurrentStep { get; private set; }
         public ctlBaseStep CurrentStepControl { get; private set; }
         private Control TargetStepControlParent;
         private ctlContextExplorer Toolbox;
         private TreeNode PreviouslySelectedNode;
+        private ctlFlowEditor FlowEditor;
         #endregion
 
         #region Constructor
@@ -30,7 +32,7 @@ namespace PropertyGui.Flows
         #endregion
 
         #region Methods
-        public void Init(Context context, BaseFlow flow, Control targetStepControlParent=null, ctlContextExplorer toolbox=null)
+        public void Init(Context context, BaseFlow flow, ctlFlowEditor flowEditor, Control targetStepControlParent=null, ctlContextExplorer toolbox=null)
         {
             if (context == null)
                 throw new ArgumentException("context is null");
@@ -38,6 +40,7 @@ namespace PropertyGui.Flows
                 throw new ArgumentException("flow is null");
             Context = context;
             Flow = flow;
+            FlowEditor = flowEditor;
             TargetStepControlParent = targetStepControlParent;
             Toolbox = toolbox;
 
@@ -75,7 +78,9 @@ namespace PropertyGui.Flows
             }
             treSteps.EndUpdate();
 
-            //Attempt to reselect previosly seleconed node
+            SyncCurrentStepControlToForm();
+
+            //Attempt to reselect previosly selected node
             if (CurrentStep != null)
             {
                 foreach (var node in treSteps.GetAllNodes())
@@ -105,8 +110,10 @@ namespace PropertyGui.Flows
         public void SyncToObject()
         {
             //Insure that the current step control is updated
-            if (CurrentStepControl != null)
-                CurrentStepControl.SyncToObject(); 
+            SyncCurrentStepControlToObject();
+
+            if (FlowEditor != null)
+                FlowEditor.SyncCommonFieldsToForm(CurrentStep);
             
             //Get the order of the steps
             Flow.Steps.Clear();
@@ -122,7 +129,22 @@ namespace PropertyGui.Flows
             var step = (BaseStep) node.Tag;
             node.Text = string.Format("{0}. {1}", step.Index, step.GetLabel((LabelMode)cboLabelMode.SelectedItem));
             node.ToolTipText = step.GetDescription();
-            node.ImageKey = step.StepType.ToString() + ".png";
+
+            var baseImageName = step.StepType.ToString() + ".png";
+            if (step.HasConditionalExpression)
+            {
+                var overlayImageName = step.StepType.ToString() + "_Overlay.png";
+                if (!imageList.Images.ContainsKey(overlayImageName))
+                {
+                    var image = MvcAbstraction.GetOverlayImage(imageList.Images[baseImageName],
+                                                               imageList.Images["ConditionalExecutionOverlay.png"]);
+                    imageList.Images.Add(overlayImageName, image);
+                }
+                node.ImageKey = overlayImageName;
+            }
+            else
+                node.ImageKey = baseImageName; 
+
             node.SelectedImageKey = node.ImageKey;
         }
         public TreeNode InsertNode(int index, BaseStep step)
@@ -198,6 +220,24 @@ namespace PropertyGui.Flows
             MoveNode(treSteps.SelectedNode, index);
         }
 
+        private void SyncCurrentStepControlToForm()
+        {
+            if (CurrentStepControl != null)
+            {
+                CurrentStepControl.SyncToForm();
+                FlowEditor.SyncCommonFieldsToForm(CurrentStep);
+            }
+        }
+
+        private void SyncCurrentStepControlToObject()
+        {
+            if (CurrentStepControl != null)
+            {
+                CurrentStepControl.SyncToObject();
+                FlowEditor.SyncCommonFieldsToObject(CurrentStep);
+            }
+        }
+
         #endregion
 
         #region Tree Events
@@ -209,16 +249,16 @@ namespace PropertyGui.Flows
                 return;
             }
 
-            CurrentStep = (BaseStep)treSteps.SelectedNode.Tag;
-
             if (CurrentStepControl != null)
             {
-                CurrentStepControl.SyncToObject();
+                SyncCurrentStepControlToObject();
                 UpdateNode(PreviouslySelectedNode);
                 CurrentStepControl.Parent = null;
                 CurrentStepControl.Visible = false;
                 CurrentStepControl.Dispose();
             }
+
+            CurrentStep = (BaseStep)treSteps.SelectedNode.Tag;
 
             Flow.UpdateFlow(Context);
             CurrentStepControl = StepFactory.Create(Context, CurrentStep);
@@ -226,7 +266,7 @@ namespace PropertyGui.Flows
             {
                 CurrentStepControl.Parent = TargetStepControlParent;
                 CurrentStepControl.Dock = DockStyle.Fill;
-                CurrentStepControl.SyncToForm();
+                SyncCurrentStepControlToForm();
             }
             if (Toolbox != null)
             {

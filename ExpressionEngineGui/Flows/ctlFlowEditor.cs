@@ -33,7 +33,7 @@ namespace PropertyGui.Flows.Steps
             Context = context;
             Flow = flow;
 
-            ctlFlowSteps.Init(Context, Flow, tabDetails, ctlToolbox);
+            ctlFlowSteps.Init(Context, Flow, this, tabDetails, ctlToolbox);
 
             //Toolbox
             var info = new ExpressionInfo(ExpressionType.ProductView);
@@ -70,11 +70,28 @@ namespace PropertyGui.Flows.Steps
                 ctlFlowSteps.CurrentStepControl.InsertSnippet(snippet);
         }
 
+        public void SyncCommonFieldsToObject(BaseStep step)
+        {
+                step.UserLabel = txtLabel.Text;
+                step.UserDescription = txtDescription.Text;
+                step.ConditionalExpression = ctlConditionalExecution.Text;
+        }
+
         public void SyncToForm()
         {
+
             ctlFlowSteps.SyncToForm();
             UpdateGui();
         }
+
+        public void SyncCommonFieldsToForm(BaseStep step)
+        {
+            txtLabel.Text = step.UserLabel;
+            txtDescription.Text = step.UserDescription;
+            ctlConditionalExecution.Text = step.ConditionalExpression;
+            UpdateGui();
+        }
+
 
         public void SyncToObject()
         {

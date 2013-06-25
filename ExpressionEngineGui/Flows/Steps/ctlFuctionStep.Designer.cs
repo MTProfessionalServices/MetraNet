@@ -33,7 +33,7 @@
             // 
             // ctlProperty
             // 
-            this.ctlProperty.Location = new System.Drawing.Point(28, 27);
+            this.ctlProperty.Location = new System.Drawing.Point(54, 20);
             this.ctlProperty.Name = "ctlProperty";
             this.ctlProperty.Size = new System.Drawing.Size(265, 21);
             this.ctlProperty.TabIndex = 9;

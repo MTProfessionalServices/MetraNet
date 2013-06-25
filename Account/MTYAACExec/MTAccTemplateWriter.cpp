@@ -90,12 +90,6 @@ STDMETHODIMP CMTAccTemplateWriter::SaveTemplateProperties(long aTemplateID,IMTCo
 			rs->AddParam("%%VALUE%%",prop->GetInternalValue());
 			rs->Execute();
     }
-
-    rs->Clear();
-
-    rs->InitializeForStoredProc("UpdatePrivateTempates");
-		rs->AddInputParameterToStoredProc("id_template", MTTYPE_INTEGER, INPUT_PARAM, aTemplateID);
-		rs->ExecuteStoredProc();
 	}
 	catch(_com_error& err) {
 		return ReturnComError(err);
@@ -125,6 +119,12 @@ STDMETHODIMP CMTAccTemplateWriter::SaveSubscriptions(long aTemplateID, IMTAccoun
 				MT_THROW_COM_ERROR("failed to save account template subscriptions");
 			}
 		}
+
+		rs->Clear();
+
+		rs->InitializeForStoredProc("UpdatePrivateTempates");
+		rs->AddInputParameterToStoredProc("id_template", MTTYPE_INTEGER, INPUT_PARAM, aTemplateID);
+		rs->ExecuteStoredProc();
 	}
 	catch(_com_error& err) {
 		return ReturnComError(err);

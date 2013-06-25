@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.IO;
+using MetraTech.DataExportFramework.Common;
 using MetraTech.Interop.Rowset;
 using System.Data;
 using System.Data.SqlClient;
@@ -182,17 +183,6 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 		public event ReportExecutionCompleteHandler ReportCompletedEvent;
 
 		/// <summary>
-		/// XML DOM instance that holds the reference to the Reporting Framework config XML file
-		/// </summary>
-		private XmlDocument __doc;
-
-		/// <summary>
-		/// GET/SET
-		///		<value>XML DOM instance that holds the reference to the Reporting Framework config XML file</value>
-		/// </summary>
-		public XmlDocument ConfigXML { get { return __doc; } set { __doc = value; } }
-
-		/// <summary>
 		/// IReportInstance that will be initialized and executed based on the report instance type found in the work queue
 		/// </summary>
 		/// <remarks>This is a private variable and not exposed as a property</remarks>
@@ -256,20 +246,6 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 		public string Reporttype { get { return __reportType; } set { __reportType = value; } }
 
 		/// <summary>
-		/// temporary working folder for all report executions
-		/// reports are created as .tmp files in this folder before getting delivered to the specified destination
-		/// </summary>
-		private string __reportsWorkingFolder;
-
-		/// <summary>
-		/// GET/SET
-		/// <value>temporary working folder for all report executions
-		/// reports are created as .tmp files in this folder before getting delivered to the specified destination</value>
-		/// </summary>
-		public string ReportsWorkingFolder { get { return __reportsWorkingFolder; } set { __reportsWorkingFolder = value; } }
-
-
-		/// <summary>
 		/// Start Date Time when the report started to execute
 		/// </summary>
 		private DateTime __executeStartTime;
@@ -285,7 +261,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 		/// </summary>
 		private string __workQId;
 
-	  private IConfiguration _config = ConfigurationSimple.Instance;
+    private IConfiguration _config = Configuration.Instance;
 		/// <summary>
 		/// GET/SET
 		/// <value>This report instance's id on the work queue</value>
@@ -320,7 +296,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
             //System.Threading.Thread t = System.Threading.Thread.CurrentThread.ManagedThreadId.ToString();
             //logerr.logt.ManagedThreadId
             //string t = System.Threading.Thread.CurrentThread.ManagedThreadId.ToString();
-            //Common.MakeLogEntry("ReportGeneratorTrackingStart: workQId=" + workQID + " ThreadID=" + t, "error");
+            //DefLog.MakeLogEntry("ReportGeneratorTrackingStart: workQId=" + workQID + " ThreadID=" + t, "error");
 			try 
 			{
 				switch (this.__reportType.ToLower())
@@ -352,7 +328,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 			}
 			catch (Exception ex)
 			{
-				Common.MakeLogEntry("Constructor Exception for Report Instance-"+this.__reportInstanceId.ToString(), "error");
+                DefLog.MakeLogEntry("Constructor Exception for Report Instance-" + this.__reportInstanceId.ToString(), "error");
 				ReportInstanceInitializationException _rIEx = new ReportInstanceInitializationException("", ex);
 				_rIEx.WorkQId = this.__workQId;
 				_rIEx.CompletionStatus = ReportExecuteStatus.FAILED;
@@ -378,16 +354,13 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 		#region Single Threaded Execute
 		public void SingleThreadedExecute()
 		{
-			this.__reportInstance.ReportsWorkingFolder = __reportsWorkingFolder;
-			this.__reportInstance.ConfigXML = __doc;
-			
 			try 
 			{
 				this.__reportInstance.Execute();
 			}
 			catch (Exception ex)
 			{
-				Common.MakeLogEntry("Report Exection Exception:\n"+ex.ToString(), "error");
+                DefLog.MakeLogEntry("Report Exection Exception:\n" + ex.ToString(), "error");
 			}
 		}
 		#endregion
@@ -401,8 +374,6 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 			ReportExecutionCompleteEventArgs _rE = new ReportExecutionCompleteEventArgs();
 			_rE.ExecuteStartTime = this.__reportInstance.ExecuteStartDatetime;
 			_rE.ReportSetToBeExecutedAt = this.__reportInstance.ThisReportSetTobeExecutedAt;
-			this.__reportInstance.ReportsWorkingFolder = __reportsWorkingFolder;
-			this.__reportInstance.ConfigXML = __doc;
 
 			_rE.ReportInstanceID = this.__reportInstanceId;
 			_rE.ScheduleID = this.__scheduleId;
@@ -411,7 +382,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 			_rE.WorkQId = this.__workQId;
             //bool exceptionOccurred = false;
             //string t = System.Threading.Thread.CurrentThread.ManagedThreadId.ToString();
-            //Common.MakeLogEntry("ReportGeneratorTrackingCallback: workQId=" + this.__workQId + " ThreadID=" + t, "error");
+            //DefLog.MakeLogEntry("ReportGeneratorTrackingCallback: workQId=" + this.__workQId + " ThreadID=" + t, "error");
             try
             {
                 //LogWriter.LogDebug("ReportGenerator", "Begin Execute ReportInstance, type" + this.__reportInstance.GetType().ToString() );
@@ -425,7 +396,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
                 //exceptionOccurred = true;
                 _rE.Description = ex.ToString().Replace("%", "");
                 _rE.CompletionStatus = ReportExecuteStatus.FAILED;
-                Common.MakeLogEntry("Report Exection Exception:\n" + ex.ToString(), "error");
+                DefLog.MakeLogEntry("Report Exection Exception:\n" + ex.ToString(), "error");
             }
             finally
             {
@@ -437,10 +408,10 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 
 		private string FieldDefFile(string reportTitle, int reportInstanceId)
 		{
-		  string fielDef = Path.Combine(_config.GetFieldDefDir(), String.Format("{0}.xml", reportTitle));
+		  string fielDef = Path.Combine(_config.PathToReportFieldDefDir, String.Format("{0}.xml", reportTitle));
       if (!System.IO.File.Exists(fielDef))
       {
-        fielDef = Path.Combine(_config.GetFieldDefDir(), String.Format("{0}_{1}.xml", reportTitle, reportInstanceId));
+        fielDef = Path.Combine(_config.PathToReportFieldDefDir, String.Format("{0}_{1}.xml", reportTitle, reportInstanceId));
       }
       else if (!System.IO.File.Exists(fielDef))
       {

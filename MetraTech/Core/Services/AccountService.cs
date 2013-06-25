@@ -154,7 +154,7 @@ namespace MetraTech.Core.Services
                 }
             }
 
-            
+
         }
 
         #region IAccountService Methods
@@ -279,7 +279,7 @@ namespace MetraTech.Core.Services
                     accountCatalog,
                     ref filter,
                     ref columns);
-                //extract records
+                //extract records              
 
                 try
                 {
@@ -311,11 +311,10 @@ namespace MetraTech.Core.Services
                             return;
                         }
 
-                        //Use the same filters and columns to retrieve the accounts, but remove contact type filter
+                        // Use the same filters and columns to retrieve the accounts, but remove contact type filter
                         filter.Add("_AccountID", RS.MTOperatorType.OPERATOR_TYPE_IN, accountStringList.ToString());
                         MTFilterElement accountIdFilter = new MTFilterElement("_AccountID", MTFilterElement.OperationType.In, accountStringList.ToString());
                         accounts.Filters.Add(accountIdFilter);
-                        //object moreRows = null;
 
                         List<BaseTypes.Account> tmpList = new List<Account>();
                         GetAccountListInternal(accounts,
@@ -671,7 +670,7 @@ namespace MetraTech.Core.Services
 
                         // Create the account 
                         AccountHelper.CreateAccount(account, sessionContext,
-                            ref hierarchyPath, ref currency, ref ancestorId, 
+                            ref hierarchyPath, ref currency, ref ancestorId,
                             ref corporateAccountId, ref ancestorType,
                             profileIdGenerator, accountIdGenerator);
 
@@ -695,7 +694,7 @@ namespace MetraTech.Core.Services
                         throw masE;
                     }
 
-                
+
                 }
                 catch (MASBasicException masBasEx)
                 {
@@ -721,16 +720,16 @@ namespace MetraTech.Core.Services
         /// <param name="typeName">A name of all types account type if indicated and null otherwise.</param>
         public void GetAllAccountsTypeName(ref string typeName)
         {
-          try
-          {
-            typeName = AccountTemplateService.Config.AllTypesAccountTypeName;
-          }
-          catch (Exception e)
-          {
-            mLogger.LogException("Exception getting account template configuration", e);
+            try
+            {
+                typeName = AccountTemplateService.Config.AllTypesAccountTypeName;
+            }
+            catch (Exception e)
+            {
+                mLogger.LogException("Exception getting account template configuration", e);
 
-            throw new MASBasicException("Unknown error getting account template configuration");
-          }
+                throw new MASBasicException("Unknown error getting account template configuration");
+            }
         }
 
         // Retrieves an account's type name and the value indicating if this account has a LogOn capability.
@@ -817,18 +816,61 @@ namespace MetraTech.Core.Services
             bool applyPagination,
             ReadAccountData readMethod)
         {
-            //List<int> accountList = new List<int>();
-
             using (MTComSmartPtr<IMTQueryAdapter> queryAdapter = new MTComSmartPtr<IMTQueryAdapter>())
             {
                 queryAdapter.Item = new MTQueryAdapter();
                 queryAdapter.Item.Init(@"queries\Account");
 
-                queryAdapter.Item.SetQueryTag((displayAliases) ? "__ADVANCEDSEARCH_ALIASES__" : "__ADVANCEDSEARCH__");
+                // We load a query based on whether an accountID filter was passed in or not
+                if (null == ((accounts.Filters.Find(f => ((MTFilterElement)f).PropertyName.ToUpper().CompareTo("_ACCOUNTID") == 0))))
+                {
+                    queryAdapter.Item.SetQueryTag((displayAliases) ? "__ADVANCEDSEARCH_ALIASES__" : "__ADVANCEDSEARCH__");
+                }
+                else
+                {
+                    if (null == (accounts.Filters.Find(p => ((MTFilterElement)p).Operation == MTFilterElement.OperationType.In)))
+                    {
+                        queryAdapter.Item.SetQueryTag((displayAliases) ? "__ADVANCEDSEARCH_ALIASES__" : "__ADVANCEDSEARCH__");
+                    }
+                    else
+                    {
+                        queryAdapter.Item.SetQueryTag((displayAliases) ?
+                            "__ADVANCEDSEARCH_ALIASES_WITH_ACCOUNTIDLIST__" : "__ADVANCEDSEARCH_WITH_ACCOUNTIDLIST__");
+                    }
+                }
                 queryAdapter.Item.AddParam("%%INNER_QUERY%%", strSQL, true);
 
-                StringBuilder sortColumns = new StringBuilder(2048);
+                // Build a comma separated list of account ID bind variables to feed into the
+                // %%ACCOUNTIDLIST%% bind variable
+                StringBuilder commaSeparatedIdList = new StringBuilder();
+                foreach (MTFilterElement filterElement in
+                        accounts.Filters.Where(p => ((MTFilterElement)p).Operation == MTFilterElement.OperationType.In))
+                {
+                    FilterElement fe = new FilterElement(
+                        filterElement.PropertyName.ToUpper(),
+                        (FilterElement.OperationType)((int)filterElement.Operation),
+                        filterElement.Value);
 
+                    if ((fe.PropertyName.ToUpper().CompareTo("_ACCOUNTID") == 0))
+                    {
+                        List<string> accountIDList = new List<string>();
+                        accountIDList = fe.Value.ToString().Split(new char[] { ',' }).ToList();
+                        int accountIdParam = 4;
+                        foreach (string str in accountIDList)
+                        {
+                            commaSeparatedIdList.Append(String.Format("@p_AccountId{0}", accountIdParam));
+                            commaSeparatedIdList.Append(",");
+                            ++accountIdParam;
+                        }
+                        // Remove trailing ','
+                        commaSeparatedIdList.Remove(commaSeparatedIdList.Length - 1, 1);
+                    }
+                }
+
+                queryAdapter.Item.AddParamIfFound("%%ACCOUNTIDLIST%%", commaSeparatedIdList.ToString(), true);
+
+                StringBuilder sortColumns = new StringBuilder(2048);
+                #region Sort Criteria
                 if (accounts.SortCriteria.Count > 0 && !displayAliases)
                 {
                     foreach (MetraTech.ActivityServices.Common.SortCriteria sc in accounts.SortCriteria)
@@ -850,6 +892,7 @@ namespace MetraTech.Core.Services
                         }
                     }
                 }
+                #endregion
 
                 // CORE-6372 Needless actions icons for accounts in Actions column in Advanced Find and in Actions column in Account Hierarchy panel on Finder tab.
                 // Adding service data columns.
@@ -914,7 +957,8 @@ namespace MetraTech.Core.Services
                     #region Apply Filters
                     //apply filters as parameters
                     int i = 4;
-                    foreach (MTFilterElement filterElement in accounts.Filters.Where(p => ((MTFilterElement)p).Operation != MTFilterElement.OperationType.In))
+                    foreach (MTFilterElement filterElement in
+                        accounts.Filters.Where(p => ((MTFilterElement)p).Operation != MTFilterElement.OperationType.In))
                     {
                         object val = filterElement.Value;
 
@@ -936,12 +980,32 @@ namespace MetraTech.Core.Services
                     }
 
                     // apply IN condition filters
-                    foreach (MTFilterElement filterElement in accounts.Filters.Where(p => ((MTFilterElement)p).Operation == MTFilterElement.OperationType.In))
+                    foreach (MTFilterElement filterElement in
+                        accounts.Filters.Where(p => ((MTFilterElement)p).Operation == MTFilterElement.OperationType.In))
                     {
                         FilterElement fe =
                             new FilterElement(filterElement.PropertyName.ToUpper(), (FilterElement.OperationType)((int)filterElement.Operation), filterElement.Value);
-                        countStmt.AddFilter(fe);
+                        // _accountID filter needs to be wrapped as a bind variable parameter                         
+                        if ((fe.PropertyName.ToUpper().CompareTo("_ACCOUNTID") != 0))
+                            countStmt.AddFilter(fe);
+                        else
+                        {
+                            List<string> accountIDList = new List<string>();
+                            accountIDList = fe.Value.ToString().Split(new char[] { ',' }).ToList();
+                            int id = 4;
+                            object val = fe.Value;
+
+                            foreach (string str in accountIDList)
+                            {
+                                object strAsObject = str;
+                                countStmt.AddParam(String.Format("p_ACCOUNTID{0}", id),
+                                   ConvertValueToParamType(fe.PropertyName, ref strAsObject),
+                                   strAsObject);
+                                ++id;
+                            }
+                        }
                     }
+
 
                     #endregion
 
@@ -1437,29 +1501,7 @@ namespace MetraTech.Core.Services
                 value = reader.GetValue(pi.Name);
                 if (EnumHelper.IsEnumType(pi.PropertyType) && !(value is DBNull))
                 {
-                    string strValue = value as string;
-                    if (strValue != null)
-                    {
-                        // Converting from enum value
-                        Type propertyType;
-                        if (pi.PropertyType.IsGenericType && pi.PropertyType.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
-                        {
-                            System.ComponentModel.NullableConverter nullableConverter = new System.ComponentModel.NullableConverter(pi.PropertyType);
-                            propertyType = nullableConverter.UnderlyingType;
-                        }
-                        else
-                        {
-                            propertyType = pi.PropertyType;
-                        }
-
-                        value = EnumHelper.GetEnumByValue(propertyType, Convert.ToString(value));
-                    }
-                    else
-                    {
-                        // Converting from enum value ID
-                        int enumId = Convert.ToInt32(value);
-                        value = EnumHelper.GetCSharpEnum(enumId);
-                    }
+                  value = ConverToEnum(pi, value);
                 }
                 else if (!(value is DBNull) && (pi.PropertyType == typeof(int) || pi.PropertyType == typeof(int?)))
                 {
@@ -1474,6 +1516,43 @@ namespace MetraTech.Core.Services
             }
 
             obj.SetValue(pi, value);
+        }
+
+        private static object ConverToEnum(PropertyInfo pi, object value)
+        {
+          string strValue = value as string;
+          if (strValue != null)
+          {
+            // Converting from enum value
+            Type propertyType;
+            if (pi.PropertyType.IsGenericType && pi.PropertyType.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
+            {
+              System.ComponentModel.NullableConverter nullableConverter = new System.ComponentModel.NullableConverter(pi.PropertyType);
+              propertyType = nullableConverter.UnderlyingType;
+            }
+            else
+            {
+              propertyType = pi.PropertyType;
+            }
+
+            value = EnumHelper.GetEnumByValue(propertyType, Convert.ToString(value));
+          }
+          else
+          {
+            /*CORE-6663 - "SQL Server: account hierarchy is failed in case Department Account have Billing Cycle with StartDate property." */
+            // Enums come either as global enum IDs or as enum indexes.
+            Type enumType = pi.PropertyType.IsEnum ? pi.PropertyType : new System.ComponentModel.NullableConverter(pi.PropertyType).UnderlyingType;
+            // Converting from enum value ID
+            int enumId = Convert.ToInt32(value);
+            value = EnumHelper.GetCSharpEnum(enumId);
+            // Detect if value came as enum index.
+            if (value == null || value.GetType() != enumType)
+            {
+              //it was not enum global enum index (id was not found in t_enum_data table) use value as is
+              value = enumId;
+            }
+          }
+          return value;
         }
 
         private void LoadViewInternalFromReader(int accountId, string userName, string nameSpace, string viewType, IMTDataReader reader, IList views, bool displayAliases)
@@ -1537,13 +1616,13 @@ namespace MetraTech.Core.Services
 
             SetValue(acc, pi, reader, out value);
         }
-        
+
         private void LoadAccountDataFromReader(DateTime timeStamp, BaseTypes.Account acc, IMTDataReader reader, bool displayAliases)
         {
             bool allViews = true;
 
             int accountId = reader.GetInt32("_AccountID");
-            
+
             // Set data to Account object based on returned rowset.
             string viewType = String.Empty;
             string className = String.Empty;
@@ -1808,11 +1887,11 @@ namespace MetraTech.Core.Services
             // reversing work around from 6/28/2010, setting EscapeString to true does NOT break advanced find or smokes, allows searching on unicode characters
             filter.EscapeString = true;
 
-            //do not return any rows where namespace = Auth
+            //do not return any rows where namespace = Auth            
             filter.Add("name_space", RS.MTOperatorType.OPERATOR_TYPE_NOT_EQUAL, "Auth");
             filter.Add("name_space", RS.MTOperatorType.OPERATOR_TYPE_NOT_EQUAL, "rate");
             filter.Add("AccountType", RS.MTOperatorType.OPERATOR_TYPE_NOT_EQUAL, "root");
-            filter.Add("AccountStatus", RS.MTOperatorType.OPERATOR_TYPE_NOT_EQUAL, "AR"); //ignore archived accounts
+            filter.Add("AccountStatus", RS.MTOperatorType.OPERATOR_TYPE_NOT_EQUAL, "AR"); //ignore archived accounts           
 
             //create a list of columns to extract; it will contain all filter and sort columns + the ID field
             List<string> columnList = new List<string>();

@@ -3,6 +3,7 @@ using System.IO;
 using System.Xml;
 using System.Threading;
 using MetraTech.DataAccess;
+using MetraTech.DataExportFramework.Common;
 using MetraTech.Interop.Rowset;
 
 namespace MetraTech.DataExportFramework.Components.DataExporter
@@ -21,11 +22,6 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 	{
         
 		/// <summary>
-		/// Holds the location of the temporary folder where all reports are initially created before distributed to their eventual destination
-		/// </summary>
-		private string __reportsWorkingFolder;
-
-		/// <summary>
 		/// Keeps a count of reports that were found on the Reports Queue when first scanned
 		/// </summary>
 		private int __reportsCount = 0;
@@ -41,17 +37,6 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 		/// A flag to indicate the ReportingFramework execution is being currently in progress.
 		/// </summary>
 		private bool __bProcessStarted = false;
-
-		/// <summary>
-		/// Holds an instance of the ReportingFramework config file DOM object
-		/// </summary>
-		private XmlDocument __doc = new XmlDocument();
-		
-		/// <summary>
-		/// Holds the name of the server that this Instance of the ReportingFramework is currently running on.
-		/// Note: This information is picked from the config file.
-		/// </summary>
-		private string __processingserver = "";
 
 		/// <summary>
 		/// An instance of the Mutex object to enable thread synchronization when executing the Callback
@@ -105,23 +90,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 			} 
 		}
 
-	  private readonly IConfiguration _config = ConfigurationSimple.Instance;
-
-		/// <summary>
-		/// CONSTRUCTOR:
-		///		-	Creates an instance of the RCD.Interop component to get the MetraNet "Extensions" folder location.
-		///		-	Loads the ReportingFramework config file - MetratechReports.xml		
-		///		-	From the config file:
-		///			o	Stores the location of the temporary working folder for the ReportingFramework
-		///			o	Stores the current server name where the ReportingFramework is executing
-		/// </summary>
-		public MainReportsEntry()
-		{
-			__doc.Load(_config.GetReportConfigFilePath());
-			__reportsWorkingFolder = Path.Combine(_config.GetExtentionDir(),__doc.SelectSingleNode("xmlconfig/reports/workingfolder").InnerText);
-
-			this.__processingserver = __doc.SelectSingleNode("xmlconfig/reports/processingserver").InnerText;
-		}
+    private readonly IConfiguration _config = Configuration.Instance;
 
 		/// <summary>
 		///		Executes the next report instance that was found on the scanned reports queue.
@@ -140,9 +109,9 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 			IMTDataReader _rdr = null;
 			try 
 			{
-                IMTAdapterStatement _queuedReport = connection.CreateAdapterStatement(_config.GetServiceQueryDir(), "__GET_THIS_QUEUED_INSTANCE__");
+                IMTAdapterStatement _queuedReport = connection.CreateAdapterStatement(_config.PathToServiceQueryDir, "__GET_THIS_QUEUED_INSTANCE__");
 				_queuedReport.AddParam("%%WORK_QUEUE_ID%%", "'"+workQId.ToString()+"'", true);
-				_queuedReport.AddParam("%%PROCESSING_SERVER%%", "'"+this.__processingserver+"'", true);
+        _queuedReport.AddParam("%%PROCESSING_SERVER%%", "'" + _config.ProcessingServer + "'", true);
 				_rdr = _queuedReport.ExecuteReader();
 				if (_rdr.Read())
 				{
@@ -155,10 +124,8 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 							Convert.ToString(_rdr.GetValue("c_sch_type")), 
 							Convert.ToString(_rdr.GetValue("c_rep_type")),
 							Convert.ToString(_rdr.GetValue("c_rep_title")));
-						//GenerateThreadName());
-						rG.ReportsWorkingFolder = this.__reportsWorkingFolder;
-						rG.ConfigXML = __doc;
-						rG.WorkQId = workQId.ToString();
+						
+            rG.WorkQId = workQId.ToString();
 
 						rG.ReportCompletedEvent += new ReportExecutionCompleteHandler(rG_ReportCompletedEvent);
 						ThreadPool.QueueUserWorkItem(new WaitCallback(rG.Execute), rG);
@@ -174,7 +141,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 					catch (Exception ex)
 					{
 						this.__reportsCount--;
-						Common.MakeLogEntry("Unknown Error during initialization of the report instance\n" + ex.ToString(), "fatal");
+                        DefLog.MakeLogEntry("Unknown Error during initialization of the report instance\n" + ex.ToString(), "fatal");
 					}
 				}
 				else
@@ -215,14 +182,14 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 				{
 					__auditConnection = ConnectionManager.CreateConnection();
 				}
-				catch (Exception ex)
+				catch (Exception)
 				{
-					throw (ex);
+					throw;
 				}
 				IMTSQLRowset _reportsRowset = new MTSQLRowsetClass();
 				__currentProcessCount = 0;
 				//Read the database and get a list of all reports
-                _reportsRowset.Init(_config.GetServiceQueryDir());
+                _reportsRowset.Init(_config.PathToServiceQueryDir);
 				_reportsRowset.SetQueryTag("__GET_REPORT_INSTANCES__");
 				_reportsRowset.ExecuteDisconnected();
 				__reportsCount = _reportsRowset.RecordCount;
@@ -234,9 +201,9 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 				{
 					_cn = ConnectionManager.CreateConnection();
 				}
-				catch (Exception ex)
+				catch (Exception)
 				{
-					throw (ex);
+					throw;
 				}
 				while (Convert.ToInt16(_reportsRowset.EOF) >= 0)
 				{
@@ -246,13 +213,13 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 					_reportsRowset.MoveNext();
 				}
 
-        _reportsRowset.Init(_config.GetServiceQueryDir());
+        _reportsRowset.Init(_config.PathToServiceQueryDir);
 			}
 			catch (Exception ex)
 			{
 				__bProcessStarted = false;
-				Common.MakeLogEntry ("Fatal Error in MainEntry Execute. No Reports were generated!\n"+ex.ToString(), "fatal");
-				throw (ex);
+                DefLog.MakeLogEntry("Fatal Error in MainEntry Execute. No Reports were generated!\n" + ex.ToString(), "fatal");
+				throw;
 			}
 			finally
 			{
@@ -277,9 +244,9 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 			IMTDataReader _rdr = null;
 			try 
 			{
-        IMTAdapterStatement _queuedReport = connection.CreateAdapterStatement(_config.GetServiceQueryDir(), "__GET_THIS_QUEUED_INSTANCE__");
+        IMTAdapterStatement _queuedReport = connection.CreateAdapterStatement(_config.PathToServiceQueryDir, "__GET_THIS_QUEUED_INSTANCE__");
 				_queuedReport.AddParam("%%WORK_QUEUE_ID%%", "'"+workQId.ToString()+"'", true);
-				_queuedReport.AddParam("%%PROCESSING_SERVER%%", "'"+this.__processingserver+"'", true);
+				_queuedReport.AddParam("%%PROCESSING_SERVER%%", "'"+_config.ProcessingServer+"'", true);
 				_rdr = _queuedReport.ExecuteReader();
 				if (_rdr.Read())
 				{
@@ -290,12 +257,8 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 						Convert.ToString(_rdr.GetValue("c_sch_type")), 
 						Convert.ToString(_rdr.GetValue("c_rep_type")),
 						Convert.ToString(_rdr.GetValue("c_rep_title")));
-						//GenerateThreadName());
-					rG.ReportsWorkingFolder = this.__reportsWorkingFolder;
-					rG.ConfigXML = __doc;
+					
 					rG.WorkQId = workQId.ToString();
-					rG.ReportsWorkingFolder = this.__reportsWorkingFolder;
-					rG.ConfigXML = __doc;
 					rG.SingleThreadedExecute();
 					
 				}
@@ -309,9 +272,9 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 					return;
 				}
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				throw (ex);
+				throw;
 			}
 			finally 
 			{
@@ -334,7 +297,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 				IMTSQLRowset _reportsRowset = new MTSQLRowsetClass();
 				__currentProcessCount = 0;
 				//Read the database and get a list of all reports
-        _reportsRowset.Init(_config.GetServiceQueryDir());
+        _reportsRowset.Init(_config.PathToServiceQueryDir);
 				_reportsRowset.SetQueryTag("__GET_REPORT_INSTANCES__");
 				_reportsRowset.ExecuteDisconnected();
 				__reportsCount = _reportsRowset.RecordCount;
@@ -361,7 +324,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 			}
 			catch (Exception ex)
 			{
-				Common.MakeLogEntry (ex.ToString(), "fatal");
+                DefLog.MakeLogEntry(ex.ToString(), "fatal");
 			}
 			finally 
 			{
@@ -390,7 +353,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 			}
 			catch (Exception ex)
 			{
-				Common.MakeLogEntry("Exception in ReportGenerator Completed Callback\n"+ex.ToString(), "fatal");
+                DefLog.MakeLogEntry("Exception in ReportGenerator Completed Callback\n" + ex.ToString(), "fatal");
 			}
 			finally
 			{
@@ -409,18 +372,18 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 			try 
 			{
 				_cn = ConnectionManager.CreateConnection();
-        IMTAdapterStatement _selectst = _cn.CreateAdapterStatement(_config.GetServiceQueryDir(), "__SET_REPORT_INSTANCE_NEXT_RUN_DATE__");
+        IMTAdapterStatement _selectst = _cn.CreateAdapterStatement(_config.PathToServiceQueryDir, "__SET_REPORT_INSTANCE_NEXT_RUN_DATE__");
 				_selectst.AddParam("%%REPORT_INSTANCE_ID%%", rE.ReportInstanceID, true);
 				_selectst.AddParam("%%SCHEDULE_ID%%", rE.ScheduleID, true);
 				_selectst.AddParam("%%SCHEDULE_TYPE%%", "'"+rE.ScheduleType+"'", true);
 				_selectst.AddParam("%%DT_NOW%%", rE.ReportSetToBeExecutedAt, true);
 				_selectst.AddParam("%%START_DATE%%", rE.ReportSetToBeExecutedAt, true);
-				Common.MakeLogEntry("SETNEXTRUNDATE Query\n"+_selectst.Query, "debug");
+                DefLog.MakeLogEntry("SETNEXTRUNDATE Query\n" + _selectst.Query, "debug");
 				_selectst.ExecuteNonQuery();
 			}
 			catch (Exception ex)
 			{
-				Common.MakeLogEntry("Unable to set next run date for ReportInstance:"
+                DefLog.MakeLogEntry("Unable to set next run date for ReportInstance:"
 					+rE.ReportInstanceID+", with "+ rE.ScheduleType +" schedule:"
 					+rE.ScheduleID+"\n"+ex.ToString(), "error");
 			}
@@ -444,7 +407,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 			__mutex.WaitOne();
 			try
 			{
-        IMTAdapterStatement _selectst = __auditConnection.CreateAdapterStatement(_config.GetServiceQueryDir(), "__AUDIT_REPORT_EXECUTE_STATUS__");
+        IMTAdapterStatement _selectst = __auditConnection.CreateAdapterStatement(_config.PathToServiceQueryDir, "__AUDIT_REPORT_EXECUTE_STATUS__");
 				_selectst.AddParam("%%WORK_QUEUE_ID%%", "'"+riEx.WorkQId+"'", true);
 				_selectst.AddParam("%%EXECUTE_STATUS%%", "'" + riEx.CompletionStatus.ToString() + "'", true);
 				_selectst.AddParam("%%EXECUTE_START_DATE_TIME%%", riEx.ExecuteStartTime, true);
@@ -460,7 +423,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 			}
 			catch (Exception ex)
 			{
-				Common.MakeLogEntry("Exception in Report Execute Audit \n"+ex.ToString(), "fatal");
+                DefLog.MakeLogEntry("Exception in Report Execute Audit \n" + ex.ToString(), "fatal");
 			}
 			finally 
 			{
@@ -478,7 +441,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 		{
 			try
 			{
-        IMTAdapterStatement _selectst = __auditConnection.CreateAdapterStatement(_config.GetServiceQueryDir(), "__AUDIT_REPORT_EXECUTE_STATUS__");
+        IMTAdapterStatement _selectst = __auditConnection.CreateAdapterStatement(_config.PathToServiceQueryDir, "__AUDIT_REPORT_EXECUTE_STATUS__");
 				_selectst.AddParam("%%WORK_QUEUE_ID%%", "'"+rE.WorkQId+"'", true);
 				_selectst.AddParam("%%EXECUTE_STATUS%%", "'" + rE.CompletionStatus.ToString() + "'", true);
 				_selectst.AddParam("%%EXECUTE_START_DATE_TIME%%", rE.ExecuteStartTime, true);
@@ -493,13 +456,13 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 				_paramvals = _paramvals.Replace("'", "");
 				_paramvals = _paramvals.Replace("\"", "");
 				_selectst.AddParam("%%EXECUTE_PARAM_VALUES%%", "'" + _paramvals + "'", true);
-				Common.MakeLogEntry(_selectst.Query, "debug");
+                DefLog.MakeLogEntry(_selectst.Query, "debug");
 				_selectst.ExecuteNonQuery();
 
 				if (rE.ScheduleType.ToLower() == "daily" || rE.ScheduleType.ToLower() == "weekly" || rE.ScheduleType.ToLower() == "monthly"
 					&& rE.CompletionStatus == ReportExecuteStatus.SUCCESS)
 				{
-					Common.MakeLogEntry("SetNextRunDate For Report:Instance"+rE.ReportInstanceID.ToString(), "debug");
+                    DefLog.MakeLogEntry("SetNextRunDate For Report:Instance" + rE.ReportInstanceID.ToString(), "debug");
 					SetNextRunDate(rE);
 				}
 			}

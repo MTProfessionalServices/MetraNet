@@ -10,7 +10,7 @@
   <asp:Panel ID="PanelControls" runat="server" Visible="True">
     <div style="text-align:left; width: 410px;">
       <MT:MTDropDown ID="ddAccountTypes" runat="server" Label="Account Type" LabelWidth="200" ControlWidth="200" ListWidth="200" AllowBlank="False" HideLabel="False" LabelSeparator=":" Listeners="{}" meta:resourcekey="ddAccountTypesResource1" ReadOnly="False"></MT:MTDropDown><br />
-      <MT:MTCheckBoxControl ID="cbInherit" Checked="true" BoxLabel="Inherit parent template" runat="server" LabelWidth="200" meta:resourcekey="cbInheritResource1" />
+<%--      <MT:MTCheckBoxControl ID="cbInherit" Checked="true" BoxLabel="Inherit parent template" runat="server" LabelWidth="200" meta:resourcekey="cbInheritResource1" />--%>
     </div> 
   </asp:Panel></MT:MTPanel>
   <asp:Panel ID="PanelMessage" runat="server" Visible="False">
@@ -49,7 +49,7 @@
     function onOK()
     {
       var args = "SelectedAccountType=" + Ext.get("ctl00_ContentPlaceHolder1_ddAccountTypes").dom.value + "**";
-      args += "InheritParentTemplateString=" + Ext.get("ctl00_ContentPlaceHolder1_cbInherit").dom.checked;
+      args += "InheritParentTemplateString=" + "false";//  Ext.get("ctl00_ContentPlaceHolder1_cbInherit").dom.checked;
       pageNav.Execute("TemplateEvents_OKAddTemplate_Client", args, results);
       return false;
     }

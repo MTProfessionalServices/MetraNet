@@ -1247,12 +1247,16 @@ namespace MetraTech.BusinessEntity.DataAccess.Persistence.Sync
 
       // Copy to Temp and Lock files
       logger.Debug("Copying files to temporary location and locking necessary files");
+      Dictionary<string, FileStream> allLockedFiles = new Dictionary<string, FileStream>(0);
       foreach (ExtensionData extensionData in extensionDataList)
       {
-        extensionData.CopyToTempAndLockOutputFiles();
+          extensionData.CopyToTempAndLockOutputFiles(allLockedFiles);
+
+          foreach (var item in extensionData.LockedFiles.Where(item => !allLockedFiles.ContainsKey(item.Key)))
+              allLockedFiles.Add(item.Key, item.Value);
       }
 
-      // Create capability enums (if necessary) and update syncData with the new enum entries
+        // Create capability enums (if necessary) and update syncData with the new enum entries
       LockUpdateAndBackupCapabilityEnumFile(extensionDataList, ref syncData);
 
       // Build

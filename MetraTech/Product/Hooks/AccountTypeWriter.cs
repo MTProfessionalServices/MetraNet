@@ -1,16 +1,16 @@
 using System;
-using System.EnterpriseServices;
-using System.Runtime.InteropServices;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Diagnostics;
+using System.EnterpriseServices;
+using System.Runtime.InteropServices;
 using MetraTech;
 using MetraTech.Collections;
 using MetraTech.DataAccess;
+using MetraTech.Pipeline;
 using MetraTech.Product.Hooks.DynamicTableUpdate;
 using MetraTech.Product.Hooks.InsertProdProperties;
-using System.Diagnostics;
-using MetraTech.Pipeline;
 
 namespace MetraTech.Product.Hooks
 {
@@ -142,152 +142,67 @@ namespace MetraTech.Product.Hooks
 
     public void AddAccountType(AccountTypeHelper currentType)
     {
-      int newAccountTypeID;
-      int accountViewID;
-      IInsertProdProperties insertprodprop = new MetraTech.Product.Hooks.InsertProdProperties.InsertProdProperties();
+			AddOrUpdateAccountType(currentType, false);
+		}
 
-      ArrayList createTableQueries = new ArrayList();
-      MTStringCollection currentViews = currentType.AccountViews;
-      NameValueCollection accountViewsChksum= new NameValueCollection();
-      NameValueCollection accountViewsTablename = new NameValueCollection();
-      NameValueCollection accountViewsFilename = new NameValueCollection();
-
-      foreach (string viewname in currentViews)
+		public void UpdateAccountType(AccountTypeHelper currentType)
       {
-        IServiceDefinition accountView = mAvCollection.GetServiceDefinition(viewname);
-        //generate query to create the table.
-        AVDDLCreator creator = new AVDDLCreator("t_av_", accountView);
-        string query = creator.GenerateCreateTableStatement();
-        //mLog.LogDebug("query = {0}", query);
-        createTableQueries.Add(query);
-        addedViews[viewname] = true;
-
-        accountViewsTablename[viewname] = creator.GetTableName();
-
-        //generate chksum.  The msixdef file is being read twice...
-        MetraTech.Interop.PropSet.IMTConfig config = new MetraTech.Interop.PropSet.MTConfig();
-        bool ck=false;
-        string chkSum = config.ReadConfiguration(mAvCollection.GetServiceDefFileName(viewname), out ck).Checksum;
-        accountViewsChksum[viewname] = chkSum;
-
-        accountViewsFilename[viewname] = mAvCollection.GetServiceDefFileName(viewname);
+			AddOrUpdateAccountType(currentType, true);
       }
 
+		public void CreateChildMappings(NameValueCollection accountTypesFromFiles)
+		{
+			//truncate the account type table.
+			//read each file, I know I know I am reading the file twice
+			//Add mappings for each type.
+			try
+			{
 			using (IMTConnection conn = ConnectionManager.CreateConnection())
 			{
-        //insert into t_account_type
-                using (IMTCallableStatement stmt = conn.CreateCallableStatement("UpsertAccountType"))
+					//truncate the t_acctype_descendentType_map table
+					using (IMTAdapterStatement adpStmt = conn.CreateAdapterStatement("Queries\\Account", "__TRUNCATE_ACCOUNT_TYPE_DESC_TYPE_MAP__"))
                 {
-                    stmt.AddParam("name", MTParameterType.String, currentType.Name);
-                    stmt.AddParam("b_cansubscribe", MTParameterType.String, currentType.CanSubscribe);
-                    stmt.AddParam("b_canbepayer", MTParameterType.String, currentType.CanBePayer);
-                    stmt.AddParam("b_canhavesyntheticroot", MTParameterType.String, currentType.CanHaveSyntheticRoot);
-                    stmt.AddParam("b_CanParticipateInGSub", MTParameterType.String, currentType.CanParticipateInGSub);
-                    stmt.AddParam("bIsVisibleInHierarchy", MTParameterType.String, currentType.IsVisibleInHierarchy);
-                    stmt.AddParam("b_CanHaveTemplates", MTParameterType.String, currentType.CanHaveTemplates);
-                    stmt.AddParam("b_IsCorporate", MTParameterType.String, currentType.IsCorporate);
-                    stmt.AddParam("nm_desc", MTParameterType.String, currentType.Desc);
-                    stmt.AddOutputParam("id_accounttype", MTParameterType.Integer);
-
-                    stmt.ExecuteNonQuery();
-
-                    newAccountTypeID = (int)stmt.GetOutputValue("id_accounttype");
+						adpStmt.ExecuteNonQuery();
                 }
 
-        //insert into t_account_type_service_def_map
-                foreach (string op in currentType.ServiceDefOpPair)
+					//read each file and add its mappings.
+					foreach (string accountTypeName in accountTypesFromFiles)
+					{
+						//read the file
+						AccountTypeFileReader reader = new AccountTypeFileReader();
+						MetraTech.Product.Hooks.AccountTypeHelper currentAccountType = reader.ReadAccounTypeConfigFile(accountTypesFromFiles[accountTypeName]);
+						foreach (string childtype in currentAccountType.DescendentTypes)
                 {
-                    using (IMTCallableStatement stmt2 = conn.CreateCallableStatement("UpsertAccountTypeServiceDefMap"))
+							using (IMTAdapterStatement adpStmtAdd = conn.CreateAdapterStatement("Queries\\Account", "__CREATE_ACCOUNT_TYPE_DESC_MAP_"))
                     {
-                        stmt2.AddParam("accounttype", MTParameterType.Integer, newAccountTypeID);
-                        stmt2.AddParam("operation", MTParameterType.String, op);
-                        stmt2.AddParam("servicedefname", MTParameterType.String, currentType.ServiceDefOpPair[op]);
-
-                        stmt2.ExecuteNonQuery();
+								adpStmtAdd.AddParam("%%PARENT_NAME%%", accountTypeName);
+								adpStmtAdd.AddParam("%%DESC_NAME%%", childtype);
+								adpStmtAdd.ExecuteNonQuery();
                     }
                 }
         
-				// create the t_av_tables
-                foreach (string query in createTableQueries)
+						foreach (string parentType in currentAccountType.AncestorTypes)
                 {
-                    using (IMTStatement stmt4 = conn.CreateStatement(query))
+							using (IMTAdapterStatement adpStmtAdd = conn.CreateAdapterStatement("Queries\\Account", "__CREATE_ACCOUNT_TYPE_DESC_MAP_"))
                     {
-                        stmt4.ExecuteNonQuery();
+								adpStmtAdd.AddParam("%%PARENT_NAME%%", parentType);
+								adpStmtAdd.AddParam("%%DESC_NAME%%", accountTypeName);
+								adpStmtAdd.ExecuteNonQuery();
+							}
                     }
                 }
-
-        foreach(string viewname in currentType.AccountViews)
-        {
-					//insert into t_account_type_view_map
-            using (IMTAdapterStatement stmt3 = conn.CreateAdapterStatement("queries\\Account", "__ADD_ACCOUNT_VIEW__"))
-            {
-                stmt3.AddParam("%%ACCOUNTTYPEID%%", newAccountTypeID);
-                stmt3.AddParam("%%ACCOUNTVIEWNAME%%", viewname);
-                stmt3.ExecuteNonQuery();
             }
-          //did this account view already exist?  that would be the case if this account view is associated with another account
-          //type created earlier.
-            using (IMTAdapterStatement s4 = conn.CreateAdapterStatement(
-                        @"Queries\AccountView", "__SELECT_ACCOUNT_VIEW_BY_NAME__"))
-            {
-                s4.AddParam("%%AV_NAME%%", viewname, false);
-
-                bool found = false;
-                using (IMTDataReader rdr = s4.ExecuteReader())
-                {
-                    found = rdr.Read();
                 }
-
-                if (!found) //the account view is not in the log, means it has been newly created and needs to be added
+			catch (Exception e)
                 {
-                    using (IMTAdapterStatement s5 = conn.CreateAdapterStatement(
-                        @"Queries\AccountView", "__INSERT_INTO_AV_LOG__"))
-                    {
-                        s5.AddParam("%%AV_NAME%%", viewname, false);
-                        s5.AddParam("%%AV_CHECKSUM%%", accountViewsChksum[viewname], false);
-                        s5.AddParam("%%AV_TABLE_NAME%%", accountViewsTablename[viewname], false);
-                        s5.ExecuteNonQuery();
-
-                        //ok, added the account view, now get its id.
-                        s5.QueryTag = "__SELECT_ACCOUNT_VIEW_BY_NAME__";
-                        s5.AddParam("%%AV_NAME%%", viewname, false);
-                        s5.ExecuteNonQuery();
-
-                        using (IMTDataReader rdr2 = s5.ExecuteReader())
-                        {
-                            if (!rdr2.Read())	// it better be there now that we inserted it
-                                throw new Exception(@"Couldn't select view by name: " + accountViewsFilename[viewname]);
-                            accountViewID = rdr2.GetInt32("id_account_view");
-                        }
+				mLog.LogDebug(e.Message);
+				throw new ApplicationException("AccountType hook failed. Possible causes could be: \n 1. Either the same parent child relationship between account types is mentioned more than once. \n Or \n 2. A non-existent parent or child is specified in the parent-child relationship");
                     }
 
-                    //insert into t_account_view_prop 
-                    insertprodprop.Initialize(accountViewsFilename[viewname], accountViewID);
-                    if (insertprodprop.InsertProperties() == 0)
-                        throw new Exception("Inserting account view properties failed for " + accountViewsFilename[viewname]);
-                } // !found
-            } // using statement s4
-        }	// foreach account view
-      }	// using connection
     }
 
- 
-    public void UpdateAccountType(AccountTypeHelper currentType)
+		private void AddOrUpdateAccountType(AccountTypeHelper currentType, bool isUpdate)
     {
-      //we know that all updates are going to be non destructive.
-      using (IMTConnection conn = ConnectionManager.CreateConnection())
-      {
-        //upsert account type.
-        //upsert servicdef map.
-
-        //insert into t_account_type_service_def_map, delete from t_account_type_service_def_map
-        //insert into t_account_type_view_map, delete from t_account_type_view_map
-        //create the t_av_tables, drop t_av_tables
-        //insert into and delete from t_account_view_prop and t_account_view_log tables.
-
-
-      }
-
       int newAccountTypeID;
       int accountViewID;
       IInsertProdProperties insertprodprop = new MetraTech.Product.Hooks.InsertProdProperties.InsertProdProperties();
@@ -306,6 +221,8 @@ namespace MetraTech.Product.Hooks
         AVDDLCreator creator = new AVDDLCreator("t_av_", accountView);
         string query = creator.GenerateCreateTableStatement();
         createTableQueries.Add(query);
+				if (!isUpdate)
+					addedViews[viewname] = true;
 
         accountViewsTablename[viewname] = creator.GetTableName();
 
@@ -363,11 +280,14 @@ namespace MetraTech.Product.Hooks
 
         foreach(string viewname in currentType.AccountViews)
         {
+					string accountViewName = currentType.AccountViewsNames.ContainsKey(viewname) ? currentType.AccountViewsNames[viewname] : viewname;
+
           //insert into t_account_type_view_map
             using (IMTAdapterStatement stmt3 = conn.CreateAdapterStatement("queries\\Account", "__ADD_ACCOUNT_VIEW__"))
             {
                 stmt3.AddParam("%%ACCOUNTTYPEID%%", newAccountTypeID);
                 stmt3.AddParam("%%ACCOUNTVIEWNAME%%", viewname);
+						stmt3.AddParam("%%REALACCOUNTVIEWNAME%%", accountViewName);
                 stmt3.ExecuteNonQuery();
             }
 
@@ -406,10 +326,10 @@ namespace MetraTech.Product.Hooks
                     insertprodprop.Initialize(accountViewsFilename[viewname], accountViewID);
                     if (insertprodprop.InsertProperties() == 0)
                     {
-                        throw new Exception("Inserting account view properties failed for " + accountViewsFilename[viewname]);
+								throw new Exception("Inserting account view properties failed for " + viewname);
                     }
                 }
-                else if (!addedViews.ContainsKey(viewname))
+                else if (isUpdate && !addedViews.ContainsKey(viewname))
                 {
                     // For Oracle we need to use non service connections when altering account view tables.
 
@@ -421,72 +341,16 @@ namespace MetraTech.Product.Hooks
                     // earlier.
 
                     ConnectionInfo connInfo = new ConnectionInfo("NetMeter");
-                    bool isOracle = (connInfo.DatabaseType == DBType.Oracle) ? true : false;
 
                     //the account view already existed and may need to be updated. call update on account view.
                     IDynamicTableUpdate update = new MetraTech.Product.Hooks.DynamicTableUpdate.DynamicTableUpdate();
-                    if (!update.UpdateTable(mAvCollection.GetServiceDefFileName(viewname), null, false, isOracle ? true : false))
+							if (!update.UpdateTable(mAvCollection.GetServiceDefFileName(viewname), null, false, connInfo.DatabaseType == DBType.Oracle))
                         throw new Exception("Update of " + viewname + " failed.");
                 }
             }
         }
       }
-      //possibly delete views?
-
-    }
-
-  
-    public void CreateChildMappings(NameValueCollection accountTypesFromFiles)
-    {
-      //truncate the account type table.
-      //read each file, I know I know I am reading the file twice
-      //Add mappings for each type.
-      try
-      {
-        using (IMTConnection conn = ConnectionManager.CreateConnection())
-        {
-          //truncate the t_acctype_descendentType_map table
-            using (IMTAdapterStatement adpStmt = conn.CreateAdapterStatement("Queries\\Account", "__TRUNCATE_ACCOUNT_TYPE_DESC_TYPE_MAP__"))
-            {
-                adpStmt.ExecuteNonQuery();
             }
-
-          //read each file and add its mappings.
-          foreach (string accountTypeName in accountTypesFromFiles)
-          {
-            //read the file
-            AccountTypeFileReader reader = new AccountTypeFileReader();
-            MetraTech.Product.Hooks.AccountTypeHelper currentAccountType = reader.ReadAccounTypeConfigFile(accountTypesFromFiles[accountTypeName]);
-            foreach (string childtype in currentAccountType.DescendentTypes)
-            {
-                using (IMTAdapterStatement adpStmtAdd = conn.CreateAdapterStatement("Queries\\Account", "__CREATE_ACCOUNT_TYPE_DESC_MAP_"))
-                {
-                    adpStmtAdd.AddParam("%%PARENT_NAME%%", accountTypeName);
-                    adpStmtAdd.AddParam("%%DESC_NAME%%", childtype);
-                    adpStmtAdd.ExecuteNonQuery();
-                }
-            }
-
-            foreach (string parentType in currentAccountType.AncestorTypes)
-            {
-                using (IMTAdapterStatement adpStmtAdd = conn.CreateAdapterStatement("Queries\\Account", "__CREATE_ACCOUNT_TYPE_DESC_MAP_"))
-                {
-                    adpStmtAdd.AddParam("%%PARENT_NAME%%", parentType);
-                    adpStmtAdd.AddParam("%%DESC_NAME%%", accountTypeName);
-                    adpStmtAdd.ExecuteNonQuery();
-                }
-            }
-          }
-        }
-      }
-      catch (Exception e)
-      {
-				mLog.LogDebug(e.Message);
-        throw new ApplicationException("AccountType hook failed. Possible causes could be: \n 1. Either the same parent child relationship between account types is mentioned more than once. \n Or \n 2. A non-existent parent or child is specified in the parent-child relationship");
-      }
-      
-    } 
-
   }
 
 }

@@ -103,28 +103,6 @@ namespace MetraTech.DomainModel.Billing
         }
         #endregion
 
-        #region ReportQuerySource
-        [DataMember(IsRequired = false, EmitDefaultValue = false)]
-        private bool isReportQuerySourceDirty = false;
-        private string m_ReportQuerySource;
-        [MTDataMember(Description = "This the Export Report Query Source for esample Common Queries.xml.", Length = 100)]
-        [DataMember(IsRequired = false, EmitDefaultValue = false)]
-        public string ReportQuerySource
-        {
-          get { return m_ReportQuerySource; }
-          set
-          {
-            m_ReportQuerySource = value;
-            isReportQuerySourceDirty = true;
-          }
-        }
-        [ScriptIgnore]
-        public bool IsReportQuerySourceDirty
-        {
-          get { return isReportQuerySourceDirty; }
-        }
-        #endregion
-
         #region ReportQueryTag
         [DataMember(IsRequired = false, EmitDefaultValue = false)]
         private bool isReportQueryTagDirty = false;
@@ -191,7 +169,6 @@ namespace MetraTech.DomainModel.Billing
           get { return isPreventAdhocExecDirty; }
         }
         #endregion
-
 
         #region bPreventAdhocExecution
         [DataMember(IsRequired = false, EmitDefaultValue = false)]
@@ -438,29 +415,6 @@ namespace MetraTech.DomainModel.Billing
         public bool IsAdhocReportOutputTypeDirty
         {
           get { return isAdhocReportOutputTypeDirty; }
-        }
-        #endregion
-
-
-        #region AdhocXMLConfigLocation
-        [DataMember(IsRequired = false, EmitDefaultValue = false)]
-        private bool isAdhocXMLConfigLocationDirty = false;
-        private string m_AdhocXMLConfigLocation;
-        [MTDataMember(Description = "This the Report XML Config Location..", Length = 50)]
-        [DataMember(IsRequired = false, EmitDefaultValue = false)]
-        public string AdhocXMLConfigLocation
-        {
-          get { return m_AdhocXMLConfigLocation; }
-          set
-          {
-            m_AdhocXMLConfigLocation = value;
-            isAdhocXMLConfigLocationDirty = true;
-          }
-        }
-        [ScriptIgnore]
-        public bool IsAdhocXMLConfigLocationDirty
-        {
-          get { return isAdhocXMLConfigLocationDirty; }
         }
         #endregion
 

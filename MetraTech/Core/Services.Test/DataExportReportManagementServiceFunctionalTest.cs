@@ -22,16 +22,13 @@ namespace MetraTech.Core.Services.Test
             const string reportTitle = "TestReport";
             const string reportType = "TestReportType";
             const string reportDefinitionSource = "ReportDefinitionSource";
-            const string reportDescription = "ReportDescription";
-            const string reportQuerySource = "ReportQuerySource";
+            const string reportDescription = "ReportDescription";            
             const string reportQueryTag = "ReportQueryTag";
-            const int preventAdhocExecution = 0;
-
-            const string expectedReportQuerySource = @"\DataExport\Config\queries";
+            const int preventAdhocExecution = 0;            
 
             // Create Test Report
             service.AddNewReportDefinition(reportTitle, reportType, reportDefinitionSource, reportDescription,
-                                           reportQuerySource, reportQueryTag, preventAdhocExecution);
+                                           reportQueryTag, preventAdhocExecution);
 
             var repId = -1;
             try
@@ -56,10 +53,7 @@ namespace MetraTech.Core.Services.Test
                 Assert.AreEqual(createdReportDefinition.ReportDefinitionSource, reportDefinitionSource,
                                 "Report Definition Source differs from expected");
                 Assert.AreEqual(createdReportDefinition.ReportDescription, reportDescription,
-                                "Report Description differs from expected");
-                // ReportQuerySource value always replacing with '\DataExport\Config\queries'
-                Assert.AreEqual(createdReportDefinition.ReportQuerySource, expectedReportQuerySource, true,
-                                "Report Query Source differs from expected");
+                                "Report Description differs from expected");               
                 Assert.AreEqual(createdReportDefinition.ReportQueryTag, reportQueryTag,
                                 "Report Query Tag differs from expected");
                 Assert.AreEqual((int) createdReportDefinition.PreventAdhocExecution, preventAdhocExecution,

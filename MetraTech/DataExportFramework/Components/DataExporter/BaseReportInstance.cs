@@ -4,18 +4,13 @@ using System.Xml;
 using System.IO;
 using System.Threading;
 using MetraTech.DataAccess;
+using MetraTech.DataExportFramework.Common;
 using MetraTech.Interop.Rowset;
-using MetraTech.DataExportFramework.Components.DataFormatters;
-using MetraTech.Interop.RCD;
-using MetraTech.Xml;
 
 using ICSharpCode.SharpZipLib.Zip;
 using ICSharpCode.SharpZipLib.Checksums;
 
 using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using System.ComponentModel;
 using MetraTech.Security.Crypto;
 
 namespace MetraTech.DataExportFramework.Components.DataExporter
@@ -26,7 +21,6 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 
 		string ReportType { get;  set; }
 		string Title { get; set; }
-		string ReportsWorkingFolder { get; set; }
 		int ScheduleId { get; set; }
 		int ReportId { get; set; }
 		int ReportInstanceId { get; set; }
@@ -35,7 +29,6 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 		bool IsComplete { get; set; }
 		DateTime InstanceScheduledDateTime { get; set; }
 		string ReportExecuteType { get; set; }
-		XmlDocument ConfigXML { get; set; }
 		string ExecutionParameters { get; }
 		DateTime ThisReportSetTobeExecutedAt { get; }
 		string ExecuteDescription { get; }
@@ -88,8 +81,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 		protected int __scheduleId;
 		protected DateTime __instanceScheduledDateTime;
 		protected string __title;
-		protected string __defSource;
-		protected string __querySource;
+		protected string __defSource;		
 		protected string __queryTag;
 		protected string __outputType;
 		protected string __distributeType;
@@ -98,14 +90,11 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 		protected string __destnAccessUser;
 		protected string __destnAccessPwd;
 		protected string __reportType;
-		protected string __reportsWorkingFolder;
 		protected DateTime __dtlastRun;
 		protected DateTime __dtNextRun;
     protected string __extension = "txt";
     protected string __tempReportFile;
 		protected int __intervalId;
-		protected XmlDocument __doc;
-		protected string __dataconfigXML;
 		protected string __workQId;
 		protected string __executeDescription;
 		protected bool __isCompressedBeforeDelivery;
@@ -126,7 +115,6 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
     
 		public string ReportType { get { return ReportType; } set { __reportType = value; } }
 		public string Title { get { return __title; } set { __title = value; } }
-		public string ReportsWorkingFolder { get { return __reportsWorkingFolder; } set { __reportsWorkingFolder = value; } }
 		public int ScheduleId { get { return __scheduleId; } set { __scheduleId = value; } }
 		public int ReportId { get { return __reportId; } set { __reportId = value; } }
 		public int ReportInstanceId { get { return __reportInstanceId; } set { __reportInstanceId = value; } }
@@ -136,7 +124,6 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 		public DateTime InstanceScheduledDateTime { get { return __instanceScheduledDateTime; } set { __instanceScheduledDateTime = value; } }
 		public string ReportExecuteType { get { return __executeType; } set { __executeType = value; } }
 		public int IntervalId { get { return __intervalId; } }
-		public XmlDocument ConfigXML { get { return __doc; } set { __doc = value; } }
 		public DateTime ThisReportSetTobeExecutedAt { get { return this.__dtNextRun; } }
 		public string ExecuteDescription { get { return this.__executeDescription; } }
 		public bool IsCompressedBeforeDelivery { get { return __isCompressedBeforeDelivery; } set { __isCompressedBeforeDelivery = value; } }
@@ -145,7 +132,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 		public bool UseQuotedIdentifiers { get { return __useQuotedIdentifiers; } set { __useQuotedIdentifiers = value; } }
     private static string __lastDestnFileName = "";
 		private static Mutex __fileNameMutex = new Mutex();
-	  private readonly IConfiguration _config = ConfigurationSimple.Instance;
+    protected readonly IConfiguration _config = Configuration.Instance;
 
         //private MetraTech.Interop.RCD.IMTRcd mRcd;
         //private string response = "";
@@ -229,7 +216,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 
 		public virtual void Execute()
 		{
-			this.__tempReportFile = Path.Combine(this.__reportsWorkingFolder, String.Format("{0}.tmp", GenerateFileName()));
+			this.__tempReportFile = Path.Combine(_config.WorkingFolder, String.Format("{0}.tmp", GenerateFileName()));
 		}
 
 		protected void DeleteLocalCopyOfDeliveredFile()
@@ -246,7 +233,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
         try
         {
           IMTAdapterStatement selectst = null;
-          selectst = cn.CreateAdapterStatement(_config.GetServiceQueryDir(), "__GET_QUEUED_REPORT_INFORMATION__");
+          selectst = cn.CreateAdapterStatement(_config.PathToServiceQueryDir, "__GET_QUEUED_REPORT_INFORMATION__");
           selectst.AddParam("%%WORK_QUEUE_ID%%", workQId, true);
           //selectst.AddParam("%%METRATIME%%", MTParameterType.DateTime, MetraTime.Now.ToLocalTime());
           selectst.AddParam("%%METRATIME%%", MetraTime.Now.ToLocalTime());
@@ -254,7 +241,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
           if (cn.ConnectionInfo.IsOracle)
           {
             selectst.ExecuteNonQuery();
-            selectst = cn.CreateAdapterStatement(_config.GetServiceQueryDir(), "__GET_QUEUED_REPORT_INFO__");
+            selectst = cn.CreateAdapterStatement(_config.PathToServiceQueryDir, "__GET_QUEUED_REPORT_INFO__");
           }
 
           using (IMTDataReader reader = selectst.ExecuteReader())
@@ -263,16 +250,6 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
             {
               this.__reportType = Convert.ToString(reader.GetValue("c_rep_type"));
               this.__defSource = Convert.ToString(reader.GetValue("c_rep_def_source"));
-              //TODO: It will fail if user switch on\off Query Management, becuse DEF wil use the different folder.
-              //      It looks like the best approach use xml tags instead of paths and this xml tag should be in MetratechReports.xml, for example:
-              //      xpath = /query/V1/custom or xpath = /query/V1/custom2 and xpath for v2 = /query/V2/custom or /query/V2/custom2
-              //      and only last tag custom ot custom2 should be save into "c_rep_query_source" field
-              //      by this tag we can take the real path to query and it schould be implemented in IConfiguration interface bu GetPathToCustomQuryByTag(string xmlTag);
-              //      This meton sjould check if QueryManager is enabled tah should get file path by this XPATH = "/query/V2/" + xmlTag,
-              //             if not enabled by this XPATH = "/query/V1/" + xmlTag
-              //this.__querySource = Path.Combine(_config.GetExtentionDir(), Convert.ToString(reader.GetValue("c_rep_query_source")));
-              // ignore path from DB, because customer may use V1 format query and after migration to V2 they will not able to exeucute any query  
-              this.__querySource = _config.GetCustomQueryDir();
               this.__queryTag = Convert.ToString(reader.GetValue("c_rep_query_tag"));
               this.__outputType = this.__extension = Convert.ToString(reader.GetValue("c_rep_output_type"));
               this.__distributeType = Convert.ToString(reader.GetValue("c_rep_distrib_type"));
@@ -284,7 +261,6 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
               this.__instanceScheduledDateTime = Convert.ToDateTime(reader.GetValue("dt_sched_run"));
               this.__executeType = Convert.ToString(reader.GetValue("c_exec_type")).Trim();
               this.__paramNameValues = Convert.ToString(reader.GetValue("c_param_name_values"));
-              this.__dataconfigXML = Convert.ToString(reader.GetValue("c_xmlConfig_loc"));
               this.__destinationDirect = Convert.ToBoolean(reader.GetValue("c_destn_direct"));
               this.__isCompressedBeforeDelivery = Convert.ToBoolean(reader.GetValue("c_compressreport"));
               this.__compressionThreshold = Convert.ToInt32(reader.GetValue("c_compressthreshold"));
@@ -302,18 +278,18 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
               else
                 this.__outputFileName = Convert.ToString(reader.GetValue("c_output_file_name"));
 
-              //Common.MakeLogEntry("\t Gather Report Execution Parameters");
+              //DefLog.MakeLogEntry("\t Gather Report Execution Parameters");
               if (this.__paramNameValues.Trim().Length > 0)
-                SetupReportInstanceParams(_config.GetExtentionDir());
+                SetupReportInstanceParams(_config.PathToExtensionDir);
               GenerateDestination();
             }
           }
         }
         catch (Exception ex)
         {
-          Common.MakeLogEntry("Report Instance Initialization failed.\n " + this.__loggerMsg
+            DefLog.MakeLogEntry("Report Instance Initialization failed.\n " + this.__loggerMsg
                               + "\n Exception Stack Trace:" + ex.ToString(), "error");
-          throw (ex);
+            throw;
         }
       }
     }
@@ -325,7 +301,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 
                 //get a list of param names for this report definition
                 MTSQLRowset _paramNameSet = new MTSQLRowsetClass();
-                _paramNameSet.Init(_config.GetServiceQueryDir());
+                _paramNameSet.Init(_config.PathToServiceQueryDir);
                 _paramNameSet.SetQueryTag("__GET_REPORT_DEFINITION_PARAMETERS__");
                 _paramNameSet.AddParam("%%REPORT_ID%%", this.__reportId, true);
                 _paramNameSet.ExecuteDisconnected();
@@ -335,7 +311,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 
                 //get a list of default param values for this instance
                 MTSQLRowset _paramdefaultVals = new MTSQLRowsetClass();
-                _paramdefaultVals.Init(_config.GetServiceQueryDir());
+                _paramdefaultVals.Init(_config.PathToServiceQueryDir);
                 _paramdefaultVals.SetQueryTag("__GET_REPORT_DEFAULT_PARAMETER_VALUES__");
                 _paramdefaultVals.AddParam("%%REPORT_ID%%", this.__reportId, true);
                 _paramdefaultVals.AddParam("%%REPORT_INSTANCE_ID%%", this.__reportInstanceId, true);
@@ -350,16 +326,16 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
                     switch (_prm.ParamValue.ToString())
                     {
                         case "%%START_DATE%%":
-                            Common.MakeLogEntry(this.__loggerMsg + "System level START DATE param value found - rolling over to use last run date time for this report instance");
+                            DefLog.MakeLogEntry(this.__loggerMsg + "System level START DATE param value found - rolling over to use last run date time for this report instance");
                             _prm.ParamValue = this.__dtlastRun;
                             break;
                         case "%%END_DATE%%":
-                            Common.MakeLogEntry(this.__loggerMsg + "System level END DATE param value found - rolling over to use current run date time for this report instance");
+                            DefLog.MakeLogEntry(this.__loggerMsg + "System level END DATE param value found - rolling over to use current run date time for this report instance");
                             _prm.ParamValue = this.__dtNextRun;
                             break;
                     }
 
-                    //Common.MakeLogEntry("\t ParameterName:" + _prm.ParamName +", Value:"+_prm.ParamValue.ToString());
+                    //DefLog.MakeLogEntry("\t ParameterName:" + _prm.ParamName +", Value:"+_prm.ParamValue.ToString());
                     this.__arParams.Add(_prm);
                     MergeOutputFilenameAndParms(_prm.ParamName.ToString(), _prm.ParamValue.ToString());
                     _paramNameSet.MoveNext();
@@ -390,7 +366,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
             }
             catch (Exception ex)
             {
-                Common.MakeLogEntry("Setup Report Instance Parameters Failed.\n " + this.__loggerMsg
+                DefLog.MakeLogEntry("Setup Report Instance Parameters Failed.\n " + this.__loggerMsg
                     + "\n Exception Stack Trace:" + ex.ToString(), "error");
                 throw (ex);
             }
@@ -671,8 +647,8 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 			catch (Exception ex)
 			{
 				//Unable to connect to FTP site
-				Common.MakeLogEntry("FTP Error"+ex.ToString(), "error");
-				throw (ex);
+                DefLog.MakeLogEntry("FTP Error" + ex.ToString(), "error");
+				throw;
 			}
 		}
 
@@ -703,7 +679,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 
       while (__lastDestnFileName == _newfile)
 			{
-				Common.MakeLogEntry("Rejected Result File Name: "+_newfile, "debug");
+                DefLog.MakeLogEntry("Rejected Result File Name: " + _newfile, "debug");
 			
         Thread.Sleep(1);	//sleep for a millisecond and generate a new file name.
 				
@@ -714,8 +690,8 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 			__lastDestnFileName = _newfile;
 			
       __fileNameMutex.ReleaseMutex();
-			
-      Common.MakeLogEntry("Report ResultFileName: " + _newfile, "debug");
+
+      DefLog.MakeLogEntry("Report ResultFileName: " + _newfile, "debug");
 			
       return _newfile;
 			
@@ -737,9 +713,9 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
                 }
                 catch (Exception ex)
                 {
-                    Common.MakeLogEntry(this.__loggerMsg + "Disk Copy of report to destination failed.\n "
+                    DefLog.MakeLogEntry(this.__loggerMsg + "Disk Copy of report to destination failed.\n "
                         + "\n Exception Stack Trace:" + ex.ToString(), "error");
-                    throw (ex);
+                    throw;
                 }
                 finally
                 {
@@ -825,9 +801,9 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
         
         //DeleteLocalCopyOfDeliveredFile();
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				throw (ex);
+				throw;
 			}
 		}
 	
@@ -847,9 +823,9 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 			{
 				throw new FieldDefConfigFileLoadException("FieldDefinition Config File Not Found - Directory Does not exist", diEx);
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				throw (ex);
+				throw;
 			}
 		}
 
@@ -858,9 +834,9 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 			try 
 			{
 				Crc32 _crc = new Crc32();
-				if (File.Exists(this.__reportsWorkingFolder+@"\"+this.__resultFileName+".zip"))
-					File.Delete(this.__reportsWorkingFolder+@"\"+this.__resultFileName+".zip");
-				ZipOutputStream _zp = new ZipOutputStream(System.IO.File.Create(this.__reportsWorkingFolder+@"\"+this.__resultFileName+".zip"));
+				if (File.Exists(_config.WorkingFolder+@"\"+this.__resultFileName+".zip"))
+          File.Delete(_config.WorkingFolder + @"\" + this.__resultFileName + ".zip");
+        ZipOutputStream _zp = new ZipOutputStream(System.IO.File.Create(_config.WorkingFolder+ @"\" + this.__resultFileName + ".zip"));
 				_zp.SetLevel(6);
 			
 				FileStream _fs = File.OpenRead(this.__deliverThisFile);
@@ -887,12 +863,12 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 				_zp.Close();
 				//delete the current results file and make the zip file as the results file that will be delivered.
 				DeleteLocalCopyOfDeliveredFile();
-				this.__deliverThisFile = this.__reportsWorkingFolder+@"\"+this.__resultFileName+".zip";
+				this.__deliverThisFile = _config.WorkingFolder+@"\"+this.__resultFileName+".zip";
         this.__newExtension = "zip";
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				throw (ex);
+				throw;
 			}
 		}
 

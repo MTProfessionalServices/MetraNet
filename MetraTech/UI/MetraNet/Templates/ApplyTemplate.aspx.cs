@@ -32,6 +32,8 @@ public partial class Templates_ApplyTemplate : MTPage
       AccountTemplateInstance = PageNav.Data.Out_StateInitData["AccountTemplateInstance"] as AccountTemplate;
 
       MTGenericFormAccountTemplate.DataBinderInstanceName = "MTDataBinder1";
+      StartDate.Text = MetraTech.MetraTime.Now.ToString();
+      EndDate.Text = MetraTech.MetraTime.Max.ToString();
       if (AccountTemplateInstance != null) MTGenericFormAccountTemplate.RenderObjectType = AccountTemplateInstance.GetType();
       MTGenericFormAccountTemplate.RenderObjectInstanceName = "AccountTemplateInstance";
       MTGenericFormAccountTemplate.TemplateName = MTGenericFormAccountTemplate.RenderObjectType.Name + "Apply_Template";
@@ -44,12 +46,14 @@ public partial class Templates_ApplyTemplate : MTPage
         Logger.LogError(MTDataBinder1.BindingErrors.ToHtml());
       }
 
+      /* CORE-6239: Templates: unable to apply template for coresubscriber if coresubscriber is template owner.
+       * 
       if (getDescendantCount() == 0)
       {
           // Display the warning to the user and eliminate the OK button
           SetError(GetLocalResourceObject("ERROR_NO_DESCENDANTS").ToString());
           btnOK.Visible = false;
-      }
+      }*/
     }
 
     
@@ -62,6 +66,8 @@ public partial class Templates_ApplyTemplate : MTPage
     if (PageNav != null) PageNav.Execute(cancel);
   }
 
+  /* CORE-6239: Templates: unable to apply template for coresubscriber if coresubscriber is template owner.
+   * 
   private int getDescendantCount()
   {
       int cnt = 0;
@@ -90,5 +96,5 @@ public partial class Templates_ApplyTemplate : MTPage
       }
 
       return cnt;
-  }
+  }*/
 }

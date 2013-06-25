@@ -146,6 +146,18 @@ namespace MetraTech.DomainModel.MetraPay
       }
     }
 
+      [ScriptIgnore]
+      public string AccountToken
+      {
+          get { Guid retval;
+              if (Guid.TryParse(m_AccountNumber, out retval))
+                  return m_AccountNumber;
+              else
+              {
+                  return null;
+              }
+          }
+      }
     #endregion
 
     #region PaymentInstrumentIDString

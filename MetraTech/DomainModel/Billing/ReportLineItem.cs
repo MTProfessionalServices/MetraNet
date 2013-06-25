@@ -346,5 +346,160 @@ namespace MetraTech.DomainModel.Billing
             get { return isOtherTaxDirty; }
         }
         #endregion
+
+        #region ImpliedTax
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isImpliedTaxDirty = false;
+    private TaxData m_ImpliedTax;
+    [MTDataMember(Description = "Total implied taxes", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public TaxData ImpliedTax
+    {
+      get { return m_ImpliedTax; }
+      set
+      {
+          m_ImpliedTax = value;
+          isImpliedTaxDirty = true;
+      }
+    }
+	[ScriptIgnore]
+    public bool IsImpliedTaxDirty
+    {
+      get { return isImpliedTaxDirty; }
+    }
+    #endregion
+
+        #region NonImpliedTax
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isNonImpliedTaxDirty = false;
+    private TaxData m_NonImpliedTax;
+    [MTDataMember(Description = "Total nonimplied taxes", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public TaxData NonImpliedTax
+    {
+        get { return m_NonImpliedTax; }
+        set
+        {
+            m_NonImpliedTax = value;
+            isNonImpliedTaxDirty = true;
+        }
+    }
+    [ScriptIgnore]
+    public bool IsNonImpliedTaxDirty
+    {
+        get { return isNonImpliedTaxDirty; }
+    }
+    #endregion
+
+        #region InformationalTax
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isInformationalTaxDirty = false;
+    private TaxData m_InformationalTax;
+    [MTDataMember(Description = "Total informational taxes", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public TaxData InformationalTax
+    {
+      get { return m_InformationalTax; }
+      set
+      {
+          m_InformationalTax = value;
+          isInformationalTaxDirty = true;
+      }
+    }
+	[ScriptIgnore]
+    public bool IsInformationalTaxDirty
+    {
+      get { return isInformationalTaxDirty; }
+    }
+    #endregion
+
+        #region ImplInfTax
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isImplInfTaxDirty = false;
+    private TaxData m_ImplInfTax;
+    [MTDataMember(Description = "Total Implied and Informational taxes", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public TaxData ImplInfTax
+    {
+        get { return m_ImplInfTax; }
+        set
+        {
+            m_ImplInfTax = value;
+            isImplInfTaxDirty = true;
+        }
+    }
+    [ScriptIgnore]
+    public bool IsImplInfTaxDirty
+    {
+        get { return isImplInfTaxDirty; }
+    }
+    #endregion
+
+        #region BillableTax
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isBillableTaxDirty = false;
+    private TaxData m_BillableTax;
+    [MTDataMember(Description = "Total billable taxes", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public TaxData BillableTax
+    {
+        get { return m_BillableTax; }
+        set
+        {
+            m_BillableTax = value;
+            isBillableTaxDirty = true;
+        }
+    }
+    [ScriptIgnore]
+    public bool IsBillableTaxDirty
+    {
+        get { return isBillableTaxDirty; }
+    }
+    #endregion
+
+        #region UsageAmount
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isUsageAmountDirty = false;
+    private decimal m_UsageAmount;
+    [MTDataMember(Description = "This is the amount not including implied taxes.", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public decimal UsageAmount
+    {
+        get { return m_UsageAmount; }
+        set
+        {
+            m_UsageAmount = value;
+            isUsageAmountDirty = true;
+        }
+    }
+    [ScriptIgnore]
+    public bool IsUsageAmountDirty
+    {
+        get { return isUsageAmountDirty; }
+    }
+    #endregion
+
+        #region UsageAmountAsString
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isUsageAmountAsStringDirty = false;
+    private string m_UsageAmountAsString;
+    [MTDataMember(Description = "This is the textual representation of the amount not including implied taxes.", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public string UsageAmountAsString
+    {
+        get { return m_UsageAmountAsString; }
+        set
+        {
+            m_UsageAmountAsString = value;
+            isUsageAmountAsStringDirty = true;
+        }
+    }
+    [ScriptIgnore]
+    public bool IsUsageAmountAsStringDirty
+    {
+        get { return isUsageAmountAsStringDirty; }
+    }
+    #endregion
+
     }
 }

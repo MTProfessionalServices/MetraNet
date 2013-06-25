@@ -13,6 +13,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
 using System.Transactions;
 using MetraTech;
+using MetraTech.ActivityServices.Common;
 using MetraTech.DataAccess;
 using MetraTech.DomainModel.Enums.PaymentSvrClient.Metratech_com_paymentserver;
 using MetraTech.DomainModel.MetraPay;
@@ -20,8 +21,7 @@ using System.IO;
 using MetraTech.Interop.MTServerAccess;
 using MetraTech.Interop.QueryAdapter;
 using MetraTech.Xml;
-using PaymentBroker.Infrastructure;
-using PaymentBroker.Presentation;
+using metratech.com.PaymentBroker;
 
 namespace MetraTech.MetraPay.PaymentGateway
 {
@@ -99,7 +99,7 @@ namespace MetraTech.MetraPay.PaymentGateway
             {
                 var ccMethod = paymentMethod as CreditCardPaymentMethod;
                 response = client.VerifyCreditCard(sessionId, tenantConfiguration,
-                                                   Guid.Parse(ccMethod.UniqueAccountNumber),
+                                                   Guid.Parse(ccMethod.AccountToken),
                                                    ccMethod.CVNumber, "Merchant ref");
             }
             else
@@ -117,7 +117,7 @@ namespace MetraTech.MetraPay.PaymentGateway
             }
 
             m_logger.LogError(GetError(response));
-            return false;
+            throw new PaymentProcessorException("Verify With Payment Details failed : " + GetError(response));
         }
 
         /// <summary>
@@ -150,11 +150,11 @@ namespace MetraTech.MetraPay.PaymentGateway
             // Verify the payment method
             var response = client.AuthorizeCreditCard(sessionId: sessionId,
                                                       tenantConfiguration: tenantConfiguration,
-                                                      creditCardId: Guid.Parse(ccPaymentMethod.UniqueAccountNumber),
+                                                      creditCardId: Guid.Parse(ccPaymentMethod.AccountToken),
                                                       cardVerificationNumber: null,
                                                       amount: paymentInfo.Amount,
                                                       currency: paymentInfo.Currency,
-                                                      merchantReference: paymentInfo.InvoiceNum,
+                                                      merchantReference: paymentInfo.TransactionSessionId.ToString(),
                                                       pointOfSaleMode: PointOfSaleMode.Recurring,
                                                       softDescriptor: string.Empty,
                                                       comment: string.Empty);
@@ -170,7 +170,7 @@ namespace MetraTech.MetraPay.PaymentGateway
             }
             warnings = GetError(response);
             m_logger.LogError(GetError(response));
-            return;
+            throw new PaymentProcessorException("Authorize With Payment Details failed : " + GetError(response));
         }
 
         /// <summary>
@@ -203,11 +203,11 @@ namespace MetraTech.MetraPay.PaymentGateway
             // capture the payment method
             var response = client.CaptureCreditCard(sessionId: sessionId,
                                                     tenantConfiguration: tenantConfiguration,
-                                                    creditCardId: Guid.Parse(ccPaymentMethod.UniqueAccountNumber),
+                                                    creditCardId: Guid.Parse(ccPaymentMethod.AccountToken),
                                                     authorizationCode: providerRef,
                                                     amount: paymentInfo.Amount,
                                                     currency: paymentInfo.Currency,
-                                                    merchantReference: paymentInfo.InvoiceNum,
+                                                    merchantReference: paymentInfo.TransactionSessionId.ToString(),
                                                     pointOfSaleMode: PointOfSaleMode.Recurring,
                                                     softDescriptor: string.Empty,
                                                     comment: string.Empty);
@@ -223,8 +223,7 @@ namespace MetraTech.MetraPay.PaymentGateway
             }
             warnings = GetError(response);
             m_logger.LogError(GetError(response));
-            return;
-
+            throw new PaymentProcessorException("Capture failed : " + GetError(response));
         }
 
         /// <summary>
@@ -258,11 +257,11 @@ namespace MetraTech.MetraPay.PaymentGateway
                 var ccPaymentMethod = paymentMethod as CreditCardPaymentMethod;
                 response = client.SaleCreditCard(sessionId: sessionId,
                                                  tenantConfiguration: tenantConfiguration,
-                                                 creditCardId: Guid.Parse(ccPaymentMethod.UniqueAccountNumber),
+                                                 creditCardId: Guid.Parse(ccPaymentMethod.AccountToken),
                                                  cardVerificationNumber: ccPaymentMethod.CVNumber,
                                                  amount: paymentInfo.Amount,
                                                  currency: paymentInfo.Currency,
-                                                 merchantReference: paymentInfo.InvoiceNum,
+                                                 merchantReference: paymentInfo.TransactionSessionId.ToString(),
                                                  pointOfSaleMode: PointOfSaleMode.Recurring,
                                                  softDescriptor: string.Empty,
                                                  comment: string.Empty);
@@ -271,10 +270,10 @@ namespace MetraTech.MetraPay.PaymentGateway
             {
                 response = client.AchDebit(sessionId: sessionId,
                                            tenantConfiguration: tenantConfiguration,
-                                           bankAccountId: Guid.Parse(paymentMethod.UniqueAccountNumber),
+                                           bankAccountId: Guid.Parse(paymentMethod.AccountToken),
                                            amount: paymentInfo.Amount,
                                            currency: paymentInfo.Currency,
-                                           merchantReference: paymentInfo.InvoiceNum,
+                                           merchantReference: paymentInfo.TransactionSessionId.ToString(),
                                            description: string.Empty,
                                            debitDate: paymentInfo.InvoiceDate);
             }
@@ -290,7 +289,7 @@ namespace MetraTech.MetraPay.PaymentGateway
 
             warnings = GetError(response);
             m_logger.LogError(GetError(response));
-            return;
+            throw new PaymentProcessorException("Debit failed : " + GetError(response));
         }
 
         /// <summary>
@@ -329,7 +328,7 @@ namespace MetraTech.MetraPay.PaymentGateway
             {
                 response = client.CreditCreditCard(sessionId: sessionId,
                                                    tenantConfiguration: tenantConfiguration,
-                                                   creditCardId: Guid.Parse(paymentMethod.UniqueAccountNumber),
+                                                   creditCardId: Guid.Parse(paymentMethod.AccountToken),
                                                    amount: paymentInfo.Amount,
                                                    providerReference: providerRef,
                                                    merchantReference: string.Empty);
@@ -338,7 +337,7 @@ namespace MetraTech.MetraPay.PaymentGateway
             {
                 response = client.AchCredit(sessionId: sessionId,
                                             tenantConfiguration: tenantConfiguration,
-                                            bankAccountId: Guid.Parse(paymentMethod.UniqueAccountNumber),
+                                            bankAccountId: Guid.Parse(paymentMethod.AccountToken),
                                             amount: paymentInfo.Amount,
                                             currency: paymentInfo.Currency,
                                             providerReference: providerRef,
@@ -357,7 +356,7 @@ namespace MetraTech.MetraPay.PaymentGateway
             }
             warnings = GetError(response);
             m_logger.LogError(GetError(response));
-            return;
+            throw new PaymentProcessorException("Credit failed : " + GetError(response));
         }
 
         /// <summary>
@@ -395,7 +394,7 @@ namespace MetraTech.MetraPay.PaymentGateway
             {
                 response = client.ReverseCreditCard(sessionId: sessionId,
                                                     tenantConfiguration: tenantConfiguration,
-                                                    creditCardId: Guid.Parse(paymentMethod.UniqueAccountNumber),
+                                                    creditCardId: Guid.Parse(paymentMethod.AccountToken),
                                                     amount: paymentInfo.Amount,
                                                     providerReference: providerRef,
                                                     merchantReference: string.Empty);
@@ -404,7 +403,7 @@ namespace MetraTech.MetraPay.PaymentGateway
             {
                 response = client.AchVoid(sessionId: sessionId,
                                           tenantConfiguration: tenantConfiguration,
-                                          bankAccountId: Guid.Parse(paymentMethod.UniqueAccountNumber),
+                                          bankAccountId: Guid.Parse(paymentMethod.AccountToken),
                                           providerReference: providerRef,
                                           merchantReference: string.Empty);
             }
@@ -419,7 +418,7 @@ namespace MetraTech.MetraPay.PaymentGateway
             }
             warnings = GetError(response);
             m_logger.LogError(GetError(response));
-            return;
+            throw new PaymentProcessorException("Void failed : " + GetError(response));
         }
 
         public bool GetACHTransactionStatus(string transactionId, out string warnings)

@@ -279,6 +279,7 @@
 		<col def="V0">Data</col>
 		<col def="S255">ISBuildSourcePath</col>
 		<row><td>ISSELFREG.DLL</td><td/><td>&lt;ISProductFolder&gt;\redist\language independent\i386\isregsvr.dll</td></row>
+		<row><td>InteriorBin1</td><td/><td>&lt;InstallImages&gt;\IsDialogBanner.bmp</td></row>
 		<row><td>NewBinary1</td><td/><td>&lt;InstallImages&gt;\IsDialogBanner.bmp</td></row>
 		<row><td>NewBinary10</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\CompleteSetupIco.ibd</td></row>
 		<row><td>NewBinary11</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\DestIcon.ibd</td></row>
@@ -397,6 +398,8 @@
 		<row><td>AccountTableCreation.dll</td><td>{69F787DF-60DF-48D2-B50A-A47406FB7DAD}</td><td>BIN</td><td>0</td><td/><td>F30082_AccountTableCreation.dll</td><td>1</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>AdminEnumEdit.dll</td><td>{245E97EC-60B2-4CDD-ABA8-EE71F0D7A749}</td><td>BIN</td><td>0</td><td/><td>F30140_AdminEnumEdit.dll</td><td>1</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>AllOtherFiles</td><td>{239EEEF7-94A7-4B79-BBAC-0A6A79F2C9A9}</td><td>BIN</td><td>8</td><td/><td>cryptosetup.pdb</td><td>17</td><td>This component consists of files not belonging to other components.</td><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Antlr3Runtime.3.1.0.39271</td><td>{0D9BDD99-AD38-4C74-A06D-E53401E8FD97}</td><td>GlobalAssemblyCache</td><td>0</td><td/><td>antlr3.runtime.dll</td><td>9</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Antlr3Runtime.3.4.1.9004</td><td>{6182E69C-C399-42AC-BAC4-992922F0B9A4}</td><td>NEW_DIRECTORY5</td><td>0</td><td/><td>antlr3.runtime.dll1</td><td>9</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>AuditHook.dll</td><td>{0172846F-DEE7-4192-AC4A-FCAD320BC7B4}</td><td>BIN</td><td>0</td><td/><td>F898489_AuditHook.dll</td><td>1</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>BBXService_ASL</td><td>{7A2271B0-CAB9-41AB-91B9-F344320BB588}</td><td>BBXSERVICE_ASL_DIR</td><td>0</td><td/><td>placeholder.txt</td><td>17</td><td>This component consists of files not belonging to other components.</td><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>BBXService_CMD</td><td>{CF74C6B9-8560-4841-A56B-DBC93AB8B068}</td><td>BBXSERVICE_CMD_DIR</td><td>0</td><td/><td>bbxservice_stop.cmd</td><td>17</td><td>This component consists of files not belonging to other components.</td><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
@@ -931,6 +934,18 @@
 		<row><td>LicenseAgreement</td><td>Image</td><td>Bitmap</td><td>0</td><td>0</td><td>374</td><td>44</td><td>262145</td><td/><td/><td/><td/><td>0</td><td>0</td><td/><td>NewBinary1</td></row>
 		<row><td>LicenseAgreement</td><td>Memo</td><td>ScrollableText</td><td>8</td><td>55</td><td>358</td><td>130</td><td>7</td><td/><td/><td/><td/><td>0</td><td>0</td><td>&lt;InstallImages&gt;\MetraNet_license.rtf</td><td/></row>
 		<row><td>LicenseAgreement</td><td>Next</td><td>PushButton</td><td>230</td><td>243</td><td>66</td><td>17</td><td>3</td><td/><td>##IDS__IsLicenseDlg_8##</td><td>Cancel</td><td/><td/><td/><td/><td/></row>
+		<row><td>MT_Acct_Template</td><td>Back</td><td>PushButton</td><td>164</td><td>243</td><td>66</td><td>17</td><td>3</td><td/><td>##ID_STRING102##</td><td>RadioButtonGroup1</td><td/><td>0</td><td/><td/><td/></row>
+		<row><td>MT_Acct_Template</td><td>Banner</td><td>Bitmap</td><td>0</td><td>0</td><td>374</td><td>44</td><td>1</td><td/><td/><td/><td/><td>0</td><td/><td/><td>InteriorBin1</td></row>
+		<row><td>MT_Acct_Template</td><td>BannerLine</td><td>Line</td><td>0</td><td>44</td><td>374</td><td>0</td><td>1</td><td/><td/><td/><td/><td>0</td><td/><td/><td/></row>
+		<row><td>MT_Acct_Template</td><td>Branding1</td><td>Text</td><td>4</td><td>229</td><td>50</td><td>13</td><td>3</td><td/><td>{&amp;MSSWhiteSerif8}InstallShield</td><td/><td/><td/><td/><td/><td/></row>
+		<row><td>MT_Acct_Template</td><td>Branding2</td><td>Text</td><td>3</td><td>228</td><td>50</td><td>13</td><td>65537</td><td/><td>{&amp;Tahoma8}InstallShield</td><td/><td/><td/><td/><td/><td/></row>
+		<row><td>MT_Acct_Template</td><td>Cancel</td><td>PushButton</td><td>301</td><td>243</td><td>66</td><td>17</td><td>3</td><td/><td>##ID_STRING103##</td><td>Back</td><td/><td>0</td><td/><td/><td/></row>
+		<row><td>MT_Acct_Template</td><td>DlgDesc</td><td>Text</td><td>127</td><td>23</td><td>197</td><td>25</td><td>65539</td><td/><td>##ID_STRING105##</td><td/><td/><td>0</td><td>0</td><td/><td/></row>
+		<row><td>MT_Acct_Template</td><td>DlgLine</td><td>Line</td><td>48</td><td>234</td><td>326</td><td>0</td><td>1</td><td/><td/><td/><td/><td>0</td><td/><td/><td/></row>
+		<row><td>MT_Acct_Template</td><td>DlgTitle</td><td>Text</td><td>127</td><td>6</td><td>208</td><td>25</td><td>65539</td><td/><td>##ID_STRING104##</td><td/><td/><td>0</td><td>0</td><td/><td/></row>
+		<row><td>MT_Acct_Template</td><td>GroupBox1</td><td>GroupBox</td><td>4</td><td>54</td><td>364</td><td>166</td><td>3</td><td/><td>##NEW_STRING797##</td><td>Next</td><td/><td/><td/><td/><td/></row>
+		<row><td>MT_Acct_Template</td><td>Next</td><td>PushButton</td><td>230</td><td>243</td><td>66</td><td>17</td><td>3</td><td/><td>##ID_STRING107##</td><td>Cancel</td><td/><td>0</td><td/><td/><td/></row>
+		<row><td>MT_Acct_Template</td><td>RadioButtonGroup1</td><td>RadioButtonGroup</td><td>10</td><td>58</td><td>348</td><td>166</td><td>3</td><td>ACCTMPLTYPE</td><td/><td>GroupBox1</td><td/><td/><td/><td/><td/></row>
 		<row><td>MT_Crypto</td><td>Back</td><td>PushButton</td><td>164</td><td>243</td><td>66</td><td>17</td><td>3</td><td/><td>##ID_STRING35##</td><td>RadioButtonGroup1</td><td/><td>0</td><td/><td/><td/></row>
 		<row><td>MT_Crypto</td><td>Banner</td><td>Bitmap</td><td>0</td><td>0</td><td>374</td><td>44</td><td>1</td><td/><td/><td/><td/><td>0</td><td/><td/><td>NewBinary1</td></row>
 		<row><td>MT_Crypto</td><td>BannerLine</td><td>Line</td><td>0</td><td>44</td><td>374</td><td>0</td><td>1</td><td/><td/><td/><td/><td>0</td><td/><td/><td/></row>
@@ -1622,7 +1637,10 @@
 		<row><td>LicenseAgreement</td><td>Back</td><td>NewDialog</td><td>InstallWelcome</td><td>1</td><td>1</td></row>
 		<row><td>LicenseAgreement</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>0</td></row>
 		<row><td>LicenseAgreement</td><td>Next</td><td>NewDialog</td><td>CustomerInformation</td><td>AgreeToLicense = "Yes"</td><td>1</td></row>
-		<row><td>MT_Crypto</td><td>Back</td><td>NewDialog</td><td>MT_ServerType</td><td>1</td><td>1</td></row>
+		<row><td>MT_Acct_Template</td><td>Back</td><td>NewDialog</td><td>MT_ServerType</td><td>1</td><td>1</td></row>
+		<row><td>MT_Acct_Template</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>1</td></row>
+		<row><td>MT_Acct_Template</td><td>Next</td><td>NewDialog</td><td>MT_Crypto</td><td>1</td><td>1</td></row>
+		<row><td>MT_Crypto</td><td>Back</td><td>NewDialog</td><td>MT_Acct_Template</td><td>1</td><td>1</td></row>
 		<row><td>MT_Crypto</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>1</td></row>
 		<row><td>MT_Crypto</td><td>Next</td><td>DoAction</td><td>custact_SetDlgSeq_Crypto</td><td>1</td><td>1</td></row>
 		<row><td>MT_Crypto</td><td>Next</td><td>NewDialog</td><td>MT_Crypto_Default</td><td>MT_CRYPTO_TYPE = 1</td><td>2</td></row>
@@ -1683,13 +1701,19 @@
 		<row><td>MT_DBUser</td><td>btnBack</td><td>NewDialog</td><td>MT_DBMSType</td><td>1</td><td>1</td></row>
 		<row><td>MT_DBUser</td><td>btnCancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>1</td></row>
 		<row><td>MT_DBUser</td><td>btnNext</td><td>DoAction</td><td>custact_PrepareToInstallDB</td><td>MT_PARAMS_OK = "Yes"</td><td>2</td></row>
+		<row><td>MT_DBUser</td><td>btnNext</td><td>DoAction</td><td>custact_SetDlgSeq_DBCreate</td><td>MT_PARAMS_OK = "Yes" AND MT_DATABASE_REMOTE = 1</td><td>5</td></row>
 		<row><td>MT_DBUser</td><td>btnNext</td><td>DoAction</td><td>custact_Validate_DBOUser</td><td>MT_PARAMS_OK = "Yes"</td><td>3</td></row>
 		<row><td>MT_DBUser</td><td>btnNext</td><td>DoAction</td><td>custact_Validate_DB_UserLoginParams</td><td>1</td><td>1</td></row>
-		<row><td>MT_DBUser</td><td>btnNext</td><td>NewDialog</td><td>MT_DBCreate</td><td>MT_PARAMS_OK = "Yes"</td><td>4</td></row>
+		<row><td>MT_DBUser</td><td>btnNext</td><td>NewDialog</td><td>MT_DBCreate</td><td>MT_PARAMS_OK = "Yes" AND MT_DATABASE_REMOTE = 0</td><td>4</td></row>
+		<row><td>MT_DBUser</td><td>btnNext</td><td>NewDialog</td><td>MT_GreatPlains</td><td>MT_PARAMS_OK = "Yes" AND MT_DATABASE_REMOTE = 1 AND MT_NEXT_DIALOG = "MT_GreatPlains"</td><td>8</td></row>
+		<row><td>MT_DBUser</td><td>btnNext</td><td>NewDialog</td><td>MT_PaySvr</td><td>MT_PARAMS_OK = "Yes" AND MT_DATABASE_REMOTE = 1 AND MT_NEXT_DIALOG = "MT_PaySvr"</td><td>6</td></row>
+		<row><td>MT_DBUser</td><td>btnNext</td><td>NewDialog</td><td>MT_Reporting</td><td>MT_PARAMS_OK = "Yes" AND MT_DATABASE_REMOTE = 1 AND MT_NEXT_DIALOG = "MT_Reporting"</td><td>7</td></row>
+		<row><td>MT_DBUser</td><td>btnNext</td><td>NewDialog</td><td>ReadyToInstall</td><td>MT_PARAMS_OK = "Yes" AND MT_DATABASE_REMOTE = 1 AND MT_NEXT_DIALOG = "END"</td><td>9</td></row>
 		<row><td>MT_GreatPlains</td><td>btnBack</td><td>DoAction</td><td>custact_SetDlgSeq_GreatPlains</td><td>1</td><td>1</td></row>
 		<row><td>MT_GreatPlains</td><td>btnBack</td><td>NewDialog</td><td>CustomSetup</td><td>MT_PREV_DIALOG = "BEGIN"</td><td>2</td></row>
 		<row><td>MT_GreatPlains</td><td>btnBack</td><td>NewDialog</td><td>MT_Crypto_ORIG</td><td>MT_PREV_DIALOG = "MT_Crypto"</td><td>3</td></row>
-		<row><td>MT_GreatPlains</td><td>btnBack</td><td>NewDialog</td><td>MT_DBCreate</td><td>MT_PREV_DIALOG = "MT_DBCreate"</td><td>5</td></row>
+		<row><td>MT_GreatPlains</td><td>btnBack</td><td>NewDialog</td><td>MT_DBCreate</td><td>MT_PREV_DIALOG = "MT_DBCreate" AND MT_DATABASE_REMOTE = 0</td><td>5</td></row>
+		<row><td>MT_GreatPlains</td><td>btnBack</td><td>NewDialog</td><td>MT_DBUser</td><td>MT_PREV_DIALOG = "MT_DBCreate" AND MT_DATABASE_REMOTE = 1</td><td>7</td></row>
 		<row><td>MT_GreatPlains</td><td>btnBack</td><td>NewDialog</td><td>MT_PaySvr</td><td>MT_PREV_DIALOG = "MT_PaySvr"</td><td>4</td></row>
 		<row><td>MT_GreatPlains</td><td>btnBack</td><td>NewDialog</td><td>MT_Reporting</td><td>MT_PREV_DIALOG = "MT_Reporting"</td><td>6</td></row>
 		<row><td>MT_GreatPlains</td><td>btnCancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>1</td></row>
@@ -1698,7 +1722,8 @@
 		<row><td>MT_PaySvr</td><td>btnBack</td><td>DoAction</td><td>custact_SetDlgSeq_PaySvr</td><td>1</td><td>1</td></row>
 		<row><td>MT_PaySvr</td><td>btnBack</td><td>NewDialog</td><td>CustomSetup</td><td>MT_PREV_DIALOG = "BEGIN"</td><td>2</td></row>
 		<row><td>MT_PaySvr</td><td>btnBack</td><td>NewDialog</td><td>MT_Crypto_ORIG</td><td>MT_PREV_DIALOG = "MT_Crypto"</td><td>3</td></row>
-		<row><td>MT_PaySvr</td><td>btnBack</td><td>NewDialog</td><td>MT_DBCreate</td><td>MT_PREV_DIALOG = "MT_DBCreate"</td><td>4</td></row>
+		<row><td>MT_PaySvr</td><td>btnBack</td><td>NewDialog</td><td>MT_DBCreate</td><td>MT_PREV_DIALOG = "MT_DBCreate" AND MT_DATABASE_REMOTE = 0</td><td>4</td></row>
+		<row><td>MT_PaySvr</td><td>btnBack</td><td>NewDialog</td><td>MT_DBUser</td><td>MT_PREV_DIALOG = "MT_DBCreate" AND MT_DATABASE_REMOTE = 1</td><td>5</td></row>
 		<row><td>MT_PaySvr</td><td>btnCancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>1</td></row>
 		<row><td>MT_PaySvr</td><td>btnNext</td><td>DoAction</td><td>custact_SetDlgSeq_PaySvr</td><td>MT_PARAMS_OK = "Yes"</td><td>3</td></row>
 		<row><td>MT_PaySvr</td><td>btnNext</td><td>DoAction</td><td>custact_Validate_CryptoPaySvr_Params</td><td>MT_PARAMS_OK = "Yes" AND &amp;PS &lt;&gt; -1</td><td>2</td></row>
@@ -1710,7 +1735,8 @@
 		<row><td>MT_Reporting</td><td>btnBack</td><td>DoAction</td><td>custact_SetDlgSeq_Reporting</td><td>1</td><td>1</td></row>
 		<row><td>MT_Reporting</td><td>btnBack</td><td>NewDialog</td><td>CustomSetup</td><td>MT_PREV_DIALOG = "BEGIN"</td><td>2</td></row>
 		<row><td>MT_Reporting</td><td>btnBack</td><td>NewDialog</td><td>MT_Crypto_ORIG</td><td>MT_PREV_DIALOG = "MT_Crypto"</td><td>3</td></row>
-		<row><td>MT_Reporting</td><td>btnBack</td><td>NewDialog</td><td>MT_DBCreate</td><td>MT_PREV_DIALOG = "MT_DBCreate"</td><td>5</td></row>
+		<row><td>MT_Reporting</td><td>btnBack</td><td>NewDialog</td><td>MT_DBCreate</td><td>MT_PREV_DIALOG = "MT_DBCreate" AND MT_DATABASE_REMOTE = 0</td><td>5</td></row>
+		<row><td>MT_Reporting</td><td>btnBack</td><td>NewDialog</td><td>MT_DBUser</td><td>MT_PREV_DIALOG = "MT_DBCreate" AND MT_DATABASE_REMOTE = 1</td><td>6</td></row>
 		<row><td>MT_Reporting</td><td>btnBack</td><td>NewDialog</td><td>MT_PaySvr</td><td>MT_PREV_DIALOG = "MT_PaySvr"</td><td>4</td></row>
 		<row><td>MT_Reporting</td><td>btnCancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>1</td></row>
 		<row><td>MT_Reporting</td><td>btnNext</td><td>DoAction</td><td>custact_SetDlgSeq_Reporting</td><td>MT_PARAMS_OK = "Yes"</td><td>2</td></row>
@@ -1725,7 +1751,7 @@
 		<row><td>MT_ServerType</td><td>btnNext</td><td>DoAction</td><td>custact_Validate_PortalParams</td><td>1</td><td>1</td></row>
 		<row><td>MT_ServerType</td><td>btnNext</td><td>DoAction</td><td>custact_Validate_PrimaryPipelineServer</td><td>MT_PARAMS_OK = "Yes"</td><td>3</td></row>
 		<row><td>MT_ServerType</td><td>btnNext</td><td>DoAction</td><td>custact_Validate_SimulatedTime</td><td>MT_PARAMS_OK = "Yes"</td><td>4</td></row>
-		<row><td>MT_ServerType</td><td>btnNext</td><td>NewDialog</td><td>MT_Crypto</td><td>MT_PARAMS_OK = "Yes"</td><td>5</td></row>
+		<row><td>MT_ServerType</td><td>btnNext</td><td>NewDialog</td><td>MT_Acct_Template</td><td>MT_PARAMS_OK = "Yes"</td><td>5</td></row>
 		<row><td>MaintenanceType</td><td>Back</td><td>NewDialog</td><td>MaintenanceWelcome</td><td>1</td><td>1</td></row>
 		<row><td>MaintenanceType</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>0</td></row>
 		<row><td>MaintenanceType</td><td>Next</td><td>DoAction</td><td>custact_DisplayRemoveWarning</td><td>_IsMaintenance = "Remove"</td><td>12</td></row>
@@ -1757,7 +1783,8 @@
 		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>CustomSetup</td><td>MT_PREV_DIALOG = "BEGIN" AND (Installed OR _IsSetupTypeMin &lt;&gt; "Typical")</td><td>3</td></row>
 		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>MT_Crypto_Default</td><td>MT_PREV_DIALOG = "MT_Crypto" AND MT_CRYPTO_TYPE = 1</td><td>4</td></row>
 		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>MT_Crypto_RSAKeyClasses</td><td>MT_PREV_DIALOG = "MT_Crypto" AND MT_CRYPTO_TYPE = 2</td><td>5</td></row>
-		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>MT_DBCreate</td><td>MT_PREV_DIALOG = "MT_DBCreate"</td><td>7</td></row>
+		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>MT_DBCreate</td><td>MT_PREV_DIALOG = "MT_DBCreate" AND MT_DATABASE_REMOTE = 0</td><td>7</td></row>
+		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>MT_DBUser</td><td>MT_PREV_DIALOG = "MT_DBCreate" AND MT_DATABASE_REMOTE = 1</td><td>10</td></row>
 		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>MT_GreatPlains</td><td>MT_PREV_DIALOG = "MT_GreatPlains"</td><td>9</td></row>
 		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>MT_PaySvr</td><td>MT_PREV_DIALOG = "MT_PaySvr"</td><td>6</td></row>
 		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>MT_Reporting</td><td>MT_PREV_DIALOG = "MT_Reporting"</td><td>8</td></row>
@@ -1864,6 +1891,7 @@
 		<row><td>custact_PrepareToInstallDB</td><td>6</td><td>New_Binary11</td><td>PrepareToInstallDB</td><td>Function to determine the current state of the MetraTech database.</td></row>
 		<row><td>custact_PrepareToUninstallDB</td><td>6</td><td>New_Binary11</td><td>PrepareToUninstallDB</td><td>Called to set up MSI properties needed to remove the core MetraTech database or the Paymnet Server schema</td></row>
 		<row><td>custact_RemoveCR2008client</td><td>103</td><td>{C484CC8D-03CF-4022-89C4-DB4F02E8A15B}</td><td>REMOVE="ALL"</td><td>Removes the Crystal Reports 2008 (12) client from the target system.</td></row>
+		<row><td>custact_RemoveRMPFolder</td><td>98</td><td>SystemFolder</td><td>cmd /c "rmdir /s /q [INSTALLDIR]"</td><td/></row>
 		<row><td>custact_Reset_DBMS_Type</td><td>6</td><td>New_Binary11</td><td>Reset_DBMS_Type</td><td>Resets the MT_DBMS_Type property to 0 </td></row>
 		<row><td>custact_SetDlgSeq_Begin</td><td>6</td><td>New_Binary11</td><td>SetDlgSeqBegin</td><td/></row>
 		<row><td>custact_SetDlgSeq_Crypto</td><td>6</td><td>New_Binary11</td><td>SetDlgSeqCrypto</td><td/></row>
@@ -1884,7 +1912,7 @@
 		<row><td>custact_SetProps_GreatPlainsUninstall</td><td>51</td><td>custdefer_UninstallGreatPlains</td><td>[INSTALLDIR]RMP\;[INSTALLDIR]RMP\Bin\</td><td/></row>
 		<row><td>custact_SetProps_InstallBillSoft</td><td>51</td><td>custdefer_InstallBillSoft</td><td>[INSTALLDIR]RMP\;[INSTALLDIR]RMP\Bin\;[MT_Ctrl_UI_Or_Silent]</td><td>setting properties for the  install com plus script</td></row>
 		<row><td>custact_SetProps_InstallComPlus</td><td>51</td><td>custdefer_InstallComPlus</td><td>[INSTALLDIR]RMP\;[INSTALLDIR]RMP\Bin\;[MT_Ctrl_UI_Or_Silent]</td><td>setting properties for the  install com plus script</td></row>
-		<row><td>custact_SetProps_InstallDatabase_SQL</td><td>51</td><td>custdefer_InstallDatabase_SQL</td><td>[INSTALLDIR]RMP\;[INSTALLDIR]RMP\Bin\;[MT_DB_STATUS];[MT_DBMS_TYPE];[MT_ADMIN_LOGIN_ID];+[MT_ADMIN_LOGIN_PWD];[MT_DATABASE_NAME];[MT_DBMS_COMPUTERNAME];[MT_INIT_CONFIG_USER_ID];+[MT_INIT_CONFIG_USER_PWD1];[MT_STAGING_DB_NAME];[MT_DATABASE_DATAFILE];[MT_DATABASE_DATA_SIZE];[MT_DATABASE_LOGFILE];[MT_DATABASE_LOG_SIZE];[MT_STAGING_DB_DATAFILE];[MT_STAGING_DB_LOGFILE];[MT_DB_PARTITIONING_TYPE];[MT_DB_PARTITIONING_PATHS];[MT_PORTAL_SERVER_TYPE];[MT_SIMULATED_TIME];[MT_DB_DRIVER]</td><td>sets properties for installing sql database</td></row>
+		<row><td>custact_SetProps_InstallDatabase_SQL</td><td>51</td><td>custdefer_InstallDatabase_SQL</td><td>[INSTALLDIR]RMP\;[INSTALLDIR]RMP\Bin\;[MT_DB_STATUS];[MT_DBMS_TYPE];[MT_ADMIN_LOGIN_ID];+[MT_ADMIN_LOGIN_PWD];[MT_DATABASE_NAME];[MT_DBMS_COMPUTERNAME];[MT_INIT_CONFIG_USER_ID];+[MT_INIT_CONFIG_USER_PWD1];[MT_STAGING_DB_NAME];[MT_DATABASE_DATAFILE];[MT_DATABASE_DATA_SIZE];[MT_DATABASE_LOGFILE];[MT_DATABASE_LOG_SIZE];[MT_STAGING_DB_DATAFILE];[MT_STAGING_DB_LOGFILE];[MT_DB_PARTITIONING_TYPE];[MT_DB_PARTITIONING_PATHS];[MT_PORTAL_SERVER_TYPE];[MT_SIMULATED_TIME];[MT_DB_DRIVER];[ACCTMPLTYPE]</td><td>sets properties for installing sql database</td></row>
 		<row><td>custact_SetProps_InstallReporting</td><td>51</td><td>custdefer_InstallReporting</td><td>[INSTALLDIR]RMP\;[INSTALLDIR]RMP\Bin\;[MT_DBMS_TYPE];[MT_INIT_CONFIG_USER_ID];+[MT_INIT_CONFIG_USER_PWD1];[MT_DBMS_COMPUTERNAME];[MT_RPT_APS_SERVER_NAME];[MT_RPT_APS_SERVER_LOGIN];+[MT_RPT_APS_SERVER_PWD1];[MT_RPT_DB_DATA_DIR];[MT_RPT_DB_DATA_SIZE];[REPORTING2]</td><td>Sets properties via CustomActionData for use by custdefer_InstallReporting_RMP</td></row>
 		<row><td>custact_SetProps_PSClient_ConfigXML</td><td>51</td><td>custdefer_PSClient_ConfigXML</td><td>[INSTALLDIR]RMP\;[INSTALLDIR]RMP\Bin\;[MT_PAYSVR_COMPUTER_NAME]</td><td>Sets properties for custdefer_PaySvrClient via CustomActionData.</td></row>
 		<row><td>custact_SetProps_ProductViewAdd</td><td>51</td><td>custdefer_ProductViewAdd</td><td>[INSTALLDIR]RMP\;[INSTALLDIR]RMP\Bin\</td><td>Sets properties via CustomActionData to be used by custdefer_ProductViewAdd.</td></row>
@@ -1975,6 +2003,7 @@
 		<row><td>InstallChangeFolder</td><td>50</td><td>50</td><td>374</td><td>267</td><td>3</td><td>##IDS__IsBrowseFolderDlg_0##</td><td>Tail</td><td>OK</td><td>Cancel</td><td>Browse</td><td/><td/><td/></row>
 		<row><td>InstallWelcome</td><td>50</td><td>50</td><td>374</td><td>267</td><td>3</td><td>##IDS__IsWelcomeDlg_0##</td><td>Next</td><td>Next</td><td>Cancel</td><td>Welcome Panel</td><td/><td/><td/></row>
 		<row><td>LicenseAgreement</td><td>50</td><td>50</td><td>374</td><td>267</td><td>2</td><td>##IDS__IsLicenseDlg_0##</td><td>Agree</td><td>Next</td><td>Cancel</td><td>License Agreement</td><td/><td/><td/></row>
+		<row><td>MT_Acct_Template</td><td>50</td><td>50</td><td>374</td><td>266</td><td>3</td><td>##ID_STRING106##</td><td>Next</td><td>Next</td><td>Cancel</td><td>Interior</td><td/><td>0</td><td/></row>
 		<row><td>MT_Crypto</td><td>50</td><td>40</td><td>374</td><td>266</td><td>3</td><td>##ID_STRING39##</td><td>Next</td><td>Next</td><td>Cancel</td><td>Interior</td><td/><td>0</td><td/></row>
 		<row><td>MT_Crypto_Default</td><td>50</td><td>50</td><td>374</td><td>266</td><td>3</td><td>##ID_STRING47##</td><td>Edit1</td><td>Next</td><td>Cancel</td><td>Interior</td><td/><td>0</td><td/></row>
 		<row><td>MT_Crypto_ORIG</td><td>50</td><td>50</td><td>374</td><td>267</td><td>7</td><td>##NEW_STRING321##</td><td>editCryptoPwd1</td><td>btnNext</td><td>btnCancel</td><td/><td/><td/><td/></row>
@@ -2574,6 +2603,7 @@
 		<row><td>NEW_DIRECTORY2</td><td>ACCOUNT2</td><td>.:EXTENS~1|ExtensionAccount</td><td/><td>0</td><td/></row>
 		<row><td>NEW_DIRECTORY3</td><td>CORE</td><td>.:EXTENS~1|ExtensionCore</td><td/><td>0</td><td/></row>
 		<row><td>NEW_DIRECTORY4</td><td>METRAVIEW</td><td>.:EXTENS~1|ExtensionMetraView</td><td/><td>0</td><td/></row>
+		<row><td>NEW_DIRECTORY5</td><td>GlobalAssemblyCache</td><td>.:GLOBAL~1|GlobalAssemblyCache2</td><td/><td>0</td><td/></row>
 		<row><td>NONRECURRINGCHARGE</td><td>PIPELINE4</td><td>NONREC~1|NonRecurringCharge</td><td/><td>0</td><td/></row>
 		<row><td>NONRECURRINGCHARGEUNSUB</td><td>PIPELINE4</td><td>NONREC~1|NonRecurringChargeUnSub</td><td/><td>0</td><td/></row>
 		<row><td>NOTSUPPORTED</td><td>DIALOG2</td><td>NOTSUP~1|NotSupported</td><td/><td>0</td><td/></row>
@@ -3163,6 +3193,7 @@
 		<row><td>BillSoft</td><td>Tax</td><td>##ID_STRING91##</td><td>##ID_STRING94##</td><td>4</td><td>110</td><td>INSTALLDIR</td><td>8</td><td/><td>This feature is used for calculating taxes using BillSoft.</td><td/><td/></row>
 		<row><td>Database</td><td>RMP</td><td>##NEW_STRING13##</td><td>##NEW_STRING14##</td><td>80</td><td>10</td><td>MTDATABASE</td><td>8</td><td/><td>Sets up the database components required by all MetraNet servers.</td><td/><td/></row>
 		<row><td>Extensions</td><td>RMP</td><td>##ID_STRING82##</td><td>##ID_STRING83##</td><td>0</td><td>1</td><td>INSTALLDIR</td><td>24</td><td/><td>This feature consists of extensions required for a minimal install of the MetraNet product.</td><td/><td/></row>
+		<row><td>GACDlls</td><td>RMP</td><td>##ID_STRING101##</td><td/><td>0</td><td>1</td><td>INSTALLDIR</td><td>16</td><td/><td/><td/><td/></row>
 		<row><td>GPSetupFiles</td><td>ARSupport</td><td>##ID_STRING3##</td><td/><td>6</td><td>110</td><td>GREATPLAINSSETUP1</td><td>8</td><td/><td/><td/><td/></row>
 		<row><td>GPSupport</td><td>ARSupport</td><td>##NEW_STRING576##</td><td/><td>0</td><td>110</td><td/><td>8</td><td/><td/><td/><td/></row>
 		<row><td>IIS7ConfigMgr</td><td>RMP</td><td>##ID_STRING72##</td><td>##ID_STRING73##</td><td>0</td><td>1</td><td>INSTALLDIR</td><td>16</td><td/><td>The IIS7 Setup and Configuration Tool for Windows Server 2008.</td><td/><td/></row>
@@ -3214,6 +3245,8 @@
 		<row><td>Extensions</td><td>PageNav</td></row>
 		<row><td>Extensions</td><td>SystemConfig</td></row>
 		<row><td>Extensions</td><td>Tax</td></row>
+		<row><td>GACDlls</td><td>Antlr3Runtime.3.1.0.39271</td></row>
+		<row><td>GACDlls</td><td>Antlr3Runtime.3.4.1.9004</td></row>
 		<row><td>GPSetupFiles</td><td>Extensions_AR_GreatPlainsSetup</td></row>
 		<row><td>IIS7ConfigMgr</td><td>IIS7ConfigMgr.exe</td></row>
 		<row><td>IIS7ConfigMgr</td><td>IIS7ConfigMgr.pdb</td></row>
@@ -3799,6 +3832,8 @@
 		<row><td>SetCompoundProp.dll</td><td>SetCompoundProp.dll</td><td>SETCOM~1.DLL|SetCompoundProp.dll</td><td>0</td><td/><td/><td>0</td><td>1</td><td>&lt;InstallRelDir&gt;\COMDLLs\SetCompoundProp.dll</td><td>1</td><td/></row>
 		<row><td>UsageServerLib.dll</td><td>UsageServerLib.dll</td><td>USAGES~1.DLL|UsageServerLib.dll</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;InstallRelDir&gt;\assemblies\UsageServerLib.dll</td><td>1</td><td/></row>
 		<row><td>additionalparams.txt</td><td>Embedded_Windows_Black_Box_Service.exe</td><td>ADDITI~1.TXT|AdditionalParams.txt</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;InstallRelDir&gt;\appsight\bbxservice\bbxsvc_installer\AdditionalParams.txt</td><td>1</td><td/></row>
+		<row><td>antlr3.runtime.dll</td><td>Antlr3Runtime.3.1.0.39271</td><td>ANTLR3~1.DLL|Antlr3.Runtime.dll</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;InstallRelDir&gt;\gacdlls\antlr3runtime.3.1.0.39271\Antlr3.Runtime.dll</td><td>1</td><td/></row>
+		<row><td>antlr3.runtime.dll1</td><td>Antlr3Runtime.3.4.1.9004</td><td>ANTLR3~1.DLL|Antlr3.Runtime.dll</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;InstallRelDir&gt;\gacdlls\antlr3runtime.3.4.1.9004\Antlr3.Runtime.dll</td><td>1</td><td/></row>
 		<row><td>bbxservice_list_sessions.cmd</td><td>BBXService_CMD</td><td>BBXSER~1.CMD|BBxService_List_Sessions.cmd</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;InstallRelDir&gt;\appsight\bbxservice\cmd\BBxService_List_Sessions.cmd</td><td>1</td><td/></row>
 		<row><td>bbxservice_purge_sessions.cm</td><td>BBXService_CMD</td><td>BBXSER~1.CMD|BBxService_Purge_Sessions.cmd</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;InstallRelDir&gt;\appsight\bbxservice\cmd\BBxService_Purge_Sessions.cmd</td><td>1</td><td/></row>
 		<row><td>bbxservice_start.cmd</td><td>BBXService_CMD</td><td>BBXSER~1.CMD|BBxService_Start.cmd</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;InstallRelDir&gt;\appsight\bbxservice\cmd\BBxService_Start.cmd</td><td>1</td><td/></row>
@@ -4063,6 +4098,8 @@
 		<row><td>AccountTableCreation.dll</td><td/><td/><td>_342BC261_34A5_4CE7_80F6_8593F6DBB867_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>AdminEnumEdit.dll</td><td/><td/><td>_25FEEC45_E694_4D98_9924_6F63D5C327B6_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>AllOtherFiles</td><td/><td/><td>_31424D28_1D53_4BAE_A667_D4E62F589C5A_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Antlr3Runtime.3.1.0.39271</td><td/><td/><td>_1005D420_3E20_4F6F_ACD3_EB1CAA1C289D_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Antlr3Runtime.3.4.1.9004</td><td/><td/><td>_C649A7AD_EEDD_4EEE_899D_13DC412B827C_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>AuditHook.dll</td><td/><td/><td>_DE6B5D28_93BC_4E09_87F5_5C7EF407437C_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>BBXService_ASL</td><td/><td/><td>_AE1A73F8_BA3A_43C8_B9E6_A2DA2A6FB2E8_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>BBXService_CMD</td><td/><td/><td>_A1175A00_A9D5_4077_939F_B144667A9A29_FILTER</td><td/><td/><td/><td/></row>
@@ -4619,6 +4656,9 @@
 		<col def="i4">Order</col>
 		<row><td>Isrt.obl</td><td>&lt;ISProductFolder&gt;\Script\ISRT\Lib\isrt.obl</td><td>2</td></row>
 		<row><td>Iswi.obl</td><td>&lt;ISProductFolder&gt;\Script\ISWi\Lib\iswi.obl</td><td>1</td></row>
+		<row><td>_IfxObl</td><td>&lt;ISProductFolder&gt;\Script\ifx\Lib\ifx.obl</td><td>3</td></row>
+		<row><td>_IsrtObl</td><td>&lt;ISProductFolder&gt;\Script\ISRT\Lib\isrt.obl</td><td>2</td></row>
+		<row><td>_IswiObl</td><td>&lt;ISProductFolder&gt;\Script\ISWi\Lib\iswi.obl</td><td>1</td></row>
 		<row><td>ifx.obl</td><td>&lt;ISProductFolder&gt;\Script\ifx\Lib\ifx.obl</td><td>3</td></row>
 		<row><td>isrt.obl</td><td>&lt;ISProductFolder&gt;\Script\ISRT\Lib\isrt.obl</td><td>2</td></row>
 		<row><td>iswi.obl</td><td>&lt;ISProductFolder&gt;\Script\ISWi\Lib\iswi.obl</td><td>1</td></row>
@@ -6153,6 +6193,13 @@
 		<row><td>ID_STRING1</td><td>1033</td><td>New Feature 25</td><td>0</td><td/><td>-1802078391</td></row>
 		<row><td>ID_STRING10</td><td>1033</td><td>{&amp;MSSWhiteSerif8}InstallShield</td><td>0</td><td/><td>-904385689</td></row>
 		<row><td>ID_STRING100</td><td>1033</td><td>MetraTech Messaging Service</td><td>0</td><td/><td>614495503</td></row>
+		<row><td>ID_STRING101</td><td>1033</td><td>GACDlls</td><td>0</td><td/><td>-1969113936</td></row>
+		<row><td>ID_STRING102</td><td>1033</td><td>&lt; &amp;Back</td><td>0</td><td/><td>1981867178</td></row>
+		<row><td>ID_STRING103</td><td>1033</td><td>Cancel</td><td>0</td><td/><td>1981867178</td></row>
+		<row><td>ID_STRING104</td><td>1033</td><td>{&amp;MSSansBold8}Account Templates Configuration</td><td>0</td><td/><td>1981831467</td></row>
+		<row><td>ID_STRING105</td><td>1033</td><td>Please select account templates option.</td><td>0</td><td/><td>1981810026</td></row>
+		<row><td>ID_STRING106</td><td>1033</td><td>[ProductName] - InstallShield Wizard</td><td>0</td><td/><td>1981867178</td></row>
+		<row><td>ID_STRING107</td><td>1033</td><td>&amp;Next &gt;</td><td>0</td><td/><td>1981867178</td></row>
 		<row><td>ID_STRING11</td><td>1033</td><td>{&amp;Tahoma8}InstallShield</td><td>0</td><td/><td>-904385689</td></row>
 		<row><td>ID_STRING12</td><td>1033</td><td>*=-PATH</td><td>0</td><td/><td>-1516729518</td></row>
 		<row><td>ID_STRING13</td><td>1033</td><td>[~];[INSTALLDIR]RMP\Bin</td><td>0</td><td/><td>-1382496406</td></row>
@@ -7022,6 +7069,9 @@
 		<row><td>NEW_STRING792</td><td>1033</td><td>Repeat Ticketing Key:</td><td>0</td><td/><td>-1566752497</td></row>
 		<row><td>NEW_STRING793</td><td>1033</td><td>Payment Method Hash Key:</td><td>0</td><td/><td>-90169525</td></row>
 		<row><td>NEW_STRING794</td><td>1033</td><td>Payment Method Hash Key:</td><td>0</td><td/><td>-90162644</td></row>
+		<row><td>NEW_STRING795</td><td>1033</td><td>Apply Account Templates to All Account Types</td><td>0</td><td/><td>1981821003</td></row>
+		<row><td>NEW_STRING796</td><td>1033</td><td>Apply Account Templates to Selected Account Types</td><td>0</td><td/><td>1981843563</td></row>
+		<row><td>NEW_STRING797</td><td>1033</td><td>Account Template Configuration</td><td>0</td><td/><td>1981853963</td></row>
 		<row><td>NEW_STRING8</td><td>1033</td><td>The Leading Web Services-Based Billing, Customer Self-Care and Partner Management Platform</td><td>0</td><td/><td>479841514</td></row>
 		<row><td>NEW_STRING80</td><td>1033</td><td>Repeat the password associated with the administrative login ID.|</td><td>0</td><td/><td>1821826129</td></row>
 		<row><td>NEW_STRING81</td><td>1033</td><td>{30}</td><td>0</td><td/><td>1821826129</td></row>
@@ -7254,6 +7304,7 @@
 		<row><td>custact_PrepareToInstallDB</td><td>MT_Ctrl_UI_Or_Silent = "Silent" AND &amp;Database = 3</td><td>1190</td><td>Function to determine the current state of the MetraTech database.</td><td/></row>
 		<row><td>custact_PrepareToUninstallDB</td><td>MT_Ctrl_UI_Or_Silent = "Silent" AND &amp;Database = 2</td><td>1200</td><td>Called to set up MSI properties needed to remove the core MetraTech database</td><td/></row>
 		<row><td>custact_RemoveCR2008client</td><td>REMOVE="ALL"</td><td>6605</td><td/><td/></row>
+		<row><td>custact_RemoveRMPFolder</td><td>REMOVE="ALL"</td><td>6653</td><td/><td/></row>
 		<row><td>custact_SetProp_DBPartitionType</td><td>MT_Ctrl_UI_Or_Silent = "Silent" AND &amp;Database &gt; 2 AND MT_NO_PARTITION = "0"</td><td>1101</td><td/><td/></row>
 		<row><td>custact_SetProps_ConfigXML</td><td/><td>1320</td><td>Sets properties thru CustomActionData for use in configuring XML files.</td><td/></row>
 		<row><td>custact_SetProps_CryptoUninstall</td><td/><td>1565</td><td/><td/></row>
@@ -7295,6 +7346,7 @@
 		<row><td>custact_Validate_SimulatedTime</td><td>MT_Ctrl_UI_Or_Silent = "Silent" AND &amp;RMP &gt; 2</td><td>1105</td><td>Validate simulated time (MetraTime)</td><td/></row>
 		<row><td>custact_Validate_StagingDB_Params</td><td>MT_Ctrl_UI_Or_Silent = "Silent" AND &amp;Database &gt; 2</td><td>1225</td><td/><td/></row>
 		<row><td>custact_Validate_SysResources</td><td>MT_Ctrl_UI_Or_Silent = "Silent" AND &amp;RMP &gt; 2</td><td>1070</td><td>Called by SetupType and CustomSetup dialogs to validate system resources. </td><td/></row>
+		<row><td>custact_defer_CryptoSetup</td><td>Installed AND &amp;Reporting &gt; 2</td><td>5965</td><td/><td/></row>
 		<row><td>custact_defer_IIS7ConfigMgr</td><td> (VersionNT64=600 OR VersionNT64= 601 OR VersionNT=600 OR VersionNT=601) AND (NOT REMOVE="ALL")</td><td>6600</td><td/><td/></row>
 		<row><td>custdefer_BMESync</td><td>Not Installed And ((&amp;Database &lt;&gt; 3) Or MT_DB_STATUS=9)</td><td>6460</td><td/><td/></row>
 		<row><td>custdefer_ConfigXML</td><td>&amp;RMP &gt; 2</td><td>5920</td><td>Fires to configure all core platform xml configuration files.</td><td/></row>
@@ -7588,6 +7640,7 @@ UgBlAGwAZQBhAHMAZQABAE0AZQB0AHIAYQBOAGUAdAA=
 		<col key="yes" def="s72">Property</col>
 		<col def="L0">Value</col>
 		<col def="S255">ISComments</col>
+		<row><td>ACCTMPLTYPE</td><td>1</td><td/></row>
 		<row><td>ARPAUTHORIZEDCDFPREFIX</td><td/><td/></row>
 		<row><td>ARPCONTACT</td><td>##NEW_STRING6##</td><td/></row>
 		<row><td>ARPHELPLINK</td><td>##NEW_STRING5##</td><td/></row>
@@ -7682,6 +7735,7 @@ UgBlAGwAZQBhAHMAZQABAE0AZQB0AHIAYQBOAGUAdAA=
 		<row><td>MT_DATABASE_LOGFILE</td><td/><td/></row>
 		<row><td>MT_DATABASE_LOG_SIZE</td><td>25</td><td/></row>
 		<row><td>MT_DATABASE_NAME</td><td>NetMeter</td><td/></row>
+		<row><td>MT_DATABASE_REMOTE</td><td>0</td><td/></row>
 		<row><td>MT_DBMS_COMPUTERNAME</td><td>localhost</td><td/></row>
 		<row><td>MT_DBMS_TYPE</td><td>1</td><td>1=SQL Server; 2=Oracle; </td></row>
 		<row><td>MT_DB_DRIVER</td><td>{Oracle in OraHome}</td><td/></row>
@@ -7809,6 +7863,8 @@ UgBlAGwAZQBhAHMAZQABAE0AZQB0AHIAYQBOAGUAdAA=
 		<col def="L64">Text</col>
 		<col def="L50">Help</col>
 		<col def="I4">ISControlId</col>
+		<row><td>ACCTMPLTYPE</td><td>1</td><td>1</td><td>81</td><td>44</td><td>224</td><td>22</td><td>##NEW_STRING795##</td><td/><td>0</td></row>
+		<row><td>ACCTMPLTYPE</td><td>2</td><td>0</td><td>81</td><td>73</td><td>238</td><td>22</td><td>##NEW_STRING796##</td><td/><td>0</td></row>
 		<row><td>AgreeToLicense</td><td>1</td><td>No</td><td>0</td><td>15</td><td>295</td><td>15</td><td>##IDS__AgreeToLicense_0##</td><td/><td/></row>
 		<row><td>AgreeToLicense</td><td>2</td><td>Yes</td><td>0</td><td>0</td><td>295</td><td>15</td><td>##IDS__AgreeToLicense_1##</td><td/><td/></row>
 		<row><td>ApplicationUsers</td><td>1</td><td>AllUsers</td><td>1</td><td>7</td><td>290</td><td>14</td><td>##IDS__IsRegisterUserDlg_14##</td><td/><td>0</td></row>

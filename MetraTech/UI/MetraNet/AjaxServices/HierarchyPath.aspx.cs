@@ -63,17 +63,17 @@ public partial class AjaxServices_HierarchyPath : MTPage
 						Response.Write(",");
 					}
 					first = false;
-					string owner = crsr.GetString("folder_owner");
+                    string owner = crsr.GetValue("folder_owner").ToString();                
 					if (String.IsNullOrEmpty(owner))
 					{
 					  Response.Write("{'text':'");
-					  Response.Write(FixString(crsr.GetString("hierarchyname")));
+                      Response.Write(FixString(crsr.GetValue("hierarchyname").ToString()));
 					}
 					else
 					{
 					  Response.Write("{'text':'");
-					  Response.Write(FixString(crsr.GetString("hierarchyname")));
-					  Response.Write(" [" + FixString(crsr.GetString("folder_owner")) + "]");
+                      Response.Write(FixString(crsr.GetValue("hierarchyname").ToString()));
+                      Response.Write(" [" + FixString(crsr.GetValue("folder_owner").ToString()) + "]");
 					}
 					var id = crsr.GetInt32("parent_id");
 					Response.Write("','qtip':'"); Response.Write(id);

@@ -76,8 +76,11 @@ namespace MetraTech.UI.Controls
               if(!{ReadOnly})
                {
                    var controlId = ""{CLIENT_ID}_weekly"";
-                   var weekly = Ext.getCmp(controlId);   
-                   weekly.setValue(weekly.store.getAt(1).data.value);                   
+                   var weekly = Ext.getCmp(controlId);
+				   if(weekly.getValue() == '')
+				   {
+						weekly.setValue(weekly.store.getAt(1).data.value);
+				   }
                }
             }
           }

@@ -60,7 +60,10 @@ namespace MetraTech.UI.Controls
                             }
                           });
 
-
+                          if (typeof(cBoxes) != 'undefined')
+                          {
+                            cBoxes['%%CONTROL_ID%%'] = converted_%%CONTROL_ID%%;
+                          }
                           %%INLINE_SCRIPT%% 
 
                       });

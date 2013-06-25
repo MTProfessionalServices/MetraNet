@@ -130,7 +130,7 @@ namespace MetraTech.Core.Services
 
         #endregion
 
-        private enum TaxType { Other, Fed, State, Local, Cnty, Total }
+        private enum TaxType { Other, Fed, State, Local, Cnty, Total, Implied, Informational, ImplInf, Billable, Nonimplied }
         private enum AtomicOrCompoundType { Atomic, Compound }
         private enum DisplayModeEnum
         {
@@ -2275,6 +2275,9 @@ namespace MetraTech.Core.Services
                     int TaxAmountIndex = 0;
                     int TimestampIndex = 0;
                     int ViewIDIndex = 0;
+                    int IsTaxInclusiveIndex = 0;
+                    int IsTaxCalculatedIndex = 0;
+                    int IsTaxInformationalIndex = 0;
 
                     while (reader.Read())
                     {
@@ -2324,6 +2327,9 @@ namespace MetraTech.Core.Services
                             TaxAmountIndex = reader.GetOrdinal("TaxAmount");
                             TimestampIndex = reader.GetOrdinal("Timestamp");
                             ViewIDIndex = reader.GetOrdinal("ViewID");
+                            IsTaxInclusiveIndex = reader.GetOrdinal("IsTaxInclusive");
+                            IsTaxInformationalIndex = reader.GetOrdinal("IsTaxInformational");
+                            IsTaxCalculatedIndex = reader.GetOrdinal("IsTaxCalculated");
                             foundIndexes = true;
                         }
 
@@ -2534,6 +2540,9 @@ namespace MetraTech.Core.Services
 
                             bpview.TimeStamp = reader.GetDateTime(TimestampIndex);
                             bpview.ViewID = reader.GetInt32(ViewIDIndex);
+                            bpview.IsTaxAlreadyCalculated = reader.GetBoolean(IsTaxCalculatedIndex);
+                            bpview.IsTaxInclusive = reader.GetBoolean(IsTaxInclusiveIndex);
+                            bpview.IsTaxInformational = reader.GetBoolean(IsTaxInformationalIndex);
 
                             PopulateProdViewSpecificData(reader, bpview);
 
@@ -2744,6 +2753,9 @@ namespace MetraTech.Core.Services
                 repCharge.OtherTax = PopulateTaxData(reader, currency, repParams.Language, TaxType.Other);
                 repCharge.StateTax = PopulateTaxData(reader, currency, repParams.Language, TaxType.State);
                 repCharge.TotalTax = PopulateTaxData(reader, currency, repParams.Language, TaxType.Total);
+                repCharge.ImpliedTax = PopulateTaxData(reader, currency, repParams.Language, TaxType.Implied);
+                repCharge.InformationalTax = PopulateTaxData(reader, currency, repParams.Language, TaxType.Informational);
+                repCharge.ImplInfTax = PopulateTaxData(reader, currency, repParams.Language, TaxType.ImplInf);
 
                 repCharge.PreAndPostBillTotalTaxAdjustmentAmount = repCharge.TotalTax.PreBillTaxAdjustmentAmount +
                                                                     repCharge.TotalTax.PostBillTaxAdjustmentAmount;
@@ -2850,11 +2862,13 @@ namespace MetraTech.Core.Services
         private TaxData PopulateTaxData(IMTDataReader reader, string currency, LanguageCode languageID, TaxType taxType)
         {
             TaxData taxData = new TaxData();
+            if (taxType != TaxType.Billable && taxType != TaxType.Nonimplied && taxType != TaxType.ImplInf)
+            {
             taxData.PostBillTaxAdjustmentAmount = reader.GetDecimal(string.Format("Postbill{0}TaxAdjAmt", taxType.ToString()));
             taxData.PostBillTaxAdjustmentAmountAsString = LocalizeCurrencyString(taxData.PostBillTaxAdjustmentAmount, languageID, currency);
             taxData.PreBillTaxAdjustmentAmount = reader.GetDecimal(string.Format("Prebill{0}TaxAdjAmt", taxType.ToString()));
             taxData.PreBillTaxAdjustmentAmountAsString = LocalizeCurrencyString(taxData.PreBillTaxAdjustmentAmount, languageID, currency);
-
+            }
             switch (taxType)
             {
                 case TaxType.Fed:
@@ -2865,6 +2879,23 @@ namespace MetraTech.Core.Services
                     break;
                 case TaxType.Total:
                     taxData.TaxAmount = reader.GetDecimal("TotalTax");
+                    break;
+                case TaxType.Implied:
+                    taxData.TaxAmount = reader.GetDecimal("TotalImpliedTax") - reader.GetDecimal("TotalImplInfTax");
+                    break;
+                case TaxType.Informational:
+                    taxData.TaxAmount = reader.GetDecimal("TotalInformationalTax") - reader.GetDecimal("TotalImplInfTax");
+                    break;
+                case TaxType.ImplInf:
+                    taxData.TaxAmount = reader.GetDecimal("TotalImplInfTax");
+                    break;
+                case TaxType.Billable:
+                    // Billable tax = Nonimplied - Informational
+                    taxData.TaxAmount = (reader.GetDecimal("TotalTax") - reader.GetDecimal("TotalImpliedTax")) -
+                        (reader.GetDecimal("TotalInformationalTax") - reader.GetDecimal("TotalImplInfTax"));
+                    break;
+                case TaxType.Nonimplied:
+                    taxData.TaxAmount = reader.GetDecimal("TotalTax") - reader.GetDecimal("TotalImpliedTax");
                     break;
                 default:
                     taxData.TaxAmount = reader.GetDecimal(string.Format("Total{0}Tax", taxType.ToString()));
@@ -2890,18 +2921,21 @@ namespace MetraTech.Core.Services
 
             reportData.Amount = reader.GetDecimal("Amount");
             reportData.AmountAsString = LocalizeCurrencyString(reportData.Amount, languageID, reportData.Currency);
-
+            
             reportData.CountyTax = PopulateTaxData(reader, reportData.Currency, languageID, TaxType.Cnty);
-
             reportData.FederalTax = PopulateTaxData(reader, reportData.Currency, languageID, TaxType.Fed);
-
             reportData.LocalTax = PopulateTaxData(reader, reportData.Currency, languageID, TaxType.Local);
-
             reportData.OtherTax = PopulateTaxData(reader, reportData.Currency, languageID, TaxType.Other);
-
             reportData.StateTax = PopulateTaxData(reader, reportData.Currency, languageID, TaxType.State);
+            reportData.TotalTax = PopulateTaxData(reader, reportData.Currency, languageID, TaxType.Total);
+            reportData.ImpliedTax = PopulateTaxData(reader, reportData.Currency, languageID, TaxType.Implied);
+            reportData.InformationalTax = PopulateTaxData(reader, reportData.Currency, languageID, TaxType.Informational);
+            reportData.ImplInfTax = PopulateTaxData(reader, reportData.Currency, languageID, TaxType.ImplInf);
+            reportData.BillableTax = PopulateTaxData(reader, reportData.Currency, languageID, TaxType.Billable);
+            reportData.NonImpliedTax = PopulateTaxData(reader, reportData.Currency, languageID, TaxType.Nonimplied);
 
-            reportData.TotalTax = PopulateTaxData(reader, reportData.Currency, languageID, TaxType.Total); ;
+            reportData.UsageAmount = reportData.Amount - reportData.ImpliedTax.TaxAmount - reportData.ImplInfTax.TaxAmount;
+            reportData.UsageAmountAsString = LocalizeCurrencyString(reportData.UsageAmount, languageID, reportData.Currency);
 
             reportData.NumPostBillAdjustments = reader.GetInt32("NumPostbillAdjustments");
             reportData.NumPreBillAdjustments = reader.GetInt32("NumPrebillAdjustments");
@@ -3118,7 +3152,7 @@ namespace MetraTech.Core.Services
                     adjustmentAmount = level.AdjustmentInfo.PreBillAdjustmentAmount;
                     taxAmount = level.TotalTax.TaxAmount;
                     ajTaxAmount = level.TotalTax.PreBillTaxAdjustmentAmount;
-                    level.DisplayAmount = level.Amount;
+                    level.DisplayAmount = level.Amount - level.ImplInfTax.TaxAmount;
 
                     break;
 
@@ -3126,49 +3160,49 @@ namespace MetraTech.Core.Services
                     adjustmentAmount = level.AdjustmentInfo.PreBillAdjustmentAmount;
                     taxAmount = level.TotalTax.TaxAmount;
                     ajTaxAmount = level.TotalTax.PreBillTaxAdjustmentAmount;
-                    level.DisplayAmount = level.Amount + adjustmentAmount;
+                    level.DisplayAmount = level.Amount + adjustmentAmount - level.ImplInfTax.TaxAmount;
                     break;
 
                 case DisplayModeEnum.ONLINE_BILL_ADJUSTMENTS_TAXES:
                     adjustmentAmount = level.AdjustmentInfo.PreBillAdjustmentAmount;
                     taxAmount = level.TotalTax.TaxAmount;
                     ajTaxAmount = level.TotalTax.PreBillTaxAdjustmentAmount;
-                    level.DisplayAmount = level.Amount + adjustmentAmount + taxAmount + ajTaxAmount;
+                    level.DisplayAmount = level.Amount + adjustmentAmount + taxAmount + ajTaxAmount - level.ImpliedTax.TaxAmount - level.InformationalTax.TaxAmount;
                     break;
 
                 case DisplayModeEnum.ONLINE_BILL_TAXES:
                     adjustmentAmount = level.AdjustmentInfo.PreBillAdjustmentAmount;
                     taxAmount = level.TotalTax.TaxAmount;
                     ajTaxAmount = level.TotalTax.PreBillTaxAdjustmentAmount;
-                    level.DisplayAmount = level.Amount + taxAmount;
+                    level.DisplayAmount = level.Amount + taxAmount - level.ImpliedTax.TaxAmount - level.InformationalTax.TaxAmount;
                     break;
 
                 case DisplayModeEnum.REPORT:
                     adjustmentAmount = level.AdjustmentInfo.PreBillAdjustmentAmount + level.AdjustmentInfo.PostBillAdjustmentAmount;
                     taxAmount = level.TotalTax.TaxAmount;
                     ajTaxAmount = level.TotalTax.PreBillTaxAdjustmentAmount + level.TotalTax.PostBillTaxAdjustmentAmount;
-                    level.DisplayAmount = level.Amount + adjustmentAmount;
+                    level.DisplayAmount = level.Amount + adjustmentAmount - level.ImplInfTax.TaxAmount;
                     break;
 
                 case DisplayModeEnum.REPORT_ADJUSTMENTS:
                     adjustmentAmount = level.AdjustmentInfo.PreBillAdjustmentAmount + level.AdjustmentInfo.PostBillAdjustmentAmount;
                     taxAmount = level.TotalTax.TaxAmount;
                     ajTaxAmount = level.TotalTax.PreBillTaxAdjustmentAmount + level.TotalTax.PostBillTaxAdjustmentAmount;
-                    level.DisplayAmount = level.Amount + adjustmentAmount;
+                    level.DisplayAmount = level.Amount + adjustmentAmount - level.ImplInfTax.TaxAmount;
                     break;
 
                 case DisplayModeEnum.REPORT_ADJUSTMENTS_TAXES:
                     adjustmentAmount = level.AdjustmentInfo.PreBillAdjustmentAmount + level.AdjustmentInfo.PostBillAdjustmentAmount;
                     taxAmount = level.TotalTax.TaxAmount;
                     ajTaxAmount = level.TotalTax.PreBillTaxAdjustmentAmount + level.TotalTax.PostBillTaxAdjustmentAmount;
-                    level.DisplayAmount = level.Amount + adjustmentAmount + taxAmount + ajTaxAmount;
+                    level.DisplayAmount = level.Amount + adjustmentAmount + taxAmount + ajTaxAmount - level.ImpliedTax.TaxAmount - level.InformationalTax.TaxAmount;
                     break;
 
                 case DisplayModeEnum.REPORT_TAXES:
                     adjustmentAmount = level.AdjustmentInfo.PreBillAdjustmentAmount + level.AdjustmentInfo.PostBillAdjustmentAmount;
                     taxAmount = level.TotalTax.TaxAmount;
                     ajTaxAmount = level.TotalTax.PreBillTaxAdjustmentAmount + level.TotalTax.PostBillTaxAdjustmentAmount;
-                    level.DisplayAmount = level.Amount + adjustmentAmount + taxAmount + ajTaxAmount;
+                    level.DisplayAmount = level.Amount + adjustmentAmount + taxAmount + ajTaxAmount - level.ImpliedTax.TaxAmount - level.InformationalTax.TaxAmount;
                     break;
             }
 
@@ -3177,7 +3211,7 @@ namespace MetraTech.Core.Services
             if (level.GetType() == typeof(ReportLevel))
             {
                 ReportLevel repLevel = level as ReportLevel;
-                repLevel.TotalDisplayAmount = level.Amount + adjustmentAmount + taxAmount + ajTaxAmount;
+                repLevel.TotalDisplayAmount = level.Amount + adjustmentAmount + ajTaxAmount - level.ImplInfTax.TaxAmount + level.BillableTax.TaxAmount;
                 repLevel.TotalDisplayAmountAsString = LocalizeCurrencyString(repLevel.TotalDisplayAmount, repParams.Language, level.Currency);
             }
         }

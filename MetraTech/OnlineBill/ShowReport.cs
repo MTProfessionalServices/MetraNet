@@ -47,7 +47,13 @@ namespace MetraTech.OnlineBill
 		decimal TaxAsDecimal{get;set;}
 		string FederalTax{get;set;}
 		decimal FederalTaxAsDecimal{get;set;}
-		string StateTax{get;set;}
+        string ImpliedTax { get; set; }
+        decimal ImpliedTaxAsDecimal { get; set; }
+        string InformationalTax { get; set; }
+        decimal InformationalTaxAsDecimal { get; set; }
+        string ImplInfTax { get; set; }
+        decimal ImplInfTaxAsDecimal { get; set; }
+        string StateTax { get; set; }
 		decimal StateTaxAsDecimal{get;set;}
 		string CountyTax{get;set;}
 		decimal CountyTaxAsDecimal{get;set;}
@@ -147,7 +153,13 @@ namespace MetraTech.OnlineBill
 		
 		string Tax{get;set;}
 		decimal TaxAsDecimal{get;set;}
-		string FederalTax{get;set;}
+        string ImpliedTax { get; set; }
+        decimal ImpliedTaxAsDecimal { get; set; }
+        string InformationalTax { get; set; }
+        decimal InformationalTaxAsDecimal { get; set; }
+        string ImplInfTax { get; set; }
+        decimal ImplInfTaxAsDecimal { get; set; }
+        string FederalTax { get; set; }
 		decimal FederalTaxAsDecimal{get;set;}
 		string StateTax{get;set;}
 		decimal StateTaxAsDecimal{get;set;}
@@ -607,7 +619,48 @@ namespace MetraTech.OnlineBill
 			set
 			{ mTaxAsDecimal = value; }
 		}
-
+        public string ImpliedTax
+        {
+            get
+            { return mImpliedTax; }
+            set
+            { mImpliedTax = value; }
+        }
+        public decimal ImpliedTaxAsDecimal
+        {
+            get
+            { return mImpliedTaxAsDecimal; }
+            set
+            { mImpliedTaxAsDecimal = value; }
+        }
+        public string InformationalTax
+        {
+            get
+            { return mInformationalTax; }
+            set
+            { mInformationalTax = value; }
+        }
+        public decimal InformationalTaxAsDecimal
+        {
+            get
+            { return mInformationalTaxAsDecimal; }
+            set
+            { mInformationalTaxAsDecimal = value; }
+        }
+        public string ImplInfTax
+        {
+            get
+            { return mImplInfTax; }
+            set
+            { mImplInfTax = value; }
+        }
+        public decimal ImplInfTaxAsDecimal
+        {
+            get
+            { return mImplInfTaxAsDecimal; }
+            set
+            { mImplInfTaxAsDecimal = value; }
+        }
 		public string FederalTax
 		{
 			get
@@ -752,7 +805,13 @@ namespace MetraTech.OnlineBill
 		private decimal mPreBillBillAmountAsDecimal;
 		private string mTax;
 		private decimal mTaxAsDecimal;
-		private string mFederalTax;
+        private string mImpliedTax;
+        private decimal mImpliedTaxAsDecimal;
+        private string mInformationalTax;
+        private decimal mInformationalTaxAsDecimal;
+        private string mImplInfTax;
+        private decimal mImplInfTaxAsDecimal;
+        private string mFederalTax;
 		private decimal mFederalTaxAsDecimal;
 		private string mStateTax;
 		private decimal mStateTaxAsDecimal;
@@ -815,7 +874,13 @@ namespace MetraTech.OnlineBill
 			PostBillAdjustmentAmountAsDecimal = other.PostBillAdjustmentAmountAsDecimal;
 			Tax = other.Tax;
 			TaxAsDecimal = other.TaxAsDecimal;
-			FederalTax = other.FederalTax;
+            ImpliedTax = other.ImpliedTax;
+            ImpliedTaxAsDecimal = other.ImpliedTaxAsDecimal;
+            InformationalTax = other.InformationalTax;
+            InformationalTaxAsDecimal = other.InformationalTaxAsDecimal;
+            ImplInfTax = other.ImplInfTax;
+            ImplInfTaxAsDecimal = other.ImplInfTaxAsDecimal;
+            FederalTax = other.FederalTax;
 			FederalTaxAsDecimal = other.FederalTaxAsDecimal;
 			StateTax = other.StateTax;
 			StateTaxAsDecimal = other.StateTaxAsDecimal;
@@ -826,6 +891,8 @@ namespace MetraTech.OnlineBill
 			OtherTax = other.OtherTax;
 			OtherTaxAsDecimal = other.OtherTaxAsDecimal;
 			TaxedAmount = other.TaxedAmount;
+            ImpliedTax = other.ImpliedTax;
+            InformationalTax = other.InformationalTax;
 			AccountSummarySlice = other.AccountSummarySlice;
 			TimeSlice = other.TimeSlice;
 			PreBillTotalTaxAdjustmentAmountAsDecimal = other.PreBillTotalTaxAdjustmentAmountAsDecimal;
@@ -1351,6 +1418,51 @@ namespace MetraTech.OnlineBill
 			{ mFederalTaxAsDecimal = value; }
 		}
 
+        public string ImpliedTax
+        {
+            get
+            { return mImpliedTax; }
+            set
+            { mImpliedTax = value; }
+        }
+        public decimal ImpliedTaxAsDecimal
+        {
+            get
+            { return mImpliedTaxAsDecimal; }
+            set
+            { mImpliedTaxAsDecimal = value; }
+        }
+
+        public string InformationalTax
+        {
+            get
+            { return mInformationalTax; }
+            set
+            { mInformationalTax = value; }
+        }
+        public decimal InformationalTaxAsDecimal
+        {
+            get
+            { return mInformationalTaxAsDecimal; }
+            set
+            { mInformationalTaxAsDecimal = value; }
+        }
+
+        public string ImplInfTax
+        {
+            get
+            { return mImplInfTax; }
+            set
+            { mImplInfTax = value; }
+        }
+        public decimal ImplInfTaxAsDecimal
+        {
+            get
+            { return mImplInfTaxAsDecimal; }
+            set
+            { mImplInfTaxAsDecimal = value; }
+        }
+
 		public string StateTax
 		{
 			get
@@ -1518,7 +1630,13 @@ namespace MetraTech.OnlineBill
 		private decimal mPreBillBillAmountAsDecimal;
 		private string mTax;
 		private decimal mTaxAsDecimal;
-		private string mFederalTax;
+        private string mImpliedTax;
+        private decimal mImpliedTaxAsDecimal;
+        private string mInformationalTax;
+        private decimal mInformationalTaxAsDecimal;
+        private string mImplInfTax;
+        private decimal mImplInfTaxAsDecimal;
+        private string mFederalTax;
 		private decimal mFederalTaxAsDecimal;
 		private string mStateTax;
 		private decimal mStateTaxAsDecimal;
@@ -1693,7 +1811,10 @@ namespace MetraTech.OnlineBill
       int prebillAdjustmentAmountIdx = reader.GetOrdinal("PreBillAdjAmt");
 			int prebillAdjustedAmountIdx = reader.GetOrdinal("PrebillAdjAmt");
 			int postbillAdjustedAmountIdx = reader.GetOrdinal("PostbillAdjAmt");
-			int federalTaxIdx = reader.GetOrdinal("TotalFederalTax");
+            int impliedTaxIdx = reader.GetOrdinal("ImpliedTax");
+            int informationalTaxIdx = reader.GetOrdinal("InformationalTax");
+            int ImplInfTaxIdx = reader.GetOrdinal("ImplInfTax");
+            int federalTaxIdx = reader.GetOrdinal("TotalFederalTax");
 			int stateTaxIdx = reader.GetOrdinal("TotalStateTax");
 			int countyTaxIdx = reader.GetOrdinal("TotalCountyTax");
 			int localTaxIdx = reader.GetOrdinal("TotalLocalTax");
@@ -1837,8 +1958,11 @@ namespace MetraTech.OnlineBill
 				decimal postbillCountyTaxAdjustmentAmount = reader.GetDecimal(postbillCountyTaxAdjustmentAmountIdx);
 				decimal postbillLocalTaxAdjustmentAmount = reader.GetDecimal(postbillLocalTaxAdjustmentAmountIdx);
 				decimal postbillOtherTaxAdjustmentAmount = reader.GetDecimal(postbillOtherTaxAdjustmentAmountIdx);
-				
-				decimal federalTax = reader.GetDecimal(federalTaxIdx);
+
+                decimal impliedTax = reader.GetDecimal(impliedTaxIdx);
+                decimal informationalTax = reader.GetDecimal(informationalTaxIdx);
+                decimal ImplInfTax = reader.GetDecimal(ImplInfTaxIdx); 
+                decimal federalTax = reader.GetDecimal(federalTaxIdx);
 				decimal stateTax = reader.GetDecimal(stateTaxIdx);
 				decimal countyTax = reader.GetDecimal(countyTaxIdx);
 				decimal localTax = reader.GetDecimal(localTaxIdx);
@@ -1856,7 +1980,13 @@ namespace MetraTech.OnlineBill
 				charge.PostBillAdjustedAmountAsDecimal = postbillAdjustedAmount;
 				charge.Tax = LocalizeCurrency(totalTax, UOM);
 				charge.TaxAsDecimal = totalTax;
-				charge.FederalTax = LocalizeCurrency(federalTax, UOM);
+                charge.ImpliedTax = LocalizeCurrency(impliedTax, UOM);
+                charge.ImpliedTaxAsDecimal = impliedTax;
+                charge.InformationalTax = LocalizeCurrency(informationalTax, UOM);
+                charge.InformationalTaxAsDecimal = informationalTax;
+                charge.ImplInfTax = LocalizeCurrency(ImplInfTax, UOM);
+                charge.ImplInfTaxAsDecimal = ImplInfTax;
+                charge.FederalTax = LocalizeCurrency(federalTax, UOM);
 				charge.FederalTaxAsDecimal = federalTax;
 				charge.StateTax = LocalizeCurrency(stateTax, UOM);
 				charge.StateTaxAsDecimal = stateTax;
@@ -2072,6 +2202,9 @@ namespace MetraTech.OnlineBill
                     int currencyIdx;
                     int numTransactionsIdx;
                     int federalTaxIdx;
+                    int impliedTaxIdx;
+                    int informationalTaxIdx;
+                    int ImplInfTaxIdx;
                     int stateTaxIdx;
                     int countyTaxIdx;
                     int localTaxIdx;
@@ -2098,6 +2231,9 @@ namespace MetraTech.OnlineBill
 
                         prebillAdjustedAmountIdx = reader.GetOrdinal("PrebillAdjustedAmount");
                         postbillAdjustedAmountIdx = reader.GetOrdinal("PostbillAdjustedAmount");
+                        impliedTaxIdx = reader.GetOrdinal("ImpliedTax");
+                        informationalTaxIdx = reader.GetOrdinal("InformationalTax");
+                        ImplInfTaxIdx = reader.GetOrdinal("ImplInfTax");
                         federalTaxIdx = reader.GetOrdinal("TotalFederalTax");
                         stateTaxIdx = reader.GetOrdinal("TotalStateTax");
                         countyTaxIdx = reader.GetOrdinal("TotalCountyTax");
@@ -2136,6 +2272,9 @@ namespace MetraTech.OnlineBill
 
                             decimal prebillAdjustedAmount = reader.GetDecimal(prebillAdjustedAmountIdx);
                             decimal postbillAdjustedAmount = reader.GetDecimal(postbillAdjustedAmountIdx);
+                            decimal impliedTax = reader.GetDecimal(impliedTaxIdx);
+                            decimal informationalTax = reader.GetDecimal(informationalTaxIdx);
+                            decimal ImplInfTax = reader.GetDecimal(ImplInfTaxIdx);
                             decimal federalTax = reader.GetDecimal(federalTaxIdx);
                             decimal stateTax = reader.GetDecimal(stateTaxIdx);
                             decimal countyTax = reader.GetDecimal(countyTaxIdx);
@@ -2224,6 +2363,12 @@ namespace MetraTech.OnlineBill
                             level.NumPostBillAdjustments = numPostbill;
                             level.Tax = LocalizeCurrency(totalTax, currency);
                             level.TaxAsDecimal = totalTax;
+                            level.ImpliedTax = LocalizeCurrency(impliedTax, currency);
+                            level.ImpliedTaxAsDecimal = impliedTax;
+                            level.InformationalTax = LocalizeCurrency(informationalTax, currency);
+                            level.InformationalTaxAsDecimal = informationalTax;
+                            level.ImplInfTax = LocalizeCurrency(ImplInfTax, currency);
+                            level.ImplInfTaxAsDecimal = ImplInfTax;
                             level.FederalTax = LocalizeCurrency(federalTax, currency);
                             level.FederalTaxAsDecimal = federalTax;
                             level.StateTax = LocalizeCurrency(stateTax, currency);
@@ -2570,6 +2715,9 @@ namespace MetraTech.OnlineBill
 
                         int prebillAdjustedAmountIdx = reader.GetOrdinal("PrebillAdjustedAmount");
                         int postbillAdjustedAmountIdx = reader.GetOrdinal("PostbillAdjustedAmount");
+                        int impliedTaxIdx = reader.GetOrdinal("ImpliedTax");
+                        int informationalTaxIdx = reader.GetOrdinal("InformationalTax");
+                        int ImplInfTaxIdx = reader.GetOrdinal("ImplInfTax");
                         int federalTaxIdx = reader.GetOrdinal("TotalFederalTax");
                         int stateTaxIdx = reader.GetOrdinal("TotalStateTax");
                         int countyTaxIdx = reader.GetOrdinal("TotalCountyTax");
@@ -2601,6 +2749,9 @@ namespace MetraTech.OnlineBill
 
                             decimal prebillAdjustedAmount = reader.GetDecimal(prebillAdjustedAmountIdx);
                             decimal postbillAdjustedAmount = reader.GetDecimal(postbillAdjustedAmountIdx);
+                            decimal impliedTax = reader.GetDecimal(impliedTaxIdx);
+                            decimal informationalTax = reader.GetDecimal(informationalTaxIdx);
+                            decimal ImplInfTax = reader.GetDecimal(ImplInfTaxIdx);
                             decimal federalTax = reader.GetDecimal(federalTaxIdx);
                             decimal stateTax = reader.GetDecimal(stateTaxIdx);
                             decimal countyTax = reader.GetDecimal(countyTaxIdx);
@@ -2650,6 +2801,12 @@ namespace MetraTech.OnlineBill
                             root.NumTransactions = numTransactions;
                             root.Tax = LocalizeCurrency(totalTax, currency);
                             root.TaxAsDecimal = totalTax;
+                            root.ImpliedTax = LocalizeCurrency(impliedTax, currency);
+                            root.ImpliedTaxAsDecimal = impliedTax;
+                            root.InformationalTax = LocalizeCurrency(informationalTax, currency);
+                            root.InformationalTaxAsDecimal = informationalTax;
+                            root.ImplInfTax = LocalizeCurrency(ImplInfTax, currency);
+                            root.ImplInfTaxAsDecimal = ImplInfTax;
                             root.FederalTax = LocalizeCurrency(federalTax, currency);
                             root.FederalTaxAsDecimal = federalTax;
                             root.StateTax = LocalizeCurrency(stateTax, currency);
@@ -3090,135 +3247,135 @@ namespace MetraTech.OnlineBill
       level.PreBillAdjustmentDisplayAmount = LocalizeCurrency(level.PreBillAdjustmentDisplayAmountAsDecimal, currency);
 		}
 
-		private void PopulateDisplayAmount(ref Level level)
-		{
-			Debug.Assert(this.ReportInfo != null);
-			string currency = level.Currency;
-			
-      // We keep track of the adjustments and tax for each case so we
-      // can set Total Current Charges at the end.
-			decimal adjustmentAmount = 0.0M;
-			decimal taxAmount = 0.0M;
-      decimal ajTaxAmount = 0.0M;
+    private void PopulateDisplayAmount(ref Level level)
+    {
+        Debug.Assert(this.ReportInfo != null);
+        string currency = level.Currency;
 
-      // Here we calculate the DisplayAmount for the level based on the
-      // DisplayMode Matrix.  (See matrix comment in PopulateChargeDisplayAmount method)
-      mDisplayMode = GetDisplayMode();
-		  
-      switch(mDisplayMode)
-			{
-          // ONLINE_BILL
-        case DisplayModeEnum.ONLINE_BILL:
-          level.DisplayAmountAsDecimal = level.AmountAsDecimal;
+        // We keep track of the adjustments and tax for each case so we
+        // can set Total Current Charges at the end.
+        decimal adjustmentAmount = 0.0M;
+        decimal taxAmount = 0.0M;
+        decimal ajTaxAmount = 0.0M;
 
-				adjustmentAmount = level.PreBillAdjustmentAmountAsDecimal;
-          taxAmount = level.TaxAsDecimal;
-          ajTaxAmount = level.PreBillTotalTaxAdjustmentAmountAsDecimal;
-          break;
+        // Here we calculate the DisplayAmount for the level based on the
+        // DisplayMode Matrix.  (See matrix comment in PopulateChargeDisplayAmount method)
+        mDisplayMode = GetDisplayMode();
 
-          // ONLINE_BILL_ADJUSTMENTS
-        case DisplayModeEnum.ONLINE_BILL_ADJUSTMENTS:
-          level.DisplayAmountAsDecimal = level.AmountAsDecimal +
-                                         level.PreBillAdjustmentAmountAsDecimal;
+        switch (mDisplayMode)
+        {
+            // ONLINE_BILL
+            case DisplayModeEnum.ONLINE_BILL:
+                level.DisplayAmountAsDecimal = level.AmountAsDecimal;
 
-          adjustmentAmount = level.PreBillAdjustmentAmountAsDecimal;
-          taxAmount = level.TaxAsDecimal;
-          ajTaxAmount = level.PreBillTotalTaxAdjustmentAmountAsDecimal;
-          break;
+                adjustmentAmount = level.PreBillAdjustmentAmountAsDecimal;
+                taxAmount = level.TaxAsDecimal;
+                ajTaxAmount = level.PreBillTotalTaxAdjustmentAmountAsDecimal;
+                break;
 
-          // ONLINE_BILL_ADJUSTMENTS_TAXES
-        case DisplayModeEnum.ONLINE_BILL_ADJUSTMENTS_TAXES:
-          level.DisplayAmountAsDecimal = level.AmountAsDecimal +
-                                         level.TaxAsDecimal +
-                                         level.PreBillAdjustmentAmountAsDecimal +
-                                         level.PreBillTotalTaxAdjustmentAmountAsDecimal;
+            // ONLINE_BILL_ADJUSTMENTS
+            case DisplayModeEnum.ONLINE_BILL_ADJUSTMENTS:
+                level.DisplayAmountAsDecimal = level.AmountAsDecimal +
+                                               level.PreBillAdjustmentAmountAsDecimal;
 
-          adjustmentAmount = level.PreBillAdjustmentAmountAsDecimal;
-          taxAmount = level.TaxAsDecimal;
-          ajTaxAmount = level.PreBillTotalTaxAdjustmentAmountAsDecimal;
-          break;
+                adjustmentAmount = level.PreBillAdjustmentAmountAsDecimal;
+                taxAmount = level.TaxAsDecimal;
+                ajTaxAmount = level.PreBillTotalTaxAdjustmentAmountAsDecimal;
+                break;
 
-          // ONLINE_BILL_TAXES
-        case DisplayModeEnum.ONLINE_BILL_TAXES:
-          level.DisplayAmountAsDecimal = level.AmountAsDecimal +
-                                         level.TaxAsDecimal;
+            // ONLINE_BILL_ADJUSTMENTS_TAXES
+            case DisplayModeEnum.ONLINE_BILL_ADJUSTMENTS_TAXES:
+                level.DisplayAmountAsDecimal = level.AmountAsDecimal +
+                                               level.TaxAsDecimal +
+                                               level.PreBillAdjustmentAmountAsDecimal +
+                                               level.PreBillTotalTaxAdjustmentAmountAsDecimal;
 
-          adjustmentAmount = level.PreBillAdjustmentAmountAsDecimal;
-          taxAmount = level.TaxAsDecimal;
-          ajTaxAmount = level.PreBillTotalTaxAdjustmentAmountAsDecimal;
-          break;
+                adjustmentAmount = level.PreBillAdjustmentAmountAsDecimal;
+                taxAmount = level.TaxAsDecimal;
+                ajTaxAmount = level.PreBillTotalTaxAdjustmentAmountAsDecimal;
+                break;
 
-          // REPORT
-        case DisplayModeEnum.REPORT:
-          level.DisplayAmountAsDecimal = level.AmountAsDecimal +
-                                         level.PostBillAdjustmentAmountAsDecimal +
-                                         level.PreBillAdjustmentAmountAsDecimal;
+            // ONLINE_BILL_TAXES
+            case DisplayModeEnum.ONLINE_BILL_TAXES:
+                level.DisplayAmountAsDecimal = level.AmountAsDecimal +
+                                               level.TaxAsDecimal;
 
-          adjustmentAmount = level.PreBillAdjustmentAmountAsDecimal + 
-                             level.PostBillAdjustmentAmountAsDecimal;
-          taxAmount = level.TaxAsDecimal;
-          ajTaxAmount = level.PreBillTotalTaxAdjustmentAmountAsDecimal +
-                        level.PostBillTotalTaxAdjustmentAmountAsDecimal;
-          break;
+                adjustmentAmount = level.PreBillAdjustmentAmountAsDecimal;
+                taxAmount = level.TaxAsDecimal;
+                ajTaxAmount = level.PreBillTotalTaxAdjustmentAmountAsDecimal;
+                break;
 
-          // REPORT_ADJUSTMENTS
-        case DisplayModeEnum.REPORT_ADJUSTMENTS:
-          level.DisplayAmountAsDecimal = level.AmountAsDecimal +
-                                         level.PostBillAdjustmentAmountAsDecimal +
-                                         level.PreBillAdjustmentAmountAsDecimal;
+            // REPORT
+            case DisplayModeEnum.REPORT:
+                level.DisplayAmountAsDecimal = level.AmountAsDecimal +
+                                               level.PostBillAdjustmentAmountAsDecimal +
+                                               level.PreBillAdjustmentAmountAsDecimal;
 
-          adjustmentAmount = level.PreBillAdjustmentAmountAsDecimal + 
-                             level.PostBillAdjustmentAmountAsDecimal;
-          taxAmount = level.TaxAsDecimal;
-          ajTaxAmount = level.PreBillTotalTaxAdjustmentAmountAsDecimal +
-                        level.PostBillTotalTaxAdjustmentAmountAsDecimal;
-          break;
+                adjustmentAmount = level.PreBillAdjustmentAmountAsDecimal +
+                                   level.PostBillAdjustmentAmountAsDecimal;
+                taxAmount = level.TaxAsDecimal;
+                ajTaxAmount = level.PreBillTotalTaxAdjustmentAmountAsDecimal +
+                              level.PostBillTotalTaxAdjustmentAmountAsDecimal;
+                break;
 
-          // REPORT_ADJUSTMENTS_TAXES
-        case DisplayModeEnum.REPORT_ADJUSTMENTS_TAXES:
-          level.DisplayAmountAsDecimal = level.AmountAsDecimal + 
-                                         level.TaxAsDecimal +
-                                         level.PostBillAdjustmentAmountAsDecimal + 
-                                         level.PostBillTotalTaxAdjustmentAmountAsDecimal +
-                                         level.PreBillAdjustmentAmountAsDecimal +
-                                         level.PreBillTotalTaxAdjustmentAmountAsDecimal;
-          
-          adjustmentAmount = level.PreBillAdjustmentAmountAsDecimal + 
-                             level.PostBillAdjustmentAmountAsDecimal;
-          taxAmount = level.TaxAsDecimal;
-          ajTaxAmount = level.PreBillTotalTaxAdjustmentAmountAsDecimal +
-                        level.PostBillTotalTaxAdjustmentAmountAsDecimal;
-          break;
+            // REPORT_ADJUSTMENTS
+            case DisplayModeEnum.REPORT_ADJUSTMENTS:
+                level.DisplayAmountAsDecimal = level.AmountAsDecimal +
+                                               level.PostBillAdjustmentAmountAsDecimal +
+                                               level.PreBillAdjustmentAmountAsDecimal;
 
-          // REPORT_TAXES
-        case DisplayModeEnum.REPORT_TAXES:
-          level.DisplayAmountAsDecimal = level.AmountAsDecimal + 
-                                         level.TaxAsDecimal +
-                                         level.PostBillAdjustmentAmountAsDecimal + 
-                                         level.PostBillTotalTaxAdjustmentAmountAsDecimal +
-                                         level.PreBillAdjustmentAmountAsDecimal +
-                                         level.PreBillTotalTaxAdjustmentAmountAsDecimal;
+                adjustmentAmount = level.PreBillAdjustmentAmountAsDecimal +
+                                   level.PostBillAdjustmentAmountAsDecimal;
+                taxAmount = level.TaxAsDecimal;
+                ajTaxAmount = level.PreBillTotalTaxAdjustmentAmountAsDecimal +
+                              level.PostBillTotalTaxAdjustmentAmountAsDecimal;
+                break;
 
-          adjustmentAmount = level.PreBillAdjustmentAmountAsDecimal + 
-                             level.PostBillAdjustmentAmountAsDecimal;
-				taxAmount = level.TaxAsDecimal;
-          ajTaxAmount = level.PreBillTotalTaxAdjustmentAmountAsDecimal +
-                        level.PostBillTotalTaxAdjustmentAmountAsDecimal;
-          break;
+            // REPORT_ADJUSTMENTS_TAXES
+            case DisplayModeEnum.REPORT_ADJUSTMENTS_TAXES:
+                level.DisplayAmountAsDecimal = level.AmountAsDecimal +
+                                               level.TaxAsDecimal +
+                                               level.PostBillAdjustmentAmountAsDecimal +
+                                               level.PostBillTotalTaxAdjustmentAmountAsDecimal +
+                                               level.PreBillAdjustmentAmountAsDecimal +
+                                               level.PreBillTotalTaxAdjustmentAmountAsDecimal;
 
-          // Invalid Display Mode
-        default:
-          mLogger.LogDebug("Unrecognized display mode");
-          Debug.Assert(false, "Unrecognized display mode");
-          break;
-			}
-      level.DisplayAmount = LocalizeCurrency(level.DisplayAmountAsDecimal, currency);
+                adjustmentAmount = level.PreBillAdjustmentAmountAsDecimal +
+                                   level.PostBillAdjustmentAmountAsDecimal;
+                taxAmount = level.TaxAsDecimal;
+                ajTaxAmount = level.PreBillTotalTaxAdjustmentAmountAsDecimal +
+                              level.PostBillTotalTaxAdjustmentAmountAsDecimal;
+                break;
 
-			//Now initialize TotalDisplayAmount. It's a helper property that MetraView uses
-			//in "Total Current Charges" field. 
-			level.TotalDisplayAmountAsDecimal = level.AmountAsDecimal + adjustmentAmount + taxAmount + ajTaxAmount;
-			level.TotalDisplayAmount = LocalizeCurrency(level.TotalDisplayAmountAsDecimal, currency);
-		}
+            // REPORT_TAXES
+            case DisplayModeEnum.REPORT_TAXES:
+                level.DisplayAmountAsDecimal = level.AmountAsDecimal +
+                                               level.TaxAsDecimal +
+                                               level.PostBillAdjustmentAmountAsDecimal +
+                                               level.PostBillTotalTaxAdjustmentAmountAsDecimal +
+                                               level.PreBillAdjustmentAmountAsDecimal +
+                                               level.PreBillTotalTaxAdjustmentAmountAsDecimal;
+
+                adjustmentAmount = level.PreBillAdjustmentAmountAsDecimal +
+                                   level.PostBillAdjustmentAmountAsDecimal;
+                taxAmount = level.TaxAsDecimal;
+                ajTaxAmount = level.PreBillTotalTaxAdjustmentAmountAsDecimal +
+                              level.PostBillTotalTaxAdjustmentAmountAsDecimal;
+                break;
+
+            // Invalid Display Mode
+            default:
+                mLogger.LogDebug("Unrecognized display mode");
+                Debug.Assert(false, "Unrecognized display mode");
+                break;
+        }
+        level.DisplayAmount = LocalizeCurrency(level.DisplayAmountAsDecimal, currency);
+
+        //Now initialize TotalDisplayAmount. It's a helper property that MetraView uses
+        //in "Total Current Charges" field. 
+        level.TotalDisplayAmountAsDecimal = level.AmountAsDecimal + adjustmentAmount + taxAmount + ajTaxAmount - level.ImpliedTaxAsDecimal - level.InformationalTaxAsDecimal;
+        level.TotalDisplayAmount = LocalizeCurrency(level.TotalDisplayAmountAsDecimal, currency);
+    }
 
 	
 		private MetraTech.Interop.COMDBObjects.ICOMLocaleTranslator mLocaleTranslator = new MetraTech.Interop.COMDBObjects.COMLocaleTranslator();

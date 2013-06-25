@@ -92,6 +92,12 @@
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTServerAccess.interop.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="QueryAdapter.interop">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\QueryAdapter.interop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="RCD.interop">
       <Name>RCD.interop</Name>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\RCD.interop.dll</HintPath>
@@ -110,6 +116,7 @@
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data">
       <Name>System.Data</Name>
     </Reference>
@@ -125,11 +132,6 @@
     <Compile Include="BaseReportInstance.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ConfigurationSimple.cs" />
-    <Compile Include="IConfiguration.cs" />
     <Compile Include="MainReportsEntry.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -190,6 +192,10 @@
     <ProjectReference Include="..\..\..\Xml\MetraTech.Xml.csproj">
       <Project>{7D9556DF-CB87-458A-B66B-F5DD5B7C384E}</Project>
       <Name>MetraTech.Xml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech.DataExportFramework.Common\MetraTech.DataExportFramework.Common.csproj">
+      <Project>{FCED5E8E-7105-49E9-80A5-1A6AF3AEE32A}</Project>
+      <Name>MetraTech.DataExportFramework.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataFormatters\MetraTech.DataExportFramework.Components.DataFormatters.csproj">
       <Project>{CFC2A80F-BE78-41FB-9367-C60AFB7EA5E4}</Project>

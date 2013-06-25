@@ -147,7 +147,6 @@ public partial class DataExportReportManagement_AddNewReportInstance : MTPage
       }
       
 
-      string reportxmlconfigfilelocation = "NA";// exportreportinstance.XMLConfigLocation; 
       DateTime reportactivationdate = exportreportinstance.InstanceActivationDate;
       DateTime reportdeactivationdate = exportreportinstance.InstanceDeactivationDate;
       string destinationaccessuser = exportreportinstance.FTPAccessUser;
@@ -220,7 +219,7 @@ public partial class DataExportReportManagement_AddNewReportInstance : MTPage
       //Call Create New Report Instance Method
 
       client.CreateNewReportInstance(intincomingReportID, instancedescr, reportoutputtype, reportdistributiontype, reportdestination,
-      reportexecutiontype,reportxmlconfigfilelocation, reportactivationdate,reportdeactivationdate,destinationaccessuser,destinationaccesspassword,
+      reportexecutiontype, reportactivationdate,reportdeactivationdate,destinationaccessuser,destinationaccesspassword,
       compressreport,compressthreshold,dsid,eopinstancename,createcontrolfile,controlfiledestination,outputexecutionparameters,usequotedidentifiers,lastundatetime,
       nextrundatetime, parameterdefaultnamevalues, outputfilename);
 

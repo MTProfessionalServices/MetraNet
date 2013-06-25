@@ -255,7 +255,8 @@ namespace MetraTech.Tax.Framework.MetraTax
                          " account: " + idAcc +
                          " product code: " + productCode +
                          " amount: " + amount +
-                         " date: " + invoiceDate.ToShortDateString());
+                         " date: " + invoiceDate.ToShortDateString() +
+                         " Implied: " + isImpliedTax);
 
         // We will store audit details for this tax calculation here.
         AuditDetail auditDetail = new AuditDetail();
@@ -275,17 +276,18 @@ namespace MetraTech.Tax.Framework.MetraTax
 
         // Make sure that none of the required fields are null (not specified in database).
         if (view.IsNullMetraTaxCountry || view.IsNullMetraTaxCountryZone || view.IsNullHasMetraTaxOverride ||
-            (view.HasMetraTaxOverride && view.IsNullMetraTaxOverrideTaxBand))
+            (view.HasMetraTaxOverride && view.IsNullMetraTaxOverrideTaxBand || view.IsNullUseStandardImpliedTaxAlgorithm))
         {
           string err = "One or more tax account properties has not been initialized for account " +
                        idAcc +
                        ".  Examine t_av_internal for the MetraTax fields country, country zone, " +
-                       "has override, and override band.";
+                       "has override, override band, and use standard implied tax algorithm.";
           mLogger.LogError(err);
           if (view.IsNullMetraTaxCountry) mLogger.LogError("MetraTaxCountry is null");
           if (view.IsNullMetraTaxCountryZone) mLogger.LogError("MetraTaxCountryZone is null");
           if (view.IsNullHasMetraTaxOverride) mLogger.LogError("HasMetraTaxOverride is null");
           if (view.IsNullMetraTaxOverrideTaxBand) mLogger.LogError("MetraTaxOverrideTaxBand is null");
+          if (view.IsNullUseStandardImpliedTaxAlgorithm) mLogger.LogError("UseStandardImpliedTaxAlgorithm is null");
           throw new TaxException(err);
         }
 
@@ -305,7 +307,7 @@ namespace MetraTech.Tax.Framework.MetraTax
 
         transactionSummary.IdTaxCharge = idTaxCharge;
         CalculateTaxWithThisRate(amount, taxRate, view.MetraTaxCountryCode,
-                                 transactionSummary, isImpliedTax, isStandardImpliedTaxAlgorithm,
+                                 transactionSummary, isImpliedTax, view.UseStandardImpliedTaxAlgorithm,
                                  roundingAlgorithm, roundingDigits);
 
         // Fill in a structure that is holding the tax transaction details

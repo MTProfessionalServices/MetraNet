@@ -49,7 +49,21 @@ function getMultiSelection(functionName, target)
 // setSelection - is used to replace drag and drop in the new MetraCare
 function setSelection(ids, records, target)
 {
+    //document.getElementById(target).value = records[0].data.UserName + " (" + records[0].data._AccountID + ")";
+	// Using correct setValue method for all Ext.ComboBox controls instead of setting dom.value directly then fire appropriate event.
+    if (typeof (cBoxes) != 'undefined') {
+        var cmp = cBoxes[target];
+        if (cmp != null) {
+            cmp.setValue(records[0].data.UserName + " (" + records[0].data._AccountID + ")");
+            cmp.fireEvent('selected');
+        }
+        else {
   document.getElementById(target).value = records[0].data.UserName + " (" + records[0].data._AccountID + ")";
+}
+    }
+    else {
+        document.getElementById(target).value = records[0].data.UserName + " (" + records[0].data._AccountID + ")";
+    }
 }
 
 // setMultiSelection - is used to replace a multi drag and drop in the new MetraCare

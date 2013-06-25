@@ -11,7 +11,6 @@ using MetraTech.ActivityServices.Services.Common;
 using MetraTech.Auth.Capabilities;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.DataAccess;
-using MetraTech.DataAccess.QueryManagement.Business.Logic;
 using MetraTech.DomainModel.AccountTypes;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.Enums;
@@ -54,8 +53,7 @@ public partial class DataExportReportManagement_CreateNewReportDefinition : MTPa
         MTGenericForm1.ReadOnly = false;
 
         //Initialize some read only values 
-        exportreportdefinition.ReportType = "Query";
-        exportreportdefinition.ReportQuerySource = "";
+        exportreportdefinition.ReportType = "Query";      
 
         foreach (var queryTag in exportReport.GetQueryTagList())
         {
@@ -82,8 +80,7 @@ public partial class DataExportReportManagement_CreateNewReportDefinition : MTPa
     }
 
     //Initialize some read only values 
-    exportreportdefinition.ReportType = "Query";
-    exportreportdefinition.ReportQuerySource = "";//("\DataExport\Config\queries").ToString();
+    exportreportdefinition.ReportType = "Query";    
     exportreportdefinition.ReportDefinitionSource = "Query";
     int preventadhocexec = 0;
 
@@ -107,7 +104,7 @@ public partial class DataExportReportManagement_CreateNewReportDefinition : MTPa
       client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
 
       client.AddNewReportDefinition(exportreportdefinition.ReportTitle, exportreportdefinition.ReportType, exportreportdefinition.ReportDefinitionSource,
-      exportreportdefinition.ReportDescription, exportreportdefinition.ReportQuerySource, exportreportdefinition.ReportQueryTag, preventadhocexec);
+      exportreportdefinition.ReportDescription, exportreportdefinition.ReportQueryTag, preventadhocexec);
 
       client.Close();
       Response.Redirect("ReportDefinitionCreated.aspx", false);

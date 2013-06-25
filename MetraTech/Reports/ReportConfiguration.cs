@@ -48,6 +48,8 @@ namespace MetraTech.Reports
 		private string mProgID = string.Empty;
 		private Logger logger = null;
 
+        private string mQuotesSubFolder;
+
 		// public functions
 		public static ReportConfiguration GetInstance()
 		{
@@ -84,6 +86,7 @@ namespace MetraTech.Reports
 		public int APSPort				{ get { return mAPSPort; }}
         // g. cieplik 8/25/2009 CORE-1472 use mMPSDatabaseName to overload with SI_NAME
         public string APSDatabaseName   { get { return mAPSDatabaseName; }}
+        public string QuotesSubFolder { get { return mQuotesSubFolder; } }
 		
 		public IEnumerable GetScheduledReportsForGroup(string aGroupName)
 		{ 
@@ -255,6 +258,8 @@ namespace MetraTech.Reports
 			const string ConfigFile = "config\\ReportConfig.xml";
 			const string GroupFile = "config\\ReportListGroups.xml";
 
+            const string QuoteConfigFile = "Quoting\\QuotingConfiguration.xml";
+
 			logger = new Logger("[ReportConfiguration]");
 			logger.LogDebug("loading Reporting config file {0}/{1}", Extension, ConfigFile);
 			
@@ -264,6 +269,7 @@ namespace MetraTech.Reports
 				//load config file
 				MTXmlDocument doc = new MTXmlDocument();
 				MTXmlDocument groupdoc = new MTXmlDocument();
+                MTXmlDocument quotedoc = new MTXmlDocument();
 
 				mRcd = new MTRcdClass();
 				mRcd.Init();
@@ -292,9 +298,18 @@ namespace MetraTech.Reports
 				mbPauseReportsBeforeDelete = doc.GetNodeValueAsBool("//PauseReportsBeforeDelete");
 				miTriggerReportGenerationEventPause = doc.GetNodeValueAsInt("//TriggerReportGenerationEventPause");
 
-				
-				
-				//read report list file
+			    try
+			    {
+			        quotedoc.LoadConfigFile(QuoteConfigFile);
+			        mQuotesSubFolder = quotedoc.GetNodeValueAsString("//ReportInstancePartialPath");
+			        mQuotesSubFolder = mQuotesSubFolder.Remove(mQuotesSubFolder.LastIndexOf(@"\"));
+			    }
+                catch (Exception ex)
+                {
+                    logger.LogError(string.Format("Failed to load parameter from Quoting config file. Error:  '{0}'", ex.Message));
+                }
+
+			    //read report list file
 				//TODO: Modify the code to pull the files from all extensions. Use RCD?
 				//TODO: Handle duplicate names
 				groupdoc.LoadExtensionConfigFile(Extension, GroupFile);

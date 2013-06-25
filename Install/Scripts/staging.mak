@@ -293,6 +293,8 @@ BINARIES = \
   MetraTech.DataExportFramework.Components.DataExporter.pdb \
   MetraTech.DataExportFramework.Components.DataFormatters.dll \
   MetraTech.DataExportFramework.Components.DataFormatters.pdb \
+  MetraTech.DataExportFramework.Common.dll \
+  MetraTech.DataExportFramework.Common.pdb \
   MetraTech.Dataflow.dll \
   MetraTech.Dataflow.pdb \
   MetraTech.Dataflow.Template.dll \
@@ -340,6 +342,8 @@ BINARIES = \
   MetraTech.MetraPay.Client.pdb \
   MetraTech.MetraPay.PaymentGateway.dll \
   MetraTech.MetraPay.PaymentGateway.pdb \
+  MetraTech.Quoting.dll \
+  MetraTech.Quoting.pdb \
   MetraTech.Security.Common.dll \
   MetraTech.Security.Common.pdb \
   MetraTech.Security.Crypto.dll \
@@ -1179,7 +1183,7 @@ default:  all
 all:      start DISK1 finish
 DISK1:    MetraNet MetraConnect installer
 MetraNet: createdir RMP attrib_set
-RMP:      RMP_Bin RMP_Config RMP_Tenants RMP_Extensions RMP_UI RMP_WebServices RMP_Samples RMP_Test
+RMP:      RMP_Bin RMP_Config RMP_Tenants RMP_Extensions RMP_UI RMP_WebServices RMP_Samples RMP_Test RMP_GacDlls
 
 start:
   @echo $(DDELIM)
@@ -1407,6 +1411,18 @@ RMP_UI:
   $(CP) Global.asax Web.config $(P_AGREEMENTS_DIR)
   $(CD) $(O_BIN_DIR)
 
+###############################################
+# RMP\GacDlls
+###############################################
+S_GACDLLS_DIR        = $(S_BASE_DIR)\Thirdparty\GacDlls
+P_GACDLLS_DIR        = $(P_BASE_DIR)\GacDlls
+
+RMP_GacDlls:
+  @echo $(DELIM)
+  @echo Working on GacDlls directory...
+  $(MKDIR) $(P_GACDLLS_DIR)
+  XCOPY $(S_GACDLLS_DIR)\* $(P_GACDLLS_DIR) /Y /E /I /C
+  
 ###############################################
 # RMP\Test
 ###############################################

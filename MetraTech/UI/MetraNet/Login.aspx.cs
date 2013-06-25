@@ -12,7 +12,7 @@ using MetraTech.ActivityServices.Services.Common;
 public partial class login : MTPage
 {
   private const string SYSTEM_USER_NAMESPACE = "system_user";
-  private const int m_ticketLifeSpanInMins = 5;
+  private const int m_ticketLifeSpanInMins = 65;
 
   protected void Page_Load(object sender, EventArgs e)
   {
@@ -160,7 +160,12 @@ public partial class login : MTPage
     auth.Initialize(userName, SYSTEM_USER_NAMESPACE, userName, "MetraNet");
     MetraTech.Security.LoginStatus status = auth.Login(password, null, ref tmp);
     IMTSessionContext sessionContext = tmp as IMTSessionContext;
-    string ticket = TicketManager.CreateTicket(sessionContext.AccountID, SYSTEM_USER_NAMESPACE, userName, m_ticketLifeSpanInMins);
+    string ticket = "";
+    // Don't generate ticket if user not authenticated
+    if (status == MetraTech.Security.LoginStatus.OK || status == MetraTech.Security.LoginStatus.OKPasswordExpiringSoon)
+    {
+        ticket = TicketManager.CreateTicket(sessionContext.AccountID, SYSTEM_USER_NAMESPACE, userName, m_ticketLifeSpanInMins);
+    }
     if (userName.ToLower() == "su")
       status = LoginStatus.NoCapabilityToLogonToThisApplication;
 

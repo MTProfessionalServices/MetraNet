@@ -25,7 +25,7 @@ Option Explicit
 
 '*** Product information
 Const PRODUCT_NAME        = "MetraNet"
-Const PRODUCT_VERSION     = "7.0.0"
+Const PRODUCT_VERSION     = "7.0.1"
 
 '*** Global Constants
 Const kRetVal_SUCCESS     = 1
@@ -1685,7 +1685,8 @@ Function Validate_DB_Params()
 
     ElseIf Not HostIsMe(sDBServer) Then
       'Installing a database remotely, better give the DTC configuration warning
-      Dim sDTCMsg
+      SetProperty "MT_DATABASE_REMOTE", "1"
+	  Dim sDTCMsg
       sDTCMsg = "WARNING: You have selected a remote database server." & _
                 CHR(10) & CHR(10) & _
                 "Microsoft's Distributed Transaction Coordinator (DTC) must be properly configured" & _
@@ -2392,8 +2393,14 @@ Function SetDatabaseDevicePaths(sDBName, sStgDBName, sDBServer, sAdminUid, sAdmi
   sMasterDevDir = goFso.GetParentFolderName(sMasterDevPath) 
 
   ' data files
-  sDBDataFile    = sMasterDevDir & sPathSep & sDBName    & "_Data.mdf" 
-  sStgDBDataFile = sMasterDevDir & sPathSep & sStgDBName & "_Data.mdf" 
+  if not isOracle then
+	sDBDataFile    = sMasterDevDir & sPathSep & sDBName    & "_Data.mdf" 
+	sStgDBDataFile = sMasterDevDir & sPathSep & sStgDBName & "_Data.mdf"
+  else
+	' data files (set for oracle)
+	sDBDataFile    = sMasterDevDir & sPathSep & sDBName    & "_Data.dbf" 
+	sStgDBDataFile = sMasterDevDir & sPathSep & sStgDBName & "_Data.dbf"
+  end if
 
   ' log files (not set for oracle)
   if not isOracle then
@@ -5060,6 +5067,7 @@ Function GetDBsOwnedBy (aDBNames, ByVal sUid, ByVal sStgDBName, ByVal sDBServer,
 
     'add main database and staging database to the list, if they exist
     Dim bDBExists
+    Dim bTBLExists
 
     If Not DatabaseExists(bDBExists, sStgDBName, sDBServer, sAdminUid, sAdminPwd) Then Exit Function
     If bDBExists Then AddToArray aDBNames, sStgDBName
@@ -5068,9 +5076,13 @@ Function GetDBsOwnedBy (aDBNames, ByVal sUid, ByVal sStgDBName, ByVal sDBServer,
     If bDBExists Then
       AddToArray aDBNames, sUid
 
-      'add all reporting DBs (only if core database still exists)
-      sQuery = "select NameOfReportingDB name from " & sUid & ".t_ReportingDBLog"
-      If Not ExecuteQuery (oRcdSet, sQuery, sUid, sDBServer, sAdminUid, sAdminPwd) Then Exit Function
+      If Not TableExists(bTBLExists, "t_ReportingDBLog", sUid, sDBServer, sAdminUid, sAdminPwd) Then Exit Function
+
+      'add all reporting DBs (only if core database exists, and t_ReportingDBLog was created)
+      If bTBLExists Then
+        sQuery = "select NameOfReportingDB name from " & sUid & ".t_ReportingDBLog"
+        If Not ExecuteQuery (oRcdSet, sQuery, sUid, sDBServer, sAdminUid, sAdminPwd) Then Exit Function
+      End If
     End If
 
   Else

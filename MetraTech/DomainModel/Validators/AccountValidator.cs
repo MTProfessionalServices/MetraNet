@@ -553,6 +553,7 @@ namespace MetraTech.DomainModel.Validators
               if (account.FirstDayOfMonth.Value >= account.SecondDayOfMonth.Value)
               {
                 validationErrors.Add(INVALID_FIRST_DAY);
+                isValid = false;
               }
             }
 
@@ -830,7 +831,7 @@ namespace MetraTech.DomainModel.Validators
     public const string INVALID_START_DAY_WITHOUT_YEAR = "The account '{0}' has a start day that is greater than the number of days for the month '{1}'.";
     public const string INVALID_START_DAY_RANGE = "The account start day must be in the range [1 - 31].";
     public const string INVALID_START_MONTH_RANGE = "The account start month must be in the range [1 - 12].";
-    public const string INVALID_FIRST_DAY = "The first day must be less than the second day.";
+    public const string INVALID_FIRST_DAY = "Invalid End of Month day selected.  Day MUST be after start day.";
     public const string INVALID_DATA = "Invalid Data.";
     #endregion
   }

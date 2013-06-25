@@ -5,10 +5,11 @@ using System.Linq;
 using System.Web;
 using System.Xml;
 using MetraTech.DataAccess;
-using MetraTech.DataAccess.QueryManagement.Business.Logic;
+using MetraTech.DataExportFramework.Common;
 using MetraTech.Interop.RCD;
 using MetraTech.UI.Common;
 using MetraTech.Core.Services.ClientProxies;
+
 
 
 namespace MetraTech.UI.MetraNet.App_Code
@@ -18,9 +19,7 @@ namespace MetraTech.UI.MetraNet.App_Code
   /// </summary>
   public class DataExportReportManagment
   {
-    private const string queryPath = @"DataExport\Config\queries\Custom\";
-    private const string queryPathforQueryManagment = @"DataExport\Config\SqlCore\Queries\Custom";
-
+    private const string QueryMaskExtensionV2 = "._Info.xml";
     protected readonly Logger logger;
 
     public DataExportReportManagment(Logger logger)
@@ -32,26 +31,22 @@ namespace MetraTech.UI.MetraNet.App_Code
     public List<string> GetQueryTagList()
     {
       var result = new List<string>();
-      IMTRcd _rcd = new MTRcdClass();
-      var _ext = _rcd.ExtensionDir;
 
       // Check Query Management Enabled or not? 
-      var qm = new QueryMapper();
-
-      if (qm.Enabled)
+      if (Configuration.Instance.IsQueryManagerEnabled)
       {
-        ReadBatchQueryTags(Path.Combine(_ext, queryPathforQueryManagment), ref result);
+          ReadBatchQueryTags(Configuration.Instance.PathToCustomQueryDir, ref result);
       }
       else
       {
         var strqueryfile = "ExportReportQueries.xml";
-        var _queryconfigFile = Path.Combine(_ext, queryPath, strqueryfile);
+        var _queryconfigFile = Path.Combine(Configuration.Instance.PathToCustomQueryDir, strqueryfile);
 
         result.AddRange(GetQueryTagsFromFile(_queryconfigFile));
 
-        strqueryfile = GetQueriesFileName(Path.Combine(_ext, queryPath));
+        strqueryfile = GetQueriesFileName(Configuration.Instance.PathToCustomQueryDir);
 
-        _queryconfigFile = Path.Combine(_ext, queryPath, strqueryfile);
+        _queryconfigFile = Path.Combine(Configuration.Instance.PathToCustomQueryDir, strqueryfile);
         result.AddRange(GetQueryTagsFromFile(_queryconfigFile));
       }
 
@@ -92,14 +87,20 @@ namespace MetraTech.UI.MetraNet.App_Code
     {
       try
       {
-        logger.LogDebug("The list of query tag being read from: {0}.", orderdQueryPath); 
-        queryTagList = QueryFinder.Execute(orderdQueryPath);
+        logger.LogDebug("The list of query tag being read from: {0}.", orderdQueryPath);
+
+        string fileNameV2;
+        foreach (string fullPathToQueryFileInfoV2 in Directory.GetFiles(orderdQueryPath, String.Format("*{0}", QueryMaskExtensionV2)))
+        {
+            fileNameV2 = Path.GetFileName(fullPathToQueryFileInfoV2);
+            queryTagList.Add(fileNameV2.Substring(0, (fileNameV2.LastIndexOf(QueryMaskExtensionV2))));
+        }
       }
       catch (Exception e)
       {
         logger.LogError(e.ToString());
         logger.LogError("Unable to get query tags from {0}.", orderdQueryPath);
-        throw e;
+        throw;
       }
     }
 

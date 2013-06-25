@@ -10,6 +10,7 @@ using System.Xml;
 using MetraTech.Pipeline;
 using MetraTech.Interop.MTProductCatalog;
 using MetraTech.DataAccess;
+using System.Collections.Generic;
 
 namespace MetraTech.Product.Hooks
 {
@@ -312,6 +313,7 @@ namespace MetraTech.Product.Hooks
     private MTStringCollection mAccountViews = new MTStringCollection();
     private MTStringCollection mDescendentTypes = new MTStringCollection();
     private MTStringCollection mAncestorTypes = new MTStringCollection();
+		private Dictionary<string, string> _accountViewsNames = new Dictionary<string, string>();
 
     public string CanBePayer {get {return mCanBePayer; }}
     public string CanSubscribe {get {return mCanSubscribe; }}
@@ -326,6 +328,7 @@ namespace MetraTech.Product.Hooks
     public MTStringCollection AccountViews {get {return mAccountViews; }}
     public MTStringCollection DescendentTypes {get {return mDescendentTypes; }}
     public MTStringCollection AncestorTypes { get { return mAncestorTypes; } }
+		public Dictionary<string, string> AccountViewsNames { get { return _accountViewsNames; } }
 
     public AccountTypeHelper(string name, string desc, string canBePayer, string canSubscribe, 
                             string canHaveSyntheticRoot, string CanParticipateInGSub, string CanHaveTemplates,
@@ -430,6 +433,15 @@ namespace MetraTech.Product.Hooks
         {
           thisAccount.AddAccountView(nodeViewName.InnerText);
         }
+
+					XmlNode nodeRealViewName = adapterset.SelectSingleNode("Name");
+					if (nodeRealViewName == null)
+						throw new ApplicationException(string.Format("Could not find tag {0}, ", "Name"));
+
+					if (!string.IsNullOrEmpty(nodeRealViewName.InnerText))
+					{
+						thisAccount.AccountViewsNames[nodeViewName.InnerText] = nodeRealViewName.InnerText;
+					}
       }
 
       XmlNodeList yetAnotherNodeList = doc.SelectNodes("//AccountType/DirectDescendentAccountTypes/Descendent");
@@ -969,5 +981,3 @@ namespace MetraTech.Product.Hooks
   }
 }
 
-
-         

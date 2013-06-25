@@ -714,7 +714,7 @@ int COdbcSessionWriterBase<STMT, MAPPING>::GetSpecialPropertySessionId(const str
 		gColumnToId.operator[]("id_se") = PipelinePropIDs::SubscriptionEntityIDCode();
 		gColumnToId.operator[]("div_currency") = PipelinePropIDs::DivisionCurrencyCode();
 		gColumnToId.operator[]("div_amount") = PipelinePropIDs::DivisionAmountCode();
-        gColumnToId.operator[]("tax_inclusive") = PipelinePropIDs::TaxInclusiveCode();
+        gColumnToId.operator[]("is_implied_tax") = PipelinePropIDs::TaxInclusiveCode();
         gColumnToId.operator[]("tax_calculated") = PipelinePropIDs::TaxCalculatedCode();
         gColumnToId.operator[]("tax_informational") = PipelinePropIDs::TaxInformationalCode();
 	}
@@ -1006,7 +1006,7 @@ bool inline IsCoreColumn(const string & arColumnName)
 		coreColumn = true;
 	else if (0 == stricmp(arColumnName.c_str(), "div_amount"))
 		coreColumn = true;
-    else if (0 == stricmp(arColumnName.c_str(), "tax_inclusive"))
+    else if (0 == stricmp(arColumnName.c_str(), "is_implied_tax"))
 		coreColumn = true;
     else if (0 == stricmp(arColumnName.c_str(), "tax_calculated"))
 		coreColumn = true;

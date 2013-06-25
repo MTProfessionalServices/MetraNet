@@ -53,15 +53,15 @@ document.getElementById("div1").innerHTML = text;
 </table>
 <p class="heading6">Specifying the Report Format</p>
 <p class="bodytext">If you select the output type as TXT, you can set up the field configuration by creating a field definition configuration file. This is required only if you want to apply certain formatting in the output file. You can provide different formatting for each field/column. If this file is not provided then the query output is written to the output txt file as is.</p>
-<p class="bodytext">The file name must be named exactly the same as the report title. For example, if you created a report definition called <strong class="strong">Monthly_Invoice_Report</strong>, the name of the fieldDef configuration file would be <strong class="strong">Monthly_Invoice_Report.xml</strong>. Place the file in <strong class="strong">RMP\Extensions\DataExport\Config\fieldDef</strong></p>
+<p class="bodytext">The file name must be named exactly the same as the report title. For example, if you created a report definition called <strong class="strong">Monthly_Invoice_Report</strong>, the name of the report field definition configuration file would be <strong class="strong">Monthly_Invoice_Report.xml</strong>. Place the file in <strong class="strong">RMP\Extensions\DataExport\Config\fieldDef</strong></p>
 <p class="bodytext">For example:</p>
 <p class="code">&lt;field name=&quot;reserved&quot; displayname=&quot;ReservedName&quot; align=&quot;right&quot; datatype=&quot;string&quot; length=&quot;4&quot; padchar=&quot;x&quot; format=&quot;&quot; decimalpoint=&quot;n&quot;/&gt;</p>
 <p class="bodytext">This is specifying that the column/field named &quot;reserved&quot; should be aligned right and display up to 4 characters of text; any extra spaces should be padded with x (to maintain alignment).</p>
 <table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #BFBFBF">
 <tr align="left" valign="top">
-<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="114"><p class="tableheading">Table Heading</p>
+<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="114"><p class="tableheading">Property</p>
 </th>
-<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="462"><p class="tableheading">Table Heading</p>
+<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="462"><p class="tableheading">Description</p>
 </th>
 </tr>
 <tr align="left" valign="top">
@@ -135,7 +135,7 @@ document.getElementById("div1").innerHTML = text;
 
   </td></tr></table>
 <table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
-    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0</span></td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
 </tr></table>
 </body>
 </html>

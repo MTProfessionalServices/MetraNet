@@ -17,6 +17,8 @@
 #include <errutils.h>
 #include <NTLogger.h>
 #include <loggerconfig.h>
+#include <errobj.h>
+
 #import <NameID.tlb> rename("EOF", "EOFX")
 
 // Wrapper to access decimal constant pool with COdbcDecimal
@@ -1007,6 +1009,8 @@ Action::Action(RuleSetStaticExecution * ruleSet, long sessionProperty,
 
 bool ConditionBase::Evaluate(RuleSetStaticExecution::OpCode op, const unsigned char * recordBuffer, MemoizedSession * session)
 {
+ try
+ {
   switch(op)
   {
   case RuleSetStaticExecution::DECIMAL_EQUALS:
@@ -1207,6 +1211,21 @@ bool ConditionBase::Evaluate(RuleSetStaticExecution::OpCode op, const unsigned c
     return false;
   }
   }
+ }
+ // ESR-5978 If the property is missing but the condition is optional in the parameter table,
+ // instead of failing completely, return false to indicate that the current rule doesn't match.
+ // Then we can continue to examine the remaining rules in the ruleset.
+ catch(MTPropNotInSessionException&) 
+ {
+   if (!mIsRequired)
+   {
+     return false;
+   }
+   else
+   {
+     throw;
+   }
+ }
 }
 
 bool FixedOperatorCondition::Evaluate(const unsigned char * recordBuffer, MemoizedSession * session)

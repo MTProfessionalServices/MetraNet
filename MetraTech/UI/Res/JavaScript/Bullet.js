@@ -208,7 +208,7 @@ d3.bullet = function() {
 
 	  if (rangez.length > 1 && x1Ranges[rangez.length] >= width)
 	  {
-	    console.log("Removing last range...");
+	    //console.log("Removing last range...");
 	    rangez.length = rangez.length - 1;
 	  }
       // Update the tick groups.

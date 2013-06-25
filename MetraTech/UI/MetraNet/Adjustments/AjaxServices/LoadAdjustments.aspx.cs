@@ -136,6 +136,7 @@ public partial class Adjustments_AjaxServices_LoadAdjustments : MTListServicePag
           JavaScriptSerializer jss = new JavaScriptSerializer();
           string json = jss.Serialize(items);
           json = FixJsonDate(json);
+          json = FixJsonBigInt(json);
           Response.Write(json);
         }
 

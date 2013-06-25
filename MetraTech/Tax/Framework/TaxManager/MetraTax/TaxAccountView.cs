@@ -49,6 +49,12 @@ namespace MetraTech.Tax.Framework.MetraTax
 
         // True if the database field was not set.
         public Boolean IsNullMetraTaxOverrideTaxBand { set; get; }
+
+        // Which algorithm should be used to calculate implied tax if the amount has implied tax?
+        public Boolean UseStandardImpliedTaxAlgorithm { set; get; }
+
+        // True if the database field was not set.
+        public Boolean IsNullUseStandardImpliedTaxAlgorithm { set; get; }
     }
 }
 

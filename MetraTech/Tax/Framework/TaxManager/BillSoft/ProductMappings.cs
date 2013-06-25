@@ -39,13 +39,7 @@ namespace MetraTech.Tax.Framework.MtBillSoft
     public ProductCodeMapper(string queryDirPath)
     {
       if (String.IsNullOrEmpty(queryDirPath)) throw new ArgumentNullException("Must define query path parameter");
-
-      var objRCD = new MTRcd();
-      var fullPath = objRCD.ConfigDir + "\\" + queryDirPath.Trim();
-      if (!Directory.Exists(fullPath))
-      {
-        throw new DirectoryNotFoundException(string.Format("Path [{0}] does not exist.", fullPath));
-      }
+    
       mBSQueryDir = queryDirPath;
       mProductMappings = new Dictionary<string, ProductMapping>();
     }

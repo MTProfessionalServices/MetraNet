@@ -36,6 +36,12 @@ namespace MetraTech.Core.Services
     #endregion
 
     #region IStaticReportsService Members
+      /// <summary>
+      /// 
+      /// </summary>
+      /// <param name="accountId"></param>
+      /// <param name="intervalId">Use -1 to get Quotes</param>
+      /// <param name="reportFiles"></param>
     [OperationCapability("Manage Account Hierarchies")]
     public void GetReportsList(AccountIdentifier accountId, int? intervalId, out List<ReportFile> reportFiles)
     {
@@ -44,50 +50,62 @@ namespace MetraTech.Core.Services
         reportFiles = null;
         try
         {
-          int id_acc = AccountIdentifierResolver.ResolveAccountIdentifier(accountId);
-          if (id_acc == -1)
-          {
-            throw new MASBasicException("Invalid account specified");
-          }
-
-          int actualInterval = -1;
-          if (intervalId.HasValue)
-          {
-            actualInterval = intervalId.Value;
-          }
-          else
-          {
-            actualInterval = SliceConverter.GetCurrentAccountInterval(id_acc);
-          }
-
-          if (actualInterval <= 0)
-          {
-            throw new MASBasicException("Unable to resolve usage interval");
-          }
-
-          if (HasManageAccHeirarchyAccess(id_acc, AccessLevel.READ, MTHierarchyPathWildCard.SINGLE))
-          {
-            ReportViewer viewer = new ReportViewer();
-            MTInMemRowset inMemRowset = viewer.GetFileList(actualInterval.ToString(), id_acc);
-
-            inMemRowset.MoveFirst();
-
-            reportFiles = new List<ReportFile>();
-            while (!System.Convert.ToBoolean(inMemRowset.EOF))
+            var getQuoteReports = false;
+            int id_acc = AccountIdentifierResolver.ResolveAccountIdentifier(accountId);
+            if (id_acc == -1)
             {
-              ReportFile file = new ReportFile();
-              file.FileName = (string)inMemRowset.get_Value("FileName");
-              file.DisplayName = (string)inMemRowset.get_Value("DisplayName");
-
-              reportFiles.Add(file);
-
-              inMemRowset.MoveNext();
+                throw new MASBasicException("Invalid account specified");
             }
-          }
-          else
-          {
-            throw new MASBasicException("Caller is not authorized to access specific account");
-          }
+            int actualInterval = -1;
+            if (intervalId == -1)
+            {
+                getQuoteReports = true;
+            }
+            else
+            {                
+                if (intervalId.HasValue)
+                {
+                    actualInterval = intervalId.Value;
+                }
+                else
+                {
+                    actualInterval = SliceConverter.GetCurrentAccountInterval(id_acc);
+                }
+
+                if (actualInterval <= 0)
+                {
+                    throw new MASBasicException("Unable to resolve usage interval");
+                }
+            }
+
+            if (HasManageAccHeirarchyAccess(id_acc, AccessLevel.READ, MTHierarchyPathWildCard.SINGLE))
+            {
+                ReportViewer viewer = new ReportViewer();
+                MTInMemRowset inMemRowset = !getQuoteReports
+                                                ? viewer.GetFileList(actualInterval.ToString(), id_acc)
+                                                : viewer.GetQuoteFileList(id_acc);
+
+                inMemRowset.MoveFirst();
+
+                reportFiles = new List<ReportFile>();
+                while (!System.Convert.ToBoolean(inMemRowset.EOF))
+                {
+                    var file = new ReportFile
+                        {
+                            FileName = (string) inMemRowset.Value["FileName"],
+                            DisplayName = (string) inMemRowset.Value["DisplayName"]
+                        };
+
+                    reportFiles.Add(file);
+
+                    inMemRowset.MoveNext();
+                }
+
+            }
+            else
+            {
+                throw new MASBasicException("Caller is not authorized to access specific account");
+            }
         }
         catch (MASBasicException masE)
         {
@@ -101,8 +119,14 @@ namespace MetraTech.Core.Services
         }
       }
     }
-
-    [OperationCapability("Manage Account Hierarchies")]
+      /// <summary>
+      /// 
+      /// </summary>
+      /// <param name="accountId"></param>
+      /// <param name="intervalId">Use -1 value to get quotes</param>
+      /// <param name="reportFile"></param>
+      /// <param name="reportData"></param>
+    [OperationCapability("Manage Account Hierarchies")]      
     public void GetReportFile(AccountIdentifier accountId, int? intervalId, string reportFile, out Stream reportData)
     {
       using (HighResolutionTimer timer = new HighResolutionTimer("GetReportFile"))
@@ -111,6 +135,7 @@ namespace MetraTech.Core.Services
 
         try
         {
+            bool getQuoteReport = false;
           int id_acc = AccountIdentifierResolver.ResolveAccountIdentifier(accountId);
           if (id_acc == -1)
           {
@@ -126,8 +151,11 @@ namespace MetraTech.Core.Services
           {
             actualInterval = SliceConverter.GetCurrentAccountInterval(id_acc);
           }
-
-          if (actualInterval <= 0)
+          if (actualInterval == -1)
+          {
+              getQuoteReport = true;
+          }
+          else if (actualInterval <= 0)
           {
             throw new MASBasicException("Unable to resolve usage interval");
           }
@@ -135,7 +163,7 @@ namespace MetraTech.Core.Services
           if (HasManageAccHeirarchyAccess(id_acc, AccessLevel.READ, MTHierarchyPathWildCard.SINGLE))
           {
             ReportViewer viewer = new ReportViewer(id_acc, actualInterval);
-            Byte[] report = viewer.GetReportFile(reportFile);
+              Byte[] report = !getQuoteReport ? viewer.GetReportFile(reportFile) : viewer.GetQuoteReportFile(reportFile);
 
             reportData = new MemoryStream(report);
           }

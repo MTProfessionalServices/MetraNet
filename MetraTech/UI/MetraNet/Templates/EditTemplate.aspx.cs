@@ -57,21 +57,28 @@ public partial class Templates_EditTemplate : MTPage
       // is changed manually in form.
       if (TempAccount != null)
       {
-        Dictionary<string,List<MetraTech.DomainModel.BaseTypes.View>> vws = TempAccount.GetViews();
-        foreach (string key in vws.Keys)
+        // CORE-6643.
+        // If it is not the first access to this page properties may have temporary user input that should not be erased.
+        // [TODO]: Implement better way to detect first access to this page by using Query String or View State, as UrlReferrer may be another in future.
+        bool isTheFirtsAccess = Request.UrlReferrer.AbsoluteUri.Contains("AddTemplate.aspx");
+        if (isTheFirtsAccess)
         {
-          var lst = vws[key];
-          foreach (var view in lst)
+          Dictionary<string, List<MetraTech.DomainModel.BaseTypes.View>> vws = TempAccount.GetViews();
+          foreach (string key in vws.Keys)
           {
-            List<PropertyInfo> viewProps = view.GetMTProperties();
-            List<PropertyInfo> keyProps = MetraTech.DomainModel.BaseTypes.View.GetKeyProperties(view.ViewName);
-
-            foreach (PropertyInfo viewProp in viewProps)
+            var lst = vws[key];
+            foreach (var view in lst)
             {
-              if (!keyProps.Contains(viewProp))
-                view.SetValue(viewProp, DBNull.Value);
+              List<PropertyInfo> viewProps = view.GetMTProperties();
+              List<PropertyInfo> keyProps = MetraTech.DomainModel.BaseTypes.View.GetKeyProperties(view.ViewName);
+
+              foreach (PropertyInfo viewProp in viewProps)
+              {
+                if (!keyProps.Contains(viewProp))
+                  view.SetValue(viewProp, DBNull.Value);
+              }
+              view.ResetDirtyFlag();
             }
-            view.ResetDirtyFlag();
           }
         }
       }
@@ -81,7 +88,7 @@ public partial class Templates_EditTemplate : MTPage
       // were cleared in previous step.
       if (AccountTemplateInstance != null)
       {
-        AccountTemplateInstance.ApplyTemplatePropsToAccount(TempAccount);  
+        AccountTemplateInstance.ApplyTemplatePropsToAccount(TempAccount);
       }
       MTGenericFormProperties.DataBinderInstanceName = "MTDataBinder1";
       if (TempAccount != null) MTGenericFormProperties.RenderObjectType = TempAccount.GetType();

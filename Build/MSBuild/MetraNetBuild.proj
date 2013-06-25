@@ -340,7 +340,6 @@
     <MetraTechProjects Include="$(ProjectPath)\*.csproj" 
                        Exclude="$(ProjectPath)\*.Test.csproj;
                                 $(ROOTDIR)\MetraTech\FunctionalTests\MetraTech.FunctionalTests.csproj;
-								$(ROOTDIR)\PrototypeCode\**\*.csproj;
                                 $(ROOTDIR)\SDK\samples\COM\**\*.csproj;
                                 $(ROOTDIR)\MetraTech\SecurityFramework\**\*.csproj;
                                 $(ROOTDIR)\Thirdparty\NUnit224\samples\**\*.csproj;

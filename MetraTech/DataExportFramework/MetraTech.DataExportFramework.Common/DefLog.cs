@@ -1,15 +1,15 @@
 
-namespace MetraTech.DataExportFramework.Components.DataExporter
+namespace MetraTech.DataExportFramework.Common
 {
 
 	/// <summary>
-	/// Summary description for Common.
+	/// Summary description for DefLog.
 	/// </summary>
-	public class Common
+	public class DefLog
 	{
 		private static MetraTech.Logger __logger = new MetraTech.Logger("[DATAEXPORT]");
 
-		protected Common()
+		protected DefLog()
 		{
 			//HIDDEN CONSTRUCTOR
 		}

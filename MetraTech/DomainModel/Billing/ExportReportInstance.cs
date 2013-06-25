@@ -283,28 +283,6 @@ namespace MetraTech.DomainModel.Billing
       get { return isReportOutputTypeTextDirty; }
     }
     #endregion
-      
-    #region XMLConfigLocation
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isXMLConfigLocationDirty = false;
-    private string m_XMLConfigLocation;
-    [MTDataMember(Description = "This the Report XML Config Location..", Length = 50)]
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public string XMLConfigLocation
-    {
-      get { return m_XMLConfigLocation; }
-      set
-      {
-        m_XMLConfigLocation = value;
-        isXMLConfigLocationDirty = true;
-      }
-    }
-    [ScriptIgnore]
-    public bool IsXMLConfigLocationDirty
-    {
-      get { return isXMLConfigLocationDirty; }
-    }
-    #endregion
 
     #region ReportDistributionType
     [DataMember(IsRequired = false, EmitDefaultValue = false)]

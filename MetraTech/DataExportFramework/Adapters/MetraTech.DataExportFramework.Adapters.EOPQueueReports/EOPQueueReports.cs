@@ -186,8 +186,7 @@ namespace MetraTech.DataExportFramework.Adapters.EOPQueueReports
 						}
 						oContext.RecordInfo("Report:&nbsp;"+Convert.ToString(reader.GetValue("c_rep_title")) 
 							+ "&nbsp;&nbsp;InstanceID:&nbsp;" + Convert.ToString(reader.GetValue("id_rep_instance_id")) 
-							+ "<BR>" + "Execution Parameters:&nbsp; "+Convert.ToString(reader.GetValue("c_param_name_values")).Replace("%", "") + "<BR>"
-							+ "<BR>" + "Field Definition File Used:&nbsp; "+Convert.ToString(reader.GetValue("c_xmlconfig_loc")).Replace("%", "") + "<BR>"
+							+ "<BR>" + "Execution Parameters:&nbsp; "+Convert.ToString(reader.GetValue("c_param_name_values")).Replace("%", "") + "<BR>"							
 							+ "Report Delivered via:&nbsp; "+Convert.ToString(reader.GetValue("c_rep_distrib_type")) + "<BR>"
 							+ "Destination:&nbsp; "+sDestn.Replace("%", "") + "<BR>");
 						totalQueued++;

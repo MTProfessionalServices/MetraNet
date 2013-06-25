@@ -307,7 +307,7 @@ namespace MetraTech.Pipeline.Plugins
                     props.Add(new PropertyInfo { NameID = nameId.GetNameID("_SubscriptionEntity"), DBColumnName = "id_se", DataType = Interop.MTProductCatalog.PropValType.PROP_TYPE_INTEGER });
                     props.Add(new PropertyInfo { NameID = nameId.GetNameID("_DivisionCurrency"), DBColumnName = "div_currency", DataType = Interop.MTProductCatalog.PropValType.PROP_TYPE_STRING });
                     props.Add(new PropertyInfo { NameID = nameId.GetNameID("_DivisionAmount"), DBColumnName = "div_amount", DataType = Interop.MTProductCatalog.PropValType.PROP_TYPE_DECIMAL });
-                    props.Add(new PropertyInfo { NameID = nameId.GetNameID("_TaxInclusive"), DBColumnName = "tax_inclusive", DataType = Interop.MTProductCatalog.PropValType.PROP_TYPE_STRING });
+                    props.Add(new PropertyInfo { NameID = nameId.GetNameID("_TaxInclusive"), DBColumnName = "is_implied_tax", DataType = Interop.MTProductCatalog.PropValType.PROP_TYPE_STRING });
                     props.Add(new PropertyInfo { NameID = nameId.GetNameID("_TaxCalculated"), DBColumnName = "tax_calculated", DataType = Interop.MTProductCatalog.PropValType.PROP_TYPE_STRING });
                     props.Add(new PropertyInfo { NameID = nameId.GetNameID("_TaxInformational"), DBColumnName = "tax_informational", DataType = Interop.MTProductCatalog.PropValType.PROP_TYPE_STRING });
                 }

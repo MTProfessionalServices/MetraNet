@@ -244,7 +244,7 @@ namespace MetraTech.ActivityServices.Services.Common
                         using (IMTPreparedStatement stmt = conn.CreatePreparedStatement(queryAdapter.GetQuery()))
                         {
                             stmt.AddParam(MTParameterType.Integer, idTicket);
-                            stmt.AddParam(MTParameterType.DateTime, MetraTime.Now.AddHours(1));
+                            stmt.AddParam(MTParameterType.DateTime, MetraTime.Now.AddHours(-1));
                             stmt.ExecuteNonQuery();
                         }
                     }

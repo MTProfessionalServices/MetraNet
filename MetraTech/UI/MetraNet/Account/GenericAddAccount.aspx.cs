@@ -129,6 +129,9 @@ public partial class GenericAddAccount : MTAccountPage
       }
     }
 
+    // [TODO] After fixing CORE-6642 validation of SemiMonthly Cycle is no longer required here. Before removing it:
+    // Use localized "Resources.ErrorMessages.ERROR_ENDDOM_INVALID"(see below) instead of unlocalized INVALID_FIRST_DAY in S:\MetraTech\DomainModel\Validators\AccountValidator.cs
+
     // Validate the semi-monthly selected days if semi-monthly defined.
     if (((MTBillingCycleControl)FindControlRecursive(Page, "MTBillingCycleControl1")).CycleList.SelectedValue.ToLower().Equals("semi_monthly"))
     {

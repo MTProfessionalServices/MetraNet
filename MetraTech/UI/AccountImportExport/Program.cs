@@ -102,9 +102,10 @@ namespace MetraTech.UI.AccountImportExport
         Exception inner = e.InnerException;
         while (inner != null)
         {
-          Console.WriteLine("Inner Exception: {0}", e.Message);
-          Console.WriteLine("Error occured: {0}", e.StackTrace);
+          Console.WriteLine("Inner Exception: {0}", inner.Message);
+          Console.WriteLine("Error occured: {0}", inner.StackTrace);
           Console.WriteLine();
+          inner = inner.InnerException;
         }
       }
     }

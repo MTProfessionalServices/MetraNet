@@ -85,6 +85,12 @@
     <Compile Include="Compoenents\ctlPropertyReference.Designer.cs">
       <DependentUpon>ctlPropertyReference.cs</DependentUpon>
     </Compile>
+    <Compile Include="ctlBasicPropertyCollectionBinder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctlBasicPropertyCollectionBinder.Designer.cs">
+      <DependentUpon>ctlBasicPropertyCollectionBinder.cs</DependentUpon>
+    </Compile>
     <Compile Include="ctlContextBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -372,6 +378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compoenents\ctlPropertyReference.resx">
       <DependentUpon>ctlPropertyReference.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctlBasicPropertyCollectionBinder.resx">
+      <DependentUpon>ctlBasicPropertyCollectionBinder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ctlContextBase.resx">
       <DependentUpon>ctlContextBase.cs</DependentUpon>

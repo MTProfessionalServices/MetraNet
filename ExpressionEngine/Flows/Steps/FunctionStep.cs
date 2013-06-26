@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Runtime.Serialization;
+using System.Text;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
 
 namespace MetraTech.ExpressionEngine.Flows.Steps
@@ -8,6 +9,17 @@ namespace MetraTech.ExpressionEngine.Flows.Steps
     [DataContract(Namespace = "MetraTech")]
     public class FunctionStep : BaseStep
     {
+        #region Properties
+        [DataMember]
+        public string PropertyName { get; set; }
+
+        [DataMember]
+        public string FunctionName { get; set; }
+
+        [DataMember]
+        public List<string> ParameterValues = new List<string>(); 
+        #endregion
+
         #region Constructor
         public FunctionStep(BaseFlow flow) : base(flow, StepType.Function)
         {
@@ -28,7 +40,21 @@ namespace MetraTech.ExpressionEngine.Flows.Steps
 
         public override string GetTechnicalAutoLabel()
         {
-            return  string.Format(CultureInfo.InvariantCulture, "fx");
+            return  string.Format(CultureInfo.InvariantCulture, "{0} = {1}", PropertyName, GetFunctionInvocation());
+        }
+
+        public string GetFunctionInvocation()
+        {
+            var sb = new StringBuilder();
+            sb.Append(string.Format(CultureInfo.InvariantCulture, "{0}(", FunctionName));
+            for (int index = 0; index < ParameterValues.Count; index++)
+            {
+                sb.Append(ParameterValues[index]);
+                if (index < ParameterValues.Count - 1)
+                    sb.Append(", ");
+            }
+            sb.Append(")");
+            return sb.ToString();
         }
 
 

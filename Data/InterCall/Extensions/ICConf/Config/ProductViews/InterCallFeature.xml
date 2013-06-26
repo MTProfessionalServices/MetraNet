@@ -2,7 +2,7 @@
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ProductViewEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
   <DefaultValue i:nil="true" />
-  <Description>Conference Feature</Description>
+  <Description>Conference Feature hello</Description>
   <Direction>Input</Direction>
   <IsCore>false</IsCore>
   <Name>InterCallFeature</Name>
@@ -1656,16 +1656,22 @@
   <Flow>
     <Steps>
       <BaseStep i:type="FunctionStep">
-        <ConditionalExpression i:nil="true" />
+        <ConditionalExpression></ConditionalExpression>
         <StepType>Function</StepType>
-        <UserDescription i:nil="true" />
-        <UserLabel i:nil="true" />
+        <UserDescription></UserDescription>
+        <UserLabel></UserLabel>
+        <FunctionName>Percentage</FunctionName>
+        <ParameterValues>
+          <arrays:string>a</arrays:string>
+          <arrays:string>b</arrays:string>
+        </ParameterValues>
+        <PropertyName>batch_date</PropertyName>
       </BaseStep>
       <BaseStep i:type="CalculateEventChargeStep">
-        <ConditionalExpression i:nil="true" />
+        <ConditionalExpression></ConditionalExpression>
         <StepType>CalculateEventCharge</StepType>
-        <UserDescription i:nil="true" />
-        <UserLabel i:nil="true" />
+        <UserDescription></UserDescription>
+        <UserLabel></UserLabel>
       </BaseStep>
     </Steps>
   </Flow>

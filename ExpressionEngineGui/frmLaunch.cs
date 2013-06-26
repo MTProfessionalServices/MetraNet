@@ -11,7 +11,9 @@ using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
+using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.PropertyBags;
+using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace PropertyGui
@@ -127,6 +129,21 @@ namespace PropertyGui
             var pv = (ProductViewEntity)context.GlobalComponentCollection.Get("intercall.com.ProductViews.InterCallFeature");
             var dialog = new frmPropertyBag(context, pv);
             dialog.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var func = new Function("ConvertCurrency", "CDE", "Converts the specified money value to the target currency.");
+            func.FixedParameters.Add(PropertyFactory.Create("Value", TypeFactory.CreateMoney(), true, "The Money value to be converted."));
+            func.FixedParameters.Add(PropertyFactory.Create("Currency", TypeFactory.CreateCurrency(), true, "The currency that the value will be converted to."));
+            func.ReturnType = TypeFactory.CreateMoney();
+            func.Save(@"C:\expressionengine\reference\Functions");
+
+            func = new Function("Percentage", "CDE", "Applies the specified percentage to the value");
+            func.FixedParameters.Add(PropertyFactory.Create("Value", TypeFactory.CreateMoney(), true, "The numeric value to be converted."));
+            func.FixedParameters.Add(PropertyFactory.Create("Percentage", TypeFactory.CreateNumeric(), true, "The percentage  the value will be converted to."));
+            func.ReturnType = TypeFactory.CreateMoney();
+            func.Save(@"C:\expressionengine\reference\Functions");
         }
 
     }

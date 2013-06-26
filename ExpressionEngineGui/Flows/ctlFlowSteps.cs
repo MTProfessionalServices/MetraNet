@@ -111,9 +111,6 @@ namespace PropertyGui.Flows
         {
             //Insure that the current step control is updated
             SyncCurrentStepControlToObject();
-
-            if (FlowEditor != null)
-                FlowEditor.SyncCommonFieldsToForm(CurrentStep);
             
             //Get the order of the steps
             Flow.Steps.Clear();

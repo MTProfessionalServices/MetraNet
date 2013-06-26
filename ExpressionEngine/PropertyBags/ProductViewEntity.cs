@@ -89,43 +89,137 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         /// </summary>
         public void AddCoreProperties()
         {
-            //AccountID
-            var accountId = Properties.AddInteger32("AccountId", "The internal MetraNet account identifier", true);
+            //EventID (id_sess) - joins to PV (with id_usage_interval)
+            var eventId = (MetraNetPropertyBase)Properties.AddInteger32("EventId", "Uniquely identifes the processed Event", true);
+            eventId.IsCore = true;
+            eventId.DatabaseNameMapping = "id_sess";
+
+            //EventSourceID (tx_uid) - joins to SVC
+            // NOTE: this is an encoded GUID, not a pure freeform string
+            var eventSourceId = (MetraNetPropertyBase)Properties.AddString("EventSourceId", "Uniquely identifes the raw unprocessed Event", true);
+            eventId.IsCore = true;
+            eventId.DatabaseNameMapping = "tx_uid";
+            
+            //PayerID (id_acc) - joins to paying account
+            // TODO: do we want to use Payer or Account
+            var accountId = (MetraNetPropertyBase)Properties.AddInteger32("AccountId", "The internal MetraNet account identifier", true);
             accountId.IsCore = true;
-
-            //Timestamp
-            var timestamp = Properties.AddDateTime("Timestamp", "The time the event is deemed to have occurred", true);
-            timestamp.IsCore = true;
-
-            //Currency
-            var currency = Properties.AddCurrency("Currency", "The currency for the Event", true);
-            ((MetraNetPropertyBase) currency).DatabaseNameMapping = "am_currency";
-            currency.IsCore = true;
-
-            //Event Amount
-            var eventCharge = (ProductViewProperty)Properties.AddCharge(PropertyBagConstants.EventCharge, "The charge assoicated with the event which may summarize other charges within the event.The amount can be negative to represent a credit.", true);
-            eventCharge.IsCore = true;
-            eventCharge.DatabaseNameMapping = "Amount";
-            var chargeType = (ChargeType) eventCharge.Type;
-            chargeType.CurrencyMode = CurrencyMode.PropertyDriven;
-            chargeType.CurrencyProperty = "Currency";
-
-            //Presentation Page ID
+            accountId.DatabaseNameMapping = "id_acc";
+            
+            //PayeeID (id_payee) - joins to guiding account
+            var payeeId = (MetraNetPropertyBase)Properties.AddInteger32("PayeeId", "The internal MetraNet account identifier of the payee", true);
+            payeeId.IsCore = true;
+            payeeId.DatabaseNameMapping = "id_payee";
+            
+            //ProductViewID (id_view) - joins to type of PV
+            // TODO: not sure the description is accurate
             var presentationPageId = (MetraNetPropertyBase)Properties.AddInteger32("PresentationPageId", "Identifes which MetraView page will present the Event.", true);
             presentationPageId.IsCore = true;
-            presentationPageId.DatabaseNameMapping = "c_ViewId";
+            presentationPageId.DatabaseNameMapping = "id_view";
+            
+            //UsageIntervalID (id_usage_interval) - joins to PV (with id_sess), and sometimes joins to t_acc_usage (with id_parent_sess)
+            var intervalId = (MetraNetPropertyBase)Properties.AddInteger32("UsageIntervalId", "The billing interval where the event is billed", true);
+            intervalId.IsCore = true;
+            intervalId.DatabaseNameMapping = "id_usage_interval";
+            
+            //ParentEventID (id_parent_sess) - optional, joins to parent t_acc_usage row (with id_usage_interval)
+            // TODO: not sure we want Parent on there
 
-            //Event ID
-            var eventId = (MetraNetPropertyBase) Properties.AddInteger32("EventId", "Uniquely identifes the Event", true);
-            eventId.IsCore = true;
-            eventId.DatabaseNameMapping = "c_SessionId";
+            //ProductOfferingID (id_prod) - optional, joins to id_po
+            var productOfferingId = (MetraNetPropertyBase)Properties.AddInteger32("ProductOfferingId", "Identifes the product offering associated with this event.", true);
+            productOfferingId.IsCore = true;
+            productOfferingId.DatabaseNameMapping = "id_prod";
+            
+            //ServiceDefinitionID (id_svc) - joins to type of SVC
+            var serviceDefinitionId = (MetraNetPropertyBase)Properties.AddInteger32("PresentationPageId", "Identifies the service definition that was used to ingest the Event.", true);
+            serviceDefinitionId.IsCore = true;
+            serviceDefinitionId.DatabaseNameMapping = "id_svc";
 
+            //Timestamp (dt_session)
+            var timestamp = (MetraNetPropertyBase)Properties.AddDateTime("Timestamp", "The time the event is deemed to have occurred", true);
+            timestamp.IsCore = true;
+            timestamp.DatabaseNameMapping = "dt_session";
+
+            //EventCurrency (am_currency)
+            // TODO: do we want to use EventCurrency or Currency
+            var currency = Properties.AddCurrency("Currency", "The currency for the Event", true);
+            ((MetraNetPropertyBase)currency).DatabaseNameMapping = "am_currency";
+            currency.IsCore = true;
+
+            //EventCharge (amount)
+            var eventCharge = (ProductViewProperty)Properties.AddCharge(PropertyBagConstants.EventCharge, "The charge associated with the event which may summarize other charges within the event.The amount can be negative to represent a credit.", true);
+            eventCharge.IsCore = true;
+            eventCharge.DatabaseNameMapping = "amount";
+            var chargeType = (ChargeType)eventCharge.Type;
+            chargeType.CurrencyMode = CurrencyMode.PropertyDriven;
+            chargeType.CurrencyProperty = "Currency";
+            
+            //CreateDate (dt_crt)
+            var createDt = (MetraNetPropertyBase)Properties.AddDateTime("CreationDate", "The time the event was originally processed", true);
+            createDt.IsCore = true;
+            createDt.DatabaseNameMapping = "dt_crt";
+            
+            //BatchID (tx_batch) - optional
+            // NOTE: this is an encoded GUID, not a pure freeform string
+            var batchId = (MetraNetPropertyBase)Properties.AddString("BatchId", "The batch that this event was entered with", true);
+            batchId.IsCore = true;
+            batchId.DatabaseNameMapping = "tx_batch";
+            
+            //FederalTax (tax_federal) - optional
+            AddTaxProperty("tax_federal", "FederalTax", Properties);
+            
+            //StateTax (tax_state) - optional
+            AddTaxProperty("tax_state", "StateTax", Properties);
+            
+            //CountyTax (tax_county) - optional
+            AddTaxProperty("tax_county", "CountyTax", Properties);
+            
+            //LocalTax (tax_local) - optional
+            AddTaxProperty("tax_local", "LocalTax", Properties);
+            
+            //OtherTax (tax_other) - optional
+            AddTaxProperty("tax_other", "OtherTax", Properties);
+            
+            //PriceableItemInstanceID (id_pi_instance) - optional, links to t_base_props to identify priceable item instance
+            var priceableItemInstanceId = (MetraNetPropertyBase)Properties.AddInteger32("PriceableItemInstanceId", "Identifies the priceable item instance used for this event.", true);
+            priceableItemInstanceId.IsCore = true;
+            priceableItemInstanceId.DatabaseNameMapping = "id_pi_instance";
+
+            //PriceableItemTemplateID (id_pi_template) - optional, links to t_base_props to identify priceable item template
+            var priceableItemTemplateId = (MetraNetPropertyBase)Properties.AddInteger32("PriceableItemTemplateId", "Identifies the priceable item template used for this event.", true);
+            priceableItemTemplateId.IsCore = true;
+            priceableItemTemplateId.DatabaseNameMapping = "id_pi_template";
+            
+            //(id_se) - need to verify what this holds, looks to be same as account
+            // TODO: verify contents here
+            
+            //DivisionCurrency (div_currency) - optional
+            // TODO: do we want to use EventCurrency or Currency
+            var divisionCurrency = Properties.AddCurrency("DivisionCurrency", "The division currency for the Event", true);
+            ((MetraNetPropertyBase)divisionCurrency).DatabaseNameMapping = "div_currency";
+            divisionCurrency.IsCore = true;
+            
+            //DivisionAmount (div_amount) - optional
+            // TODO: or DivisionEventCharge?
+            // TODO: do we event carry about division currency/amount?  I don't know anyone using this, and think it was probably a hasty solution to a non-existent problem
+            var divisionCharge = (ProductViewProperty)Properties.AddCurrency("DivisionCharge", "The EventCharge in the Division Currency.", true);
+            divisionCharge.IsCore = true;
+            divisionCharge.DatabaseNameMapping = "div_amount";
+            var divisionChargeType = (ChargeType)divisionCharge.Type;
+            divisionChargeType.CurrencyMode = CurrencyMode.PropertyDriven;
+            divisionChargeType.CurrencyProperty = "DivisionCurrency";
+            
+            //TaxInclusive (tax_inclusive) - optional, whether amount has taxes included
+            // TODO: need to double check data type here
+            
+            //TaxCalculated (tax_calculated) - optional, defaults to 0, whether taxes have been calculated on this event yet, regardless of whether still up-to-date
+            // TODO: need to double check data type here
+            
+            //TaxInformational (tax_informational) - optional, whether amount has taxes that are calculated, but not part of balance due
+            // TODO: need to double check data type here
+
+            // FIXME: we do not have a total tax amount
             AddTaxProperty("c_TaxAmount", PropertyBagConstants.EventTax, Properties);
-            AddTaxProperty("c_FederalTaxAmount", "FederalTax", Properties);
-            AddTaxProperty("c_StateTaxAmount", "StateTax", Properties);
-            AddTaxProperty("c_CountyTaxAmount", "CountyTax", Properties);
-            AddTaxProperty("c_LocalTaxAmount", "LocalTax", Properties);
-            AddTaxProperty("c_OtherTaxAmount", "OtherTax", Properties);
         }
 
         public MetraNetPropertyBase AddTaxProperty(string realName, string newName, PropertyCollection properties)

@@ -47,41 +47,59 @@ namespace MetraTech.ExpressionEngine.Flows.Steps
         public override List<EventChargeMapping> GetEventChargeMappings()
         {
             var mappings = new List<EventChargeMapping>();
-            foreach (var charge in Flow.ProductView.GetCharges(true))
+
+            var charges = Flow.ProductView.GetCharges(false);
+            
+            if (charges.Count == 0)
             {
-                var chargeMappings = GetEventChargeMappingsForCharge(charge);
-                mappings.AddRange(chargeMappings);
+                var eventCharge = Flow.ProductView.GetEventCharge();
+                mappings.AddRange(GetEventChargeMappingsForCharge(true, eventCharge));
             }
+            else
+            {
+                foreach (var charge in charges)
+                {
+                    var chargeMappings = GetEventChargeMappingsForCharge(false, charge);
+                    mappings.AddRange(chargeMappings);
+                } 
+            }
+
             return mappings;
         }
 
-        private List<EventChargeMapping> GetEventChargeMappingsForCharge(Property chargeProperty)
+        private List<EventChargeMapping> GetEventChargeMappingsForCharge(bool isEventCharge, Property chargeProperty)
         {
             var mappings = new List<EventChargeMapping>();
             var chargeType = (ChargeType)chargeProperty.Type;
 
-            //Amount mapping
-            var accountMapping = GetBaseEventChargeMapping();
-            accountMapping.ChargeName = chargeProperty.Name;
-            accountMapping.FieldName = chargeProperty.Name;
-            accountMapping.FieldType = CdeFieldMappingType.amount;
-            mappings.Add(accountMapping);
+            string chargeName;
+            if (!string.IsNullOrWhiteSpace(chargeType.Alias))
+                chargeName = chargeType.Alias;
+            else
+                chargeName = chargeProperty.PropertyCollection.GetPropertyDatabaseName(BasicHelper.GetNameFromFullName(chargeProperty.Name));
 
             //Units mapping
             if (chargeType.QuantityProperty != null)
             {
                 var unitsMapping = GetBaseEventChargeMapping();
-                unitsMapping.ChargeName = chargeProperty.Name;
+                unitsMapping.ChargeName = chargeName;
                 unitsMapping.FieldName = chargeType.QuantityProperty;
                 unitsMapping.FieldType = CdeFieldMappingType.units;
                 mappings.Add(unitsMapping);
             }
 
+            //Amount mapping
+            var amountMapping = GetBaseEventChargeMapping();
+            amountMapping.ChargeName = chargeName;
+            amountMapping.FieldName = isEventCharge? "Amount" : chargeProperty.DatabaseName;
+            amountMapping.FieldType = CdeFieldMappingType.amount;
+            mappings.Add(amountMapping);
+
             //Rate mapping
             if (chargeType.PriceProperty != null)
             {
                 var priceMapping = GetBaseEventChargeMapping();
-                priceMapping.ChargeName = chargeProperty.Name;
+                priceMapping.ChargeName = chargeName;
                 priceMapping.FieldName = chargeType.PriceProperty;
                 priceMapping.FieldType = CdeFieldMappingType.rate;
                 mappings.Add(priceMapping);

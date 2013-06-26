@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.PropertyBags;
@@ -57,6 +58,19 @@ namespace MetraTech.ExpressionEngine.MTProperties
         /// </summary>
         [DataMember]
         private List<Property> Properties = new List<Property>();
+
+        //[DataMember]
+        private IEnumerable<Property> CustomPropertiesForSerilization
+        {
+            get { return Properties.Where(x => !x.IsCore).OrderBy(x=>x.Name); }
+            set
+            {
+                Properties.AddRange(value);
+                if (PropertyBag != null && PropertyBag.CoreProperties != null)
+                    Properties.AddRange(PropertyBag.CoreProperties);
+            }
+
+        }
         #endregion
 
         #region Constructor
@@ -93,6 +107,14 @@ namespace MetraTech.ExpressionEngine.MTProperties
                 }
             }
             return null;
+        }
+
+        public string GetPropertyDatabaseName(string name)
+        {
+            var property = Get(name);
+            if (property == null)
+                return null;
+            return property.DatabaseName;
         }
 
         /// <summary>
@@ -268,6 +290,14 @@ namespace MetraTech.ExpressionEngine.MTProperties
         public Property AddString(string name, string description, bool isRequired, string defaultValue=null, int length=0)
         {
             var property = PropertyFactory.Create(PropertyBagTypeName, name, TypeFactory.CreateString(length), isRequired, description);
+            property.DefaultValue = defaultValue;
+            Add(property);
+            return property;
+        }
+
+        public Property AddCurrency(string name, string description, bool isRequired, string defaultValue = null)
+        {
+            var property = PropertyFactory.Create(PropertyBagTypeName, name, TypeFactory.CreateCurrency(), isRequired, description);
             property.DefaultValue = defaultValue;
             Add(property);
             return property;

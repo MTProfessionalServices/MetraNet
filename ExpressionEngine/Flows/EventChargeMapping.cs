@@ -11,10 +11,12 @@ namespace MetraTech.ExpressionEngine.Flows
         public CdeFieldMappingType FieldType { get; set; }
         public string ContributingField { get; set; }
         public int Precision { get; set; }
+        public string PrecisionFormatted {get { return GetFormattedPrecision(); }}
         public string CurrencyField { get; set; }
         public string PercentageField { get; set; }
         public string Modifier { get; set; }
         public string Filter { get; set; }
+        public int FieldOrder { get; set; }
         #endregion
 
         #region Methods
@@ -30,23 +32,34 @@ namespace MetraTech.ExpressionEngine.Flows
                    "CURRENCY_FIELD," +
                    "PERCENTAGE_FIELD," +
                    "MODIFIER," +
-                   "FILTER";
+                   "FILTER," +
+                   "FIELD_ORDER";
             return s;
         }
 
-        public string GetCsvString()
+        public string GetCsvString(bool convertBodyToLower)
         {
-            var s= ProductView + "," +
-                   ChargeName + "," +
-                   FieldName + "," +
-                   FieldType.ToString() + "," +
-                   ContributingField + "," +
-                   Precision.ToString() + "," +
-                   CurrencyField + "," +
-                   PercentageField + "," +
-                   Modifier + "," +
-                   Filter;
+            var s = ProductView + "," +
+                    ChargeName + "," +
+                    FieldName + "," +
+                    FieldType.ToString() + "," +
+                    ContributingField + "," +
+                    PrecisionFormatted + "," +
+                    CurrencyField + "," +
+                    PercentageField + "," +
+                    Modifier + "," +
+                    Filter + "," +
+                    FieldOrder;
+            if (convertBodyToLower)
+                s = s.ToLower();
             return s;
+        }
+
+        private string GetFormattedPrecision()
+        {
+            if (Precision == 0)
+                return "-99";
+            return null;
         }
 
         #endregion

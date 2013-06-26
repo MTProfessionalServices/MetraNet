@@ -52,10 +52,12 @@ namespace PropertyGui.Flows.Steps
         }
         #endregion
 
+        #region Events
         private void cboFunction_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             var function = (Function) cboFunction.SelectedItem;
             ctlPropertyCollectionBinder.Init(Context, function.FixedParameters, Step.ParameterValues, Step.AvailableProperties);
         }
+        #endregion
     }
 }

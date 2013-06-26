@@ -33,7 +33,9 @@ namespace PropertyGui.TypeSystemControls
 
         public override void SyncToForm()
         {
-            Visible = !Property.IsCore || ((ProductViewEntity)Property.PropertyCollection.PropertyBag).GetCharges(false).Count == 0;
+            var numCharges = ((ProductViewEntity) Property.PropertyCollection.PropertyBag).GetCharges(false).Count;
+            Visible = !(Property.IsCore && numCharges > 0);
+            txtAlias.Text = ChargeType.Alias;
             ctlQuantityProperty.SyncToForm();
             ctlPriceProperty.SyncToForm();
             ctlProductProperty.SyncToForm();
@@ -43,6 +45,7 @@ namespace PropertyGui.TypeSystemControls
 
         public override void SyncToObject()
         {
+            ChargeType.Alias = txtAlias.Text;
             ctlQuantityProperty.SyncToObject();
             ctlPriceProperty.SyncToObject();
             ctlProductProperty.SyncToObject();

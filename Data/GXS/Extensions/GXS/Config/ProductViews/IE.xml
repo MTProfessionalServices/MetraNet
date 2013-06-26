@@ -18,7 +18,7 @@
     <Properties>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>Guiding number.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -29,6 +29,7 @@
           <ListType>None</ListType>
           <Length>20</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -47,6 +48,7 @@
           <ListType>None</ListType>
           <Length>2</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -54,7 +56,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>Billing Product Code</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -65,6 +67,7 @@
           <ListType>None</ListType>
           <Category>gxs.com/Global.BPC</Category>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -83,6 +86,7 @@
           <ListType>None</ListType>
           <Category>gxs.com/Global.UOM</Category>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -100,6 +104,7 @@
           <BaseType>DateTime</BaseType>
           <ListType>None</ListType>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -107,7 +112,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>Date the transactions was processed by mediation. (Always in GMT)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -117,6 +122,7 @@
           <BaseType>DateTime</BaseType>
           <ListType>None</ListType>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -134,6 +140,7 @@
           <BaseType>DateTime</BaseType>
           <ListType>None</ListType>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -141,7 +148,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>Product activity timezone offset.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -152,6 +159,7 @@
           <ListType>None</ListType>
           <Category>Global.TimeZoneID</Category>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -170,6 +178,7 @@
           <ListType>None</ListType>
           <Category>Global.TimeZoneID</Category>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -191,6 +200,7 @@
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -209,6 +219,7 @@
           <ListType>None</ListType>
           <Length>20</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -227,6 +238,7 @@
           <ListType>None</ListType>
           <Length>64</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -248,6 +260,7 @@
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -255,7 +268,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>Application ID</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -266,6 +279,7 @@
           <ListType>None</ListType>
           <Length>8</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -284,6 +298,7 @@
           <ListType>None</ListType>
           <Length>3</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -302,6 +317,7 @@
           <ListType>None</ListType>
           <Length>8</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -320,6 +336,7 @@
           <ListType>None</ListType>
           <Length>8</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -338,6 +355,7 @@
           <ListType>None</ListType>
           <Length>16</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -356,6 +374,7 @@
           <ListType>None</ListType>
           <Length>3</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -374,6 +393,7 @@
           <ListType>None</ListType>
           <Length>4</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -392,6 +412,7 @@
           <ListType>None</ListType>
           <Length>17</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -410,6 +431,7 @@
           <ListType>None</ListType>
           <Length>16</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -428,6 +450,7 @@
           <ListType>None</ListType>
           <Length>3</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -446,6 +469,7 @@
           <ListType>None</ListType>
           <Length>4</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -464,6 +488,7 @@
           <ListType>None</ListType>
           <Length>17</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -482,6 +507,7 @@
           <ListType>None</ListType>
           <Length>16</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -500,6 +526,7 @@
           <ListType>None</ListType>
           <Length>1</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -518,6 +545,7 @@
           <ListType>None</ListType>
           <Length>8</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -525,7 +553,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>BEID prop</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -534,11 +562,12 @@
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -557,6 +586,7 @@
           <ListType>None</ListType>
           <Category>gxs.com/Global.MessageActivity</Category>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -575,6 +605,7 @@
           <ListType>None</ListType>
           <Length>2</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -596,6 +627,7 @@
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -614,6 +646,7 @@
           <ListType>None</ListType>
           <Length>20</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -632,6 +665,7 @@
           <ListType>None</ListType>
           <Length>8</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -650,6 +684,7 @@
           <ListType>None</ListType>
           <Length>8</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -671,6 +706,7 @@
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -688,6 +724,7 @@
           <BaseType>DateTime</BaseType>
           <ListType>None</ListType>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -705,6 +742,7 @@
           <BaseType>DateTime</BaseType>
           <ListType>None</ListType>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -723,6 +761,7 @@
           <ListType>None</ListType>
           <Length>2</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -741,6 +780,7 @@
           <ListType>None</ListType>
           <Length>38</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -758,6 +798,7 @@
           <BaseType>Boolean</BaseType>
           <ListType>None</ListType>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -765,20 +806,20 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>Intial rate used by the system during pipeline processing.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>Rate</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -800,6 +841,7 @@
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -821,6 +863,7 @@
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -828,7 +871,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>A UOM is triggered when the transactions UOM is different than the base BPCs.  If so, the BPC rating UOM is stored here.  If not, the incoming UOM is stored here.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -839,6 +882,7 @@
           <ListType>None</ListType>
           <Category>gxs.com/Global.UOM</Category>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -846,7 +890,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>A UOM is triggered when the transactions UOM is different than the base BPCs.  If so, the new rating units are stored here.  If not, the incoming units are stored here.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -855,11 +899,12 @@
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -878,6 +923,7 @@
           <ListType>None</ListType>
           <Category>gxs.com/Global.UOM</Category>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -899,6 +945,7 @@
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -906,7 +953,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>Used for connect unit processing.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -915,11 +962,12 @@
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
           <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureMode>FixedUnitOfMeasure</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -938,6 +986,7 @@
           <ListType>None</ListType>
           <Category>gxs.com/Global.BPC</Category>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -956,6 +1005,7 @@
           <ListType>None</ListType>
           <Category>gxs.com/Global.BPC</Category>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -963,7 +1013,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>0=No Set; 1=Success; 2=No active rulesset defined; 3=BPC not configured in ruleset</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -972,11 +1022,12 @@
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -994,6 +1045,7 @@
           <BaseType>Boolean</BaseType>
           <ListType>None</ListType>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -1015,6 +1067,7 @@
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -1022,7 +1075,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>The internal MetraNet account identifier</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
@@ -1031,11 +1084,12 @@
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -1053,6 +1107,7 @@
           <BaseType>DateTime</BaseType>
           <ListType>None</ListType>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -1060,7 +1115,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>The currency for the Event</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
@@ -1071,6 +1126,7 @@
           <ListType>None</ListType>
           <Length>0</Length>
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -1078,7 +1134,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>The charge assoicated with the event which may summarize other charges within the event.The amount can be negative to represent a credit.</Description>
         <Direction>Input</Direction>
         <IsCore>true</IsCore>
@@ -1090,12 +1146,14 @@
           <CurrencyMode>PropertyDriven</CurrencyMode>
           <CurrencyProperty>Currency</CurrencyProperty>
           <FixedCurrency i:nil="true" />
+          <Alias>IE</Alias>
           <EndProperty i:nil="true" />
-          <PriceProperty i:nil="true" />
+          <PriceProperty>gxs.com.ProductViews.IE.Rate</PriceProperty>
           <ProductProperty i:nil="true" />
-          <QuantityProperty i:nil="true" />
+          <QuantityProperty>gxs.com.ProductViews.IE.RatingUnits</QuantityProperty>
           <StartProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -1117,6 +1175,7 @@
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -1138,6 +1197,7 @@
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -1160,6 +1220,7 @@
           <TaxLocationProperty i:nil="true" />
           <TaxReportToProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -1182,6 +1243,7 @@
           <TaxLocationProperty i:nil="true" />
           <TaxReportToProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -1204,6 +1266,7 @@
           <TaxLocationProperty i:nil="true" />
           <TaxReportToProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -1226,6 +1289,7 @@
           <TaxLocationProperty i:nil="true" />
           <TaxReportToProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -1248,6 +1312,7 @@
           <TaxLocationProperty i:nil="true" />
           <TaxReportToProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -1270,6 +1335,7 @@
           <TaxLocationProperty i:nil="true" />
           <TaxReportToProperty i:nil="true" />
         </Type>
+        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -1277,7 +1343,17 @@
       </Property>
     </Properties>
   </Properties>
-  <EventType>Unknown</EventType>
-  <IsMetered>false</IsMetered>
+  <EventType>Charge</EventType>
+  <Flow>
+    <Steps>
+      <BaseStep i:type="CalculateEventChargeStep">
+        <ConditionalExpression></ConditionalExpression>
+        <StepType>CalculateEventCharge</StepType>
+        <UserDescription></UserDescription>
+        <UserLabel></UserLabel>
+      </BaseStep>
+    </Steps>
+  </Flow>
+  <Parent></Parent>
   <UniqueKey />
 </PropertyBag>

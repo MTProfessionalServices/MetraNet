@@ -41,6 +41,8 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         /// </summary>
         public override string XqgPrefix { get { return UserContext.Settings.NewSyntax ? "EVENT" : "USAGE"; } }
 
+        public static PropertyCollection InternalCoreProperties = new PropertyCollection(null);
+
         #endregion
 
         #region Constructor
@@ -56,10 +58,10 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         public void UpdateFlow(Context context)
         {
-//#warning Why  do I need to do this here???
-//            if (Flow == null)
-//                Flow = new BaseFlow();
-//            Flow.InitialProperties = new PropertyCollection(null);
+#warning Why  do I need to do this here???
+            if (Flow == null)
+                Flow = new BaseFlow();
+            Flow.InitialProperties = new PropertyCollection(null);
 
             //Append the Parent and it's properties
             var parentPv = (ProductViewEntity)context.GetComponent(ComponentType.PropertyBag, Parent);
@@ -96,13 +98,14 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             timestamp.IsCore = true;
 
             //Currency
-            var currency = Properties.AddString("Currency", "The currency for the Event", true);
+            var currency = Properties.AddCurrency("Currency", "The currency for the Event", true);
+            ((MetraNetPropertyBase) currency).DatabaseNameMapping = "am_currency";
             currency.IsCore = true;
 
             //Event Amount
             var eventCharge = (ProductViewProperty)Properties.AddCharge(PropertyBagConstants.EventCharge, "The charge assoicated with the event which may summarize other charges within the event.The amount can be negative to represent a credit.", true);
             eventCharge.IsCore = true;
-            eventCharge.DatabaseNameMapping = "c_Amount";
+            eventCharge.DatabaseNameMapping = "Amount";
             var chargeType = (ChargeType) eventCharge.Type;
             chargeType.CurrencyMode = CurrencyMode.PropertyDriven;
             chargeType.CurrencyProperty = "Currency";

@@ -3,6 +3,9 @@ using Type = MetraTech.ExpressionEngine.TypeSystem.Type;
 
 namespace MetraTech.ExpressionEngine.MTProperties
 {
+    /// <summary>
+    /// This should be removed. It was inteded to abstract from Metanga properpties but it's not worth the effort.
+    /// </summary>
     [DataContract(Namespace = "MetraTech")]
     public abstract class MetraNetPropertyBase : Property
     {
@@ -21,6 +24,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
         /// Used to override the default "c_" prefix. This is used when you want to use a more user friendly 
         /// term and you can't refactor that acutal database name.
         /// </summary>
+        [DataMember]
         public string DatabaseNameMapping { get; set; }
 
         #endregion

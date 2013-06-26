@@ -21,6 +21,9 @@ namespace MetraTech.ExpressionEngine.TypeSystem
 
         #region Properties
 
+        [DataMember]
+        public string Alias { get; set; }
+
         /// <summary>
         /// The name of the property that specifes the quantity to calculate
         /// </summary>

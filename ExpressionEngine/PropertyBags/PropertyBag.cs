@@ -47,6 +47,8 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         [DataMember]
         public PropertyCollection Properties { get; private set; }
 
+        public PropertyCollection CoreProperties { get; set; }
+
         /// <summary>
         /// The extension that the PropertyBag is associated with
         /// </summary>

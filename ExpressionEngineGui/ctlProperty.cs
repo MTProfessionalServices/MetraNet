@@ -68,7 +68,9 @@ namespace PropertyGui
             CreateTypeEditor();
 
             //If it's core, disallow editing
-            Enabled = !Property.IsCore;
+            SetEnable(!Property.IsCore);
+            if (Property.Type.IsCharge)
+                CurrentTypeControl.Enabled = true;
 
             IgnoreChanges = false;
 
@@ -88,6 +90,17 @@ namespace PropertyGui
                 CurrentTypeControl.SyncToObject();
         }
 
+        private void SetEnable(bool enabled)
+        {
+            lblName.Enabled = enabled;
+            lblDataType.Enabled = enabled;
+            chkIsRequired.Enabled = enabled;
+            txtName.Enabled = enabled;
+            cboDataType.Enabled = enabled;
+            panBottom.Enabled = enabled;
+            if (CurrentTypeControl != null)
+                CurrentTypeControl.Enabled = enabled;
+        }
         #endregion
 
         #region Events

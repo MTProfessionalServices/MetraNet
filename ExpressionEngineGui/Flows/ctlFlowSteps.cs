@@ -313,7 +313,7 @@ namespace PropertyGui.Flows
             try
             {
                 SyncToObject();
-                var csv = Flow.GetEventChargeMappingsCsvString();
+                var csv = Flow.GetEventChargeMappingsCsvString(true);
                 Clipboard.SetText(csv);
                 File.WriteAllText(@"C:\Temp\CdeEventChargeMappings.csv", csv);
             }

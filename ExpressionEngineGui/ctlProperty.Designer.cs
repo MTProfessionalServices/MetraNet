@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblDataType = new System.Windows.Forms.Label();
             this.chkIsRequired = new System.Windows.Forms.CheckBox();
@@ -41,14 +41,14 @@
             this.panBottom.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // lblName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Name:";
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(17, 17);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(38, 13);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "Name:";
             // 
             // txtName
             // 
@@ -144,7 +144,7 @@
             this.Controls.Add(this.chkIsRequired);
             this.Controls.Add(this.lblDataType);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblName);
             this.Name = "ctlProperty";
             this.Size = new System.Drawing.Size(705, 419);
             this.panBottom.ResumeLayout(false);
@@ -156,7 +156,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lblDataType;
         private System.Windows.Forms.CheckBox chkIsRequired;

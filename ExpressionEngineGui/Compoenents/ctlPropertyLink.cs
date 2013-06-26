@@ -30,7 +30,7 @@ namespace PropertyGui.Compoenents
             if (propertyBag == null)
                 throw new ArgumentException("propertyBag is null");
             PropertyLink = propertyLink;
-            DefaultNewPropertyName = defaultNewPropertyName;
+            DefaultNewPropertyName = propertyLink.GetFullName() + defaultNewPropertyName;
             PropertyBag = propertyBag;
             OnPropertyCreated = propertyCreatedEvent;
         }
@@ -43,7 +43,12 @@ namespace PropertyGui.Compoenents
 
         public void SyncToObject()
         {
-             PropertyLink.SetFullName(BasicHelper.GetFullName(PropertyBag.FullName, cboProperty.Text));
+            string propertyName;
+            if (string.IsNullOrWhiteSpace(cboProperty.Text))
+                propertyName = null;
+            else
+                propertyName = BasicHelper.GetFullName(PropertyBag.FullName, cboProperty.Text);
+            PropertyLink.SetFullName(propertyName);
         }
         #endregion
 

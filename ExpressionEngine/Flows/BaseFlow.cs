@@ -12,7 +12,7 @@ namespace MetraTech.ExpressionEngine.Flows
     {
         #region Properties 
 
-        public PropertyCollection InitialProperties { get; private set; }
+        public PropertyCollection InitialProperties { get; set; }
         public ProductViewEntity ProductView { get; set; }
 
         /// <summary>
@@ -80,13 +80,13 @@ namespace MetraTech.ExpressionEngine.Flows
             //}
         }
 
-        public string GetEventChargeMappingsCsvString()
+        public string GetEventChargeMappingsCsvString(bool convertBodyToLower)
         {
             var sb = new StringBuilder();
             sb.AppendLine(EventChargeMapping.GetCsvHeaderString());
             foreach (var mapping in GetEventChargeMappings())
             {
-                sb.AppendLine(mapping.GetCsvString());
+                sb.AppendLine(mapping.GetCsvString(convertBodyToLower));
             }
 
             return sb.ToString();
@@ -98,6 +98,11 @@ namespace MetraTech.ExpressionEngine.Flows
             foreach (var step in Steps)
             {
                 mappings.AddRange(step.GetEventChargeMappings());
+            }
+
+            for (int index=0; index<mappings.Count;index++)
+            {
+                mappings[index].FieldOrder = index + 1;
             }
 
             return mappings;

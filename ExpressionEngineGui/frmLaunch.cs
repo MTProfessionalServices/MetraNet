@@ -146,5 +146,14 @@ namespace PropertyGui
             func.Save(@"C:\expressionengine\reference\Functions");
         }
 
+        private void btnGxs_Click(object sender, EventArgs e)
+        {
+            var context = DemoLoader.CreateContext(ProductType.MetraNet, "GXS");
+            context.GlobalComponentCollection.Load();
+            var pv = (ProductViewEntity)context.GlobalComponentCollection.Get("gxs.com.ProductViews.IE");
+            var dialog = new frmPropertyBag(context, pv);
+            dialog.ShowDialog();
+        }
+
     }
 }

@@ -65,12 +65,12 @@
         <IsCore>false</IsCore>
         <Name>bridge_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
-          <UnitOfMeasureCategory></UnitOfMeasureCategory>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -78,14 +78,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature in bu currency</Description>
         <IsCore>false</IsCore>
         <Name>bridge_bu_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -93,14 +96,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (bu curr)</Description>
         <IsCore>false</IsCore>
         <Name>bridge_bu_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -108,14 +114,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature in bu currency</Description>
         <IsCore>false</IsCore>
         <Name>bridge_bu_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -138,14 +147,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature in div amount</Description>
         <IsCore>false</IsCore>
         <Name>bridge_div_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -153,14 +165,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (div curr)</Description>
         <IsCore>false</IsCore>
         <Name>bridge_div_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -168,14 +183,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature in div currency</Description>
         <IsCore>false</IsCore>
         <Name>bridge_div_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -183,14 +201,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature amt in GBL currency</Description>
         <IsCore>false</IsCore>
         <Name>bridge_gbl_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -198,14 +219,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (gbl curr)</Description>
         <IsCore>false</IsCore>
         <Name>bridge_gbl_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -213,14 +237,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>tax country amount in GBL currency</Description>
         <IsCore>false</IsCore>
         <Name>bridge_gbl_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -243,6 +270,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>Bridge Name.  Driven though a config table in CAS.</Description>
         <IsCore>false</IsCore>
         <Name>bridge_number</Name>
@@ -258,14 +286,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>Alternative resplus amount for USF for the bridge amount. Per minute rate.</Description>
         <IsCore>false</IsCore>
         <Name>bridge_r_rate</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -273,14 +304,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>Alternative resplus amount for USF for the bridge amount. Rate currency.</Description>
         <IsCore>false</IsCore>
         <Name>bridge_r_rate_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -288,14 +322,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>derived rate used to calculate the amount</Description>
         <IsCore>false</IsCore>
         <Name>bridge_rate</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>Currency</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -303,14 +340,18 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>amount in rate currency</Description>
         <IsCore>false</IsCore>
         <Name>bridge_rate_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="ChargeType">
+          <BaseType>Charge</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <Alias>Bridge</Alias>
+          <PriceProperty>intercall.com.ProductViews.InterCallConnection.bridge_rate</PriceProperty>
+          <QuantityProperty>intercall.com.ProductViews.InterCallConnection.rate_duration</QuantityProperty>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -318,6 +359,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (rate curr)</Description>
         <IsCore>false</IsCore>
         <Name>bridge_rate_svc_amt</Name>
@@ -325,6 +367,8 @@
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
         </Type>
         <IsExportable>false</IsExportable>
@@ -348,14 +392,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (inv curr)</Description>
         <IsCore>false</IsCore>
         <Name>bridge_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -363,14 +410,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature tax country amount</Description>
         <IsCore>false</IsCore>
         <Name>bridge_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -393,14 +443,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>Tax rate applied.</Description>
         <IsCore>false</IsCore>
         <Name>bridge_tax_rate</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -438,14 +491,15 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>BU currency.</Description>
         <IsCore>false</IsCore>
         <Name>bu_curr</Name>
         <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
+        <Type i:type="EnumerationType">
+          <BaseType>Currency</BaseType>
           <ListType>None</ListType>
-          <Length>3</Length>
+          <Category i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -557,14 +611,15 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>Division currency.</Description>
         <IsCore>false</IsCore>
         <Name>div_curr</Name>
         <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
+        <Type i:type="EnumerationType">
+          <BaseType>Currency</BaseType>
           <ListType>None</ListType>
-          <Length>3</Length>
+          <Category i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -617,14 +672,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>BU currency exchange rate.</Description>
         <IsCore>false</IsCore>
         <Name>fx_bu_rate</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -632,14 +690,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>Division currency exchange rate.</Description>
         <IsCore>false</IsCore>
         <Name>fx_div_rate</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -647,14 +708,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>Global currency exchange rate.</Description>
         <IsCore>false</IsCore>
         <Name>fx_gbl_rate</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -662,14 +726,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>Invoice currency exchange rate.</Description>
         <IsCore>false</IsCore>
         <Name>fx_inv_rate</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -677,14 +744,15 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>Global currency.</Description>
         <IsCore>false</IsCore>
         <Name>gbl_curr</Name>
         <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
+        <Type i:type="EnumerationType">
+          <BaseType>Currency</BaseType>
           <ListType>None</ListType>
-          <Length>3</Length>
+          <Category i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -736,14 +804,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature in bu currency</Description>
         <IsCore>false</IsCore>
         <Name>leg_bu_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -751,14 +822,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (bu curr)</Description>
         <IsCore>false</IsCore>
         <Name>leg_bu_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -766,14 +840,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature in bu currency</Description>
         <IsCore>false</IsCore>
         <Name>leg_bu_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -796,14 +873,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature in div amount</Description>
         <IsCore>false</IsCore>
         <Name>leg_div_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -811,14 +891,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (div curr)</Description>
         <IsCore>false</IsCore>
         <Name>leg_div_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -826,14 +909,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature in div currency</Description>
         <IsCore>false</IsCore>
         <Name>leg_div_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -841,14 +927,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature amt in GBL currency</Description>
         <IsCore>false</IsCore>
         <Name>leg_gbl_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -856,14 +945,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (gbl curr)</Description>
         <IsCore>false</IsCore>
         <Name>leg_gbl_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -871,14 +963,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>tax country amount in GBL currency</Description>
         <IsCore>false</IsCore>
         <Name>leg_gbl_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -886,14 +981,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>derived rate used to calculate the amount</Description>
         <IsCore>false</IsCore>
         <Name>leg_rate</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -901,14 +999,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>amount in rate currency</Description>
         <IsCore>false</IsCore>
         <Name>leg_rate_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -916,14 +1017,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (rate curr)</Description>
         <IsCore>false</IsCore>
         <Name>leg_rate_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -931,14 +1035,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (inv curr)</Description>
         <IsCore>false</IsCore>
         <Name>leg_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -946,14 +1053,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature tax country amount</Description>
         <IsCore>false</IsCore>
         <Name>leg_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -976,14 +1086,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>Tax rate applied.</Description>
         <IsCore>false</IsCore>
         <Name>leg_tax_rate</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -991,6 +1104,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>Text from Bridges through CAS</Description>
         <IsCore>false</IsCore>
         <Name>line_name</Name>
@@ -1374,6 +1488,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>Used in adjustment tables t_aj</Description>
         <IsCore>false</IsCore>
         <Name>surcharge_adj_prop</Name>
@@ -1381,6 +1496,8 @@
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
         </Type>
         <IsExportable>false</IsExportable>
@@ -1389,14 +1506,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature amount</Description>
         <IsCore>false</IsCore>
         <Name>surcharge_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1404,14 +1524,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature in bu currency</Description>
         <IsCore>false</IsCore>
         <Name>surcharge_bu_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1419,14 +1542,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (bu curr)</Description>
         <IsCore>false</IsCore>
         <Name>surcharge_bu_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1434,14 +1560,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature in bu currency</Description>
         <IsCore>false</IsCore>
         <Name>surcharge_bu_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1495,14 +1624,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature in div amount</Description>
         <IsCore>false</IsCore>
         <Name>surcharge_div_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1510,14 +1642,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (div curr)</Description>
         <IsCore>false</IsCore>
         <Name>surcharge_div_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1525,14 +1660,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature in div currency</Description>
         <IsCore>false</IsCore>
         <Name>surcharge_div_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1540,14 +1678,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature amt in GBL currency</Description>
         <IsCore>false</IsCore>
         <Name>surcharge_gbl_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1555,14 +1696,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (gbl curr)</Description>
         <IsCore>false</IsCore>
         <Name>surcharge_gbl_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1570,14 +1714,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>tax country amount in GBL currency</Description>
         <IsCore>false</IsCore>
         <Name>surcharge_gbl_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1585,14 +1732,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>derived rate used to calculate the amount</Description>
         <IsCore>false</IsCore>
         <Name>surcharge_rate</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1600,14 +1750,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>amount in rate currency</Description>
         <IsCore>false</IsCore>
         <Name>surcharge_rate_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1615,14 +1768,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (rate curr)</Description>
         <IsCore>false</IsCore>
         <Name>surcharge_rate_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1630,14 +1786,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (inv curr)</Description>
         <IsCore>false</IsCore>
         <Name>surcharge_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1645,14 +1804,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature tax country amount</Description>
         <IsCore>false</IsCore>
         <Name>surcharge_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1675,14 +1837,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>Tax rate applied.</Description>
         <IsCore>false</IsCore>
         <Name>surcharge_tax_rate</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1735,14 +1900,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature amount</Description>
         <IsCore>false</IsCore>
         <Name>telecom_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1750,14 +1918,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature in bu currency</Description>
         <IsCore>false</IsCore>
         <Name>telecom_bu_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1765,14 +1936,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (bu curr)</Description>
         <IsCore>false</IsCore>
         <Name>telecom_bu_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1780,14 +1954,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature in bu currency</Description>
         <IsCore>false</IsCore>
         <Name>telecom_bu_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1810,14 +1987,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature in div amount</Description>
         <IsCore>false</IsCore>
         <Name>telecom_div_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1825,14 +2005,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (div curr)</Description>
         <IsCore>false</IsCore>
         <Name>telecom_div_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1840,14 +2023,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature in div currency</Description>
         <IsCore>false</IsCore>
         <Name>telecom_div_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>div_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1855,14 +2041,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature amt in GBL currency</Description>
         <IsCore>false</IsCore>
         <Name>telecom_gbl_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1870,14 +2059,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (gbl curr)</Description>
         <IsCore>false</IsCore>
         <Name>telecom_gbl_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1885,14 +2077,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>tax country amount in GBL currency</Description>
         <IsCore>false</IsCore>
         <Name>telecom_gbl_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>gbl_curr</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1900,14 +2095,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>derived rate used to calculate the amount</Description>
         <IsCore>false</IsCore>
         <Name>telecom_rate</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1915,14 +2113,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>amount in rate currency</Description>
         <IsCore>false</IsCore>
         <Name>telecom_rate_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1930,14 +2131,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (rate curr)</Description>
         <IsCore>false</IsCore>
         <Name>telecom_rate_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1945,14 +2149,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature service fee (inv curr)</Description>
         <IsCore>false</IsCore>
         <Name>telecom_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1960,14 +2167,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature tax country amount</Description>
         <IsCore>false</IsCore>
         <Name>telecom_tax_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1990,14 +2200,17 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>Tax rate applied.</Description>
         <IsCore>false</IsCore>
         <Name>telecom_tax_rate</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>None</CurrencyMode>
+          <CurrencyProperty></CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -2076,7 +2289,7 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </BaseStep>
     </Steps>
   </Flow>
-  <Parent></Parent>
+  <Parent>intercall.com.ProductViews.InterCallConference</Parent>
   <UniqueKey />
   <UsesCommerceDecisionEngine>true</UsesCommerceDecisionEngine>
 </PropertyBag>

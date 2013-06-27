@@ -115,8 +115,8 @@ namespace MetraTech.ExpressionEngine.Flows.Steps
                 priceMapping.FieldName = AvailableProperties.GetPropertyDatabaseName(chargeType.PriceProperty);
 
                 var priceProperty = AvailableProperties.Get(chargeType.PriceProperty);
-                if (priceProperty != null)
-                    priceMapping.CurrencyField = AvailableProperties.GetPropertyDatabaseName(((MoneyType) priceProperty.Type).CurrencyProperty);
+                //if (priceProperty != null)
+                //    priceMapping.CurrencyField = AvailableProperties.GetPropertyDatabaseName(((MoneyType) priceProperty.Type).CurrencyProperty);
                 priceMapping.FieldType = CdeFieldMappingType.rate;
                 mappings.Add(priceMapping);
             }

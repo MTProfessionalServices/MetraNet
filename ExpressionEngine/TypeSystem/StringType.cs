@@ -14,7 +14,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// <summary>
         /// The length of the string. This is only relevant when stored in the database.
         /// </summary>
-        [DataMember]
+        [DataMember(EmitDefaultValue = false)]
         public int Length { get; set; }
         #endregion
 

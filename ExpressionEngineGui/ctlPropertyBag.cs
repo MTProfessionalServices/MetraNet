@@ -44,9 +44,11 @@ namespace PropertyGui
             Context = context;
             PropertyBag = propertyBag;
 
+            IgnoreChanges = true;
             ((ProductViewEntity)PropertyBag).UpdateFlow(Context);
             ctlFlowEditor.Init(Context, ((ProductViewEntity)PropertyBag).Flow);
             SyncToForm();
+            IgnoreChanges = false;
         }
         
         public void SyncToForm()

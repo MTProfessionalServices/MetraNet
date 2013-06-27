@@ -32,20 +32,20 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// <summary>
         /// The unit of measure category (e.g., Duration, Length, etc.). Only valid when UnitOfMeasureMode is FixedUnitOfMeasure or FixedCategory
         /// </summary>
-        [DataMember]
+        [DataMember(EmitDefaultValue = false)]
         public string UnitOfMeasureCategory { get; set; }
 
         /// <summary>
         /// The unit of measure. Must be a value within the UnitofMeasureCategoryName. This is the fully qualifed name 
         /// (i.e., UnitOfMeasureCategory isn't used in combination with this combination). Only valid when UnitOfMeasuremode=FixedUnitOfMeasure
         /// </summary>
-        [DataMember]
+        [DataMember(EmitDefaultValue = false)]
         public string FixedUnitOfMeasure { get; set; }
 
         /// <summary>
         /// The name of the property that specifies the unit of measure; Only valid when UnitOfMeasureMode=PropertyDriven
         /// </summary>
-        [DataMember]
+        [DataMember(EmitDefaultValue = false)]
         public string UnitOfMeasureProperty { get; set; }
 
         #endregion

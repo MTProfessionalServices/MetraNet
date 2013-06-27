@@ -26,13 +26,13 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         /// <summary>
         /// The currency. Only valid when CurrencyMode=FixedUnitOfMeasure.
         /// </summary>
-        [DataMember]
+        [DataMember(EmitDefaultValue = false)]
         public string FixedCurrency { get; set; }
 
         /// <summary>
         /// The property that drives the currency. Only valid when CurrencyMode=PropertyDriven.
         /// </summary>
-        [DataMember]
+        [DataMember(EmitDefaultValue = false)]
         public string CurrencyProperty { get; set; }
 
         #endregion

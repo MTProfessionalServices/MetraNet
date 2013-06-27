@@ -98,7 +98,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
         /// Used to override the default "c_" prefix. This is used when you want to use a more user friendly 
         /// term and you can't refactor that acutal database name.
         /// </summary>
-        [DataMember]
+        [DataMember(EmitDefaultValue = false)]
         public string DatabaseColumnNameMapping { get; set; }
 
         public string DatabasePropertyFullName
@@ -138,7 +138,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
         /// <summary>
         /// The defult value for the property
         /// </summary>
-        [DataMember]
+        [DataMember(EmitDefaultValue = false)]
         public string DefaultValue { get; set; }
 
         /// <summary>
@@ -153,13 +153,11 @@ namespace MetraTech.ExpressionEngine.MTProperties
         /// The availability of the property in whatever context is being modeled. Properties that are IsCore=true
         /// are always available. See the enum for further information.
         /// </summary>
-        [DataMember]
         public Availability Availability { get; set; }
 
         /// <summary>
         /// Indicates the how the PropertyDriven is interacted with (e.g., Input, Output or InputOutput)
         /// </summary>
-        [DataMember]
         public Direction Direction { get; set; }
 
         //

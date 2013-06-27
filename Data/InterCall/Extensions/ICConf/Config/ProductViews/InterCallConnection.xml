@@ -60,6 +60,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature amount</Description>
         <IsCore>false</IsCore>
         <Name>bridge_amt</Name>
@@ -67,6 +68,8 @@
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
         </Type>
         <IsExportable>false</IsExportable>
@@ -2064,7 +2067,14 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
   </Properties>
   <EventType>Charge</EventType>
   <Flow>
-    <Steps />
+    <Steps>
+      <BaseStep i:type="CalculateEventChargeStep">
+        <ConditionalExpression></ConditionalExpression>
+        <StepType>CalculateEventCharge</StepType>
+        <UserDescription></UserDescription>
+        <UserLabel></UserLabel>
+      </BaseStep>
+    </Steps>
   </Flow>
   <Parent></Parent>
   <UniqueKey />

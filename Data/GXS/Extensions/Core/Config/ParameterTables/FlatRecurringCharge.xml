@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ParameterTableEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>Used to store the single fixed recurring charge amount</Description>
   <Direction>Input</Direction>
@@ -15,9 +16,10 @@
   </Type>
   <Namespace>metratech.com.ParameterTables</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="ParameterTableProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Legal Entity</Description>
         <Direction>Input</Direction>
@@ -36,6 +38,7 @@
       </Property>
       <Property i:type="ParameterTableProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Currency</Description>
         <Direction>Input</Direction>
@@ -54,6 +57,7 @@
       </Property>
       <Property i:type="ParameterTableProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The recurring charge amount.</Description>
         <Direction>Input</Direction>
@@ -73,7 +77,7 @@
         <OperatorScope>PerRow</OperatorScope>
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
-    </Properties>
+    </CustomProperties>
   </Properties>
   <ActionsCaption i:nil="true" />
   <Category i:nil="true" />

@@ -79,6 +79,43 @@ namespace MetraTech.ExpressionEngine.MTProperties
             return name + Name;
         } }
         public string FullNameWithListSuffix { get { return FullName + Type.ListSuffix; } }
+
+        /// <summary>
+        /// The assoicated name, if any, in the database. In the case of property it's a column name, in the case of a PropertyBag, 
+        /// it's a table name. Note that not all PropertyBag types are backed by database table.
+        /// </summary>
+        public virtual string DatabaseColumnName
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(DatabaseColumnNameMapping))
+                    return "c_" + Name;
+                return DatabaseColumnNameMapping;
+            }
+        }
+
+        /// <summary>
+        /// Used to override the default "c_" prefix. This is used when you want to use a more user friendly 
+        /// term and you can't refactor that acutal database name.
+        /// </summary>
+        [DataMember]
+        public string DatabaseColumnNameMapping { get; set; }
+
+        public string DatabasePropertyFullName
+        {
+            get
+            {
+                var propertyBag = PropertyBag;
+                if (propertyBag == null)
+                    return DatabaseColumnName;
+                string tableName;
+                if (IsCore && !string.IsNullOrEmpty(PropertyBag.DatabaseReservedPropertyTableName))
+                    tableName = PropertyBag.DatabaseReservedPropertyTableName;
+                else
+                    tableName = PropertyBag.DatabaseTableName;
+                return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", tableName, DatabaseColumnName);
+            }
+        }
      
         /// <summary>
         /// Rich data type class
@@ -118,12 +155,6 @@ namespace MetraTech.ExpressionEngine.MTProperties
         /// </summary>
         [DataMember]
         public Availability Availability { get; set; }
-
-        /// <summary>
-        /// The assoicated name, if any, in the database. In the case of property it's a column name, in the case of a PropertyBag, 
-        /// it's a table name. Note that not all PropertyBag types are backed by database table.
-        /// </summary>
-        public virtual string DatabaseName { get { return Name; } }
 
         /// <summary>
         /// Indicates the how the PropertyDriven is interacted with (e.g., Input, Output or InputOutput)
@@ -168,8 +199,6 @@ namespace MetraTech.ExpressionEngine.MTProperties
                     var tooltipStr = Type.ToString(true);
                     if (!string.IsNullOrEmpty(Description))
                         tooltipStr += Environment.NewLine + Description;
-                    if (UserContext.Settings.ShowActualMappings)
-                        tooltipStr += string.Format(CultureInfo.InvariantCulture, "\r\n[ColumnName: {0}]", DatabaseName);
                     return tooltipStr;
                 }
             }

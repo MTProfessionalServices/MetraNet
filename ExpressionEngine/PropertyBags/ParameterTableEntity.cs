@@ -1,10 +1,12 @@
 ﻿using System.Runtime.Serialization;
+using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Constants;
+using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.PropertyBags
 {
     [DataContract(Namespace = "MetraTech")]
-    public class ParameterTableEntity : MetraNetEntityBase
+    public class ParameterTableEntity : PropertyBag
     {
         #region Properties
 
@@ -26,7 +28,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         #region Constructor
         public ParameterTableEntity(string _namespace, string name, string description)
-            : base(_namespace, name, PropertyBagConstants.ParameterTable, description)
+            : base(_namespace, name, PropertyBagConstants.ParameterTable, PropertyBagMode.ExtensibleEntity, description)
         {
         }
         #endregion

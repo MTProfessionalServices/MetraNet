@@ -96,7 +96,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             foreach (var propertyBag in PropertyBags)
             {
                 if (product == ProductType.MetraNet)
-                    ((MetraNetEntityBase) propertyBag).SaveInExtensionsDirectory(dirPath);
+                    propertyBag.SaveInExtensionsDirectory(dirPath);
                 else
                     propertyBag.Save(string.Format(CultureInfo.InvariantCulture, @"{0}\PropertyBags\{1}.xml", dirPath, propertyBag.Name));
             }

@@ -48,6 +48,8 @@ namespace PropertyGui
             Context = context;
             PropertyBag = propertyBag;
 
+            txtDatabase.Font = GuiHelper.ExpressionFont;
+
             //TODO: MetraNet doesn't support all of the data types, need to filter them
             GuiHelper.LoadMetraNetBaseTypes(cboDataType);
         }
@@ -63,6 +65,7 @@ namespace PropertyGui
             chkIsRequired.Checked = Property.Required;
             txtDefaultValue.Text = Property.DefaultValue;
             txtDescription.Text = Property.Description;
+            txtDatabase.Text = Property.DatabasePropertyFullName;
 
             cboDataType.SelectedItem = Property.Type.BaseType;
             CreateTypeEditor();

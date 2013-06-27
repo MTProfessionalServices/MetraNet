@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ServiceDefinitionEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>Metering of session of this service is scheduled to run every x hours.
     If paymentservicetransactionid property is not metered in (default behaviour), then
@@ -18,39 +19,10 @@
   </Type>
   <Namespace>metratech.com.ServiceDefinitions</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The internal MetraNet account identifier</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>AccountId</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The time the event is deemed to have occurred</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Timestamp</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>This is the transaction identifier assigned by the payment service. The payment
       service uses this identifier to uniquely identify a transaction.</Description>
@@ -64,7 +36,7 @@
           <Length>32</Length>
         </Type>
       </Property>
-    </Properties>
+    </CustomProperties>
   </Properties>
   <AutoDelete>false</AutoDelete>
   <AutoResubmit>false</AutoResubmit>

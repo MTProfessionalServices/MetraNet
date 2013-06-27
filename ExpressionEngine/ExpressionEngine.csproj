@@ -106,7 +106,6 @@
     <Compile Include="MTProperties\BusinessModelingEntityProperty.cs" />
     <Compile Include="MTProperties\Enumerations\OperatorScope.cs" />
     <Compile Include="MTProperties\Enumerations\ParameterTablePropertyContext.cs" />
-    <Compile Include="MTProperties\MetraNetPropertyBase.cs" />
     <Compile Include="Infrastructure\Enumerations\ProductType.cs" />
     <Compile Include="MTProperties\ParameterTableProperty.cs" />
     <Compile Include="PropertyBags\BusinessModelingEntity.cs" />
@@ -120,7 +119,6 @@
     <Compile Include="PropertyBags\AccountViewEntity.cs" />
     <Compile Include="MTProperties\AccountViewProperty.cs" />
     <Compile Include="PropertyBags\PropertyBagFactory.cs" />
-    <Compile Include="PropertyBags\MetraNetEntityBase.cs" />
     <Compile Include="MTProperties\PropertyFactory.cs" />
     <Compile Include="PropertyBags\ProductViewEntity.cs" />
     <Compile Include="MTProperties\ProductViewProperty.cs" />

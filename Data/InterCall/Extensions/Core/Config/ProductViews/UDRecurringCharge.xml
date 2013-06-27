@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ProductViewEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>Unit-dependent recurring charges.</Description>
   <Direction>Input</Direction>
@@ -15,328 +16,10 @@
   </Type>
   <Namespace>metratech.com.ProductViews</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Specifies type of the charge: arrears, advance, credit, initial, initial correction, advance correction, or debit correction charge.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>RCActionType</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>32</Length>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Start date of recurring charge interval.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>RCIntervalStart</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>End date of recurring charge interval.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>RCIntervalEnd</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Start date of billing interval.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>BillingIntervalStart</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>End date of billing interval.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>BillingIntervalEnd</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Start date of intersection of the recurring charge and subscription intervals.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>RCIntervalSubscriptionStart</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>End date of intersection of the recurring charge and subscription intervals.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>RCIntervalSubscriptionEnd</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Start date of subscription.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>SubscriptionStart</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>End date of subscription.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>SubscriptionEnd</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>True for advance, false for arrears.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Advance</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>If true, prorate on subscription.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ProrateOnSubscription</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Start date of the unit value effective date.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>UnitValueStart</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>End date of the unit value effective date.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>UnitValueEnd</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Amount of the unit value.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>UnitValue</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>0 if the unit-dependent recurring charge uses tiered rating, 1 if it uses tapered.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>RatingType</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>If true, prorate on unsubscription.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ProrateOnUnsubscription</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Fixed number of days to prorate to. 0 means use actual.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ProrationCycleLength</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>For credits, this is the rate effective date to look up the rates when the advance or initial charge was issued.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>BilledRateDate</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Subscription to the recurring charge.</Description>
         <Direction>Input</Direction>
@@ -358,11 +41,48 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Start date of recurring charge interval prorated if necessary.</Description>
+        <Description>True for advance, false for arrears.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>ProratedIntervalStart</Name>
+        <Name>Advance</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>For credits, this is the rate effective date to look up the rates when the advance or initial charge was issued.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>BilledRateDate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>End date of billing interval.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>BillingIntervalEnd</Name>
         <Required>true</Required>
         <Type>
           <BaseType>DateTime</BaseType>
@@ -375,11 +95,12 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>End date of recurring charge interval prorated if necessary.</Description>
+        <Description>Start date of billing interval.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>ProratedIntervalEnd</Name>
+        <Name>BillingIntervalStart</Name>
         <Required>true</Required>
         <Type>
           <BaseType>DateTime</BaseType>
@@ -392,588 +113,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Number of days to which the charge was prorated</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ProratedDays</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The prorated rate per day.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ProratedDailyRate</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>non-prorated recurring charge amount.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>RCAmount</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>true, if prorated on subscription.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ProratedOnSubscription</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>true, if prorated on unsubscription.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ProratedOnUnsubscription</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>true, if prorated because of a change to the recurring charge value.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ProratedOnUnitValueChange</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>feature amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>udrc_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>feature service fee (inv curr)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>udrc_svc_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>feature tax country amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>udrc_tax_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>feature bill code</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>udrc_charge_code</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>intercall.com/ConfCommon.ChargeCode</Category>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>derived rate used to calculate the amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>udrc_rate</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>feature service fee (rate curr)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>udrc_rate_svc_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>amount in rate currency</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>udrc_rate_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>feature in div amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>udrc_div_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>feature service fee (div curr)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>udrc_div_svc_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>feature in div currency</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>udrc_div_tax_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>feature in bu currency</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>udrc_bu_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>feature service fee (bu curr)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>udrc_bu_svc_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>feature in bu currency</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>udrc_bu_tax_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>feature amt in GBL currency</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>udrc_gbl_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>feature service fee (gbl curr)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>udrc_gbl_svc_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>tax country amount in GBL currency</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>udrc_gbl_tax_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Used in adjustment tables t_aj</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>udrc_adj_prop</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Tax exempt category.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>udrc_tax_exempt_cat</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>intercall.com/ConfTypes.TaxExemptCategory</Category>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Tax rate applied.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>udrc_tax_rate</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>ISO country code for the taxable country for this record.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>tax_cntry</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>intercall.com/ConfCommon.ISOCountryCode</Category>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Service fee percentage applied.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>svc_fee_pct</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Rate currency.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>rate_curr</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>3</Length>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Division currency.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>div_curr</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>3</Length>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>BU currency.</Description>
         <Direction>Input</Direction>
@@ -992,11 +132,12 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Global currency.</Description>
+        <Description>Division currency.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>gbl_curr</Name>
+        <Name>div_curr</Name>
         <Required>false</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
@@ -1010,48 +151,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Invoice currency exchange rate.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>fx_inv_rate</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Division currency exchange rate.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>fx_div_rate</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>BU currency exchange rate.</Description>
         <Direction>Input</Direction>
@@ -1073,6 +173,29 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Division currency exchange rate.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>fx_div_rate</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Global currency exchange rate.</Description>
         <Direction>Input</Direction>
@@ -1094,12 +217,76 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>The internal MetraNet account identifier</Description>
+        <Description>Invoice currency exchange rate.</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>AccountId</Name>
-        <Required>true</Required>
+        <IsCore>false</IsCore>
+        <Name>fx_inv_rate</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Global currency.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>gbl_curr</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>3</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>The prorated rate per day.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProratedDailyRate</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Number of days to which the charge was prorated</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProratedDays</Name>
+        <Required>false</Required>
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
           <ListType>None</ListType>
@@ -1115,11 +302,12 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>The time the event is deemed to have occurred</Description>
+        <Description>End date of recurring charge interval prorated if necessary.</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Timestamp</Name>
+        <IsCore>false</IsCore>
+        <Name>ProratedIntervalEnd</Name>
         <Required>true</Required>
         <Type>
           <BaseType>DateTime</BaseType>
@@ -1132,16 +320,188 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>The currency for the Event</Description>
+        <Description>Start date of recurring charge interval prorated if necessary.</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Currency</Name>
+        <IsCore>false</IsCore>
+        <Name>ProratedIntervalStart</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>true, if prorated on subscription.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProratedOnSubscription</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>true, if prorated because of a change to the recurring charge value.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProratedOnUnitValueChange</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>true, if prorated on unsubscription.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProratedOnUnsubscription</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>If true, prorate on subscription.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProrateOnSubscription</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>If true, prorate on unsubscription.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProrateOnUnsubscription</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Fixed number of days to prorate to. 0 means use actual.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProrationCycleLength</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Rate currency.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>rate_curr</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>3</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>0 if the unit-dependent recurring charge uses tiered rating, 1 if it uses tapered.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>RatingType</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Specifies type of the charge: arrears, advance, credit, initial, initial correction, advance correction, or debit correction charge.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>RCActionType</Name>
         <Required>true</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
           <ListType>None</ListType>
-          <Length>0</Length>
+          <Length>32</Length>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1150,39 +510,15 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>The charge assoicated with the event which may summarize other charges within the event.The amount can be negative to represent a credit.</Description>
+        <Description>non-prorated recurring charge amount.</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>EventCharge</Name>
-        <Required>true</Required>
-        <Type i:type="ChargeType">
-          <BaseType>Charge</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>Currency</CurrencyProperty>
-          <FixedCurrency i:nil="true" />
-          <EndProperty i:nil="true" />
-          <PriceProperty i:nil="true" />
-          <ProductProperty i:nil="true" />
-          <QuantityProperty i:nil="true" />
-          <StartProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Identifes which MetraView page will present the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>PresentationPageId</Name>
-        <Required>true</Required>
+        <IsCore>false</IsCore>
+        <Name>RCAmount</Name>
+        <Required>false</Required>
         <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
           <FixedUnitOfMeasure i:nil="true" />
           <UnitOfMeasureCategory i:nil="true" />
@@ -1196,14 +532,123 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Uniquely identifes the Event</Description>
+        <Description>End date of recurring charge interval.</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>EventId</Name>
+        <IsCore>false</IsCore>
+        <Name>RCIntervalEnd</Name>
         <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Start date of recurring charge interval.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>RCIntervalStart</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>End date of intersection of the recurring charge and subscription intervals.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>RCIntervalSubscriptionEnd</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Start date of intersection of the recurring charge and subscription intervals.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>RCIntervalSubscriptionStart</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>End date of subscription.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SubscriptionEnd</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Start date of subscription.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SubscriptionStart</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Service fee percentage applied.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>svc_fee_pct</Name>
+        <Required>false</Required>
         <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
           <FixedUnitOfMeasure i:nil="true" />
           <UnitOfMeasureCategory i:nil="true" />
@@ -1217,20 +662,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>The EventTax tax for the Event.</Description>
+        <Description>ISO country code for the taxable country for this record.</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>EventTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
+        <IsCore>false</IsCore>
+        <Name>tax_cntry</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
+          <Category>intercall.com/ConfCommon.ISOCountryCode</Category>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1239,20 +681,20 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>The FederalTax tax for the Event.</Description>
+        <Description>Used in adjustment tables t_aj</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>FederalTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
+        <IsCore>false</IsCore>
+        <Name>udrc_adj_prop</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1261,20 +703,20 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>The StateTax tax for the Event.</Description>
+        <Description>feature amount</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>StateTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
+        <IsCore>false</IsCore>
+        <Name>udrc_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1283,20 +725,20 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>The CountyTax tax for the Event.</Description>
+        <Description>feature in bu currency</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>CountyTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
+        <IsCore>false</IsCore>
+        <Name>udrc_bu_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1305,20 +747,20 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>The LocalTax tax for the Event.</Description>
+        <Description>feature service fee (bu curr)</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>LocalTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
+        <IsCore>false</IsCore>
+        <Name>udrc_bu_svc_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1327,29 +769,392 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>The OtherTax tax for the Event.</Description>
+        <Description>feature in bu currency</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>OtherTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
+        <IsCore>false</IsCore>
+        <Name>udrc_bu_tax_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
-    </Properties>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>feature bill code</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>udrc_charge_code</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>intercall.com/ConfCommon.ChargeCode</Category>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>feature in div amount</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>udrc_div_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>feature service fee (div curr)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>udrc_div_svc_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>feature in div currency</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>udrc_div_tax_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>feature amt in GBL currency</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>udrc_gbl_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>feature service fee (gbl curr)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>udrc_gbl_svc_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>tax country amount in GBL currency</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>udrc_gbl_tax_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>derived rate used to calculate the amount</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>udrc_rate</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>amount in rate currency</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>udrc_rate_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>feature service fee (rate curr)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>udrc_rate_svc_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>feature service fee (inv curr)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>udrc_svc_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>feature tax country amount</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>udrc_tax_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Tax exempt category.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>udrc_tax_exempt_cat</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>intercall.com/ConfTypes.TaxExemptCategory</Category>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Tax rate applied.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>udrc_tax_rate</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Amount of the unit value.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>UnitValue</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>End date of the unit value effective date.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>UnitValueEnd</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Start date of the unit value effective date.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>UnitValueStart</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+    </CustomProperties>
   </Properties>
   <EventType>Unknown</EventType>
-  <IsMetered>false</IsMetered>
+  <Flow>
+    <Steps />
+  </Flow>
+  <Parent i:nil="true" />
   <UniqueKey />
 </PropertyBag>

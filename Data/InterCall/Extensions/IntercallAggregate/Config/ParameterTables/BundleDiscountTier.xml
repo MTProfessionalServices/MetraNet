@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ParameterTableEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>Defines a set of aggregate rules for Bundle Discount Tiers.</Description>
   <Direction>Input</Direction>
@@ -15,9 +16,10 @@
   </Type>
   <Namespace>.ParameterTables</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="ParameterTableProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>defines the account eligibility criteria to receive the tier assuming the PI is provisioned to the customer (not all provisioned customers will qualify and not all included customers will be provisioned to). Billed OR Generated usage for the qualifying account will be affected by the tier. Nullable (means contained to the provisioned account).</Description>
         <Direction>Input</Direction>
@@ -36,47 +38,12 @@
       </Property>
       <Property i:type="ParameterTableProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>defines the subset of usage eligible for the tier assuming the account is eligible.</Description>
+        <Description>can be a positive or negative % (e.g., .10 is .10% not 10%), and that % will be applied to any qualified charge according to the settings on the row. Nullable (means no discount will apply)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>UsgQualGroup</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>30</Length>
-        </Type>
-        <IsFilterable>false</IsFilterable>
-        <Operator i:nil="true" />
-        <OperatorScope>PerRow</OperatorScope>
-        <ParameterTablePropertyContext>Condition</ParameterTablePropertyContext>
-      </Property>
-      <Property i:type="ParameterTableProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>What units the tier is counted in</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>TierMetric</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>30</Length>
-        </Type>
-        <IsFilterable>false</IsFilterable>
-        <Operator i:nil="true" />
-        <OperatorScope>PerRow</OperatorScope>
-        <ParameterTablePropertyContext>Condition</ParameterTablePropertyContext>
-      </Property>
-      <Property i:type="ParameterTableProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Lower bound of the tier</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>TierStart</Name>
+        <Name>TierDiscount</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
@@ -89,10 +56,11 @@
         <IsFilterable>false</IsFilterable>
         <Operator i:nil="true" />
         <OperatorScope>PerRow</OperatorScope>
-        <ParameterTablePropertyContext>Condition</ParameterTablePropertyContext>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
       <Property i:type="ParameterTableProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Upper bound of the tier (null means infinity)</Description>
         <Direction>Input</Direction>
@@ -114,6 +82,26 @@
       </Property>
       <Property i:type="ParameterTableProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>What units the tier is counted in</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TierMetric</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>30</Length>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Condition</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Universal tier priority allowing for a deterministic ordering across all tiers system-wide. Ties will be broken by the id_pi etc. to enforce guaranteed deterministic behavior.</Description>
         <Direction>Input</Direction>
@@ -135,11 +123,12 @@
       </Property>
       <Property i:type="ParameterTableProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>can be a positive or negative % (e.g., .10 is .10% not 10%), and that % will be applied to any qualified charge according to the settings on the row. Nullable (means no discount will apply)</Description>
+        <Description>Lower bound of the tier</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>TierDiscount</Name>
+        <Name>TierStart</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
@@ -152,9 +141,28 @@
         <IsFilterable>false</IsFilterable>
         <Operator i:nil="true" />
         <OperatorScope>PerRow</OperatorScope>
-        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+        <ParameterTablePropertyContext>Condition</ParameterTablePropertyContext>
       </Property>
-    </Properties>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>defines the subset of usage eligible for the tier assuming the account is eligible.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>UsgQualGroup</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>30</Length>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Condition</ParameterTablePropertyContext>
+      </Property>
+    </CustomProperties>
   </Properties>
   <ActionsCaption i:nil="true" />
   <Category i:nil="true" />

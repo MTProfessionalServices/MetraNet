@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ParameterTableEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>This rate table holds the rates for the feature codes. This rate will get multiplied by the quantity of the feature record when calculating the feature charge.
 Note: Depending on the configuration of the feature codes, for specific feature codes the cost of that feature might be sent as part of the feature record. In those cases MetraNet will not use the rates from this table even if specified  (i.e. the rate will be set to 1 for any calculation purposes).</Description>
@@ -16,9 +17,10 @@ Note: Depending on the configuration of the feature codes, for specific feature 
   </Type>
   <Namespace>intercall.com.ParameterTables</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="ParameterTableProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -37,6 +39,7 @@ Note: Depending on the configuration of the feature codes, for specific feature 
       </Property>
       <Property i:type="ParameterTableProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -56,7 +59,7 @@ Note: Depending on the configuration of the feature codes, for specific feature 
         <OperatorScope>PerRow</OperatorScope>
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
-    </Properties>
+    </CustomProperties>
   </Properties>
   <ActionsCaption i:nil="true" />
   <Category i:nil="true" />

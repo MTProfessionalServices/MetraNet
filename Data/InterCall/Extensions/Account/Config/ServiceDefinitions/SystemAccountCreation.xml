@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ServiceDefinitionEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>This service definition is used to create system accounts, contacts or both. It gets used from the CSR application.</Description>
   <Direction>Input</Direction>
@@ -15,123 +16,10 @@
   </Type>
   <Namespace>metratech.com.ServiceDefinitions</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The internal MetraNet account identifier</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>AccountId</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The time the event is deemed to have occurred</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Timestamp</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Action type is used to indicate if you want to create account, contact or both.  Also used to update system accounts.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ActionType</Name>
-        <Required>true</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>metratech.com/accountcreation.ActionType</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>AccountType</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>200</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>A number to indicate the operation: 0 for add, 1 for update, 2 for delete and 3 for no operation.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Operation</Name>
-        <Required>true</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>metratech.com.operation</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Username or login that needs to be created.  Required for creation.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>UserName</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Password associated with that username or login. Required for creation.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Password_</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Namespace uniquely identifying that username or login. Required for creation.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Name_Space</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Uniquely generated account ID. This property gets set by the pipeline.</Description>
         <Direction>Input</Direction>
@@ -149,19 +37,7 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>This property is used to control the account start date. This property is also used when changing the account state.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>accountstartdate</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>This property is used to control the end of an account state and is only used on updates.</Description>
         <Direction>Input</Direction>
@@ -175,6 +51,21 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>This property is used to control the account start date. This property is also used when changing the account state.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>accountstartdate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Account State (Changed in 3.0).</Description>
         <Direction>Input</Direction>
@@ -189,59 +80,82 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Flag indicates whether DSP should be applied to a newly created account. T for Yes or success or true or 1 and F for no or failure or false or 0.  Required for creation.</Description>
+        <Description></Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>ApplyDefaultSecurityPolicy</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
+        <Name>AccountType</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
           <ListType>None</ListType>
+          <Length>200</Length>
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>This flag indicates whether account ancestor's account template should be applied to an account.</Description>
+        <Description>Action type is used to indicate if you want to create account, contact or both.  Also used to update system accounts.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>ApplyAccountTemplate</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
+        <Name>ActionType</Name>
+        <Required>true</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
+          <Category>metratech.com/accountcreation.ActionType</Category>
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Indicates whether old subscriptions will be truncated on move account action. This property is only considered on account updates when account ancestor changed (Account Move). This property is only considered when ApplyAccountTemplate property is set to true.</Description>
+        <Description>First part of the whole address.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>TruncateOldSubscriptions</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Transaction cookie value used for processes to enlist in DTC transaction. Should have empty value when metered.  The value gets set once the pipeline retrieves it from each machine.  The cookie is machine specific and is unique to a machine.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>transactioncookie</Name>
+        <Name>address1</Name>
         <Required>false</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
           <ListType>None</ListType>
-          <Length>255</Length>
+          <Length>100</Length>
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Second part of the whole address.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>address2</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Third part of the whole address.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>address3</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Ancestor account name.</Description>
         <Direction>Input</Direction>
@@ -256,20 +170,7 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Ancestor account namespace.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ancestorAccountNS</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Ancestor account ID.  May be used instead of ancestorAccount and ancestorAccountNS.</Description>
         <Direction>Input</Direction>
@@ -287,32 +188,50 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Hierarchy start date.</Description>
+        <Description>Ancestor account namespace.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>hierarchy_startdate</Name>
+        <Name>ancestorAccountNS</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>This flag indicates whether account ancestor's account template should be applied to an account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ApplyAccountTemplate</Name>
         <Required>false</Required>
         <Type>
-          <BaseType>DateTime</BaseType>
+          <BaseType>Boolean</BaseType>
           <ListType>None</ListType>
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Hierarchy start date.</Description>
+        <Description>Flag indicates whether DSP should be applied to a newly created account. T for Yes or success or true or 1 and F for no or failure or false or 0.  Required for creation.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>hierarchy_enddate</Name>
+        <Name>ApplyDefaultSecurityPolicy</Name>
         <Required>false</Required>
         <Type>
-          <BaseType>DateTime</BaseType>
+          <BaseType>Boolean</BaseType>
           <ListType>None</ListType>
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Indicates that the account can pay for charges T for Yes or success or true or 1 and F for no or failure or false or 0.  Required for creation.</Description>
         <Direction>Input</Direction>
@@ -326,24 +245,27 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Indicates if this account is a folder or not T for Yes or success or true or 1 and F for no or failure or false or 0.  Required for creation.</Description>
+        <Description>City part of the address.  If geocode needs to be calculated, then this property should have a value passed in.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>folder</Name>
+        <Name>city</Name>
         <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
           <ListType>None</ListType>
+          <Length>40</Length>
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Default pricelist assigned to account.</Description>
+        <Description>Company name of the associated account.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>pricelist</Name>
+        <Name>Company</Name>
         <Required>false</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
@@ -353,6 +275,37 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Contact type integer value: 1 for Bill-To and 2 for Ship-To.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ContactType</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>metratech.com/accountcreation.ContactType</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Country part of the address.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>country</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>Global.CountryName</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Currency assigned to account. Required while creating account.</Description>
         <Direction>Input</Direction>
@@ -367,176 +320,7 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Language associated with the account. Required while creation.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Language</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>Global.LanguageCode</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Tax exempt indicator: T for Yes or success or true or 1 and F for no or failure or false or 0.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>taxexempt</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Tax ID, if applicable.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>TaxExemptID</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Timezone ID of the account.  Required for creation.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>timezoneID</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>Global.TimeZoneID</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Timezone offset of the account. Usually corresponds to the timezone ID. This is not used or stored for v1.2 releases and higher.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>timezoneoffset</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Double</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Payment method of the account: 1 for CreditCard/ACH and 2 for Cash/Check.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>PaymentMethod</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>metratech.com/accountcreation.PaymentMethod</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>If account is not active, why?</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>StatusReason</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>metratech.com/accountcreation.StatusReason</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>If account is not active, and it doesn't fall under StatusReason ENUM.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>StatusReasonOther</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>What question to ask?</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>SecurityQuestion</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>metratech.com/accountcreation.SecurityQuestion</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>SecurityAnswer</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>What kind of paper invoice do I want?</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>InvoiceMethod</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>metratech.com/accountcreation.InvoiceMethod</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Usage cycle type associated with the account (daily, weekly, biweeky, semi-monthly, monthly, quarterly, annually.) On-demand is no longer supported.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>UsageCycleType</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>metratech.com/BillingCycle.UsageCycleType</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Day of month that the user wants to get billed on.</Description>
         <Direction>Input</Direction>
@@ -554,6 +338,7 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Day of week that the user wants to get billed on (for the Weekly usage cycle type).</Description>
         <Direction>Input</Direction>
@@ -568,6 +353,37 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Email address associated with the account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>email</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Fax number of the account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>FacsimileTelephoneNumber</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>First day of month that the user wants to get billed on (for the Semi-Monthly usage cycle type).</Description>
         <Direction>Input</Direction>
@@ -585,6 +401,229 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>First name of the account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>FirstName</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Indicates if this account is a folder or not T for Yes or success or true or 1 and F for no or failure or false or 0.  Required for creation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>folder</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Hierarchy start date.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>hierarchy_enddate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Hierarchy start date.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>hierarchy_startdate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>What kind of paper invoice do I want?</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>InvoiceMethod</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>metratech.com/accountcreation.InvoiceMethod</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Language associated with the account. Required while creation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Language</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>Global.LanguageCode</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Last name of the account</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>LastName</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>The application (mom, csr, mcm) that the user is going to log into.  This property is used to determine which account should be used to inherit security policy from, in case apply default security flag is set to true.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>LoginApplication</Name>
+        <Required>true</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>metratech.com/accountcreation.LoginApplication</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Middle initial of the account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>MiddleInitial</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>1</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Namespace uniquely identifying that username or login. Required for creation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Name_Space</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>A number to indicate the operation: 0 for add, 1 for update, 2 for delete and 3 for no operation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Operation</Name>
+        <Required>true</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>metratech.com.operation</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Password associated with that username or login. Required for creation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Password_</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Payment method of the account: 1 for CreditCard/ACH and 2 for Cash/Check.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PaymentMethod</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>metratech.com/accountcreation.PaymentMethod</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Phone number of the account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>phonenumber</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Default pricelist assigned to account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>pricelist</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Second day of month that the user wants to get billed on (for the Semi-Monthly usage cycle type).</Description>
         <Direction>Input</Direction>
@@ -602,20 +641,37 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>The start month that the user wants to get billed on (for the BiWeekly, Quarterly and Annual usage cycle type).</Description>
+        <Description></Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>StartMonth</Name>
+        <Name>SecurityAnswer</Name>
         <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
           <ListType>None</ListType>
-          <Category>Global.MonthOfTheYear</Category>
+          <Length>255</Length>
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>What question to ask?</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SecurityQuestion</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>metratech.com/accountcreation.SecurityQuestion</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The start month that the user wants to get billed on (for the BiWeekly, Quarterly and Annual usage cycle type).</Description>
         <Direction>Input</Direction>
@@ -633,6 +689,22 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>The start month that the user wants to get billed on (for the BiWeekly, Quarterly and Annual usage cycle type).</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>StartMonth</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>Global.MonthOfTheYear</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The start year that the user wants to get billed on (for the BiWeekly usage cycle type).</Description>
         <Direction>Input</Direction>
@@ -650,174 +722,7 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Contact type integer value: 1 for Bill-To and 2 for Ship-To.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ContactType</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>metratech.com/accountcreation.ContactType</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>First name of the account.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>FirstName</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Middle initial of the account.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>MiddleInitial</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>1</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Last name of the account</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>LastName</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Company name of the associated account.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Company</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Fax number of the account.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>FacsimileTelephoneNumber</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Email address associated with the account.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>email</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>100</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Phone number of the account.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>phonenumber</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>First part of the whole address.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>address1</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>100</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Second part of the whole address.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>address2</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>100</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Third part of the whole address.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>address3</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>100</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>City part of the address.  If geocode needs to be calculated, then this property should have a value passed in.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>city</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>State part of the address.  If geocode needs to be calculated, then this property should have a value passed in.</Description>
         <Direction>Input</Direction>
@@ -832,6 +737,158 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>If account is not active, why?</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>StatusReason</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>metratech.com/accountcreation.StatusReason</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>If account is not active, and it doesn't fall under StatusReason ENUM.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>StatusReasonOther</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Tax exempt indicator: T for Yes or success or true or 1 and F for no or failure or false or 0.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>taxexempt</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Tax ID, if applicable.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TaxExemptID</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Timezone ID of the account.  Required for creation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>timezoneID</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>Global.TimeZoneID</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Timezone offset of the account. Usually corresponds to the timezone ID. This is not used or stored for v1.2 releases and higher.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>timezoneoffset</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Double</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Transaction cookie value used for processes to enlist in DTC transaction. Should have empty value when metered.  The value gets set once the pipeline retrieves it from each machine.  The cookie is machine specific and is unique to a machine.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>transactioncookie</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Indicates whether old subscriptions will be truncated on move account action. This property is only considered on account updates when account ancestor changed (Account Move). This property is only considered when ApplyAccountTemplate property is set to true.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TruncateOldSubscriptions</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Usage cycle type associated with the account (daily, weekly, biweeky, semi-monthly, monthly, quarterly, annually.) On-demand is no longer supported.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>UsageCycleType</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>metratech.com/BillingCycle.UsageCycleType</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Username or login that needs to be created.  Required for creation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>UserName</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Zipcode part of the address.  If geocode needs to be calculated, then this property should have a value passed in.</Description>
         <Direction>Input</Direction>
@@ -844,35 +901,7 @@
           <Length>40</Length>
         </Type>
       </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Country part of the address.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>country</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>Global.CountryName</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The application (mom, csr, mcm) that the user is going to log into.  This property is used to determine which account should be used to inherit security policy from, in case apply default security flag is set to true.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>LoginApplication</Name>
-        <Required>true</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>metratech.com/accountcreation.LoginApplication</Category>
-        </Type>
-      </Property>
-    </Properties>
+    </CustomProperties>
   </Properties>
   <AutoDelete>false</AutoDelete>
   <AutoResubmit>false</AutoResubmit>

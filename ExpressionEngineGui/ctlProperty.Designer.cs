@@ -38,6 +38,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtDefaultValue = new System.Windows.Forms.TextBox();
             this.panBottom = new System.Windows.Forms.Panel();
+            this.txtDatabase = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panBottom.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,14 +128,35 @@
             // 
             // panBottom
             // 
+            this.panBottom.Controls.Add(this.txtDatabase);
+            this.panBottom.Controls.Add(this.label1);
             this.panBottom.Controls.Add(this.txtDescription);
             this.panBottom.Controls.Add(this.txtDefaultValue);
             this.panBottom.Controls.Add(this.label3);
             this.panBottom.Controls.Add(this.label9);
             this.panBottom.Location = new System.Drawing.Point(20, 119);
             this.panBottom.Name = "panBottom";
-            this.panBottom.Size = new System.Drawing.Size(686, 248);
+            this.panBottom.Size = new System.Drawing.Size(686, 285);
             this.panBottom.TabIndex = 22;
+            // 
+            // txtDatabase
+            // 
+            this.txtDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtDatabase.Location = new System.Drawing.Point(64, 262);
+            this.txtDatabase.Name = "txtDatabase";
+            this.txtDatabase.ReadOnly = true;
+            this.txtDatabase.Size = new System.Drawing.Size(562, 20);
+            this.txtDatabase.TabIndex = 23;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 269);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Database:";
             // 
             // ctlProperty
             // 
@@ -166,5 +189,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtDefaultValue;
         private System.Windows.Forms.Panel panBottom;
+        private System.Windows.Forms.TextBox txtDatabase;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -17,5 +17,7 @@
         public const string EventTax = "EventTax";
         public const string ParentPropertyBag = "Parent";
 
+        public const string UsageTableName = "t_acc_usage";
+
     }
 }

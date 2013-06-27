@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ServiceDefinitionEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>Unbilled Minimum Revenue Feature</Description>
   <Direction>Input</Direction>
@@ -15,800 +16,10 @@
   </Type>
   <Namespace>intercall.com.ServiceDefinitions</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The internal MetraNet account identifier</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>AccountId</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The time the event is deemed to have occurred</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Timestamp</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The external account identifier for the person or organization that pays for the conference call.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>mdtrid</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Reservation ID</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>res_id</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer64</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>dt_crt from cas_load_audit</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>batch_date</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Record Type</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>record_type</Name>
-        <Required>true</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>intercall.com/ConfCommon.RecordType</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Feature Code</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>trans_code</Name>
-        <Required>true</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>intercall.com/ConfCommon.FeatureCode</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Transaction time - Indicates the date and time at which the service was provided.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>trans_datetime</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Specifies if a feature was automatically collected or manually entered.  There are 3 or 4 values. # Give values</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>entry_type</Name>
-        <Required>true</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>intercall.com/ConfCommon.EntryType</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Unique identification for the record</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>udr_id</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer64</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Specifies the ACE Owner Number</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>owner_number</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Office Code for the owner number</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>officecode</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>3</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Rating Flag.  Not used but maintaing for DSS purposes.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>rate_flag</Name>
-        <Required>true</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>intercall.com/ConfCommon.RateFlag</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>This is the rating field, and is signifies the quantity of a feature being set.  For example, quantity could be set to 10, where 10 represents the number of tapes sent</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>quantity</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Cost is only set for manual charges that have been entered.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>cost</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Reresents the company name, but there is a request to remove it to further normalize the data.  This needs to be discussed with the DSS team.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CompanyName</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Number Field used to store specific feature information.Custom invoice displays driven off this field.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>txn_idetail1</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Number Field used to store specific feature information.Custom invoice displays driven off this field.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>txn_idetail2</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Number Field used to store specific feature information.Custom invoice displays driven off this field.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>txn_idetail3</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Number Field used to store specific feature information.Custom invoice displays driven off this field.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>txn_idetail4</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Number Field used to store specific feature information.Custom invoice displays driven off this field.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>txn_idetail5</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Character field used to store web feature info and custom invoice displays are driven off this field.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>txn_cdetail1</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Character field used to store web feature info and custom invoice displays are driven off this field.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>txn_cdetail2</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Character field used to store web feature info and custom invoice displays are driven off this field.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>txn_cdetail3</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Character field used to store web feature info and custom invoice displays are driven off this field.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>txn_cdetail4</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Character field used to store web feature info and custom invoice displays are driven off this field.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>txn_cdetail5</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Date of extractions from the CAS system.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ExtractDate</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Project Accounting Code</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>PacCode</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Reservation Time zone</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Timezone</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Override of the Trans code.  If set, then this trans code will be displayed on the invoice instead of original.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>TransDesc</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Discount qualifier. Only set if record is discounted.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>disc_qualifier</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Priceable item template name for the discount.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>disc_pi_template_name</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Is feature discountable?</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>feature_discountable</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Feature amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>feature_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Feature tax in a country</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>tax_cntry</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>intercall.com/ConfCommon.Country</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Feature tax amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>feature_tax_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Feature charge code</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>feature_charge_code</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>intercall.com/ConfCommon.ChargeCode</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Feature derived rates to calculate the amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>feature_rate</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Feature amount in rate currency</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>feature_rate_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Feature rate currency</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>rate_curr</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>3</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Feature BU amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>feature_bu_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Feature BU currency</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>bu_curr</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>3</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Feature BU tax amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>feature_bu_tax_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Feature DIV amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>feature_div_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Feature DIV currency</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>div_curr</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>3</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Feature DIV tax amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>feature_div_tax_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Feature GBL amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>feature_gbl_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Feature GBL currency</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>gbl_curr</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>3</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Feature DIV tax amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>feature_gbl_tax_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Used in adjustment tables t_aj</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>feature_adj_prop</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Flag to determine Wholesale/Retail</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>wholesaler_flag</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Rated quantity</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>rated_quantity</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Account/owner feature is applied to.</Description>
         <Direction>Input</Direction>
@@ -826,6 +37,7 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Invoice currency.</Description>
         <Direction>Input</Direction>
@@ -838,7 +50,818 @@
           <Length>3</Length>
         </Type>
       </Property>
-    </Properties>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>dt_crt from cas_load_audit</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>batch_date</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Feature BU currency</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>bu_curr</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>3</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Reresents the company name, but there is a request to remove it to further normalize the data.  This needs to be discussed with the DSS team.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CompanyName</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Cost is only set for manual charges that have been entered.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>cost</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Priceable item template name for the discount.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>disc_pi_template_name</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Discount qualifier. Only set if record is discounted.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>disc_qualifier</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Feature DIV currency</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>div_curr</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>3</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Specifies if a feature was automatically collected or manually entered.  There are 3 or 4 values. # Give values</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>entry_type</Name>
+        <Required>true</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>intercall.com/ConfCommon.EntryType</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Date of extractions from the CAS system.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ExtractDate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Used in adjustment tables t_aj</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>feature_adj_prop</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Feature amount</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>feature_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Feature BU amount</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>feature_bu_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Feature BU tax amount</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>feature_bu_tax_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Feature charge code</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>feature_charge_code</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>intercall.com/ConfCommon.ChargeCode</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Is feature discountable?</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>feature_discountable</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Feature DIV amount</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>feature_div_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Feature DIV tax amount</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>feature_div_tax_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Feature GBL amount</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>feature_gbl_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Feature DIV tax amount</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>feature_gbl_tax_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Feature derived rates to calculate the amount</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>feature_rate</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Feature amount in rate currency</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>feature_rate_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Feature tax amount</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>feature_tax_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Feature GBL currency</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>gbl_curr</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>3</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>The external account identifier for the person or organization that pays for the conference call.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>mdtrid</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Office Code for the owner number</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>officecode</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>3</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Specifies the ACE Owner Number</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>owner_number</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Project Accounting Code</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PacCode</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>This is the rating field, and is signifies the quantity of a feature being set.  For example, quantity could be set to 10, where 10 represents the number of tapes sent</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>quantity</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Feature rate currency</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>rate_curr</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>3</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Rating Flag.  Not used but maintaing for DSS purposes.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>rate_flag</Name>
+        <Required>true</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>intercall.com/ConfCommon.RateFlag</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Rated quantity</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>rated_quantity</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Record Type</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>record_type</Name>
+        <Required>true</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>intercall.com/ConfCommon.RecordType</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Reservation ID</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>res_id</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer64</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Feature tax in a country</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>tax_cntry</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>intercall.com/ConfCommon.Country</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Reservation Time zone</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Timezone</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Feature Code</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>trans_code</Name>
+        <Required>true</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>intercall.com/ConfCommon.FeatureCode</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Transaction time - Indicates the date and time at which the service was provided.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>trans_datetime</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Override of the Trans code.  If set, then this trans code will be displayed on the invoice instead of original.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TransDesc</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Character field used to store web feature info and custom invoice displays are driven off this field.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>txn_cdetail1</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Character field used to store web feature info and custom invoice displays are driven off this field.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>txn_cdetail2</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Character field used to store web feature info and custom invoice displays are driven off this field.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>txn_cdetail3</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Character field used to store web feature info and custom invoice displays are driven off this field.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>txn_cdetail4</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Character field used to store web feature info and custom invoice displays are driven off this field.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>txn_cdetail5</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Number Field used to store specific feature information.Custom invoice displays driven off this field.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>txn_idetail1</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Number Field used to store specific feature information.Custom invoice displays driven off this field.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>txn_idetail2</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Number Field used to store specific feature information.Custom invoice displays driven off this field.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>txn_idetail3</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Number Field used to store specific feature information.Custom invoice displays driven off this field.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>txn_idetail4</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Number Field used to store specific feature information.Custom invoice displays driven off this field.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>txn_idetail5</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Unique identification for the record</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>udr_id</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer64</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Flag to determine Wholesale/Retail</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>wholesaler_flag</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+    </CustomProperties>
   </Properties>
   <AutoDelete>false</AutoDelete>
   <AutoResubmit>false</AutoResubmit>

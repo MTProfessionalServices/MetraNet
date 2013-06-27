@@ -56,7 +56,7 @@ namespace PropertyGui.Flows.Steps
             {
                 string snippet;
                 if (o is Property)
-                    snippet = string.Format("USAGE.{0}", ((Property) o).DatabaseName);
+                    snippet = string.Format("USAGE.{0}", ((Property) o).DatabaseColumnName);
                 else
                     snippet = ((IExpressionEngineTreeNode) o).ToExpressionSnippet;
                 if (ctlFlowSteps.CurrentStepControl != null)

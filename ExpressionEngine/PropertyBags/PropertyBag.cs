@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Runtime.Serialization;
@@ -41,13 +42,23 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         [DataMember]
         public string Namespace { get; set; }
 
+        public virtual string DatabaseTableNamePrefix { get { return null; } }
+ 
+        public string DatabaseTableName { get { return DatabaseTableNamePrefix + Name; } }
+        
+        /// <summary>
+        /// Star-table-based entities (e.g., Product Views, Account Views, Service Definitions, etc.) have their
+        /// "core" properties stored in a seperate table. This optional field is used when determing the the property
+        /// name for a core property in a star schema.
+        /// </summary>
+        [DataMember]
+        public string DatabaseReservedPropertyTableName { get; set; }
+
         /// <summary>
         /// The properties contained in the property bag which may include other property bags
         /// </summary>
         [DataMember]
         public PropertyCollection Properties { get; private set; }
-
-        public PropertyCollection CoreProperties { get; set; }
 
         /// <summary>
         /// The extension that the PropertyBag is associated with
@@ -61,6 +72,8 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         public virtual string XqgPrefix { get { return null; } }
 
+        public virtual string SubDirectoryName { get { return ((PropertyBagType)Type).Name + "s"; } }
+
         #endregion
 
         #region GUI Helper Properties (move in future)
@@ -72,7 +85,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
                 if (!string.IsNullOrEmpty(Description))
                     tip += Environment.NewLine + Description;
                 if (UserContext.Settings.ShowActualMappings)
-                    tip += string.Format(CultureInfo.InvariantCulture, "\r\n[TableName: {0}]", DatabaseName);
+                    tip += string.Format(CultureInfo.InvariantCulture, "\r\n[TableName: {0}]", DatabaseColumnName);
                 return tip;
             }
         }
@@ -108,6 +121,12 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             Type = TypeFactory.CreatePropertyBag(propertyBagTypeName, propertyBagMode);
             Description = description;
             Properties = new PropertyCollection(this);
+        }
+
+        [OnDeserializedAttribute]
+        private void FixDeserialization(StreamingContext sc)
+        {
+            Properties.FixDeserialization(this);
         }
         #endregion
 
@@ -173,6 +192,17 @@ namespace MetraTech.ExpressionEngine.PropertyBags
                 property.Validate(messages, context);
             }
         }
+
+        public virtual IEnumerable<Property> GetCoreProperties()
+        {
+            return new List<Property>();
+        }
+
+        public virtual void AddCoreProperties()
+        {
+            Properties.AddRange(GetCoreProperties());
+        }
+
         #endregion
 
         #region IO Methods
@@ -198,7 +228,18 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             pb.Properties.SetPropertyParentReferences();
             return propertyBag;
         }
-        
+
+        public string GetFileNameGivenExtensionsDirectory(string extensionsDir)
+        {
+            var dirPath = IOHelper.GetMetraNetConfigPath(extensionsDir, Extension, SubDirectoryName);
+            return string.Format(CultureInfo.InvariantCulture, @"{0}\{1}.xml", dirPath, Name);
+        }
+
+        public void SaveInExtensionsDirectory(string extensionsDir)
+        {
+            var file = GetFileNameGivenExtensionsDirectory(extensionsDir);
+            Save(file);
+        }
         #endregion
     }
 }

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ProductViewEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseColumnNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>Product view for IE based transactions.</Description>
   <Direction>Input</Direction>
@@ -13,42 +14,27 @@
     <Name>ProductView</Name>
     <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
   </Type>
+  <DatabaseReservedPropertyTableName>t_acc_usage</DatabaseReservedPropertyTableName>
   <Namespace>gxs.com.ProductViews</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
         <DefaultValue></DefaultValue>
-        <Description>Guiding number.</Description>
+        <Description>Used for connect unit processing.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>BillingID</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>20</Length>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>1 =7 character BUID, 2 = whatever, etc. (Info only)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>BillingIDType</Name>
+        <Name>AccountingUnits</Name>
         <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <Length>2</Length>
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
-        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -56,98 +42,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>Billing Product Code</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>BPC</Name>
-        <Required>true</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>gxs.com/Global.BPC</Category>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Unit of Measure for this BPC.  (Drives conversion routines).</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>UOM</Name>
-        <Required>true</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>gxs.com/Global.UOM</Category>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Date service was used by end user. (Info only) (Always in GMT)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ConsumptionDate</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>Date the transactions was processed by mediation. (Always in GMT)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ProcessedDate</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Guiding date for rating/billing/etc. (Always in GMT)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>BillingDate</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
         <DefaultValue></DefaultValue>
         <Description>Product activity timezone offset.</Description>
         <Direction>Input</Direction>
@@ -159,7 +54,6 @@
           <ListType>None</ListType>
           <Category>Global.TimeZoneID</Category>
         </Type>
-        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -167,40 +61,21 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Service or Point of entry time zone offset.</Description>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue></DefaultValue>
+        <Description>Percent that AMP adjusts the final transaction by.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>ServicePOETimeZone</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>Global.TimeZoneID</Category>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Transaction Quantity</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Units</Name>
+        <Name>AMPDiscountPercent</Name>
         <Required>false</Required>
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
-        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -208,67 +83,8 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Project ID</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>PID</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>20</Length>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Memorandum from Application</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Memo</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>64</Length>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Record identifier from PACTS (Unique key)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>PACTSTranID</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer64</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
         <Description>Application ID</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -279,7 +95,6 @@
           <ListType>None</ListType>
           <Length>8</Length>
         </Type>
-        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -287,272 +102,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Application Transaction Code</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>TranCode</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>3</Length>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>IE Org Identifier</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>OrgID</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>8</Length>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>IE User ID</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>IE_UserID</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>8</Length>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Sender Identifier</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Sender</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>16</Length>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Sender System Code</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>SenderSYSCD</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>3</Length>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>EDI Qualifier for Sender</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>SenderEDIQualifier</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>4</Length>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>EDI Identifier for Sender</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>SenderEDIID</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>17</Length>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Receiver Identifier</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Receiver</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>16</Length>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Receiver System Code</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ReceiverSYSCD</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>3</Length>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>EDI Qualifier for Receiver</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ReceiverEDIQualifier</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>4</Length>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>EDI Identifier for Receiver</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ReceiverEDIID</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>17</Length>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Message Identifier in product (IE)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>MessageID</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>16</Length>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Message type</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>MessageType</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>1</Length>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Message class - service triplet 30000's</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>MessageClass</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>8</Length>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
         <DefaultValue></DefaultValue>
         <Description>BEID prop</Description>
         <Direction>Input</Direction>
@@ -567,7 +117,6 @@
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
-        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -575,18 +124,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Message Activity type.</Description>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue></DefaultValue>
+        <Description>Guiding date for rating/billing/etc. (Always in GMT)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>MessageActivity</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
+        <Name>BillingDate</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
           <ListType>None</ListType>
-          <Category>gxs.com/Global.MessageActivity</Category>
         </Type>
-        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -594,59 +142,18 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Tracking ID GEO</Description>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue></DefaultValue>
+        <Description>Guiding number.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>TrackingIDGEO</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>2</Length>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Tracking ID Value</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>TrackingIDVal</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>GI Service Name</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>GIServiceName</Name>
-        <Required>false</Required>
+        <Name>BillingID</Name>
+        <Required>true</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
           <ListType>None</ListType>
           <Length>20</Length>
         </Type>
-        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -654,114 +161,18 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>GI Offering ID</Description>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue></DefaultValue>
+        <Description>1 =7 character BUID, 2 = whatever, etc. (Info only)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>GIOfferingID</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>8</Length>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>GI Feature</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>GIFeature</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>8</Length>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>GI Resource Code</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>GIResourceCode</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>GI Start Date</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>GIStartDate</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>GI End Date</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>GIEndDate</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>GI Common Charge Ind</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>GICommonChargeInd</Name>
+        <Name>BillingIDType</Name>
         <Required>false</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
           <ListType>None</ListType>
           <Length>2</Length>
         </Type>
-        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -769,18 +180,18 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>GI Common Charge Ind Val</Description>
+        <Description>Billing Product Code</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>GICommonChargeIndVal</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
+        <Name>BPC</Name>
+        <Required>true</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Length>38</Length>
+          <Category>gxs.com/Global.BPC</Category>
         </Type>
-        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -788,7 +199,8 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue></DefaultValue>
         <Description>Eligible for connect package processing</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
@@ -798,7 +210,6 @@
           <BaseType>Boolean</BaseType>
           <ListType>None</ListType>
         </Type>
-        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -806,213 +217,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>Intial rate used by the system during pipeline processing.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Rate</Name>
-        <Required>false</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Percent that the initial rate is adjusted by before use in amount calculation.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>FactorDiscountPercent</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Percent that AMP adjusts the final transaction by.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>AMPDiscountPercent</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>A UOM is triggered when the transactions UOM is different than the base BPCs.  If so, the BPC rating UOM is stored here.  If not, the incoming UOM is stored here.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>RatingUOM</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>gxs.com/Global.UOM</Category>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>A UOM is triggered when the transactions UOM is different than the base BPCs.  If so, the new rating units are stored here.  If not, the incoming units are stored here.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>RatingUnits</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
-          <UnitOfMeasureCategory></UnitOfMeasureCategory>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>A UOM is triggered when the transactions UOM is different than the base BPCs.  If so, the BPC invoicing UOM is stored here.  If not, the incoming UOM is stored here.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>InvoicingUOM</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>gxs.com/Global.UOM</Category>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>A UOM is triggered when the transactions UOM is different than the base BPCs.  If so, the new invoicing units are stored here.  If not, the incoming units are stored here.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>InvoicingUnits</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>Used for connect unit processing.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>AccountingUnits</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>FixedUnitOfMeasure</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>When connect unit processing is executed, the BPC could change.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>OriginalBPC</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>gxs.com/Global.BPC</Category>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Holds the BPC value prior to the connect unit BPC overlaying it.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>PreConnectUnitBPC</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>gxs.com/Global.BPC</Category>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
         <DefaultValue></DefaultValue>
         <Description>0=No Set; 1=Success; 2=No active rulesset defined; 3=BPC not configured in ruleset</Description>
         <Direction>Input</Direction>
@@ -1027,7 +232,6 @@
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
-        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -1035,17 +239,62 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>If true, all transactions rated at zero will be suppressed from the invoice XML.</Description>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue></DefaultValue>
+        <Description>Date service was used by end user. (Info only) (Always in GMT)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>SuppressZeroRated</Name>
-        <Required>false</Required>
+        <Name>ConsumptionDate</Name>
+        <Required>true</Required>
         <Type>
-          <BaseType>Boolean</BaseType>
+          <BaseType>DateTime</BaseType>
           <ListType>None</ListType>
         </Type>
-        <DatabaseNameMapping i:nil="true" />
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property>
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue></DefaultValue>
+        <Description>The charge assoicated with the event which may summarize other charges within the event.The amount can be negative to represent a credit.</Description>
+        <Direction>Input</Direction>
+        <IsCore>true</IsCore>
+        <Name>EventCharge</Name>
+        <Required>true</Required>
+        <Type i:type="ChargeType">
+          <BaseType>Charge</BaseType>
+          <ListType>None</ListType>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>Currency</CurrencyProperty>
+          <FixedCurrency i:nil="true" />
+          <Alias></Alias>
+          <EndProperty i:nil="true" />
+          <PriceProperty i:nil="true" />
+          <ProductProperty i:nil="true" />
+          <QuantityProperty i:nil="true" />
+          <StartProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue></DefaultValue>
+        <Description>Percent that the initial rate is adjusted by before use in amount calculation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>FactorDiscountPercent</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -1053,6 +302,179 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue></DefaultValue>
+        <Description>GI Common Charge Ind</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>GICommonChargeInd</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>2</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>GI Common Charge Ind Val</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>GICommonChargeIndVal</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>38</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>GI End Date</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>GIEndDate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue></DefaultValue>
+        <Description>GI Feature</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>GIFeature</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>8</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue></DefaultValue>
+        <Description>GI Offering ID</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>GIOfferingID</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>8</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>GI Resource Code</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>GIResourceCode</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>GI Service Name</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>GIServiceName</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>GI Start Date</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>GIStartDate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>IE User ID</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>IE_UserID</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>8</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Amount set by pipeline rating.</Description>
         <Direction>Input</Direction>
@@ -1067,7 +489,6 @@
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
-        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -1075,21 +496,273 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>The internal MetraNet account identifier</Description>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>A UOM is triggered when the transactions UOM is different than the base BPCs.  If so, the new invoicing units are stored here.  If not, the incoming units are stored here.</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>AccountId</Name>
-        <Required>true</Required>
+        <IsCore>false</IsCore>
+        <Name>InvoicingUnits</Name>
+        <Required>false</Required>
         <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>A UOM is triggered when the transactions UOM is different than the base BPCs.  If so, the BPC invoicing UOM is stored here.  If not, the incoming UOM is stored here.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>InvoicingUOM</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>gxs.com/Global.UOM</Category>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Memorandum from Application</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Memo</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>64</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Message Activity type.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>MessageActivity</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>gxs.com/Global.MessageActivity</Category>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Message class - service triplet 30000's</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>MessageClass</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>8</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Message Identifier in product (IE)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>MessageID</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>16</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Message type</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>MessageType</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>1</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>IE Org Identifier</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>OrgID</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>8</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>When connect unit processing is executed, the BPC could change.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>OriginalBPC</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>gxs.com/Global.BPC</Category>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Record identifier from PACTS (Unique key)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PACTSTranID</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer64</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Project ID</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PID</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Holds the BPC value prior to the connect unit BPC overlaying it.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PreConnectUnitBPC</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>gxs.com/Global.BPC</Category>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Date the transactions was processed by mediation. (Always in GMT)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProcessedDate</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue></DefaultValue>
+        <Description>Intial rate used by the system during pipeline processing.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Rate</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
           <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
           <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
-        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -1097,36 +770,59 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The time the event is deemed to have occurred</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Timestamp</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
         <DefaultValue></DefaultValue>
-        <Description>The currency for the Event</Description>
+        <Description>A UOM is triggered when the transactions UOM is different than the base BPCs.  If so, the new rating units are stored here.  If not, the incoming units are stored here.</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Currency</Name>
-        <Required>true</Required>
+        <IsCore>false</IsCore>
+        <Name>RatingUnits</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>A UOM is triggered when the transactions UOM is different than the base BPCs.  If so, the BPC rating UOM is stored here.  If not, the incoming UOM is stored here.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>RatingUOM</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>gxs.com/Global.UOM</Category>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Receiver Identifier</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Receiver</Name>
+        <Required>false</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
           <ListType>None</ListType>
-          <Length>0</Length>
+          <Length>16</Length>
         </Type>
-        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
@@ -1134,216 +830,278 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>EDI Identifier for Receiver</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ReceiverEDIID</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>17</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>EDI Qualifier for Receiver</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ReceiverEDIQualifier</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>4</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Receiver System Code</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ReceiverSYSCD</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>3</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Sender Identifier</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Sender</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>16</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>EDI Identifier for Sender</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SenderEDIID</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>17</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>EDI Qualifier for Sender</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SenderEDIQualifier</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>4</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Sender System Code</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SenderSYSCD</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>3</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Service or Point of entry time zone offset.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ServicePOETimeZone</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>Global.TimeZoneID</Category>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>If true, all transactions rated at zero will be suppressed from the invoice XML.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SuppressZeroRated</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Tracking ID GEO</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TrackingIDGEO</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>2</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Tracking ID Value</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TrackingIDVal</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Application Transaction Code</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TranCode</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>3</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Transaction Quantity</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Units</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseColumnNameMapping i:nil="true" />
         <DefaultValue></DefaultValue>
-        <Description>The charge assoicated with the event which may summarize other charges within the event.The amount can be negative to represent a credit.</Description>
+        <Description>Unit of Measure for this BPC.  (Drives conversion routines).</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>EventCharge</Name>
+        <IsCore>false</IsCore>
+        <Name>UOM</Name>
         <Required>true</Required>
-        <Type i:type="ChargeType">
-          <BaseType>Charge</BaseType>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>Currency</CurrencyProperty>
-          <FixedCurrency i:nil="true" />
-          <Alias>IE</Alias>
-          <EndProperty i:nil="true" />
-          <PriceProperty>gxs.com.ProductViews.IE.Rate</PriceProperty>
-          <ProductProperty i:nil="true" />
-          <QuantityProperty>gxs.com.ProductViews.IE.RatingUnits</QuantityProperty>
-          <StartProperty i:nil="true" />
+          <Category></Category>
         </Type>
-        <DatabaseNameMapping i:nil="true" />
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Identifes which MetraView page will present the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>PresentationPageId</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Uniquely identifes the Event</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>EventId</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The EventTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>EventTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The FederalTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>FederalTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The StateTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>StateTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The CountyTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>CountyTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The LocalTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>LocalTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The OtherTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>OtherTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <DatabaseNameMapping i:nil="true" />
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-    </Properties>
+    </CustomProperties>
   </Properties>
-  <EventType>Charge</EventType>
+  <EventType>Unknown</EventType>
   <Flow>
     <Steps>
       <BaseStep i:type="CalculateEventChargeStep">
@@ -1356,4 +1114,5 @@
   </Flow>
   <Parent></Parent>
   <UniqueKey />
+  <UsesCommerceDecisionEngine>false</UsesCommerceDecisionEngine>
 </PropertyBag>

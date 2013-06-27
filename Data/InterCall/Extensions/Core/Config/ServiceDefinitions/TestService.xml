@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ServiceDefinitionEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>Simple test service (for verifying basic MetraNet functionality and MetraConnect-SDK connectivity).</Description>
   <Direction>Input</Direction>
@@ -15,96 +16,10 @@
   </Type>
   <Namespace>metratech.com.ServiceDefinitions</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The internal MetraNet account identifier</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>AccountId</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The time the event is deemed to have occurred</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Timestamp</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Comment entered by the user. Used for display only.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Description</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>80</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Any date/time value. Used for display only.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Time</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>This time (optional) will be used by the pipeline.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>PipelineTime</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Arbitrary number of units that will be rated for. The units are multiplied by a configurable rate to calculate the amount.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Units</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Float</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Account to which this transaction is associated. Used for account resolution.</Description>
         <Direction>Input</Direction>
@@ -119,119 +34,21 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Test decimal property.</Description>
+        <Description>Test boolean property.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>DecProp1</Name>
+        <Name>BooleanProperty</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type>
+          <BaseType>Boolean</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Test decimal property.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>DecProp2</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Test decimal property.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>DecProp3</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Test 32-bit integer property.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>IntegerProperty</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Test 64-bit integer property.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Integer64Property</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer64</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Test string property.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>StringProperty</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>80</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Test encrypted string property.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>EncryptedStringProperty_</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>80</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Test decimal property.</Description>
         <Direction>Input</Direction>
@@ -249,6 +66,76 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Test decimal property.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>DecProp1</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Test decimal property.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>DecProp2</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Test decimal property.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>DecProp3</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Comment entered by the user. Used for display only.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Description</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>80</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Test double property.</Description>
         <Direction>Input</Direction>
@@ -266,19 +153,22 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Test boolean property.</Description>
+        <Description>Test encrypted string property.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>BooleanProperty</Name>
+        <Name>EncryptedStringProperty_</Name>
         <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
           <ListType>None</ListType>
+          <Length>80</Length>
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Test enum property.</Description>
         <Direction>Input</Direction>
@@ -293,6 +183,86 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Test 64-bit integer property.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Integer64Property</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer64</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Test 32-bit integer property.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>IntegerProperty</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>This time (optional) will be used by the pipeline.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PipelineTime</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Test string property.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>StringProperty</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>80</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Any date/time value. Used for display only.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Time</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Test timestamp property.</Description>
         <Direction>Input</Direction>
@@ -304,7 +274,25 @@
           <ListType>None</ListType>
         </Type>
       </Property>
-    </Properties>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Arbitrary number of units that will be rated for. The units are multiplied by a configurable rate to calculate the amount.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Units</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Float</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+    </CustomProperties>
   </Properties>
   <AutoDelete>false</AutoDelete>
   <AutoResubmit>false</AutoResubmit>

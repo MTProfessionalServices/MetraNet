@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ServiceDefinitionEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>Discount for owner and account level feature</Description>
   <Direction>Input</Direction>
@@ -15,73 +16,10 @@
   </Type>
   <Namespace>intercall.com.ServiceDefinitions</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The internal MetraNet account identifier</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>AccountId</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The time the event is deemed to have occurred</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Timestamp</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Session ID being discounted</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>related_id_sess</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer64</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Parent of Session ID being discounted</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>related_id_parent_sess</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer64</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -99,40 +37,7 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>_payingaccount</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>_usagecycleid</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -150,6 +55,40 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>invoice currency.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>_currency</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>3</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>_payingaccount</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Timezone ID of the account..</Description>
         <Direction>Input</Direction>
@@ -164,6 +103,40 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>_usagecycleid</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>BU currency.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>bu_curr</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>3</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -177,6 +150,22 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Priceable item template name for the discount.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>disc_pi_template_name</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Discount qualifier. Only set if record is discounted.</Description>
         <Direction>Input</Direction>
@@ -194,20 +183,22 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Priceable item template name for the discount.</Description>
+        <Description>Division currency.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>disc_pi_template_name</Name>
-        <Required>false</Required>
+        <Name>div_curr</Name>
+        <Required>true</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
           <ListType>None</ListType>
-          <Length>255</Length>
+          <Length>3</Length>
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>feature amount</Description>
         <Direction>Input</Direction>
@@ -225,57 +216,7 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>feature service fee amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>feature_svc_amt</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>feature_div_amt</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>feature_div_svc_amt</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -293,6 +234,7 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -310,6 +252,57 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Indicates whether feature is discountable</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>feature_discountable</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>feature_div_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>feature_div_svc_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -327,6 +320,7 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -344,61 +338,25 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Indicates whether feature is discountable</Description>
+        <Description>feature service fee amount</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>feature_discountable</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>invoice currency.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>_currency</Name>
+        <Name>feature_svc_amt</Name>
         <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <Length>3</Length>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Division currency.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>div_curr</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>3</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>BU currency.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>bu_curr</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>3</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Global currency.</Description>
         <Direction>Input</Direction>
@@ -411,7 +369,43 @@
           <Length>3</Length>
         </Type>
       </Property>
-    </Properties>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Parent of Session ID being discounted</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>related_id_parent_sess</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer64</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Session ID being discounted</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>related_id_sess</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer64</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+    </CustomProperties>
   </Properties>
   <AutoDelete>false</AutoDelete>
   <AutoResubmit>false</AutoResubmit>

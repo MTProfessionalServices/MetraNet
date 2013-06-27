@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="AccountViewEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>Owner information.</Description>
   <Direction>Input</Direction>
@@ -15,22 +16,20 @@
   </Type>
   <Namespace>metratech.com.AccountViews</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="AccountViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>The internal MetraNet account identifiert</Description>
+        <Description></Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>AccountId</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
+        <IsCore>false</IsCore>
+        <Name>ACE_Company</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <Length>255</Length>
         </Type>
         <ForeignKeyDBTable i:nil="true" />
         <ForeignKeyTableColumn i:nil="true" />
@@ -38,6 +37,60 @@
       </Property>
       <Property i:type="AccountViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Deleted</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Geocode</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>50</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PaymentStatus</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>metratech.com/accountcreation.PaymentStatus</Category>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -55,6 +108,7 @@
       </Property>
       <Property i:type="AccountViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -75,40 +129,7 @@
       </Property>
       <Property i:type="AccountViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>UsageStatus</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>1</Length>
-        </Type>
-        <ForeignKeyDBTable i:nil="true" />
-        <ForeignKeyTableColumn i:nil="true" />
-        <PartOfPrimaryKey>false</PartOfPrimaryKey>
-      </Property>
-      <Property i:type="AccountViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>PaymentStatus</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>metratech.com/accountcreation.PaymentStatus</Category>
-        </Type>
-        <ForeignKeyDBTable i:nil="true" />
-        <ForeignKeyTableColumn i:nil="true" />
-        <PartOfPrimaryKey>false</PartOfPrimaryKey>
-      </Property>
-      <Property i:type="AccountViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -125,54 +146,22 @@
       </Property>
       <Property i:type="AccountViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>Deleted</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <ForeignKeyDBTable i:nil="true" />
-        <ForeignKeyTableColumn i:nil="true" />
-        <PartOfPrimaryKey>false</PartOfPrimaryKey>
-      </Property>
-      <Property i:type="AccountViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ACE_Company</Name>
+        <Name>UsageStatus</Name>
         <Required>false</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
           <ListType>None</ListType>
-          <Length>255</Length>
+          <Length>1</Length>
         </Type>
         <ForeignKeyDBTable i:nil="true" />
         <ForeignKeyTableColumn i:nil="true" />
         <PartOfPrimaryKey>false</PartOfPrimaryKey>
       </Property>
-      <Property i:type="AccountViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Geocode</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>50</Length>
-        </Type>
-        <ForeignKeyDBTable i:nil="true" />
-        <ForeignKeyTableColumn i:nil="true" />
-        <PartOfPrimaryKey>false</PartOfPrimaryKey>
-      </Property>
-    </Properties>
+    </CustomProperties>
   </Properties>
 </PropertyBag>

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ServiceDefinitionEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>Verify that the bank account is valid.  The amount must be $0. This service 
         definition does not require the subscriber to have an account in the payment 
@@ -30,39 +31,10 @@
   </Type>
   <Namespace>metratech.com.ServiceDefinitions</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The internal MetraNet account identifier</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>AccountId</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The time the event is deemed to have occurred</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Timestamp</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The account identifier is a numeric value that represents a subscriber.</Description>
         <Direction>Input</Direction>
@@ -80,90 +52,7 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Full subscriber name.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>customername</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The billing address associated with the bank account.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>address</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Associated with the address.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>city</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Associated with the address.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>state</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>20</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Associated with the address.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>zip</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>10</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Associated with the address.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>country</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>25</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>This is the amount sent to the authorization center. It must be $0.</Description>
         <Direction>Input</Direction>
@@ -181,6 +70,7 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The amount qualifier.</Description>
         <Direction>Input</Direction>
@@ -195,6 +85,53 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>The billing address associated with the bank account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>address</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Subscriber bank account number. Typically the ACH add account service sends this
+        session. The bank account number has already been encrypted.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>bankaccountnum_</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>32</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Type of account. Possible values are checking or savings.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>bankaccounttype</Name>
+        <Required>true</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>metratech.com/paymentserver.bankaccounttype</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Name of the subscriber's bank.</Description>
         <Direction>Input</Direction>
@@ -209,6 +146,52 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Associated with the address.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>city</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Associated with the address.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>country</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>25</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Full subscriber name.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>customername</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The Routing Number is a 9-digit number consisting of three components:  
         Federal Reserve Routing Symbol (4-digits), ABA Institution Identifier (4-digits),
@@ -225,35 +208,22 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Subscriber bank account number. Typically the ACH add account service sends this
-        session. The bank account number has already been encrypted.</Description>
+        <Description>Associated with the address.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>bankaccountnum_</Name>
-        <Required>true</Required>
+        <Name>state</Name>
+        <Required>false</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
           <ListType>None</ListType>
-          <Length>32</Length>
+          <Length>20</Length>
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Type of account. Possible values are checking or savings.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>bankaccounttype</Name>
-        <Required>true</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>metratech.com/paymentserver.bankaccounttype</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Indicates a testing session through a PS pipeline.</Description>
         <Direction>Input</Direction>
@@ -269,7 +239,22 @@
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
       </Property>
-    </Properties>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Associated with the address.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>zip</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>10</Length>
+        </Type>
+      </Property>
+    </CustomProperties>
   </Properties>
   <AutoDelete>false</AutoDelete>
   <AutoResubmit>false</AutoResubmit>

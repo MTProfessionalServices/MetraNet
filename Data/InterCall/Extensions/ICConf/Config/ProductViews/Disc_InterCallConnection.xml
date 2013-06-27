@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ProductViewEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>Discount for Intercall Connection</Description>
   <Direction>Input</Direction>
@@ -15,43 +16,19 @@
   </Type>
   <Namespace>intercall.com.ProductViews</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Related id sess</Description>
+        <Description>Indicates whether connection is discountable</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>related_id_sess</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer64</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Discount qualifier. Only set if record is discounted.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>disc_qualifier</Name>
+        <Name>bridge_discountable</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type>
+          <BaseType>Boolean</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -60,16 +37,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Priceable item template name for the discount.</Description>
+        <Description>BU currency.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>disc_pi_template_name</Name>
+        <Name>bu_curr</Name>
         <Required>false</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
           <ListType>None</ListType>
-          <Length>255</Length>
+          <Length>3</Length>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -78,6 +56,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Bridge discount amount</Description>
         <Direction>Input</Direction>
@@ -99,27 +78,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Bridge discount in div amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>disc_bridge_div_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Bridge discount in bu currency</Description>
         <Direction>Input</Direction>
@@ -141,6 +100,29 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Bridge discount in div amount</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>disc_bridge_div_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Bridge discount amt in GBL currency</Description>
         <Direction>Input</Direction>
@@ -162,23 +144,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Indicates whether connection is discountable</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>bridge_discountable</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Volume discount percentage applied to the charge.</Description>
         <Direction>Input</Direction>
@@ -200,6 +166,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>leg discount amount</Description>
         <Direction>Input</Direction>
@@ -221,27 +188,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>leg discount in div amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>disc_leg_div_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>leg discount in bu currency</Description>
         <Direction>Input</Direction>
@@ -263,6 +210,29 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>leg discount in div amount</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>disc_leg_div_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>leg discount amt in GBL currency</Description>
         <Direction>Input</Direction>
@@ -284,23 +254,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Indicates whether leg is discountable</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>leg_discountable</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Volume discount percentage applied to the charge.</Description>
         <Direction>Input</Direction>
@@ -322,6 +276,48 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Priceable item template name for the discount.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>disc_pi_template_name</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Discount qualifier. Only set if record is discounted.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>disc_qualifier</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Connection surcharge discount amount</Description>
         <Direction>Input</Direction>
@@ -343,27 +339,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Connection surcharge discount in div amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>disc_surcharge_div_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Connection surcharge discount in bu currency</Description>
         <Direction>Input</Direction>
@@ -385,6 +361,29 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Connection surcharge discount in div amount</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>disc_surcharge_div_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Connection surcharge discount amt in GBL currency</Description>
         <Direction>Input</Direction>
@@ -406,23 +405,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Indicates whether surcharge is discountable</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>surcharge_discountable</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Volume discount percentage applied to the charge.</Description>
         <Direction>Input</Direction>
@@ -444,6 +427,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>telecom discount amount</Description>
         <Direction>Input</Direction>
@@ -465,27 +449,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>telecom discount in div amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>disc_telecom_div_amt</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>telecom discount in bu currency</Description>
         <Direction>Input</Direction>
@@ -507,6 +471,29 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>telecom discount in div amount</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>disc_telecom_div_amt</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>telecom discount amt in GBL currency</Description>
         <Direction>Input</Direction>
@@ -528,23 +515,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Indicates whether connection is discountable</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>telecom_discountable</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Volume discount percentage applied to the charge.</Description>
         <Direction>Input</Direction>
@@ -566,6 +537,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Division currency.</Description>
         <Direction>Input</Direction>
@@ -584,24 +556,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>BU currency.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>bu_curr</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>3</Length>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Global currency.</Description>
         <Direction>Input</Direction>
@@ -620,35 +575,15 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>The internal MetraNet account identifier</Description>
+        <Description>Indicates whether leg is discountable</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>AccountId</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The time the event is deemed to have occurred</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Timestamp</Name>
-        <Required>true</Required>
+        <IsCore>false</IsCore>
+        <Name>leg_discountable</Name>
+        <Required>false</Required>
         <Type>
-          <BaseType>DateTime</BaseType>
+          <BaseType>Boolean</BaseType>
           <ListType>None</ListType>
         </Type>
         <IsExportable>false</IsExportable>
@@ -658,57 +593,15 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>The currency for the Event</Description>
+        <Description>Related id sess</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Currency</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>0</Length>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The charge assoicated with the event which may summarize other charges within the event.The amount can be negative to represent a credit.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>EventCharge</Name>
-        <Required>true</Required>
-        <Type i:type="ChargeType">
-          <BaseType>Charge</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>Currency</CurrencyProperty>
-          <FixedCurrency i:nil="true" />
-          <EndProperty i:nil="true" />
-          <PriceProperty i:nil="true" />
-          <ProductProperty i:nil="true" />
-          <QuantityProperty i:nil="true" />
-          <StartProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Identifes which MetraView page will present the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>PresentationPageId</Name>
+        <IsCore>false</IsCore>
+        <Name>related_id_sess</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
+          <BaseType>Integer64</BaseType>
           <ListType>None</ListType>
           <FixedUnitOfMeasure i:nil="true" />
           <UnitOfMeasureCategory i:nil="true" />
@@ -722,19 +615,16 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Uniquely identifes the Event</Description>
+        <Description>Indicates whether surcharge is discountable</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>EventId</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
+        <IsCore>false</IsCore>
+        <Name>surcharge_discountable</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -743,139 +633,28 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>The EventTax tax for the Event.</Description>
+        <Description>Indicates whether connection is discountable</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>EventTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
+        <IsCore>false</IsCore>
+        <Name>telecom_discountable</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
           <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The FederalTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>FederalTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The StateTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>StateTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The CountyTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>CountyTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The LocalTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>LocalTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The OtherTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>OtherTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-    </Properties>
+    </CustomProperties>
   </Properties>
   <EventType>Unknown</EventType>
-  <IsMetered>false</IsMetered>
+  <Flow>
+    <Steps />
+  </Flow>
+  <Parent i:nil="true" />
   <UniqueKey />
 </PropertyBag>

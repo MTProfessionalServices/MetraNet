@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ServiceDefinitionEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>This service definition is used to create and update InterCall Account</Description>
   <Direction>Input</Direction>
@@ -15,1018 +16,10 @@
   </Type>
   <Namespace>metratech.com.ServiceDefinitions</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The internal MetraNet account identifier</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>AccountId</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The time the event is deemed to have occurred</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Timestamp</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Mapping(BusinessUnit): ACE Area, in this case always "BusinessUnit"</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Area</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Mapping(BU.BU_ID):  Unique key by Area</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>AreaKey</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Mapping(BusinessUnit): ACE Area, in this case always "BusinessUnit"</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>AncestorArea</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Mapping(BU.BU_ID):  Unique key by Area</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>AncestorAreaKey</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>This property is used to control the account start date.  This property is also used when changing the account state.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>AccountStartDate</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Required by MetraNet to Loginto the MetraView</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Password_</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>SIC_Code</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>4</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>SplitID</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>UsageStatus</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>1</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>This indicates the status of the for which values could be 'A' for Active, 'B' for Bankruptcy, 'C' for  Credit Hold, 'R' for Bankruptcy Current and 'S' for Slow Pay</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>PaymentStatus</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>metratech.com/accountcreation.PaymentStatus</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>UCC_Exempt</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CC_Billing</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Account_Name</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>100</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Prefix for the Name</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>NamePrefix</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>20</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>First name.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>FirstName</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>50</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Middle Name/Initial.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>MiddleInitial</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>1</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Last name.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>LastName</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>50</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>E-mail address associated with the account.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Email</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>100</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Telephone number.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>PhoneNumber</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Extenssion for the givenTelephone number (Optional)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>PhoneNumberExt</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Telephone number. (Optional)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>PhoneNumber2</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Extenssion for the 2nd Telephone number.(Optional)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>PhoneNumber2Ext</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Company name.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Company</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>First part of the whole address</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Address1</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>100</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Second part of the whole address</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Address2</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>100</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Third part of the whole address</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Address3</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>100</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>City part of the address. If geocode needs to be calculated, then this property should have a value passed in.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>City</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>State part of the address. If geocode needs to be calculated, then
-  this property should have a value passed in.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>State</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Zipcode for  the given  address. If geocode needs to be calculated, then
- this property should have a value passed in.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Zip</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Zip/Postal code. Extenssion</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ZipExt</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Country part of the address</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Country</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>50</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>FAX number.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>FacsimileTelephoneNumber</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>First name.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CI_NamePrefix</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>20</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>First name.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CI_FirstName</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>50</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Middle Initial.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CI_MiddleInitial</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>1</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Last name.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CI_LastName</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>50</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>E-mail address.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CI_Email</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>100</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Telephone number.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CI_PhoneNumber</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Extenssion for the given Telephone number(Optional).</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CI_PhoneNumberExt</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Telephone number.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CI_PhoneNumber2</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Extenssion for the given Telephone numberr(Optional).</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CI_PhoneNumber2Ext</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Company name.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CI_Company</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>First part of the whole address</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CI_Address1</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>100</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Second part of the whole address</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CI_Address2</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>100</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Third part of the whole address</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CI_Address3</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>100</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>City part of the address.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CI_City</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>State/Province.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CI_State</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Zipcode for the given address</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CI_Zip</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Zip/Postal code, Extenssion.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CI_ZipExt</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Country part of the address.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CI_Country</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>50</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>FAX number.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CI_FacsimileTelephoneNumber</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Payment method. Like Credit Card/ACH or Cash/Check</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>PaymentMethod</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>metratech.com/accountcreation.PaymentMethod</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>E-mail address.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CCardNumberL4D</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>30</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Creadit Card Type</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CCType</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>1</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Credit Card Number</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CCardNumber_</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>20</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The Card expiration Date</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CCardExpiration</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Name of the card holder as appear on the Card</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CCardHolderName</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Company name.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CCardInvoiceState</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>25</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>First part of the Billing address associated with the card</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CCAddress1</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>100</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Second part of the Billing address associated with the card</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CCAddress2</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>100</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Third part of the Billing address associated with the card</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CCAddress3</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>100</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>City Part of the Billing address associated with the card,</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CCCity</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Billing address associated with the card,</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CCState</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Billing address associated with the card, Zip/Postal code.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CCZip</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Billing address associated with the card, Zip/Postal code.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CCZipExt</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Billing address associated with the card, Country.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CCCountry</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>50</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>This indicates whethere the account has been terminated or not (Y/N)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Terminated</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>This indicates whether the account is deleted or not(Y/N)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Deleted</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Username or login that needs to be created. Required for creation.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>UserName</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Namespace uniquely identifying that username or login. Required for creation</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Name_Space</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Uniquely generated account ID. This property gets set by the pipeline.</Description>
         <Direction>Input</Direction>
@@ -1044,6 +37,139 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Account_Name</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>account_unicode</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>This property is used to control the account start date.  This property is also used when changing the account state.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AccountStartDate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>First part of the whole address</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Address1</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Second part of the whole address</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Address2</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Third part of the whole address</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Address3</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Mapping(BusinessUnit): ACE Area, in this case always "BusinessUnit"</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AncestorArea</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Mapping(BU.BU_ID):  Unique key by Area</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AncestorAreaKey</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>This flag indicates whether account ancestor's account template should be applied to an account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ApplyAccountTemplate</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Flag indicates whether DSP should be applied to a newly created account. T for True or 1 and 
 F for False or 0.  Required for creation.</Description>
@@ -1058,11 +184,42 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>This flag indicates whether account ancestor's account template should be applied to an account.</Description>
+        <Description>Mapping(BusinessUnit): ACE Area, in this case always "BusinessUnit"</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>ApplyAccountTemplate</Name>
+        <Name>Area</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Mapping(BU.BU_ID):  Unique key by Area</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>AreaKey</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CC_Billing</Name>
         <Required>false</Required>
         <Type>
           <BaseType>Boolean</BaseType>
@@ -1071,24 +228,281 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Indicates whether old subscriptions will be truncated on move account action. This property is only considered on account updates when account ancestor changed (Account Move). 		This property is only considered when ApplyAccountTemplate property is set to true.</Description>
+        <Description>First part of the Billing address associated with the card</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>TruncateOldSubscriptions</Name>
+        <Name>CCAddress1</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Second part of the Billing address associated with the card</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CCAddress2</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Third part of the Billing address associated with the card</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CCAddress3</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>The Card expiration Date</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CCardExpiration</Name>
         <Required>false</Required>
         <Type>
-          <BaseType>Boolean</BaseType>
+          <BaseType>DateTime</BaseType>
           <ListType>None</ListType>
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Transaction cookie value used for processes to enlist in DTC transaction. Should have empty value when metered.  The value gets set once the pipeline retrieves it from each machine.  The cookie is machine specific and is unique to a machine.</Description>
+        <Description>Name of the card holder as appear on the Card</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>TransactionCookie</Name>
+        <Name>CCardHolderName</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Company name.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CCardInvoiceState</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>25</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Credit Card Number</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CCardNumber_</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>E-mail address.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CCardNumberL4D</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>30</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>City Part of the Billing address associated with the card,</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CCCity</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Billing address associated with the card, Country.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CCCountry</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>50</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Billing address associated with the card,</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CCState</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Creadit Card Type</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CCType</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>1</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Billing address associated with the card, Zip/Postal code.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CCZip</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Billing address associated with the card, Zip/Postal code.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CCZipExt</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>First part of the whole address</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CI_Address1</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Second part of the whole address</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CI_Address2</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Third part of the whole address</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CI_Address3</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>City part of the address.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CI_City</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Company name.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CI_Company</Name>
         <Required>false</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
@@ -1098,11 +512,237 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Default pricelist assigned to account.</Description>
+        <Description>Country part of the address.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>Pricelist</Name>
+        <Name>CI_Country</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>50</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>E-mail address.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CI_Email</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>100</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>FAX number.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CI_FacsimileTelephoneNumber</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>First name.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CI_FirstName</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>50</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Last name.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CI_LastName</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>50</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Middle Initial.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CI_MiddleInitial</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>1</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>First name.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CI_NamePrefix</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Telephone number.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CI_PhoneNumber</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Telephone number.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CI_PhoneNumber2</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Extenssion for the given Telephone numberr(Optional).</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CI_PhoneNumber2Ext</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Extenssion for the given Telephone number(Optional).</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CI_PhoneNumberExt</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>State/Province.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CI_State</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Zipcode for the given address</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CI_Zip</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Zip/Postal code, Extenssion.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CI_ZipExt</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>City part of the address. If geocode needs to be calculated, then this property should have a value passed in.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>City</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Company name.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Company</Name>
         <Required>false</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
@@ -1112,6 +752,50 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ConfDetails</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Country part of the address</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Country</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>50</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>This field indicates the Summary for the current charges is needed on the invoice or not. values could be (Y/N)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>CurrChargeSummary</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Currency assigned to account. Required while creating account.</Description>
         <Direction>Input</Direction>
@@ -1126,34 +810,7 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Language associated with the account. Required while creation.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Language</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>Global.LanguageCode</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Usage cycle type associated with the account (daily, weekly, biweeky, semi-monthly, monthly, quarterly, annually.)	On-demand is no longer supported.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>UsageCycleType</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>metratech.com/BillingCycle.UsageCycleType</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Day of month that the user wants to get billed on.</Description>
         <Direction>Input</Direction>
@@ -1171,11 +828,12 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Tax exempt indicator: T for Yes or success or true or 1 and F for no or failure or false or 0.</Description>
+        <Description>This indicates whether the account is deleted or not(Y/N)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>TaxExempt</Name>
+        <Name>Deleted</Name>
         <Required>false</Required>
         <Type>
           <BaseType>Boolean</BaseType>
@@ -1184,88 +842,66 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Tax Exempt ID, if applicable.</Description>
+        <Description>Indicates that the account should not receive dunning notifications during statement runs.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>TaxExemptID</Name>
+        <Name>DunningExempt</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>E-mail address associated with the account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Email</Name>
         <Required>false</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
           <ListType>None</ListType>
-          <Length>255</Length>
+          <Length>100</Length>
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description></Description>
+        <Description>FAX number.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>StatementPrint</Name>
+        <Name>FacsimileTelephoneNumber</Name>
         <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
           <ListType>None</ListType>
+          <Length>40</Length>
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description></Description>
+        <Description>First name.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>InvoicePrint</Name>
+        <Name>FirstName</Name>
         <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
           <ListType>None</ListType>
+          <Length>50</Length>
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>This field indicates whether the statement will be delivered via Paper copy/e-mail/emailLink/both/none</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>SPrintDelivery</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>metratech.com/accountcreation.InvoiceDelivery</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>This field indicates whether the Invoice will be delivered via Paper copy/e-mail/emailLink/both/none</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>IPrintDelivery</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>metratech.com/accountcreation.InvoiceDelivery</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>This field indicates the language to be used for the Invoice, values could be English/German/French</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>InvoiceLanguage</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>Global.LanguageCode</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>This field indicates the format to be used for the Invoice,  values could be None/Legal/Standard</Description>
         <Direction>Input</Direction>
@@ -1280,6 +916,22 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>This field indicates the language to be used for the Invoice, values could be English/German/French</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>InvoiceLanguage</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>Global.LanguageCode</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -1294,24 +946,12 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>This field indicates the Summary for the current charges is needed on the invoice or not. values could be (Y/N)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>CurrChargeSummary</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>ConfDetails</Name>
+        <Name>InvoicePrint</Name>
         <Required>false</Required>
         <Type>
           <BaseType>Boolean</BaseType>
@@ -1320,6 +960,97 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>This field indicates whether the Invoice will be delivered via Paper copy/e-mail/emailLink/both/none</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>IPrintDelivery</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>metratech.com/accountcreation.InvoiceDelivery</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Language associated with the account. Required while creation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Language</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>Global.LanguageCode</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Last name.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>LastName</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>50</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Middle Name/Initial.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>MiddleInitial</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>1</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Namespace uniquely identifying that username or login. Required for creation</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Name_Space</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Prefix for the Name</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>NamePrefix</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -1333,6 +1064,52 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Required by MetraNet to Loginto the MetraView</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Password_</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Payment method. Like Credit Card/ACH or Cash/Check</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PaymentMethod</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>metratech.com/accountcreation.PaymentMethod</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>This indicates the status of the for which values could be 'A' for Active, 'B' for Bankruptcy, 'C' for  Credit Hold, 'R' for Bankruptcy Current and 'S' for Slow Pay</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PaymentStatus</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>metratech.com/accountcreation.PaymentStatus</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -1350,6 +1127,97 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Telephone number.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PhoneNumber</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Telephone number. (Optional)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PhoneNumber2</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Extenssion for the 2nd Telephone number.(Optional)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PhoneNumber2Ext</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Extenssion for the givenTelephone number (Optional)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>PhoneNumberExt</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Default pricelist assigned to account.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Pricelist</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SIC_Code</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>4</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Marks the invoice PDF to be be put in the SpecialInvoiceRun folder. These invoices are reviewed manually for key customers.</Description>
         <Direction>Input</Direction>
@@ -1363,24 +1231,61 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Indicates that the account should not receive dunning notifications during statement runs.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>DunningExempt</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>account_unicode</Name>
+        <Name>SplitID</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>This field indicates whether the statement will be delivered via Paper copy/e-mail/emailLink/both/none</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SPrintDelivery</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>metratech.com/accountcreation.InvoiceDelivery</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>State part of the address. If geocode needs to be calculated, then
+  this property should have a value passed in.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>State</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>StatementPrint</Name>
         <Required>false</Required>
         <Type>
           <BaseType>Boolean</BaseType>
@@ -1389,6 +1294,79 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Tax exempt indicator: T for Yes or success or true or 1 and F for no or failure or false or 0.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TaxExempt</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Tax Exempt ID, if applicable.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TaxExemptID</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>This indicates whethere the account has been terminated or not (Y/N)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Terminated</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Transaction cookie value used for processes to enlist in DTC transaction. Should have empty value when metered.  The value gets set once the pipeline retrieves it from each machine.  The cookie is machine specific and is unique to a machine.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TransactionCookie</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Indicates whether old subscriptions will be truncated on move account action. This property is only considered on account updates when account ancestor changed (Account Move). 		This property is only considered when ApplyAccountTemplate property is set to true.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>TruncateOldSubscriptions</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -1403,48 +1381,7 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>First name.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>u_FirstName</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>50</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Middle Initial.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>u_MiddleInitial</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>1</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Last name.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>u_LastName</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>50</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Address line 1.</Description>
         <Direction>Input</Direction>
@@ -1459,6 +1396,7 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Address line 2.</Description>
         <Direction>Input</Direction>
@@ -1473,6 +1411,7 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Address line 3.</Description>
         <Direction>Input</Direction>
@@ -1487,53 +1426,12 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>City.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>u_City</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>State/Province.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>u_State</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Zip/Postal code.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>u_Zip</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Country.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>u_Country</Name>
+        <Name>u_ci_Country</Name>
         <Required>false</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
@@ -1543,6 +1441,7 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>First name.</Description>
         <Direction>Input</Direction>
@@ -1557,6 +1456,7 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Last name.</Description>
         <Direction>Input</Direction>
@@ -1571,11 +1471,27 @@ F for False or 0.  Required for creation.</Description>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>City.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>u_City</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Country.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>u_ci_Country</Name>
+        <Name>u_Country</Name>
         <Required>false</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
@@ -1583,7 +1499,172 @@ F for False or 0.  Required for creation.</Description>
           <Length>50</Length>
         </Type>
       </Property>
-    </Properties>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>First name.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>u_FirstName</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>50</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Last name.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>u_LastName</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>50</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Middle Initial.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>u_MiddleInitial</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>1</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>State/Province.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>u_State</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Zip/Postal code.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>u_Zip</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>UCC_Exempt</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Usage cycle type associated with the account (daily, weekly, biweeky, semi-monthly, monthly, quarterly, annually.)	On-demand is no longer supported.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>UsageCycleType</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>metratech.com/BillingCycle.UsageCycleType</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>UsageStatus</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>1</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Username or login that needs to be created. Required for creation.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>UserName</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Zipcode for  the given  address. If geocode needs to be calculated, then
+ this property should have a value passed in.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>Zip</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Zip/Postal code. Extenssion</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ZipExt</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+    </CustomProperties>
   </Properties>
   <AutoDelete>false</AutoDelete>
   <AutoResubmit>false</AutoResubmit>

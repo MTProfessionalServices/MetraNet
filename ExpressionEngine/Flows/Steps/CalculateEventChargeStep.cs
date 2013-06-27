@@ -83,7 +83,7 @@ namespace MetraTech.ExpressionEngine.Flows.Steps
             {
                 var unitsMapping = GetBaseEventChargeMapping();
                 unitsMapping.ChargeName = chargeName;
-                unitsMapping.FieldName = chargeType.QuantityProperty;
+                unitsMapping.FieldName = AvailableProperties.GetPropertyDatabaseName(chargeType.QuantityProperty);
                 unitsMapping.FieldType = CdeFieldMappingType.units;
                 mappings.Add(unitsMapping);
             }
@@ -91,7 +91,19 @@ namespace MetraTech.ExpressionEngine.Flows.Steps
             //Amount mapping
             var amountMapping = GetBaseEventChargeMapping();
             amountMapping.ChargeName = chargeName;
-            amountMapping.FieldName = isEventCharge? "Amount" : chargeProperty.DatabaseName;
+            if (isEventCharge)
+            {
+                amountMapping.FieldName = "Amount";
+                amountMapping.CurrencyField = "am_currency";
+            }
+            else
+            {
+                amountMapping.FieldName = chargeProperty.DatabaseColumnName;
+                if (chargeType.PriceProperty == null)
+                    amountMapping.CurrencyField = "am_currency";
+                else
+                    amountMapping.CurrencyField = "???";
+            }
             amountMapping.FieldType = CdeFieldMappingType.amount;
             mappings.Add(amountMapping);
 
@@ -100,7 +112,11 @@ namespace MetraTech.ExpressionEngine.Flows.Steps
             {
                 var priceMapping = GetBaseEventChargeMapping();
                 priceMapping.ChargeName = chargeName;
-                priceMapping.FieldName = chargeType.PriceProperty;
+                priceMapping.FieldName = AvailableProperties.GetPropertyDatabaseName(chargeType.PriceProperty);
+
+                var priceProperty = AvailableProperties.Get(chargeType.PriceProperty);
+                if (priceProperty != null)
+                    priceMapping.CurrencyField = AvailableProperties.GetPropertyDatabaseName(((MoneyType) priceProperty.Type).CurrencyProperty);
                 priceMapping.FieldType = CdeFieldMappingType.rate;
                 mappings.Add(priceMapping);
             }

@@ -133,6 +133,25 @@ namespace PropertyGui
 
         private void button2_Click(object sender, EventArgs e)
         {
+            AccountViewEntity av;
+            Property property;
+            var filePath = @"C:\Temp\__testav.xml";
+            //av = new AccountViewEntity("MetraTech.Avaition", "Airplance", "IaaS consumption service.");
+            //var property = av.Properties.AddString("AccountId", "the account id", true, null);
+            //property.IsCore = true;
+            //av.Properties.AddString("MTOW", "Maximum takeoff weight", true, null);
+            //av.Save(filePath);
+            var av2 = AccountViewEntity.CreateFromFile<AccountViewEntity>(filePath);
+            return;
+
+            var pv = new ProductViewEntity("MetraTech.Cloud", "Compute", "IaaS consumption service.");
+            property = pv.Properties.AddString("Amount", "the total amonut", true, null);
+            property.IsCore = true;
+            pv.Properties.AddString("HelloWorld", "greeting", true, null);
+            filePath = @"C:\Temp\__testpv.xml";
+            pv.Save(filePath);
+            var pv2 = ProductViewEntity.CreateFromFile<ProductViewEntity>(filePath);
+
             var func = new Function("ConvertCurrency", "CDE", "Converts the specified money value to the target currency.");
             func.FixedParameters.Add(PropertyFactory.Create("Value", TypeFactory.CreateMoney(), true, "The Money value to be converted."));
             func.FixedParameters.Add(PropertyFactory.Create("Currency", TypeFactory.CreateCurrency(), true, "The currency that the value will be converted to."));

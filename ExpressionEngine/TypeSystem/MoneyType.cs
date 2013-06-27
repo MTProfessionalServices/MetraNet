@@ -2,6 +2,7 @@
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Infrastructure;
+using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 
 namespace MetraTech.ExpressionEngine.TypeSystem
@@ -69,6 +70,10 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         {
             return new PropertyLink(TypeFactory.CreateCurrency(), this, CurrencyPropertyPropertyName, true, Localization.FixedCurrency);
         }
+        //public Property GetCurrencyProperty(PropertyCollection properties)
+        //{
+        //    var currencyProperty = properties.Get(CurrencyProperty);
+        //}
         public new MoneyType Copy()
         {
             var type = (MoneyType)base.Copy();

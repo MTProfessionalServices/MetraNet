@@ -56,28 +56,37 @@ namespace MetraTech.ExpressionEngine.MTProperties
         /// <summary>
         /// Internal property list. Kept private to reduce what a developer has access to
         /// </summary>
-        [DataMember]
+        //[DataMember]
         private List<Property> Properties = new List<Property>();
 
-        //[DataMember]
-        private IEnumerable<Property> CustomPropertiesForSerilization
+        [DataMember]
+        private IEnumerable<Property> CustomProperties
         {
-            get { return Properties.Where(x => !x.IsCore).OrderBy(x=>x.Name); }
+            get
+            {
+                return Properties.Where(x => !x.IsCore || x.Name=="EventCharge").OrderBy(x => x.Name).ToList();
+            }
             set
             {
+                Properties = new List<Property>();
                 Properties.AddRange(value);
-                if (PropertyBag != null && PropertyBag.CoreProperties != null)
-                    Properties.AddRange(PropertyBag.CoreProperties);
             }
-
         }
         #endregion
 
         #region Constructor
         public PropertyCollection(object parent)
         {
-            Parent = parent;
+            FixDeserialization(parent);
         }
+
+        public void FixDeserialization(object parent)
+        {
+            Parent = parent;
+            if (PropertyBag != null)
+                PropertyBag.AddCoreProperties();
+        }
+
         #endregion
 
         #region Methods
@@ -114,7 +123,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
             var property = Get(name);
             if (property == null)
                 return null;
-            return property.DatabaseName;
+            return property.DatabaseColumnName;
         }
 
         /// <summary>

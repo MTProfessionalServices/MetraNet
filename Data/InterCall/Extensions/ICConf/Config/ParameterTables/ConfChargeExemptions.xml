@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ParameterTableEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>This parameter table specifies conference charge exemptions applicable to companis/accounts/owners.</Description>
   <Direction>Input</Direction>
@@ -15,77 +16,10 @@
   </Type>
   <Namespace>intercall.com.ParameterTables</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="ParameterTableProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>premium_billing_exempt</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsFilterable>false</IsFilterable>
-        <Operator i:nil="true" />
-        <OperatorScope>PerRow</OperatorScope>
-        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
-      </Property>
-      <Property i:type="ParameterTableProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>service_fee_exempt</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsFilterable>false</IsFilterable>
-        <Operator i:nil="true" />
-        <OperatorScope>PerRow</OperatorScope>
-        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
-      </Property>
-      <Property i:type="ParameterTableProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>port_charge_exempt</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsFilterable>false</IsFilterable>
-        <Operator i:nil="true" />
-        <OperatorScope>PerRow</OperatorScope>
-        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
-      </Property>
-      <Property i:type="ParameterTableProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>noshow_exempt</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsFilterable>false</IsFilterable>
-        <Operator i:nil="true" />
-        <OperatorScope>PerRow</OperatorScope>
-        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
-      </Property>
-      <Property i:type="ParameterTableProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -103,6 +37,25 @@
       </Property>
       <Property i:type="ParameterTableProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Encore Minimum Exemption Flag</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>encore_minimum_exempt</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -120,6 +73,79 @@
       </Property>
       <Property i:type="ParameterTableProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>noshow_exempt</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>port_charge_exempt</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>premium_billing_exempt</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>service_fee_exempt</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsFilterable>false</IsFilterable>
+        <Operator i:nil="true" />
+        <OperatorScope>PerRow</OperatorScope>
+        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
+      </Property>
+      <Property i:type="ParameterTableProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Indicates wheter the Telecom Surcharge is exempt.</Description>
         <Direction>Input</Direction>
@@ -135,24 +161,7 @@
         <OperatorScope>PerRow</OperatorScope>
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
-      <Property i:type="ParameterTableProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Encore Minimum Exemption Flag</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>encore_minimum_exempt</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsFilterable>false</IsFilterable>
-        <Operator i:nil="true" />
-        <OperatorScope>PerRow</OperatorScope>
-        <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
-      </Property>
-    </Properties>
+    </CustomProperties>
   </Properties>
   <ActionsCaption i:nil="true" />
   <Category i:nil="true" />

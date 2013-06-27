@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ProductViewEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>Unit-dependent recurring charges.</Description>
   <Direction>Input</Direction>
@@ -15,328 +16,10 @@
   </Type>
   <Namespace>metratech.com.ProductViews</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Specifies type of the charge: arrears, advance, credit, initial, initial correction, advance correction, or debit correction charge.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>RCActionType</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>32</Length>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Start date of recurring charge interval.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>RCIntervalStart</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>End date of recurring charge interval.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>RCIntervalEnd</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Start date of billing interval.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>BillingIntervalStart</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>End date of billing interval.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>BillingIntervalEnd</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Start date of intersection of the recurring charge and subscription intervals.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>RCIntervalSubscriptionStart</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>End date of intersection of the recurring charge and subscription intervals.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>RCIntervalSubscriptionEnd</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Start date of subscription.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>SubscriptionStart</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>End date of subscription.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>SubscriptionEnd</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>True for advance, false for arrears.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>Advance</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>If true, prorate on subscription.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ProrateOnSubscription</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Start date of the unit value effective date.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>UnitValueStart</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>End date of the unit value effective date.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>UnitValueEnd</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Amount of the unit value.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>UnitValue</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>0 if the unit-dependent recurring charge uses tiered rating, 1 if it uses tapered.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>RatingType</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>If true, prorate on unsubscription.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ProrateOnUnsubscription</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Fixed number of days to prorate to. 0 means use actual.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ProrationCycleLength</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>For credits, this is the rate effective date to look up the rates when the advance or initial charge was issued.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>BilledRateDate</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Subscription to the recurring charge.</Description>
         <Direction>Input</Direction>
@@ -358,14 +41,15 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Start date of recurring charge interval prorated if necessary.</Description>
+        <Description>True for advance, false for arrears.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>ProratedIntervalStart</Name>
+        <Name>Advance</Name>
         <Required>true</Required>
         <Type>
-          <BaseType>DateTime</BaseType>
+          <BaseType>Boolean</BaseType>
           <ListType>None</ListType>
         </Type>
         <IsExportable>false</IsExportable>
@@ -375,36 +59,16 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>End date of recurring charge interval prorated if necessary.</Description>
+        <Description>For credits, this is the rate effective date to look up the rates when the advance or initial charge was issued.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>ProratedIntervalEnd</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Number of days to which the charge was prorated</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ProratedDays</Name>
+        <Name>BilledRateDate</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
+        <Type>
+          <BaseType>DateTime</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -413,6 +77,43 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>End date of billing interval.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>BillingIntervalEnd</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Start date of billing interval.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>BillingIntervalStart</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The prorated rate per day.</Description>
         <Direction>Input</Direction>
@@ -434,6 +135,218 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Number of days to which the charge was prorated</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProratedDays</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>End date of recurring charge interval prorated if necessary.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProratedIntervalEnd</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Start date of recurring charge interval prorated if necessary.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProratedIntervalStart</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>true, if prorated on subscription.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProratedOnSubscription</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>true, if prorated because of a change to the recurring charge value.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProratedOnUnitValueChange</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>true, if prorated on unsubscription.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProratedOnUnsubscription</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>If true, prorate on subscription.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProrateOnSubscription</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>If true, prorate on unsubscription.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProrateOnUnsubscription</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Fixed number of days to prorate to. 0 means use actual.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>ProrationCycleLength</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>0 if the unit-dependent recurring charge uses tiered rating, 1 if it uses tapered.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>RatingType</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Specifies type of the charge: arrears, advance, credit, initial, initial correction, advance correction, or debit correction charge.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>RCActionType</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>32</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>non-prorated recurring charge amount.</Description>
         <Direction>Input</Direction>
@@ -455,83 +368,12 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>true, if prorated on subscription.</Description>
+        <Description>End date of recurring charge interval.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>ProratedOnSubscription</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>true, if prorated on unsubscription.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ProratedOnUnsubscription</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>true, if prorated because of a change to the recurring charge value.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ProratedOnUnitValueChange</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The internal MetraNet account identifier</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>AccountId</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The time the event is deemed to have occurred</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Timestamp</Name>
+        <Name>RCIntervalEnd</Name>
         <Required>true</Required>
         <Type>
           <BaseType>DateTime</BaseType>
@@ -544,16 +386,16 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>The currency for the Event</Description>
+        <Description>Start date of recurring charge interval.</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Currency</Name>
+        <IsCore>false</IsCore>
+        <Name>RCIntervalStart</Name>
         <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
+        <Type>
+          <BaseType>DateTime</BaseType>
           <ListType>None</ListType>
-          <Length>0</Length>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -562,23 +404,16 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>The charge assoicated with the event which may summarize other charges within the event.The amount can be negative to represent a credit.</Description>
+        <Description>End date of intersection of the recurring charge and subscription intervals.</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>EventCharge</Name>
+        <IsCore>false</IsCore>
+        <Name>RCIntervalSubscriptionEnd</Name>
         <Required>true</Required>
-        <Type i:type="ChargeType">
-          <BaseType>Charge</BaseType>
+        <Type>
+          <BaseType>DateTime</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>Currency</CurrencyProperty>
-          <FixedCurrency i:nil="true" />
-          <EndProperty i:nil="true" />
-          <PriceProperty i:nil="true" />
-          <ProductProperty i:nil="true" />
-          <QuantityProperty i:nil="true" />
-          <StartProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -587,14 +422,69 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Identifes which MetraView page will present the Event.</Description>
+        <Description>Start date of intersection of the recurring charge and subscription intervals.</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>PresentationPageId</Name>
+        <IsCore>false</IsCore>
+        <Name>RCIntervalSubscriptionStart</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>End date of subscription.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SubscriptionEnd</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Start date of subscription.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>SubscriptionStart</Name>
+        <Required>true</Required>
+        <Type>
+          <BaseType>DateTime</BaseType>
+          <ListType>None</ListType>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Amount of the unit value.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>UnitValue</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
           <FixedUnitOfMeasure i:nil="true" />
           <UnitOfMeasureCategory i:nil="true" />
@@ -608,19 +498,16 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Uniquely identifes the Event</Description>
+        <Description>End date of the unit value effective date.</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>EventId</Name>
+        <IsCore>false</IsCore>
+        <Name>UnitValueEnd</Name>
         <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
+        <Type>
+          <BaseType>DateTime</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -629,139 +516,28 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>The EventTax tax for the Event.</Description>
+        <Description>Start date of the unit value effective date.</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>EventTax</Name>
+        <IsCore>false</IsCore>
+        <Name>UnitValueStart</Name>
         <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
+        <Type>
+          <BaseType>DateTime</BaseType>
           <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The FederalTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>FederalTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The StateTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>StateTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The CountyTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>CountyTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The LocalTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>LocalTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The OtherTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>OtherTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-    </Properties>
+    </CustomProperties>
   </Properties>
   <EventType>Unknown</EventType>
-  <IsMetered>false</IsMetered>
+  <Flow>
+    <Steps />
+  </Flow>
+  <Parent i:nil="true" />
   <UniqueKey />
 </PropertyBag>

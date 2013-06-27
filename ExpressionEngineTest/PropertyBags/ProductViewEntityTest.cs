@@ -24,7 +24,7 @@ namespace ExpressionEngineTest
             Assert.AreEqual(name, pv.Name);
             Assert.AreEqual(description, pv.Description);
             Assert.IsTrue(((PropertyBagType)pv.Type).IsProductView, "IsProductView");
-            Assert.AreEqual("t_pv_MyPv", pv.DatabaseName);
+            Assert.AreEqual("t_pv_MyPv", pv.DatabaseColumnName);
         }
 
         [TestMethod()]
@@ -33,11 +33,11 @@ namespace ExpressionEngineTest
             var pv = new ProductViewEntity("MetraTech", "foo", null);
             var property = (ProductViewProperty)pv.Properties.AddCharge("Amount", "", true);
             Assert.AreEqual(BaseType.Charge, property.Type.BaseType);
-            Assert.AreEqual("c_Amount", property.DatabaseName, "Default name");
+            Assert.AreEqual("c_Amount", property.DatabaseColumnName, "Default name");
 
             var remappingName = "the reamaped name";
-            property.DatabaseNameMapping = remappingName;
-            Assert.AreEqual(remappingName, property.DatabaseName, "Remapped name");
+            property.DatabaseColumnNameMapping = remappingName;
+            Assert.AreEqual(remappingName, property.DatabaseColumnName, "Remapped name");
         }
     }
 }

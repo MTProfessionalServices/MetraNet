@@ -21,6 +21,7 @@ namespace PropertyGui
         #region Properties
         private Context Context;
         private PropertyBag PropertyBag;
+        private ProductViewEntity ProductView { get { return (ProductViewEntity) PropertyBag; } }
         private Property CurrentProperty = null;
         private bool IgnoreChanges = false;
         #endregion
@@ -54,10 +55,11 @@ namespace PropertyGui
 
             //Init the general stuff
             txtFullName.Text = PropertyBag.FullName;
-            cboParent.Text = ((ProductViewEntity) PropertyBag).Parent;
+            cboParent.Text = ProductView.Parent;
+            chkUsesCommerceDecisionEngine.Checked = ProductView.UsesCommerceDecisionEngine;
             txtDescription.Text = PropertyBag.Description;
             GuiHelper.LoadEnum<EventType>(cboEventType);
-            cboEventType.SelectedItem = ((ProductViewEntity)PropertyBag).EventType;
+            cboEventType.SelectedItem = ProductView.EventType;
 
             //Init the filter
             GuiHelper.LoadMetraNetBaseTypes(cboDataTypeFilter, true, true);
@@ -84,10 +86,10 @@ namespace PropertyGui
 
         public void SyncToObject()
         {
-            var pv = (ProductViewEntity) PropertyBag;
-            pv.Parent = cboParent.Text;
+            ProductView.Parent = cboParent.Text;
             PropertyBag.Description = txtDescription.Text;
-            ((ProductViewEntity)PropertyBag).EventType = (EventType)cboEventType.SelectedItem;
+            ProductView.EventType = (EventType)cboEventType.SelectedItem;
+            ProductView.UsesCommerceDecisionEngine = chkUsesCommerceDecisionEngine.Checked;
             ctlPropertyEditor.SyncToObject();
             ctlFlowEditor.SyncToObject();
         }

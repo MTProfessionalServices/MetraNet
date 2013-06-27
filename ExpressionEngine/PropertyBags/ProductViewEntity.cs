@@ -15,10 +15,10 @@ using MetraTech.ExpressionEngine.Validations;
 namespace MetraTech.ExpressionEngine.PropertyBags
 {
     [DataContract(Namespace = "MetraTech")]
-    public class ProductViewEntity : MetraNetEntityBase
+    public class ProductViewEntity : PropertyBag
     {
         #region Properties
-
+       
         /// <summary>
         /// Multipoint parent, optional, if not null, must be a ProductView
         /// </summary>
@@ -28,7 +28,10 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         [DataMember]
         public Collection<UniqueKey> UniqueKey { get; private set; }
 
-        public override string DatabaseName { get { return "t_pv_" + Name; } }
+        public override string DatabaseTableNamePrefix
+        {
+            get { return "t_pv_"; }
+        }
 
         [DataMember]
         public EventType EventType { get; set; }
@@ -36,25 +39,57 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         [DataMember]
         public BaseFlow Flow = new BaseFlow();
 
+        [DataMember]
+        public bool UsesCommerceDecisionEngine { get; set; }
+
         /// <summary>
         ///// The xQualificationGroup prefix
         /// </summary>
         public override string XqgPrefix { get { return UserContext.Settings.NewSyntax ? "EVENT" : "USAGE"; } }
 
-        public static PropertyCollection InternalCoreProperties = new PropertyCollection(null);
+        public static PropertyCollection CoreProperties;
 
         #endregion
 
         #region Constructor
+        static ProductViewEntity()
+        {
+            LoadStaticCoreProperties();
+        }
         public ProductViewEntity(string _namespace, string name, string description)
-            : base(_namespace, name, PropertyBagConstants.ProductView, description)
+            : base(_namespace, name, PropertyBagConstants.ProductView, PropertyBagMode.ExtensibleEntity, description)
+        {
+            FixDeserilization();
+        }
+        [OnDeserializedAttribute]
+        private void FixDeserilization(StreamingContext sc)
+        {
+            FixDeserilization();
+        }
+        private void FixDeserilization()
         {
             EventType = EventType.Unknown;
             UniqueKey = new Collection<UniqueKey>();
+            DatabaseReservedPropertyTableName = PropertyBagConstants.UsageTableName;
         }
         #endregion
 
         #region Methods
+
+        public override IEnumerable<Property> GetCoreProperties()
+        {
+            return CoreProperties;
+        }
+
+        public override void AddCoreProperties()
+        {
+            foreach (var property in CoreProperties)
+            {
+                if (property.Name == "EventCharge" && Properties.Get("EventCharge") != null)
+                    continue;
+                Properties.Add(property);
+            }
+        }
 
         public void UpdateFlow(Context context)
         {
@@ -87,52 +122,56 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         /// <summary>
         /// Appends the core values
         /// </summary>
-        public void AddCoreProperties()
+        private static void LoadStaticCoreProperties()
         {
+            CoreProperties = new PropertyCollection(null);
+
             //AccountID
-            var accountId = Properties.AddInteger32("AccountId", "The internal MetraNet account identifier", true);
+            var accountId = CoreProperties.AddInteger32("AccountId", "The internal MetraNet account identifier", true);
+            accountId.DatabaseColumnNameMapping = "account_id";
             accountId.IsCore = true;
 
             //Timestamp
-            var timestamp = Properties.AddDateTime("Timestamp", "The time the event is deemed to have occurred", true);
+            var timestamp = CoreProperties.AddDateTime("Timestamp", "The time the event is deemed to have occurred", true);
+            timestamp.DatabaseColumnNameMapping = "timestamp";
             timestamp.IsCore = true;
 
             //Currency
-            var currency = Properties.AddCurrency("Currency", "The currency for the Event", true);
-            ((MetraNetPropertyBase) currency).DatabaseNameMapping = "am_currency";
+            var currency = CoreProperties.AddCurrency("Currency", "The currency for the Event", true);
+            currency.DatabaseColumnNameMapping = "am_currency";
             currency.IsCore = true;
-
+ 
             //Event Amount
-            var eventCharge = (ProductViewProperty)Properties.AddCharge(PropertyBagConstants.EventCharge, "The charge assoicated with the event which may summarize other charges within the event.The amount can be negative to represent a credit.", true);
+            var eventCharge = CoreProperties.AddCharge(PropertyBagConstants.EventCharge, "The charge assoicated with the event which may summarize other charges within the event.The amount can be negative to represent a credit.", true);
             eventCharge.IsCore = true;
-            eventCharge.DatabaseNameMapping = "Amount";
+            eventCharge.DatabaseColumnNameMapping = "Amount";
             var chargeType = (ChargeType) eventCharge.Type;
             chargeType.CurrencyMode = CurrencyMode.PropertyDriven;
             chargeType.CurrencyProperty = "Currency";
 
             //Presentation Page ID
-            var presentationPageId = (MetraNetPropertyBase)Properties.AddInteger32("PresentationPageId", "Identifes which MetraView page will present the Event.", true);
+            var presentationPageId = CoreProperties.AddInteger32("PresentationPageId", "Identifes which MetraView page will present the Event.", true);
             presentationPageId.IsCore = true;
-            presentationPageId.DatabaseNameMapping = "c_ViewId";
+            presentationPageId.DatabaseColumnNameMapping = "view_id";
 
             //Event ID
-            var eventId = (MetraNetPropertyBase) Properties.AddInteger32("EventId", "Uniquely identifes the Event", true);
+            var eventId = CoreProperties.AddInteger32("EventId", "Uniquely identifes the Event", true);
             eventId.IsCore = true;
-            eventId.DatabaseNameMapping = "c_SessionId";
+            eventId.DatabaseColumnNameMapping = "session_id";
 
-            AddTaxProperty("c_TaxAmount", PropertyBagConstants.EventTax, Properties);
-            AddTaxProperty("c_FederalTaxAmount", "FederalTax", Properties);
-            AddTaxProperty("c_StateTaxAmount", "StateTax", Properties);
-            AddTaxProperty("c_CountyTaxAmount", "CountyTax", Properties);
-            AddTaxProperty("c_LocalTaxAmount", "LocalTax", Properties);
-            AddTaxProperty("c_OtherTaxAmount", "OtherTax", Properties);
+            AddCoreTaxProperty("c_TaxAmount", PropertyBagConstants.EventTax, CoreProperties);
+            AddCoreTaxProperty("c_FederalTaxAmount", "FederalTax", CoreProperties);
+            AddCoreTaxProperty("c_StateTaxAmount", "StateTax", CoreProperties);
+            AddCoreTaxProperty("c_CountyTaxAmount", "CountyTax", CoreProperties);
+            AddCoreTaxProperty("c_LocalTaxAmount", "LocalTax", CoreProperties);
+            AddCoreTaxProperty("c_OtherTaxAmount", "OtherTax", CoreProperties);
         }
 
-        public MetraNetPropertyBase AddTaxProperty(string realName, string newName, PropertyCollection properties)
+        public static Property AddCoreTaxProperty(string realName, string newName, PropertyCollection properties)
         {
             var description = string.Format(CultureInfo.InvariantCulture, "The {0} tax for the Event.", newName);
-            var tax = (MetraNetPropertyBase) Properties.AddTax(newName, description, true, null);
-            tax.DatabaseNameMapping = realName;
+            var tax = CoreProperties.AddTax(newName, description, true, null);
+            tax.DatabaseColumnNameMapping = realName;
             tax.IsCore = true;
             return tax;
         }
@@ -181,7 +220,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         public static ProductViewEntity CreateCompute()
         {
             var compute = new ProductViewEntity("MetraTech.Cloud", "Compute", "Models an IaaS compute service");
-            compute.AddCoreProperties();
+            //compute.AddCoreProperties();
 
             //Hours
             var hoursType = TypeFactory.CreateDecimal(UnitOfMeasureMode.FixedUnitOfMeasure);

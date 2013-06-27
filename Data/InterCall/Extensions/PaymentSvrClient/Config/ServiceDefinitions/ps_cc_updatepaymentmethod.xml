@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ServiceDefinitionEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>Payment Server stores 2 categories of information: account and payment method.
         Account information is data common to all payment methods, such as, account id,
@@ -44,39 +45,10 @@
   </Type>
   <Namespace>metratech.com.ServiceDefinitions</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The internal MetraNet account identifier</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>AccountId</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The time the event is deemed to have occurred</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Timestamp</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The account identifier is a numeric value that represents a subscriber.</Description>
         <Direction>Input</Direction>
@@ -94,20 +66,7 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The name as it appears on the card.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>customername</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The billing address the cardholder specified during the credit card 
         application process. AVS uses this field to authenticate the cardholder.</Description>
@@ -123,112 +82,12 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>The city the cardholder specified during the credit card application process.</Description>
+        <Description>Indicates whether an authorization form has been received.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>city</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>40</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Associated with the city and country.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>state</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>20</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Zip or postal code associated with the city, state, and country.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>zip</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>10</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Associated with the city and state.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>country</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>25</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The type of the card. For example, MasterCard, Visa, American Express, etc.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>creditcardtype</Name>
-        <Required>true</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>metratech.com/paymentserver.CreditCardType</Category>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The last four digits of the credit card number. This is a card identifying 
-        attribute. The purpose is to identify the card while protecting the card 
-        number.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>lastfourdigits</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>4</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The expiration date as it appears on the card.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>expdate</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>20</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The format of the expiration and start dates. This is an enumerated type 
-        that specifies formats such as YYMM, YYYYMM, etc.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>expdateformat</Name>
+        <Name>authreceived</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
           <BaseType>Integer32</BaseType>
@@ -241,36 +100,7 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Date in addition to the embossed expiration date that appears on the 
-        front of UK domestic cards.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>startdate</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>20</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Number in addition to the embossed number that appears on the front 
-        of UK domestic cards.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>issuernumber</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>2</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>The 4-digit number on the front of the card. This number is in addition 
         to the embossed number. This number appears above and to the right of the 
@@ -289,6 +119,7 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>This is the 3-digit number that appears on the back of MasterCard and Visa 
         cards in the signature box. The purpose is to aid in reducing fraud in 
@@ -306,34 +137,37 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Used for purchase cards. This field identifies the cardholder.</Description>
+        <Description>Indicates The CC Information Level (1,2or 3) that we are going to send to Paymentech for each transaction.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>customerreferenceid</Name>
+        <Name>cclevel</Name>
         <Required>false</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
           <ListType>None</ListType>
-          <Length>17</Length>
+          <Length>1</Length>
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Used for international purchase cards.</Description>
+        <Description>The city the cardholder specified during the credit card application process.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>customervatnumber</Name>
+        <Name>city</Name>
         <Required>false</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
           <ListType>None</ListType>
-          <Length>13</Length>
+          <Length>40</Length>
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Used for international purchase cards.</Description>
         <Direction>Input</Direction>
@@ -348,20 +182,7 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Used for international purchase cards.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>companypostalcode</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>10</Length>
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Used for international purchase cards.</Description>
         <Direction>Input</Direction>
@@ -376,12 +197,58 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Reserved for future use.</Description>
+        <Description>Used for international purchase cards.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>reserved1</Name>
+        <Name>companypostalcode</Name>
         <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>10</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Associated with the city and state.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>country</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>25</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>The type of the card. For example, MasterCard, Visa, American Express, etc.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>creditcardtype</Name>
+        <Required>true</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>metratech.com/paymentserver.CreditCardType</Category>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>The name as it appears on the card.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>customername</Name>
+        <Required>true</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
           <ListType>None</ListType>
@@ -390,54 +257,37 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Reserved for future use.</Description>
+        <Description>Used for purchase cards. This field identifies the cardholder.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>reserved2</Name>
+        <Name>customerreferenceid</Name>
         <Required>false</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
           <ListType>None</ListType>
-          <Length>40</Length>
+          <Length>17</Length>
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Indicates whether an authorization form has been received.</Description>
+        <Description>Used for international purchase cards.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>authreceived</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
+        <Name>customervatnumber</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <Length>13</Length>
         </Type>
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Indicates whether this payment method becomes the default payment method.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>primary</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>This flag can de-activate a payment method.</Description>
         <Direction>Input</Direction>
@@ -455,6 +305,168 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>The expiration date as it appears on the card.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>expdate</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>The format of the expiration and start dates. This is an enumerated type 
+        that specifies formats such as YYMM, YYYYMM, etc.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>expdateformat</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Number in addition to the embossed number that appears on the front 
+        of UK domestic cards.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>issuernumber</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>2</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>The last four digits of the credit card number. This is a card identifying 
+        attribute. The purpose is to identify the card while protecting the card 
+        number.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>lastfourdigits</Name>
+        <Required>true</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>4</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>If true then the L2 and L3 credit card transactions will be detailed by PAC code.  Otherwise it will be only summarized at account level.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>pacrollupflag</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>1</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Indicates whether this payment method becomes the default payment method.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>primary</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer32</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Reserved for future use.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>reserved1</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Reserved for future use.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>reserved2</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>40</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Date in addition to the embossed expiration date that appears on the 
+        front of UK domestic cards.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>startdate</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Associated with the city and country.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>state</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+      </Property>
+      <Property i:type="ServiceDefinitionProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Indicates a testing session through a PS pipeline.</Description>
         <Direction>Input</Direction>
@@ -472,33 +484,20 @@
       </Property>
       <Property i:type="ServiceDefinitionProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Indicates The CC Information Level (1,2or 3) that we are going to send to Paymentech for each transaction.</Description>
+        <Description>Zip or postal code associated with the city, state, and country.</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>cclevel</Name>
+        <Name>zip</Name>
         <Required>false</Required>
         <Type i:type="StringType">
           <BaseType>String</BaseType>
           <ListType>None</ListType>
-          <Length>1</Length>
+          <Length>10</Length>
         </Type>
       </Property>
-      <Property i:type="ServiceDefinitionProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>If true then the L2 and L3 credit card transactions will be detailed by PAC code.  Otherwise it will be only summarized at account level.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>pacrollupflag</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>1</Length>
-        </Type>
-      </Property>
-    </Properties>
+    </CustomProperties>
   </Properties>
   <AutoDelete>false</AutoDelete>
   <AutoResubmit>false</AutoResubmit>

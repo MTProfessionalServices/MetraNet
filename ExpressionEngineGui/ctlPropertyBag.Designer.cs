@@ -44,6 +44,9 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabGeneral = new System.Windows.Forms.TabPage();
+            this.chkUsesCommerceDecisionEngine = new System.Windows.Forms.CheckBox();
+            this.cboParent = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.cboEventType = new System.Windows.Forms.ComboBox();
             this.txtFullName = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
@@ -54,8 +57,6 @@
             this.btnRename = new System.Windows.Forms.Button();
             this.tabCalculationSequence = new System.Windows.Forms.TabPage();
             this.ctlFlowEditor = new PropertyGui.Flows.Steps.ctlFlowEditor();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cboParent = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -175,8 +176,6 @@
             // chkShowReferences
             // 
             this.chkShowReferences.AutoSize = true;
-            this.chkShowReferences.Checked = true;
-            this.chkShowReferences.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkShowReferences.Location = new System.Drawing.Point(11, 8);
             this.chkShowReferences.Name = "chkShowReferences";
             this.chkShowReferences.Size = new System.Drawing.Size(119, 17);
@@ -228,6 +227,7 @@
             // 
             // tabGeneral
             // 
+            this.tabGeneral.Controls.Add(this.chkUsesCommerceDecisionEngine);
             this.tabGeneral.Controls.Add(this.cboParent);
             this.tabGeneral.Controls.Add(this.label5);
             this.tabGeneral.Controls.Add(this.cboEventType);
@@ -243,6 +243,34 @@
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "General";
             this.tabGeneral.UseVisualStyleBackColor = true;
+            // 
+            // chkUsesCommerceDecisionEngine
+            // 
+            this.chkUsesCommerceDecisionEngine.AutoSize = true;
+            this.chkUsesCommerceDecisionEngine.Location = new System.Drawing.Point(10, 113);
+            this.chkUsesCommerceDecisionEngine.Name = "chkUsesCommerceDecisionEngine";
+            this.chkUsesCommerceDecisionEngine.Size = new System.Drawing.Size(183, 17);
+            this.chkUsesCommerceDecisionEngine.TabIndex = 8;
+            this.chkUsesCommerceDecisionEngine.Text = "Uses Commerce Decision Engine";
+            this.chkUsesCommerceDecisionEngine.UseVisualStyleBackColor = true;
+            // 
+            // cboParent
+            // 
+            this.cboParent.FormattingEnabled = true;
+            this.cboParent.Location = new System.Drawing.Point(78, 76);
+            this.cboParent.Name = "cboParent";
+            this.cboParent.Size = new System.Drawing.Size(590, 21);
+            this.cboParent.TabIndex = 7;
+            this.cboParent.DropDown += new System.EventHandler(this.cboParent_DropDown);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 82);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Parent:";
             // 
             // cboEventType
             // 
@@ -344,24 +372,6 @@
             this.ctlFlowEditor.Size = new System.Drawing.Size(863, 353);
             this.ctlFlowEditor.TabIndex = 0;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 82);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Parent:";
-            // 
-            // cboParent
-            // 
-            this.cboParent.FormattingEnabled = true;
-            this.cboParent.Location = new System.Drawing.Point(78, 76);
-            this.cboParent.Name = "cboParent";
-            this.cboParent.Size = new System.Drawing.Size(590, 21);
-            this.cboParent.TabIndex = 7;
-            this.cboParent.DropDown += new System.EventHandler(this.cboParent_DropDown);
-            // 
             // ctlPropertyBag
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,5 +423,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuCollapseAll;
         private System.Windows.Forms.ComboBox cboParent;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox chkUsesCommerceDecisionEngine;
     }
 }

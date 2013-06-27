@@ -379,14 +379,14 @@ namespace MetraTech.ExpressionEngine
             _extensions.Clear();
             foreach (var propertyBag in PropertyBags)
             {
-                if (propertyBag is MetraNetEntityBase)
-                {
+               // if (propertyBag is MetraNetEntityBase)
+               // {
                 //    var propertyBag = (MetraNetPropertyBase) propertyBag;
                 //    if (!_extensions.Contains(propertyBag.Extension))
 
                     if (!string.IsNullOrEmpty(propertyBag.Namespace) && !_namespaces.Contains(propertyBag.Name))
                         _namespaces.Add(propertyBag.Namespace);
-                }          
+                //}          
             }
         }
 

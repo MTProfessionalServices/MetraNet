@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ProductViewEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>Commission for Intercall Connection</Description>
   <Direction>Input</Direction>
@@ -15,17 +16,18 @@
   </Type>
   <Namespace>intercall.com.ProductViews</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Session ID for the Retail Transaction</Description>
+        <Description>bridge Commission Amount</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>related_retail_id_sess</Name>
+        <Name>bridge_comm_amt</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
-          <BaseType>Integer64</BaseType>
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
           <FixedUnitOfMeasure i:nil="true" />
           <UnitOfMeasureCategory i:nil="true" />
@@ -39,14 +41,15 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Session ID for the Wholesale Transaction</Description>
+        <Description>bridge Commission Amount (BU)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>related_ws_id_sess</Name>
+        <Name>bridge_comm_bu_amt</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
-          <BaseType>Integer64</BaseType>
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
           <FixedUnitOfMeasure i:nil="true" />
           <UnitOfMeasureCategory i:nil="true" />
@@ -60,14 +63,15 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Adjustment ID for the Retail Transaction</Description>
+        <Description>bridge Commission Amount (Div)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>related_retail_id_adj</Name>
+        <Name>bridge_comm_div_amt</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
-          <BaseType>Integer64</BaseType>
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
           <FixedUnitOfMeasure i:nil="true" />
           <UnitOfMeasureCategory i:nil="true" />
@@ -81,14 +85,15 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Adjustment ID for the Wholesale Transaction</Description>
+        <Description>bridge Commission Amount (Gbl)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>related_ws_id_adj</Name>
+        <Name>bridge_comm_gbl_amt</Name>
         <Required>true</Required>
         <Type i:type="NumberType">
-          <BaseType>Integer64</BaseType>
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
           <FixedUnitOfMeasure i:nil="true" />
           <UnitOfMeasureCategory i:nil="true" />
@@ -102,14 +107,15 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Session ID for the Retail Discount Transaction</Description>
+        <Description>bridge Feature Commission Percentage Value</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>related_retail_id_disc</Name>
-        <Required>true</Required>
+        <Name>bridge_comm_pct</Name>
+        <Required>false</Required>
         <Type i:type="NumberType">
-          <BaseType>Integer64</BaseType>
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
           <FixedUnitOfMeasure i:nil="true" />
           <UnitOfMeasureCategory i:nil="true" />
@@ -123,153 +129,7 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Session ID for the Wholesale Discount Transaction</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>related_ws_id_disc</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer64</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The bill_code used for rating.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>rate_bill_code</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>intercall.com/ConfCommon.BillCode</Category>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The product part of the rate_bill_code</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>product</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>intercall.com/ConfCommon.Product</Category>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The transport part of the rate_bill_code.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>transport</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>intercall.com/ConfCommon.Transport</Category>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>1 - Inbound. 2 Outbound.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>call_type</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>intercall.com/ConfCommon.CallType</Category>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Surcharge Code used for rating</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>surcharge_code</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>intercall.com/ConfCommon.SurchargeCode</Category>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The country part of the surcharge code.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>country</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>intercall.com/ConfCommon.Country</Category>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The number type part of the surcharge code.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>number_type</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>intercall.com/ConfCommon.NumberType</Category>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>bridge Commission Type</Description>
         <Direction>Input</Direction>
@@ -288,17 +148,18 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>bridge Feature Commission Percentage Value</Description>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>bridge Svc Fee Commission Amount</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>bridge_comm_pct</Name>
-        <Required>false</Required>
+        <Name>bridge_svc_comm_amt</Name>
+        <Required>true</Required>
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
-          <UnitOfMeasureCategory></UnitOfMeasureCategory>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
           <UnitOfMeasureProperty i:nil="true" />
         </Type>
@@ -309,101 +170,102 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>a bad day today</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>bridge_comm_amt</Name>
-        <Required>true</Required>
-        <Type i:type="ChargeType">
-          <BaseType>Charge</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty i:nil="true" />
-          <FixedCurrency i:nil="true" />
-          <EndProperty i:nil="true" />
-          <PriceProperty i:nil="true" />
-          <ProductProperty i:nil="true" />
-          <QuantityProperty></QuantityProperty>
-          <StartProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>bridge Commission Amount (Div)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>bridge_comm_div_amt</Name>
-        <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>div_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>bridge Commission Amount (BU)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>bridge_comm_bu_amt</Name>
-        <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>bu_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>bridge Commission Amount (Gbl)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>bridge_comm_gbl_amt</Name>
-        <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>gbl_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>leg Commission Type</Description>
+        <Description>bridge Svc Fee Commission Amount (BU)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>leg_comm_type</Name>
+        <Name>bridge_svc_comm_bu_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>bridge Svc Fee Commission Amount (Div)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>bridge_svc_comm_div_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>bridge Svc Fee Commission Amount (Gbl)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>bridge_svc_comm_gbl_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>BU currency.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>bu_curr</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>3</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>1 - Inbound. 2 Outbound.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>call_type</Name>
         <Required>false</Required>
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <Category>intercall.com.CommissionType</Category>
+          <Category>intercall.com/ConfCommon.CallType</Category>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -412,6 +274,152 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>The country part of the surcharge code.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>country</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>intercall.com/ConfCommon.Country</Category>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Division currency.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>div_curr</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>3</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Global currency.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>gbl_curr</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>3</Length>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>leg Commission Amount</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>leg_comm_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>leg Commission Amount (BU)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>leg_comm_bu_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>leg Commission Amount (Div)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>leg_comm_div_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>leg Commission Amount (Gbl)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>leg_comm_gbl_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>leg Feature Commission Percentage Value</Description>
         <Direction>Input</Direction>
@@ -433,96 +441,12 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>leg Commission Amount</Description>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>leg Commission Type</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>leg_comm_amt</Name>
-        <Required>true</Required>
-        <Type i:type="ChargeType">
-          <BaseType>Charge</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty i:nil="true" />
-          <FixedCurrency i:nil="true" />
-          <EndProperty i:nil="true" />
-          <PriceProperty i:nil="true" />
-          <ProductProperty i:nil="true" />
-          <QuantityProperty></QuantityProperty>
-          <StartProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>leg Commission Amount (Div)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>leg_comm_div_amt</Name>
-        <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>div_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>leg Commission Amount (BU)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>leg_comm_bu_amt</Name>
-        <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>bu_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>leg Commission Amount (Gbl)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>leg_comm_gbl_amt</Name>
-        <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>gbl_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>surcharge Commission Type</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>surcharge_comm_type</Name>
+        <Name>leg_comm_type</Name>
         <Required>false</Required>
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
@@ -536,6 +460,391 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>leg Svc Fee Commission Amount</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>leg_svc_comm_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>leg Svc Fee Commission Amount (BU)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>leg_svc_comm_bu_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>leg Svc Fee Commission Amount (Div)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>leg_svc_comm_div_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>leg Svc Fee Commission Amount (Gbl)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>leg_svc_comm_gbl_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>The number type part of the surcharge code.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>number_type</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>intercall.com/ConfCommon.NumberType</Category>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>The product part of the rate_bill_code</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>product</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>intercall.com/ConfCommon.Product</Category>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>The bill_code used for rating.</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>rate_bill_code</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>intercall.com/ConfCommon.BillCode</Category>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Adjustment ID for the Retail Transaction</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>related_retail_id_adj</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer64</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Session ID for the Retail Discount Transaction</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>related_retail_id_disc</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer64</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Session ID for the Retail Transaction</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>related_retail_id_sess</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer64</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Adjustment ID for the Wholesale Transaction</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>related_ws_id_adj</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer64</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Session ID for the Wholesale Discount Transaction</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>related_ws_id_disc</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer64</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Session ID for the Wholesale Transaction</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>related_ws_id_sess</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Integer64</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Surcharge Code used for rating</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>surcharge_code</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
+          <ListType>None</ListType>
+          <Category>intercall.com/ConfCommon.SurchargeCode</Category>
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>surcharge Commission Amount</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>surcharge_comm_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>surcharge Commission Amount (BU)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>surcharge_comm_bu_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>surcharge Commission Amount (Div)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>surcharge_comm_div_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>surcharge Commission Amount (Gbl)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>surcharge_comm_gbl_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>surcharge Feature Commission Percentage Value</Description>
         <Direction>Input</Direction>
@@ -557,114 +866,12 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>surcharge Commission Amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>surcharge_comm_amt</Name>
-        <Required>true</Required>
-        <Type i:type="ChargeType">
-          <BaseType>Charge</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty i:nil="true" />
-          <FixedCurrency i:nil="true" />
-          <EndProperty i:nil="true" />
-          <PriceProperty i:nil="true" />
-          <ProductProperty i:nil="true" />
-          <QuantityProperty></QuantityProperty>
-          <StartProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>surcharge Commission Amount (Div)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>surcharge_comm_div_amt</Name>
-        <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>div_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>surcharge Commission Amount (BU)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>surcharge_comm_bu_amt</Name>
-        <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>bu_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>surcharge Commission Amount (Gbl)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>surcharge_comm_gbl_amt</Name>
-        <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>gbl_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Telecom Charge Code</Description>
+        <Description>surcharge Commission Type</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>telecom_charge_code</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>intercall.com/ConfCommon.ChargeCode</Category>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>telecom Commission Type</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>telecom_comm_type</Name>
+        <Name>surcharge_comm_type</Name>
         <Required>false</Required>
         <Type i:type="EnumerationType">
           <BaseType>Enumeration</BaseType>
@@ -678,12 +885,13 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>telecom Feature Commission Percentage Value</Description>
+        <Description>surcharge Svc Fee Commission Amount</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>telecom_comm_pct</Name>
-        <Required>false</Required>
+        <Name>surcharge_svc_comm_amt</Name>
+        <Required>true</Required>
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
@@ -699,101 +907,20 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>telecom Commission Amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>telecom_comm_amt</Name>
-        <Required>true</Required>
-        <Type i:type="ChargeType">
-          <BaseType>Charge</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty i:nil="true" />
-          <FixedCurrency i:nil="true" />
-          <EndProperty i:nil="true" />
-          <PriceProperty i:nil="true" />
-          <ProductProperty i:nil="true" />
-          <QuantityProperty></QuantityProperty>
-          <StartProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>telecom Commission Amount (Div)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>telecom_comm_div_amt</Name>
-        <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>div_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>telecom Commission Amount (BU)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>telecom_comm_bu_amt</Name>
-        <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>bu_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>telecom Commission Amount (Gbl)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>telecom_comm_gbl_amt</Name>
-        <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>gbl_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Feature Commission Type</Description>
+        <Description>surcharge Svc Fee Commission Amount (BU)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>svc_fee_comm_type</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
+        <Name>surcharge_svc_comm_bu_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <Category>intercall.com.CommissionType</Category>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -802,6 +929,51 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>surcharge Svc Fee Commission Amount (Div)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>surcharge_svc_comm_div_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>surcharge Svc Fee Commission Amount (Gbl)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>surcharge_svc_comm_gbl_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Feature Commission Percentage Value</Description>
         <Direction>Input</Direction>
@@ -823,23 +995,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>bridge Svc Fee Commission Amount</Description>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Feature Commission Type</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>bridge_svc_comm_amt</Name>
-        <Required>true</Required>
-        <Type i:type="ChargeType">
-          <BaseType>Charge</BaseType>
+        <Name>svc_fee_comm_type</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty i:nil="true" />
-          <FixedCurrency i:nil="true" />
-          <EndProperty i:nil="true" />
-          <PriceProperty i:nil="true" />
-          <ProductProperty i:nil="true" />
-          <QuantityProperty></QuantityProperty>
-          <StartProperty i:nil="true" />
+          <Category>intercall.com.CommissionType</Category>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -848,18 +1014,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>bridge Svc Fee Commission Amount (Div)</Description>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Telecom Charge Code</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>bridge_svc_comm_div_amt</Name>
-        <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
+        <Name>telecom_charge_code</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>div_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
+          <Category>intercall.com/ConfCommon.ChargeCode</Category>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -868,18 +1033,20 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>bridge Svc Fee Commission Amount (BU)</Description>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>telecom Commission Amount</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>bridge_svc_comm_bu_amt</Name>
+        <Name>telecom_comm_amt</Name>
         <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>bu_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -888,18 +1055,20 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>bridge Svc Fee Commission Amount (Gbl)</Description>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>telecom Commission Amount (BU)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>bridge_svc_comm_gbl_amt</Name>
+        <Name>telecom_comm_bu_amt</Name>
         <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>gbl_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -908,23 +1077,20 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>leg Svc Fee Commission Amount</Description>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>telecom Commission Amount (Div)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>leg_svc_comm_amt</Name>
+        <Name>telecom_comm_div_amt</Name>
         <Required>true</Required>
-        <Type i:type="ChargeType">
-          <BaseType>Charge</BaseType>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty i:nil="true" />
-          <FixedCurrency i:nil="true" />
-          <EndProperty i:nil="true" />
-          <PriceProperty i:nil="true" />
-          <ProductProperty i:nil="true" />
-          <QuantityProperty></QuantityProperty>
-          <StartProperty i:nil="true" />
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -933,18 +1099,20 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>leg Svc Fee Commission Amount (Div)</Description>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>telecom Commission Amount (Gbl)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>leg_svc_comm_div_amt</Name>
+        <Name>telecom_comm_gbl_amt</Name>
         <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>div_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -953,18 +1121,20 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>leg Svc Fee Commission Amount (BU)</Description>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>telecom Feature Commission Percentage Value</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>leg_svc_comm_bu_amt</Name>
-        <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
+        <Name>telecom_comm_pct</Name>
+        <Required>false</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>bu_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -973,18 +1143,17 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>leg Svc Fee Commission Amount (Gbl)</Description>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>telecom Commission Type</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>leg_svc_comm_gbl_amt</Name>
-        <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
+        <Name>telecom_comm_type</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>gbl_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
+          <Category>intercall.com.CommissionType</Category>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -993,108 +1162,20 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>surcharge Svc Fee Commission Amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>surcharge_svc_comm_amt</Name>
-        <Required>true</Required>
-        <Type i:type="ChargeType">
-          <BaseType>Charge</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty i:nil="true" />
-          <FixedCurrency i:nil="true" />
-          <EndProperty i:nil="true" />
-          <PriceProperty i:nil="true" />
-          <ProductProperty i:nil="true" />
-          <QuantityProperty></QuantityProperty>
-          <StartProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>surcharge Svc Fee Commission Amount (Div)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>surcharge_svc_comm_div_amt</Name>
-        <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>div_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>surcharge Svc Fee Commission Amount (BU)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>surcharge_svc_comm_bu_amt</Name>
-        <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>bu_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>surcharge Svc Fee Commission Amount (Gbl)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>surcharge_svc_comm_gbl_amt</Name>
-        <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>gbl_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
         <Description>telecom Svc Fee Commission Amount</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>telecom_svc_comm_amt</Name>
         <Required>true</Required>
-        <Type i:type="ChargeType">
-          <BaseType>Charge</BaseType>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty i:nil="true" />
-          <FixedCurrency i:nil="true" />
-          <EndProperty i:nil="true" />
-          <PriceProperty i:nil="true" />
-          <ProductProperty i:nil="true" />
-          <QuantityProperty></QuantityProperty>
-          <StartProperty i:nil="true" />
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1103,38 +1184,20 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>telecom Svc Fee Commission Amount (Div)</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>telecom_svc_comm_div_amt</Name>
-        <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>div_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
         <Description>telecom Svc Fee Commission Amount (BU)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>telecom_svc_comm_bu_amt</Name>
         <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>bu_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1143,169 +1206,37 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>telecom Svc Fee Commission Amount (Div)</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>telecom_svc_comm_div_amt</Name>
+        <Required>true</Required>
+        <Type i:type="NumberType">
+          <BaseType>Decimal</BaseType>
+          <ListType>None</ListType>
+          <FixedUnitOfMeasure i:nil="true" />
+          <UnitOfMeasureCategory i:nil="true" />
+          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <UnitOfMeasureProperty i:nil="true" />
+        </Type>
+        <IsExportable>false</IsExportable>
+        <IsFilterable>false</IsFilterable>
+        <IsMetered>false</IsMetered>
+        <UserVisible>false</UserVisible>
+      </Property>
+      <Property i:type="ProductViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
         <Description>telecom Svc Fee Commission Amount (Gbl)</Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>telecom_svc_comm_gbl_amt</Name>
         <Required>true</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>gbl_curr</CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>Division currency.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>div_curr</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Currency</BaseType>
-          <ListType>None</ListType>
-          <Category i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>BU currency.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>bu_curr</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Currency</BaseType>
-          <ListType>None</ListType>
-          <Category i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>Global currency.</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>gbl_curr</Name>
-        <Required>false</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Currency</BaseType>
-          <ListType>None</ListType>
-          <Category i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>The internal MetraNet account identifier</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>AccountId</Name>
-        <Required>true</Required>
         <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
-          <UnitOfMeasureCategory></UnitOfMeasureCategory>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The time the event is deemed to have occurred</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Timestamp</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The currency for the Event</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Currency</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>0</Length>
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>The charge assoicated with the event which may summarize other charges within the event.The amount can be negative to represent a credit.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>EventCharge</Name>
-        <Required>true</Required>
-        <Type i:type="ChargeType">
-          <BaseType>Charge</BaseType>
-          <ListType>None</ListType>
-          <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty>Currency</CurrencyProperty>
-          <FixedCurrency i:nil="true" />
-          <EndProperty i:nil="true" />
-          <PriceProperty i:nil="true" />
-          <ProductProperty i:nil="true" />
-          <QuantityProperty></QuantityProperty>
-          <StartProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Identifes which MetraView page will present the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>PresentationPageId</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
+          <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
           <FixedUnitOfMeasure i:nil="true" />
           <UnitOfMeasureCategory i:nil="true" />
@@ -1319,175 +1250,29 @@
       </Property>
       <Property i:type="ProductViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>Uniquely identifes the Event</Description>
+        <Description>The transport part of the rate_bill_code.</Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>EventId</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
+        <IsCore>false</IsCore>
+        <Name>transport</Name>
+        <Required>false</Required>
+        <Type i:type="EnumerationType">
+          <BaseType>Enumeration</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
+          <Category>intercall.com/ConfCommon.Transport</Category>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
         <IsMetered>false</IsMetered>
         <UserVisible>false</UserVisible>
       </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The EventTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>EventTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>The FederalTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>FederalTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The StateTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>StateTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue></DefaultValue>
-        <Description>The CountyTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>CountyTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The LocalTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>LocalTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-      <Property i:type="ProductViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The OtherTax tax for the Event.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>OtherTax</Name>
-        <Required>true</Required>
-        <Type i:type="TaxType">
-          <BaseType>Tax</BaseType>
-          <ListType>None</ListType>
-          <GeoCodeProperty i:nil="true" />
-          <TaxAuthorityProperty i:nil="true" />
-          <TaxCategoryProperty i:nil="true" />
-          <TaxLocationProperty i:nil="true" />
-          <TaxReportToProperty i:nil="true" />
-        </Type>
-        <IsExportable>false</IsExportable>
-        <IsFilterable>false</IsFilterable>
-        <IsMetered>false</IsMetered>
-        <UserVisible>false</UserVisible>
-      </Property>
-    </Properties>
+    </CustomProperties>
   </Properties>
-  <EventType>Charge</EventType>
+  <EventType>Unknown</EventType>
   <Flow>
-    <Steps>
-      <BaseStep i:type="CalculateEventChargeStep">
-        <Description i:nil="true" />
-        <FlowStepType>CalculateEventCharge</FlowStepType>
-        <Name i:nil="true" />
-      </BaseStep>
-      <BaseStep i:type="ExpressionStep">
-        <Description i:nil="true" />
-        <FlowStepType>Expression</FlowStepType>
-        <Name i:nil="true" />
-        <Expression>hello</Expression>
-        <PropertyName>bridge_comm_amt</PropertyName>
-      </BaseStep>
-    </Steps>
+    <Steps />
   </Flow>
+  <Parent i:nil="true" />
   <UniqueKey />
 </PropertyBag>

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ParameterTableEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>Rate bands can be configured that relate a country and/or a number type to a specific rate band. E.g. this could relate all countries in Europe to a Europe rate band. You could also in addition add a Europe - Mobile rate band by relating all countries in Europe and the Mobile number type to it.
 Rate bands can be used when setting up surcharge rates. If several countries (or countries within one or more number types) have the same rate, a rate band can be configured and the rate can then be associated with the rate band once instead of setting up the rate separately for each country.
@@ -17,9 +18,10 @@ Note: This table will not be populated as part of the migration. InterCall will 
   </Type>
   <Namespace>intercall.com.ParameterTables</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="ParameterTableProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>MetraNet will map the surcharge code from the CDR to a country (e.g. SE, UK, etc) and a number type (ITFS, Local Access, Mobile, etc). This is the country code part of the surcharge code. E.g. 'SE'.</Description>
         <Direction>Input</Direction>
@@ -38,6 +40,7 @@ Note: This table will not be populated as part of the migration. InterCall will 
       </Property>
       <Property i:type="ParameterTableProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -56,6 +59,7 @@ Note: This table will not be populated as part of the migration. InterCall will 
       </Property>
       <Property i:type="ParameterTableProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -75,7 +79,7 @@ Note: This table will not be populated as part of the migration. InterCall will 
         <OperatorScope>PerRow</OperatorScope>
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
-    </Properties>
+    </CustomProperties>
   </Properties>
   <ActionsCaption i:nil="true" />
   <Category i:nil="true" />

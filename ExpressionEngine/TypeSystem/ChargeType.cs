@@ -79,7 +79,7 @@ namespace MetraTech.ExpressionEngine.TypeSystem
         {
             string variable = string.Empty;
             if (includeAssignment)
-                variable = string.Format("USAGE.{0} := ", chargeProperty.DatabaseName);
+                variable = string.Format("USAGE.{0} := ", chargeProperty.DatabaseColumnName);
             if (chargeProperty.Name == "EventCharge")
             {
                 var sb = new StringBuilder(variable);
@@ -87,12 +87,12 @@ namespace MetraTech.ExpressionEngine.TypeSystem
                 {
                     if (sb.Length > variable.Length)
                         sb.Append(" + ");
-                    sb.Append("USAGE." + charge.DatabaseName);
+                    sb.Append("USAGE." + charge.DatabaseColumnName);
                 }
                 return sb.ToString();
             }
 
-            return string.Format(CultureInfo.InvariantCulture, "{0} * SOMETHING", chargeProperty.DatabaseName);
+            return string.Format(CultureInfo.InvariantCulture, "{0} * SOMETHING", chargeProperty.DatabaseColumnName);
         }
         #endregion
 

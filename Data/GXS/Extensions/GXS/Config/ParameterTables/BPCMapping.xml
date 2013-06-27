@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="ParameterTableEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>Maps the detailed BPC to the extended BPC used for most pricing and invoicing purposes.</Description>
   <Direction>Input</Direction>
@@ -15,9 +16,10 @@
   </Type>
   <Namespace>gxs.com.ParameterTables</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="ParameterTableProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Detail level BPC.</Description>
         <Direction>Input</Direction>
@@ -36,6 +38,7 @@
       </Property>
       <Property i:type="ParameterTableProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Mapped BPC</Description>
         <Direction>Input</Direction>
@@ -52,7 +55,7 @@
         <OperatorScope>PerRow</OperatorScope>
         <ParameterTablePropertyContext>Action</ParameterTablePropertyContext>
       </Property>
-    </Properties>
+    </CustomProperties>
   </Properties>
   <ActionsCaption i:nil="true" />
   <Category i:nil="true" />

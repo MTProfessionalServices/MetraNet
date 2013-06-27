@@ -85,7 +85,7 @@ namespace MetraTech.ICE.ExpressionEngine
             oldEntityNamespace = string.Format("{0}s", oldEntity.ElementType.ToString());
 
       string propertyBagTypeName;
-      MetraNetEntityBase entity;
+      PropertyBag entity;
       PropertyCollection propertyCollection;
       switch(oldEntity.ElementType)
       {
@@ -114,7 +114,7 @@ namespace MetraTech.ICE.ExpressionEngine
           //  pvEntity.UniqueKey.Add(key);
           //}
           CopyProperties(propertyBagTypeName, propertyCollection, pvEntity.Properties);
-          pvEntity.AddCoreProperties();
+          //pvEntity.AddCoreProperties();
           SetMeteredValues(pvEntity);
           entity = pvEntity;
           break;
@@ -282,7 +282,7 @@ namespace MetraTech.ICE.ExpressionEngine
       foreach (DictionaryEntry de in elements)
       {
         var element = (ElementBase) de.Value;
-        var entity = (MetraNetEntityBase)GetEntity(element);
+        var entity = GetEntity(element);
         entity.SaveInExtensionsDirectory(extensionsDir);
       }
     }

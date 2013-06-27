@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace MetraTech.ExpressionEngine.MTProperties
 {
     [DataContract(Namespace = "MetraTech")]
-    public class BusinessModelingEntityProperty : MetraNetPropertyBase
+    public class BusinessModelingEntityProperty : Property
     {
         #region Properties
         #endregion

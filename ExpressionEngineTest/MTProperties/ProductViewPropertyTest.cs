@@ -33,7 +33,7 @@ namespace ExpressionEngineTest
             bool isRequired = true;
             string description = "Hello";
             var property = new ProductViewProperty(name, type, isRequired, description);
-            Assert.AreEqual("c_Foo", property.DatabaseName);
+            Assert.AreEqual("c_Foo", property.DatabaseColumnName);
         }
 
         [TestMethod()]
@@ -45,8 +45,8 @@ namespace ExpressionEngineTest
             string description = "Hello";
             string mappingName = "c_MyMappingName";
             var property = new ProductViewProperty(name, type, isRequired, description);
-            property.DatabaseNameMapping = mappingName;
-            Assert.AreEqual(mappingName, property.DatabaseName);
+            property.DatabaseColumnNameMapping = mappingName;
+            Assert.AreEqual(mappingName, property.DatabaseColumnName);
         }
     }
 }

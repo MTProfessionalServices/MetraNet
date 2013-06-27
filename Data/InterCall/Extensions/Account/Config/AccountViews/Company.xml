@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="AccountViewEntity" xmlns="MetraTech">
   <Availability>Unknown</Availability>
+  <DatabaseNameMapping i:nil="true" />
   <DefaultValue i:nil="true" />
   <Description>Company Specific information</Description>
   <Direction>Input</Direction>
@@ -15,22 +16,19 @@
   </Type>
   <Namespace>metratech.com.AccountViews</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property i:type="AccountViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
-        <Description>The internal MetraNet account identifiert</Description>
+        <Description></Description>
         <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>AccountId</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer32</BaseType>
+        <IsCore>false</IsCore>
+        <Name>company_unicode</Name>
+        <Required>false</Required>
+        <Type>
+          <BaseType>Boolean</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
         </Type>
         <ForeignKeyDBTable i:nil="true" />
         <ForeignKeyTableColumn i:nil="true" />
@@ -38,6 +36,7 @@
       </Property>
       <Property i:type="AccountViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -55,40 +54,7 @@
       </Property>
       <Property i:type="AccountViewProperty">
         <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Division Unit long name</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>RateCurrency</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>5</Length>
-        </Type>
-        <ForeignKeyDBTable i:nil="true" />
-        <ForeignKeyTableColumn i:nil="true" />
-        <PartOfPrimaryKey>false</PartOfPrimaryKey>
-      </Property>
-      <Property i:type="AccountViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Report ISO Currency ID</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>InvoiceCurrency</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>5</Length>
-        </Type>
-        <ForeignKeyDBTable i:nil="true" />
-        <ForeignKeyTableColumn i:nil="true" />
-        <PartOfPrimaryKey>false</PartOfPrimaryKey>
-      </Property>
-      <Property i:type="AccountViewProperty">
-        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -106,6 +72,7 @@
       </Property>
       <Property i:type="AccountViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -123,16 +90,16 @@
       </Property>
       <Property i:type="AccountViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>VAT_Tax</Name>
+        <Name>FORCECC</Name>
         <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
+        <Type>
+          <BaseType>Boolean</BaseType>
           <ListType>None</ListType>
-          <Length>20</Length>
         </Type>
         <ForeignKeyDBTable i:nil="true" />
         <ForeignKeyTableColumn i:nil="true" />
@@ -140,6 +107,43 @@
       </Property>
       <Property i:type="AccountViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Report ISO Currency ID</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>InvoiceCurrency</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>5</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description>Division Unit long name</Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>RateCurrency</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>5</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
@@ -160,15 +164,17 @@
       </Property>
       <Property i:type="AccountViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description></Description>
         <Direction>Input</Direction>
         <IsCore>false</IsCore>
-        <Name>FORCECC</Name>
+        <Name>u_CompanyName</Name>
         <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
           <ListType>None</ListType>
+          <Length>100</Length>
         </Type>
         <ForeignKeyDBTable i:nil="true" />
         <ForeignKeyTableColumn i:nil="true" />
@@ -176,6 +182,25 @@
       </Property>
       <Property i:type="AccountViewProperty">
         <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
+        <DefaultValue i:nil="true" />
+        <Description></Description>
+        <Direction>Input</Direction>
+        <IsCore>false</IsCore>
+        <Name>VAT_Tax</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>20</Length>
+        </Type>
+        <ForeignKeyDBTable i:nil="true" />
+        <ForeignKeyTableColumn i:nil="true" />
+        <PartOfPrimaryKey>false</PartOfPrimaryKey>
+      </Property>
+      <Property i:type="AccountViewProperty">
+        <Availability>Unknown</Availability>
+        <DatabaseNameMapping i:nil="true" />
         <DefaultValue i:nil="true" />
         <Description>Customer will pay for fraudulent charges</Description>
         <Direction>Input</Direction>
@@ -194,39 +219,6 @@
         <ForeignKeyTableColumn i:nil="true" />
         <PartOfPrimaryKey>false</PartOfPrimaryKey>
       </Property>
-      <Property i:type="AccountViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>company_unicode</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-        <ForeignKeyDBTable i:nil="true" />
-        <ForeignKeyTableColumn i:nil="true" />
-        <PartOfPrimaryKey>false</PartOfPrimaryKey>
-      </Property>
-      <Property i:type="AccountViewProperty">
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description></Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>u_CompanyName</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>100</Length>
-        </Type>
-        <ForeignKeyDBTable i:nil="true" />
-        <ForeignKeyTableColumn i:nil="true" />
-        <PartOfPrimaryKey>false</PartOfPrimaryKey>
-      </Property>
-    </Properties>
+    </CustomProperties>
   </Properties>
 </PropertyBag>

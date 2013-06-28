@@ -122,6 +122,8 @@
             this.imageList.Images.SetKeyName(16, "Start.gif");
             this.imageList.Images.SetKeyName(17, "Query.png");
             this.imageList.Images.SetKeyName(18, "Mtsql.png");
+            this.imageList.Images.SetKeyName(19, "ProcessChildren.png");
+            this.imageList.Images.SetKeyName(20, "ProcessList.png");
             // 
             // btnRefresh
             // 

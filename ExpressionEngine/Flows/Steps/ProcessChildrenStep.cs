@@ -1,14 +1,23 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Text;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
+using MetraTech.ExpressionEngine.MTProperties;
 
 namespace MetraTech.ExpressionEngine.Flows.Steps
 {
     [DataContract(Namespace = "MetraTech")]
-    public class ContainerStep : BaseStep
+    public class ProcessChildrenStep : BaseStep
     {
+        #region Properties
+
+        #endregion
+
         #region Constructor
-        public ContainerStep(BaseFlow flow)
-            : base(flow, StepType.Container)
+        public ProcessChildrenStep(BaseFlow flow) : base(flow, StepType.ProcessList)
         {
         }
         #endregion
@@ -21,12 +30,13 @@ namespace MetraTech.ExpressionEngine.Flows.Steps
 
         public override string GetBusinessAutoLabel()
         {
-            return "Container";
+            return string.Format(CultureInfo.InvariantCulture, string.Format("ProcessChildren({0})", ""));
         }
         public override string GetTechnicalAutoLabel()
         {
             return GetBusinessAutoLabel();
         }
+
         #endregion
     }
 }

@@ -13,13 +13,22 @@ namespace MetraTech.ExpressionEngine.Flows
     /// Simple prototype for transaction flows to replace pipelines
     /// </summary>
     [DataContract(Namespace = "MetraTech")]
+    [KnownType(typeof(AccountLookupStep))]
     [KnownType(typeof(AggregationStep))]
     [KnownType(typeof(CalculateEventChargeStep))]
+    [KnownType(typeof(ContainerStep))]
+    [KnownType(typeof(ElseIfStep))]
+    [KnownType(typeof(ElseStep))]
     [KnownType(typeof(EnforceStep))]
     [KnownType(typeof(ExpressionStep))]
     [KnownType(typeof(FunctionStep))]
+    [KnownType(typeof(IfStep))]
+    [KnownType(typeof(MtsqlStep))]
     [KnownType(typeof(NewPropertyStep))]
-    
+    [KnownType(typeof(ParameterTableLookupStep))]
+    [KnownType(typeof(ProcessChildrenStep))]
+    [KnownType(typeof(QueryStep))]
+    [KnownType(typeof(StartStep))]  
     public class BaseStep
     {
         #region Properties

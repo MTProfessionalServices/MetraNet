@@ -29,6 +29,7 @@ namespace MetraTech.ExpressionEngine.Flows
             Add(StepType.Mtsql, false, "Provides an MTSQL script");
             Add(StepType.NewProperty, false, "Creates a new property");
             Add(StepType.ParameterTableLookup, false, "Looks up Parameter Table");
+            Add(StepType.ProcessList, true, "Processes the children");
             Add(StepType.Query, false, "Runs a Query");
             Add(StepType.Start, true, "Starts a flow");
             Add(StepType.SubscriptionLookup, false, "Looks up a subscription to an offering");

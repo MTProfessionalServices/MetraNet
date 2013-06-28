@@ -56,6 +56,9 @@ namespace PropertyGui.Flows.Steps
                 case StepType.ParameterTableLookup:
                     control = new ctlParameterTableLookupStep();
                     break;
+                case StepType.ProcessList:
+                    control = new ctlProcessList();
+                    break;
                 case StepType.Query:
                     control = new ctlQueryStep();
                     break;

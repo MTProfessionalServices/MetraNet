@@ -1,8 +1,10 @@
 ﻿using System.Globalization;
+using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
 
 namespace MetraTech.ExpressionEngine.Flows.Steps
 {
+    [DataContract(Namespace = "MetraTech")]
     public class ElseStep : BaseStep
     {
         #region Properties

@@ -53,14 +53,16 @@ namespace PropertyGui.Flows
             AddMenuItem(mnuInsert, StepType.Enforce);
             AddMenuItem(mnuInsert, StepType.Function);
 
+            AddMenuItem(mnuFuture, StepType.Container);
             AddMenuItem(mnuFuture, StepType.AccountLookup);
             AddMenuItem(mnuFuture, StepType.ParameterTableLookup);
             AddMenuItem(mnuFuture, StepType.SubscriptionLookup);
             AddMenuItem(mnuFuture, StepType.If);
-            AddMenuItem(mnuFuture, StepType.Else);
             AddMenuItem(mnuFuture, StepType.ElseIf);
+            AddMenuItem(mnuFuture, StepType.Else);
             AddMenuItem(mnuFuture, StepType.Mtsql);
             AddMenuItem(mnuFuture, StepType.Query);
+            AddMenuItem(mnuFuture, StepType.ProcessList);
 
             IgnoreChanges = true;
             GuiHelper.LoadEnum<LabelMode>(cboLabelMode);

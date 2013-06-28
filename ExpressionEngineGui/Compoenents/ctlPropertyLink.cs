@@ -30,7 +30,7 @@ namespace PropertyGui.Compoenents
             if (propertyBag == null)
                 throw new ArgumentException("propertyBag is null");
             PropertyLink = propertyLink;
-            DefaultNewPropertyName = propertyLink.GetFullName() + defaultNewPropertyName;
+            DefaultNewPropertyName = defaultNewPropertyName;
             PropertyBag = propertyBag;
             OnPropertyCreated = propertyCreatedEvent;
         }

@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.splitContainerFlowOther = new System.Windows.Forms.SplitContainer();
+            this.ctlFlowSteps = new PropertyGui.Flows.ctlFlowSteps();
             this.splitStepToolbox = new System.Windows.Forms.SplitContainer();
             this.tabStep = new System.Windows.Forms.TabControl();
             this.tabCommon = new System.Windows.Forms.TabPage();
+            this.ctlConditionalExecution = new PropertyGui.ctlExpression();
             this.chkConditionalExecution = new System.Windows.Forms.CheckBox();
             this.txtLabel = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabDetails = new System.Windows.Forms.TabPage();
-            this.ctlFlowSteps = new PropertyGui.Flows.ctlFlowSteps();
-            this.ctlConditionalExecution = new PropertyGui.ctlExpression();
             this.ctlToolbox = new PropertyGui.ctlContextExplorer();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerFlowOther)).BeginInit();
             this.splitContainerFlowOther.Panel1.SuspendLayout();
@@ -68,8 +68,16 @@
             // 
             this.splitContainerFlowOther.Panel2.Controls.Add(this.splitStepToolbox);
             this.splitContainerFlowOther.Size = new System.Drawing.Size(902, 330);
-            this.splitContainerFlowOther.SplitterDistance = 300;
+            this.splitContainerFlowOther.SplitterDistance = 310;
             this.splitContainerFlowOther.TabIndex = 0;
+            // 
+            // ctlFlowSteps
+            // 
+            this.ctlFlowSteps.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctlFlowSteps.Location = new System.Drawing.Point(0, 0);
+            this.ctlFlowSteps.Name = "ctlFlowSteps";
+            this.ctlFlowSteps.Size = new System.Drawing.Size(306, 326);
+            this.ctlFlowSteps.TabIndex = 1;
             // 
             // splitStepToolbox
             // 
@@ -85,8 +93,8 @@
             // splitStepToolbox.Panel2
             // 
             this.splitStepToolbox.Panel2.Controls.Add(this.ctlToolbox);
-            this.splitStepToolbox.Size = new System.Drawing.Size(598, 330);
-            this.splitStepToolbox.SplitterDistance = 280;
+            this.splitStepToolbox.Size = new System.Drawing.Size(588, 330);
+            this.splitStepToolbox.SplitterDistance = 360;
             this.splitStepToolbox.TabIndex = 0;
             // 
             // tabStep
@@ -97,7 +105,7 @@
             this.tabStep.Location = new System.Drawing.Point(0, 0);
             this.tabStep.Name = "tabStep";
             this.tabStep.SelectedIndex = 0;
-            this.tabStep.Size = new System.Drawing.Size(276, 326);
+            this.tabStep.Size = new System.Drawing.Size(356, 326);
             this.tabStep.TabIndex = 0;
             // 
             // tabCommon
@@ -112,9 +120,19 @@
             this.tabCommon.Location = new System.Drawing.Point(4, 22);
             this.tabCommon.Name = "tabCommon";
             this.tabCommon.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCommon.Size = new System.Drawing.Size(268, 300);
+            this.tabCommon.Size = new System.Drawing.Size(348, 300);
             this.tabCommon.TabIndex = 0;
             this.tabCommon.Text = "Common";
+            // 
+            // ctlConditionalExecution
+            // 
+            this.ctlConditionalExecution.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctlConditionalExecution.Location = new System.Drawing.Point(10, 198);
+            this.ctlConditionalExecution.Multiline = true;
+            this.ctlConditionalExecution.Name = "ctlConditionalExecution";
+            this.ctlConditionalExecution.Size = new System.Drawing.Size(323, 81);
+            this.ctlConditionalExecution.TabIndex = 5;
             // 
             // chkConditionalExecution
             // 
@@ -133,7 +151,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLabel.Location = new System.Drawing.Point(76, 17);
             this.txtLabel.Name = "txtLabel";
-            this.txtLabel.Size = new System.Drawing.Size(177, 20);
+            this.txtLabel.Size = new System.Drawing.Size(257, 20);
             this.txtLabel.TabIndex = 3;
             // 
             // txtDescription
@@ -144,7 +162,7 @@
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDescription.Size = new System.Drawing.Size(243, 67);
+            this.txtDescription.Size = new System.Drawing.Size(323, 67);
             this.txtDescription.TabIndex = 2;
             // 
             // label2
@@ -175,30 +193,12 @@
             this.tabDetails.Text = "Details";
             this.tabDetails.UseVisualStyleBackColor = true;
             // 
-            // ctlFlowSteps
-            // 
-            this.ctlFlowSteps.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctlFlowSteps.Location = new System.Drawing.Point(0, 0);
-            this.ctlFlowSteps.Name = "ctlFlowSteps";
-            this.ctlFlowSteps.Size = new System.Drawing.Size(296, 326);
-            this.ctlFlowSteps.TabIndex = 1;
-            // 
-            // ctlConditionalExecution
-            // 
-            this.ctlConditionalExecution.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctlConditionalExecution.Location = new System.Drawing.Point(10, 198);
-            this.ctlConditionalExecution.Multiline = true;
-            this.ctlConditionalExecution.Name = "ctlConditionalExecution";
-            this.ctlConditionalExecution.Size = new System.Drawing.Size(243, 81);
-            this.ctlConditionalExecution.TabIndex = 5;
-            // 
             // ctlToolbox
             // 
             this.ctlToolbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ctlToolbox.Location = new System.Drawing.Point(0, 0);
             this.ctlToolbox.Name = "ctlToolbox";
-            this.ctlToolbox.Size = new System.Drawing.Size(310, 326);
+            this.ctlToolbox.Size = new System.Drawing.Size(220, 326);
             this.ctlToolbox.TabIndex = 0;
             // 
             // ctlFlowEditor

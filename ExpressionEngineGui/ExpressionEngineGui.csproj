@@ -253,6 +253,12 @@
     <Compile Include="Flows\Steps\ctlParameterTableLookupStep.Designer.cs">
       <DependentUpon>ctlParameterTableLookupStep.cs</DependentUpon>
     </Compile>
+    <Compile Include="Flows\Steps\ctlProcessList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlProcessList.Designer.cs">
+      <DependentUpon>ctlProcessList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Flows\Steps\ctlQueryStep.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -464,6 +470,9 @@
     <EmbeddedResource Include="Flows\Steps\ctlContainer.resx">
       <DependentUpon>ctlContainer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Flows\Steps\ctlElse.resx">
+      <DependentUpon>ctlElse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Flows\Steps\ctlElseIf.resx">
       <DependentUpon>ctlElseIf.cs</DependentUpon>
     </EmbeddedResource>
@@ -491,8 +500,17 @@
     <EmbeddedResource Include="Flows\Steps\ctlNewPropertyStep.resx">
       <DependentUpon>ctlNewPropertyStep.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Flows\Steps\ctlParameterTableLookupStep.resx">
+      <DependentUpon>ctlParameterTableLookupStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Flows\Steps\ctlProcessList.resx">
+      <DependentUpon>ctlProcessList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Flows\Steps\ctlQueryStep.resx">
       <DependentUpon>ctlQueryStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Flows\Steps\ctlSubscriptionLookup.resx">
+      <DependentUpon>ctlSubscriptionLookup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddProperty.resx">
       <DependentUpon>frmAddProperty.cs</DependentUpon>
@@ -603,6 +621,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Flows\Enumerations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

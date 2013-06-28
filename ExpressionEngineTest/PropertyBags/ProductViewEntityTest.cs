@@ -30,10 +30,10 @@ namespace ExpressionEngineTest
         [TestMethod()]
         public void PropertyDatabaseNameTest()
         {
-            var pv = new ProductViewEntity("MetraTech", "foo", null);
-            var property = (ProductViewProperty)pv.Properties.AddCharge("Amount", "", true);
+            var pv = new ProductViewEntity("MetraTech", "Foo", null);
+            var property = (ProductViewProperty)pv.Properties.AddCharge("Stuff", "", true);
             Assert.AreEqual(BaseType.Charge, property.Type.BaseType);
-            Assert.AreEqual("c_Amount", property.DatabaseColumnName, "Default name");
+            Assert.AreEqual("c_Stuff", property.DatabaseColumnName, "Default name");
 
             var remappingName = "the reamaped name";
             property.DatabaseColumnNameMapping = remappingName;

@@ -14,5 +14,16 @@ namespace PropertyGui.Flows.Steps
             InitializeComponent();
         }
         #endregion
+
+        #region Methods
+        private void UpdateGui()
+        {
+        }
+        #endregion
+
+        private void chkWeighted_CheckedChanged(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

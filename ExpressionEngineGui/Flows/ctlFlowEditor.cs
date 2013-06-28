@@ -48,6 +48,8 @@ namespace PropertyGui.Flows.Steps
             ctlToolbox.SetModeOptions(info, MvcAbstraction.ViewModeType.AvailableProperties);
             ctlToolbox.OnInsertSnippet += OnInsertSnippet;
             ctlToolbox.OnS2DoubleClick += OnS2DoubleClick;
+
+            splitStepToolbox.SplitterDistance = splitStepToolbox.Width - 140;
         }
 
         private void OnS2DoubleClick(object o, string value)
@@ -79,7 +81,6 @@ namespace PropertyGui.Flows.Steps
 
         public void SyncToForm()
         {
-
             ctlFlowSteps.SyncToForm();
             UpdateGui();
         }
@@ -88,6 +89,7 @@ namespace PropertyGui.Flows.Steps
         {
             txtLabel.Text = step.UserLabel;
             txtDescription.Text = step.UserDescription;
+            chkConditionalExecution.Checked = step.HasConditionalExpression;
             ctlConditionalExecution.Text = step.ConditionalExpression;
             UpdateGui();
         }
@@ -104,9 +106,11 @@ namespace PropertyGui.Flows.Steps
         }
         #endregion
 
+        #region Events
         private void chkConditionalExecution_CheckedChanged(object sender, EventArgs e)
         {
           UpdateGui();
         }
+        #endregion
     }
 }

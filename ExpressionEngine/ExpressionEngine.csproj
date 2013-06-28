@@ -58,6 +58,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Flows\AggregationItem.cs" />
+    <Compile Include="Flows\Enumerations\AccountLookupMode.cs" />
     <Compile Include="Flows\Enumerations\CdeFieldMappingType.cs" />
     <Compile Include="Flows\Enumerations\LabelMode.cs" />
     <Compile Include="Flows\EventChargeMapping.cs" />
@@ -72,6 +74,7 @@
     <Compile Include="Flows\Steps\EnforceStep.cs" />
     <Compile Include="Flows\Steps\FunctionStep.cs" />
     <Compile Include="Flows\Steps\IfStep.cs" />
+    <Compile Include="Flows\Steps\ProcessChildrenStep.cs" />
     <Compile Include="Flows\Steps\QueryStep.cs" />
     <Compile Include="Flows\Enumerations\StepType.cs" />
     <Compile Include="Flows\Steps\ExpressionStep.cs" />

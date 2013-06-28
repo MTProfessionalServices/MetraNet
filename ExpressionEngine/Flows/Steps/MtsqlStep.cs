@@ -2,7 +2,6 @@
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
 
-
 namespace MetraTech.ExpressionEngine.Flows
 {
     [DataContract(Namespace = "MetraTech")]
@@ -26,7 +25,7 @@ namespace MetraTech.ExpressionEngine.Flows
 
         public override string GetBusinessAutoLabel()
         {
-            return string.Format(CultureInfo.InvariantCulture, "Query");
+            return string.Format(CultureInfo.InvariantCulture, "Mtsql");
         }
 
         public override string GetTechnicalAutoLabel()

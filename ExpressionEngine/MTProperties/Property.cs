@@ -407,7 +407,7 @@ namespace MetraTech.ExpressionEngine.MTProperties
         }
         #endregion  
 
-        System.Collections.Generic.List<ComponentLink> IComponent.GetComponentLinks()
+        List<ComponentLink> IComponent.GetComponentLinks()
         {
             throw new NotImplementedException();
         }

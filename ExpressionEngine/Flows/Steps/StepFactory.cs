@@ -16,6 +16,8 @@ namespace MetraTech.ExpressionEngine.Flows
                     return new AggregationStep(flow);
                 case StepType.CalculateEventCharge:
                     return new CalculateEventChargeStep(flow);
+                case StepType.Container:
+                    return new ContainerStep(flow);
                 case StepType.Else:
                     return new ElseStep(flow);
                 case StepType.ElseIf:
@@ -34,6 +36,8 @@ namespace MetraTech.ExpressionEngine.Flows
                     return new NewPropertyStep(flow);
                 case StepType.ParameterTableLookup:
                     return new ParameterTableLookupStep(flow);
+                case StepType.ProcessList:
+                    return new ProcessChildrenStep(flow);
                 case StepType.SubscriptionLookup:
                     return new SubscriptionLookupStep(flow);
                 case StepType.Query:

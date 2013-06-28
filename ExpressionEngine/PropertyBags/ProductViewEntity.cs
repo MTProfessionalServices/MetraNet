@@ -60,7 +60,6 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             : base(_namespace, name, PropertyBagConstants.ProductView, PropertyBagMode.ExtensibleEntity, description)
         {
             EventType = EventType.Unknown;
-            DatabaseReservedPropertyTableName = PropertyBagConstants.UsageTableName;
             FixDeserilization();
         }
         [OnDeserializedAttribute]
@@ -70,6 +69,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         }
         private void FixDeserilization()
         {
+            DatabaseReservedPropertyTableName = PropertyBagConstants.UsageTableName;
             UniqueKey = new Collection<UniqueKey>();
         }
         #endregion

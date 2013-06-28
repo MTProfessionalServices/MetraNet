@@ -24,11 +24,11 @@ namespace PropertyGui.TypeSystemControls
             base.Init(property, context);
             ChargeType = (ChargeType)property.Type;
 
-            ctlQuantityProperty.Init(ChargeType.GetQuantityPropertyLink(), "Quantity", Property.PropertyBag, OnPropertyCreated);
-            ctlPriceProperty.Init(ChargeType.GetPricePropertyLink(), "Price", Property.PropertyBag, OnPropertyCreated); 
-            ctlProductProperty.Init(ChargeType.GetProductPropertyLink(), "Product", Property.PropertyBag, OnPropertyCreated);
-            ctlStartProperty.Init(ChargeType.GetStartPropertyLink(), "Start", Property.PropertyBag, OnPropertyCreated);
-            ctlEndProperty.Init(ChargeType.GetEndPropertyLink(), "End", Property.PropertyBag, OnPropertyCreated);
+            ctlQuantityProperty.Init(ChargeType.GetQuantityPropertyLink(), property.Name + "Quantity", Property.PropertyBag, OnPropertyCreated);
+            ctlPriceProperty.Init(ChargeType.GetPricePropertyLink(), property.Name + "Price", Property.PropertyBag, OnPropertyCreated); 
+            ctlProductProperty.Init(ChargeType.GetProductPropertyLink(), property.Name + "Product", Property.PropertyBag, OnPropertyCreated);
+            ctlStartProperty.Init(ChargeType.GetStartPropertyLink(), property.Name + "Start", Property.PropertyBag, OnPropertyCreated);
+            ctlEndProperty.Init(ChargeType.GetEndPropertyLink(), property.Name + "End", Property.PropertyBag, OnPropertyCreated);
         }
 
         public override void SyncToForm()

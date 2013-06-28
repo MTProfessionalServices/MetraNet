@@ -43,6 +43,7 @@ namespace PropertyGui
                 throw new ArgumentException("propertyBag is null");
             Context = context;
             PropertyBag = propertyBag;
+            PropertyBag.Context = Context;
 
             IgnoreChanges = true;
             ((ProductViewEntity)PropertyBag).UpdateFlow(Context);

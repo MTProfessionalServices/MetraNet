@@ -7,6 +7,7 @@ using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties;
 using MetraTech.ExpressionEngine.MTProperties.Enumerations;
 using MetraTech.ExpressionEngine.TypeSystem;
+using MetraTech.ExpressionEngine.TypeSystem.Constants;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using System.IO;
 using MetraTech.ExpressionEngine.Validations;
@@ -28,6 +29,9 @@ namespace MetraTech.ExpressionEngine.PropertyBags
     {
         #region Properties
 
+        //This doesn't belong here
+        public Context Context { get; set; }
+  
         /// <summary>
         /// The name prefixed with the namespace, if any
         /// </summary>
@@ -73,6 +77,11 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         public virtual string XqgPrefix { get { return null; } }
 
         public virtual string SubDirectoryName { get { return ((PropertyBagType)Type).Name + "s"; } }
+
+        ////public bool IsAccountView
+        ////{
+        ////    get { ((PropertyBagType)Type).Name == PropertyBagConstants.AccountView; }
+        ////}
 
         #endregion
 

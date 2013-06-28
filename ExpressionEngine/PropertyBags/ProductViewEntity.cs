@@ -128,14 +128,30 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         {
             CoreProperties = new PropertyCollection(null);
 
-            //AccountID
+            //AccountID         
             var accountId = CoreProperties.AddInteger32("AccountId", "The internal MetraNet account identifier", true);
             accountId.DatabaseColumnNameMapping = "account_id";
             accountId.IsCore = true;
 
+            //PayeeID (id_payee) - joins to guiding account
+            var payeeId = CoreProperties.AddInteger32("PayeeId", "The internal MetraNet account identifier of the payee", true);
+            payeeId.IsCore = true;
+            payeeId.DatabaseColumnNameMapping = "id_payee";
+
+            //EventID (id_sess) - joins to PV (with id_usage_interval)
+            var eventId = CoreProperties.AddInteger32("EventId", "Uniquely identifes the processed Event", true);
+            eventId.IsCore = true;
+            eventId.DatabaseColumnNameMapping = "id_sess";
+
+            //EventSourceID (tx_uid) - joins to SVC
+            // NOTE: this is an encoded GUID, not a pure freeform string
+            var eventSourceId = CoreProperties.AddString("EventSourceId", "Uniquely identifes the raw unprocessed Event", true);
+            eventSourceId.IsCore = true;
+            eventSourceId.DatabaseColumnNameMapping = "tx_uid";
+
             //Timestamp
             var timestamp = CoreProperties.AddDateTime("Timestamp", "The time the event is deemed to have occurred", true);
-            timestamp.DatabaseColumnNameMapping = "timestamp";
+            timestamp.DatabaseColumnNameMapping = "dt_session";
             timestamp.IsCore = true;
 
             //Currency
@@ -151,15 +167,36 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             chargeType.CurrencyMode = CurrencyMode.PropertyDriven;
             chargeType.CurrencyProperty = "Currency";
 
-            //Presentation Page ID
+            //Presentation Page ID  (id_view) - joins to type of PV
             var presentationPageId = CoreProperties.AddInteger32("PresentationPageId", "Identifes which MetraView page will present the Event.", true);
             presentationPageId.IsCore = true;
-            presentationPageId.DatabaseColumnNameMapping = "view_id";
+            presentationPageId.DatabaseColumnNameMapping = "id_view";
 
-            //Event ID
-            var eventId = CoreProperties.AddInteger32("EventId", "Uniquely identifes the Event", true);
-            eventId.IsCore = true;
-            eventId.DatabaseColumnNameMapping = "session_id";
+            //ProductOfferingID (id_prod) - optional, joins to id_po
+            var productOfferingId = CoreProperties.AddInteger32("ProductOfferingId", "Identifes the product offering associated with this event.", true);
+            productOfferingId.IsCore = true;
+            productOfferingId.DatabaseColumnNameMapping = "id_prod";
+
+            //UsageIntervalID (id_usage_interval) - joins to PV (with id_sess), and sometimes joins to t_acc_usage (with id_parent_sess)
+            var intervalId = CoreProperties.AddInteger32("UsageIntervalId", "The billing interval where the event is billed", true);
+            intervalId.IsCore = true;
+            intervalId.DatabaseColumnNameMapping = "id_usage_interval";
+
+            //ServiceDefinitionID (id_svc) - joins to type of SVC
+            var serviceDefinitionId = CoreProperties.AddInteger32("PresentationPageId", "Identifies the service definition that was used to ingest the Event.", true);
+            serviceDefinitionId.IsCore = true;
+            serviceDefinitionId.DatabaseColumnNameMapping = "id_svc";
+
+            //BatchID (tx_batch) - optional
+            // NOTE: this is an encoded GUID, not a pure freeform string
+            var batchId = CoreProperties.AddString("BatchId", "The batch that this event was entered with", true);
+            batchId.IsCore = true;
+            batchId.DatabaseColumnNameMapping = "tx_batch";
+
+            //CreateDate (dt_crt)
+            var createDt = CoreProperties.AddDateTime("CreationDate", "The time the event was originally processed", true);
+            createDt.IsCore = true;
+            createDt.DatabaseColumnNameMapping = "dt_crt";
 
             AddCoreTaxProperty("c_TaxAmount", PropertyBagConstants.EventTax, CoreProperties);
             AddCoreTaxProperty("c_FederalTaxAmount", "FederalTax", CoreProperties);

@@ -1,20 +1,20 @@
-﻿using System.Globalization;
-using System.Runtime.Serialization;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
 
-namespace MetraTech.ExpressionEngine.Flows
+namespace MetraTech.ExpressionEngine.Flows.Steps
 {
-    [DataContract(Namespace = "MetraTech")]
-    public class QueryStep : BaseStep
+    public class IfStep : BaseStep
     {
         #region Properties
-        [DataMember]
-        public string Query { get; set; }
+        public string Expression { get; set; }
         #endregion
 
         #region Constructor
-        public QueryStep(BaseFlow flow)
-            : base(flow, StepType.Query)
+        public IfStep(BaseFlow flow) : base(flow, StepType.If)
         {
         }
         #endregion
@@ -27,9 +27,8 @@ namespace MetraTech.ExpressionEngine.Flows
 
         public override string GetBusinessAutoLabel()
         {
-            return string.Format(CultureInfo.InvariantCulture, "Query");
+            return string.Format(CultureInfo.InvariantCulture, "if ({0})", Expression);
         }
-
         public override string GetTechnicalAutoLabel()
         {
             return GetBusinessAutoLabel();

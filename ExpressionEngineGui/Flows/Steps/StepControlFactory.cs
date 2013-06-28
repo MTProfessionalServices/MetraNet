@@ -26,6 +26,15 @@ namespace PropertyGui.Flows.Steps
                 case StepType.CalculateEventCharge:
                     control = new ctlCalculateCharge();
                     break;
+                case StepType.Container:
+                    control = new ctlContainer();
+                    break;
+                case StepType.Else:
+                    control = new ctlElse();
+                    break;
+                case StepType.ElseIf:
+                    control = new ctlElseIf();
+                    break;
                 case StepType.Enforce:
                     control = new ctlEnforce();
                     break;
@@ -35,6 +44,12 @@ namespace PropertyGui.Flows.Steps
                 case StepType.Function:
                     control = new ctlFuctionStep();
                     break;
+                case StepType.If:
+                    control = new ctlIfStep();
+                    break;
+                case StepType.Mtsql:
+                    control = new ctlMtsql();
+                    break;
                 case StepType.NewProperty:
                     control = new ctlNewPropertyStep();
                     break;
@@ -43,6 +58,9 @@ namespace PropertyGui.Flows.Steps
                     break;
                 case StepType.Query:
                     control = new ctlQueryStep();
+                    break;
+                case StepType.SubscriptionLookup:
+                    control = new ctlSubscriptionLookup();
                     break;
                 default:
                     throw new ArgumentException("Unhandled type");

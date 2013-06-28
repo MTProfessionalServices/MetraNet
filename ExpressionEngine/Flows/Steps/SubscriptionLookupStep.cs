@@ -1,20 +1,16 @@
-﻿using System.Globalization;
-using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
 
-namespace MetraTech.ExpressionEngine.Flows
+namespace MetraTech.ExpressionEngine.Flows.Steps
 {
-    [DataContract(Namespace = "MetraTech")]
-    public class QueryStep : BaseStep
+    public class SubscriptionLookupStep : BaseStep
     {
-        #region Properties
-        [DataMember]
-        public string Query { get; set; }
+        #region properties
         #endregion
 
         #region Constructor
-        public QueryStep(BaseFlow flow)
-            : base(flow, StepType.Query)
+        public SubscriptionLookupStep(BaseFlow flow): base(flow, StepType.SubscriptionLookup)
         {
         }
         #endregion
@@ -27,7 +23,7 @@ namespace MetraTech.ExpressionEngine.Flows
 
         public override string GetBusinessAutoLabel()
         {
-            return string.Format(CultureInfo.InvariantCulture, "Query");
+            return string.Format(CultureInfo.InvariantCulture, "Subscription Lookup");
         }
 
         public override string GetTechnicalAutoLabel()

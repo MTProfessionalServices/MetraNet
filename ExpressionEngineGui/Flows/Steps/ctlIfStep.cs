@@ -1,17 +1,17 @@
 ﻿using MetraTech.ExpressionEngine;
 using MetraTech.ExpressionEngine.Flows;
-using MetraTech.ExpressionEngine.PropertyBags;
+using MetraTech.ExpressionEngine.Flows.Steps;
 
 namespace PropertyGui.Flows.Steps
 {
-    public partial class ctlNewPropertyStep : ctlBaseStep
+    public partial class ctlIfStep : ctlBaseStep
     {
         #region Properties
-        private NewPropertyStep Step { get { return (NewPropertyStep) _step; } }
+        private IfStep Step { get { return (IfStep) _step; } }
         #endregion
 
         #region Constructor
-        public ctlNewPropertyStep()
+        public ctlIfStep()
         {
             InitializeComponent();
         }
@@ -21,18 +21,17 @@ namespace PropertyGui.Flows.Steps
         public override void Init(BaseStep step, Context context)
         {
             base.Init(step, context);
-            ctlProperty.Init(Context, new ProductViewEntity(null, null, null));
-            ctlProperty.ShowIsRequired = false;
+            ctlExpression.Init(context, null);
         }
 
         public override void SyncToForm()
         {
-            ctlProperty.SyncToForm(Step.Property);
+            ctlExpression.Text = Step.Expression;
         }
 
         public override void SyncToObject()
         {
-            ctlProperty.SyncToObject();
+            Step.Expression = ctlExpression.Text;
         }
         #endregion
     }

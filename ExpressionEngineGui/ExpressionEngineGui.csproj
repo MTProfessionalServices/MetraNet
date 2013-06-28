@@ -181,6 +181,24 @@
     <Compile Include="Flows\Steps\ctlCalculateCharge.Designer.cs">
       <DependentUpon>ctlCalculateCharge.cs</DependentUpon>
     </Compile>
+    <Compile Include="Flows\Steps\ctlContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlContainer.Designer.cs">
+      <DependentUpon>ctlContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlElse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlElse.Designer.cs">
+      <DependentUpon>ctlElse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlElseIf.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlElseIf.Designer.cs">
+      <DependentUpon>ctlElseIf.cs</DependentUpon>
+    </Compile>
     <Compile Include="Flows\Steps\ctlEnforce.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -211,6 +229,18 @@
     <Compile Include="Flows\Steps\ctlFuctionStep.Designer.cs">
       <DependentUpon>ctlFuctionStep.cs</DependentUpon>
     </Compile>
+    <Compile Include="Flows\Steps\ctlIfStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlIfStep.Designer.cs">
+      <DependentUpon>ctlIfStep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlMtsql.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlMtsql.Designer.cs">
+      <DependentUpon>ctlMtsql.cs</DependentUpon>
+    </Compile>
     <Compile Include="Flows\Steps\ctlNewPropertyStep.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -228,6 +258,12 @@
     </Compile>
     <Compile Include="Flows\Steps\ctlQueryStep.Designer.cs">
       <DependentUpon>ctlQueryStep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlSubscriptionLookup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Flows\Steps\ctlSubscriptionLookup.Designer.cs">
+      <DependentUpon>ctlSubscriptionLookup.cs</DependentUpon>
     </Compile>
     <Compile Include="Flows\Steps\StepControlFactory.cs" />
     <Compile Include="frmAddProperty.cs">
@@ -425,6 +461,12 @@
     <EmbeddedResource Include="Flows\Steps\ctlCalculateCharge.resx">
       <DependentUpon>ctlCalculateCharge.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Flows\Steps\ctlContainer.resx">
+      <DependentUpon>ctlContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Flows\Steps\ctlElseIf.resx">
+      <DependentUpon>ctlElseIf.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Flows\Steps\ctlEnforce.resx">
       <DependentUpon>ctlEnforce.cs</DependentUpon>
     </EmbeddedResource>
@@ -439,6 +481,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Flows\Steps\ctlFuctionStep.resx">
       <DependentUpon>ctlFuctionStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Flows\Steps\ctlIfStep.resx">
+      <DependentUpon>ctlIfStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Flows\Steps\ctlMtsql.resx">
+      <DependentUpon>ctlMtsql.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Flows\Steps\ctlNewPropertyStep.resx">
       <DependentUpon>ctlNewPropertyStep.cs</DependentUpon>

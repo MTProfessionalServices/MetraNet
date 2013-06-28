@@ -6,13 +6,17 @@
         Aggregate,
         CalculateEventCharge,
         Container,
+        Else,
+        ElseIf,
         Enforce,
         Expression,
+        If,
         Function,
         Mtsql,
         NewProperty,
         ParameterTableLookup,
         Query,
-        Start
+        Start,
+        SubscriptionLookup
     }
 }

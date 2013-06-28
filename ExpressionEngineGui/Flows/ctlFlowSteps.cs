@@ -46,12 +46,21 @@ namespace PropertyGui.Flows
 
             treSteps.Font = GuiHelper.ExpressionFont;
 
-            AddMenuItem(StepType.Expression);
-            AddMenuItem(StepType.Aggregate);
-            AddMenuItem(StepType.NewProperty);
-            AddMenuItem(StepType.CalculateEventCharge);
-            AddMenuItem(StepType.Enforce);
-            AddMenuItem(StepType.Function);
+            AddMenuItem(mnuInsert, StepType.Expression);
+            AddMenuItem(mnuInsert, StepType.Aggregate);
+            AddMenuItem(mnuInsert, StepType.NewProperty);
+            AddMenuItem(mnuInsert, StepType.CalculateEventCharge);
+            AddMenuItem(mnuInsert, StepType.Enforce);
+            AddMenuItem(mnuInsert, StepType.Function);
+
+            AddMenuItem(mnuFuture, StepType.AccountLookup);
+            AddMenuItem(mnuFuture, StepType.ParameterTableLookup);
+            AddMenuItem(mnuFuture, StepType.SubscriptionLookup);
+            AddMenuItem(mnuFuture, StepType.If);
+            AddMenuItem(mnuFuture, StepType.Else);
+            AddMenuItem(mnuFuture, StepType.ElseIf);
+            AddMenuItem(mnuFuture, StepType.Mtsql);
+            AddMenuItem(mnuFuture, StepType.Query);
 
             IgnoreChanges = true;
             GuiHelper.LoadEnum<LabelMode>(cboLabelMode);
@@ -59,13 +68,13 @@ namespace PropertyGui.Flows
             IgnoreChanges = false;
         }
 
-        public void AddMenuItem(StepType flowItemType)
+        public void AddMenuItem(ToolStripMenuItem parentMenu, StepType flowItemType)
         {
             var image = imageList.Images[string.Format("{0}.png", flowItemType)];
             var text = flowItemType.ToString();
             var item = new ToolStripMenuItem(text, image, insertStepMenu_Click);
             item.Tag = flowItemType;
-            mnuInsert.DropDownItems.Add(item);
+            parentMenu.DropDownItems.Add(item);
         }
 
         public void SyncToForm()
@@ -322,5 +331,6 @@ namespace PropertyGui.Flows
                 GuiHelper.ShowErrorMessage(ex.Message);
             }
         }
+
     }
 }

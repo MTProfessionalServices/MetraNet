@@ -67,8 +67,11 @@
     <Compile Include="Flows\Steps\AggregationStep.cs" />
     <Compile Include="Flows\Steps\CalculateEventChargeStep.cs" />
     <Compile Include="Flows\Steps\ContainerStep.cs" />
+    <Compile Include="Flows\Steps\ElseIfStep.cs" />
+    <Compile Include="Flows\Steps\ElseStep.cs" />
     <Compile Include="Flows\Steps\EnforceStep.cs" />
     <Compile Include="Flows\Steps\FunctionStep.cs" />
+    <Compile Include="Flows\Steps\IfStep.cs" />
     <Compile Include="Flows\Steps\QueryStep.cs" />
     <Compile Include="Flows\Enumerations\StepType.cs" />
     <Compile Include="Flows\Steps\ExpressionStep.cs" />
@@ -79,6 +82,7 @@
     <Compile Include="Flows\Steps\MtsqlStep.cs" />
     <Compile Include="Flows\Steps\NewPropertyStep.cs" />
     <Compile Include="Flows\Steps\ParameterTableLookupStep.cs" />
+    <Compile Include="Flows\Steps\SubscriptionLookupStep.cs" />
     <Compile Include="Infrastructure\ComponentHelper.cs" />
     <Compile Include="Infrastructure\ComponentLinkCollection.cs" />
     <Compile Include="Infrastructure\ComponentLink.cs" />

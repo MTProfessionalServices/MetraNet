@@ -128,6 +128,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         {
             Properties.FixDeserialization(this);
         }
+
         #endregion
 
         #region Methods
@@ -200,6 +201,10 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         public virtual void AddCoreProperties()
         {
+#warning, not sure why I need this here. I'm getting crash when trying to create a multipoint parent in the flow
+            if (Properties == null)
+                return;
+
             Properties.AddRange(GetCoreProperties());
         }
 

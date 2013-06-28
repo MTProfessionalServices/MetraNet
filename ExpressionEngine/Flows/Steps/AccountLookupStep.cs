@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Globalization;
+using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
 
 namespace MetraTech.ExpressionEngine.Flows
@@ -16,6 +17,15 @@ namespace MetraTech.ExpressionEngine.Flows
         public override void UpdateInputsAndOutputs(Context context)
         {
             InputsAndOutputs.Clear();
+        }
+
+        public override string GetBusinessAutoLabel()
+        {
+            return string.Format(CultureInfo.InvariantCulture, "AccountLookup");
+        }
+        public override string GetTechnicalAutoLabel()
+        {
+            return GetBusinessAutoLabel();
         }
         #endregion
     }

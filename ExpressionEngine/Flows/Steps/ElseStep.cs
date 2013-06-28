@@ -1,20 +1,17 @@
 ﻿using System.Globalization;
-using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
 
-namespace MetraTech.ExpressionEngine.Flows
+namespace MetraTech.ExpressionEngine.Flows.Steps
 {
-    [DataContract(Namespace = "MetraTech")]
-    public class QueryStep : BaseStep
+    public class ElseStep : BaseStep
     {
         #region Properties
-        [DataMember]
-        public string Query { get; set; }
+        public string Expression { get; set; }
         #endregion
 
         #region Constructor
-        public QueryStep(BaseFlow flow)
-            : base(flow, StepType.Query)
+        public ElseStep(BaseFlow flow)
+            : base(flow, StepType.Else)
         {
         }
         #endregion
@@ -27,9 +24,8 @@ namespace MetraTech.ExpressionEngine.Flows
 
         public override string GetBusinessAutoLabel()
         {
-            return string.Format(CultureInfo.InvariantCulture, "Query");
+            return string.Format(CultureInfo.InvariantCulture, "else");
         }
-
         public override string GetTechnicalAutoLabel()
         {
             return GetBusinessAutoLabel();

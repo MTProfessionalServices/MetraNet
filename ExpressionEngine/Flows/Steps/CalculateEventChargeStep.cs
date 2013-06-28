@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
 using MetraTech.ExpressionEngine.MTProperties;
@@ -79,9 +80,9 @@ namespace MetraTech.ExpressionEngine.Flows.Steps
                 chargeName = chargeProperty.PropertyCollection.GetPropertyDatabaseName(BasicHelper.GetNameFromFullName(chargeProperty.Name));
 
             //Units mapping
+            var unitsMapping = GetBaseEventChargeMapping();
             if (chargeType.QuantityProperty != null)
             {
-                var unitsMapping = GetBaseEventChargeMapping();
                 unitsMapping.ChargeName = chargeName;
                 unitsMapping.FieldName = AvailableProperties.GetPropertyDatabaseName(chargeType.QuantityProperty);
                 unitsMapping.FieldType = CdeFieldMappingType.units;
@@ -117,6 +118,9 @@ namespace MetraTech.ExpressionEngine.Flows.Steps
                 var priceProperty = AvailableProperties.Get(chargeType.PriceProperty);
                 //if (priceProperty != null)
                 //    priceMapping.CurrencyField = AvailableProperties.GetPropertyDatabaseName(((MoneyType) priceProperty.Type).CurrencyProperty);
+                
+                //Since we're in AMP, rate is calcualted from what was previolsy set
+                priceMapping.Modifier = string.Format(CultureInfo.InvariantCulture, "OBJECT.{0}/OBJECT.{1}", amountMapping.FieldName, unitsMapping.FieldName);            
                 priceMapping.FieldType = CdeFieldMappingType.rate;
                 mappings.Add(priceMapping);
             }

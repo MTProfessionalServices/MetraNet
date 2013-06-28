@@ -34,6 +34,8 @@
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuInsert = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuFuture = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -66,23 +68,36 @@
             // 
             this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuInsert,
-            this.mnuDelete});
+            this.mnuDelete,
+            this.toolStripSeparator1,
+            this.mnuFuture});
             this.contextMenu.Name = "contextMenu";
-            this.contextMenu.Size = new System.Drawing.Size(108, 48);
+            this.contextMenu.Size = new System.Drawing.Size(109, 76);
             // 
             // mnuInsert
             // 
             this.mnuInsert.Name = "mnuInsert";
-            this.mnuInsert.Size = new System.Drawing.Size(107, 22);
+            this.mnuInsert.Size = new System.Drawing.Size(108, 22);
             this.mnuInsert.Text = "Insert";
             // 
             // mnuDelete
             // 
             this.mnuDelete.Image = global::PropertyGui.Properties.Resources.delete;
             this.mnuDelete.Name = "mnuDelete";
-            this.mnuDelete.Size = new System.Drawing.Size(107, 22);
+            this.mnuDelete.Size = new System.Drawing.Size(108, 22);
             this.mnuDelete.Text = "Delete";
             this.mnuDelete.Click += new System.EventHandler(this.mnuDelete_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(105, 6);
+            // 
+            // mnuFuture
+            // 
+            this.mnuFuture.Name = "mnuFuture";
+            this.mnuFuture.Size = new System.Drawing.Size(108, 22);
+            this.mnuFuture.Text = "Future";
             // 
             // imageList
             // 
@@ -97,6 +112,16 @@
             this.imageList.Images.SetKeyName(6, "Container.png");
             this.imageList.Images.SetKeyName(7, "Function.png");
             this.imageList.Images.SetKeyName(8, "ConditionalExecutionOverlay.png");
+            this.imageList.Images.SetKeyName(9, "ElseIf.png");
+            this.imageList.Images.SetKeyName(10, "If.png");
+            this.imageList.Images.SetKeyName(11, "Else.png");
+            this.imageList.Images.SetKeyName(12, "Decision.png");
+            this.imageList.Images.SetKeyName(13, "ParameterTableLookup.png");
+            this.imageList.Images.SetKeyName(14, "AccountLookup.png");
+            this.imageList.Images.SetKeyName(15, "SubscriptionLookup.png");
+            this.imageList.Images.SetKeyName(16, "Start.gif");
+            this.imageList.Images.SetKeyName(17, "Query.png");
+            this.imageList.Images.SetKeyName(18, "Mtsql.png");
             // 
             // btnRefresh
             // 
@@ -180,5 +205,7 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ComboBox cboLabelMode;
         private System.Windows.Forms.Button btnCsv;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem mnuFuture;
     }
 }

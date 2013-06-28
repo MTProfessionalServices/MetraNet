@@ -59,6 +59,8 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         public ProductViewEntity(string _namespace, string name, string description)
             : base(_namespace, name, PropertyBagConstants.ProductView, PropertyBagMode.ExtensibleEntity, description)
         {
+            EventType = EventType.Unknown;
+            DatabaseReservedPropertyTableName = PropertyBagConstants.UsageTableName;
             FixDeserilization();
         }
         [OnDeserializedAttribute]
@@ -68,9 +70,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         }
         private void FixDeserilization()
         {
-            EventType = EventType.Unknown;
             UniqueKey = new Collection<UniqueKey>();
-            DatabaseReservedPropertyTableName = PropertyBagConstants.UsageTableName;
         }
         #endregion
 
@@ -103,6 +103,8 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             if (parentPv != null)
             {
                 var parent = new PropertyBag(null, PropertyBagConstants.ParentPropertyBag, null, PropertyBagMode.PropertyBag, parentPv.Description);
+           
+                //var parent = new ProductViewEntity(null, PropertyBagConstants.ParentPropertyBag, parentPv.Description);
                 Flow.InitialProperties.Add(parent);
                 foreach (var property in parentPv.Properties)
                 {

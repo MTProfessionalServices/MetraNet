@@ -628,6 +628,7 @@
       </Property>
       <Property>
         <DatabaseColumnNameMapping>Amount</DatabaseColumnNameMapping>
+        <DefaultValue></DefaultValue>
         <Description>The charge assoicated with the event which may summarize other charges within the event.The amount can be negative to represent a credit.</Description>
         <IsCore>true</IsCore>
         <Name>EventCharge</Name>
@@ -637,7 +638,7 @@
           <ListType>None</ListType>
           <CurrencyMode>PropertyDriven</CurrencyMode>
           <CurrencyProperty>Currency</CurrencyProperty>
-          <Alias i:nil="true" />
+          <Alias></Alias>
           <PriceProperty i:nil="true" />
           <QuantityProperty i:nil="true" />
         </Type>
@@ -1004,12 +1005,13 @@
         <IsCore>false</IsCore>
         <Name>leg_rate_amt</Name>
         <Required>false</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
+        <Type i:type="ChargeType">
+          <BaseType>Charge</BaseType>
           <ListType>None</ListType>
           <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
+          <Alias>Leg</Alias>
+          <PriceProperty>intercall.com.ProductViews.InterCallConnection.leg_rate</PriceProperty>
+          <QuantityProperty>intercall.com.ProductViews.InterCallConnection.rate_duration</QuantityProperty>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1356,6 +1358,7 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>The duration used for rating, one of the 4 durations in the connection.</Description>
         <IsCore>false</IsCore>
         <Name>rate_duration</Name>
@@ -1363,6 +1366,8 @@
         <Type i:type="NumberType">
           <BaseType>Decimal</BaseType>
           <ListType>None</ListType>
+          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
+          <UnitOfMeasureCategory></UnitOfMeasureCategory>
           <UnitOfMeasureMode>None</UnitOfMeasureMode>
         </Type>
         <IsExportable>false</IsExportable>
@@ -1755,12 +1760,13 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <IsCore>false</IsCore>
         <Name>surcharge_rate_amt</Name>
         <Required>false</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
+        <Type i:type="ChargeType">
+          <BaseType>Charge</BaseType>
           <ListType>None</ListType>
           <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
+          <Alias>Surcharge</Alias>
+          <PriceProperty>intercall.com.ProductViews.InterCallConnection.surcharge_rate</PriceProperty>
+          <QuantityProperty>intercall.com.ProductViews.InterCallConnection.rate_duration</QuantityProperty>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -2118,12 +2124,13 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <IsCore>false</IsCore>
         <Name>telecom_rate_amt</Name>
         <Required>false</Required>
-        <Type i:type="MoneyType">
-          <BaseType>Money</BaseType>
+        <Type i:type="ChargeType">
+          <BaseType>Charge</BaseType>
           <ListType>None</ListType>
           <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
-          <FixedCurrency></FixedCurrency>
+          <Alias>Telecom</Alias>
+          <PriceProperty i:nil="true" />
+          <QuantityProperty i:nil="true" />
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -2281,11 +2288,60 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
   <EventType>Charge</EventType>
   <Flow>
     <Steps>
+      <BaseStep i:type="EnforceStep">
+        <ConditionalExpression></ConditionalExpression>
+        <StepType>Enforce</StepType>
+        <UserDescription></UserDescription>
+        <UserLabel></UserLabel>
+        <DefaultExpression>OBJECT.c_bridge_bu_curr</DefaultExpression>
+        <PropertyName>bu_curr</PropertyName>
+      </BaseStep>
+      <BaseStep i:type="EnforceStep">
+        <ConditionalExpression></ConditionalExpression>
+        <StepType>Enforce</StepType>
+        <UserDescription></UserDescription>
+        <UserLabel></UserLabel>
+        <DefaultExpression>OBJECT.c_bridge_div_curr</DefaultExpression>
+        <PropertyName>div_curr</PropertyName>
+      </BaseStep>
+      <BaseStep i:type="EnforceStep">
+        <ConditionalExpression></ConditionalExpression>
+        <StepType>Enforce</StepType>
+        <UserDescription></UserDescription>
+        <UserLabel></UserLabel>
+        <DefaultExpression>OBJECT.c_bridge_gbl_curr</DefaultExpression>
+        <PropertyName>gbl_curr</PropertyName>
+      </BaseStep>
       <BaseStep i:type="CalculateEventChargeStep">
         <ConditionalExpression></ConditionalExpression>
         <StepType>CalculateEventCharge</StepType>
         <UserDescription></UserDescription>
         <UserLabel></UserLabel>
+      </BaseStep>
+      <BaseStep i:type="ExpressionStep">
+        <ConditionalExpression>OBJECT.c_bridge_charge_code == #intercall.com/ConfCommon/ChargeCode/R#</ConditionalExpression>
+        <StepType>Expression</StepType>
+        <UserDescription></UserDescription>
+        <UserLabel></UserLabel>
+        <Expression>OBJECT.c_bridge_rate_amt/OBJECT.c_rate_duration</Expression>
+        <PropertyName>bridge_r_rate</PropertyName>
+      </BaseStep>
+      <BaseStep i:type="ExpressionStep">
+        <ConditionalExpression>OBJECT.c_bridge_charge_code == #intercall.com/ConfCommon/ChargeCode/R#</ConditionalExpression>
+        <StepType>Expression</StepType>
+        <UserDescription></UserDescription>
+        <UserLabel></UserLabel>
+        <Expression>OBJECT.c_bridge_rate_amt</Expression>
+        <PropertyName>bridge_r_rate_amt</PropertyName>
+      </BaseStep>
+      <BaseStep i:type="AggregationStep">
+        <ConditionalExpression></ConditionalExpression>
+        <StepType>Aggregate</StepType>
+        <UserDescription></UserDescription>
+        <UserLabel></UserLabel>
+        <Action>Sum</Action>
+        <SourceProperty>telecom_amt</SourceProperty>
+        <TargetProperty>Parent.ttl_telecom_amt</TargetProperty>
       </BaseStep>
     </Steps>
   </Flow>

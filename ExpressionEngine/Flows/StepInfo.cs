@@ -19,15 +19,20 @@ namespace MetraTech.ExpressionEngine.Flows
             Add(StepType.AccountLookup, false, "Looks up an Account");
             Add(StepType.Aggregate, false, "Aggregates a child property into a parent property.");
             Add(StepType.CalculateEventCharge, false, "Calculates all charges and accumulates them into the EventCharge");
-            Add(StepType.Container, true, "A container which simplifies the flow");
+            Add(StepType.Container, true, "A container which simpwlifies the flow");
+            Add(StepType.Else, true, "Directs flow if the preceeding if and else if conditions aren't met"); 
+            Add(StepType.ElseIf, true, "Directs flow if the condition is met");
             Add(StepType.Enforce, false, "Enforces default values.");
             Add(StepType.Expression, false, "Assigns an expression to to a property");
+            Add(StepType.Function, false, "Executes the specified function");
+            Add(StepType.If, true, "Directs flow if the condition is met");
             Add(StepType.Mtsql, false, "Provides an MTSQL script");
             Add(StepType.NewProperty, false, "Creates a new property");
             Add(StepType.ParameterTableLookup, false, "Looks up Parameter Table");
             Add(StepType.Query, false, "Runs a Query");
             Add(StepType.Start, true, "Starts a flow");
-            Add(StepType.Function, false, "Exectues the specified function");
+            Add(StepType.SubscriptionLookup, false, "Looks up a subscription to an offering");
+
         }
         private static void Add(StepType type, bool supportsChildren, string description)
         {

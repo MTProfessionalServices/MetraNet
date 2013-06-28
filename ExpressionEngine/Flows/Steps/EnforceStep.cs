@@ -10,7 +10,10 @@ namespace MetraTech.ExpressionEngine.Flows.Steps
     public class EnforceStep : BaseStep
     {
         #region Properties
+        [DataMember]
         public string PropertyName { get; set; }
+
+        [DataMember]
         public string DefaultExpression { get; set; }
         #endregion
 

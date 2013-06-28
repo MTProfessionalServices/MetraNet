@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Globalization;
+using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Components;
 using MetraTech.ExpressionEngine.Components.Enumerations;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
@@ -24,17 +25,27 @@ namespace MetraTech.ExpressionEngine.Flows
         public override void UpdateInputsAndOutputs(Context context)
         {
             InputsAndOutputs.Clear();
-            var pt = (ParameterTableEntity)GetParameterTableLink().GetComponent(context);
-            if (pt == null)
-                return;
+            //var pt = (ParameterTableEntity)GetParameterTableLink().GetComponent(context);
+            //if (pt == null)
+            //    return;
 
-            foreach (var property in pt.Properties)
-            {
-            }
+            //foreach (var property in pt.Properties)
+            //{
+            //}
         }
         public ComponentLink GetParameterTableLink()
         {
             return new ComponentLink(ComponentType.ParameterTable, this, "ParameterTable", true, "ParameterTable");
+        }
+
+        public override string GetBusinessAutoLabel()
+        {
+            return string.Format(CultureInfo.InvariantCulture, "Parameter Table Lookup");
+        }
+
+        public override string GetTechnicalAutoLabel()
+        {
+            return GetBusinessAutoLabel();
         }
         #endregion
 

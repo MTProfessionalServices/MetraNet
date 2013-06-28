@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System.Globalization;
 using System.Runtime.Serialization;
 using MetraTech.ExpressionEngine.Flows.Enumerations;
-using MetraTech.ExpressionEngine.MTProperties;
-using MetraTech.ExpressionEngine.TypeSystem;
+
 
 namespace MetraTech.ExpressionEngine.Flows
 {
@@ -25,6 +24,15 @@ namespace MetraTech.ExpressionEngine.Flows
             InputsAndOutputs.Clear();
         }
 
+        public override string GetBusinessAutoLabel()
+        {
+            return string.Format(CultureInfo.InvariantCulture, "Query");
+        }
+
+        public override string GetTechnicalAutoLabel()
+        {
+            return GetBusinessAutoLabel();
+        }
         #endregion
     }
 }

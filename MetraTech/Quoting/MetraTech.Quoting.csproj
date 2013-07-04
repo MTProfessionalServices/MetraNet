@@ -186,6 +186,11 @@
       <Project>{B0909156-962B-4C97-AB1C-4073E3DA6DC1}</Project>
       <Name>MetraTech.Basic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BusinessEntity\GenerateBMEAssemblies\GenerateBMEAssemblies.csproj">
+      <Project>{54FF611F-7227-44E0-AB36-F7CCCA822882}</Project>
+      <Name>GenerateBMEAssemblies</Name>
+      <Private>False</Private>
+    </ProjectReference>	
     <ProjectReference Include="..\BusinessEntity\Core\MetraTech.BusinessEntity.Core.csproj">
       <Project>{B24AE6DC-D760-4835-80FE-53BF024AC59A}</Project>
       <Name>MetraTech.BusinessEntity.Core</Name>

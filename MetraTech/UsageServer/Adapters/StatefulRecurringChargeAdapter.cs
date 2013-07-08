@@ -91,7 +91,7 @@ namespace MetraTech.UsageServer.Adapters
                 MetraTech.Interop.MeterRowset.IBatch batch = meterrs.CreateAdapterBatch(context.RunID,
                                                                                         "StatefulRecurringChargeAdapter",
                                                                                         "StatefulRecurringChargeAdapter");
-                batchid = batch.UID;
+                batchid = MetraTech.Utils.MSIXUtils.DecodeUIDAsString(batch.UID);
             }
             else
             {

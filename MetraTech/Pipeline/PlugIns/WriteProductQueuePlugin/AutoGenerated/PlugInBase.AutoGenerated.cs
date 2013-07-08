@@ -84,7 +84,7 @@ namespace MetraTech.Pipeline.Plugins.WriteProductQueue
         }
         protected abstract void ProcessAllSessions(PropertiesCollection propsCol);
         protected virtual void StartUp(MetraTech.Interop.SysContext.IMTSystemContext systemContext, IMTConfigPropSet propSet) { }
-        protected abstract void ProcessSession(Properties props, RabbitMQ.Client.IModel model);
+        protected abstract void ProcessSession(Properties props, RabbitMQ.Client.IModel model, System.IO.MemoryStream builder, bool batchFull);
         public override void Shutdown(){}
         /// <summary>
         /// Plug-in ProcessorInfo

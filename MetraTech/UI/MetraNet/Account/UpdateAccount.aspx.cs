@@ -106,14 +106,12 @@ public partial class Account_UpdateAccount : MTAccountPage
                   tbAncestorAccount.ReadOnly = true;
                   Account.AncestorAccountID = 1;
                   tbPayer.ReadOnly = true;
-                  cbApplyTemplate.Visible = false;
               }
 
               if (accountType.IsCorporate)
               {
                   tbAncestorAccount.ReadOnly = true;
                   tbPayer.ReadOnly = true;
-                  cbApplyTemplate.Visible = false;
               }
 
               tbSecurityQuestionText.Visible = (Account.AuthenticationType == AuthenticationType.MetraNetInternal);
@@ -271,7 +269,7 @@ public partial class Account_UpdateAccount : MTAccountPage
         UpdateAccountEvents_UpdateAccount_Client update = new UpdateAccountEvents_UpdateAccount_Client();
         update.In_Account = Account;
         update.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-        update.In_ApplyAccountTemplates = cbApplyTemplate.Checked;
+        update.In_ApplyAccountTemplates = false; 
 
         //Approval Framework related code starts here
         update.In_IsApprovalEnabled = false;

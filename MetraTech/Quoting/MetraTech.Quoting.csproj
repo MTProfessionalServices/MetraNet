@@ -190,7 +190,7 @@
       <Project>{54FF611F-7227-44E0-AB36-F7CCCA822882}</Project>
       <Name>GenerateBMEAssemblies</Name>
       <Private>False</Private>
-    </ProjectReference>	
+    </ProjectReference>
     <ProjectReference Include="..\BusinessEntity\Core\MetraTech.BusinessEntity.Core.csproj">
       <Project>{B24AE6DC-D760-4835-80FE-53BF024AC59A}</Project>
       <Name>MetraTech.BusinessEntity.Core</Name>

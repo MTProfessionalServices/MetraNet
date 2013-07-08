@@ -481,6 +481,12 @@ STDMETHODIMP CMTRuleSetWriter::CreateWithID(IMTSessionContext* apCtxt,
 			rowset->Execute();
 		}
 
+		rowset->Clear();
+
+		rowset->InitializeForStoredProc("recursive_inherit_sub_by_rsch");
+		rowset->AddInputParameterToStoredProc("v_id_rsched", MTTYPE_INTEGER, INPUT_PARAM, aRSID);
+		rowset->ExecuteStoredProc();
+
 	}
 	catch (_com_error & err)
 	{ return ReturnComError(err); }

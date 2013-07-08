@@ -29,8 +29,12 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 	/// <summary>
 	/// Internal non-exposed EventArgs class that carries the Report Instance information when the callback is made
 	/// </summary>
+  /// TODO: this class and <see cref="ReportInstanceInitializationException"/> has very similar properties whci can be merged to one class
+  /// TODO: It will aloow to merge to methods MainReportsEntry.AuditExecuteStatus(ReportInstanceInitializationException riEx) and 
+  /// TODO: MainReportsEntry.AuditExecuteStatus(ReportExecutionCompleteEventArgs rE) to one generic method
 	public class ReportExecutionCompleteEventArgs : EventArgs 
 	{
+    public const int DescriptionLength = 2000;
 		/// <summary>
 		/// Date time of when the execution was complete
 		/// </summary>
@@ -96,7 +100,19 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 		///		<value>Description of the execution result - holds the result of the execution.
 		///		Will hold the full exception stack trace in case of failure</value>
 		/// </summary>
-		public string Description { get { return __description; } set { __description = value; } }
+		public string Description 
+    { 
+      get 
+      {
+        return __description.Length > ReportExecutionCompleteEventArgs.DescriptionLength
+                   ? __description.Substring(0, ReportExecutionCompleteEventArgs.DescriptionLength)
+                   : __description; 
+      } 
+      set 
+      { 
+        __description = value; 
+      }
+    }
 
 		/// <summary>
 		/// A comma seperated list of param "name=value" pairs that was passed to the report instance

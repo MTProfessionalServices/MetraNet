@@ -82,7 +82,6 @@ public partial class AddAccount : MTAccountPage
           tbPayer.Visible = false;
           tbAncestorAccount.ReadOnly = true;
           Account.AncestorAccountID = 1;
-          cbApplyTemplate.Visible = false;
           tbAncestorAccount.AllowBlank = true;
         }
 
@@ -90,7 +89,6 @@ public partial class AddAccount : MTAccountPage
         {
           tbAncestorAccount.ReadOnly = false;      
           Account.AncestorAccountID = 1;
-          cbApplyTemplate.Visible = false;
           tbAncestorAccount.AllowBlank = false;
         }
       }
@@ -225,7 +223,7 @@ public partial class AddAccount : MTAccountPage
       add.In_Account = Account;
       add.In_AccountId = new AccountIdentifier(UI.User.AccountId);
       add.In_SendEmail = cbEmailNotification.Checked;
-      add.In_ApplyAccountTemplates = cbApplyTemplate.Checked;
+      add.In_ApplyAccountTemplates = false;
       PageNav.Execute(add);
      
     }

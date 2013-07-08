@@ -52,6 +52,7 @@ Call mdm_Main()
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 Private Function Form_Initialize(EventArg)
   Dim objAccountCol
+  Call response.redirect(mam_ConfirmDialogEncodeAllURL(mam_getDictionary("TEXT_MOVE_ACCOUNTS"), mam_getDictionary("TEXT_ACCOUNTS_MOVED_SUCCESSFULLY"), mam_getDictionary("WELCOME_DIALOG")))
   
   Form_Initialize = false
   

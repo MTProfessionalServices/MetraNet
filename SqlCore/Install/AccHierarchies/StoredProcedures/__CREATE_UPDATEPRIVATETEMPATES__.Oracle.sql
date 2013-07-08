@@ -98,11 +98,22 @@ BEGIN
        AND NOT EXISTS (SELECT 1 FROM t_acc_template_subs t WHERE t.id_acc_template = UpdatePrivateTempates.id_template AND t.id_po = tatps.id_po);
 
    /*insert new values from parent private templates*/
-   FOR rec IN (SELECT aa.id_ancestor, aa.id_descendent, a1.id_acc_template AS id_parent_acc_template, a2.id_acc_template AS current_id, aa.num_generations
+   FOR rec IN (SELECT aa.id_ancestor, aa.id_descendent, NVL(pa.id_acc_template, a1.id_acc_template) AS id_parent_acc_template, a2.id_acc_template AS current_id, aa.num_generations
                 FROM t_account_ancestor aa
                      JOIN t_acc_template a1 on aa.id_ancestor = a1.id_folder AND a1.id_acc_type = UpdatePrivateTempates.id_acc_type
                      JOIN t_acc_template a2 on aa.id_descendent = a2.id_folder AND a2.id_acc_type = UpdatePrivateTempates.id_acc_type
-               WHERE aa.id_ancestor = id_account
+                     LEFT JOIN (
+                        SELECT t2.id_acc_template, a3.id_descendent
+                        FROM   t_account_ancestor a3
+                               JOIN t_acc_template t2 ON a3.id_ancestor = t2.id_folder AND t2.id_acc_type = UpdatePrivateTempates.id_acc_type
+                        WHERE  num_generations =
+                                (SELECT MIN(num_generations)
+                                FROM   t_account_ancestor ac
+                                       JOIN t_acc_template t3 ON ac.id_ancestor = t3.id_folder
+                                WHERE  ac.id_descendent = a3.id_descendent AND num_generations > 0)
+
+                     ) pa ON pa.id_descendent = aa.id_descendent
+               WHERE aa.id_ancestor = id_account AND aa.num_generations > 0
               ORDER BY aa.num_generations ASC
              ) LOOP
     /*recursive merge properties to private template of each level of child account from private template of current account */

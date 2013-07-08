@@ -82,12 +82,12 @@ AS
         IF detailtypesubs IS NULL THEN
             SELECT id_enum_data
             INTO   detailtypesubs
-            FROM   t_enum_data 
+            FROM   t_enum_data
             WHERE  nm_enum_data = 'metratech.com/accounttemplate/DetailType/Subscription';
              
             SELECT id_enum_data
             INTO   detailresultfailure
-            FROM   t_enum_data 
+            FROM   t_enum_data
             WHERE  nm_enum_data = 'metratech.com/accounttemplate/DetailResult/Failure';
          END IF;
       
@@ -169,7 +169,7 @@ AS
           INSERT INTO t_audit_details (id_auditdetails, id_audit, tx_details)
           SELECT seq_t_audit_details.nextval, tmp.my_id_audit, tmp.tx_details
           FROM   (
-                  SELECT my_id_audit,
+                  SELECT my_id_audit AS my_id_audit,
                          'Added subscription to id_groupsub ' || id_group ||
                          ' for account ' || id_acc ||
                          ' from ' || vt_start ||
@@ -177,7 +177,7 @@ AS
                          ' on ' || systemdate AS tx_details
                   FROM   tmp_gsubmember
                   UNION ALL
-                  SELECT my_id_audit,
+                  SELECT my_id_audit AS my_id_audit,
                          'Added subscription to product offering ' || id_po ||
                          ' for account ' || id_acc ||
                          ' from ' || vt_start ||
@@ -214,18 +214,18 @@ AS
                    getcurrentid ('id_audit', my_id_audit);
 
                    INSERT INTO t_audit (
-                        id_audit, 
-                        id_event, 
-                        id_userid, 
-                        id_entitytype, 
-                        id_entity, 
+                        id_audit,
+                        id_event,
+                        id_userid,
+                        id_entitytype,
+                        id_entity,
                         dt_crt
                       )
                    VALUES (
-                        my_id_audit, 
-                        apply_subscriptions.id_event_failure, 
+                        my_id_audit,
+                        apply_subscriptions.id_event_failure,
                         apply_subscriptions.user_id,
-                        1, 
+                        1,
                         my_id_acc,
                         getutcdate ()
                       );
@@ -233,12 +233,12 @@ AS
              END IF;
 
             INSERT INTO t_audit_details (
-                id_auditdetails, 
-                id_audit, 
+                id_auditdetails,
+                id_audit,
                 tx_details
              )
             VALUES (
-                seq_t_audit_details.NEXTVAL, 
+                seq_t_audit_details.NEXTVAL,
                 my_id_audit,
                 'Error applying template to id_acc: '
                 || my_id_acc
@@ -270,6 +270,7 @@ AS
        curr_id_sub       INT;
        my_id_audit       INT;
        my_user_id        INT;
+       id_acc_type       INT;
 
     BEGIN
        my_user_id := apply_subscriptions_to_acc.user_id;
@@ -297,6 +298,11 @@ AS
        SELECT vt_start
        INTO   v_acc_start
        FROM   t_account_state
+       WHERE  id_acc = apply_subscriptions_to_acc.id_acc;
+       
+       SELECT id_type
+       INTO   id_acc_type
+       FROM   t_account
        WHERE  id_acc = apply_subscriptions_to_acc.id_acc;
     
        /* Create new subscriptions */
@@ -368,6 +374,38 @@ AS
                                         JOIN t_pl_map mpo ON mpo.id_pi_template = ms.id_pi_template
                                  WHERE  ags.id_group = gm.id_group AND mpo.id_po = NVL(ts.id_po, gs.id_po))
           WHERE  ts.id_acc_template = apply_subscriptions_to_acc.id_acc_template
+             /* Check if the PO is available for the account's type */
+             AND (  (ts.id_po IS NOT NULL AND
+                      (  EXISTS
+                         (
+                            SELECT 1
+                            FROM   t_po_account_type_map atm
+                            WHERE  atm.id_po = ts.id_po AND atm.id_account_type = id_acc_type
+                         )
+                      OR NOT EXISTS
+                         (
+                             SELECT 1 FROM t_po_account_type_map atm WHERE atm.id_po = ts.id_po
+                         )
+                     )
+                    )
+                 OR (ts.id_group IS NOT NULL AND
+                      (  EXISTS
+                         (
+                            SELECT 1
+                            FROM   t_po_account_type_map atm
+                                   JOIN t_sub tgs ON tgs.id_po = atm.id_po
+                            WHERE  tgs.id_group = ts.id_group AND atm.id_account_type = id_acc_type
+                         )
+                     OR NOT EXISTS
+                         (
+                            SELECT 1
+                            FROM   t_po_account_type_map atm
+                                   JOIN t_sub tgs ON tgs.id_po = atm.id_po
+                            WHERE  tgs.id_group = ts.id_group
+                         )
+                      )
+                    )
+                 )
           GROUP BY ts.id_po, ts.id_group, vs.v_sub_start, vs.v_sub_end
        )
        LOOP
@@ -386,7 +424,8 @@ AS
                     detailtypesubs,
                     detailresultfailure,
                     'Subscription for account ' || apply_subscriptions_to_acc.id_acc || ' not created due to ' || sub.conflicts || 'conflict' || CASE WHEN sub.conflicts > 1 THEN 's' ELSE '' END,
-                    apply_subscriptions_to_acc.retrycount
+                    apply_subscriptions_to_acc.retrycount,
+                    'N'
                 );
                 
             /* 3.  There is a conflicting subscription for an early period */
@@ -421,8 +460,8 @@ AS
     PROCEDURE UpdateAccPropsFromTemplate (
       idAccountTemplate INT,
       systemDate DATE
-    ) 
-	AS
+    )
+    AS
         vals VARCHAR2(32767);
         dSql VARCHAR2(32767);
         conditionStatement VARCHAR2(32767);
@@ -511,7 +550,7 @@ AS
         ,OldUsageCycle INT
         ,systemDate DATE
     )
-	AS
+    AS
         p_status INT;
         intervalenddate DATE;
         intervalID INT;
@@ -645,7 +684,8 @@ AS
                             DetailTypeSubscription,
                             DetailResultInformation,
                             'No payment record changed. Return code is ' || TO_CHAR(p_status),
-                            nRetryCount
+                            nRetryCount,
+                            'N'
                         );
                         p_status := 0;
                     END IF;
@@ -659,7 +699,8 @@ AS
                             DetailTypeSubscription,
                             DetailResultInformation,
                             'No payment record created. Return code is ' || TO_CHAR(p_status),
-                            nRetryCount
+                            nRetryCount,
+                            'N'
                         );
                         p_status := 0;
                     END IF;

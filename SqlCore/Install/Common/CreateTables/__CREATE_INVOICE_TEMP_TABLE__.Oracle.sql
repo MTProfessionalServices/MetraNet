@@ -8,5 +8,5 @@
         /* invoice_tax number(22,10), */
         invoice_date DATE,
         invoice_due_date DATE,
-        invoice_currency VARCHAR(10))
+        invoice_currency VARCHAR2(10))
      ON COMMIT PRESERVE ROWS

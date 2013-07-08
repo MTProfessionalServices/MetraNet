@@ -1,8 +1,8 @@
 
 create  or replace 
 procedure MoveAccount
-	(p_new_parent int,
-	 p_account_being_moved int,
+    (p_new_parent int,
+     p_account_being_moved int,
    p_vt_move_start date,
    p_enforce_same_corporation varchar2,
    p_system_time date,
@@ -27,8 +27,8 @@ syntheticroot varchar2(1);
 dummy_type int;
 p_vt_move_start_trunc date;
 allTypesSupported int;
-templateId int; 
-templateOwner int; 
+templateId int;
+templateOwner int;
 templateCount int;
 sessionId int;
 begin
@@ -43,8 +43,8 @@ begin
     v_id_descendent := p_account_being_moved;
 
     v_realstartdate := dbo.mtstartofday(v_dt_start) ;
-		select max(vt_end) into varMaxDateTime from t_account_ancestor where id_descendent = v_id_descendent
-		and id_ancestor = 1;
+        select max(vt_end) into varMaxDateTime from t_account_ancestor where id_descendent = v_id_descendent
+        and id_ancestor = 1;
 
     begin
 
@@ -56,10 +56,10 @@ begin
         inner join t_account descendent ON
         ancestor.id_acc = v_id_ancestor and
         descendent.id_acc = v_id_descendent;
-	exception
-	when no_data_found then
-		null;
-	end;
+    exception
+    when no_data_found then
+        null;
+    end;
 
 select name into p_ancestor_type
 from t_account_type
@@ -70,30 +70,30 @@ select name into p_acc_type
 from t_account_type
 where id_type = v_descendent_acc_type;
 
-	begin
+    begin
         select
         dbo.mtmaxoftwodates(dbo.mtstartofday(ancestor.dt_crt),dbo.mtstartofday(descendent.dt_crt))
         into v_AccMaxCreateDate
         from t_account ancestor,t_account descendent where ancestor.id_acc = v_id_ancestor and
         descendent.id_acc = v_id_descendent;
     exception
-			when no_data_found then
+            when no_data_found then
             null;
     end;
 
-	if dbo.mtstartofday(v_dt_start) < dbo.mtstartofday(v_AccMaxCreateDate)  then
-		/* MT_CANNOT_MOVE_ACCOUNT_BEFORE_START_DATE*/
-		p_status := -486604750;
-		return;
-	end if;
+    if dbo.mtstartofday(v_dt_start) < dbo.mtstartofday(v_AccMaxCreateDate)  then
+        /* MT_CANNOT_MOVE_ACCOUNT_BEFORE_START_DATE*/
+        p_status := -486604750;
+        return;
+    end if;
 
 
-	/* step : make sure that the new ancestor is not actually a child*/
-	select count(*) into p_status
-	from t_account_ancestor
-	where id_ancestor = v_id_descendent
-	and id_descendent = v_id_ancestor AND
-  	v_realstartdate between vt_start AND vt_end;
+    /* step : make sure that the new ancestor is not actually a child*/
+    select count(*) into p_status
+    from t_account_ancestor
+    where id_ancestor = v_id_descendent
+    and id_descendent = v_id_ancestor AND
+    v_realstartdate between vt_start AND vt_end;
 
     if p_status > 0 then
         /* MT_NEW_PARENT_IS_A_CHILD*/
@@ -101,13 +101,13 @@ where id_type = v_descendent_acc_type;
         return;
     end if;
 
-	select count(*) into p_status
-	from t_account_ancestor
-	where id_ancestor = v_id_ancestor
-	and id_descendent = v_id_descendent
-	and num_generations = 1
-	and v_realstartdate >= vt_start
-	and vt_end = varMaxDateTime;
+    select count(*) into p_status
+    from t_account_ancestor
+    where id_ancestor = v_id_ancestor
+    and id_descendent = v_id_descendent
+    and num_generations = 1
+    and v_realstartdate >= vt_start
+    and vt_end = varMaxDateTime;
 
     if p_status > 0 then
         /* MT_NEW_ANCESTOR_IS_ALREADY_ A_ANCESTOR*/
@@ -127,61 +127,61 @@ where id_type = v_descendent_acc_type;
     end if;
 
     /* step : make sure that the account is not a corporate account*/
-	/*only check next 2 business rules if p_enforce_same_corporation rule is turned on*/
-	if p_enforce_same_corporation = 1 then
-		if (dbo.iscorporateaccount(v_id_descendent,v_dt_start) = 1)
+    /*only check next 2 business rules if p_enforce_same_corporation rule is turned on*/
+    if p_enforce_same_corporation = 1 then
+        if (dbo.iscorporateaccount(v_id_descendent,v_dt_start) = 1)
         then
-    		/* MT_CANNOT_MOVE_CORPORATE_ACCOUNT*/
-			p_status := -486604770;
-			return;
+            /* MT_CANNOT_MOVE_CORPORATE_ACCOUNT*/
+            p_status := -486604770;
+            return;
     end if;
-		/* do this check if the original ancestor of the account being moved is not -1
-		 or the new ancestor is not -1 */
-		select id_ancestor into originalAncestor from t_account_ancestor
-			where id_descendent =  v_id_descendent
-			and num_generations = 1
-			and p_vt_move_start_trunc >= vt_start and p_vt_move_start_trunc <= vt_end;
+        /* do this check if the original ancestor of the account being moved is not -1
+         or the new ancestor is not -1 */
+        select id_ancestor into originalAncestor from t_account_ancestor
+            where id_descendent =  v_id_descendent
+            and num_generations = 1
+            and p_vt_move_start_trunc >= vt_start and p_vt_move_start_trunc <= vt_end;
 
-		if (originalAncestor <> -1 AND v_id_ancestor <> -1 AND
-		dbo.IsInSameCorporateAccount(v_id_ancestor,v_id_descendent,v_realstartdate) <> 1)
-		then
-			/* MT_CANNOT_MOVE_BETWEEN_CORPORATE_HIERARCHIES*/
-			p_status := -486604759;
-			return;
-		end if;
-	end if;
+        if (originalAncestor <> -1 AND v_id_ancestor <> -1 AND
+        dbo.IsInSameCorporateAccount(v_id_ancestor,v_id_descendent,v_realstartdate) <> 1)
+        then
+            /* MT_CANNOT_MOVE_BETWEEN_CORPORATE_HIERARCHIES*/
+            p_status := -486604759;
+            return;
+        end if;
+    end if;
 
-	/*check that both ancestor and descendent are subscriber accounts.  This check has to be recast.. you can
-	 only move if the new ancestor allows children of type @descendent_acc_type */
+    /*check that both ancestor and descendent are subscriber accounts.  This check has to be recast.. you can
+     only move if the new ancestor allows children of type @descendent_acc_type */
 
-	select count(*) into dummy_type from dual
-	where exists (select 1 from t_acctype_descendenttype_map 
-	where id_type = v_ancestor_acc_type
-	and id_descendent_type = v_descendent_acc_type);
-	if (dummy_type = 0)
-	then
-		/* MT_ANCESTOR_OF_INCORRECT_TYPE */
-		p_status := -486604714;
-		return;
-	END if;
-	
-	/* check that only accounts whose type says b_canHaveSyntheticRoot is true can have -1 as an ancestor.*/
-	if (v_id_ancestor = -1)
-	then
-	select b_CanhaveSyntheticRoot into syntheticroot from t_account_type where id_type = v_descendent_acc_type;
-	if (syntheticroot <> '1')
-	then
-	/* MT_ANCESTOR_INVALID_SYNTHETIC_ROOT */
-		p_status := -486604713;
-		return;
-	END if;
-	END if;
+    select count(*) into dummy_type from dual
+    where exists (select 1 from t_acctype_descendenttype_map
+    where id_type = v_ancestor_acc_type
+    and id_descendent_type = v_descendent_acc_type);
+    if (dummy_type = 0)
+    then
+        /* MT_ANCESTOR_OF_INCORRECT_TYPE */
+        p_status := -486604714;
+        return;
+    END if;
+    
+    /* check that only accounts whose type says b_canHaveSyntheticRoot is true can have -1 as an ancestor.*/
+    if (v_id_ancestor = -1)
+    then
+    select b_CanhaveSyntheticRoot into syntheticroot from t_account_type where id_type = v_descendent_acc_type;
+    if (syntheticroot <> '1')
+    then
+    /* MT_ANCESTOR_INVALID_SYNTHETIC_ROOT */
+        p_status := -486604713;
+        return;
+    END if;
+    END if;
 
     /* end business rules*/
 
 /*METRAVIEW DATAMART */
 
-insert into tmp_t_dm_account  select * from t_dm_account where id_acc in 
+insert into tmp_t_dm_account  select * from t_dm_account where id_acc in
 (
 select distinct id_descendent from t_account_ancestor where id_ancestor = p_account_being_moved
 );
@@ -219,7 +219,7 @@ delete from t_dm_account where id_dm_acc in (select id_dm_acc from tmp_t_dm_acco
         where num_generations = 1 and p_vt_move_start_trunc between vt_start and vt_end;
     exception
         when no_data_found then
-		null;
+        null;
     end;
 
     /*select * from #deletethese
@@ -251,13 +251,13 @@ delete from t_dm_account where id_dm_acc in (select id_dm_acc from tmp_t_dm_acco
         [-----------] (update)*/
     update t_account_ancestor aa
     set
-    vt_end = (select dbo.subtractsecond(d.vt_start) from 
-							tmp_deletethese d where aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and
-							aa.num_generations=d.num_generations and aa.vt_start < d.vt_start and aa.vt_end > d.vt_start)
-		where exists
-		(select 1 from 
-							tmp_deletethese d where aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and
-							aa.num_generations=d.num_generations and aa.vt_start < d.vt_start and aa.vt_end > d.vt_start);
+    vt_end = (select dbo.subtractsecond(d.vt_start) from
+                            tmp_deletethese d where aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and
+                            aa.num_generations=d.num_generations and aa.vt_start < d.vt_start and aa.vt_end > d.vt_start)
+        where exists
+        (select 1 from
+                            tmp_deletethese d where aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and
+                            aa.num_generations=d.num_generations and aa.vt_start < d.vt_start and aa.vt_end > d.vt_start);
 
     /* Update start date of existing records for which the effectivity interval of the update
      ends strictly inside the existing record:
@@ -378,9 +378,9 @@ delete from t_dm_account where id_dm_acc in (select id_dm_acc from tmp_t_dm_acco
     )
     and id_descendent in (select id_descendent from TMP_deletethese);
 
-	
+    
    update t_path_capability
-    set param_value = ( 
+    set param_value = (
         select distinct aa.tx_path || '/'
         from
         t_account_ancestor aa
@@ -390,7 +390,7 @@ delete from t_dm_account where id_dm_acc in (select id_dm_acc from tmp_t_dm_acco
         where ci.id_cap_instance = t_path_capability.id_cap_instance
         and p_system_time between aa.vt_start and aa.vt_end
     )
-    where exists ( 
+    where exists (
         select 1
         from
         t_account_ancestor aa
@@ -401,45 +401,45 @@ delete from t_dm_account where id_dm_acc in (select id_dm_acc from tmp_t_dm_acco
         and p_system_time between aa.vt_start and aa.vt_end
    );
 
-	update t_account_ancestor set b_Children = 'Y' where
-	id_descendent = p_new_parent
-	and b_children ='N';
+    update t_account_ancestor set b_Children = 'Y' where
+    id_descendent = p_new_parent
+    and b_children ='N';
 
-	update t_account_ancestor old set b_Children = 'N' where
-	id_descendent = p_id_ancestor_out and
-	not exists (select 1 from t_account_ancestor new where new.id_ancestor=old.id_descendent
-	and num_generations <>0 );
+    update t_account_ancestor old set b_Children = 'N' where
+    id_descendent = p_id_ancestor_out and
+    not exists (select 1 from t_account_ancestor new where new.id_ancestor=old.id_descendent
+    and num_generations <>0 );
 
 /* DataMart insert new id_dm_acc for moving account and descendents */
-		insert into t_dm_account(id_dm_acc,id_acc,vt_start,vt_end) select seq_t_dm_account.nextval,anc.id_descendent, anc.vt_start, anc.vt_end
-		from t_account_ancestor	anc
-		inner join tmp_t_dm_account acc on anc.id_descendent = acc.id_acc
-		where anc.id_ancestor=1
-		and acc.vt_end = varMaxDateTime;
-	
-		insert into t_dm_account_ancestor
-		select dm2.id_dm_acc, dm1.id_dm_acc, aa1.num_generations
-		from
-		t_account_ancestor aa1
-		inner join t_dm_account dm1 on aa1.id_descendent=dm1.id_acc and aa1.vt_start <= dm1.vt_end and dm1.vt_start <= aa1.vt_end
-		inner join t_dm_account dm2 on aa1.id_ancestor=dm2.id_acc and aa1.vt_start <= dm2.vt_end and dm2.vt_start <= aa1.vt_end
-		inner join tmp_t_dm_account acc on aa1.id_descendent = acc.id_acc
-		where dm1.id_acc <> dm2.id_acc
-		and dm1.vt_start >= dm2.vt_start
-		and dm1.vt_end <= dm2.vt_end
-		and acc.vt_end = varMaxDateTime;
+        insert into t_dm_account(id_dm_acc,id_acc,vt_start,vt_end) select seq_t_dm_account.nextval,anc.id_descendent, anc.vt_start, anc.vt_end
+        from t_account_ancestor anc
+        inner join tmp_t_dm_account acc on anc.id_descendent = acc.id_acc
+        where anc.id_ancestor=1
+        and acc.vt_end = varMaxDateTime;
+    
+        insert into t_dm_account_ancestor
+        select dm2.id_dm_acc, dm1.id_dm_acc, aa1.num_generations
+        from
+        t_account_ancestor aa1
+        inner join t_dm_account dm1 on aa1.id_descendent=dm1.id_acc and aa1.vt_start <= dm1.vt_end and dm1.vt_start <= aa1.vt_end
+        inner join t_dm_account dm2 on aa1.id_ancestor=dm2.id_acc and aa1.vt_start <= dm2.vt_end and dm2.vt_start <= aa1.vt_end
+        inner join tmp_t_dm_account acc on aa1.id_descendent = acc.id_acc
+        where dm1.id_acc <> dm2.id_acc
+        and dm1.vt_start >= dm2.vt_start
+        and dm1.vt_end <= dm2.vt_end
+        and acc.vt_end = varMaxDateTime;
 
-		/*we are adding 0 level record for all children of moving account */
-		insert into t_dm_account_ancestor select dm1.id_dm_acc,dm1.id_dm_acc,0 	
-		from 
-		t_dm_account dm1
-		inner join tmp_t_dm_account acc on dm1.id_acc = acc.id_acc
-		and acc.vt_end = varMaxDateTime;
-	
-		delete from tmp_t_dm_account;
-		delete from tmp_deletethese;
+        /*we are adding 0 level record for all children of moving account */
+        insert into t_dm_account_ancestor select dm1.id_dm_acc,dm1.id_dm_acc,0
+        from
+        t_dm_account dm1
+        inner join tmp_t_dm_account acc on dm1.id_acc = acc.id_acc
+        and acc.vt_end = varMaxDateTime;
+    
+        delete from tmp_t_dm_account;
+        delete from tmp_deletethese;
 
-		
+        
     SELECT NVL(MAX(all_types),0)
         INTO allTypesSupported
         FROM t_acc_tmpl_types;
@@ -462,11 +462,11 @@ delete from t_dm_account where id_dm_acc in (select id_dm_acc from tmp_t_dm_acco
         where ROWNUM = 1;
 
     IF (templateCount <> 0 AND templateId <> -1)
-    THEN 
+    THEN
         updateprivatetempates(
             id_template => templateId
         );
-        inserttemplatesession(templateOwner, p_acc_type, 0, ' ', 0, 0, 0, sessionId); 
+        inserttemplatesession(templateOwner, p_acc_type, 0, ' ', 0, 0, 0, sessionId, 'N');
         ApplyAccountTemplate(
             accountTemplateId => templateId,
             sessionId => sessionId,
@@ -480,11 +480,11 @@ delete from t_dm_account where id_dm_acc in (select id_dm_acc from tmp_t_dm_acco
             account_id                 => NULL,
             doCommit                   => 'N'
         );
-    ELSE 
+    ELSE
         FOR tmpl IN (
             SELECT template.id_acc_template, template.id_folder, atype.name
                 FROM t_account_ancestor ancestor
-                JOIN t_acc_template template ON ancestor.id_descendent = template.id_folder 
+                JOIN t_acc_template template ON ancestor.id_descendent = template.id_folder
                 JOIN t_account_type atype on template.id_acc_type = atype.id_type
                 WHERE ancestor.id_ancestor = p_new_parent
         )
@@ -492,7 +492,7 @@ delete from t_dm_account where id_dm_acc in (select id_dm_acc from tmp_t_dm_acco
             updateprivatetempates(
                 id_template => tmpl.id_acc_template
             );
-            inserttemplatesession(templateOwner, p_acc_type, 0, ' ', 0, 0, 0, sessionId); 
+            inserttemplatesession(templateOwner, p_acc_type, 0, ' ', 0, 0, 0, sessionId, 'N');
             ApplyAccountTemplate(
                 accountTemplateId => tmpl.id_acc_template,
                 sessionId => sessionId,

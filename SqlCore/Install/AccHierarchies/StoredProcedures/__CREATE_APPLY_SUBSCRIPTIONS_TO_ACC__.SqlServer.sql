@@ -22,8 +22,10 @@ AS
     DECLARE @curr_id_sub       int
     DECLARE @my_id_audit       int
     DECLARE @my_user_id        int
+	DECLARE @id_acc_type       int
 
     SELECT @my_user_id = ISNULL(@user_id, 1), @my_id_audit = @id_audit
+	SELECT @id_acc_type = id_type FROM t_account WHERE id_acc = @id_acc
 
     IF @my_id_audit IS NULL
     BEGIN
@@ -106,6 +108,38 @@ AS
                                     JOIN t_pl_map mpo ON mpo.id_pi_template = ms.id_pi_template
                              WHERE  ags.id_group = gm.id_group AND mpo.id_po = ISNULL(ts.id_po, gs.id_po))
       WHERE  ts.id_acc_template = @id_acc_template
+	     /* Check if the PO is available for the account's type */
+	     AND (  (ts.id_po IS NOT NULL AND
+		          (  EXISTS
+		             (
+				        SELECT 1
+					    FROM   t_po_account_type_map atm
+					    WHERE  atm.id_po = ts.id_po AND atm.id_account_type = @id_acc_type
+				     )
+				  OR NOT EXISTS
+				     (
+					     SELECT 1 FROM t_po_account_type_map atm WHERE atm.id_po = ts.id_po
+					 )
+				 )
+				)
+		     OR (ts.id_group IS NOT NULL AND
+			      (  EXISTS
+			         (
+				        SELECT 1
+					    FROM   t_po_account_type_map atm
+					           JOIN t_sub tgs ON tgs.id_po = atm.id_po
+					    WHERE  tgs.id_group = ts.id_group AND atm.id_account_type = @id_acc_type
+				     )
+				 OR NOT EXISTS
+				     (
+						SELECT 1
+					    FROM   t_po_account_type_map atm
+					           JOIN t_sub tgs ON tgs.id_po = atm.id_po
+					    WHERE  tgs.id_group = ts.id_group
+					 )
+				  )
+				)
+		     )
       GROUP BY ts.id_po, ts.id_group, vs.v_sub_start, vs.v_sub_end
     
     OPEN subs

@@ -3,6 +3,6 @@
 		  (  
 			id_instance number(10) NOT NULL,
 			tx_display_name nvarchar2(255),
-			tx_reason VARCHAR(80)
+			tx_reason VARCHAR2(80)
 		  ) on commit preserve rows
 		

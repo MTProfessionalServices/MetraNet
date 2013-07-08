@@ -1,5 +1,4 @@
-CREATE PROCEDURE ApplyTemplateToAccounts
-(
+CREATE PROCEDURE ApplyTemplateToAccounts(
 	@idAccountTemplate          int,
 	@sub_start                  datetime,
 	@sub_end                    datetime,
@@ -11,7 +10,8 @@ CREATE PROCEDURE ApplyTemplateToAccounts
 	@systemDate                 datetime,
 	@sessionId                  int,
 	@retrycount                 int,
-	@account_id					int = NULL
+	@account_id					int = NULL,
+	@doCommit					char = 'Y'
 )
 as
 	SET NOCOUNT ON
@@ -23,7 +23,10 @@ as
 
 	DELETE FROM @errTbl
 
-	BEGIN TRANSACTION T1
+	IF @doCommit = 'Y'
+	BEGIN
+		BEGIN TRANSACTION T1
+	END
 	BEGIN TRY
 		DECLARE @DetailTypeUpdate int
 		SELECT @DetailTypeUpdate = id_enum_data FROM t_enum_data WHERE nm_enum_data = 'metratech.com/accounttemplate/DetailType/Update'
@@ -44,7 +47,7 @@ as
 
 		DECLARE @errorStr NVARCHAR(4000)
 
-		EXEC UpdateAccPropsFromTemplate @idAccountTemplate
+		EXEC UpdateAccPropsFromTemplate @idAccountTemplate, @account_id
 
 		DECLARE @UsageCycleId INTEGER
 		DECLARE @PayerId INTEGER
@@ -58,7 +61,7 @@ as
 						,tp.StartDay
 						,ISNULL(m.num,-1) StartMonth
 						,tuct.id_cycle_type
-						,tp.DayOfWeek
+						,ISNULL(dw.num,-1) DayOfWeek
 						,tp.StartYear
 						,tp.FirstDayOfMonth
 						,tp.SecondDayOfMonth
@@ -79,7 +82,9 @@ as
 					) tp
 					LEFT JOIN t_enum_data tedm ON tedm.id_enum_data = tp.StartMonth
 					LEFT JOIN t_enum_data tedc ON tedc.id_enum_data = tp.UsageCycleType
-					LEFT JOIN t_months m ON UPPER(m.name) = UPPER(SUBSTRING(tedm.nm_enum_data, LEN(tedm.nm_enum_data) - CHARINDEX('/',REVERSE(tedm.nm_enum_data))+2, CHARINDEX('/',REVERSE(tedm.nm_enum_data))))
+					LEFT JOIN t_enum_data tedw ON tedw.id_enum_data = tp.DayOfWeek
+					LEFT JOIN fn_months() m ON tedm.nm_enum_data LIKE '%' + m.name
+					LEFT JOIN fn_day_of_week() dw ON tedw.nm_enum_data LIKE '%' + dw.name
 					LEFT JOIN t_usage_cycle_type tuct ON UPPER(tuct.tx_desc) = UPPER(SUBSTRING(tedc.nm_enum_data, LEN(tedc.nm_enum_data) - CHARINDEX('/',REVERSE(tedc.nm_enum_data))+2, CHARINDEX('/',REVERSE(tedc.nm_enum_data))))
 			) tprop ON tprop.DayOfMonth = ISNULL(tuc.day_of_month, tprop.DayOfMonth)
 			  AND tprop.StartDay = ISNULL(tuc.start_day,tprop.StartDay)
@@ -131,6 +136,7 @@ as
 
 		WHILE @@FETCH_STATUS = 0
 		BEGIN
+
 			SET @errorStr = ''
 			EXEC dbo.UpdateUsageCycleFromTemplate @IdAcc, @UsageCycleId, @OldUsageCycle, @systemDate, @errorStr OUTPUT
 			IF @errorStr <> '' BEGIN
@@ -155,11 +161,15 @@ as
 		END
 		CLOSE acc
 		DEALLOCATE acc
-		COMMIT TRANSACTION T1
+		IF @doCommit = 'Y' BEGIN
+			COMMIT TRANSACTION T1
+		END
 	END TRY
 	BEGIN CATCH
 		INSERT INTO @errTbl(dt_detail, nm_text) VALUES(GETDATE(), ERROR_MESSAGE())
-		ROLLBACK TRANSACTION T1
+		IF @doCommit = 'Y' BEGIN
+			ROLLBACK TRANSACTION T1
+		END
 	END CATCH
 
 	EXEC apply_subscriptions

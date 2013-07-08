@@ -26,7 +26,7 @@ BEGIN
 				EXEC UpdatePaymentRecord @payerID,@IdAcc,@PaymentStart,@PaymentEnd,@systemDate,@payerenddate,@systemDate,1, @p_account_currency, @p_status output
 				if (@p_status <> 1)
 				begin
-					SET @errorStr = 'No payment record changed for account ' + @IdAcc + '. Return code is ' + CAST(@p_status AS NVARCHAR(255))
+					SET @errorStr = 'No payment record changed for account. Return code is ' + CAST(@p_status AS NVARCHAR(255))
 					SET @p_status = 0
 				end
 			end
@@ -37,7 +37,7 @@ BEGIN
 				exec CreatePaymentRecord @payerID,@IdAcc,@systemDate,@payerenddate,@payerbillable,@systemDate,'N', 1, @p_account_currency, @p_status output
 				if (@p_status <> 1)
 				begin
-					SET @errorStr = 'No payment record created for account ' + @IdAcc + '. Return code is ' + CAST(@p_status AS NVARCHAR(255))
+					SET @errorStr = 'No payment record created for account. Return code is ' + CAST(@p_status AS NVARCHAR(255))
 					SET @p_status = 0
 				end
 			end

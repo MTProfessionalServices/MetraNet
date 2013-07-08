@@ -271,38 +271,6 @@
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
                             <ObjectName>MetraTech.DomainModel.AccountTypes.AllTypes</ObjectName>
-                            <ID>Internal.PaymentMethod</ID>
-                            <Name>Internal.PaymentMethod</Name>
-                            <Alignment>Left</Alignment>
-                            <ReadOnly>false</ReadOnly>
-                            <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
-                            <EditorValidation>
-                                <Required>false</Required>
-                                <ValidationType></ValidationType>
-                            </EditorValidation>
-                            <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
-                            <RequiredCapabilities />
-                        </Field>
-                        <Field>
-                            <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.DomainModel.AccountTypes.AllTypes</ObjectName>
-                            <ID>Internal.Currency</ID>
-                            <Name>Internal.Currency</Name>
-                            <Alignment>Left</Alignment>
-                            <ReadOnly>false</ReadOnly>
-                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
-                            <EditorValidation>
-                                <Required>false</Required>
-                                <ValidationType></ValidationType>
-                            </EditorValidation>
-                            <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
-                            <RequiredCapabilities />
-                        </Field>
-                        <Field>
-                            <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.DomainModel.AccountTypes.AllTypes</ObjectName>
                             <ID>PayerID</ID>
                             <Name>PayerID</Name>
                             <Alignment>Left</Alignment>

@@ -33,9 +33,12 @@ public partial class GroupSubscriptions_GroupSubscriptionMembers : MTPage
 
   protected override void OnLoadComplete(EventArgs e)
   {
-    CurrentGroupSubscription = PageNav.Data.Out_StateInitData["CurrentGroupSubscription"] as GroupSubscription;
-    this.GroupSubMemGrid.Title = HttpUtility.HtmlEncode( String.Format((string)GetLocalResourceObject("Grid.Title"), CurrentGroupSubscription.Name).Replace("'","\\'"));
-    this.GroupSubMemGrid.Elements[0].IsColumn = true;
+    if (PageNav.Data != null)
+    {
+      CurrentGroupSubscription = PageNav.Data.Out_StateInitData["CurrentGroupSubscription"] as GroupSubscription;
+      this.GroupSubMemGrid.Title = HttpUtility.HtmlEncode(String.Format((string)GetLocalResourceObject("Grid.Title"), CurrentGroupSubscription.Name).Replace("'", "\\'"));
+      this.GroupSubMemGrid.Elements[0].IsColumn = true;
+    }
   }
 
 }

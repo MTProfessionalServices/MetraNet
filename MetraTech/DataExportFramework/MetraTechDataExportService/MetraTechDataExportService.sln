@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.DataExportFramewo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.DataExportFramework.Common.Test", "..\MetraTech.DataExportFramework.Common.Test\MetraTech.DataExportFramework.Common.Test.csproj", "{DA87EFB4-107B-4782-96D8-974AC35A2BD9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataExporter.Test", "..\Components\DataExporter.Test\DataExporter.Test.csproj", "{D9320686-7E1E-47E4-AE2E-64EF4F8A613C}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = MetraTechDataExportService.vsmdi
@@ -143,6 +145,16 @@ Global
 		{DA87EFB4-107B-4782-96D8-974AC35A2BD9}.Release|Mixed Platforms.Build.0 = Release|x86
 		{DA87EFB4-107B-4782-96D8-974AC35A2BD9}.Release|x86.ActiveCfg = Release|x86
 		{DA87EFB4-107B-4782-96D8-974AC35A2BD9}.Release|x86.Build.0 = Release|x86
+		{D9320686-7E1E-47E4-AE2E-64EF4F8A613C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9320686-7E1E-47E4-AE2E-64EF4F8A613C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9320686-7E1E-47E4-AE2E-64EF4F8A613C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D9320686-7E1E-47E4-AE2E-64EF4F8A613C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D9320686-7E1E-47E4-AE2E-64EF4F8A613C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D9320686-7E1E-47E4-AE2E-64EF4F8A613C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9320686-7E1E-47E4-AE2E-64EF4F8A613C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9320686-7E1E-47E4-AE2E-64EF4F8A613C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D9320686-7E1E-47E4-AE2E-64EF4F8A613C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D9320686-7E1E-47E4-AE2E-64EF4F8A613C}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -39,7 +39,7 @@ public partial class AjaxServices_LoadDataFromAccTemplate : MTListServicePage
     {
       if (accId != 1) {
         AccountIdentifier parentAcc = new AccountIdentifier(accId);
-        sClient.GetTemplateDefForAccountType(parentAcc, accType, MetraTech.MetraTime.Now, true, out parentTmpl);
+        sClient.GetPrivateTemplateDefForAccountType(parentAcc, accType, MetraTech.MetraTime.Now, true, out parentTmpl);
       }
     }
     // Replace each parent's template properties with new one in case when it exists in account's template

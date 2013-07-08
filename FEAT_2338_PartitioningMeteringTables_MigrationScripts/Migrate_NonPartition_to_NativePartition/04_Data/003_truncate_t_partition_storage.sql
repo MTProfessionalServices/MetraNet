@@ -1,0 +1,1 @@
+TRUNCATE TABLE [dbo].[t_partition_storage]

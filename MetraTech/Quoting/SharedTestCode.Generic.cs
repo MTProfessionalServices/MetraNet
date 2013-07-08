@@ -150,6 +150,45 @@ namespace MetraTech.Shared.Test
     }
     #endregion
 
+    #region Product Catalog
+
+    private static IMTProductCatalog mProductCatalog = null;
+    public static IMTProductCatalog CurrentProductCatalog
+    {
+      get
+      {
+        //TODO: Cache this and return pre-initialized one
+        MetraTech.Interop.MTProductCatalog.IMTSessionContext sessionContext = GetSessionContextForProductCatalog();
+
+        mProductCatalog = new MTProductCatalogClass();
+        mProductCatalog.SetSessionContext(sessionContext);
+
+        return mProductCatalog;
+      }
+    }
+
+    protected static MetraTech.Interop.MTProductCatalog.IMTSessionContext GetSessionContextForProductCatalog()
+    {
+      //Todo: Fix to read from server access file if we decide to use SuperUser as opposed to user generating quote
+      Auth.IMTLoginContext loginContext = new Auth.MTLoginContextClass();
+      //ServerAccess.IMTServerAccessDataSet sa = new MetraTech.Interop.MTServerAccess.MTServerAccessDataSet();
+      //sa.Initialize();
+      //ServerAccess.IMTServerAccessData accessData = sa.FindAndReturnObject("SuperUser");
+      string suName = "su";
+      string suPassword = "su123";
+      try
+      {
+        return (MetraTech.Interop.MTProductCatalog.IMTSessionContext)loginContext.Login(suName, "system_user", suPassword);
+      }
+      catch (Exception ex)
+      {
+        throw new Exception("GetSessionContextForProductCatalog: Login failed:" + ex.Message, ex);
+      }
+
+    }
+
+    #endregion
+
     /// <summary>
     /// Helper to populate SubscriptionParameters with default UDRCInstanceValues
     /// </summary>
@@ -1046,6 +1085,7 @@ namespace MetraTech.Shared.Test
       account.StartYear = DateTime.Now.Year;
       account.SecondDayOfMonth = 15;
       
+      
 
 
       account.PayerID = PayerID;
@@ -1202,7 +1242,6 @@ namespace MetraTech.Shared.Test
       return accountHolder.Item;
     }
 
-
     public virtual void Instantiate()
     {
 
@@ -1259,7 +1298,6 @@ namespace MetraTech.Shared.Test
       }
     }
 
-
     protected virtual DepartmentAccount CreateDepartmentAccount()
     {
       string username = "Dep";
@@ -1276,7 +1314,12 @@ namespace MetraTech.Shared.Test
       account.LDAP.Add(billToContactView);
 
       account.StartMonth = MonthOfTheYear.January;
+      account.FirstDayOfMonth = 1;
       account.StartDay = 1;
+      account.DayOfMonth = 1;
+      account.DayOfWeek = MetraTech.DomainModel.Enums.Core.Global.DayOfTheWeek.Sunday;
+      account.StartYear = DateTime.Now.Year;
+      account.SecondDayOfMonth = 15;
 
       account.PayerID = PayerID;
 
@@ -1323,8 +1366,15 @@ namespace MetraTech.Shared.Test
       CoreSubscriber account = (CoreSubscriber)CreateBaseAccount("CoreSubscriber", ref username, ref nameSpace);
       account.AncestorAccountID = mDepartmentAccount._AccountID;
       account.AccountStartDate = MetraTime.Now;
-
+      account.StartMonth = MonthOfTheYear.January;
+      account.FirstDayOfMonth = 1;
+      account.StartDay = 1;
+      account.DayOfMonth = 1;
+      account.DayOfWeek = MetraTech.DomainModel.Enums.Core.Global.DayOfTheWeek.Sunday;
+      account.StartYear = DateTime.Now.Year;
+      account.SecondDayOfMonth = 15;
       account.Internal = internalView;
+      
 
       // Add the contact views
       //account.LDAP.Add(shipToContactView);
@@ -1347,6 +1397,204 @@ namespace MetraTech.Shared.Test
       WebServiceClient.Invoke();
 
       return (CoreSubscriber)WebServiceClient.InOut_Account;
+    }
+  }
+
+  public class CoreSubscriberAccountFactory
+  {
+    protected CoreSubscriber mCoreSubscriberAccount;
+    public CoreSubscriber Item
+    {
+      get { return mCoreSubscriberAccount; }
+    }
+
+    protected string baseName = "";
+    protected virtual string BaseName
+    {
+      get { return baseName; }
+    }
+
+    protected string uniqueInstanceIdentifier = "";
+    protected virtual string UniqueInstanceIdentifier
+    {
+      get { return uniqueInstanceIdentifier; }
+    }
+
+    protected UsageCycleType usageCycleType = UsageCycleType.Monthly;
+    public UsageCycleType CycleType
+    {
+      get { return usageCycleType; }
+      set { usageCycleType = value; }
+    }
+
+    protected int? payerID = null;
+    public int? PayerID
+    {
+      get { return payerID; }
+      set { payerID = value; }
+    }
+
+    protected int ancestorID = 1;
+    public int AncestorID
+    {
+      get { return ancestorID; }
+      set { ancestorID = value; }
+    }
+
+    protected InternalView internalView;
+    protected ContactView billToContactView;
+    protected ContactView shipToContactView;
+
+    AccountCreation_AddAccount_Client webServiceClient;
+
+    public virtual MetraTech.Interop.MTAuth.IMTSessionContext GetSessionContextForCreate()
+    {
+      return SharedTestCode.LoginAsSU();
+    }
+
+    public virtual AccountCreation_AddAccount_Client WebServiceClient
+    {
+      get
+      {
+        if (webServiceClient == null)
+        {
+          webServiceClient = new AccountCreation_AddAccount_Client();
+          webServiceClient.UserName = "su";
+          webServiceClient.Password = "su123";
+        }
+
+        return webServiceClient;
+      }
+    }
+
+    private CoreSubscriberAccountFactory() { }
+    public CoreSubscriberAccountFactory(string name, string uniqueIdentifier)
+    {
+      baseName = name;
+      uniqueInstanceIdentifier = uniqueIdentifier;
+    }
+
+    public static CoreSubscriber Create(string name, string uniqueIdentifier)
+    {
+      CoreSubscriberAccountFactory accountHolder = new CoreSubscriberAccountFactory(name, uniqueIdentifier);
+      accountHolder.Instantiate();
+
+      return accountHolder.Item;
+    }
+
+    public virtual void Instantiate()
+    {
+      // Create the internal view
+      internalView = (InternalView)View.CreateView(@"metratech.com/internal");
+      internalView.UsageCycleType = CycleType;
+      internalView.Billable = true;
+      internalView.SecurityQuestion = SecurityQuestion.MothersMaidenName;
+      internalView.Language = LanguageCode.US;
+      internalView.Currency = SystemCurrencies.USD.ToString();
+      internalView.TimezoneID = TimeZoneID._GMT_05_00__Eastern_Time__US___Canada_;
+
+      // Create the billToContactView
+      billToContactView = (ContactView)View.CreateView(@"metratech.com/contact");
+      billToContactView.ContactType = ContactType.Bill_To;
+      billToContactView.FirstName = "Rudi";
+      billToContactView.LastName = "Perkins";
+      billToContactView.Address1 = "c/o Test " + baseName + " " + uniqueInstanceIdentifier;
+      billToContactView.Address2 = "528 Wellman Ave.";
+      billToContactView.City = "North Chelmsford";
+      billToContactView.Country = CountryName.USA;
+      billToContactView.Company = string.Format("{0}, Inc.", baseName);
+      billToContactView.Email = "rperkins@amit.com";
+      billToContactView.PhoneNumber = "617-555-1212";
+      billToContactView.Zip = "01863";
+
+      // Create the shipToContactView
+      shipToContactView = (ContactView)View.CreateView(@"metratech.com/contact");
+      shipToContactView.ContactType = ContactType.Ship_To;
+      shipToContactView.FirstName = string.Format("Ship_to_{0}", baseName);
+      shipToContactView.LastName = string.Format("Ship_to_{0}", uniqueInstanceIdentifier);
+      shipToContactView.Country = CountryName.India;
+      shipToContactView.City = string.Format("City for ship to {0}", baseName);
+      shipToContactView.Company = string.Format("Company for ship to {0}", baseName);
+      shipToContactView.Email = string.Format("Email for ship to {0}", baseName);
+      shipToContactView.PhoneNumber = string.Format("Phone number for ship to {0}", baseName);
+      shipToContactView.Address1 = string.Format("Address for ship to {0}", baseName);
+      shipToContactView.Zip = string.Format("ZIP code for ship to {0}", baseName);
+
+      mCoreSubscriberAccount = CreateCoreSubscriberAccount();
+
+      //Add role for login to MetraView
+      if (mCoreSubscriberAccount._AccountID != null)
+      {
+        var ctx = SharedTestCode.LoginAsSU();
+        IMTSecurity sec = new MTSecurityClass();
+
+        IMTYAAC cap1 = sec.GetAccountByID((MTSessionContext)ctx, (int)mCoreSubscriberAccount._AccountID, MetraTime.Now);
+
+        MTRole specifiedRole = sec.GetRoleByName((MTSessionContext)ctx, "Subscriber (MetraView)");
+
+        cap1.GetActivePolicy((MTSessionContext)ctx).AddRole(specifiedRole);
+        cap1.GetActivePolicy((MTSessionContext)ctx).Save();
+      }
+    }
+
+    protected virtual CoreSubscriber CreateCoreSubscriberAccount()
+    {
+      string username = "CoreSub";
+      string nameSpace = String.Empty;
+      CoreSubscriber account = (CoreSubscriber)CreateBaseAccount("CoreSubscriber", ref username, ref nameSpace);
+      account.AncestorAccountID = AncestorID;
+      account.AccountStartDate = MetraTime.Now;
+
+      // Set the internal view
+      account.Internal = internalView;
+
+      // Add the contact views
+      account.LDAP.Add(shipToContactView);
+      account.LDAP.Add(billToContactView);
+
+      account.StartMonth = MonthOfTheYear.January;
+      account.FirstDayOfMonth = 1;
+      account.StartDay = 1;
+      account.DayOfMonth = 1;
+      account.DayOfWeek = MetraTech.DomainModel.Enums.Core.Global.DayOfTheWeek.Sunday;
+      account.StartYear = DateTime.Now.Year;
+      account.SecondDayOfMonth = 15;
+
+      account.PayerID = PayerID;
+
+      // Create the account
+      WebServiceClient.InOut_Account = account;
+      WebServiceClient.Invoke();
+
+      return (CoreSubscriber)WebServiceClient.InOut_Account;
+    }
+
+    private MetraTech.DomainModel.BaseTypes.Account CreateBaseAccount(string typeName, ref string userName, ref string nameSpace)
+    {
+      MetraTech.DomainModel.BaseTypes.Account account =
+        MetraTech.DomainModel.BaseTypes.Account.CreateAccount(typeName);
+
+      //userName = typeName + "_" + DateTime.Now.ToString("MM/dd HH:mm:ss.") + DateTime.Now.Millisecond.ToString();
+
+      userName = string.Format("{0}_{1}_{2}", userName, BaseName, UniqueInstanceIdentifier);
+
+      if (userName.Length > 40)
+      {
+        throw new Exception(string.Format("Username '{0}' is too long. It is {1} and should be 40 or less.", userName, userName.Length));
+      }
+
+      if (String.IsNullOrEmpty(nameSpace))
+      {
+        nameSpace = "mt";
+      }
+
+      account.UserName = userName;
+      account.Password_ = "123";
+      account.Name_Space = nameSpace;
+      account.DayOfMonth = 1;
+      account.AccountStatus = AccountStatus.Active;
+
+      return account;
     }
   }
 

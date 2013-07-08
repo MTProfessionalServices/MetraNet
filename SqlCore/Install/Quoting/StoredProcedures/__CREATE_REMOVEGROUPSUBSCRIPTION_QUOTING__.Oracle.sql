@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE PROCEDURE removegroupsubscription_quoting (
+CREATE OR REPLACE PROCEDURE RemoveGroupSub_Quoting (
    p_id_sub             INT,
    p_systemdate         DATE,
    p_status       OUT   INT

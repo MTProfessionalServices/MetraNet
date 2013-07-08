@@ -15,7 +15,3 @@
 										create table tmp_id_view(id_view number(10));
 
 										create table tmp_t_adjust_txn_temp(id_sess number(20));
-
-										create table tmp_tmp_t_acc_usage
-										as select * from t_acc_usage where 0=1;
-

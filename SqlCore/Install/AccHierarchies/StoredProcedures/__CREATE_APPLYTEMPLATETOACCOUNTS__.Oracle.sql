@@ -73,7 +73,8 @@ BEGIN
                 SELECT  tp.DayOfMonth
                         ,tp.StartDay
                         ,tp.StartMonth
-                        ,NVL(m.num,-1)
+                        ,NVL(m.num,-1) as MonthNum
+                        ,NVL(dw.num,-1) as DayOfWeekNum
                         ,tuct.id_cycle_type
                         ,tp.DayOfWeek
                         ,tp.StartYear
@@ -97,19 +98,20 @@ BEGIN
                     ) tp
                     LEFT JOIN t_enum_data tedm ON tedm.id_enum_data = tp.StartMonth
                     LEFT JOIN t_enum_data tedc ON tedc.id_enum_data = tp.UsageCycleType
+                    LEFT JOIN t_enum_data tedw ON tedw.id_enum_data = tp.DayOfWeek
                     LEFT JOIN t_months m ON UPPER(m.name) = UPPER(SUBSTR(tedm.nm_enum_data, INSTR(tedm.nm_enum_data, '/', -1) + 1))
+                    LEFT JOIN t_day_of_week dw ON dw.name = UPPER(SUBSTR(tedw.nm_enum_data, INSTR(tedw.nm_enum_data, '/', -1) + 1))
                     LEFT JOIN t_usage_cycle_type tuct ON UPPER(tuct.tx_desc) = UPPER(SUBSTR(tedc.nm_enum_data, INSTR(tedc.nm_enum_data, '/', -1) + 1))
 
             ) ttp ON
                   tuc.id_cycle_type = ttp.id_cycle_type
               AND ttp.DayOfMonth = NVL(tuc.day_of_month, ttp.DayOfMonth)
               AND ttp.StartDay = NVL(tuc.start_day, ttp.StartDay)
-              AND ttp.StartMonth = NVL(tuc.start_month, ttp.StartMonth)
-              AND ttp.DayOfWeek = NVL(tuc.day_of_week, ttp.DayOfWeek)
+              AND ttp.MonthNum = NVL(tuc.start_month, ttp.MonthNum)
+              AND ttp.DayOfWeekNum = NVL(tuc.day_of_week, ttp.DayOfWeekNum)
               AND ttp.StartYear = NVL(tuc.start_year, ttp.StartYear)
               AND ttp.FirstDayOfMonth = NVL(tuc.first_day_of_month, ttp.FirstDayOfMonth)
               AND ttp.SecondDayOfMonth = NVL(tuc.second_day_of_month, ttp.SecondDayOfMonth);
-
         FOR acc IN (
             SELECT   ta.id_acc AS IdAcc
                 ,tauc.id_usage_cycle AS OldUsageCycle
@@ -138,7 +140,7 @@ BEGIN
                 OldUsageCycle => acc.OldUsageCycle,
                 systemDate => systemDate
             );
-            
+
             mt_acc_template.UpdatePayerFromTemplate(
                 IdAcc => acc.IdAcc
                 ,PayerId => PayerId
@@ -162,14 +164,15 @@ BEGIN
             THEN
             ROLLBACK;
             END IF;
-			InsertTmplSessionDetail
-			(
-				sessionId,
-				DetailTypeSubscription,
-				DetailResultFailure,
-				'Applying template failed with error message: ' || SQLERRM,
-				nRetryCount
-			);
+            InsertTmplSessionDetail
+            (
+                sessionId,
+                DetailTypeSubscription,
+                DetailResultFailure,
+                'Applying template failed with error message: ' || SQLERRM,
+                nRetryCount,
+                doCommit
+            );
     END;
 
     mt_acc_template.apply_subscriptions(

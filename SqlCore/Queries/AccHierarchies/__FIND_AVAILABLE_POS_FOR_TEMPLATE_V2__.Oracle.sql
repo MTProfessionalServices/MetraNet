@@ -44,7 +44,8 @@ from t_vw_base_props
 	INNER JOIN t_effectivedate te on te.id_eff_date = t_po.id_avail AND
 	      ((te.dt_end IS NOT NULL AND %%REFDATE%% between te.dt_start AND te.dt_end) or (te.dt_end IS NULL AND %%REFDATE%% >= te.dt_start))
    /* CR 13508 make sure that PO is either wide open or allows template account type */
-  LEFT OUTER JOIN t_po_account_type_map atm ON t_po.id_po = atm.id_po	     
+  LEFT OUTER JOIN t_po_account_type_map atm ON t_po.id_po = atm.id_po
+    LEFT OUTER JOIN t_acc_tmpl_types tp ON tp.id = 1
   where t_vw_base_props.n_kind = 100 and t_vw_base_props.id_lang_code = %%ID_LANG%%
   
   AND t_po.id_po not in 
@@ -66,5 +67,5 @@ from t_vw_base_props
   )   
   AND tpl.nm_currency_code  = tpl.nm_currency_code
  
-  AND (atm.id_account_type IS NULL OR atm.id_account_type = %%ACCOUNT_TYPE%%)
+  AND (atm.id_account_type IS NULL OR atm.id_account_type = %%ACCOUNT_TYPE%% OR tp.all_types = 1)
 		

@@ -31,7 +31,7 @@ select
           teinner.n_beginoffset AS rs_beginoffset,
           teinner.dt_start AS rs_beginbase, teinner.n_endtype AS rs_endtype,
           teinner.n_endoffset AS rs_endoffset, teinner.dt_end AS rs_endbase,
-          rschedinner.id_pricelist AS id_pricelist,
+          rschedinner.id_pricelist AS id_pricelist
           FROM t_pl_map tminner INNER JOIN t_rsched rschedinner
           ON rschedinner.id_pricelist = tminner.id_pricelist
           AND rschedinner.id_pt = tminner.id_paramtable
@@ -107,7 +107,7 @@ select
           teinner.n_beginoffset AS rs_beginoffset,
           teinner.dt_start AS rs_beginbase, teinner.n_endtype AS rs_endtype,
           teinner.n_endoffset AS rs_endoffset, teinner.dt_end AS rs_endbase,
-          rschedinner.id_pricelist AS id_pricelist,
+          rschedinner.id_pricelist AS id_pricelist
           FROM t_pl_map tminner INNER JOIN t_rsched_pub rschedinner
           ON rschedinner.id_pricelist = tminner.id_pricelist
           AND rschedinner.id_pt = tminner.id_paramtable
@@ -147,14 +147,14 @@ select
       inner join (
           SELECT /*+ INDEX(tminner ID_T_PL_MAP_SUBIDX3) USE_NL(rschedinner) USE_NL(teinner) */ tminner.id_po AS id_po, tminner.id_paramtable AS id_paramtable,
           tminner.id_pi_instance AS id_pi_instance,
-          tminner.id_pi_template AS id_pi_template, TO_NUMBER (NULL)
+          tminner.id_pi_template AS id_pi_template, CAST (NULL AS int)
                                                                     AS id_sub,
           rschedinner.id_sched AS id_sched, rschedinner.dt_mod AS dt_mod,
           teinner.n_begintype AS rs_begintype,
           teinner.n_beginoffset AS rs_beginoffset,
           teinner.dt_start AS rs_beginbase, teinner.n_endtype AS rs_endtype,
           teinner.n_endoffset AS rs_endoffset, teinner.dt_end AS rs_endbase,
-          rschedinner.id_pricelist AS id_pricelist,
+          rschedinner.id_pricelist AS id_pricelist
           FROM t_pl_map tminner INNER JOIN t_rsched rschedinner
           ON rschedinner.id_pricelist = tminner.id_pricelist
           AND rschedinner.id_pt = tminner.id_paramtable

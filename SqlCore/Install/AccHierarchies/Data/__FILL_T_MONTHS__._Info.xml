@@ -2,7 +2,7 @@
 <Query>
     <Action>Data</Action>
     <Implementations>
-        <Implementation>Common</Implementation>
+        <Implementation>Oracle</Implementation>
     </Implementations>
     <Schemas>
         <Schema>NetMeter</Schema>
@@ -12,7 +12,7 @@
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
-        <CommonQuerySourceFile>R:\Config\Queries\DBInstall\AccHierarchies\Queries.xml</CommonQuerySourceFile>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
         <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
         <OracleQuerySourceFile></OracleQuerySourceFile>
     </ConversionAudit>

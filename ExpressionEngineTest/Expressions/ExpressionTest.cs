@@ -1,8 +1,6 @@
-﻿using MetraTech.ExpressionEngine;
-using MetraTech.ExpressionEngine.Expressions;
+﻿using MetraTech.ExpressionEngine.Expressions;
 using MetraTech.ExpressionEngine.Expressions.Enumerations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace ExpressionEngineTest
 {
@@ -13,7 +11,6 @@ namespace ExpressionEngineTest
     [TestClass()]
     public class ExpressionTest
     {
-
 
         /// <summary>
         ///A test for Parse
@@ -28,5 +25,6 @@ namespace ExpressionEngineTest
             Assert.IsNotNull(parameter);
             Assert.AreEqual("Invoice.Payer", parameter.Name);
         }
+
     }
 }

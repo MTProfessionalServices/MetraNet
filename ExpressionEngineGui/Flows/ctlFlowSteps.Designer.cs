@@ -174,6 +174,8 @@
             this.btnCsv.Size = new System.Drawing.Size(39, 23);
             this.btnCsv.TabIndex = 11;
             this.btnCsv.Text = "CSV";
+            this.toolTip.SetToolTip(this.btnCsv, "Pastes the CDE data rows to the clipboard and saves them to C:\\Temp\\CdeEventCharg" +
+                    "eMappings.csv");
             this.btnCsv.UseVisualStyleBackColor = true;
             this.btnCsv.Click += new System.EventHandler(this.btnCsv_Click);
             // 

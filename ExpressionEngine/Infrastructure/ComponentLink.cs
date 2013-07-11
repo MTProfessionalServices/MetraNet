@@ -14,9 +14,9 @@ namespace MetraTech.ExpressionEngine.Components
     /// <summary>
     /// Implements a link to a component. Many objects use a string to refer to components via a string that contains
     /// the component's FullName. This class faciliates generic validation and refactoring (renaming) of those references.
-    /// Since the refrence is a simple string (a value type) this class uses reflection to be able 
+    /// Since the reference is a simple string (a value type) this class uses reflection to be able 
     /// to generically rename the string. Since reflection was required for renaming, reflection is also used to read the
-    /// value of string during validation (one code path). This approch keeps the runtime simple (references are just a string)
+    /// value of string during validation (one code path). This approach keeps the runtime simple (references are just a string)
     /// and this class, and it's associated relatively expensive reflection, are only invoked at design or vaidation time.
     /// 
     /// For validation need to think through;

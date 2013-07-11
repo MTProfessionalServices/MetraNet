@@ -246,6 +246,21 @@ namespace PropertyGui.Flows
             }
         }
 
+        private void btnCsv_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SyncToObject();
+                var csv = Flow.GetEventChargeMappingsCsvString(true);
+                Clipboard.SetText(csv);
+                File.WriteAllText(@"C:\Temp\CdeEventChargeMappings.csv", csv);
+            }
+            catch (Exception ex)
+            {
+                GuiHelper.ShowErrorMessage(ex.Message);
+            }
+        }
+
         #endregion
 
         #region Tree Events
@@ -318,21 +333,6 @@ namespace PropertyGui.Flows
             AttemptToSelectNode(index);
         }
         #endregion
-
-        private void btnCsv_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                SyncToObject();
-                var csv = Flow.GetEventChargeMappingsCsvString(true);
-                Clipboard.SetText(csv);
-                File.WriteAllText(@"C:\Temp\CdeEventChargeMappings.csv", csv);
-            }
-            catch (Exception ex)
-            {  
-                GuiHelper.ShowErrorMessage(ex.Message);
-            }
-        }
 
     }
 }

@@ -98,8 +98,7 @@
     <Compile Include="Infrastructure\PropertyLink.cs" />
     <Compile Include="MTProperties\Enumerations\Availability.cs" />
     <Compile Include="MTProperties\PropertyReference.cs" />
-    <Compile Include="Mvm\Enumerations\AggregateAction.cs" />
-    <Compile Include="Mvm\MvmHelper.cs" />
+    <Compile Include="Flows\Enumerations\AggregateAction.cs" />
     <Compile Include="Placeholders\PageLayout.cs" />
     <Compile Include="PropertyBags\Enumerations\EventType.cs" />
     <Compile Include="PropertyBags\PropertyBagManager.cs" />

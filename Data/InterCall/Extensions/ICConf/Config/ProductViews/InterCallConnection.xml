@@ -68,8 +68,8 @@
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>Currency</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -123,7 +123,7 @@
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
           <CurrencyMode>PropertyDriven</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyProperty>bu_curr</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -294,8 +294,8 @@
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>Currency</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -312,8 +312,8 @@
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>Currency</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -364,12 +364,12 @@
         <IsCore>false</IsCore>
         <Name>bridge_rate_svc_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <FixedUnitOfMeasure>.</FixedUnitOfMeasure>
-          <UnitOfMeasureCategory></UnitOfMeasureCategory>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>Currency</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -400,8 +400,8 @@
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>Currency</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -418,8 +418,8 @@
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>Currency</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -451,8 +451,8 @@
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>Currency</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -735,8 +735,8 @@
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>Currency</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -790,14 +790,17 @@
         <UserVisible>false</UserVisible>
       </Property>
       <Property i:type="ProductViewProperty">
+        <DefaultValue></DefaultValue>
         <Description>feature amount</Description>
         <IsCore>false</IsCore>
         <Name>leg_amt</Name>
         <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
+        <Type i:type="MoneyType">
+          <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>Currency</CurrencyProperty>
+          <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
         <IsFilterable>false</IsFilterable>
@@ -1914,8 +1917,8 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>Currency</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -2109,8 +2112,8 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>Currency</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -2146,8 +2149,8 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>Currency</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -2164,8 +2167,8 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>Currency</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -2182,8 +2185,8 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>Currency</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -2215,8 +2218,8 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <Type i:type="MoneyType">
           <BaseType>Money</BaseType>
           <ListType>None</ListType>
-          <CurrencyMode>None</CurrencyMode>
-          <CurrencyProperty></CurrencyProperty>
+          <CurrencyMode>PropertyDriven</CurrencyMode>
+          <CurrencyProperty>Currency</CurrencyProperty>
           <FixedCurrency></FixedCurrency>
         </Type>
         <IsExportable>false</IsExportable>
@@ -2285,7 +2288,7 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
       </Property>
     </CustomProperties>
   </Properties>
-  <EventType>Charge</EventType>
+  <EventType>Payment</EventType>
   <Flow>
     <Steps>
       <BaseStep i:type="EnforceStep">
@@ -2318,6 +2321,12 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
         <UserDescription></UserDescription>
         <UserLabel></UserLabel>
       </BaseStep>
+      <BaseStep i:type="ContainerStep">
+        <ConditionalExpression></ConditionalExpression>
+        <StepType>Container</StepType>
+        <UserDescription></UserDescription>
+        <UserLabel></UserLabel>
+      </BaseStep>
       <BaseStep i:type="ExpressionStep">
         <ConditionalExpression>OBJECT.c_bridge_charge_code == #intercall.com/ConfCommon/ChargeCode/R#</ConditionalExpression>
         <StepType>Expression</StepType>
@@ -2347,5 +2356,5 @@ Actually SURCHARGE_CODE. ITFS Rate will be picked based on this code.</Descripti
   </Flow>
   <Parent>intercall.com.ProductViews.InterCallConference</Parent>
   <UniqueKey />
-  <UsesCommerceDecisionEngine>true</UsesCommerceDecisionEngine>
+  <UsesCommerceDecisionEngine>false</UsesCommerceDecisionEngine>
 </PropertyBag>

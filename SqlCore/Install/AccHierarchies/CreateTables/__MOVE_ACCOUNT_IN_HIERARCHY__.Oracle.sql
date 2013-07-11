@@ -33,7 +33,7 @@ templateCount int;
 sessionId int;
 begin
     vt_move_end := dbo.MTMaxDate();
-    
+
     p_vt_move_start_trunc := dbo.MTStartofDay(p_vt_move_start);
 
     /* plug business rules back in*/
@@ -164,7 +164,7 @@ where id_type = v_descendent_acc_type;
         p_status := -486604714;
         return;
     END if;
-    
+
     /* check that only accounts whose type says b_canHaveSyntheticRoot is true can have -1 as an ancestor.*/
     if (v_id_ancestor = -1)
     then
@@ -378,7 +378,7 @@ delete from t_dm_account where id_dm_acc in (select id_dm_acc from tmp_t_dm_acco
     )
     and id_descendent in (select id_descendent from TMP_deletethese);
 
-    
+
    update t_path_capability
     set param_value = (
         select distinct aa.tx_path || '/'
@@ -416,7 +416,7 @@ delete from t_dm_account where id_dm_acc in (select id_dm_acc from tmp_t_dm_acco
         inner join tmp_t_dm_account acc on anc.id_descendent = acc.id_acc
         where anc.id_ancestor=1
         and acc.vt_end = varMaxDateTime;
-    
+
         insert into t_dm_account_ancestor
         select dm2.id_dm_acc, dm1.id_dm_acc, aa1.num_generations
         from
@@ -435,11 +435,11 @@ delete from t_dm_account where id_dm_acc in (select id_dm_acc from tmp_t_dm_acco
         t_dm_account dm1
         inner join tmp_t_dm_account acc on dm1.id_acc = acc.id_acc
         and acc.vt_end = varMaxDateTime;
-    
+
         delete from tmp_t_dm_account;
         delete from tmp_deletethese;
 
-        
+
     SELECT NVL(MAX(all_types),0)
         INTO allTypesSupported
         FROM t_acc_tmpl_types;
@@ -477,7 +477,7 @@ delete from t_dm_account where id_dm_acc in (select id_dm_acc from tmp_t_dm_acco
             next_cycle_after_enddate   => 'N',
             id_event_success           => NULL,
             id_event_failure           => NULL,
-            account_id                 => NULL,
+            account_id                 => p_account_being_moved,
             doCommit                   => 'N'
         );
     ELSE
@@ -503,11 +503,11 @@ delete from t_dm_account where id_dm_acc in (select id_dm_acc from tmp_t_dm_acco
                 next_cycle_after_enddate   => 'N',
                 id_event_success           => NULL,
                 id_event_failure           => NULL,
-                account_id                 => NULL,
+                account_id                 => p_account_being_moved,
                 doCommit                   => 'N'
             );
         END LOOP;
-        
+
     END IF;
 
     p_status:=1;

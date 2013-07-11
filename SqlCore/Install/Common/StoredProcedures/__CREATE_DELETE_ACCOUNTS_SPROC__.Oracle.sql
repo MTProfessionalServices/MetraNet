@@ -29,7 +29,7 @@ AS
         FROM user_tables
        WHERE UPPER (table_name) LIKE 'T_AV_%';
 
-   p_table_name          VARCHAR2 (30);
+   v_table_name          VARCHAR2 (30) := p_table_name;
 BEGIN
    /* Break down into simple account IDs */
    /* This block of SQL can be used as an example to get  */
@@ -41,8 +41,8 @@ BEGIN
    DBMS_OUTPUT.put_line ('-- Start of Account Deletion Stored Procedure --');
    DBMS_OUTPUT.put_line ('------------------------------------------------');
 
-   IF (   (p_account_id_list IS NOT NULL AND p_table_name IS NOT NULL)
-       OR (p_account_id_list IS NULL AND p_table_name IS NULL)
+   IF (   (p_account_id_list IS NOT NULL AND v_table_name IS NOT NULL)
+       OR (p_account_id_list IS NULL AND v_table_name IS NULL)
       )
    THEN
       DBMS_OUTPUT.put_line
@@ -112,7 +112,7 @@ BEGIN
       v_sql :=
             'INSERT INTO tmp_AccountIDsTable (ID, status, message) SELECT id_acc, '
          || '1, ''Okay to delete'' from '
-         || p_table_name;
+         || v_table_name;
 
       EXECUTE IMMEDIATE v_sql;
 
@@ -438,7 +438,7 @@ BEGIN
    /* Delete from t_av_* tables*/
    LOOP
       FETCH v_cur
-       INTO p_table_name;
+       INTO v_table_name;
 
       IF v_cur%NOTFOUND
       THEN
@@ -447,13 +447,13 @@ BEGIN
 
       BEGIN
          EXECUTE IMMEDIATE    'DELETE FROM '
-                           || p_table_name
+                           || v_table_name
                            || ' WHERE id_acc IN (SELECT ID FROM tmp_AccountIDsTable)';
       EXCEPTION
          WHEN OTHERS
          THEN
             DBMS_OUTPUT.put_line (   'Cannot delete from '
-                                  || p_table_name
+                                  || v_table_name
                                   || ' table'
                                  );
             RAISE seterror;
@@ -519,6 +519,20 @@ BEGIN
    DBMS_OUTPUT.put_line ('-- Deleting from t_acc_template_props --');
 
    DELETE FROM t_acc_template_props
+         WHERE id_acc_template IN (
+                                 SELECT id_acc_template
+                                   FROM t_acc_template
+                                  WHERE id_folder IN (
+                                                      SELECT ID
+                                                        FROM tmp_accountidstable));
+
+   IF (SQLCODE <> 0)
+   THEN
+      DBMS_OUTPUT.put_line ('Cannot delete from t_acc_template_props table');
+      RAISE seterror;
+   END IF;
+
+   DELETE FROM t_acc_template_props_pub
          WHERE id_acc_template IN (
                                  SELECT id_acc_template
                                    FROM t_acc_template

@@ -31,7 +31,7 @@ BEGIN
         textData,
         retryCount
     );
-    
+
     IF (doCommit = 'Y') THEN
         COMMIT;
     END IF;

@@ -85,7 +85,7 @@ as
 					LEFT JOIN t_enum_data tedw ON tedw.id_enum_data = tp.DayOfWeek
 					LEFT JOIN fn_months() m ON tedm.nm_enum_data LIKE '%' + m.name
 					LEFT JOIN fn_day_of_week() dw ON tedw.nm_enum_data LIKE '%' + dw.name
-					LEFT JOIN t_usage_cycle_type tuct ON UPPER(tuct.tx_desc) = UPPER(SUBSTRING(tedc.nm_enum_data, LEN(tedc.nm_enum_data) - CHARINDEX('/',REVERSE(tedc.nm_enum_data))+2, CHARINDEX('/',REVERSE(tedc.nm_enum_data))))
+					LEFT JOIN t_usage_cycle_type tuct ON UPPER(tuct.tx_desc) LIKE REPLACE(UPPER(SUBSTRING(tedc.nm_enum_data, LEN(tedc.nm_enum_data) - CHARINDEX('/',REVERSE(tedc.nm_enum_data))+2, CHARINDEX('/',REVERSE(tedc.nm_enum_data)))), '-', '%')
 			) tprop ON tprop.DayOfMonth = ISNULL(tuc.day_of_month, tprop.DayOfMonth)
 			  AND tprop.StartDay = ISNULL(tuc.start_day,tprop.StartDay)
 			  AND tprop.StartMonth = ISNULL(tuc.start_month,tprop.StartMonth)

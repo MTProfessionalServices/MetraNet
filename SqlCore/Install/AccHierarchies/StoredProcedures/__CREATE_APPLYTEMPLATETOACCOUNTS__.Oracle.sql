@@ -63,7 +63,8 @@ BEGIN
     BEGIN
         mt_acc_template.UpdateAccPropsFromTemplate (
             idAccountTemplate => idAccountTemplate,
-            systemDate        => systemDate
+            systemDate        => systemDate,
+            idAcc             => account_id
         );
         -- Apply billing cycles and payment redirection settings
         SELECT NVL(MAX(tuc.id_usage_cycle), -1), NVL(MAX(ttp.PayerID), -1)
@@ -101,7 +102,7 @@ BEGIN
                     LEFT JOIN t_enum_data tedw ON tedw.id_enum_data = tp.DayOfWeek
                     LEFT JOIN t_months m ON UPPER(m.name) = UPPER(SUBSTR(tedm.nm_enum_data, INSTR(tedm.nm_enum_data, '/', -1) + 1))
                     LEFT JOIN t_day_of_week dw ON dw.name = UPPER(SUBSTR(tedw.nm_enum_data, INSTR(tedw.nm_enum_data, '/', -1) + 1))
-                    LEFT JOIN t_usage_cycle_type tuct ON UPPER(tuct.tx_desc) = UPPER(SUBSTR(tedc.nm_enum_data, INSTR(tedc.nm_enum_data, '/', -1) + 1))
+                    LEFT JOIN t_usage_cycle_type tuct ON UPPER(tuct.tx_desc) LIKE REPLACE(UPPER(SUBSTR(tedc.nm_enum_data, INSTR(tedc.nm_enum_data, '/', -1) + 1)), '-', '%')
 
             ) ttp ON
                   tuc.id_cycle_type = ttp.id_cycle_type
@@ -188,7 +189,7 @@ BEGIN
         systemdate                 => systemDate,
         id_template_session        => sessionId,
         retrycount                 => nRetryCount,
-        doCommit                   => 'N'
+        doCommit                   => doCommit
     );
 
 END;

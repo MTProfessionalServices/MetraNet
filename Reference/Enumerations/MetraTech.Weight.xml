@@ -6,9 +6,9 @@
   <Items>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Nanogram</Description>
-      <Name>Nanogram</Name>
-      <Code>NG</Code>
+      <Description>Dram</Description>
+      <Name>Dram</Name>
+      <Code>[DR_AV]</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
@@ -18,57 +18,9 @@
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Petagram</Description>
-      <Name>Petagram</Name>
-      <Code>PTG</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
       <Description>Ounce</Description>
       <Name>Ounce</Name>
       <Code>[OZ_AV]</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Megagram</Description>
-      <Name>Megagram</Name>
-      <Code>MAG</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Dram</Description>
-      <Name>Dram</Name>
-      <Code>[DR_AV]</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Dekagram</Description>
-      <Name>Dekagram</Name>
-      <Code>DAG</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Gigagram</Description>
-      <Name>Gigagram</Name>
-      <Code>GAG</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Kilogram</Description>
-      <Name>Kilogram</Name>
-      <Code>KG</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Milligram</Description>
-      <Name>Milligram</Name>
-      <Code>MG</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Microgram</Description>
-      <Name>Microgram</Name>
-      <Code>UG</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
@@ -78,15 +30,15 @@
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Decigram</Description>
-      <Name>Decigram</Name>
-      <Code>DG</Code>
+      <Description>Dekagram</Description>
+      <Name>Dekagram</Name>
+      <Code>DAG</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Tonne (Metric)</Description>
-      <Name>Tonne</Name>
-      <Code>TNE</Code>
+      <Description>Decigram</Description>
+      <Name>Decigram</Name>
+      <Code>DG</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
@@ -96,15 +48,63 @@
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
+      <Description>Gigagram</Description>
+      <Name>Gigagram</Name>
+      <Code>GAG</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
       <Description>Hectogram</Description>
       <Name>Hectogram</Name>
       <Code>HG</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
+      <Description>Kilogram</Description>
+      <Name>Kilogram</Name>
+      <Code>KG</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Megagram</Description>
+      <Name>Megagram</Name>
+      <Code>MAG</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Milligram</Description>
+      <Name>Milligram</Name>
+      <Code>MG</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Nanogram</Description>
+      <Name>Nanogram</Name>
+      <Code>NG</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Petagram</Description>
+      <Name>Petagram</Name>
+      <Code>PTG</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Tonne (Metric)</Description>
+      <Name>Tonne</Name>
+      <Code>TNE</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
       <Description>Teragram</Description>
       <Name>Teragram</Name>
       <Code>TRG</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Microgram</Description>
+      <Name>Microgram</Name>
+      <Code>UG</Code>
     </EnumItem>
   </Items>
   <Name>Weight</Name>

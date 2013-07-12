@@ -6,9 +6,39 @@
   <Items>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Gigameter</Description>
-      <Name>Gigameter</Name>
-      <Code>GAM</Code>
+      <Description>Foot</Description>
+      <Name>Foot</Name>
+      <Code>[FT_US]</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Inch</Description>
+      <Name>Inch</Name>
+      <Code>[IN_US]</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Mile</Description>
+      <Name>Mile</Name>
+      <Code>[MI_US]</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Rod</Description>
+      <Name>Rod</Name>
+      <Code>[RD_US]</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Yard</Description>
+      <Name>Yard</Name>
+      <Code>[YD_US]</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Centimeter</Description>
+      <Name>Centimeter</Name>
+      <Code>CM</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
@@ -18,9 +48,39 @@
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Yard</Description>
-      <Name>Yard</Name>
-      <Code>[YD_US]</Code>
+      <Description>Decimeter</Description>
+      <Name>Decimeter</Name>
+      <Code>DM</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Gigameter</Description>
+      <Name>Gigameter</Name>
+      <Code>GAM</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Hectometer</Description>
+      <Name>Hectometer</Name>
+      <Code>HM</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Kilometer</Description>
+      <Name>Kilometer</Name>
+      <Code>KM</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Meter</Description>
+      <Name>Meter</Name>
+      <Code>M</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Megameter</Description>
+      <Name>Megameter</Name>
+      <Code>MAM</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
@@ -36,69 +96,9 @@
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Mile</Description>
-      <Name>Mile</Name>
-      <Code>[MI_US]</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Inch</Description>
-      <Name>Inch</Name>
-      <Code>[IN_US]</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Micrometer</Description>
-      <Name>Micrometer</Name>
-      <Code>UM</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Decimeter</Description>
-      <Name>Decimeter</Name>
-      <Code>DM</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Hectometer</Description>
-      <Name>Hectometer</Name>
-      <Code>HM</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Megameter</Description>
-      <Name>Megameter</Name>
-      <Code>MAM</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Foot</Description>
-      <Name>Foot</Name>
-      <Code>[FT_US]</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Meter</Description>
-      <Name>Meter</Name>
-      <Code>M</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
       <Description>Petameter</Description>
       <Name>Petameter</Name>
       <Code>PTM</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Rod</Description>
-      <Name>Rod</Name>
-      <Code>[RD_US]</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Kilometer</Description>
-      <Name>Kilometer</Name>
-      <Code>KM</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
@@ -108,9 +108,9 @@
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Centimeter</Description>
-      <Name>Centimeter</Name>
-      <Code>CM</Code>
+      <Description>Micrometer</Description>
+      <Name>Micrometer</Name>
+      <Code>UM</Code>
     </EnumItem>
   </Items>
   <Name>Distance</Name>

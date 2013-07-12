@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
-  <Availability>Unknown</Availability>
-  <DefaultValue i:nil="true" />
   <Description>Class MeasureUnitInfo.Inherits from Entity.</Description>
-  <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>MeasureUnitInfo</Name>
   <Required>true</Required>
@@ -13,64 +10,9 @@
     <Name>MeasureUnitInfo</Name>
     <PropertyBagMode>Entity</PropertyBagMode>
   </Type>
+  <DatabaseReservedPropertyTableName i:nil="true" />
   <Namespace>MetraTech.Metanga</Namespace>
   <Properties>
-    <Properties>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>EntityId</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Guid</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>ExternalId</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Name</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>KeyList</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Description</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>KeyList</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-    </Properties>
+    <CustomProperties />
   </Properties>
 </PropertyBag>

@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
-  <Availability>Unknown</Availability>
-  <DefaultValue i:nil="true" />
   <Description>Sample Product</Description>
-  <Direction>Input</Direction>
   <IsCore>false</IsCore>
   <Name>SampleProduct</Name>
   <Required>true</Required>
@@ -13,170 +10,12 @@
     <Name>Product</Name>
     <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
   </Type>
+  <DatabaseReservedPropertyTableName i:nil="true" />
   <Namespace>MetraTech.Metanga</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Contains the default price that will be applied for this product.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>PriceSchedule</Name>
-        <Required>true</Required>
-        <Type i:type="PropertyBagType">
-          <BaseType>PropertyBag</BaseType>
-          <ListType>None</ListType>
-          <Name>MetraTech.Metanga.PriceSchedule</Name>
-          <PropertyBagMode>PropertyBag</PropertyBagMode>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Contains the unit group to which this product belongs. If this value is null, it means that the product is soled on an itemized basis. Any billable events for these products should use a Unit of "1".</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>UnitGroup</Name>
-        <Required>true</Required>
-        <Type i:type="PropertyBagType">
-          <BaseType>PropertyBag</BaseType>
-          <ListType>None</ListType>
-          <Name>MetraTech.Metanga.UnitGroup</Name>
-          <PropertyBagMode>Entity</PropertyBagMode>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Indicates whether this product should be taxable.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Taxable</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>This product is Tax product.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>IsTaxProduct</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Defines a structure for a smart product.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>ProductModel</Name>
-        <Required>true</Required>
-        <Type i:type="PropertyBagType">
-          <BaseType>PropertyBag</BaseType>
-          <ListType>None</ListType>
-          <Name>MetraTech.Metanga.ProductModel</Name>
-          <PropertyBagMode>PropertyBag</PropertyBagMode>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Indicates that the product will priced based on a reservation time-period. When this value is set to true, Metanga will prorate charges based on a start and end date.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>TimeBased</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Defines the order of a product to be displayed in the list of products. If rank = 0, Metanga will set to the maximum rank of any existing products, plus 1 Other values can be set, but Metanga will verify that the rank is currently available.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Rank</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>EntityId</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Guid</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>ExternalId</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Name</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>KeyList</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Description</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>KeyList</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
         <Description>Represents the quantity that can be billed for this product in a given billing cycle. Products with lower values are consumed before products with higher or no values.</Description>
-        <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>TierQuantity</Name>
         <Required>false</Required>
@@ -186,6 +25,6 @@
           <Length>255</Length>
         </Type>
       </Property>
-    </Properties>
+    </CustomProperties>
   </Properties>
 </PropertyBag>

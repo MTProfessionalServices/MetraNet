@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
-  <Availability>Unknown</Availability>
-  <DefaultValue i:nil="true" />
   <Description>Represents a base class for configuring authentication method to be used by notifications at the notification endpoint.</Description>
-  <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>AuthenticationConfiguration</Name>
   <Required>true</Required>
@@ -13,8 +10,9 @@
     <Name>AuthenticationConfiguration</Name>
     <PropertyBagMode>PropertyBag</PropertyBagMode>
   </Type>
+  <DatabaseReservedPropertyTableName i:nil="true" />
   <Namespace>MetraTech.Metanga</Namespace>
   <Properties>
-    <Properties />
+    <CustomProperties />
   </Properties>
 </PropertyBag>

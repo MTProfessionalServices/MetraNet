@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
-  <Availability>Unknown</Availability>
-  <DefaultValue i:nil="true" />
   <Description>Represents a payment abstract class</Description>
-  <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>Payment</Name>
   <Required>true</Required>
@@ -13,123 +10,9 @@
     <Name>Payment</Name>
     <PropertyBagMode>Entity</PropertyBagMode>
   </Type>
+  <DatabaseReservedPropertyTableName i:nil="true" />
   <Namespace>MetraTech.Metanga</Namespace>
   <Properties>
-    <Properties>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Payment amount</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Amount</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Payment currency</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Currency</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Payment date</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Date</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Payer (Account domain entity)</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Payer</Name>
-        <Required>true</Required>
-        <Type i:type="PropertyBagType">
-          <BaseType>PropertyBag</BaseType>
-          <ListType>None</ListType>
-          <Name>MetraTech.Metanga.Account</Name>
-          <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>EntityId</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Guid</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>ExternalId</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Name</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>KeyList</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Description</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>KeyList</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-    </Properties>
+    <CustomProperties />
   </Properties>
 </PropertyBag>

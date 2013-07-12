@@ -6,105 +6,9 @@
   <Items>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Kiloliter</Description>
-      <Name>Kiloliter</Name>
-      <Code>KL</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Quart</Description>
-      <Name>Quart</Name>
-      <Code>[QT_US]</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Nanoliter</Description>
-      <Name>Nanoliter</Name>
-      <Code>NL</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Centiliter</Description>
-      <Name>Centiliter</Name>
-      <Code>CL</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Gallon</Description>
-      <Name>Gallon</Name>
-      <Code>[GAL_US]</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Liter</Description>
-      <Name>Liter</Name>
-      <Code>L</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Megaliter</Description>
-      <Name>Megaliter</Name>
-      <Code>MAL</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Pint</Description>
-      <Name>Pint</Name>
-      <Code>[PT_US]</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Petaliter</Description>
-      <Name>Petaliter</Name>
-      <Code>PTL</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Gigaliter</Description>
-      <Name>Gigaliter</Name>
-      <Code>GAL</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Gill</Description>
-      <Name>Gill</Name>
-      <Code>[GIL_US]</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Hectoliter</Description>
-      <Name>Hectoliter</Name>
-      <Code>HL</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Cubic Meter</Description>
-      <Name>Cubic Meter</Name>
-      <Code>M3</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
       <Description>Barrel</Description>
       <Name>Barrel</Name>
       <Code>[BBL_US]</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Dekaliter</Description>
-      <Name>Dekaliter</Name>
-      <Code>DAL</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Microliter</Description>
-      <Name>Microliter</Name>
-      <Code>UL</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Milliliter</Description>
-      <Name>Milliliter</Name>
-      <Code>ML</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
@@ -114,15 +18,111 @@
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Teraliter</Description>
-      <Name>Teraliter</Name>
-      <Code>TRL</Code>
+      <Description>Gallon</Description>
+      <Name>Gallon</Name>
+      <Code>[GAL_US]</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Gill</Description>
+      <Name>Gill</Name>
+      <Code>[GIL_US]</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Pint</Description>
+      <Name>Pint</Name>
+      <Code>[PT_US]</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Quart</Description>
+      <Name>Quart</Name>
+      <Code>[QT_US]</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Centiliter</Description>
+      <Name>Centiliter</Name>
+      <Code>CL</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Dekaliter</Description>
+      <Name>Dekaliter</Name>
+      <Code>DAL</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Deciliter</Description>
       <Name>Deciliter</Name>
       <Code>DL</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Gigaliter</Description>
+      <Name>Gigaliter</Name>
+      <Code>GAL</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Hectoliter</Description>
+      <Name>Hectoliter</Name>
+      <Code>HL</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Kiloliter</Description>
+      <Name>Kiloliter</Name>
+      <Code>KL</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Liter</Description>
+      <Name>Liter</Name>
+      <Code>L</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Cubic Meter</Description>
+      <Name>Cubic Meter</Name>
+      <Code>M3</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Megaliter</Description>
+      <Name>Megaliter</Name>
+      <Code>MAL</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Milliliter</Description>
+      <Name>Milliliter</Name>
+      <Code>ML</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Nanoliter</Description>
+      <Name>Nanoliter</Name>
+      <Code>NL</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Petaliter</Description>
+      <Name>Petaliter</Name>
+      <Code>PTL</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Teraliter</Description>
+      <Name>Teraliter</Name>
+      <Code>TRL</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Microliter</Description>
+      <Name>Microliter</Name>
+      <Code>UL</Code>
     </EnumItem>
   </Items>
   <Name>FluidVolume</Name>

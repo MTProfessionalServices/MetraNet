@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
-  <Description>Grid data length</Description>
+  <Description>Represents an item of administrative, subnational or geopolitical subdivision of the country. This class may impersonate such concepts as State, Province, County, Census division, Département, Regierungsbezirke etc.</Description>
   <IsCore>true</IsCore>
-  <Name>GridSetting</Name>
+  <Name>Location</Name>
   <Required>true</Required>
   <Type i:type="PropertyBagType">
     <BaseType>PropertyBag</BaseType>
     <ListType>None</ListType>
-    <Name>GridSetting</Name>
-    <PropertyBagMode>PropertyBag</PropertyBagMode>
+    <Name>Location</Name>
+    <PropertyBagMode>Entity</PropertyBagMode>
   </Type>
   <DatabaseReservedPropertyTableName i:nil="true" />
   <Namespace>MetraTech.Metanga</Namespace>

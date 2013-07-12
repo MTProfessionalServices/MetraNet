@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
-  <Availability>Unknown</Availability>
-  <DefaultValue i:nil="true" />
   <Description>Represents a base class for configuring notifications.</Description>
-  <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>NotificationEndpointConfiguration</Name>
   <Required>true</Required>
@@ -13,23 +10,9 @@
     <Name>NotificationEndpointConfiguration</Name>
     <PropertyBagMode>PropertyBag</PropertyBagMode>
   </Type>
+  <DatabaseReservedPropertyTableName i:nil="true" />
   <Namespace>MetraTech.Metanga</Namespace>
   <Properties>
-    <Properties>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Represents an URL address of your service that is listening for the notification messages.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>EndpointAddress</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-    </Properties>
+    <CustomProperties />
   </Properties>
 </PropertyBag>

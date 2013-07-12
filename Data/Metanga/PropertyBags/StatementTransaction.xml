@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
-  <Availability>Unknown</Availability>
-  <DefaultValue i:nil="true" />
   <Description>Collection of transactions, which contains invoices and payments issued during the specific time range</Description>
-  <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>StatementTransaction</Name>
   <Required>true</Required>
@@ -13,127 +10,9 @@
     <Name>StatementTransaction</Name>
     <PropertyBagMode>PropertyBag</PropertyBagMode>
   </Type>
+  <DatabaseReservedPropertyTableName i:nil="true" />
   <Namespace>MetraTech.Metanga</Namespace>
   <Properties>
-    <Properties>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Transaction date. For invoice this would be the invoice date</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Date</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>InvoiceId or PaymentId. This is the Metanga internal id</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Id</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Guid</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>InvoiceSeed or empty for payment</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Number</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Invoice or Payment</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>StatementTransactionType</Name>
-        <Required>true</Required>
-        <Type i:type="EnumerationType">
-          <BaseType>Enumeration</BaseType>
-          <ListType>None</ListType>
-          <Category>MetraTech.Metanga.StatementTransactionType</Category>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Amount of Invoice. Empty fot Payment</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>AmountCharged</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Amount of Payment. Empty for Invoice</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>AmountPaid</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Running balance since statement start date</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Balance</Name>
-        <Required>true</Required>
-        <Type i:type="NumberType">
-          <BaseType>Decimal</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Empty for Now</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>DueDate</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-    </Properties>
+    <CustomProperties />
   </Properties>
 </PropertyBag>

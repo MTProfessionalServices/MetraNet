@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
-  <Availability>Unknown</Availability>
-  <DefaultValue i:nil="true" />
   <Description>The price to be applied for a specific unit of measure. For example, a product measured by weight may have one price per pound, and a different price per kilogram. Products that are time based require a time unit to be set for the TimeUnitId. For example, cloud compute services are normally priced based on an hourly price.</Description>
-  <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>UnitPrice</Name>
   <Required>true</Required>
@@ -13,51 +10,9 @@
     <Name>UnitPrice</Name>
     <PropertyBagMode>PropertyBag</PropertyBagMode>
   </Type>
+  <DatabaseReservedPropertyTableName i:nil="true" />
   <Namespace>MetraTech.Metanga</Namespace>
   <Properties>
-    <Properties>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Required only if the Product is Time-based. Indicates the time period for this price. For example, whether the price is for a Monthly period or an Annual one. The Id represents a Unit of Measure Code. A list of codes can be found in the Metanga UI (go to Configuration -&gt; Units of Measure). Only units of measure based on days or months can be used. The Codes for Units of Measure in Metanga are based on the Unified Code for Units of Measure. You can learn more about this specification here: http://unitsofmeasure.org/ Common values used are: "MO" (Monthly), "ANN" (Annual), "ANN/4" (Quarterly)</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>TimeUnitId</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The unit to which the price is applicable. For example, for a product measured in fluid volume, the UsageUnitId indicates if the unit is pounds, barrels, or liters. The Id represents a Unit of Measure Code. A list of codes can be found in the Metanga UI (go to Configuration -&gt; Units of Measure). Units should belong to the unit group for the target product. If the product does not have a unit group, then set to "1". The Codes for Units of Measure in Metanga is based on the Unified Code for Units of Measure. You can learn more about this specification here: http://unitsofmeasure.org/</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>UsageUnitId</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The price, represented as a collection of key-value pairs where the key represents the currency and the value is the price. The currency should follow the ISO-4217 currency convention. For example, the price for a product can be specified in 3 currencies as follows: - USD 4.95 - EUR 3.95 - JPY 495</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Price</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>KeyList</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-    </Properties>
+    <CustomProperties />
   </Properties>
 </PropertyBag>

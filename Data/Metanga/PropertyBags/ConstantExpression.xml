@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
-  <Availability>Unknown</Availability>
-  <DefaultValue i:nil="true" />
   <Description>A Constant expression is a basic type of expression that is defined as constant value.</Description>
-  <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>ConstantExpression</Name>
   <Required>true</Required>
@@ -13,24 +10,9 @@
     <Name>ConstantExpression</Name>
     <PropertyBagMode>PropertyBag</PropertyBagMode>
   </Type>
+  <DatabaseReservedPropertyTableName i:nil="true" />
   <Namespace>MetraTech.Metanga</Namespace>
   <Properties>
-    <Properties>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The constant value for this expression. Data types can be string, boolean, decimal, or integer</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Value</Name>
-        <Required>true</Required>
-        <Type i:type="PropertyBagType">
-          <BaseType>PropertyBag</BaseType>
-          <ListType>None</ListType>
-          <Name>MetraTech.Metanga.Object</Name>
-          <PropertyBagMode>PropertyBag</PropertyBagMode>
-        </Type>
-      </Property>
-    </Properties>
+    <CustomProperties />
   </Properties>
 </PropertyBag>

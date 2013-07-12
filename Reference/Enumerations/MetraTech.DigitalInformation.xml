@@ -6,15 +6,21 @@
   <Items>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Megabit</Description>
-      <Name>Megabit</Name>
-      <Code>MABIT</Code>
+      <Description>Bit</Description>
+      <Name>Bit</Name>
+      <Code>BIT</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Terabit</Description>
-      <Name>Terabit</Name>
-      <Code>TRBIT</Code>
+      <Description>Byte</Description>
+      <Name>Byte</Name>
+      <Code>BY</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Gigabit</Description>
+      <Name>Gigabit</Name>
+      <Code>GABIT</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
@@ -36,15 +42,15 @@
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Byte</Description>
-      <Name>Byte</Name>
-      <Code>BY</Code>
+      <Description>Megabit</Description>
+      <Name>Megabit</Name>
+      <Code>MABIT</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Bit</Description>
-      <Name>Bit</Name>
-      <Code>BIT</Code>
+      <Description>Megabyte</Description>
+      <Name>Megabyte</Name>
+      <Code>MIBBY</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
@@ -54,15 +60,9 @@
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Gigabit</Description>
-      <Name>Gigabit</Name>
-      <Code>GABIT</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Megabyte</Description>
-      <Name>Megabyte</Name>
-      <Code>MIBBY</Code>
+      <Description>Terabit</Description>
+      <Name>Terabit</Name>
+      <Code>TRBIT</Code>
     </EnumItem>
   </Items>
   <Name>DigitalInformation</Name>

@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
-  <Availability>Unknown</Availability>
-  <DefaultValue i:nil="true" />
   <Description>Sample Account</Description>
-  <Direction>Input</Direction>
   <IsCore>false</IsCore>
   <Name>SampleAccount</Name>
   <Required>true</Required>
@@ -13,566 +10,12 @@
     <Name>Account</Name>
     <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
   </Type>
+  <DatabaseReservedPropertyTableName i:nil="true" />
   <Namespace>MetraTech.Metanga</Namespace>
   <Properties>
-    <Properties>
+    <CustomProperties>
       <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Security Question</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>SecurityQuestion</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Active / Suspended status</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Suspended</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Last Change Password</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>LastChangePassword</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Failed Password Attempt Count</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>FailedPasswordAttemptCount</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Last Lockout Date</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>LastLockoutDate</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Indicates that the account will pay automatically when an invoice is delivered. Metanga will debit from the payment instrument (credit card or bank account) with the highest priority.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>PaysAutomatically</Name>
-        <Required>true</Required>
-        <Type>
-          <BaseType>Boolean</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Security Answer. This property depend of property ShowSecurityData, if that chacked we get real security answer if not we receive null)</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>SecurityAnswer</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The UserName for the account. Used for logging into Self Care portal.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>UserName</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The Password for the account. Used for logging into Self Care portal. This is a write-only property. Metanga will always return null when the account is being retrieved.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Password</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The parent account for the new account. If this value is not set, then the account is created at the top level of the hierarchy.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Parent</Name>
-        <Required>true</Required>
-        <Type i:type="PropertyBagType">
-          <BaseType>PropertyBag</BaseType>
-          <ListType>None</ListType>
-          <Name>MetraTech.Metanga.Account</Name>
-          <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The payer account for the new account. The payer has to be a billable account. If this value is not set, then the account is considered to be self-paid. In this case, the account needs to be billable.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Payer</Name>
-        <Required>true</Required>
-        <Type i:type="PropertyBagType">
-          <BaseType>PropertyBag</BaseType>
-          <ListType>None</ListType>
-          <Name>MetraTech.Metanga.Account</Name>
-          <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The account language code is used by Metanga to identify appropriate templates for email communications.Language codes in Metanga are based on IETF language tags. For example: "en-us", "ja-jp". Valid values can be found in Metanga, under Configuration -&gt; Languages To Support (see the Culture Code column).</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Language</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The invoice currency for the account. Follows the ISO-4217 currency convention.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Currency</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Represents the collection of payment instruments associated with the account.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>PaymentInstruments</Name>
-        <Required>true</Required>
-        <Type i:type="PropertyBagType">
-          <BaseType>PropertyBag</BaseType>
-          <ListType>List</ListType>
-          <Name>MetraTech.Metanga.PaymentInstrumentMasked</Name>
-          <PropertyBagMode>PropertyBag</PropertyBagMode>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Version of accepted Terms and Conditions</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>TermsConditionsVersion</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Acceptance date of Terms and Conditions</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>TermsConditionsAcceptDate</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Billing Cycle Type (Years, Months, Days) for NetTerms</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>NetTermsCycleType</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Duration of the period from the billing date up to the last invoice payment date</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>NetTermsQuantity</Name>
-        <Required>false</Required>
-        <Type i:type="NumberType">
-          <BaseType>Integer</BaseType>
-          <ListType>None</ListType>
-          <FixedUnitOfMeasure i:nil="true" />
-          <UnitOfMeasureCategory i:nil="true" />
-          <UnitOfMeasureMode>None</UnitOfMeasureMode>
-          <UnitOfMeasureProperty i:nil="true" />
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Organization</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Organization</Name>
-        <Required>true</Required>
-        <Type i:type="PropertyBagType">
-          <BaseType>PropertyBag</BaseType>
-          <ListType>None</ListType>
-          <Name>MetraTech.Metanga.Organization</Name>
-          <PropertyBagMode>Entity</PropertyBagMode>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The First Name for the Account</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>FirstName</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The Middle Initial for the Account</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>MiddleInitial</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The Last Name for the Account</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>LastName</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>First line of the address for the Account</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Address1</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Second line of the address for the Account</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Address2</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Third line of the address for the Account</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Address3</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The City for the Account</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>City</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>State or Province of the Account</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>State</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Zip (or Postal) code for the Account</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Zip</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Country for the Account. The country should be submitted as a 2-character alpha code, based on the ISO 3166-1 2-letter representation.Examples: US - United States, AU - Australia, DE - GermanySee this link for a complete list: http://www.iso.org/iso/home/standards/country_codes/country_names_and_code_elements.htm</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Country</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Email address for the Account</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Email</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Phone number for the Account</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>PhoneNumber</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Fax number for the Account</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>FaxNumber</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>The name of the company for this account</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Company</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Represents how frequently should the account be invoiced.The Id represents a Unit of Measure Code. A list of codes can be found in the Metanga UI (go to Configuration -&gt; Units of Measure). Only units of measure based on days or months can be used.The Codes for Units of Measure in Metanga is based on the Unified Code for Units of Measure. You can learn more about this specification here: http://unitsofmeasure.org/Common values used are: "MO" (Monthly), "ANN" (Annual), "ANN/4" (Quarterly)</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>BillingCycleUnit</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Represents an anniversary date when an account should receive an invoice. This date is used to identify appropriate bill dates, based on the bill frequency specifid by the billing cycle unit.For example, if an account has a BillingCycleEndDate = 2012-01-30 then the account will receive invoices on these dates:Monthly Cycle: On the 30th day of the month (2012-01-30, 2012-02-29(*), 2012-03-30, 2012-04-30, etc.)Weekly Cycle: Every Tusday (2012-01-31, 2012-02-07, 2012-02-14, 2012-02-21, etc.)Quarterly Cycle: 1st month of each quarter on the 30th day (2012-01-30, 2012-04-30, 2012-07-30, etc.)Annual Cycle: Every year on January 30th (2012-01-30, 2013-01-30, 2014-01-30, etc.)(*) On months with less than 30 days, bills are produced on the last day of the month. To always bill on the last day of the month, use the last day of a month with 31 days. For example, 2012-01-31.</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>BillingCycleEndDate</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>DateTime</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>EntityId</Name>
-        <Required>false</Required>
-        <Type>
-          <BaseType>Guid</BaseType>
-          <ListType>None</ListType>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>ExternalId</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Name</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>KeyList</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description i:nil="true" />
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Description</Name>
-        <Required>true</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>KeyList</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
         <Description>Extra Property 1</Description>
-        <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>ExtraProperty1</Name>
         <Required>false</Required>
@@ -583,10 +26,18 @@
         </Type>
       </Property>
       <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
+        <Description>Extra Property 10</Description>
+        <IsCore>false</IsCore>
+        <Name>ExtraProperty10</Name>
+        <Required>false</Required>
+        <Type i:type="StringType">
+          <BaseType>String</BaseType>
+          <ListType>None</ListType>
+          <Length>255</Length>
+        </Type>
+      </Property>
+      <Property>
         <Description>Extra Property 2</Description>
-        <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>ExtraProperty2</Name>
         <Required>false</Required>
@@ -597,10 +48,7 @@
         </Type>
       </Property>
       <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
         <Description>Extra Property 3</Description>
-        <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>ExtraProperty3</Name>
         <Required>false</Required>
@@ -611,10 +59,7 @@
         </Type>
       </Property>
       <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
         <Description>Extra Property 4</Description>
-        <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>ExtraProperty4</Name>
         <Required>false</Required>
@@ -625,10 +70,7 @@
         </Type>
       </Property>
       <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
         <Description>Extra Property 5</Description>
-        <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>ExtraProperty5</Name>
         <Required>false</Required>
@@ -639,10 +81,7 @@
         </Type>
       </Property>
       <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
         <Description>Extra Property 6</Description>
-        <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>ExtraProperty6</Name>
         <Required>false</Required>
@@ -653,10 +92,7 @@
         </Type>
       </Property>
       <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
         <Description>Extra Property 7</Description>
-        <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>ExtraProperty7</Name>
         <Required>false</Required>
@@ -667,10 +103,7 @@
         </Type>
       </Property>
       <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
         <Description>Extra Property 8</Description>
-        <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>ExtraProperty8</Name>
         <Required>false</Required>
@@ -681,10 +114,7 @@
         </Type>
       </Property>
       <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
         <Description>Extra Property 9</Description>
-        <Direction>Input</Direction>
         <IsCore>false</IsCore>
         <Name>ExtraProperty9</Name>
         <Required>false</Required>
@@ -694,20 +124,6 @@
           <Length>255</Length>
         </Type>
       </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Extra Property 10</Description>
-        <Direction>Input</Direction>
-        <IsCore>false</IsCore>
-        <Name>ExtraProperty10</Name>
-        <Required>false</Required>
-        <Type i:type="StringType">
-          <BaseType>String</BaseType>
-          <ListType>None</ListType>
-          <Length>255</Length>
-        </Type>
-      </Property>
-    </Properties>
+    </CustomProperties>
   </Properties>
 </PropertyBag>

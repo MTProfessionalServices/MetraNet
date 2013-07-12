@@ -6,21 +6,15 @@
   <Items>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
+      <Description>Click</Description>
+      <Name>Click</Name>
+      <Code>CLICK</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
       <Description>Database</Description>
       <Name>Database</Name>
       <Code>DATABASE</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Seat</Description>
-      <Name>Seat</Name>
-      <Code>SEAT</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Report</Description>
-      <Name>Report</Name>
-      <Code>REPORT</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
@@ -30,33 +24,9 @@
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>User</Description>
-      <Name>User</Name>
-      <Code>USER</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Click</Description>
-      <Name>Click</Name>
-      <Code>CLICK</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Server</Description>
-      <Name>Server</Name>
-      <Code>SERVER</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>View</Description>
-      <Name>View</Name>
-      <Code>VIEW</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Location</Description>
-      <Name>Location</Name>
-      <Code>LOCATION</Code>
+      <Description>Email</Description>
+      <Name>Email</Name>
+      <Code>EMAIL</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
@@ -66,9 +36,39 @@
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Email</Description>
-      <Name>Email</Name>
-      <Code>EMAIL</Code>
+      <Description>Location</Description>
+      <Name>Location</Name>
+      <Code>LOCATION</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Report</Description>
+      <Name>Report</Name>
+      <Code>REPORT</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Seat</Description>
+      <Name>Seat</Name>
+      <Code>SEAT</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Server</Description>
+      <Name>Server</Name>
+      <Code>SERVER</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>User</Description>
+      <Name>User</Name>
+      <Code>USER</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>View</Description>
+      <Name>View</Name>
+      <Code>VIEW</Code>
     </EnumItem>
   </Items>
   <Name>CloudAndSaaS</Name>

@@ -6,15 +6,15 @@
   <Items>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Represents a quarter of a year.</Description>
-      <Name>Quarter</Name>
-      <Code>ANN/4</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
       <Description>Year</Description>
       <Name>Year</Name>
       <Code>ANN</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Represents a quarter of a year.</Description>
+      <Name>Quarter</Name>
+      <Code>ANN/4</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />

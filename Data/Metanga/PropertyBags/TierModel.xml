@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PropertyBag xmlns:arrays="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="MetraTech">
-  <Availability>Unknown</Availability>
-  <DefaultValue i:nil="true" />
   <Description>Tier Product Model</Description>
-  <Direction>Input</Direction>
   <IsCore>true</IsCore>
   <Name>TierModel</Name>
   <Required>true</Required>
@@ -13,39 +10,9 @@
     <Name>TierModel</Name>
     <PropertyBagMode>PropertyBag</PropertyBagMode>
   </Type>
+  <DatabaseReservedPropertyTableName i:nil="true" />
   <Namespace>MetraTech.Metanga</Namespace>
   <Properties>
-    <Properties>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Ordered list of tiers to be tested</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>Tiers</Name>
-        <Required>true</Required>
-        <Type i:type="PropertyBagType">
-          <BaseType>PropertyBag</BaseType>
-          <ListType>List</ListType>
-          <Name>MetraTech.Metanga.Tier</Name>
-          <PropertyBagMode>PropertyBag</PropertyBagMode>
-        </Type>
-      </Property>
-      <Property>
-        <Availability>Unknown</Availability>
-        <DefaultValue i:nil="true" />
-        <Description>Default product to use if all the tiers have been filled</Description>
-        <Direction>Input</Direction>
-        <IsCore>true</IsCore>
-        <Name>DefaultProduct</Name>
-        <Required>true</Required>
-        <Type i:type="PropertyBagType">
-          <BaseType>PropertyBag</BaseType>
-          <ListType>None</ListType>
-          <Name>MetraTech.Metanga.Product</Name>
-          <PropertyBagMode>ExtensibleEntity</PropertyBagMode>
-        </Type>
-      </Property>
-    </Properties>
+    <CustomProperties />
   </Properties>
 </PropertyBag>

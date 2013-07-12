@@ -6,15 +6,33 @@
   <Items>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Second</Description>
-      <Name>Second</Name>
-      <Code>S</Code>
+      <Description>Day</Description>
+      <Name>Day</Name>
+      <Code>D</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
       <Description>Hour</Description>
       <Name>Hour</Name>
       <Code>HR</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Minute</Description>
+      <Name>Minute</Name>
+      <Code>MIN</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Second</Description>
+      <Name>Second</Name>
+      <Code>S</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Millisecond</Description>
+      <Name>Millisecond</Name>
+      <Code>S/1000</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
@@ -27,24 +45,6 @@
       <Description>Represents two weeks.</Description>
       <Name>Biweek</Name>
       <Code>WK.2</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Day</Description>
-      <Name>Day</Name>
-      <Code>D</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Millisecond</Description>
-      <Name>Millisecond</Name>
-      <Code>S/1000</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
-      <Description>Minute</Description>
-      <Name>Minute</Name>
-      <Code>MIN</Code>
     </EnumItem>
   </Items>
   <Name>TimeDayBased</Name>

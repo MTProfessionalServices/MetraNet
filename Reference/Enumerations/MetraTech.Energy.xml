@@ -6,9 +6,15 @@
   <Items>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Joule</Description>
-      <Name>Joule</Name>
-      <Code>J</Code>
+      <Description>British Thermal Unit</Description>
+      <Name>British Thermal Unit</Name>
+      <Code>[BTU]</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Therm</Description>
+      <Name>Therm</Name>
+      <Code>[THM]</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
@@ -18,15 +24,15 @@
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Kilowatt Hour</Description>
-      <Name>Kilowatt Hour</Name>
-      <Code>KW/H</Code>
+      <Description>Joule</Description>
+      <Name>Joule</Name>
+      <Code>J</Code>
     </EnumItem>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>British Thermal Unit</Description>
-      <Name>British Thermal Unit</Name>
-      <Code>[BTU]</Code>
+      <Description>Kilowatt Hour</Description>
+      <Name>Kilowatt Hour</Name>
+      <Code>kWh</Code>
     </EnumItem>
   </Items>
   <Name>Energy</Name>

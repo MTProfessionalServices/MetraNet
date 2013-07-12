@@ -7,15 +7,15 @@ Practical loads have resistance, inductance, and capacitance, so both real and r
   <Items>
     <EnumItem i:type="UnitOfMeasure">
       <Aliases />
-      <Description>Volt Ampere</Description>
-      <Name>Volt Ampere</Name>
-      <Code>V.A</Code>
-    </EnumItem>
-    <EnumItem i:type="UnitOfMeasure">
-      <Aliases />
       <Description>Kilovolt Ampere</Description>
       <Name>Kilovolt Ampere</Name>
       <Code>KV.A</Code>
+    </EnumItem>
+    <EnumItem i:type="UnitOfMeasure">
+      <Aliases />
+      <Description>Volt Ampere</Description>
+      <Name>Volt Ampere</Name>
+      <Code>V.A</Code>
     </EnumItem>
   </Items>
   <Name>ElectricApparentPower</Name>

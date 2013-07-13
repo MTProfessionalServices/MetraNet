@@ -28,7 +28,8 @@ AS
        id_event_success           INT,
        systemdate                 DATE,
        id_template_session        INT,
-       retrycount                 INT
+       retrycount                 INT,
+       doCommit                   CHAR DEFAULT 'Y'
     );
 
     PROCEDURE UpdateAccPropsFromTemplate (

@@ -14,7 +14,8 @@ CREATE OR REPLACE PROCEDURE InsertAuditEvent2 (
 AS
 BEGIN
     IF (temp_id_audit IS NULL OR temp_id_audit = 0) THEN
-        GetCurrentId('id_audit', id_audit_out);
+         SELECT id_current INTO id_audit_out FROM t_current_id WHERE nm_current = 'id_audit' FOR UPDATE OF id_current;
+         UPDATE t_current_id SET id_current=id_current+1 where nm_current='id_audit';
     ELSE
         id_audit_out := temp_id_audit;
     END IF;

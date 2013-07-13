@@ -1,7 +1,8 @@
 
 CREATE PROCEDURE UpdatePrivateTempates
 (
-	@id_template INT
+	@id_template INT,
+	@p_systemdate  DATETIME
 )    
 AS
 BEGIN

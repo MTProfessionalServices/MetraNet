@@ -76,7 +76,7 @@ BEGIN
         SELECT tat.id_acc_template
           FROM t_account_ancestor taa
           JOIN t_acc_template tat ON taa.id_descendent = tat.id_folder AND tat.id_acc_type = id_acc_type
-         WHERE taa.id_ancestor = id_acc)
+         WHERE taa.id_ancestor = id_acc AND systemDate BETWEEN taa.vt_start AND taa.vt_end)
     LOOP
 
         --Apply account template to appropriate account list.
@@ -118,7 +118,9 @@ BEGIN
            JOIN t_policy_role pr ON pr.id_policy = pp.id_policy
            JOIN t_acc_template t ON aa.id_ancestor = t.id_folder AND t.b_applydefaultpolicy = 'Y'
     WHERE  t.id_acc_template = accountTemplateId
-       AND aa.num_generations > 0
+       AND aa.num_generations > 0 
+       AND systemDate BETWEEN aa.vt_start AND aa.vt_end
+       AND systemDate BETWEEN ap.vt_start AND ap.vt_end
        AND NOT EXISTS (SELECT 1 FROM t_policy_role pr2 WHERE pr2.id_policy = pd.id_policy AND pr2.id_role = pr.id_role);
 
     /* Finalize session state */

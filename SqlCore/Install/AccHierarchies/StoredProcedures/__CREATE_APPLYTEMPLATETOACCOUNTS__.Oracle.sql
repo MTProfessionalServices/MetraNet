@@ -60,7 +60,7 @@ BEGIN
       FROM t_enum_data
      WHERE nm_enum_data = 'metratech.com/accounttemplate/DetailType/Subscription';
 
-    BEGIN
+--    BEGIN
         mt_acc_template.UpdateAccPropsFromTemplate (
             idAccountTemplate => idAccountTemplate,
             systemDate        => systemDate,
@@ -159,7 +159,7 @@ BEGIN
         COMMIT;
         END IF;
 
-    EXCEPTION
+/*    EXCEPTION
         WHEN OTHERS THEN
             IF (doCommit = 'Y')
             THEN
@@ -175,7 +175,7 @@ BEGIN
                 doCommit
             );
     END;
-
+*/
     mt_acc_template.apply_subscriptions(
         template_id                => idAccountTemplate,
         sub_start                  => sub_start,

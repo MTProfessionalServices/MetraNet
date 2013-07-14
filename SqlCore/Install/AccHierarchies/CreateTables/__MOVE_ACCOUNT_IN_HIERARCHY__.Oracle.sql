@@ -464,7 +464,8 @@ delete from t_dm_account where id_dm_acc in (select id_dm_acc from tmp_t_dm_acco
     IF (templateCount <> 0 AND templateId <> -1)
     THEN
         updateprivatetempates(
-            id_template => templateId
+            id_template => templateId,
+            p_systemdate => p_system_time
         );
         inserttemplatesession(templateOwner, p_acc_type, 0, ' ', 0, 0, 0, sessionId, 'N');
         ApplyAccountTemplate(
@@ -486,11 +487,14 @@ delete from t_dm_account where id_dm_acc in (select id_dm_acc from tmp_t_dm_acco
                 FROM t_account_ancestor ancestor
                 JOIN t_acc_template template ON ancestor.id_descendent = template.id_folder
                 JOIN t_account_type atype on template.id_acc_type = atype.id_type
-                WHERE ancestor.id_ancestor = p_new_parent
+                WHERE ancestor.id_ancestor = p_new_parent AND
+                    p_system_time between vt_start AND vt_end AND
+                    (atype.name = p_acc_type OR allTypesSupported = 1)
         )
         LOOP
             updateprivatetempates(
-                id_template => tmpl.id_acc_template
+                id_template => tmpl.id_acc_template,
+                p_systemdate => p_system_time
             );
             inserttemplatesession(templateOwner, p_acc_type, 0, ' ', 0, 0, 0, sessionId, 'N');
             ApplyAccountTemplate(

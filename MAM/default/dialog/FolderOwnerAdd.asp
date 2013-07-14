@@ -101,10 +101,10 @@ FUNCTION OK_Click(EventArg) ' As Boolean
         Exit Function
       End If
               
-      ' Get Batch Errors  
+      ' Get Batch Errors
       If Session("LAST_BATCH_ERRORS").RecordCount > 0 Then
-        EventArg.Error.number = 1025
-        EventArg.Error.description = mam_GetDictionary("MAM_ERROR_1025")
+        EventArg.Error.number = 2015
+        EventArg.Error.description = mam_GetDictionary("MAM_ERROR_2015")
         OK_Click = FALSE       
         Set Session(mdm_EVENT_ARG_ERROR) = EventArg 
         Response.Redirect mdm_GetCurrentFullURL()             

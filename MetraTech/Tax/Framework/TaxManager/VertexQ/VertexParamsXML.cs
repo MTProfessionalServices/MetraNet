@@ -51,14 +51,14 @@ namespace Framework.TaxManager.VertexQ
 
 
       #region Set Origin Location Mode and Values
-      string originLocationMode = taxableTransaction.GetString("OriginLocationMode");
+      string originLocationMode = taxableTransaction.GetString("origin_location_mode");
       if (!String.IsNullOrEmpty(originLocationMode))
       {
         vertexParameters.Add("OriginLocationMode", originLocationMode);
         // vertexXML += "<OriginLocationMode>" + originLocationMode + "</OriginLocationMode>";
       }
 
-      string originLocation = taxableTransaction.GetString("OriginLocation");
+      string originLocation = taxableTransaction.GetString("origin_location");
       if (!String.IsNullOrEmpty(originLocation))
       {
         _logger.LogInfo("OriginLocation = {0}", originLocation);
@@ -78,14 +78,14 @@ namespace Framework.TaxManager.VertexQ
 
 
       #region Set Termination Location Mode and Values
-      string terminationLocationMode = taxableTransaction.GetString("TerminationLocationMode");
+      string terminationLocationMode = taxableTransaction.GetString("termination_location_mode");
       if (!String.IsNullOrEmpty(terminationLocationMode))
       {
         vertexParameters.Add("TerminationLocationMode", terminationLocationMode);
         // vertexXML += "<TerminationLocationMode>" + terminationLocationMode + "</TerminationLocationMode>";
       }
 
-      string terminationLocation = taxableTransaction.GetString("TerminationLocation");
+      string terminationLocation = taxableTransaction.GetString("termination_location");
       if (!String.IsNullOrEmpty(terminationLocation))
       {
         _logger.LogInfo("TerminationLocation = {0}", terminationLocation);
@@ -152,7 +152,7 @@ namespace Framework.TaxManager.VertexQ
 
       #region Set Invoice Related Parameters
 
-      DateTime? invoiceDate = taxableTransaction.GetDateTime("InvoiceDate");
+      DateTime? invoiceDate = taxableTransaction.GetDateTime("invoice_date");
       if (invoiceDate.HasValue)
       {
         // Vertex needs dates to be in CCMMYYDD format
@@ -184,7 +184,7 @@ namespace Framework.TaxManager.VertexQ
       #endregion
 
 
-      decimal? taxableAmount = taxableTransaction.GetDecimal("InvoiceAmount");
+      decimal? taxableAmount = taxableTransaction.GetDecimal("amount");
       if (taxableAmount.HasValue)
         // TODO : Might be worthwhile using CultureInfo.InstalledCulture
         vertexParameters.Add("TaxableAmount", taxableAmount.Value.ToString(CultureInfo.InvariantCulture));

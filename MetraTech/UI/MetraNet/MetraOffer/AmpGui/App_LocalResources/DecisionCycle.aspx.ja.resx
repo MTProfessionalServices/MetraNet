@@ -192,4 +192,13 @@
   <data name="TEXT_ERROR_NO_VALUE_SPECIFIC_NUMBER" xml:space="preserve">
     <value>Japanese</value>
   </data>
+  <data name="rblUnitOfTimeFromParamTable.Text" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="lblNumberOfTimeUnits.Text" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="lblNumberTimeUnitsBillingInterval.Text" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
 </root>

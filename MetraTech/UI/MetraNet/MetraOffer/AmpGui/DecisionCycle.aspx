@@ -40,10 +40,19 @@
           <asp:ListItem Value="Months" meta:resourcekey="rblMonths"></asp:ListItem>
           <asp:ListItem Value="Quarters" meta:resourcekey="rblQuarters"></asp:ListItem>
           <asp:ListItem Value="Years" meta:resourcekey="rblYears"></asp:ListItem>
+          <asp:ListItem Value="UnitOfTimeFromParamTable" meta:resourcekey="rblUnitOfTimeFromParamTable"></asp:ListItem>
         </asp:RadioButtonList>
       </td>
     </tr>
   </table>
+     
+  <div style="padding-left: 2.75in;">
+    <div id="divUnitOfTimeFromParamTableDropdownSource" runat="server" >
+          <MT:MTDropDown ID="ddUnitOfTimeFromParamTableSource" runat="server" ControlWidth="160" ListWidth="200"
+            HideLabel="True" AllowBlank="True" Editable="True"/>
+    </div>
+  </div>
+
   <div id="divDecisionCycleBillingInterval">
   <table>
     <tr>
@@ -127,23 +136,33 @@
     dictUnitOfTimes["Months"] = '<%=GetLocalResourceObject("lblNumberOfMonth.Text")%>';
     dictUnitOfTimes["Quarters"] = '<%=GetLocalResourceObject("lblNumberOfQuarters.Text")%>';
     dictUnitOfTimes["Years"] = '<%=GetLocalResourceObject("lblNumberOfYears.Text")%>';
+    dictUnitOfTimes["UnitOfTimeFromParamTable"] = '<%=GetLocalResourceObject("lblNumberOfTimeUnits.Text")%>';
 
     dictBillingInterval["Days"] = '<%=GetLocalResourceObject("lblNumberDaysBillingInterval.Text")%>';
     dictBillingInterval["Weeks"] = '<%=GetLocalResourceObject("lblNumberWeeksBillingInterval.Text")%>';
     dictBillingInterval["Months"] = '<%=GetLocalResourceObject("lblNumberMonthBillingInterval.Text")%>';
     dictBillingInterval["Quarters"] = '<%=GetLocalResourceObject("lblNumberQuartersBillingInterval.Text")%>';
     dictBillingInterval["Years"] = '<%=GetLocalResourceObject("lblNumberYearsBillingInterval.Text")%>';
-    
+    dictBillingInterval["UnitOfTimeFromParamTable"] = '<%=GetLocalResourceObject("lblNumberTimeUnitsBillingInterval.Text")%>';
   }
 
   function DecisionCycleUnitOfTimeChanged(unitOfTime) {
     document.getElementById('<%=lblNumberOfMonth.ClientID%>').innerHTML = dictUnitOfTimes[unitOfTime];
     document.getElementById('<%=lblNumberMonthBillingInterval.ClientID%>').innerHTML = dictBillingInterval[unitOfTime];
+    if (unitOfTime == 'UnitOfTimeFromParamTable') { 
+      document.getElementById('<%=divUnitOfTimeFromParamTableDropdownSource.ClientID%>').style.display = 'block';
+    }
+    else {
+      document.getElementById('<%=divUnitOfTimeFromParamTableDropdownSource.ClientID%>').style.display = 'none';
+    }
     DecisionCycleControlShow(true);
   }
 
   function DecisionCycleControlShow(show) {
     document.getElementById('divDecisionCycleBillingInterval').style.display = show ? '' : 'none';
+    if (show == false) {
+      document.getElementById('<%=divUnitOfTimeFromParamTableDropdownSource.ClientID%>').style.display = 'none';
+    }
   }
 
   function ChangeDecisionCycleEffectState(enabled, ampControlID) {

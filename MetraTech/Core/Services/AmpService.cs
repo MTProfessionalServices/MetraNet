@@ -3746,46 +3746,44 @@ namespace MetraTech.Core.Services
             }
             else if (attributeName.Equals("Cycle Unit Type"))
             {
-                if (attributeValue != null)
+              if (attributeValue != null)
+              {
+                if (attributeValue.ToUpper().Equals("INTERVAL"))
                 {
-                    if (attributeValue.ToUpper().Equals("INTERVAL"))
-                    {
-                        decision.CycleUnitType = Decision.CycleUnitTypeEnum.CYCLE_SAME_AS_BILLING_INTERVAL;
-                    }
-                    else if (attributeValue.ToUpper().Equals("DAILY"))
-                    {
-                        decision.CycleUnitType = Decision.CycleUnitTypeEnum.CYCLE_DAILY;
-                    }
-                    else if (attributeValue.ToUpper().Equals("WEEKLY"))
-                    {
-                        decision.CycleUnitType = Decision.CycleUnitTypeEnum.CYCLE_WEEKLY;
-                    }
-                    else if (attributeValue.ToUpper().Equals("MONTHLY"))
-                    {
-                        decision.CycleUnitType = Decision.CycleUnitTypeEnum.CYCLE_MONTHLY;
-                    }
-                    else if (attributeValue.ToUpper().Equals("QUARTERLY"))
-                    {
-                        decision.CycleUnitType = Decision.CycleUnitTypeEnum.CYCLE_QUARTERLY;
-                    }
-                    else if (attributeValue.ToUpper().Equals("ANNUALLY"))
-                    {
-                        decision.CycleUnitType = Decision.CycleUnitTypeEnum.CYCLE_ANNUALLY;
-                    }
-                    else
-                    {
-                        m_Logger.LogError(
-                            "StoreAttributeInDomainModel: parameter {0} contains unexpected value {1}",
-                            attributeName, attributeValue);
-                    }
+                  decision.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_SAME_AS_BILLING_INTERVAL;
+                }
+                else if (attributeValue.ToUpper().Equals("DAILY"))
+                {
+                  decision.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_DAILY;
+                }
+                else if (attributeValue.ToUpper().Equals("WEEKLY"))
+                {
+                  decision.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_WEEKLY;
+                }
+                else if (attributeValue.ToUpper().Equals("MONTHLY"))
+                {
+                  decision.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_MONTHLY;
+                }
+                else if (attributeValue.ToUpper().Equals("QUARTERLY"))
+                {
+                  decision.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_QUARTERLY;
+                }
+                else if (attributeValue.ToUpper().Equals("ANNUALLY"))
+                {
+                  decision.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_ANNUALLY;
                 }
                 else
                 {
-                    // don't expect column name
-                    m_Logger.LogError(
-                        "StoreAttributeInDomainModel: parameter {0} should not be set via column name",
-                        attributeName);
+                  m_Logger.LogError(
+                      "StoreAttributeInDomainModel: parameter {0} contains unexpected value {1}",
+                      attributeName, attributeValue);
                 }
+              }
+              else
+              {
+                  // attribute is a column name
+                  decision.CycleUnitTypeColumnName = attributeColumnName;
+              }
             }
             else if (attributeName.Equals("Usage Qualification Group"))
             {
@@ -4160,31 +4158,39 @@ namespace MetraTech.Core.Services
             StoreAttributeInDb(decision.UniqueId, "Cycle Units Per Tier",
                 decision.CycleUnitsPerTierValue.HasValue ? decision.CycleUnitsPerTierValue.ToString() : null,
                 decision.CycleUnitsPerTierColumnName, decision.ParameterTableName);
-            switch (decision.CycleUnitType)
+            if (decision.CycleUnitTypeValue.HasValue)
             {
+              switch (decision.CycleUnitTypeValue)
+              {
                 case Decision.CycleUnitTypeEnum.CYCLE_SAME_AS_BILLING_INTERVAL:
-                    StoreAttributeInDb(decision.UniqueId, "Cycle Unit Type", "interval", null, decision.ParameterTableName);
-                    break;
+                  StoreAttributeInDb(decision.UniqueId, "Cycle Unit Type", "interval", null, decision.ParameterTableName);
+                  break;
 
                 case Decision.CycleUnitTypeEnum.CYCLE_DAILY:
-                    StoreAttributeInDb(decision.UniqueId, "Cycle Unit Type", "daily", null, decision.ParameterTableName);
-                    break;
+                  StoreAttributeInDb(decision.UniqueId, "Cycle Unit Type", "daily", null, decision.ParameterTableName);
+                  break;
 
                 case Decision.CycleUnitTypeEnum.CYCLE_WEEKLY:
-                    StoreAttributeInDb(decision.UniqueId, "Cycle Unit Type", "weekly", null, decision.ParameterTableName);
-                    break;
+                  StoreAttributeInDb(decision.UniqueId, "Cycle Unit Type", "weekly", null, decision.ParameterTableName);
+                  break;
 
                 case Decision.CycleUnitTypeEnum.CYCLE_MONTHLY:
-                    StoreAttributeInDb(decision.UniqueId, "Cycle Unit Type", "monthly", null, decision.ParameterTableName);
-                    break;
+                  StoreAttributeInDb(decision.UniqueId, "Cycle Unit Type", "monthly", null, decision.ParameterTableName);
+                  break;
 
                 case Decision.CycleUnitTypeEnum.CYCLE_QUARTERLY:
-                    StoreAttributeInDb(decision.UniqueId, "Cycle Unit Type", "quarterly", null, decision.ParameterTableName);
-                    break;
+                  StoreAttributeInDb(decision.UniqueId, "Cycle Unit Type", "quarterly", null, decision.ParameterTableName);
+                  break;
 
                 case Decision.CycleUnitTypeEnum.CYCLE_ANNUALLY:
-                    StoreAttributeInDb(decision.UniqueId, "Cycle Unit Type", "annually", null, decision.ParameterTableName);
-                    break;
+                  StoreAttributeInDb(decision.UniqueId, "Cycle Unit Type", "annually", null, decision.ParameterTableName);
+                  break;
+              }
+            }
+            else
+            {
+              // Cycle Unit Type is coming frmo a parameter table column
+              StoreAttributeInDb(decision.UniqueId, "Cycle Unit Type", null, decision.CycleUnitTypeColumnName, decision.ParameterTableName);
             }
             StoreAttributeInDb(decision.UniqueId, "Usage Qualification Group",
                 decision.UsageQualificationGroup, null, decision.ParameterTableName);

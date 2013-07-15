@@ -217,7 +217,7 @@
     <value>Fixed Value</value>
   </data>
   <data name="TEXT_GET_FROM_PARAM_TABLE_COLUMN" xml:space="preserve">
-    <value>Get from Param Table Column</value>
+    <value>Get from Parameter Table</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_ACCOUNT_QUALIFICATION_GROUP" xml:space="preserve">
     <value>An error occurred while retrieving Account Qualification Group '{0}'</value>

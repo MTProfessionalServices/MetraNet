@@ -53,6 +53,7 @@ public partial class AmpDecisionCyclePage : AmpWizardBasePage
         MonitorChangesInControlByClientId(decisionCycleCustomized.tbNumericSourceClientId);
         MonitorChangesInControlByClientId(decisionCycleCustomized.tbTextSourceClientId);
         MonitorChangesInControlByClientId(decisionCycleCustomized.ddSourceClientId);
+        MonitorChangesInControlByClientId(ddUnitOfTimeFromParamTableSource.ClientID);
       }
 
       SetRadioButtonsUnitOfTimeEvent();
@@ -79,6 +80,15 @@ public partial class AmpDecisionCyclePage : AmpWizardBasePage
     Response.Redirect(AmpNextPage, false);
   }
 
+  private void setParamTableDropDown(List<KeyValuePair<String, String>> paramTableColumns)
+  {
+    ddUnitOfTimeFromParamTableSource.Items.Clear();
+    foreach (var item in paramTableColumns)
+    {
+      ddUnitOfTimeFromParamTableSource.Items.Add(new ListItem(item.Value, item.Key));
+    }
+  }
+
   private void DecisionCyclePageSettings()
   {
     InitializeAmpControlProperties();
@@ -89,6 +99,7 @@ public partial class AmpDecisionCyclePage : AmpWizardBasePage
       numberOfMonth.DropdownItems = paramTableColumns;
       numberMonthBillingInterval.DropdownItems = paramTableColumns;
       decisionCycleCustomized.DropdownItems = paramTableColumns;
+      setParamTableDropDown(paramTableColumns);
     }
 
     DecisionCycleActionSettings();
@@ -114,6 +125,7 @@ public partial class AmpDecisionCyclePage : AmpWizardBasePage
     numberOfMonth.ReadOnly = true;
     numberMonthBillingInterval.ReadOnly = true;
     decisionCycleCustomized.ReadOnly = true;
+    ddUnitOfTimeFromParamTableSource.ReadOnly = true;
     if (RBL_DecisionEffect.Items[0].Selected)
     {
       decisionCycleCustomized.Visible = false;
@@ -123,6 +135,17 @@ public partial class AmpDecisionCyclePage : AmpWizardBasePage
   private void DecisionCycleActionSettings()
   {
     GetDecisionCycleUnitOfTime();
+
+    if (CurrentDecisionInstance.CycleUnitTypeValue.HasValue)
+    {
+      // suppress the parameter table drop down for this property
+      divUnitOfTimeFromParamTableDropdownSource.Attributes.Add("style", "display:none");
+    }
+    else
+    {
+      // show the parameter table drop down for this property
+      divUnitOfTimeFromParamTableDropdownSource.Attributes.Add("style", "display:block");
+    }
 
     if (CurrentDecisionInstance.CycleUnitsPerTierValue != null)
     {
@@ -169,7 +192,7 @@ public partial class AmpDecisionCyclePage : AmpWizardBasePage
     // set unit of time for decision cycle
     SetDecisionCycleUnitOfTime();
 
-    if (!CurrentDecisionInstance.CycleUnitType.Equals(Decision.CycleUnitTypeEnum.CYCLE_SAME_AS_BILLING_INTERVAL))
+    if (!CurrentDecisionInstance.CycleUnitTypeValue.HasValue || !CurrentDecisionInstance.CycleUnitTypeValue.Equals(Decision.CycleUnitTypeEnum.CYCLE_SAME_AS_BILLING_INTERVAL))
     {
       //set number of months in the decision cycle
       if (numberOfMonth.UseTextbox && !String.IsNullOrEmpty(numberOfMonth.TextboxText))
@@ -244,62 +267,83 @@ public partial class AmpDecisionCyclePage : AmpWizardBasePage
     switch (RBL_UnitOfTime.SelectedIndex)
     {
       case 0:
-        CurrentDecisionInstance.CycleUnitType = Decision.CycleUnitTypeEnum.CYCLE_SAME_AS_BILLING_INTERVAL;
+        CurrentDecisionInstance.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_SAME_AS_BILLING_INTERVAL;
+        CurrentDecisionInstance.CycleUnitTypeColumnName = null;
         break;
       case 1:
-        CurrentDecisionInstance.CycleUnitType = Decision.CycleUnitTypeEnum.CYCLE_DAILY;
+        CurrentDecisionInstance.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_DAILY;
+        CurrentDecisionInstance.CycleUnitTypeColumnName = null;
         break;
       case 2:
-        CurrentDecisionInstance.CycleUnitType = Decision.CycleUnitTypeEnum.CYCLE_WEEKLY;
+        CurrentDecisionInstance.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_WEEKLY;
+        CurrentDecisionInstance.CycleUnitTypeColumnName = null;
         break;
       case 3:
-        CurrentDecisionInstance.CycleUnitType = Decision.CycleUnitTypeEnum.CYCLE_MONTHLY;
+        CurrentDecisionInstance.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_MONTHLY;
+        CurrentDecisionInstance.CycleUnitTypeColumnName = null;
         break;
        case 4:
-        CurrentDecisionInstance.CycleUnitType = Decision.CycleUnitTypeEnum.CYCLE_QUARTERLY;
+        CurrentDecisionInstance.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_QUARTERLY;
+        CurrentDecisionInstance.CycleUnitTypeColumnName = null;
         break;
        case 5:
-        CurrentDecisionInstance.CycleUnitType = Decision.CycleUnitTypeEnum.CYCLE_ANNUALLY;
+        CurrentDecisionInstance.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_ANNUALLY;
+        CurrentDecisionInstance.CycleUnitTypeColumnName = null;
         break;
+       case 6:
+        CurrentDecisionInstance.CycleUnitTypeValue = null;
+        CurrentDecisionInstance.CycleUnitTypeColumnName = ddUnitOfTimeFromParamTableSource.SelectedItem.Value;
+        break;
+
     }
   }
 
   private void GetDecisionCycleUnitOfTime()
   {
-    switch (CurrentDecisionInstance.CycleUnitType)
+    if (CurrentDecisionInstance.CycleUnitTypeValue.HasValue)
     {
-      case Decision.CycleUnitTypeEnum.CYCLE_SAME_AS_BILLING_INTERVAL:
-        RBL_UnitOfTime.Items[0].Selected = true;
-        ShowDivDecisionCycle = false;
-        break;
-      case Decision.CycleUnitTypeEnum.CYCLE_DAILY:
-        RBL_UnitOfTime.Items[1].Selected = true;
-        lblNumberOfMonth.Text = Convert.ToString(GetLocalResourceObject("lblNumberOfDays.Text"));
-        lblNumberMonthBillingInterval.Text = Convert.ToString(GetLocalResourceObject("lblNumberDaysBillingInterval.Text"));
-        break;
-      case Decision.CycleUnitTypeEnum.CYCLE_WEEKLY:
-        RBL_UnitOfTime.Items[2].Selected = true;
-        lblNumberOfMonth.Text = Convert.ToString(GetLocalResourceObject("lblNumberOfWeeks.Text"));
-        lblNumberMonthBillingInterval.Text = Convert.ToString(GetLocalResourceObject("lblNumberWeeksBillingInterval.Text"));
-        break;
-      case Decision.CycleUnitTypeEnum.CYCLE_MONTHLY:
-        RBL_UnitOfTime.Items[3].Selected = true;
-        lblNumberOfMonth.Text = Convert.ToString(GetLocalResourceObject("lblNumberOfMonth.Text"));
-        lblNumberMonthBillingInterval.Text = Convert.ToString(GetLocalResourceObject("lblNumberMonthBillingInterval.Text"));
-        break;
-      case Decision.CycleUnitTypeEnum.CYCLE_QUARTERLY:
-        RBL_UnitOfTime.Items[4].Selected = true;
-        lblNumberOfMonth.Text = Convert.ToString(GetLocalResourceObject("lblNumberOfQuarters.Text"));
-        lblNumberMonthBillingInterval.Text = Convert.ToString(GetLocalResourceObject("lblNumberQuartersBillingInterval.Text"));
-        break;
-      case Decision.CycleUnitTypeEnum.CYCLE_ANNUALLY:
-        RBL_UnitOfTime.Items[5].Selected = true;
-        lblNumberOfMonth.Text = Convert.ToString(GetLocalResourceObject("lblNumberOfYears.Text"));
-        lblNumberMonthBillingInterval.Text = Convert.ToString(GetLocalResourceObject("lblNumberYearsBillingInterval.Text"));
-        break;
+      switch (CurrentDecisionInstance.CycleUnitTypeValue)
+      {
+        case Decision.CycleUnitTypeEnum.CYCLE_SAME_AS_BILLING_INTERVAL:
+          RBL_UnitOfTime.Items[0].Selected = true;
+          ShowDivDecisionCycle = false;
+          break;
+        case Decision.CycleUnitTypeEnum.CYCLE_DAILY:
+          RBL_UnitOfTime.Items[1].Selected = true;
+          lblNumberOfMonth.Text = Convert.ToString(GetLocalResourceObject("lblNumberOfDays.Text"));
+          lblNumberMonthBillingInterval.Text = Convert.ToString(GetLocalResourceObject("lblNumberDaysBillingInterval.Text"));
+          break;
+        case Decision.CycleUnitTypeEnum.CYCLE_WEEKLY:
+          RBL_UnitOfTime.Items[2].Selected = true;
+          lblNumberOfMonth.Text = Convert.ToString(GetLocalResourceObject("lblNumberOfWeeks.Text"));
+          lblNumberMonthBillingInterval.Text = Convert.ToString(GetLocalResourceObject("lblNumberWeeksBillingInterval.Text"));
+          break;
+        case Decision.CycleUnitTypeEnum.CYCLE_MONTHLY:
+          RBL_UnitOfTime.Items[3].Selected = true;
+          lblNumberOfMonth.Text = Convert.ToString(GetLocalResourceObject("lblNumberOfMonth.Text"));
+          lblNumberMonthBillingInterval.Text = Convert.ToString(GetLocalResourceObject("lblNumberMonthBillingInterval.Text"));
+          break;
+        case Decision.CycleUnitTypeEnum.CYCLE_QUARTERLY:
+          RBL_UnitOfTime.Items[4].Selected = true;
+          lblNumberOfMonth.Text = Convert.ToString(GetLocalResourceObject("lblNumberOfQuarters.Text"));
+          lblNumberMonthBillingInterval.Text = Convert.ToString(GetLocalResourceObject("lblNumberQuartersBillingInterval.Text"));
+          break;
+        case Decision.CycleUnitTypeEnum.CYCLE_ANNUALLY:
+          RBL_UnitOfTime.Items[5].Selected = true;
+          lblNumberOfMonth.Text = Convert.ToString(GetLocalResourceObject("lblNumberOfYears.Text"));
+          lblNumberMonthBillingInterval.Text = Convert.ToString(GetLocalResourceObject("lblNumberYearsBillingInterval.Text"));
+          break;
+      }
+    }
+    else
+    {
+      RBL_UnitOfTime.Items[6].Selected = true;
+      // select the parameter table column for the Cycle Unit Type in the drop down
+      ddUnitOfTimeFromParamTableSource.SelectedValue = CurrentDecisionInstance.CycleUnitTypeColumnName;
+      lblNumberOfMonth.Text = Convert.ToString(GetLocalResourceObject("lblNumberOfTimeUnits.Text"));
+      lblNumberMonthBillingInterval.Text = Convert.ToString(GetLocalResourceObject("lblNumberTimeUnitsBillingInterval.Text"));
     }
   }
-
   
 
   private void SetRadioButtonsUnitOfTimeEvent()

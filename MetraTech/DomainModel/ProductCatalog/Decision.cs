@@ -126,7 +126,12 @@ namespace MetraTech.DomainModel.ProductCatalog
         /// <summary>
         /// TBD
         /// </summary>
-        CYCLE_ANNUALLY
+        CYCLE_ANNUALLY,
+
+        /// <summary>
+        /// TBD
+        /// </summary>
+        CYCLE_GET_FROM_PARAMETER_TABLE
     };
 
     /// <summary>
@@ -675,10 +680,10 @@ namespace MetraTech.DomainModel.ProductCatalog
     }
     #endregion   
 
-    #region CycleUnitType
+    #region CycleUnitTypeValue
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isCycleUnitTypeDirty = false;
-    private CycleUnitTypeEnum m_CycleUnitType;
+    private bool isCycleUnitTypeValueDirty = false;
+    private CycleUnitTypeEnum? m_CycleUnitTypeValue;
     /// <summary>
     /// <para>
     ///   This parameter holds the units of the decision cycle.
@@ -692,19 +697,52 @@ namespace MetraTech.DomainModel.ProductCatalog
     /// </summary>
     [MTDataMember(Description = "This parameter holds the units of the decision cycle.", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public CycleUnitTypeEnum CycleUnitType
+    public CycleUnitTypeEnum? CycleUnitTypeValue
     {
-        get { return m_CycleUnitType; }
-        set
-        {
-            m_CycleUnitType = value;
-            isCycleUnitTypeDirty = true;
-        }
+      get { return m_CycleUnitTypeValue; }
+      set
+      {
+        m_CycleUnitTypeValue = value;
+        isCycleUnitTypeValueDirty = true;
+      }
     }
     [ScriptIgnore]
-    public bool IsCycleUnitTypeDirty
+    public bool IsCycleUnitTypeValueDirty
     {
-        get { return isCycleUnitTypeDirty; }
+      get { return isCycleUnitTypeValueDirty; }
+    }
+    #endregion   
+
+    #region CycleUnitTypeColumnName
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isCycleUnitTypeColumnNameDirty = false;
+    private string m_CycleUnitTypeColumnName;
+    /// <summary>
+    /// <para>
+    ///   This parameter holds the units of the decision cycle.
+    /// </para>
+    /// <para>
+    /// All decisions have a cycle.  This is analagous to a billing cycle.
+    /// The decision cycle does not have to match the billing cycle.  For example,
+    /// imagine a monthly billing cycle with a decision that says "if the total minutes
+    /// used this year exceeds 1000, then change the ratePerMinute".
+    /// </para>
+    /// </summary>
+    [MTDataMember(Description = "This parameter holds the units of the decision cycle.", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public string CycleUnitTypeColumnName
+    {
+      get { return m_CycleUnitTypeColumnName; }
+      set
+      {
+        m_CycleUnitTypeColumnName = value;
+        isCycleUnitTypeColumnNameDirty = true;
+      }
+    }
+    [ScriptIgnore]
+    public bool IsCycleUnitTypeColumnNameDirty
+    {
+      get { return isCycleUnitTypeColumnNameDirty; }
     }
     #endregion   
 

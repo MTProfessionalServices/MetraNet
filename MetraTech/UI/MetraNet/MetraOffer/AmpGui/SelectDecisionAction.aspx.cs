@@ -127,13 +127,11 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
     {
 	  if (CurrentDecisionInstance.IsBulkDecision == true)
       {
-        //RBL_BulkIncremental.Items[1].Selected = true;
-		singleBucket.Checked = true;
+        singleBucket.Checked = true;
       }
       else
       {
-        //RBL_BulkIncremental.Items[0].Selected = true;
-		multiBucket.Checked = true;
+        multiBucket.Checked = true;
       }
     }
     if (CurrentDecisionInstance.PerUnitRateValue != null)
@@ -195,8 +193,7 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
     if (AmpAction == "View")
     {
       // Disable the unselected radio buttons.
-      //SetRadioButtonViewAction(RBL_BulkIncremental);
-	  multiBucket.Enabled = multiBucket.Checked;
+      multiBucket.Enabled = multiBucket.Checked;
       singleBucket.Enabled = singleBucket.Checked;
 	  radUnitRate.Enabled = radUnitRate.Checked;
       radEventRate.Enabled = radEventRate.Checked;
@@ -240,22 +237,6 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
   // Returns true if control settings are valid, else false.
   private bool PopulateDecisionFromControls()
   {
-    // Incrementally vs. In Bulk radio button list
-    /*if (string.IsNullOrEmpty(RBL_BulkIncremental.SelectedValue))
-    {
-      SetError(GetLocalResourceObject("TEXT_ERROR_NO_INCREMENTAL_OR_BULK").ToString());
-      logger.LogError(String.Format("Neither Incremental nor In Bulk processing was specified for Decision '{0}'", AmpDecisionName));
-      return false;
-    }
-    if (RBL_BulkIncremental.SelectedIndex == 0)
-    {
-      CurrentDecisionInstance.IsBulkDecision = false;
-    }
-    else if (RBL_BulkIncremental.SelectedIndex == 1)
-    {
-      CurrentDecisionInstance.IsBulkDecision = true;
-    }*/
-	
     //Multi vs single-bucket in list.
 	if (!multiBucket.Checked && !singleBucket.Checked)
 	{

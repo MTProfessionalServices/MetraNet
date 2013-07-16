@@ -127,10 +127,10 @@
     <value>German</value>
   </data>
   <data name="rblIncrementallyResource1.Text" xml:space="preserve">
-    <value>German</value>
+    <value>Multi-Bucket (German)</value>
   </data>
   <data name="rblInBulkResource1.Text" xml:space="preserve">
-    <value>German</value>
+    <value>Single-Bucket(German)</value>
   </data>
   <data name="lblDecisionActionResource1.Text" xml:space="preserve">
     <value>German</value>

@@ -147,6 +147,9 @@
   <data name="radGenChargeResource1.Text" xml:space="preserve">
     <value>Brazilian Portuguese</value>
   </data>
+  <data name="noChargeResource1.Text" xml:space="preserve">
+    <value>No charge (Brazilian Potuguese)</value>
+  </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>Brazilian Portuguese</value>
   </data>

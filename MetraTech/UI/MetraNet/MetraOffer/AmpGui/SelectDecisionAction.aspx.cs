@@ -46,11 +46,12 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
       // Monitor changes made to the controls on the page.
       if (AmpAction != "View")
       {
-        //MonitorChangesInControl(BucketRadioButtons);
         MonitorChangesInControl(radUnitRate);
         MonitorChangesInControl(radEventRate);
         MonitorChangesInControl(radDiscount);
         MonitorChangesInControl(radGenCharge);
+		MonitorChangesInControl(singleBucket);
+		MonitorChangesInControl(multiBucket);
         MonitorChangesInControlByClientId(unitRate.ddSourceTypeClientId);
         MonitorChangesInControlByClientId(unitRate.tbNumericSourceClientId);
         MonitorChangesInControlByClientId(unitRate.tbTextSourceClientId);

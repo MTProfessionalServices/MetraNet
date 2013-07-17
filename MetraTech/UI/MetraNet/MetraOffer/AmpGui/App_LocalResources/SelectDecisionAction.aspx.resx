@@ -147,6 +147,9 @@
   <data name="radGenChargeResource1.Text" xml:space="preserve">
     <value>Generate a new Charge/Credit</value>
   </data>
+  <data name="noChargeResource1.Text" xml:space="preserve">
+    <value>No charge</value>
+  </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>Name</value>
   </data>

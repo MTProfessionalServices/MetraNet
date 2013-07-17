@@ -1068,6 +1068,12 @@
   <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE" xml:space="preserve">
     <value>Choose this option to have the Decision Type generate a new Charge or Credit.  You will define the Charge/Credit on the next set of screens.</value>
   </data>
+  <data name="TITLE_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
+    <value>(French) Help:  No Charge</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
+    <value>(French) Do not generate a charge for this decision</value>
+  </data>
   <data name="TITLE_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
     <value>Help:  Generated Charges/Credits Grid</value>
   </data>

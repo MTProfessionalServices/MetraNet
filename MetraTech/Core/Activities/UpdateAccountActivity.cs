@@ -465,10 +465,6 @@ namespace MetraTech.Core.Activities
             // Check update capabilities
             CheckUpdateCapabilities(account, accountType);
 
-            using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required,
-                                                                 new TransactionOptions(),
-                                                                 EnterpriseServicesInteropOption.Full))
-            {
                 // Execute the stored procedure "AddNewAccount"
                 using (IMTConnection conn = ConnectionManager.CreateConnection()) // ("Queries\AccHierarchies"))
                 {
@@ -781,8 +777,6 @@ namespace MetraTech.Core.Activities
                 // Update materialized views
                 UpdateMaterializedViews(true);
 
-                scope.Complete();
-            }
         }
 
         private string GetErrorMsg(int status)

@@ -31,7 +31,7 @@ public partial class AjaxServices_LoadDataFromAccTemplate : MTListServicePage
     if (Int32.TryParse(Request["AccountID"], out accId)) 
     {
       AccountIdentifier acc = new AccountIdentifier(accId);
-      sClient.GetPrivateTemplateDefForAccountType(acc, accType, MetraTech.MetraTime.Now, true, out tmpl);
+      sClient.GetTemplateDefForAccountType(acc, accType, MetraTech.MetraTime.Now, true, out tmpl);
     }
     // If ParentID specified and it isn't "root" get parent's template.
     AccountTemplate parentTmpl = new AccountTemplate();

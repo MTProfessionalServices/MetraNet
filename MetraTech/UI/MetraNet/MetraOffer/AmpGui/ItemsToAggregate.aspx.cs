@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.ServiceModel;
@@ -19,191 +20,224 @@ using MetraTech.UsageServer;
 
 public partial class AmpItemsToAggregatePage : AmpWizardBasePage
 {
-  protected void Page_Load(object sender, EventArgs e)
-  {
-    // Extra check that user has permission to configure AMP decisions.
-    if (!UI.CoarseCheckCapability("ManageAmpDecisions"))
+    protected void Page_Load(object sender, EventArgs e)
     {
-      Response.End();
-      return;
+        // Extra check that user has permission to configure AMP decisions.
+        if (!UI.CoarseCheckCapability("ManageAmpDecisions"))
+        {
+            Response.End();
+            return;
+        }
+
+        // Set the current, next, and previous AMP pages right away.
+        AmpCurrentPage = "ItemsToAggregate.aspx";
+        AmpNextPage = "DecisionRange.aspx";
+        AmpPreviousPage = "SelectUsageQualification.aspx";
+
+        // Monitor changes made to the controls on the page.
+        MonitorChangesInControl(radAddUpMonetaryChargeAmounts);
+        MonitorChangesInControl(radAddUpUnitsOfUsage);
+        MonitorChangesInControl(radCountTheNumberOfEvents);
+        MonitorChangesInControl(radGetItemAggregatedFromParamTable);
+        MonitorChangesInControl(ddItemAggregatedFromParamTableSource);
+
+        if (!IsPostBack)
+        {
+            // If we are only Viewing a decision, show the "Continue" button.
+            if (AmpAction == "View")
+            {
+                btnContinue.Visible = true;
+                btnSaveAndContinue.Visible = false;
+            }
+            else // If we are editing a decision, show the "Save & Continue" button
+            {
+                btnContinue.Visible = false;
+                btnSaveAndContinue.Visible = true;
+            }
+
+            // clear out the radio buttons for items to aggregate
+            radAddUpMonetaryChargeAmounts.Checked = false;
+            radAddUpUnitsOfUsage.Checked = false;
+            radCountTheNumberOfEvents.Checked = false;
+            radGetItemAggregatedFromParamTable.Checked = false;
+
+            // Get the current value for the Decision's items to aggregate
+            AmpServiceClient ampSvcGetDecisionClient = null;
+            try
+            {
+                ampSvcGetDecisionClient = new AmpServiceClient();
+                if (ampSvcGetDecisionClient.ClientCredentials != null)
+                {
+                    ampSvcGetDecisionClient.ClientCredentials.UserName.UserName = UI.User.UserName;
+                    ampSvcGetDecisionClient.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+                }
+
+                Decision decisionInstance;
+                ampSvcGetDecisionClient.GetDecision(AmpDecisionName, out decisionInstance);
+
+                CurrentDecisionInstance = decisionInstance;
+
+                // depending on the value set for ItemAggregated, show that value as the selected radio button on the page.
+                switch (decisionInstance.ItemAggregated.ToString())
+                {
+                    case "AGGREGATE_UNITS_OF_USAGE":
+                        radAddUpUnitsOfUsage.Checked = true;
+                        break;
+                    case "AGGREGATE_USAGE_EVENTS":
+                        radCountTheNumberOfEvents.Checked = true;
+                        break;
+                    case "AGGREGATE_AMOUNT":
+                        radAddUpMonetaryChargeAmounts.Checked = true;
+                        break;
+                }
+
+                List<KeyValuePair<String, String>> paramTableColumns;
+                if (GetParameterTableColumnNamesWithClient(CurrentDecisionInstance.ParameterTableName, out paramTableColumns))
+                {
+                    setParamTableDropDown(paramTableColumns);
+                }
+                divItemAggregatedFromParamTableDropdownSource.Attributes.Add("style", "display:none");
+
+                // if we are in View mode, do not allow the radio button selection to change.
+                if (AmpAction == "View")
+                {
+                    if (radAddUpMonetaryChargeAmounts.Checked == false)
+                    {
+                        radAddUpMonetaryChargeAmounts.Enabled = false;
+                    }
+                    else
+                    {
+                        radAddUpMonetaryChargeAmounts.Enabled = true;
+                    }
+
+                    if (radAddUpUnitsOfUsage.Checked == false)
+                    {
+                        radAddUpUnitsOfUsage.Enabled = false;
+                    }
+                    else
+                    {
+                        radAddUpUnitsOfUsage.Enabled = true;
+                    }
+
+                    if (radCountTheNumberOfEvents.Checked == false)
+                    {
+                        radCountTheNumberOfEvents.Enabled = false;
+                    }
+                    else
+                    {
+                        radCountTheNumberOfEvents.Enabled = true;
+                    }
+                }
+                else // allow the radio button selection to change
+                {
+                    radAddUpMonetaryChargeAmounts.Enabled = true;
+                    radAddUpUnitsOfUsage.Enabled = true;
+                    radCountTheNumberOfEvents.Enabled = true;
+                    radGetItemAggregatedFromParamTable.Enabled = true;
+
+                    // Show/Hide the parameter table column drop down depending on which radio button is selected
+                    radAddUpMonetaryChargeAmounts.Attributes.Add("OnClick", "Javascript:ShowHideParamTableDD();");
+                    radAddUpUnitsOfUsage.InputAttributes.Add("OnClick", "Javascript:ShowHideParamTableDD();");
+                    radCountTheNumberOfEvents.InputAttributes.Add("OnClick", "Javascript:ShowHideParamTableDD();");
+                    radGetItemAggregatedFromParamTable.InputAttributes.Add("OnClick",
+                                                                           "Javascript:ShowHideParamTableDD();");
+                }
+
+                // Clean up client.
+                ampSvcGetDecisionClient.Close();
+                ampSvcGetDecisionClient = null;
+            }
+            catch (Exception ex)
+            {
+                SetError(String.Format(GetGlobalResourceObject("AmpWizard", "TEXT_ERROR_RETRIEVE_DECISION").ToString(),
+                                       AmpDecisionName));
+                logger.LogException("An error occurred while retrieving Decision '" + AmpDecisionName + "'", ex);
+            }
+            finally
+            {
+                if (ampSvcGetDecisionClient != null)
+                {
+                    ampSvcGetDecisionClient.Abort();
+                }
+            }
+        }
+
     }
 
-    // Set the current, next, and previous AMP pages right away.
-    AmpCurrentPage = "ItemsToAggregate.aspx";
-    AmpNextPage = "DecisionRange.aspx";
-    AmpPreviousPage = "SelectUsageQualification.aspx";
-
-    // Monitor changes made to the controls on the page.
-    MonitorChangesInControl(radAddUpMonetaryChargeAmounts);
-    MonitorChangesInControl(radAddUpUnitsOfUsage);
-    MonitorChangesInControl(radCountTheNumberOfEvents);
-
-    if (!IsPostBack)
+    private void setParamTableDropDown(List<KeyValuePair<String, String>> paramTableColumns)
     {
-      // If we are only Viewing a decision, show the "Continue" button.
-      if (AmpAction == "View")
-      {
-        btnContinue.Visible = true;
-        btnSaveAndContinue.Visible = false;
-      }
-      else // If we are editing a decision, show the "Save & Continue" button
-      {
-        btnContinue.Visible = false;
-        btnSaveAndContinue.Visible = true;
-      }
-
-      // clear out the radio buttons for items to aggregate
-      radAddUpMonetaryChargeAmounts.Checked = false;
-      radAddUpUnitsOfUsage.Checked = false;
-      radCountTheNumberOfEvents.Checked = false;
-
-      // Get the current value for the Decision's items to aggregate
-      AmpServiceClient ampSvcGetDecisionClient = null;
-      try
-      {
-        ampSvcGetDecisionClient = new AmpServiceClient();
-        if (ampSvcGetDecisionClient.ClientCredentials != null)
+        ddItemAggregatedFromParamTableSource.Items.Clear();
+        foreach (var item in paramTableColumns)
         {
-          ampSvcGetDecisionClient.ClientCredentials.UserName.UserName = UI.User.UserName;
-          ampSvcGetDecisionClient.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+            ddItemAggregatedFromParamTableSource.Items.Add(new ListItem(item.Value, item.Key));
         }
-
-        Decision decisionInstance;
-        ampSvcGetDecisionClient.GetDecision(AmpDecisionName, out decisionInstance);
-
-        CurrentDecisionInstance = decisionInstance;
-
-        // depending on the value set for ItemAggregated, show that value as the selected radio button on the page.
-        switch (decisionInstance.ItemAggregated.ToString())
-        {
-          case "AGGREGATE_UNITS_OF_USAGE":
-            radAddUpUnitsOfUsage.Checked = true;
-            break;
-          case "AGGREGATE_USAGE_EVENTS":
-            radCountTheNumberOfEvents.Checked = true;
-            break;
-          case "AGGREGATE_AMOUNT":
-            radAddUpMonetaryChargeAmounts.Checked = true;
-            break;
-        }
-
-        // if we are in View mode, do not allow the radio button selection to change.
-        if (AmpAction == "View")
-        {
-          if (radAddUpMonetaryChargeAmounts.Checked == false)
-          {
-            radAddUpMonetaryChargeAmounts.Enabled = false;
-          }
-          else
-          {
-            radAddUpMonetaryChargeAmounts.Enabled = true;
-          }
-
-          if (radAddUpUnitsOfUsage.Checked == false)
-          {
-            radAddUpUnitsOfUsage.Enabled = false;
-          }
-          else
-          {
-            radAddUpUnitsOfUsage.Enabled = true;
-          }
-
-          if (radCountTheNumberOfEvents.Checked == false)
-          {
-            radCountTheNumberOfEvents.Enabled = false;
-          }
-          else
-          {
-            radCountTheNumberOfEvents.Enabled = true;
-          }
-        }
-        else // allow the radio button selection to change
-        {
-          radAddUpMonetaryChargeAmounts.Enabled = true;
-          radAddUpUnitsOfUsage.Enabled = true;
-          radCountTheNumberOfEvents.Enabled = true;
-        }
-
-        // Clean up client.
-        ampSvcGetDecisionClient.Close();
-        ampSvcGetDecisionClient = null;
-      }
-      catch (Exception ex)
-      {
-        SetError(String.Format(GetGlobalResourceObject("AmpWizard", "TEXT_ERROR_RETRIEVE_DECISION").ToString(), AmpDecisionName));
-        logger.LogException("An error occurred while retrieving Decision '" + AmpDecisionName + "'", ex);
-      }
-      finally
-      {
-        if (ampSvcGetDecisionClient != null)
-        {
-          ampSvcGetDecisionClient.Abort();
-        }
-      }
-    }
-    
-  }
-
-  protected void btnContinue_Click(object sender, EventArgs e)
-  {
-    AmpServiceClient ampSvcStoreDecisionClient = null;
-    // if any of the radio buttons are selected, update the decision to reflect the selected aggregation method.
-    try
-    {
-      if (radAddUpUnitsOfUsage.Checked == true ||
-        radCountTheNumberOfEvents.Checked == true ||
-        radAddUpMonetaryChargeAmounts.Checked == true)
-      {
-        if (AmpAction != "View")
-        {
-          // If not viewing, save the decision.
-          ampSvcStoreDecisionClient = new AmpServiceClient();
-          if (ampSvcStoreDecisionClient.ClientCredentials != null)
-          {
-            ampSvcStoreDecisionClient.ClientCredentials.UserName.UserName = UI.User.UserName;
-            ampSvcStoreDecisionClient.ClientCredentials.UserName.Password = UI.User.SessionPassword;
-          }
-
-          if (radAddUpUnitsOfUsage.Checked == true)
-          {
-            CurrentDecisionInstance.ItemAggregated = Decision.ItemAggregatedEnum.AGGREGATE_UNITS_OF_USAGE;
-          }
-          else if (radCountTheNumberOfEvents.Checked == true)
-          {
-            CurrentDecisionInstance.ItemAggregated = Decision.ItemAggregatedEnum.AGGREGATE_USAGE_EVENTS;
-          }
-          else if (radAddUpMonetaryChargeAmounts.Checked == true)
-          {
-            CurrentDecisionInstance.ItemAggregated = Decision.ItemAggregatedEnum.AGGREGATE_AMOUNT;
-          }
-
-          ampSvcStoreDecisionClient.SaveDecision(CurrentDecisionInstance);
-          logger.LogDebug(String.Format(GetGlobalResourceObject("AmpWizard", "TEXT_SUCCESS_SAVE_DECISION").ToString(), AmpDecisionName));
-
-          // Clean up client.
-          ampSvcStoreDecisionClient.Close();
-          ampSvcStoreDecisionClient = null;
-        }
-      }
-      // Advance to next page in wizard.  Set EndResponse parameter to false
-      // to prevent Response.Redirect from throwing ThreadAbortException.
-      Response.Redirect(AmpNextPage, false);
-    }
-    catch (Exception ex)
-    {
-      SetError(String.Format(GetGlobalResourceObject("AmpWizard", "TEXT_ERROR_SAVE_DECISION").ToString(), AmpDecisionName));
-      logger.LogException("An error occurred while saving Decision '" + AmpDecisionName + "'", ex);
-
-      // Stay on current page.
-    }
-    finally
-    {
-      if (ampSvcStoreDecisionClient != null)
-      {
-        ampSvcStoreDecisionClient.Abort();
-      }
     }
 
-  } // btnContinue_Click
+    protected void btnContinue_Click(object sender, EventArgs e)
+    {
+        AmpServiceClient ampSvcStoreDecisionClient = null;
+        // if any of the radio buttons are selected, update the decision to reflect the selected aggregation method.
+        try
+        {
+            if (radAddUpUnitsOfUsage.Checked == true ||
+                radCountTheNumberOfEvents.Checked == true ||
+                radAddUpMonetaryChargeAmounts.Checked == true)
+            {
+                if (AmpAction != "View")
+                {
+                    // If not viewing, save the decision.
+                    ampSvcStoreDecisionClient = new AmpServiceClient();
+                    if (ampSvcStoreDecisionClient.ClientCredentials != null)
+                    {
+                        ampSvcStoreDecisionClient.ClientCredentials.UserName.UserName = UI.User.UserName;
+                        ampSvcStoreDecisionClient.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+                    }
+
+                    if (radAddUpUnitsOfUsage.Checked == true)
+                    {
+                        CurrentDecisionInstance.ItemAggregated = Decision.ItemAggregatedEnum.AGGREGATE_UNITS_OF_USAGE;
+                    }
+                    else if (radCountTheNumberOfEvents.Checked == true)
+                    {
+                        CurrentDecisionInstance.ItemAggregated = Decision.ItemAggregatedEnum.AGGREGATE_USAGE_EVENTS;
+                    }
+                    else if (radAddUpMonetaryChargeAmounts.Checked == true)
+                    {
+                        CurrentDecisionInstance.ItemAggregated = Decision.ItemAggregatedEnum.AGGREGATE_AMOUNT;
+                    }
+
+                    ampSvcStoreDecisionClient.SaveDecision(CurrentDecisionInstance);
+                    logger.LogDebug(
+                        String.Format(GetGlobalResourceObject("AmpWizard", "TEXT_SUCCESS_SAVE_DECISION").ToString(),
+                                      AmpDecisionName));
+
+                    // Clean up client.
+                    ampSvcStoreDecisionClient.Close();
+                    ampSvcStoreDecisionClient = null;
+                }
+            }
+            // Advance to next page in wizard.  Set EndResponse parameter to false
+            // to prevent Response.Redirect from throwing ThreadAbortException.
+            Response.Redirect(AmpNextPage, false);
+        }
+        catch (Exception ex)
+        {
+            SetError(String.Format(GetGlobalResourceObject("AmpWizard", "TEXT_ERROR_SAVE_DECISION").ToString(),
+                                   AmpDecisionName));
+            logger.LogException("An error occurred while saving Decision '" + AmpDecisionName + "'", ex);
+
+            // Stay on current page.
+        }
+        finally
+        {
+            if (ampSvcStoreDecisionClient != null)
+            {
+                ampSvcStoreDecisionClient.Abort();
+            }
+        }
+
+    }
+
+    // btnContinue_Click
 
 }

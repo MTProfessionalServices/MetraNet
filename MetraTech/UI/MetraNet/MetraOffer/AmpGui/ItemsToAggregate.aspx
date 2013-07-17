@@ -129,6 +129,16 @@
         Text="Example: &quot;Apply a discount if over 100 calls were made.&quot;" />
       </td>
     </tr>
+    <tr>
+      <td style="width: 40px">
+        &nbsp;</td>
+      <td colspan="2">
+      <asp:RadioButton ID="radGetItemAggregatedFromParamTable" runat="server" GroupName="AggregateMethod"
+              Text="<%$ Resources:GetItemAggregatedFromParamTable.BoxLabel %>" ForeColor="DarkBlue" Font-Size="8pt"/> 
+      </td>
+      <td>
+        &nbsp;</td>
+    </tr>
   </table>
 
 

@@ -133,7 +133,7 @@
       <td style="width: 40px">
         &nbsp;</td>
       <td colspan="2">
-      <asp:RadioButton ID="radGetItemAggregatedFromParamTable" runat="server" GroupName="AggregateMethod"
+      <asp:RadioButton ID="radGetItemAggregatedFromParamTable" runat="server" GroupName="AggregateMethod" 
               Text="<%$ Resources:GetItemAggregatedFromParamTable.BoxLabel %>" ForeColor="DarkBlue" Font-Size="8pt"/> 
       </td>
       <td>
@@ -141,6 +141,13 @@
     </tr>
   </table>
 
+  <div style="padding-left: 0.75in;">
+    <div id="divItemAggregatedFromParamTableDropdownSource" runat="server" >
+          <MT:MTDropDown ID="ddItemAggregatedFromParamTableSource" runat="server" ControlWidth="160" ListWidth="200"
+            HideLabel="True" AllowBlank="True" Editable="True"/>
+            <div style="padding-top:-0.35in;"></div>
+    </div>
+  </div>
 
   <!-- 
     Regarding positioning of the Back and Continue buttons:
@@ -174,14 +181,25 @@
   </div>
 
   <script type="text/javascript" language="javascript">
+      function ShowHideParamTableDD() {
+          var checked = document.getElementById('<%= radGetItemAggregatedFromParamTable.ClientID %>').checked;
 
-    Ext.onReady(function () {
-      // Record the initial values of the page's controls.
-      // (Note:  This is called here, and not on the master page,
-      // because the call to document.getElementById() returns null
-      // if executed on the master page.)
-      MPC_assignInitialValues();
-    });
+          if (checked == true) {
+              document.getElementById('<%=divItemAggregatedFromParamTableDropdownSource.ClientID%>').style.display = 'block';
+          } else {
+              document.getElementById('<%=divItemAggregatedFromParamTableDropdownSource.ClientID%>').style.display = 'none';
+          }
+          
+          return true;
+      }
+      
+      Ext.onReady(function () {
+          // Record the initial values of the page's controls.
+          // (Note:  This is called here, and not on the master page,
+          // because the call to document.getElementById() returns null
+          // if executed on the master page.)
+          MPC_assignInitialValues();
+      });
 
   </script>
 

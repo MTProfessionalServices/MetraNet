@@ -719,6 +719,25 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Basic.Test", "Bas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.ExpressionEngine.Metadata", "..\..\..\ExpressionEngine_Internal\MetraTech.ExpressionEngine.Metadata\MetraTech.ExpressionEngine.Metadata.csproj", "{7DA4B18A-95EB-4228-BC8A-F43531638FC0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FCF80E5E-184D-4269-89D0-20A62F79F339}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{1979D891-E202-4B54-9E18-7465415E1456}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{1C40A44B-4CF7-4A9E-BD3E-2F9557B486B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Application", "MetraTech.Application\MetraTech.Application.csproj", "{A19EED27-05B5-4907-B8A7-20C43EED7F42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Application.Test", "MetraTech.Application.Test\MetraTech.Application.Test.csproj", "{B5315C6A-5974-4433-A133-9AF0BE013C5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Domain", "MetraTech.Domain\MetraTech.Domain.csproj", "{9C9C685C-CBF8-428F-8C34-98702FF13726}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Domain.Test", "MetraTech.Domain.Test\MetraTech.Domain.Test.csproj", "{C9D05D42-B0FB-47FE-8E00-FBB99AFB3EC3}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = MetraTech.vsmdi
@@ -2310,6 +2329,10 @@ Global
 		{4A1A527E-432F-4EDC-BD9A-3595A69F79AD} = {5E9BC8DA-D029-4C67-B78A-4934E8C1FB9F}
 		{4B8B7450-8F8D-45C2-8FBE-C8C799867C83} = {5E9BC8DA-D029-4C67-B78A-4934E8C1FB9F}
 		{7DA4B18A-95EB-4228-BC8A-F43531638FC0} = {5E9BC8DA-D029-4C67-B78A-4934E8C1FB9F}
+		{9C9C685C-CBF8-428F-8C34-98702FF13726} = {1979D891-E202-4B54-9E18-7465415E1456}
+		{C9D05D42-B0FB-47FE-8E00-FBB99AFB3EC3} = {1979D891-E202-4B54-9E18-7465415E1456}
+		{A19EED27-05B5-4907-B8A7-20C43EED7F42} = {1C40A44B-4CF7-4A9E-BD3E-2F9557B486B0}
+		{B5315C6A-5974-4433-A133-9AF0BE013C5D} = {1C40A44B-4CF7-4A9E-BD3E-2F9557B486B0}
 	EndGlobalSection
 	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
 		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}

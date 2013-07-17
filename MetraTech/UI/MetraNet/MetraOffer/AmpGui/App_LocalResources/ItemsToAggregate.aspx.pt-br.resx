@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddUpMonetaryChargeAmountsLabel.BoxLabel" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
-  </data>
-  <data name="AddUpUnitsOfUsageLabel.BoxLabel" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnBackResource1.ServerSide" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -130,31 +124,40 @@
   <data name="btnContinueResource1.ServerSide" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="AddUpMonetaryChargeAmountsLabel.BoxLabel" xml:space="preserve">
+    <value>(BRAZILIAN PORTUGUESE)Add up monetary charge amounts.</value>
+  </data>
+  <data name="AddUpUnitsOfUsageLabel.BoxLabel" xml:space="preserve">
+    <value>(BRAZILIAN PORTUGUESE)Add up units of usage.</value>
+  </data>
   <data name="CountTheNumberOfEventsLabel.BoxLabel" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>(BRAZILIAN PORTUGUESE)Count the number of events.</value>
+  </data>
+  <data name="GetItemAggregatedFromParamTable.BoxLabel" xml:space="preserve">
+    <value>(BRAZILIAN PORTUGUESE)From Parameter Table.</value>
   </data>
   <data name="lblGenInfoResource1.Text" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>(BRAZILIAN PORTUGUESE)A Decision Type has settings that let you fine-tune its behavior.</value>
   </data>
   <data name="lblGenInfoResource2.Text" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>(BRAZILIAN PORTUGUESE)Adjust the settings for this Decision Type.</value>
   </data>
   <data name="lblGenInfoResource3.Text" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>(BRAZILIAN PORTUGUESE)How should aggregation be done for this Decision Type?</value>
   </data>
   <data name="lblGenInfoResource4.Text" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>(BRAZILIAN PORTUGUESE)Example: "Apply a discount if there's over $100 in charges."</value>
   </data>
   <data name="lblGenInfoResource5.Text" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>(BRAZILIAN PORTUGUESE)Example: "Use a special rate if over 1,000 minutes."</value>
   </data>
   <data name="lblGenInfoResource6.Text" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>(BRAZILIAN PORTUGUESE)Example: "Apply a discount if over 100 calls were made."</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>(BRAZILIAN PORTUGUESE)Items to Aggregate</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>(BRAZILIAN PORTUGUESE)MetraNet</value>
   </data>
 </root>

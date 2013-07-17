@@ -111,6 +111,18 @@
         </div>
       </td>
     </tr>
+	<tr> <!-- Row 5 -->
+      <td colspan="2" style="padding-top:15px;" valign="top">
+        <div style="float:left;">
+        <asp:RadioButton id="noCharge" runat="server" GroupName="DecisionActionRadioButtons"
+              Text="No charge" meta:resourcekey="noChargeResource1" ForeColor="Black"/>
+        <span style="color:blue;text-decoration:underline;cursor:pointer;" 
+            onclick=" displayInfoMultiple(TITLE_AMPWIZARD_HELP_NO_CHARGE, TEXT_AMPWIZARD_HELP_NO_CHARGE, 450, 70)">
+          <img id="Img5" src='/Res/Images/icons/help.png' />
+        </span>
+        </div>
+      </td>
+    </tr>
   </table>
   </div>
 

@@ -1068,6 +1068,12 @@
   <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE" xml:space="preserve">
     <value>Spanish</value>
   </data>
+    <data name="TITLE_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
+    <value>(Spanish) Help:  No Charge</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
+    <value>(Spanish) Do not generate a charge for this decision</value>
+  </data>
   <data name="TITLE_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
     <value>Spanish</value>
   </data>

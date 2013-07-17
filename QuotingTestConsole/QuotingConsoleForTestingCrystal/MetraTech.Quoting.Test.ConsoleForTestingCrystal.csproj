@@ -106,7 +106,7 @@
       <Project>{1B40F4E4-8DDC-43E0-BE45-959BEE94422F}</Project>
       <Name>MetraTech.DataAccess</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\UnitTests\MetraTech\Quoting\MetraTech.Quoting.Test.csproj">
+    <ProjectReference Include="..\..\..\..\FunctionalTests_Internal\MetraTech\Quoting\MetraTech.Quoting.Test.csproj">
       <Project>{42857A3C-817A-4E05-8DEA-E78385BFE2DA}</Project>
       <Name>MetraTech.Quoting.Test</Name>
     </ProjectReference>

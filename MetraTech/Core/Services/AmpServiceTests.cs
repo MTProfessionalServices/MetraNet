@@ -498,7 +498,7 @@ namespace MetraTech.Core.Services.UnitTests
         client.GetDecision("decisionWithCharge", out sameDecision);
         Assert.AreEqual(sameDecision.ChargeCondition, Decision.ChargeConditionEnum.CHARGE_ON_FINAL);
         Assert.AreEqual(sameDecision.ChargeAmountType, Decision.ChargeAmountTypeEnum.CHARGE_PERCENTAGE);
-        Assert.AreEqual(sameDecision.ChargeValue, 0.05);
+        Assert.AreEqual(sameDecision.ChargeValue, 0.05m);
 
         // Update charge params
         decisionWithCharge.ChargeCondition = Decision.ChargeConditionEnum.CHARGE_ON_FINAL;

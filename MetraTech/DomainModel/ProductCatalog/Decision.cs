@@ -620,35 +620,62 @@ namespace MetraTech.DomainModel.ProductCatalog
     }
     #endregion
 
-    #region ItemAggregated
+    #region ItemAggregatedValue
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isItemAggregatedDirty = false;
-    private ItemAggregatedEnum m_ItemAggregated;
+    private bool isItemAggregatedValueDirty = false;
+    private ItemAggregatedEnum? m_ItemAggregatedValue;
     /// <summary>
     /// ItemAggregated defines the item that is being aggregated within this decision.
     /// e.g. if we are aggregating phone calls, ItemAggregated is "EVENTS".
     ///      if we are aggregating minutes within phone calls, ItemAggregated is "UNITS"
     ///      if we are aggregating the cost of phone calls, ItemAggregated is "CURRENCY"
-    /// TBD SHOULD BE ENUM
     /// </summary>
     [MTDataMember(Description = "ItemAggregated defines the item that is being aggregated within this decision.", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public ItemAggregatedEnum ItemAggregated
+    public ItemAggregatedEnum? ItemAggregatedValue
     {
-        get { return m_ItemAggregated; }
+        get { return m_ItemAggregatedValue; }
         set
         {
-            m_ItemAggregated = value;
-            isItemAggregatedDirty = true;
+            m_ItemAggregatedValue = value;
+            isItemAggregatedValueDirty = true;
         }
     }
     [ScriptIgnore]
-    public bool IsItemAggregatedDirty
+    public bool IsItemAggregatedValueDirty
     {
-        get { return isItemAggregatedDirty; }
+        get { return isItemAggregatedValueDirty; }
     }
     #endregion
- 
+
+    #region ItemAggregatedColumnName
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isItemAggregatedColumnNameDirty = false;
+    private string m_ItemAggregatedColumnName;
+    /// <summary>
+    /// ItemAggregated defines the item that is being aggregated within this decision.
+    /// e.g. if we are aggregating phone calls, ItemAggregated is "EVENTS".
+    ///      if we are aggregating minutes within phone calls, ItemAggregated is "UNITS"
+    ///      if we are aggregating the cost of phone calls, ItemAggregated is "CURRENCY"
+    /// </summary>
+    [MTDataMember(Description = "This parameter holds the items being aggregated within this decision.", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public string ItemAggregatedColumnName
+    {
+        get { return m_ItemAggregatedColumnName; }
+        set
+        {
+            m_ItemAggregatedColumnName = value;
+            isItemAggregatedColumnNameDirty = true;
+        }
+    }
+    [ScriptIgnore]
+    public bool IsItemAggregatedColumnNameDirty
+    {
+        get { return isItemAggregatedColumnNameDirty; }
+    }
+    #endregion
+
     #region TierProration
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
     private bool isTierProrationDirty = false;

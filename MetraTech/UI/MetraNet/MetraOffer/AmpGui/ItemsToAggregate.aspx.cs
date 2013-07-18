@@ -77,26 +77,34 @@ public partial class AmpItemsToAggregatePage : AmpWizardBasePage
 
                 CurrentDecisionInstance = decisionInstance;
 
-                // depending on the value set for ItemAggregated, show that value as the selected radio button on the page.
-                switch (decisionInstance.ItemAggregated.ToString())
-                {
-                    case "AGGREGATE_UNITS_OF_USAGE":
-                        radAddUpUnitsOfUsage.Checked = true;
-                        break;
-                    case "AGGREGATE_USAGE_EVENTS":
-                        radCountTheNumberOfEvents.Checked = true;
-                        break;
-                    case "AGGREGATE_AMOUNT":
-                        radAddUpMonetaryChargeAmounts.Checked = true;
-                        break;
-                }
-
                 List<KeyValuePair<String, String>> paramTableColumns;
                 if (GetParameterTableColumnNamesWithClient(CurrentDecisionInstance.ParameterTableName, out paramTableColumns))
                 {
                     setParamTableDropDown(paramTableColumns);
                 }
-                divItemAggregatedFromParamTableDropdownSource.Attributes.Add("style", "display:none");
+
+                // depending on the value set for ItemAggregated, show that value as the selected radio button on the page.
+                if (decisionInstance.ItemAggregatedValue.HasValue)
+                {
+                    switch (decisionInstance.ItemAggregatedValue.ToString())
+                    {
+                        case "AGGREGATE_UNITS_OF_USAGE":
+                            radAddUpUnitsOfUsage.Checked = true;
+                            break;
+                        case "AGGREGATE_USAGE_EVENTS":
+                            radCountTheNumberOfEvents.Checked = true;
+                            break;
+                        case "AGGREGATE_AMOUNT":
+                            radAddUpMonetaryChargeAmounts.Checked = true;
+                            break;
+                    }
+                    divItemAggregatedFromParamTableDropdownSource.Attributes.Add("style", "display:none");
+                }
+                else
+                {
+                    radGetItemAggregatedFromParamTable.Checked = true;
+                    divItemAggregatedFromParamTableDropdownSource.Attributes.Add("style", "display:block");
+                }
 
                 // if we are in View mode, do not allow the radio button selection to change.
                 if (AmpAction == "View")
@@ -179,9 +187,10 @@ public partial class AmpItemsToAggregatePage : AmpWizardBasePage
         // if any of the radio buttons are selected, update the decision to reflect the selected aggregation method.
         try
         {
-            if (radAddUpUnitsOfUsage.Checked == true ||
-                radCountTheNumberOfEvents.Checked == true ||
-                radAddUpMonetaryChargeAmounts.Checked == true)
+            if (radAddUpUnitsOfUsage.Checked ||
+                radCountTheNumberOfEvents.Checked ||
+                radAddUpMonetaryChargeAmounts.Checked ||
+                radGetItemAggregatedFromParamTable.Checked)
             {
                 if (AmpAction != "View")
                 {
@@ -193,17 +202,26 @@ public partial class AmpItemsToAggregatePage : AmpWizardBasePage
                         ampSvcStoreDecisionClient.ClientCredentials.UserName.Password = UI.User.SessionPassword;
                     }
 
-                    if (radAddUpUnitsOfUsage.Checked == true)
+                    if (radAddUpUnitsOfUsage.Checked)
                     {
-                        CurrentDecisionInstance.ItemAggregated = Decision.ItemAggregatedEnum.AGGREGATE_UNITS_OF_USAGE;
+                        CurrentDecisionInstance.ItemAggregatedValue = Decision.ItemAggregatedEnum.AGGREGATE_UNITS_OF_USAGE;
+                        CurrentDecisionInstance.ItemAggregatedColumnName = null;
                     }
-                    else if (radCountTheNumberOfEvents.Checked == true)
+                    else if (radCountTheNumberOfEvents.Checked)
                     {
-                        CurrentDecisionInstance.ItemAggregated = Decision.ItemAggregatedEnum.AGGREGATE_USAGE_EVENTS;
+                        CurrentDecisionInstance.ItemAggregatedValue = Decision.ItemAggregatedEnum.AGGREGATE_USAGE_EVENTS;
+                        CurrentDecisionInstance.ItemAggregatedColumnName = null;
                     }
-                    else if (radAddUpMonetaryChargeAmounts.Checked == true)
+                    else if (radAddUpMonetaryChargeAmounts.Checked)
                     {
-                        CurrentDecisionInstance.ItemAggregated = Decision.ItemAggregatedEnum.AGGREGATE_AMOUNT;
+                        CurrentDecisionInstance.ItemAggregatedValue = Decision.ItemAggregatedEnum.AGGREGATE_AMOUNT;
+                        CurrentDecisionInstance.ItemAggregatedColumnName = null;
+                    }
+                    else if (radGetItemAggregatedFromParamTable.Checked)
+                    {
+                        CurrentDecisionInstance.ItemAggregatedValue = null;
+                        CurrentDecisionInstance.ItemAggregatedColumnName =
+                            ddItemAggregatedFromParamTableSource.SelectedValue;
                     }
 
                     ampSvcStoreDecisionClient.SaveDecision(CurrentDecisionInstance);

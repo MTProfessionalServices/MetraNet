@@ -11,7 +11,7 @@ using MetraTech.Domain.Events;
 namespace MetraTech.Domain.Notifications
 {
   [DataContract(Namespace = "MetraTech.MetraNet")]
-  public class EmailTemplate
+  public class EmailTemplate : MessageTemplate
   {
     [DataMember]
     public string DeliveryLanguage { get; set; } // TODO: this is an expression

@@ -21,8 +21,7 @@ namespace MetraTech.ExpressionEngine
     {
         #region Properties
 
-      public static string Drive = Environment.CurrentDirectory.Substring(0, 3);
-        public static string DirPath = Path.Combine(Drive, "ExpressionEngine");
+        public static string DirPath = @"C:\dev\MetraNet\RMP\Apps";
         public static string TopLevelDataDir = Path.Combine(DirPath, "Data");
         private static string DataPath;
         #endregion

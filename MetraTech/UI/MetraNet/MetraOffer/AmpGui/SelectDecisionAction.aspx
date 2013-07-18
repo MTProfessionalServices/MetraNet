@@ -158,15 +158,16 @@
 
     // Enable or disable the fixed-value-or-PT-col controls (ctrlDiscount, ctrlUnitRate, ctrlEventRate).
     // The state of ampControlID1 and ampControlID2 is set to bEnabled,
-    // and the state of AmpControlID3 depends on whether radGenCharge is checked.
+    // and the state of AmpControlID3 depends on whether radGenCharge or noCharge is checked.
     function EnableAppropriateUserControls(bEnabled, ampControlID1, ampControlID2, ampControlID3) {
 
       var radGenCharge = document.getElementById('<%=radGenCharge.ClientID%>');
-
+      var noCharge = document.getElementById('<%=noCharge.ClientID%>');
+	  
       eval('ChangeControlStateAction_' + ampControlID1 + '(' + bEnabled + ')');
       eval('ChangeControlStateAction_' + ampControlID2 + '(' + bEnabled + ')');
       
-      if (radGenCharge.checked) {
+      if (radGenCharge.checked || noCharge.checked) {
         eval('ChangeControlStateAction_' + ampControlID3 + '(' + bEnabled + ')');
       }
       else {
@@ -180,21 +181,22 @@
       var radDiscount = document.getElementById('<%=radDiscount.ClientID%>');
       var radEventRate = document.getElementById('<%=radEventRate.ClientID%>');
       var radGenCharge = document.getElementById('<%=radGenCharge.ClientID%>');
+      var noCharge = document.getElementById('<%=noCharge.ClientID%>');
 
       // Must check for null user controls.  Can't disable them if they're invisible (not on the page).
       var unitRateUserControl = document.getElementById('<%=unitRate.ClientID%>_ddSourceType');
       var eventRateUserControl = document.getElementById('<%=eventRate.ClientID%>_ddSourceType');
       var discountUserControl = document.getElementById('<%=discount.ClientID%>_ddSourceType');
 
-      if ((radEventRate.checked || radDiscount.checked || radGenCharge.checked) && (unitRateUserControl != null))
+      if ((radEventRate.checked || radDiscount.checked || radGenCharge.checked || noCharge.checked) && (unitRateUserControl != null))
       {
         eval('DisabledControl_<%=unitRate.ClientID %>()');
       }
-      if ((radUnitRate.checked || radDiscount.checked || radGenCharge.checked) && (eventRateUserControl != null))
+      if ((radUnitRate.checked || radDiscount.checked || radGenCharge.checked || noCharge.checked) && (eventRateUserControl != null))
       {
         eval('DisabledControl_<%=eventRate.ClientID %>()');
       }
-      if ((radUnitRate.checked || radEventRate.checked || radGenCharge.checked) && (discountUserControl != null))
+      if ((radUnitRate.checked || radEventRate.checked || radGenCharge.checked || noCharge.checked) && (discountUserControl != null))
       {
         eval('DisabledControl_<%=discount.ClientID %>()');
       }

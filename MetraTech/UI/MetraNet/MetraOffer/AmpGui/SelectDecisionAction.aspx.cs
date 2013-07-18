@@ -50,9 +50,10 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
         MonitorChangesInControl(radEventRate);
         MonitorChangesInControl(radDiscount);
         MonitorChangesInControl(radGenCharge);
-		MonitorChangesInControl(singleBucket);
+        MonitorChangesInControl(noCharge); 
+        MonitorChangesInControl(singleBucket);
 		MonitorChangesInControl(multiBucket);
-        MonitorChangesInControlByClientId(unitRate.ddSourceTypeClientId);
+		MonitorChangesInControlByClientId(unitRate.ddSourceTypeClientId);
         MonitorChangesInControlByClientId(unitRate.tbNumericSourceClientId);
         MonitorChangesInControlByClientId(unitRate.tbTextSourceClientId);
         MonitorChangesInControlByClientId(unitRate.ddSourceClientId);
@@ -92,6 +93,7 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
     radEventRate.Checked = false;
     radDiscount.Checked = false;
     radGenCharge.Checked = false;
+	noCharge.Checked = false; 
     unitRate.UseTextbox = true;
     unitRate.TextboxText = string.Empty;
     eventRate.UseTextbox = true;
@@ -176,10 +178,14 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
       discount.Visible = true;
       discount.UseDropdown = true;
       discount.DropdownSelectedText = CurrentDecisionInstance.TierDiscountColumnName;
+    } 
+    else if (CurrentDecisionInstance.GeneratedCharge != null)
+    {
+        radGenCharge.Checked = true;
     }
     else
     {
-      radGenCharge.Checked = true;
+        noCharge.Checked = true;
     }
   }
 
@@ -200,6 +206,7 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
       radEventRate.Enabled = radEventRate.Checked;
       radDiscount.Enabled = radDiscount.Checked;
       radGenCharge.Enabled = radGenCharge.Checked;
+	  noCharge.Enabled = noCharge.Checked;
 
       unitRate.ReadOnly = true;
       eventRate.ReadOnly = true;
@@ -254,7 +261,7 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
       CurrentDecisionInstance.IsBulkDecision = true;
     }
     // Make sure exactly one radio button for decision actions is selected.
-    if (!radUnitRate.Checked && !radEventRate.Checked && !radDiscount.Checked && !radGenCharge.Checked)
+    if (!radUnitRate.Checked && !radEventRate.Checked && !radDiscount.Checked && !radGenCharge.Checked && !noCharge.Checked)
     {
       SetError(GetLocalResourceObject("TEXT_ERROR_NO_DECISION_ACTION").ToString());
       logger.LogError(String.Format("No Decision action was specified for Decision '{0}'", AmpDecisionName));
@@ -345,7 +352,8 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
     radUnitRate.Attributes.Add("onClick", String.Format("return EnableAppropriateUserControls(false, '{0}','{1}','{2}')", eventRate.ClientID, discount.ClientID, unitRate.ClientID));
     radEventRate.Attributes.Add("onClick", String.Format("return EnableAppropriateUserControls(false, '{0}','{1}','{2}')", unitRate.ClientID, discount.ClientID, eventRate.ClientID));
     radDiscount.Attributes.Add("onClick", String.Format("return EnableAppropriateUserControls(false, '{0}','{1}','{2}')", unitRate.ClientID, eventRate.ClientID, discount.ClientID));
-    radGenCharge.Attributes.Add("onClick", String.Format("return EnableAppropriateUserControls(false, '{0}','{1}','{2}')", unitRate.ClientID, eventRate.ClientID, discount.ClientID)); 
+    radGenCharge.Attributes.Add("onClick", String.Format("return EnableAppropriateUserControls(false, '{0}','{1}','{2}')", unitRate.ClientID, eventRate.ClientID, discount.ClientID));
+    noCharge.Attributes.Add("onClick", String.Format("return EnableAppropriateUserControls(false, '{0}','{1}','{2}')", unitRate.ClientID, eventRate.ClientID, discount.ClientID));	
   }
 
 }

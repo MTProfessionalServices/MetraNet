@@ -1,0 +1,21 @@
+﻿@model EntitiesTree
+
+<div id="@Html.Raw(Model.ElementId)">
+  <ul>
+  </ul>
+</div>
+<link href="@Url.Content("~/Content/Fancytree/skin-lion/ui.fancytree.css")" rel="stylesheet" type="text/css" />
+  
+<script src="@Url.Content("~/Scripts/jquery.fancytree.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/entities.fancytree.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+  window.entityTreeConfig = {};
+  entityTreeConfig.elementId = "@Html.Raw(Model.ElementId)";
+  entityTreeConfig.metadataUrl = "@Html.Raw(Model.MetadataAddress)";
+  entityTreeConfig.headers = @Html.Raw(Model.HeadersSerialized);
+  entityTreeConfig.entitiesBaseTypes = @Html.Raw(Model.EntityBaseTypesSerialized);
+
+</script>
+

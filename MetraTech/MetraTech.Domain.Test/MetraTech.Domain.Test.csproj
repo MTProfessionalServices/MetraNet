@@ -50,6 +50,13 @@
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+<<<<<<< HEAD
+=======
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+>>>>>>> bc65a37... US15:
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -71,6 +78,7 @@
       <DependentUpon>EmailTemplates.resx</DependentUpon>
     </Compile>
     <Compile Include="EmailTemplateTest.cs" />
+    <Compile Include="ExpressionTest.cs" />
     <Compile Include="Parsers\ExpressionLanguageTest.cs" />
     <Compile Include="MetraNetContextTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

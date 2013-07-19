@@ -1,8 +1,4 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using Antlr4.Runtime;
+﻿using Antlr4.Runtime;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MetraTech.Domain.Test.Parsers

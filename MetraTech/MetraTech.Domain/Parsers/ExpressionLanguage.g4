@@ -1,55 +1,35 @@
 grammar ExpressionLanguage;
 
-@header {
-using System;
-}
+parse
+ : expression
+ ;
 
-/** Derived from rule "file : hdr row+ ;" */
-file
-locals [int i=0]
-     : hdr ( rows+=row[$hdr.text.Split(',')] {$i++;} )+
-       {
-       Console.WriteLine($i+" rows");
-       foreach (RowContext r in $rows) {
-           Console.WriteLine("row token interval: "+ r.SourceInterval);
-       }
-       }
-     ;
+expression
+ : '(' expression ')'           # ParenthesisExpression
+ | IDENTIFIER                   # IdentifierExpression
+ | STRING                       # StringExpression
+ | INTEGER                      # NumberExpression
+ | DECIMAL                      # NumberExpression
+ | DATETIME                     # DateTimeExpression
+ | BOOLEAN                      # BooleanExpression
+ | NOT expression               # NotExpression
+ | expression AND? expression   # AndExpression
+ | expression OR expression     # OrExpression
+ ;
 
-hdr : row[null] {Console.WriteLine("header: '"+$text.Trim()+"'");} ;
+LPAREN     : '(';
+RPAREN     : ')';
+NOT        : 'NOT';
+AND        : 'AND';
+OR         : 'OR';
+IDENTIFIER : [a-zA-Z_] [a-zA-Z_0-9]*;
+STRING     : '"' ( EscapeSequence | (options {greedy=false;} : ~('\u0000'..'\u001f' | '\\' | '\'' ) ) )* '"';
+INTEGER    : ('0'..'9')+;
+DECIMAL    : ('0'..'9')* '.' ('0'..'9')+;
+DATETIME   : '#' (~'#')* '#';
+BOOLEAN	   : 'true'	| 'false';
+SPACE      : [ \t\r\n]+ -> skip;
 
-/** Derived from rule "row : field (',' field)* '\r'? '\n' ;" */
-row[String[] columns] returns [Dictionary<String,String> values]
-locals [int col=0]
-@init {
-    $values = new Dictionary<String,String>();
-}
-@after {
-    if ($values!=null && $values.Count>0) {
-        Console.WriteLine("values = "+ String.Concat($values));
-    }
-}
-// rule row cont'd...
-    :   field
-        {
-        if ($columns!=null) {
-            $values.Add($columns[$col++].Trim(), $field.text.Trim());
-        }
-        }
-        (   ',' field
-            {
-            if ($columns!=null) {
-                $values.Add($columns[$col++].Trim(), $field.text.Trim());
-            }
-            }
-        )* '\r'? '\n'
-    ;
-
-field
-    :   TEXT
-    |   STRING
-    |
-    ;
-
-TEXT : ~[,\n\r"]+ ;
-STRING : '"' ('""'|~'"')* '"' ; // quote-quote is an escaped quote
+fragment EscapeSequence : '\\' ('n' | 'r' | 't' | '\'' | '\\' | UnicodeEscape);
+fragment UnicodeEscape : 'u' HexDigit HexDigit HexDigit HexDigit;
+fragment HexDigit : ('0'..'9'|'a'..'f'|'A'..'F') ;

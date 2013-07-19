@@ -1,4 +1,4 @@
-INSERT INTO t_metadata
+INSERT INTO Metadata
 (
 timecreate,
 content					

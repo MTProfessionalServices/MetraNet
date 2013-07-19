@@ -1,8 +1,8 @@
 
-CREATE TABLE t_metadata
+CREATE TABLE Metadata
 (
   timecreate DATE not null,
   content nclob NOT NULL,
-  CONSTRAINT PK_t_metadata PRIMARY KEY (timecreate),
+  CONSTRAINT PK_Metadata PRIMARY KEY (timecreate),
 )
 

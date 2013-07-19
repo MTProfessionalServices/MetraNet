@@ -44,24 +44,22 @@
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\EntityTypeConfigurations\EntityConfiguration.cs" />
+    <Compile Include="DataAccess\EntityTypeConfigurations\MetadataConfiguration.cs" />
     <Compile Include="DataAccess\EntityTypeConfigurations\NotificationConfigurationConfiguration.cs" />
     <Compile Include="DataAccess\EntityTypeConfigurations\NotificationEndpointConfiguration.cs" />
     <Compile Include="DataAccess\IMetraNetContext.cs" />
     <Compile Include="DataAccess\SerializationHelper.cs" />
     <Compile Include="Events\Event.cs" />
     <Compile Include="DataAccess\MetraNetContext.cs" />
+    <Compile Include="Metadata.cs" />
     <Compile Include="Money.cs" />
     <Compile Include="Notifications\AuthenticationConfiguration.cs" />
     <Compile Include="Entity.cs" />

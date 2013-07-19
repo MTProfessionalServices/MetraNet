@@ -12,6 +12,7 @@ namespace MetraTech.Domain.DataAccess
     public IDbSet<Entity> Entities { get; set; }
     public IDbSet<NotificationConfiguration> NotificationConfigurations { get; set; }
     public IDbSet<NotificationEndpoint> NotificationEndpoints { get; set; }
+    public IDbSet<Metadata> Metadata { get; set; }
 
     /// <summary>
     /// Returns a DbSet instance for access to entities of the given type in the context, the ObjectStateManager, and the underlying store.

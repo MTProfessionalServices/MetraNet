@@ -1,18 +1,27 @@
 // Generated from Parsers\ExpressionLanguage.g4 by ANTLR 4.0.1-SNAPSHOT
 namespace MetraTech.Domain {
-
-using System;
-
 using Antlr4.Runtime.Tree;
 using IToken = Antlr4.Runtime.IToken;
 
 public interface IExpressionLanguageVisitor<Result> : IParseTreeVisitor<Result> {
-	Result VisitField(ExpressionLanguageParser.FieldContext context);
+	Result VisitOrExpression(ExpressionLanguageParser.OrExpressionContext context);
 
-	Result VisitHdr(ExpressionLanguageParser.HdrContext context);
+	Result VisitAndExpression(ExpressionLanguageParser.AndExpressionContext context);
 
-	Result VisitFile(ExpressionLanguageParser.FileContext context);
+	Result VisitIdentifierExpression(ExpressionLanguageParser.IdentifierExpressionContext context);
 
-	Result VisitRow(ExpressionLanguageParser.RowContext context);
+	Result VisitParenthesisExpression(ExpressionLanguageParser.ParenthesisExpressionContext context);
+
+	Result VisitNotExpression(ExpressionLanguageParser.NotExpressionContext context);
+
+	Result VisitBooleanExpression(ExpressionLanguageParser.BooleanExpressionContext context);
+
+	Result VisitDateTimeExpression(ExpressionLanguageParser.DateTimeExpressionContext context);
+
+	Result VisitNumberExpression(ExpressionLanguageParser.NumberExpressionContext context);
+
+	Result VisitStringExpression(ExpressionLanguageParser.StringExpressionContext context);
+
+	Result VisitParse(ExpressionLanguageParser.ParseContext context);
 }
 } // namespace MetraTech.Domain

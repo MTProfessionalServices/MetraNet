@@ -1,22 +1,37 @@
 // Generated from Parsers\ExpressionLanguage.g4 by ANTLR 4.0.1-SNAPSHOT
 namespace MetraTech.Domain {
-
-using System;
-
 using Antlr4.Runtime.Tree;
 using IToken = Antlr4.Runtime.IToken;
 
 public interface IExpressionLanguageListener : IParseTreeListener {
-	void EnterField(ExpressionLanguageParser.FieldContext context);
-	void ExitField(ExpressionLanguageParser.FieldContext context);
+	void EnterOrExpression(ExpressionLanguageParser.OrExpressionContext context);
+	void ExitOrExpression(ExpressionLanguageParser.OrExpressionContext context);
 
-	void EnterHdr(ExpressionLanguageParser.HdrContext context);
-	void ExitHdr(ExpressionLanguageParser.HdrContext context);
+	void EnterAndExpression(ExpressionLanguageParser.AndExpressionContext context);
+	void ExitAndExpression(ExpressionLanguageParser.AndExpressionContext context);
 
-	void EnterFile(ExpressionLanguageParser.FileContext context);
-	void ExitFile(ExpressionLanguageParser.FileContext context);
+	void EnterIdentifierExpression(ExpressionLanguageParser.IdentifierExpressionContext context);
+	void ExitIdentifierExpression(ExpressionLanguageParser.IdentifierExpressionContext context);
 
-	void EnterRow(ExpressionLanguageParser.RowContext context);
-	void ExitRow(ExpressionLanguageParser.RowContext context);
+	void EnterParenthesisExpression(ExpressionLanguageParser.ParenthesisExpressionContext context);
+	void ExitParenthesisExpression(ExpressionLanguageParser.ParenthesisExpressionContext context);
+
+	void EnterNotExpression(ExpressionLanguageParser.NotExpressionContext context);
+	void ExitNotExpression(ExpressionLanguageParser.NotExpressionContext context);
+
+	void EnterBooleanExpression(ExpressionLanguageParser.BooleanExpressionContext context);
+	void ExitBooleanExpression(ExpressionLanguageParser.BooleanExpressionContext context);
+
+	void EnterDateTimeExpression(ExpressionLanguageParser.DateTimeExpressionContext context);
+	void ExitDateTimeExpression(ExpressionLanguageParser.DateTimeExpressionContext context);
+
+	void EnterNumberExpression(ExpressionLanguageParser.NumberExpressionContext context);
+	void ExitNumberExpression(ExpressionLanguageParser.NumberExpressionContext context);
+
+	void EnterStringExpression(ExpressionLanguageParser.StringExpressionContext context);
+	void ExitStringExpression(ExpressionLanguageParser.StringExpressionContext context);
+
+	void EnterParse(ExpressionLanguageParser.ParseContext context);
+	void ExitParse(ExpressionLanguageParser.ParseContext context);
 }
 } // namespace MetraTech.Domain

@@ -52,6 +52,20 @@
     <Compile Include="MetadataHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Legacy_Internal\Source\MetraTech\Basic\MetraTech.Basic.csproj">
+      <Project>{B0909156-962B-4C97-AB1C-4073E3DA6DC1}</Project>
+      <Name>MetraTech.Basic %28MetraTech.Basic\MetraTech.Basic%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Legacy_Internal\Source\MetraTech\DataAccess\MetraTech.DataAccess.csproj">
+      <Project>{1B40F4E4-8DDC-43E0-BE45-959BEE94422F}</Project>
+      <Name>MetraTech.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExpressionEngine\ExpressionEngine.csproj">
+      <Project>{CE6869D6-C6D0-4CA5-81A0-EAFB8843A2B6}</Project>
+      <Name>ExpressionEngine</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

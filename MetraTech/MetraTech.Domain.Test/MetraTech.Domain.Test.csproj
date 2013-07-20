@@ -45,18 +45,16 @@
     <AssemblyOriginatorKeyFile>..\..\build\keys\MetraTech.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Antlr4.Runtime.v4.0, Version=1.0.1.0, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL" />
+    <Reference Include="Antlr4.Runtime.v4.0">
+      <HintPath>..\Reference\Antlr\Antlr4.Runtime.v4.0.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-<<<<<<< HEAD
-=======
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Data.Entity" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.XML" />
     <Reference Include="System.Xml.Linq" />
->>>>>>> bc65a37... US15:
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -84,6 +82,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAccess\MetraTech.DataAccess.csproj">
+      <Project>{1B40F4E4-8DDC-43E0-BE45-959BEE94422F}</Project>
+      <Name>MetraTech.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MetraTech.Domain\MetraTech.Domain.csproj">
       <Project>{9c9c685c-cbf8-428f-8c34-98702ff13726}</Project>
       <Name>MetraTech.Domain</Name>

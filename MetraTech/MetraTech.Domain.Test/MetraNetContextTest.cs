@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using MetraTech.DataAccess;
 using MetraTech.Domain.DataAccess;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -53,7 +54,8 @@ namespace MetraTech.Domain.Test
     [TestMethod]
     public void MetadataTest()
     {
-      using (var context = new MetraNetContext())
+      var connectionInfo = new ConnectionInfo("NetMeter");
+      using (var context = new MetraNetContext(ConnectionBase.GetDbConnection(connectionInfo, false)))
       {
         var metadata = context.Metadata.First();
         Assert.IsNotNull(metadata);

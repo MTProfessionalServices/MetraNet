@@ -48,6 +48,36 @@ namespace MetraTech.Domain.Expressions
     /// A comparison that returns true if the left operand is less than the right one
     /// </summary>
     [EnumMember]
-    LessThan
+    LessThan,
+    /// <summary>
+    /// An operation that adds two operators
+    /// </summary>
+    [EnumMember]
+    Add,
+    /// <summary>
+    /// An operation that substracts two operators
+    /// </summary>
+    [EnumMember]
+    Subtract,
+    /// <summary>
+    /// An operation that multiplies two operators
+    /// </summary>
+    [EnumMember]
+    Multiply,
+    /// <summary>
+    /// An operation that divides two operators
+    /// </summary>
+    [EnumMember]
+    Divide,
+    /// <summary>
+    /// An operation that calculates the modulo of two operators
+    /// </summary>
+    [EnumMember]
+    Modulo,
+    /// <summary>
+    /// An operation that calculates the power two operators
+    /// </summary>
+    [EnumMember]
+    Power,
   }
 }

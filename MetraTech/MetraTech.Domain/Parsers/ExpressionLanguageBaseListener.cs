@@ -7,20 +7,17 @@ using IToken = Antlr4.Runtime.IToken;
 using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 
 public partial class ExpressionLanguageBaseListener : IExpressionLanguageListener {
-	public virtual void EnterOrExpression(ExpressionLanguageParser.OrExpressionContext context) { }
-	public virtual void ExitOrExpression(ExpressionLanguageParser.OrExpressionContext context) { }
+	public virtual void EnterFunctionExpression(ExpressionLanguageParser.FunctionExpressionContext context) { }
+	public virtual void ExitFunctionExpression(ExpressionLanguageParser.FunctionExpressionContext context) { }
 
-	public virtual void EnterAndExpression(ExpressionLanguageParser.AndExpressionContext context) { }
-	public virtual void ExitAndExpression(ExpressionLanguageParser.AndExpressionContext context) { }
+	public virtual void EnterBinaryExpression(ExpressionLanguageParser.BinaryExpressionContext context) { }
+	public virtual void ExitBinaryExpression(ExpressionLanguageParser.BinaryExpressionContext context) { }
 
 	public virtual void EnterIdentifierExpression(ExpressionLanguageParser.IdentifierExpressionContext context) { }
 	public virtual void ExitIdentifierExpression(ExpressionLanguageParser.IdentifierExpressionContext context) { }
 
 	public virtual void EnterParenthesisExpression(ExpressionLanguageParser.ParenthesisExpressionContext context) { }
 	public virtual void ExitParenthesisExpression(ExpressionLanguageParser.ParenthesisExpressionContext context) { }
-
-	public virtual void EnterNotExpression(ExpressionLanguageParser.NotExpressionContext context) { }
-	public virtual void ExitNotExpression(ExpressionLanguageParser.NotExpressionContext context) { }
 
 	public virtual void EnterBooleanExpression(ExpressionLanguageParser.BooleanExpressionContext context) { }
 	public virtual void ExitBooleanExpression(ExpressionLanguageParser.BooleanExpressionContext context) { }
@@ -30,6 +27,9 @@ public partial class ExpressionLanguageBaseListener : IExpressionLanguageListene
 
 	public virtual void EnterNumberExpression(ExpressionLanguageParser.NumberExpressionContext context) { }
 	public virtual void ExitNumberExpression(ExpressionLanguageParser.NumberExpressionContext context) { }
+
+	public virtual void EnterUnaryExpression(ExpressionLanguageParser.UnaryExpressionContext context) { }
+	public virtual void ExitUnaryExpression(ExpressionLanguageParser.UnaryExpressionContext context) { }
 
 	public virtual void EnterStringExpression(ExpressionLanguageParser.StringExpressionContext context) { }
 	public virtual void ExitStringExpression(ExpressionLanguageParser.StringExpressionContext context) { }

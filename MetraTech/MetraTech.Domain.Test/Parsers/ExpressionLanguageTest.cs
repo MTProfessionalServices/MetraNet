@@ -79,13 +79,21 @@ namespace MetraTech.Domain.Test.Parsers
         }
 
         [TestMethod]
-        [Ignore]
         public void BinaryExpressionTest()
         {
             var binaryExpression = ExpressionLanguageHelper.ParseExpression("Currency = \"USD\"");
             var payment = new FakePayment { Amount = 5, Currency = "USD" };
             var result = binaryExpression.Evaluate<bool, FakePayment>(payment);
             Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void ComplexExpressionTest()
+        {
+            var binaryExpression = ExpressionLanguageHelper.ParseExpression("Amount * 3.5 + 2");
+            var payment = new FakePayment { Amount = 5, Currency = "USD" };
+            var result = binaryExpression.Evaluate<Decimal, FakePayment>(payment);
+            Assert.AreEqual(19.5m, result);
         }
     }
 }

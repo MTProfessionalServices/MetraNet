@@ -57,6 +57,24 @@ namespace MetraTech.Domain.Expressions
         case BinaryOperator.Or:
           binaryExpression = System.Linq.Expressions.Expression.OrElse(leftExpression, rightExpression);
           break;
+        case BinaryOperator.Add:
+          binaryExpression = System.Linq.Expressions.Expression.Add(leftExpression, rightExpression);
+          break;
+        case BinaryOperator.Subtract:
+          binaryExpression = System.Linq.Expressions.Expression.Subtract(leftExpression, rightExpression);
+          break;
+        case BinaryOperator.Multiply:
+          binaryExpression = System.Linq.Expressions.Expression.Multiply(leftExpression, rightExpression);
+          break;
+        case BinaryOperator.Divide:
+          binaryExpression = System.Linq.Expressions.Expression.Divide(leftExpression, rightExpression);
+          break;
+        case BinaryOperator.Modulo:
+          binaryExpression = System.Linq.Expressions.Expression.Modulo(leftExpression, rightExpression);
+          break;
+        case BinaryOperator.Power:
+          binaryExpression = System.Linq.Expressions.Expression.Power(leftExpression, rightExpression);
+          break;
       }
       if (binaryExpression == null) throw new NotImplementedException();
       return binaryExpression;

@@ -4,21 +4,21 @@ using Antlr4.Runtime.Tree;
 using IToken = Antlr4.Runtime.IToken;
 
 public interface IExpressionLanguageVisitor<Result> : IParseTreeVisitor<Result> {
-	Result VisitOrExpression(ExpressionLanguageParser.OrExpressionContext context);
+	Result VisitFunctionExpression(ExpressionLanguageParser.FunctionExpressionContext context);
 
-	Result VisitAndExpression(ExpressionLanguageParser.AndExpressionContext context);
+	Result VisitBinaryExpression(ExpressionLanguageParser.BinaryExpressionContext context);
 
 	Result VisitIdentifierExpression(ExpressionLanguageParser.IdentifierExpressionContext context);
 
 	Result VisitParenthesisExpression(ExpressionLanguageParser.ParenthesisExpressionContext context);
-
-	Result VisitNotExpression(ExpressionLanguageParser.NotExpressionContext context);
 
 	Result VisitBooleanExpression(ExpressionLanguageParser.BooleanExpressionContext context);
 
 	Result VisitDateTimeExpression(ExpressionLanguageParser.DateTimeExpressionContext context);
 
 	Result VisitNumberExpression(ExpressionLanguageParser.NumberExpressionContext context);
+
+	Result VisitUnaryExpression(ExpressionLanguageParser.UnaryExpressionContext context);
 
 	Result VisitStringExpression(ExpressionLanguageParser.StringExpressionContext context);
 

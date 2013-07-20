@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using Antlr4.Runtime;
@@ -60,6 +61,44 @@ namespace MetraTech.Domain.Parsers
         {
             var name = context.GetText();
             var expression = new PropertyExpression { Name = name };
+            return expression;
+        }
+
+        public override Expression VisitUnaryExpression(ExpressionLanguageParser.UnaryExpressionContext context)
+        {
+            return base.VisitUnaryExpression(context);
+        }
+
+        private static readonly Dictionary<int, BinaryOperator> _operatorMapper = new Dictionary<int, BinaryOperator>
+            {
+                { ExpressionLanguageLexer.OR, BinaryOperator.Or },
+                { ExpressionLanguageLexer.AND, BinaryOperator.And },
+                { ExpressionLanguageLexer.EQUALS, BinaryOperator.Equal },
+                { ExpressionLanguageLexer.NOTEQUALS, BinaryOperator.NotEqual },
+                { ExpressionLanguageLexer.LT, BinaryOperator.LessThan },
+                { ExpressionLanguageLexer.LTEQ, BinaryOperator.LessThanOrEqual },
+                { ExpressionLanguageLexer.GT, BinaryOperator.GreaterThan },
+                { ExpressionLanguageLexer.GTEQ, BinaryOperator.GreaterThanOrEqual },
+                { ExpressionLanguageLexer.PLUS, BinaryOperator.Add },
+                { ExpressionLanguageLexer.MINUS, BinaryOperator.Subtract },
+                { ExpressionLanguageLexer.MULT, BinaryOperator.Multiply },
+                { ExpressionLanguageLexer.DIV, BinaryOperator.Divide },
+                { ExpressionLanguageLexer.MOD, BinaryOperator.Modulo },
+                { ExpressionLanguageLexer.POW, BinaryOperator.Power },
+            };
+        
+        public override Expression VisitBinaryExpression(ExpressionLanguageParser.BinaryExpressionContext context)
+        {
+            var token = context.GetChild(1).Payload as CommonToken;
+            if (token == null) throw new InvalidOperationException("Second child of binary operation is not a common token");
+            var left = Visit(context.GetChild(0));
+            var right = Visit(context.GetChild(2));
+            var expression = new BinaryExpression
+                {
+                        Left = left,
+                        Operator = _operatorMapper[token.Type],
+                        Right = right
+                };
             return expression;
         }
     }

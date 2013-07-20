@@ -23,5 +23,7 @@ public interface IExpressionLanguageVisitor<Result> : IParseTreeVisitor<Result> 
 	Result VisitStringExpression(ExpressionLanguageParser.StringExpressionContext context);
 
 	Result VisitParse(ExpressionLanguageParser.ParseContext context);
+
+	Result VisitFunction(ExpressionLanguageParser.FunctionContext context);
 }
 } // namespace MetraTech.Domain

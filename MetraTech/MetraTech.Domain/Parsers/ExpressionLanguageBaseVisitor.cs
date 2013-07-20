@@ -24,5 +24,7 @@ public partial class ExpressionLanguageBaseVisitor<Result> : AbstractParseTreeVi
 	public virtual Result VisitStringExpression(ExpressionLanguageParser.StringExpressionContext context) { return VisitChildren(context); }
 
 	public virtual Result VisitParse(ExpressionLanguageParser.ParseContext context) { return VisitChildren(context); }
+
+	public virtual Result VisitFunction(ExpressionLanguageParser.FunctionContext context) { return VisitChildren(context); }
 }
 } // namespace MetraTech.Domain

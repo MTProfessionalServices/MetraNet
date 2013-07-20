@@ -9,16 +9,16 @@ using DFA = Antlr4.Runtime.Dfa.DFA;
 
 public partial class ExpressionLanguageParser : Parser {
 	public const int
-		LPAREN=1, RPAREN=2, NOT=3, AND=4, OR=5, IDENTIFIER=6, STRING=7, INTEGER=8, 
-		DECIMAL=9, DATETIME=10, BOOLEAN=11, SPACE=12;
+		T__2=1, T__1=2, T__0=3, NOT=4, AND=5, OR=6, STRING=7, INTEGER=8, DECIMAL=9, 
+		DATETIME=10, BOOLEAN=11, IDENTIFIER=12, SPACE=13;
 	public static readonly string[] tokenNames = {
-		"<INVALID>", "'('", "')'", "'NOT'", "'AND'", "'OR'", "IDENTIFIER", "STRING", 
-		"INTEGER", "DECIMAL", "DATETIME", "BOOLEAN", "SPACE"
+		"<INVALID>", "')'", "','", "'('", "'NOT'", "'AND'", "'OR'", "STRING", 
+		"INTEGER", "DECIMAL", "DATETIME", "BOOLEAN", "IDENTIFIER", "SPACE"
 	};
 	public const int
-		RULE_parse = 0, RULE_expression = 1;
+		RULE_parse = 0, RULE_expression = 1, RULE_function = 2;
 	public static readonly string[] ruleNames = {
-		"parse", "expression"
+		"parse", "expression", "function"
 	};
 
 	public override string GrammarFileName { get { return "ExpressionLanguage.g4"; } }
@@ -63,7 +63,7 @@ public partial class ExpressionLanguageParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 4; expression(0);
+			State = 6; expression(0);
 			}
 		}
 		catch (RecognitionException re) {
@@ -273,7 +273,7 @@ public partial class ExpressionLanguageParser : Parser {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 19;
+			State = 21;
 			switch (_input.La(1)) {
 			case NOT:
 				{
@@ -281,26 +281,18 @@ public partial class ExpressionLanguageParser : Parser {
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
-				State = 7; Match(NOT);
-				State = 8; expression(3);
+				State = 9; Match(NOT);
+				State = 10; expression(9);
 				}
 				break;
-			case LPAREN:
+			case 3:
 				{
 				_localctx = new ParenthesisExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				State = 9; Match(LPAREN);
-				State = 10; expression(0);
-				State = 11; Match(RPAREN);
-				}
-				break;
-			case IDENTIFIER:
-				{
-				_localctx = new IdentifierExpressionContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
-				State = 13; Match(IDENTIFIER);
+				State = 11; Match(3);
+				State = 12; expression(0);
+				State = 13; Match(1);
 				}
 				break;
 			case STRING:
@@ -308,7 +300,7 @@ public partial class ExpressionLanguageParser : Parser {
 				_localctx = new StringExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				State = 14; Match(STRING);
+				State = 15; Match(STRING);
 				}
 				break;
 			case INTEGER:
@@ -316,7 +308,7 @@ public partial class ExpressionLanguageParser : Parser {
 				_localctx = new NumberExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				State = 15; Match(INTEGER);
+				State = 16; Match(INTEGER);
 				}
 				break;
 			case DECIMAL:
@@ -324,7 +316,7 @@ public partial class ExpressionLanguageParser : Parser {
 				_localctx = new NumberExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				State = 16; Match(DECIMAL);
+				State = 17; Match(DECIMAL);
 				}
 				break;
 			case DATETIME:
@@ -332,7 +324,7 @@ public partial class ExpressionLanguageParser : Parser {
 				_localctx = new DateTimeExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				State = 17; Match(DATETIME);
+				State = 18; Match(DATETIME);
 				}
 				break;
 			case BOOLEAN:
@@ -340,14 +332,22 @@ public partial class ExpressionLanguageParser : Parser {
 				_localctx = new BooleanExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				State = 18; Match(BOOLEAN);
+				State = 19; Match(BOOLEAN);
+				}
+				break;
+			case IDENTIFIER:
+				{
+				_localctx = new IdentifierExpressionContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				State = 20; Match(IDENTIFIER);
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.Lt(-1);
-			State = 31;
+			State = 33;
 			_errHandler.Sync(this);
 			_alt = Interpreter.AdaptivePredict(_input,3,_ctx);
 			while ( _alt!=2 && _alt!=-1 ) {
@@ -355,16 +355,16 @@ public partial class ExpressionLanguageParser : Parser {
 					if ( _parseListeners!=null ) TriggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					State = 29;
+					State = 31;
 					switch ( Interpreter.AdaptivePredict(_input,2,_ctx) ) {
 					case 1:
 						{
 						_localctx = new OrExpressionContext(new ExpressionContext(_parentctx, _parentState));
 						PushNewRecursionContext(_localctx, _startState, RULE_expression);
-						State = 21;
-						if (!(Precpred(_ctx, 1))) throw new FailedPredicateException(this, "Precpred(_ctx, 1)");
-						State = 22; Match(OR);
-						State = 23; expression(2);
+						State = 23;
+						if (!(Precpred(_ctx, 7))) throw new FailedPredicateException(this, "Precpred(_ctx, 7)");
+						State = 24; Match(OR);
+						State = 25; expression(8);
 						}
 						break;
 
@@ -372,23 +372,23 @@ public partial class ExpressionLanguageParser : Parser {
 						{
 						_localctx = new AndExpressionContext(new ExpressionContext(_parentctx, _parentState));
 						PushNewRecursionContext(_localctx, _startState, RULE_expression);
-						State = 24;
-						if (!(Precpred(_ctx, 2))) throw new FailedPredicateException(this, "Precpred(_ctx, 2)");
 						State = 26;
+						if (!(Precpred(_ctx, 8))) throw new FailedPredicateException(this, "Precpred(_ctx, 8)");
+						State = 28;
 						_la = _input.La(1);
 						if (_la==AND) {
 							{
-							State = 25; Match(AND);
+							State = 27; Match(AND);
 							}
 						}
 
-						State = 28; expression(0);
+						State = 30; expression(0);
 						}
 						break;
 					}
 					} 
 				}
-				State = 33;
+				State = 35;
 				_errHandler.Sync(this);
 				_alt = Interpreter.AdaptivePredict(_input,3,_ctx);
 			}
@@ -405,6 +405,80 @@ public partial class ExpressionLanguageParser : Parser {
 		return _localctx;
 	}
 
+	public partial class FunctionContext : ParserRuleContext {
+		public ExpressionContext[] expression() {
+			return GetRuleContexts<ExpressionContext>();
+		}
+		public ExpressionContext expression(int i) {
+			return GetRuleContext<ExpressionContext>(i);
+		}
+		public ITerminalNode IDENTIFIER() { return GetToken(ExpressionLanguageParser.IDENTIFIER, 0); }
+		public FunctionContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int GetRuleIndex() { return RULE_function; }
+		public override void EnterRule(IParseTreeListener listener) {
+			IExpressionLanguageListener typedListener = listener as IExpressionLanguageListener;
+			if (typedListener != null) typedListener.EnterFunction(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IExpressionLanguageListener typedListener = listener as IExpressionLanguageListener;
+			if (typedListener != null) typedListener.ExitFunction(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IExpressionLanguageVisitor<TResult> typedVisitor = visitor as IExpressionLanguageVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFunction(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public FunctionContext function() {
+		FunctionContext _localctx = new FunctionContext(_ctx, State);
+		EnterRule(_localctx, 4, RULE_function);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 36; Match(IDENTIFIER);
+			State = 37; Match(3);
+			State = 46;
+			_la = _input.La(1);
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << 3) | (1L << NOT) | (1L << STRING) | (1L << INTEGER) | (1L << DECIMAL) | (1L << DATETIME) | (1L << BOOLEAN) | (1L << IDENTIFIER))) != 0)) {
+				{
+				State = 38; expression(0);
+				State = 43;
+				_errHandler.Sync(this);
+				_la = _input.La(1);
+				while (_la==2) {
+					{
+					{
+					State = 39; Match(2);
+					State = 40; expression(0);
+					}
+					}
+					State = 45;
+					_errHandler.Sync(this);
+					_la = _input.La(1);
+				}
+				}
+			}
+
+			State = 48; Match(1);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.ReportError(this, re);
+			_errHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
 	public override bool Sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
 		case 1: return expression_sempred((ExpressionContext)_localctx, predIndex);
@@ -413,29 +487,34 @@ public partial class ExpressionLanguageParser : Parser {
 	}
 	private bool expression_sempred(ExpressionContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 0: return Precpred(_ctx, 1);
+		case 0: return Precpred(_ctx, 7);
 
-		case 1: return Precpred(_ctx, 2);
+		case 1: return Precpred(_ctx, 8);
 		}
 		return true;
 	}
 
 	public static readonly string _serializedATN =
-		"\x5\x3\xE%\x4\x2\t\x2\x4\x3\t\x3\x3\x2\x3\x2\x3\x3\x3\x3\x3\x3\x3\x3\x3"+
-		"\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x5\x3\x16\n\x3\x3"+
-		"\x3\x3\x3\x3\x3\x3\x3\x3\x3\x5\x3\x1D\n\x3\x3\x3\a\x3 \n\x3\f\x3\xE\x3"+
-		"#\v\x3\x3\x3\x2\x2\x3\x4\x4\x2\x2\x4\x2\x2\x2,\x2\x6\x3\x2\x2\x2\x4\x15"+
-		"\x3\x2\x2\x2\x6\a\x5\x4\x3\x2\a\x3\x3\x2\x2\x2\b\t\b\x3\x1\x2\t\n\a\x5"+
-		"\x2\x2\n\x16\x5\x4\x3\x5\v\f\a\x3\x2\x2\f\r\x5\x4\x3\x2\r\xE\a\x4\x2\x2"+
-		"\xE\x16\x3\x2\x2\x2\xF\x16\a\b\x2\x2\x10\x16\a\t\x2\x2\x11\x16\a\n\x2"+
-		"\x2\x12\x16\a\v\x2\x2\x13\x16\a\f\x2\x2\x14\x16\a\r\x2\x2\x15\b\x3\x2"+
-		"\x2\x2\x15\v\x3\x2\x2\x2\x15\xF\x3\x2\x2\x2\x15\x10\x3\x2\x2\x2\x15\x11"+
-		"\x3\x2\x2\x2\x15\x12\x3\x2\x2\x2\x15\x13\x3\x2\x2\x2\x15\x14\x3\x2\x2"+
-		"\x2\x16!\x3\x2\x2\x2\x17\x18\f\x3\x2\x2\x18\x19\a\a\x2\x2\x19 \x5\x4\x3"+
-		"\x4\x1A\x1C\f\x4\x2\x2\x1B\x1D\a\x6\x2\x2\x1C\x1B\x3\x2\x2\x2\x1C\x1D"+
-		"\x3\x2\x2\x2\x1D\x1E\x3\x2\x2\x2\x1E \x5\x4\x3\x2\x1F\x17\x3\x2\x2\x2"+
-		"\x1F\x1A\x3\x2\x2\x2 #\x3\x2\x2\x2!\x1F\x3\x2\x2\x2!\"\x3\x2\x2\x2\"\x5"+
-		"\x3\x2\x2\x2#!\x3\x2\x2\x2\x6\x15\x1C\x1F!";
+		"\x5\x3\xF\x35\x4\x2\t\x2\x4\x3\t\x3\x4\x4\t\x4\x3\x2\x3\x2\x3\x3\x3\x3"+
+		"\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x5"+
+		"\x3\x18\n\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x5\x3\x1F\n\x3\x3\x3\a\x3\""+
+		"\n\x3\f\x3\xE\x3%\v\x3\x3\x4\x3\x4\x3\x4\x3\x4\x3\x4\a\x4,\n\x4\f\x4\xE"+
+		"\x4/\v\x4\x5\x4\x31\n\x4\x3\x4\x3\x4\x3\x4\x2\x2\x3\x4\x5\x2\x2\x4\x2"+
+		"\x6\x2\x2\x2=\x2\b\x3\x2\x2\x2\x4\x17\x3\x2\x2\x2\x6&\x3\x2\x2\x2\b\t"+
+		"\x5\x4\x3\x2\t\x3\x3\x2\x2\x2\n\v\b\x3\x1\x2\v\f\a\x6\x2\x2\f\x18\x5\x4"+
+		"\x3\v\r\xE\a\x5\x2\x2\xE\xF\x5\x4\x3\x2\xF\x10\a\x3\x2\x2\x10\x18\x3\x2"+
+		"\x2\x2\x11\x18\a\t\x2\x2\x12\x18\a\n\x2\x2\x13\x18\a\v\x2\x2\x14\x18\a"+
+		"\f\x2\x2\x15\x18\a\r\x2\x2\x16\x18\a\xE\x2\x2\x17\n\x3\x2\x2\x2\x17\r"+
+		"\x3\x2\x2\x2\x17\x11\x3\x2\x2\x2\x17\x12\x3\x2\x2\x2\x17\x13\x3\x2\x2"+
+		"\x2\x17\x14\x3\x2\x2\x2\x17\x15\x3\x2\x2\x2\x17\x16\x3\x2\x2\x2\x18#\x3"+
+		"\x2\x2\x2\x19\x1A\f\t\x2\x2\x1A\x1B\a\b\x2\x2\x1B\"\x5\x4\x3\n\x1C\x1E"+
+		"\f\n\x2\x2\x1D\x1F\a\a\x2\x2\x1E\x1D\x3\x2\x2\x2\x1E\x1F\x3\x2\x2\x2\x1F"+
+		" \x3\x2\x2\x2 \"\x5\x4\x3\x2!\x19\x3\x2\x2\x2!\x1C\x3\x2\x2\x2\"%\x3\x2"+
+		"\x2\x2#!\x3\x2\x2\x2#$\x3\x2\x2\x2$\x5\x3\x2\x2\x2%#\x3\x2\x2\x2&\'\a"+
+		"\xE\x2\x2\'\x30\a\x5\x2\x2(-\x5\x4\x3\x2)*\a\x4\x2\x2*,\x5\x4\x3\x2+)"+
+		"\x3\x2\x2\x2,/\x3\x2\x2\x2-+\x3\x2\x2\x2-.\x3\x2\x2\x2.\x31\x3\x2\x2\x2"+
+		"/-\x3\x2\x2\x2\x30(\x3\x2\x2\x2\x30\x31\x3\x2\x2\x2\x31\x32\x3\x2\x2\x2"+
+		"\x32\x33\a\x3\x2\x2\x33\a\x3\x2\x2\x2\b\x17\x1E!#-\x30";
 	public static readonly ATN _ATN =
 		ATNSimulator.Deserialize(_serializedATN.ToCharArray());
 }

@@ -37,6 +37,9 @@ public partial class ExpressionLanguageBaseListener : IExpressionLanguageListene
 	public virtual void EnterParse(ExpressionLanguageParser.ParseContext context) { }
 	public virtual void ExitParse(ExpressionLanguageParser.ParseContext context) { }
 
+	public virtual void EnterFunction(ExpressionLanguageParser.FunctionContext context) { }
+	public virtual void ExitFunction(ExpressionLanguageParser.FunctionContext context) { }
+
 	public virtual void EnterEveryRule(ParserRuleContext context) { }
 	public virtual void ExitEveryRule(ParserRuleContext context) { }
 	public virtual void VisitTerminal(ITerminalNode node) { }

@@ -33,5 +33,8 @@ public interface IExpressionLanguageListener : IParseTreeListener {
 
 	void EnterParse(ExpressionLanguageParser.ParseContext context);
 	void ExitParse(ExpressionLanguageParser.ParseContext context);
+
+	void EnterFunction(ExpressionLanguageParser.FunctionContext context);
+	void ExitFunction(ExpressionLanguageParser.FunctionContext context);
 }
 } // namespace MetraTech.Domain

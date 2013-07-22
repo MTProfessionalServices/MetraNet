@@ -14,7 +14,7 @@ namespace MetraTech.Domain.DataAccess.EntityTypeConfigurations
     {
       Map(t =>
       {
-        t.ToTable("t_metadata");
+        t.ToTable("Metadata");
         t.MapInheritedProperties();
       });
       HasKey(t => t.TimeCreate);

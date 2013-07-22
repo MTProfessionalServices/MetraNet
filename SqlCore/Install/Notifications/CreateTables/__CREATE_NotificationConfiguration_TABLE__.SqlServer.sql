@@ -7,7 +7,7 @@ CREATE TABLE [NotificationConfiguration](
 	[ModifiedDate] [datetime] NOT NULL,
 	[EventType] [nvarchar](max) NULL,
 	[NotificationEndpointEntityId] [uniqueidentifier] NOT NULL,
-	[EmailTemplate] [nvarchar](max) NULL,
+	[MessageTemplate] [nvarchar](max) NULL,
  CONSTRAINT [PK_NotificationConfiguration] PRIMARY KEY CLUSTERED 
 (
 	[EntityId] ASC

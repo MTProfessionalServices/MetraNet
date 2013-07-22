@@ -4,9 +4,14 @@ public static class LayoutHelpers
 {
 	public static string GetLayout(RouteData data)
 	{
-		if ((string) data.Values["controller"] == "SpecCharacteristics" || (string) data.Values["controller"] == "Account")
-			return "~/Views/Shared/_PageLayout.cshtml";
+    if (CheckController(data, "ExpressionEngine"))
+      return "~/Views/Shared/_Layout.cshtml";
 
-		return "~/Views/Shared/_Layout.cshtml";
+    return "~/Views/Shared/_PageLayout.cshtml";
 	}
+
+  private static bool CheckController(RouteData data, string controllerName)
+  {
+    return ((string)data.Values["controller"]).ToUpperInvariant() == controllerName.ToUpperInvariant();
+  }
 }

@@ -4,7 +4,9 @@ using System.Linq;
 using MetraTech.Domain.Quoting;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.ProductCatalog;
+using MetraTech.TestCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Runtime.Serialization;
 
 namespace MetraTech.Domain.Test.Quoting
 {
@@ -29,7 +31,7 @@ namespace MetraTech.Domain.Test.Quoting
         [TestCategory(UnitTestCategory)]
         public void RateSchedulesXmlWithStringIsDeserializedToObjectsPositiveTest()
         {
-            // The sample was received in result of serialization of the list of the prices 
+            // The sample XML string was received as result of serialization of the list of the prices
             // which is used in the UpdateICBRates functional  test.
             // C:\dev\MetraNet\RMP\Extensions\FunctionalTests_Internal\MetraNet_LegacySmokesTests\Core\Services\PriceListService.Tests.cs
             var stringOfRates = Properties.Resources.SampleRateSchedules_txt;
@@ -48,6 +50,30 @@ namespace MetraTech.Domain.Test.Quoting
                 Assert.AreEqual(expRate.DefaultRateEntry.ConfChargeMinimum,
                                 actRate.DefaultRateEntry.ConfChargeMinimum);
             }
+        }
+
+        [TestMethod]
+        [TestCategory(UnitTestCategory)]
+        public void RateSchedulesXmlWithIncorrectStringNegativeTest()
+        {
+            var price = new QuoteIndividualPrice();
+            ExceptionAssert.ExpectedExactly<SerializationException>(() => price.RateSchedulesXml = "<SomeIncorrectXmlString>");
+        }
+
+        [TestMethod]
+        [TestCategory(UnitTestCategory)]
+        public void RateSchedulesWithNullPositiveTest()
+        {
+            var price = new QuoteIndividualPrice { RateSchedules = null };
+            Assert.IsNull(price.RateSchedulesXml);
+        }
+
+        [TestMethod]
+        [TestCategory(UnitTestCategory)]
+        public void RateSchedulesXmlWithNullPositiveTest()
+        {
+            var price = new QuoteIndividualPrice { RateSchedulesXml = null };
+            Assert.IsNull(price.RateSchedules);
         }
 
         #region Helper methods

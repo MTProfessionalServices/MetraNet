@@ -99,6 +99,10 @@
       <Name>MetraTech.Domain</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\TestCommon\MetraTech.TestCommon.csproj">
+      <Project>{20307E5D-BFC9-4F27-9ECC-A61EE854E8B5}</Project>
+      <Name>MetraTech.TestCommon</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="EmailTemplates.resx">

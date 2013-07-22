@@ -43,7 +43,7 @@ namespace MetraTech.Domain.Quoting
         public string RateSchedulesXml
         {
             get { return RateSchedules == null ? null : RateSchedules.Serialize(); }
-            set { RateSchedules = SerializationHelper.Deserialize<List<BaseRateSchedule>>(value); }
+            set { RateSchedules = string.IsNullOrEmpty(value) ? null : SerializationHelper.Deserialize<List<BaseRateSchedule>>(value); }
         }
     }
 }

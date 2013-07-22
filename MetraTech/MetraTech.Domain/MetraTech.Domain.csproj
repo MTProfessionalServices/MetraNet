@@ -40,6 +40,9 @@
     <AssemblyOriginatorKeyFile>..\..\build\keys\MetraTech.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr4.Runtime.v4.0">
+      <HintPath>..\Reference\Antlr\Antlr4.Runtime.v4.0.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
@@ -62,6 +65,13 @@
     <Compile Include="DataAccess\SerializationHelper.cs" />
     <Compile Include="Events\Event.cs" />
     <Compile Include="DataAccess\MetraNetContext.cs" />
+    <Compile Include="Expressions\BinaryExpression.cs" />
+    <Compile Include="Expressions\BinaryOperator.cs" />
+    <Compile Include="Expressions\BinaryOperatorHelper.cs" />
+    <Compile Include="Expressions\ConstantExpression.cs" />
+    <Compile Include="Expressions\Expression.cs" />
+    <Compile Include="Expressions\ExpressionSerializer.cs" />
+    <Compile Include="Expressions\PropertyExpression.cs" />
     <Compile Include="Money.cs" />
     <Compile Include="Notifications\AuthenticationConfiguration.cs" />
     <Compile Include="Entity.cs" />
@@ -82,13 +92,59 @@
     <Compile Include="Quantity.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Antlr4 Include="Parsers\ExpressionLanguage.g4">
+      <Generator>MSBuild:Compile</Generator>
+      <DebugGrammar>False</DebugGrammar>
+      <ProfileGrammar>False</ProfileGrammar>
+    </Antlr4>
+    <Compile Include="Parsers\ExpressionLanguageLexer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpressionLanguage.g4</DependentUpon>
+    </Compile>
+    <Compile Include="Parsers\ExpressionLanguageParser.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpressionLanguage.g4</DependentUpon>
+    </Compile>
+    <Compile Include="Parsers\ExpressionLanguageListener.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpressionLanguage.g4</DependentUpon>
+    </Compile>
+    <Compile Include="Parsers\ExpressionLanguageBaseListener.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpressionLanguage.g4</DependentUpon>
+    </Compile>
+    <Compile Include="Parsers\ExpressionLanguageVisitor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpressionLanguage.g4</DependentUpon>
+    </Compile>
+    <Compile Include="Parsers\ExpressionLanguageBaseVisitor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpressionLanguage.g4</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="..\..\build\keys\MetraTech.snk">
       <Link>MetraTech.snk</Link>
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <!-- Folder containing AntlrBuildTask.dll -->
+    <Antlr4BuildTaskPath>$(ProjectDir)..\Reference\Antlr</Antlr4BuildTaskPath>
+    <!-- Path to the ANTLR Tool itself. -->
+    <Antlr4ToolPath>$(ProjectDir)..\Reference\Antlr\antlr4-csharp-4.0.1-SNAPSHOT-complete.jar</Antlr4ToolPath>
+    <Antlr4ToolPath>$(ProjectDir)..\Reference\Antlr\antlr4-csharp-4.0.1-SNAPSHOT-complete.jar</Antlr4ToolPath>
+  </PropertyGroup>
+  <Import Project="$(ProjectDir)..\Reference\Antlr\Antlr4.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

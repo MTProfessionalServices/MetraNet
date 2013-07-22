@@ -1,4 +1,5 @@
 
+using System.Data.Common;
 using System.Diagnostics;
 using System.Collections.Specialized;
 using System.Collections;
@@ -130,7 +131,7 @@ namespace MetraTech.DataAccess
 
     static ConnectionInfo()
     {
-        CacheConnectionInfo();
+      CacheConnectionInfo();
     }
 
     private static void CacheConnectionInfo()
@@ -176,7 +177,7 @@ namespace MetraTech.DataAccess
     public ConnectionInfo(String logicalServerName)
     {
       ConnectionInfo template = (ConnectionInfo)mConnectionInfoCache[logicalServerName];
-        
+
       if (template == null)
       {
         if (mConnectionInfoCache.Count == 0)
@@ -236,15 +237,15 @@ namespace MetraTech.DataAccess
       IMTQueryAdapter queryAdapter = new MTQueryAdapter();
       if (queryAdapter == null)
       {
-          throw new DataAccessException("Unable to initialize query adapter");
+        throw new DataAccessException("Unable to initialize query adapter");
       }
       queryAdapter.Init(path);
       string logicalServerName = queryAdapter.GetLogicalServerName();
       if (String.IsNullOrEmpty(logicalServerName) || String.IsNullOrWhiteSpace(logicalServerName))
       {
-          throw new DataAccessException(String.Concat("Extracted LogicalServername from ", path, @"\dbaccess.xml is null or empty string!"));
+        throw new DataAccessException(String.Concat("Extracted LogicalServername from ", path, @"\dbaccess.xml is null or empty string!"));
       }
-      connInfo = new ConnectionInfo(logicalServerName) {Timeout = queryAdapter.GetTimeout()};
+      connInfo = new ConnectionInfo(logicalServerName) { Timeout = queryAdapter.GetTimeout() };
 
       mDBAccessCache[path] = connInfo;
 
@@ -274,6 +275,10 @@ namespace MetraTech.DataAccess
   public class ConnectionManager
   {
     // TODO: Implement a cache of connection info structures
+    public static DbConnection CreateDbConnection()
+    {
+      return ConnectionBase.GetDbConnection(ConnectionInfo.CreateFromDBAccessFile(@"Queries\Database"), true);
+    }
 
     public static IMTNonServicedConnection CreateNonServicedConnection()
     {
@@ -628,32 +633,32 @@ namespace MetraTech.DataAccess
 
   public interface IMTBaseFilterSortStatement : IMTStatement
   {
-      void AddFilter(BaseFilterElement filter);
-      void ClearFilters();
+    void AddFilter(BaseFilterElement filter);
+    void ClearFilters();
 
-      List<SortCriteria> SortCriteria { get; set; }
+    List<SortCriteria> SortCriteria { get; set; }
 
-      int PageSize { get; set; }
-      int CurrentPage { get; set; }
+    int PageSize { get; set; }
+    int CurrentPage { get; set; }
 
-      int TotalRows { get; }
+    int TotalRows { get; }
   }
 
   public interface IMTPreparedFilterSortStatement : IMTStatement, IMTNamedParamterStatement, IMTBaseFilterSortStatement, IDisposable
   {
-      /// <summary>
-      /// Binds a value to a named parameter in the query.  SQLServer prepends name with '@'; Oracle with ':'
-      /// </summary>
-      /// <param name="paramName">The name of the parameter</param>
-      /// <param name="type">The parameter type</param>
-      /// <param name="value">The parameter value</param>
-      new void AddParam(string paramName, MetraTech.DataAccess.MTParameterType type, Object value);
-      /// <summary>
-      /// Clear all parameter bindings
-      /// </summary>
-      new void ClearParams();
+    /// <summary>
+    /// Binds a value to a named parameter in the query.  SQLServer prepends name with '@'; Oracle with ':'
+    /// </summary>
+    /// <param name="paramName">The name of the parameter</param>
+    /// <param name="type">The parameter type</param>
+    /// <param name="value">The parameter value</param>
+    new void AddParam(string paramName, MetraTech.DataAccess.MTParameterType type, Object value);
+    /// <summary>
+    /// Clear all parameter bindings
+    /// </summary>
+    new void ClearParams();
 
-      int MaxTotalRows { get; set; }
+    int MaxTotalRows { get; set; }
   }
 
   public enum SortDirection

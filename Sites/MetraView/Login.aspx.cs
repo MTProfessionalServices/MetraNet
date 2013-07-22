@@ -7,7 +7,6 @@ using MetraTech.DomainModel.BaseTypes;
 using MetraTech.Interop.MTAuth;
 using MetraTech.Security;
 using MetraTech.UI.Common;
-using MetraTech.ActivityServices.Services.Common;
 
 public partial class login : MTPage
 {
@@ -251,7 +250,7 @@ public partial class login : MTPage
         }
         else
         {
-          Response.Redirect(UI.DictionaryManager["DefaultPage"] + "?URL=" + Encrypt(UI.DictionaryManager["ChangePasswordPage"].ToString()));
+            Response.Redirect(UI.DictionaryManager["DefaultPage"] + "?URL=" + Encrypt(UI.DictionaryManager["ChangePasswordPage"].ToString()) + "&Crypto=true");
         }
         break;
       

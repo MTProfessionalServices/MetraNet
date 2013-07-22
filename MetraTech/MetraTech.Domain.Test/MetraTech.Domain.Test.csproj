@@ -51,6 +51,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
@@ -68,7 +69,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Comparers.cs" />
     <Compile Include="DataAccess\FakeMetraNetContext.cs" />
+    <Compile Include="DataAccess\NotificationConfigurationTest.cs" />
     <Compile Include="EmailTemplates.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -81,6 +84,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAccess\MetraTech.DataAccess.csproj">
+      <Project>{1B40F4E4-8DDC-43E0-BE45-959BEE94422F}</Project>
+      <Name>MetraTech.DataAccess</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\MetraTech.Domain\MetraTech.Domain.csproj">
       <Project>{9c9c685c-cbf8-428f-8c34-98702ff13726}</Project>
       <Name>MetraTech.Domain</Name>

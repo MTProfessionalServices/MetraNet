@@ -1,26 +1,44 @@
 // Generated from Parsers\ExpressionLanguage.g4 by ANTLR 4.0.1-SNAPSHOT
 namespace MetraTech.Domain {
 
-using System;
-
-
 using IErrorNode = Antlr4.Runtime.Tree.IErrorNode;
 using ITerminalNode = Antlr4.Runtime.Tree.ITerminalNode;
 using IToken = Antlr4.Runtime.IToken;
 using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 
 public partial class ExpressionLanguageBaseListener : IExpressionLanguageListener {
-	public virtual void EnterField(ExpressionLanguageParser.FieldContext context) { }
-	public virtual void ExitField(ExpressionLanguageParser.FieldContext context) { }
+	public virtual void EnterFunctionExpression(ExpressionLanguageParser.FunctionExpressionContext context) { }
+	public virtual void ExitFunctionExpression(ExpressionLanguageParser.FunctionExpressionContext context) { }
 
-	public virtual void EnterHdr(ExpressionLanguageParser.HdrContext context) { }
-	public virtual void ExitHdr(ExpressionLanguageParser.HdrContext context) { }
+	public virtual void EnterBinaryExpression(ExpressionLanguageParser.BinaryExpressionContext context) { }
+	public virtual void ExitBinaryExpression(ExpressionLanguageParser.BinaryExpressionContext context) { }
 
-	public virtual void EnterFile(ExpressionLanguageParser.FileContext context) { }
-	public virtual void ExitFile(ExpressionLanguageParser.FileContext context) { }
+	public virtual void EnterIdentifierExpression(ExpressionLanguageParser.IdentifierExpressionContext context) { }
+	public virtual void ExitIdentifierExpression(ExpressionLanguageParser.IdentifierExpressionContext context) { }
 
-	public virtual void EnterRow(ExpressionLanguageParser.RowContext context) { }
-	public virtual void ExitRow(ExpressionLanguageParser.RowContext context) { }
+	public virtual void EnterParenthesisExpression(ExpressionLanguageParser.ParenthesisExpressionContext context) { }
+	public virtual void ExitParenthesisExpression(ExpressionLanguageParser.ParenthesisExpressionContext context) { }
+
+	public virtual void EnterBooleanExpression(ExpressionLanguageParser.BooleanExpressionContext context) { }
+	public virtual void ExitBooleanExpression(ExpressionLanguageParser.BooleanExpressionContext context) { }
+
+	public virtual void EnterDateTimeExpression(ExpressionLanguageParser.DateTimeExpressionContext context) { }
+	public virtual void ExitDateTimeExpression(ExpressionLanguageParser.DateTimeExpressionContext context) { }
+
+	public virtual void EnterNumberExpression(ExpressionLanguageParser.NumberExpressionContext context) { }
+	public virtual void ExitNumberExpression(ExpressionLanguageParser.NumberExpressionContext context) { }
+
+	public virtual void EnterUnaryExpression(ExpressionLanguageParser.UnaryExpressionContext context) { }
+	public virtual void ExitUnaryExpression(ExpressionLanguageParser.UnaryExpressionContext context) { }
+
+	public virtual void EnterStringExpression(ExpressionLanguageParser.StringExpressionContext context) { }
+	public virtual void ExitStringExpression(ExpressionLanguageParser.StringExpressionContext context) { }
+
+	public virtual void EnterParse(ExpressionLanguageParser.ParseContext context) { }
+	public virtual void ExitParse(ExpressionLanguageParser.ParseContext context) { }
+
+	public virtual void EnterFunction(ExpressionLanguageParser.FunctionContext context) { }
+	public virtual void ExitFunction(ExpressionLanguageParser.FunctionContext context) { }
 
 	public virtual void EnterEveryRule(ParserRuleContext context) { }
 	public virtual void ExitEveryRule(ParserRuleContext context) { }

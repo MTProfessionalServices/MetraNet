@@ -1,5 +1,6 @@
 ﻿using MetraTech.Domain.DataAccess;
 using MetraTech.Domain.Notifications;
+using MetraTech.Domain.Quoting;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,6 +17,7 @@ namespace MetraTech.Domain.Test.DataAccess
     public IDbSet<Entity> Entities { get; set; }
     public IDbSet<NotificationConfiguration> NotificationConfigurations { get; set; }
     public IDbSet<NotificationEndpoint> NotificationEndpoints { get; set; }
+    public IDbSet<QuoteIndividualPrice> QuoteIndividualPrices { get; set; }
 
     public IDbSet<TEntity> Set<TEntity>() where TEntity : class
     {

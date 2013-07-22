@@ -1,4 +1,5 @@
 ﻿using MetraTech.Domain.Notifications;
+using MetraTech.Domain.Quoting;
 using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
@@ -12,6 +13,7 @@ namespace MetraTech.Domain.DataAccess
     public IDbSet<Entity> Entities { get; set; }
     public IDbSet<NotificationConfiguration> NotificationConfigurations { get; set; }
     public IDbSet<NotificationEndpoint> NotificationEndpoints { get; set; }
+    public IDbSet<QuoteIndividualPrice> QuoteIndividualPrices { get; set; }
 
     /// <summary>
     /// Returns a DbSet instance for access to entities of the given type in the context, the ObjectStateManager, and the underlying store.
@@ -42,7 +44,8 @@ namespace MetraTech.Domain.DataAccess
       modelBuilder.Ignore<LocalizationDictionary>();
       modelBuilder.Ignore<NotificationEndpointConfiguration>();
       modelBuilder.Ignore<AuthenticationConfiguration>();
-      modelBuilder.Ignore<EmailTemplate>();
+      modelBuilder.Ignore<MessageTemplate>();
+
       foreach (var type in typesToRegister)
       {
         dynamic configurationInstance = Activator.CreateInstance(type);

@@ -51,7 +51,7 @@ namespace MetraTech.Domain.DataAccess
       modelBuilder.Ignore<LocalizationDictionary>();
       modelBuilder.Ignore<NotificationEndpointConfiguration>();
       modelBuilder.Ignore<AuthenticationConfiguration>();
-      modelBuilder.Ignore<EmailTemplate>();
+      modelBuilder.Ignore<MessageTemplate>();
       foreach (var type in typesToRegister)
       {
         dynamic configurationInstance = Activator.CreateInstance(type);

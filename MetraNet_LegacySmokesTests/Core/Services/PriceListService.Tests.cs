@@ -22,6 +22,8 @@ using MetraTech.Core.Services.ClientProxies;
 using MetraTech.DomainModel.MetraPay;
 using System.Collections;
 using System.Linq;
+using System.Xml.Serialization;
+using System.IO;
 
 //
 // To run the this test fixture:

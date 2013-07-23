@@ -105,5 +105,37 @@ namespace MetraTech.Domain.Test.Parsers
             var result = emailExpression.Evaluate<string, FakePayment>(payment);
             Assert.AreEqual("mdesousa@metratech.com", result);
         }
+
+        [TestMethod]
+        public void SyntaxErrorTest()
+        {
+            try
+            {
+                ExpressionLanguageHelper.ParseExpression("payment 3.5 + 2");
+                Assert.Fail();
+            }
+            catch (ExpressionParsingException e)
+            {
+                Assert.AreEqual(1, e.SyntaxErrors.Count);
+                var errorDetail = e.SyntaxErrors[0];
+                Assert.AreEqual(1, errorDetail.Line);
+                Assert.AreEqual(8, errorDetail.CharacterPosition);
+                Assert.AreEqual("extraneous input '3.5' expecting {<EOF>, OR, AND, EQUALS, NOTEQUALS, '<', '<=', '>', '>=', '+', '-', '*', '/', '%', '^', '.'}", errorDetail.Message);
+            }
+        }
+
+        [TestMethod]
+        public void MultipleSyntaxErrorTest()
+        {
+            try
+            {
+                ExpressionLanguageHelper.ParseExpression("payment 3.5 + 2 bad $ +");
+                Assert.Fail();
+            }
+            catch (ExpressionParsingException e)
+            {
+                Assert.AreEqual(2, e.SyntaxErrors.Count);
+            }
+        }
     }
 }

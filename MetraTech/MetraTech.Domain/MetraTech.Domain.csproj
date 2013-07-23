@@ -70,7 +70,6 @@
     <Compile Include="Expressions\OperatorHelper.cs" />
     <Compile Include="Expressions\ConstantExpression.cs" />
     <Compile Include="Expressions\Expression.cs" />
-    <Compile Include="Expressions\ExpressionSerializer.cs" />
     <Compile Include="Expressions\IdentifierExpression.cs" />
     <Compile Include="Expressions\PropertyExpression.cs" />
     <Compile Include="Expressions\UnaryExpression.cs" />

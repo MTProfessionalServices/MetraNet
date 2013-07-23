@@ -19,7 +19,7 @@ namespace MetraTech.Domain.DataAccess.EntityTypeConfigurations
         t.MapInheritedProperties();
       });
       Property(t => t.AuthenticationConfigurationXml).HasColumnName("AuthenticationConfiguration");
-      Property(t => t.EndpointConfigurationXml).HasColumnName("NotificationConfiguration");
+      Property(t => t.EndpointConfigurationXml).HasColumnName("EndpointConfiguration");
     }
   }
 }

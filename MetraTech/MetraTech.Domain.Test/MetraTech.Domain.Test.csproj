@@ -78,7 +78,8 @@
       <DependentUpon>EmailTemplates.resx</DependentUpon>
     </Compile>
     <Compile Include="EmailTemplateTest.cs" />
-    <Compile Include="NotificationEndpointTest.cs" />
+    <Compile Include="DataAccess\NotificationEndpointTest.cs" />
+    <Compile Include="EntityFactory.cs" />
     <Compile Include="ExpressionTest.cs" />
     <Compile Include="Parsers\ExpressionLanguageTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

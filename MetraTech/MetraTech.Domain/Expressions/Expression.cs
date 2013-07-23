@@ -9,9 +9,10 @@ namespace MetraTech.Domain.Expressions
     /// </summary>
     [DataContract(Namespace = "MetraTech")]
     [KnownType(typeof(ConstantExpression))]
-    [KnownType(typeof(BinaryExpression))]
     [KnownType(typeof(PropertyExpression))]
     [KnownType(typeof(IdentifierExpression))]
+    [KnownType(typeof(BinaryExpression))]
+    [KnownType(typeof(UnaryExpression))]
     public abstract class Expression
     {
         /// <summary>

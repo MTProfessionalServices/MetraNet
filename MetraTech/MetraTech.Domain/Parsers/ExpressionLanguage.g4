@@ -6,6 +6,7 @@ parse
 
 expression
  : '(' expression ')'                       # ParenthesisExpression
+ | expression DOT IDENTIFIER				# PropertyExpression
  | NOT expression                           # UnaryExpression
  | expression AND expression                # BinaryExpression
  | expression OR expression                 # BinaryExpression
@@ -43,6 +44,7 @@ DIV        : '/';
 MOD        : '%';
 POW        : '^';
 NOT        : '!' | 'not';
+DOT        : '.';
 STRING     : '"' ( EscapeSequence | ~('\u0000'..'\u001f' | '\\' | '"' ))* '"';
 INTEGER    : [0-9]+;
 DECIMAL    : [0-9]* '.' [0-9]+;

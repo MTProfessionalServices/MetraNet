@@ -14,10 +14,6 @@
     <asp:Label ID="lblIncrementalOrBulk" runat="server" Font-Bold="False" ForeColor="DarkBlue" 
       Font-Size="9pt" meta:resourcekey="lblIncrementalOrBulkResource1" 
       Text="How should the Decision Type process the records?" ></asp:Label>
-    <span id="HelpLinkBulkDescription" style="color:blue;text-decoration:underline;cursor:pointer" 
-          onclick=" displayInfoMultiple(TITLE_AMPWIZARD_HELP_INCREMENTAL_OR_BULK, TEXT_AMPWIZARD_HELP_INCREMENTAL_OR_BULK, 450, 100)">
-       <img id="Img1" src='/Res/Images/icons/help.png' />
-    </span>
   </div>
   <div style="padding-left:45px;padding-top:5px;">
     <table cellpadding="0" cellspacing="0" style="width:100%;">
@@ -115,11 +111,7 @@
       <td colspan="2" style="padding-top:15px;" valign="top">
         <div style="float:left;">
         <asp:RadioButton id="noCharge" runat="server" GroupName="DecisionActionRadioButtons"
-              Text="No charge" meta:resourcekey="noChargeResource1" ForeColor="Black"/>
-        <span style="color:blue;text-decoration:underline;cursor:pointer;" 
-            onclick=" displayInfoMultiple(TITLE_AMPWIZARD_HELP_NO_CHARGE, TEXT_AMPWIZARD_HELP_NO_CHARGE, 450, 70)">
-          <img id="Img5" src='/Res/Images/icons/help.png' />
-        </span>
+              Text="None" meta:resourcekey="noChargeResource1" ForeColor="Black"/>
         </div>
       </td>
     </tr>

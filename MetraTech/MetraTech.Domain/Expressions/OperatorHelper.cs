@@ -2,7 +2,7 @@
 
 namespace MetraTech.Domain.Expressions
 {
-  internal static class BinaryOperatorHelper
+  internal static class OperatorHelper
   {
     public static IDictionary<BinaryOperator, string> BinaryOperatorToString =
       new Dictionary<BinaryOperator, string>
@@ -15,6 +15,13 @@ namespace MetraTech.Domain.Expressions
           { BinaryOperator.GreaterThanOrEqual, ">=" },
           { BinaryOperator.LessThan, "<" },
           { BinaryOperator.LessThanOrEqual, "<="}
+        };
+
+    public static IDictionary<UnaryOperator, string> UnaryOperatorToString =
+      new Dictionary<UnaryOperator, string>
+        {
+          { UnaryOperator.Not, "NOT" },
+          { UnaryOperator.Minus, "-" }
         };
   }
 }

@@ -8,8 +8,6 @@ namespace MetraTech.Domain.Expressions
   /// An expression that is evaluated by taking an operator and 2 input expressions
   /// </summary>
   [DataContract(Namespace = "MetraTech")]
-  [KnownType(typeof(ConstantExpression))]
-  [KnownType(typeof(PropertyExpression))]
   public class BinaryExpression : Expression
   {
     /// <summary>
@@ -108,7 +106,7 @@ namespace MetraTech.Domain.Expressions
     {
       var sb = new StringBuilder();
       ToStringChild(sb, Left);
-      sb.Append(" ").Append(BinaryOperatorHelper.BinaryOperatorToString[Operator]).Append(" ");
+      sb.Append(" ").Append(OperatorHelper.BinaryOperatorToString[Operator]).Append(" ");
       ToStringChild(sb, Right);
       return sb.ToString();
     }

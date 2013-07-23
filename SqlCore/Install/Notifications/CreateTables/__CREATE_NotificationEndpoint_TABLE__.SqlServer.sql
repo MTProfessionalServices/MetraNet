@@ -6,7 +6,7 @@ CREATE TABLE [NotificationEndpoint](
 	[CreationDate] [datetime] NOT NULL,
 	[ModifiedDate] [datetime] NOT NULL,
 	[Active] [bit] NOT NULL,
-	[NotificationConfiguration] [nvarchar](max) NULL,
+	[EndpointConfiguration] [nvarchar](max) NULL,
 	[AuthenticationConfiguration] [nvarchar](max) NULL,
  CONSTRAINT [PK_NotificationEndpoint] PRIMARY KEY CLUSTERED 
 (

@@ -60,7 +60,7 @@ namespace MetraTech.Domain.Parsers
         public override Expression VisitIdentifierExpression(ExpressionLanguageParser.IdentifierExpressionContext context)
         {
             var name = context.GetText();
-            var expression = new PropertyExpression { Name = name };
+            var expression = new PropertyExpression { PropertyName = name };
             return expression;
         }
 

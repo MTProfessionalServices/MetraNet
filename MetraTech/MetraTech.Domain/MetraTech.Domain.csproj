@@ -67,11 +67,14 @@
     <Compile Include="DataAccess\MetraNetContext.cs" />
     <Compile Include="Expressions\BinaryExpression.cs" />
     <Compile Include="Expressions\BinaryOperator.cs" />
-    <Compile Include="Expressions\BinaryOperatorHelper.cs" />
+    <Compile Include="Expressions\OperatorHelper.cs" />
     <Compile Include="Expressions\ConstantExpression.cs" />
     <Compile Include="Expressions\Expression.cs" />
     <Compile Include="Expressions\ExpressionSerializer.cs" />
+    <Compile Include="Expressions\IdentifierExpression.cs" />
     <Compile Include="Expressions\PropertyExpression.cs" />
+    <Compile Include="Expressions\UnaryExpression.cs" />
+    <Compile Include="Expressions\UnaryOperator.cs" />
     <Compile Include="Money.cs" />
     <Compile Include="Notifications\AuthenticationConfiguration.cs" />
     <Compile Include="Entity.cs" />

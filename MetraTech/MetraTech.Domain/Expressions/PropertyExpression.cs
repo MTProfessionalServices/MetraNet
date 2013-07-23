@@ -11,10 +11,16 @@ namespace MetraTech.Domain.Expressions
   public class PropertyExpression : Expression
   {
     /// <summary>
+    /// The expression whose property is bein accessed
+    /// </summary>
+    [DataMember]
+    public Expression Expression { get; set; }
+
+    /// <summary>
     /// The name of the property to be evaluated
     /// </summary>
     [DataMember]
-    public string Name { get; set; }
+    public string PropertyName { get; set; }
 
     /// <summary>
     /// Converts a Metanga Expression into a Linq expression that can be executed against an IQueryable
@@ -23,14 +29,14 @@ namespace MetraTech.Domain.Expressions
     /// <returns>A linq expression</returns>
     public override System.Linq.Expressions.Expression ConvertToLinq(System.Linq.Expressions.Expression parameter)
     {
-        if (parameter == null) throw new ArgumentNullException("parameter");
-        var inputType = parameter.Type;
-        var propertyInfo = inputType.GetProperty(Name);
+        var expression = Expression.ConvertToLinq(parameter);
+        var inputType = expression.Type;
+        var propertyInfo = inputType.GetProperty(PropertyName);
         if (propertyInfo == null)
             throw new ApplicationException(String.Format(CultureInfo.CurrentCulture,
-                                                     "Property Expression is not valid: {0} {1}", Name,
+                                                     "Property Expression is not valid: {0} {1}", PropertyName,
                                                      inputType.Name));
-        return System.Linq.Expressions.Expression.Property(parameter, Name);
+        return System.Linq.Expressions.Expression.Property(expression, PropertyName);
     }
 
       /// <summary>
@@ -39,7 +45,7 @@ namespace MetraTech.Domain.Expressions
     /// <returns>A string value</returns>
     public override string ToString()
     {
-      return Name ?? "NULL";
+      return PropertyName ?? "NULL";
     }
   }
 }

@@ -54,7 +54,7 @@ namespace Metanga.Domain.Test
 
     private static BinaryExpression BuildBinaryExpression(string propertyName, BinaryOperator binaryOperator, string propertyValue)
     {
-      var propertyExpression = new PropertyExpression {Name = propertyName};
+      var propertyExpression = new PropertyExpression {PropertyName = propertyName};
       var constantExpression = new ConstantExpression {Value = propertyValue};
       return new BinaryExpression {Left = propertyExpression, Operator = binaryOperator, Right = constantExpression};
     }
@@ -79,15 +79,15 @@ namespace Metanga.Domain.Test
     [TestMethod]
     public void PropertyExpressionValueSetTest()
     {
-      var propertyExpression = new PropertyExpression {Name = "Currency"};
-      Assert.AreEqual("Currency", propertyExpression.Name);
+      var propertyExpression = new PropertyExpression {PropertyName = "Currency"};
+      Assert.AreEqual("Currency", propertyExpression.PropertyName);
     }
 
     [TestMethod]
     public void BinaryExpressionSetTest()
     {
       var binaryExpression = BuildBinaryExpression("Currency", BinaryOperator.Equal, "USD");
-      Assert.AreEqual("Currency", ((PropertyExpression) binaryExpression.Left).Name);
+      Assert.AreEqual("Currency", ((PropertyExpression) binaryExpression.Left).PropertyName);
       Assert.AreEqual(BinaryOperator.Equal, binaryExpression.Operator);
       Assert.AreEqual("USD", ((ConstantExpression) binaryExpression.Right).Value);
     }
@@ -131,7 +131,7 @@ namespace Metanga.Domain.Test
     public void PropertyExpressionTest()
     {
       var payment = new FakePayment {Currency = "USD"};
-      var parameterExpression = new PropertyExpression {Name = "Currency"};
+      var parameterExpression = new PropertyExpression {PropertyName = "Currency"};
       var result = parameterExpression.Evaluate<string, FakePayment>(payment);
       Assert.AreEqual("USD", result);
     }
@@ -140,7 +140,7 @@ namespace Metanga.Domain.Test
     public void PropertyExpressionDecimalTest()
     {
       var payment = new FakePayment {Amount = 5m};
-      var parameterExpression = new PropertyExpression {Name = "Amount"};
+      var parameterExpression = new PropertyExpression {PropertyName = "Amount"};
       var result = parameterExpression.Evaluate<decimal, FakePayment>(payment);
       Assert.AreEqual(5m, result);
     }
@@ -283,7 +283,7 @@ namespace Metanga.Domain.Test
     public void ParameterExpressionTest()
     {
       var parameterExpression = System.Linq.Expressions.Expression.Parameter(typeof (FakePayment), "x");
-      var propertyExpression = new PropertyExpression {Name = "Currency"};
+      var propertyExpression = new PropertyExpression {PropertyName = "Currency"};
       propertyExpression.ConvertToLinq(parameterExpression);
     }
 
@@ -369,7 +369,7 @@ namespace Metanga.Domain.Test
     public void TestComplexSerializationDeserialization()
     {
       var currencyExpression = BuildBinaryExpression("Currency", BinaryOperator.Equal, "USD");
-      var amountExpression = new BinaryExpression { Left = new PropertyExpression { Name = "Amount" }, Operator = BinaryOperator.GreaterThan, Right = new ConstantExpression { Value = 5m } };
+      var amountExpression = new BinaryExpression { Left = new PropertyExpression { PropertyName = "Amount" }, Operator = BinaryOperator.GreaterThan, Right = new ConstantExpression { Value = 5m } };
       var complexExpression = new BinaryExpression {Left = currencyExpression, Operator = BinaryOperator.And, Right = amountExpression};
       var serializedExpression = ExpressionSerializer.Serialize(complexExpression);
       var deserializedExpression = ExpressionSerializer.Deserialize(serializedExpression);
@@ -443,14 +443,14 @@ namespace Metanga.Domain.Test
         {
           Left = new BinaryExpression
             {
-              Left = new PropertyExpression { Name = "Currency" },
+              Left = new PropertyExpression { PropertyName = "Currency" },
               Operator = BinaryOperator.Equal,
               Right = new ConstantExpression { Value = "USD" }
             },
           Operator = BinaryOperator.And,
           Right = new BinaryExpression
             {
-              Left = new PropertyExpression { Name = "Amount" },
+              Left = new PropertyExpression { PropertyName = "Amount" },
               Operator = BinaryOperator.NotEqual,
               Right = new ConstantExpression { Value = 35m }
             }
@@ -467,14 +467,14 @@ namespace Metanga.Domain.Test
         {
           Left = new BinaryExpression
           {
-            Left = new PropertyExpression {Name = "Amount"}, 
+            Left = new PropertyExpression {PropertyName = "Amount"}, 
             Operator = BinaryOperator.LessThan, 
             Right = new ConstantExpression { Value = 35m }
           },
           Operator = BinaryOperator.And,
           Right = new BinaryExpression
           {
-            Left = new PropertyExpression { Name = "Amount" },
+            Left = new PropertyExpression { PropertyName = "Amount" },
             Operator = BinaryOperator.LessThanOrEqual,
             Right = new ConstantExpression { Value = 21m }
           },
@@ -484,14 +484,14 @@ namespace Metanga.Domain.Test
         {
           Left = new BinaryExpression
           {
-            Left = new PropertyExpression { Name = "Amount" },
+            Left = new PropertyExpression { PropertyName = "Amount" },
             Operator = BinaryOperator.GreaterThan,
             Right = new ConstantExpression { Value = 35m }
           },
           Operator = BinaryOperator.And,
           Right = new BinaryExpression
           {
-            Left = new PropertyExpression { Name = "Amount" },
+            Left = new PropertyExpression { PropertyName = "Amount" },
             Operator = BinaryOperator.GreaterThanOrEqual,
             Right = new ConstantExpression { Value = 45m }
           },
@@ -509,14 +509,14 @@ namespace Metanga.Domain.Test
         {
           Left = new BinaryExpression
           {
-            Left = new PropertyExpression { Name = "Amount" },
+            Left = new PropertyExpression { PropertyName = "Amount" },
             Operator = BinaryOperator.LessThan,
             Right = new ConstantExpression { Value = 35m }
           },
           Operator = BinaryOperator.Or,
           Right = new BinaryExpression
           {
-            Left = new PropertyExpression { Name = "Amount" },
+            Left = new PropertyExpression { PropertyName = "Amount" },
             Operator = BinaryOperator.LessThanOrEqual,
             Right = new ConstantExpression { Value = 21m }
           },
@@ -526,14 +526,14 @@ namespace Metanga.Domain.Test
         {
           Left = new BinaryExpression
           {
-            Left = new PropertyExpression { Name = "Amount" },
+            Left = new PropertyExpression { PropertyName = "Amount" },
             Operator = BinaryOperator.GreaterThan,
             Right = new ConstantExpression { Value = 35m }
           },
           Operator = BinaryOperator.And,
           Right = new BinaryExpression
           {
-            Left = new PropertyExpression { Name = "Amount" },
+            Left = new PropertyExpression { PropertyName = "Amount" },
             Operator = BinaryOperator.GreaterThanOrEqual,
             Right = new ConstantExpression { Value = 45m }
           },
@@ -551,14 +551,14 @@ namespace Metanga.Domain.Test
         {
           Left = new BinaryExpression
           {
-            Left = new PropertyExpression { Name = "Amount" },
+            Left = new PropertyExpression { PropertyName = "Amount" },
             Operator = BinaryOperator.LessThan,
             Right = new ConstantExpression { Value = 35m }
           },
           Operator = BinaryOperator.Or,
           Right = new BinaryExpression
           {
-            Left = new PropertyExpression { Name = "Amount" },
+            Left = new PropertyExpression { PropertyName = "Amount" },
             Operator = BinaryOperator.LessThanOrEqual,
             Right = new ConstantExpression { Value = 21m }
           },
@@ -568,14 +568,14 @@ namespace Metanga.Domain.Test
         {
           Left = new BinaryExpression
           {
-            Left = new PropertyExpression { Name = "Amount" },
+            Left = new PropertyExpression { PropertyName = "Amount" },
             Operator = BinaryOperator.GreaterThan,
             Right = new ConstantExpression { Value = 35m }
           },
           Operator = BinaryOperator.And,
           Right = new BinaryExpression
           {
-            Left = new PropertyExpression { Name = "Amount" },
+            Left = new PropertyExpression { PropertyName = "Amount" },
             Operator = BinaryOperator.GreaterThanOrEqual,
             Right = new ConstantExpression { Value = 45m }
           },

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MetraTech.Domain.DataAccess;
 using MetraTech.Domain.Expressions;
@@ -306,6 +307,16 @@ namespace Metanga.Domain.Test
             var propertyExpression = new PropertyExpression { Expression = identifierExpression, PropertyName = "Currency" };
             var parameterExpression = System.Linq.Expressions.Expression.Parameter(typeof(FakePayment), "x");
             propertyExpression.ConvertToLinq(parameterExpression);
+        }
+
+        [TestMethod]
+        public void ParameterChainExpressionTest()
+        {
+            var identifierExpression = new IdentifierExpression { Name = "variable" };
+            var payerExpression = new PropertyExpression { Expression = identifierExpression, PropertyName = "Payer" };
+            var emailExpression = new PropertyExpression { Expression = payerExpression, PropertyName = "EmailAddress" };
+            var parameterExpression = System.Linq.Expressions.Expression.Parameter(typeof(FakePayment), "x");
+            emailExpression.ConvertToLinq(parameterExpression);
         }
 
         /* todo: how to assert exceptions? */
@@ -637,5 +648,26 @@ namespace Metanga.Domain.Test
         /// Payment amount
         /// </summary>
         public decimal Amount { get; set; }
+
+        /// <summary>
+        /// Account that made the payment
+        /// </summary>
+        public FakeAccount Payer { get; set; }
+    }
+
+    /// <summary>
+    /// A fake implementation of the account entity class
+    /// </summary>
+    public class FakeAccount
+    {
+        /// <summary>
+        /// Account Id
+        /// </summary>
+        public Guid AccountId { get; set; }
+
+        /// <summary>
+        /// Email Address
+        /// </summary>
+        public string EmailAddress { get; set; }
     }
 }

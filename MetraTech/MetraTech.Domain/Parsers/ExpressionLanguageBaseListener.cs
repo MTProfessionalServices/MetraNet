@@ -25,6 +25,9 @@ public partial class ExpressionLanguageBaseListener : IExpressionLanguageListene
 	public virtual void EnterDateTimeExpression(ExpressionLanguageParser.DateTimeExpressionContext context) { }
 	public virtual void ExitDateTimeExpression(ExpressionLanguageParser.DateTimeExpressionContext context) { }
 
+	public virtual void EnterPropertyExpression(ExpressionLanguageParser.PropertyExpressionContext context) { }
+	public virtual void ExitPropertyExpression(ExpressionLanguageParser.PropertyExpressionContext context) { }
+
 	public virtual void EnterNumberExpression(ExpressionLanguageParser.NumberExpressionContext context) { }
 	public virtual void ExitNumberExpression(ExpressionLanguageParser.NumberExpressionContext context) { }
 

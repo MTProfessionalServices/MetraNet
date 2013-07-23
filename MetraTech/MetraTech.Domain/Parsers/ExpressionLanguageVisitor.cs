@@ -16,6 +16,8 @@ public interface IExpressionLanguageVisitor<Result> : IParseTreeVisitor<Result> 
 
 	Result VisitDateTimeExpression(ExpressionLanguageParser.DateTimeExpressionContext context);
 
+	Result VisitPropertyExpression(ExpressionLanguageParser.PropertyExpressionContext context);
+
 	Result VisitNumberExpression(ExpressionLanguageParser.NumberExpressionContext context);
 
 	Result VisitUnaryExpression(ExpressionLanguageParser.UnaryExpressionContext context);

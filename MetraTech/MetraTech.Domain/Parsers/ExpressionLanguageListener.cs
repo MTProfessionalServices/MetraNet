@@ -22,6 +22,9 @@ public interface IExpressionLanguageListener : IParseTreeListener {
 	void EnterDateTimeExpression(ExpressionLanguageParser.DateTimeExpressionContext context);
 	void ExitDateTimeExpression(ExpressionLanguageParser.DateTimeExpressionContext context);
 
+	void EnterPropertyExpression(ExpressionLanguageParser.PropertyExpressionContext context);
+	void ExitPropertyExpression(ExpressionLanguageParser.PropertyExpressionContext context);
+
 	void EnterNumberExpression(ExpressionLanguageParser.NumberExpressionContext context);
 	void ExitNumberExpression(ExpressionLanguageParser.NumberExpressionContext context);
 

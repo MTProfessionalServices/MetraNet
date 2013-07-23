@@ -81,7 +81,7 @@ namespace MetraTech.Domain.Test.Parsers
         [TestMethod]
         public void BinaryExpressionTest()
         {
-            var binaryExpression = ExpressionLanguageHelper.ParseExpression("Currency = \"USD\"");
+            var binaryExpression = ExpressionLanguageHelper.ParseExpression("payment.Currency = \"USD\"");
             var payment = new FakePayment { Amount = 5, Currency = "USD" };
             var result = binaryExpression.Evaluate<bool, FakePayment>(payment);
             Assert.AreEqual(true, result);
@@ -90,10 +90,20 @@ namespace MetraTech.Domain.Test.Parsers
         [TestMethod]
         public void ComplexExpressionTest()
         {
-            var binaryExpression = ExpressionLanguageHelper.ParseExpression("Amount * 3.5 + 2");
+            var binaryExpression = ExpressionLanguageHelper.ParseExpression("payment.Amount * 3.5 + 2");
             var payment = new FakePayment { Amount = 5, Currency = "USD" };
             var result = binaryExpression.Evaluate<Decimal, FakePayment>(payment);
             Assert.AreEqual(19.5m, result);
+        }
+
+        [TestMethod]
+        public void PropertyChainExpressionTest()
+        {
+            var emailExpression = ExpressionLanguageHelper.ParseExpression("payment.Payer.EmailAddress");
+            var payer = new FakeAccount {EmailAddress = "mdesousa@metratech.com" };
+            var payment = new FakePayment { Amount = 5, Currency = "USD", Payer = payer };
+            var result = emailExpression.Evaluate<string, FakePayment>(payment);
+            Assert.AreEqual("mdesousa@metratech.com", result);
         }
     }
 }

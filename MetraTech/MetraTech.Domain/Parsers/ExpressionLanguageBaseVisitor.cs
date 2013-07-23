@@ -17,6 +17,8 @@ public partial class ExpressionLanguageBaseVisitor<Result> : AbstractParseTreeVi
 
 	public virtual Result VisitDateTimeExpression(ExpressionLanguageParser.DateTimeExpressionContext context) { return VisitChildren(context); }
 
+	public virtual Result VisitPropertyExpression(ExpressionLanguageParser.PropertyExpressionContext context) { return VisitChildren(context); }
+
 	public virtual Result VisitNumberExpression(ExpressionLanguageParser.NumberExpressionContext context) { return VisitChildren(context); }
 
 	public virtual Result VisitUnaryExpression(ExpressionLanguageParser.UnaryExpressionContext context) { return VisitChildren(context); }

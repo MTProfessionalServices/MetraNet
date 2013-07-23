@@ -60,16 +60,42 @@ namespace MetraTech.Domain.Parsers
         public override Expression VisitIdentifierExpression(ExpressionLanguageParser.IdentifierExpressionContext context)
         {
             var name = context.GetText();
-            var expression = new PropertyExpression { PropertyName = name };
+            var expression = new IdentifierExpression { Name = name };
             return expression;
         }
 
-        public override Expression VisitUnaryExpression(ExpressionLanguageParser.UnaryExpressionContext context)
+        public override Expression VisitPropertyExpression(ExpressionLanguageParser.PropertyExpressionContext context)
         {
-            return base.VisitUnaryExpression(context);
+            var childExpression = Visit(context.GetChild(0));
+            var propertyName = context.GetChild(2).GetText();
+            var expression = new PropertyExpression
+            {
+                Expression = childExpression,
+                PropertyName = propertyName
+            };
+            return expression;
         }
 
-        private static readonly Dictionary<int, BinaryOperator> _operatorMapper = new Dictionary<int, BinaryOperator>
+        private static readonly Dictionary<int, UnaryOperator> _unaryOperatorMapper = new Dictionary<int, UnaryOperator>
+            {
+                { ExpressionLanguageLexer.NOT, UnaryOperator.Not },
+                { ExpressionLanguageLexer.MINUS, UnaryOperator.Minus }
+            };
+
+        public override Expression VisitUnaryExpression(ExpressionLanguageParser.UnaryExpressionContext context)
+        {
+            var token = context.GetChild(0).Payload as CommonToken;
+            if (token == null) throw new InvalidOperationException("First child of unary operation is not a common token");
+            var childExpression = Visit(context.GetChild(1));
+            var expression = new UnaryExpression
+            {
+                Operator = _unaryOperatorMapper[token.Type],
+                Expression = childExpression
+            };
+            return expression;
+        }
+
+        private static readonly Dictionary<int, BinaryOperator> _binaryOperatorMapper = new Dictionary<int, BinaryOperator>
             {
                 { ExpressionLanguageLexer.OR, BinaryOperator.Or },
                 { ExpressionLanguageLexer.AND, BinaryOperator.And },
@@ -96,7 +122,7 @@ namespace MetraTech.Domain.Parsers
             var expression = new BinaryExpression
                 {
                         Left = left,
-                        Operator = _operatorMapper[token.Type],
+                        Operator = _binaryOperatorMapper[token.Type],
                         Right = right
                 };
             return expression;

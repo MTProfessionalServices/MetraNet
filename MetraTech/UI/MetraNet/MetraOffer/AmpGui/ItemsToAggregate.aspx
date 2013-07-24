@@ -8,32 +8,18 @@
     <asp:Label ID="lblTitle" runat="server" Text="Items to Aggregate" meta:resourcekey="lblTitleResource1"></asp:Label>
   </div>
 
+   <div style="line-height:20px;padding-top:10px;padding-left:15px;">
+     <asp:Label ID="Label6" runat="server" Font-Bold="False" ForeColor="DarkBlue" 
+          Font-Size="9pt" meta:resourcekey="lblGenInfoResource1" 
+          Text="Decisions count monetary amounts, units or number of events. This screen allows the selection of what a decision type will aggregate." />
+          <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_USAGE_OVERLAP,TEXT_AMPWIZARD_HELP_ITEMS_TO_AGGREGATE, 400, 125)()">
+            <asp:Image ID="Image1" runat="server" 
+              ImageUrl="/Res/Images/icons/help.png" />
+          </span>
+   </div>
 
   <div style="line-height:20px;padding-top:10px;padding-left:10px;">
-    <table style="width: 500px">
-      <tr>
-        <td style="width: 40px">
-          <asp:Image ID="Image1" runat="server" Height="32px" 
-            ImageUrl="/Res/Images/icons/Settings.png" Width="32px" 
-            meta:resourcekey="Image1Resource1" />
-        </td>
-        <td>
-          <asp:Label ID="lblGenInfo" runat="server" Font-Bold="False" ForeColor="DarkBlue" 
-          Font-Size="9pt" meta:resourcekey="lblGenInfoResource1" 
-          Text="A Decision Type has settings that let you fine-tune its behavior." />
-          <br />
-          <div style="padding-top:5px;">
-            <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_MORE_INFO, TEXT_AMPWIZARD_HELP_ITEMS_TO_AGGREGATE, 300, 100)" id="moreLink" ><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:AmpWizard,TEXT_MORE %>" /></span>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td style="width: 40px">
-          &nbsp;</td>
-        <td>
-          &nbsp;</td>
-      </tr>
-    </table>
+    
     <asp:Label ID="Label1" runat="server" Font-Bold="False" ForeColor="DarkBlue" 
       Font-Size="9pt" meta:resourcekey="lblGenInfoResource2" 
       Text="Let’s adjust the settings for this Decision Type." />

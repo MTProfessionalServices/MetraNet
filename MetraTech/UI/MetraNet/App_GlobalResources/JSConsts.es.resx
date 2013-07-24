@@ -967,7 +967,7 @@
     <value>Spanish</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_ITEMS_TO_AGGREGATE" xml:space="preserve">
-    <value>Spanish</value>
+    <value>(SPANISH) For example, suppose the Decision Type is \"Use a special rate if the number of minutes of usage is over 500\". The settings might include \"500\" and the \"special rate\" to apply.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
     <value>Spanish</value>
@@ -1036,13 +1036,13 @@
     <value>(Spanish)Help: Multi-bucket</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
-    <value>(Spanish) &lt;i&gt;Multi-bucket&lt;/i&gt; means that the decision takes a record, adds it to the total, and if the total is within the range, performs an action.</value>
+    <value>(Spanish)Act on each individual record.  Usage may have different prices  which are determined by the bucket into which they fall.</value>
   </data>
    <data name="TITLE_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
     <value>(Spanish)Help: Single-bucket</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
-    <value>(Spanish)&lt;i&gt;Single-bucket&lt;/i&gt; means that the decision totals &lt;u&gt;ALL&lt;/u&gt; the records, and if the total falls within the range, applies the action to &lt;u&gt;ALL&lt;/u&gt; the records.</value>
+    <value>(Spanish)Act on all the records together.  All usage has same price which is determined by total volume.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_UNIT_RATE" xml:space="preserve">
     <value>Spanish</value>
@@ -1069,7 +1069,7 @@
     <value>Spanish</value>
   </data>
     <data name="TITLE_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
-    <value>(Spanish) Help:  No Charge</value>
+    <value>(Spanish) Help:  None</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
     <value>(Spanish) Do not generate a charge for this decision</value>

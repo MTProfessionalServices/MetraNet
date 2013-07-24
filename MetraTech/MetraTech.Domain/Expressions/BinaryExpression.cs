@@ -81,12 +81,12 @@ namespace MetraTech.Domain.Expressions
     /// <summary>
     /// Converts a Metanga Expression into a Linq expression that can be executed against an IQueryable
     /// </summary>
-    /// <param name="parameter">A parameter to be referenced by an variable expressions</param>
+    /// <param name="parameters">A parameter to be referenced by an variable expressions</param>
     /// <returns>A linq expression</returns>
-    public override System.Linq.Expressions.Expression ConvertToLinq(System.Linq.Expressions.Expression parameter)
+    public override System.Linq.Expressions.Expression ConvertToLinq(params System.Linq.Expressions.ParameterExpression[] parameters)
     {
-      var leftLinqExpression = Left.ConvertToLinq(parameter);
-      var rightLinqExpression = Right.ConvertToLinq(parameter);
+      var leftLinqExpression = Left.ConvertToLinq(parameters);
+      var rightLinqExpression = Right.ConvertToLinq(parameters);
       return CreateBinaryLinqExpression(leftLinqExpression, Operator, rightLinqExpression);
     }
 

@@ -65,7 +65,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Antlr4.Runtime.v4.0">
-      <HintPath>..\Reference\Antlr\Antlr4.Runtime.v4.0.dll</HintPath>
+      <HintPath>..\..\Thirdparty\antlr\Antlr4.Runtime.v4.0.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
@@ -206,12 +206,12 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <!-- Folder containing AntlrBuildTask.dll -->
-    <Antlr4BuildTaskPath>$(ProjectDir)..\Reference\Antlr</Antlr4BuildTaskPath>
+    <Antlr4BuildTaskPath>$(ProjectDir)..\..\Thirdparty\antlr</Antlr4BuildTaskPath>
     <!-- Path to the ANTLR Tool itself. -->
-    <Antlr4ToolPath>$(ProjectDir)..\Reference\Antlr\antlr4-csharp-4.0.1-SNAPSHOT-complete.jar</Antlr4ToolPath>
-    <Antlr4ToolPath>$(ProjectDir)..\Reference\Antlr\antlr4-csharp-4.0.1-SNAPSHOT-complete.jar</Antlr4ToolPath>
+    <Antlr4ToolPath>$(ProjectDir)..\..\Thirdparty\antlr\antlr4-csharp-4.0.1-SNAPSHOT-complete.jar</Antlr4ToolPath>
+    <Antlr4ToolPath>$(ProjectDir)..\..\Thirdparty\antlr\antlr4-csharp-4.0.1-SNAPSHOT-complete.jar</Antlr4ToolPath>
   </PropertyGroup>
-  <Import Project="$(ProjectDir)..\Reference\Antlr\Antlr4.targets" />
+  <Import Project="$(ProjectDir)..\..\Thirdparty\antlr\Antlr4.targets" />
   <Import Project="$(ProjectDir)..\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

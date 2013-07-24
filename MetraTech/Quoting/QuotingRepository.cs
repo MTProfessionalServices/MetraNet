@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Transactions;
 using MetraTech.ActivityServices.Common;
 using MetraTech.BusinessEntity.DataAccess.Metadata;
 using MetraTech.BusinessEntity.DataAccess.Persistence;
 using Core.Quoting;
 using MetraTech.Debug.Diagnostics;
-using MetraTech.DomainModel.BaseTypes;
+using MetraTech.Domain.Quoting;
 using IMTSessionContext = MetraTech.Interop.MTAuth.IMTSessionContext;
 
 namespace MetraTech.Quoting

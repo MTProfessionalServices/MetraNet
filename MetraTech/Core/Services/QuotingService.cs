@@ -3,8 +3,8 @@ using System.ServiceModel;
 using MetraTech.ActivityServices.Common;
 using MetraTech.ActivityServices.Services.Common;
 using MetraTech.Debug.Diagnostics;
+using MetraTech.Domain.Quoting;
 using MetraTech.Quoting;
-using MetraTech.DomainModel.BaseTypes;
 
 namespace MetraTech.Core.Services
 {

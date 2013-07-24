@@ -135,7 +135,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ProdCatTimeSpan.cs" />
-    <Compile Include="Quoting.cs" />
     <Compile Include="RateEntry.cs" />
     <Compile Include="RateSchedule.cs" />
     <Compile Include="ReasonCode.cs" />

@@ -58,6 +58,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -94,6 +95,12 @@
     <Compile Include="Events\ThresholdCrossingEvent.cs" />
     <Compile Include="Quantity.cs" />
     <Compile Include="Quoting\QuoteIndividualPrice.cs" />
+    <Compile Include="Quoting\QuoteLogRecord.cs" />
+    <Compile Include="Quoting\QuoteRequest.cs" />
+    <Compile Include="Quoting\QuoteResponse.cs" />
+    <Compile Include="Quoting\QuoteStatus.cs" />
+    <Compile Include="Quoting\ReportParams.cs" />
+    <Compile Include="Quoting\SubscriptionParameters.cs" />
     <Compile Include="StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>

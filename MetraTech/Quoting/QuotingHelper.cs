@@ -2,7 +2,7 @@
 using System.Xml.Linq;
 using Core.Quoting;
 using MetraTech.DataAccess;
-using MetraTech.DomainModel.BaseTypes;
+using MetraTech.Domain.Quoting;
 using MetraTech.Interop.QueryAdapter;
 
 namespace MetraTech.Quoting

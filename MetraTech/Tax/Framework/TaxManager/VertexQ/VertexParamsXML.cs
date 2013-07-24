@@ -27,7 +27,7 @@ namespace Framework.TaxManager.VertexQ
       string vertexXML = null;
 
       _logger.LogInfo("Building vertex params xml string to be send to the server socket...");
-      vertexXML += "<VertexParams>";
+      vertexXML += "<VertexTaxParams>";
 
       vertexXML =
         vertexParameters.Aggregate(vertexXML,
@@ -36,7 +36,7 @@ namespace Framework.TaxManager.VertexQ
 
       _logger.LogInfo("Done building vertex params xml string to be send to the server socket.");
 
-      vertexXML += "</VertexParams>";
+      vertexXML += "</VertexTaxParams>";
       return vertexXML;
     }
 

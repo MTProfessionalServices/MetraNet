@@ -4,6 +4,7 @@ using MetraTech.Basic;
 using MetraTech.Basic.Config;
 using MetraTech.DataAccess;
 using MetraTech.Interop.QueryAdapter;
+using System.IO;
 
 namespace MetraTech.ExpressionEngine.Metadata.Hook
 {
@@ -30,7 +31,14 @@ namespace MetraTech.ExpressionEngine.Metadata.Hook
       {
         _logger.Debug("Retrieve extensions by expression engine");
 
-        var context = Context.LoadExtensions(String.Concat(SystemConfig.GetRmpDir(), @"Apps\Data\MetraTech\Extensions"));
+		var metadataPath = Path.GetFullPath(Path.Combine(SystemConfig.GetRmpDir(), @"Apps\Data\MetraTech\Extensions"));
+		
+		if(!Directory.Exists(metadataPath)) {
+		  _logger.Debug(String.Concat("Path for Metadata does not exists: ",  metadataPath));
+		  return;
+		}
+		
+        var context = Context.LoadExtensions(metadataPath);
 
         _logger.Debug("Retrieve metadata from Expression Engine context");
 

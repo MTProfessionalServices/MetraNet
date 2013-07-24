@@ -6,8 +6,8 @@
   <WorldPayConfig>
     <url>https://secure-test.worldpay.com/jsp/merchant/xml/paymentService.jsp</url>
     <credentials>
-      <credential type="recurring" username="METRATECHPAO" password="happynewyear12"/>
-      <credential type="monitoring" username="METRATECHUSD" password="happynewyear12" />
+      <credential type="recurring" username="METRATECHPAO" password="46073e3d-0e41-43ba-8eb1-f1c8c5acbc08GNJVHm2lfQ9SF+NcA8Wk2EUjAzgIx7ZMN1fUm4OR5SU=" encrypted="true" />
+      <credential type="monitoring" username="METRATECHUSD" password="46073e3d-0e41-43ba-8eb1-f1c8c5acbc08GNJVHm2lfQ9SF+NcA8Wk2EUjAzgIx7ZMN1fUm4OR5SU=" encrypted="true" />
     </credentials>
     <templatesfilename>WorldpayTemplates.xml</templatesfilename>
     <paymentMethodMask>

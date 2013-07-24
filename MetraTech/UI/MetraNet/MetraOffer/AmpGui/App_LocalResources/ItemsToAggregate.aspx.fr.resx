@@ -130,7 +130,7 @@
     <value>(FRENCH)From Parameter Table.</value>
   </data>
   <data name="lblGenInfoResource1.Text" xml:space="preserve">
-    <value>(FRENCH)A Decision Type has settings that let you fine-tune its behavior.</value>
+    <value>(FRENCH) Decisions count monetary amounts, units or number of events. This screen allows the selection of what a decision type will aggregate.</value>
   </data>
   <data name="lblGenInfoResource2.Text" xml:space="preserve">
     <value>(FRENCH)Adjust the settings for this Decision Type.</value>

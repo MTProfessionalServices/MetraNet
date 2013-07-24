@@ -208,10 +208,18 @@
       <Name>MetraTech.DomainModel.BaseTypes</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\MetraTech.Application\MetraTech.Application.csproj">
+      <Project>{A19EED27-05B5-4907-B8A7-20C43EED7F42}</Project>
+      <Name>MetraTech.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MetraTech.Common.csproj">
       <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
       <Name>MetraTech.Common</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MetraTech.Domain\MetraTech.Domain.csproj">
+      <Project>{9C9C685C-CBF8-428F-8C34-98702FF13726}</Project>
+      <Name>MetraTech.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\Pipeline\ReRun\MetraTech.Pipeline.Rerun.csproj">
       <Project>{BC2DC75E-9076-45AE-B592-7EBE2AB11BA7}</Project>

@@ -1,25 +1,19 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Threading;
 using System.Transactions;
 using MetraTech.ActivityServices.Common;
-using MetraTech.BusinessEntity.DataAccess.Persistence;
 using MetraTech.DataAccess;
-using MetraTech.DomainModel.BaseTypes;
+using MetraTech.Domain.Quoting;
 using MetraTech.Interop.MTAuditEvents;
-//using MetraTech.Interop.MTAuth;
 using MetraTech.Interop.MTBillingReRun;
 using MetraTech.Interop.QueryAdapter;
 using MetraTech.Pipeline;
 using MetraTech.UsageServer;
-//using MetraTech.UsageServer.Adapters;
 using Auth = MetraTech.Interop.MTAuth;
 using MetraTech.Interop.MTProductCatalog;
-using IRecurringEventRunContext = MetraTech.UsageServer.IRecurringEventRunContext;
 using BillingReRun = MetraTech.Interop.MTBillingReRun;
 using BillingReRunClient = MetraTech.Pipeline.ReRun;
 using MetraTech.Interop.GenericCollection;
@@ -636,17 +630,14 @@ namespace MetraTech.Quoting
           #region Indvidual subscription
 
           //Create individual subscriptions for each account
-          using (TransactionScope scope = new TransactionScope(TransactionScopeOption.RequiresNew,
-                                                            new TransactionOptions(),
-                                                            EnterpriseServicesInteropOption.Full))
+          using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions(), EnterpriseServicesInteropOption.Full))
           {
-
             //Subscribe
-            foreach (int idAccount in CurrentRequest.Accounts)
+            foreach (var idAccount in CurrentRequest.Accounts)
             {
               var acc = CurrentProductCatalog.GetAccount(idAccount);
 
-              foreach (int po in CurrentRequest.ProductOfferings)
+              foreach (var po in CurrentRequest.ProductOfferings)
               {
                 var effDate = new MTPCTimeSpanClass
                   {
@@ -661,9 +652,7 @@ namespace MetraTech.Quoting
                 {
                   if (CurrentRequest.SubscriptionParameters.UDRCValues.ContainsKey(po.ToString()))
                   {
-                    foreach (
-                      var udrcInstanceValue in
-                        CurrentRequest.SubscriptionParameters.UDRCValues[po.ToString()])
+                    foreach (var udrcInstanceValue in CurrentRequest.SubscriptionParameters.UDRCValues[po.ToString()])
                     {
                       subscription.SetRecurringChargeUnitValue(udrcInstanceValue.UDRC_Id,
                                                                udrcInstanceValue.Value,

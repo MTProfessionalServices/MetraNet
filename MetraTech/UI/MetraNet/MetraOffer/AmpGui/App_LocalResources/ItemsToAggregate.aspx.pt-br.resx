@@ -137,7 +137,7 @@
     <value>(BRAZILIAN PORTUGUESE)From Parameter Table.</value>
   </data>
   <data name="lblGenInfoResource1.Text" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE)A Decision Type has settings that let you fine-tune its behavior.</value>
+    <value>(BRAZILIAN PORTUGUESE) Decisions count monetary amounts, units or number of events. This screen allows the selection of what a decision type will aggregate.</value>
   </data>
   <data name="lblGenInfoResource2.Text" xml:space="preserve">
     <value>(BRAZILIAN PORTUGUESE)Adjust the settings for this Decision Type.</value>

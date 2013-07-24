@@ -370,12 +370,12 @@ namespace MetraTech.ExpressionEngine.MTProperties
         #region IEnumerable Methods
         IEnumerator<Property> IEnumerable<Property>.GetEnumerator()
         {
-          return Properties.GetEnumerator();
+            return Properties.GetEnumerator();
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-          return Properties.GetEnumerator();
+            throw new NotImplementedException();
         }
         #endregion
 

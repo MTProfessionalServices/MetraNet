@@ -85,9 +85,6 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         {
             foreach (var property in CoreProperties)
             {
-                if (Properties == null)
-                  continue;
-
                 if (property.Name == "EventCharge" && Properties.Get("EventCharge") != null)
                     continue;
                 Properties.Add(property);

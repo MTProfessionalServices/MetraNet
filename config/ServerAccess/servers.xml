@@ -5,6 +5,6 @@
         <servertype>TweServer</servertype>
         <address>http://twe001:8086/twe/services/TaxCalculationManagerService</address>
         <username>Admin</username>
-        <password encrypted="false">Admin123</password>
+        <password encrypted="true">cbb23d8d-8189-4039-a575-a7388c369d99KThVnBAV69SMe5bzKrzNZdJV79TL810+ZX13RyEsb3A=</password>
     </server>
 </xmlconfig>

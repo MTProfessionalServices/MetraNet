@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ServiceModel;
+using MetraTech.Domain;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.ActivityServices.Services.Common;
 using MetraTech.ActivityServices.Common;

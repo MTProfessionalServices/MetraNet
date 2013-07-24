@@ -9,6 +9,7 @@ using MetraTech.ActivityServices.Services.Common;
 
 using MetraTech.ActivityServices.Common;
 using MetraTech.Auth.Capabilities;
+using MetraTech.Domain;
 using MetraTech.DomainModel.Enums.Core.Metratech_com;
 using MetraTech.DomainModel.Billing;
 using MetraTech.DomainModel.MetraPay;
@@ -35,6 +36,7 @@ using System.Data;
 using System.Linq.Expressions;
 using System.Linq;
 using MetraTech.Debug.Diagnostics;
+using DatabaseUtils = MetraTech.Domain.DataAccess.DatabaseUtils;
 
 namespace MetraTech.Core.Services
 {
@@ -6020,7 +6022,7 @@ namespace MetraTech.Core.Services
                 string tag = attrib.QueryTag;
                 object value = prop.GetValue(parameters, null);
 
-                stmt.AddParamIfFound(tag, FormatValueForDB(value));
+                stmt.AddParamIfFound(tag, DatabaseUtils.FormatValueForDB(value));
               }
             }
 

@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.ServiceModel;
 using System.Runtime.Serialization;
+using MetraTech.Application;
+using MetraTech.Application.ProductManagement;
 using MetraTech.DataAccess;
 using MetraTech.Interop.QueryAdapter;
 using RS = MetraTech.Interop.Rowset;
@@ -26,6 +28,7 @@ using System.Runtime.InteropServices;
 using MetraTech.DomainModel.Enums.Core.Global_SystemCurrencies;
 using System.Transactions;
 using MetraTech.Debug.Diagnostics;
+using IMTSessionContext = MetraTech.Interop.MTAuth.IMTSessionContext;
 
 
 namespace MetraTech.Core.Services
@@ -333,7 +336,7 @@ namespace MetraTech.Core.Services
                 m_PriceListLogger.LogDebug("Updating shared pricelist");
                 m_PriceListLogger.LogDebug("Updating base props for shared pricelist.");
 
-                UpdateBaseProps(context,
+                BasePropsUtils.UpdateBaseProps(context,
                                 priceList.Description,
                                 priceList.IsDescriptionDirty,
                                 null,
@@ -368,7 +371,7 @@ namespace MetraTech.Core.Services
                 #region Adding Shared pricelist.
                 m_PriceListLogger.LogDebug("Adding Shared pricelist.");
                 m_PriceListLogger.LogDebug("Updating base props for shared pricelist.");
-                priceList.ID = CreateBaseProps(context, priceList.Name, priceList.Description, null, PRICELIST_KIND);
+                priceList.ID = BasePropsUtils.CreateBaseProps(context, priceList.Name, priceList.Description, null, PRICELIST_KIND);
 
                 m_PriceListLogger.LogDebug("Preparing update statement for shared pricelist.");
                 using (IMTAdapterStatement createStmt = conn.CreateAdapterStatement(PCWS_QUERY_FOLDER, "__ADD_PRICELIST_PCWS__"))
@@ -853,109 +856,16 @@ namespace MetraTech.Core.Services
                                           PCIdentifier paramTableID,
                                           List<BaseRateSchedule> rscheds)
     {
-      using (HighResolutionTimer timer = new HighResolutionTimer("SaveRateSchedulesForSubscription"))
+      using (new HighResolutionTimer("SaveRateSchedulesForSubscription"))
+      using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions(),
+                                         EnterpriseServicesInteropOption.Full))
       {
-        try
-        {
-          #region Resolve identifiers
-          int instanceId = PCIdentifierResolver.ResolvePIInstanceBySub(subId, piInstanceID, false);
+        Application.ProductManagement.PriceListService.SaveRateSchedulesForSubscription(subId, piInstanceID,
+                                                                                         paramTableID, rscheds,
+                                                                                         m_PriceListLogger,
+                                                                                         GetSessionContext());
 
-          int ptId = -1;
-
-          if (paramTableID.ID.HasValue)
-          {
-            if (CacheManager.ParamTableIdToNameMap.ContainsKey(paramTableID.ID.Value))
-            {
-              ptId = CacheManager.ParamTableIdToNameMap[paramTableID.ID.Value].ID;
-            }
-          }
-          else if (!string.IsNullOrEmpty(paramTableID.Name))
-          {
-            if (CacheManager.ParamTableNameToIdMap.ContainsKey(paramTableID.Name.ToUpper()))
-            {
-              ptId = CacheManager.ParamTableNameToIdMap[paramTableID.Name.ToUpper()].ID;
-            }
-          }
-
-          if (instanceId == -1)
-            throw new MASBasicException(String.Format("Invalid Priceable Item Instance specified for subscription {0}.", subId));
-
-          if (ptId == -1)
-            throw new MASBasicException(String.Format("Invalid Parameter Table ID specified for subscription {0}.", subId));
-          #endregion
-
-          m_PriceListLogger.LogDebug("Saving rate schedules for parameter table {0}, pi instance {1}, and subscription {2}", ptId, instanceId, subId);
-
-          using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions(), EnterpriseServicesInteropOption.Full))
-          {
-            using (IMTConnection conn = ConnectionManager.CreateConnection())
-            {
-              int pricelistId = -1;
-
-              using (IMTCallableStatement stmt = conn.CreateCallableStatement("GetICBMappingForSub"))
-              {
-                stmt.AddParam("id_paramtable", MTParameterType.Integer, ptId);
-                stmt.AddParam("id_pi_instance", MTParameterType.Integer, instanceId);
-                stmt.AddParam("id_sub", MTParameterType.Integer, subId);
-                stmt.AddParam("p_systemdate", MTParameterType.DateTime, MetraTime.Now);
-                stmt.AddOutputParam("status", MTParameterType.Integer);
-                stmt.AddOutputParam("id_pricelist", MTParameterType.Integer);
-
-                stmt.ExecuteNonQuery();
-
-                int status = (int)stmt.GetOutputValue("status");
-
-                if (status == -10)
-                {
-                  throw new MASBasicException("ICB rates are not allowed for this parameter table on this product offering");
-                }
-
-                pricelistId = (int)stmt.GetOutputValue("id_pricelist");
-              }
-
-              if (pricelistId == -1)
-              {
-                throw new MASBasicException("Unable to get ICB pricelist for subscription");
-              }
-
-              int templateId = -1;
-
-              using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(PCWS_QUERY_FOLDER, "__GET_TEMPLATE_FOR_INSTANCE__"))
-              {
-                stmt.AddParam("%%ID_PI%%", instanceId);
-
-                using (IMTDataReader rdr = stmt.ExecuteReader())
-                {
-                  if (rdr.Read())
-                  {
-                    templateId = rdr.GetInt32(0);
-                  }
-                }
-              }
-
-              if (templateId == -1)
-              {
-                throw new MASBasicException("Unable to locate template ID for priceable item instance");
-              }
-
-              UpsertRateSchedulesForPricelist(pricelistId, PricelistTypes.ICB_SUB, templateId, ptId, rscheds);
-            }
-
-            scope.Complete();
-          }
-        }
-        catch (MASBasicException masE)
-        {
-          m_PriceListLogger.LogException("MAS Exception caught saving rate schedules for ICB", masE);
-
-          throw;
-        }
-        catch (Exception e)
-        {
-          m_PriceListLogger.LogException("Unknown error caught saving rate schedules for subscription", e);
-
-          throw new MASBasicException("Unexpected error saving rate schedules for subscription.  Please ask system administrator to review server logs");
-        }
+        scope.Complete();
       }
     }
 
@@ -1151,7 +1061,7 @@ namespace MetraTech.Core.Services
                 }
               }
 
-              UpsertRateSchedulesForPricelist(pricelistId, PricelistTypes.DEFAULT, templateId, id_paramtable, rscheds);
+              Application.ProductManagement.PriceListService.UpsertRateSchedulesForPricelist(pricelistId, PriceListTypes.DEFAULT, templateId, id_paramtable, rscheds, m_PriceListLogger, GetSessionContext());
             }
 
             scope.Complete();
@@ -1689,7 +1599,7 @@ namespace MetraTech.Core.Services
           {
             using (IMTConnection conn = ConnectionManager.CreateConnection())
             {
-              UpsertRateSchedulesForPricelist(plID, PricelistTypes.DEFAULT, id_template, id_paramtable, rscheds);
+              Application.ProductManagement.PriceListService.UpsertRateSchedulesForPricelist(plID, PriceListTypes.DEFAULT, id_template, id_paramtable, rscheds, m_PriceListLogger, GetSessionContext());
             }
 
             scope.Complete();
@@ -1720,7 +1630,7 @@ namespace MetraTech.Core.Services
 
         sched.ID = scheduleReader.GetInt32("ID");
         sched.ParameterTableID = scheduleReader.GetInt32("ParameterTableID");
-        sched.EffectiveDate = GetEffectiveDate(scheduleReader, "Effective");
+        sched.EffectiveDate = EffectiveDateUtils.GetEffectiveDate(scheduleReader, "Effective");
         sched.Description = scheduleReader.IsDBNull("Description") ? null : scheduleReader.GetString("Description");
         sched.ParameterTableName = CacheManager.ParamTableIdToNameMap[sched.ParameterTableID].Name;
 

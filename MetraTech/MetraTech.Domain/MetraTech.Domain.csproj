@@ -43,8 +43,18 @@
     <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="MetraTech.Common, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>O:\debug\Bin\MetraTech.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MTProductCatalog.interop, Version=7.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>O:\debug\Bin\MTProductCatalog.interop.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
@@ -55,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\DatabaseUtils.cs" />
     <Compile Include="DataAccess\EntityTypeConfigurations\EntityConfiguration.cs" />
     <Compile Include="DataAccess\EntityTypeConfigurations\NotificationConfigurationConfiguration.cs" />
     <Compile Include="DataAccess\EntityTypeConfigurations\NotificationEndpointConfiguration.cs" />
@@ -63,6 +74,7 @@
     <Compile Include="DataAccess\SerializationHelper.cs" />
     <Compile Include="Events\Event.cs" />
     <Compile Include="DataAccess\MetraNetContext.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Money.cs" />
     <Compile Include="Notifications\AuthenticationConfiguration.cs" />
     <Compile Include="Entity.cs" />
@@ -82,6 +94,7 @@
     <Compile Include="Events\ThresholdCrossingEvent.cs" />
     <Compile Include="Quantity.cs" />
     <Compile Include="Quoting\QuoteIndividualPrice.cs" />
+    <Compile Include="StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\build\keys\MetraTech.snk">
@@ -98,6 +111,14 @@
     <ProjectReference Include="..\DomainModel\BaseTypes\MetraTech.DomainModel.BaseTypes.csproj">
       <Project>{433B0483-4990-476C-BA07-FABF884D12CB}</Project>
       <Name>MetraTech.DomainModel.BaseTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainModel\Common\MetraTech.DomainModel.Common.csproj">
+      <Project>{E21F8EE1-FA01-465E-B651-A21CC2E1D6AA}</Project>
+      <Name>MetraTech.DomainModel.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainModel\Enums\MetraTech.DomainModel.Enums.csproj">
+      <Project>{C36E2EB0-9715-48BB-81F4-6228C917E071}</Project>
+      <Name>MetraTech.DomainModel.Enums</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -115,7 +115,7 @@ namespace Metanga.Domain.Test
         public void EvaluateConstantExpressionWithInputTest()
         {
             var constantExpression = new ConstantExpression { Value = "Test Value" };
-            var result = constantExpression.Evaluate<string, int>(5);
+            var result = constantExpression.Evaluate<string, int>("payment", 5);
             Assert.AreEqual("Test Value", result);
         }
 
@@ -136,7 +136,7 @@ namespace Metanga.Domain.Test
             var payment = new FakePayment { Currency = "USD" };
             var identifierExpression = new IdentifierExpression { Name = "variable" };
             var parameterExpression = new PropertyExpression { Expression = identifierExpression, PropertyName = "Currency" };
-            var result = parameterExpression.Evaluate<string, FakePayment>(payment);
+            var result = parameterExpression.Evaluate<string, FakePayment>("variable", payment);
             Assert.AreEqual("USD", result);
         }
 
@@ -146,7 +146,7 @@ namespace Metanga.Domain.Test
             var payment = new FakePayment { Amount = 5m };
             var identifierExpression = new IdentifierExpression { Name = "variable" };
             var parameterExpression = new PropertyExpression { Expression = identifierExpression, PropertyName = "Amount" };
-            var result = parameterExpression.Evaluate<decimal, FakePayment>(payment);
+            var result = parameterExpression.Evaluate<decimal, FakePayment>("variable", payment);
             Assert.AreEqual(5m, result);
         }
 
@@ -188,7 +188,7 @@ namespace Metanga.Domain.Test
         {
             var binaryExpression = BuildBinaryExpression("Currency", BinaryOperator.Equal, "USD");
             var payment = new FakePayment { Amount = 5, Currency = "USD" };
-            var result = binaryExpression.Evaluate<bool, FakePayment>(payment);
+            var result = binaryExpression.Evaluate<bool, FakePayment>("variable", payment);
             Assert.AreEqual(true, result);
         }
 
@@ -197,7 +197,7 @@ namespace Metanga.Domain.Test
         {
             var binaryExpression = BuildBinaryExpression("Currency", BinaryOperator.Equal, "USD");
             var payment = new FakePayment { Amount = 5, Currency = "EUR" };
-            var result = binaryExpression.Evaluate<bool, FakePayment>(payment);
+            var result = binaryExpression.Evaluate<bool, FakePayment>("variable", payment);
             Assert.AreEqual(false, result);
         }
 
@@ -293,19 +293,21 @@ namespace Metanga.Domain.Test
             constantExpression.ConvertToLinq(null);
         }
 
+        /* todo: assert exception *?
+        /*
         [TestMethod]
         public void IdentifierExpressionTest()
         {
             var identifierExpression = new IdentifierExpression { Name = "variable" };
             identifierExpression.ConvertToLinq(null);
-        }
+        }*/
 
         [TestMethod]
         public void ParameterExpressionTest()
         {
             var identifierExpression = new IdentifierExpression { Name = "variable" };
             var propertyExpression = new PropertyExpression { Expression = identifierExpression, PropertyName = "Currency" };
-            var parameterExpression = System.Linq.Expressions.Expression.Parameter(typeof(FakePayment), "x");
+            var parameterExpression = System.Linq.Expressions.Expression.Parameter(typeof(FakePayment), "variable");
             propertyExpression.ConvertToLinq(parameterExpression);
         }
 
@@ -315,7 +317,7 @@ namespace Metanga.Domain.Test
             var identifierExpression = new IdentifierExpression { Name = "variable" };
             var payerExpression = new PropertyExpression { Expression = identifierExpression, PropertyName = "Payer" };
             var emailExpression = new PropertyExpression { Expression = payerExpression, PropertyName = "EmailAddress" };
-            var parameterExpression = System.Linq.Expressions.Expression.Parameter(typeof(FakePayment), "x");
+            var parameterExpression = System.Linq.Expressions.Expression.Parameter(typeof(FakePayment), "variable");
             emailExpression.ConvertToLinq(parameterExpression);
         }
 
@@ -382,7 +384,7 @@ namespace Metanga.Domain.Test
         {
             var payments = new List<FakePayment> { new FakePayment { Amount = 5m, Currency = "USD" }, new FakePayment { Amount = 10m, Currency = "USD" }, new FakePayment { Amount = 7m, Currency = "EUR" } }.AsQueryable();
             var filterExpression = BuildBinaryExpression("Currency", BinaryOperator.Equal, "USD");
-            var whereCallExpression = filterExpression.CreateLinqPredicate(payments);
+            var whereCallExpression = filterExpression.CreateLinqPredicate("variable", payments);
             var results = payments.Provider.CreateQuery<FakePayment>(whereCallExpression);
             Assert.AreEqual(2, results.Count());
         }
@@ -394,7 +396,7 @@ namespace Metanga.Domain.Test
             var serializedExpression = filterExpression.Serialize();
             var deserializedExpression = SerializationHelper.Deserialize<Expression>(serializedExpression);
             var fakePayment = new FakePayment { Amount = 5, Currency = "USD" };
-            Assert.IsTrue(deserializedExpression.Evaluate<bool, FakePayment>(fakePayment));
+            Assert.IsTrue(deserializedExpression.Evaluate<bool, FakePayment>("variable", fakePayment));
         }
 
         [TestMethod]
@@ -416,7 +418,7 @@ namespace Metanga.Domain.Test
           new FakePayment {Amount = 13, Currency = "USD"},
           new FakePayment {Amount = 21, Currency = "USD"}
         }.AsQueryable();
-            var whereExpression = deserializedExpression.CreateLinqPredicate(fakePayments);
+            var whereExpression = deserializedExpression.CreateLinqPredicate("variable", fakePayments);
             var results = fakePayments.Provider.CreateQuery<FakePayment>(whereExpression);
             Assert.AreEqual(2, results.Count());
         }
@@ -437,7 +439,7 @@ namespace Metanga.Domain.Test
           new FakePayment {Amount = 13, Currency = "USD"},
           new FakePayment {Amount = 21, Currency = "USD"}
         }.AsQueryable();
-            var whereExpression = deserializedExpression.CreateLinqPredicate(fakePayments);
+            var whereExpression = deserializedExpression.CreateLinqPredicate("variable", fakePayments);
             var results = fakePayments.Provider.CreateQuery<FakePayment>(whereExpression);
             Assert.AreEqual(5, results.Count());
         }
@@ -456,7 +458,7 @@ namespace Metanga.Domain.Test
         public void DetermineTypeOfExpression()
         {
             var filterExpression = BuildBinaryExpression("Currency", BinaryOperator.Equal, "USD");
-            var type = filterExpression.ResolveType(typeof(FakePayment));
+            var type = filterExpression.ResolveType("variable", typeof(FakePayment));
             Assert.AreEqual(typeof(bool), type);
         }
 

@@ -83,7 +83,7 @@ namespace MetraTech.Domain.Test.Parsers
         {
             var binaryExpression = ExpressionLanguageHelper.ParseExpression("payment.Currency = \"USD\"");
             var payment = new FakePayment { Amount = 5, Currency = "USD" };
-            var result = binaryExpression.Evaluate<bool, FakePayment>(payment);
+            var result = binaryExpression.Evaluate<bool, FakePayment>("payment", payment);
             Assert.AreEqual(true, result);
         }
 
@@ -92,7 +92,7 @@ namespace MetraTech.Domain.Test.Parsers
         {
             var binaryExpression = ExpressionLanguageHelper.ParseExpression("payment.Amount * 3.5 + 2");
             var payment = new FakePayment { Amount = 5, Currency = "USD" };
-            var result = binaryExpression.Evaluate<Decimal, FakePayment>(payment);
+            var result = binaryExpression.Evaluate<Decimal, FakePayment>("payment", payment);
             Assert.AreEqual(19.5m, result);
         }
 
@@ -102,7 +102,7 @@ namespace MetraTech.Domain.Test.Parsers
             var emailExpression = ExpressionLanguageHelper.ParseExpression("payment.Payer.EmailAddress");
             var payer = new FakeAccount {EmailAddress = "mdesousa@metratech.com" };
             var payment = new FakePayment { Amount = 5, Currency = "USD", Payer = payer };
-            var result = emailExpression.Evaluate<string, FakePayment>(payment);
+            var result = emailExpression.Evaluate<string, FakePayment>("payment", payment);
             Assert.AreEqual("mdesousa@metratech.com", result);
         }
 
@@ -137,5 +137,16 @@ namespace MetraTech.Domain.Test.Parsers
                 Assert.AreEqual(2, e.SyntaxErrors.Count);
             }
         }
+
+        [TestMethod]
+        public void MultipleArgumentTest()
+        {
+            var binaryExpression = ExpressionLanguageHelper.ParseExpression("payment.Currency = \"USD\" and account.Email = \"mdesousa@metratech.com\"");
+            var payment = new FakePayment { Amount = 5, Currency = "USD" };
+            var account = new FakeAccount { EmailAddress = "mdesousa@metratech.com" };
+            var result = binaryExpression.Evaluate<bool, FakePayment, FakeAccount>("payment", payment, "account", account);
+            Assert.AreEqual(true, result);
+        }
+
     }
 }

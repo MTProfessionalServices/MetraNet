@@ -955,7 +955,7 @@
     <value>Portuguese</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_ITEMS_TO_AGGREGATE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>(BRAZILIAN PORTUGUESE) Example: If the Decision Type is \"Use a special rate if the number of minutes of usage is over 500\", the settings might include \"500\" and the \"special rate\" to apply.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
     <value>Portuguese</value>

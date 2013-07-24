@@ -148,5 +148,14 @@ namespace MetraTech.Domain.Test.Parsers
             Assert.AreEqual(true, result);
         }
 
+        [TestMethod]
+        public void DifferentArgumentNamesTest()
+        {
+            var binaryExpression = ExpressionLanguageHelper.ParseExpression("payment1.Amount - payment2.Amount");
+            var payment1 = new FakePayment { Amount = 5, Currency = "USD" };
+            var payment2 = new FakePayment { Amount = 3, Currency = "USD" };
+            var result = binaryExpression.Evaluate<Decimal, FakePayment, FakePayment>("payment1", payment1, "payment2", payment2);
+            Assert.AreEqual(2m, result);
+        }
     }
 }

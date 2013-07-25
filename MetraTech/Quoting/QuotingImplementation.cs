@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Transactions;
+using MetraTech.ActivityServices.Common;
 using MetraTech.DataAccess;
 using MetraTech.Domain.Quoting;
 using MetraTech.Interop.MTAuditEvents;
@@ -66,7 +67,7 @@ namespace MetraTech.Quoting
       Configuration = configuration;
       SessionContext = sessionContext;
 
-      this.quotingRepository = new QuotingRepository();
+      quotingRepository = new QuotingRepository();
     }
 
     public QuotingImplementation(QuotingConfiguration configuration)
@@ -75,7 +76,7 @@ namespace MetraTech.Quoting
       createdGroupSubsciptions = new List<IMTGroupSubscription>();
 
       Configuration = configuration;
-      this.quotingRepository = new QuotingRepository();
+      quotingRepository = new QuotingRepository();
     }
 
     public QuotingImplementation()
@@ -84,7 +85,7 @@ namespace MetraTech.Quoting
       createdGroupSubsciptions = new List<IMTGroupSubscription>();
 
       Configuration = QuotingConfigurationManager.LoadConfigurationFromFile();
-      this.quotingRepository = new QuotingRepository();
+      quotingRepository = new QuotingRepository();
     }
 
     #region Public
@@ -308,7 +309,7 @@ namespace MetraTech.Quoting
     /// <returns></returns>
     public QuoteResponse FinalizeQuote()
     {
-      using (new MetraTech.Debug.Diagnostics.HighResolutionTimer("FinalizeQuote"))
+      using (new Debug.Diagnostics.HighResolutionTimer("FinalizeQuote"))
       {
         try
         {
@@ -467,14 +468,14 @@ namespace MetraTech.Quoting
 
     protected void GeneratePDFForCurrentQuote()
     {
-      using (new MetraTech.Debug.Diagnostics.HighResolutionTimer("GeneratePDFForCurrentQuote"))
+      using (new Debug.Diagnostics.HighResolutionTimer("GeneratePDFForCurrentQuote"))
       {
         try
         {
 
           //TODO: Eventually cache/only load configuration as needed
-          QuoteReportingConfiguration quoteReportingConfiguration = QuoteReportingConfigurationManager.LoadConfiguration(this.Configuration);
-          QuotePDFReport quotePDFReport = new QuotePDFReport(quoteReportingConfiguration);
+          var quoteReportingConfiguration = QuoteReportingConfigurationManager.LoadConfiguration(this.Configuration);
+          var quotePDFReport = new QuotePDFReport(quoteReportingConfiguration);
 
           //If request does not specify a template to use, then use the configured default
           if (string.IsNullOrEmpty(CurrentRequest.ReportParameters.ReportTemplateName))
@@ -553,9 +554,9 @@ namespace MetraTech.Quoting
     /// </summary>
     protected void InitMetering()
     {
-      metters.Add("RC", new MetraTech.Interop.MeterRowset.MeterRowsetClass());
+      metters.Add("RC", new Interop.MeterRowset.MeterRowsetClass());
       metters["RC"].InitSDK(Configuration.RecurringChargeServerToMeterTo);
-      metters.Add("NRC", new MetraTech.Interop.MeterRowset.MeterRowsetClass());
+      metters.Add("NRC", new Interop.MeterRowset.MeterRowsetClass());
       metters["NRC"].InitSDK(Configuration.RecurringChargeServerToMeterTo);
       batchIds.Add("RC", metters["RC"].GenerateBatchID());
       batchIds.Add("NRC", metters["NRC"].GenerateBatchID());
@@ -645,6 +646,8 @@ namespace MetraTech.Quoting
 
                 object modifiedDate = MetraTime.Now;
                 var subscription = acc.Subscribe(po, effDate, out modifiedDate);
+
+                ApplyIcbPricesToSubscription(po, subscription.ID);
 
                 try
                 {
@@ -770,38 +773,39 @@ namespace MetraTech.Quoting
               }
 
               mtGroupSubscription.Save();
-              createdGroupSubsciptions.Add(mtGroupSubscription);
 
-              MTGSubMember mtGsubMember = null;
+              MTGSubMember mtGsubMember;
 
               if (CurrentRequest.Accounts.Count == 1)
               {
-                mtGsubMember = new MTGSubMember();
-                mtGsubMember.AccountID = CurrentRequest.Accounts[0];
-                mtGsubMember.StartDate = CurrentRequest.EffectiveDate;
-                mtGsubMember.EndDate = CurrentRequest.EffectiveEndDate;
+                mtGsubMember = new MTGSubMember
+                {
+                  AccountID = CurrentRequest.Accounts[0],
+                  StartDate = CurrentRequest.EffectiveDate,
+                  EndDate = CurrentRequest.EffectiveEndDate
+                };
 
                 mtGroupSubscription.AddAccount(mtGsubMember);
 
               }
               else if (CurrentRequest.Accounts.Count > 1)
               {
-                MetraTech.Interop.MTProductCatalog.IMTCollection mtCollection =
-                  new MTCollection() as MetraTech.Interop.MTProductCatalog.IMTCollection;
+                var mtCollection = new MTCollection() as Interop.MTProductCatalog.IMTCollection;
 
-                foreach (int idAccount in CurrentRequest.Accounts)
+                foreach (var idAccount in CurrentRequest.Accounts)
                 {
-                  mtGsubMember = new MTGSubMember();
-                  mtGsubMember.AccountID = idAccount;
-                  mtGsubMember.StartDate = CurrentRequest.EffectiveDate;
-                  mtGsubMember.EndDate = CurrentRequest.EffectiveEndDate;
+                  mtGsubMember = new MTGSubMember
+                  {
+                    AccountID = idAccount,
+                    StartDate = CurrentRequest.EffectiveDate,
+                    EndDate = CurrentRequest.EffectiveEndDate
+                  };
 
                   mtCollection.Add(mtGsubMember);
                 }
 
                 bool modified;
-                MetraTech.Interop.MTProductCatalog.IMTRowSet errorRowset =
-                  mtGroupSubscription.AddAccountBatch(mtCollection, null, out modified, null);
+                var errorRowset = mtGroupSubscription.AddAccountBatch(mtCollection, null, out modified, null);
 
                 #region Handle exception from AddAccountBatch
 
@@ -830,6 +834,8 @@ namespace MetraTech.Quoting
               }
 
               mtGroupSubscription.Save();
+              ApplyIcbPricesToSubscription(idPO, mtGroupSubscription.ID);
+
               createdGroupSubsciptions.Add(mtGroupSubscription);
             }
 
@@ -855,9 +861,24 @@ namespace MetraTech.Quoting
       }
     }
 
+    private void ApplyIcbPricesToSubscription(int productOfferingId, int subscriptionId)
+    {
+      if (currentRequest.IcbPrices == null) return;
+
+      var icbPrices = currentRequest.IcbPrices.Where(ip => ip.ProductOfferingId == productOfferingId);
+      foreach (var price in icbPrices)
+        Application.ProductManagement.PriceListService.SaveRateSchedulesForSubscription(
+          subscriptionId,
+          new PCIdentifier(price.PriceableItemInstanceId),
+          new PCIdentifier(price.ParameterTableId),
+          price.RateSchedules,
+          mLogger,
+          SessionContext);
+    }
+
     protected void CalculateQuoteTotal()
     {
-      using (var conn = MetraTech.DataAccess.ConnectionManager.CreateConnection())
+      using (var conn = ConnectionManager.CreateConnection())
       {
         using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER,
                                                                  Configuration.CalculateQuoteTotalAmountQueryTag))
@@ -886,7 +907,7 @@ namespace MetraTech.Quoting
               CurrentResponse.Currency = "";
             }
 
-            string totalMessage = string.Format("Total amount: {0} {1}", CurrentResponse.TotalAmount.ToString("N2"), CurrentResponse.Currency);
+            var totalMessage = string.Format("Total amount: {0} {1}", CurrentResponse.TotalAmount.ToString("N2"), CurrentResponse.Currency);
 
             Log("CalculateQuoteTotal: {0}", totalMessage);
 
@@ -894,8 +915,6 @@ namespace MetraTech.Quoting
             //TODO: Nice to have to add the count(*) of records which could be useful for error checking; adding to query doesn't cost anything
           }
         }
-
-        return;
       }
     }
 
@@ -910,7 +929,7 @@ namespace MetraTech.Quoting
     {
       Int32 idUsageInterval;
 
-      using (var conn = MetraTech.DataAccess.ConnectionManager.CreateConnection())
+      using (var conn = ConnectionManager.CreateConnection())
       {
         using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER, Configuration.GetUsageIntervalIdForQuotingQueryTag))
         {
@@ -1010,12 +1029,12 @@ namespace MetraTech.Quoting
         // Unsubscribe members
         foreach (var idAccount in CurrentRequest.Accounts)
         {
-          MetraTech.Interop.MTProductCatalog.IMTGSubMember gsmember = new MetraTech.Interop.MTProductCatalog.MTGSubMemberClass();
+          IMTGSubMember gsmember = new MTGSubMemberClass();
           gsmember.AccountID = idAccount;
 
           if (subscription.FindMember(idAccount, CurrentRequest.EffectiveDate) != null)
           {
-            subscription.UnsubscribeMember((MetraTech.Interop.MTProductCatalog.MTGSubMember)gsmember);
+            subscription.UnsubscribeMember((MTGSubMember)gsmember);
     }
         }
 
@@ -1052,12 +1071,12 @@ namespace MetraTech.Quoting
       Log("Reversing {0} batch(es) associated with this quote", batches.Count);
 
       IMTBillingReRun rerun = new BillingReRunClient.Client();
-      Auth.IMTSessionContext sessionContext = AdapterManager.GetSuperUserContext(); // log in as super user
-      rerun.Login((MetraTech.Interop.MTBillingReRun.IMTSessionContext)sessionContext);
-      string comment = String.Format("Quoting functionality; Reversing work associated with QuoteId {0}", CurrentResponse.idQuote);
+      var sessionContext = AdapterManager.GetSuperUserContext(); // log in as super user
+      rerun.Login((Interop.MTBillingReRun.IMTSessionContext)sessionContext);
+      var comment = String.Format("Quoting functionality; Reversing work associated with QuoteId {0}", CurrentResponse.idQuote);
       rerun.Setup(comment);
 
-      PipelineManager pipeline = new PipelineManager();
+      var pipeline = new PipelineManager();
       try
       {
         // pauses all pipelines so identify isn't chasing a moving target
@@ -1111,7 +1130,7 @@ namespace MetraTech.Quoting
 
       mLogger.LogDebug("Quote[{0}]: [{1}]", CurrentResponse.idQuote, suppliedMessage);
 
-      var logRecord = new QuoteLogRecord()
+      var logRecord = new QuoteLogRecord
         {
           QuoteIdentifier = CurrentRequest.QuoteIdentifier,
           DateAdded = MetraTime.Now,
@@ -1128,7 +1147,7 @@ namespace MetraTech.Quoting
 
       mLogger.LogError("Quote[{0}]: [{1}]", CurrentResponse.idQuote, suppliedMessage);
 
-      var logRecord = new QuoteLogRecord()
+      var logRecord = new QuoteLogRecord
       {
         QuoteIdentifier = CurrentRequest.QuoteIdentifier,
         DateAdded = MetraTime.Now,
@@ -1141,13 +1160,13 @@ namespace MetraTech.Quoting
     #endregion
 
     #region ProductCatalogHelpers
-    private IMTProductCatalog mProductCatalog = null;
+    private IMTProductCatalog mProductCatalog;
     protected IMTProductCatalog CurrentProductCatalog
     {
       get
       {
         //TODO: Cache this and return pre-initialized one
-        MetraTech.Interop.MTProductCatalog.IMTSessionContext sessionContext = GetSessionContextForProductCatalog();
+        Interop.MTProductCatalog.IMTSessionContext sessionContext = GetSessionContextForProductCatalog();
 
         mProductCatalog = new MTProductCatalogClass();
         mProductCatalog.SetSessionContext(sessionContext);
@@ -1156,18 +1175,18 @@ namespace MetraTech.Quoting
       }
     }
 
-    protected MetraTech.Interop.MTProductCatalog.IMTSessionContext GetSessionContextForProductCatalog()
+    protected Interop.MTProductCatalog.IMTSessionContext GetSessionContextForProductCatalog()
     {
       //Todo: Fix to read from server access file if we decide to use SuperUser as opposed to user generating quote
       Auth.IMTLoginContext loginContext = new Auth.MTLoginContextClass();
       //ServerAccess.IMTServerAccessDataSet sa = new MetraTech.Interop.MTServerAccess.MTServerAccessDataSet();
       //sa.Initialize();
       //ServerAccess.IMTServerAccessData accessData = sa.FindAndReturnObject("SuperUser");
-      string suName = "su";
-      string suPassword = "su123";
+      const string suName = "su";
+      const string suPassword = "su123";
       try
       {
-        return (MetraTech.Interop.MTProductCatalog.IMTSessionContext)loginContext.Login(suName, "system_user", suPassword);
+        return (Interop.MTProductCatalog.IMTSessionContext)loginContext.Login(suName, "system_user", suPassword);
       }
       catch (Exception ex)
       {

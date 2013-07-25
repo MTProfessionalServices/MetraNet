@@ -1,5 +1,4 @@
-﻿using MetraTech;
-using MetraTech.Tax.Framework.VertexQ;
+﻿using MetraTech.Tax.Framework.VertexQ;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tax.Freamework.Test.Properties;
 
@@ -64,7 +63,7 @@ namespace Tax.Freamework.Test
     ///A test for InvokeRequest
     ///</summary>
     [TestMethod]
-    [DeploymentItem("MetraTech.Tax.Framework.dll")]
+    [Ignore]
     public void InvokeRequestTest()
     {
       var target = new VertexQSyncTaxManagerDBBatch_Accessor();
@@ -76,7 +75,7 @@ namespace Tax.Freamework.Test
     ///A test for InvokeRequest
     ///</summary>
     [TestMethod]
-    [DeploymentItem("MetraTech.Tax.Framework.dll")]
+    [Ignore]
     public void InvokeRequestTest2()
     {
       var target = new VertexQSyncTaxManagerDBBatch_Accessor();

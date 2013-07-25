@@ -339,7 +339,7 @@ namespace MetraTech.Tax.Framework.VertexQ
     #endregion
 
     private string _returnCode;
-    private string _returnMessage; 
+    private string _returnMessage;
 
     private void PerformTaxTransaction(
       TaxableTransaction taxableTransaction,
@@ -359,32 +359,8 @@ namespace MetraTech.Tax.Framework.VertexQ
 
         var vertexParamsXml = new VertexParamsXML();
         var vertexParamsXmlString = vertexParamsXml.ReadAndPopulateAllVertexParameters(taxableTransaction);
-        Logger.LogDebug("sending tax transaction to vertex: {0}", vertexParamsXmlString);
+        var returnXmlStr = InvokeRequest(vertexParamsXmlString);
 
-        var client = new SocketClient(Logger, _configuration);
-        Logger.LogDebug("CalcVertexTaxes.Configure Instatiating the AsynchronousClient with Port - " +
-                          _configuration.m_Port);
-
-        string returnXmlStr;
-        var reattemptCnt = 0;
-        do
-        {
-          returnXmlStr = client.InitiateTransaction("ProcessSession", vertexParamsXmlString);
-          Logger.LogDebug("CalcVertexTaxes.ProcessSess XMLReturn from Server : " + returnXmlStr);
-          reattemptCnt++;
-
-          if (!"REMOTESOCKETERROR".Equals(returnXmlStr) && ParseReturnXmlParams(returnXmlStr) &&
-              !_returnCode.Equals("0"))
-          {
-            throw new Exception("CalcVertexTaxes.ProcessSess Failed in the Call to Calculate Tax: " + _returnMessage);
-          }
-        } while (reattemptCnt < 3 && (returnXmlStr.Equals("REMOTESOCKETERROR")));
-
-        if (reattemptCnt == 3 && (returnXmlStr.Equals("REMOTESOCKETERROR")))
-        {
-          throw new Exception("CalcVertexTaxes.ProcessSess Failed in the Call to Calculate Tax : REMOTESOCKETERROR");
-        }
-        
         var roundingAlgorithm = Rounding.GetAlgorithm(taxableTransaction.GetString("round_alg"));
         var roundingDigits = taxableTransaction.GetInt32("round_digits").GetValueOrDefault();
         transactionSummary = vertexParamsXml.ParseVertexTaxResultsToTransactionTaxSummary(
@@ -413,6 +389,36 @@ namespace MetraTech.Tax.Framework.VertexQ
       {
         Logger.LogError(string.Format("CalcVertexTaxes.ProcessSess caught exception {0}", e.Message));
       }
+    }
+
+    private string InvokeRequest(string vertexParamsXmlString)
+    {
+      Logger.LogDebug("sending tax transaction to vertex: {0}", vertexParamsXmlString);
+
+      var client = new SocketClient(Logger, _configuration);
+      Logger.LogDebug("CalcVertexTaxes.Configure Instatiating the AsynchronousClient with Port - " +
+                      _configuration.m_Port);
+
+      string returnXmlStr;
+      var reattemptCnt = 0;
+      do
+      {
+        returnXmlStr = client.InitiateTransaction("ProcessSession", vertexParamsXmlString);
+        Logger.LogDebug("CalcVertexTaxes.ProcessSess XMLReturn from Server : " + returnXmlStr);
+        reattemptCnt++;
+
+        if (!"REMOTESOCKETERROR".Equals(returnXmlStr) && ParseReturnXmlParams(returnXmlStr) &&
+            !_returnCode.Equals("0"))
+        {
+          throw new Exception("CalcVertexTaxes.ProcessSess Failed in the Call to Calculate Tax: " + _returnMessage);
+        }
+      } while (reattemptCnt < 3 && (returnXmlStr.Equals("REMOTESOCKETERROR")));
+
+      if (reattemptCnt == 3 && (returnXmlStr.Equals("REMOTESOCKETERROR")))
+      {
+        throw new Exception("CalcVertexTaxes.ProcessSess Failed in the Call to Calculate Tax : REMOTESOCKETERROR");
+      }
+      return returnXmlStr;
     }
 
     private bool ParseReturnXmlParams(string xmlParams)

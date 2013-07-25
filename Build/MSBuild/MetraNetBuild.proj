@@ -766,7 +766,7 @@
   <Target Name="CopyFiles" DependsOnTargets="MakeDirectories;CopySourceDLLs;CopyVersionDependentSourceDLLs;CopySourceLibs;CopyVersionDependentSourceLibs" />
   <Target Name="BuildRuntimeMessages" DependsOnTargets="MakeDirectories;BuildMCFiles;CompileMessageMCFiles;CompileMessageRCFiles;LinkMessageResourceDLLs" />
   <Target Name="BuildIDLs" DependsOnTargets="MakeDirectories;BuildTlbs;RegisterTlbs;BuildInteropAssemblies" />
-  <Target Name="BuildSources" DependsOnTargets="MakeDirectories;SFBuild;PerformTlbImp;MetraTechProjectsVC;Build;BuildVBProjects" />
+  <Target Name="BuildSources" DependsOnTargets="MakeDirectories;SFBuild;PerformTlbImp;BuildMetraTechProjectsVC;Build;BuildVBProjects" />
   <!--<Target Name="BuildSources" DependsOnTargets="MakeDirectories;SFBuild;Build;BuildVBProjects" />-->
   <Target Name="UI" DependsOnTargets="Refresh;MetraNetUI;MetraViewUI" />
   <!--High Level Build Operations for Build Machines />-->

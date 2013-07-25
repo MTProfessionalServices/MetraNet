@@ -33,25 +33,29 @@
           ForeColor="DarkBlue" Font-Size="9pt" Text="Unit of time for the Decision Cycle:" />
       </td>
       <td style="padding-top: 20px; padding-left: 5px">
-        <asp:RadioButtonList runat="server" ID="RBL_UnitOfTime" CellSpacing="0">
-          <asp:ListItem Value="The Decision Cycle matches the billing interval" meta:resourcekey="rblDecisionCycleBillingInterval"></asp:ListItem>
-          <asp:ListItem Value="Days" meta:resourcekey="rblDays"></asp:ListItem>
-          <asp:ListItem Value="Weeks" meta:resourcekey="rblWeeks"></asp:ListItem>
-          <asp:ListItem Value="Months" meta:resourcekey="rblMonths"></asp:ListItem>
-          <asp:ListItem Value="Quarters" meta:resourcekey="rblQuarters"></asp:ListItem>
-          <asp:ListItem Value="Years" meta:resourcekey="rblYears"></asp:ListItem>
-          <asp:ListItem Value="UnitOfTimeFromParamTable" meta:resourcekey="rblUnitOfTimeFromParamTable"></asp:ListItem>
-        </asp:RadioButtonList>
+        <asp:RadioButton id="RadioButtonDecisionCycleBillingInterval" runat="server" GroupName="RBL_UnitOfTime" Text="<%$ Resources:rblDecisionCycleBillingInterval.Text %>" ForeColor="DarkBlue" Font-Size="8pt"/>
+        <br/>
+        <asp:RadioButton id="RadioButtonDays" runat="server" GroupName="RBL_UnitOfTime" Text="<%$ Resources:rblDays.Text %>" ForeColor="DarkBlue" Font-Size="8pt"/>
+        <br/>
+        <asp:RadioButton id="RadioButtonWeeks" runat="server" GroupName="RBL_UnitOfTime" Text="<%$ Resources:rblWeeks.Text %>" ForeColor="DarkBlue" Font-Size="8pt"/>
+        <br/>
+        <asp:RadioButton id="RadioButtonMonths" runat="server" GroupName="RBL_UnitOfTime" Text="<%$ Resources:rblMonths.Text %>" ForeColor="DarkBlue" Font-Size="8pt"/>
+        <br/>
+        <asp:RadioButton id="RadioButtonQuarters" runat="server" GroupName="RBL_UnitOfTime" Text="<%$ Resources:rblQuarters.Text %>" ForeColor="DarkBlue" Font-Size="8pt"/>
+        <br/>
+        <asp:RadioButton id="RadioButtonYears" runat="server" GroupName="RBL_UnitOfTime" Text="<%$ Resources:rblYears.Text %>" ForeColor="DarkBlue" Font-Size="8pt"/>
+        <br/>
+        <asp:RadioButton id="RadioButtonUnitOfTimeFromParamTable" runat="server" GroupName="RBL_UnitOfTime" Text="<%$ Resources:rblUnitOfTimeFromParamTable.Text %>" ForeColor="DarkBlue" Font-Size="8pt"/>
+        <div style="margin-top: -0.15in; padding-left: 2.25in;">
+            <div id="divUnitOfTimeFromParamTableDropdownSource" runat="server" >
+                <MT:MTDropDown ID="ddUnitOfTimeFromParamTableSource" runat="server" ControlWidth="160" ListWidth="200" HideLabel="True" AllowBlank="True" Editable="True"/>
+            </div>
+        </div>
       </td>
     </tr>
   </table>
      
-  <div style="padding-left: 2.75in;">
-    <div id="divUnitOfTimeFromParamTableDropdownSource" runat="server" >
-          <MT:MTDropDown ID="ddUnitOfTimeFromParamTableSource" runat="server" ControlWidth="160" ListWidth="200"
-            HideLabel="True" AllowBlank="True" Editable="True"/>
-    </div>
-  </div>
+
 
   <div id="divDecisionCycleBillingInterval">
   <table>
@@ -131,38 +135,37 @@
   var showDivDecisionCycle = <%=ShowDivDecisionCycle.ToString().ToLower() %> ;
 
   function InitDictionary() {
-    dictUnitOfTimes["Days"] = '<%=GetLocalResourceObject("lblNumberOfDays.Text")%>';
-    dictUnitOfTimes["Weeks"] = '<%=GetLocalResourceObject("lblNumberOfWeeks.Text")%>';
-    dictUnitOfTimes["Months"] = '<%=GetLocalResourceObject("lblNumberOfMonth.Text")%>';
-    dictUnitOfTimes["Quarters"] = '<%=GetLocalResourceObject("lblNumberOfQuarters.Text")%>';
-    dictUnitOfTimes["Years"] = '<%=GetLocalResourceObject("lblNumberOfYears.Text")%>';
-    dictUnitOfTimes["UnitOfTimeFromParamTable"] = '<%=GetLocalResourceObject("lblNumberOfTimeUnits.Text")%>';
+    dictUnitOfTimes["<%=RadioButtonDays.ClientID%>"] = '<%=GetLocalResourceObject("lblNumberOfDays.Text")%>';
+    dictUnitOfTimes["<%=RadioButtonWeeks.ClientID%>"] = '<%=GetLocalResourceObject("lblNumberOfWeeks.Text")%>';
+    dictUnitOfTimes["<%=RadioButtonMonths.ClientID%>"] = '<%=GetLocalResourceObject("lblNumberOfMonth.Text")%>';
+    dictUnitOfTimes["<%=RadioButtonQuarters.ClientID%>"] = '<%=GetLocalResourceObject("lblNumberOfQuarters.Text")%>';
+    dictUnitOfTimes["<%=RadioButtonYears.ClientID%>"] = '<%=GetLocalResourceObject("lblNumberOfYears.Text")%>';
+    dictUnitOfTimes["<%=RadioButtonUnitOfTimeFromParamTable.ClientID%>"] = '<%=GetLocalResourceObject("lblNumberOfTimeUnits.Text")%>';
 
-    dictBillingInterval["Days"] = '<%=GetLocalResourceObject("lblNumberDaysBillingInterval.Text")%>';
-    dictBillingInterval["Weeks"] = '<%=GetLocalResourceObject("lblNumberWeeksBillingInterval.Text")%>';
-    dictBillingInterval["Months"] = '<%=GetLocalResourceObject("lblNumberMonthBillingInterval.Text")%>';
-    dictBillingInterval["Quarters"] = '<%=GetLocalResourceObject("lblNumberQuartersBillingInterval.Text")%>';
-    dictBillingInterval["Years"] = '<%=GetLocalResourceObject("lblNumberYearsBillingInterval.Text")%>';
-    dictBillingInterval["UnitOfTimeFromParamTable"] = '<%=GetLocalResourceObject("lblNumberTimeUnitsBillingInterval.Text")%>';
+    dictBillingInterval["<%=RadioButtonDays.ClientID%>"] = '<%=GetLocalResourceObject("lblNumberDaysBillingInterval.Text")%>';
+    dictBillingInterval["<%=RadioButtonWeeks.ClientID%>"] = '<%=GetLocalResourceObject("lblNumberWeeksBillingInterval.Text")%>';
+    dictBillingInterval["<%=RadioButtonMonths.ClientID%>"] = '<%=GetLocalResourceObject("lblNumberMonthBillingInterval.Text")%>';
+    dictBillingInterval["<%=RadioButtonQuarters.ClientID%>"] = '<%=GetLocalResourceObject("lblNumberQuartersBillingInterval.Text")%>';
+    dictBillingInterval["<%=RadioButtonYears.ClientID%>"] = '<%=GetLocalResourceObject("lblNumberYearsBillingInterval.Text")%>';
+    dictBillingInterval["<%=RadioButtonUnitOfTimeFromParamTable.ClientID%>"] = '<%=GetLocalResourceObject("lblNumberTimeUnitsBillingInterval.Text")%>';
   }
 
   function DecisionCycleUnitOfTimeChanged(unitOfTime) {
     document.getElementById('<%=lblNumberOfMonth.ClientID%>').innerHTML = dictUnitOfTimes[unitOfTime];
     document.getElementById('<%=lblNumberMonthBillingInterval.ClientID%>').innerHTML = dictBillingInterval[unitOfTime];
-    if (unitOfTime == 'UnitOfTimeFromParamTable') { 
-      document.getElementById('<%=divUnitOfTimeFromParamTableDropdownSource.ClientID%>').style.display = 'block';
+    if (unitOfTime == '<%=RadioButtonUnitOfTimeFromParamTable.ClientID%>') { 
+        var dd1 = Ext.getCmp('<%=ddUnitOfTimeFromParamTableSource.ClientID %>');
+        dd1.enable();
     }
     else {
-      document.getElementById('<%=divUnitOfTimeFromParamTableDropdownSource.ClientID%>').style.display = 'none';
+        var dd2 = Ext.getCmp('<%=ddUnitOfTimeFromParamTableSource.ClientID %>');
+        dd2.disable();
     }
     DecisionCycleControlShow(true);
   }
 
   function DecisionCycleControlShow(show) {
     document.getElementById('divDecisionCycleBillingInterval').style.display = show ? '' : 'none';
-    if (show == false) {
-      document.getElementById('<%=divUnitOfTimeFromParamTableDropdownSource.ClientID%>').style.display = 'none';
-    }
   }
 
   function ChangeDecisionCycleEffectState(enabled, ampControlID) {

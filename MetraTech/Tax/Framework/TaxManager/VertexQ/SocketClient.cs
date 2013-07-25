@@ -18,12 +18,12 @@ namespace Framework.TaxManager.VertexQ
     #endregion
 
     // ManualResetEvent instances signal completion.
-    private ManualResetEvent connectDone = new ManualResetEvent(false);
-    private ManualResetEvent sendDone = new ManualResetEvent(false);
-    private ManualResetEvent receiveDone = new ManualResetEvent(false);
+    private readonly ManualResetEvent _connectDone = new ManualResetEvent(false);
+    private readonly ManualResetEvent _sendDone = new ManualResetEvent(false);
+    private readonly ManualResetEvent _receiveDone = new ManualResetEvent(false);
 
     // The response from the remote device.
-    private String response = String.Empty;
+    private String _response = String.Empty;
 
     public SocketClient(Logger logger, VertexQConfiguration configuration)
     {
@@ -43,16 +43,16 @@ namespace Framework.TaxManager.VertexQ
         _logger.LogDebug("VertexTaxes.AsynchronousClient StartClient Method");
         // Establish the remote endpoint for the socket.                                
         //IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-        IPHostEntry ipHostInfo = Dns.GetHostEntry(_configuration.m_ServerAddress);
-        IPAddress ipAddress = ipHostInfo.AddressList[0];
-        var remoteEP = new IPEndPoint(ipAddress, _configuration.m_Port);
+        var ipHostInfo = Dns.GetHostEntry(_configuration.m_ServerAddress);
+        var ipAddress = ipHostInfo.AddressList[0];
+        var remoteEp = new IPEndPoint(ipAddress, _configuration.m_Port);
 
         // Create a TCP/IP socket
-        Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        connectDone.Reset();
+        var client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        _connectDone.Reset();
         // Connect to the remote endpoint.
-        client.BeginConnect(remoteEP, new AsyncCallback(ConnectCallback), client);
-        connectDone.WaitOne();
+        client.BeginConnect(remoteEp, ConnectCallback, client);
+        _connectDone.WaitOne();
 
         if ("REMOTESOCKETERROR".Equals(_excpMessage))
         {
@@ -62,16 +62,16 @@ namespace Framework.TaxManager.VertexQ
         }
 
         // Send data to the remote device.
-        sendDone.Reset();
+        _sendDone.Reset();
         Send(client, xmlStr);
-        sendDone.WaitOne();
+        _sendDone.WaitOne();
 
         // Receive the response from the remote device.
-        receiveDone.Reset();
+        _receiveDone.Reset();
         Receive(client);
-        receiveDone.WaitOne();
+        _receiveDone.WaitOne();
         _logger.LogDebug(String.Format(
-          "CalcVertexTaxes.AsynchronousClient.StartClient Response received : {0}", response));
+          "CalcVertexTaxes.AsynchronousClient.StartClient Response received : {0}", _response));
 
         // Release the socket.
         client.Shutdown(SocketShutdown.Both);
@@ -82,7 +82,7 @@ namespace Framework.TaxManager.VertexQ
         _logger.LogWarning("CalcVertexTaxes.AsynchronousClient.StartClient Exception : " + e.Message);
         //throw new Exception(string.Format("CalcVertexTaxes.AsynchronousClient.StartClient Exception : {0}", e.Message));
       }
-      return response;
+      return _response;
     }
 
     private void ConnectCallback(IAsyncResult ar)
@@ -91,23 +91,22 @@ namespace Framework.TaxManager.VertexQ
       {
         _logger.LogDebug("CalcVertexTaxes.AsynchronousClient ConnectCallback Method");
         // Retrieve the socket from the state object.
-        Socket client = (Socket) ar.AsyncState;
-        bool Errored = client.Poll(100, SelectMode.SelectError);
-        if (!Errored)
+        var client = (Socket) ar.AsyncState;
+        var errored = client.Poll(100, SelectMode.SelectError);
+        if (!errored)
         {
           // Complete the connection.
           client.EndConnect(ar);
           _logger.LogDebug(
-            String.Format("CalcVertexTaxes.AsynchronousClient.ConnectCallback Socket connected to {0}",
-                          client.RemoteEndPoint.ToString()));
+            String.Format("CalcVertexTaxes.AsynchronousClient.ConnectCallback Socket connected to {0}", client.RemoteEndPoint));
 
           // Signal that the connection has been made.
-          connectDone.Set();
+          _connectDone.Set();
         }
         else
         {
           _excpMessage = "REMOTESOCKETERROR";
-          connectDone.Set();
+          _connectDone.Set();
         }
 
       }
@@ -119,18 +118,17 @@ namespace Framework.TaxManager.VertexQ
       }
     }
 
+    #region Receive Data
     private void Receive(Socket client)
     {
       try
       {
         _logger.LogDebug("CalcVertexTaxes.AsynchronousClient Receive Method");
         // Create the state object.
-        var state = new StateObject();
-        state.workSocket = client;
+        var state = new StateObject(_configuration.m_BufferSize, client);
 
         // Begin receiving the data from the remote device.
-        client.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0, new AsyncCallback(ReceiveCallback),
-                            state);
+        client.BeginReceive(state.Buffer, 0, _configuration.m_BufferSize, 0, ReceiveCallback, state);
       }
       catch (Exception e)
       {
@@ -146,30 +144,32 @@ namespace Framework.TaxManager.VertexQ
       {
         _logger.LogDebug("CalcVertexTaxes.AsynchronousClient ReceiveCallback Method");
         // Retrieve the state object and the client socket from the asynchronous state object.
-        StateObject state = (StateObject) ar.AsyncState;
-        Socket client = state.workSocket;
+        var state = (StateObject) ar.AsyncState;
+        var client = state.WorkSocket;
 
         // Read data from the remote device.
-        int bytesRead = client.EndReceive(ar);
+        var bytesRead = client.EndReceive(ar);
 
         if (bytesRead > 0)
         {
           // There might be more data, so store the data received so far.
-          state.sb.Append(Encoding.ASCII.GetString(state.buffer, 0, bytesRead));
-
-          // Get the rest of the data.
-          client.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0, new AsyncCallback(ReceiveCallback),
-                              state);
+          state.Sb.Append(Encoding.ASCII.GetString(state.Buffer, 0, bytesRead));
+          _response = state.Sb.ToString();
+          if (_response.Contains("</Success>") || _response.Contains("</Error>"))
+            _receiveDone.Set();
+          else
+            // Get the rest of the data.
+            client.BeginReceive(state.Buffer, 0, _configuration.m_BufferSize, 0, ReceiveCallback, state);
         }
         else
         {
           // All the data has arrived; put it in response.
-          if (state.sb.Length > 1)
+          if (state.Sb.Length > 1)
           {
-            response = state.sb.ToString();
+            _response = state.Sb.ToString();
           }
           // Signal that all bytes have been received.
-          receiveDone.Set();
+          _receiveDone.Set();
         }
       }
       catch (Exception e)
@@ -179,23 +179,24 @@ namespace Framework.TaxManager.VertexQ
                                           e.Message));
       }
     }
+    #endregion
 
+    #region Send Data
     private void Send(Socket client, String data)
     {
       try
       {
         _logger.LogDebug("CalcVertexTaxes.AsynchronousClient Send Method");
         // Convert the string data to byte data using ASCII encoding.
-        byte[] byteData = Encoding.ASCII.GetBytes(data);
+        var byteData = Encoding.ASCII.GetBytes(data);
 
         // Begin sending the data to the remote device.
-        client.BeginSend(byteData, 0, byteData.Length, 0, new AsyncCallback(SendCallback), client);
+        client.BeginSend(byteData, 0, byteData.Length, 0, SendCallback, client);
       }
       catch (Exception e)
       {
         _logger.LogWarning("CalcVertexTaxes.AsynchronousClient.Send Exception : " + e.Message);
-        throw new Exception(string.Format("CalcVertexTaxes.AsynchronousClient.Send : Exception : {0} ",
-                                          e.Message));
+        throw new Exception(string.Format("CalcVertexTaxes.AsynchronousClient.Send : Exception : {0} ", e.Message));
       }
     }
 
@@ -204,16 +205,16 @@ namespace Framework.TaxManager.VertexQ
       try
       {
         _logger.LogDebug("CalcVertexTaxes.AsynchronousClient SendCallback Method");
+
         // Retrieve the socket from the state object.
-        Socket client = (Socket) ar.AsyncState;
+        var client = (Socket) ar.AsyncState;
 
         // Complete sending the data to the remote device.
-        int bytesSent = client.EndSend(ar);
-        _logger.LogDebug(
-          String.Format("CalcVertexTaxes.AsynchronousClient.SendCallback Sent {0} bytes to server.", bytesSent));
+        var bytesSent = client.EndSend(ar);
+        _logger.LogDebug(String.Format("CalcVertexTaxes.AsynchronousClient.SendCallback Sent {0} bytes to server.", bytesSent));
 
         // Signal that all bytes have been sent.
-        sendDone.Set();
+        _sendDone.Set();
       }
       catch (Exception e)
       {
@@ -222,10 +223,11 @@ namespace Framework.TaxManager.VertexQ
                                           e.Message));
       }
     }
+    #endregion
 
     public string InitiateTransaction(string CallType, string xmlStr)
     {
-      string returnXmlStr = null;
+      string returnXmlStr;
       try
       {
         _logger.LogDebug("CalcVertexTaxes.AsynchronousClient InitiateTransaction Method");
@@ -247,12 +249,16 @@ namespace Framework.TaxManager.VertexQ
   public class StateObject
   {
     // Client socket.
-    public Socket workSocket = null;
-    // Size of receive buffer.
-    public const int BufferSize = 2048;
+    public Socket WorkSocket = null;
     // Receive buffer.
-    public byte[] buffer = new byte[BufferSize];
+    public byte[] Buffer;
     // Received data string.
-    public StringBuilder sb = new StringBuilder();
+    public StringBuilder Sb = new StringBuilder();
+
+    public StateObject(int buferSize, Socket workSoket)
+    {
+      Buffer = new byte[buferSize];
+      WorkSocket = workSoket;
+    }
   }
 }

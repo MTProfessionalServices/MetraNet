@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.DataAccess;
+using MetraTech.Domain.Quoting;
 using MetraTech.DomainModel.BaseTypes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MetraTech.Interop.MTProductCatalog;

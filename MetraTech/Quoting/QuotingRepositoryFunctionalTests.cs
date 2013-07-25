@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Text;
 using System.Collections.Generic;
 using System.Linq;
-using MetraTech.Core.Services.ClientProxies;
-using MetraTech.DataAccess;
+using MetraTech.Domain.Quoting;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.ProductCatalog;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MetraTech.Interop.MTProductCatalog;
 using MetraTech.Shared.Test;
-using Core.Quoting;
 
 namespace MetraTech.Quoting.Test
 {

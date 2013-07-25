@@ -1,11 +1,11 @@
 ﻿using MetraTech.Domain.DataAccess;
 using MetraTech.Domain.Notifications;
-using MetraTech.Domain.Quoting;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
+using MetraTech.Domain.Quoting;
 
 namespace MetraTech.Domain.Test.DataAccess
 {

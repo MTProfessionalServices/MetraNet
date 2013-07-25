@@ -1,10 +1,11 @@
-﻿using MetraTech.Domain.Notifications;
-using MetraTech.Domain.Quoting;
+﻿using System.Data.Common;
+using MetraTech.Domain.Notifications;
 using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Reflection;
+using MetraTech.Domain.Quoting;
 
 namespace MetraTech.Domain.DataAccess
 {
@@ -16,6 +17,14 @@ namespace MetraTech.Domain.DataAccess
     public IDbSet<QuoteIndividualPrice> QuoteIndividualPrices { get; set; }
 
     /// <summary>
+    /// The constructor for MetraNet context
+    /// </summary>
+    /// <param name="connection">The exists connection to DataBase</param>
+    public MetraNetContext(DbConnection connection) : base(connection, false)
+    {
+    }
+
+      /// <summary>
     /// Returns a DbSet instance for access to entities of the given type in the context, the ObjectStateManager, and the underlying store.
     /// </summary>
     /// <typeparam name="TEntity">The type entity for which a set should be returned.</typeparam>
@@ -45,7 +54,6 @@ namespace MetraTech.Domain.DataAccess
       modelBuilder.Ignore<NotificationEndpointConfiguration>();
       modelBuilder.Ignore<AuthenticationConfiguration>();
       modelBuilder.Ignore<MessageTemplate>();
-
       foreach (var type in typesToRegister)
       {
         dynamic configurationInstance = Activator.CreateInstance(type);

@@ -47,7 +47,9 @@
     </Reference>
     <Reference Include="MetraTech.Common, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86" />
     <Reference Include="MTAuth.interop, Version=7.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>O:\debug\Bin\MTAuth.interop.dll</HintPath>
     </Reference>
     <Reference Include="MTProductCatalog.interop, Version=7.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -60,7 +62,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -88,10 +89,6 @@
     <ProjectReference Include="..\DataAccess\MetraTech.DataAccess.csproj">
       <Project>{1B40F4E4-8DDC-43E0-BE45-959BEE94422F}</Project>
       <Name>MetraTech.DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Debug\Diagnostics\MetraTech.Debug.Diagnostics.csproj">
-      <Project>{DFD0BE07-801F-4535-B742-FED22E50FA0E}</Project>
-      <Name>MetraTech.Debug.Diagnostics %28MetraTech.Debug.Diagnostics\MetraTech.Debug.Diagnostics%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\DomainModel\BaseTypes\MetraTech.DomainModel.BaseTypes.csproj">
       <Project>{433B0483-4990-476C-BA07-FABF884D12CB}</Project>

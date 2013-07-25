@@ -36,7 +36,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MetraTech.Quoting", "MetraT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Quoting", "MetraTech.Quoting.csproj", "{C4914DDD-93C8-475F-B5DB-1CDB6C8ECA17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Quoting.Test", "..\..\..\UnitTests\MetraTech\Quoting\MetraTech.Quoting.Test.csproj", "{42857A3C-817A-4E05-8DEA-E78385BFE2DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Quoting.Test", "C:\dev\MetraNet\RMP\Extensions\FunctionalTests_Internal\MetraTech\Quoting\MetraTech.Quoting.Test.csproj", "{42857A3C-817A-4E05-8DEA-E78385BFE2DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Pipeline.Rerun", "..\Pipeline\ReRun\MetraTech.Pipeline.Rerun.csproj", "{BC2DC75E-9076-45AE-B592-7EBE2AB11BA7}"
 EndProject
@@ -50,9 +50,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		MetraTech.Quoting.vsmdi = MetraTech.Quoting.vsmdi
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Quoting.Test.ConsoleForTesting", "..\..\..\PrototypeCode\QuotingTestConsole\QuotingConsoleForTesting\MetraTech.Quoting.Test.ConsoleForTesting.csproj", "{DABA4CDB-2CD3-466C-AD17-F24685BDE517}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Quoting.Test.ConsoleForTesting", "C:\dev\MetraNet\RMP\Extensions\Legacy_Internal\PrototypeCode\QuotingTestConsole\QuotingConsoleForTesting\MetraTech.Quoting.Test.ConsoleForTesting.csproj", "{DABA4CDB-2CD3-466C-AD17-F24685BDE517}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Quoting.Test.ConsoleForTestingCrystal", "..\..\..\PrototypeCode\QuotingTestConsole\QuotingConsoleForTestingCrystal\MetraTech.Quoting.Test.ConsoleForTestingCrystal.csproj", "{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Quoting.Test.ConsoleForTestingCrystal", "C:\dev\MetraNet\RMP\Extensions\Legacy_Internal\PrototypeCode\QuotingTestConsole\QuotingConsoleForTestingCrystal\MetraTech.Quoting.Test.ConsoleForTestingCrystal.csproj", "{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.DomainModel.ProductCatalog", "..\DomainModel\ProductCatalog\MetraTech.DomainModel.ProductCatalog.csproj", "{43A73CF5-A0CC-431F-B626-E88904600162}"
 EndProject

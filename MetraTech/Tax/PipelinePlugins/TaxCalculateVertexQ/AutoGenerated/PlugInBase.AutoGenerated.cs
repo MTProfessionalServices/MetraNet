@@ -12,7 +12,7 @@ using MetraTech.Pipeline.PlugIns;
 using MetraTech.Interop.SysContext;
 using MetraTech.Interop.MTPipelineLib;
 using MetraTech.Pipeline;
-using MetraTech.Tax.Framework;
+
 using IMTConfigPropSet = MetraTech.Interop.MTPipelineLib.IMTConfigPropSet;
 using IMTSystemContext = MetraTech.Interop.SysContext.IMTSystemContext;
 using IEnumConfig = MetraTech.Interop.SysContext.IEnumConfig;
@@ -53,7 +53,7 @@ namespace MetraTech.Tax.Plugins
 
 				if (xmlConfig.DocumentElement == null)
                 {
-                    throw new ConfigurationErrorsException(String.Format("Configuration does not set. Configuration content = '{0}'", xmlConfig.OuterXml));
+                    throw new ConfigurationException(String.Format("Configuration does not set. Configuration content = '{0}'", xmlConfig.OuterXml));
                 }
 
                 //create the general config
@@ -73,16 +73,12 @@ namespace MetraTech.Tax.Plugins
         }
         public override void ProcessSessions(ISessionSet sessions)
         {
-            Log(LogLevel.Debug, "VertexQ.PlugInBase.Start sessions");
+            Log(LogLevel.Debug, "Start");
 
             //add the sessions to a list
             List<ISession> sessionList = new List<ISession>();
             foreach (ISession session in sessions)
-            {
                 sessionList.Add(session);
-            }
-
-            Log(LogLevel.Debug, string.Format("sessionList.Count={0}", sessionList.Count));
 
             //create the PropertiesCollection
             PropertiesCollection propsCol =

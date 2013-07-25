@@ -1,22 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.ServiceProcess;
 using MetraTech.BusinessEntity.DataAccess.Persistence;
 using Core.Quoting;
-using MetraTech.Interop.MTAuth;
-using MetraTech.Interop.MTProductCatalog;
-using MetraTech.Core.Services.ClientProxies;
+using MetraTech.Domain.Quoting;
 using MetraTech.ActivityServices.Common;
-
-using MetraTech.DomainModel.ProductCatalog;
-using MetraTech.Account.ClientProxies;
-using MetraTech.DomainModel.BaseTypes;
-using MetraTech.DomainModel.AccountTypes;
-using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
-using MetraTech.DomainModel.Enums.Account.Metratech_com_accountcreation;
-using MetraTech.DomainModel.Enums.Core.Global;
-using MetraTech.DomainModel.Enums.Core.Global_SystemCurrencies;
 using MetraTech.DataAccess;
 using MetraTech.Quoting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

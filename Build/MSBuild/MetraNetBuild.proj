@@ -657,7 +657,7 @@
 				Properties="Configuration=$(config)"
 				StopOnFirstFailure="$(StopOnFirstError)"
 				RebaseOutputs="true" 
-        BuildInParallel="true" />
+        BuildInParallel="false" />
     
     <!-- Display the output from the custom task -->
 		<Message Text="$(TaskResult)"  Importance="high" />

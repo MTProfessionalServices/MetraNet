@@ -484,7 +484,10 @@
     <value>Brazilian Portuguese</value>
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>(BRAZILIAN PORTUGUESE) Back</value>
+  </data>
+  <data name="TEXT_NEXT" xml:space="preserve">
+    <value>(BRAZILIAN PORTUGUESE) Next</value>
   </data>
   <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">
     <value>Brazilian Portuguese</value>

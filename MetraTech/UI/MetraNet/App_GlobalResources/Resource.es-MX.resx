@@ -463,7 +463,10 @@
     <value>Mexican Spanish</value>
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>(MEXICAN SPANISH) Back</value>
+  </data>
+  <data name="TEXT_NEXT" xml:space="preserve">
+    <value>(MEXICAN SPANISH) Next</value>
   </data>
   <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">
     <value>Mexican Spanish</value>

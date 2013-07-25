@@ -13,21 +13,12 @@
           Font-Size="9pt" meta:resourcekey="lblGenInfoResource1" 
           Text="Decisions count monetary amounts, units or number of events. This screen allows the selection of what a decision type will aggregate." />
           <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_USAGE_OVERLAP,TEXT_AMPWIZARD_HELP_ITEMS_TO_AGGREGATE, 400, 125)()">
-            <asp:Image ID="Image1" runat="server" 
+            <asp:Image runat="server" 
               ImageUrl="/Res/Images/icons/help.png" />
           </span>
    </div>
-
-  <div style="line-height:20px;padding-top:10px;padding-left:10px;">
-    
-    <asp:Label ID="Label1" runat="server" Font-Bold="False" ForeColor="DarkBlue" 
-      Font-Size="9pt" meta:resourcekey="lblGenInfoResource2" 
-      Text="Let’s adjust the settings for this Decision Type." />
-    
     <br />
     <br />
-  </div>
-
    <div style="line-height:20px;padding-top:10px;padding-left:10px;">
      <table style="width: 500px">
        <tr>
@@ -39,7 +30,7 @@
          <td>
           <asp:Label ID="Label2" runat="server" Font-Bold="False" ForeColor="DarkBlue" 
             Font-Size="9pt" meta:resourcekey="lblGenInfoResource3" 
-            Text="How should aggregation be done for this Decision Type?" />
+            Text="How should usage be aggregated?" />
           <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD, TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD, 300, 130)">
             <img id="Image3" src='/Res/Images/icons/help.png' />
           </span>
@@ -50,89 +41,37 @@
 
   <br/>
 
-
-  <table style="width: 500px">
-    <tr>
-      <td style="width: 40px">
-        &nbsp;</td>
-      <td colspan="2">
+  <div style="line-height:20px;padding-top:10px;padding-left:70px;">
       <asp:RadioButton id="radAddUpMonetaryChargeAmounts" runat="server" GroupName="AggregateMethod"
               Text="<%$ Resources:AddUpMonetaryChargeAmountsLabel.BoxLabel %>" ForeColor="DarkBlue" Font-Size="8pt"/>
-      </td>
-      <td>
-        &nbsp;</td>
-    </tr>
-    <tr>
-      <td style="width: 40px">
-        &nbsp;</td>
-      <td style="width: 20px">
-        &nbsp;</td>
-      <td>
-      <asp:Label ID="Label3" runat="server" Font-Bold="False" ForeColor="DarkBlue" 
-        Font-Size="8pt" meta:resourcekey="lblGenInfoResource4" 
-        Text="Example: &quot;Apply a discount if there's over $100 in charges.&quot;" />
-      </td>
-    </tr>
-    <tr>
-      <td style="width: 40px">
-        &nbsp;</td>
-      <td colspan="2">
+       <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD, TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_MONETARY_CHARGE , 300, 130)">
+            <img id="Img1" src='/Res/Images/icons/help.png' />
+       </span>
+      <br />
+       <asp:RadioButton ID="radCountTheNumberOfEvents" runat="server" GroupName="AggregateMethod"
+              Text="<%$ Resources:CountTheNumberOfEventsLabel.BoxLabel %>" ForeColor="DarkBlue" Font-Size="8pt"/>
+      <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD, TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_COUNT_NUMBER_OF_EVENTS , 300, 130)">
+            <img id="Img3" src='/Res/Images/icons/help.png' />
+      </span>
+      <br />
       <asp:RadioButton id="radAddUpUnitsOfUsage" runat="server" GroupName="AggregateMethod"
               Text="<%$ Resources:AddUpUnitsOfUsageLabel.BoxLabel %>" ForeColor="DarkBlue" Font-Size="8pt" />
-      </td>
-      <td>
-        &nbsp;</td>
-    </tr>
-    <tr>
-      <td style="width: 40px">
-        &nbsp;</td>
-      <td style="width: 20px">
-        &nbsp;</td>
-      <td>
-      <asp:Label ID="Label4" runat="server" Font-Bold="False" ForeColor="DarkBlue" 
-        Font-Size="8pt" meta:resourcekey="lblGenInfoResource5" 
-        Text="Example: &quot;Use a special rate if over 1000 minutes.&quot;" />
-      </td>
-    </tr>
-    <tr>
-      <td style="width: 40px">
-        &nbsp;</td>
-      <td colspan="2">
-      <asp:RadioButton ID="radCountTheNumberOfEvents" runat="server" GroupName="AggregateMethod"
-              Text="<%$ Resources:CountTheNumberOfEventsLabel.BoxLabel %>" ForeColor="DarkBlue" Font-Size="8pt"/> 
-      </td>
-      <td>
-        &nbsp;</td>
-    </tr>
-    <tr>
-      <td style="width: 40px">
-        &nbsp;</td>
-      <td style="width: 20px">
-        &nbsp;</td>
-      <td>
-      <asp:Label ID="Label5" runat="server" Font-Bold="False" ForeColor="DarkBlue" 
-        Font-Size="8pt" meta:resourcekey="lblGenInfoResource6" 
-        Text="Example: &quot;Apply a discount if over 100 calls were made.&quot;" />
-      </td>
-    </tr>
-    <tr>
-      <td style="width: 40px">
-        &nbsp;</td>
-      <td colspan="2">
+      <span style="color:blue;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD, TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_UNIT_OF_USAGE , 300, 130)">
+            <img id="Img2" src='/Res/Images/icons/help.png' />
+      </span>
+      <br />
       <asp:RadioButton ID="radGetItemAggregatedFromParamTable" runat="server" GroupName="AggregateMethod" 
               Text="<%$ Resources:GetItemAggregatedFromParamTable.BoxLabel %>" ForeColor="DarkBlue" Font-Size="8pt"/> 
-      </td>
-      <td>
-        &nbsp;</td>
-    </tr>
-  </table>
-
-  <div style="padding-left: 0.75in;">
-    <div id="divItemAggregatedFromParamTableDropdownSource" runat="server" >
-          <MT:MTDropDown ID="ddItemAggregatedFromParamTableSource" runat="server" ControlWidth="160" ListWidth="200"
-            HideLabel="True" AllowBlank="True" Editable="True"/>
-            <div style="padding-top:-0.35in;"></div>
-    </div>
+      <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD, 'TODO' , 300, 130)">
+            <img id="Img4" src='/Res/Images/icons/help.png' />
+      </span>
+      <br />
+      <div style="padding-left: 5px;">
+        <div id="divItemAggregatedFromParamTableDropdownSource" runat="server">
+              <MT:MTDropDown ID="ddItemAggregatedFromParamTableSource" runat="server" ControlWidth="160" ListWidth="200"
+                HideLabel="True" AllowBlank="True" Editable="True"/>
+        </div>
+      </div>
   </div>
 
   <!-- 

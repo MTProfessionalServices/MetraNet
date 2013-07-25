@@ -143,16 +143,7 @@
     <value>(SPANISH)Adjust the settings for this Decision Type.</value>
   </data>
   <data name="lblGenInfoResource3.Text" xml:space="preserve">
-    <value>(SPANISH)How should aggregation be done for this Decision Type?</value>
-  </data>
-  <data name="lblGenInfoResource4.Text" xml:space="preserve">
-    <value>(SPANISH)Example: "Apply a discount if there's over $100 in charges."</value>
-  </data>
-  <data name="lblGenInfoResource5.Text" xml:space="preserve">
-    <value>(SPANISH)Example: "Use a special rate if over 1,000 minutes."</value>
-  </data>
-  <data name="lblGenInfoResource6.Text" xml:space="preserve">
-    <value>(SPANISH)Example: "Apply a discount if over 100 calls were made."</value>
+    <value>(SPANISH)How should usage be aggregated?</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
     <value>(SPANISH)Items to Aggregate</value>

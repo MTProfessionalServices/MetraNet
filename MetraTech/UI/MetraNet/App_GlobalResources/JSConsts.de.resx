@@ -970,10 +970,19 @@
     <value>(GERMAN) For example, suppose the Decision Type is \"Use a special rate if the number of minutes of usage is over 500\". The settings might include \"500\" and the \"special rate\" to apply.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
-    <value>German</value>
+    <value>(GERMAN) Help:  Aggregation Method</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
-    <value>German</value>
+    <value>(GERMAN) Decisions are used when a monetary charge amount cannot be calculated by looking at a single record. Instead, many usage records must be examined and a total must be the number of events, units of usage, or charge amounts. The total, or aggregate, is then used to help determine the charge amount.</value>
+  </data>
+	<data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_MONETARY_CHARGE" xml:space="preserve">
+    <value>(GERMAN) Example: \"Apply a discount if there's over $100 in charges.\"</value>
+  </data>
+	<data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_UNIT_OF_USAGE" xml:space="preserve">
+    <value>(GERMAN) Example: \"Use a special rate if over 1,000 minutes.\"</value>
+  </data>
+	<data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_COUNT_NUMBER_OF_EVENTS" xml:space="preserve">
+    <value>(GERMAN) Example: \"Apply a discount if over 100 calls were made.\"</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
     <value>German</value>

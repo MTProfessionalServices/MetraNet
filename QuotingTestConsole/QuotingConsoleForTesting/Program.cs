@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
-using MetraTech.DomainModel.BaseTypes;
-using MetraTech.Interop.MTProductCatalog;
+using MetraTech.Domain.Quoting;
 using MetraTech.Core.Services.ClientProxies;
 
 namespace MetraTech.Quoting.Test.ConsoleForTesting

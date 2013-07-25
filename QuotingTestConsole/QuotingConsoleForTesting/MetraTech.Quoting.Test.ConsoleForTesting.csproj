@@ -88,6 +88,10 @@
       <Project>{42857A3C-817A-4E05-8DEA-E78385BFE2DA}</Project>
       <Name>MetraTech.Quoting.Test</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Source\MetraTech\MetraTech.Domain\MetraTech.Domain.csproj">
+      <Project>{9C9C685C-CBF8-428F-8C34-98702FF13726}</Project>
+      <Name>MetraTech.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

@@ -505,7 +505,10 @@
     <value>Breite</value>
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
-    <value>German</value>
+    <value>(GERMAN) Back</value>
+  </data>
+  <data name="TEXT_NEXT" xml:space="preserve">
+    <value>(GERMAN) Next</value>
   </data>
   <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">
     <value>German</value>

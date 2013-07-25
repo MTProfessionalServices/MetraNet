@@ -505,7 +505,10 @@
     <value>Larghezza</value>
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
-    <value>Italian</value>
+    <value>(ITALIAN) Back</value>
+  </data>
+ <data name="TEXT_NEXT" xml:space="preserve">
+    <value>(ITALIAN) Next</value>
   </data>
   <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">
     <value>Italian</value>

@@ -334,9 +334,12 @@
   </ItemGroup>
   
   <ItemGroup>
-    <MetraTechProjects Include="$(ProjectPath)\*.vcxproj" Exclude="$(ROOTDIR)\include\include.vcxproj">
+    <MetraTechProjectsVC Include="$(ProjectPath)\*.vcxproj" Exclude="$(ROOTDIR)\include\include.vcxproj">
       <AdditionalProperties>Architecture=x86</AdditionalProperties>
-    </MetraTechProjects>
+    </MetraTechProjectsVC>
+  </ItemGroup>
+  
+  <ItemGroup>
     <MetraTechProjects Include="$(ProjectPath)\*.csproj" 
                        Exclude="$(ProjectPath)\*.Test.csproj;
                                 $(ROOTDIR)\MetraTech\FunctionalTests\MetraTech.FunctionalTests.csproj;
@@ -357,22 +360,12 @@
                                 $(ROOTDIR)\Thirdparty\NUnit224\src\UiKit\**\*.csproj;
                                 $(ROOTDIR)\Thirdparty\NUnit224\src\util\nunit.util.dll.csproj;
                                 $(ROOTDIR)\Thirdparty\NUnit224\src\util\nunit.util.dll_VS2005.csproj;
-                                $(ROOTDIR)\Thirdparty\Selenium\**\*.csproj;
-								$(ROOTDIR)\MetraTech\MetraTech.*\*.csproj;
-								$(ROOTDIR)\MetraTech\ExpressionEngine\*.csproj">
+                                $(ROOTDIR)\Thirdparty\Selenium\**\*.csproj">
     </MetraTechProjects>
 	
 	<!-- Exclusion: MetraTech.Test.csproj - is not a Unit Test project. Still named with '*.Test.csproj' pattern -->
     <MetraTechProjects Include="$(ROOTDIR)\MetraTech\Test\MetraTech.Test.csproj" />
   </ItemGroup>
-  
- <ItemGroup>
-    <MetraTechApplicationDomainExpressionEngineProjects
-		Include="$(ROOTDIR)\MetraTech\MetraTech.*\*.csproj;
-				 $(ROOTDIR)\MetraTech\ExpressionEngine\*.csproj"
-		Exclude="$(ProjectPath)\*.Test.csproj">
-    </MetraTechApplicationDomainExpressionEngineProjects>	
-</ItemGroup>
  
  <ItemGroup>
     <MetraTechCsProjects Include="$(ProjectPath)\MetraTech\**\*.vcxproj"
@@ -657,19 +650,19 @@
 				Properties="Configuration=$(config)"
 				StopOnFirstFailure="$(StopOnFirstError)"
 				RebaseOutputs="true" 
-        BuildInParallel="false" />
+        BuildInParallel="true" />
     
     <!-- Display the output from the custom task -->
 		<Message Text="$(TaskResult)"  Importance="high" />
 
 	</Target>
 	
-<Target Name="BuildApplicatioDomainExpressionEngine">
+<Target Name="BuildMetraTechProjectsVC">
     <Message Text="Target: $(MyTargets)" Importance="high"/>
     
      <!-- default build target for MetraNet project -->
     <!-- Build all the projects -->
-    <MSBuild Projects="@(MetraTechApplicationDomainExpressionEngineProjects)"
+    <MSBuild Projects="@(MetraTechProjectsVC)"
 				Targets="$(MyTargets)"
 				Properties="Configuration=$(config)"
 				StopOnFirstFailure="$(StopOnFirstError)"
@@ -773,7 +766,7 @@
   <Target Name="CopyFiles" DependsOnTargets="MakeDirectories;CopySourceDLLs;CopyVersionDependentSourceDLLs;CopySourceLibs;CopyVersionDependentSourceLibs" />
   <Target Name="BuildRuntimeMessages" DependsOnTargets="MakeDirectories;BuildMCFiles;CompileMessageMCFiles;CompileMessageRCFiles;LinkMessageResourceDLLs" />
   <Target Name="BuildIDLs" DependsOnTargets="MakeDirectories;BuildTlbs;RegisterTlbs;BuildInteropAssemblies" />
-  <Target Name="BuildSources" DependsOnTargets="MakeDirectories;SFBuild;PerformTlbImp;Build;BuildApplicatioDomainExpressionEngine;BuildVBProjects" />
+  <Target Name="BuildSources" DependsOnTargets="MakeDirectories;SFBuild;PerformTlbImp;MetraTechProjectsVC;Build;BuildVBProjects" />
   <!--<Target Name="BuildSources" DependsOnTargets="MakeDirectories;SFBuild;Build;BuildVBProjects" />-->
   <Target Name="UI" DependsOnTargets="Refresh;MetraNetUI;MetraViewUI" />
   <!--High Level Build Operations for Build Machines />-->

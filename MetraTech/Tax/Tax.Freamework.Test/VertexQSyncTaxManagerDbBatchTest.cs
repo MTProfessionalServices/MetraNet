@@ -9,26 +9,9 @@ namespace Tax.Freamework.Test
   ///to contain all VertexQSyncTaxManagerDBBatchTest Unit Tests
   ///</summary>
   [TestClass]
+  [Ignore]
   public class VertexSyncTaxManagerDbBatchTest
   {
-    private TestContext testContextInstance;
-
-    /// <summary>
-    ///Gets or sets the test context which provides
-    ///information about and functionality for the current test run.
-    ///</summary>
-    public TestContext TestContext
-    {
-      get
-      {
-        return testContextInstance;
-      }
-      set
-      {
-        testContextInstance = value;
-      }
-    }
-
     #region Additional test attributes
     // 
     //You can use the following additional attributes as you write your tests:
@@ -63,7 +46,6 @@ namespace Tax.Freamework.Test
     ///A test for InvokeRequest
     ///</summary>
     [TestMethod]
-    [Ignore]
     public void InvokeRequestTest()
     {
       var target = new VertexQSyncTaxManagerDBBatch_Accessor();
@@ -75,7 +57,6 @@ namespace Tax.Freamework.Test
     ///A test for InvokeRequest
     ///</summary>
     [TestMethod]
-    [Ignore]
     public void InvokeRequestTest2()
     {
       var target = new VertexQSyncTaxManagerDBBatch_Accessor();

@@ -16,11 +16,6 @@ namespace Framework.TaxManager.VertexQ
   {
     private static readonly Logger Logger = new Logger("[TaxManager.VertexQConfiguration]");
 
-    // Max Client sockets that needs to be opened.
-    // This should be less than or equal to the number
-    // of MaxSimultaneousConnections at the server
-    public int NumClientSockets { get; set; }
-
     /// <summary>
     /// Gets or sets the server address.
     /// </summary>

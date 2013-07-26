@@ -68,7 +68,7 @@ namespace Tax.Freamework.Test
     {
       var target = new VertexQSyncTaxManagerDBBatch_Accessor();
       var actual = target.InvokeRequest(Resources.TestRequest);
-      Assert.IsNotNull(actual);
+      Assert.AreEqual(Resources.TestResponse, actual);
     }
 
     /// <summary>
@@ -80,7 +80,7 @@ namespace Tax.Freamework.Test
     {
       var target = new VertexQSyncTaxManagerDBBatch_Accessor();
       var actual = target.InvokeRequest(Resources.TestRequest2);
-      Assert.IsNotNull(actual);
+      Assert.AreEqual(Resources.TestResponse2, actual);
     }
   }
 }

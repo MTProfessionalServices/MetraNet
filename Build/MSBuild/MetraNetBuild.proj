@@ -334,12 +334,9 @@
   </ItemGroup>
   
   <ItemGroup>
-    <MetraTechProjectsVC Include="$(ProjectPath)\*.vcxproj" Exclude="$(ROOTDIR)\include\include.vcxproj">
+    <MetraTechProjects Include="$(ProjectPath)\*.vcxproj" Exclude="$(ROOTDIR)\include\include.vcxproj">
       <AdditionalProperties>Architecture=x86</AdditionalProperties>
-    </MetraTechProjectsVC>
-  </ItemGroup>
-  
-  <ItemGroup>
+    </MetraTechProjects>
     <MetraTechProjects Include="$(ProjectPath)\*.csproj" 
                        Exclude="$(ProjectPath)\*.Test.csproj;
                                 $(ROOTDIR)\MetraTech\FunctionalTests\MetraTech.FunctionalTests.csproj;
@@ -366,7 +363,7 @@
 	<!-- Exclusion: MetraTech.Test.csproj - is not a Unit Test project. Still named with '*.Test.csproj' pattern -->
     <MetraTechProjects Include="$(ROOTDIR)\MetraTech\Test\MetraTech.Test.csproj" />
   </ItemGroup>
- 
+  
  <ItemGroup>
     <MetraTechCsProjects Include="$(ProjectPath)\MetraTech\**\*.vcxproj"
 						 Exclude="$(ROOTDIR)\include\include.vcxproj;
@@ -657,23 +654,6 @@
 
 	</Target>
 	
-<Target Name="BuildMetraTechProjectsVC">
-    <Message Text="Target: $(MyTargets)" Importance="high"/>
-    
-     <!-- default build target for MetraNet project -->
-    <!-- Build all the projects -->
-    <MSBuild Projects="@(MetraTechProjectsVC)"
-				Targets="$(MyTargets)"
-				Properties="Configuration=$(config)"
-				StopOnFirstFailure="$(StopOnFirstError)"
-				RebaseOutputs="true" 
-        BuildInParallel="true" />
-    
-    <!-- Display the output from the custom task -->
-		<Message Text="$(TaskResult)"  Importance="high" />
-
-</Target>
-	
   <Target Name="BuildTests">
     <Message Text="Compiling Test Projects..." Importance="high"/>
 	
@@ -766,12 +746,13 @@
   <Target Name="CopyFiles" DependsOnTargets="MakeDirectories;CopySourceDLLs;CopyVersionDependentSourceDLLs;CopySourceLibs;CopyVersionDependentSourceLibs" />
   <Target Name="BuildRuntimeMessages" DependsOnTargets="MakeDirectories;BuildMCFiles;CompileMessageMCFiles;CompileMessageRCFiles;LinkMessageResourceDLLs" />
   <Target Name="BuildIDLs" DependsOnTargets="MakeDirectories;BuildTlbs;RegisterTlbs;BuildInteropAssemblies" />
-  <Target Name="BuildSources" DependsOnTargets="MakeDirectories;SFBuild;PerformTlbImp;BuildMetraTechProjectsVC;Build;BuildVBProjects" />
+  <Target Name="BuildSources" DependsOnTargets="MakeDirectories;SFBuild;PerformTlbImp;Build;BuildVBProjects" />
   <!--<Target Name="BuildSources" DependsOnTargets="MakeDirectories;SFBuild;Build;BuildVBProjects" />-->
   <Target Name="UI" DependsOnTargets="Refresh;MetraNetUI;MetraViewUI" />
   <!--High Level Build Operations for Build Machines />-->
   <Target Name="MNAll" DependsOnTargets="CopyFiles;BuildRuntimeMessages;BuildIDLs;BuildSources;MNUI" />
   <Target Name="MNIncremental" DependsOnTargets="CopyFiles;BuildSources;MNUI" />
   <Target Name="MNUI" DependsOnTargets="Refresh;MetraNetUI;MetraViewUI" />
-<!--  -->
+
+
 </Project>

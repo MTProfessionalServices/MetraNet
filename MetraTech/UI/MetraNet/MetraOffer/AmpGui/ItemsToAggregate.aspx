@@ -43,26 +43,26 @@
 
   <div style="line-height:20px;padding-top:10px;padding-left:70px;">
       <asp:RadioButton id="radAddUpMonetaryChargeAmounts" runat="server" GroupName="AggregateMethod"
-              Text="<%$ Resources:AddUpMonetaryChargeAmountsLabel.BoxLabel %>" ForeColor="DarkBlue" Font-Size="8pt"/>
+              Text="<%$ Resources:AddUpMonetaryChargeAmountsLabel.BoxLabel %>" ForeColor="DarkBlue" Font-Size="9pt"/>
        <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD, TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_MONETARY_CHARGE , 300, 130)">
             <img id="Img1" src='/Res/Images/icons/help.png' />
        </span>
       <br />
        <asp:RadioButton ID="radCountTheNumberOfEvents" runat="server" GroupName="AggregateMethod"
-              Text="<%$ Resources:CountTheNumberOfEventsLabel.BoxLabel %>" ForeColor="DarkBlue" Font-Size="8pt"/>
+              Text="<%$ Resources:CountTheNumberOfEventsLabel.BoxLabel %>" ForeColor="DarkBlue" Font-Size="9pt"/>
       <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD, TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_COUNT_NUMBER_OF_EVENTS , 300, 130)">
             <img id="Img3" src='/Res/Images/icons/help.png' />
       </span>
       <br />
       <asp:RadioButton id="radAddUpUnitsOfUsage" runat="server" GroupName="AggregateMethod"
-              Text="<%$ Resources:AddUpUnitsOfUsageLabel.BoxLabel %>" ForeColor="DarkBlue" Font-Size="8pt" />
-      <span style="color:blue;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD, TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_UNIT_OF_USAGE , 300, 130)">
+              Text="<%$ Resources:AddUpUnitsOfUsageLabel.BoxLabel %>" ForeColor="DarkBlue" Font-Size="9pt" />
+      <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD, TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_UNIT_OF_USAGE , 300, 130)">
             <img id="Img2" src='/Res/Images/icons/help.png' />
       </span>
       <br />
       <asp:RadioButton ID="radGetItemAggregatedFromParamTable" runat="server" GroupName="AggregateMethod" 
-              Text="<%$ Resources:GetItemAggregatedFromParamTable.BoxLabel %>" ForeColor="DarkBlue" Font-Size="8pt"/> 
-      <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD, 'TODO' , 300, 130)">
+              Text="<%$ Resources:GetItemAggregatedFromParamTable.BoxLabel %>" ForeColor="DarkBlue" Font-Size="9pt"/> 
+      <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD, TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_FROM_PARAMETER_TABLE , 300, 130)">
             <img id="Img4" src='/Res/Images/icons/help.png' />
       </span>
       <br />

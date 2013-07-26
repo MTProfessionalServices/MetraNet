@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddUpMonetaryChargeAmountsLabel.BoxLabel" xml:space="preserve">
-    <value>(FRENCH)Add up monetary charge amounts.</value>
+    <value> (FRENCH) Add up monetary charge amounts.</value>
   </data>
   <data name="AddUpUnitsOfUsageLabel.BoxLabel" xml:space="preserve">
-    <value>(FRENCH)Add up units of usage.</value>
+    <value> (FRENCH) Add up units of usage.</value>
   </data>
   <data name="CountTheNumberOfEventsLabel.BoxLabel" xml:space="preserve">
-    <value>(FRENCH)Count the number of events.</value>
+    <value> (FRENCH) Count the number of events.</value>
   </data>
   <data name="GetItemAggregatedFromParamTable.BoxLabel" xml:space="preserve">
-    <value>(FRENCH)From Parameter Table.</value>
+    <value> (FRENCH) From Parameter Table.</value>
   </data>
   <data name="lblGenInfoResource1.Text" xml:space="preserve">
     <value>(FRENCH) Decisions count monetary amounts, units or number of events. This screen allows the selection of what a decision type will aggregate.</value>

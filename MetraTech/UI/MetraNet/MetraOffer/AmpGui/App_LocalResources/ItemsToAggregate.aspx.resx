@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddUpMonetaryChargeAmountsLabel.BoxLabel" xml:space="preserve">
-    <value>Add up monetary charge amounts.</value>
+    <value> Add up monetary charge amounts.</value>
   </data>
   <data name="AddUpUnitsOfUsageLabel.BoxLabel" xml:space="preserve">
-    <value>Add up units of usage.</value>
+    <value> Add up units of usage.</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnBackResource1.ServerSide" type="System.Boolean, mscorlib">
@@ -131,7 +131,7 @@
     <value>True</value>
   </data>
   <data name="CountTheNumberOfEventsLabel.BoxLabel" xml:space="preserve">
-    <value>Count the number of events.</value>
+    <value> Count the number of events.</value>
   </data>
   <data name="lblGenInfoResource1.Text" xml:space="preserve">
     <value>Decisions count monetary amounts, units or number of events. This screen allows the selection of what a decision type will aggregate.</value>
@@ -149,6 +149,6 @@
     <value>MetraNet</value>
   </data>
   <data name="GetItemAggregatedFromParamTable.BoxLabel" xml:space="preserve">
-    <value>From Parameter Table.</value>
+    <value> From Parameter Table.</value>
   </data>
 </root>

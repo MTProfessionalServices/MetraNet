@@ -909,6 +909,9 @@
 	<data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_COUNT_NUMBER_OF_EVENTS" xml:space="preserve">
     <value>Example: \"Apply a discount if over 100 calls were made.\"</value>
   </data>
+  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_FROM_PARAMETER_TABLE" xml:space="preserve">
+    <value>Usage is aggregated based on the value set in the parameter table.</value>
+  </data>
   <data name="TEXT_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
     <value>Suppose you have two Decisions that want to consider the same usage record and the Decisions are configured to consume the usage records.  Which Decision is processed first?  This is determined by the Decisions' priority levels.  The lower the Numeric Priority Level, the earlier the Decision is executed.  Decisions with the same priority level are executed in a nondeterministic order.  On this page, you can change the priority level of the Decision Type you are configuring now.</value>
   </data>

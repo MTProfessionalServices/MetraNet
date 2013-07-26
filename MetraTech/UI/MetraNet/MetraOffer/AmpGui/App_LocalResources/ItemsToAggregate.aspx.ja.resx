@@ -125,16 +125,16 @@
     <value>True</value>
   </data>
   <data name="AddUpMonetaryChargeAmountsLabel.BoxLabel" xml:space="preserve">
-    <value>(JAPANESE)Add up monetary charge amounts.</value>
+    <value> (JAPANESE) Add up monetary charge amounts.</value>
   </data>
   <data name="AddUpUnitsOfUsageLabel.BoxLabel" xml:space="preserve">
-    <value>(JAPANESE)Add up units of usage.</value>
+    <value> (JAPANESE) Add up units of usage.</value>
   </data>
   <data name="CountTheNumberOfEventsLabel.BoxLabel" xml:space="preserve">
-    <value>(JAPANESE)Count the number of events.</value>
+    <value> (JAPANESE) Count the number of events.</value>
   </data>
   <data name="GetItemAggregatedFromParamTable.BoxLabel" xml:space="preserve">
-    <value>(JAPANESE)From Parameter Table.</value>
+    <value> (JAPANESE) From Parameter Table.</value>
   </data>
   <data name="lblGenInfoResource1.Text" xml:space="preserve">
     <value>(JAPANESE) Decisions count monetary amounts, units or number of events. This screen allows the selection of what a decision type will aggregate.</value>

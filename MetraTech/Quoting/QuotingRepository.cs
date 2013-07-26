@@ -6,7 +6,9 @@ using MetraTech.ActivityServices.Common;
 using MetraTech.BusinessEntity.DataAccess.Metadata;
 using MetraTech.BusinessEntity.DataAccess.Persistence;
 using Core.Quoting;
+using MetraTech.DataAccess;
 using MetraTech.Debug.Diagnostics;
+using MetraTech.Domain.DataAccess;
 using MetraTech.Domain.Quoting;
 using IMTSessionContext = MetraTech.Interop.MTAuth.IMTSessionContext;
 
@@ -215,9 +217,9 @@ namespace MetraTech.Quoting
       }
     }
 
-    private QuoteHeader SetQuoteHeader(QuoteRequest q, IMTSessionContext sessionContext)
+    private static QuoteHeader SetQuoteHeader(QuoteRequest quoteRequest, IMTSessionContext sessionContext)
     {
-      using (new MetraTech.Debug.Diagnostics.HighResolutionTimer("SetQuoteHeader"))
+      using (new HighResolutionTimer("SetQuoteHeader"))
       {
         RepositoryAccess.Instance.Initialize();
 
@@ -226,37 +228,43 @@ namespace MetraTech.Quoting
         {
           using (var scope = new TransactionScope(TransactionScopeOption.Required))
           {
+            #region Save quote header
 
-            var quoteContent = new QuoteContent();
-
-            quoteHeader.CustomDescription = q.QuoteDescription;
-            quoteHeader.CustomIdentifier = q.QuoteIdentifier;
-
-            quoteHeader.StartDate = q.EffectiveDate;
-            quoteHeader.EndDate = q.EffectiveEndDate;
+            quoteHeader.CustomDescription = quoteRequest.QuoteDescription;
+            quoteHeader.CustomIdentifier = quoteRequest.QuoteIdentifier;
+            quoteHeader.StartDate = quoteRequest.EffectiveDate;
+            quoteHeader.EndDate = quoteRequest.EffectiveEndDate;
 
             if (sessionContext != null)
               quoteHeader.UID = sessionContext.AccountID;
 
             quoteHeader.Save();
 
-            foreach (var accountForQuoteBME in q.Accounts.Select(account => new AccountForQuote { AccountID = account }))
+            #endregion
+
+            #region Save accounts for quote
+
+            foreach (var accountForQuoteBME in quoteRequest.Accounts.Select(account => new AccountForQuote { AccountID = account }))
             {
               accountForQuoteBME.QuoteHeader = quoteHeader;
               accountForQuoteBME.Save();
             }
 
-            int poOrder = 0;
-            foreach (var POforQuoteBME in q.ProductOfferings.Select(po => new POforQuote { POID = po }))
+            #endregion
+
+            #region Save product offering
+
+            var poOrder = 0;
+            foreach (var POforQuoteBME in quoteRequest.ProductOfferings.Select(po => new POforQuote { POID = po }))
             {
               POforQuoteBME.QuoteHeader = quoteHeader;
               POforQuoteBME.Order = poOrder++;
               POforQuoteBME.Save();
 
-              if (q.SubscriptionParameters.UDRCValues.ContainsKey(POforQuoteBME.POID.ToString()))
+              if (quoteRequest.SubscriptionParameters.UDRCValues.ContainsKey(POforQuoteBME.POID.ToString()))
               {
 
-                foreach (var UDRCValue in q.SubscriptionParameters.UDRCValues[POforQuoteBME.POID.ToString()])
+                foreach (var UDRCValue in quoteRequest.SubscriptionParameters.UDRCValues[POforQuoteBME.POID.ToString()])
                 {
                   var udrcValuesForQuote = new UDRCForQuoting();
                   udrcValuesForQuote.CreationDate = MetraTime.Now;
@@ -271,9 +279,34 @@ namespace MetraTech.Quoting
               }
             }
 
-            quoteContent.Status = 1;
-            quoteContent.QuoteHeader = quoteHeader;
+            #endregion
+
+            #region Save quote content
+
+            var quoteContent = new QuoteContent
+              {
+                Status = 1, 
+                QuoteHeader = quoteHeader
+              };
             quoteContent.Save();
+
+            #endregion
+
+            #region Save ICB prices
+
+            using (var connection = ConnectionBase.GetDbConnection(new DataAccess.ConnectionInfo("NetMeter"), false))
+            using (var dbContext = new MetraNetContext(connection))
+            {
+              foreach (var price in quoteRequest.IcbPrices)
+              {
+                price.Id = Guid.NewGuid();
+                price.QuoteId = quoteHeader.QuoteID.GetValueOrDefault();
+                dbContext.QuoteIndividualPrices.Add(price);
+              }
+              dbContext.SaveChanges();
+            }
+
+            #endregion
 
             scope.Complete();
           }

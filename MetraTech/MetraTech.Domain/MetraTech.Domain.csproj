@@ -70,6 +70,7 @@
     <Compile Include="DataAccess\EntityTypeConfigurations\EntityConfiguration.cs" />
     <Compile Include="DataAccess\EntityTypeConfigurations\NotificationConfigurationConfiguration.cs" />
     <Compile Include="DataAccess\EntityTypeConfigurations\NotificationEndpointConfiguration.cs" />
+    <Compile Include="DataAccess\EntityTypeConfigurations\QuoteIndividualPriceConfiguration.cs" />
     <Compile Include="DataAccess\IMetraNetContext.cs" />
     <Compile Include="DataAccess\SerializationHelper.cs" />
     <Compile Include="Events\Event.cs" />

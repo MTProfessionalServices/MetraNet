@@ -125,16 +125,16 @@
     <value>True</value>
   </data>
   <data name="AddUpMonetaryChargeAmountsLabel.BoxLabel" xml:space="preserve">
-    <value>(GERMAN)Add up monetary charge amounts.</value>
+    <value> (GERMAN) Add up monetary charge amounts.</value>
   </data>
   <data name="AddUpUnitsOfUsageLabel.BoxLabel" xml:space="preserve">
-    <value>(GERMAN)Add up units of usage.</value>
+    <value> (GERMAN) Add up units of usage.</value>
   </data>
   <data name="CountTheNumberOfEventsLabel.BoxLabel" xml:space="preserve">
-    <value>(GERMAN)Count the number of events.</value>
+    <value> (GERMAN) Count the number of events.</value>
   </data>
   <data name="GetItemAggregatedFromParamTable.BoxLabel" xml:space="preserve">
-    <value>(GERMAN)From Parameter Table.</value>
+    <value> (GERMAN) From Parameter Table.</value>
   </data>
   <data name="lblGenInfoResource1.Text" xml:space="preserve">
     <value>(GERMAN)A Decision Type has settings that let you fine-tune its behavior.</value>

@@ -984,6 +984,9 @@
 	<data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_COUNT_NUMBER_OF_EVENTS" xml:space="preserve">
     <value>(ITALIAN) Example: \"Apply a discount if over 100 calls were made.\"</value>
   </data>
+  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_FROM_PARAMETER_TABLE" xml:space="preserve">
+    <value>Usage is aggregated based on the value set in the parameter table.</value>
+  </data>
   <data name="TEXT_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
     <value>Italian</value>
   </data>

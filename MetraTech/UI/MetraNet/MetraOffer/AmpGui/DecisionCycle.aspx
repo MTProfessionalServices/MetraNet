@@ -46,7 +46,7 @@
         <asp:RadioButton id="RadioButtonYears" runat="server" GroupName="RBL_UnitOfTime" Text="<%$ Resources:rblYears.Text %>" ForeColor="DarkBlue" Font-Size="8pt"/>
         <br/>
         <asp:RadioButton id="RadioButtonUnitOfTimeFromParamTable" runat="server" GroupName="RBL_UnitOfTime" Text="<%$ Resources:rblUnitOfTimeFromParamTable.Text %>" ForeColor="DarkBlue" Font-Size="8pt"/>
-        <div style="margin-top: -0.15in; padding-left: 2.25in;">
+        <div style="margin-top: -0.15in; padding-left: 257px;">
             <div id="divUnitOfTimeFromParamTableDropdownSource" runat="server" >
                 <MT:MTDropDown ID="ddUnitOfTimeFromParamTableSource" runat="server" ControlWidth="160" ListWidth="200" HideLabel="True" AllowBlank="True" Editable="True"/>
             </div>

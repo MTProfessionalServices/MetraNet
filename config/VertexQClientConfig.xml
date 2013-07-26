@@ -3,11 +3,8 @@
 	<VertexQ>  
 		<name>VertexClientConfig</name>      
 		<description>VertexQ Client config values used by the client sockets to connect to the server socket.</description>            
-		<NumClientSockets>10</NumClientSockets>
 		<ServerAddress>localhost</ServerAddress>
 		<ListeningPort>4444</ListeningPort>
 		<BufferSize>25000</BufferSize>
-		<MaxNumberOfSimultaneousClientConnections>10</MaxNumberOfSimultaneousClientConnections>
-		<MaxSimultaneousConnectOps>10</MaxSimultaneousConnectOps>
 	</VertexQ>
 </xmlconfig>

@@ -30,9 +30,9 @@ namespace Framework.TaxManager.VertexQ
       _logger = logger;
       _configuration = configuration;
       _logger.LogInfo("CalcVertexTaxes.AsynchronousClient constructor called with Port - " +
-                      _configuration.m_Port +
+                      _configuration.Port +
                       " And Server - " + 
-                      _configuration.m_ServerAddress);
+                      _configuration.ServerAddress);
     }
 
     private string StartClient(string xmlStr)
@@ -43,9 +43,9 @@ namespace Framework.TaxManager.VertexQ
         _logger.LogDebug("VertexTaxes.AsynchronousClient StartClient Method");
         // Establish the remote endpoint for the socket.                                
         //IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-        var ipHostInfo = Dns.GetHostEntry(_configuration.m_ServerAddress);
+        var ipHostInfo = Dns.GetHostEntry(_configuration.ServerAddress);
         var ipAddress = ipHostInfo.AddressList[0];
-        var remoteEp = new IPEndPoint(ipAddress, _configuration.m_Port);
+        var remoteEp = new IPEndPoint(ipAddress, _configuration.Port);
 
         // Create a TCP/IP socket
         var client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -125,10 +125,10 @@ namespace Framework.TaxManager.VertexQ
       {
         _logger.LogDebug("CalcVertexTaxes.AsynchronousClient Receive Method");
         // Create the state object.
-        var state = new StateObject(_configuration.m_BufferSize, client);
+        var state = new StateObject(_configuration.BufferSize, client);
 
         // Begin receiving the data from the remote device.
-        client.BeginReceive(state.Buffer, 0, _configuration.m_BufferSize, 0, ReceiveCallback, state);
+        client.BeginReceive(state.Buffer, 0, _configuration.BufferSize, 0, ReceiveCallback, state);
       }
       catch (Exception e)
       {
@@ -159,7 +159,7 @@ namespace Framework.TaxManager.VertexQ
             _receiveDone.Set();
           else
             // Get the rest of the data.
-            client.BeginReceive(state.Buffer, 0, _configuration.m_BufferSize, 0, ReceiveCallback, state);
+            client.BeginReceive(state.Buffer, 0, _configuration.BufferSize, 0, ReceiveCallback, state);
         }
         else
         {
@@ -233,7 +233,7 @@ namespace Framework.TaxManager.VertexQ
         _logger.LogDebug("CalcVertexTaxes.AsynchronousClient InitiateTransaction Method");
         _excpMessage = null;
         returnXmlStr = StartClient(xmlStr);
-        _logger.LogDebug("CalcVertexTaxes.AsynchronousClient.InitiateTransaction  Port :" + _configuration.m_Port +
+        _logger.LogDebug("CalcVertexTaxes.AsynchronousClient.InitiateTransaction  Port :" + _configuration.Port +
                          " - Call to " + CallType + " Completed");
       }
       catch (Exception e)

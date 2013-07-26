@@ -61,7 +61,7 @@ namespace Tax.Freamework.Test.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;VertexParams&gt;
+        ///   Looks up a localized string similar to &lt;VertexTaxParams&gt;
         ///  &lt;OriginLocationMode&gt;010014152&lt;/OriginLocationMode&gt;
         ///  &lt;OriginGeoCode&gt;010014152&lt;/OriginGeoCode&gt;
         ///  &lt;TerminationLocationMode&gt;0&lt;/TerminationLocationMode&gt;
@@ -70,7 +70,7 @@ namespace Tax.Freamework.Test.Properties {
         ///  &lt;TaxableAmount&gt;100&lt;/TaxableAmount&gt;
         ///  &lt;CategoryCode&gt;01&lt;/CategoryCode&gt;
         ///  &lt;ServiceCode&gt;01&lt;/ServiceCode&gt;
-        ///&lt;/VertexParams&gt;.
+        ///&lt;/VertexTaxParams&gt;.
         /// </summary>
         internal static string TestRequest {
             get {
@@ -93,6 +93,15 @@ namespace Tax.Freamework.Test.Properties {
         internal static string TestResponse {
             get {
                 return ResourceManager.GetString("TestResponse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;Success&gt;&lt;TaxResults&gt;&lt;InvoiceNumber&gt;1001&lt;/InvoiceNumber&gt;&lt;InvoiceDate&gt;20130501&lt;/InvoiceDate&gt;&lt;TaxedGeoCode&gt;220171040&lt;/TaxedGeoCode&gt;&lt;TaxedCityName&gt;WALTHAM&lt;/TaxedCityName&gt;&lt;TaxedCountyName&gt;MIDDLESEX&lt;/TaxedCountyName&gt;&lt;TaxedGeoCodeIncorporatedCode&gt;I&lt;/TaxedGeoCodeIncorporatedCode&gt;&lt;TaxedStateCode&gt;MA&lt;/TaxedStateCode&gt;&lt;BundleCategoryCode&gt;&lt;/BundleCategoryCode&gt;&lt;BundleFlag&gt;&lt;/BundleFlag&gt;&lt;BundleServiceCode&gt;&lt;/BundleServiceCode&gt;&lt;TaxRecords&gt;&lt;TaxRecord&gt;&lt;TaxAuthority&gt;1&lt;/TaxAuthority&gt;&lt;TaxType&gt;95&lt;/TaxType&gt;&lt;TaxCode&gt;R&lt;/TaxCode&gt;&lt;TaxR [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TestResponse2 {
+            get {
+                return ResourceManager.GetString("TestResponse2", resourceCulture);
             }
         }
     }

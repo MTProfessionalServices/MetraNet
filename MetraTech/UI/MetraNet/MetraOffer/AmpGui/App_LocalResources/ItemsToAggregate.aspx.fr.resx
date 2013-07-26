@@ -139,7 +139,7 @@
     <value>(FRENCH)How should usage be aggregated?</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>(FRENCH)Items to Aggregate</value>
+    <value>(FRENCH) Items to Aggregate for {0}</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>(FRENCH)MetraNet</value>

@@ -146,7 +146,7 @@
     <value>(JAPANESE)How should usage be aggregated?</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>(JAPANESE)Items to Aggregate</value>
+    <value>(JAPANESE) Items to Aggregate for {0}</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>(JAPANESE)MetraNet</value>

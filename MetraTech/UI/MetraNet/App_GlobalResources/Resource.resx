@@ -535,7 +535,7 @@
     <value>Property</value>
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
-    <value>Back</value>
+    <value>Previous</value>
   </data>
   <data name="TEXT_NEXT" xml:space="preserve">
     <value>Next</value>

@@ -505,7 +505,7 @@
     <value>Anchura</value>
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
-    <value>(SPANISH) Back</value>
+    <value>(SPANISH) Previous</value>
   </data>
 <data name="TEXT_NEXT" xml:space="preserve">
     <value>(SPANISH) Next</value>

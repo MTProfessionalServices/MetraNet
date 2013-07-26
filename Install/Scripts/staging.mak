@@ -329,6 +329,8 @@ BINARIES = \
   MetraTech.DomainModel.ProductCatalog.pdb \
   MetraTech.DomainModel.Validators.dll \
   MetraTech.DomainModel.Validators.pdb \
+  MetraTech.ExpressionEngine.dll \
+  MetraTech.ExpressionEngine.pdb \
   MetraTech.ExpressionEngine.Metadata.dll \
   MetraTech.ExpressionEngine.Metadata.pdb \
   MetraTech.ExpressionEngine.Metadata.Hook.dll \

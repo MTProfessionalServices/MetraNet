@@ -447,7 +447,7 @@ public partial class AmpDecisionCyclePage : AmpWizardBasePage
     private void SetRadioButtonsUnitOfTimeEvent()
     {
         //Add event to Unit of Time items
-        RadioButtonDecisionCycleBillingInterval.Attributes.Add("onClick", "return DecisionCycleControlShow(false)");
+        RadioButtonDecisionCycleBillingInterval.Attributes.Add("onClick", "return DecisionCycleUnitOfTimeInitialState()");
         RadioButtonDays.Attributes.Add("onClick", String.Format("return DecisionCycleUnitOfTimeChanged('{0}')", RadioButtonDays.ClientID));
         RadioButtonWeeks.Attributes.Add("onClick", String.Format("return DecisionCycleUnitOfTimeChanged('{0}')", RadioButtonWeeks.ClientID));
         RadioButtonMonths.Attributes.Add("onClick", String.Format("return DecisionCycleUnitOfTimeChanged('{0}')", RadioButtonMonths.ClientID));

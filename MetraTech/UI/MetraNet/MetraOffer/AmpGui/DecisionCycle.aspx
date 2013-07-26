@@ -161,7 +161,16 @@
         var dd2 = Ext.getCmp('<%=ddUnitOfTimeFromParamTableSource.ClientID %>');
         dd2.disable();
     }
+      
+
     DecisionCycleControlShow(true);
+  }
+
+  function DecisionCycleUnitOfTimeInitialState() {
+    var dd2 = Ext.getCmp('<%=ddUnitOfTimeFromParamTableSource.ClientID %>');
+        dd2.disable();
+
+    DecisionCycleControlShow(false);
   }
 
   function DecisionCycleControlShow(show) {

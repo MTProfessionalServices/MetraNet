@@ -505,7 +505,7 @@
     <value>Larghezza</value>
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
-    <value>(ITALIAN) Back</value>
+    <value>(ITALIAN) Previous</value>
   </data>
  <data name="TEXT_NEXT" xml:space="preserve">
     <value>(ITALIAN) Next</value>

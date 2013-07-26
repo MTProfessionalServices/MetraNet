@@ -1063,7 +1063,7 @@
     <value>No error message to report.</value>
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
-    <value>Back</value>
+    <value>Previous</value>
   </data>
   <data name="TEXT_APPROVALS_ACTION_APPROVE" xml:space="preserve">
     <value>Approve This Change</value>

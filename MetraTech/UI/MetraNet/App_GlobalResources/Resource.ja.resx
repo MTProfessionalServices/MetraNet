@@ -505,7 +505,7 @@
     <value>幅</value>
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
-    <value>(JAPANESE) Back</value>
+    <value>(JAPANESE) Previous</value>
   </data>
   <data name="TEXT_NEXT" xml:space="preserve">
     <value>(JAPANESE) Next</value>

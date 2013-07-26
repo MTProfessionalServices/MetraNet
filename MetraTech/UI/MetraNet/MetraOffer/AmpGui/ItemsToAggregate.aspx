@@ -48,16 +48,16 @@
             <img id="Img1" src='/Res/Images/icons/help.png' />
        </span>
       <br />
-       <asp:RadioButton ID="radCountTheNumberOfEvents" runat="server" GroupName="AggregateMethod"
-              Text="<%$ Resources:CountTheNumberOfEventsLabel.BoxLabel %>" ForeColor="DarkBlue" Font-Size="9pt"/>
-      <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD, TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_COUNT_NUMBER_OF_EVENTS , 300, 130)">
-            <img id="Img3" src='/Res/Images/icons/help.png' />
-      </span>
-      <br />
       <asp:RadioButton id="radAddUpUnitsOfUsage" runat="server" GroupName="AggregateMethod"
               Text="<%$ Resources:AddUpUnitsOfUsageLabel.BoxLabel %>" ForeColor="DarkBlue" Font-Size="9pt" />
       <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD, TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_UNIT_OF_USAGE , 300, 130)">
             <img id="Img2" src='/Res/Images/icons/help.png' />
+      </span>
+      <br />
+       <asp:RadioButton ID="radCountTheNumberOfEvents" runat="server" GroupName="AggregateMethod"
+              Text="<%$ Resources:CountTheNumberOfEventsLabel.BoxLabel %>" ForeColor="DarkBlue" Font-Size="9pt"/>
+      <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD, TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_COUNT_NUMBER_OF_EVENTS , 300, 130)">
+            <img id="Img3" src='/Res/Images/icons/help.png' />
       </span>
       <br />
       <asp:RadioButton ID="radGetItemAggregatedFromParamTable" runat="server" GroupName="AggregateMethod" 
@@ -66,7 +66,7 @@
             <img id="Img4" src='/Res/Images/icons/help.png' />
       </span>
       <br />
-      <div style="padding-left: 5px;">
+      <div style="padding-left: 7px;">
         <div id="divItemAggregatedFromParamTableDropdownSource" runat="server">
               <MT:MTDropDown ID="ddItemAggregatedFromParamTableSource" runat="server" ControlWidth="160" ListWidth="200"
                 HideLabel="True" AllowBlank="True" Editable="True"/>
@@ -81,7 +81,7 @@
     but leave the col width the same to maintain the same spacing between buttons on every page.
   -->
   <br />
-  <div style="padding-left:0.85in; padding-top:1.35in;">   
+  <div style="padding-left:10px; padding-top:1.35in;">   
       <table>
         <col style="width:190px"/>
         <col style="width:190px"/>

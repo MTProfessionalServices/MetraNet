@@ -988,16 +988,16 @@
     <value>(FRENCH) Usage is aggregated based on the value set in the parameter table.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
-    <value>Suppose you have two Decisions that want to consider the same usage record and the Decisions are configured to consume the usage records.  Which Decision is processed first?  This is determined by the Decisions' priority levels.  The lower the Numeric Priority Level, the earlier the Decision is executed.  Decisions with the same priority level are executed in a nondeterministic order.  On this page, you can change the priority level of the Decision Type you are configuring now.</value>
+    <value>(FRENCH) Suppose you have two Decisions that want to consider the same usage record and the Decisions are configured to consume the usage records.  Which Decision is processed first?  This is determined by the Decisions' priority levels.  The lower the Numeric Priority Level, the earlier the Decision is executed.  Decisions with the same priority level are executed in a nondeterministic order.  On this page, you can change the priority level of the Decision Type you are configuring now.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
-    <value>For example, suppose you have one Decision Type that totals \"minutes\" and \"all minutes &lt; 1000 are free\".  And you have a second Decision Type that totals \"minutes\", but we only want to count minutes that were not part of the 1000.  We want the second Decision Type to consider only minutes that were not consumed by the first Decision Type; therefore, the Decision Domain for both Decision Types should be set to 'Ratable'.</value>
+    <value>(FRENCH) For example, suppose you have one Decision Type that totals \"minutes\" and \"all minutes &lt; 1000 are free\".  And you have a second Decision Type that totals \"minutes\", but we only want to count minutes that were not part of the 1000.  We want the second Decision Type to consider only minutes that were not consumed by the first Decision Type; therefore, the Decision Domain for both Decision Types should be set to 'Ratable'.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
-    <value>Help:  Decision Priority</value>
+    <value>(FRENCH) Help:  Decision Priority</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
-    <value>Help:  Decision Domain</value>
+    <value>(FRENCH) Help:  Decision Domain</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
     <value>You need to select an Amount Chain Group so that the Decision Type knows what to count and how to recalculate related values.  A sample Amount Chain might have four related fields in a Product View:  \"the number of minutes used\", \"the rate per minute\", \"the charge amount\", and \"the tax on the charge amount\".</value>

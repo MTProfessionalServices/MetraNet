@@ -1,4 +1,4 @@
-<?xml version="1.0"?><xmlconfig>
+<xmlconfig>
 	<!-- servername value is either the host name or the IP address -->
 	<!-- servertype contains the server type and it is case-insensitive -->
 	<server>
@@ -10,13 +10,13 @@
 		<secure ptype="INTEGER">0</secure>
 		<portnumber ptype="INTEGER">80</portnumber>
 		<username>mtsystem</username>
-		<password encrypted="true">cbb23d8d-8189-4039-a575-a7388c369d992BobFeCp2WoeRKrz99rjJjP9r8qEZbRVho1yVBtR9y8=</password>
+		<password>mtsystem</password>
 		<dtcenabled ptype="INTEGER">1</dtcenabled>
 	</server>
 
 		<server>
 			<servertype>CyberSourceService</servertype>
 			<username>ocppgw</username>
-			<password encrypted="true">cbb23d8d-8189-4039-a575-a7388c369d99I40avBs2miE9WnufQ9oB1sAxNrCA6jttF4LNGyYsV3pJaKagI56VWOSHJtdeDYPt/kGHEgul3bmylftcgv4n+2ndE+Ar8dAYFc/HytL38kpA4TYEVQ7ELKE/Ar2gLCbGz05iWQnPTh8VRESgvnTicGPg2Lmf1LFZJ6Npl6ocLYWDQ1H0hiTgttNb7ifwzzotfs7eyxLTiZGl2Cb2fN+tjn+Vfp5x7F0yi3KVNLv186EdiM9REz4TxLR64H14Is+MKTE7Z7BWqIGgJ87pylglaxx6igBkCqIJKGN+jhBuHHPkPFLTEw3A0Ron+KvS52Y+psDZ3i9pJLU7J57JAjXCVYU9IswjZnEqm1bNRqm668umfnPP4jzduHVuYtWyeObWaJsx422m/qVJlfgoI+sUnb/9h55t2s0wv4Q1/lwDI7AJerr8FJcGUE/yO409JQ0M3dJFv/KhlRZBQ5cuDrIAow==</password>
+			<password>bmyncap8e2wIQJoqRUWz9PbBRiLCpOmHPbO/EVxgqiI2F+ERO4+TFZgcNL1kgEy3Iw7NKhwRS75jskOGB0TRyZ5jmPzJLOKX+30qlBFreKIWbam8O5Y2MhzAvnSyA1OO+HpxKhRkC8/uaFiG1P4zz9xPh4/Nqtd7k1jIS2eJQBbXU8FVJyu9lDkntipFRbP09sFGIsKk6Yc9s78RXGCqIjYX4RE7j5MVmBw0vWSATLcjDs0qHBFLvmOyQ4YHRNHJnmOY/Mks4pf7fSqUEWt4ohZtqbw7ljYyHMC+dLIDU474enEqFGQLz+5oWIbU/jPP3E+Hj82q13uTWMhLZ4lAFg==</password>
 		</server>
 </xmlconfig>

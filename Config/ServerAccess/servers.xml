@@ -6,7 +6,7 @@
 		<databasetype>{SQL Server}</databasetype>
      <timeout ptype="INTEGER">11800</timeout>
 		<username>nmdbo</username>
-		<password encrypted="true">cbb23d8d-8189-4039-a575-a7388c369d99s3sB9PwdhdpHUFYAzRN/fUwcL7h/7iMdlYIMp0HaJRA=</password>
+		<password>MetraTech1</password>
 	</server>
 
 	<!--server>
@@ -33,7 +33,7 @@
 		<servername>crystal2008.metratech.com</servername>
 		<databasename>MetraNet</databasename>
 		<username>mtuser</username>
-		<password encrypted="true">cbb23d8d-8189-4039-a575-a7388c369d99s3sB9PwdhdpHUFYAzRN/fUwcL7h/7iMdlYIMp0HaJRA=</password>
+		<password>MetraTech1</password>
 		<secure ptype="INTEGER">0</secure>
 		<portnumber ptype="INTEGER">80</portnumber>
 	</server>

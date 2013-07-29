@@ -19,7 +19,7 @@ namespace MetraTech.Domain.Test.Quoting
         [TestCategory(UnitTestCategory)]
         public void RateScheduleslWithObjectsIsSerializedToStringPositiveTest()
         {
-            var price = new QuoteIndividualPrice { RateSchedules = PrepareSamplpeRates() };
+            var price = new QuoteIndividualPrice { RateSchedules = PrepareSampleRates() };
             // The sample XML string was received as result of serialization of the list of the prices 
             // which is used in the UpdateICBRates functional  test.
             // C:\dev\MetraNet\RMP\Extensions\FunctionalTests_Internal\MetraNet_LegacySmokesTests\Core\Services\PriceListService.Tests.cs
@@ -36,7 +36,7 @@ namespace MetraTech.Domain.Test.Quoting
             // C:\dev\MetraNet\RMP\Extensions\FunctionalTests_Internal\MetraNet_LegacySmokesTests\Core\Services\PriceListService.Tests.cs
             var stringOfRates = Properties.Resources.SampleRateSchedules_txt;
             var price = new QuoteIndividualPrice { RateSchedulesXml = stringOfRates };
-            var expectedRates = PrepareSamplpeRates();
+            var expectedRates = PrepareSampleRates();
 
             Assert.IsNotNull(price.RateSchedules);
             Assert.AreEqual(expectedRates.Count, price.RateSchedules.Count);
@@ -83,7 +83,7 @@ namespace MetraTech.Domain.Test.Quoting
         /// </summary>
         /// <param name="expected">Expected quote individual prie</param>
         /// <param name="actual">Actual quote individual price</param>
-        private static void CompareQuoteIndividualPrice(QuoteIndividualPrice expected, QuoteIndividualPrice actual)
+        public static void CompareQuoteIndividualPrice(QuoteIndividualPrice expected, QuoteIndividualPrice actual)
         {
             Assert.AreEqual(expected.Id, actual.Id);
             Assert.AreEqual(expected.QuoteId, actual.QuoteId);
@@ -113,7 +113,7 @@ namespace MetraTech.Domain.Test.Quoting
         /// Prepare sample of rate schedules
         /// </summary>
         /// <returns>List of sample rate schedules</returns>
-        private static List<BaseRateSchedule> PrepareSamplpeRates()
+        public static List<BaseRateSchedule> PrepareSampleRates()
         {
             var rates = new List<BaseRateSchedule>();
 

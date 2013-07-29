@@ -9,7 +9,7 @@
 		<databasename>NetMeterClient</databasename>
 		<databasetype>{SQL Server}</databasetype>
 		<username>sa</username>
-		<password encrypted="true"></password>
+		<password>MetraTech1</password>
 	</server>
         
 

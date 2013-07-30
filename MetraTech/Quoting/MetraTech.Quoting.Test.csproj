@@ -74,6 +74,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Core.Quoting.Entity.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
     <Reference Include="GenericCollection.interop">
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\GenericCollection.interop.dll</HintPath>
@@ -361,6 +362,10 @@
     <ProjectReference Include="..\..\..\Legacy_Internal\Source\MetraTech\MetraTech.Application\MetraTech.Application.csproj">
       <Project>{A19EED27-05B5-4907-B8A7-20C43EED7F42}</Project>
       <Name>MetraTech.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Legacy_Internal\Source\MetraTech\MetraTech.Domain.Test\MetraTech.Domain.Test.csproj">
+      <Project>{C9D05D42-B0FB-47FE-8E00-FBB99AFB3EC3}</Project>
+      <Name>MetraTech.Domain.Test</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Legacy_Internal\Source\MetraTech\MetraTech.Domain\MetraTech.Domain.csproj">
       <Project>{9C9C685C-CBF8-428F-8C34-98702FF13726}</Project>

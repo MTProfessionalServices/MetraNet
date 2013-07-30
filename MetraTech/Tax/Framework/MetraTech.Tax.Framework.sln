@@ -3,14 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Tax.Framework", "MetraTech.Tax.Framework.csproj", "{86440C21-21F3-41A4-A3A5-686A30DD3988}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tax.Freamework.Test", "..\Tax.Freamework.Test\Tax.Freamework.Test.csproj", "{9B6B867D-86BF-4004-A0FA-E1E5DAD47353}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{27A50886-74A6-4B1A-B31C-772A6400AF21}"
-	ProjectSection(SolutionItems) = preProject
-		Local.testsettings = Local.testsettings
-		MetraTech.Tax.Framework.vsmdi = MetraTech.Tax.Framework.vsmdi
-		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
-	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tax.Framework.Test", "..\Framework.Test\Tax.Framework.Test.csproj", "{9B6B867D-86BF-4004-A0FA-E1E5DAD47353}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution

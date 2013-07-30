@@ -57,7 +57,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.UI.Controls", "UI
 		{BA3171F4-0FA7-48A4-8231-1866704016DD} = {BA3171F4-0FA7-48A4-8231-1866704016DD}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.UI.Common.Test", "UI\Common\Test\MetraTech.UI.Common.Test.csproj", "{2AF0CE2E-5547-428D-AFA5-7B27D4CBD0BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.UI.Common.Test", "C:\dev\MetraNet\RMP\Extensions\FunctionalTests_Internal\MetraTech\UI\Common\MetraTech.UI.Common.Test.csproj", "{2AF0CE2E-5547-428D-AFA5-7B27D4CBD0BB}"
 	ProjectSection(ProjectDependencies) = postProject
 		{8C1A9D8B-FB15-43AE-A7C7-62AD8AFB65C2} = {8C1A9D8B-FB15-43AE-A7C7-62AD8AFB65C2}
 		{BA3171F4-0FA7-48A4-8231-1866704016DD} = {BA3171F4-0FA7-48A4-8231-1866704016DD}
@@ -171,7 +171,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Core.Services.Tes
 		{43A73CF5-A0CC-431F-B626-E88904600162} = {43A73CF5-A0CC-431F-B626-E88904600162}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.DomainModel.Test", "DomainModel\Test\MetraTech.DomainModel.Test.csproj", "{EC0CC6FF-DDC0-4AE5-BB0E-19CD125CC346}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.DomainModel.Test", "C:\dev\MetraNet\RMP\Extensions\FunctionalTests_Internal\UnknownTests\DomainModel\Test\MetraTech.DomainModel.Test.csproj", "{EC0CC6FF-DDC0-4AE5-BB0E-19CD125CC346}"
 	ProjectSection(ProjectDependencies) = postProject
 		{1364A70F-FE41-4A31-9E76-40379836D63B} = {1364A70F-FE41-4A31-9E76-40379836D63B}
 		{433B0483-4990-476C-BA07-FABF884D12CB} = {433B0483-4990-476C-BA07-FABF884D12CB}

@@ -90,6 +90,27 @@
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
+                <MenuSection>
+                    <ID>NotificationConfiguration</ID>
+                    <Caption>
+                        <Value><![CDATA[Notification]]></Value>
+                    </Caption>
+                    <Description>Notification Configuration</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>ManageEndpoints</ID>
+                            <Caption>
+                                <Value><![CDATA[Manage Endpoints]]></Value>
+                            </Caption>
+                            <Link>/MetraNet/Notifications/NotificationEndpointList.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/application_view_columns.png</Icon>
+                            <Description>Notification Endpoints</Description>
+                            <RequiredCapabilities>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>				
                 
           <!-- MenuSection>
           <ID>AgreementTemplates</ID>

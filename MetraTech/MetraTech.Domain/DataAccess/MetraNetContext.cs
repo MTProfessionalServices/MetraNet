@@ -1,5 +1,6 @@
 ﻿using System.Data.Common;
 using MetraTech.Domain.Notifications;
+using MetraTech.DataAccess;
 using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
@@ -15,11 +16,28 @@ namespace MetraTech.Domain.DataAccess
     public IDbSet<NotificationEndpoint> NotificationEndpoints { get; set; }
 
     /// <summary>
-    /// The constructor for MetraNet context
+    /// The constructor for default MetraNet context
+    /// </summary>
+    public MetraNetContext() : base(GetDefaultDatabaseConnection(), true)
+    {
+    }
+
+    /// <summary>
+    /// The constructor for use with existing or custom database connection
     /// </summary>
     /// <param name="connection">The exists connection to DataBase</param>
     public MetraNetContext(DbConnection connection) : base(connection, false)
     {
+    }
+
+    /// <summary>
+    /// Returns default database connection for MetraNet
+    /// </summary>
+    /// <returns></returns>
+    public static DbConnection GetDefaultDatabaseConnection()
+    {
+      var connectionInfo = new ConnectionInfo("NetMeter");
+      return ConnectionBase.GetDbConnection(connectionInfo, false);
     }
 
       /// <summary>

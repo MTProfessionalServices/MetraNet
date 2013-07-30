@@ -53,6 +53,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
@@ -70,6 +71,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Comparers.cs" />
+    <Compile Include="DataAccess\GenericRetrieveSortFilterTest.cs" />
     <Compile Include="DataAccess\FakeMetraNetContext.cs" />
     <Compile Include="DataAccess\NotificationConfigurationTest.cs" />
     <Compile Include="EmailTemplates.Designer.cs">

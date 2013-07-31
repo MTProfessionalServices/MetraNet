@@ -75,13 +75,6 @@
     <Shadow Include="Test References\VertexSocketService.accessor" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VertexSocketConsole.csproj">
-      <Project>{6C6B9B8E-1E8F-4957-A048-5B5316384347}</Project>
-      <Name>VertexSocketConsole</Name>
-      <Private>False</Private>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="TestRequest.xml" />
     <Content Include="TestResponse.xml" />
   </ItemGroup>
@@ -95,6 +88,12 @@
     <None Include="..\App.config">
       <Link>App.config</Link>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VertexSocketConsole.csproj">
+      <Project>{6C6B9B8E-1E8F-4957-A048-5B5316384347}</Project>
+      <Name>VertexSocketConsole</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

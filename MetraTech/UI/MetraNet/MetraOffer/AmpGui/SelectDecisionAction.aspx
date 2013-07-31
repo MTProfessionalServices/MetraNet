@@ -20,10 +20,28 @@
     </span>
   </div>
   <div style="padding-left:45px;padding-top:5px;">
-    <asp:RadioButtonList ID="RBL_BulkIncremental" runat="server">
-      <asp:ListItem Value="Act on each individual record" meta:resourcekey="rblIncrementallyResource1"></asp:ListItem>
-      <asp:ListItem Value="Act on all the records together" meta:resourcekey="rblInBulkResource1"></asp:ListItem>
-    </asp:RadioButtonList>
+    <table cellpadding="0" cellspacing="0" style="width:100%;">
+    <tr> <!-- Row 1 -->
+      <td style="width:180px;padding-top:15px;" valign="top">
+      <asp:RadioButton ID="multiBucket" runat="server" GroupName="BucketRadioButtons" 
+              Text="Multi-Bucket" meta:resourcekey="rblIncrementallyResource1" ForeColor="Black"/>       
+        <span style="color:blue;text-decoration:underline;cursor:pointer" 
+            onclick=" displayInfoMultiple(TITLE_AMPWIZARD_HELP_MULTIBUCKET, TEXT_AMPWIZARD_HELP_MULTIBUCKET, 450, 100)">
+          <img id="Img2" src='/Res/Images/icons/help.png' />
+        </span>
+      </td>
+	</tr>
+	<tr> <!-- Row 2 -->
+      <td style="width:180px;padding-top:15px;" valign="top">
+      <asp:RadioButton ID="singleBucket" runat="server" GroupName="BucketRadioButtons" 
+              Text="Single-Bucket" meta:resourcekey="rblInBulkResource1" ForeColor="Black"/>       
+        <span style="color:blue;text-decoration:underline;cursor:pointer" 
+            onclick=" displayInfoMultiple(TITLE_AMPWIZARD_HELP_SINGLEBUCKET, TEXT_AMPWIZARD_HELP_SINGLEBUCKET, 450, 100)">
+          <img id="Img2" src='/Res/Images/icons/help.png' />
+        </span>
+      </td>
+	</tr>
+	</table>
   </div>
 
   <div style="line-height:20px;padding-top:20px;padding-left:15px;">

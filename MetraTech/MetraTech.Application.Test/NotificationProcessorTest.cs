@@ -64,7 +64,7 @@ namespace MetraTech.Application.Test
       notificationConfiguration.EventType = "ThresholdCrossingEvent";
       notificationConfiguration.NotificationType = NotificationType.Email;
       notificationConfiguration.NotificationEndpoint = notificationEndpoint;
-      notificationConfiguration.MessageTemplate = emailTemplate;
+      notificationConfiguration.EmailTemplate = emailTemplate;
       return notificationConfiguration;
     }
 

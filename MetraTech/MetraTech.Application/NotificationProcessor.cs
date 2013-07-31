@@ -39,13 +39,8 @@ namespace MetraTech.Application
         {
           var fromAddress = new MailAddress("mdesousa@metratech.com");
             //TODO: Retrieve appropriate address based on organization
-	        var emailTemplate = notification.MessageTemplate as EmailTemplate;
-
-	        if (emailTemplate == null)
-		        throw new NotSupportedException("Cannot convert MessageTemplate to EmailTemplate type");
-
-	        var mailMessage = emailTemplate.CreateMailMessage(eventInstance, fromAddress, null);
-			EmailProcessor.SendEmail(notification.NotificationEndpoint, mailMessage);
+          var message = notification.EmailTemplate.CreateMailMessage(eventInstance, fromAddress, null);
+          EmailProcessor.SendEmail(notification.NotificationEndpoint, message);
         }
       }
 

@@ -361,7 +361,7 @@
     </ProjectReference>
     <ProjectReference Include="..\..\Debug\Diagnostics\MetraTech.Debug.Diagnostics.csproj">
       <Project>{DFD0BE07-801F-4535-B742-FED22E50FA0E}</Project>
-      <Name>MetraTech.Debug.Diagnostics</Name>
+      <Name>MetraTech.Debug.Diagnostics %28MetraTech.Debug.Diagnostics\MetraTech.Debug.Diagnostics%29</Name>
       <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\MetraTech.Common.csproj">

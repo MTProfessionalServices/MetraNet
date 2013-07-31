@@ -15,6 +15,7 @@ public class EntitiesTree
   public EntitiesTree()
   {
     ElementId = Guid.NewGuid().ToString();
+    Height = "500px";
   }
 
   /// <summary>
@@ -26,6 +27,11 @@ public class EntitiesTree
   /// Metadata address.
   /// </summary>
   public string MetadataAddress { get; set; }
+
+  /// <summary>
+  /// CSS height value for control block. Default: "500px"
+  /// </summary>
+  public string Height { get; set; }
 
   /// <summary>
   /// Name of base types that will be identifiers of entities

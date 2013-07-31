@@ -2,16 +2,17 @@
 @section Style
 {
   <style type="text/css">
-    
-    #entitiesTree {
-      height: 500px;
-      width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+    .testDiv {
+      border: 2px solid gray;
+      margin: 3px;
+      padding: 3px;
     }
-
   </style>
 }
 
-
-@Html.Partial("EntitiesTree", ViewBag.EntitiesTree as EntitiesTree)
+<div class="testDiv">
+  <h3>Test page with Entity Browser prototype</h3>
+  <div class="testDiv">
+    @Html.Partial("EntitiesTree", ViewBag.EntitiesTree as EntitiesTree)
+  </div>
+</div>

@@ -173,7 +173,6 @@
     <Compile Include="TaxManager\TaxWare\TaxWare.cs" />
     <Compile Include="TaxManager\VertexQ\SocketClient.cs" />
     <Compile Include="TaxManager\VertexQ\VertexParamsXml.cs" />
-    <Compile Include="TaxManager\VertexQ\VertexQ.cs" />
     <Compile Include="TaxJurisdiction.cs" />
     <Compile Include="TaxManager\TaxWare\TaxwareConfiguration.cs" />
     <Compile Include="DataAccess\InputTableReader.cs" />
@@ -185,6 +184,7 @@
     <Compile Include="DataAccess\TransactionTaxSummary.cs" />
     <Compile Include="DataAccess\TransactionIndividualTax.cs" />
     <Compile Include="TaxManager\VertexQ\VertexQConfiguration.cs" />
+    <Compile Include="TaxManager\VertexQ\VertexSyncTaxManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

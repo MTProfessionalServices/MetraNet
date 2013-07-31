@@ -43,7 +43,7 @@
     </Reference>
     <Reference Include="MetraTech.Common">
       <HintPath>o:\Debug\bin\MetraTech.Common.dll</HintPath>
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.DataAccess">
       <HintPath>o:\Debug\bin\MetraTech.DataAccess.dll</HintPath>
@@ -144,7 +144,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="VertexQSyncTaxManagerDbBatchTest.cs" />
+    <Compile Include="VertexSyncTaxManagerTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Framework\MetraTech.Tax.Framework.csproj">
@@ -157,11 +159,9 @@
     <Shadow Include="Test References\MetraTech.Tax.Framework.accessor" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TestRequest1.xml" />
     <Content Include="TestRequest2.xml" />
-    <Content Include="TestResponse.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="TestRequest.xml" />
+    <Content Include="TestResponse1.xml" />
     <Content Include="TestResponse2.xml" />
   </ItemGroup>
   <ItemGroup>

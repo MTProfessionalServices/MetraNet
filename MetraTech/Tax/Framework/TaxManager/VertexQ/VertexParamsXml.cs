@@ -8,6 +8,7 @@ using MetraTech;
 using MetraTech.Tax.Framework;
 using MetraTech.Tax.Framework.DataAccess;
 
+
 namespace Framework.TaxManager.VertexQ
 {
   /// <summary>

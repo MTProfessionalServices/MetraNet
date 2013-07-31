@@ -160,11 +160,6 @@
       <HintPath>$(MTRMPBIN)\\MetraTech.Pipeline.SessServer.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="MetraTech.Tax.Framework, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\debug\Bin\MetraTech.Tax.Framework.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="MetraTech.Xml, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>O:\debug\Bin\MetraTech.Xml.dll</HintPath>
@@ -220,6 +215,13 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework\MetraTech.Tax.Framework.csproj">
+      <Project>{86440C21-21F3-41A4-A3A5-686A30DD3988}</Project>
+      <Name>MetraTech.Tax.Framework</Name>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

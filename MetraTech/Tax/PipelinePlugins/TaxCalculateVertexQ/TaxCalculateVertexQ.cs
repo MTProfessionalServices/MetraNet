@@ -78,7 +78,7 @@ namespace MetraTech.Tax.Plugins
             //TODO: add any code you would like to run at Configure time (when the plug-in is first loaded)
 
             // Set up the VertexQ manager that will be used to calculate tax.
-            _taxManager = new VertexQSyncTaxManagerDBBatch();
+            _taxManager = new VertexSyncTaxManager();
 
             // Create a list to hold info that will later be written to t_tax_details
             _sessionSetTransactionDetails = new List<TaxManagerPersistenceObject>();
@@ -99,7 +99,7 @@ namespace MetraTech.Tax.Plugins
         #endregion
 
         private List<TaxManagerPersistenceObject> _sessionSetTransactionDetails;
-        private VertexQSyncTaxManagerDBBatch _taxManager;
+        private VertexSyncTaxManager _taxManager;
 
         /// <summary>
         ///     This method is called for each session in the session set.
@@ -374,20 +374,20 @@ namespace MetraTech.Tax.Plugins
             stopWatch.Restart();
 
             // Store the taxes
-            props.Pipeline.FederalTaxAmount = transactionSummary.TaxFedAmount;
-            props.Pipeline.FederalTaxAmountRounded = transactionSummary.TaxFedRounded;
+            props.Pipeline.FederalTaxAmount = transactionSummary.TaxFedAmount ?? 0;
+            props.Pipeline.FederalTaxAmountRounded = transactionSummary.TaxFedRounded ?? 0;
             props.Pipeline.FederalTaxName = transactionSummary.TaxFedName;
-            props.Pipeline.StateTaxAmount = transactionSummary.TaxStateAmount;
-            props.Pipeline.StateTaxAmountRounded = transactionSummary.TaxStateRounded;
+            props.Pipeline.StateTaxAmount = transactionSummary.TaxStateAmount ?? 0;
+            props.Pipeline.StateTaxAmountRounded = transactionSummary.TaxStateRounded ?? 0;
             props.Pipeline.StateTaxName = transactionSummary.TaxStateName;
-            props.Pipeline.CountyTaxAmount = transactionSummary.TaxCountyAmount;
-            props.Pipeline.CountyTaxAmountRounded = transactionSummary.TaxCountyRounded;
+            props.Pipeline.CountyTaxAmount = transactionSummary.TaxCountyAmount ?? 0;
+            props.Pipeline.CountyTaxAmountRounded = transactionSummary.TaxCountyRounded ?? 0;
             props.Pipeline.CountyTaxName = transactionSummary.TaxCountyName;
-            props.Pipeline.LocalTaxAmount = transactionSummary.TaxLocalAmount;
-            props.Pipeline.LocalTaxAmountRounded = transactionSummary.TaxLocalRounded;
+            props.Pipeline.LocalTaxAmount = transactionSummary.TaxLocalAmount ?? 0;
+            props.Pipeline.LocalTaxAmountRounded = transactionSummary.TaxLocalRounded ?? 0;
             props.Pipeline.LocalTaxName = transactionSummary.TaxLocalName;
-            props.Pipeline.OtherTaxAmount = transactionSummary.TaxOtherAmount;
-            props.Pipeline.OtherTaxAmountRounded = transactionSummary.TaxOtherRounded;
+            props.Pipeline.OtherTaxAmount = transactionSummary.TaxOtherAmount ?? 0;
+            props.Pipeline.OtherTaxAmountRounded = transactionSummary.TaxOtherRounded ?? 0;
             props.Pipeline.OtherTaxName = transactionSummary.TaxOtherName;
 
             if (GeneralConfig.ShouldTaxDetailsBeStored.HasValue && GeneralConfig.ShouldTaxDetailsBeStored.Value)

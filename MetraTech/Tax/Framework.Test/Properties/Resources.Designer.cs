@@ -72,9 +72,9 @@ namespace Tax.Freamework.Test.Properties {
         ///  &lt;ServiceCode&gt;01&lt;/ServiceCode&gt;
         ///&lt;/VertexTaxParams&gt;.
         /// </summary>
-        internal static string TestRequest {
+        internal static string TestRequest1 {
             get {
-                return ResourceManager.GetString("TestRequest", resourceCulture);
+                return ResourceManager.GetString("TestRequest1", resourceCulture);
             }
         }
         
@@ -90,9 +90,9 @@ namespace Tax.Freamework.Test.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;Success&gt;&lt;TaxResults&gt;&lt;InvoiceNumber&gt;&lt;/InvoiceNumber&gt;&lt;InvoiceDate&gt;72420130&lt;/InvoiceDate&gt;&lt;TaxedGeoCode&gt;010014152&lt;/TaxedGeoCode&gt;&lt;TaxedCityName&gt;BILLINGSLEY&lt;/TaxedCityName&gt;&lt;TaxedCountyName&gt;AUTAUGA&lt;/TaxedCountyName&gt;&lt;TaxedGeoCodeIncorporatedCode&gt;I&lt;/TaxedGeoCodeIncorporatedCode&gt;&lt;TaxedStateCode&gt;AL&lt;/TaxedStateCode&gt;&lt;BundleCategoryCode&gt;&lt;/BundleCategoryCode&gt;&lt;BundleFlag&gt;&lt;/BundleFlag&gt;&lt;BundleServiceCode&gt;&lt;/BundleServiceCode&gt;&lt;TaxRecords&gt;&lt;TaxRecord&gt;&lt;TaxAuthority&gt;2&lt;/TaxAuthority&gt;&lt;TaxType&gt;11&lt;/TaxType&gt;&lt;TaxCode&gt;K&lt;/TaxCode&gt;&lt;TaxRat [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TestResponse {
+        internal static string TestResponse1 {
             get {
-                return ResourceManager.GetString("TestResponse", resourceCulture);
+                return ResourceManager.GetString("TestResponse1", resourceCulture);
             }
         }
         

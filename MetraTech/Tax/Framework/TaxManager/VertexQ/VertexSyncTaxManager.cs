@@ -9,33 +9,36 @@ namespace MetraTech.Tax.Framework.VertexQ
   /// <summary>
   /// This class interacts with the VertexQ software to compute taxes.
   /// </summary>
-  public class VertexQSyncTaxManagerDBBatch : SyncTaxManagerBatchDb
+  public class VertexSyncTaxManager : SyncTaxManagerBatchDb
   {
     private static readonly Logger Logger = new Logger("[VertexQ]");
-    private readonly VertexQConfiguration _configuration;
+    private readonly SocketClient _client;
 
     /// <summary>
     /// Provides thread safe access to t_tax_input_*
     /// </summary>
-    private TaxManagerVendorInputTableReader m_reader;
+    private TaxManagerVendorInputTableReader _reader;
 
     /// <summary>
     /// Provides thread safe access to t_tax_output_*
     /// </summary>
-    private TaxManagerBatchDbTableWriter m_writer;
+    private TaxManagerBatchDbTableWriter _writer;
 
     /// <summary>
     /// Provides thread safe access to t_tax_details
     /// </summary>
-    private TaxManagerBatchDbTableWriter m_detailWriter;
+    private TaxManagerBatchDbTableWriter _detailWriter;
 
     /// <summary>
     /// Constructor
     /// </summary>
-    public VertexQSyncTaxManagerDBBatch()
+    public VertexSyncTaxManager()
     {
       Logger.LogDebug(System.Reflection.MethodBase.GetCurrentMethod().Name);
-      _configuration = new VertexQConfiguration();
+      var configuration = new VertexQConfiguration();
+      _client = new SocketClient(Logger, configuration);
+      Logger.LogDebug("CalcVertexTaxes.Configure Instatiating the AsynchronousClient with Port - " +
+                      configuration.Port);
     }
 
     /// <summary>
@@ -56,11 +59,12 @@ namespace MetraTech.Tax.Framework.VertexQ
         PerformTaxTransaction(taxableTransaction, out transactionSummary, out transactionDetails);
 
         if (!TaxDetailsNeeded) return;
+        
         // Write the resulting transactionDetails to the t_tax_details table
+        var detailWriter = new TaxManagerBatchDbTableWriter(GetTaxDetailTableName(), GetBulkInsertSize());
         foreach (var row in transactionDetails)
-        {
-          m_detailWriter.Add(row);
-        }
+          detailWriter.Add(row);
+        detailWriter.Commit();
       }
       catch (Exception exc)
       {
@@ -93,7 +97,7 @@ namespace MetraTech.Tax.Framework.VertexQ
 
       // Create a reader for the input table.
       Logger.LogDebug("Reading {0}", GetInputTaxTableName());
-      m_reader = new TaxManagerVendorInputTableReader(
+      _reader = new TaxManagerVendorInputTableReader(
         TaxVendor.VertexQ, TaxRunId,
         false // This is NOT an attempt to reverse the audit
         );
@@ -103,11 +107,11 @@ namespace MetraTech.Tax.Framework.VertexQ
       TaxManagerBatchDbTableWriter.CreateOutputTable(GetOutputTaxTableName());
 
       // Create the writer for t_tax_output_*
-      m_writer = new TaxManagerBatchDbTableWriter(
+      _writer = new TaxManagerBatchDbTableWriter(
         GetOutputTaxTableName(), GetBulkInsertSize());
 
       // Create the writer for the tax details table.
-      m_detailWriter = new TaxManagerBatchDbTableWriter(
+      _detailWriter = new TaxManagerBatchDbTableWriter(
         GetTaxDetailTableName(), GetBulkInsertSize());
 
       try
@@ -116,7 +120,7 @@ namespace MetraTech.Tax.Framework.VertexQ
         // Loop through all of the potential taxable transactions
         //
         TaxableTransaction taxableTransaction;
-        while (null != (taxableTransaction = m_reader.GetNextTaxableTransaction()))
+        while (null != (taxableTransaction = _reader.GetNextTaxableTransaction()))
         {
           try
           {
@@ -127,14 +131,14 @@ namespace MetraTech.Tax.Framework.VertexQ
             PerformTaxTransaction(taxableTransaction, out transactionSummary, out transactionDetails);
 
             // Write the resulting output row to the t_tax_output_* table
-            m_writer.Add(transactionSummary);
+            _writer.Add(transactionSummary);
 
             if (TaxDetailsNeeded)
             {
               // Write the resulting transactionDetails to the t_tax_details table
               foreach (TransactionIndividualTax row in transactionDetails)
               {
-                m_detailWriter.Add(row);
+                _detailWriter.Add(row);
               }
             }
 
@@ -176,12 +180,12 @@ namespace MetraTech.Tax.Framework.VertexQ
         }
 
         // Commit the changes to the DB
-        m_writer.Commit();
-        m_detailWriter.Commit();
+        _writer.Commit();
+        _detailWriter.Commit();
 
         ReportInfo("Completed VertexQ calculations. " + numRowsProcessed +
                    " tax transactions processed.");
-        m_reader.Close();
+        _reader.Close();
       }
       catch (Exception e)
       {
@@ -190,10 +194,10 @@ namespace MetraTech.Tax.Framework.VertexQ
                         e.Message, numRowsProcessed);
 
         // Commit the changes to the DB
-        m_writer.Commit();
-        m_detailWriter.Commit();
+        _writer.Commit();
+        _detailWriter.Commit();
 
-        m_reader.Close();
+        _reader.Close();
         throw;
       }
     }
@@ -236,20 +240,17 @@ namespace MetraTech.Tax.Framework.VertexQ
         Logger.LogInfo("TaxDetailsNeeded : {0}", TaxDetailsNeeded);
 
         // Create the detail information.  It may or may not be stored in the DB.
+        var isImpliedTax = taxableTransaction.GetBool("is_implied_tax").GetValueOrDefault();
+        var idAcc = taxableTransaction.GetInt32("id_acc").GetValueOrDefault();
+        var idUsageInterval = taxableTransaction.GetInt32("id_usage_interval").GetValueOrDefault();
+
+        transactionDetails = vertexParamsXml.ParseVertexTaxResultsToTransactionDetails(
+          idTaxCharge, isImpliedTax, idAcc, TaxRunId, idUsageInterval, returnXmlStr);
+
+        Logger.LogDebug("transactionDetails.Count={0}", transactionDetails.Count);
+        foreach (var transactionDetail in transactionDetails)
         {
-          var isImpliedTax = taxableTransaction.GetBool("is_implied_tax").GetValueOrDefault();
-
-          var idAcc = taxableTransaction.GetInt32("id_acc").GetValueOrDefault();
-          var idUsageInterval = taxableTransaction.GetInt32("id_usage_interval").GetValueOrDefault();
-
-          transactionDetails = vertexParamsXml.ParseVertexTaxResultsToTransactionDetails(
-            idTaxCharge, isImpliedTax, idAcc, TaxRunId, idUsageInterval, returnXmlStr);
-
-          Logger.LogDebug("transactionDetails.Count={0}", transactionDetails.Count);
-          foreach (var transactionDetail in transactionDetails)
-          {
-            Logger.LogDebug(transactionDetail.ToString());
-          }
+          Logger.LogDebug(transactionDetail.ToString());
         }
       }
       catch (Exception e)
@@ -262,15 +263,11 @@ namespace MetraTech.Tax.Framework.VertexQ
     {
       Logger.LogDebug("sending tax transaction to vertex: {0}", vertexParamsXmlString);
 
-      var client = new SocketClient(Logger, _configuration);
-      Logger.LogDebug("CalcVertexTaxes.Configure Instatiating the AsynchronousClient with Port - " +
-                      _configuration.Port);
-
       string returnXmlStr;
       var reattemptCnt = 0;
       do
       {
-        returnXmlStr = client.InitiateTransaction("ProcessSession", vertexParamsXmlString);
+        returnXmlStr = _client.InitiateTransaction("ProcessSession", vertexParamsXmlString);
         Logger.LogDebug("CalcVertexTaxes.ProcessSess XMLReturn from Server : " + returnXmlStr);
         reattemptCnt++;
       } while (reattemptCnt < 3 && (returnXmlStr.Equals("REMOTESOCKETERROR")));

@@ -43,7 +43,7 @@
     <Reference Include="Antlr4.Runtime.v4.0">
       <HintPath>..\..\Thirdparty\antlr\Antlr4.Runtime.v4.0.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -83,6 +83,7 @@
     <Compile Include="Notifications\ExtendedXsltFunctions.cs" />
     <Compile Include="Notifications\LocalizedEmailTemplate.cs" />
     <Compile Include="Notifications\EmailTemplateDictionary.cs" />
+    <Compile Include="Notifications\MessageTemplate.cs" />
     <Compile Include="Notifications\NetworkAuthenticationConfiguration.cs" />
     <Compile Include="Notifications\NotificationConfiguration.cs" />
     <Compile Include="Notifications\NotificationEndpointConfiguration.cs" />
@@ -141,6 +142,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <!-- Folder containing AntlrBuildTask.dll -->

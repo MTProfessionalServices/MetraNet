@@ -130,16 +130,6 @@
       <Private>False</Private>
     </Reference>
     <!--STANDARD_ENUM_PROJECT_REFERENCES-->
-    <Reference Include="MetraTech.Common, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\debug\Bin\MetraTech.Common.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MetraTech.DataAccess, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\debug\Bin\MetraTech.DataAccess.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="MetraTech.DomainModel.Enums.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTRMPBIN)\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
@@ -217,6 +207,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\DataAccess\MetraTech.DataAccess.csproj">
+      <Project>{1B40F4E4-8DDC-43E0-BE45-959BEE94422F}</Project>
+      <Name>MetraTech.DataAccess</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\MetraTech.Common.csproj">
+      <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
+      <Name>MetraTech.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\..\Framework\MetraTech.Tax.Framework.csproj">
       <Project>{86440C21-21F3-41A4-A3A5-686A30DD3988}</Project>
       <Name>MetraTech.Tax.Framework</Name>

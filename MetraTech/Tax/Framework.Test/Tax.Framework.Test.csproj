@@ -41,14 +41,6 @@
       <HintPath>o:\Debug\Bin\GenericCollection.interop.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="MetraTech.Common">
-      <HintPath>o:\Debug\bin\MetraTech.Common.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MetraTech.DataAccess">
-      <HintPath>o:\Debug\bin\MetraTech.DataAccess.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="MetraTech.DomainModel.Common">
       <HintPath>o:\Debug\bin\MetraTech.DomainModel.Common.dll</HintPath>
       <Private>False</Private>
@@ -164,6 +156,16 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DataAccess\MetraTech.DataAccess.csproj">
+      <Project>{1B40F4E4-8DDC-43E0-BE45-959BEE94422F}</Project>
+      <Name>MetraTech.DataAccess</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech.Common.csproj">
+      <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
+      <Name>MetraTech.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\Framework\MetraTech.Tax.Framework.csproj">
       <Project>{86440C21-21F3-41A4-A3A5-686A30DD3988}</Project>
       <Name>MetraTech.Tax.Framework</Name>

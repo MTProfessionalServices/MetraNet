@@ -163,11 +163,6 @@ namespace MetraTech.Tax.Plugins
                 string.Format("TIMING: TaxCalculateVertexQ.ProcessSession determined id_tax_charge ms={0}", stopWatch.ElapsedMilliseconds));
             stopWatch.Restart();
 
-            // Always set TaxDetailsNeeded to false so that the TaxManager will NOT write
-            // to t_tax_details table.  The plugin will write to t_tax_details via
-            // bulk insert if appropriate after the sessionSet is complete.
-            _taxManager.TaxDetailsNeeded = false;
-
             // Construct an input tax row.
             var taxableTransaction = new TaxableTransaction(TaxVendor.VertexQ);
 
@@ -362,6 +357,11 @@ namespace MetraTech.Tax.Plugins
             Log(LogLevel.Debug,
                 string.Format("TIMING: TaxCalculateVertexQ.ProcessSession retrieved optional params ms={0}", stopWatch.ElapsedMilliseconds));
             stopWatch.Restart();
+
+            // Always set TaxDetailsNeeded to false so that the TaxManager will NOT write
+            // to t_tax_details table.  The plugin will write to t_tax_details via
+            // bulk insert if appropriate after the sessionSet is complete.
+            _taxManager.TaxDetailsNeeded = false;
 
             // Calculate the taxes
             List<TransactionIndividualTax> transactionDetails;

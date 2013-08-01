@@ -157,6 +157,7 @@
 
     $.ajax({
       dataType: "json",
+      cache: false,
       url: window.entityTreeConfig.metadataUrl,
       headers: window.entityTreeConfig.headers || {},
       success: function (data) {

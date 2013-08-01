@@ -90,9 +90,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VertexSocketConsole.csproj">
+    <ProjectReference Include="..\VertexSocketServer.csproj">
       <Project>{6C6B9B8E-1E8F-4957-A048-5B5316384347}</Project>
-      <Name>VertexSocketConsole</Name>
+      <Name>VertexSocketServer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

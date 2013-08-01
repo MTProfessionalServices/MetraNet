@@ -1,22 +1,11 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 using System.IO;
-using MetraTech.Basic.Config;
-using MetraTech.ActivityServices.Common;
-using MetraTech.Interop.MTAuth;
-using System;
-using MetraTech.DomainModel.BaseTypes;
-using System.Xml.Serialization;
-using MetraTech.Xml;
-using System.Xml;
 
 namespace MetraTech.Quoting.Test
 {
   [TestClass]
   public class ConfigurationTests 
   {
-
-    private Logger m_Logger = new Logger("Quoting Configuration Tests]");
 
     #region tests
     
@@ -41,7 +30,7 @@ namespace MetraTech.Quoting.Test
       const string REPORT_DEFAULT_TEMPLATE_NAME = "Quote Report";
       const string REPORT_INSTANCE_PARTIAL_PATH = @"\Quotes\{AccountId}\Quote_{QuoteId}";
 
-      QuotingConfiguration configurationToWrite = new QuotingConfiguration();
+      var configurationToWrite = new QuotingConfiguration();
 
       configurationToWrite.RecurringChargeServerToMeterTo = RECCURING_CHARGE_SERVER_TO_METER_TO;
       configurationToWrite.RecurringChargeStoredProcedureQueryTag = RECCURING_CHARGE_STORED_PROCEDURE_QUERY_TAG;
@@ -60,10 +49,8 @@ namespace MetraTech.Quoting.Test
 
       #region Run and Verify
 
-      QuotingConfigurationManager.FilePath = filePathToTestFile;
-
-      QuotingConfigurationManager.WriteConfigurationToFile(configurationToWrite);
-      QuotingConfiguration readConfiguration = QuotingConfigurationManager.LoadConfigurationFromFile();
+      QuotingConfigurationManager.WriteConfigurationToFile(configurationToWrite, filePathToTestFile);
+      QuotingConfiguration readConfiguration = QuotingConfigurationManager.LoadConfigurationFromDefaultSystemLocation();
 
       Assert.AreEqual(configurationToWrite.GetUsageIntervalIdForQuotingQueryTag, readConfiguration.GetUsageIntervalIdForQuotingQueryTag);
       Assert.AreEqual(configurationToWrite.MeteringSessionSetSize, readConfiguration.MeteringSessionSetSize);
@@ -84,9 +71,8 @@ namespace MetraTech.Quoting.Test
     [TestMethod]
     public void LoadConfigurationFromFile()
     {
-      var loadedConfiguration = QuotingConfigurationManager.LoadConfigurationFromFile();
+      var loadedConfiguration = QuotingConfigurationManager.LoadConfigurationFromDefaultSystemLocation();
 
-      Assert.IsTrue(File.Exists(QuotingConfigurationManager.FilePath));
 
       Assert.IsFalse(string.IsNullOrEmpty(loadedConfiguration.GetUsageIntervalIdForQuotingQueryTag));
       Assert.IsFalse(string.IsNullOrEmpty(loadedConfiguration.NonRecurringChargeStoredProcedureQueryTag));

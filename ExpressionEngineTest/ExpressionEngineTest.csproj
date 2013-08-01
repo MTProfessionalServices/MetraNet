@@ -41,6 +41,7 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
@@ -59,6 +60,8 @@
     <Compile Include="Enums\EnumManagerTest.cs" />
     <Compile Include="IOHelperTest.cs" />
     <Compile Include="MTProperties\PropertyReferenceTest.cs" />
+    <Compile Include="PropertyBags\AccountViewEntityTest.cs" />
+    <Compile Include="PropertyBags\PropertyBagTestHelper.cs" />
     <Compile Include="PropertyBags\PropertyBagTest.cs" />
     <Compile Include="TypeSystem\TaxTypeTest.cs" />
     <Compile Include="TypeSystem\ChargeTypeTest.cs" />

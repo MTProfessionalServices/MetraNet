@@ -39,7 +39,6 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             //AccountID
             var accountId = CoreProperties.AddInteger32("AccountId", "The internal MetraNet account identifier", true);
             accountId.IsCore = true;
-            CoreProperties.Add(accountId);
         }
         #endregion
     }

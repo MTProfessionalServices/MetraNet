@@ -186,7 +186,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
             intervalId.DatabaseColumnNameMapping = "id_usage_interval";
 
             //ServiceDefinitionID (id_svc) - joins to type of SVC
-            var serviceDefinitionId = CoreProperties.AddInteger32("PresentationPageId", "Identifies the service definition that was used to ingest the Event.", true);
+            var serviceDefinitionId = CoreProperties.AddInteger32("ServiceDefinitionId", "Identifies the service definition that was used to ingest the Event.", true);
             serviceDefinitionId.IsCore = true;
             serviceDefinitionId.DatabaseColumnNameMapping = "id_svc";
 

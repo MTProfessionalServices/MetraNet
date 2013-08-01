@@ -3,7 +3,6 @@ using MetraTech.ExpressionEngine.PropertyBags;
 using MetraTech.ExpressionEngine.TypeSystem;
 using MetraTech.ExpressionEngine.TypeSystem.Enumerations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace ExpressionEngineTest
 {
@@ -38,6 +37,13 @@ namespace ExpressionEngineTest
             var remappingName = "the reamaped name";
             property.DatabaseColumnNameMapping = remappingName;
             Assert.AreEqual(remappingName, property.DatabaseColumnName, "Remapped name");
+        }
+
+        [TestMethod]
+        public void ProductViewEntityCorePropertiesUniqunessTest()
+        {
+          var entity = new ProductViewEntity("testNamespace", "testName", "testDescription");
+          PropertyBagTestHelper.VerifyIfCorePropertiesInEntityDuplicated(entity);
         }
     }
 }

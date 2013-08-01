@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Transactions;
 using MetraTech.ActivityServices.Common;
+using MetraTech.Basic.Config;
 using MetraTech.DataAccess;
 using MetraTech.Domain.Quoting;
 using MetraTech.Interop.MTAuditEvents;
@@ -84,7 +86,8 @@ namespace MetraTech.Quoting
       createdSubsciptions = new List<MTSubscription>();
       createdGroupSubsciptions = new List<IMTGroupSubscription>();
 
-      Configuration = QuotingConfigurationManager.LoadConfigurationFromFile();
+      Configuration = QuotingConfigurationManager.LoadConfigurationFromFile(
+        Path.Combine(SystemConfig.GetRmpDir(), "config", "Quoting", "QuotingConfiguration.xml"));
       quotingRepository = new QuotingRepository();
     }
 
@@ -132,15 +135,15 @@ namespace MetraTech.Quoting
     }
 
     /// <summary>
-    /// 
+    /// Generate and rate recurring charge events for this quote, including UDRCs    
     /// </summary>
     public void AddRecurringChargesToQuote()
     {
-      using (new MetraTech.Debug.Diagnostics.HighResolutionTimer("AddRecurringChargesToQuote"))
+      using (new Debug.Diagnostics.HighResolutionTimer("AddRecurringChargesToQuote"))
       {
         VerifyCurrentQuoteIsInProgress();
 
-        Log("Preparing Recurring Charges", CurrentResponse.idQuote);
+        Log("Preparing Recurring Charges");
 
         var countMeteredRecords = 0;
 
@@ -185,7 +188,7 @@ namespace MetraTech.Quoting
                 String.Format("{0} Recurring Charge sessions failed during pipeline processing.",
                               metters["RC"].CommittedErrorCount);
             string pipelineErrorDetails = RetrievePipelineErrorDetailsMessage(this.batchIds["RC"]);
-            errorMessage += System.Environment.NewLine + "Pipeline Errors:" + System.Environment.NewLine +
+            errorMessage += Environment.NewLine + "Pipeline Errors:" + System.Environment.NewLine +
                             pipelineErrorDetails;
 
             RecordErrorAndCleanup(errorMessage);
@@ -194,14 +197,20 @@ namespace MetraTech.Quoting
         }
         else
         {
-          Log("No Recurring Charges for this quote", CurrentResponse.idQuote);
+          Log("No Recurring Charges for this quote");
         }
 
-        Log("Done Preparing Recurring Charges", CurrentResponse.idQuote);
+        Log("Done Preparing Recurring Charges");
       }
 
     }
 
+    /// <summary>
+    /// Helper method to retrieve detailed error messages for any failures
+    /// that occured in the pipeline
+    /// </summary>
+    /// <param name="batchIdEncoded">metered batch id to retrieve errors for</param>
+    /// <returns></returns>
     private string RetrievePipelineErrorDetailsMessage(string batchIdEncoded)
     {
       //select tx_StageName, tx_Plugin, tx_ErrorMessage from t_failed_transaction where tx_Batch_Encoded = 'Csj8TlVRaiFpU0YM/f93+w=='
@@ -229,13 +238,12 @@ namespace MetraTech.Quoting
 
       return sb.ToString();
     }
-
     /// <summary>
-    /// 
+    /// Generate and rate non-recurring charge events for this quote 
     /// </summary>
     public void AddNonRecurringChargesToQuote()
     {
-      using (new MetraTech.Debug.Diagnostics.HighResolutionTimer("AddNonRecurringChargesToQuote"))
+      using (new Debug.Diagnostics.HighResolutionTimer("AddNonRecurringChargesToQuote"))
       {
 
         VerifyCurrentQuoteIsInProgress();
@@ -304,7 +312,7 @@ namespace MetraTech.Quoting
     }
 
     /// <summary>
-    /// Complete quote, generate a report and clean up
+    /// Complete quote, generate reports and summaries and clean up
     /// </summary>
     /// <returns></returns>
     public QuoteResponse FinalizeQuote()
@@ -388,22 +396,20 @@ namespace MetraTech.Quoting
 
     protected int GetAccountBillingCycle(int idAccount)
     {
-      int cycle;
-
-      using (IMTNonServicedConnection conn = ConnectionManager.CreateNonServicedConnection())
+      using (var conn = ConnectionManager.CreateNonServicedConnection())
       {
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER, Configuration.GetAccountBillingCycleQueryTag))
+        using (var stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER, Configuration.GetAccountBillingCycleQueryTag))
         {
           stmt.AddParam("%%ACCOUNT_ID%%", idAccount);
-          using (IMTDataReader rowset = stmt.ExecuteReader())
+          using (var rowset = stmt.ExecuteReader())
           {
-            rowset.Read();
-            cycle = rowset.GetInt32("AccountCycleType");
+            if (!rowset.Read())
+              throw new ApplicationException(string.Format("The account {0} has no billing cycle", idAccount));
+            
+            return rowset.GetInt32("AccountCycleType");
           }
         }
       }
-
-      return cycle;
     }
 
     protected int GetAccountPayer(int idAccount)

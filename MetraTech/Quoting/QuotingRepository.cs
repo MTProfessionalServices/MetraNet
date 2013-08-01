@@ -14,21 +14,38 @@ using IMTSessionContext = MetraTech.Interop.MTAuth.IMTSessionContext;
 
 namespace MetraTech.Quoting
 {
+  /// <summary>
+  /// Encapsulates the storage and retrieval of quoting objects in the repository
+  /// </summary>
   public interface IQuotingRepository
   {
     int CreateQuote(QuoteRequest quoteRequest, IMTSessionContext sessionContext);
     void UpdateQuoteWithResponse(QuoteResponse quoteResponse);
     void UpdateQuoteWithErrorResponse(int idQuote, QuoteResponse quoteResponse, string errorMessage);
+    void SaveQuoteLog(List<QuoteLogRecord> logRecords);
+
     QuoteHeader GetQuoteHeader(int quoteID, bool loadAllRelatedEntities = true);
+
+  }
+
+  /// <summary>
+  /// Test verification requires independent checking of the counts of items in the repository
+  /// Separated into different interface on repository so it is clear what is required by quoting
+  /// implementation and what is needed for test verification
+  /// </summary>
+  public interface IQuotingRespositoryStatistics
+  {
     int GetQuoteHeaderCount();
     int GetQuoteContentCount();
     int GetAccountForQuoteCount();
     int GetPOForQuoteCount();
-    void SaveQuoteLog(List<QuoteLogRecord> logRecords);
     int GetQuoteLogRecordsCount();
   }
 
-  public class QuotingRepository : IQuotingRepository
+  /// <summary>
+  /// Implementation of storing and retrieving quote information using BMEs
+  /// </summary>
+  public class QuotingRepository : IQuotingRepository, IQuotingRespositoryStatistics
   {
     private static Logger mLogger = new Logger("[QuotingRepository]");
 
@@ -44,6 +61,7 @@ namespace MetraTech.Quoting
       return quoteHeader.QuoteID ?? -1;
 
     }
+
     /// <summary>
     /// Updates quoting BMEs in DB
     /// </summary>     
@@ -60,6 +78,7 @@ namespace MetraTech.Quoting
 
       //TODO: Determine how state/error information should be saved (different method?) if we failed in generating quote
     }
+
     /// <summary>
     /// Get QuoteHeader with related QuoteContent, AccountForQuote and POforQuote
     /// </summary>
@@ -76,9 +95,9 @@ namespace MetraTech.Quoting
 
         var qouteHeaderList = new MTList<QuoteHeader>();
         qouteHeaderList.Filters.Add(
-            new MTFilterElement("QuoteID",
-                MTFilterElement.OperationType.Equal,
-                quoteID));
+          new MTFilterElement("QuoteID",
+                              MTFilterElement.OperationType.Equal,
+                              quoteID));
 
         standardRepository.LoadInstances(ref qouteHeaderList);
 
@@ -93,8 +112,8 @@ namespace MetraTech.Quoting
           quoteHeder.QuoteContent = quoteHeder.LoadQuoteContent();
 
           var mtList = new MTList<DataObject>();
-          StandardRepository.Instance.LoadInstancesFor(typeof(AccountForQuote).FullName,
-                                                       typeof(QuoteHeader).FullName,
+          StandardRepository.Instance.LoadInstancesFor(typeof (AccountForQuote).FullName,
+                                                       typeof (QuoteHeader).FullName,
                                                        quoteHeder.Id,
                                                        mtList);
           foreach (var accountforQuoteDataObject in mtList.Items)
@@ -105,19 +124,19 @@ namespace MetraTech.Quoting
           }
 
           mtList = new MTList<DataObject>();
-          StandardRepository.Instance.LoadInstancesFor(typeof(POforQuote).FullName,
-                                                       typeof(QuoteHeader).FullName,
+          StandardRepository.Instance.LoadInstancesFor(typeof (POforQuote).FullName,
+                                                       typeof (QuoteHeader).FullName,
                                                        quoteHeder.Id,
                                                        mtList);
           foreach (var POforQuoteDataObject in mtList.Items)
           {
             var pOforQuote = new POforQuote();
             pOforQuote.CopyPropertiesFrom(POforQuoteDataObject);
-            
+
 
             mtList = new MTList<DataObject>();
-            StandardRepository.Instance.LoadInstancesFor(typeof(UDRCForQuoting).FullName,
-                                                         typeof(POforQuote).FullName,
+            StandardRepository.Instance.LoadInstancesFor(typeof (UDRCForQuoting).FullName,
+                                                         typeof (POforQuote).FullName,
                                                          POforQuoteDataObject.Id,
                                                          mtList);
 
@@ -137,82 +156,6 @@ namespace MetraTech.Quoting
       catch (Exception ex)
       {
         mLogger.LogException("Error get QuoteHeader", ex);
-        throw;
-      }
-    }
-
-    public int GetQuoteHeaderCount()
-    {
-      RepositoryAccess.Instance.Initialize();
-      try
-      {
-        //get quoteContent BME
-        IStandardRepository standardRepository = RepositoryAccess.Instance.GetRepository();
-
-        var qouteHeaderList = new MTList<QuoteHeader>();
-        standardRepository.LoadInstances(ref qouteHeaderList);
-        return qouteHeaderList.TotalRows;
-      }
-      catch (Exception ex)
-      {
-        mLogger.LogException("Error get QuoteHeader", ex);
-        throw;
-      }
-    }
-
-    public int GetQuoteContentCount()
-    {
-      RepositoryAccess.Instance.Initialize();
-      try
-      {
-        //get quoteContent BME
-        IStandardRepository standardRepository = RepositoryAccess.Instance.GetRepository();
-
-        var qouteHeaderList = new MTList<QuoteContent>();
-        standardRepository.LoadInstances(ref qouteHeaderList);
-        return qouteHeaderList.TotalRows;
-      }
-      catch (Exception ex)
-      {
-        mLogger.LogException("Error get QuoteContent", ex);
-        throw;
-      }
-    }
-
-    public int GetAccountForQuoteCount()
-    {
-      RepositoryAccess.Instance.Initialize();
-      try
-      {
-        //get quoteContent BME
-        IStandardRepository standardRepository = RepositoryAccess.Instance.GetRepository();
-
-        var qouteHeaderList = new MTList<AccountForQuote>();
-        standardRepository.LoadInstances(ref qouteHeaderList);
-        return qouteHeaderList.TotalRows;
-      }
-      catch (Exception ex)
-      {
-        mLogger.LogException("Error get AccountForQuote", ex);
-        throw;
-      }
-    }
-
-    public int GetPOForQuoteCount()
-    {
-      RepositoryAccess.Instance.Initialize();
-      try
-      {
-        //get quoteContent BME
-        IStandardRepository standardRepository = RepositoryAccess.Instance.GetRepository();
-
-        var qouteHeaderList = new MTList<POforQuote>();
-        standardRepository.LoadInstances(ref qouteHeaderList);
-        return qouteHeaderList.TotalRows;
-      }
-      catch (Exception ex)
-      {
-        mLogger.LogException("Error get POforQuote", ex);
         throw;
       }
     }
@@ -244,7 +187,9 @@ namespace MetraTech.Quoting
 
             #region Save accounts for quote
 
-            foreach (var accountForQuoteBME in quoteRequest.Accounts.Select(account => new AccountForQuote { AccountID = account }))
+            foreach (
+              var accountForQuoteBME in
+                quoteRequest.Accounts.Select(account => new AccountForQuote {AccountID = account}))
             {
               accountForQuoteBME.QuoteHeader = quoteHeader;
               accountForQuoteBME.Save();
@@ -255,7 +200,7 @@ namespace MetraTech.Quoting
             #region Save product offering
 
             var poOrder = 0;
-            foreach (var POforQuoteBME in quoteRequest.ProductOfferings.Select(po => new POforQuote { POID = po }))
+            foreach (var POforQuoteBME in quoteRequest.ProductOfferings.Select(po => new POforQuote {POID = po}))
             {
               POforQuoteBME.QuoteHeader = quoteHeader;
               POforQuoteBME.Order = poOrder++;
@@ -285,7 +230,7 @@ namespace MetraTech.Quoting
 
             var quoteContent = new QuoteContent
               {
-                Status = 1, 
+                Status = 1,
                 QuoteHeader = quoteHeader
               };
             quoteContent.Save();
@@ -393,7 +338,85 @@ namespace MetraTech.Quoting
         }
       }
     }
-    
+
+    #region IQuoteRepositoryStatistics: Methods needed by test scenarios
+
+    public int GetQuoteHeaderCount()
+    {
+      RepositoryAccess.Instance.Initialize();
+      try
+      {
+        //get quoteContent BME
+        IStandardRepository standardRepository = RepositoryAccess.Instance.GetRepository();
+
+        var qouteHeaderList = new MTList<QuoteHeader>();
+        standardRepository.LoadInstances(ref qouteHeaderList);
+        return qouteHeaderList.TotalRows;
+      }
+      catch (Exception ex)
+      {
+        mLogger.LogException("Error get QuoteHeader", ex);
+        throw;
+      }
+    }
+
+    public int GetQuoteContentCount()
+    {
+      RepositoryAccess.Instance.Initialize();
+      try
+      {
+        //get quoteContent BME
+        IStandardRepository standardRepository = RepositoryAccess.Instance.GetRepository();
+
+        var qouteHeaderList = new MTList<QuoteContent>();
+        standardRepository.LoadInstances(ref qouteHeaderList);
+        return qouteHeaderList.TotalRows;
+      }
+      catch (Exception ex)
+      {
+        mLogger.LogException("Error get QuoteContent", ex);
+        throw;
+      }
+    }
+
+    public int GetAccountForQuoteCount()
+    {
+      RepositoryAccess.Instance.Initialize();
+      try
+      {
+        //get quoteContent BME
+        IStandardRepository standardRepository = RepositoryAccess.Instance.GetRepository();
+
+        var qouteHeaderList = new MTList<AccountForQuote>();
+        standardRepository.LoadInstances(ref qouteHeaderList);
+        return qouteHeaderList.TotalRows;
+      }
+      catch (Exception ex)
+      {
+        mLogger.LogException("Error get AccountForQuote", ex);
+        throw;
+      }
+    }
+
+    public int GetPOForQuoteCount()
+    {
+      RepositoryAccess.Instance.Initialize();
+      try
+      {
+        //get quoteContent BME
+        IStandardRepository standardRepository = RepositoryAccess.Instance.GetRepository();
+
+        var qouteHeaderList = new MTList<POforQuote>();
+        standardRepository.LoadInstances(ref qouteHeaderList);
+        return qouteHeaderList.TotalRows;
+      }
+      catch (Exception ex)
+      {
+        mLogger.LogException("Error get POforQuote", ex);
+        throw;
+      }
+    }
+
     public int GetQuoteLogRecordsCount()
     {
       RepositoryAccess.Instance.Initialize();
@@ -413,9 +436,32 @@ namespace MetraTech.Quoting
         throw;
       }
     }
+
+    #endregion  }
   }
 
-  public class QuotingRepositoryDummy : IQuotingRepository
+  /// <summary>
+  /// Extension methods
+  /// </summary>
+  public static class QuotingRepositoryExtensionMethods
+  {
+    public static QuoteLog ConvertToQuoteLog(this QuoteLogRecord record)
+    {
+      return new QuoteLog()
+      {
+        QuoteIdentifier = record.QuoteIdentifier,
+        DateAdded = record.DateAdded,
+        Message = record.Message
+      };
+    }
+  }
+
+  /// <summary>
+  /// Dummy implementation of quoting repository that does not utilize the database (stored in Memory)
+  /// Useful in the beginning for testing; now would need updating as not all test checking, total calculation
+  /// or PDF generation would work correctly against this dummy repository
+  /// </summary>
+  public class QuotingRepositoryInMemory : IQuotingRepository, IQuotingRespositoryStatistics
   {
 
     private int idCurrent = 0;
@@ -426,48 +472,6 @@ namespace MetraTech.Quoting
     private readonly Dictionary<int, List<AccountForQuote>> accounts = new Dictionary<int, List<AccountForQuote>>();
     private readonly Dictionary<int, List<POforQuote>> pos = new Dictionary<int, List<POforQuote>>();
     private readonly List<QuoteLogRecord> quoteLog = new List<QuoteLogRecord>();
-
-    public int GetQuoteHeaderCount()
-    {
-      return HeadersCount;
-    }
-
-
-    public int GetQuoteContentCount()
-    {
-      return ContentsCount;
-    }
-
-    public int GetAccountForQuoteCount()
-    {
-      return AccountsCount;
-    }
-
-    public int GetPOForQuoteCount()
-    {
-      return POsCount;
-    }
-
-    public int HeadersCount
-    {
-      get { return headers.Count; }
-    }
-
-    public int ContentsCount
-    {
-      get { return contents.Count; }
-    }
-
-    public int AccountsCount
-    {
-      get { return accounts.Values.Count == 0 ? 0 : accounts.Values.First().Count; }
-    }
-
-
-    public int POsCount
-    {
-      get { return pos.Values.Count == 0 ? 0 : pos.Values.First().Count; }
-    }
 
     #region IQuotingRepository Members
 
@@ -524,7 +528,49 @@ namespace MetraTech.Quoting
     {
       quoteLog.AddRange(logRecords);
     }
+    #endregion
 
+    #region IQuoteRepositoryStatistics: Methods needed by test scenarios
+
+    public int GetQuoteHeaderCount()
+    {
+      return HeadersCount;
+    }
+
+    public int GetQuoteContentCount()
+    {
+      return ContentsCount;
+    }
+
+    public int GetAccountForQuoteCount()
+    {
+      return AccountsCount;
+    }
+
+    public int GetPOForQuoteCount()
+    {
+      return POsCount;
+    }
+
+    public int HeadersCount
+    {
+      get { return headers.Count; }
+    }
+
+    public int ContentsCount
+    {
+      get { return contents.Count; }
+    }
+
+    public int AccountsCount
+    {
+      get { return accounts.Values.Count == 0 ? 0 : accounts.Values.First().Count; }
+    }
+
+    public int POsCount
+    {
+      get { return pos.Values.Count == 0 ? 0 : pos.Values.First().Count; }
+    }
     public int GetQuoteLogRecordsCount()
     {
       return quoteLog.Count;

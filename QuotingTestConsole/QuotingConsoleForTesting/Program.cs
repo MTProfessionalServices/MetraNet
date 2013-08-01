@@ -27,6 +27,7 @@ namespace MetraTech.Quoting.Test.ConsoleForTesting
       bool runPDFGenerationForAllTestsByDefault = false;
       DateTime effectiveDate = MetraTime.Now;
       DateTime effectiveEndDate = MetraTime.Now;
+      var icbPrices = new List<QuoteIndividualPrice>();
 
       var folder = Path.Combine(Environment.CurrentDirectory, "Quoting");
       if (!Directory.Exists(folder))
@@ -49,6 +50,7 @@ namespace MetraTech.Quoting.Test.ConsoleForTesting
         runPDFGenerationForAllTestsByDefault = fakeRequest.RunPDFGenerationForAllTestsByDefault;
         effectiveDate = fakeRequest.EffectiveDate;
         effectiveEndDate = fakeRequest.EffectiveEndDate;
+        icbPrices = fakeRequest.IcbPrices;
       }
       else
       {
@@ -61,7 +63,8 @@ namespace MetraTech.Quoting.Test.ConsoleForTesting
             QuoteIdentifier = quoteIdentifier,
             RunPDFGenerationForAllTestsByDefault = runPDFGenerationForAllTestsByDefault,
             EffectiveDate = effectiveDate,
-            EffectiveEndDate = effectiveEndDate
+            EffectiveEndDate = effectiveEndDate,
+            IcbPrices = icbPrices,
           };
 
         var requestFileStream = new FileStream(requestFile, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
@@ -83,6 +86,7 @@ namespace MetraTech.Quoting.Test.ConsoleForTesting
       request.ReportParameters.PDFReport = runPDFGenerationForAllTestsByDefault;
       request.EffectiveDate = effectiveDate;
       request.EffectiveEndDate = effectiveEndDate;
+      request.IcbPrices = icbPrices;
 
       var response = new QuoteResponse();
       

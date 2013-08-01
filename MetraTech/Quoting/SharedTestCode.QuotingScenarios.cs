@@ -138,9 +138,9 @@ namespace MetraTech.Shared.Test
     {
       //Instantiate our implementation
       if (quotingRepositoryForTestRun == null)
-        quotingRepositoryForTestRun = new QuotingRepositoryDummy();
+        quotingRepositoryForTestRun = new QuotingRepositoryInMemory();
 
-      QuotingImplementation quotingImplementation = new QuotingImplementation(QuotingConfigurationManager.LoadConfigurationFromFile(),
+      var quotingImplementation = new QuotingImplementation(QuotingConfigurationManager.LoadConfigurationFromDefaultSystemLocation(),
                                                                               SharedTestCode.LoginAsAdmin(),
                                                                               quotingRepositoryForTestRun);
       return quotingImplementation;

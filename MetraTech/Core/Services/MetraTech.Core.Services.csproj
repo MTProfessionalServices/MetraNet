@@ -81,7 +81,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Core.FileLandingService.Entity.dll</HintPath>
     </Reference>
-	<Reference Include="Core.Quoting.Entity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="Core.Quoting.Entity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Core.Quoting.Entity.dll</HintPath>
     </Reference>
@@ -392,7 +392,7 @@
     </ProjectReference>
     <ProjectReference Include="..\..\Basic\MetraTech.Basic.csproj">
       <Project>{B0909156-962B-4C97-AB1C-4073E3DA6DC1}</Project>
-      <Name>MetraTech.Basic</Name>
+      <Name>MetraTech.Basic %28MetraTech.Basic\MetraTech.Basic%29</Name>
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <Private>False</Private>
     </ProjectReference>

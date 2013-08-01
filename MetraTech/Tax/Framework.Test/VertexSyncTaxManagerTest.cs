@@ -1,4 +1,5 @@
-﻿using MetraTech.Tax.Framework.VertexQ;
+﻿using System.Diagnostics;
+using MetraTech.Tax.Framework.VertexQ;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tax.Freamework.Test.Properties;
 
@@ -10,7 +11,7 @@ namespace Tax.Freamework.Test
   ///</summary>
   [TestClass]
   [Ignore]
-  public class VertexSyncTaxManagerDbBatchTest
+  public class VertexSyncTaxManagerTest
   {
     #region Additional test attributes
     // 
@@ -46,11 +47,11 @@ namespace Tax.Freamework.Test
     ///A test for InvokeRequest
     ///</summary>
     [TestMethod]
-    public void InvokeRequestTest()
+    public void InvokeRequestTest1()
     {
-      var target = new VertexQSyncTaxManagerDBBatch_Accessor();
-      var actual = target.InvokeRequest(Resources.TestRequest);
-      Assert.AreEqual(Resources.TestResponse, actual);
+      var target = new VertexSyncTaxManager_Accessor();
+      var actual = target.InvokeRequest(Resources.TestRequest1);
+      Assert.AreEqual(Resources.TestResponse1, actual);
     }
 
     /// <summary>
@@ -59,9 +60,16 @@ namespace Tax.Freamework.Test
     [TestMethod]
     public void InvokeRequestTest2()
     {
-      var target = new VertexQSyncTaxManagerDBBatch_Accessor();
-      var actual = target.InvokeRequest(Resources.TestRequest2);
-      Assert.AreEqual(Resources.TestResponse2, actual);
+      var target = new VertexSyncTaxManager_Accessor();
+      var st = new Stopwatch();
+      st.Start();
+      for (var i = 0; i < 5000; i++)
+      {
+        var actual = target.InvokeRequest(Resources.TestRequest2);
+        Assert.AreEqual(Resources.TestResponse2, actual);
+      }
+      st.Stop();
+      Assert.AreEqual(1000, st.ElapsedMilliseconds);
     }
   }
 }

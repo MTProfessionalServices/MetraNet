@@ -2,17 +2,11 @@
 using VertexServerTest.Properties;
 using VertexSocketService;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace VertexServerTest
 {
-    
-    
-    /// <summary>
-    ///This is a test class for VertexTest and is intended
-    ///to contain all VertexTest Unit Tests
-    ///</summary>
   [TestClass]
+  [Ignore]
   public class VertexTest
   {
     /// <summary>

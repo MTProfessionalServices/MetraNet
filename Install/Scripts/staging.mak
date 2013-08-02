@@ -369,6 +369,8 @@ BINARIES = \
   MetraTech.Tax.Plugins.BillSoft.PCodeLookup.dll \
   MetraTech.Tax.Plugins.BillSoft.PCodeLookup.pdb \
   MetraTech.Tax.Plugins.TaxCalculateMetraTax.dll \
+  MetraTech.Tax.Plugins.TaxCalculateVertexQ.dll \
+  MetraTech.Tax.Plugins.TaxCalculateVertexQ.pdb \
   MetraTech.Test.dll \
   MetraTech.Test.Harness.dll \
   MetraTech.Test.Harness.pdb \
@@ -1662,6 +1664,11 @@ RMP_Extensions:
   $(CD) $(S_EXT_DIR)\TaxWare
   $(CPDIR) . $(P_TAXWARE_PE_DIR) .svn
   @echo $(LABEL) > $(P_TAXWARE_PE_DIR)\$(PLACEHOLDER)
+  
+  @echo   VertexQ
+  $(CD) $(S_EXT_DIR)\VertexQ
+  $(CPDIR) . $(P_VERTEXQ_PE_DIR) .svn
+  @echo $(LABEL) > $(P_VERTEXQ_PE_DIR)\$(PLACEHOLDER)
 
   @echo   BillSoft
   $(CD) $(S_EXT_DIR)\BillSoft

@@ -1,3 +1,6 @@
+/* Before making changes to this file, remove the comments around line 162 in
+   MetraTech.Domain.csproj (the line with the reference to Antlr4.targets). */
+
 grammar ExpressionLanguage;
 
 parse

@@ -157,7 +157,9 @@
     <Antlr4ToolPath>$(ProjectDir)..\..\Thirdparty\antlr\antlr4-csharp-4.0.1-SNAPSHOT-complete.jar</Antlr4ToolPath>
     <Antlr4ToolPath>$(ProjectDir)..\..\Thirdparty\antlr\antlr4-csharp-4.0.1-SNAPSHOT-complete.jar</Antlr4ToolPath>
   </PropertyGroup>
-  <Import Project="$(ProjectDir)..\..\Thirdparty\antlr\Antlr4.targets" />
+  <!-- Remove the comments in the following line before making changes are made to ExpressionEngine.g4 -->
+  <!-- Do not commit this line without comments. Antlr4 requires the Java Runtime 7, which is not available on build servers -->
+  <!-- Import Project="$(ProjectDir)..\..\Thirdparty\antlr\Antlr4.targets" /-->
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

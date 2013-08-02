@@ -1,4 +1,4 @@
-// Generated from C:\dev\MetraNet\RMP\Extensions\Legacy_Internal\Source\MetraTech\MetraTech.Domain\Parsers\ExpressionLanguage.g4 by ANTLR 4.0.1-SNAPSHOT
+// Generated from Parsers\ExpressionLanguage.g4 by ANTLR 4.0.1-SNAPSHOT
 namespace MetraTech.Domain {
 using Antlr4.Runtime.Tree;
 using IToken = Antlr4.Runtime.IToken;

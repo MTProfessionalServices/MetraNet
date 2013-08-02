@@ -754,6 +754,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Common", "MetraTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VertexSocketServer", "VertexSocketService\VertexSocketServer.csproj", "{6C6B9B8E-1E8F-4957-A048-5B5316384347}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VertexServerTest", "VertexSocketService\VertexServerTest\VertexServerTest.csproj", "{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = MetraTech.vsmdi
@@ -2458,6 +2460,24 @@ Global
 		{6C6B9B8E-1E8F-4957-A048-5B5316384347}.Release|Mixed Platforms.Build.0 = Release|x86
 		{6C6B9B8E-1E8F-4957-A048-5B5316384347}.Release|x86.ActiveCfg = Release|x86
 		{6C6B9B8E-1E8F-4957-A048-5B5316384347}.Release|x86.Build.0 = Release|x86
+		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.DebugcoreQA|.NET.ActiveCfg = Debug|Any CPU
+		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.DebugcoreQA|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.DebugcoreQA|Any CPU.Build.0 = Debug|Any CPU
+		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.DebugcoreQA|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.DebugcoreQA|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.DebugcoreQA|x86.ActiveCfg = Debug|Any CPU
+		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.Release|.NET.ActiveCfg = Release|Any CPU
+		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -2559,6 +2579,7 @@ Global
 		{62D8F8F9-BF07-4698-989B-4D0F3E57071A} = {1504F2BC-BBBF-4422-B267-D6EEBBA3A9EC}
 		{59F51B26-8DC3-4908-97F0-74592918150F} = {1504F2BC-BBBF-4422-B267-D6EEBBA3A9EC}
 		{6C6B9B8E-1E8F-4957-A048-5B5316384347} = {1504F2BC-BBBF-4422-B267-D6EEBBA3A9EC}
+		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B} = {1504F2BC-BBBF-4422-B267-D6EEBBA3A9EC}
 	EndGlobalSection
 	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
 		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}

@@ -6,6 +6,8 @@ namespace MetraTech.UI.Common
 {
   public static class Constants
   {
+    public const string JavaScriptSection = "JavaScriptSection";
+    public const string StyleSection = "StyleSection";
     public const string MAIN_MENU = "MainMenu";
     public const string ACCOUNT_MENU = "AccountMenu";
     public const string METRACARE_MENU = "MetraCareMenu";

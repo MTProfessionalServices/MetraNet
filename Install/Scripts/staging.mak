@@ -329,6 +329,12 @@ BINARIES = \
   MetraTech.DomainModel.ProductCatalog.pdb \
   MetraTech.DomainModel.Validators.dll \
   MetraTech.DomainModel.Validators.pdb \
+  MetraTech.ExpressionEngine.dll \
+  MetraTech.ExpressionEngine.pdb \
+  MetraTech.ExpressionEngine.Metadata.dll \
+  MetraTech.ExpressionEngine.Metadata.pdb \
+  MetraTech.ExpressionEngine.Metadata.Hook.dll \
+  MetraTech.ExpressionEngine.Metadata.Hook.pdb \
   MetraTech.FileLandingService.exe.config \
   MetraTech.Events.dll \
   MetraTech.Events.pdb \
@@ -745,6 +751,7 @@ COM_DLLS = \
   WeightedRate.dll \
   XMLTranslator.dll \
   MetraTech.MTPCImportDynamicProperties.dll \
+  MetraTech.ExpressionEngine.Metadata.Hook.dll \
   
   # COM_DLLS -- PDBs
 
@@ -906,6 +913,7 @@ COM_DLLSPDB = \
   ViewAllRates.pdb \
   WeightedRate.pdb \
   MetraTech.MTPCImportDynamicProperties.pdb \
+  MetraTech.ExpressionEngine.Metadata.Hook.pdb \
   
   # COM_DLLS -- Interops
 

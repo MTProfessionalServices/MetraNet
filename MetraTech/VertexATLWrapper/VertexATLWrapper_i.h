@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Thu Jul 25 14:02:47 2013
+/* at Wed Jul 31 09:08:38 2013
  */
 /* Compiler settings for VertexATLWrapper.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 

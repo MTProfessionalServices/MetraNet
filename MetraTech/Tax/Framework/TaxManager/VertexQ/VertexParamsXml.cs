@@ -8,6 +8,7 @@ using MetraTech;
 using MetraTech.Tax.Framework;
 using MetraTech.Tax.Framework.DataAccess;
 
+
 namespace Framework.TaxManager.VertexQ
 {
   /// <summary>
@@ -469,7 +470,7 @@ CHARGETOINPUT
       var now = DateTime.Now;
 
       var xmlDoc = new XmlDocument();
-      xmlDoc.Load(vertexResultsString);
+      xmlDoc.LoadXml(vertexResultsString);
 
       var idTaxDetailCounter = 1;
 

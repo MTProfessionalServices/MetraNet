@@ -59,11 +59,12 @@ namespace MetraTech.Tax.Framework.VertexQ
         PerformTaxTransaction(taxableTransaction, out transactionSummary, out transactionDetails);
 
         if (!TaxDetailsNeeded) return;
+        
         // Write the resulting transactionDetails to the t_tax_details table
+        var detailWriter = new TaxManagerBatchDbTableWriter(GetTaxDetailTableName(), GetBulkInsertSize());
         foreach (var row in transactionDetails)
-        {
-          _detailWriter.Add(row);
-        }
+          detailWriter.Add(row);
+        detailWriter.Commit();
       }
       catch (Exception exc)
       {
@@ -239,20 +240,17 @@ namespace MetraTech.Tax.Framework.VertexQ
         Logger.LogInfo("TaxDetailsNeeded : {0}", TaxDetailsNeeded);
 
         // Create the detail information.  It may or may not be stored in the DB.
+        var isImpliedTax = taxableTransaction.GetBool("is_implied_tax").GetValueOrDefault();
+        var idAcc = taxableTransaction.GetInt32("id_acc").GetValueOrDefault();
+        var idUsageInterval = taxableTransaction.GetInt32("id_usage_interval").GetValueOrDefault();
+
+        transactionDetails = vertexParamsXml.ParseVertexTaxResultsToTransactionDetails(
+          idTaxCharge, isImpliedTax, idAcc, TaxRunId, idUsageInterval, returnXmlStr);
+
+        Logger.LogDebug("transactionDetails.Count={0}", transactionDetails.Count);
+        foreach (var transactionDetail in transactionDetails)
         {
-          var isImpliedTax = taxableTransaction.GetBool("is_implied_tax").GetValueOrDefault();
-
-          var idAcc = taxableTransaction.GetInt32("id_acc").GetValueOrDefault();
-          var idUsageInterval = taxableTransaction.GetInt32("id_usage_interval").GetValueOrDefault();
-
-          transactionDetails = vertexParamsXml.ParseVertexTaxResultsToTransactionDetails(
-            idTaxCharge, isImpliedTax, idAcc, TaxRunId, idUsageInterval, returnXmlStr);
-
-          Logger.LogDebug("transactionDetails.Count={0}", transactionDetails.Count);
-          foreach (var transactionDetail in transactionDetails)
-          {
-            Logger.LogDebug(transactionDetail.ToString());
-          }
+          Logger.LogDebug(transactionDetail.ToString());
         }
       }
       catch (Exception e)

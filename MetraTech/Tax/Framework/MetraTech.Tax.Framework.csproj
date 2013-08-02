@@ -201,6 +201,11 @@
     <None Include="Service References\TaxCalculationManagerService\TaxCalculationManagerService.wsdl" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DataAccess\MetraTech.DataAccess.csproj">
+      <Project>{1B40F4E4-8DDC-43E0-BE45-959BEE94422F}</Project>
+      <Name>MetraTech.DataAccess</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\..\DomainModel\Common\MetraTech.DomainModel.Common.csproj">
       <Project>{E21F8EE1-FA01-465E-B651-A21CC2E1D6AA}</Project>
       <Name>MetraTech.DomainModel.Common</Name>
@@ -209,21 +214,16 @@
       <Project>{C36E2EB0-9715-48BB-81F4-6228C917E071}</Project>
       <Name>MetraTech.DomainModel.Enums</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech.Common.csproj">
+      <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
+      <Name>MetraTech.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\..\Security\Crypto\MetraTech.Security.Crypto.csproj">
       <Project>{3ee96bfd-837b-4fd1-a33d-69dfaa0d22cf}</Project>
       <Name>MetraTech.Security.Crypto</Name>
       <Private>False</Private>
       <EmbedInteropTypes>false</EmbedInteropTypes>
-    </ProjectReference>
-    <ProjectReference Include="..\..\DataAccess\MetraTech.DataAccess.csproj">
-      <Project>{1B40F4E4-8DDC-43E0-BE45-959BEE94422F}</Project>
-      <Name>MetraTech.DataAccess</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\MetraTech.Common.csproj">
-      <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
-      <Name>MetraTech.Common</Name>
-      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\UsageServer\MetraTech.UsageServer.csproj">
       <Project>{2AE4B0CA-70B7-4F5E-AF71-0191CBC3C8AC}</Project>

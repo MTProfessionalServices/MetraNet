@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BulkService.cs" />
     <Compile Include="EmailProcessor.cs" />
     <Compile Include="NotificationProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -142,11 +142,11 @@ function statusColRenderer(value, meta, record, rowIndex, colIndex, store) {
     if(ids != "all")
     {
       statusChangePage += "&FailureIDs=" + ids;
-    }
+  }
     var tpl = new Ext.XTemplate(
             '<tpl for=".">',
             '<p>{Message}</p>',
-            '<iframe src="' + statusChangePage + '" width="100%" height="100%" id="statusChange">',
+            '<iframe src="' + statusChangePage.replace("+", "%2B") + '" width="100%" height="100%" id="statusChange">',
             '</tpl>'
       );
 
@@ -210,8 +210,8 @@ function statusColRenderer(value, meta, record, rowIndex, colIndex, store) {
         {
           ids += ",";
         }
-        ids += records[i].data.failurecompoundsessionid; 
-      }
+        ids += records[i].data.failurecompoundsessionid;
+    }
       var message = TEXT_SELECTED + records.length + TEXT_ITEMS
       var responseJSON = {Success:true,Message:message};
       popupStatusChange(ids, responseJSON, "resubmit", grid);

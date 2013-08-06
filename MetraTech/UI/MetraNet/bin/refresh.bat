@@ -130,6 +130,9 @@ copy %MTOUTDIR%\%VERSION%\bin\MetraTech.ExpressionEngine.pdb %ROOTDIR%\MetraTech
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.ExpressionEngine.Metadata.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.ExpressionEngine.Metadata.pdb %ROOTDIR%\MetraTech\UI\MetraNet\bin
 
+copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Domain.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
+copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Application.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
+copy %MTOUTDIR%\%VERSION%\bin\EntityFramework.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
 
 IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\de MKDIR %ROOTDIR%\MetraTech\UI\MetraNet\bin\de
 IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\en MKDIR %ROOTDIR%\MetraTech\UI\MetraNet\bin\en

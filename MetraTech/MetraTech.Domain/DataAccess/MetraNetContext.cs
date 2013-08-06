@@ -34,7 +34,7 @@ namespace MetraTech.Domain.DataAccess
     /// Returns default database connection for MetraNet
     /// </summary>
     /// <returns></returns>
-    public static DbConnection GetDefaultDatabaseConnection()
+    private static DbConnection GetDefaultDatabaseConnection()
     {
       var connectionInfo = new ConnectionInfo("NetMeter");
       return ConnectionBase.GetDbConnection(connectionInfo, false);

@@ -1579,7 +1579,7 @@ P_REPORTING_PE_DIR    = $(P_BASE_OPTEXT_DIR)\Reporting
 P_METRATAX_PE_DIR     = $(P_BASE_OPTEXT_DIR)\MetraTax
 P_TAXWARE_PE_DIR      = $(P_BASE_OPTEXT_DIR)\TaxWare
 P_BILLSOFT_PE_DIR     = $(P_BASE_OPTEXT_DIR)\BillSoft
-
+P_VERTEXQ_PE_DIR      = $(P_BASE_OPTEXT_DIR)\VertexQ
 
 RMP_Extensions:
   @echo $(DELIM)

@@ -352,22 +352,26 @@ namespace MetraTech.Core.Services
                       string key = fieldName.Remove(0, 2).ToLower().Trim();
                       p = chargePropertyMap[key];
 
-                      if (!rdr.IsDBNull(i))
-                      {
-                        object val = BasePCWebService.GetValue(i, p, rdr);
-                        if (key.Equals("chargecurrency"))
-                          row["_Currency"] = val;
-                        else
-                        {
-                          if (val.GetType().IsEnum)
+                          if (!rdr.IsDBNull(i))
                           {
-                            row[key] = EnumHelper.GetDbValueByEnum(val);
+                              object val = BasePCWebService.GetValue(i, p, rdr);
+                              if (key.Equals("chargecurrency"))
+                                  row["_Currency"] = val;
+                              else
+                              {
+                                  if (val == null)
+                                  {
+                                      row[key] = DBNull.Value;
+                                  }
+                                  else if (val.GetType().IsEnum)
+                                  {
+                                      row[key] = EnumHelper.GetDbValueByEnum(val);
+                                  }
+                                  else
+                                      row[key] = val;
+                              }
                           }
-                          else
-                            row[key] = val;
-                        }
-                      }
-                      break;
+                          break;
                   }
                 }
               }

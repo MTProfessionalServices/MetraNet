@@ -653,39 +653,51 @@ namespace MetraTech.Quoting
                 object modifiedDate = MetraTime.Now;
                 var subscription = acc.Subscribe(po, effDate, out modifiedDate);
 
-                ApplyIcbPricesToSubscription(po, subscription.ID);
-
-                try
-                {
-                  if (CurrentRequest.SubscriptionParameters.UDRCValues.ContainsKey(po.ToString()))
-                  {
-                    foreach (var udrcInstanceValue in CurrentRequest.SubscriptionParameters.UDRCValues[po.ToString()])
-                    {
-                      subscription.SetRecurringChargeUnitValue(udrcInstanceValue.UDRC_Id,
-                                                               udrcInstanceValue.Value,
-                                                               udrcInstanceValue.StartDate,
-                                                               udrcInstanceValue.EndDate);
-                    }
-                  }
-                }
-                catch (COMException come)
-                {
-                  if (come.Message.Contains("not found in database"))
-                  {
-                    LogError(come.Message);
-                    throw new ArgumentException("Subscription failed with message: " + come.Message +
-                                                "\nUDRC ID added to SubscriptionParameters does not exist");
-                  }
-
-                  throw;
-                }
-
                 subscription.Save();
                 createdSubsciptions.Add(subscription);
               }
             }
 
             scope.Complete();
+          }
+
+          // apply icb prices
+          using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions(), EnterpriseServicesInteropOption.Full))
+          {
+            foreach (var subscription in createdSubsciptions)
+              ApplyIcbPricesToSubscription(subscription.ProductOfferingID, subscription.ID);
+            scope.Complete();
+          }
+
+          using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions(), EnterpriseServicesInteropOption.Full))
+          {
+            foreach (var subscription in createdSubsciptions)
+            {
+              try
+              {
+                if (CurrentRequest.SubscriptionParameters.UDRCValues.ContainsKey(subscription.ProductOfferingID.ToString()))
+                {
+                  foreach (var udrcInstanceValue in CurrentRequest.SubscriptionParameters.UDRCValues[subscription.ProductOfferingID.ToString()])
+                  {
+                    subscription.SetRecurringChargeUnitValue(udrcInstanceValue.UDRC_Id,
+                                                             udrcInstanceValue.Value,
+                                                             udrcInstanceValue.StartDate,
+                                                             udrcInstanceValue.EndDate);
+                  }
+                }
+              }
+              catch (COMException come)
+              {
+                if (come.Message.Contains("not found in database"))
+                {
+                  LogError(come.Message);
+                  throw new ArgumentException("Subscription failed with message: " + come.Message +
+                                              "\nUDRC ID added to SubscriptionParameters does not exist");
+                }
+
+                throw;
+              }
+            }
           }
 
           #endregion

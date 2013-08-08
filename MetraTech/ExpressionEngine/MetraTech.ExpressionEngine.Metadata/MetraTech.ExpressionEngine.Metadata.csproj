@@ -94,7 +94,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\ExpressionEngine_Internal\ExpressionEngine\ExpressionEngine.csproj">
+    <ProjectReference Include="R:\Extensions\ExpressionEngine_Internal\ExpressionEngine\ExpressionEngine.csproj">
       <Project>{CE6869D6-C6D0-4CA5-81A0-EAFB8843A2B6}</Project>
       <Name>ExpressionEngine</Name>
     </ProjectReference>

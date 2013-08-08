@@ -169,7 +169,7 @@ namespace MetraTech.Pipeline.ReRun
 
                     adptStmt.ClearQuery();
                     adptStmt.QueryTag = "__UPDATE_T_BATCH_COUNTERS__";
-                    adptStmt.AddParam("%%FAILURECOMPOUNDID%%", failureCompoundId, true);
+                    adptStmt.AddParam("%%FAILURECOMPOUNDID%%", failureCompoundId, false);
                     adptStmt.ExecuteNonQuery();
                     //end of ESR-4574  
 

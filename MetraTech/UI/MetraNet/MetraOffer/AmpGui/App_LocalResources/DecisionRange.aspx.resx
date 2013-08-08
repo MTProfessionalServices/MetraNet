@@ -129,10 +129,10 @@
   <data name="lblEndOfRange.Text" xml:space="preserve">
     <value>End of range:</value>
   </data>
-  <data name="lblProrateEnd.BoxLabel" xml:space="preserve">
+  <data name="lblProrateEnd.Text" xml:space="preserve">
     <value>Termination</value>
   </data>
-  <data name="lblProrateStart.BoxLabel" xml:space="preserve">
+  <data name="lblProrateStart.Text" xml:space="preserve">
     <value>Activation</value>
   </data>
   <data name="lblStartOfRange.Text" xml:space="preserve">

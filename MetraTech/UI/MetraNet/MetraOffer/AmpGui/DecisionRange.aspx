@@ -11,7 +11,7 @@
     <div>
         <table style="width: 100%">
             <tr>
-                <td style="width: 6%; vertical-align: top; padding-top:10px" align="center">
+                <td style="width: 2%; vertical-align: top; padding-top:10px" align="center">
                        &nbsp;</td>
                 <td valign="top" style="width: 90%">
                     <div style="line-height: 20px; padding-top: 10px; padding-left: 10px">
@@ -26,7 +26,7 @@
                 </td>
             </tr>
             <tr>
-                 <td></td>
+                 <td style="width: 2%"></td>
                  <td>
                      <table>
                       <tr>
@@ -53,10 +53,8 @@
                </table>
                  </td>
             </tr>
-            <tr><td></td>
-            <td>
-             <tr>
-                <td style="width: 6%; vertical-align: top; padding-top:10px" align="center">
+            <tr>
+                <td style="width: 2%; vertical-align: top; padding-top:10px" align="center">
                        &nbsp;</td>
                 <td valign="top" style="width: 90%">
                     <div style="line-height: 20px; padding-top: 10px; padding-left: 10px">
@@ -73,21 +71,15 @@
                 </td>
             </tr>
 
-                         </td></tr>
-            
-                                    
-
-
-                
-                    
                     <br />
             <tr>
-                <td style="width: 6%; vertical-align: top; padding-top:10px" align="center">
-                       &nbsp;</td>
-                <td valign="top" style="width: 90%">
+                <td style="width: 2%; vertical-align: top; padding-top:10px; height: 32px;" 
+                    align="center">
+                       </td>
+                <td valign="top" style="width: 90%; height: 32px;">
                     <div style="line-height: 20px; padding-top: 10px; padding-left: 10px">
-                                <div style="float:left"><asp:Label ID="lblDecisionRangeProration" meta:resourcekey="lblDecisionRangeProration" runat="server"
-                                Font-Bold="False" ForeColor="Black" Font-Size="9pt" Text="Prorate the range at subscription activation and/or termination." />
+                                <div style="float:left "><asp:Label ID="lblDecisionRangeProration" meta:resourcekey="lblDecisionRangeProration" runat="server"
+                                Font-Bold="False" ForeColor="Black" Height="100%" Font-Size="9pt" Text="Prorate the range at subscription activation and/or termination." />
                                 </div>
                                    <div style="fit-position: right;" align="left">
                                        <span style="color: blue; text-decoration: underline; cursor: pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_DECISION_RANGE_PRORATION,  TEXT_AMPWIZARD_MORE_DECISION_RANGE_PRORATION, 450, 190)">
@@ -96,28 +88,30 @@
                         </div>
                 </td>
             </tr>
-  
-          <table>
-                        <tr>
-                                 <td style="padding-left: 100px; width : 150px ;" align="right">
-                                </td>
-                                <MT:MTCheckBoxControl runat="server" BoxLabel="Activation" meta:resourcekey="lblProrateStart" ID="MTCB_ProrateRangeStart" 
-                                  CellSpacing="2" Width="0">
-                                </MT:MTCheckBoxControl>
-                        </tr>
-                        <tr>
-                            <td style="padding-right: 100px ;" align="left">
-                            &nbsp;</td>
-                            <MT:MTCheckBoxControl runat="server" BoxLabel="Termination" meta:resourcekey="lblProrateEnd" ID="MTCB_ProrateRangeEnd" 
+  <tr>
+                            <td style="width: 2%; vertical-align: top; padding-top:10px" align="center">
+                                    &nbsp;</td>
+                                <td valign="top" style="width: 90%">
+                                <asp:CheckBox runat="server" Text="Activation" CssClass="checkbox" 
+                                        meta:resourcekey="lblProrateStart" ID="CB_ProrateRangeStart" 
                                   CellSpacing="2">
-                            </MT:MTCheckBoxControl>
+                                </asp:CheckBox>
+                                </td>
                         </tr>
-                    </table>
+                        <tr>
+                        <td style="width: 2%; vertical-align: top; padding-top:10px" align="center">
+                            &nbsp;</td>
+                            <td valign="top" style="width: 90%">
+                            <asp:CheckBox runat="server" Text="Termination" meta:resourcekey="lblProrateEnd" ID="CB_ProrateRangeEnd" 
+                                  CellSpacing="2">
+                            </asp:CheckBox>
+                            </td>
+                        </tr>
         
            
                 <div style="padding-left: 0.85in; padding-top: 0.2in;">
             <tr>
-                <td style="width: 6%; vertical-align: top; padding-top: 10px" align="center">
+                <td style="width: 2%; vertical-align: top; padding-top: 10px" align="center">
                     &nbsp;</td>
                 <td valign="top" style="width:90%">
                     &nbsp;</td>

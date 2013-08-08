@@ -37,8 +37,8 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
     if (!IsPostBack)
     {
       MonitorChangesInControl(CB_DecisionRangeRestart);
-      MonitorChangesInControl(MTCB_ProrateRangeStart);
-      MonitorChangesInControl(MTCB_ProrateRangeEnd);
+      MonitorChangesInControl(CB_ProrateRangeStart);
+      MonitorChangesInControl(CB_ProrateRangeEnd);
       MonitorChangesInControlByClientId(startRange.ddSourceTypeClientId);
       MonitorChangesInControlByClientId(startRange.tbNumericSourceClientId);
       MonitorChangesInControlByClientId(startRange.tbTextSourceClientId);
@@ -131,20 +131,20 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
     switch (CurrentDecisionInstance.TierProration)
     {
       case Decision.TierProrationEnum.PRORATE_BOTH:
-        MTCB_ProrateRangeStart.Checked = true;
-        MTCB_ProrateRangeEnd.Checked = true;
+        CB_ProrateRangeStart.Checked = true;
+        CB_ProrateRangeEnd.Checked = true;
         break;
       case Decision.TierProrationEnum.PRORATE_TIER_START:
-        MTCB_ProrateRangeStart.Checked = true;
-        MTCB_ProrateRangeEnd.Checked = false;
+        CB_ProrateRangeStart.Checked = true;
+        CB_ProrateRangeEnd.Checked = false;
         break;
       case Decision.TierProrationEnum.PRORATE_TIER_END:
-        MTCB_ProrateRangeStart.Checked = false;
-        MTCB_ProrateRangeEnd.Checked = true;
+        CB_ProrateRangeStart.Checked = false;
+        CB_ProrateRangeEnd.Checked = true;
         break;
       case Decision.TierProrationEnum.PRORATE_NONE:
-        MTCB_ProrateRangeStart.Checked = false;
-        MTCB_ProrateRangeEnd.Checked = false;
+        CB_ProrateRangeStart.Checked = false;
+        CB_ProrateRangeEnd.Checked = false;
         break;
     }
   }
@@ -154,8 +154,8 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
     startRange.ReadOnly = true; 
     endRange.ReadOnly = true;
 
-    SetCheckBoxViewAction(MTCB_ProrateRangeEnd);
-    SetCheckBoxViewAction(MTCB_ProrateRangeStart);
+    SetCheckBoxViewAction(CB_ProrateRangeEnd);
+    SetCheckBoxViewAction(CB_ProrateRangeStart);
     SetCheckBoxViewAction(CB_DecisionRangeRestart);
 
     btnSaveAndContinue.CausesValidation = false;
@@ -266,22 +266,22 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
 
 
     //setup proration properties
-    if (MTCB_ProrateRangeStart.Checked && MTCB_ProrateRangeEnd.Checked)
+    if (CB_ProrateRangeStart.Checked && CB_ProrateRangeEnd.Checked)
     {
        CurrentDecisionInstance.TierProration = Decision.TierProrationEnum.PRORATE_BOTH;
     }
 
-    if (MTCB_ProrateRangeStart.Checked && !MTCB_ProrateRangeEnd.Checked)
+    if (CB_ProrateRangeStart.Checked && !CB_ProrateRangeEnd.Checked)
     {
       CurrentDecisionInstance.TierProration = Decision.TierProrationEnum.PRORATE_TIER_START;
     }
 
-    if (!MTCB_ProrateRangeStart.Checked && MTCB_ProrateRangeEnd.Checked)
+    if (!CB_ProrateRangeStart.Checked && CB_ProrateRangeEnd.Checked)
     {
       CurrentDecisionInstance.TierProration = Decision.TierProrationEnum.PRORATE_TIER_END;
     }
 
-    if (!MTCB_ProrateRangeStart.Checked && !MTCB_ProrateRangeEnd.Checked)
+    if (!CB_ProrateRangeStart.Checked && !CB_ProrateRangeEnd.Checked)
     {
       CurrentDecisionInstance.TierProration = Decision.TierProrationEnum.PRORATE_NONE;
     }

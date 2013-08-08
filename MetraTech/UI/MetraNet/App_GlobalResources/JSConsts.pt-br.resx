@@ -999,7 +999,14 @@
   <data name="TITLE_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
     <value>Portuguese</value>
   </data>
-  <data name="TEXT_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
+	<data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE_PRORATION" xml:space="preserve">
+    <value>Portuguese</value>
+  </data>
+	<data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
+    <value>Portuguese</value>
+  </data>
+
+	<data name="TEXT_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
     <value>Portuguese</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE" xml:space="preserve">

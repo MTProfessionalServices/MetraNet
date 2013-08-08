@@ -39,6 +39,8 @@ namespace MetraTech.Application.ProductManagement
     {
       try
       {
+        CacheManager.InitializeParameterTableCache();
+
         #region Resolve identifiers
 
         int instanceId = PCIdentifierResolver.ResolvePIInstanceBySub(subId, piInstanceID, false);

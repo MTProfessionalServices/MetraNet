@@ -1,26 +1,20 @@
-
 using System;
 using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using System.ServiceModel;
-using System.Runtime.Serialization;
 using MetraTech.Application;
 using MetraTech.Application.ProductManagement;
 using MetraTech.DataAccess;
-using MetraTech.Interop.QueryAdapter;
 using RS = MetraTech.Interop.Rowset;
 using YAAC = MetraTech.Interop.MTYAAC;
 using Auth = MetraTech.Interop.MTAuth;
 using Coll = MetraTech.Interop.GenericCollection;
-
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.Common;
 using MetraTech.DomainModel.Enums;
 using MetraTech.DomainModel.Enums.Core.Global;
 using MetraTech.DomainModel.ProductCatalog;
-
 using MetraTech.ActivityServices.Common;
 using MetraTech.ActivityServices.Services.Common;
 using MetraTech.Interop.MTProductCatalog;
@@ -28,13 +22,12 @@ using System.Runtime.InteropServices;
 using MetraTech.DomainModel.Enums.Core.Global_SystemCurrencies;
 using System.Transactions;
 using MetraTech.Debug.Diagnostics;
-using IMTSessionContext = MetraTech.Interop.MTAuth.IMTSessionContext;
 
 
 namespace MetraTech.Core.Services
 {
 
-  [ServiceContract()]
+  [ServiceContract]
   public interface IPriceListService
   {
     // Load price lists.

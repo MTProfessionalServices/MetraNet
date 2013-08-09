@@ -124,7 +124,7 @@
     <value>Enter information about this Decision Type:</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>General Information</value>
+    <value>General Information for {0}</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
@@ -153,7 +153,4 @@
   <data name="ViewDescriptionLabelResource.Text" xml:space="preserve">
     <value>Description:</value>
   </data>
-  <data name="lblCantChangeParamTableResource1.Text" xml:space="preserve">
-    <value>NOTE: After you click Save &amp; Continue, you cannot choose a different parameter table for this decision type.</value>
-  </data>
-</root>
+  </root>

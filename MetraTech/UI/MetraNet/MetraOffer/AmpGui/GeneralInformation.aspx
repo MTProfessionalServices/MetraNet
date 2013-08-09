@@ -54,14 +54,11 @@
         </MT:MTDropDown>  
     </div>   
    
-    <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_PARAM_TABLE, TEXT_AMPWIZARD_HELP_PARAM_TABLE, 450, 110)">
+    <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_PARAM_TABLE, TEXT_AMPWIZARD_HELP_PARAM_TABLE, 450, 210)">
        <img id="Img1" src='/Res/Images/icons/help.png' />
     </span>
 
     <div style="clear:both;padding-left:22px;padding-top:5px" >
-      <asp:Label ID="lblCantChangeParamTable" runat="server"  Width="320px" Visible="false"
-                 Font-Size="8pt" Font-Bold="False" ForeColor="DarkBlue" meta:resourcekey="lblCantChangeParamTableResource1"
-                 Text="Note:  It is not possible to choose a different parameter table for this decision type after you have clicked on the Save &amp; Continue button." ></asp:Label>
     </div>
 </div>
   <!-- 
@@ -82,7 +79,7 @@
                          CausesValidation="false" TabIndex="230" />
           </td>
           <td align="right">
-            <MT:MTButton ID="btnSaveAndContinue" runat="server" Text="<%$Resources:Resource,TEXT_SAVE_AND_CONTINUE%>"
+            <MT:MTButton ID="btnSaveAndContinue" runat="server" Text="<%$Resources:Resource,TEXT_NEXT%>"
                          OnClientClick="if (ValidateForm()) { MPC_setNeedToConfirm(false); } else { MPC_setNeedToConfirm(true); return false; }"
                          OnClick="btnContinue_Click"
                          CausesValidation="true" TabIndex="240"/>

@@ -22,6 +22,7 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
 {
   protected void Page_Load(object sender, EventArgs e)
   {
+    this.lblTitle.Text = String.Format(this.lblTitle.Text, this.AmpDecisionName);
     // Extra check that user has permission to configure AMP decisions.
     if (!UI.CoarseCheckCapability("ManageAmpDecisions"))
     {

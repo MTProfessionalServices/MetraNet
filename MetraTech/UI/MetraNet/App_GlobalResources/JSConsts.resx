@@ -853,7 +853,7 @@
     <value>View</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_GENERAL_INFO" xml:space="preserve">
-    <value>Example: You want to give a special rate if the number of telephone minutes used during the month is &gt; 1000. You can determine the rate to use only after adding up all the usage records. If the minutes are &gt; 1000, then for each record the rate is changed and a new charge amount is calculated.</value>
+    <value>A &lt;i&gt;Decision&lt;/i&gt;  is used to analyze usage records (rated billing records) and possibly modify charges on the basis of this analysis.  Decisions are necessary when it is impossible to determine the amount by examining a single isolated record. &lt;br/&gt; For example, you may want to give a special rate if the number of telephone minutes used during the month is &gt; 1000.  You can only determine the rate to use after adding up all the usage records.  If the minutes are &gt; 1000, then for each record the rate is changed and a new charge amount is calculated. </value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
     <value>A Decision Type must be associated with a Parameter Table, which provides a way to customize key values of the Decision Type.  For example, you might want the 'number of free minutes' to be editable rather than a fixed value.  &lt;br/&gt;&lt;br/&gt;Before a Decision Type is configured, its associated Parameter Table must be created using the Integrated Configuration Environment (ICE).</value>

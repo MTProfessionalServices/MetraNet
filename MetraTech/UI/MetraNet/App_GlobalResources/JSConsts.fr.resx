@@ -1020,7 +1020,14 @@
   <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE_PRORATION" xml:space="preserve">
     <value>The proration factor to apply to the range is determined by comparing a Decision Type instance's intended start and end dates with its actual start and end dates.  If a Decision is intended to include 30 days of usage but in actuality only covers 15 days (e.g., the subscription starts or ends mid-period), the proration factor would be 15/30, or 0.5.  If the end of range is 500 prior to proration, it becomes 250 after applying the proration factor.&lt;br/&gt;&lt;br/&gt;Prorating on activation and termination independently allows the user control of whether each will serve to reduce the proration factor.  If a Decision starts 15 days into the cycle but proration on activation is NOT chosen, those 15 days will NOT serve to reduce the proration factor.</value>
   </data>
-  <data name="TITLE_AMPWIZARD_HELP_RESTART_RANGE" xml:space="preserve">
+	<data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE_PRORATION" xml:space="preserve">
+    <value>French</value>
+  </data>
+	<data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
+    <value>French</value>
+  </data>
+
+	<data name="TITLE_AMPWIZARD_HELP_RESTART_RANGE" xml:space="preserve">
     <value>Help: Restart Range</value>
   </data>
   <data name="TITLE_AMPWIZARD_ACTIVATION_RESULTS" xml:space="preserve">

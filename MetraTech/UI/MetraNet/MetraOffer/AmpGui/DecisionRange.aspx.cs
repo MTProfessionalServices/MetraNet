@@ -28,7 +28,7 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
       Response.End();
       return;
     }
-
+    this.lblTitleDecisionRange.Text = String.Format(this.lblTitleDecisionRange.Text, this.AmpDecisionName);
     // Set the current, next, and previous AMP pages right away.
     AmpCurrentPage = "DecisionRange.aspx";
     AmpNextPage = "DecisionCycle.aspx";
@@ -36,9 +36,9 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
 
     if (!IsPostBack)
     {
-      MonitorChangesInControl(RBL_DecisionRangeRestart);
-      MonitorChangesInControl(RBL_ProrateRangeStart);
-      MonitorChangesInControl(RBL_ProrateRangeEnd);
+      MonitorChangesInControl(CB_DecisionRangeRestart);
+      MonitorChangesInControl(CB_ProrateRangeStart);
+      MonitorChangesInControl(CB_ProrateRangeEnd);
       MonitorChangesInControlByClientId(startRange.ddSourceTypeClientId);
       MonitorChangesInControlByClientId(startRange.tbNumericSourceClientId);
       MonitorChangesInControlByClientId(startRange.tbTextSourceClientId);
@@ -125,32 +125,26 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
     {
       endRange.UseTextbox = true;
     }
-    if (CurrentDecisionInstance.TierRepetitionValue.Equals("None"))
-    {
-      RBL_DecisionRangeRestart.Items[1].Selected = true;
-    }
-    else
-    {
-      RBL_DecisionRangeRestart.Items[0].Selected = true;
-    }
+
+    CB_DecisionRangeRestart.Checked = !CurrentDecisionInstance.TierRepetitionValue.Equals("None");
 
     switch (CurrentDecisionInstance.TierProration)
     {
       case Decision.TierProrationEnum.PRORATE_BOTH:
-        RBL_ProrateRangeStart.Items[0].Selected = true;
-        RBL_ProrateRangeEnd.Items[0].Selected = true;
+        CB_ProrateRangeStart.Checked = true;
+        CB_ProrateRangeEnd.Checked = true;
         break;
       case Decision.TierProrationEnum.PRORATE_TIER_START:
-        RBL_ProrateRangeStart.Items[0].Selected = true;
-        RBL_ProrateRangeEnd.Items[1].Selected = true;
+        CB_ProrateRangeStart.Checked = true;
+        CB_ProrateRangeEnd.Checked = false;
         break;
       case Decision.TierProrationEnum.PRORATE_TIER_END:
-        RBL_ProrateRangeStart.Items[1].Selected = true;
-        RBL_ProrateRangeEnd.Items[0].Selected = true;
+        CB_ProrateRangeStart.Checked = false;
+        CB_ProrateRangeEnd.Checked = true;
         break;
       case Decision.TierProrationEnum.PRORATE_NONE:
-        RBL_ProrateRangeStart.Items[1].Selected = true;
-        RBL_ProrateRangeEnd.Items[1].Selected = true;
+        CB_ProrateRangeStart.Checked = false;
+        CB_ProrateRangeEnd.Checked = false;
         break;
     }
   }
@@ -160,9 +154,9 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
     startRange.ReadOnly = true; 
     endRange.ReadOnly = true;
 
-    SetRadioButtonViewAction(RBL_ProrateRangeEnd);
-    SetRadioButtonViewAction(RBL_ProrateRangeStart);
-    SetRadioButtonViewAction(RBL_DecisionRangeRestart);
+    SetCheckBoxViewAction(CB_ProrateRangeEnd);
+    SetCheckBoxViewAction(CB_ProrateRangeStart);
+    SetCheckBoxViewAction(CB_DecisionRangeRestart);
 
     btnSaveAndContinue.CausesValidation = false;
     btnSaveAndContinue.OnClientClick = "MPC_setNeedToConfirm(false);";
@@ -181,7 +175,7 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
   private void DecisionRangePageSettings()
   {
     btnSaveAndContinue.Text = AmpAction != "View"
-                                ? Resources.Resource.TEXT_SAVE_AND_CONTINUE
+                                ? Resources.Resource.TEXT_NEXT
                                 : Resources.Resource.TEXT_CONTINUE;
 
     switch (AmpAction)
@@ -268,26 +262,26 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
     }
 
     //setup restast decision property 
-    CurrentDecisionInstance.TierRepetitionValue = RBL_DecisionRangeRestart.SelectedValue.Equals("Yes") ? "Individual" : "None";
+    CurrentDecisionInstance.TierRepetitionValue = CB_DecisionRangeRestart.Checked ? "Individual" : "None";
 
 
     //setup proration properties
-    if (RBL_ProrateRangeStart.SelectedValue.Equals("Yes") && RBL_ProrateRangeEnd.SelectedValue.Equals("Yes"))
+    if (CB_ProrateRangeStart.Checked && CB_ProrateRangeEnd.Checked)
     {
        CurrentDecisionInstance.TierProration = Decision.TierProrationEnum.PRORATE_BOTH;
     }
 
-    if (RBL_ProrateRangeStart.SelectedValue.Equals("Yes") && RBL_ProrateRangeEnd.SelectedValue.Equals("No"))
+    if (CB_ProrateRangeStart.Checked && !CB_ProrateRangeEnd.Checked)
     {
       CurrentDecisionInstance.TierProration = Decision.TierProrationEnum.PRORATE_TIER_START;
     }
 
-    if (RBL_ProrateRangeStart.SelectedValue.Equals("No") && RBL_ProrateRangeEnd.SelectedValue.Equals("Yes"))
+    if (!CB_ProrateRangeStart.Checked && CB_ProrateRangeEnd.Checked)
     {
       CurrentDecisionInstance.TierProration = Decision.TierProrationEnum.PRORATE_TIER_END;
     }
 
-    if (RBL_ProrateRangeStart.SelectedValue.Equals("No") && RBL_ProrateRangeEnd.SelectedValue.Equals("No"))
+    if (!CB_ProrateRangeStart.Checked && !CB_ProrateRangeEnd.Checked)
     {
       CurrentDecisionInstance.TierProration = Decision.TierProrationEnum.PRORATE_NONE;
     }

@@ -1020,6 +1020,13 @@
   <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE_PRORATION" xml:space="preserve">
     <value>Japanese</value>
   </data>
+	<data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE_PRORATION" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+	<data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+
   <data name="TITLE_AMPWIZARD_HELP_RESTART_RANGE" xml:space="preserve">
     <value>Japanese</value>
   </data>

@@ -102,9 +102,9 @@
           <img id="Img5" src='/Res/Images/icons/help.png' />
         </span>
         </div>
-        <div style="padding-top:0px;">
+       <!-- <div style="padding-top:0px;">
           <img id="Img6" src='/Res/Images/icons/cog_error.png' runat="server" title="<%$ Resources:AmpWizard,TEXT_ADVANCED_FEATURE %>" />
-        </div>
+        </div>-->
       </td>
     </tr>
 	<tr> <!-- Row 5 -->

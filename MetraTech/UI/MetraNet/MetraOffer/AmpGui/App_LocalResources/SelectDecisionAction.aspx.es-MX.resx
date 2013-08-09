@@ -121,7 +121,7 @@
     <value>MetraNet</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>Decision Action for {0} (Mexican Spanish)</value>
   </data>
   <data name="lblIncrementalOrBulkResource1.Text" xml:space="preserve">
     <value>Mexican Spanish</value>

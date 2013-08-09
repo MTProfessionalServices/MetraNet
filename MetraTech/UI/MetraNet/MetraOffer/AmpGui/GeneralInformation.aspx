@@ -12,14 +12,9 @@
     <asp:Label ID="lblGenInfo" runat="server" Font-Bold="False" ForeColor="DarkBlue" 
       Font-Size="9pt" meta:resourcekey="lblGenInfoResource1" 
       Text="A Decision is used to analyze usage records (rated billing records) and possibly modify charges on the basis of this analysis.  Decisions are necessary when it is impossible to determine the amount by examining a single isolated record." ></asp:Label>
-    <br />
-    <div style="padding-top:5px;">    
-      <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_MORE_INFO, TEXT_AMPWIZARD_HELP_GENERAL_INFO, 450, 110)" id="moreLink" ><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:AmpWizard,TEXT_MORE %>" /></span>
-    </div>
-    <br /><br />
-    <asp:Label ID="lblEnterInfo" runat="server" Font-Bold="False" ForeColor="DarkBlue" 
-      Font-Size="9pt" meta:resourcekey="lblEnterInfoResource1" 
-      Text="Enter information about this Decision Type:" ></asp:Label>
+     <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_MORE_INFO, TEXT_AMPWIZARD_HELP_GENERAL_INFO, 450, 110)">
+       <img id="Img1" src='/Res/Images/icons/help.png' />
+    </span>
   </div>
 
   <br />

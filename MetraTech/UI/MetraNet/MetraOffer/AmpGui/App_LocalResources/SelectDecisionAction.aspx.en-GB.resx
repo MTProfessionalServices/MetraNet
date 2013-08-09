@@ -121,7 +121,7 @@
     <value>MetraNet</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Decision Action</value>
+    <value>Decision Action for {0} </value>
   </data>
   <data name="lblIncrementalOrBulkResource1.Text" xml:space="preserve">
     <value>How should the Decision Type process the records?</value>

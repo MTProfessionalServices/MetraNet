@@ -194,8 +194,7 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
   // Set control properties based on current mode(View/Edit).
   private void SetMode()
   {
-    btnSaveAndContinue.Text = ((AmpAction != "View") ? Resources.Resource.TEXT_SAVE_AND_CONTINUE
-                                                     : Resources.Resource.TEXT_CONTINUE);
+    btnSaveAndContinue.Text = Resources.Resource.TEXT_NEXT;
 
 
     if (AmpAction == "View")

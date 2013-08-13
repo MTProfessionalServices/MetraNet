@@ -102,10 +102,7 @@
           <img id="Img5" src='/Res/Images/icons/help.png' />
         </span>
         </div>
-       <!-- <div style="padding-top:0px;">
-          <img id="Img6" src='/Res/Images/icons/cog_error.png' runat="server" title="<%$ Resources:AmpWizard,TEXT_ADVANCED_FEATURE %>" />
-        </div>-->
-      </td>
+       </td>
     </tr>
 	<tr> <!-- Row 5 -->
       <td colspan="2" style="padding-top:15px;" valign="top">
@@ -136,7 +133,7 @@
                          CausesValidation="false" TabIndex="230" />
           </td>
           <td align="right">
-            <MT:MTButton ID="btnSaveAndContinue" runat="server" Text="<%$Resources:Resource,TEXT_SAVE_AND_CONTINUE%>"
+            <MT:MTButton ID="btnSaveAndContinue" runat="server" Text="<%$Resources:Resource,TEXT_NEXT%>"
                          OnClientClick="if (ValidateForm()) { MPC_setNeedToConfirm(false); } else { MPC_setNeedToConfirm(true); return false; }"
                          OnClick="btnContinue_Click"
                          CausesValidation="true" TabIndex="240"/>

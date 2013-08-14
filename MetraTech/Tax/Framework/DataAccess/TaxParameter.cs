@@ -15,10 +15,11 @@ namespace MetraTech.Tax.Framework.DataAccess
     {
         public TaxParameter(string parameterName, string description, Type parameterType, object parameterValue)
         {
-            if (String.IsNullOrEmpty(parameterName)) throw new TaxException("Parameter name cannot be null or empty.");
+            if (string.IsNullOrEmpty(parameterName))
+                throw new TaxException("Parameter name cannot be null or empty.");
+
             ParameterName = parameterName;
-            if (String.IsNullOrEmpty(description))
-                Description = "";
+            Description = string.IsNullOrEmpty(description) ? string.Empty : description;
             ParameterType = parameterType;
             ParameterValue = parameterValue;
         }

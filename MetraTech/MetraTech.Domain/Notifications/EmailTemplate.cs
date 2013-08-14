@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Mail;
 using System.Runtime.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Xsl;
 using MetraTech.Domain.Events;
+using MetraTech.Domain.Parsers;
 
 namespace MetraTech.Domain.Notifications
 {
@@ -14,21 +16,31 @@ namespace MetraTech.Domain.Notifications
   public class EmailTemplate : MessageTemplate
   {
     [DataMember]
-    public string DeliveryLanguage { get; set; } // TODO: this is an expression
+    public string DeliveryLanguage { get; set; }
 
     [DataMember]
-    public string ToRecipient { get; set; } // TODO: this is an expression
+    public string ToRecipient { get; set; }
 
     [DataMember]
-    public IEnumerable<string> CarbonCopyRecipients { get; set; } // TODO: this is an expression
+    public IEnumerable<string> CarbonCopyRecipients { get; set; }
 
     [DataMember]
     public EmailTemplateDictionary EmailTemplateDictionary { get; set; }
 
-    public MailMessage CreateMailMessage(Event triggeredEvent, MailAddress fromAddress, MailAddress replyToAddress)
+    public MailMessage CreateMailMessage<T>(T triggeredEvent, MailAddress fromAddress, MailAddress replyToAddress) where T : Event
     {
       LocalizedEmailTemplate localizedTemplate;
-      if (!EmailTemplateDictionary.TryGetValue(DeliveryLanguage, out localizedTemplate))
+
+      var deliveryLanguageExpression = ExpressionLanguageHelper.ParseExpression(DeliveryLanguage);
+      var deliveryLanguage = deliveryLanguageExpression.Evaluate<string, T>(triggeredEvent);
+
+      var toRecipientExpression = ExpressionLanguageHelper.ParseExpression(ToRecipient);
+      var toRecipient = toRecipientExpression.Evaluate<string, T>(triggeredEvent);
+
+      var carbonCopyRecipients = CarbonCopyRecipients.Select(ExpressionLanguageHelper.ParseExpression)
+          .Select(x => x.Evaluate<string, T>(triggeredEvent)).ToList();
+
+      if (!EmailTemplateDictionary.TryGetValue(deliveryLanguage, out localizedTemplate))
       {
         throw new ArgumentException("A localized template could not be found for this recipient");
       }
@@ -47,10 +59,10 @@ namespace MetraTech.Domain.Notifications
 
         if (replyToAddress != null) message.ReplyToList.Add(replyToAddress);
 
-        var toMailAddress = new MailAddress(ToRecipient);
+        var toMailAddress = new MailAddress(toRecipient);
         message.To.Add(toMailAddress);
         
-        foreach (var recipient in CarbonCopyRecipients)
+        foreach (var recipient in carbonCopyRecipients)
         {
           var carbonCopyMailAddress = new MailAddress(recipient);
           message.CC.Add(carbonCopyMailAddress);

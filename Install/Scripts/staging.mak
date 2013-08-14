@@ -329,6 +329,12 @@ BINARIES = \
   MetraTech.DomainModel.ProductCatalog.pdb \
   MetraTech.DomainModel.Validators.dll \
   MetraTech.DomainModel.Validators.pdb \
+  MetraTech.ExpressionEngine.dll \
+  MetraTech.ExpressionEngine.pdb \
+  MetraTech.ExpressionEngine.Metadata.dll \
+  MetraTech.ExpressionEngine.Metadata.pdb \
+  MetraTech.ExpressionEngine.Metadata.Hook.dll \
+  MetraTech.ExpressionEngine.Metadata.Hook.pdb \
   MetraTech.FileLandingService.exe.config \
   MetraTech.Events.dll \
   MetraTech.Events.pdb \
@@ -363,6 +369,8 @@ BINARIES = \
   MetraTech.Tax.Plugins.BillSoft.PCodeLookup.dll \
   MetraTech.Tax.Plugins.BillSoft.PCodeLookup.pdb \
   MetraTech.Tax.Plugins.TaxCalculateMetraTax.dll \
+  MetraTech.Tax.Plugins.TaxCalculateVertexQ.dll \
+  MetraTech.Tax.Plugins.TaxCalculateVertexQ.pdb \
   MetraTech.Test.dll \
   MetraTech.Test.Harness.dll \
   MetraTech.Test.Harness.pdb \
@@ -745,6 +753,7 @@ COM_DLLS = \
   WeightedRate.dll \
   XMLTranslator.dll \
   MetraTech.MTPCImportDynamicProperties.dll \
+  MetraTech.ExpressionEngine.Metadata.Hook.dll \
   
   # COM_DLLS -- PDBs
 
@@ -906,6 +915,7 @@ COM_DLLSPDB = \
   ViewAllRates.pdb \
   WeightedRate.pdb \
   MetraTech.MTPCImportDynamicProperties.pdb \
+  MetraTech.ExpressionEngine.Metadata.Hook.pdb \
   
   # COM_DLLS -- Interops
 
@@ -1569,7 +1579,7 @@ P_REPORTING_PE_DIR    = $(P_BASE_OPTEXT_DIR)\Reporting
 P_METRATAX_PE_DIR     = $(P_BASE_OPTEXT_DIR)\MetraTax
 P_TAXWARE_PE_DIR      = $(P_BASE_OPTEXT_DIR)\TaxWare
 P_BILLSOFT_PE_DIR     = $(P_BASE_OPTEXT_DIR)\BillSoft
-
+P_VERTEXQ_PE_DIR      = $(P_BASE_OPTEXT_DIR)\VertexQ
 
 RMP_Extensions:
   @echo $(DELIM)
@@ -1654,6 +1664,11 @@ RMP_Extensions:
   $(CD) $(S_EXT_DIR)\TaxWare
   $(CPDIR) . $(P_TAXWARE_PE_DIR) .svn
   @echo $(LABEL) > $(P_TAXWARE_PE_DIR)\$(PLACEHOLDER)
+  
+  @echo   VertexQ
+  $(CD) $(S_EXT_DIR)\VertexQ
+  $(CPDIR) . $(P_VERTEXQ_PE_DIR) .svn
+  @echo $(LABEL) > $(P_VERTEXQ_PE_DIR)\$(PLACEHOLDER)
 
   @echo   BillSoft
   $(CD) $(S_EXT_DIR)\BillSoft

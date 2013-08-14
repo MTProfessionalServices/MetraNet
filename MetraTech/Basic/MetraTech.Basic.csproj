@@ -127,6 +127,7 @@
     <Compile Include="NullEncodingStringWriter.cs" />
     <Compile Include="QualifiedName.cs" />
     <Compile Include="ReferenceAssembly.cs" />
+    <Compile Include="SerializationHelper.cs" />
     <Compile Include="SortElement.cs" />
     <Compile Include="StringUtil.cs" />
   </ItemGroup>

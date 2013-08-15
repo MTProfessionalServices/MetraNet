@@ -24,16 +24,23 @@ namespace MetraTech.Application.Test
           NotificationConfigurations = new List<NotificationConfiguration> {notificationConfiguration}.ToIDbSet()
         };
 
+      var account = new Account
+      {
+          EmailAddress = "mdesousa@metratech.com",
+          LanguageCode = "en-us"
+      };
+
       var triggeredEvent = new ThresholdCrossingEvent
       {
-        UsageQuantityForPriorTier = new Quantity(1000m, "MIN"),
-        PriceForPriorTier = new Money(0.25m, "USD"),
-        UsageQuantityForNextTier = new Quantity(2000m, "MIN"),
-        PriceForNextTier = new Money(0.20m, "USD"),
-        CurrentUsageQuantity = new Quantity(1025m, "MIN"),
-        ThresholdPeriodStart = new DateTime(2013, 1, 1),
-        ThresholdPeriodEnd = new DateTime(2014, 1, 1),
-        SubscriptionId = Guid.Empty
+          UsageQuantityForPriorTier = new Quantity(1000m, "MIN"),
+          PriceForPriorTier = new Money(0.25m, "USD"),
+          UsageQuantityForNextTier = new Quantity(2000m, "MIN"),
+          PriceForNextTier = new Money(0.20m, "USD"),
+          CurrentUsageQuantity = new Quantity(1025m, "MIN"),
+          ThresholdPeriodStart = new DateTime(2013, 1, 1),
+          ThresholdPeriodEnd = new DateTime(2014, 1, 1),
+          SubscriptionId = Guid.Empty,
+          Account = account
       };
 
       NotificationProcessor.ProcessEvent(fakeContext, triggeredEvent);
@@ -49,12 +56,11 @@ namespace MetraTech.Application.Test
 
       var emailTemplate = new EmailTemplate
       {
-        ToRecipient = "mdesousa@metratech.com",
-        CarbonCopyRecipients = new List<string>(),
-        DeliveryLanguage = "en-us",
-        EmailTemplateDictionary = new EmailTemplateDictionary { { "en-us", localizedEmailTemplate } }
+          ToRecipient = "event.Account.EmailAddress",
+          CarbonCopyRecipients = new List<string>(),
+          DeliveryLanguage = "event.Account.LanguageCode",
+          EmailTemplateDictionary = new EmailTemplateDictionary { { "en-us", localizedEmailTemplate } }
       };
-
 
       var notificationConfiguration = new NotificationConfiguration();
       notificationConfiguration.EntityId = Guid.NewGuid();

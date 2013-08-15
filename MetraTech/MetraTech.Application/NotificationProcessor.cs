@@ -16,7 +16,7 @@ namespace MetraTech.Application
       /// </summary>
       /// <param name="context">A database context used to query notification configurations</param>
       /// <param name="eventInstance">The event to be evaluated and used for rendering</param>
-      public static void ProcessEvent(IMetraNetContext context, Event eventInstance)
+      public static void ProcessEvent<T>(IMetraNetContext context, T eventInstance) where T : Event
       {
         if (context == null) throw new ArgumentNullException("context");
         if (eventInstance == null) throw new ArgumentNullException("eventInstance");
@@ -30,7 +30,7 @@ namespace MetraTech.Application
       /// </summary>
       /// <param name="eventInstance">The event to be used to render the notifications</param>
       /// <param name="notifications">The notifications to be delivered</param>
-      public static void DeliverNotificationsForEvent(Event eventInstance, IEnumerable<NotificationConfiguration> notifications)
+      public static void DeliverNotificationsForEvent<T>(T eventInstance, IEnumerable<NotificationConfiguration> notifications) where T : Event
       {
         if (eventInstance == null) throw new ArgumentNullException("eventInstance");
         if (notifications == null) throw new ArgumentNullException("notifications");

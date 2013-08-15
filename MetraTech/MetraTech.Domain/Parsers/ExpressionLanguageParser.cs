@@ -116,11 +116,10 @@ public partial class ExpressionLanguageParser : Parser {
 		public ExpressionContext[] expression() {
 			return GetRuleContexts<ExpressionContext>();
 		}
-		public ITerminalNode PLUS() { return GetToken(ExpressionLanguageParser.PLUS, 0); }
 		public ExpressionContext expression(int i) {
 			return GetRuleContext<ExpressionContext>(i);
 		}
-		public ITerminalNode MINUS() { return GetToken(ExpressionLanguageParser.MINUS, 0); }
+		public ITerminalNode OR() { return GetToken(ExpressionLanguageParser.OR, 0); }
 		public BinaryExpressionContext(ExpressionContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
 			IExpressionLanguageListener typedListener = listener as IExpressionLanguageListener;
@@ -248,7 +247,7 @@ public partial class ExpressionLanguageParser : Parser {
 		public ExpressionContext expression() {
 			return GetRuleContext<ExpressionContext>(0);
 		}
-		public ITerminalNode MINUS() { return GetToken(ExpressionLanguageParser.MINUS, 0); }
+		public ITerminalNode NOT() { return GetToken(ExpressionLanguageParser.NOT, 0); }
 		public UnaryExpressionContext(ExpressionContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
 			IExpressionLanguageListener typedListener = listener as IExpressionLanguageListener;
@@ -303,8 +302,8 @@ public partial class ExpressionLanguageParser : Parser {
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
-				State = 9; Match(NOT);
-				State = 10; expression(16);
+				State = 9; Match(MINUS);
+				State = 10; expression(14);
 				}
 				break;
 
@@ -313,8 +312,8 @@ public partial class ExpressionLanguageParser : Parser {
 				_localctx = new UnaryExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				State = 11; Match(MINUS);
-				State = 12; expression(11);
+				State = 11; Match(NOT);
+				State = 12; expression(10);
 				}
 				break;
 
@@ -408,9 +407,14 @@ public partial class ExpressionLanguageParser : Parser {
 						_localctx = new BinaryExpressionContext(new ExpressionContext(_parentctx, _parentState));
 						PushNewRecursionContext(_localctx, _startState, RULE_expression);
 						State = 26;
-						if (!(Precpred(_ctx, 15))) throw new FailedPredicateException(this, "Precpred(_ctx, 15)");
-						State = 27; Match(AND);
-						State = 28; expression(16);
+						if (!(Precpred(_ctx, 16))) throw new FailedPredicateException(this, "Precpred(_ctx, 16)");
+						State = 27;
+						_la = _input.La(1);
+						if ( !(_la==EQUALS || _la==NOTEQUALS) ) {
+						_errHandler.RecoverInline(this);
+						}
+						Consume();
+						State = 28; expression(17);
 						}
 						break;
 
@@ -419,9 +423,14 @@ public partial class ExpressionLanguageParser : Parser {
 						_localctx = new BinaryExpressionContext(new ExpressionContext(_parentctx, _parentState));
 						PushNewRecursionContext(_localctx, _startState, RULE_expression);
 						State = 29;
-						if (!(Precpred(_ctx, 14))) throw new FailedPredicateException(this, "Precpred(_ctx, 14)");
-						State = 30; Match(OR);
-						State = 31; expression(15);
+						if (!(Precpred(_ctx, 15))) throw new FailedPredicateException(this, "Precpred(_ctx, 15)");
+						State = 30;
+						_la = _input.La(1);
+						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << LT) | (1L << LTEQ) | (1L << GT) | (1L << GTEQ))) != 0)) ) {
+						_errHandler.RecoverInline(this);
+						}
+						Consume();
+						State = 31; expression(16);
 						}
 						break;
 
@@ -431,12 +440,7 @@ public partial class ExpressionLanguageParser : Parser {
 						PushNewRecursionContext(_localctx, _startState, RULE_expression);
 						State = 32;
 						if (!(Precpred(_ctx, 13))) throw new FailedPredicateException(this, "Precpred(_ctx, 13)");
-						State = 33;
-						_la = _input.La(1);
-						if ( !(_la==EQUALS || _la==NOTEQUALS) ) {
-						_errHandler.RecoverInline(this);
-						}
-						Consume();
+						State = 33; Match(POW);
 						State = 34; expression(14);
 						}
 						break;
@@ -449,7 +453,7 @@ public partial class ExpressionLanguageParser : Parser {
 						if (!(Precpred(_ctx, 12))) throw new FailedPredicateException(this, "Precpred(_ctx, 12)");
 						State = 36;
 						_la = _input.La(1);
-						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << LT) | (1L << LTEQ) | (1L << GT) | (1L << GTEQ))) != 0)) ) {
+						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MULT) | (1L << DIV) | (1L << MOD))) != 0)) ) {
 						_errHandler.RecoverInline(this);
 						}
 						Consume();
@@ -462,9 +466,14 @@ public partial class ExpressionLanguageParser : Parser {
 						_localctx = new BinaryExpressionContext(new ExpressionContext(_parentctx, _parentState));
 						PushNewRecursionContext(_localctx, _startState, RULE_expression);
 						State = 38;
-						if (!(Precpred(_ctx, 10))) throw new FailedPredicateException(this, "Precpred(_ctx, 10)");
-						State = 39; Match(POW);
-						State = 40; expression(11);
+						if (!(Precpred(_ctx, 11))) throw new FailedPredicateException(this, "Precpred(_ctx, 11)");
+						State = 39;
+						_la = _input.La(1);
+						if ( !(_la==PLUS || _la==MINUS) ) {
+						_errHandler.RecoverInline(this);
+						}
+						Consume();
+						State = 40; expression(12);
 						}
 						break;
 
@@ -474,12 +483,7 @@ public partial class ExpressionLanguageParser : Parser {
 						PushNewRecursionContext(_localctx, _startState, RULE_expression);
 						State = 41;
 						if (!(Precpred(_ctx, 9))) throw new FailedPredicateException(this, "Precpred(_ctx, 9)");
-						State = 42;
-						_la = _input.La(1);
-						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MULT) | (1L << DIV) | (1L << MOD))) != 0)) ) {
-						_errHandler.RecoverInline(this);
-						}
-						Consume();
+						State = 42; Match(AND);
 						State = 43; expression(10);
 						}
 						break;
@@ -490,12 +494,7 @@ public partial class ExpressionLanguageParser : Parser {
 						PushNewRecursionContext(_localctx, _startState, RULE_expression);
 						State = 44;
 						if (!(Precpred(_ctx, 8))) throw new FailedPredicateException(this, "Precpred(_ctx, 8)");
-						State = 45;
-						_la = _input.La(1);
-						if ( !(_la==PLUS || _la==MINUS) ) {
-						_errHandler.RecoverInline(this);
-						}
-						Consume();
+						State = 45; Match(OR);
 						State = 46; expression(9);
 						}
 						break;
@@ -612,15 +611,15 @@ public partial class ExpressionLanguageParser : Parser {
 	}
 	private bool expression_sempred(ExpressionContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 0: return Precpred(_ctx, 15);
+		case 0: return Precpred(_ctx, 16);
 
-		case 1: return Precpred(_ctx, 14);
+		case 1: return Precpred(_ctx, 15);
 
 		case 2: return Precpred(_ctx, 13);
 
 		case 3: return Precpred(_ctx, 12);
 
-		case 4: return Precpred(_ctx, 10);
+		case 4: return Precpred(_ctx, 11);
 
 		case 5: return Precpred(_ctx, 9);
 
@@ -640,28 +639,28 @@ public partial class ExpressionLanguageParser : Parser {
 		"\x4\x3\x4\x3\x4\x3\x4\x3\x4\a\x4?\n\x4\f\x4\xE\x4\x42\v\x4\x5\x4\x44\n"+
 		"\x4\x3\x4\x3\x4\x3\x4\x2\x2\x3\x4\x5\x2\x2\x4\x2\x6\x2\x2\x6\x3\b\t\x3"+
 		"\n\r\x3\x10\x12\x3\xE\xFW\x2\b\x3\x2\x2\x2\x4\x1A\x3\x2\x2\x2\x6\x39\x3"+
-		"\x2\x2\x2\b\t\x5\x4\x3\x2\t\x3\x3\x2\x2\x2\n\v\b\x3\x1\x2\v\f\a\x14\x2"+
-		"\x2\f\x1B\x5\x4\x3\x12\r\xE\a\xF\x2\x2\xE\x1B\x5\x4\x3\r\xF\x10\a\x5\x2"+
-		"\x2\x10\x11\x5\x4\x3\x2\x11\x12\a\x3\x2\x2\x12\x1B\x3\x2\x2\x2\x13\x1B"+
-		"\a\x16\x2\x2\x14\x1B\a\x17\x2\x2\x15\x1B\a\x18\x2\x2\x16\x1B\a\x19\x2"+
-		"\x2\x17\x1B\a\x1A\x2\x2\x18\x1B\a\x1B\x2\x2\x19\x1B\x5\x6\x4\x2\x1A\n"+
-		"\x3\x2\x2\x2\x1A\r\x3\x2\x2\x2\x1A\xF\x3\x2\x2\x2\x1A\x13\x3\x2\x2\x2"+
+		"\x2\x2\x2\b\t\x5\x4\x3\x2\t\x3\x3\x2\x2\x2\n\v\b\x3\x1\x2\v\f\a\xF\x2"+
+		"\x2\f\x1B\x5\x4\x3\x10\r\xE\a\x14\x2\x2\xE\x1B\x5\x4\x3\f\xF\x10\a\x5"+
+		"\x2\x2\x10\x11\x5\x4\x3\x2\x11\x12\a\x3\x2\x2\x12\x1B\x3\x2\x2\x2\x13"+
+		"\x1B\a\x16\x2\x2\x14\x1B\a\x17\x2\x2\x15\x1B\a\x18\x2\x2\x16\x1B\a\x19"+
+		"\x2\x2\x17\x1B\a\x1A\x2\x2\x18\x1B\a\x1B\x2\x2\x19\x1B\x5\x6\x4\x2\x1A"+
+		"\n\x3\x2\x2\x2\x1A\r\x3\x2\x2\x2\x1A\xF\x3\x2\x2\x2\x1A\x13\x3\x2\x2\x2"+
 		"\x1A\x14\x3\x2\x2\x2\x1A\x15\x3\x2\x2\x2\x1A\x16\x3\x2\x2\x2\x1A\x17\x3"+
 		"\x2\x2\x2\x1A\x18\x3\x2\x2\x2\x1A\x19\x3\x2\x2\x2\x1B\x36\x3\x2\x2\x2"+
-		"\x1C\x1D\f\x11\x2\x2\x1D\x1E\a\a\x2\x2\x1E\x35\x5\x4\x3\x12\x1F \f\x10"+
-		"\x2\x2 !\a\x6\x2\x2!\x35\x5\x4\x3\x11\"#\f\xF\x2\x2#$\t\x2\x2\x2$\x35"+
-		"\x5\x4\x3\x10%&\f\xE\x2\x2&\'\t\x3\x2\x2\'\x35\x5\x4\x3\xF()\f\f\x2\x2"+
-		")*\a\x13\x2\x2*\x35\x5\x4\x3\r+,\f\v\x2\x2,-\t\x4\x2\x2-\x35\x5\x4\x3"+
-		"\f./\f\n\x2\x2/\x30\t\x5\x2\x2\x30\x35\x5\x4\x3\v\x31\x32\f\x13\x2\x2"+
-		"\x32\x33\a\x15\x2\x2\x33\x35\a\x1B\x2\x2\x34\x1C\x3\x2\x2\x2\x34\x1F\x3"+
-		"\x2\x2\x2\x34\"\x3\x2\x2\x2\x34%\x3\x2\x2\x2\x34(\x3\x2\x2\x2\x34+\x3"+
-		"\x2\x2\x2\x34.\x3\x2\x2\x2\x34\x31\x3\x2\x2\x2\x35\x38\x3\x2\x2\x2\x36"+
-		"\x34\x3\x2\x2\x2\x36\x37\x3\x2\x2\x2\x37\x5\x3\x2\x2\x2\x38\x36\x3\x2"+
-		"\x2\x2\x39:\a\x1B\x2\x2:\x43\a\x5\x2\x2;@\x5\x4\x3\x2<=\a\x4\x2\x2=?\x5"+
-		"\x4\x3\x2><\x3\x2\x2\x2?\x42\x3\x2\x2\x2@>\x3\x2\x2\x2@\x41\x3\x2\x2\x2"+
-		"\x41\x44\x3\x2\x2\x2\x42@\x3\x2\x2\x2\x43;\x3\x2\x2\x2\x43\x44\x3\x2\x2"+
-		"\x2\x44\x45\x3\x2\x2\x2\x45\x46\a\x3\x2\x2\x46\a\x3\x2\x2\x2\a\x1A\x34"+
-		"\x36@\x43";
+		"\x1C\x1D\f\x12\x2\x2\x1D\x1E\t\x2\x2\x2\x1E\x35\x5\x4\x3\x13\x1F \f\x11"+
+		"\x2\x2 !\t\x3\x2\x2!\x35\x5\x4\x3\x12\"#\f\xF\x2\x2#$\a\x13\x2\x2$\x35"+
+		"\x5\x4\x3\x10%&\f\xE\x2\x2&\'\t\x4\x2\x2\'\x35\x5\x4\x3\xF()\f\r\x2\x2"+
+		")*\t\x5\x2\x2*\x35\x5\x4\x3\xE+,\f\v\x2\x2,-\a\a\x2\x2-\x35\x5\x4\x3\f"+
+		"./\f\n\x2\x2/\x30\a\x6\x2\x2\x30\x35\x5\x4\x3\v\x31\x32\f\x13\x2\x2\x32"+
+		"\x33\a\x15\x2\x2\x33\x35\a\x1B\x2\x2\x34\x1C\x3\x2\x2\x2\x34\x1F\x3\x2"+
+		"\x2\x2\x34\"\x3\x2\x2\x2\x34%\x3\x2\x2\x2\x34(\x3\x2\x2\x2\x34+\x3\x2"+
+		"\x2\x2\x34.\x3\x2\x2\x2\x34\x31\x3\x2\x2\x2\x35\x38\x3\x2\x2\x2\x36\x34"+
+		"\x3\x2\x2\x2\x36\x37\x3\x2\x2\x2\x37\x5\x3\x2\x2\x2\x38\x36\x3\x2\x2\x2"+
+		"\x39:\a\x1B\x2\x2:\x43\a\x5\x2\x2;@\x5\x4\x3\x2<=\a\x4\x2\x2=?\x5\x4\x3"+
+		"\x2><\x3\x2\x2\x2?\x42\x3\x2\x2\x2@>\x3\x2\x2\x2@\x41\x3\x2\x2\x2\x41"+
+		"\x44\x3\x2\x2\x2\x42@\x3\x2\x2\x2\x43;\x3\x2\x2\x2\x43\x44\x3\x2\x2\x2"+
+		"\x44\x45\x3\x2\x2\x2\x45\x46\a\x3\x2\x2\x46\a\x3\x2\x2\x2\a\x1A\x34\x36"+
+		"@\x43";
 	public static readonly ATN _ATN =
 		ATNSimulator.Deserialize(_serializedATN.ToCharArray());
 }

@@ -1,0 +1,18 @@
+﻿
+@section Style
+{
+  <style type="text/css">
+    .testDiv {
+      border: 2px solid gray;
+      margin: 3px;
+      padding: 3px;
+    }
+  </style>
+}
+
+<div class="testDiv">
+  <h3>Test page with Entity Browser prototype</h3>
+  <div class="testDiv">
+    @Html.Partial("EntitiesTree", ViewBag.EntitiesTree as EntitiesTree)
+  </div>
+</div>

@@ -32,13 +32,13 @@ namespace MetraTech.Domain.Notifications
       LocalizedEmailTemplate localizedTemplate;
 
       var deliveryLanguageExpression = ExpressionLanguageHelper.ParseExpression(DeliveryLanguage);
-      var deliveryLanguage = deliveryLanguageExpression.Evaluate<string, T>(triggeredEvent);
+      var deliveryLanguage = deliveryLanguageExpression.Evaluate<string, T>("event", triggeredEvent);
 
       var toRecipientExpression = ExpressionLanguageHelper.ParseExpression(ToRecipient);
-      var toRecipient = toRecipientExpression.Evaluate<string, T>(triggeredEvent);
+      var toRecipient = toRecipientExpression.Evaluate<string, T>("event", triggeredEvent);
 
       var carbonCopyRecipients = CarbonCopyRecipients.Select(ExpressionLanguageHelper.ParseExpression)
-          .Select(x => x.Evaluate<string, T>(triggeredEvent)).ToList();
+          .Select(x => x.Evaluate<string, T>("event", triggeredEvent)).ToList();
 
       if (!EmailTemplateDictionary.TryGetValue(deliveryLanguage, out localizedTemplate))
       {

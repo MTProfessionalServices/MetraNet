@@ -141,7 +141,7 @@ namespace MetraTech.Domain.Test.Parsers
         [TestMethod]
         public void MultipleArgumentTest()
         {
-            var binaryExpression = ExpressionLanguageHelper.ParseExpression("payment.Currency = \"USD\" and account.Email = \"mdesousa@metratech.com\"");
+            var binaryExpression = ExpressionLanguageHelper.ParseExpression("payment.Currency = \"USD\" and account.EmailAddress = \"mdesousa@metratech.com\"");
             var payment = new FakePayment { Amount = 5, Currency = "USD" };
             var account = new FakeAccount { EmailAddress = "mdesousa@metratech.com" };
             var result = binaryExpression.Evaluate<bool, FakePayment, FakeAccount>("payment", payment, "account", account);

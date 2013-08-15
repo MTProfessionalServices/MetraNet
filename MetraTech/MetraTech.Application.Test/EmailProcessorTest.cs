@@ -25,10 +25,16 @@ namespace MetraTech.Application.Test
 
       var emailTemplate = new EmailTemplate
       {
-        ToRecipient = "mdesousa@metratech.com",
-        CarbonCopyRecipients = new List<string>(),
-        DeliveryLanguage = "en-us",
-        EmailTemplateDictionary = new EmailTemplateDictionary { { "en-us", localizedEmailTemplate } }
+          ToRecipient = "event.Account.EmailAddress",
+          CarbonCopyRecipients = new List<string>(),
+          DeliveryLanguage = "event.Account.LanguageCode",
+          EmailTemplateDictionary = new EmailTemplateDictionary { { "en-us", localizedEmailTemplate } }
+      };
+
+      var account = new Account
+      {
+          EmailAddress = "mdesousa@metratech.com",
+          LanguageCode = "en-us"
       };
 
       var triggeredEvent = new ThresholdCrossingEvent
@@ -40,7 +46,8 @@ namespace MetraTech.Application.Test
         CurrentUsageQuantity = new Quantity(1025m, "MIN"),
         ThresholdPeriodStart = new DateTime(2013, 1, 1),
         ThresholdPeriodEnd = new DateTime(2014, 1, 1),
-        SubscriptionId = Guid.Empty
+        SubscriptionId = Guid.Empty,
+        Account = account
       };
 
       var fromAddress = new MailAddress("mdesousa@metratech.com");

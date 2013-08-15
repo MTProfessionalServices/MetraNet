@@ -7,15 +7,15 @@ parse
 expression
  : '(' expression ')'                       # ParenthesisExpression
  | expression DOT IDENTIFIER				# PropertyExpression
- | NOT expression                           # UnaryExpression
- | expression AND expression                # BinaryExpression
- | expression OR expression                 # BinaryExpression
  | expression (EQUALS|NOTEQUALS) expression # BinaryExpression
  | expression (LT|LTEQ|GT|GTEQ) expression  # BinaryExpression
  | MINUS expression                         # UnaryExpression
  | expression POW expression                # BinaryExpression
  | expression (MULT|DIV|MOD) expression     # BinaryExpression
  | expression (PLUS|MINUS) expression       # BinaryExpression
+ | NOT expression                           # UnaryExpression
+ | expression AND expression                # BinaryExpression
+ | expression OR expression                 # BinaryExpression
  | STRING                                   # StringExpression
  | INTEGER                                  # NumberExpression
  | DECIMAL                                  # NumberExpression

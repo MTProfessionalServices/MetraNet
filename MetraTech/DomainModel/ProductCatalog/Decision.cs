@@ -570,31 +570,6 @@ namespace MetraTech.DomainModel.ProductCatalog
     }
     #endregion
 
-    #region PvToAmountChainMapping
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isPvToAmountChainMappingDirty = false;
-    private string m_PvToAmountChainMapping;
-    /// <summary>
-    /// The PvToAmountChainMapping associates an amount chain with a product view.
-    /// </summary>
-    [MTDataMember(Description = "The PvToAmountChainMapping associates an amount chain with a product view.", Length = 40)]
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public string PvToAmountChainMapping
-    {
-        get { return m_PvToAmountChainMapping; }
-        set
-        {
-            m_PvToAmountChainMapping = value;
-            isPvToAmountChainMappingDirty = true;
-        }
-    }
-    [ScriptIgnore]
-    public bool IsPvToAmountChainMappingDirty
-    {
-        get { return isPvToAmountChainMappingDirty; }
-    }
-    #endregion
-
     #region UsageQualificationGroup
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
     private bool isUsageQualificationGroupDirty = false;
@@ -1547,5 +1522,48 @@ namespace MetraTech.DomainModel.ProductCatalog
     }
     #endregion
 
+      #region PvToAmountChainMappingValue
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isPvToAmountChainMappingValueDirty = false;
+    private int? m_PvToAmountChainMappingValue;
+    [MTDataMember(Description = "Value of the amount.  This is null is we will use a parameter table", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public int? PvToAmountChainMappingValue
+    {
+      get { return m_PvToAmountChainMappingValue; }
+      set
+      {
+          m_PvToAmountChainMappingValue = value;
+          isPvToAmountChainMappingValueDirty = true;
+      }
+    }
+	[ScriptIgnore]
+    public bool IsPvToAmountChainMappingValueDirty
+    {
+      get { return isPvToAmountChainMappingValueDirty; }
+    }
+    #endregion
+
+      #region PvToAmountChainMappingColumnName
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isPvToAmountChainMappingColumnNameDirty = false;
+    private string m_PvToAmountChainMappingColumnName;
+    [MTDataMember(Description = "parameter table to use for this amount ", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public string PvToAmountChainMappingColumnName
+    {
+      get { return m_PvToAmountChainMappingColumnName; }
+      set
+      {
+          m_PvToAmountChainMappingColumnName = value;
+          isPvToAmountChainMappingColumnNameDirty = true;
+      }
+    }
+	[ScriptIgnore]
+    public bool IsPvToAmountChainMappingColumnNameDirty
+    {
+      get { return isPvToAmountChainMappingColumnNameDirty; }
+    }
+    #endregion
   }
 }

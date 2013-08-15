@@ -1,35 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Configuration;
-using System.Collections;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using MetraTech.Core.Services.ClientProxies;
 using MetraTech.DomainModel.ProductCatalog;
-using MetraTech.UI.Common;
-using MetraTech.UI.Controls;
-using MetraTech.UsageServer;
 using MetraTech.UI.MetraNet.App_Code;
-using MetraTech.ActivityServices.Common;
 
 
 public partial class AmpDecisionCyclePage : AmpWizardBasePage
 {
     protected bool ShowDivDecisionCycle = true;
-
+    protected bool ShowDivParamTable = false;
     protected void Page_Load(object sender, EventArgs e)
     {
+
         // Extra check that user has permission to configure AMP decisions.
         if (!UI.CoarseCheckCapability("ManageAmpDecisions"))
         {
             Response.End();
             return;
         }
+        setTimeCycleUnitDropDown();
+
+        
         if (!IsPostBack)
         {
             // Set the current, next, and previous AMP pages right away.
@@ -39,13 +30,7 @@ public partial class AmpDecisionCyclePage : AmpWizardBasePage
 
             if (AmpAction != "View")
             {
-                MonitorChangesInControl(RadioButtonDecisionCycleBillingInterval);
-                MonitorChangesInControl(RadioButtonDays);
-                MonitorChangesInControl(RadioButtonWeeks);
-                MonitorChangesInControl(RadioButtonMonths);
-                MonitorChangesInControl(RadioButtonQuarters);
-                MonitorChangesInControl(RadioButtonYears);
-                MonitorChangesInControl(RadioButtonUnitOfTimeFromParamTable);
+                MonitorChangesInControl(ddTimeCycleUnit);
                 MonitorChangesInControl(RBL_DecisionEffect);
                 MonitorChangesInControlByClientId(numberOfMonth.ddSourceTypeClientId);
                 MonitorChangesInControlByClientId(numberOfMonth.tbNumericSourceClientId);
@@ -62,11 +47,13 @@ public partial class AmpDecisionCyclePage : AmpWizardBasePage
                 MonitorChangesInControlByClientId(ddUnitOfTimeFromParamTableSource.ClientID);
             }
 
-            SetRadioButtonsUnitOfTimeEvent();
 
             CurrentDecisionInstance = GetDecisionWithClient();
+            lblTitleDecisionCycle.Text = String.Format(lblTitleDecisionCycle.Text, CurrentDecisionInstance.Name);
+            SetDDUnitOfTimeEvent();
 
             DecisionCyclePageSettings();
+
         }
     }
 
@@ -84,6 +71,19 @@ public partial class AmpDecisionCyclePage : AmpWizardBasePage
             }
         }
         Response.Redirect(AmpNextPage, false);
+    }
+
+    private void setTimeCycleUnitDropDown()
+    {
+
+        List<string> items = new List<string>(GetLocalResourceObject("LIST_DD_TIME_CYCLE_UNIT").ToString().Split(','));
+        int i = 0;
+        foreach (var item in items)
+        {
+            ddTimeCycleUnit.Items.Add(new ListItem { Text = item, Value = i.ToString() });
+            i++;
+        }
+        ddTimeCycleUnit.Listeners = @"{ 'select' : DecisionCycleUnitOfTimeChanged , 'load' : DecisionCycleUnitOfTimeInitialState, scope: this }";
     }
 
     private void setParamTableDropDown(List<KeyValuePair<String, String>> paramTableColumns)
@@ -120,90 +120,14 @@ public partial class AmpDecisionCyclePage : AmpWizardBasePage
         }
         else
         {
-            btnSaveAndContinue.Text = Resources.Resource.TEXT_SAVE_AND_CONTINUE;
+            btnSaveAndContinue.Text = Resources.Resource.TEXT_NEXT;
         }
     }
 
     private void ViewActionSettings()
     {
-        if (RadioButtonDecisionCycleBillingInterval.Checked)
-        {
-            RadioButtonDecisionCycleBillingInterval.Enabled = true;
-            RadioButtonDays.Enabled = false;
-            RadioButtonWeeks.Enabled = false;
-            RadioButtonMonths.Enabled = false;
-            RadioButtonQuarters.Enabled = false;
-            RadioButtonYears.Enabled = false;
-            RadioButtonUnitOfTimeFromParamTable.Enabled = false;
-            divUnitOfTimeFromParamTableDropdownSource.Attributes.Add("style", "display:none");
-        }
-        else if (RadioButtonDays.Checked)
-        {
-            RadioButtonDecisionCycleBillingInterval.Enabled = false;
-            RadioButtonDays.Enabled = true;
-            RadioButtonWeeks.Enabled = false;
-            RadioButtonMonths.Enabled = false;
-            RadioButtonQuarters.Enabled = false;
-            RadioButtonYears.Enabled = false;
-            RadioButtonUnitOfTimeFromParamTable.Enabled = false;
-            divUnitOfTimeFromParamTableDropdownSource.Attributes.Add("style", "display:none");
-        }
-        else if (RadioButtonWeeks.Checked)
-        {
-            RadioButtonDecisionCycleBillingInterval.Enabled = false;
-            RadioButtonDays.Enabled = false;
-            RadioButtonWeeks.Enabled = true;
-            RadioButtonMonths.Enabled = false;
-            RadioButtonQuarters.Enabled = false;
-            RadioButtonYears.Enabled = false;
-            RadioButtonUnitOfTimeFromParamTable.Enabled = false;
-            divUnitOfTimeFromParamTableDropdownSource.Attributes.Add("style", "display:none");
-        }
-        else if (RadioButtonMonths.Checked)
-        {
-            RadioButtonDecisionCycleBillingInterval.Enabled = false;
-            RadioButtonDays.Enabled = false;
-            RadioButtonWeeks.Enabled = false;
-            RadioButtonMonths.Enabled = true;
-            RadioButtonQuarters.Enabled = false;
-            RadioButtonYears.Enabled = false;
-            RadioButtonUnitOfTimeFromParamTable.Enabled = false;
-            divUnitOfTimeFromParamTableDropdownSource.Attributes.Add("style", "display:none");
-        }
-        else if (RadioButtonQuarters.Checked)
-        {
-            RadioButtonDecisionCycleBillingInterval.Enabled = false;
-            RadioButtonDays.Enabled = false;
-            RadioButtonWeeks.Enabled = false;
-            RadioButtonMonths.Enabled = false;
-            RadioButtonQuarters.Enabled = true;
-            RadioButtonYears.Enabled = false;
-            RadioButtonUnitOfTimeFromParamTable.Enabled = false;
-            divUnitOfTimeFromParamTableDropdownSource.Attributes.Add("style", "display:none");
-        }
-        else if (RadioButtonYears.Checked)
-        {
-            RadioButtonDecisionCycleBillingInterval.Enabled = false;
-            RadioButtonDays.Enabled = false;
-            RadioButtonWeeks.Enabled = false;
-            RadioButtonMonths.Enabled = false;
-            RadioButtonQuarters.Enabled = false;
-            RadioButtonYears.Enabled = true;
-            RadioButtonUnitOfTimeFromParamTable.Enabled = false;
-            divUnitOfTimeFromParamTableDropdownSource.Attributes.Add("style", "display:none");
-        }
-        else if (RadioButtonUnitOfTimeFromParamTable.Checked)
-        {
-            RadioButtonDecisionCycleBillingInterval.Enabled = false;
-            RadioButtonDays.Enabled = false;
-            RadioButtonWeeks.Enabled = false;
-            RadioButtonMonths.Enabled = false;
-            RadioButtonQuarters.Enabled = false;
-            RadioButtonYears.Enabled = false;
-            RadioButtonUnitOfTimeFromParamTable.Enabled = true;
-        }
         ddUnitOfTimeFromParamTableSource.Enabled = false;
-
+        ddTimeCycleUnit.Enabled = false;
         SetRadioButtonViewAction(RBL_DecisionEffect);
         numberOfMonth.ReadOnly = true;
         numberMonthBillingInterval.ReadOnly = true;
@@ -353,37 +277,9 @@ public partial class AmpDecisionCyclePage : AmpWizardBasePage
 
     private void SetDecisionCycleUnitOfTime()
     {
-        if (RadioButtonDecisionCycleBillingInterval.Checked)
-        {
-            CurrentDecisionInstance.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_SAME_AS_BILLING_INTERVAL;
-            CurrentDecisionInstance.CycleUnitTypeColumnName = null;
-        }
-        else if (RadioButtonDays.Checked)
-        {
-            CurrentDecisionInstance.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_DAILY;
-            CurrentDecisionInstance.CycleUnitTypeColumnName = null;
-        }
-        else if (RadioButtonWeeks.Checked)
-        {
-            CurrentDecisionInstance.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_WEEKLY;
-            CurrentDecisionInstance.CycleUnitTypeColumnName = null;
-        }
-        else if (RadioButtonMonths.Checked)
-        {
-            CurrentDecisionInstance.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_MONTHLY;
-            CurrentDecisionInstance.CycleUnitTypeColumnName = null;
-        }
-        else if (RadioButtonQuarters.Checked)
-        {
-            CurrentDecisionInstance.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_QUARTERLY;
-            CurrentDecisionInstance.CycleUnitTypeColumnName = null;
-        }
-        else if (RadioButtonYears.Checked)
-        {
-            CurrentDecisionInstance.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_ANNUALLY;
-            CurrentDecisionInstance.CycleUnitTypeColumnName = null;
-        }
-        else if (RadioButtonUnitOfTimeFromParamTable.Checked)
+        CurrentDecisionInstance.CycleUnitTypeValue = (Decision.CycleUnitTypeEnum)Convert.ToInt32(ddTimeCycleUnit.SelectedItem.Value);
+        CurrentDecisionInstance.CycleUnitTypeColumnName = null;
+        if ((int)Decision.CycleUnitTypeEnum.CYCLE_GET_FROM_PARAMETER_TABLE == ddTimeCycleUnit.SelectedIndex)
         {
             CurrentDecisionInstance.CycleUnitTypeValue = null;
             CurrentDecisionInstance.CycleUnitTypeColumnName = ddUnitOfTimeFromParamTableSource.SelectedItem.Value;
@@ -394,38 +290,34 @@ public partial class AmpDecisionCyclePage : AmpWizardBasePage
     {
         if (CurrentDecisionInstance.CycleUnitTypeValue.HasValue)
         {
+            ddTimeCycleUnit.SelectedIndex = (int)CurrentDecisionInstance.CycleUnitTypeValue;
+            
             switch (CurrentDecisionInstance.CycleUnitTypeValue)
             {
                 case Decision.CycleUnitTypeEnum.CYCLE_SAME_AS_BILLING_INTERVAL:
-                    RadioButtonDecisionCycleBillingInterval.Checked = true;
                     ShowDivDecisionCycle = false;
                     break;
                 case Decision.CycleUnitTypeEnum.CYCLE_DAILY:
-                    RadioButtonDays.Checked = true;
                     lblNumberOfMonth.Text = Convert.ToString(GetLocalResourceObject("lblNumberOfDays.Text"));
                     lblNumberMonthBillingInterval.Text =
                         Convert.ToString(GetLocalResourceObject("lblNumberDaysBillingInterval.Text"));
                     break;
                 case Decision.CycleUnitTypeEnum.CYCLE_WEEKLY:
-                    RadioButtonWeeks.Checked = true;
                     lblNumberOfMonth.Text = Convert.ToString(GetLocalResourceObject("lblNumberOfWeeks.Text"));
                     lblNumberMonthBillingInterval.Text =
                         Convert.ToString(GetLocalResourceObject("lblNumberWeeksBillingInterval.Text"));
                     break;
                 case Decision.CycleUnitTypeEnum.CYCLE_MONTHLY:
-                    RadioButtonMonths.Checked = true;
                     lblNumberOfMonth.Text = Convert.ToString(GetLocalResourceObject("lblNumberOfMonth.Text"));
                     lblNumberMonthBillingInterval.Text =
                         Convert.ToString(GetLocalResourceObject("lblNumberMonthBillingInterval.Text"));
                     break;
                 case Decision.CycleUnitTypeEnum.CYCLE_QUARTERLY:
-                    RadioButtonQuarters.Checked = true;
                     lblNumberOfMonth.Text = Convert.ToString(GetLocalResourceObject("lblNumberOfQuarters.Text"));
                     lblNumberMonthBillingInterval.Text =
                         Convert.ToString(GetLocalResourceObject("lblNumberQuartersBillingInterval.Text"));
                     break;
                 case Decision.CycleUnitTypeEnum.CYCLE_ANNUALLY:
-                    RadioButtonYears.Checked = true;
                     lblNumberOfMonth.Text = Convert.ToString(GetLocalResourceObject("lblNumberOfYears.Text"));
                     lblNumberMonthBillingInterval.Text =
                         Convert.ToString(GetLocalResourceObject("lblNumberYearsBillingInterval.Text"));
@@ -434,8 +326,9 @@ public partial class AmpDecisionCyclePage : AmpWizardBasePage
         }
         else
         {
-            RadioButtonUnitOfTimeFromParamTable.Checked = true;
             // select the parameter table column for the Cycle Unit Type in the drop down
+            ddTimeCycleUnit.SelectedIndex = (int) Decision.CycleUnitTypeEnum.CYCLE_GET_FROM_PARAMETER_TABLE;
+            ShowDivParamTable = true;
             ddUnitOfTimeFromParamTableSource.SelectedValue = CurrentDecisionInstance.CycleUnitTypeColumnName;
             lblNumberOfMonth.Text = Convert.ToString(GetLocalResourceObject("lblNumberOfTimeUnits.Text"));
             lblNumberMonthBillingInterval.Text =
@@ -444,16 +337,11 @@ public partial class AmpDecisionCyclePage : AmpWizardBasePage
     }
 
 
-    private void SetRadioButtonsUnitOfTimeEvent()
+    private void SetDDUnitOfTimeEvent()
     {
         //Add event to Unit of Time items
-        RadioButtonDecisionCycleBillingInterval.Attributes.Add("onClick", "return DecisionCycleUnitOfTimeInitialState()");
-        RadioButtonDays.Attributes.Add("onClick", String.Format("return DecisionCycleUnitOfTimeChanged('{0}')", RadioButtonDays.ClientID));
-        RadioButtonWeeks.Attributes.Add("onClick", String.Format("return DecisionCycleUnitOfTimeChanged('{0}')", RadioButtonWeeks.ClientID));
-        RadioButtonMonths.Attributes.Add("onClick", String.Format("return DecisionCycleUnitOfTimeChanged('{0}')", RadioButtonMonths.ClientID));
-        RadioButtonQuarters.Attributes.Add("onClick", String.Format("return DecisionCycleUnitOfTimeChanged('{0}')", RadioButtonQuarters.ClientID));
-        RadioButtonYears.Attributes.Add("onClick", String.Format("return DecisionCycleUnitOfTimeChanged('{0}')", RadioButtonYears.ClientID));
-        RadioButtonUnitOfTimeFromParamTable.Attributes.Add("onClick", String.Format("return DecisionCycleUnitOfTimeChanged('{0}')", RadioButtonUnitOfTimeFromParamTable.ClientID));
+        ddTimeCycleUnit.Attributes.Add("onLoad", "return DecisionCycleUnitOfTimeInitialState()");
+        ddTimeCycleUnit.Attributes.Add("onChange", "return DecisionCycleUnitOfTimeChanged()");
 
         RBL_DecisionEffect.Items[0].Attributes.Add("onClick",
                                                    String.Format("return ChangeDecisionCycleEffectState(false, '{0}')",

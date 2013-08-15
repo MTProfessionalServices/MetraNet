@@ -154,10 +154,10 @@
     <value>Number of years from the subscription start to the start of the Decision Cycle:</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Decision Cycle</value>
+    <value>Decision Cycle for {0}</value>
   </data>
-  <data name="lblUnitOfTime.Text" xml:space="preserve">
-    <value>Unit of time for the Decision Cycle:</value>
+  <data name="lblUnitOfTime.Label" xml:space="preserve">
+    <value>Time cycle unit:</value>
   </data>
   <data name="rblDays.Text" xml:space="preserve">
     <value>Days</value>
@@ -192,7 +192,7 @@
   <data name="TEXT_ERROR_NO_VALUE_SPECIFIC_NUMBER" xml:space="preserve">
     <value>Error: You must specify the number of Decision Cycles that the Decision will be in effect.</value>
   </data>
-  <data name="rblUnitOfTimeFromParamTable.Text" xml:space="preserve">
+  <data name="rblUnitOfTimeFromParamTable.Label" xml:space="preserve">
     <value>Get unit of time from parameter table:</value>
   </data>
   <data name="lblNumberOfTimeUnits.Text" xml:space="preserve">
@@ -201,4 +201,14 @@
   <data name="lblNumberTimeUnitsBillingInterval.Text" xml:space="preserve">
     <value>Number of time units from the subscription start to the start of the Decision Cycle:</value>
   </data>
+  <data name="LIST_DD_TIME_CYCLE_UNIT" xml:space="preserve">
+    <value>Billing Interval,Day,Week,Month,Quarter,Year,Get from parameter table</value>
+  </data>
+	<data name="lblNumberXBillingInterval.Text" xml:space="preserve">
+    <value>Number of {0} from the subscription start to the start of the Decision Cycle:</value>
+  </data>
+	<data name="lblNumberOfX.Text" xml:space="preserve">
+    <value>Number of {0} in the Decision Cycle:</value>
+  </data>
+
 </root>

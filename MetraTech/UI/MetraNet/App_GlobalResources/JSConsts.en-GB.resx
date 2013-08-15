@@ -1027,7 +1027,10 @@
   <data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
     <value>For example, maybe the billing cycle is monthly, but you want to give a special rate if \"more than 1000 minutes are used in three months\". This is known as the Decision Cycle.</value>
   </data>
-  <data name="TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE" xml:space="preserve">
+	<data name="TITLE_AMPWIZARD_HELP_MORE_DECISION_CYCLE" xml:space="preserve">
+    <value>Help: Decision Cycle</value>
+  </data>
+	<data name="TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE" xml:space="preserve">
     <value>Add Miscellaneous Attribute</value>
   </data>
   <data name="TITLE_AMPWIZARD_EDIT_MISC_ATTRIBUTE" xml:space="preserve">

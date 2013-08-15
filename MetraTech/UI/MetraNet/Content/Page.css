@@ -1,12 +1,13 @@
 ﻿* {	margin: 0; padding: 0; }
 
-body
+html, body
 {
   font-size: small;
   font-family: Verdana, Tahoma, Arial, "Helvetica Neue" , Helvetica, Sans-Serif;
   margin: 0;
   padding: 0;
   border: 0 none;
+  overflow: auto;
 }
 
 button {

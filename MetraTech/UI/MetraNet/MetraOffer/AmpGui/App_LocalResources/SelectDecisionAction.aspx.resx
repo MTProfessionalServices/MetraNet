@@ -121,10 +121,10 @@
     <value>MetraNet</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Decision Action</value>
+    <value>Decision Action for {0}</value>
   </data>
   <data name="lblIncrementalOrBulkResource1.Text" xml:space="preserve">
-    <value>How should the Decision Type process the records?</value>
+    <value>How should records be processed?</value>
   </data>
   <data name="rblIncrementallyResource1.Text" xml:space="preserve">
     <value>Multi-Bucket</value>
@@ -133,7 +133,7 @@
     <value>Single-Bucket</value>
   </data>
   <data name="lblDecisionActionResource1.Text" xml:space="preserve">
-    <value>What action should the Decision Type take?</value>
+    <value>What action should this decision take?</value>
   </data>
   <data name="radUnitRateResource1.Text" xml:space="preserve">
     <value>Apply a new rate for units</value>
@@ -145,7 +145,7 @@
     <value>Apply a percentage discount</value>
   </data>
   <data name="radGenChargeResource1.Text" xml:space="preserve">
-    <value>Generate a new Charge/Credit</value>
+    <value>Generate a charge/credit</value>
   </data>
   <data name="noChargeResource1.Text" xml:space="preserve">
     <value>None</value>

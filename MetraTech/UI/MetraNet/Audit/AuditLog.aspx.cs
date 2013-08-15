@@ -22,9 +22,14 @@ public partial class Audit_AuditLog : MTPage
     }
     else
     {
+        if (!UI.CoarseCheckCapability("Manage System Wide Authorization Policies"))
+        {
+            Response.End();
+            return;
+        }
       ConfigureAuditLogForEntityType();
     }
-        
+
     base.OnLoadComplete(e);
   }
   

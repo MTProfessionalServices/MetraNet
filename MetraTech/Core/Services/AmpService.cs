@@ -3507,13 +3507,18 @@ namespace MetraTech.Core.Services
             }
             else if (attributeName.Equals("Amount Chain Group"))
             {
-                decision.PvToAmountChainMapping = attributeValue;
-                if (attributeColumnName != null)
+                if ((attributeValue == null) && (attributeColumnName == null))
                 {
-                    // don't expect column name
-                    m_Logger.LogError(
-                        "StoreAttributeInDomainModel: parameter {0} should not be set via column name",
-                        attributeName);
+                    decision.PvToAmountChainMappingColumnName = null;
+                    decision.PvToAmountChainMappingValue = null;
+                }
+                else if (attributeValue != null)
+                {
+                    decision.PvToAmountChainMappingValue = Int32.Parse(attributeValue);
+                }
+                else
+                {
+                    decision.PvToAmountChainMappingColumnName = attributeColumnName;
                 }
             }
             else if (attributeName.Equals("Charge On Inbound"))
@@ -3644,15 +3649,14 @@ namespace MetraTech.Core.Services
                     decision.PriorityValue = null;
                     decision.PriorityColumnName = null;
                 }
+                else if (attributeValue != null)
+                {
+                    decision.PriorityValue = Int32.Parse(attributeValue);
+                }
                 else
-                    if (attributeValue != null)
-                    {
-                        decision.PriorityValue = Int32.Parse(attributeValue);
-                    }
-                    else
-                    {
-                        decision.PriorityColumnName = attributeColumnName;
-                    }
+                {
+                    decision.PriorityColumnName = attributeColumnName;
+                }
             }
             else if (attributeName.Equals("Charge On Outbound"))
             {
@@ -3862,15 +3866,14 @@ namespace MetraTech.Core.Services
                     decision.PerUnitRateValue = null;
                     decision.PerUnitRateColumnName = null;
                 }
+                else if (attributeValue != null)
+                {
+                    decision.PerUnitRateValue = Decimal.Parse(attributeValue);
+                }
                 else
-                    if (attributeValue != null)
-                    {
-                        decision.PerUnitRateValue = Decimal.Parse(attributeValue);
-                    }
-                    else
-                    {
-                        decision.PerUnitRateColumnName = attributeColumnName;
-                    }
+                {
+                    decision.PerUnitRateColumnName = attributeColumnName;
+                }
             }
             else if (attributeName.Equals("Tier Qualified Usage"))
             {
@@ -4014,7 +4017,8 @@ namespace MetraTech.Core.Services
             }
             else
             {
-                m_Logger.LogDebug("StoreAttributeInDomainModel: unhandled attribute {0} being stored in OtherAttributes",
+                m_Logger.LogDebug(
+                    "StoreAttributeInDomainModel: unhandled attribute {0} being stored in OtherAttributes",
                     attributeName);
                 DecisionAttributeValue decisionAttributeValue = new DecisionAttributeValue();
                 decisionAttributeValue.HardCodedValue = attributeValue;
@@ -4052,7 +4056,8 @@ namespace MetraTech.Core.Services
                 decision.CycleUnitsOffsetValue.HasValue ? decision.CycleUnitsOffsetValue.ToString() : null,
                 decision.CycleUnitsOffsetColumnName, decision.ParameterTableName);
             StoreAttributeInDb(decision.UniqueId, "Amount Chain Group",
-                decision.PvToAmountChainMapping, null, decision.ParameterTableName);
+                decision.PvToAmountChainMappingValue.HasValue ? decision.PvToAmountChainMappingValue.ToString() : null,
+                decision.PvToAmountChainMappingColumnName, decision.ParameterTableName);
             StoreAttributeInDb(decision.UniqueId, "Generated Charge",
                 decision.GeneratedCharge, null, decision.ParameterTableName);
             switch (decision.ChargeCondition)

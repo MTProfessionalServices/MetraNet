@@ -42,6 +42,14 @@ public class MTController : Controller
       Session[Constants.HELP_PAGE] = value;
     }
   }
+  /// <summary>
+  /// Set title for page.
+  /// </summary>
+  public string Title
+  {
+    get { return ViewBag.Title; }
+    set { ViewBag.Title = value; }
+  }
 
   /// <summary>
   /// The current UI ApplicationTime.  This maybe metratime or a value set

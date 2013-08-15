@@ -88,7 +88,7 @@ namespace MetraTech.MetraPay.PaymentGateway
         /// <returns>
         /// true if valid, else false.
         /// </returns>
-        public bool ValidatePaymentMethod(MetraPaymentMethod paymentMethod)
+        public bool ValidatePaymentMethod(MetraPaymentMethod paymentMethod, string currency)
         {
             // log into payment broker and set the tenant context
             var sessionId = client.CreateSession(TenantName);
@@ -100,13 +100,13 @@ namespace MetraTech.MetraPay.PaymentGateway
                 var ccMethod = paymentMethod as CreditCardPaymentMethod;
                 response = client.VerifyCreditCard(sessionId, tenantConfiguration,
                                                    Guid.Parse(ccMethod.AccountToken),
-                                                   ccMethod.CVNumber, "Merchant ref");
+                                                   ccMethod.CVNumber, "Merchant ref", currency);
             }
             else
             {
                 response = client.VerifyCreditCard(sessionId, tenantConfiguration, paymentMethod.PaymentInstrumentID,
                                                    null,
-                                                   "Merchant ref");
+                                                   "Merchant ref", currency);
             }
 
             // close the paymentbroker session

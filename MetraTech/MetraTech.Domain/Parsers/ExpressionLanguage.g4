@@ -1,3 +1,11 @@
+/* 
+   Before making changes to this file, you need to remove comments from line 215 in MetraTech.Domain.csproj
+   This will add the Antlr target that will update the parser files as this file is edited.
+   Do not push MetraTech.Domain.csproj with the Antlr target, because it will break on the build server.
+   The Antlr target requires Java 7, which is not installed on the build server. It cannot be installed there
+   because it will break the build of the MetraNet Java SDK, which requires Java 4. After this conflict is resolved,
+   it should be safe to remove the comments from the Antlr target.
+ */
 grammar ExpressionLanguage;
 
 parse

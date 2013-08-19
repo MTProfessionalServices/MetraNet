@@ -780,48 +780,6 @@ namespace MetraTech.Approvals
       
       approvalAuditor.FireEvent((int)AuditManager.MTAuditEvents.AUDITEVENT_APPROVALMANAGEMENT_CHANGEAPPROVED, this.SessionContext.AccountID, (int)AuditManager.MTAuditEntityType.AUDITENTITY_TYPE_APPROVAL, changeId,
                           (string.IsNullOrEmpty(comment) ? "" : String.Format("Comment[{0}]", comment)));
-      
-            var changeDetailsHelper = new ChangeDetailsHelper(change.ChangeDetailsBlob);
-
-            var approvalEvent = new ChangeNotificationEvent {ChangeId = changeId, Comment = comment};
-
-            DomainModel.BaseTypes.Account account = new DomainModel.BaseTypes.Account(); // TODO: retrieve account for this.SessionContext.AccountID
-            // HELP... HOW TO DO THIS???
-            /*
-            AccountService s;
-            AccountService_LoadAccountWithViews_Client acc = new AccountService_LoadAccountWithViews_Client();
-            acc.In_acct = new AccountIdentifier(accountId);
-            acc.In_timeStamp = appTime;
-
-            //acc.UserName = userData.UserName;
-            //acc.Password = userData.SessionPassword;
-
-            acc.UserName = userData.Ticket;
-            acc.Password = String.Empty;
-
-            acc.Invoke();
-
-            if (acc.Out_account != null)
-            {
-                account = acc.Out_account;
-            }*/
-
-            ContactView contactView = null;
-            var views = account.GetViews();
-            foreach (var view in views.SelectMany(x => x.Value))
-            {
-                contactView = view as ContactView;
-                if (contactView == null) continue;
-                if (contactView.ContactType == ContactType.Bill_To) break;
-            }
-
-            if (contactView != null) approvalEvent.SubmitterEmail = contactView.Email;
-            
-            using (var connection = ConnectionBase.GetDbConnection(new ConnectionInfo("NetMeter"), false))
-            using (var context = new MetraNetContext(connection))
-            {
-                NotificationProcessor.ProcessEvent(context, approvalEvent);
-            }
 
       QueueChangeToBeApplied(change);
     }

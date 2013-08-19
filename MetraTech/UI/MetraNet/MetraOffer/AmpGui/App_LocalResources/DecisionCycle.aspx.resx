@@ -210,5 +210,11 @@
 	<data name="lblNumberOfX.Text" xml:space="preserve">
     <value>Number of {0} in the Decision Cycle:</value>
   </data>
+	<data name="lblNumberOfBillingIntervals.Text" xml:space="preserve">
+    <value>Number of billing intervals in the Decision Cycle:</value>
+  </data>
+	<data name="lblNumberBIBillingInterval.Text" xml:space="preserve">
+    <value>Number of billing intervals from the subscription start to the start of the Decision Cycle:</value>
+  </data>
 
 </root>

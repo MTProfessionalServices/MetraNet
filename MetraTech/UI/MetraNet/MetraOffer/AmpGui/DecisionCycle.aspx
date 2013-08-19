@@ -136,13 +136,12 @@
       
       var str = '<%=GetLocalResourceObject("LIST_DD_TIME_CYCLE_UNIT")%>';
       dictUnitOfTimes = str.split(",");
-      dictUnitOfTimes[0]= '';
       var basestr = '<%=GetLocalResourceObject("lblNumberXBillingInterval.Text")%>';
       for (var i = 0; i < dictUnitOfTimes.length; i++) {
           if(i != dictUnitOfTimes.length -1)
             dictBillingInterval[i] = String.format(basestr,(dictUnitOfTimes[i]+"s").toLowerCase());
           else
-                      dictBillingInterval[i] = '<%=GetLocalResourceObject("lblNumberTimeUnitsBillingInterval.Text")%>';
+            dictBillingInterval[i] = '<%=GetLocalResourceObject("lblNumberTimeUnitsBillingInterval.Text")%>';
       }
   
   }
@@ -154,17 +153,11 @@
     var dd1 = Ext.getCmp('<%=ddUnitOfTimeFromParamTableSource.ClientID %>');
 
     document.getElementById('<%=lblNumberMonthBillingInterval.ClientID%>').innerHTML = dictBillingInterval[unitOfTime.toString()];
-    if (unitOfTime.toString()=="0") {
-        dd1.disable();
-        DecisionCycleControlShow(false);
-        ParamTableDivShow(false);
-
-    }
-    else if (unitOfTime.toString()=="6") {
-        document.getElementById('<%=lblNumberOfMonth.ClientID%>').innerHTML = '<%=GetLocalResourceObject("lblNumberOf.Text")%>';
+    if (unitOfTime.toString()=="6") {
+        document.getElementById('<%=lblNumberOfMonth.ClientID%>').innerHTML = '<%=GetLocalResourceObject("lblNumberOfTimeUnits.Text")%>';
         dd1.enable();
         ParamTableDivShow(true);
-        DecisionCycleControlShow(false);
+        DecisionCycleControlShow(true);
     }
     else{
         dd1.disable();
@@ -174,11 +167,7 @@
   }
 
   function DecisionCycleUnitOfTimeInitialState() {
-    var dd2 = Ext.getCmp('<%=ddUnitOfTimeFromParamTableSource.ClientID %>');
-      
-        dd2.disable();
-
-    DecisionCycleControlShow(false);
+      DecisionCycleUnitOfTimeChanged();
   }
   function ParamTableDivShow(show) {
     document.getElementById('divUnitOfTimeFromParamTableDropdownSource').style.display = show ? '' : 'none';

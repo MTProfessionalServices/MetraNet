@@ -65,7 +65,7 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTAuditEvents.interop.dll</HintPath>
       <Private>False</Private>
-    </Reference>    
+    </Reference>
     <Reference Include="MTAuth.interop">
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTAuth.interop.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -151,6 +151,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApprovalNotificationEvents.cs" />
     <Compile Include="ApprovalSimplifiedClient.cs" />
     <Compile Include="ApprovalImplementation.cs" />
     <Compile Include="ChangeDetailsHelper.cs" />

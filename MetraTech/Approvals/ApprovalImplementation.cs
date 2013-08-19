@@ -24,6 +24,8 @@ namespace MetraTech.Approvals
     const string APPROVALSMANAGEMENT_QUERY_FOLDER = "Queries\\ApprovalFramework";
     private const string CAPABILITYNAME_VIEW = "Allow ApprovalsView";
 
+    private ApprovalNotificationEvents notificationEventManager = new ApprovalNotificationEvents();
+
     public ApprovalManagementImplementation(ApprovalsConfiguration configuration, Auth.IMTSessionContext sessionContext)
     {
       Configuration = configuration;
@@ -769,10 +771,10 @@ namespace MetraTech.Approvals
       VerifyChangeCurrentStateIs(ChangeState.Pending, change);
 
       change.CurrentState = UpdateChangeState(changeId, ChangeState.ApprovedWaitingToBeApplied, change.CurrentState);
-
+      
       approvalAuditor.FireEvent((int)AuditManager.MTAuditEvents.AUDITEVENT_APPROVALMANAGEMENT_CHANGEAPPROVED, this.SessionContext.AccountID, (int)AuditManager.MTAuditEntityType.AUDITENTITY_TYPE_APPROVAL, changeId,
                           (string.IsNullOrEmpty(comment) ? "" : String.Format("Comment[{0}]", comment)));
-
+      
       QueueChangeToBeApplied(change);
     }
 
@@ -847,6 +849,11 @@ namespace MetraTech.Approvals
 
       approvalAuditor.FireEvent((int)AuditManager.MTAuditEvents.AUDITEVENT_APPROVALMANAGEMENT_CHANGEAPPLIED, this.SessionContext.AccountID, (int)AuditManager.MTAuditEntityType.AUDITENTITY_TYPE_APPROVAL, change.Id,
                            String.Format("Applied approved change to {0} ({1})", change.ItemDisplayName, change.UniqueItemId));
+
+      //TODO: Can't remember if this is also called when change doesn't require approval
+      //If so, then most likely don't need to send notification
+      //TODO: Determine if we will reload to get comment/fully populated event
+      notificationEventManager.ProcessChangeApprovedNotificationEvent(change, "");
 
     }
 
@@ -1046,7 +1053,10 @@ namespace MetraTech.Approvals
       }
 
       approvalAuditor.FireEvent((int)AuditManager.MTAuditEvents.AUDITEVENT_APPROVALMANAGEMENT_CHANGEDENIED, this.SessionContext.AccountID, (int)AuditManager.MTAuditEntityType.AUDITENTITY_TYPE_APPROVAL, changeId,
-      String.Format("Approval denied for the change id {0}, appoval Unique Item Id {1} successfully." + comment, changeId, change.UniqueItemId));
+      String.Format("Approval denied for the change id {0} with appoval Unique Item Id {1}" + comment, changeId, change.UniqueItemId));
+
+      //TODO: May want to reload change from repository if notification isn't going to do a separate query itself
+      notificationEventManager.ProcessChangeDeniedNotificationEvent(change, comment);
 
     }
 
@@ -1316,8 +1326,15 @@ namespace MetraTech.Approvals
                 throw new MASBasicException(string.Format("The item {0} already has a pending change of the type {1} and this type of change does not allow more than one pending change.", change.UniqueItemId, change.ChangeType));
               }
 
+              
+
               approvalAuditor.FireEvent((int)AuditManager.MTAuditEvents.AUDITEVENT_APPROVALMANAGEMENT_CHANGESUBMITTED, this.SessionContext.AccountID, (int)AuditManager.MTAuditEntityType.AUDITENTITY_TYPE_APPROVAL, changeId,
                                         (string.IsNullOrEmpty(change.Comment) ? "" : String.Format("Comment[{0}]", change.Comment)));
+
+              //TODO: May want to reload change from repository if notification isn't going to do a separate query itself
+              change.Id = changeId;
+              change.SubmitterId = this.SessionContext.AccountID;
+              notificationEventManager.ProcessChangeRequiresApprovalNotificationEvent(change);
 
 
             }

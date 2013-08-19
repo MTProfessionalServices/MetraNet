@@ -6,6 +6,6 @@
     <servername>127.0.0.1</servername>
     <databasename>MTGP</databasename>
     <username>sa</username>
-    <password></password>
+    <password encrypted="true"></password>
   </server>
 </xmlconfig>

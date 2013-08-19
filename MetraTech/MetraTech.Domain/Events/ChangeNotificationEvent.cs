@@ -13,11 +13,17 @@
         /// <summary>
         /// The id of the change that was submitted
         /// </summary>
-        public int ChangeId { get; set; }
+        public string ChangeId { get; set; }
 
         /// <summary>
         /// Comments entered by the person approving or dismissing the change
         /// </summary>
         public string Comment { get; set; }
+
+        public string ApproverDisplayName { get; set; }
+
+        public string ChangeType { get; set; }
+
+        public string ItemDisplayName { get; set; }
     }
 }

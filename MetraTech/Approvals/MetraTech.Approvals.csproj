@@ -45,6 +45,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\AuditEventsLib.interop.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
     <Reference Include="MetraTech.Account.ClientProxies">
       <HintPath>$(MTRMP)\extensions\Account\bin\MetraTech.Account.ClientProxies.dll</HintPath>
     </Reference>
@@ -65,7 +66,7 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTAuditEvents.interop.dll</HintPath>
       <Private>False</Private>
-    </Reference>    
+    </Reference>
     <Reference Include="MTAuth.interop">
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTAuth.interop.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -213,10 +214,18 @@
       <Project>{E21F8EE1-FA01-465E-B651-A21CC2E1D6AA}</Project>
       <Name>MetraTech.DomainModel.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MetraTech.Application\MetraTech.Application.csproj">
+      <Project>{A19EED27-05B5-4907-B8A7-20C43EED7F42}</Project>
+      <Name>MetraTech.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MetraTech.Common.csproj">
       <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
       <Name>MetraTech.Common</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MetraTech.Domain\MetraTech.Domain.csproj">
+      <Project>{9C9C685C-CBF8-428F-8C34-98702FF13726}</Project>
+      <Name>MetraTech.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\Xml\MetraTech.Xml.csproj">
       <Project>{7D9556DF-CB87-458A-B66B-F5DD5B7C384E}</Project>

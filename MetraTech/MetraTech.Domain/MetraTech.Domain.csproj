@@ -97,6 +97,7 @@
     <Compile Include="DataAccess\EntityTypeConfigurations\QuoteIndividualPriceConfiguration.cs" />
     <Compile Include="DataAccess\IMetraNetContext.cs" />
     <Compile Include="DataAccess\SerializationHelper.cs" />
+    <Compile Include="Events\ChangeNotificationEvent.cs" />
     <Compile Include="Events\Event.cs" />
     <Compile Include="DataAccess\MetraNetContext.cs" />
     <Compile Include="Expressions\BinaryExpression.cs" />

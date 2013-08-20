@@ -1,442 +1,398 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using MetraTech.ActivityServices.Common;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.Domain.Quoting;
 using MetraTech.DomainModel.BaseTypes;
-using MetraTech.DomainModel.Enums.Core.Global;
-using MetraTech.DomainModel.Enums.Core.Global_SystemCurrencies;
-using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.Interop.MTProductCatalog;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MetraTech.Shared.Test;
-using MetraTech.Core.Services;
 
 namespace MetraTech.Quoting.Test
 {
-  [TestClass]
-  public class QuotingWithIcbFunctionalTests
-  {
-    #region Setup/Teardown
-
-    [ClassInitialize]
-    public static void InitTests(TestContext testContext)
+    [TestClass]
+    public class QuotingWithIcbFunctionalTests
     {
-      SharedTestCode.MakeSureServiceIsStarted("ActivityServices");
-      SharedTestCode.MakeSureServiceIsStarted("Pipeline");
+        #region Setup/Teardown
+
+        [ClassInitialize]
+        public static void InitTests(TestContext testContext)
+        {
+            SharedTestCode.MakeSureServiceIsStarted("ActivityServices");
+            SharedTestCode.MakeSureServiceIsStarted("Pipeline");
+        }
+
+        #endregion
+
+        [TestMethod]
+        [TestCategory("FunctionalTest")]
+        public void QuotingWithIcbPricePositiveTest()
+        {
+            #region Prepare
+
+            const string testName = "Quote_Basic";
+            const string testShortName = "Q_Basic";
+            //Account name and perhaps others need a 'short' (less than 40 when combined with testRunUniqueIdentifier
+            string testRunUniqueIdentifier = MetraTime.Now.ToString(CultureInfo.InvariantCulture); //Identifier to make this run unique
+
+            // Create account
+            var corpAccountHolder = new CorporateAccountFactory(testShortName, testRunUniqueIdentifier);
+            corpAccountHolder.Instantiate();
+
+            var idAccountToQuoteFor = (int)corpAccountHolder.Item._AccountID;
+
+            // Create/Verify Product Offering Exists
+            var pofConfiguration = new ProductOfferingFactoryConfiguration(testName, testRunUniqueIdentifier);
+            pofConfiguration.CountNRCs = 1;
+            pofConfiguration.CountPairRCs = 1;
+            pofConfiguration.CountPairUDRCs = 1;
+
+            //IMTProductOffering productOffering = ProductOfferingFactory.Create(pofConfiguration);
+            var productOffering = ProductOfferingFactory.Create(pofConfiguration);
+            int idProductOfferingToQuoteFor = productOffering.ID;
+
+            using (var client = new PriceListServiceClient())
+            {
+                if (client.ClientCredentials != null)
+                {
+                    client.ClientCredentials.UserName.UserName = "su";
+                    client.ClientCredentials.UserName.Password = "su123";
+                }
+
+                IMTCollection instances = productOffering.GetPriceableItems();
+
+                ProductOfferingFactory productOfferingFactory = new ProductOfferingFactory();
+                productOfferingFactory.Initialize(testName, testRunUniqueIdentifier);
+
+                var parameterTableFlatRc =
+                    productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(
+                        "metratech.com/flatrecurringcharge");
+                var parameterTableNonRc =
+                    productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(
+                        "metratech.com/nonrecurringcharge");
+                var parameterTableUdrcTapered = productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName("metratech.com/udrctapered");
+                var parameterTableUdrcTiered = productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName("metratech.com/udrctiered");
+
+
+                PriceListMapping plMappingForRc, plMappingForNonRc, plMappingForUdrc;
+
+                foreach (IMTPriceableItem possibleRC in instances)
+                {
+                    if (possibleRC.Kind == MTPCEntityType.PCENTITY_TYPE_RECURRING_UNIT_DEPENDENT)
+                    {
+                        IMTRecurringCharge udrcTapered = (IMTRecurringCharge)possibleRC;
+                        client.GetPriceListMappingForProductOffering(
+                            new PCIdentifier(productOffering.ID),
+                            new PCIdentifier(udrcTapered.ID),
+                            new PCIdentifier(parameterTableUdrcTapered.ID),
+                            out plMappingForUdrc);
+                        plMappingForUdrc.CanICB = true;
+                        client.SavePriceListMappingForProductOffering
+                            (new PCIdentifier(productOffering.ID),
+                             new PCIdentifier(udrcTapered.ID),
+                             new PCIdentifier(parameterTableUdrcTapered.ID),
+                             ref plMappingForUdrc);
+
+                        var piAndPTParameters = new PIAndPTParameters
+                        {
+                            ParameterTableId = parameterTableUdrcTapered.ID,
+                            ParameterTableName = "metratech.com/udrctapered",
+                            PriceableItemId = udrcTapered.ID
+                        };
+                        pofConfiguration.PriceableItemsAndParameterTableForUdrc.Add(piAndPTParameters);
+
+                        IMTRecurringCharge udrcTiered = (IMTRecurringCharge)possibleRC;
+                        client.GetPriceListMappingForProductOffering(
+                            new PCIdentifier(productOffering.ID),
+                            new PCIdentifier(udrcTiered.ID),
+                            new PCIdentifier(parameterTableUdrcTiered.ID),
+                            out plMappingForUdrc);
+                        plMappingForUdrc.CanICB = true;
+                        client.SavePriceListMappingForProductOffering
+                            (new PCIdentifier(productOffering.ID),
+                             new PCIdentifier(udrcTiered.ID),
+                             new PCIdentifier(parameterTableUdrcTiered.ID),
+                             ref plMappingForUdrc);
+
+                        piAndPTParameters = new PIAndPTParameters
+                        {
+                            ParameterTableId = parameterTableUdrcTiered.ID,
+                            ParameterTableName = "metratech.com/udrctiered",
+                            PriceableItemId = udrcTiered.ID
+                        };
+                        pofConfiguration.PriceableItemsAndParameterTableForUdrc.Add(piAndPTParameters);
+                    }
+                    else if (possibleRC.Kind == MTPCEntityType.PCENTITY_TYPE_RECURRING)
+                    {
+                        IMTRecurringCharge rc = (IMTRecurringCharge)possibleRC;
+                        client.GetPriceListMappingForProductOffering(
+                            new PCIdentifier(productOffering.ID),
+                            new PCIdentifier(rc.ID),
+                            new PCIdentifier(parameterTableFlatRc.ID),
+                            out plMappingForUdrc);
+                        plMappingForUdrc.CanICB = true;
+                        client.SavePriceListMappingForProductOffering
+                            (new PCIdentifier(productOffering.ID),
+                             new PCIdentifier(rc.ID),
+                             new PCIdentifier(parameterTableFlatRc.ID),
+                             ref plMappingForUdrc);
+
+                        var piAndPTParameters = new PIAndPTParameters
+                        {
+                            ParameterTableId = parameterTableFlatRc.ID,
+                            ParameterTableName = "metratech.com/flatrecurringcharge",
+                            PriceableItemId = rc.ID
+                        };
+                        pofConfiguration.PriceableItemsAndParameterTableForRc.Add(piAndPTParameters);
+
+                    }
+                    else if (possibleRC.Kind == MTPCEntityType.PCENTITY_TYPE_NON_RECURRING)
+                    {
+                        IMTNonRecurringCharge nonrc = (IMTNonRecurringCharge)possibleRC;
+
+                        client.GetPriceListMappingForProductOffering(
+                            new PCIdentifier(productOffering.ID),
+                            new PCIdentifier(nonrc.ID),
+                            new PCIdentifier(parameterTableNonRc.ID),
+                            out plMappingForNonRc);
+                        plMappingForNonRc.CanICB = true;
+                        client.SavePriceListMappingForProductOffering
+                            (new PCIdentifier(productOffering.ID),
+                             new PCIdentifier(nonrc.ID),
+                             new PCIdentifier(parameterTableNonRc.ID),
+                             ref plMappingForNonRc);
+
+                        var piAndPTParameters = new PIAndPTParameters
+                        {
+                            ParameterTableId = parameterTableNonRc.ID,
+                            ParameterTableName = "metratech.com/nonrecurringcharge",
+                            PriceableItemId = nonrc.ID
+                        };
+                        pofConfiguration.PriceableItemsAndParameterTableForNonRc.Add(piAndPTParameters);
+                    }
+                }
+            }
+
+            //Values to use for verification
+            string expectedQuoteCurrency = "USD";
+
+            #endregion
+
+            #region Test
+
+            // Ask backend to start quote
+
+            //Prepare request
+            QuoteRequest request = new QuoteRequest();
+            request.Accounts.Add(idAccountToQuoteFor);
+            request.ProductOfferings.Add(idProductOfferingToQuoteFor);
+            request.QuoteIdentifier = "MyQuoteId-" + testShortName + "-1234";
+            request.QuoteDescription = "Quote generated by Automated Test: " + testName;
+            request.ReportParameters = new ReportParams()
+            {
+                PDFReport = QuotingTestScenarios.RunPDFGenerationForAllTestsByDefault
+            };
+            request.EffectiveDate = MetraTime.Now;
+            request.EffectiveEndDate = MetraTime.Now;
+            request.Localization = "en-US";
+            request.SubscriptionParameters.UDRCValues =
+                SharedTestCode.GetUDRCInstanceValuesSetToMiddleValues(productOffering);
+
+            int numOfAccounts = request.Accounts.Count;
+            int expectedQuoteNRCsCount = pofConfiguration.CountNRCs * numOfAccounts;
+            int expectedQuoteFlatRCsCount = pofConfiguration.CountPairRCs +
+                                            (pofConfiguration.CountPairRCs * numOfAccounts);
+            int expectedQuoteUDRCsCount = pofConfiguration.CountPairUDRCs +
+                                          (pofConfiguration.CountPairUDRCs * numOfAccounts);
+
+            pofConfiguration.RCAmount = 66.66m;
+            pofConfiguration.NRCAmount = 77.77m;
+            decimal totalAmountForUDRC = 15 * 16.6m + 5 * 13m;
+
+            decimal expectedQuoteTotal = (expectedQuoteFlatRCsCount * pofConfiguration.RCAmount) +
+                                         (expectedQuoteUDRCsCount * totalAmountForUDRC) +
+                                         (expectedQuoteNRCsCount * pofConfiguration.NRCAmount);
+
+            #region Initialize ICB prices
+
+            var quoteId = DateTime.Now.Millisecond;
+
+            request.IcbPrices = new List<QuoteIndividualPrice>();
+            foreach (var ptrc in pofConfiguration.PriceableItemsAndParameterTableForRc)
+            {
+                var qip = new QuoteIndividualPrice
+                {
+                    QuoteId = quoteId,
+                    ParameterTableId = ptrc.ParameterTableId,
+                    PriceableItemInstanceId = ptrc.PriceableItemId,
+                    ProductOfferingId = productOffering.ID,
+                    RateSchedules = new List<BaseRateSchedule> { GetFlatRcRateSchedule(66.66m) }
+                };
+                request.IcbPrices.Add(qip);
+            }
+
+            foreach (var ptUDRC in pofConfiguration.PriceableItemsAndParameterTableForUdrc)
+            {
+                var qip = new QuoteIndividualPrice
+                {
+                    QuoteId = quoteId,
+                    ParameterTableId = ptUDRC.ParameterTableId,
+                    PriceableItemInstanceId = ptUDRC.PriceableItemId,
+                    ProductOfferingId = productOffering.ID
+                };
+
+                if (ptUDRC.ParameterTableName == "metratech.com/udrctapered")
+                {
+                    qip.RateSchedules = new List<BaseRateSchedule>
+                        {
+                            GetTaperedUdrcRateSchedule(new Dictionary<decimal, decimal>
+                                {
+                                    {15, 16.6m},
+                                    {40, 13m}
+                                })
+                        };
+                }
+                else
+                {
+                    qip.RateSchedules = new List<BaseRateSchedule>
+                        {
+                            GetTieredUdrcRateSchedule(20, 16.6m, 10m)
+                        };
+                }
+
+                request.IcbPrices.Add(qip);
+            }
+
+            foreach (var ptNRC in pofConfiguration.PriceableItemsAndParameterTableForNonRc)
+            {
+                var qip = new QuoteIndividualPrice
+                {
+                    QuoteId = quoteId,
+                    ParameterTableId = ptNRC.ParameterTableId,
+                    PriceableItemInstanceId = ptNRC.PriceableItemId,
+                    ProductOfferingId = productOffering.ID,
+                    RateSchedules = new List<BaseRateSchedule> { GetNonRcRateSchedule(77.77m) }
+                };
+                request.IcbPrices.Add(qip);
+            }
+
+            #endregion
+
+            //Give request to testing scenario along with expected results for verification; get back response for further verification
+            QuoteResponse response = QuotingTestScenarios.CreateQuoteAndVerifyResults(request,
+                                                                                      expectedQuoteTotal,
+                                                                                      expectedQuoteCurrency,
+                                                                                      expectedQuoteFlatRCsCount,
+                                                                                      expectedQuoteNRCsCount,
+                                                                                      expectedQuoteUDRCsCount);
+
+
+            #endregion
+
+        }
+
+        #region Helpers
+
+
+        private static BaseRateSchedule GetFlatRcRateSchedule(decimal price)
+        {
+            return new RateSchedule<Metratech_com_FlatRecurringChargeRateEntry, Metratech_com_FlatRecurringChargeDefaultRateEntry>
+            {
+                EffectiveDate = new ProdCatTimeSpan
+                {
+                    StartDate = DateTime.Parse("1/1/2000"),
+                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
+                    EndDate = DateTime.Parse("1/1/2038"),
+                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
+                },
+                /*
+                    sched.EffectiveDate.StartDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE;
+        sched.EffectiveDate.StartDate = DateTime.Parse("1/1/2000");
+        sched.EffectiveDate.EndDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE;
+        sched.EffectiveDate.EndDate = DateTime.Parse("1/1/2038");
+                    */
+                RateEntries = new List<Metratech_com_FlatRecurringChargeRateEntry>
+           {
+              new Metratech_com_FlatRecurringChargeRateEntry { RCAmount = price }
+           }
+            };
+        }
+
+        private static BaseRateSchedule GetNonRcRateSchedule(decimal price)
+        {
+            return new RateSchedule<Metratech_com_NonRecurringChargeRateEntry, Metratech_com_NonRecurringChargeDefaultRateEntry>
+            {
+                EffectiveDate = new ProdCatTimeSpan
+                {
+                    StartDate = MetraTime.Now,
+                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
+                    EndDate = MetraTime.Now.AddHours(1),
+                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
+                },
+                RateEntries = new List<Metratech_com_NonRecurringChargeRateEntry>
+           {
+              new Metratech_com_NonRecurringChargeRateEntry { NRCAmount = price }
+           }
+            };
+        }
+
+        private static BaseRateSchedule GetTaperedUdrcRateSchedule(Dictionary<decimal, decimal> unitValuesAndAmounts)
+        {
+            var rates = new List<Metratech_com_UDRCTaperedRateEntry>();
+            var i = 0;
+            foreach (var val in unitValuesAndAmounts)
+            {
+                rates.Add(new Metratech_com_UDRCTaperedRateEntry
+                {
+                    Index = i,
+                    UnitValue = val.Key,
+                    UnitAmount = val.Value
+                });
+                i++;
+            }
+
+            return new RateSchedule<Metratech_com_UDRCTaperedRateEntry, Metratech_com_UDRCTaperedDefaultRateEntry>
+            {
+                EffectiveDate = new ProdCatTimeSpan
+                {
+                    StartDate = DateTime.Parse("1/1/2000"),
+                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
+                    EndDate = DateTime.Parse("1/1/2038"),
+                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
+                },
+                RateEntries = rates
+            };
+        }
+
+        private static BaseRateSchedule GetTieredUdrcRateSchedule(decimal unitValue, decimal unitAmount, decimal baseAmount)
+        {
+            var rates = new List<Metratech_com_UDRCTieredRateEntry>();
+            var i = 0;
+            rates.Add(new Metratech_com_UDRCTieredRateEntry
+            {
+                Index = i,
+                UnitValue = unitValue,
+                UnitAmount = unitAmount,
+                BaseAmount = baseAmount
+            });
+
+            return new RateSchedule<Metratech_com_UDRCTieredRateEntry, Metratech_com_UDRCTieredDefaultRateEntry>
+            {
+                EffectiveDate = new ProdCatTimeSpan
+                {
+                    StartDate = DateTime.Parse("1/1/2000"),
+                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
+                    EndDate = DateTime.Parse("1/1/2038"),
+                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
+                },
+                RateEntries = rates
+            };
+        }
+
+        #endregion
+
     }
-
-    #endregion
-
-//    [TestMethod]
-//    [TestCategory("FunctionalTest")]
-//    public void QuotingWithIcbPricePositiveTest()
-//    {
-//      #region Prepare
-
-//      // Create account
-//      var accountName = "Account" + DateTime.UtcNow.Millisecond;
-//      var corpAccountHolder = new CorporateAccountFactory(accountName, accountName)
-//        {
-//          CycleType = UsageCycleType.Annually
-//        };
-//      corpAccountHolder.Instantiate();
-//      var accountId = corpAccountHolder.Item._AccountID.GetValueOrDefault();
-
-
-//      // Create/Verify Product Offering Exists
-//      var productOfferingName = "1NewPO" + DateTime.UtcNow;
-//      var pofConfiguration = new ProductOfferingFactoryConfiguration(productOfferingName, productOfferingName)
-//        {
-//          AccountFactory = corpAccountHolder,
-//          AllowIcbPrices = true
-//        };
-//      var productOffering = PrepareProductOfferingForTestCase24(pofConfiguration);
-
-//      #endregion
-
-//      #region Test
-
-//      //Prepare request
-//      var request = new QuoteRequest();
-//      request.Accounts.Add(accountId);
-//      request.ProductOfferings.Add(productOffering.ID);
-//      request.QuoteIdentifier = "MyQuoteId-" + accountName;
-//      request.QuoteDescription = "Quote generated by Automated Test: " + accountName;
-//      request.ReportParameters = new ReportParams
-//        {
-//          PDFReport = QuotingTestScenarios.RunPDFGenerationForAllTestsByDefault
-//        };
-//      request.EffectiveDate = MetraTime.Now;
-//      request.EffectiveEndDate = MetraTime.Now;
-//      request.Localization = "en-US";
-//      request.SubscriptionParameters.UDRCValues = SharedTestCode.GetUDRCInstanceValuesSetToMiddleValues(productOffering);
-
-//      #region Initialize ICB prices
-
-//      var quoteId = DateTime.Now.Millisecond;
-//      request.IcbPrices = new List<QuoteIndividualPrice>
-//        {
-//          new QuoteIndividualPrice
-//            {
-//              QuoteId = quoteId,
-//              ParameterTableId = pofConfiguration.PriceableItemsAndParameterTableForRc.Item2,
-//              PriceableItemInstanceId = pofConfiguration.PriceableItemsAndParameterTableForRc.Item1,
-//              ProductOfferingId = productOffering.ID,
-//              RateSchedules = new List<BaseRateSchedule> {GetFlatRcRateSchedule(66.66m)}
-//            },
-//          new QuoteIndividualPrice
-//            {
-//              QuoteId = quoteId,
-//              ParameterTableId = pofConfiguration.PriceableItemsAndParameterTableForUdrc.Item2,
-//              PriceableItemInstanceId = pofConfiguration.PriceableItemsAndParameterTableForUdrc.Item1,
-//              ProductOfferingId = productOffering.ID,
-//              RateSchedules = new List<BaseRateSchedule> { GetTaperedUdrcRateSchedule(new Dictionary<decimal, decimal>
-//                  {
-//                    { 60, 16.6m },
-//                    { 90, 13m}
-//                  })}
-//            },
-//          new QuoteIndividualPrice
-//            {
-//              QuoteId = quoteId,
-//              ParameterTableId = pofConfiguration.PriceableItemsAndParameterTableForNonRc.Item2,
-//              PriceableItemInstanceId = pofConfiguration.PriceableItemsAndParameterTableForNonRc.Item1,
-//              ProductOfferingId = productOffering.ID,
-//              RateSchedules = new List<BaseRateSchedule> { GetNonRcRateSchedule(77.77m)}
-//            }
-//        };
-
-//      #endregion
-
-//      QuoteResponse response;
-//      var qServive = new QuotingServiceClient();
-//      if (qServive.ClientCredentials != null)
-//      {
-//        qServive.ClientCredentials.UserName.UserName = "su";
-//        qServive.ClientCredentials.UserName.Password = "su123";
-//      }
-
-//      qServive.CreateQuote(request, out response);
-
-//      Assert.IsNotNull(response);
-//      Assert.AreEqual(QuoteStatus.Complete, 
-//        response.Status, string.Format(CultureInfo.CurrentCulture, "Failed message: {0}", response.FailedMessage)); 
-
-//      #endregion
-//    }
-
-//    #region Helpers
-
-//    private static IMTProductOffering PrepareProductOfferingForTestCase24(ProductOfferingFactoryConfiguration configuration)
-//    {
-//      var productOfferingFactory = new ProductOfferingFactory();
-//      productOfferingFactory.Initialize(configuration.Name, configuration.UniqueIdentifier);
-
-//      //Create priceableitems
-//      var annualCycle = BaseSubscriptionService.CastCycle(new Cycle
-//        {
-//          CycleType = UsageCycleType.Annually,
-//          StartDay = 1,
-//          StartMonth = MonthOfTheYear.January
-//        });
-
-//      var flatRecurringCharge = CreateFlatRateRecurringCharge(productOfferingFactory, false, true, annualCycle);
-//      var unitDependentRecurringCharge = CreateUnitDependentRecurringCharge(productOfferingFactory, false, true, annualCycle, 0, 100);
-//      var nonRecurringCharge = CreateNonRecurringCharge(productOfferingFactory);
-//      var charges = new List<IMTPriceableItem> { flatRecurringCharge, unitDependentRecurringCharge, nonRecurringCharge };
-      
-//      //Create Product Offering
-//      productOfferingFactory.Item = CreateProductOffering(productOfferingFactory, charges, SystemCurrencies.USD.ToString());
-//      var productOffering = productOfferingFactory.Item;
-
-//      //Add rate schedules and rates
-//      flatRecurringCharge = productOffering.GetPriceableItemByName(flatRecurringCharge.Name);
-//      nonRecurringCharge = productOffering.GetPriceableItemByName(nonRecurringCharge.Name);
-//      unitDependentRecurringCharge = productOffering.GetPriceableItemByName(unitDependentRecurringCharge.Name);
-
-//      var parameterTableFlatRc = productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName("metratech.com/flatrecurringcharge");
-//      var parameterTableNonRc = productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName("metratech.com/nonrecurringcharge");
-//      var parameterTableUdrc = productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName("metratech.com/udrctapered");
-
-//      configuration.PriceableItemsAndParameterTableForRc = new Tuple<int, int>(flatRecurringCharge.ID, parameterTableFlatRc.ID);
-//      configuration.PriceableItemsAndParameterTableForNonRc = new Tuple<int, int>(nonRecurringCharge.ID, parameterTableNonRc.ID);
-//      configuration.PriceableItemsAndParameterTableForUdrc = new Tuple<int, int>(unitDependentRecurringCharge.ID, parameterTableUdrc.ID);
-
-//      var client = new PriceListServiceClient();
-//      if (client.ClientCredentials != null)
-//      {
-//        client.ClientCredentials.UserName.UserName = "su";
-//        client.ClientCredentials.UserName.Password = "su123";
-//      }
-
-//      client.SaveRateScheduleForProductOffering(
-//        new PCIdentifier(productOffering.ID),
-//        new PCIdentifier(flatRecurringCharge.ID),
-//        new PCIdentifier(parameterTableFlatRc.ID),
-//        new List<BaseRateSchedule> { GetFlatRcRateSchedule(11.11m) });
-//      client.SaveRateScheduleForProductOffering(
-//        new PCIdentifier(productOffering.ID),
-//        new PCIdentifier(nonRecurringCharge.ID),
-//        new PCIdentifier(parameterTableNonRc.ID),
-//        new List<BaseRateSchedule> { GetNonRcRateSchedule(22.22m) });
-//      client.SaveRateScheduleForProductOffering(
-//        new PCIdentifier(productOffering.ID),
-//        new PCIdentifier(unitDependentRecurringCharge.ID),
-//        new PCIdentifier(parameterTableUdrc.ID),
-//        new List<BaseRateSchedule> { GetTaperedUdrcRateSchedule(new Dictionary<decimal, decimal> { {50, 15}, { 100, 10 } }) });
-
-//      if (configuration.AllowIcbPrices)
-//      {
-//        PriceListMapping plMappingForRc, plMappingForNonRc, plMappingForUdrc;
-        
-//        client.GetPriceListMappingForProductOffering(
-//          new PCIdentifier(productOffering.ID), 
-//          new PCIdentifier(flatRecurringCharge.ID),
-//          new PCIdentifier(parameterTableFlatRc.ID),
-//          out plMappingForRc);
-//        plMappingForRc.CanICB = true;
-//        client.SavePriceListMappingForProductOffering
-//          (new PCIdentifier(productOffering.ID), 
-//          new PCIdentifier(flatRecurringCharge.ID),
-//          new PCIdentifier(parameterTableFlatRc.ID),
-//          ref plMappingForRc);
-
-//        client.GetPriceListMappingForProductOffering(
-//          new PCIdentifier(productOffering.ID),
-//          new PCIdentifier(nonRecurringCharge.ID),
-//          new PCIdentifier(parameterTableNonRc.ID),
-//          out plMappingForNonRc);
-//        plMappingForNonRc.CanICB = true;
-//        client.SavePriceListMappingForProductOffering
-//          (new PCIdentifier(productOffering.ID),
-//          new PCIdentifier(nonRecurringCharge.ID),
-//          new PCIdentifier(parameterTableNonRc.ID),
-//          ref plMappingForNonRc);
-
-//        client.GetPriceListMappingForProductOffering(
-//          new PCIdentifier(productOffering.ID),
-//          new PCIdentifier(unitDependentRecurringCharge.ID),
-//          new PCIdentifier(parameterTableUdrc.ID),
-//          out plMappingForUdrc);
-//        plMappingForUdrc.CanICB = true;
-//        client.SavePriceListMappingForProductOffering
-//          (new PCIdentifier(productOffering.ID),
-//          new PCIdentifier(unitDependentRecurringCharge.ID),
-//          new PCIdentifier(parameterTableUdrc.ID),
-//          ref plMappingForUdrc);
-//      }
-
-//      return productOffering;
-//    }
-//    private static void SetAllowIcb(IMTPriceableItem pi, int parameterTableId, int nonSharedPriceListId)
-//    {
-//      pi.SetPriceListMapping(parameterTableId, nonSharedPriceListId);
-//      pi.Save();
-//      var plMapping = pi.GetPriceListMapping(parameterTableId);
-//      if (plMapping != null && !plMapping.CanICB)
-//      {
-//        plMapping.CanICB = true;
-//        plMapping.Save();
-//      }
-//    }
-
-//    private static IMTPriceableItem CreateFlatRateRecurringCharge(ProductOfferingFactory productOfferingFactory, bool chargePerParticipant, bool isAdvance, IMTPCCycle cycle)
-//    {
-//      var priceableItemTypeFrRc = productOfferingFactory.ProductCatalog.GetPriceableItemTypeByName("Flat Rate Recurring Charge");
-//      var name = chargePerParticipant ? "FRRC_CPP" : "FRRC_CPS";
-//      var fullName = name + Guid.NewGuid();
-//      var charge = (IMTRecurringCharge)priceableItemTypeFrRc.CreateTemplate(false);
-//      charge.Name = fullName;
-//      charge.DisplayName = fullName;
-//      charge.Description = fullName;
-//      charge.ChargeInAdvance = isAdvance;
-//      charge.ProrateOnActivation = true;
-//      charge.ProrateOnDeactivation = true;
-//      charge.ProrateOnRateChange = true;
-//      charge.FixedProrationLength = false;
-//      charge.ChargePerParticipant = chargePerParticipant;
-//      CopyCycleProperties(cycle, charge.Cycle);
-//      charge.Cycle.EndDayOfMonth = 31;
-//      charge.Save();
-//      return charge;
-//    }
-
-//    private static void CopyCycleProperties(IMTPCCycle sourceCycle, IMTPCCycle destinationCycle)
-//    {
-//      destinationCycle.CycleTypeID = sourceCycle.CycleTypeID;
-//      destinationCycle.StartDay = sourceCycle.StartDay;
-//      destinationCycle.StartMonth = sourceCycle.StartMonth;
-//      destinationCycle.StartYear = sourceCycle.StartYear;
-//    }
-
-//    private static IMTPriceableItem CreateUnitDependentRecurringCharge(
-//      ProductOfferingFactory productOfferingFactory,
-//      bool chargePerParticipant,
-//      bool isAdvance,
-//      IMTPCCycle cycle,
-//      decimal minValue,
-//      decimal maxValue)
-//    {
-//      var priceableItemTypeUdrc = productOfferingFactory.ProductCatalog.GetPriceableItemTypeByName("Unit Dependent Recurring Charge");
-//      var name = chargePerParticipant
-//        ? string.Format("UDRC_CPP_{0}", Guid.NewGuid())
-//        : string.Format("UDRC_CPS_{0}", Guid.NewGuid());
-
-//      var charge = (IMTRecurringCharge)priceableItemTypeUdrc.CreateTemplate(false);
-//      charge.Name = name;
-//      charge.DisplayName = name;
-////      ((Localization.LocalizedEntity)charge.DisplayNames).SetMapping("DE", "{DE} " + charge.DisplayName);
-//      charge.Description = name;
-//      charge.ChargeInAdvance = isAdvance;
-//      charge.ProrateOnActivation = true;
-//      charge.ProrateOnDeactivation = true;
-//      charge.ProrateOnRateChange = true;
-//      charge.FixedProrationLength = false;
-//      charge.ChargePerParticipant = chargePerParticipant;
-//      charge.UnitName = string.Format("UNIT_{0}", Guid.NewGuid());
-//      charge.RatingType = MTUDRCRatingType.UDRCRATING_TYPE_TAPERED;
-//      charge.IntegerUnitValue = true;
-//      charge.MinUnitValue = minValue;
-//      charge.MaxUnitValue = maxValue;
-
-//      CopyCycleProperties(cycle, charge.Cycle);
-//      charge.Cycle.EndDayOfMonth = 31;
-//      charge.Save();
-
-//      return charge;
-//    }
-
-//    private static IMTPriceableItem CreateNonRecurringCharge(ProductOfferingFactory productOfferingFactory)
-//    {
-//      var priceableItemTypeNrc = productOfferingFactory.ProductCatalog.GetPriceableItemTypeByName("Flat Rate Non Recurring Charge");
-//      var name = "NonRecurringCharge" + Guid.NewGuid();
-//      var charge = (IMTNonRecurringCharge)priceableItemTypeNrc.CreateTemplate(false);
-//      charge.Name = name;
-//      charge.DisplayName = name;
-////      ((Localization.LocalizedEntity)charge.DisplayNames).SetMapping("DE", "{DE} " + charge.DisplayName);
-//      charge.Description = name;
-//      charge.NonRecurringChargeEvent = MTNonRecurringEventType.NREVENT_TYPE_SUBSCRIBE;
-//      charge.Save();
-//      return charge;
-//    }
-
-//    private static IMTProductOffering CreateProductOffering(ProductOfferingFactory productOfferingFactory, IEnumerable<IMTPriceableItem> priceableItems, string currency)
-//    {
-//      var productOffering = productOfferingFactory.ProductCatalog.CreateProductOffering();
-//      productOffering.Name = string.Format("{0}_{1}_{2}", DateTime.UtcNow, "ProductOffering", Guid.NewGuid());
-//      productOffering.DisplayName = productOffering.Name;
-////      ((Localization.LocalizedEntity)productOffering.DisplayNames).SetMapping("DE", "{DE} " + productOffering.DisplayName);
-
-//      productOffering.Description = productOffering.Name;
-//      productOffering.SelfSubscribable = true;
-//      productOffering.SelfUnsubscribable = false;
-//      productOffering.EffectiveDate.StartDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE;
-//      productOffering.EffectiveDate.StartDate = MetraTime.Now.AddDays(-1);
-//      productOffering.EffectiveDate.EndDateType = MTPCDateType.PCDATE_TYPE_NULL;
-//      productOffering.EffectiveDate.SetEndDateNull();
-
-//      foreach (var priceableItem in priceableItems)
-//        productOffering.AddPriceableItem((MTPriceableItem) priceableItem);
-
-//      productOffering.AvailabilityDate.StartDate = MetraTime.Now.AddDays(-1);
-//      productOffering.AvailabilityDate.SetEndDateNull();
-//      productOffering.SetCurrencyCode(currency);
-//      productOffering.Save();
-
-//      return productOffering;
-//    }
-
-//    private static BaseRateSchedule GetFlatRcRateSchedule(decimal price)
-//    {
-//      return new RateSchedule<Metratech_com_FlatRecurringChargeRateEntry, Metratech_com_FlatRecurringChargeDefaultRateEntry>
-//        {
-//          EffectiveDate = new ProdCatTimeSpan
-//            {
-//              StartDate = MetraTime.Now,
-//              StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
-//              EndDate = MetraTime.Now.AddHours(1),
-//              EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
-//            },
-//          RateEntries = new List<Metratech_com_FlatRecurringChargeRateEntry>
-//           {
-//              new Metratech_com_FlatRecurringChargeRateEntry { RCAmount = price }
-//           }
-//        };
-//    }
-//    private static BaseRateSchedule GetNonRcRateSchedule(decimal price)
-//    {
-//      return new RateSchedule<Metratech_com_NonRecurringChargeRateEntry, Metratech_com_NonRecurringChargeDefaultRateEntry>
-//      {
-//        EffectiveDate = new ProdCatTimeSpan
-//        {
-//          StartDate = MetraTime.Now,
-//          StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
-//          EndDate = MetraTime.Now.AddHours(1),
-//          EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
-//        },
-//        RateEntries = new List<Metratech_com_NonRecurringChargeRateEntry>
-//           {
-//              new Metratech_com_NonRecurringChargeRateEntry { NRCAmount = price }
-//           }
-//      };
-//    }
-//    private static BaseRateSchedule GetTaperedUdrcRateSchedule(Dictionary<decimal, decimal> unitValuesAndAmounts)
-//    {
-//      var rates = new List<Metratech_com_UDRCTaperedRateEntry>();
-//      var i = 0;
-//      foreach (var val in unitValuesAndAmounts)
-//      {
-//        rates.Add(new Metratech_com_UDRCTaperedRateEntry
-//          {
-//            Index = i,
-//            UnitValue = val.Key,
-//            UnitAmount = val.Value
-//          });
-//        i++;
-//      }
-
-//      return new RateSchedule<Metratech_com_UDRCTaperedRateEntry, Metratech_com_UDRCTaperedDefaultRateEntry>
-//      {
-//        EffectiveDate = new ProdCatTimeSpan
-//        {
-//          StartDate = MetraTime.Now,
-//          StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
-//          EndDate = MetraTime.Now.AddHours(1),
-//          EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
-//        },
-//        RateEntries = rates
-//      };
-//    }
-
-//    public static IMTRateSchedule CreateRateScheduleWithRulesFromFile(IMTProductCatalog productCatalog, IMTParamTableDefinition paramTable, int idPriceList, IMTPriceableItem pi, string xmlRuleSetFilePath)
-//    {
-//      //Create rate schedule and add rates
-//      var sched = CreateRateSchedule(productCatalog, paramTable, idPriceList, pi);
-//      sched.RuleSet.Read(xmlRuleSetFilePath);
-//      var ruleSetTypeName = Microsoft.VisualBasic.Information.TypeName(sched.RuleSet);
-//      sched.SaveWithRules();
-//      return sched;
-//    }
-
-//    public static IMTRateSchedule CreateRateSchedule(IMTProductCatalog productCatalog, IMTParamTableDefinition paramTable, int idPriceList, IMTPriceableItem pi)
-//    {
-//      //Create rate schedule and add rates
-//      // Put rates onto a shared pricelist
-//      IMTRateSchedule sched = paramTable.CreateRateSchedule(idPriceList, pi.ID);
-//      sched.ParameterTableID = paramTable.ID;
-//      sched.Description = "Unit Test Rates";
-//      sched.EffectiveDate.StartDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE;
-//      sched.EffectiveDate.StartDate = DateTime.Parse("1/1/2000");
-//      sched.EffectiveDate.EndDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE;
-//      sched.EffectiveDate.EndDate = DateTime.Parse("1/1/2038");
-//      sched.Save();
-
-//      return sched;
-//    }
-
-//    #endregion
-  }
 }

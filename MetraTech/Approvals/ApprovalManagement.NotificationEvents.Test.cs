@@ -26,10 +26,18 @@ namespace MetraTech.Approvals.Test
 
     [TestMethod]
     [TestCategory("SubmitApproveChangeNotification")]
-    public void SubmitUpdateApproveChangeScenario()
+    public void SubmitApproveChangeNotification()
     {
       string unitTestName = "SubmitUpdateApproveChangeScenario";
-      ApprovalManagementImplementation approvalFramework = new ApprovalManagementImplementation();
+
+      //Turn on notifications in our test configuration
+      ApprovalsConfiguration approvalsConfig = ApprovalsConfigurationManager.Load();
+      approvalsConfig["SampleUpdate"].Enabled = true; //SampleUpdate is usually enabled but best to make it explicit
+      approvalsConfig["SampleUpdate"].NotifyOnSubmit.Enabled = true;
+      approvalsConfig["SampleUpdate"].NotifyOnApproved.Enabled = true;
+
+      ApprovalManagementImplementation approvalFramework = new ApprovalManagementImplementation(approvalsConfig);
+
       approvalFramework.SessionContext = SharedTestCodeApprovals.LoginAsUserWhoCanSubmitChanges();
 
       Change myNewChange = new Change();

@@ -53,7 +53,7 @@ namespace MetraTech.Domain.Test
             return notificationConfiguration;
         }
 
-        public static NotificationEndpoint CreateTestNotificationEndpoint()
+        public static NotificationEndpoint CreateTestNotificationEndpoint(string externalId = null)
         {
             var authenticationConfiguration = new NetworkAuthenticationConfiguration
             {
@@ -72,7 +72,7 @@ namespace MetraTech.Domain.Test
                 EntityId = Guid.NewGuid(),
                 CreationDate = DateTime.Now,
                 ModifiedDate = DateTime.Now,
-                ExternalId = "ExternalId " + Guid.NewGuid(),
+                ExternalId = (string.IsNullOrEmpty(externalId) ? "ExternalId " + Guid.NewGuid() : externalId),
                 Active = true,
                 AuthenticationConfiguration = authenticationConfiguration,
                 EndpointConfiguration = endpointConfiguration

@@ -20,47 +20,58 @@ namespace MetraTech.Approvals
   {
     const string APPROVALSMANAGEMENT_QUERY_FOLDER = "Queries\\ApprovalFramework";
 
-    private static Logger mLogger = new Logger("[ApprovalLogTestNotificationEvents]");
+    private static Logger mLogger = new Logger("[ApprovalNotificationEvents]");
 
     public void ProcessChangeApprovedNotificationEvent(Change change, string comment)
     {
       //Notify the submitter of the change that it has now been approved/made to the system
       //If they were waiting for it before taking further action, they know they can proceed
 
-      var changeDetailsHelper = new ChangeDetailsHelper(change.ChangeDetailsBlob);
-
-      var approvalEvent = new ChangeNotificationEvent
+      try
       {
-        ChangeId = change.UniqueItemId,
-        Comment = comment,
-        ApproverDisplayName = change.ApproverDisplayName,
-        //change.ApproverId, //TODO: load some useful account information instead of just the id
-        ChangeType = change.ChangeType,
-        ItemDisplayName = change.ItemDisplayName
-      };
+        var changeDetailsHelper = new ChangeDetailsHelper(change.ChangeDetailsBlob);
 
-      string submitterEmail = null;
-      using (IMTConnection conn = ConnectionManager.CreateConnection(APPROVALSMANAGEMENT_QUERY_FOLDER))
-      using (IMTFilterSortStatement stmt = conn.CreateFilterSortStatement(APPROVALSMANAGEMENT_QUERY_FOLDER, "__GET_ACCOUNT_EMAIL__"))
-      {
-        stmt.AddParam("%%id_acc%%", change.SubmitterId);
-
-        using (IMTDataReader rdr = stmt.ExecuteReader())
-        {
-          while (rdr.Read())
+        var approvalEvent = new ChangeNotificationEvent
           {
-            submitterEmail = rdr.GetString(0);
+            ChangeId = change.UniqueItemId,
+            Comment = comment,
+            ApproverDisplayName = change.ApproverDisplayName,
+            //change.ApproverId, //TODO: load some useful account information instead of just the id
+            ChangeType = change.ChangeType,
+            ItemDisplayName = change.ItemDisplayName
+          };
+
+        string submitterEmail = null;
+        using (IMTConnection conn = ConnectionManager.CreateConnection(APPROVALSMANAGEMENT_QUERY_FOLDER))
+        using (
+          IMTFilterSortStatement stmt = conn.CreateFilterSortStatement(APPROVALSMANAGEMENT_QUERY_FOLDER,
+                                                                       "__GET_ACCOUNT_EMAIL__"))
+        {
+          stmt.AddParam("%%id_acc%%", change.SubmitterId);
+
+          using (IMTDataReader rdr = stmt.ExecuteReader())
+          {
+            while (rdr.Read())
+            {
+              submitterEmail = rdr.GetString(0);
+            }
           }
         }
+
+        approvalEvent.SubmitterEmail = submitterEmail;
+
+        using (var connection = ConnectionBase.GetDbConnection(new ConnectionInfo("NetMeter"), false))
+        using (var context = new MetraNetContext(connection))
+        {
+          NotificationProcessor.ProcessEvent(context, approvalEvent);
+        }
       }
-
-      approvalEvent.SubmitterEmail = submitterEmail;
-
-      using (var connection = ConnectionBase.GetDbConnection(new ConnectionInfo("NetMeter"), false))
-      using (var context = new MetraNetContext(connection))
+      catch (Exception ex)
       {
-        NotificationProcessor.ProcessEvent(context, approvalEvent);
+        mLogger.LogException("Unable to ProcessChangeApprovedNotificationEvent", ex);
+        //Swallow the notification issue as approvals shouldn't return an error
       }
+
       /*
         //Testing
         string sampleMessage = string.Format("The {2} change you submitted for {3} (Id: {4}) was approved by {0} ({1})", change.ApproverDisplayName, change.ApproverId, change.ChangeType.ToString(), change.ItemDisplayName, change.UniqueItemId);
@@ -83,12 +94,29 @@ namespace MetraTech.Approvals
     public void ProcessChangeDeniedNotificationEvent(Change change, string comment)
     {
       //Similar to approved message, may want to generate same way and let the Notification framework set the appropriate message
+      try
+      {
+
+      }
+      catch (Exception ex)
+      {
+        mLogger.LogException("Unable to ProcessChangeRequiresApprovalNotificationEvent", ex);
+        //Swallow the notification issue as approvals shouldn't return an error
+      }
     }
 
     public void ProcessChangeRequiresApprovalNotificationEvent(Change change)
     {
       //Notify potential approvers that there is a new change waiting for their approval similar to on screen notification
+      try
+      {
 
+      }
+      catch (Exception ex)
+      {
+        mLogger.LogException("Unable to ProcessChangeRequiresApprovalNotificationEvent", ex);
+        //Swallow the notification issue as approvals shouldn't return an error
+      }
     }
 
   }

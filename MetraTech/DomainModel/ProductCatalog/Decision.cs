@@ -1522,13 +1522,16 @@ namespace MetraTech.DomainModel.ProductCatalog
     }
     #endregion
 
-      #region PvToAmountChainMappingValue
+    #region PvToAmountChainMappingValue
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
     private bool isPvToAmountChainMappingValueDirty = false;
-    private int? m_PvToAmountChainMappingValue;
-    [MTDataMember(Description = "Value of the amount.  This is null is we will use a parameter table", Length = 40)]
+    private string m_PvToAmountChainMappingValue;
+    /// <summary>
+    /// The PvToAmountChainMapping associates an amount chain with a product view.
+    /// </summary>
+    [MTDataMember(Description = "The PvToAmountChainMappingValue associates an amount chain with a product view. This is null if we will use a parameter table column instead to configure the PvToAmountChainMapping.", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public int? PvToAmountChainMappingValue
+    public string PvToAmountChainMappingValue
     {
       get { return m_PvToAmountChainMappingValue; }
       set
@@ -1544,11 +1547,14 @@ namespace MetraTech.DomainModel.ProductCatalog
     }
     #endregion
 
-      #region PvToAmountChainMappingColumnName
+    #region PvToAmountChainMappingColumnName
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
     private bool isPvToAmountChainMappingColumnNameDirty = false;
     private string m_PvToAmountChainMappingColumnName;
-    [MTDataMember(Description = "parameter table to use for this amount ", Length = 40)]
+    /// <summary>
+    /// The PvToAmountChainMapping associates an amount chain with a product view.
+    /// </summary>
+    [MTDataMember(Description = "Parameter table column to configure for the PvToAmountChainMapping. The PvToAmountChainMappingValue associates an amount chain with a product view.", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
     public string PvToAmountChainMappingColumnName
     {

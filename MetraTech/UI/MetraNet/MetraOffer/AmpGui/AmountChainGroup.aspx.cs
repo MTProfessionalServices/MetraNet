@@ -90,7 +90,12 @@ public partial class AmpAmountChainGroupPage : AmpWizardBasePage
                 if (decisionInstance.PvToAmountChainMappingValue != null)
                 {
                     hiddenAmtChainGroupName.Value = decisionInstance.PvToAmountChainMappingValue;
-
+                    FromParamTableCheckBox.Checked = false;
+                    ddAmountChainGroupFromParamTableSource.Enabled = false;
+                    if (AmpAction == "View")
+                    {
+                        divAmountChainGroupFromParamTableDropdownSource.Attributes.Add("style", "display: none;");
+                    }
                     // Can't do anything now about selecting the radio button that
                     // corresponds to the decision's current amount chain group.
                     // (Must wait until the grid control is loaded.
@@ -100,6 +105,10 @@ public partial class AmpAmountChainGroupPage : AmpWizardBasePage
                 else
                 {
                     hiddenAmtChainGroupName.Value = decisionInstance.PvToAmountChainMappingColumnName;
+                    FromParamTableCheckBox.Checked = true;
+                    ddAmountChainGroupFromParamTableSource.Enabled = true;
+                    ddAmountChainGroupFromParamTableSource.SelectedValue = decisionInstance.PvToAmountChainMappingColumnName;
+                    divAmountChainGroupGrid.Attributes.Add("style", "display: none;");
                 }
 
                 // Clean up client.
@@ -182,7 +191,7 @@ public partial class AmpAmountChainGroupPage : AmpWizardBasePage
             else if (FromParamTableCheckBox.Checked)
             {
                 CurrentDecisionInstance.PvToAmountChainMappingValue = null;
-                CurrentDecisionInstance.PvToAmountChainMappingColumnName = hiddenAmtChainGroupName.Value;
+                CurrentDecisionInstance.PvToAmountChainMappingColumnName = ddAmountChainGroupFromParamTableSource.SelectedValue;
             }
             ampSvcStoreDecisionClient.SaveDecision(CurrentDecisionInstance);
           logger.LogDebug(String.Format(GetGlobalResourceObject("AmpWizard", "TEXT_SUCCESS_SAVE_DECISION").ToString(), AmpDecisionName));

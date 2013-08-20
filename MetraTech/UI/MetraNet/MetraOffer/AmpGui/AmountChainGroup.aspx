@@ -14,7 +14,7 @@
       Text="An &lt;i&gt;Amount Chain&lt;/i&gt; is a collection of usage charge fields that are related to the charge amount.  Some fields are used to determine the amount; some fields are derived from the amount.  An &lt;i&gt;Amount Chain Group&lt;/i&gt; is a set of Amount Chains that are associated with a Decision Type."/>
     <br />
     <div style="padding-top:5px;">
-      <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_MORE_INFO, TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP, 450, 100)" id="moreLink" ><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:AmpWizard,TEXT_MORE %>" /></span>
+      <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_MORE_INFO, TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP, 450, 125)" id="moreLink" ><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:AmpWizard,TEXT_MORE %>" /></span>
     </div>
     <br />
 

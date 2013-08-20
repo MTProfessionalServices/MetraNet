@@ -3514,7 +3514,7 @@ namespace MetraTech.Core.Services
                 }
                 else if (attributeValue != null)
                 {
-                    decision.PvToAmountChainMappingValue = Int32.Parse(attributeValue);
+                    decision.PvToAmountChainMappingValue = attributeValue;
                 }
                 else
                 {
@@ -3794,7 +3794,6 @@ namespace MetraTech.Core.Services
                 else
                 {
                     // attribute is a column name
-                    decision.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_GET_FROM_PARAMETER_TABLE;
                     decision.CycleUnitTypeColumnName = attributeColumnName;
                 }
             }
@@ -4057,7 +4056,7 @@ namespace MetraTech.Core.Services
                 decision.CycleUnitsOffsetValue.HasValue ? decision.CycleUnitsOffsetValue.ToString() : null,
                 decision.CycleUnitsOffsetColumnName, decision.ParameterTableName);
             StoreAttributeInDb(decision.UniqueId, "Amount Chain Group",
-                decision.PvToAmountChainMappingValue.HasValue ? decision.PvToAmountChainMappingValue.ToString() : null,
+                decision.PvToAmountChainMappingValue,
                 decision.PvToAmountChainMappingColumnName, decision.ParameterTableName);
             StoreAttributeInDb(decision.UniqueId, "Generated Charge",
                 decision.GeneratedCharge, null, decision.ParameterTableName);
@@ -4209,9 +4208,6 @@ namespace MetraTech.Core.Services
 
                 case Decision.CycleUnitTypeEnum.CYCLE_ANNUALLY:
                   StoreAttributeInDb(decision.UniqueId, "Cycle Unit Type", "annually", null, decision.ParameterTableName);
-                  break;
-                case Decision.CycleUnitTypeEnum.CYCLE_GET_FROM_PARAMETER_TABLE:
-                  StoreAttributeInDb(decision.UniqueId, "Cycle Unit Type", null, decision.CycleUnitTypeColumnName, decision.ParameterTableName);
                   break;
               }
             }

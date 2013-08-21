@@ -104,7 +104,11 @@
         else
         {
           // Pass empty string to the code-behind.
-          Ext.get("<%=hiddenAmtChainGroupName.ClientID%>").dom.value = document.getElementById('<%=ddAmountChainGroupFromParamTableSource.ClientID %>').value;
+            var cb = Ext.getCmp('<%=FromParamTableCheckBox.ClientID %>');
+         if (cb.checked == true)
+                Ext.get("<%=hiddenAmtChainGroupName.ClientID%>").dom.value = document.getElementById('<%=ddAmountChainGroupFromParamTableSource.ClientID %>').value;
+            else 
+                Ext.get("<%=hiddenAmtChainGroupName.ClientID%>").dom.value = '';
         }
       }
     }

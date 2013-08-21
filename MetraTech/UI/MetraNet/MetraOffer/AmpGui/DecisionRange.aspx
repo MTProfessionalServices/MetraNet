@@ -58,9 +58,10 @@
                        &nbsp;</td>
                 <td valign="top" style="width: 90%">
                     <div style="line-height: 20px; padding-top: 10px; padding-left: 10px">
-                                <div style="float:left"><asp:CheckBox  runat="server" CssClass="checkbox" Text="Restart at end" meta:resourcekey="lblDecisionRangeRestart" ID="CB_DecisionRangeRestart" 
-                                  CellSpacing="2" >
-                                </asp:CheckBox>
+                                <div style="float:left">
+                                  <asp:Label ID="Label2"  runat="server" Font-Bold="False"
+                                    ForeColor="DarkBlue" Font-Size="9pt" Text="<%$ Resources: lblDecisionRangeRestart.Text%>"  />
+                                <MT:MTDropDown ID="ddDecisionRangeRestart" runat="server" HideLabel="True" Label="Prorate at start?"  ControlWidth="160" ListWidth="200" AllowBlank="False" Editable="True"/>
                                 </div>
                                    <div style="fit-position: right;" align="left">
                                        <span style="color: blue; text-decoration: underline; cursor: pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_RESTART_RANGE, TEXT_AMPWIZARD_HELP_DECISION_RANGE, 450, 70)">
@@ -92,19 +93,19 @@
                             <td style="width: 2%; vertical-align: top; padding-top:10px" align="center">
                                     &nbsp;</td>
                                 <td valign="top" style="width: 90%">
-                                <asp:CheckBox runat="server" Text="Activation" CssClass="checkbox" 
-                                        meta:resourcekey="lblProrateStart" ID="CB_ProrateRangeStart" 
-                                  CellSpacing="2">
-                                </asp:CheckBox>
+                                    <asp:Label ID="lblUnitOfTime"  runat="server" Font-Bold="False"
+          ForeColor="DarkBlue" Font-Size="9pt" Text="<%$ Resources: lblProrateStart.Text%>"  />
+                                <MT:MTDropDown ID="ddProrateStart" runat="server" HideLabel="True" Label="Prorate at start?"  ControlWidth="160" ListWidth="200" AllowBlank="False" Editable="True"/>
                                 </td>
                         </tr>
                         <tr>
                         <td style="width: 2%; vertical-align: top; padding-top:10px" align="center">
                             &nbsp;</td>
                             <td valign="top" style="width: 90%">
-                            <asp:CheckBox runat="server" Text="Termination" meta:resourcekey="lblProrateEnd" ID="CB_ProrateRangeEnd" 
-                                  CellSpacing="2">
-                            </asp:CheckBox>
+                            <asp:Label ID="Label1"  runat="server" Font-Bold="False"
+          ForeColor="DarkBlue" Font-Size="9pt" Text="<%$ Resources: lblProrateEnd.Text%>"  />
+                              <MT:MTDropDown ID="ddProrateEnd" runat="server" HideLabel="True" Label="Prorate at end?"  ControlWidth="160" ListWidth="200" AllowBlank="False" Editable="True"/>
+                                
                             </td>
                         </tr>
         

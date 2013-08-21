@@ -125,7 +125,14 @@
         // Define an event handler for the grid control's Load event,
         // which will select the radio button that corresponds to the 
         // decision type's current amount chain group.
-        dataStore_<%= AmountChainGroupGrid.ClientID %>.on(
+         var dd = Ext.getCmp('<%=ddAmountChainGroupFromParamTableSource.ClientID %>');
+         var cb = Ext.getCmp('<%=FromParamTableCheckBox.ClientID %>');
+          if (cb.checked != true) {
+              dd.disable();
+             document.getElementById('<%=divAmountChainGroupGrid.ClientID %>').style.display = "block";
+          }
+
+          dataStore_<%= AmountChainGroupGrid.ClientID %>.on(
           "load",
           function(store, records, options)
           {

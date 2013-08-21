@@ -555,6 +555,9 @@
   <data name="TEXT_NO" xml:space="preserve">
     <value>No</value>
   </data>
+  <data name="TEXT_FROM_PARAMETER_TABLE" xml:space="preserve">
+    <value>From parameter table</value>
+  </data>
   <data name="AvailableSharedProperties_cshtml_Add_Category" xml:space="preserve">
     <value>add category</value>
   </data>

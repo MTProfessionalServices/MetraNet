@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Approvals.Test", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Core.Services.UnitTests", "U:\MetraTech\Core\Services\MetraTech.Core.Services.UnitTests.csproj", "{24DB3503-1249-4E5C-9824-4DDF1AE4E443}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Domain", "..\MetraTech.Domain\MetraTech.Domain.csproj", "{9C9C685C-CBF8-428F-8C34-98702FF13726}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -282,6 +284,26 @@ Global
 		{24DB3503-1249-4E5C-9824-4DDF1AE4E443}.Release|Mixed Platforms.Build.0 = Release|x86
 		{24DB3503-1249-4E5C-9824-4DDF1AE4E443}.Release|x86.ActiveCfg = Release|x86
 		{24DB3503-1249-4E5C-9824-4DDF1AE4E443}.Release|x86.Build.0 = Release|x86
+		{9C9C685C-CBF8-428F-8C34-98702FF13726}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{9C9C685C-CBF8-428F-8C34-98702FF13726}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C9C685C-CBF8-428F-8C34-98702FF13726}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C9C685C-CBF8-428F-8C34-98702FF13726}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9C9C685C-CBF8-428F-8C34-98702FF13726}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9C9C685C-CBF8-428F-8C34-98702FF13726}.Debug|x86.ActiveCfg = Debug|x86
+		{9C9C685C-CBF8-428F-8C34-98702FF13726}.Debug|x86.Build.0 = Debug|x86
+		{9C9C685C-CBF8-428F-8C34-98702FF13726}.DebugcoreQA|.NET.ActiveCfg = Debug|Any CPU
+		{9C9C685C-CBF8-428F-8C34-98702FF13726}.DebugcoreQA|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C9C685C-CBF8-428F-8C34-98702FF13726}.DebugcoreQA|Any CPU.Build.0 = Debug|Any CPU
+		{9C9C685C-CBF8-428F-8C34-98702FF13726}.DebugcoreQA|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9C9C685C-CBF8-428F-8C34-98702FF13726}.DebugcoreQA|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9C9C685C-CBF8-428F-8C34-98702FF13726}.DebugcoreQA|x86.ActiveCfg = Debug|Any CPU
+		{9C9C685C-CBF8-428F-8C34-98702FF13726}.Release|.NET.ActiveCfg = Release|Any CPU
+		{9C9C685C-CBF8-428F-8C34-98702FF13726}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C9C685C-CBF8-428F-8C34-98702FF13726}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C9C685C-CBF8-428F-8C34-98702FF13726}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9C9C685C-CBF8-428F-8C34-98702FF13726}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9C9C685C-CBF8-428F-8C34-98702FF13726}.Release|x86.ActiveCfg = Release|x86
+		{9C9C685C-CBF8-428F-8C34-98702FF13726}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -297,6 +319,7 @@ Global
 		{BD540C48-90C7-4929-807A-2FC913948BE8} = {E6977DF2-D1C3-4AB5-8EAC-D56BF76F6EEE}
 		{15E6CE39-F476-4ACD-B73D-BFCAAE218CB2} = {E6977DF2-D1C3-4AB5-8EAC-D56BF76F6EEE}
 		{7D9556DF-CB87-458A-B66B-F5DD5B7C384E} = {E6977DF2-D1C3-4AB5-8EAC-D56BF76F6EEE}
+		{9C9C685C-CBF8-428F-8C34-98702FF13726} = {E6977DF2-D1C3-4AB5-8EAC-D56BF76F6EEE}
 	EndGlobalSection
 	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
 		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}

@@ -63,4 +63,4 @@ SPACE      : [ \t\r\n]+ -> skip;
 
 fragment EscapeSequence : '\\' ('n' | 'r' | 't' | '"' | '\\' | UnicodeEscape);
 fragment UnicodeEscape : 'u' HexDigit HexDigit HexDigit HexDigit;
-fragment HexDigit : ('0'..'9'|'a'..'f'|'A'..'F') ;
+fragment HexDigit : ('0'..'9'|'a'..'f'|'A'..'F');

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using MetraTech.DataAccess;
 using MetraTech.Domain.DataAccess;
 using MetraTech.Domain.Notifications;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-//using MetraTech.TestCommon;
 
 namespace MetraTech.Domain.Test.DataAccess
 {
@@ -32,11 +30,9 @@ namespace MetraTech.Domain.Test.DataAccess
 
             Assert.IsNotNull(notificationEndpointFromDb, "Notification endpoint was not created");
             CompareNotificationEndpoints(notificationEndpoint, notificationEndpointFromDb);
-            
-            
         }
 
-        private void CompareNotificationEndpoints(NotificationEndpoint notificationEndpoint, NotificationEndpoint notificationEndpointFromDb)
+        private static void CompareNotificationEndpoints(NotificationEndpoint notificationEndpoint, NotificationEndpoint notificationEndpointFromDb)
         {
             Comparers.CompareDictionaries(notificationEndpoint.Name, notificationEndpointFromDb.Name, "Name");
             Comparers.CompareDictionaries(notificationEndpoint.Description, notificationEndpointFromDb.Description, "Description");

@@ -70,11 +70,11 @@
     <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="MetraTech.Common, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86" />
+    <Reference Include="MetraTech.Common, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86" />
     <Reference Include="MTProductCatalog.interop, Version=7.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>O:\debug\Bin\MTProductCatalog.interop.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTProductCatalog.interop.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -91,12 +91,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\DatabaseUtils.cs" />
+    <Compile Include="DataAccess\Dynamic.cs" />
     <Compile Include="DataAccess\EntityTypeConfigurations\EntityConfiguration.cs" />
     <Compile Include="DataAccess\EntityTypeConfigurations\NotificationConfigurationConfiguration.cs" />
     <Compile Include="DataAccess\EntityTypeConfigurations\NotificationEndpointConfiguration.cs" />
     <Compile Include="DataAccess\EntityTypeConfigurations\QuoteIndividualPriceConfiguration.cs" />
     <Compile Include="DataAccess\IMetraNetContext.cs" />
     <Compile Include="DataAccess\SerializationHelper.cs" />
+    <Compile Include="Events\ChangeNotificationEvent.cs" />
     <Compile Include="Events\Event.cs" />
     <Compile Include="DataAccess\MetraNetContext.cs" />
     <Compile Include="Expressions\BinaryExpression.cs" />
@@ -211,9 +213,10 @@
     <Antlr4ToolPath>$(ProjectDir)..\..\Thirdparty\antlr\antlr4-csharp-4.0.1-SNAPSHOT-complete.jar</Antlr4ToolPath>
     <Antlr4ToolPath>$(ProjectDir)..\..\Thirdparty\antlr\antlr4-csharp-4.0.1-SNAPSHOT-complete.jar</Antlr4ToolPath>
   </PropertyGroup>
-  <!-- To regenerate parser, remove comments from the next file and then save ExpressionLanguage.g4 -->
-  <!--Import Project="$(ProjectDir)..\..\Thirdparty\antlr\Antlr4.targets" /-->
-  <Import Project="$(ProjectDir)..\.nuget\nuget.targets" />
+  <!-- Remove the comments in the following line before making changes are made to ExpressionEngine.g4 -->
+  <!-- Do not commit this line without comments. Antlr4 requires the Java Runtime 7, which is not available on build servers -->
+  <!-- Import Project="$(ProjectDir)..\..\Thirdparty\antlr\Antlr4.targets" /-->
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

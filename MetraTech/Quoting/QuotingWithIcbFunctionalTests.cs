@@ -16,6 +16,12 @@ namespace MetraTech.Quoting.Test
     [TestClass]
     public class QuotingWithIcbFunctionalTests
     {
+        const string MetratechComFlatrecurringcharge = "metratech.com/flatrecurringcharge";
+
+        const string MetratechComUdrctapered = "metratech.com/udrctapered";
+        const string MetratechComNonrecurringcharge = "metratech.com/nonrecurringcharge";
+        const string MetratechComUdrctiered = "metratech.com/udrctiered";
+
         #region Setup/Teardown
 
         [ClassInitialize]
@@ -64,117 +70,44 @@ namespace MetraTech.Quoting.Test
 
                 IMTCollection instances = productOffering.GetPriceableItems();
 
-                ProductOfferingFactory productOfferingFactory = new ProductOfferingFactory();
+                var productOfferingFactory = new ProductOfferingFactory();
                 productOfferingFactory.Initialize(testName, testRunUniqueIdentifier);
+                
+                var parameterTableFlatRc = productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(MetratechComFlatrecurringcharge);
+                
+                var parameterTableNonRc = productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(MetratechComNonrecurringcharge);
+                var parameterTableUdrcTapered = productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(MetratechComUdrctapered);
+                
+                var parameterTableUdrcTiered = productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(MetratechComUdrctiered);
 
-                var parameterTableFlatRc =
-                    productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(
-                        "metratech.com/flatrecurringcharge");
-                var parameterTableNonRc =
-                    productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(
-                        "metratech.com/nonrecurringcharge");
-                var parameterTableUdrcTapered = productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName("metratech.com/udrctapered");
-                var parameterTableUdrcTiered = productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName("metratech.com/udrctiered");
-
-
-                PriceListMapping plMappingForRc, plMappingForNonRc, plMappingForUdrc;
-
-                foreach (IMTPriceableItem possibleRC in instances)
-                {
-                    if (possibleRC.Kind == MTPCEntityType.PCENTITY_TYPE_RECURRING_UNIT_DEPENDENT)
+                #region Set Allow ICB for PIs                
+                    foreach (IMTPriceableItem possibleRC in instances)
                     {
-                        IMTRecurringCharge udrcTapered = (IMTRecurringCharge)possibleRC;
-                        client.GetPriceListMappingForProductOffering(
-                            new PCIdentifier(productOffering.ID),
-                            new PCIdentifier(udrcTapered.ID),
-                            new PCIdentifier(parameterTableUdrcTapered.ID),
-                            out plMappingForUdrc);
-                        plMappingForUdrc.CanICB = true;
-                        client.SavePriceListMappingForProductOffering
-                            (new PCIdentifier(productOffering.ID),
-                             new PCIdentifier(udrcTapered.ID),
-                             new PCIdentifier(parameterTableUdrcTapered.ID),
-                             ref plMappingForUdrc);
-
-                        var piAndPTParameters = new PIAndPTParameters
+                        if (possibleRC.Kind == MTPCEntityType.PCENTITY_TYPE_RECURRING_UNIT_DEPENDENT)
                         {
-                            ParameterTableId = parameterTableUdrcTapered.ID,
-                            ParameterTableName = "metratech.com/udrctapered",
-                            PriceableItemId = udrcTapered.ID
-                        };
-                        pofConfiguration.PriceableItemsAndParameterTableForUdrc.Add(piAndPTParameters);
+                            var piAndPTParameters = SetAllowICBForPI (possibleRC, client, productOffering.ID, parameterTableUdrcTapered.ID, MetratechComUdrctapered);
+                            pofConfiguration.PriceableItemsAndParameterTableForUdrc.Add(piAndPTParameters);
 
-                        IMTRecurringCharge udrcTiered = (IMTRecurringCharge)possibleRC;
-                        client.GetPriceListMappingForProductOffering(
-                            new PCIdentifier(productOffering.ID),
-                            new PCIdentifier(udrcTiered.ID),
-                            new PCIdentifier(parameterTableUdrcTiered.ID),
-                            out plMappingForUdrc);
-                        plMappingForUdrc.CanICB = true;
-                        client.SavePriceListMappingForProductOffering
-                            (new PCIdentifier(productOffering.ID),
-                             new PCIdentifier(udrcTiered.ID),
-                             new PCIdentifier(parameterTableUdrcTiered.ID),
-                             ref plMappingForUdrc);
-
-                        piAndPTParameters = new PIAndPTParameters
+                            piAndPTParameters = SetAllowICBForPI (possibleRC, client, productOffering.ID, parameterTableUdrcTiered.ID, MetratechComUdrctiered);
+                            pofConfiguration.PriceableItemsAndParameterTableForUdrc.Add(piAndPTParameters);
+                        
+                        }
+                        else if (possibleRC.Kind == MTPCEntityType.PCENTITY_TYPE_RECURRING)
                         {
-                            ParameterTableId = parameterTableUdrcTiered.ID,
-                            ParameterTableName = "metratech.com/udrctiered",
-                            PriceableItemId = udrcTiered.ID
-                        };
-                        pofConfiguration.PriceableItemsAndParameterTableForUdrc.Add(piAndPTParameters);
+                            var piAndPTParameters = SetAllowICBForPI (possibleRC, client, productOffering.ID, parameterTableFlatRc.ID, MetratechComFlatrecurringcharge);
+                            pofConfiguration.PriceableItemsAndParameterTableForRc.Add(piAndPTParameters);                       
+                        }
+                        else if (possibleRC.Kind == MTPCEntityType.PCENTITY_TYPE_NON_RECURRING)
+                        {
+                            var piAndPTParameters = SetAllowICBForPI(possibleRC, client, productOffering.ID, parameterTableNonRc.ID, MetratechComNonrecurringcharge);
+                            pofConfiguration.PriceableItemsAndParameterTableForNonRc.Add(piAndPTParameters);                                               
+                        }
                     }
-                    else if (possibleRC.Kind == MTPCEntityType.PCENTITY_TYPE_RECURRING)
-                    {
-                        IMTRecurringCharge rc = (IMTRecurringCharge)possibleRC;
-                        client.GetPriceListMappingForProductOffering(
-                            new PCIdentifier(productOffering.ID),
-                            new PCIdentifier(rc.ID),
-                            new PCIdentifier(parameterTableFlatRc.ID),
-                            out plMappingForUdrc);
-                        plMappingForUdrc.CanICB = true;
-                        client.SavePriceListMappingForProductOffering
-                            (new PCIdentifier(productOffering.ID),
-                             new PCIdentifier(rc.ID),
-                             new PCIdentifier(parameterTableFlatRc.ID),
-                             ref plMappingForUdrc);
-
-                        var piAndPTParameters = new PIAndPTParameters
-                        {
-                            ParameterTableId = parameterTableFlatRc.ID,
-                            ParameterTableName = "metratech.com/flatrecurringcharge",
-                            PriceableItemId = rc.ID
-                        };
-                        pofConfiguration.PriceableItemsAndParameterTableForRc.Add(piAndPTParameters);
-
-                    }
-                    else if (possibleRC.Kind == MTPCEntityType.PCENTITY_TYPE_NON_RECURRING)
-                    {
-                        IMTNonRecurringCharge nonrc = (IMTNonRecurringCharge)possibleRC;
-
-                        client.GetPriceListMappingForProductOffering(
-                            new PCIdentifier(productOffering.ID),
-                            new PCIdentifier(nonrc.ID),
-                            new PCIdentifier(parameterTableNonRc.ID),
-                            out plMappingForNonRc);
-                        plMappingForNonRc.CanICB = true;
-                        client.SavePriceListMappingForProductOffering
-                            (new PCIdentifier(productOffering.ID),
-                             new PCIdentifier(nonrc.ID),
-                             new PCIdentifier(parameterTableNonRc.ID),
-                             ref plMappingForNonRc);
-
-                        var piAndPTParameters = new PIAndPTParameters
-                        {
-                            ParameterTableId = parameterTableNonRc.ID,
-                            ParameterTableName = "metratech.com/nonrecurringcharge",
-                            PriceableItemId = nonrc.ID
-                        };
-                        pofConfiguration.PriceableItemsAndParameterTableForNonRc.Add(piAndPTParameters);
-                    }
-                }
+                #endregion
             }
+
+            
+
 
             //Values to use for verification
             string expectedQuoteCurrency = "USD";
@@ -244,7 +177,7 @@ namespace MetraTech.Quoting.Test
                     ProductOfferingId = productOffering.ID
                 };
 
-                if (ptUDRC.ParameterTableName == "metratech.com/udrctapered")
+                if (ptUDRC.ParameterTableName == MetratechComUdrctapered)
                 {
                     qip.RateSchedules = new List<BaseRateSchedule>
                         {
@@ -292,6 +225,46 @@ namespace MetraTech.Quoting.Test
 
             #endregion
 
+        }
+
+        private PIAndPTParameters SetAllowICBForPI (IMTPriceableItem pi, PriceListServiceClient client,
+                                      int poId, int ptId, string ptName)  
+        {
+            PriceListMapping plMappingForUdrc;
+            int chargeId;
+            if(pi.Kind == MTPCEntityType.PCENTITY_TYPE_NON_RECURRING)
+            {
+                var charge = pi as IMTNonRecurringCharge;
+                Assert.IsNotNull(charge, "Charge in SetAllowICBForPI should be null");
+                chargeId = charge.ID;
+            }
+
+            else
+            {
+                var charge = pi as IMTRecurringCharge;
+                Assert.IsNotNull(charge, "Charge in SetAllowICBForPI should be null");
+                chargeId = charge.ID;
+            }
+
+
+            client.GetPriceListMappingForProductOffering(
+                new PCIdentifier(poId),
+                new PCIdentifier(chargeId),
+                new PCIdentifier(ptId),
+                out plMappingForUdrc);
+            plMappingForUdrc.CanICB = true;
+            client.SavePriceListMappingForProductOffering
+                (new PCIdentifier(poId),
+                 new PCIdentifier(chargeId),
+                 new PCIdentifier(ptId),
+                 ref plMappingForUdrc);
+
+            return new PIAndPTParameters
+                {
+                    ParameterTableId = ptId,
+                    ParameterTableName = ptName,
+                    PriceableItemId = chargeId
+                };            
         }
 
         #region Helpers

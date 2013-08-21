@@ -110,32 +110,39 @@ public partial class AmpItemsToAggregatePage : AmpWizardBasePage
                 // if we are in View mode, do not allow the radio button selection to change.
                 if (AmpAction == "View")
                 {
-                    if (radAddUpMonetaryChargeAmounts.Checked == false)
-                    {
-                        radAddUpMonetaryChargeAmounts.Enabled = false;
-                    }
-                    else
+                    if (radAddUpMonetaryChargeAmounts.Checked)
                     {
                         radAddUpMonetaryChargeAmounts.Enabled = true;
-                    }
-
-                    if (radAddUpUnitsOfUsage.Checked == false)
-                    {
                         radAddUpUnitsOfUsage.Enabled = false;
+                        radCountTheNumberOfEvents.Enabled = false;
+                        radGetItemAggregatedFromParamTable.Enabled = false;
                     }
-                    else
+                    else if (radAddUpUnitsOfUsage.Checked)
                     {
+                        radAddUpMonetaryChargeAmounts.Enabled = false;
                         radAddUpUnitsOfUsage.Enabled = true;
+                        radCountTheNumberOfEvents.Enabled = false;
+                        radGetItemAggregatedFromParamTable.Enabled = false;
+                        
+                    }
+                    else if (radCountTheNumberOfEvents.Checked)
+                    {
+                        radAddUpMonetaryChargeAmounts.Enabled = false;
+                        radAddUpUnitsOfUsage.Enabled = false;
+                        radCountTheNumberOfEvents.Enabled = true;
+                        radGetItemAggregatedFromParamTable.Enabled = false;
+                        
+                    }
+                    else if (radGetItemAggregatedFromParamTable.Checked)
+                    {
+                        radAddUpMonetaryChargeAmounts.Enabled = false;
+                        radAddUpUnitsOfUsage.Enabled = false;
+                        radCountTheNumberOfEvents.Enabled = false;
+                        radGetItemAggregatedFromParamTable.Enabled = true;                        
                     }
 
-                    if (radCountTheNumberOfEvents.Checked == false)
-                    {
-                        radCountTheNumberOfEvents.Enabled = false;
-                    }
-                    else
-                    {
-                        radCountTheNumberOfEvents.Enabled = true;
-                    }
+                    ddItemAggregatedFromParamTableSource.Enabled = false;
+                    ddItemAggregatedFromParamTableSource.ReadOnly = true;
                 }
                 else // allow the radio button selection to change
                 {

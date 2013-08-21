@@ -43,7 +43,7 @@ namespace MetraTech.Application.Test
         Account = account
       };
 
-      NotificationProcessor.ProcessEvent(fakeContext, triggeredEvent);
+      NotificationProcessor.ProcessEvent(fakeContext, triggeredEvent, new[] { typeof(ThresholdCrossingEvent) });
     }
 
     [TestMethod]
@@ -67,7 +67,7 @@ namespace MetraTech.Application.Test
         SubmitterEmail = "mdesousa@metratech.com"
       };
 
-      NotificationProcessor.ProcessEvent(fakeContext, triggeredEvent);
+      NotificationProcessor.ProcessEvent(fakeContext, triggeredEvent, new[] { typeof(ChangeNotificationEvent) });
     }
 
     public static NotificationConfiguration CreateTestNotificationConfiguration(NotificationEndpoint notificationEndpoint)

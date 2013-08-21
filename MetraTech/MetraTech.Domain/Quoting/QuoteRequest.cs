@@ -111,10 +111,8 @@ namespace MetraTech.Domain.Quoting
     #endregion
 
     #region Quoting parameters
-
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    
     private List<QuoteIndividualPrice> _icbPrices;
-
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
     [MTDataMember(Description = "Quote individual price parameters", Length = 40)]
     public List<QuoteIndividualPrice> IcbPrices

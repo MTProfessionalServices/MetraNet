@@ -18,11 +18,12 @@ namespace MetraTech.Domain.Test
             var subjectTemplate = EmailTemplates.ThresholdCrossingTemplateSubject;
             var bodyTemplate = EmailTemplates.ThresholdCrossingTemplateBody;
 
-            return CreateTestNotificationConfiguration(notificationEndpoint, subjectTemplate, bodyTemplate, eventType, notificationConfigurationName);
+            return CreateTestNotificationConfiguration(notificationEndpoint, subjectTemplate, bodyTemplate, "\"mdesousa@metratech.com\"", "\"en-us\"", eventType, notificationConfigurationName);
         }
 
         public static NotificationConfiguration CreateTestNotificationConfiguration(NotificationEndpoint notificationEndpoint,
                                                                                     string subjectTemplate, string bodyTemplate,
+                                                                                    string toRecipient, string deliveryLanguage,
                                                                                     string eventType,
                                                                                     string notificationConfigurationName)
         {
@@ -40,9 +41,9 @@ namespace MetraTech.Domain.Test
 
             var emailTemplate = new EmailTemplate
                 {
-                    ToRecipient = "mdesousa@metratech.com",
-                    CarbonCopyRecipients = new List<string> {"smalinovskiy123@metratech.com", "smalinovskiy234@metratech.com"},
-                    DeliveryLanguage = "en-us",
+                    ToRecipient = toRecipient,
+                    CarbonCopyRecipients = new List<string> { "\"smalinovskiy123@metratech.com\"", "\"smalinovskiy234@metratech.com\"" },
+                    DeliveryLanguage = deliveryLanguage,
                     EmailTemplateDictionary =
                         new EmailTemplateDictionary {{"en-us", localizedEmailTemplate}, {"ru-ru", localizedEmailTemplateRuRu}}
                 };
@@ -71,14 +72,13 @@ namespace MetraTech.Domain.Test
         {
             var authenticationConfiguration = new NetworkAuthenticationConfiguration
             {
-                UserName = "server3994",
-                Password = "9uY2zevySXPPaoXU2Lbv"
+                UserName = "",
+                Password = ""
             };
 
             var endpointConfiguration = new EmailEndpointConfiguration
             {
-                EndpointAddress = "smtp.socketlabs.com",
-                Port = 1234
+                EndpointAddress = "mail.metratech.com"
             };
 
             var notificationEndpoint = new NotificationEndpoint

@@ -44,7 +44,8 @@ namespace MetraTech.Domain.Test.DataAccess
     {
       var notificationEndpoint = EntityFactory.CreateTestNotificationEndpoint();
       var notificationConfiguration = EntityFactory.CreateTestNotificationConfiguration(notificationEndpoint,
-          EmailTemplates.ChangeApprovedTemplateSubject, EmailTemplates.ChangeApprovedTemplateBody, "ChangeNotificationEvent", "Approval Notification");
+          EmailTemplates.ChangeApprovedTemplateSubject, EmailTemplates.ChangeApprovedTemplateBody,
+          "event.SubmitterEmail", "\"en-us\"", "ChangeNotificationEvent", "Approval Notification");
       NotificationConfiguration notificationConfigurationFromDb;
       var connectionInfo = new ConnectionInfo("NetMeter");
       var connection = ConnectionBase.GetDbConnection(connectionInfo, false);

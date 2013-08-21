@@ -1,4 +1,5 @@
 ﻿
+using System.ComponentModel;
 using MetraTech.ActivityServices.Common;
 using MetraTech.DataAccess;
 using MetraTech.Domain.DataAccess;
@@ -64,7 +65,7 @@ namespace MetraTech.Approvals
         using (var connection = ConnectionBase.GetDbConnection(new ConnectionInfo("NetMeter"), false))
         using (var context = new MetraNetContext(connection))
         {
-          NotificationProcessor.ProcessEvent(context, approvalEvent);
+          NotificationProcessor.ProcessEvent(context, approvalEvent, new [] { typeof(ChangeNotificationEvent) });
         }
       }
       catch (Exception ex)

@@ -14,15 +14,15 @@ namespace MetraTech.Domain.Quoting
 
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
     private bool isAccountsDirty = false;
-    private List<int> m_Accounts;
+    private List<int> _accounts;
     [MTDataMember(Description = "List of accounts to create quote for")]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
     public List<int> Accounts
     {
-      get { return m_Accounts; }
+      get { return _accounts; }
       set
       {
-        m_Accounts = value;
+        _accounts = value ?? new List<int>();        
         isAccountsDirty = true;
       }
     }
@@ -39,16 +39,16 @@ namespace MetraTech.Domain.Quoting
 
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
     private bool isProductOfferingsDirty = false;
-    private List<int> m_ProductOfferings;
+    private List<int> _productOfferings;
     [MTDataMember(Description = "List of product offerings to create quote for")]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
     public List<int> ProductOfferings
     {
-      get { return m_ProductOfferings; }
+      get { return _productOfferings; }
       set
       {
-        m_ProductOfferings = value;
-        isProductOfferingsDirty = true;
+          _productOfferings = value ?? new List<int>();         
+          isProductOfferingsDirty = true;
       }
     }
 
@@ -122,8 +122,8 @@ namespace MetraTech.Domain.Quoting
       get { return _icbPrices; }
       set
       {
-        _icbPrices = value;
-        IsIcbPricesDirty = true;
+          _icbPrices = value ?? new List<QuoteIndividualPrice>();
+          IsIcbPricesDirty = true;
       }
     }
 

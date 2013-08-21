@@ -33,6 +33,7 @@ namespace MetraTech.Approvals
 
         var approvalEvent = new ChangeNotificationEvent
           {
+            ApprovalEventType = "Approved",
             ChangeId = change.UniqueItemId,
             Comment = comment,
             ApproverDisplayName = change.ApproverDisplayName,

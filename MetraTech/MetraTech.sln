@@ -766,6 +766,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VertexSocketServer", "Verte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VertexServerTest", "VertexSocketService\VertexServerTest\VertexServerTest.csproj", "{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Approvals", "Approvals\MetraTech.Approvals.csproj", "{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}"
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Approvals.Test", "..\..\..\FunctionalTests_Internal\MetraTech\Approvals\MetraTech.Approvals.Test.csproj", "{9F72B8F8-BBEE-4AD5-AB6C-E67C0528254E}"
 EndProject
 Global
@@ -2562,6 +2563,25 @@ Global
 		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}.Release|x86.ActiveCfg = Release|Any CPU
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Debug|.NET.ActiveCfg = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Debug|x86.ActiveCfg = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Debug|x86.Build.0 = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.DebugcoreQA|.NET.ActiveCfg = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.DebugcoreQA|Any CPU.ActiveCfg = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.DebugcoreQA|Mixed Platforms.ActiveCfg = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.DebugcoreQA|Mixed Platforms.Build.0 = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.DebugcoreQA|x86.ActiveCfg = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.DebugcoreQA|x86.Build.0 = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|.NET.ActiveCfg = Release|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|Any CPU.ActiveCfg = Release|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|Mixed Platforms.Build.0 = Release|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|x86.ActiveCfg = Release|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
 		{9F72B8F8-BBEE-4AD5-AB6C-E67C0528254E}.Debug|.NET.ActiveCfg = Debug|x86
 		{9F72B8F8-BBEE-4AD5-AB6C-E67C0528254E}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{9F72B8F8-BBEE-4AD5-AB6C-E67C0528254E}.Debug|Mixed Platforms.ActiveCfg = Debug|x86

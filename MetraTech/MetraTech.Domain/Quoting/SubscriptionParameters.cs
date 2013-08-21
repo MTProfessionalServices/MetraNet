@@ -28,17 +28,12 @@ namespace MetraTech.Domain.Quoting
     {
       get
       {
-        if (m_UDRCValues == null)
-        {
-          m_UDRCValues = new Dictionary<string, List<UDRCInstanceValueBase>>();
-        }
-
-        return m_UDRCValues;
+          return m_UDRCValues ?? (m_UDRCValues = new Dictionary<string, List<UDRCInstanceValueBase>>());
       }
       set
       {
-        m_UDRCValues = value;
-        isUDRCValuesDirty = true;
+          m_UDRCValues = value ?? new Dictionary<string, List<UDRCInstanceValueBase>>(0);
+          isUDRCValuesDirty = true;
       }
     }
 

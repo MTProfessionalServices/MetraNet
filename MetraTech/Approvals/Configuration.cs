@@ -30,7 +30,7 @@ namespace MetraTech.Approvals
     public MethodConfiguration MethodForApply { get; set; }
     public MethodConfiguration MethodForSubmit { get; set; }
     public MethodConfiguration MethodForDeny { get; set; }
-
+      
     public NotificationEventConfiguration NotifyOnSubmit { get; set; }
     public NotificationEventConfiguration NotifyOnApproved { get; set; }
     public NotificationEventConfiguration NotifyOnDenied { get; set; }

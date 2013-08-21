@@ -79,7 +79,7 @@
 
 
   <script type="text/javascript" language="javascript">
-     function updateActiveControls() {
+      function updateActiveControls() {
          var dd = Ext.getCmp('<%=ddAmountChainGroupFromParamTableSource.ClientID %>');
          var cb = Ext.getCmp('<%=FromParamTableCheckBox.ClientID %>');
          if (cb.checked == true) {
@@ -104,7 +104,7 @@
         else
         {
           // Pass empty string to the code-behind.
-          Ext.get("<%=hiddenAmtChainGroupName.ClientID%>").dom.value = "";
+          Ext.get("<%=hiddenAmtChainGroupName.ClientID%>").dom.value = document.getElementById('<%=ddAmountChainGroupFromParamTableSource.ClientID %>').value;
         }
       }
     }

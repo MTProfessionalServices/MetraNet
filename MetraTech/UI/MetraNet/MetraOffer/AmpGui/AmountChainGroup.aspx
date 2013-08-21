@@ -61,7 +61,7 @@
                          CausesValidation="false" TabIndex="230" />
           </td>
           <td align="right">
-            <MT:MTButton ID="btnSaveAndContinue" runat="server" Text="<%$Resources:Resource,TEXT_SAVE_AND_CONTINUE%>"
+            <MT:MTButton ID="btnSaveAndContinue" runat="server" Text="<%$Resources:Resource,TEXT_NEXT%>"
                          OnClientClick="if (ValidateForm()) { MPC_setNeedToConfirm(false); return onContinueClick(); } else { MPC_setNeedToConfirm(true); return false; }"
                          OnClick="btnContinue_Click"
                          CausesValidation="true" TabIndex="240"/>

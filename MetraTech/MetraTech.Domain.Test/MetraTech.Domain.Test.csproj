@@ -148,6 +148,7 @@
     <EmbeddedResource Include="EmailTemplates.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EmailTemplates.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx" />
   </ItemGroup>

@@ -13,42 +13,56 @@ namespace MetraTech.Domain.Test
     {
         public static NotificationConfiguration CreateTestNotificationConfiguration(NotificationEndpoint notificationEndpoint)
         {
+            const string eventType = "ThresholdCrossingEvent";
+            const string notificationConfigurationName = "Threshold Notification";
+            var subjectTemplate = EmailTemplates.ThresholdCrossingTemplateSubject;
+            var bodyTemplate = EmailTemplates.ThresholdCrossingTemplateBody;
+
+            return CreateTestNotificationConfiguration(notificationEndpoint, subjectTemplate, bodyTemplate, eventType, notificationConfigurationName);
+        }
+
+        public static NotificationConfiguration CreateTestNotificationConfiguration(NotificationEndpoint notificationEndpoint,
+                                                                                    string subjectTemplate, string bodyTemplate,
+                                                                                    string eventType,
+                                                                                    string notificationConfigurationName)
+        {
             var localizedEmailTemplate = new LocalizedEmailTemplate
-            {
-                SubjectTemplate = EmailTemplates.ThresholdCrossingTemplateSubject,
-                BodyTemplate = EmailTemplates.ThresholdCrossingTemplateBody
-            };
+                {
+                    SubjectTemplate = subjectTemplate,
+                    BodyTemplate = bodyTemplate
+                };
 
             var localizedEmailTemplateRuRu = new LocalizedEmailTemplate
-            {
-                SubjectTemplate = "RU-RU" + EmailTemplates.ThresholdCrossingTemplateSubject,
-                BodyTemplate = "RU-RU" + EmailTemplates.ThresholdCrossingTemplateBody
-            };
+                {
+                    SubjectTemplate = "RU-RU" + subjectTemplate,
+                    BodyTemplate = "RU-RU" + bodyTemplate
+                };
 
             var emailTemplate = new EmailTemplate
-            {
-                ToRecipient = "mdesousa@metratech.com",
-                CarbonCopyRecipients = new List<string> { "smalinovskiy123@metratech.com", "smalinovskiy234@metratech.com" },
-                DeliveryLanguage = "en-us",
-                EmailTemplateDictionary = new EmailTemplateDictionary { { "en-us", localizedEmailTemplate }, { "ru-ru", localizedEmailTemplateRuRu } }
-            };
+                {
+                    ToRecipient = "mdesousa@metratech.com",
+                    CarbonCopyRecipients = new List<string> {"smalinovskiy123@metratech.com", "smalinovskiy234@metratech.com"},
+                    DeliveryLanguage = "en-us",
+                    EmailTemplateDictionary =
+                        new EmailTemplateDictionary {{"en-us", localizedEmailTemplate}, {"ru-ru", localizedEmailTemplateRuRu}}
+                };
 
             var notificationConfiguration = new NotificationConfiguration
-            {
-                EntityId = Guid.NewGuid(),
-                CreationDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                EventType = "ThresholdCrossingEvent",
-                NotificationType = NotificationType.Email,
-                NotificationEndpoint = notificationEndpoint,
-                MessageTemplate = emailTemplate,
-                ExternalId = "ExternalId " + Guid.NewGuid()
-            };
+                {
+                    EntityId = Guid.NewGuid(),
+                    CreationDate = DateTime.Now,
+                    ModifiedDate = DateTime.Now,
+                    EventType = eventType,
+                    NotificationType = NotificationType.Email,
+                    NotificationEndpoint = notificationEndpoint,
+                    MessageTemplate = emailTemplate,
+                    ExternalId = "ExternalId " + Guid.NewGuid()
+                };
 
-            notificationConfiguration.Name.Add("en-us", "Threshold Notification");
-            notificationConfiguration.Name.Add("ru-ru", "RU-Ru Threshold Notification");
-            notificationConfiguration.Description.Add("en-us", "Threshold Notification");
-            notificationConfiguration.Description.Add("ru-ru", "RU-RU Threshold Notification");
+            notificationConfiguration.Name.Add("en-us", notificationConfigurationName);
+            notificationConfiguration.Name.Add("ru-ru", "RU-RU " + notificationConfigurationName);
+            notificationConfiguration.Description.Add("en-us", notificationConfigurationName);
+            notificationConfiguration.Description.Add("ru-ru", "RU-RU " + notificationConfigurationName);
 
             return notificationConfiguration;
         }

@@ -27,7 +27,7 @@ namespace MetraTech.Domain.Notifications
     [DataMember]
     public EmailTemplateDictionary EmailTemplateDictionary { get; set; }
 
-    public MailMessage CreateMailMessage<T>(T triggeredEvent, MailAddress fromAddress, MailAddress replyToAddress) where T : Event
+    public MailMessage CreateMailMessage<T>(T triggeredEvent, MailAddress fromAddress, MailAddress replyToAddress, IEnumerable<Type> knownTypes) where T : Event
     {
       LocalizedEmailTemplate localizedTemplate;
 
@@ -45,8 +45,8 @@ namespace MetraTech.Domain.Notifications
         throw new ArgumentException("A localized template could not be found for this recipient");
       }
 
-      var subject = ProcessTemplate(localizedTemplate.SubjectTemplate, triggeredEvent);
-      var body = ProcessTemplate(localizedTemplate.BodyTemplate, triggeredEvent);
+      var subject = ProcessTemplate(localizedTemplate.SubjectTemplate, triggeredEvent, knownTypes);
+      var body = ProcessTemplate(localizedTemplate.BodyTemplate, triggeredEvent, knownTypes);
 
       MailMessage message = null;
       try
@@ -76,13 +76,13 @@ namespace MetraTech.Domain.Notifications
       }
     }
 
-    private static string ProcessTemplate(string template, Event eventInstance)
+    private static string ProcessTemplate(string template, Event eventInstance, IEnumerable<Type> knownTypes)
     {
       using (var reader = new StringReader(template))
       {
         var templateReader = XmlReader.Create(reader);
         var xslCompiledTransform = RetrieveCompiledTransform(templateReader);
-        var serializedEvent = eventInstance.Serialize();
+        var serializedEvent = eventInstance.Serialize(knownTypes);
         var renderedDocument = CompiledRender(xslCompiledTransform, serializedEvent);
         var stringReader = new StreamReader(renderedDocument);
         return stringReader.ReadToEnd();

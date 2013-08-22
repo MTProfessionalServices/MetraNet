@@ -12,8 +12,11 @@ namespace MetraTech.Domain.Notifications
 
 		[DataMember]
 		public NotificationType NotificationType { get; set; }
-		
-		[DataMember]
+
+    [DataMember]
+    public string Criteria { get; set; }
+
+    [DataMember]
 		public Guid NotificationEndpointEntityId { get; set; }
 
 		public virtual NotificationEndpoint NotificationEndpoint { get; set; }

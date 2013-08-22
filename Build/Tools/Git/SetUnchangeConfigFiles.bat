@@ -27,11 +27,11 @@ git update-index --assume-unchanged servers.xml
 git update-index --assume-unchanged servers.xml
 @popd
 
-@pushd %ROOTDIR%/utils/MSIX2SQL
+@pushd %MTEXTENSIONS%\Legacy_Internal\Source\utils\MSIX2SQL
 git update-index --assume-unchanged msix2sql.vbp
 @popd
 
-@pushd %ROOTDIR%/utils/QuickConfig/
+@pushd %MTEXTENSIONS%\Legacy_Internal\Source\utils\QuickConfig
 git update-index --assume-unchanged QuickConfig.vbp
 @popd
 

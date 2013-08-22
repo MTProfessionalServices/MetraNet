@@ -20,6 +20,7 @@ using MetraTech.UI.MetraNet.App_Code;
 
 public partial class AmpDecisionRangePage : AmpWizardBasePage
 {
+    protected bool showDivRestartParamTable = false;
   protected void Page_Load(object sender, EventArgs e)
   {
     // Extra check that user has permission to configure AMP decisions.
@@ -64,9 +65,11 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
 
     private void SetUpYesNoDropDown(MTDropDown dropDown)
     {
-        dropDown.Items.Add(Resources.Resource.TEXT_YES);
-        dropDown.Items.Add(Resources.Resource.TEXT_NO);
-        dropDown.Items.Add(Resources.Resource.TEXT_FROM_PARAMETER_TABLE);
+        dropDown.Items.Add(new ListItem{Text = Resources.Resource.TEXT_YES, Value = Resources.Resource.TEXT_YES});
+        dropDown.Items.Add(new ListItem{Text = Resources.Resource.TEXT_NO, Value = Resources.Resource.TEXT_NO});
+        dropDown.Items.Add(new ListItem { Text = Resources.Resource.TEXT_FROM_PARAMETER_TABLE, Value = Resources.Resource.TEXT_FROM_PARAMETER_TABLE });
+        dropDown.Listeners = @"{ 'select' : " + dropDown.ID + "Changed , 'load' : " + dropDown.ID + "InitialState, scope: this }";
+
     }
 
   private void FillDropDownControl(string tableName, UserControls_AmpTextboxOrDropdown ampControl)
@@ -141,8 +144,6 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
     switch (CurrentDecisionInstance.TierProration)
     {
       case Decision.TierProrationEnum.PRORATE_BOTH:
-        //CB_ProrateRangeStart.Checked = true;
-        //CB_ProrateRangeEnd.Checked = true;
             ddProrateStart.SelectedValue = Resources.Resource.TEXT_YES;
             ddProrateEnd.SelectedValue = Resources.Resource.TEXT_YES;
         break;
@@ -262,7 +263,7 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
       CurrentDecisionInstance.TierStartValue = null;
     }
 
-    //setup end of range proprty
+    //setup end of range property
     if (endRange.UseTextbox == true && !String.IsNullOrEmpty(endRange.TextboxText))
     {
       CurrentDecisionInstance.TierEndValue = Decimal.Parse(endRange.TextboxText);
@@ -274,9 +275,9 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
       CurrentDecisionInstance.TierEndValue = null;
     }
 
-    //setup restast decision property 
+    //setup rest as decision property 
     CurrentDecisionInstance.TierRepetitionValue = ddDecisionRangeRestart.SelectedValue == Resources.Resource.TEXT_YES ? "Individual" : "None";
-
+      showDivRestartParamTable = ddDecisionRangeRestart.SelectedValue == Resources.Resource.TEXT_FROM_PARAMETER_TABLE;
 
     //setup proration properties
     if ((ddProrateStart.SelectedValue == Resources.Resource.TEXT_YES) && (ddProrateEnd.SelectedValue == Resources.Resource.TEXT_YES))

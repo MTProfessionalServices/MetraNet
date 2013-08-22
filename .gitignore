@@ -228,3 +228,5 @@ Sites/MetraView/bin/it/
 Sites/MetraView/bin/ja/
 Sites/MetraView/bin/kmclient.dll
 Sites/MetraView/bin/log4net.dll
+/Sites/MetraView/bin/EntityFramework.dll
+/Sites/MetraView/bin/EntityFramework.xml

@@ -20,6 +20,9 @@ using MetraTech.UI.MetraNet.App_Code;
 
 public partial class AmpDecisionRangePage : AmpWizardBasePage
 {
+    protected bool showDivRestartParamTable = false;
+    protected bool showDivProrateStartParamTable = false;
+    protected bool showDivProrateEndParamTable = false;
   protected void Page_Load(object sender, EventArgs e)
   {
     // Extra check that user has permission to configure AMP decisions.
@@ -36,9 +39,9 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
 
     if (!IsPostBack)
     {
-      MonitorChangesInControl(CB_DecisionRangeRestart);
-      MonitorChangesInControl(CB_ProrateRangeStart);
-      MonitorChangesInControl(CB_ProrateRangeEnd);
+      MonitorChangesInControl(ddDecisionRangeRestart);
+      MonitorChangesInControl(ddProrateEnd);
+      MonitorChangesInControl(ddProrateStart);
       MonitorChangesInControlByClientId(startRange.ddSourceTypeClientId);
       MonitorChangesInControlByClientId(startRange.tbNumericSourceClientId);
       MonitorChangesInControlByClientId(startRange.tbTextSourceClientId);
@@ -50,7 +53,10 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
 
       CurrentDecisionInstance = GetDecision();
 
-      // Fill drop down controls for star and end range parameter table field
+      SetUpYesNoDropDown(ddDecisionRangeRestart);
+        SetUpYesNoDropDown(ddProrateStart);
+        SetUpYesNoDropDown(ddProrateEnd);
+      // Fill drop down controls for start and end range parameter table field
       FillDropDownControl(CurrentDecisionInstance.ParameterTableName, startRange);
       FillDropDownControl(CurrentDecisionInstance.ParameterTableName, endRange);
 
@@ -58,6 +64,15 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
       DecisionRangePageSettings();
     }
   }
+
+    private void SetUpYesNoDropDown(MTDropDown dropDown)
+    {
+        dropDown.Items.Add(new ListItem{Text = Resources.Resource.TEXT_YES, Value = Resources.Resource.TEXT_YES});
+        dropDown.Items.Add(new ListItem{Text = Resources.Resource.TEXT_NO, Value = Resources.Resource.TEXT_NO});
+        dropDown.Items.Add(new ListItem { Text = Resources.Resource.TEXT_FROM_PARAMETER_TABLE, Value = Resources.Resource.TEXT_FROM_PARAMETER_TABLE });
+        dropDown.Listeners = @"{ 'select' : " + dropDown.ID + "Changed , 'load' : " + dropDown.ID + "InitialState, scope: this }";
+
+    }
 
   private void FillDropDownControl(string tableName, UserControls_AmpTextboxOrDropdown ampControl)
   {
@@ -126,25 +141,26 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
       endRange.UseTextbox = true;
     }
 
-    CB_DecisionRangeRestart.Checked = !CurrentDecisionInstance.TierRepetitionValue.Equals("None");
+    ddDecisionRangeRestart.SelectedValue = CurrentDecisionInstance.TierRepetitionValue.Equals("None") ? Resources.Resource.TEXT_NO : Resources.Resource.TEXT_YES;
 
     switch (CurrentDecisionInstance.TierProration)
     {
       case Decision.TierProrationEnum.PRORATE_BOTH:
-        CB_ProrateRangeStart.Checked = true;
-        CB_ProrateRangeEnd.Checked = true;
+            ddProrateStart.SelectedValue = Resources.Resource.TEXT_YES;
+            ddProrateEnd.SelectedValue = Resources.Resource.TEXT_YES;
         break;
       case Decision.TierProrationEnum.PRORATE_TIER_START:
-        CB_ProrateRangeStart.Checked = true;
-        CB_ProrateRangeEnd.Checked = false;
-        break;
+            ddProrateStart.SelectedValue = Resources.Resource.TEXT_YES;
+            ddProrateEnd.SelectedValue = Resources.Resource.TEXT_NO;
+            break;
       case Decision.TierProrationEnum.PRORATE_TIER_END:
-        CB_ProrateRangeStart.Checked = false;
-        CB_ProrateRangeEnd.Checked = true;
+            ddProrateStart.SelectedValue = Resources.Resource.TEXT_NO;
+            ddProrateEnd.SelectedValue = Resources.Resource.TEXT_YES;
         break;
       case Decision.TierProrationEnum.PRORATE_NONE:
-        CB_ProrateRangeStart.Checked = false;
-        CB_ProrateRangeEnd.Checked = false;
+            ddProrateStart.SelectedValue = Resources.Resource.TEXT_NO;
+            ddProrateEnd.SelectedValue = Resources.Resource.TEXT_NO;
+
         break;
     }
   }
@@ -154,9 +170,9 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
     startRange.ReadOnly = true; 
     endRange.ReadOnly = true;
 
-    SetCheckBoxViewAction(CB_ProrateRangeEnd);
-    SetCheckBoxViewAction(CB_ProrateRangeStart);
-    SetCheckBoxViewAction(CB_DecisionRangeRestart);
+    //SetCheckBoxViewAction(CB_ProrateRangeEnd);
+    //SetCheckBoxViewAction(CB_ProrateRangeStart);
+    //SetCheckBoxViewAction(CB_DecisionRangeRestart);
 
     btnSaveAndContinue.CausesValidation = false;
     btnSaveAndContinue.OnClientClick = "MPC_setNeedToConfirm(false);";
@@ -249,7 +265,7 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
       CurrentDecisionInstance.TierStartValue = null;
     }
 
-    //setup end of range proprty
+    //setup end of range property
     if (endRange.UseTextbox == true && !String.IsNullOrEmpty(endRange.TextboxText))
     {
       CurrentDecisionInstance.TierEndValue = Decimal.Parse(endRange.TextboxText);
@@ -261,27 +277,30 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
       CurrentDecisionInstance.TierEndValue = null;
     }
 
-    //setup restast decision property 
-    CurrentDecisionInstance.TierRepetitionValue = CB_DecisionRangeRestart.Checked ? "Individual" : "None";
+    showDivRestartParamTable = ddDecisionRangeRestart.SelectedValue == Resources.Resource.TEXT_FROM_PARAMETER_TABLE;
+    showDivProrateStartParamTable = ddDecisionRangeRestart.SelectedValue == Resources.Resource.TEXT_FROM_PARAMETER_TABLE;
+    showDivProrateEndParamTable = ddDecisionRangeRestart.SelectedValue == Resources.Resource.TEXT_FROM_PARAMETER_TABLE;
 
-
+    //setup rest as decision property 
+    CurrentDecisionInstance.TierRepetitionValue = ddDecisionRangeRestart.SelectedValue == Resources.Resource.TEXT_YES ? "Individual" : "None";
+      
     //setup proration properties
-    if (CB_ProrateRangeStart.Checked && CB_ProrateRangeEnd.Checked)
+    if ((ddProrateStart.SelectedValue == Resources.Resource.TEXT_YES) && (ddProrateEnd.SelectedValue == Resources.Resource.TEXT_YES))
     {
        CurrentDecisionInstance.TierProration = Decision.TierProrationEnum.PRORATE_BOTH;
     }
 
-    if (CB_ProrateRangeStart.Checked && !CB_ProrateRangeEnd.Checked)
+    if ((ddProrateStart.SelectedValue == Resources.Resource.TEXT_YES) && (ddProrateEnd.SelectedValue == Resources.Resource.TEXT_NO))
     {
       CurrentDecisionInstance.TierProration = Decision.TierProrationEnum.PRORATE_TIER_START;
     }
 
-    if (!CB_ProrateRangeStart.Checked && CB_ProrateRangeEnd.Checked)
+    if ((ddProrateStart.SelectedValue == Resources.Resource.TEXT_NO) && (ddProrateEnd.SelectedValue == Resources.Resource.TEXT_YES))
     {
       CurrentDecisionInstance.TierProration = Decision.TierProrationEnum.PRORATE_TIER_END;
     }
 
-    if (!CB_ProrateRangeStart.Checked && !CB_ProrateRangeEnd.Checked)
+    if ((ddProrateStart.SelectedValue == Resources.Resource.TEXT_NO) && (ddProrateEnd.SelectedValue == Resources.Resource.TEXT_NO))
     {
       CurrentDecisionInstance.TierProration = Decision.TierProrationEnum.PRORATE_NONE;
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using MetraTech.Domain.Events;
 using MetraTech.Domain.Notifications;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -48,7 +49,7 @@ namespace MetraTech.Domain.Test
 
             var fromAddress = new MailAddress("mdesousa@metratech.com");
 
-            var message = emailTemplate.CreateMailMessage(triggeredEvent, fromAddress, null);
+            var message = emailTemplate.CreateMailMessage(triggeredEvent, fromAddress, null, new [] { typeof(ThresholdCrossingEvent) });
 
             Assert.AreEqual("mdesousa@metratech.com", message.From.Address);
             Assert.AreEqual(0, message.ReplyToList.Count);

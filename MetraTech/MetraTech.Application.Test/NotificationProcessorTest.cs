@@ -43,7 +43,7 @@ namespace MetraTech.Application.Test
         Account = account
       };
 
-      NotificationProcessor.ProcessEvent(fakeContext, triggeredEvent);
+      NotificationProcessor.ProcessEvent(fakeContext, triggeredEvent, new[] { typeof(ThresholdCrossingEvent) });
     }
 
     [TestMethod]
@@ -52,7 +52,7 @@ namespace MetraTech.Application.Test
       var notificationEndpoint = CreateTestNotificationEndpoint();
       var notificationConfiguration = CreateTestNotificationConfiguration(notificationEndpoint,
         EmailTemplates.ChangeApprovedTemplateSubject, EmailTemplates.ChangeApprovedTemplateBody,
-        "event.SubmitterEmail", "\"en-us\"", "Approval Notification", "ChangeNotificationEvent");
+        "event.SubmitterEmail", "\"en-us\"", "Approval Notification", "ChangeNotificationEvent", "event.ApprovalEventType = \"Approved\"");
 
       var fakeContext = new FakeMetraNetContext
       {
@@ -67,7 +67,7 @@ namespace MetraTech.Application.Test
         SubmitterEmail = "mdesousa@metratech.com"
       };
 
-      NotificationProcessor.ProcessEvent(fakeContext, triggeredEvent);
+      NotificationProcessor.ProcessEvent(fakeContext, triggeredEvent, new[] { typeof(ChangeNotificationEvent) });
     }
 
     public static NotificationConfiguration CreateTestNotificationConfiguration(NotificationEndpoint notificationEndpoint)
@@ -78,14 +78,15 @@ namespace MetraTech.Application.Test
       const string deliveryLanguage = "event.Account.LanguageCode";
       const string notificationConfigurationName = "Threshold Notification";
       const string eventType = "ThresholdCrossingEvent";
-      return CreateTestNotificationConfiguration(notificationEndpoint, subjectTemplate, bodyTemplate, toRecipient, deliveryLanguage, notificationConfigurationName, eventType);
+      const string criteria = "true";
+      return CreateTestNotificationConfiguration(notificationEndpoint, subjectTemplate, bodyTemplate, toRecipient, deliveryLanguage, notificationConfigurationName, eventType, criteria);
     }
 
     public static NotificationConfiguration CreateTestNotificationConfiguration(NotificationEndpoint notificationEndpoint,
                                                                           string subjectTemplate, string bodyTemplate,
                                                                           string toRecipient, string deliveryLanguage,
                                                                           string notificationConfigurationName,
-                                                                          string eventType)
+                                                                          string eventType, string criteria)
     {
       var localizedEmailTemplate = new LocalizedEmailTemplate
         {
@@ -107,6 +108,7 @@ namespace MetraTech.Application.Test
       notificationConfiguration.ModifiedDate = DateTime.Now;
       notificationConfiguration.Name.Add("en-us", notificationConfigurationName);
       notificationConfiguration.EventType = eventType;
+      notificationConfiguration.Criteria = criteria;
       notificationConfiguration.NotificationType = NotificationType.Email;
       notificationConfiguration.NotificationEndpoint = notificationEndpoint;
       notificationConfiguration.MessageTemplate = emailTemplate;

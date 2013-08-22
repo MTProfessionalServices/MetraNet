@@ -45,7 +45,6 @@
     <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="MetraTech.Common, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86" />
     <Reference Include="MTAuth.interop, Version=7.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -81,6 +80,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+	<ProjectReference Include="..\MetraTech.Common.csproj">
+      <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
+      <Name>MetraTech.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ActivityServices\Common\MetraTech.ActivityServices.Common.csproj">
       <Project>{E80F2D42-759F-4B7D-95C6-D04C1500569F}</Project>
       <Name>MetraTech.ActivityServices.Common</Name>

@@ -230,6 +230,7 @@
     <Compile Include="ApprovalChangeType.GroupSubscriptionMembers.Delete.Test.cs" />
     <Compile Include="ApprovalChangeType.GroupSubscriptionMembers.Update.Test.cs" />
     <Compile Include="ApprovalChangeType.GroupSubscriptionMembers.Unsubscribe.Test.cs" />
+    <Compile Include="ApprovalManagement.NotificationEvents.Test.cs" />
     <Compile Include="LockClass.cs" />
     <Compile Include="SharedTestCode.ApprovalScenarios.cs" />
     <Compile Include="InternalFrameworkTests.cs" />

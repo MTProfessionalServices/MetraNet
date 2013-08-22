@@ -63,11 +63,18 @@
                                     ForeColor="DarkBlue" Font-Size="9pt" Text="<%$ Resources: lblDecisionRangeRestart.Text%>"  />
                                 <MT:MTDropDown ID="ddDecisionRangeRestart" runat="server" HideLabel="True" Label="Prorate at start?"  ControlWidth="160" ListWidth="200" AllowBlank="False" Editable="True"/>
                                 </div>
-                                   <div style="fit-position: right;" align="left">
-                                       <span style="color: blue; text-decoration: underline; cursor: pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_RESTART_RANGE, TEXT_AMPWIZARD_HELP_DECISION_RANGE, 450, 70)">
-                                    <img id="ImageHelp" src='/Res/Images/icons/help.png' /></span>
-           
-                            </div>
+                                <div style="fit-position: right;" align="left">
+                                    <span style="color: blue; text-decoration: underline; cursor: pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_RESTART_RANGE, TEXT_AMPWIZARD_HELP_DECISION_RANGE, 450, 70)">
+                                      <img id="ImageHelp" src='/Res/Images/icons/help.png' />
+                                    </span>
+                                </div>
+                                <div id="divRestartFromParamTableDropdownSource" >
+            
+                    <!--<asp:Label ID="Label3"  runat="server" Font-Bold="False"
+                            ForeColor="DarkBlue" Font-Size="9pt" Text="<$ Resources : rblUnitOfTimeFromParamTable.Label %>" meta:resourcekey="rblUnitOfTimeFromParamTable" />-->
+                        
+                    <MT:MTDropDown ID="ddRangeRestartFromParamTableSource" runat="server" HideLabel="True" Label="Select parameter table:" meta:resourcekey="rblRestarteFromParamTable" ControlWidth="160" ListWidth="200" AllowBlank="True" Editable="True"/>
+                   </div>
                         </div>
                 </td>
             </tr>
@@ -140,6 +147,7 @@
     </div>
 
     <script type="text/javascript" language="javascript">
+      var showDivRestartParamTable = <%=showDivRestartParamTable.ToString().ToLower() %> ;
       
       function ChangeControlState(textBoxControl, dropDownControl, disabledTextBox) {
         var txb = Ext.getCmp(textBoxControl);
@@ -156,8 +164,24 @@
           txb.enable();
         }
 
+          ParamTableDivShow('divRestartFromParamTableDropdownSource', showDivRestartParamTable);
       }
 
+      function ddDecisionRangeRestartChanged()
+      {
+          var restart = document.getElementById('<%=ddDecisionRangeRestart.ClientID%>').value;
+          if (restart == '<%=Resources.Resource.TEXT_FROM_PARAMETER_TABLE %>') {
+              showDivRestartParamTable = true;
+          } else {
+              showDivRestartParamTable = false;
+          }
+          ParamTableDivShow('divRestartFromParamTableDropdownSource', showDivRestartParamTable);
+      }
+      
+      function ddDecisionRangeRestartInitialState() {
+          ddRangeRestartFromParamTableSourceChanged();
+      }
+      
       Ext.onReady(function () {
         // Record the initial values of the page's controls.
         // (Note:  This is called here, and not on the master page,
@@ -166,5 +190,8 @@
         MPC_assignInitialValues();
       });
 
+    function ParamTableDivShow(controlName, show) {
+        document.getElementById(controlName).style.display = show ? '' : 'none';
+    }
     </script>
 </asp:Content>

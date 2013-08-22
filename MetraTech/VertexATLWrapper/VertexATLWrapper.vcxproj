@@ -440,6 +440,11 @@ copy "$(SolutionDir)\CTQ\*.lib" "$(OutDir)" /Y</Command>
   <ItemGroup>
     <Midl Include="VertexATLWrapper.idl" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Thirdparty\xerces-c-3.1.1\projects\Win32\VC10\xerces-all\XercesLib\XercesLib.vcxproj">
+      <Project>{152ce948-f659-4206-a50a-1d2b9658ef96}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

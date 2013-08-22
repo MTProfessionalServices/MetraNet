@@ -58,15 +58,19 @@
                        &nbsp;</td>
                 <td valign="top" style="width: 90%">
                     <div style="line-height: 20px; padding-top: 10px; padding-left: 10px">
-                                <div style="float:left"><asp:CheckBox  runat="server" CssClass="checkbox" Text="Restart at end" meta:resourcekey="lblDecisionRangeRestart" ID="CB_DecisionRangeRestart" 
-                                  CellSpacing="2" >
-                                </asp:CheckBox>
+                                <div style="float:left">
+                                  <asp:Label ID="Label2"  runat="server" Font-Bold="False"
+                                    ForeColor="DarkBlue" Font-Size="9pt" Text="<%$ Resources: lblDecisionRangeRestart.Text%>"  />
+                                <MT:MTDropDown ID="ddDecisionRangeRestart" runat="server" HideLabel="True" Label="Prorate at start?"  ControlWidth="160" ListWidth="200" AllowBlank="False" Editable="True"/>
                                 </div>
-                                   <div style="fit-position: right;" align="left">
-                                       <span style="color: blue; text-decoration: underline; cursor: pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_RESTART_RANGE, TEXT_AMPWIZARD_HELP_DECISION_RANGE, 450, 70)">
-                                    <img id="ImageHelp" src='/Res/Images/icons/help.png' /></span>
-           
-                            </div>
+                                <div style="fit-position: right;" align="left">
+                                    <span style="color: blue; text-decoration: underline; cursor: pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_RESTART_RANGE, TEXT_AMPWIZARD_HELP_DECISION_RANGE, 450, 70)">
+                                      <img id="ImageHelp" src='/Res/Images/icons/help.png' />
+                                    </span>
+                                </div>
+                                <div id="divRestartFromParamTableDropdownSource" >
+                                   <MT:MTDropDown ID="ddRangeRestartFromParamTableSource" runat="server" HideLabel="True" ControlWidth="160" ListWidth="200" AllowBlank="True" Editable="True"/>
+                                </div>
                         </div>
                 </td>
             </tr>
@@ -91,20 +95,25 @@
   <tr>
                             <td style="width: 2%; vertical-align: top; padding-top:10px" align="center">
                                     &nbsp;</td>
-                                <td valign="top" style="width: 90%">
-                                <asp:CheckBox runat="server" Text="Activation" CssClass="checkbox" 
-                                        meta:resourcekey="lblProrateStart" ID="CB_ProrateRangeStart" 
-                                  CellSpacing="2">
-                                </asp:CheckBox>
-                                </td>
+                              <td valign="top" style="width: 90%">
+                                    <asp:Label ID="lblUnitOfTime"  runat="server" Font-Bold="False"
+          ForeColor="DarkBlue" Font-Size="9pt" Text="<%$ Resources: lblProrateStart.Text%>"  />
+                                <MT:MTDropDown ID="ddProrateStart" runat="server" HideLabel="True" Label="Prorate at start?"  ControlWidth="160" ListWidth="200" AllowBlank="False" Editable="True"/>
+                                <div id="divProrateStartFromParamTableDropdownSource" >
+                                   <MT:MTDropDown ID="ddProrateStartFromParamTableDropdownSource" runat="server" HideLabel="True" ControlWidth="160" ListWidth="200" AllowBlank="True" Editable="True"/>
+                                </div>
+                              </td>
                         </tr>
                         <tr>
                         <td style="width: 2%; vertical-align: top; padding-top:10px" align="center">
                             &nbsp;</td>
                             <td valign="top" style="width: 90%">
-                            <asp:CheckBox runat="server" Text="Termination" meta:resourcekey="lblProrateEnd" ID="CB_ProrateRangeEnd" 
-                                  CellSpacing="2">
-                            </asp:CheckBox>
+                            <asp:Label ID="Label1"  runat="server" Font-Bold="False"
+          ForeColor="DarkBlue" Font-Size="9pt" Text="<%$ Resources: lblProrateEnd.Text%>"  />
+                              <MT:MTDropDown ID="ddProrateEnd" runat="server" HideLabel="True" Label="Prorate at end?"  ControlWidth="160" ListWidth="200" AllowBlank="False" Editable="True"/>
+                               <div id="divProrateEndFromParamTableDropdownSource" >
+                                   <MT:MTDropDown ID="ddProrateEndFromParamTableDropdownSource" runat="server" HideLabel="True" ControlWidth="160" ListWidth="200" AllowBlank="True" Editable="True"/>
+                                </div> 
                             </td>
                         </tr>
         
@@ -139,24 +148,76 @@
     </div>
 
     <script type="text/javascript" language="javascript">
+      var showDivRestartParamTable = <%=showDivRestartParamTable.ToString().ToLower() %> ;
+      var showDivProrateStartParamTable = <%=showDivProrateStartParamTable.ToString().ToLower() %> ;
+      var showDivProrateEndParamTable = <%=showDivProrateEndParamTable.ToString().ToLower() %> ;
+      ParamTableDivShow('divRestartFromParamTableDropdownSource', showDivRestartParamTable);
+      ParamTableDivShow('divProrateStartFromParamTableDropdownSource', showDivProrateStartParamTable);
+      ParamTableDivShow('divProrateEndFromParamTableDropdownSource', showDivProrateEndParamTable);
       
       function ChangeControlState(textBoxControl, dropDownControl, disabledTextBox) {
-        var txb = Ext.getCmp(textBoxControl);
-        var cmb = Ext.getCmp(dropDownControl);
+          var txb = Ext.getCmp(textBoxControl);
+          var cmb = Ext.getCmp(dropDownControl);
 
-        if (disabledTextBox) {
-          cmb.enable();
-          txb.disable();
-          txb.setValue('');
-        }
-        else {
-          cmb.disable();
-          cmb.setValue('');
-          txb.enable();
-        }
+          if (disabledTextBox) {
+              cmb.enable();
+              txb.disable();
+              txb.setValue('');
+          } else {
+              cmb.disable();
+              cmb.setValue('');
+              txb.enable();
+          }
 
+          ParamTableDivShow('divRestartFromParamTableDropdownSource', showDivRestartParamTable);
+          ParamTableDivShow('divProrateStartFromParamTableDropdownSource', showDivProrateStartParamTable);
+          ParamTableDivShow('divProrateEndFromParamTableDropdownSource', showDivProrateEndParamTable);
       }
 
+      function ddDecisionRangeRestartChanged()
+      {
+          var restart = document.getElementById('<%=ddDecisionRangeRestart.ClientID%>').value;
+          if (restart == '<%=Resources.Resource.TEXT_FROM_PARAMETER_TABLE %>') {
+              showDivRestartParamTable = true;
+          } else {
+              showDivRestartParamTable = false;
+          }
+          ParamTableDivShow('divRestartFromParamTableDropdownSource', showDivRestartParamTable);
+      }
+      
+      function ddDecisionRangeRestartInitialState() {
+          ddDecisionRangeRestartChanged();
+      }
+      
+      function ddProrateStartChanged()
+      {
+          var restart = document.getElementById('<%=ddProrateStart.ClientID%>').value;
+          if (restart == '<%=Resources.Resource.TEXT_FROM_PARAMETER_TABLE %>') {
+              showDivProrateStartParamTable = true;
+          } else {
+              showDivProrateStartParamTable = false;
+          }
+          ParamTableDivShow('divProrateStartFromParamTableDropdownSource', showDivProrateStartParamTable);
+      }
+      
+      function ddProrateStartInitialState() {
+          ddProrateStartChanged();
+      }
+      
+      function ddProrateEndChanged()
+      {
+          var restart = document.getElementById('<%=ddProrateEnd.ClientID%>').value;
+          if (restart == '<%=Resources.Resource.TEXT_FROM_PARAMETER_TABLE %>') {
+              showDivProrateEndParamTable = true;
+          } else {
+              showDivProrateEndParamTable = false;
+          }
+          ParamTableDivShow('divProrateEndFromParamTableDropdownSource', showDivProrateEndParamTable);
+      }
+      
+      function ddProrateEndInitialState() {
+          ddProrateEndChanged();
+      }
       Ext.onReady(function () {
         // Record the initial values of the page's controls.
         // (Note:  This is called here, and not on the master page,
@@ -165,5 +226,8 @@
         MPC_assignInitialValues();
       });
 
+    function ParamTableDivShow(controlName, show) {
+        document.getElementById(controlName).style.display = show ? '' : 'none';
+    }
     </script>
 </asp:Content>

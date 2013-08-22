@@ -21,6 +21,8 @@ using MetraTech.UI.MetraNet.App_Code;
 public partial class AmpDecisionRangePage : AmpWizardBasePage
 {
     protected bool showDivRestartParamTable = false;
+    protected bool showDivProrateStartParamTable = false;
+    protected bool showDivProrateEndParamTable = false;
   protected void Page_Load(object sender, EventArgs e)
   {
     // Extra check that user has permission to configure AMP decisions.
@@ -275,10 +277,13 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
       CurrentDecisionInstance.TierEndValue = null;
     }
 
+    showDivRestartParamTable = ddDecisionRangeRestart.SelectedValue == Resources.Resource.TEXT_FROM_PARAMETER_TABLE;
+    showDivProrateStartParamTable = ddDecisionRangeRestart.SelectedValue == Resources.Resource.TEXT_FROM_PARAMETER_TABLE;
+    showDivProrateEndParamTable = ddDecisionRangeRestart.SelectedValue == Resources.Resource.TEXT_FROM_PARAMETER_TABLE;
+
     //setup rest as decision property 
     CurrentDecisionInstance.TierRepetitionValue = ddDecisionRangeRestart.SelectedValue == Resources.Resource.TEXT_YES ? "Individual" : "None";
-      showDivRestartParamTable = ddDecisionRangeRestart.SelectedValue == Resources.Resource.TEXT_FROM_PARAMETER_TABLE;
-
+      
     //setup proration properties
     if ((ddProrateStart.SelectedValue == Resources.Resource.TEXT_YES) && (ddProrateEnd.SelectedValue == Resources.Resource.TEXT_YES))
     {

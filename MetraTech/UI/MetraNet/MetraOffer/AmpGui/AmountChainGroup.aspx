@@ -61,7 +61,7 @@
                          CausesValidation="false" TabIndex="230" />
           </td>
           <td align="right">
-            <MT:MTButton ID="btnSaveAndContinue" runat="server" Text="<%$Resources:Resource,TEXT_SAVE_AND_CONTINUE%>"
+            <MT:MTButton ID="btnSaveAndContinue" runat="server" Text="<%$Resources:Resource,TEXT_NEXT%>"
                          OnClientClick="if (ValidateForm()) { MPC_setNeedToConfirm(false); return onContinueClick(); } else { MPC_setNeedToConfirm(true); return false; }"
                          OnClick="btnContinue_Click"
                          CausesValidation="true" TabIndex="240"/>
@@ -79,7 +79,7 @@
 
 
   <script type="text/javascript" language="javascript">
-     function updateActiveControls() {
+      function updateActiveControls() {
          var dd = Ext.getCmp('<%=ddAmountChainGroupFromParamTableSource.ClientID %>');
          var cb = Ext.getCmp('<%=FromParamTableCheckBox.ClientID %>');
          if (cb.checked == true) {
@@ -104,7 +104,11 @@
         else
         {
           // Pass empty string to the code-behind.
-          Ext.get("<%=hiddenAmtChainGroupName.ClientID%>").dom.value = "";
+            var cb = Ext.getCmp('<%=FromParamTableCheckBox.ClientID %>');
+         if (cb.checked == true)
+                Ext.get("<%=hiddenAmtChainGroupName.ClientID%>").dom.value = document.getElementById('<%=ddAmountChainGroupFromParamTableSource.ClientID %>').value;
+            else 
+                Ext.get("<%=hiddenAmtChainGroupName.ClientID%>").dom.value = '';
         }
       }
     }
@@ -121,7 +125,14 @@
         // Define an event handler for the grid control's Load event,
         // which will select the radio button that corresponds to the 
         // decision type's current amount chain group.
-        dataStore_<%= AmountChainGroupGrid.ClientID %>.on(
+         var dd = Ext.getCmp('<%=ddAmountChainGroupFromParamTableSource.ClientID %>');
+         var cb = Ext.getCmp('<%=FromParamTableCheckBox.ClientID %>');
+          if (cb.checked != true) {
+              dd.disable();
+             document.getElementById('<%=divAmountChainGroupGrid.ClientID %>').style.display = "block";
+          }
+
+          dataStore_<%= AmountChainGroupGrid.ClientID %>.on(
           "load",
           function(store, records, options)
           {

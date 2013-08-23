@@ -37,7 +37,8 @@
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
-  </PropertyGroup>  
+  </PropertyGroup>
+  
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>

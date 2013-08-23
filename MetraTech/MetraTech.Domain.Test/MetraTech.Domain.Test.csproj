@@ -56,7 +56,7 @@
     <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
     <CodeAnalysisFailOnMissingRules>true</CodeAnalysisFailOnMissingRules>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">    
     <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
@@ -71,8 +71,8 @@
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.DomainModel.BaseTypes, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>O$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DomainModel.BaseTypes.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>      
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DomainModel.BaseTypes.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.DomainModel.Common, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>

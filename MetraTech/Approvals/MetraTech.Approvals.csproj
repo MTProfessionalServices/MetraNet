@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DocumentationFile>o:\doc\MetraTech.Approvals.XML</DocumentationFile>
+    <DocumentationFile>$(MTOUTDIR)\doc\MetraTech.Approvals.XML</DocumentationFile>
     <NoWarn>1591</NoWarn>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
@@ -59,7 +59,7 @@
     </Reference>
     <Reference Include="MetraTech.DomainModel.ProductCatalog.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\debug\Bin\MetraTech.DomainModel.ProductCatalog.Generated.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DomainModel.ProductCatalog.Generated.dll</HintPath>
     </Reference>
     <Reference Include="MTAuditEvents.interop, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>

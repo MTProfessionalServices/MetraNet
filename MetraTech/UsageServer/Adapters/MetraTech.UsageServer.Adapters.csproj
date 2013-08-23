@@ -96,7 +96,7 @@
     </Reference>
     <Reference Include="MetraTech.DomainModel.Enums.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\debug\Bin\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
     </Reference>
     <Reference Include="MTAccountStates.interop">
       <Name>MTAccountStates.interop</Name>
@@ -106,7 +106,7 @@
     <Reference Include="MTAuditEvents.interop, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
-      <HintPath>O:\debug\Bin\MTAuditEvents.interop.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTAuditEvents.interop.dll</HintPath>
     </Reference>
     <Reference Include="MTAuth.interop">
       <Name>MTAuth.interop</Name>

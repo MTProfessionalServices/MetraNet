@@ -151,7 +151,7 @@ namespace MetraTech.Quoting.Test
                     ParameterTableId = ptrc.ParameterTableId,
                     PriceableItemInstanceId = ptrc.PriceableItemId,
                     ProductOfferingId = productOffering.ID,
-                    RateSchedules = new List<BaseRateSchedule> { GetFlatRcRateSchedule(66.66m) }
+                    RateSchedules = new List<BaseRateSchedule> { SharedTestCode.GetFlatRcRateSchedule(66.66m) }
                 };
                 request.IcbPrices.Add(qip);
             }
@@ -170,7 +170,7 @@ namespace MetraTech.Quoting.Test
                 {
                     qip.RateSchedules = new List<BaseRateSchedule>
                         {
-                            GetTaperedUdrcRateSchedule(new Dictionary<decimal, decimal>
+                            SharedTestCode.GetTaperedUdrcRateSchedule(new Dictionary<decimal, decimal>
                                 {
                                     {15, 16.6m},
                                     {40, 13m}
@@ -181,7 +181,7 @@ namespace MetraTech.Quoting.Test
                 {
                     qip.RateSchedules = new List<BaseRateSchedule>
                         {
-                            GetTieredUdrcRateSchedule(20, 16.6m, 10m)
+                            SharedTestCode.GetTieredUdrcRateSchedule(20, 16.6m, 10m)
                         };
                 }
 
@@ -196,7 +196,7 @@ namespace MetraTech.Quoting.Test
                     ParameterTableId = ptNRC.ParameterTableId,
                     PriceableItemInstanceId = ptNRC.PriceableItemId,
                     ProductOfferingId = productOffering.ID,
-                    RateSchedules = new List<BaseRateSchedule> { GetNonRcRateSchedule(77.77m) }
+                    RateSchedules = new List<BaseRateSchedule> { SharedTestCode.GetNonRcRateSchedule(77.77m) }
                 };
                 request.IcbPrices.Add(qip);
             }
@@ -216,102 +216,7 @@ namespace MetraTech.Quoting.Test
 
         }
 
-        #region Helpers
-
-        private static BaseRateSchedule GetFlatRcRateSchedule(decimal price)
-        {
-            return new RateSchedule<Metratech_com_FlatRecurringChargeRateEntry, Metratech_com_FlatRecurringChargeDefaultRateEntry>
-            {
-                EffectiveDate = new ProdCatTimeSpan
-                {
-                    StartDate = DateTime.Parse("1/1/2000"),
-                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
-                    EndDate = DateTime.Parse("1/1/2038"),
-                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
-                },
-                /*
-                    sched.EffectiveDate.StartDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE;
-        sched.EffectiveDate.StartDate = DateTime.Parse("1/1/2000");
-        sched.EffectiveDate.EndDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE;
-        sched.EffectiveDate.EndDate = DateTime.Parse("1/1/2038");
-                    */
-                RateEntries = new List<Metratech_com_FlatRecurringChargeRateEntry>
-           {
-              new Metratech_com_FlatRecurringChargeRateEntry { RCAmount = price }
-           }
-            };
-        }
-
-        private static BaseRateSchedule GetNonRcRateSchedule(decimal price)
-        {
-            return new RateSchedule<Metratech_com_NonRecurringChargeRateEntry, Metratech_com_NonRecurringChargeDefaultRateEntry>
-            {
-                EffectiveDate = new ProdCatTimeSpan
-                {
-                    StartDate = MetraTime.Now,
-                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
-                    EndDate = MetraTime.Now.AddHours(1),
-                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
-                },
-                RateEntries = new List<Metratech_com_NonRecurringChargeRateEntry>
-           {
-              new Metratech_com_NonRecurringChargeRateEntry { NRCAmount = price }
-           }
-            };
-        }
-
-        private static BaseRateSchedule GetTaperedUdrcRateSchedule(Dictionary<decimal, decimal> unitValuesAndAmounts)
-        {
-            var rates = new List<Metratech_com_UDRCTaperedRateEntry>();
-            var i = 0;
-            foreach (var val in unitValuesAndAmounts)
-            {
-                rates.Add(new Metratech_com_UDRCTaperedRateEntry
-                {
-                    Index = i,
-                    UnitValue = val.Key,
-                    UnitAmount = val.Value
-                });
-                i++;
-            }
-
-            return new RateSchedule<Metratech_com_UDRCTaperedRateEntry, Metratech_com_UDRCTaperedDefaultRateEntry>
-            {
-                EffectiveDate = new ProdCatTimeSpan
-                {
-                    StartDate = DateTime.Parse("1/1/2000"),
-                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
-                    EndDate = DateTime.Parse("1/1/2038"),
-                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
-                },
-                RateEntries = rates
-            };
-        }
-
-        private static BaseRateSchedule GetTieredUdrcRateSchedule(decimal unitValue, decimal unitAmount, decimal baseAmount)
-        {
-            var rates = new List<Metratech_com_UDRCTieredRateEntry>();
-            var i = 0;
-            rates.Add(new Metratech_com_UDRCTieredRateEntry
-            {
-                Index = i,
-                UnitValue = unitValue,
-                UnitAmount = unitAmount,
-                BaseAmount = baseAmount
-            });
-
-            return new RateSchedule<Metratech_com_UDRCTieredRateEntry, Metratech_com_UDRCTieredDefaultRateEntry>
-            {
-                EffectiveDate = new ProdCatTimeSpan
-                {
-                    StartDate = DateTime.Parse("1/1/2000"),
-                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
-                    EndDate = DateTime.Parse("1/1/2038"),
-                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
-                },
-                RateEntries = rates
-            };
-        }
+        #region Helpers        
 
         #endregion
 

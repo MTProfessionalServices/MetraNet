@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Runtime.Serialization;
 using System.Xml.Linq;
 
 namespace MetraTech.Domain.Events
 {
   [DataContract(Namespace = "MetraTech.MetraNet")]
+  [KnownType(typeof(ThresholdCrossingEvent))]
+  [KnownType(typeof(ChangeNotificationEvent))]
   [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords", MessageId = "Event")]
   public class Event
   {
-    public XElement Serialize(IEnumerable<Type> knownTypes)
+    public XElement Serialize()
     {
-      var xs = new DataContractSerializer(typeof(Event), knownTypes);
+      var xs = new DataContractSerializer(typeof(Event));
 
       using (var ms = new MemoryStream())
       {

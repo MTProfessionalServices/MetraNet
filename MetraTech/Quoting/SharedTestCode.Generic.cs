@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.ServiceProcess;
+using MetraTech.Domain.Quoting;
 using MetraTech.Interop.MTAuth;
 using MetraTech.Interop.MTProductCatalog;
 using MetraTech.Core.Services.ClientProxies;
@@ -30,6 +31,10 @@ namespace MetraTech.Shared.Test
 
     public class SharedTestCode
     {
+        public const string MetratechComFlatrecurringcharge = "metratech.com/flatrecurringcharge";
+        public const string MetratechComUdrctapered = "metratech.com/udrctapered";
+        public const string MetratechComNonrecurringcharge = "metratech.com/nonrecurringcharge";
+        public const string MetratechComUdrctiered = "metratech.com/udrctiered";
 
         #region Windows Service Related
         public static void MakeSureServiceIsStarted(string serviceName)
@@ -193,8 +198,7 @@ namespace MetraTech.Shared.Test
 
         #endregion
 
-        /// <summary>
-        /// Helper to populate SubscriptionParameters with default UDRCInstanceValues
+        /// <summary> Helper to populate SubscriptionParameters with default UDRCInstanceValues
         /// </summary>
         /// <param name="productOffering">Product offering to populate for</param>
         /// <param name="idUDRC">Sets UDRC ID if passed (used to test failing case)</param>
@@ -230,6 +234,165 @@ namespace MetraTech.Shared.Test
             }
 
             return dictionaryToReturn;
+        }
+
+        /// <summary> Set AllowICB flag for PI
+        /// </summary>
+        /// <param name="pi">Pi to set flag</param>
+        /// <param name="client">PriceListServiceClient </param>
+        /// <param name="poId">Id of PO that has referred PI</param>
+        /// <param name="ptId">Parameter table ID</param>
+        /// <param name="ptName">Parameter table name</param>
+        /// <returns></returns>
+        public static PIAndPTParameters SetAllowICBForPI(IMTPriceableItem pi, PriceListServiceClient client,
+                                      int poId, int ptId, string ptName)
+        {
+            PriceListMapping plMappingForUdrc;
+            int chargeId;
+            if (pi.Kind == MTPCEntityType.PCENTITY_TYPE_NON_RECURRING)
+            {
+                var charge = pi as IMTNonRecurringCharge;
+                Assert.IsNotNull(charge, "Charge in SetAllowICBForPI should be null");
+                chargeId = charge.ID;
+            }
+
+            else
+            {
+                var charge = pi as IMTRecurringCharge;
+                Assert.IsNotNull(charge, "Charge in SetAllowICBForPI should be null");
+                chargeId = charge.ID;
+            }
+
+
+            client.GetPriceListMappingForProductOffering(
+                new PCIdentifier(poId),
+                new PCIdentifier(chargeId),
+                new PCIdentifier(ptId),
+                out plMappingForUdrc);
+            plMappingForUdrc.CanICB = true;
+            client.SavePriceListMappingForProductOffering
+                (new PCIdentifier(poId),
+                 new PCIdentifier(chargeId),
+                 new PCIdentifier(ptId),
+                 ref plMappingForUdrc);
+
+            return new PIAndPTParameters
+            {
+                ParameterTableId = ptId,
+                ParameterTableName = ptName,
+                PriceableItemId = chargeId
+            };
+        }
+
+
+        public static void ApplyIcbPricesToSubscription(int productOfferingId, int subscriptionId, List<QuoteIndividualPrice> IcbPrices)
+        {
+            if (IcbPrices == null) return;
+
+            var icbPrices = IcbPrices.Where(ip => ip.ProductOfferingId == productOfferingId);
+            foreach (var price in icbPrices)
+                Application.ProductManagement.PriceListService.SaveRateSchedulesForSubscription(
+                  subscriptionId,
+                  new PCIdentifier(price.PriceableItemInstanceId),
+                  new PCIdentifier(price.ParameterTableId),
+                  price.RateSchedules,
+                  null, 
+                  null);
+        }
+
+        public static BaseRateSchedule GetFlatRcRateSchedule(decimal price)
+        {
+            return new RateSchedule<Metratech_com_FlatRecurringChargeRateEntry, Metratech_com_FlatRecurringChargeDefaultRateEntry>
+            {
+                EffectiveDate = new ProdCatTimeSpan
+                {
+                    StartDate = DateTime.Parse("1/1/2000"),
+                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
+                    EndDate = DateTime.Parse("1/1/2038"),
+                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
+                },
+                /*
+                    sched.EffectiveDate.StartDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE;
+        sched.EffectiveDate.StartDate = DateTime.Parse("1/1/2000");
+        sched.EffectiveDate.EndDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE;
+        sched.EffectiveDate.EndDate = DateTime.Parse("1/1/2038");
+                    */
+                RateEntries = new List<Metratech_com_FlatRecurringChargeRateEntry>
+           {
+              new Metratech_com_FlatRecurringChargeRateEntry { RCAmount = price }
+           }
+            };
+        }
+
+        public static BaseRateSchedule GetNonRcRateSchedule(decimal price)
+        {
+            return new RateSchedule<Metratech_com_NonRecurringChargeRateEntry, Metratech_com_NonRecurringChargeDefaultRateEntry>
+            {
+                EffectiveDate = new ProdCatTimeSpan
+                {
+                    StartDate = MetraTime.Now,
+                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
+                    EndDate = MetraTime.Now.AddHours(1),
+                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
+                },
+                RateEntries = new List<Metratech_com_NonRecurringChargeRateEntry>
+           {
+              new Metratech_com_NonRecurringChargeRateEntry { NRCAmount = price }
+           }
+            };
+        }
+
+        public static BaseRateSchedule GetTaperedUdrcRateSchedule(Dictionary<decimal, decimal> unitValuesAndAmounts)
+        {
+            var rates = new List<Metratech_com_UDRCTaperedRateEntry>();
+            var i = 0;
+            foreach (var val in unitValuesAndAmounts)
+            {
+                rates.Add(new Metratech_com_UDRCTaperedRateEntry
+                {
+                    Index = i,
+                    UnitValue = val.Key,
+                    UnitAmount = val.Value
+                });
+                i++;
+            }
+
+            return new RateSchedule<Metratech_com_UDRCTaperedRateEntry, Metratech_com_UDRCTaperedDefaultRateEntry>
+            {
+                EffectiveDate = new ProdCatTimeSpan
+                {
+                    StartDate = DateTime.Parse("1/1/2000"),
+                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
+                    EndDate = DateTime.Parse("1/1/2038"),
+                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
+                },
+                RateEntries = rates
+            };
+        }
+
+        public static BaseRateSchedule GetTieredUdrcRateSchedule(decimal unitValue, decimal unitAmount, decimal baseAmount)
+        {
+            var rates = new List<Metratech_com_UDRCTieredRateEntry>();
+            var i = 0;
+            rates.Add(new Metratech_com_UDRCTieredRateEntry
+            {
+                Index = i,
+                UnitValue = unitValue,
+                UnitAmount = unitAmount,
+                BaseAmount = baseAmount
+            });
+
+            return new RateSchedule<Metratech_com_UDRCTieredRateEntry, Metratech_com_UDRCTieredDefaultRateEntry>
+            {
+                EffectiveDate = new ProdCatTimeSpan
+                {
+                    StartDate = DateTime.Parse("1/1/2000"),
+                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
+                    EndDate = DateTime.Parse("1/1/2038"),
+                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
+                },
+                RateEntries = rates
+            };
         }
     }
 

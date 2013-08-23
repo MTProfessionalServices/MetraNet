@@ -1,4 +1,5 @@
 ﻿
+using System.ComponentModel;
 using MetraTech.ActivityServices.Common;
 using MetraTech.DataAccess;
 using MetraTech.Domain.DataAccess;
@@ -33,6 +34,7 @@ namespace MetraTech.Approvals
 
         var approvalEvent = new ChangeNotificationEvent
           {
+            ApprovalEventType = "Approved",
             ChangeId = change.UniqueItemId,
             Comment = comment,
             ApproverDisplayName = change.ApproverDisplayName,
@@ -43,8 +45,7 @@ namespace MetraTech.Approvals
 
         string submitterEmail = null;
         using (IMTConnection conn = ConnectionManager.CreateConnection(APPROVALSMANAGEMENT_QUERY_FOLDER))
-        using (
-          IMTFilterSortStatement stmt = conn.CreateFilterSortStatement(APPROVALSMANAGEMENT_QUERY_FOLDER,
+        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(APPROVALSMANAGEMENT_QUERY_FOLDER,
                                                                        "__GET_ACCOUNT_EMAIL__"))
         {
           stmt.AddParam("%%id_acc%%", change.SubmitterId);
@@ -63,7 +64,7 @@ namespace MetraTech.Approvals
         using (var connection = ConnectionBase.GetDbConnection(new ConnectionInfo("NetMeter"), false))
         using (var context = new MetraNetContext(connection))
         {
-          NotificationProcessor.ProcessEvent(context, approvalEvent);
+          NotificationProcessor.ProcessEvent(context, approvalEvent, new [] { typeof(ChangeNotificationEvent) });
         }
       }
       catch (Exception ex)

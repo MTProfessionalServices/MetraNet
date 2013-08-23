@@ -203,7 +203,7 @@ namespace MetraTech.Core.Services.UnitTests
         decision.IsEditable = true;
         decision.Description = "my decision updated";
         decision.ExecutionFrequency = Decision.ExecutionFrequencyEnum.DURING_BOTH;
-        decision.PvToAmountChainMapping = "TmpPvToAmountChainMapping";
+        decision.PvToAmountChainMappingValue = "TmpPvToAmountChainMapping";
         decision.GeneratedCharge = "TmpGeneratedCharge";
         client.SaveDecision(decision);
 
@@ -226,7 +226,7 @@ namespace MetraTech.Core.Services.UnitTests
         Assert.AreEqual(sameDecision.IsEditable, true, "IsEditable should be true");
         Assert.AreEqual(sameDecision.Description, "my decision updated", "Description should be 'my decision updated'");
         Assert.AreEqual(sameDecision.ExecutionFrequency, Decision.ExecutionFrequencyEnum.DURING_BOTH);
-        Assert.AreEqual(sameDecision.PvToAmountChainMapping, "TmpPvToAmountChainMapping");
+        Assert.AreEqual(sameDecision.PvToAmountChainMappingValue, "TmpPvToAmountChainMapping");
         Assert.AreEqual(sameDecision.GeneratedCharge, "TmpGeneratedCharge");
         Assert.AreEqual(sameDecision.ParameterTableName, decision.ParameterTableName);
         Assert.AreEqual(sameDecision.ParameterTableDisplayName, decision.ParameterTableDisplayName);

@@ -38,7 +38,6 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
-  
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
@@ -48,15 +47,20 @@
   <ItemGroup>
     <Reference Include="Antlr4.Runtime.v4.0">
       <HintPath>..\..\Thirdparty\antlr\Antlr4.Runtime.v4.0.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="MetraTech.Common, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86" />
+    <Reference Include="MetraTech.Common, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="MTProductCatalog.interop, Version=7.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTProductCatalog.interop.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -173,18 +177,22 @@
     <ProjectReference Include="..\DataAccess\MetraTech.DataAccess.csproj">
       <Project>{1B40F4E4-8DDC-43E0-BE45-959BEE94422F}</Project>
       <Name>MetraTech.DataAccess</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\DomainModel\BaseTypes\MetraTech.DomainModel.BaseTypes.csproj">
       <Project>{433B0483-4990-476C-BA07-FABF884D12CB}</Project>
       <Name>MetraTech.DomainModel.BaseTypes</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\DomainModel\Common\MetraTech.DomainModel.Common.csproj">
       <Project>{E21F8EE1-FA01-465E-B651-A21CC2E1D6AA}</Project>
       <Name>MetraTech.DomainModel.Common</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\DomainModel\Enums\MetraTech.DomainModel.Enums.csproj">
       <Project>{C36E2EB0-9715-48BB-81F4-6228C917E071}</Project>
       <Name>MetraTech.DomainModel.Enums</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -27,13 +27,13 @@ namespace MetraTech.MetraPay.Client
     [FaultContract(typeof(MASBasicFaultDetail))]
     [FaultContract(typeof(PaymentProcessorFaultDetail))]
     [TransactionFlow(TransactionFlowOption.Allowed)]
-    void AddPaymentMethod(MetraPaymentMethod paymentMethod, out Guid token);
+    void AddPaymentMethod(MetraPaymentMethod paymentMethod, string currency, out Guid token);
 
     [OperationContract]
     [FaultContract(typeof(MASBasicFaultDetail))]
     [FaultContract(typeof(PaymentProcessorFaultDetail))]
     [TransactionFlow(TransactionFlowOption.Allowed)]
-    void UpdatePaymentMethod(Guid token, MetraPaymentMethod paymentMethod);
+    void UpdatePaymentMethod(Guid token, MetraPaymentMethod paymentMethod, string currency);
 
     [OperationContract]
     [FaultContract(typeof(MASBasicFaultDetail))]
@@ -93,14 +93,14 @@ namespace MetraTech.MetraPay.Client
 
     #region IPaymentInstrumentMgmtSvc Members
 
-    public void AddPaymentMethod(MetraPaymentMethod paymentMethod, out Guid token)
+    public void AddPaymentMethod(MetraPaymentMethod paymentMethod, string currency, out Guid token)
     {
-      base.Channel.AddPaymentMethod(paymentMethod, out token);
+      base.Channel.AddPaymentMethod(paymentMethod, currency, out token);
     }
 
-    public void UpdatePaymentMethod(Guid token, MetraPaymentMethod paymentMethod)
+    public void UpdatePaymentMethod(Guid token, MetraPaymentMethod paymentMethod, string currency)
     {
-      base.Channel.UpdatePaymentMethod(token, paymentMethod);
+      base.Channel.UpdatePaymentMethod(token, paymentMethod, currency);
     }
 
     public void DeletePaymentMethod(Guid token)

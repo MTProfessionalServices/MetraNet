@@ -52,7 +52,7 @@ namespace MetraTech.Application.Test
 
       var fromAddress = new MailAddress("mdesousa@metratech.com");
 
-      var message = emailTemplate.CreateMailMessage(triggeredEvent, fromAddress, null, new [] { typeof(ThresholdCrossingEvent) });
+      var message = emailTemplate.CreateMailMessage(triggeredEvent, fromAddress, null);
 
       EmailProcessor.SendEmail(emailEndpoint, message);
     }

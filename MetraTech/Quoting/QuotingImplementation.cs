@@ -392,6 +392,9 @@ namespace MetraTech.Quoting
       {
         throw new ArgumentException("All account payers must be included in the quote request", "Accounts");
       }
+
+        if(request.IcbPrices == null)
+            request.IcbPrices = new List<QuoteIndividualPrice>();
     }
 
     protected int GetAccountBillingCycle(int idAccount)
